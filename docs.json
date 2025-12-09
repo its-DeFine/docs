@@ -12,7 +12,7 @@
     "versions": [
       {
         "version": "v1",
-        "default": true,
+        "default": false,
         "languages": [
           {
             "language": "en",
@@ -2059,7 +2059,7 @@
       },
       {
         "version": "v2",
-        "default": false,
+        "default": true,
         "global": {
           "anchors": [
             {
