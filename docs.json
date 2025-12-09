@@ -11,6 +11,613 @@
   "navigation": {
     "versions": [
       {
+        "version": "v2",
+        "default": true,
+        "languages": [
+          {
+            "language": "en",
+            "tabs": [
+              {
+                "tab": "Home",
+                "icon": "house-heart",
+                "anchors": [
+                  {
+                    "anchor": "Home",
+                    "icon": "house",
+                    "groups": [
+                      {
+                        "group": "Home",
+                        "pages": [
+                          "v2/pages/00_home/Landing",
+                          "v2/pages/00_home/home/livepeer-tl-dr",
+                          "v2/pages/00_home/home/trending-at-livepeer",
+                          "v2/pages/00_home/home/trending-test"
+                        ]
+                      },
+                      {
+                        "group": "Documentation Guide",
+                        "icon": "book-open",
+                        "pages": [
+                          "v2/pages/00_home/documentation-guide/documentation-overview",
+                          "v2/pages/00_home/documentation-guide/documentation-guide",
+                          "v2/pages/00_home/documentation-guide/docs-features-and-ai-integrations",
+                          "v2/pages/00_home/documentation-guide/contribute-to-the-docs"
+                        ]
+                      },
+                      {
+                        "group": "Changelog",
+                        "icon": "swap",
+                        "pages": [
+                          "v2/pages/00_home/changelog/changelog",
+                          "v2/pages/00_home/changelog/migration-guide"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "Resources",
+                    "icon": "books",
+                    "pages": ["v2/pages/07_resources/resources_hub"]
+                  },
+                  {
+                    "anchor": "Help Center",
+                    "icon": "comments-question-check",
+                    "pages": ["v2/pages/08_help/README"]
+                  }
+                ]
+              },
+              {
+                "tab": "About",
+                "icon": "graduation-cap",
+                "anchors": [
+                  {
+                    "anchor": "About Livepeer",
+                    "icon": "graduation-cap",
+                    "groups": [
+                      {
+                        "group": "About Livepeer",
+                        "icon": "graduation-cap",
+                        "pages": [
+                          "v2/pages/01_about/about-livepeer/livepeer-overview",
+                          "v2/pages/01_about/about-livepeer/livepeer-story",
+                          "v2/pages/01_about/about-livepeer/livepeer-vision",
+                          "v2/pages/01_about/about-livepeer/why-livepeer",
+                          "v2/pages/01_about/about-livepeer/livepeer-ecosystem",
+                          "v2/pages/01_about/about-livepeer/livepeer-roadmap"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Showcase",
+                        "icon": "clapperboard-play",
+                        "pages": [
+                          "v2/pages/01_about/project-showcase/projects-built-on-livepeer",
+                          "v2/pages/01_about/project-showcase/industry-applications"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Protocol",
+                        "icon": "circle-nodes",
+                        "pages": [
+                          {
+                            "group": "Livepeer Protocol",
+                            "pages": [
+                              "v2/pages/01_about/livepeer-protocol/livepeer-protocol/protocol-overview",
+                              "v2/pages/01_about/livepeer-protocol/livepeer-protocol/technical-overview",
+                              "v2/pages/01_about/livepeer-protocol/livepeer-protocol/livepeer-whitepaper"
+                            ]
+                          },
+                          {
+                            "group": "Livepeer Actors",
+                            "pages": [
+                              "v2/pages/01_about/livepeer-protocol/livepeer-actors/actor-overview",
+                              "v2/pages/01_about/livepeer-protocol/livepeer-actors/gateways",
+                              "v2/pages/01_about/livepeer-protocol/livepeer-actors/orchestrators",
+                              "v2/pages/01_about/livepeer-protocol/livepeer-actors/delegators",
+                              "v2/pages/01_about/livepeer-protocol/livepeer-actors/end-users"
+                            ]
+                          },
+                          "v2/pages/01_about/livepeer-protocol/livepeer-token-economics",
+                          "v2/pages/01_about/livepeer-protocol/livepeer-governance",
+                          "v2/pages/01_about/livepeer-protocol/technical-roadmap"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "Resources",
+                    "icon": "books",
+                    "pages": ["v2/pages/07_resources/resources_hub"]
+                  },
+                  {
+                    "anchor": "Help Center",
+                    "icon": "comments-question-check",
+                    "pages": ["v2/pages/08_help/README"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "-",
+                    "href": " "
+                  }
+                ]
+              },
+              {
+                "tab": "Community",
+                "icon": "people-group",
+                "anchors": [
+                  {
+                    "anchor": "Community",
+                    "icon": "people-group",
+                    "groups": [
+                      {
+                        "group": "Livepeer Community",
+                        "icon": "people-group",
+                        "pages": [
+                          "v2/pages/02_community/README",
+                          "v2/pages/02_community/livepeer-community/livepeer-Latest-Topics",
+                          "v2/pages/02_community/livepeer-community/media-kit"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer News & Socials",
+                        "pages": [
+                          "v2/pages/02_community/livepeer-news-and-socials/livepeer-socials",
+                          "v2/pages/02_community/livepeer-news-and-socials/livepeer-blogs-and-news"
+                        ]
+                      },
+                      {
+                        "group": "Events & Community Livestreams",
+                        "pages": [
+                          "v2/pages/02_community/events-and-community-hours/events-calendar",
+                          "v2/pages/02_community/events-and-community-hours/interactive-community-steams"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Hubs",
+                        "pages": [
+                          "v2/pages/02_community/livepeer-hubs/livepeer-builder-hub",
+                          "v2/pages/02_community/livepeer-hubs/livepeer-partner-hub"
+                        ]
+                      },
+                      {
+                        "group": "Quick Links",
+                        "pages": ["v2/pages/02_community/README"]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "Resources",
+                    "icon": "books",
+                    "pages": ["v2/pages/07_resources/resources_hub"]
+                  },
+                  {
+                    "anchor": "Help Center",
+                    "icon": "comments-question-check",
+                    "pages": ["v2/pages/08_help/README"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "-",
+                    "href": " "
+                  }
+                ]
+              },
+              {
+                "tab": "Developers",
+                "icon": "display-code",
+                "anchors": [
+                  {
+                    "anchor": "Developers",
+                    "icon": "display-code",
+                    "groups": [
+                      {
+                        "group": "Building on Livepeer",
+                        "pages": [
+                          "v2/pages/03_developers/SUMMARY",
+                          {
+                            "group": "Real-time Video",
+                            "pages": [
+                              "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai",
+                              "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx"
+                            ]
+                          },
+                          {
+                            "group": "AI Pipelines",
+                            "pages": [
+                              "v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming",
+                              "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai"
+                            ]
+                          },
+                          {
+                            "group": "Quickstart (remove?)",
+                            "pages": [
+                              "v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming",
+                              "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "Developer Platforms",
+                        "pages": [
+                          "v2/pages/03_developers/developer-platforms/builder-hub",
+                          {
+                            "group": "Daydream",
+                            "pages": [
+                              "v2/pages/03_developers/developer-platforms/daydream/daydream"
+                            ]
+                          },
+                          {
+                            "group": "Livepeer Studio",
+                            "pages": [
+                              "v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio"
+                            ]
+                          },
+                          {
+                            "group": "Frameworks",
+                            "pages": [
+                              "v2/pages/03_developers/developer-platforms/frameworks/frameworks"
+                            ]
+                          },
+                          {
+                            "group": "Streamplace",
+                            "pages": [
+                              "v2/pages/03_developers/developer-platforms/streamplace/streamplace"
+                            ]
+                          },
+                          {
+                            "group": "All Ecosystem Products",
+                            "pages": [
+                              "v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products/ecosystem-products"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "Developer Tools",
+                        "pages": [
+                          "v2/pages/03_developers/developer-tools/livepeer-explorer",
+                          "v2/pages/03_developers/developer-tools/livepeer-cloud",
+                          "v2/pages/03_developers/developer-tools/dashboards",
+                          "v2/pages/03_developers/developer-tools/gateways",
+                          "v2/pages/03_developers/developer-tools/external-tooling"
+                        ]
+                      },
+                      {
+                        "group": "Guides & Tutorials",
+                        "pages": [
+                          "v2/pages/03_developers/guides-and-resources/developer-guides",
+                          "v2/pages/03_developers/guides-and-resources/resources",
+                          "v2/pages/03_developers/guides-and-resources/developer-help",
+                          "v2/pages/03_developers/guides-and-resources/contribution-guide"
+                        ]
+                      },
+                      {
+                        "group": "Builder Opportunities",
+                        "pages": [
+                          "v2/pages/03_developers/builder-opportunities/dev-programs",
+                          "v2/pages/03_developers/builder-opportunities/livepeer-rfps",
+                          "v2/pages/03_developers/builder-opportunities/oss-contributions"
+                        ]
+                      },
+                      {
+                        "group": "Technical References",
+                        "pages": [
+                          "v2/pages/03_developers/technical-references-sdks.-and-apis/sdks",
+                          "v2/pages/03_developers/technical-references-sdks.-and-apis/apis",
+                          "v2/pages/03_developers/technical-references-sdks.-and-apis/deepwiki",
+                          "v2/pages/03_developers/technical-references-sdks.-and-apis/migrations-guides"
+                        ]
+                      },
+                      {
+                        "group": "Changelog & Migrations",
+                        "pages": [
+                          "v2/pages/03_developers/technical-references-sdks.-and-apis/livepeer-changelog/livepeer-changelog",
+                          "v2/pages/03_developers/technical-references-sdks.-and-apis/livepeer-changelog/migration-guides"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "Resources",
+                    "icon": "books",
+                    "pages": ["v2/pages/07_resources/resources_hub"]
+                  },
+                  {
+                    "anchor": "Help Center",
+                    "icon": "comments-question-check",
+                    "pages": ["v2/pages/08_help/README"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "-",
+                    "href": " "
+                  }
+                ]
+              },
+              {
+                "tab": "Gateways",
+                "icon": "torii-gate",
+                "anchors": [
+                  {
+                    "anchor": "Gateways",
+                    "icon": "torii-gate",
+                    "groups": [
+                      {
+                        "group": "About Gateways",
+                        "pages": [
+                          "v2/pages/04_gateways/about-gateways/gateway-explainer",
+                          "v2/pages/04_gateways/about-gateways/gateway-functions",
+                          "v2/pages/04_gateways/about-gateways/gateway-architecture",
+                          "v2/pages/04_gateways/about-gateways/gateways-vs-orchestrators"
+                        ]
+                      },
+                      {
+                        "group": "Access Compute Using Gateways",
+                        "pages": [
+                          "v2/pages/04_gateways/using-gateways/choosing-a-gateway",
+                          {
+                            "group": "Gateway Providers",
+                            "pages": [
+                              "v2/pages/04_gateways/using-gateways/gateway-providers/index",
+                              "v2/pages/04_gateways/using-gateways/gateway-providers/daydream-gateway",
+                              "v2/pages/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
+                              "v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway",
+                              "v2/pages/04_gateways/using-gateways/gateway-providers/streamplace"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "Run Your Own Gateway",
+                        "pages": [
+                          "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
+                          {
+                            "group": "Requirements",
+                            "pages": [
+                              "v2/pages/04_gateways/run-a-gateway/requirements/requirements"
+                            ]
+                          },
+                          {
+                            "group": "Installation",
+                            "pages": [
+                              "v2/pages/04_gateways/run-a-gateway/install/install-overview",
+                              "v2/pages/04_gateways/run-a-gateway/install/docker-install",
+                              "v2/pages/04_gateways/run-a-gateway/install/linux-install",
+                              "v2/pages/04_gateways/run-a-gateway/install/windows-install",
+                              "v2/pages/04_gateways/run-a-gateway/install/community-projects"
+                            ]
+                          },
+                          { "group": "Configuration", "pages": [] },
+                          {
+                            "group": "Publish Services",
+                            "pages": [
+                              "v2/pages/04_gateways/run-a-gateway/publish/publish-offerings"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "Gateway Guides & Resources",
+                        "pages": [
+                          {
+                            "group": "Gateway Tools & Dashboards",
+                            "pages": [
+                              "v2/pages/04_gateways/gateway-tools/explorer",
+                              "v2/pages/04_gateways/gateway-tools/livepeer-tools"
+                            ]
+                          },
+                          {
+                            "group": "Community Resources",
+                            "pages": [
+                              "v2/pages/04_gateways/guides-references/community-guides",
+                              "v2/pages/04_gateways/guides-references/community-projects"
+                            ]
+                          },
+                          {
+                            "group": "Technical References",
+                            "pages": [
+                              "v2/pages/04_gateways/guides-references/technical-architecture",
+                              "v2/pages/04_gateways/guides-references/protocol-specifications"
+                            ]
+                          },
+                          "v2/pages/04_gateways/guides-references/FAQ"
+                        ]
+                      },
+                      {
+                        "group": "[moved] Gateway Tools & Dashboards",
+                        "pages": [
+                          "v2/pages/04_gateways/gateway-tools/explorer",
+                          "v2/pages/04_gateways/gateway-tools/livepeer-tools"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "Resources",
+                    "icon": "books",
+                    "pages": ["v2/pages/07_resources/resources_hub"]
+                  },
+                  {
+                    "anchor": "Help Center",
+                    "icon": "comments-question-check",
+                    "pages": ["v2/pages/08_help/README"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "-",
+                    "href": " "
+                  }
+                ]
+              },
+              {
+                "tab": "GPU Nodes",
+                "icon": "microchip",
+                "anchors": [
+                  {
+                    "anchor": "GPU Nodes",
+                    "icon": "microchip",
+                    "groups": [
+                      {
+                        "group": "About Orchestrators (GPU Nodes)",
+                        "pages": [
+                          "v2/pages/05_orchestrators/README",
+                          {
+                            "group": "Orchestrator Functions",
+                            "pages": [
+                              "v2/pages/05_orchestrators/about-orchestrators-gpu-nodes/orchestrator-functions/transcoding",
+                              "v2/pages/05_orchestrators/about-orchestrators-gpu-nodes/orchestrator-functions/ai-pipelines"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "Set up an Orchestrator",
+                        "pages": [
+                          "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/hardware-requirements",
+                          "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/orchestrator-stats",
+                          {
+                            "group": "Setting Up An Orchestrator",
+                            "pages": [
+                              "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
+                              "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/join-a-pool",
+                              "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "Orchestrator Tooling",
+                        "pages": [
+                          "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-tools",
+                          "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-dashboards"
+                        ]
+                      },
+                      {
+                        "group": "Orchestrator Guides & References",
+                        "pages": [
+                          "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-guides-and-references",
+                          "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-resources",
+                          "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-community-and-help"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "Resources",
+                    "icon": "books",
+                    "pages": ["v2/pages/07_resources/resources_hub"]
+                  },
+                  {
+                    "anchor": "Help Center",
+                    "icon": "comments-question-check",
+                    "pages": ["v2/pages/08_help/README"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "-",
+                    "href": " "
+                  }
+                ]
+              },
+              {
+                "tab": "Delegators & LPT",
+                "icon": "hand-holding-dollar",
+                "anchors": [
+                  {
+                    "anchor": "Delegators & LPT",
+                    "icon": "hand-holding-dollar",
+                    "groups": [
+                      {
+                        "group": "About LPT",
+                        "pages": ["v2/pages/06_delegators/README"]
+                      },
+                      { "group": "Delegating LPT", "pages": [] },
+                      { "group": "Livepeer Governance", "pages": [] },
+                      { "group": "Livepeer Treasury", "pages": [] },
+                      { "group": "Token Resources", "pages": [] }
+                    ]
+                  },
+                  {
+                    "anchor": "Resources",
+                    "icon": "books",
+                    "pages": ["v2/pages/07_resources/resources_hub"]
+                  },
+                  {
+                    "anchor": "Help Center",
+                    "icon": "comments-question-check",
+                    "pages": ["v2/pages/08_help/README"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "-",
+                    "href": " "
+                  }
+                ]
+              },
+              {
+                "tab": "Resources -> moving",
+                "hidden": true,
+                "icon": "hand-holding-dollar",
+                "groups": [
+                  {
+                    "group": "Resource Hub",
+                    "pages": ["v2/pages/07_resources/resources_hub.mdx"]
+                  },
+                  {
+                    "group": "Technical References",
+                    "pages": [
+                      {
+                        "group": "Protocol References",
+                        "pages": [
+                          "v2/pages/07_resources/references/contract-addresses.mdx"
+                        ]
+                      }
+                    ]
+                  },
+                  { "group": "Delegating LPT", "pages": [] },
+                  { "group": "Livepeer Governance", "pages": [] },
+                  { "group": "Livepeer Treasury", "pages": [] },
+                  { "group": "Token Resources", "pages": [] }
+                ]
+              },
+              {
+                "tab": "Help -> moving",
+                "hidden": true,
+                "icon": "hand-holding-dollar",
+                "groups": [
+                  {
+                    "group": "Help Centre",
+                    "pages": ["v2/pages/08_help/README"]
+                  },
+                  { "group": "Delegating LPT", "pages": [] },
+                  { "group": "Livepeer Governance", "pages": [] },
+                  { "group": "Livepeer Treasury", "pages": [] },
+                  { "group": "Token Resources", "pages": [] }
+                ]
+              },
+              {
+                "tab": "MenuTabEx",
+                "hidden": true,
+                "icon": "people-group",
+                "menu": [
+                  {
+                    "item": "Livepeer Community",
+                    "groups": [
+                      {
+                        "group": "Livepeer Hubs",
+                        "pages": ["v2/pages/02_community/Summary"]
+                      }
+                    ]
+                  },
+                  { "item": "Livepeer News & Socials", "pages": [] },
+                  { "item": "Events & Community Livestreams", "pages": [] }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
         "version": "v1",
         "languages": [
           {
@@ -2050,486 +2657,6 @@
                       "style": "brands"
                     }
                   }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "version": "v2",
-        "default": true,
-        "global": {
-          "anchors": [
-            {
-              "anchor": "Resources",
-              "icon": "books",
-              "href": "http://localhost:3001/v2/pages/07_resources/resources_hub"
-            },
-            {
-              "anchor": "Help Center",
-              "icon": "comments-question-check",
-              "href": "https://mintlify.com/docs"
-            }
-          ]
-        },
-        "languages": [
-          {
-            "language": "en",
-            "tabs": [
-              {
-                "tab": "Home",
-                "icon": "house-heart",
-                "groups": [
-                  {
-                    "group": "Home",
-                    "icon": "house",
-                    "pages": [
-                      "v2/pages/00_home/Landing",
-                      "v2/pages/00_home/home/livepeer-tl-dr",
-                      "v2/pages/00_home/home/trending-at-livepeer",
-                      "v2/pages/00_home/home/trending-test"
-                    ]
-                  },
-                  {
-                    "group": "Documentation Guide",
-                    "icon": "book-open",
-                    "pages": [
-                      "v2/pages/00_home/documentation-guide/documentation-overview",
-                      "v2/pages/00_home/documentation-guide/documentation-guide",
-                      "v2/pages/00_home/documentation-guide/docs-features-and-ai-integrations",
-                      "v2/pages/00_home/documentation-guide/contribute-to-the-docs"
-                    ]
-                  },
-                  {
-                    "group": "Changelog",
-                    "icon": "swap",
-                    "pages": [
-                      "v2/pages/00_home/changelog/changelog",
-                      "v2/pages/00_home/changelog/migration-guide"
-                    ]
-                  }
-                ]
-              },
-              {
-                "tab": "About",
-                "icon": "graduation-cap",
-                "groups": [
-                  {
-                    "group": "About Livepeer",
-                    "icon": "graduation-cap",
-                    "pages": [
-                      "v2/pages/01_about/about-livepeer/livepeer-overview",
-                      "v2/pages/01_about/about-livepeer/livepeer-story",
-                      "v2/pages/01_about/about-livepeer/livepeer-vision",
-                      "v2/pages/01_about/about-livepeer/why-livepeer",
-                      "v2/pages/01_about/about-livepeer/livepeer-ecosystem",
-                      "v2/pages/01_about/about-livepeer/livepeer-roadmap"
-                    ]
-                  },
-                  {
-                    "group": "Livepeer Showcase",
-                    "icon": "clapperboard-play",
-                    "pages": [
-                      "v2/pages/01_about/project-showcase/projects-built-on-livepeer",
-                      "v2/pages/01_about/project-showcase/industry-applications"
-                    ]
-                  },
-                  {
-                    "group": "Livepeer Protocol",
-                    "icon": "circle-nodes",
-                    "pages": [
-                      {
-                        "group": "Livepeer Protocol",
-                        "pages": [
-                          "v2/pages/01_about/livepeer-protocol/livepeer-protocol/protocol-overview",
-                          "v2/pages/01_about/livepeer-protocol/livepeer-protocol/technical-overview",
-                          "v2/pages/01_about/livepeer-protocol/livepeer-protocol/livepeer-whitepaper"
-                        ]
-                      },
-                      {
-                        "group": "Livepeer Actors",
-                        "pages": [
-                          "v2/pages/01_about/livepeer-protocol/livepeer-actors/actor-overview",
-                          "v2/pages/01_about/livepeer-protocol/livepeer-actors/gateways",
-                          "v2/pages/01_about/livepeer-protocol/livepeer-actors/orchestrators",
-                          "v2/pages/01_about/livepeer-protocol/livepeer-actors/delegators",
-                          "v2/pages/01_about/livepeer-protocol/livepeer-actors/end-users"
-                        ]
-                      },
-                      "v2/pages/01_about/livepeer-protocol/livepeer-token-economics",
-                      "v2/pages/01_about/livepeer-protocol/livepeer-governance",
-                      "v2/pages/01_about/livepeer-protocol/technical-roadmap"
-                    ]
-                  }
-                ]
-              },
-              {
-                "tab": "Community",
-                "icon": "people-group",
-                "groups": [
-                  {
-                    "group": "Livepeer Community",
-                    "icon": "people-group",
-                    "pages": [
-                      "v2/pages/02_community/README",
-                      "v2/pages/02_community/livepeer-community/livepeer-Latest-Topics",
-                      "v2/pages/02_community/livepeer-community/media-kit"
-                    ]
-                  },
-                  {
-                    "group": "Livepeer News & Socials",
-                    "pages": [
-                      "v2/pages/02_community/livepeer-news-and-socials/livepeer-socials",
-                      "v2/pages/02_community/livepeer-news-and-socials/livepeer-blogs-and-news"
-                    ]
-                  },
-                  {
-                    "group": "Events & Community Livestreams",
-                    "pages": [
-                      "v2/pages/02_community/events-and-community-hours/events-calendar",
-                      "v2/pages/02_community/events-and-community-hours/interactive-community-steams"
-                    ]
-                  },
-                  {
-                    "group": "Livepeer Hubs",
-                    "pages": [
-                      "v2/pages/02_community/livepeer-hubs/livepeer-builder-hub",
-                      "v2/pages/02_community/livepeer-hubs/livepeer-partner-hub"
-                    ]
-                  },
-                  {
-                    "group": "Quick Links",
-                    "pages": ["v2/pages/02_community/README"]
-                  }
-                ]
-              },
-              {
-                "tab": "Developers",
-                "icon": "display-code",
-                "groups": [
-                  {
-                    "group": "Building on Livepeer",
-                    "pages": [
-                      "v2/pages/03_developers/SUMMARY",
-                      {
-                        "group": "Real-time Video",
-                        "pages": [
-                          "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai",
-                          "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx"
-                        ]
-                      },
-                      {
-                        "group": "AI Pipelines",
-                        "pages": [
-                          "v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming",
-                          "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai"
-                        ]
-                      },
-                      {
-                        "group": "Quickstart (remove?)",
-                        "pages": [
-                          "v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming",
-                          "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Developer Platforms",
-                    "pages": [
-                      "v2/pages/03_developers/developer-platforms/builder-hub",
-                      {
-                        "group": "Daydream",
-                        "pages": [
-                          "v2/pages/03_developers/developer-platforms/daydream/daydream"
-                        ]
-                      },
-                      {
-                        "group": "Livepeer Studio",
-                        "pages": [
-                          "v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio"
-                        ]
-                      },
-                      {
-                        "group": "Frameworks",
-                        "pages": [
-                          "v2/pages/03_developers/developer-platforms/frameworks/frameworks"
-                        ]
-                      },
-                      {
-                        "group": "Streamplace",
-                        "pages": [
-                          "v2/pages/03_developers/developer-platforms/streamplace/streamplace"
-                        ]
-                      },
-                      {
-                        "group": "All Ecosystem Products",
-                        "pages": [
-                          "v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products/ecosystem-products"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Developer Tools",
-                    "pages": [
-                      "v2/pages/03_developers/developer-tools/livepeer-explorer",
-                      "v2/pages/03_developers/developer-tools/livepeer-cloud",
-                      "v2/pages/03_developers/developer-tools/dashboards",
-                      "v2/pages/03_developers/developer-tools/gateways",
-                      "v2/pages/03_developers/developer-tools/external-tooling"
-                    ]
-                  },
-                  {
-                    "group": "Guides & Tutorials",
-                    "pages": [
-                      "v2/pages/03_developers/guides-and-resources/developer-guides",
-                      "v2/pages/03_developers/guides-and-resources/resources",
-                      "v2/pages/03_developers/guides-and-resources/developer-help",
-                      "v2/pages/03_developers/guides-and-resources/contribution-guide"
-                    ]
-                  },
-                  {
-                    "group": "Builder Opportunities",
-                    "pages": [
-                      "v2/pages/03_developers/builder-opportunities/dev-programs",
-                      "v2/pages/03_developers/builder-opportunities/livepeer-rfps",
-                      "v2/pages/03_developers/builder-opportunities/oss-contributions"
-                    ]
-                  },
-                  {
-                    "group": "Technical References",
-                    "pages": [
-                      "v2/pages/03_developers/technical-references-sdks.-and-apis/sdks",
-                      "v2/pages/03_developers/technical-references-sdks.-and-apis/apis",
-                      "v2/pages/03_developers/technical-references-sdks.-and-apis/deepwiki",
-                      "v2/pages/03_developers/technical-references-sdks.-and-apis/migrations-guides"
-                    ]
-                  },
-                  {
-                    "group": "Changelog & Migrations",
-                    "pages": [
-                      "v2/pages/03_developers/technical-references-sdks.-and-apis/livepeer-changelog/livepeer-changelog",
-                      "v2/pages/03_developers/technical-references-sdks.-and-apis/livepeer-changelog/migration-guides"
-                    ]
-                  }
-                ]
-              },
-              {
-                "tab": "Gateways",
-                "icon": "torii-gate",
-                "groups": [
-                  {
-                    "group": "About Gateways",
-                    "pages": [
-                      "v2/pages/04_gateways/about-gateways/gateway-explainer",
-                      "v2/pages/04_gateways/about-gateways/gateway-functions",
-                      "v2/pages/04_gateways/about-gateways/gateway-architecture",
-                      "v2/pages/04_gateways/about-gateways/gateways-vs-orchestrators"
-                    ]
-                  },
-                  {
-                    "group": "Access Compute Using Gateways",
-                    "pages": [
-                      "v2/pages/04_gateways/using-gateways/choosing-a-gateway",
-                      {
-                        "group": "Gateway Providers",
-                        "pages": [
-                          "v2/pages/04_gateways/using-gateways/gateway-providers/index",
-                          "v2/pages/04_gateways/using-gateways/gateway-providers/daydream-gateway",
-                          "v2/pages/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
-                          "v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway",
-                          "v2/pages/04_gateways/using-gateways/gateway-providers/streamplace"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Run Your Own Gateway",
-                    "pages": [
-                      "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
-                      {
-                        "group": "Requirements",
-                        "pages": [
-                          "v2/pages/04_gateways/run-a-gateway/requirements/requirements"
-                        ]
-                      },
-                      {
-                        "group": "Installation",
-                        "pages": [
-                          "v2/pages/04_gateways/run-a-gateway/install/install-overview",
-                          "v2/pages/04_gateways/run-a-gateway/install/docker-install",
-                          "v2/pages/04_gateways/run-a-gateway/install/linux-install",
-                          "v2/pages/04_gateways/run-a-gateway/install/windows-install",
-                          "v2/pages/04_gateways/run-a-gateway/install/community-projects"
-                        ]
-                      },
-                      { "group": "Configuration", "pages": [] },
-                      {
-                        "group": "Publish Services",
-                        "pages": [
-                          "v2/pages/04_gateways/run-a-gateway/publish/publish-offerings"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Gateway Guides & Resources",
-                    "pages": [
-                      {
-                        "group": "Gateway Tools & Dashboards",
-                        "pages": [
-                          "v2/pages/04_gateways/gateway-tools/explorer",
-                          "v2/pages/04_gateways/gateway-tools/livepeer-tools"
-                        ]
-                      },
-                      {
-                        "group": "Community Resources",
-                        "pages": [
-                          "v2/pages/04_gateways/guides-references/community-guides",
-                          "v2/pages/04_gateways/guides-references/community-projects"
-                        ]
-                      },
-                      {
-                        "group": "Technical References",
-                        "pages": [
-                          "v2/pages/04_gateways/guides-references/technical-architecture",
-                          "v2/pages/04_gateways/guides-references/protocol-specifications"
-                        ]
-                      },
-                      "v2/pages/04_gateways/guides-references/FAQ"
-                    ]
-                  },
-                  {
-                    "group": "[moved] Gateway Tools & Dashboards",
-                    "pages": [
-                      "v2/pages/04_gateways/gateway-tools/explorer",
-                      "v2/pages/04_gateways/gateway-tools/livepeer-tools"
-                    ]
-                  }
-                ]
-              },
-              {
-                "tab": "GPU Nodes",
-                "icon": "microchip",
-                "groups": [
-                  {
-                    "group": "About Orchestrators (GPU Nodes)",
-                    "pages": [
-                      "v2/pages/05_orchestrators/README",
-                      {
-                        "group": "Orchestrator Functions",
-                        "pages": [
-                          "v2/pages/05_orchestrators/about-orchestrators-gpu-nodes/orchestrator-functions/transcoding",
-                          "v2/pages/05_orchestrators/about-orchestrators-gpu-nodes/orchestrator-functions/ai-pipelines"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Set up an Orchestrator",
-                    "pages": [
-                      "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/hardware-requirements",
-                      "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/orchestrator-stats",
-                      {
-                        "group": "Setting Up An Orchestrator",
-                        "pages": [
-                          "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
-                          "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/join-a-pool",
-                          "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "group": "Orchestrator Tooling",
-                    "pages": [
-                      "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-tools",
-                      "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-dashboards"
-                    ]
-                  },
-                  {
-                    "group": "Orchestrator Guides & References",
-                    "pages": [
-                      "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-guides-and-references",
-                      "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-resources",
-                      "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-community-and-help"
-                    ]
-                  }
-                ]
-              },
-              {
-                "tab": "Delegators & LPT",
-                "icon": "hand-holding-dollar",
-                "groups": [
-                  {
-                    "group": "About LPT",
-                    "pages": ["v2/pages/06_delegators/README"]
-                  },
-                  { "group": "Delegating LPT", "pages": [] },
-                  { "group": "Livepeer Governance", "pages": [] },
-                  { "group": "Livepeer Treasury", "pages": [] },
-                  { "group": "Token Resources", "pages": [] }
-                ]
-              },
-              {
-                "tab": "Resources -> moving",
-                "hidden": true,
-                "icon": "hand-holding-dollar",
-                "groups": [
-                  {
-                    "group": "Resource Hub",
-                    "pages": ["v2/pages/07_resources/resources_hub.mdx"]
-                  },
-                  {
-                    "group": "Technical References",
-                    "pages": [
-                      {
-                        "group": "Protocol References",
-                        "pages": [
-                          "v2/pages/07_resources/references/contract-addresses.mdx"
-                        ]
-                      }
-                    ]
-                  },
-                  { "group": "Delegating LPT", "pages": [] },
-                  { "group": "Livepeer Governance", "pages": [] },
-                  { "group": "Livepeer Treasury", "pages": [] },
-                  { "group": "Token Resources", "pages": [] }
-                ]
-              },
-              {
-                "tab": "Help -> moving",
-                "hidden": true,
-                "icon": "hand-holding-dollar",
-                "groups": [
-                  {
-                    "group": "Help Centre",
-                    "pages": ["v2/pages/08_help/README"]
-                  },
-                  { "group": "Delegating LPT", "pages": [] },
-                  { "group": "Livepeer Governance", "pages": [] },
-                  { "group": "Livepeer Treasury", "pages": [] },
-                  { "group": "Token Resources", "pages": [] }
-                ]
-              },
-              {
-                "tab": "MenuTabEx",
-                "hidden": true,
-                "icon": "people-group",
-                "menu": [
-                  {
-                    "item": "Livepeer Community",
-                    "groups": [
-                      {
-                        "group": "Livepeer Hubs",
-                        "pages": ["v2/pages/02_community/Summary"]
-                      }
-                    ]
-                  },
-                  { "item": "Livepeer News & Socials", "pages": [] },
-                  { "item": "Events & Community Livestreams", "pages": [] }
                 ]
               }
             ]
