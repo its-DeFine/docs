@@ -1,0 +1,75 @@
+---
+title: 'Test Automations'
+sidebarTitle: 'Test Automations'
+---
+
+<Danger> WIP: Testing n8n automations</Danger>
+
+import {
+  PostCard,
+  BlogCard,
+  CardBlogDataLayout,
+  CardColumnsPostLayout,
+} from '/snippets/components/cards.jsx'
+import { forumData } from '/snippets/automationData/forum/forumData.jsx'
+import { ghostData } from '/snippets/automationData/blog/ghostBlogData.jsx'
+
+## Latest Forum Topics
+
+<Note>Automation that links the latest forum posts</Note>
+
+<a href="https:/forum.livepeer.org" target="_blank">
+  <img
+    src="/snippets/automationData/forum/Hero_Livepeer_Forum.png"
+    alt="Livepeer Forum"
+    style={{ borderRadius: '0.5rem', marginBottom: '8px' }}
+    noZoom
+  />
+</a>
+
+<CardColumnsPostLayout cols={2} items={forumData} />
+
+<br />
+<br />
+
+## Latest Blog Posts
+
+<Note>
+  Automation that links the latest blog posts [ghost](blog.livepeer.org)
+</Note>
+
+<CardBlogDataLayout items={ghostData} />
+
+<br />
+<br />
+
+## Latest Blog Posts Embedded in iframe
+
+<Info>
+  Note! Can't limit posts, or click through. But does have the subscribe
+  button..
+</Info>
+<iframe
+  src="https://blog.livepeer.org"
+  style={{
+    width: '100%',
+    height: '500px', // Adjust height to limit the embedded content
+    border: 'none',
+  }}
+  title="Livepeer Blog"
+/>
+
+## Blog Post Signup Embedded in iframe
+
+<iframe
+  src="https://blog.livepeer.org/#/portal/?action=signup"
+  style={{
+    width: '100%',
+    height: '400px', // Adjust height to limit the embedded content
+    border: 'none',
+  }}
+  title="Livepeer Blog"
+/>
+
+<br />
+<br />

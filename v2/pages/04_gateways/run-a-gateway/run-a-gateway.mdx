@@ -1,0 +1,155 @@
+---
+title: Run a Gateway
+description: Run Your Own Gateway Node
+sidebarTitle: Run a Gateway
+---
+
+<Danger>
+This page is a work in progress.
+
+**TODO:**
+
+- [ ] Copy fixing
+- [ ] Editing
+- [ ] Streamlining
+- [ ] Format
+- [ ] Style
+- [ ] Copy over v1 docs
+
+</Danger>
+
+Running a gateway requires little to no hardware infrastructure.
+
+You might want to run your own gateway just for yourself or your organization or you might want to run a gateway for the Livepeer Network.
+
+Whether you want to offer general Livepeer Gateway services or you want to offer a custom set of models and pipelines, running your own gateway is a great way to get started with Livepeer.
+
+# How to Become a Gateway Operator
+
+Gateways are essential infrastructure in the Livepeer network. They provide the service coordination layer that connects applications to the decentralized GPU compute layer. This guide explains the requirements, setup steps, and best practices for running a Gateway node.
+
+---
+
+## What a Gateway Operator Does
+
+Gateway operators handle:
+
+- Job intake and API requests
+- Routing workloads to the best orchestrator
+- Managing pricing, capabilities, and service metadata
+- Publishing offerings to the Marketplace
+- Monitoring job performance, latency, and reliability
+
+Gateways do **not** run AI inference or transcoding themselves. That work is performed by orchestrators.
+
+---
+
+## Requirements
+
+### **Hardware**
+
+Gateways do not require GPU resources. A typical setup includes:
+
+- 4–8 CPU cores
+- 16–32 GB RAM
+- High-speed NVMe (optional, recommended)
+- Stable multi-region networking
+- Linux or containerized deployment environment
+
+### **Network Requirements**
+
+- Public HTTPS endpoint
+- Low-latency access to orchestrators
+- Ability to handle high request throughput
+
+---
+
+## Software Requirements
+
+- Livepeer Gateway software (BYOC-ready)
+- Access to PyTrickle routing layer
+- Model/pipeline metadata configuration
+- Marketplace registration tooling
+- Logging, metrics, and alerting
+
+---
+
+## Steps to Become a Gateway Operator
+
+### **1. Deploy the Gateway Service**
+
+You'll set up:
+
+- API server
+- Routing engine
+- Capability registry
+- Pricing configuration
+
+Gateways can be deployed via:
+
+- Docker
+- Kubernetes
+- Bare-metal services
+
+### **2. Connect to Orchestrators**
+
+Gateways select orchestrators based on:
+
+- GPU type (A40, 4090, L40S, etc.)
+- Model compatibility
+- Performance metrics
+- Reliability scores
+- Pricing
+
+Gateways must maintain active communication channels with orchestrator nodes.
+
+### **3. Configure Capabilities**
+
+Your Gateway must declare:
+
+- Supported models (diffusion, ControlNet, IPAdapter)
+- Supported pipelines (ComfyStream, Daydream, BYOC containers)
+- Region/latency zones
+- Fallback and load-balancing rules
+
+### **4. Set Pricing**
+
+Pricing can be:
+
+- Per frame
+- Per second
+- Per inference run
+- Per GPU-minute (BYOC)
+
+Gateways publish pricing via Marketplace APIs.
+
+### **5. Register in the Marketplace**
+
+Once configured, Gateways submit:
+
+- Name
+- Regions
+- Pricing structure
+- Supported models
+- Supported pipelines
+- Performance benchmarks
+- SLA guarantees
+
+This enables applications to discover and select your node.
+
+### **6. Monitor & Optimize**
+
+Gateways must track:
+
+- Routing accuracy
+- Latency
+- Throughput
+- Orchestrator stability
+
+This ensures competitive placement in the Marketplace.
+
+---
+
+## Summary
+
+Running a Gateway node allows operators to participate in the decentralized AI compute economy by providing high-value coordination services. Gateways compete on service quality, supported capabilities, and routing performance, enabling a rich ecosystem of real-time AI video applications.
