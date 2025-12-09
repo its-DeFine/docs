@@ -62,7 +62,7 @@
                   {
                     "anchor": "Help Center",
                     "icon": "comments-question-check",
-                    "pages": ["v2/pages/08_help/README"]
+                    "pages": ["v2/pages/08_help/redirect"]
                   }
                 ]
               },
@@ -126,12 +126,12 @@
                   {
                     "anchor": "Resources",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources_hub"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": "Help Center",
                     "icon": "comments-question-check",
-                    "pages": ["v2/pages/08_help/README"]
+                    "pages": ["v2/pages/08_help/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -187,12 +187,12 @@
                   {
                     "anchor": "Resources",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources_hub"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": "Help Center",
                     "icon": "comments-question-check",
-                    "pages": ["v2/pages/08_help/README"]
+                    "pages": ["v2/pages/08_help/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -320,12 +320,12 @@
                   {
                     "anchor": "Resources",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources_hub"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": "Help Center",
                     "icon": "comments-question-check",
-                    "pages": ["v2/pages/08_help/README"]
+                    "pages": ["v2/pages/08_help/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -435,12 +435,12 @@
                   {
                     "anchor": "Resources",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources_hub"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": "Help Center",
                     "icon": "comments-question-check",
-                    "pages": ["v2/pages/08_help/README"]
+                    "pages": ["v2/pages/08_help/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -505,12 +505,12 @@
                   {
                     "anchor": "Resources",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources_hub"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": "Help Center",
                     "icon": "comments-question-check",
-                    "pages": ["v2/pages/08_help/README"]
+                    "pages": ["v2/pages/08_help/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -540,12 +540,12 @@
                   {
                     "anchor": "Resources",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources_hub"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": "Help Center",
                     "icon": "comments-question-check",
-                    "pages": ["v2/pages/08_help/README"]
+                    "pages": ["v2/pages/08_help/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -555,44 +555,88 @@
                 ]
               },
               {
-                "tab": "Resources -> moving",
+                "tab": "Resources",
                 "hidden": true,
                 "icon": "hand-holding-dollar",
-                "groups": [
+                "anchors": [
                   {
-                    "group": "Resource Hub",
-                    "pages": ["v2/pages/07_resources/resources_hub"]
-                  },
-                  {
-                    "group": "Technical References",
-                    "pages": [
+                    "anchor": "Resources",
+                    "icon": "books",
+                    "groups": [
                       {
-                        "group": "Protocol References",
+                        "group": "Home",
+                        "pages": ["v2/pages/07_resources/resources_hub"]
+                      },
+                      {
+                        "group": "Technical References",
                         "pages": [
-                          "v2/pages/07_resources/references/contract-addresses.mdx"
+                          {
+                            "group": "Protocol References",
+                            "pages": [
+                              "v2/pages/07_resources/references/contract-addresses.mdx"
+                            ]
+                          }
                         ]
+                      },
+                      {
+                        "group": "Delegating LPT",
+                        "pages": ["v2/pages/07_resources/resources_hub"]
+                      },
+                      {
+                        "group": "Livepeer Governance",
+                        "pages": ["v2/pages/07_resources/resources_hub"]
+                      },
+                      {
+                        "group": "Livepeer Treasury",
+                        "pages": ["v2/pages/07_resources/resources_hub"]
+                      },
+                      {
+                        "group": "Token Resources",
+                        "pages": ["v2/pages/07_resources/resources_hub"]
                       }
                     ]
                   },
-                  { "group": "Delegating LPT", "pages": [] },
-                  { "group": "Livepeer Governance", "pages": [] },
-                  { "group": "Livepeer Treasury", "pages": [] },
-                  { "group": "Token Resources", "pages": [] }
+                  {
+                    "anchor": "Help Center",
+                    "icon": "comments-question-check",
+                    "pages": ["v2/pages/08_help/redirect"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "-",
+                    "href": " "
+                  }
                 ]
               },
               {
-                "tab": "Help -> moving",
+                "tab": "Help Center",
                 "hidden": true,
                 "icon": "hand-holding-dollar",
-                "groups": [
+                "anchors": [
                   {
-                    "group": "Help Centre",
-                    "pages": ["v2/pages/08_help/README"]
+                    "anchor": "Help Center",
+                    "icon": "comments-question-check",
+                    "groups": [
+                      {
+                        "group": "Home",
+                        "pages": ["v2/pages/08_help/README"]
+                      },
+                      { "group": "Delegating LPT", "pages": [] },
+                      { "group": "Livepeer Governance", "pages": [] },
+                      { "group": "Livepeer Treasury", "pages": [] },
+                      { "group": "Token Resources", "pages": [] }
+                    ]
                   },
-                  { "group": "Delegating LPT", "pages": [] },
-                  { "group": "Livepeer Governance", "pages": [] },
-                  { "group": "Livepeer Treasury", "pages": [] },
-                  { "group": "Token Resources", "pages": [] }
+                  {
+                    "anchor": "Resources",
+                    "icon": "books",
+                    "pages": ["v2/pages/07_resources/redirect"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "-",
+                    "href": " "
+                  }
                 ]
               },
               {
@@ -2717,6 +2761,10 @@
     {
       "source": "/v2/pages/07_resources/redirect",
       "destination": "/v2/pages/07_resources/resources_hub"
+    },
+    {
+      "source": "/v2/pages/08_help/redirect",
+      "destination": "/v2/pages/08_help/README"
     }
   ]
 }
