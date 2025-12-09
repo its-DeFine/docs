@@ -2765,6 +2765,310 @@
     {
       "source": "/v2/pages/08_help/redirect",
       "destination": "/v2/pages/08_help/README"
+    },
+    {
+      "source": "/v1/guides/developing/quickstart",
+      "destination": "/v1/developers/quick-start"
+    },
+    {
+      "source": "/v1/guides/overview",
+      "destination": "/v1/developers/guides/overview"
+    },
+    {
+      "source": "/v1/guides/developing/player",
+      "destination": "/v1/developers/guides/playback-an-asset"
+    },
+    {
+      "source": "/v1/guides/developing/create-a-livestream",
+      "destination": "/v1/developers/guides/create-livestream"
+    },
+    {
+      "source": "/v1/guides/developing/stream-via-obs",
+      "destination": "/v1/developers/guides/stream-via-obs"
+    },
+    {
+      "source": "/v1/developing/stream-via-browser",
+      "destination": "/v1/developers/guides/livestream-from-browser"
+    },
+    {
+      "source": "/v1/guides/developing/upload-a-video-asset",
+      "destination": "/v1/developers/guides/upload-video-asset"
+    },
+    {
+      "source": "/v1/guides/developing/mint-a-video-nft",
+      "destination": "/v1/developers/guides/mint-video-nft"
+    },
+    {
+      "source": "/v1/guides/developing/dstorage-playback",
+      "destination": "/v1/developers/guides/dstorage-playback"
+    },
+    {
+      "source": "/v1/developers/guides/dstorage-playback",
+      "destination": "/v1/developers/guides/upload-video-asset"
+    },
+    {
+      "source": "/v1/guides/developing/access-control",
+      "destination": "/v1/developers/guides/access-control-webhooks"
+    },
+    {
+      "source": "/v1/guides/developing/access-control-vod",
+      "destination": "/v1/developers/guides/access-control-webhooks"
+    },
+    {
+      "source": "/v1/guides/developing/encrypted-vod",
+      "destination": "/v1/developers/guides/encrypted-asset"
+    },
+    {
+      "source": "/v1/guides/developing/listen-for-webhooks",
+      "destination": "/v1/developers/guides/setup-and-listen-to-webhooks"
+    },
+    {
+      "source": "/v1/guides/developing/multistream",
+      "destination": "/v1/developers/guides/multistream"
+    },
+    {
+      "source": "/v1/guides/developing/monitor-stream-health",
+      "destination": "/v1/developers/guides/monitor-stream-health"
+    },
+    {
+      "source": "/v1/guides/developing/viewer-engagement",
+      "destination": "/v1/developers/guides/get-engagement-analytics-via-api"
+    },
+    {
+      "source": "/v1/guides/developing/transcode-video-storj",
+      "destination": "/v1/developers/guides/transcode-video-storj"
+    },
+    {
+      "source": "/v1/guides/developing/transcode-video-w3s",
+      "destination": "/v1/developers/guides/transcode-video-w3s"
+    },
+    {
+      "source": "/v1/tutorials/developing/optimize-latency",
+      "destination": "/v1/developers/guides/optimize-latency-of-a-livestream"
+    },
+    {
+      "source": "/v1/tutorials/developing/analyze-engagement-timeplus",
+      "destination": "/v1/developers/guides/get-engagement-analytics-via-timeplus"
+    },
+    {
+      "source": "/v1/tutorials/developing/visualize-engagement-metrics-grafana",
+      "destination": "/v1/developers/guides/get-engagement-analytics-via-grafana"
+    },
+    {
+      "source": "/v1/tutorials/developing/token-gate-videos-using-guildxyz",
+      "destination": "/v1/developers/tutorials/token-gate-videos-with-lit"
+    },
+    {
+      "source": "/v1/tutorials/developing/token-gate-videos-using-lit",
+      "destination": "/v1/developers/tutorials/token-gate-videos-with-lit"
+    },
+    {
+      "source": "/v1/tutorials/developing/build-decentralized-video-app-with-fvm",
+      "destination": "/v1/developers/tutorials/decentralized-app-with-fvm"
+    },
+    {
+      "source": "/v1/tutorials/developing/upload-playback-videos-on-ipfs-4everland",
+      "destination": "/v1/developers/tutorials/upload-playback-videos-4everland"
+    },
+    {
+      "source": "/v1/tutorials/developing/upload-playback-videos-on-ipfs",
+      "destination": "/v1/developers/tutorials/upload-playback-videos-on-ipfs"
+    },
+    {
+      "source": "/v1/tutorials/developing/upload-playback-videos-on-arweave",
+      "destination": "/v1/developers/tutorials/upload-playback-videos-on-arweave"
+    },
+    {
+      "source": "/v1/reference/api",
+      "destination": "/v1/api-reference/overview/introduction"
+    },
+    {
+      "source": "/v1/reference/deployed-contract-addresses",
+      "destination": "/v1/references/contract-addresses"
+    },
+    {
+      "source": "/v1/reference/example-applications",
+      "destination": "/v1/references/example-applications"
+    },
+    {
+      "source": "/v1/reference/api-support-matrix",
+      "destination": "/v1/references/api-support-matrix"
+    },
+    {
+      "source": "/v1/reference/go-livepeer",
+      "destination": "/v1/references/go-livepeer/bandwidth-requirements"
+    },
+    {
+      "source": "/v1/reference/go-livepeer/cli-reference",
+      "destination": "/v1/references/go-livepeer/cli-reference"
+    },
+    {
+      "source": "/v1/reference/go-livepeer/gpu-support",
+      "destination": "/v1/references/go-livepeer/gpu-support"
+    },
+    {
+      "source": "/v1/reference/go-livepeer/hardware-requirements",
+      "destination": "/v1/references/go-livepeer/hardware-requirements"
+    },
+    {
+      "source": "/v1/reference/go-livepeer/bandwidth-requirements",
+      "destination": "/v1/references/go-livepeer/bandwidth-requirements"
+    },
+    {
+      "source": "/v1/reference/go-livepeer/prometheus-metrics",
+      "destination": "/v1/references/go-livepeer/prometheus-metrics"
+    },
+    {
+      "source": "/v1/guides/delegating/bridge-lpt-to-arbitrum",
+      "destination": "/v1/delegators/guides/bridge-lpt-to-arbitrum"
+    },
+    {
+      "source": "/v1/guides/delegating/migrate-stake-to-arbitrum",
+      "destination": "/v1/delegators/guides/migrate-stake-to-arbitrum"
+    },
+    {
+      "source": "/v1/delegators/reference/yield-calculation",
+      "destination": "/v1/delegators/guides/yield-calculation"
+    },
+    {
+      "source": "/v1/guides/orchestrating/get-started",
+      "destination": "/v1/orchestrators/guides/get-started"
+    },
+    {
+      "source": "/v1/guides/orchestrating/install-go-livepeer",
+      "destination": "/v1/orchestrators/guides/install-go-livepeer"
+    },
+    {
+      "source": "/v1/guides/orchestrating/connect-to-arbitrum",
+      "destination": "/v1/orchestrators/guides/connect-to-arbitrum"
+    },
+    {
+      "source": "/v1/guides/orchestrating/configure-reward-calling",
+      "destination": "/v1/orchestrators/guides/configure-reward-calling"
+    },
+    {
+      "source": "/v1/guides/orchestrating/set-session-limits",
+      "destination": "/v1/orchestrators/guides/set-session-limits"
+    },
+    {
+      "source": "/v1/guides/orchestrating/set-pricing",
+      "destination": "/v1/orchestrators/guides/set-pricing"
+    },
+    {
+      "source": "/v1/guides/orchestrating/benchmark-transcoding",
+      "destination": "/v1/orchestrators/guides/benchmark-transcoding"
+    },
+    {
+      "source": "/v1/guides/orchestrating/assess-capabilities",
+      "destination": "/v1/orchestrators/guides/assess-capabilities"
+    },
+    {
+      "source": "/v1/guides/orchestrating/monitor-metrics",
+      "destination": "/v1/orchestrators/guides/monitor-metrics"
+    },
+    {
+      "source": "/v1/guides/orchestrating/vote",
+      "destination": "/v1/orchestrators/guides/vote"
+    },
+    {
+      "source": "/v1/guides/orchestrating/dual-mine",
+      "destination": "/v1/orchestrators/guides/dual-mine"
+    },
+    {
+      "source": "/v1/guides/orchestrating/o-t-split",
+      "destination": "/v1/orchestrators/guides/o-t-split"
+    },
+    {
+      "source": "/v1/guides/orchestrating/migrate-to-arbitrum",
+      "destination": "/v1/orchestrators/guides/migrate-to-arbitrum"
+    },
+    {
+      "source": "/v1/guides/orchestrating/migrate-from-contract-wallet",
+      "destination": "/v1/orchestrators/guides/migrate-from-contract-wallet"
+    },
+    {
+      "source": "/v1/guides/orchestrating/gateway-introspection",
+      "destination": "/v1/orchestrators/guides/gateway-introspection"
+    },
+    {
+      "source": "/v1/guides/orchestrating/troubleshoot",
+      "destination": "/v1/orchestrators/guides/troubleshoot"
+    },
+    {
+      "source": "/v1/reference/react",
+      "destination": "/v1/react/getting-started"
+    },
+    {
+      "source": "/v1/reference/react/getting-started",
+      "destination": "/v1/react/getting-started"
+    },
+    {
+      "source": "/v1/reference/react/client",
+      "destination": "/v1/react/getting-started"
+    },
+    {
+      "source": "/v1/reference/react/LivepeerConfig",
+      "destination": "/v1/sdks/react/migration/3.x/LivepeerConfig"
+    },
+    {
+      "source": "/v1/reference/react/Player",
+      "destination": "/v1/react/player/Root"
+    },
+    {
+      "source": "/v1/reference/react/Broadcast",
+      "destination": "/v1/react/broadcast/Root"
+    },
+    {
+      "source": "/v1/reference/react/providers/studio",
+      "destination": "/v1/sdks/react/migration/3.x/providers/studio"
+    },
+    {
+      "source": "/v1/reference/react/asset/useAsset",
+      "destination": "/v1/sdks/react/migration/3.x/asset/useAsset"
+    },
+    {
+      "source": "/v1/reference/react/asset/useCreateAsset",
+      "destination": "/v1/sdks/react/migration/3.x/asset/useCreateAsset"
+    },
+    {
+      "source": "/v1/reference/react/asset/useAssetMetrics",
+      "destination": "/v1/sdks/react/migration/3.x/asset/useAssetMetrics"
+    },
+    {
+      "source": "/v1/reference/react/asset/useUpdateAsset",
+      "destination": "/v1/sdks/react/migration/3.x/asset/useUpdateAsset"
+    },
+    {
+      "source": "/v1/reference/react/stream/useStream",
+      "destination": "/v1/sdks/react/migration/3.x/stream/useStream"
+    },
+    {
+      "source": "/v1/reference/react/stream/useStreamSession",
+      "destination": "/v1/sdks/react/migration/3.x/stream/useStreamSession"
+    },
+    {
+      "source": "/v1/reference/react/stream/useStreamSessions",
+      "destination": "/v1/sdks/react/migration/3.x/stream/useStreamSessions"
+    },
+    {
+      "source": "/v1/reference/react/stream/useCreateStream",
+      "destination": "/v1/sdks/react/migration/3.x/stream/useCreateStream"
+    },
+    {
+      "source": "/v1/reference/react/stream/useUpdateStream",
+      "destination": "/v1/sdks/react/migration/3.x/stream/useUpdateStream"
+    },
+    {
+      "source": "/v1/reference/react/playback/usePlaybackInfo",
+      "destination": "/v1/sdks/react/migration/3.x/playback/usePlaybackInfo"
+    },
+    {
+      "source": "/v1/reference/react/constants/abis",
+      "destination": "/v1/sdks/react/migration/3.x/constants/abis"
+    },
+    {
+      "source": "/v1/reference/react/constants/contract-addresses",
+      "destination": "/v1/sdks/react/migration/3.x/constants/contract-addresses"
     }
   ]
 }
