@@ -1,0 +1,160 @@
+---
+title: 'Protocol Overview'
+sidebarTitle: 'Protocol Overview'
+---
+
+# Overview
+
+Livepeer is a full-stack platform for video streaming & AI. The video streaming software is underpinned by a network of actors that perform the work needed to compute, transcode & orchestrate video & AI jobs in the Livepeer network.
+
+The Livepeer Protocol is the underlying code that enforces the mechanisms and rules to ensure the reliability, cooperation and coordination of these decentralised actors.
+
+# Core Concepts
+
+## Livepeer Protocol
+The protocol is the ruleset + on-chain logic governing:
+- staking
+- delegation
+- inflation & rewards
+- orchestrator selection
+- slashing
+- probabilistic payments
+- verification rules
+
+The economic and coordination layer that enforces correct behavior.
+
+## Livepeer Network 
+The network is the actual running system of machines performing work:
+- Orchestrators (GPU nodes)
+- Transcoders / Workers
+- Gateways
+- Broadcasters
+- Verification processes
+- Job routing
+- Real-time AI & video compute
+
+It is the live, operational decentralized GPU mesh running video + AI jobs.
+
+
+## Protocol vs Network
+| Layer                 | Description                                                                   |
+| --------------------- | ----------------------------------------------------------------------------- |
+| **Livepeer Protocol** | On-chain crypto-economic incentives & coordination; staking; payments.        |
+| **Livepeer Network**  | Off-chain nodes performing real-time work (transcoding, inference, routing).  |
+| **Relationship**      | The network *runs* the compute; the protocol *governs, secures, and pays* it. |
+
+<Note> Fix UGHH (brainsotrm) </Note>
+**Bad Analogy Yikes**
+Protocol = the constitution
+Network = the population + infrastructure living under that constitution
+
+The protocol governs.
+The network performs the work.
+
+The protocol determines the rules of the game 
+The network is the players & participants.
+
+
+# Livepeer Actors 
+A Livepeer actor is any role or entity that participates in the Livepeer protocol or network and performs actions defined by the system.
+In Livepeer architecture, “actor” is a formal category used to describe participants with distinct responsibilities, incentives, and interactions.
+Actors are fundamental to describing how the network functions end-to-end.
+
+<Note>INSERT LIVEPEER ACTOR DIAGRAM HERE \[THIS ONE LOOKS OLD (whitpaper)</Note>
+
+<figure>
+  <img src="../../.gitbook/assets/image (1).png" alt="" />
+  <figcaption></figcaption>
+</figure>
+
+#### Broadcasters (deprecated -> Gateway)
+
+Who: The users and builders of the network.&#x20;
+
+What they do:
+
+#### Orchestrators (GPU Nodes)
+aka: Transcoders / Workers
+
+Who:
+
+What they do:
+
+#### Gateways
+aka: Broadcasters
+
+Who:
+
+What they do:
+
+#### Delegators
+
+Who:
+
+What they do:
+
+Historical Livepeer Actors:
+1. Orchestrator
+
+GPU node that performs transcoding / AI jobs, earns fees + staking rewards.
+
+2. Transcoder (Worker)
+
+Child processes or machines managed by an orchestrator to perform compute.
+
+3. Broadcaster
+
+Client submitting jobs (video or AI) into the network.
+
+4. Delegator
+
+LPT holder who stakes to an orchestrator.
+
+
+
+3. Broadcaster (now a behavior, not an actor)
+
+In modern Livepeer, which has expanded beyond just video transcoding:
+
+A gateway acts as a broadcaster when submitting video
+A service (e.g., Studio) can also be a broadcaster
+The term is no longer treated as a standalone actor
+Broadcaster is no longer considered its own actor - it’s now a function performed by a gateway or service, not a role a user operates.
+
+“Broadcaster” is now just a function gateways perform, not a user-facing or protocol-facing actor
+
+4. Worker (legacy)
+
+Workers are still used, but only inside GPU node setups.
+
+Workers are not protocol actors
+
+They do not appear on-chain
+
+They are implementation detail for orchestrator/GPU Node setups
+
+5. Delegator (protocol-defined actor)
+
+They stake LPT
+
+They help secure the network
+
+They share in inflation + orchestrator rewards
+
+Protocol Actors
+
+GPU Node (Orchestrator) — supply-side compute provider
+
+Delegator — stake from demand side
+
+## Network / Execution Actors
+
+Gateway Node — submits and manages jobs (AI/video)
+
+Worker — internal compute role (not user-facing)
+
+Behaviors (not actors anymore)
+
+Broadcaster — any gateway/service sending video or AI jobs
+
+Transcoder — a type of worker behavior

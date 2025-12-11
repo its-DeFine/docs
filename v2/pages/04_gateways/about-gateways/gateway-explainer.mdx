@@ -10,9 +10,30 @@ import { GotoCard } from '/snippets/components/links.jsx'
   TODO: Edit, Streamline, Format & Style
 </Danger>
 
-Gateways are the entry point for applications into the Livepeer decentralized
-compute network. They provide the coordination layer that connects real-time AI
+## Definition
+Gateways serve as the primary demand aggregation layer in the Livepeer network. 
+They accept video transcoding and AI inference requests from end customers, then distribute these jobs across the network of GPU-equipped Orchestrators. 
+In earlier Livepeer documentation, this role was referred to as a broadcaster.
+
+## What is a Gateway?
+
+Gateways are the entry point for applications into the Livepeercompute network. 
+They are the coordination layer that connects real-time AI
 and video workloads to the orchestrators who perform the GPU compute.
+
+They operate as the essential technical layer between the protocol and 
+the distributed compute network. 
+
+If you are coming from an Ethereum background, Gateways could loosely be thought of as network validators. 
+If you are coming from a traditional cloud background, Gateways are akin to...<Danger/>
+
+Anyone that wants to build applications and services (like [Daydream] and [example2] ) on top of the Livepeer 
+protocol will build their own Gateway in order to offer their services to Livepeer Developers / Builders & enable 
+communication of their application with the Livepeer GPU network (DePIN / Orchestrators) 
+
+A gateway is a self-operated Livepeer node that interacts directly with orchestrators, submits jobs, handles payment, and exposes direct protocol interfaces.
+Hosted services like Daydream are not gateways.
+
 
 ## What Gateways Do
 
