@@ -19,7 +19,7 @@
             "tabs": [
               {
                 "tab": "Internal Hub",
-                "hidden": false,
+                "hidden": true,
                 "icon": "info-circle",
                 "anchors": [
                   {
