@@ -373,6 +373,7 @@
                     "groups": [
                       {
                         "group": "About Gateways",
+                        "icon": "graduation-cap",
                         "pages": [
                           "v2/pages/04_gateways/about-gateways/gateway-explainer",
                           "v2/pages/04_gateways/about-gateways/gateway-functions",
@@ -381,7 +382,8 @@
                         ]
                       },
                       {
-                        "group": "Access Compute Using Gateways",
+                        "group": "Gateway Services & Providers",
+                        "icon": "wand-magic-sparkles",
                         "pages": [
                           "v2/pages/04_gateways/using-gateways/choosing-a-gateway",
                           {
@@ -398,6 +400,7 @@
                       },
                       {
                         "group": "Run Your Own Gateway",
+                        "icon": "sign-posts-wrench",
                         "pages": [
                           "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
                           {
@@ -427,6 +430,7 @@
                       },
                       {
                         "group": "Gateway Guides & Resources",
+                        "icon": "laptop-file",
                         "pages": [
                           {
                             "group": "Gateway Tools & Dashboards",
@@ -488,34 +492,37 @@
                     "groups": [
                       {
                         "group": "About Orchestrators (GPU Nodes)",
+                        "icon": "graduation-cap",
                         "pages": [
-                          "v2/pages/05_orchestrators/README",
+                          "v2/pages/05_orchestrators/about-orchestrators/overview",
                           {
                             "group": "Orchestrator Functions",
                             "pages": [
-                              "v2/pages/05_orchestrators/about-orchestrators-gpu-nodes/orchestrator-functions/transcoding",
-                              "v2/pages/05_orchestrators/about-orchestrators-gpu-nodes/orchestrator-functions/ai-pipelines"
+                              "v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/transcoding",
+                              "v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/ai-pipelines"
                             ]
                           }
                         ]
                       },
                       {
                         "group": "Set up an Orchestrator",
+                        "icon": "gear-code",
                         "pages": [
-                          "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/hardware-requirements",
-                          "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/orchestrator-stats",
+                          "v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements",
+                          "v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats",
                           {
                             "group": "Setting Up An Orchestrator",
                             "pages": [
-                              "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
-                              "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/join-a-pool",
-                              "v2/pages/05_orchestrators/orchestrator-setup-add-a-gpu-to-livepeer/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                              "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
+                              "v2/pages/05_orchestrators/setting-up-an-orchestrator/join-a-pool",
+                              "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                             ]
                           }
                         ]
                       },
                       {
                         "group": "Orchestrator Tooling",
+                        "icon": "tools",
                         "pages": [
                           "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-tools",
                           "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-dashboards"
@@ -523,6 +530,7 @@
                       },
                       {
                         "group": "Orchestrator Guides & References",
+                        "icon": "laptop-file",
                         "pages": [
                           "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-guides-and-references",
                           "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-resources",
@@ -558,12 +566,41 @@
                     "groups": [
                       {
                         "group": "About LPT",
-                        "pages": ["v2/pages/06_delegators/README"]
+                        "icon": "graduation-cap",
+                        "pages": [
+                          "v2/pages/06_delegators/about-lpt-livepeer-token/overview",
+                          "v2/pages/06_delegators/about-lpt-livepeer-token/why-have-a-token",
+                          "v2/pages/06_delegators/about-lpt-livepeer-token/livepeer-token-economics",
+                          "v2/pages/06_delegators/about-lpt-livepeer-token/how-to-get-lpt",
+                          "v2/pages/06_delegators/about-lpt-livepeer-token/delegators"
+                        ]
                       },
-                      { "group": "Delegating LPT", "pages": [] },
-                      { "group": "Livepeer Governance", "pages": [] },
+                      {
+                        "group": "Delegating LPT",
+                        "icon": "money-bill-transfer",
+                        "pages": [
+                          "v2/pages/06_delegators/delegating-lpt/overview",
+                          "v2/pages/06_delegators/delegating-lpt/delegation-economics",
+                          "v2/pages/06_delegators/delegating-lpt/how-to-delegate-lpt"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Governance",
+                        "icon": "box-ballot",
+                        "pages": [
+                          "v2/pages/06_delegators/livepeer-governance/overview",
+                          "v2/pages/06_delegators/livepeer-governance/livepeer-governance",
+                          "v2/pages/06_delegators/livepeer-governance/livepeer-treasury"
+                        ]
+                      },
                       { "group": "Livepeer Treasury", "pages": [] },
-                      { "group": "Token Resources", "pages": [] }
+                      {
+                        "group": "Guides & Resources",
+                        "icon": "books",
+                        "pages": [
+                          "v2/pages/06_delegators/token-resources/lpt-exchanges"
+                        ]
+                      }
                     ]
                   },
                   {
