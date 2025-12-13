@@ -4,7 +4,92 @@ img[alt="light logo"] {
 } */
 
 /* V2 TEST */
-a.nav-tabs-item[href="/pages/07_resources/resources_hub.mdx"],
+/* a.nav-tabs-item[href="/pages/07_resources/resources_hub.mdx"],
 a.nav-tabs-item[href="/pages/08_help/README"] {
   color: rgba(255, 90, 90, 0.342) !important;
+} */
+
+/* Make the nav-tabs container full width */
+.nav-tabs {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+.nav-tabs
+
+/* Make the nav-tabs container full width */
+.nav-tabs {
+  width: 100%;
+  justify-content: flex-start;
+}
+
+#navbar > div.z-10.mx-auto.relative > div.hidden.lg\:flex.px-12.h-12 > div {
+  column-gap: 2rem !important;
+}
+
+/* .gap-x-6 {
+  column-gap: 2rem !important;
+} */
+
+/* .nav-tabs h-full flex text-sm gap-x-6 {
+  column-gap: 2rem !important;
+} */
+
+/* Push Reference HUB to the right and style as outlined button */
+a.nav-tabs-item[href="/v2/pages/07_resources/resources_hub"] {
+  margin-left: auto;
+  background-color: transparent;
+  border: 1px solid #2b9a66 !important;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  height: auto !important;
+  align-self: center;
+  margin-right: -2rem;
+}
+
+/* Color the text */
+/* a.nav-tabs-item[href="/v2/pages/07_resources/resources_hub"] {
+  color: #2b9a66 !important;
+} */
+
+/* Shrink & color the icon */
+a.nav-tabs-item[href="/v2/pages/07_resources/resources_hub"] svg {
+  height: 0.75rem;
+  width: 0.75rem;
+  /* background-color: #2b9a66 !important; */
+}
+
+/* Hide the underline on the button */
+a.nav-tabs-item[href="/v2/pages/07_resources/resources_hub"] > div:last-child {
+  display: none;
+}
+
+/* Stack footer links vertically */
+#footer .flex-col .flex.gap-4 {
+  flex-direction: column !important;
+  gap: 0rem !important;
+}
+
+/* Reduce footer padding */
+#footer > div {
+  padding-top: 2rem !important;
+  padding-bottom: 1rem !important;
+}
+
+/* #footer > div > div:first-child {
+  display: flex;
+  flex-direction: row !important;
+  color: red !important;
+}
+
+#footer > div > div:first-child > div {
+  display: flex;
+  flex-direction: row !important;
+  color: green !important;
+} */
+
+/* Fix bad styling of cards with arrows */
+[data-component-part="card-content-container"] {
+  padding-right: 2.5rem; /* Creates space for the arrow */
 }
