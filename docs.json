@@ -405,6 +405,12 @@
                         "pages": [
                           "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
                           {
+                            "group": "Requirements",
+                            "pages": [
+                              "v2/pages/04_gateways/run-a-gateway/requirements/requirements"
+                            ]
+                          },
+                          {
                             "group": "Installation",
                             "pages": [
                               "v2/pages/04_gateways/run-a-gateway/install/install-overview",
@@ -414,11 +420,22 @@
                               "v2/pages/04_gateways/run-a-gateway/install/community-projects"
                             ]
                           },
-                          { "group": "Configuration", "pages": [] },
+                          {
+                            "group": "Configuration",
+                            "pages": [
+                              "v2/pages/04_gateways/run-a-gateway/configure/configure-gateway"
+                            ]
+                          },
                           {
                             "group": "Publish Services",
                             "pages": [
                               "v2/pages/04_gateways/run-a-gateway/publish/publish-offerings"
+                            ]
+                          },
+                          {
+                            "group": "Monitor & Optimize",
+                            "pages": [
+                              "v2/pages/04_gateways/run-a-gateway/monitor/monitor-and-optimize"
                             ]
                           }
                         ]
