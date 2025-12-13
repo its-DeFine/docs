@@ -19,7 +19,7 @@
             "tabs": [
               {
                 "tab": "Internal Hub",
-                "hidden": true,
+                "hidden": false,
                 "icon": "info-circle",
                 "anchors": [
                   {
@@ -317,26 +317,31 @@
                         "icon": "lightbulb",
                         "pages": [
                           "v2/pages/03_developers/builder-opportunities/dev-programs",
-                          "v2/pages/03_developers/builder-opportunities/livepeer-rfps",
-                          "v2/pages/03_developers/builder-opportunities/oss-contributions"
+                          "v2/pages/03_developers/builder-opportunities/livepeer-rfps"
                         ]
                       },
                       {
                         "group": "Technical References",
                         "icon": "books",
                         "pages": [
-                          "v2/pages/03_developers/technical-references-sdks.-and-apis/sdks",
-                          "v2/pages/03_developers/technical-references-sdks.-and-apis/apis",
-                          "v2/pages/03_developers/technical-references-sdks.-and-apis/deepwiki",
-                          "v2/pages/03_developers/technical-references-sdks.-and-apis/migrations-guides"
+                          {
+                            "group": "SDKs & APIs",
+                            "pages": [
+                              "v2/pages/03_developers/technical-references-sdks.-and-apis/sdks",
+                              "v2/pages/03_developers/technical-references-sdks.-and-apis/apis"
+                            ]
+                          },
+                          "v2/pages/03_developers/technical-references/awesome-livepeer",
+                          "v2/pages/03_developers/technical-references/wiki",
+                          "v2/pages/03_developers/technical-references/deepwiki"
                         ]
                       },
                       {
                         "group": "Changelog & Migrations",
                         "icon": "swap",
                         "pages": [
-                          "v2/pages/03_developers/technical-references-sdks.-and-apis/livepeer-changelog/livepeer-changelog",
-                          "v2/pages/03_developers/technical-references-sdks.-and-apis/livepeer-changelog/migration-guides"
+                          "v2/pages/07_resources/changelog/changelog",
+                          "v2/pages/07_resources/changelog/migration-guides"
                         ]
                       }
                     ]

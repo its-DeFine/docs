@@ -60,7 +60,11 @@ build/
 *.swo
 
 # ------------------------------------
-# TypeScript 
+# TypeScript
 # ------------------------------------
 *.tsbuildinfo
 
+# ------------------------------------
+# External docs (fetched at build time)
+# ------------------------------------
+snippets/external/

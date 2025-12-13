@@ -9,6 +9,8 @@
     "test": "tests"
   },
   "scripts": {
+    "fetch-docs": "bash scripts/fetch-external-docs.sh",
+    "prebuild": "bash scripts/fetch-external-docs.sh",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
