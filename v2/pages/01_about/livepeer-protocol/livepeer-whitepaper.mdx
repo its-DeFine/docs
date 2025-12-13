@@ -4,6 +4,7 @@ sidebarTitle: 'Whitepaper'
 ---
 
 import WhitepaperContent from '/snippets/external/whitepaper.mdx'
+import { ExternalContent } from '/snippets/components/external-content.jsx'
 
 <Card title="View Livepeer Whitepaper" icon="github" href="https://github.com/livepeer/wiki/blob/master/WHITEPAPER.md" horizontal arrow>
     View the Livepeer Whitepaper on Github
@@ -11,39 +12,9 @@ import WhitepaperContent from '/snippets/external/whitepaper.mdx'
 <br/>
 Below is the Livepeer Whitepaper.
 
-<div style={{
-  border: '1px solid #2d9a67',
-  borderRadius: '8px',
-  overflow: 'hidden',
-  marginTop: '1rem'
-}}>
-  <div style={{
-    backgroundColor: '#0d0d0d',
-    padding: '0.75rem 1rem',
-    borderBottom: '1px solid #2d9a67',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between'
-  }}>
-    <span style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-      <Icon icon="github" size={16} />
-      <strong>livepeer/wiki - WHITEPAPER.md</strong>
-    </span>
-    <a href="https://github.com/livepeer/wiki/blob/master/WHITEPAPER.md" target="_blank" style={{
-      color: '#2d9a67',
-      fontSize: '0.875rem',
-      display: 'flex',
-      alignItems: 'center',
-      gap: '0.25rem'
-    }}>
-      View on GitHub <Icon icon="arrow-up-right-from-square" size={12} />
-    </a>
-  </div>
-  <div style={{
-    maxHeight: '1000px',
-    overflowY: 'auto',
-    padding: '0 1rem'
-  }}>
-    <WhitepaperContent />
-  </div>
-</div>
+<ExternalContent
+  repoName="livepeer/wiki - WHITEPAPER.md"
+  githubUrl="https://github.com/livepeer/wiki/blob/master/WHITEPAPER.md"
+>
+  <WhitepaperContent />
+</ExternalContent>
