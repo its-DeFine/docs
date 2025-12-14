@@ -5,120 +5,248 @@ sidebarTitle: Run a Gateway
 
 <Danger>
 This page is a work in progress.
+    <Accordian title="TODO">
+    **TODO:**
 
-**TODO:**
-
-- [ ] Copy fixing
-- [ ] Editing
-- [ ] Streamlining
-- [ ] Format
-- [ ] Style
-- [ ] Copy over v1 docs
-- [ ] Fix Mermaid Diagram
-
+    - [ ] Copy fixing
+    - [ ] Editing
+    - [ ] Streamlining
+    - [ ] Format
+    - [ ] Style
+    - [ ] Copy over v1 docs
+    - [ ] Fix Mermaid Diagram
+    </Accordian>
 </Danger>
 
 import { GotoLink } from '/snippets/components/links.jsx'
 
-Running a Gateway node allows operators to participate in the decentralized AI compute economy by providing high-value coordination services. Gateways compete on service quality, supported capabilities, and routing performance, enabling a rich ecosystem of real-time AI video applications.
+Gateways are essential infrastructure in the Livepeer network. 
+They provide the service coordination layer (routing & verification) that connects applications to the decentralized GPU compute layer. 
+This guide explains the requirements, setup steps, and best practices for running a Gateway node.
 
-<Accordion title="Intro - move?" icon="folder">
-    # How to Become a Gateway Operator
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+flowchart LR
+    subgraph INPUT["Input Sources"]
+        CAM["Camera / RTMP / WebRTC"]
+        VID["Video File"]
+        AIIN["AI Prompt / Model Request"]
+    end
 
-    Gateways are essential infrastructure in the Livepeer network. They provide the service coordination layer that connects applications to the decentralized GPU compute layer. This guide explains the requirements, setup steps, and best practices for running a Gateway node.
+    GATEWAY["Gateway Node<br/>• Ingest (RTMP/HTTP/WebRTC)<br/>• Segment video<br/>• Queue + order jobs<br/>• AI pipeline routing<br/>• Orchestrator selection<br/>• Verification & receipts"]
 
-    ## What a Gateway Operator Does
+    CAM -->|"Live stream"| GATEWAY
+    VID -->|"VOD upload"| GATEWAY
+    AIIN -->|"AI job request"| GATEWAY
 
-    Gateway operators handle:
+    subgraph JOBS["Workflows"]
+        VJ["Video Transcoding Job"]
+        AIJ["AI Inference Job<br/>(Daydream / ComfyStream / BYOC)"]
+    end
 
-    - Job intake and API requests
-    - Routing workloads to the best orchestrator
-    - Managing pricing, capabilities, and service metadata
-    - Publishing offerings to the Marketplace
-    - Monitoring job performance, latency, and reliability
+    GATEWAY --> VJ
+    GATEWAY --> AIJ
 
-    Gateways do **not** run AI inference or transcoding themselves. That work is performed by orchestrators.
-        
+    subgraph ORCH["Orchestrator Network (GPU Operators)"]
+        O1["Orchestrator A<br/>GPU Pool"]
+        O2["Orchestrator B<br/>GPU Pool"]
+        O3["Orchestrator C<br/>GPU Pool"]
+    end
+
+    VJ -->|"Transcode segments"| O1
+    VJ --> O2
+    AIJ -->|"Run model / inference"| O1
+    AIJ --> O3
+
+    subgraph OUTPUTS["Outputs"]
+        HLS["Adaptive Bitrate Video (HLS/LL-HLS)"]
+        AIOUT["AI Frames / Stylized Video"]
+    end
+
+    O1 --> GATEWAY
+    O2 --> GATEWAY
+    O3 --> GATEWAY
+
+    GATEWAY --> HLS
+    GATEWAY --> AIOUT
+
+    ETH[("Arbitrum Blockchain<br/>Payments • Tickets • Rewards")]
+    GATEWAY --> ETH
+    O1 --> ETH
+    O2 --> ETH
+    O3 --> ETH
+
+    classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
+    style INPUT fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+    style JOBS fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+    style ORCH fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+    style OUTPUTS fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+```
+
+<AccordionGroup>
+<Accordion title="From a Cloud Background?" icon="cloud" description="Think: Load Balancer / API Gateway">
+
+Running a Gateway is similar to operating an API Gateway or Load Balancer in cloud computing — 
+it ingests traffic, routes workloads to backend GPU nodes, and manages session flow 
+without doing the heavy compute itself.
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 
+  'primaryColor': '#1a1a1a', 
+  'primaryTextColor': '#fff', 
+  'primaryBorderColor': '#2d9a67', 
+  'lineColor': '#2d9a67', 
+  'secondaryColor': '#0d0d0d', 
+  'tertiaryColor': '#1a1a1a', 
+  'background': '#0d0d0d', 
+  'fontFamily': 'system-ui' 
+}}}%%
+flowchart LR
+    subgraph Clients["Client / Application Layer"]
+        A["Apps & SDKs<br/>• Video Ingest<br/>• AI Inference Requests<br/>• WebRTC / HTTP"]
+    end
+
+    subgraph Gateway["Gateway Layer (Livepeer Gateway)"]
+        B["Gateway Node<br/><br/>Cloud Analogy:<br/>• API Gateway<br/>• L7 Load Balancer<br/>• Control Plane<br/><br/>Responsibilities:<br/>• Auth & Rate Limits<br/>• Stream Segmentation<br/>• Job Routing<br/>• Health Checks<br/>• Retry & Failover"]
+    end
+
+    subgraph Compute["Compute Layer (Supply Side)"]
+        C["Orchestrators<br/>GPU Workers<br/><br/>Cloud Analogy:<br/>• Auto-scaling GPU Fleet<br/>• Managed Inference Pool"]
+    end
+
+    subgraph Settlement["Coordination & Settlement"]
+        D["Ethereum + Livepeer Protocol<br/><br/>• Payments<br/>• Accounting<br/>• Slashing / Security"]
+    end
+
+    A -->|Requests| B
+    B -->|Dispatch Jobs| C
+    C -->|Results / Streams| B
+    B -->|Responses| A
+    C -->|Usage & Proof| D
+
+    classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
+    style Clients fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+    style Gateway fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+    style Compute fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+    style Settlement fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+```
 </Accordion>
+<Accordion title="From an Ethereum Background?" icon="coin" description="Think: L2 Sequencer">
+
+Running a Gateway is **not** like running a validator on Ethereum.
+Validators secure consensus whereas Gateways route workloads. It's more akin to a Sequencer on a Layer 2.
+Just as a Sequencer ingests user transactions, orders them, and routes them into the rollup execution layer, 
+a Livepeer Gateway performs the same function for the Livepeer compute network.
+
+
+    ```mermaid
+    %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+    flowchart LR
+        subgraph User["User Layer"]
+            A["Client<br/>Video/AI Request"]
+        end
+
+        subgraph Gateway["Gateway Layer"]
+            B["Livepeer Gateway<br/>= L2 Sequencer<br/><br/>• Ingests Requests<br/>• Segments/Preprocesses<br/>• Selects Orchestrators<br/>• Routes Jobs<br/>• Returns Results"]
+        end
+
+        subgraph Compute["Compute Layer"]
+            C["Orchestrators<br/>GPU Workers<br/><br/>= L2 Execution Layer"]
+        end
+
+        subgraph Settlement["Settlement Layer"]
+            D["Ethereum<br/>Consensus & Payment Security"]
+        end
+
+        A --> B
+        B --> C
+        C --> B
+        B --> A
+        C --> D
+
+        classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
+        style User fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+        style Gateway fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+        style Compute fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+        style Settlement fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+    ```
+    <div style={{ textAlign: 'center', fontStyle: 'italic', fontSize: '0.75rem', color: '#888' }}>Gateways as L2 Sequencers</div>
+</Accordion>
+<Accordion title="Neither? You can still run a gateway!" icon="film" description="Think: Film Producer">
+
+For the rest of us, running a Gateway is like being a film producer.
+You take a request, assemble the right specialists, manage constraints, 
+and ensure the final result is delivered reliably—without doing every task yourself.
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 
+  'primaryColor': '#1a1a1a',
+  'primaryTextColor': '#fff',
+  'primaryBorderColor': '#2d9a67',
+  'lineColor': '#2d9a67',
+  'secondaryColor': '#0d0d0d',
+  'background': '#0d0d0d',
+  'fontFamily': 'system-ui'
+}}}%%
+flowchart LR
+    subgraph Persona["Persona: Gateway Operator = Film Producer"]
+        P["Film Producer Mindset<br/>• Owns delivery<br/>• Sets constraints<br/>• Chooses specialists<br/>• Ensures quality"]
+    end
+
+    subgraph Request["Act I — The Pitch"]
+        A["Incoming Request<br/>• Live Video Stream<br/>• AI Inference Job<br/>• Quality & Latency Requirements"]
+    end
+
+    subgraph Planning["Act II — Pre-Production"]
+        B["Gateway (Producer)<br/><br/>• Interpret the request<br/>• Set budget & latency constraints<br/>• Choose specialists<br/>• Plan execution"]
+    end
+
+    subgraph Crew["Act III — Production Crew"]
+        C["Orchestrators / GPU Workers<br/><br/>• Transcoding<br/>• AI Inference<br/>• Real-time Processing"]
+    end
+
+    subgraph Delivery["Act IV — Final Cut & Release"]
+        D["Verified Output<br/>• Stream / AI Result<br/>• Quality checked<br/>• Delivered on time"]
+    end
+
+    subgraph Settlement["Credits & Accounting"]
+        E["Onchain Settlement<br/>• Usage recorded<br/>• Payments distributed<br/>• Trust enforced"]
+    end
+
+    P --> A
+    A --> B
+    B --> C
+    C --> B
+    B --> D
+    C --> E
+
+    classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
+    style Persona fill:#0d0d0d,stroke:#2d9a67
+    style Request fill:#0d0d0d,stroke:#2d9a67
+    style Planning fill:#0d0d0d,stroke:#2d9a67
+    style Crew fill:#0d0d0d,stroke:#2d9a67
+    style Delivery fill:#0d0d0d,stroke:#2d9a67
+    style Settlement fill:#0d0d0d,stroke:#2d9a67
+```
+</Accordion>
+</AccordionGroup>
+
+## What a Gateway Operator Does
+
+Gateway operators handle:
+
+- Job intake and API requests
+- Routing workloads to the best Orchestrator (GPU Node)
+- Managing pricing, capabilities, and service metadata
+- Publishing offerings (AI inference, video transcoding and more) to the Marketplace
+- Monitoring job performance, latency, and reliability
+
+Gateways do **not** compute or perform the AI inference or transcoding themselves. 
+That work is performed by orchestrators.
 
 
 ## Gateway Operator Journey
-
-<br/>
-### Layout 1
-<AccordionGroup>
-<Accordion title="1. Requirements Check" icon="clipboard-check">
-    Check hardware, network, and software requirements.
-  </Accordion>
-  <Accordion title="2. Deploy the Gateway Service" icon="rocket">
-    You'll set up:
-    - API server
-    - Routing engine
-    - Capability registry
-    - Pricing configuration
-
-    Gateways can be deployed via:
-    - Docker
-    - Kubernetes
-    - Bare-metal services
-  </Accordion>
-
-  <Accordion title="3. Connect to Orchestrators" icon="link">
-    Gateways select orchestrators based on:
-    - GPU type (A40, 4090, L40S, etc.)
-    - Model compatibility
-    - Performance metrics
-    - Reliability scores
-    - Pricing
-
-    Gateways must maintain active communication channels with orchestrator nodes.
-  </Accordion>
-
-  <Accordion title="4. Configure Capabilities" icon="gear">
-    Your Gateway must declare:
-    - Supported models (diffusion, ControlNet, IPAdapter)
-    - Supported pipelines (ComfyStream, Daydream, BYOC containers)
-    - Region/latency zones
-    - Fallback and load-balancing rules
-  </Accordion>
-
-  <Accordion title="5. Set Pricing" icon="dollar-sign">
-    Pricing can be:
-    - Per frame
-    - Per second
-    - Per inference run
-    - Per GPU-minute (BYOC)
-
-    Gateways publish pricing via Marketplace APIs.
-  </Accordion>
-
-  <Accordion title="6. Register in the Marketplace" icon="store">
-    Once configured, Gateways submit:
-    - Name
-    - Regions
-    - Pricing structure
-    - Supported models
-    - Supported pipelines
-    - Performance benchmarks
-    - SLA guarantees
-
-    This enables applications to discover and select your node.
-  </Accordion>
-
-  <Accordion title="7. Monitor & Optimize" icon="chart-line">
-    Gateways must track:
-    - Routing accuracy
-    - Latency
-    - Throughput
-    - Orchestrator stability
-
-    This ensures competitive placement in the Marketplace.
-  </Accordion>
-</AccordionGroup>
-
 <br/>
 
-### Layout 2 & 3
 <Columns cols={2}>  
 <div style={{ display: 'flex', justifyContent: 'center' }}>
 ```mermaid
@@ -200,21 +328,3 @@ flowchart TB
 
 </div>
 </Columns>
-
-### Layout 4
-<CardGroup cols={1}>
-    ### Requirements
-    <Card title="Requirements" icon="clipboard-check" href="#requirements-check" horizontal arrow />
-    ### Setup
-    <Card title="Deploy Gateway" icon="rocket" href="#1-deploy-the-gateway-service"  horizontal arrow />
-    <Card title="Connect Orchestrators" icon="link" href="#2-connect-to-orchestrators"  horizontal arrow />
-    ### Configuration
-    <Card title="Configure Gateway" icon="gear" href="#3-configure-capabilities"  horizontal arrow />
-    <Card title="Set Pricing" icon="dollar-sign" href="#4-set-pricing"  horizontal arrow />
-    ### Launch
-    <Card title="Publish Offerings" icon="store" href="#5-register-in-the-marketplace"  horizontal arrow />
-    <Card title="Monitor" icon="chart-line" href="#6-monitor--optimize"  horizontal arrow />
-</CardGroup>
-
-
-

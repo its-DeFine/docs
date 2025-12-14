@@ -165,7 +165,7 @@
                         "group": "Livepeer Community",
                         "icon": "people-group",
                         "pages": [
-                          "v2/pages/02_community/livepeer-community/livepeer-community-hub",
+                          "v2/pages/02_community/community-home",
                           "v2/pages/02_community/livepeer-community/livepeer-Latest-Topics",
                           "v2/pages/02_community/livepeer-community/community-guidelines"
                         ]
@@ -233,6 +233,7 @@
                         "group": "Building on Livepeer",
                         "icon": "code",
                         "pages": [
+                          "v2/pages/03_developers/developer-home",
                           "v2/pages/03_developers/building-on-livepeer/developer-guide"
                         ]
                       },
@@ -376,10 +377,10 @@
                         "group": "About Gateways",
                         "icon": "graduation-cap",
                         "pages": [
+                          "v2/pages/04_gateways/gateways-home",
                           "v2/pages/04_gateways/about-gateways/gateway-explainer",
                           "v2/pages/04_gateways/about-gateways/gateway-functions",
-                          "v2/pages/04_gateways/about-gateways/gateway-architecture",
-                          "v2/pages/04_gateways/about-gateways/gateways-vs-orchestrators"
+                          "v2/pages/04_gateways/about-gateways/gateway-architecture"
                         ]
                       },
                       {
@@ -387,10 +388,10 @@
                         "icon": "wand-magic-sparkles",
                         "pages": [
                           "v2/pages/04_gateways/using-gateways/choosing-a-gateway",
+                          "v2/pages/04_gateways/using-gateways/gateway-providers",
                           {
-                            "group": "Gateway Providers",
+                            "group": "Provider Docs",
                             "pages": [
-                              "v2/pages/04_gateways/using-gateways/gateway-providers/index",
                               "v2/pages/04_gateways/using-gateways/gateway-providers/daydream-gateway",
                               "v2/pages/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
                               "v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway",
@@ -423,7 +424,10 @@
                           {
                             "group": "Configuration",
                             "pages": [
-                              "v2/pages/04_gateways/run-a-gateway/configure/configure-gateway"
+                              "v2/pages/04_gateways/run-a-gateway/configure/configuration-overview",
+                              "v2/pages/04_gateways/run-a-gateway/configure/configuration-options",
+                              "v2/pages/04_gateways/run-a-gateway/configure/video-configuration",
+                              "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration"
                             ]
                           },
                           {
@@ -476,6 +480,21 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": "Quickstart",
+                    "icon": "fast-forward",
+                    "pages": ["v2/pages/04_gateways/quickstart"]
+                  },
+                  {
+                    "anchor": "Resources",
+                    "icon": "books",
+                    "pages": ["v2/pages/04_gateways/quickstart"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "-",
+                    "pages": [" "]
                   }
                 ]
               },
@@ -491,6 +510,7 @@
                         "group": "About Orchestrators (GPU Nodes)",
                         "icon": "graduation-cap",
                         "pages": [
+                          "v2/pages/05_orchestrators/orchestrators-home",
                           "v2/pages/05_orchestrators/about-orchestrators/overview",
                           {
                             "group": "Orchestrator Functions",
@@ -565,6 +585,7 @@
                         "group": "About LPT",
                         "icon": "graduation-cap",
                         "pages": [
+                          "v2/pages/06_delegators/token-home",
                           "v2/pages/06_delegators/about-lpt-livepeer-token/overview",
                           "v2/pages/06_delegators/about-lpt-livepeer-token/why-have-a-token",
                           "v2/pages/06_delegators/about-lpt-livepeer-token/livepeer-token-economics",
