@@ -1,4 +1,4 @@
-export const ZoomableDiagram = ({
+export const ScrollableDiagram = ({
   children,
   title = "",
   maxHeight = "500px",

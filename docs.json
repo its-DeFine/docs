@@ -427,19 +427,23 @@
                               "v2/pages/04_gateways/run-a-gateway/configure/configuration-overview",
                               "v2/pages/04_gateways/run-a-gateway/configure/video-configuration",
                               "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration",
-                              "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration"
+                              "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration",
+                              "v2/pages/04_gateways/run-a-gateway/configure/fund-gateway",
+                              "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration"
                             ]
                           },
                           {
                             "group": "Publish Services",
                             "pages": [
-                              "v2/pages/04_gateways/run-a-gateway/publish/publish-offerings"
+                              "v2/pages/04_gateways/run-a-gateway/publish/publish-offerings",
+                              "v2/pages/04_gateways/run-a-gateway/publish/publish-content",
+                              "v2/pages/04_gateways/run-a-gateway/publish/playback-content"
                             ]
                           },
                           {
-                            "group": "Monitor & Optimize",
+                            "group": "Monitor & Optimise",
                             "pages": [
-                              "v2/pages/04_gateways/run-a-gateway/monitor/monitor-and-optimize"
+                              "v2/pages/04_gateways/run-a-gateway/monitor/monitor-and-optimise"
                             ]
                           }
                         ]
@@ -468,6 +472,10 @@
                               "v2/pages/04_gateways/guides-references/technical-architecture",
                               "v2/pages/04_gateways/guides-references/protocol-specifications"
                             ]
+                          },
+                          {
+                            "group": "API Reference",
+                            "openapi": "ai/worker/api/openapi.yaml"
                           },
                           "v2/pages/04_gateways/guides-references/FAQ"
                         ]

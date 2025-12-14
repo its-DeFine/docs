@@ -84,7 +84,10 @@ components:
         quality:
           type: integer
           description: >
-            Restricts the size of the output video using the constant quality feature. Increasing this value will result in a lower quality video. Note that this parameter might not work if the transcoder lacks support for it.
+            Restricts the size of the output video using the constant quality
+            feature. Increasing this value will result in a lower quality video.
+            Note that this parameter might not work if the transcoder lacks
+            support for it.
 
           minimum: 0
           maximum: 44
@@ -131,7 +134,10 @@ components:
         quality:
           type: integer
           description: >
-            Restricts the size of the output video using the constant quality feature. Increasing this value will result in a lower quality video. Note that this parameter might not work if the transcoder lacks support for it.
+            Restricts the size of the output video using the constant quality
+            feature. Increasing this value will result in a lower quality video.
+            Note that this parameter might not work if the transcoder lacks
+            support for it.
 
           minimum: 0
           maximum: 44
@@ -193,7 +199,8 @@ components:
         createdAt:
           type: number
           readOnly: true
-          description: Timestamp (in milliseconds) at which stream object was created
+          description:
+            Timestamp (in milliseconds) at which stream object was created
           example: 1587667174725
         events:
           type: array
@@ -251,7 +258,8 @@ components:
                   type: number
                   readOnly: true
                   example: 1587667174725
-                  description: Timestamp (in milliseconds) at which the webhook last failed
+                  description:
+                    Timestamp (in milliseconds) at which the webhook last failed
                 error:
                   readOnly: true
                   type: string
@@ -354,17 +362,24 @@ components:
         playbackId:
           type: string
           description: >-
-            The playback ID of the stream or stream recording to clip. Asset playback IDs are not supported yet.
+            The playback ID of the stream or stream recording to clip. Asset
+            playback IDs are not supported yet.
           example: eaw4nk06ts2d0mzb
         startTime:
           type: number
           description: >-
-            The start timestamp of the clip in Unix milliseconds. _See the ClipTrigger in the UI Kit for an example of how this is calculated (for HLS, it uses `Program Date-Time` tags, and for WebRTC, it uses the latency from server to client at stream startup)._
+            The start timestamp of the clip in Unix milliseconds. _See the
+            ClipTrigger in the UI Kit for an example of how this is calculated
+            (for HLS, it uses `Program Date-Time` tags, and for WebRTC, it uses
+            the latency from server to client at stream startup)._
           example: 1587667174725
         endTime:
           type: number
           description: >-
-            The end timestamp of the clip in Unix milliseconds. _See the ClipTrigger in the UI Kit for an example of how this is calculated (for HLS, it uses `Program Date-Time` tags, and for WebRTC, it uses the latency from server to client at stream startup)._
+            The end timestamp of the clip in Unix milliseconds. _See the
+            ClipTrigger in the UI Kit for an example of how this is calculated
+            (for HLS, it uses `Program Date-Time` tags, and for WebRTC, it uses
+            the latency from server to client at stream startup)._
           example: 1587667174725
         name:
           type: string
@@ -373,7 +388,9 @@ components:
         sessionId:
           type: string
           description: >-
-            The optional session ID of the stream to clip. This can be used to clip _recordings_ - if it is not specified, it will clip the ongoing livestream.
+            The optional session ID of the stream to clip. This can be used to
+            clip _recordings_ - if it is not specified, it will clip the ongoing
+            livestream.
           example: de7818e7-610a-4057-8f6f-b785dc1e6f88
     target:
       type: object
@@ -432,7 +449,8 @@ components:
         createdAt:
           type: number
           readOnly: true
-          description: Timestamp (in milliseconds) at which stream object was created
+          description:
+            Timestamp (in milliseconds) at which stream object was created
           example: 1587667174725
     stream:
       type: object
@@ -512,7 +530,8 @@ components:
         createdAt:
           type: number
           readOnly: true
-          description: Timestamp (in milliseconds) at which stream object was created
+          description:
+            Timestamp (in milliseconds) at which stream object was created
           example: 1587667174725
         parentId:
           type: string
@@ -585,7 +604,9 @@ components:
         playbackId:
           type: string
           example: eaw4nk06ts2d0mzb
-          description: The playback ID to use with the Playback Info endpoint to retrieve playback URLs.
+          description:
+            The playback ID to use with the Playback Info endpoint to retrieve
+            playback URLs.
         playbackPolicy:
           $ref: "#/components/schemas/playback-policy"
         profiles:
@@ -664,7 +685,8 @@ components:
             - number
             - "null"
           example: 1713281212993
-          description: Timestamp (in milliseconds) when the stream was last terminated
+          description:
+            Timestamp (in milliseconds) when the stream was last terminated
         userId:
           type: string
           readOnly: true
@@ -789,7 +811,9 @@ components:
             - type: "array"
               items:
                 type: "string"
-          description: "A string array of human-readable errors describing issues affecting the stream, if any."
+          description:
+            "A string array of human-readable errors describing issues affecting
+            the stream, if any."
         tracks:
           type: object
           description: |
@@ -806,7 +830,8 @@ components:
                 description: "The bitrate of the track, in kilobits per second."
               keys:
                 type: object
-                description: An object containing additional track-specific metrics.
+                description:
+                  An object containing additional track-specific metrics.
                 additionalProperties:
                   type: number
               fpks:
@@ -890,7 +915,8 @@ components:
         createdAt:
           readOnly: true
           type: number
-          description: Timestamp (in milliseconds) at which stream object was created
+          description:
+            Timestamp (in milliseconds) at which stream object was created
           example: 1587667174725
         parentId:
           type: string
@@ -902,14 +928,16 @@ components:
           example: aac12556-4d65-4d34-9fb6-d1f0985eb0a9
         record:
           description: >
-            Whether the stream should be recorded. Uses default settings. For more customization, create and configure an object store.
+            Whether the stream should be recorded. Uses default settings. For
+            more customization, create and configure an object store.
 
           type: boolean
           example: false
         recordingStatus:
           readOnly: true
           type: string
-          description: The status of the recording process of this stream session.
+          description:
+            The status of the recording process of this stream session.
           enum:
             - waiting
             - ready
@@ -923,12 +951,14 @@ components:
         mp4Url:
           type: string
           readOnly: true
-          description: The URL for the stream session recording packaged in an MP4.
+          description:
+            The URL for the stream session recording packaged in an MP4.
         playbackId:
           type: string
           example: eaw4nk06ts2d0mzb
           description: >-
-            The playback ID to use with the Playback Info endpoint to retrieve playback URLs.
+            The playback ID to use with the Playback Info endpoint to retrieve
+            playback URLs.
         profiles:
           $ref: "#/components/schemas/stream/properties/profiles"
         recordingSpec:
@@ -964,7 +994,8 @@ components:
         url:
           type: string
           writeOnly: true
-          description: Livepeer-compatible multistream target URL (RTMP(S) or SRT)
+          description:
+            Livepeer-compatible multistream target URL (RTMP(S) or SRT)
           example: "rtmps://live.my-service.tv/channel/secretKey"
           format: uri
           pattern: "^(srt|rtmps?)://"
@@ -1003,7 +1034,8 @@ components:
           type: string
           example: eaw4nk06ts2d0mzb
           description: >-
-            The playback ID to use with the Playback Info endpoint to retrieve playback URLs.
+            The playback ID to use with the Playback Info endpoint to retrieve
+            playback URLs.
         userId:
           type: string
           readOnly: true
@@ -1019,13 +1051,18 @@ components:
           example: >-
             https://livepeercdn.com/asset/ea03f37e-f861-4cdd-b495-0e60b6d753ad/index.m3u8
           description: >-
-            URL for HLS playback. **It is recommended to not use this URL**, and instead use playback IDs with the Playback Info endpoint to retrieve the playback URLs - this URL format is subject to change (e.g. https://livepeercdn.com/asset/ea03f37e-f861-4cdd-b495-0e60b6d753ad/index.m3u8).
+            URL for HLS playback. **It is recommended to not use this URL**, and
+            instead use playback IDs with the Playback Info endpoint to retrieve
+            the playback URLs - this URL format is subject to change (e.g.
+            https://livepeercdn.com/asset/ea03f37e-f861-4cdd-b495-0e60b6d753ad/index.m3u8).
         downloadUrl:
           readOnly: true
           type: string
           example: "https://livepeercdn.com/asset/eaw4nk06ts2d0mzb/video/download.mp4"
           description: >-
-            The URL to directly download the asset, e.g. `https://livepeercdn.com/asset/eawrrk06ts2d0mzb/video`. It is not recommended to use this for playback.
+            The URL to directly download the asset, e.g.
+            `https://livepeercdn.com/asset/eawrrk06ts2d0mzb/video`. It is not
+            recommended to use this for playback.
         playbackPolicy:
           $ref: "#/components/schemas/playback-policy"
         source:
@@ -1045,7 +1082,8 @@ components:
                 gatewayUrl:
                   type: string
                   description: >-
-                    Gateway URL from asset if parsed from provided URL on upload.
+                    Gateway URL from asset if parsed from provided URL on
+                    upload.
                 encryption:
                   $ref: "#/components/schemas/new-asset-payload/properties/encryption"
             - additionalProperties: false
@@ -1059,7 +1097,8 @@ components:
                     - recording
                 sessionId:
                   type: string
-                  description: ID of the session from which this asset was created
+                  description:
+                    ID of the session from which this asset was created
             - additionalProperties: false
               required:
                 - type
@@ -1073,20 +1112,25 @@ components:
                   $ref: "#/components/schemas/new-asset-payload/properties/encryption"
                 sourceId:
                   type: string
-                  description: ID of the asset or stream from which this asset was created.
+                  description:
+                    ID of the asset or stream from which this asset was created.
                 sessionId:
                   type: string
-                  description: ID of the session from which this asset was created.
+                  description:
+                    ID of the session from which this asset was created.
                 playbackId:
                   type: string
                   description: >-
-                    Playback ID of the asset or stream from which this asset was created.
+                    Playback ID of the asset or stream from which this asset was
+                    created.
                 requesterId:
                   type: string
-                  description: ID of the requester from which this asset was created.
+                  description:
+                    ID of the requester from which this asset was created.
                 assetId:
                   type: string
-                  description: ID of the asset from which this asset was created.
+                  description:
+                    ID of the asset from which this asset was created.
         creatorId:
           $ref: "#/components/schemas/creator-id"
         profiles:
@@ -1162,7 +1206,8 @@ components:
                 - deleted
             updatedAt:
               type: number
-              description: Timestamp (in milliseconds) at which the asset was last updated
+              description:
+                Timestamp (in milliseconds) at which the asset was last updated
               example: 1587667174725
             progress:
               type: number
@@ -1173,7 +1218,8 @@ components:
         name:
           type: string
           description: >
-            The name of the asset. This is not necessarily the filename - it can be a custom name or title.
+            The name of the asset. This is not necessarily the filename - it can
+            be a custom name or title.
 
           example: filename.mp4
         projectId:
@@ -1275,7 +1321,8 @@ components:
                     example: 1080
                   pixelFormat:
                     type: string
-                    description: Pixel format of the track - only for video tracks
+                    description:
+                      Pixel format of the track - only for video tracks
                     example: yuv420p
                   fps:
                     type: number
@@ -1329,7 +1376,8 @@ components:
         name:
           type: string
           description: >
-            The name of the asset. This is not necessarily the filename - it can be a custom name or title.
+            The name of the asset. This is not necessarily the filename - it can
+            be a custom name or title.
 
           example: filename.mp4
         staticMp4:
@@ -1370,7 +1418,8 @@ components:
               type: string
               writeOnly: true
               description: >-
-                Encryption key used to encrypt the asset. Only writable in the upload asset endpoints and cannot be retrieved back.
+                Encryption key used to encrypt the asset. Only writable in the
+                upload asset endpoints and cannot be retrieved back.
         c2pa:
           type: boolean
           description: Decides if the output video should include C2PA signature
@@ -1382,7 +1431,8 @@ components:
             $ref: "#/components/schemas/transcode-profile"
         targetSegmentSizeSecs:
           type: number
-          description: How many seconds the duration of each output segment should be
+          description:
+            How many seconds the duration of each output segment should be
     room-user-payload:
       type: object
       required:
@@ -1399,7 +1449,8 @@ components:
           example: true
         canPublishData:
           type: boolean
-          description: Whether a user is allowed to publish data messages to the room
+          description:
+            Whether a user is allowed to publish data messages to the room
           example: true
         metadata:
           type: string
@@ -1421,12 +1472,14 @@ components:
         joinUrl:
           type: string
           description: >-
-            Joining URL - use this for Livepeer's default meeting app (see the multiparticipant streaming guide for more info).
+            Joining URL - use this for Livepeer's default meeting app (see the
+            multiparticipant streaming guide for more info).
           example: "https://meet.livepeer.chat"
         token:
           type: string
           description: >-
-            Joining JWT - this can be used if you have a custom meeting app (see the multiparticipant streaming guide for more info).
+            Joining JWT - this can be used if you have a custom meeting app (see
+            the multiparticipant streaming guide for more info).
           example: token
     get-room-user-response:
       type: object
@@ -1470,12 +1523,14 @@ components:
         canPublish:
           type: boolean
           description: >-
-            Whether a user is allowed to publish audio/video tracks (i.e. their microphone and webcam)
+            Whether a user is allowed to publish audio/video tracks (i.e. their
+            microphone and webcam)
           example: true
           default: true
         canPublishData:
           type: boolean
-          description: Whether a user is allowed to publish data messages to the room
+          description:
+            Whether a user is allowed to publish data messages to the room
           example: true
           default: true
         metadata:
@@ -1566,7 +1621,10 @@ components:
                   format: uri
                   pattern: "^http(s)?://"
                   description: >-
-                    Service endpoint URL (AWS S3 endpoint list: https://docs.aws.amazon.com/general/latest/gr/s3.html, GCP S3 endpoint: https://storage.googleapis.com, Storj: https://gateway.storjshare.io)
+                    Service endpoint URL (AWS S3 endpoint list:
+                    https://docs.aws.amazon.com/general/latest/gr/s3.html, GCP
+                    S3 endpoint: https://storage.googleapis.com, Storj:
+                    https://gateway.storjshare.io)
                   example: "https://gateway.storjshare.io"
                 bucket:
                   type: string
@@ -1613,7 +1671,10 @@ components:
                   format: uri
                   pattern: "^http(s)?://"
                   description: >-
-                    Service endpoint URL (AWS S3 endpoint list: https://docs.aws.amazon.com/general/latest/gr/s3.html, GCP S3 endpoint: https://storage.googleapis.com, Storj: https://gateway.storjshare.io)
+                    Service endpoint URL (AWS S3 endpoint list:
+                    https://docs.aws.amazon.com/general/latest/gr/s3.html, GCP
+                    S3 endpoint: https://storage.googleapis.com, Storj:
+                    https://gateway.storjshare.io)
                   example: "https://gateway.storjshare.io"
                 bucket:
                   type: string
@@ -1705,7 +1766,8 @@ components:
             $ref: "#/components/schemas/transcode-profile"
         targetSegmentSizeSecs:
           type: number
-          description: How many seconds the duration of each output segment should be
+          description:
+            How many seconds the duration of each output segment should be
         creatorId:
           $ref: "#/components/schemas/input-creator-id"
         c2pa:
@@ -1776,7 +1838,8 @@ components:
                   $ref: "#/components/schemas/new-asset-payload/properties/encryption"
                 c2pa:
                   type: boolean
-                  description: Decides if the output video should include C2PA signature
+                  description:
+                    Decides if the output video should include C2PA signature
                   example: true
                 profiles:
                   type: array
@@ -1785,7 +1848,8 @@ components:
                 targetSegmentSizeSecs:
                   type: number
                   description: >-
-                    How many seconds the duration of each output segment should be
+                    How many seconds the duration of each output segment should
+                    be
                   example: 6
             export:
               $ref: "#/components/schemas/export-task-params"
@@ -1875,7 +1939,8 @@ components:
                   $ref: "#/components/schemas/input-creator-id"
                 c2pa:
                   type: boolean
-                  description: Decides if the output video should include C2PA signature
+                  description:
+                    Decides if the output video should include C2PA signature
                   example: false
             clip:
               properties:
@@ -1887,7 +1952,10 @@ components:
                 clipStrategy:
                   type: object
                   description: >-
-                    Strategy to use for clipping the asset. If not specified, the default strategy that Catalyst is configured for will be used. This field only available for admin users, and is only used for E2E testing.
+                    Strategy to use for clipping the asset. If not specified,
+                    the default strategy that Catalyst is configured for will be
+                    used. This field only available for admin users, and is only
+                    used for E2E testing.
                   additionalProperties: false
                   properties:
                     startTime:
@@ -1899,7 +1967,10 @@ components:
                 catalystPipelineStrategy:
                   type: string
                   description: >-
-                    Force to use a specific strategy in the Catalyst pipeline. If not specified, the default strategy that Catalyst is configured for will be used. This field only available for admin users, and is only used for E2E testing.
+                    Force to use a specific strategy in the Catalyst pipeline.
+                    If not specified, the default strategy that Catalyst is
+                    configured for will be used. This field only available for
+                    admin users, and is only used for E2E testing.
                   enum:
                     - catalyst
                     - catalyst_ffmpeg
@@ -2000,16 +2071,19 @@ components:
                     videoFileGatewayUrl:
                       readOnly: true
                       type: string
-                      description: URL to access file via HTTP through an IPFS gateway
+                      description:
+                        URL to access file via HTTP through an IPFS gateway
                       example: "https://gateway.ipfs.io/ipfs/Qmabc123xyz341"
                     nftMetadataCid:
                       type: string
-                      description: IPFS CID of the default metadata exported for the video
+                      description:
+                        IPFS CID of the default metadata exported for the video
                       example: Qmabc123xyz341
                     nftMetadataUrl:
                       readOnly: true
                       type: string
-                      description: URL for the metadata file with the IPFS protocol
+                      description:
+                        URL for the metadata file with the IPFS protocol
                       example: "ipfs://Qmabc123xyz341"
                     nftMetadataGatewayUrl:
                       readOnly: true
@@ -2049,7 +2123,8 @@ components:
               type: string
         - type: string
           description: >-
-            Helper syntax to specify an unverified creator ID, fully managed by the developer.
+            Helper syntax to specify an unverified creator ID, fully managed by
+            the developer.
     creator-id:
       oneOf:
         - type: object
@@ -2065,7 +2140,8 @@ components:
               example: "unverified"
             value:
               type: string
-              description: Developer-managed ID of the user who created the resource.
+              description:
+                Developer-managed ID of the user who created the resource.
               example: "user123"
     export-task-params:
       description: Parameters for the export task
@@ -2128,12 +2204,14 @@ components:
         createdAt:
           readOnly: true
           type: number
-          description: Timestamp (in milliseconds) at which the signing-key was created
+          description:
+            Timestamp (in milliseconds) at which the signing-key was created
           example: 1587667174725
         lastSeen:
           readOnly: true
           type: number
-          description: Timestamp (in milliseconds) at which the signing-key was last used
+          description:
+            Timestamp (in milliseconds) at which the signing-key was last used
           example: 1587667174725
         publicKey:
           type: string
@@ -2201,15 +2279,18 @@ components:
           example: 1234
         createdAt:
           type: number
-          description: Timestamp (in milliseconds) at which user object was created
+          description:
+            Timestamp (in milliseconds) at which user object was created
           example: 1587667174725
         verifiedAt:
           type: number
-          description: Timestamp (in milliseconds) at which user object was verified
+          description:
+            Timestamp (in milliseconds) at which user object was verified
           example: 1587667174725
         planChangedAt:
           type: number
-          description: Timestamp (in milliseconds) at which user object was verified
+          description:
+            Timestamp (in milliseconds) at which user object was verified
           example: 1587667174725
         lastStreamedAt:
           type: number
@@ -2219,7 +2300,8 @@ components:
           example: 1587667174725
         lastSeen:
           type: number
-          description: Timestamp (in milliseconds) at which user's password was used
+          description:
+            Timestamp (in milliseconds) at which user's password was used
           example: 1587667174725
     usage:
       type: object
@@ -2252,7 +2334,8 @@ components:
       type:
         - object
         - "null"
-      description: Whether the playback policy for an asset or stream is public or signed
+      description:
+        Whether the playback policy for an asset or stream is public or signed
       additionalProperties: false
       required:
         - type
@@ -2272,7 +2355,7 @@ components:
           type: object
           description: User-defined webhook context
           additionalProperties: true
-          example: {"streamerId": "my-custom-id"}
+          example: { "streamerId": "my-custom-id" }
         refreshInterval:
           type: number
           description: |
@@ -2281,7 +2364,9 @@ components:
           example: 600
         allowedOrigins:
           type: array
-          description: List of allowed origins for CORS playback (<scheme>://<hostname>:<port>, <scheme>://<hostname>)
+          description:
+            List of allowed origins for CORS playback
+            (<scheme>://<hostname>:<port>, <scheme>://<hostname>)
           items:
             type: string
     usage-metric:
@@ -2417,7 +2502,8 @@ components:
           example: America/Los_Angeles
         geohash:
           type: string
-          description: Geographic encoding of the viewers location. Accurate to 3 digits.
+          description:
+            Geographic encoding of the viewers location. Accurate to 3 digits.
           example: 123
         viewCount:
           type: integer
@@ -2624,7 +2710,8 @@ components:
         createdAt:
           type: number
           readOnly: true
-          description: Timestamp (in milliseconds) at which the object was created
+          description:
+            Timestamp (in milliseconds) at which the object was created
           example: 1587667174725
         signatureType:
           type: string
@@ -2644,7 +2731,8 @@ components:
                   readOnly: true
                   type: number
                   description: >
-                    Timestamp (in milliseconds) at which IPFS export task was updated
+                    Timestamp (in milliseconds) at which IPFS export task was
+                    updated
 
                   example: 1587667174725
             status:
@@ -2685,7 +2773,8 @@ components:
                 apiSecret:
                   type: string
                   writeOnly: true
-                  description: Will be added to the pinata_secret_api_key header.
+                  description:
+                    Will be added to the pinata_secret_api_key header.
                   example: 1234567890abcdef
     storage-status:
       readOnly: true
@@ -2753,9 +2842,11 @@ components:
           format: uri
           pattern: "^(https?|ipfs|ar)://"
           description: >
-            URL where the asset contents can be retrieved, e.g. `https://s3.amazonaws.com/my-bucket/path/filename.mp4`.
+            URL where the asset contents can be retrieved, e.g.
+            `https://s3.amazonaws.com/my-bucket/path/filename.mp4`.
 
-            For an IPFS source, this should be similar to: `ipfs://{CID}`. For an Arweave
+            For an IPFS source, this should be similar to: `ipfs://{CID}`. For
+            an Arweave
 
             source: `ar://{CID}`.
 
@@ -2796,8 +2887,11 @@ components:
           type: string
           title: Return Timestamps
           description: >-
-            Return timestamps for the transcribed text. Supported values: 'sentence', 'word', or a string boolean ('true' or 'false'). Default is 'true' ('sentence'). 'false' means no timestamps. 'word' means word-based timestamps.
-          default: 'true'
+            Return timestamps for the transcribed text. Supported values:
+            'sentence', 'word', or a string boolean ('true' or 'false'). Default
+            is 'true' ('sentence'). 'false' means no timestamps. 'word' means
+            word-based timestamps.
+          default: "true"
       type: object
       required:
         - audio
@@ -2823,36 +2917,43 @@ components:
           type: string
           title: Loras
           description: >-
-            A LoRA (Low-Rank Adaptation) model and its corresponding weight for image generation. Example: { "latent-consistency/lcm-lora-sdxl": 1.0, "nerijs/pixel-art-xl": 1.2}.
-          default: ''
+            A LoRA (Low-Rank Adaptation) model and its corresponding weight for
+            image generation. Example: { "latent-consistency/lcm-lora-sdxl":
+            1.0, "nerijs/pixel-art-xl": 1.2}.
+          default: ""
         strength:
           type: number
           title: Strength
-          description: Degree of transformation applied to the reference image (0 to 1).
+          description:
+            Degree of transformation applied to the reference image (0 to 1).
           default: 0.8
         guidance_scale:
           type: number
           title: Guidance Scale
           description: >-
-            Encourages model to generate images closely linked to the text prompt (higher values may reduce image quality).
+            Encourages model to generate images closely linked to the text
+            prompt (higher values may reduce image quality).
           default: 7.5
         image_guidance_scale:
           type: number
           title: Image Guidance Scale
           description: >-
-            Degree to which the generated image is pushed towards the initial image.
+            Degree to which the generated image is pushed towards the initial
+            image.
           default: 1.5
         negative_prompt:
           type: string
           title: Negative Prompt
           description: >-
-            Text prompt(s) to guide what to exclude from image generation. Ignored if guidance_scale < 1.
-          default: ''
+            Text prompt(s) to guide what to exclude from image generation.
+            Ignored if guidance_scale < 1.
+          default: ""
         safety_check:
           type: boolean
           title: Safety Check
           description: >-
-            Perform a safety check to estimate if generated images could be offensive or harmful.
+            Perform a safety check to estimate if generated images could be
+            offensive or harmful.
           default: true
         seed:
           type: integer
@@ -2862,7 +2963,8 @@ components:
           type: integer
           title: Num Inference Steps
           description: >-
-            Number of denoising steps. More steps usually lead to higher quality images but slower inference. Modulated by strength.
+            Number of denoising steps. More steps usually lead to higher quality
+            images but slower inference. Modulated by strength.
           default: 100
         num_images_per_prompt:
           type: integer
@@ -2906,19 +3008,22 @@ components:
           type: integer
           title: Motion Bucket Id
           description: >-
-            Used for conditioning the amount of motion for the generation. The higher the number the more motion will be in the video.
+            Used for conditioning the amount of motion for the generation. The
+            higher the number the more motion will be in the video.
           default: 127
         noise_aug_strength:
           type: number
           title: Noise Aug Strength
           description: >-
-            Amount of noise added to the conditioning image. Higher values reduce resemblance to the conditioning image and increase motion.
+            Amount of noise added to the conditioning image. Higher values
+            reduce resemblance to the conditioning image and increase motion.
           default: 0.02
         safety_check:
           type: boolean
           title: Safety Check
           description: >-
-            Perform a safety check to estimate if generated images could be offensive or harmful.
+            Perform a safety check to estimate if generated images could be
+            offensive or harmful.
           default: true
         seed:
           type: integer
@@ -2928,7 +3033,8 @@ components:
           type: integer
           title: Num Inference Steps
           description: >-
-            Number of denoising steps. More steps usually lead to higher quality images but slower inference. Modulated by strength.
+            Number of denoising steps. More steps usually lead to higher quality
+            images but slower inference. Modulated by strength.
           default: 25
       type: object
       required:
@@ -2947,7 +3053,7 @@ components:
         system_msg:
           type: string
           title: System Msg
-          default: ''
+          default: ""
         temperature:
           type: number
           title: Temperature
@@ -2959,7 +3065,7 @@ components:
         history:
           type: string
           title: History
-          default: '[]'
+          default: "[]"
         stream:
           type: boolean
           title: Stream
@@ -2985,38 +3091,47 @@ components:
           type: string
           title: Point Coords
           description: >-
-            Nx2 array of point prompts to the model, where each point is in (X,Y) in pixels.
+            Nx2 array of point prompts to the model, where each point is in
+            (X,Y) in pixels.
         point_labels:
           type: string
           title: Point Labels
           description: >-
-            Labels for the point prompts, where 1 indicates a foreground point and 0 indicates a background point.
+            Labels for the point prompts, where 1 indicates a foreground point
+            and 0 indicates a background point.
         box:
           type: string
           title: Box
-          description: 'A length 4 array given as a box prompt to the model, in XYXY format.'
+          description:
+            "A length 4 array given as a box prompt to the model, in XYXY
+            format."
         mask_input:
           type: string
           title: Mask Input
           description: >-
-            A low-resolution mask input to the model, typically from a previous prediction iteration, with the form 1xHxW (H=W=256 for SAM).
+            A low-resolution mask input to the model, typically from a previous
+            prediction iteration, with the form 1xHxW (H=W=256 for SAM).
         multimask_output:
           type: boolean
           title: Multimask Output
           description: >-
-            If true, the model will return three masks for ambiguous input prompts, often producing better masks than a single prediction.
+            If true, the model will return three masks for ambiguous input
+            prompts, often producing better masks than a single prediction.
           default: true
         return_logits:
           type: boolean
           title: Return Logits
           description: >-
-            If true, returns un-thresholded mask logits instead of a binary mask.
+            If true, returns un-thresholded mask logits instead of a binary
+            mask.
           default: true
         normalize_coords:
           type: boolean
           title: Normalize Coords
           description: >-
-            If true, the point coordinates will be normalized to the range [0,1], with point_coords expected to be with respect to image dimensions.
+            If true, the point coordinates will be normalized to the range
+            [0,1], with point_coords expected to be with respect to image
+            dimensions.
           default: true
       type: object
       required:
@@ -3043,7 +3158,8 @@ components:
           type: boolean
           title: Safety Check
           description: >-
-            Perform a safety check to estimate if generated images could be offensive or harmful.
+            Perform a safety check to estimate if generated images could be
+            offensive or harmful.
           default: true
         seed:
           type: integer
@@ -3053,7 +3169,8 @@ components:
           type: integer
           title: Num Inference Steps
           description: >-
-            Number of denoising steps. More steps usually lead to higher quality images but slower inference. Modulated by strength.
+            Number of denoising steps. More steps usually lead to higher quality
+            images but slower inference. Modulated by strength.
           default: 75
       type: object
       required:
@@ -3082,7 +3199,7 @@ components:
       properties:
         detail:
           allOf:
-            - $ref: '#/components/schemas/APIError'
+            - $ref: "#/components/schemas/APIError"
           description: Detailed error information.
       type: object
       required:
@@ -3093,7 +3210,7 @@ components:
       properties:
         detail:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: "#/components/schemas/ValidationError"
           type: array
           title: Detail
       type: object
@@ -3102,7 +3219,7 @@ components:
       properties:
         images:
           items:
-            $ref: '#/components/schemas/Media'
+            $ref: "#/components/schemas/Media"
           type: array
           title: Images
           description: The generated images.
@@ -3137,7 +3254,8 @@ components:
         logits:
           type: string
           title: Logits
-          description: 'The raw, unnormalized predictions (logits) for the masks.'
+          description:
+            "The raw, unnormalized predictions (logits) for the masks."
       type: object
       required:
         - masks
@@ -3165,7 +3283,8 @@ components:
         - seed
         - nsfw
       title: Media
-      description: A media object containing information about the generated media.
+      description:
+        A media object containing information about the generated media.
     TextResponse:
       properties:
         text:
@@ -3174,7 +3293,7 @@ components:
           description: The generated text.
         chunks:
           items:
-            $ref: '#/components/schemas/Chunk'
+            $ref: "#/components/schemas/Chunk"
           type: array
           title: Chunks
           description: The generated text chunks.
@@ -3195,13 +3314,16 @@ components:
           type: string
           title: Loras
           description: >-
-            A LoRA (Low-Rank Adaptation) model and its corresponding weight for image generation. Example: { "latent-consistency/lcm-lora-sdxl": 1.0, "nerijs/pixel-art-xl": 1.2}.
-          default: ''
+            A LoRA (Low-Rank Adaptation) model and its corresponding weight for
+            image generation. Example: { "latent-consistency/lcm-lora-sdxl":
+            1.0, "nerijs/pixel-art-xl": 1.2}.
+          default: ""
         prompt:
           type: string
           title: Prompt
           description: >-
-            Text prompt(s) to guide image generation. Separate multiple prompts with '|' if supported by the model.
+            Text prompt(s) to guide image generation. Separate multiple prompts
+            with '|' if supported by the model.
         height:
           type: integer
           title: Height
@@ -3216,19 +3338,22 @@ components:
           type: number
           title: Guidance Scale
           description: >-
-            Encourages model to generate images closely linked to the text prompt (higher values may reduce image quality).
+            Encourages model to generate images closely linked to the text
+            prompt (higher values may reduce image quality).
           default: 7.5
         negative_prompt:
           type: string
           title: Negative Prompt
           description: >-
-            Text prompt(s) to guide what to exclude from image generation. Ignored if guidance_scale < 1.
-          default: ''
+            Text prompt(s) to guide what to exclude from image generation.
+            Ignored if guidance_scale < 1.
+          default: ""
         safety_check:
           type: boolean
           title: Safety Check
           description: >-
-            Perform a safety check to estimate if generated images could be offensive or harmful.
+            Perform a safety check to estimate if generated images could be
+            offensive or harmful.
           default: true
         seed:
           type: integer
@@ -3238,7 +3363,8 @@ components:
           type: integer
           title: Num Inference Steps
           description: >-
-            Number of denoising steps. More steps usually lead to higher quality images but slower inference. Modulated by strength.
+            Number of denoising steps. More steps usually lead to higher quality
+            images but slower inference. Modulated by strength.
           default: 50
         num_images_per_prompt:
           type: integer
@@ -3275,7 +3401,7 @@ components:
       properties:
         images:
           items:
-            $ref: '#/components/schemas/Media'
+            $ref: "#/components/schemas/Media"
           type: array
           title: Images
           description: The generated images.
@@ -4800,7 +4926,9 @@ paths:
       tags:
         - webhook
       description: >
-        To create a new webhook, you need to make an API call with the events you want to listen for and the URL that will be called when those events occur.
+        To create a new webhook, you need to make an API call with the events
+        you want to listen for and the URL that will be called when those events
+        occur.
 
       requestBody:
         required: true
@@ -5657,13 +5785,19 @@ paths:
                   url:
                     type: string
                     description: >-
-                      The direct upload endpoint for which supports PUT requests. **It is recommended to use the Tus endpoint for a better upload experience.**
+                      The direct upload endpoint for which supports PUT
+                      requests. **It is recommended to use the Tus endpoint for
+                      a better upload experience.**
                     example: >-
                       https://origin.livepeer.com/api/asset/upload/direct?token=eyJhbGciOiJIUzI1NiJ9.eyJtc2ciOiJoZWxsbyBoYWNrZXIsIHRoZXJlJ3Mgbm90aGluZyBmb3IgeW91IGhlcmUg8J-YhiJ9.1YDjmXsqLcgNyMSzT4kXl_kIni46_EuGX_xfqmC7e0Q
                   tusEndpoint:
                     type: string
                     description: >-
-                      The [Tus-compatible](https://tus.io/) endpoint for resumable uploads. **This is the recommended way to upload assets.** See the [Tus-js](https://github.com/tus/tus-js-client) client for more information.
+                      The [Tus-compatible](https://tus.io/) endpoint for
+                      resumable uploads. **This is the recommended way to upload
+                      assets.** See the
+                      [Tus-js](https://github.com/tus/tus-js-client) client for
+                      more information.
                     example: >-
                       https://origin.livepeer.com/api/asset/upload/tus?token=eyJhbGciOiJIUzI1NiJ9.eyJtc2ciOiJoZWxsbyBoYWNrZXIsIHRoZXJlJ3Mgbm90aGluZyBmb3IgeW91IGhlcmUg8J-YhiJ9.1YDjmXsqLcgNyMSzT4kXl_kIni46_EuGX_xfqmC7e0Q
                   asset:
@@ -7020,7 +7154,8 @@ paths:
       description: >
         Create a livestream for your room.
 
-        This allows you to leverage livestreaming features like recording and HLS output.
+        This allows you to leverage livestreaming features like recording and
+        HLS output.
 
       responses:
         default:
@@ -7159,9 +7294,11 @@ paths:
             type: string
       summary: Create a room user
       description: >
-        Call this endpoint to add a user to a room, specifying a display name at a minimum.
+        Call this endpoint to add a user to a room, specifying a display name at
+        a minimum.
 
-        The response will contain a joining URL for Livepeer's default meeting app.
+        The response will contain a joining URL for Livepeer's default meeting
+        app.
 
         Alternatively the joining token can be used with a custom app.
 
@@ -7725,7 +7862,9 @@ paths:
       tags:
         - metrics
       description: >
-        Requires a proof of ownership to be sent in the request, which for now is just the assetId or streamId parameters (1 of those must be in the query-string).
+        Requires a proof of ownership to be sent in the request, which for now
+        is just the assetId or streamId parameters (1 of those must be in the
+        query-string).
 
       parameters:
         - name: from
@@ -7894,7 +8033,8 @@ paths:
               schema:
                 $ref: "#/components/schemas/error"
         "200":
-          description: A single Metric object with the viewCount and playtimeMins metrics.
+          description:
+            A single Metric object with the viewCount and playtimeMins metrics.
           content:
             application/json:
               schema:
@@ -8363,9 +8503,14 @@ paths:
       tags:
         - accessControl
       description: >
-        The publicKey is a representation of the public key, encoded as base 64 and is passed as a string, and  the privateKey is displayed only on creation. This is the only moment where the client can save the private key, otherwise it will be lost. Remember to decode your string when signing JWTs.
+        The publicKey is a representation of the public key, encoded as base 64
+        and is passed as a string, and  the privateKey is displayed only on
+        creation. This is the only moment where the client can save the private
+        key, otherwise it will be lost. Remember to decode your string when
+        signing JWTs.
 
-        Up to 10 signing keys can be generated, after that you must delete at least one signing key to create a new one.
+        Up to 10 signing keys can be generated, after that you must delete at
+        least one signing key to create a new one.
 
       responses:
         default:
@@ -9276,7 +9421,8 @@ paths:
           schema:
             type: string
           description: >-
-            The playback ID from the asset or livestream, e.g. `eaw4nk06ts2d0mzb`.
+            The playback ID from the asset or livestream, e.g.
+            `eaw4nk06ts2d0mzb`.
       responses:
         default:
           description: Error
@@ -9365,7 +9511,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TextToImageParams'
+              $ref: "#/components/schemas/TextToImageParams"
         required: true
       responses:
         default:
@@ -9373,46 +9519,46 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/studio-api-error'
-        '200':
+                $ref: "#/components/schemas/studio-api-error"
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ImageResponse'
+                $ref: "#/components/schemas/ImageResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '401':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '422':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPValidationError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '500':
+                  - $ref: "#/components/schemas/HTTPValidationError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
       x-speakeasy-name-override: textToImage
       x-codeSamples:
         - lang: typescript
@@ -9445,7 +9591,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_genImageToImage'
+              $ref: "#/components/schemas/Body_genImageToImage"
         required: true
       responses:
         default:
@@ -9453,46 +9599,46 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/studio-api-error'
-        '200':
+                $ref: "#/components/schemas/studio-api-error"
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ImageResponse'
+                $ref: "#/components/schemas/ImageResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '401':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '422':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPValidationError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '500':
+                  - $ref: "#/components/schemas/HTTPValidationError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
       x-speakeasy-name-override: imageToImage
       x-codeSamples:
         - lang: typescript
@@ -9527,7 +9673,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_genImageToVideo'
+              $ref: "#/components/schemas/Body_genImageToVideo"
         required: true
       responses:
         default:
@@ -9535,46 +9681,46 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/studio-api-error'
-        '200':
+                $ref: "#/components/schemas/studio-api-error"
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/VideoResponse'
+                $ref: "#/components/schemas/VideoResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '401':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '422':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPValidationError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '500':
+                  - $ref: "#/components/schemas/HTTPValidationError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
       x-speakeasy-name-override: imageToVideo
       x-codeSamples:
         - lang: typescript
@@ -9608,7 +9754,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_genUpscale'
+              $ref: "#/components/schemas/Body_genUpscale"
         required: true
       responses:
         default:
@@ -9616,46 +9762,46 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/studio-api-error'
-        '200':
+                $ref: "#/components/schemas/studio-api-error"
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ImageResponse'
+                $ref: "#/components/schemas/ImageResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '401':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '422':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPValidationError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '500':
+                  - $ref: "#/components/schemas/HTTPValidationError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
       x-speakeasy-name-override: upscale
       x-codeSamples:
         - lang: typescript
@@ -9690,7 +9836,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_genAudioToText'
+              $ref: "#/components/schemas/Body_genAudioToText"
         required: true
       responses:
         default:
@@ -9698,62 +9844,62 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/studio-api-error'
-        '200':
+                $ref: "#/components/schemas/studio-api-error"
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TextResponse'
+                $ref: "#/components/schemas/TextResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '401':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '413':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "413":
           description: Request Entity Too Large
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '415':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "415":
           description: Unsupported Media Type
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '422':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPValidationError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '500':
+                  - $ref: "#/components/schemas/HTTPValidationError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
       x-speakeasy-name-override: audioToText
       x-codeSamples:
         - lang: typescript
@@ -9787,7 +9933,7 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_genSegmentAnything2'
+              $ref: "#/components/schemas/Body_genSegmentAnything2"
         required: true
       responses:
         default:
@@ -9795,46 +9941,46 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/studio-api-error'
-        '200':
+                $ref: "#/components/schemas/studio-api-error"
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MasksResponse'
+                $ref: "#/components/schemas/MasksResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '401':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '422':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPValidationError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '500':
+                  - $ref: "#/components/schemas/HTTPValidationError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
       x-speakeasy-name-override: segmentAnything2
       x-codeSamples:
         - lang: typescript
@@ -9868,7 +10014,7 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Body_genLLM'
+              $ref: "#/components/schemas/Body_genLLM"
         required: true
       responses:
         default:
@@ -9876,45 +10022,45 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/studio-api-error'
-        '200':
+                $ref: "#/components/schemas/studio-api-error"
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LLMResponse'
-        '400':
+                $ref: "#/components/schemas/LLMResponse"
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '401':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '422':
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPValidationError'
-                  - $ref: '#/components/schemas/studio-api-error'
-        '500':
+                  - $ref: "#/components/schemas/HTTPValidationError"
+                  - $ref: "#/components/schemas/studio-api-error"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/HTTPError'
-                  - $ref: '#/components/schemas/studio-api-error'
+                  - $ref: "#/components/schemas/HTTPError"
+                  - $ref: "#/components/schemas/studio-api-error"
       x-speakeasy-name-override: llm
       x-codeSamples:
         - lang: typescript

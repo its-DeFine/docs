@@ -5,18 +5,30 @@ sidebarTitle: 'Dual Configuration'
 tag: Do both!
 ---
 
-import { ZoomableDiagram } from '/snippets/components/zoomable-diagram.jsx'
+import { ScrollableDiagram } from '/snippets/components/zoomable-diagram.jsx'
 import { DoubleIconLink } from '/snippets/components/links.jsx'
 import { ExternalContent } from '/snippets/components/external-content.jsx'
 import BoxConfig from '/snippets/external/box-additional-config.mdx'
 
----
-A single Gateway can handle both video transcoding and AI processing simultaneously.
-The Gateway's dual capability is enabled by its modular architecture, where different
-managers handle specific workflows while sharing common infrastructure for media ingestion,
-payment processing, and result delivery.
+<Danger> 
+    This is way too long     
+    <Expandable title="TODO">
+    **TODO:**
+    - [ ] Verify flags and options are correct
+    - [ ] Decide on more streamlined layour or steps flow
+    - [ ] (fixme) #Configuration
+    - [ ] (fixme) ##Deployment
+    - [ ] Move Example to Guides & Resources
+    </Expandable> 
+</Danger>
 
-<ZoomableDiagram title="Dual Gateway Architecture: Video & AI Pipelines">
+The Livepeer Gateway supports a dual setup configuration that enables a single node to handle both 
+traditional video transcoding and AI processing workloads simultaneously. 
+
+This unified architecture reduces infrastructure complexity while providing 
+comprehensive media processing capabilities.
+
+<ScrollableDiagram title="Dual Gateway Architecture: Video & AI Pipelines">
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
@@ -77,10 +89,14 @@ flowchart TB
     style PAYMENT fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
 ```
 
-</ZoomableDiagram>
+</ScrollableDiagram>
 
 
-## Dual Configuration
+## Overview
+
+The Gateway's dual capability is enabled by its modular architecture, where different
+managers handle specific workflows while sharing common infrastructure for media ingestion,
+payment processing, and result delivery.
 
 The LivepeerNode struct contains fields for both traditional transcoding (Transcoder, TranscoderManager)
 and AI processing (AIWorker, AIWorkerManager) <DoubleIconLink label="livepeernode.go" href="https://github.com/livepeer/go-livepeer/blob/5691cb48/core/livepeernode.go" iconLeft="github" />
@@ -89,50 +105,219 @@ The gateway determines the processing type based on the request:
 - Standard transcoding requests go through the BroadcastSessionsManager
 - AI requests go through the AISessionManager with AI-specific authentication and pipeline selection <DoubleIconLink label="ai_auth.go" href="https://github.com/livepeer/go-livepeer/blob/5691cb48/server/ai_auth.go" iconLeft="github" />
 
-### Key Differences
-<br/>
-<table>
+The gateway initializes with two distinct session managers:
+
+```go
+// Traditional transcoding session manager  
+sessManager = NewSessionManager(ctx, s.LivepeerNode, params)
+```
+
+```go
+// AI processing session manager    
+AISessionManager: NewAISessionManager(lpNode, AISessionManagerTTL)
+```
+
+**Key Differences**
+
+<table style={{ width: '100%', borderCollapse: 'collapse' }}>
   <thead>
-    <tr>
-      <th>Aspect</th>
-      <th style={{ color: '#3b82f6' }}>Video Transcoding</th>
-      <th style={{ color: '#a855f7' }}>AI Pipelines</th>
+    <tr style={{ background: '#1a1a1a', borderBottom: '2px solid #2d9a67' }}>
+      <th style={{ padding: '12px 16px', textAlign: 'left', color: '#2d9a67', fontWeight: '600' }}>Aspect</th>
+      <th style={{ padding: '12px 16px', textAlign: 'left', color: '#3b82f6', fontWeight: '600' }}>Video Transcoding</th>
+      <th style={{ padding: '12px 16px', textAlign: 'left', color: '#a855f7', fontWeight: '600' }}>AI Pipelines</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Processing Type</td>
-      <td>Format/bitrate conversion</td>
-      <td>AI model inference</td>
+    <tr style={{ borderBottom: '1px solid #333' }}>
+      <td style={{ padding: '10px 16px', color: '#2d9a67' }}>Processing Type</td>
+      <td style={{ padding: '10px 16px' }}>Format/bitrate conversion</td>
+      <td style={{ padding: '10px 16px' }}>AI model inference</td>
     </tr>
-    <tr>
-      <td>Session Manager</td>
-      <td>BroadcastSessionsManager</td>
-      <td>AISessionManager</td>
+    <tr style={{ borderBottom: '1px solid #333' }}>
+      <td style={{ padding: '10px 16px', color: '#2d9a67' }}>Session Manager</td>
+      <td style={{ padding: '10px 16px', fontFamily: 'monospace' }}>BroadcastSessionsManager</td>
+      <td style={{ padding: '10px 16px', fontFamily: 'monospace' }}>AISessionManager</td>
     </tr>
-    <tr>
-      <td>Payment Model</td>
-      <td>Per segment</td>
-      <td>Per pixel processed</td>
+    <tr style={{ borderBottom: '1px solid #333' }}>
+      <td style={{ padding: '10px 16px', color: '#2d9a67' }}>Payment Model</td>
+      <td style={{ padding: '10px 16px' }}>Per segment</td>
+      <td style={{ padding: '10px 16px' }}>Per pixel processed</td>
     </tr>
-    <tr>
-      <td>Protocol</td>
-      <td>Standard HLS/DASH</td>
-      <td>Trickle protocol for real-time AI</td>
+    <tr style={{ borderBottom: '1px solid #333' }}>
+      <td style={{ padding: '10px 16px', color: '#2d9a67' }}>Protocol</td>
+      <td style={{ padding: '10px 16px' }}>Standard HLS/DASH</td>
+      <td style={{ padding: '10px 16px' }}>Trickle protocol for real-time AI</td>
     </tr>
-    <tr>
-      <td>Components</td>
-      <td>RTMP Server, Playlist Manager</td>
-      <td>MediaMTX, Trickle Server</td>
+    <tr style={{ borderBottom: '1px solid #333' }}>
+      <td style={{ padding: '10px 16px', color: '#2d9a67' }}>Components</td>
+      <td style={{ padding: '10px 16px' }}>RTMP Server, Playlist Manager</td>
+      <td style={{ padding: '10px 16px' }}>MediaMTX, Trickle Server</td>
     </tr>
   </tbody>
 </table>
 
 ## Configuration
 
-To configure a gateway to handle both video transcoding and AI processing, you need to set the appropriate flags and options when starting the livepeer binary.
+To configure a gateway to handle both video transcoding and AI processing, you need 
+to set the appropriate flags and options when starting the livepeer binary.
 
-## Setup Example
+**Essential Flags**
+
+To enable dual setup, configure the gateway with the following flags: 
+
+<table style={{ width: '100%', borderCollapse: 'collapse' }}>
+  <thead>
+    <tr style={{ background: '#1a1a1a', borderBottom: '2px solid #2d9a67' }}>
+      <th style={{ padding: '12px 16px', textAlign: 'left', color: '#2d9a67', fontWeight: '600' }}>Flag</th>
+      <th style={{ padding: '12px 16px', textAlign: 'left', color: '#fff' }}>Description</th>
+      <th style={{ padding: '12px 16px', textAlign: 'center', color: '#fff' }}>Required</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style={{ borderBottom: '1px solid #333' }}>
+      <td style={{ padding: '10px 16px', fontFamily: 'monospace', color: '#2d9a67' }}>-gateway</td>
+      <td style={{ padding: '10px 16px' }}>Run as a gateway node</td>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>✓</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333' }}>
+      <td style={{ padding: '10px 16px', fontFamily: 'monospace', color: '#2d9a67' }}>-httpIngest</td>
+      <td style={{ padding: '10px 16px' }}>Enable HTTP ingest for AI requests</td>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>✓</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333' }}>
+      <td style={{ padding: '10px 16px', fontFamily: 'monospace', color: '#2d9a67' }}>-transcodingOptions</td>
+      <td style={{ padding: '10px 16px' }}>Transcoding profiles for video</td>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>✓</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333' }}>
+      <td style={{ padding: '10px 16px', fontFamily: 'monospace', color: '#2d9a67' }}>-aiServiceRegistry</td>
+      <td style={{ padding: '10px 16px' }}>Enable AI service registry</td>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>✓</td>
+    </tr>
+  </tbody>
+</table>
+See: <DoubleIconLink label="cmd/livepeer/livepeer.go" href="https://github.com/livepeer/go-livepeer/blob/5691cb48/cmd/livepeer/livepeer.go" iconLeft="github" />
+
+<Danger> Verify all code below here </Danger>
+
+### AI-Specific Configuration
+
+```bash AI flags icon="user-robot"
+-aiModels=${env:HOME}/.lpData/cfg/aiModels.json  
+-aiModelsDir=${env:HOME}/.lpData/models  
+-aiRunnerContainersPerGPU=1  
+-livePaymentInterval=5s
+```
+
+### Transcoding Configuration
+Note, if the `transcodingOptions.json` file is not provided, the gateway will use the default transcoding profiles `-transcodingOptions=P240p30fps16x9,P360p30fps16x9`.
+
+```bash Transcoding flags icon="film-canister"
+# -transcodingOptions=P240p30fps16x9,P360p30fps16x9
+-transcodingOptions=${env:HOME}/.lpData/cfg/transcodingOptions.json 
+-maxSessions=10  
+-nvidia=all  # or specific GPU IDs
+```
+
+## Deployment 
+<Tabs>
+  <Tab title="Off-Chain Developement Setup">
+    For local development and testing purposes, there is no need to connect to the blockchain payments layer.
+
+    <Note> You will need to run your own orchestrator node for local development. </Note>
+
+        ```bash Off-Chain Gateway Deployment with dual capabilities icon="terminal"
+        livepeer -gateway \
+            -httpIngest \
+            -transcodingOptions=${env:HOME}/.lpData/offchain/transcodingOptions.json \ 
+            -orchAddr=0.0.0.0:8935 \  
+            -httpAddr=0.0.0.0:9935 \  
+            -httpIngest \  
+            -v=6 
+
+            # Verify these
+            -aiServiceRegistry \
+            -aiModels=${env:HOME}/.lpData/cfg/aiModels.json \
+            -aiModelsDir=${env:HOME}/.lpData/models \
+            -aiRunnerContainersPerGPU=1 \
+        ```
+
+    </Tab>
+    <Tab title="On-Chain Production Setup">
+        For production deployment with blockchain integration
+
+        You will need an ETH account with funds to pay for transcoding and AI processing and set the following environment variables:
+        `$ETH_SECRET`
+        `$ETH_ACCT_ADDR`
+
+        ```bash On-Chain Gateway Deployment with dual capabilities icon="terminal"
+        livepeer -gateway \  
+            -transcodingOptions=${env:HOME}/.lpData/offchain/transcodingOptions.json \  
+            -orchAddr=0.0.0.0:8935 \  
+            -httpAddr=0.0.0.0:9935 \  
+            -httpIngest \  
+            -v=6 \  
+            -network=arbitrum-one-mainnet \  
+            -ethUrl=https://arb1.arbitrum.io/rpc \  
+            -ethPassword=<ETH_SECRET> \  
+            -ethAcctAddr=<ETH_ACCT_ADDR> \  
+            -v=6
+
+            # verfiy these 
+            -aiServiceRegistry \  
+            -aiModels=${env:HOME}/.lpData/cfg/aiModels.json \  
+            -aiModelsDir=${env:HOME}/.lpData/models \  
+            -aiRunnerContainersPerGPU=1 \  
+            -livePaymentInterval=5s
+        ```
+    </Tab>
+</Tabs>
+
+## Combined Gateway/Orchestrator AI-Enabled Deployment
+
+For nodes that handle both orchestration and AI processing
+
+```bash Combined Gateway/OrchestratorOn-Chain Deployment icon="terminal"
+
+    livepeer -orchestrator -aiWorker -aiServiceRegistry \  
+        -serviceAddr=0.0.0.0:8935 \  
+        -nvidia=all \  
+        -aiModels=${env:HOME}/.lpData/cfg/aiModels.json \  
+        -aiModelsDir=${env:HOME}/.lpData/models \  
+        -network=arbitrum-one-mainnet \  
+        -ethUrl=https://arb1.arbitrum.io/rpc \  
+        -ethPassword=<ETH_SECRET> \  
+        -ethAcctAddr=<ETH_ACCT_ADDR> \  
+        -ethOrchAddr=<ORCH_ADDR>
+```
+
+## Troubleshooting
+
+**Common Issues**
+
+- **AI models not loading:** Check `-aiModelsDir` and model file permissions
+- **Transcoding failures:** Verify GPU drivers and `-nvidia` configuration
+- **Port conflicts:** Ensure `-rtmpAddr`, `-httpAddr`, and `-cliAddr` are available
+- **Memory pressure:** Monitor AI model memory usage, adjust `-aiRunnerContainersPerGPU`
+
+**Debug Commands**
+```bash icon="terminal"
+    # Check transcoding capabilities  
+    curl http://localhost:8935/getBroadcastConfig  
+    
+    # Test AI endpoint  
+    curl -X POST http://localhost:8935/text-to-image \  
+    -H "Content-Type: application/json" \  
+    -d '{"prompt":"test image"}'  
+    
+    # Monitor logs  
+    livepeer -gateway -v=6 2>&1 | grep -E "(transcode|AI|segment)"
+```
+
+
+<br/>
+
+## Example Setup
 
 The box setup for local development demonstrates running a gateway that handles both types of processing.
 
