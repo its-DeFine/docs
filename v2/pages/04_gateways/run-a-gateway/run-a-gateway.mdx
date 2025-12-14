@@ -1,28 +1,15 @@
 ---
 title: Run a Gateway
-sidebarTitle: Run a Gateway
+sidebarTitle: Provide Video & AI Services
+description: "Gateways are essential infrastructure in the Livepeer network. 
+They provide the service coordination layer (routing & verification) that connects applications to the decentralized GPU compute layer. 
+This guide explains the requirements, setup steps, and best practices for running a Gateway node."
 ---
-
-<Danger>
-This page is a work in progress.
-    <Accordian title="TODO">
-    **TODO:**
-
-    - [ ] Copy fixing
-    - [ ] Editing
-    - [ ] Streamlining
-    - [ ] Format
-    - [ ] Style
-    - [ ] Copy over v1 docs
-    - [ ] Fix Mermaid Diagram
-    </Accordian>
-</Danger>
 
 import { GotoLink } from '/snippets/components/links.jsx'
 
-Gateways are essential infrastructure in the Livepeer network. 
-They provide the service coordination layer (routing & verification) that connects applications to the decentralized GPU compute layer. 
-This guide explains the requirements, setup steps, and best practices for running a Gateway node.
+<br />
+
 
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
@@ -82,9 +69,27 @@ flowchart LR
     style ORCH fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
     style OUTPUTS fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
 ```
+    <div style={{ textAlign: 'center', fontStyle: 'italic', fontSize: '0.75rem', color: '#888' }}>Gateway Node Operations</div>
+
+<br/>
+
+## What a Gateway Operator Does
+
+Gateway operators handle:
+
+- Job intake and API requests
+- Routing workloads to the best Orchestrator (GPU Node)
+- Managing pricing, capabilities, and service metadata
+- Publishing offerings (AI inference, video transcoding and more) to the Marketplace
+- Monitoring job performance, latency, and reliability
+
+Gateways do **not** compute or perform the AI inference or transcoding themselves. 
+That work is performed by orchestrators.
+
+<br />
 
 <AccordionGroup>
-<Accordion title="From a Cloud Background?" icon="cloud" description="Think: Load Balancer / API Gateway">
+<Accordion title="From a Cloud Background?" icon="cloud" >
 
 Running a Gateway is similar to operating an API Gateway or Load Balancer in cloud computing — 
 it ingests traffic, routes workloads to backend GPU nodes, and manages session flow 
@@ -130,7 +135,7 @@ flowchart LR
     style Settlement fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
 ```
 </Accordion>
-<Accordion title="From an Ethereum Background?" icon="coin" description="Think: L2 Sequencer">
+<Accordion title="From an Ethereum Background?" icon="coin" >
 
 Running a Gateway is **not** like running a validator on Ethereum.
 Validators secure consensus whereas Gateways route workloads. It's more akin to a Sequencer on a Layer 2.
@@ -171,7 +176,7 @@ a Livepeer Gateway performs the same function for the Livepeer compute network.
     ```
     <div style={{ textAlign: 'center', fontStyle: 'italic', fontSize: '0.75rem', color: '#888' }}>Gateways as L2 Sequencers</div>
 </Accordion>
-<Accordion title="Neither? You can still run a gateway!" icon="film" description="Think: Film Producer">
+<Accordion title="Neither? You can still run a gateway!" icon="film" >
 
 For the rest of us, running a Gateway is like being a film producer.
 You take a request, assemble the right specialists, manage constraints, 
@@ -229,20 +234,6 @@ flowchart LR
 ```
 </Accordion>
 </AccordionGroup>
-
-## What a Gateway Operator Does
-
-Gateway operators handle:
-
-- Job intake and API requests
-- Routing workloads to the best Orchestrator (GPU Node)
-- Managing pricing, capabilities, and service metadata
-- Publishing offerings (AI inference, video transcoding and more) to the Marketplace
-- Monitoring job performance, latency, and reliability
-
-Gateways do **not** compute or perform the AI inference or transcoding themselves. 
-That work is performed by orchestrators.
-
 
 ## Gateway Operator Journey
 <br/>
@@ -328,3 +319,18 @@ flowchart TB
 
 </div>
 </Columns>
+
+<Danger>
+    This page is a work in progress.
+    <Expandable title="TODO">
+    **TODO:**
+
+    - [ ] Copy fixing
+    - [ ] Editing
+    - [ ] Streamlining
+    - [ ] Format
+    - [ ] Style
+    - [ ] Copy over v1 docs
+    - [ ] Fix Mermaid Diagram
+    </Expandable>
+</Danger>

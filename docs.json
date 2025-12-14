@@ -425,9 +425,9 @@
                             "group": "Configuration",
                             "pages": [
                               "v2/pages/04_gateways/run-a-gateway/configure/configuration-overview",
-                              "v2/pages/04_gateways/run-a-gateway/configure/configuration-options",
                               "v2/pages/04_gateways/run-a-gateway/configure/video-configuration",
-                              "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration"
+                              "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration",
+                              "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration"
                             ]
                           },
                           {

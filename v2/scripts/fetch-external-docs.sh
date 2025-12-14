@@ -59,5 +59,9 @@ curl -sL "https://raw.githubusercontent.com/livepeer/wiki/master/WHITEPAPER.md" 
 echo "  → Fetching videoDAC/livepeer-gateway README.md..."
 curl -sL "https://raw.githubusercontent.com/videoDAC/livepeer-gateway/master/README.md" | sanitize_for_mdx > "$EXTERNAL_DIR/gwid-readme.mdx"
 
+# Fetch go-livepeer box.md (full file)
+echo "  → Fetching livepeer/go-livepeer box/box.md..."
+curl -sL "https://raw.githubusercontent.com/livepeer/go-livepeer/master/box/box.md" | sanitize_for_mdx > "$EXTERNAL_DIR/box-additional-config.mdx"
+
 echo "✓ External docs fetched successfully to $EXTERNAL_DIR"
 

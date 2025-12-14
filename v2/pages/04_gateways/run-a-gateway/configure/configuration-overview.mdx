@@ -1,31 +1,34 @@
 ---
 title: 'Configuration Overview'
-description: 'Overview of configuring a Livepeer Gateway and running services including AI & Video offerings'
+description: 'Overview of configuring a Livepeer Gateway including running & pricing AI & Video services'
 sidebarTitle: 'Configuration Overview'
 ---
 
-<Warning>
-  All Content in this install section was transported from the curren (v1) docs. 
-  TODO: Check all links and info, update copy
-</Warning>
+## Introduction
+Gateways in Livepeer serve as the entry point for media streams, handling both traditional video transcoding and 
+AI processing workflows. While the core function of ingesting and distributing media is similar, the processing pipelines and components differ. 
+A single gateway can handle both types of workloads simultaneously.
 
-Gateways can be configured to run both video transcoding and AI inference services in Livepeer.
-This means
 
-This section breaks down the Livepeer Gateway configuration space into two sets of capabilities:
-- Transcoding Options (used by Mainnet Transcoding Network Gateways — often just called “Gateways”/“Broadcasters”)
-- AI Gateway Flags & Options (used when running a Gateway in the Livepeer AI network context)
+This section breaks down the Livepeer Gateway configuration space into the following options:
+- **Transcoding Options** - used by Transcoding Network Gateways
+- **AI Gateway Flags & Options** - used when running a Gateway in the Livepeer AI network context
+- **Dual Configuration** - used when running a Gateway that supports both video transcoding and AI inference services
+- **Pricing Configuration** - used to configure pricing for service offerings
 
-It will also share how to price these services.
+## Launch Pad <Icon icon="arrow-up-right" size={18} color={"#909391"}/>
 
 <Columns cols={2}>
-<Card title="Transcoding Configuration" icon="film" href="./configuration-options" arrow>
-    Configure transcoding services
+<Card title="Transcoding Configuration" icon="film-canister" href="./video-configuration" arrow>
+    Configure video transcoding services
   </Card>
-  <Card title="AI Inference Configuration" icon="robot" href="./configuration-options" arrow>
+  <Card title="AI Inference Configuration" icon="user-robot" href="./ai-configuration" arrow>
     Configure AI inference services
   </Card>
-  <Card title="Pricing Configuration" icon="dollar-sign" href="./configuration-options" arrow>
+  <Card title="Dual Configuration" icon="drone" href="./dual-configuration" arrow>
+    Configure both video transcoding and AI inference services
+  </Card>
+  <Card title="Pricing Configuration" icon="money-check-dollar" href="./pricing-configuration" arrow>
     Configure pricing for services
   </Card>
 </Columns>
