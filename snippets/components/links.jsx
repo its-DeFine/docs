@@ -1,4 +1,8 @@
-export const BlinkingTerminal = ({ size = 16, color = "#2d9a67" }) => {
+export const BlinkingIcon = ({
+  icon = "terminal",
+  size = 16,
+  color = "#2d9a67",
+}) => {
   return (
     <span
       style={{
@@ -6,7 +10,7 @@ export const BlinkingTerminal = ({ size = 16, color = "#2d9a67" }) => {
         animation: "blink 3s ease-in-out infinite",
       }}
     >
-      <Icon icon="terminal" size={size} color={color} />
+      <Icon icon={icon} size={size} color={color} />
       <style>{`
         @keyframes blink {
           0%, 100% { opacity: 1; }
@@ -16,6 +20,9 @@ export const BlinkingTerminal = ({ size = 16, color = "#2d9a67" }) => {
     </span>
   );
 };
+
+// Alias for backwards compatibility
+export const BlinkingTerminal = BlinkingIcon;
 
 export const DoubleIconLink = ({
   label = "",

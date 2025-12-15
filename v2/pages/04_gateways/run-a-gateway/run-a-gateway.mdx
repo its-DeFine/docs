@@ -2,7 +2,7 @@
 title: Run a Gateway
 sidebarTitle: Provide Video & AI Services
 description: "Gateways are essential infrastructure in the Livepeer network. 
-They provide the service coordination layer (routing & verification) that connects applications to the decentralized GPU compute layer. 
+They provide the service coordination layer (routing & verification) that connects applications to the decentralized GPU compute layer (DePIN). 
 This guide explains the requirements, setup steps, and best practices for running a Gateway node."
 ---
 
@@ -73,20 +73,19 @@ flowchart LR
 
 <br/>
 
-## What a Gateway Operator Does
-
-Gateway operators handle:
-
-- Job intake and API requests
-- Routing workloads to the best Orchestrator (GPU Node)
-- Managing pricing, capabilities, and service metadata
-- Publishing offerings (AI inference, video transcoding and more) to the Marketplace
-- Monitoring job performance, latency, and reliability
-
-Gateways do **not** compute or perform the AI inference or transcoding themselves. 
-That work is performed by orchestrators.
-
-<br />
+<Card
+    title="Gateway Economics"
+    href="../about-gateways/gateway-economics"
+    icon="hand-holding-dollar"
+    horizontal
+    arrow
+    >
+    Looking for information on how gateways earn fees for services?
+    <GotoLink
+      label="Read the 'Gateway Economics' section"
+      relativePath="../about-gateways/gateway-economics"
+    />   
+</Card>
 
 ## Gateway Operator Journey
 <br/>
@@ -185,5 +184,7 @@ flowchart TB
     - [ ] Style
     - [ ] Copy over v1 docs
     - [ ] Fix Mermaid Diagram
+    - [ ] Add Video
+    - [ ] MISSING: Connecting to Orchestrators?
     </Expandable>
 </Danger>

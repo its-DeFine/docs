@@ -1,26 +1,47 @@
 ---
 title: Fund The Livepeer Gateway
-# icon: ethereum
+sidebarTitle: 'Fund Your Gateway'
+icon: ethereum
 description:
-  The following steps will walk you through adding funds to the newly created
-  ETH account. This includes funding the ETH account on Ethereum Mainnet,
-  bridging the funds to Arbritrum's L2 Network, and finally using the Livepeer
+  The following steps will walk you through adding funds to your Gateway
+  ETH account, including funding the ETH account on Ethereum Mainnet,
+  bridging the funds to Arbritrum's L2 Network, and then using the Livepeer
   CLI to allocate the proper deposit and reserve amounts.
 ---
 
+<Danger> 
+  Ported from v1 docs - needs review 
+  <Expandable title="TODO">
+    - [ ] Verify all content
+    - [ ] Verify all links
+    - [ ] Needs Introduction - why are we doing this? In what context (production only)?
+    </Expandable>
+</Danger>
+
 # Add Funds to Gateway Wallet
 
-In order to use the Gateway you need to send ETH to your Gateway address on
-Ethereum Mainnet and then bridged to Arbitrum's L2 Network.
+In order to operate the Gateway in production you need to have Ethereum on the [Arbitrum](https://arbitrum.io/) L2 Blockchain - which is where Livepeer's smart contracts are deployed and that provides the payment layer for Livepeer.
 
-<Note>
+<Callout icon="question-circle" color="#2d9a67">
+  Not Web3 native?
+  <Expandable title="Arbitrum Quick Explainer"> 
+    Each blockchain operates as it's own network and uses it's own currency. Ethereum is the currency for the Ethereum L1 Network and Arbitrum ETH is the 
+    currency for the Arbitrum L2 Network. Arbitrum is a scaling solution for the Ethereum network - it operates by batching transactions and processing them 
+    off-chain then reconciling them with the Ethereum mainnet, kind of like a store would tally all their sales each day and reconcile their receipts. 
+    This makes transactions on Arbitrum much cheaper than on Ethereum, while still providing the security and trust of the Ethereum network.
+  </Expandable>
+</Callout>
+
+You can send ETH to your Gateway address on Ethereum Mainnet and then bridge it to Arbitrum's L2 Network.
+
+<Info>
   _If you have ETH on the Arbitrum L2 Network, you can simply transfer the funds
   to the newly created Gateway ETH Account._
-</Note>
-<Note>
+</Info>
+<Info>
   _Livepeer runs on the Arbitrium's L2 Network and requires the funds to be
   bridged._
-</Note>
+</Info>
 
 # Bridge Funds to Arbitrum
 

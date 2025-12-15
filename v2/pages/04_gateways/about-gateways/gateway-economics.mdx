@@ -1,0 +1,167 @@
+---
+title: 'Gateway Economics'
+description: 'Learn about the economics of running a Livepeer Gateway'
+sidebarTitle: 'Gateway Economics'
+---
+
+# Gateway Economics in Livepeer
+Gateways in Livepeer do not earn money at the _protocol level_ (though they can earn money at the _business application level_). 
+ 
+Livepeer follows a service provider model where gateways are customers purchasing media & AI processing services from the network. 
+The actual protocol-level earners are orchestrators, transcoders, AI workers, and redeemers who provide the computational work 
+and blockchain services README.md:13-16 .
+
+The economic flow is from gateways to orchestrators/transcoders, with gateways not earning money at the protocol level (there is no flag to set a % fee on top of orchestrator prices).
+
+**The Payment Flow**
+
+In Livepeer's economic model, gateways are consumers of media processing services:
+
+- Gateways pay Orchestrators for transcoding/AI work via payment tickets
+- Orchestrators pay Transcoders/AI Workers who perform the actual work
+- Redeemers earn fees by redeeming winning payment tickets on-chain
+
+## Who Actually Earns Money?
+
+<div style={{ overflowX: 'auto', marginBottom: '24px' }}>
+<table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+  <thead>
+    <tr style={{ backgroundColor: '#2d9a67', color: '#fff' }}>
+      <th style={{ padding: '12px 16px', textAlign: 'left', fontWeight: '600', borderBottom: '2px solid #2d9a67' }}>Node Type</th>
+      <th style={{ padding: '12px 16px', textAlign: 'left', fontWeight: '600', borderBottom: '2px solid #2d9a67' }}>How They Earn Money</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Orchestrator</td>
+      <td style={{ padding: '10px 16px' }}>Receives payments from gateways for coordinating work</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: 'transparent' }}>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Transcoder</td>
+      <td style={{ padding: '10px 16px' }}>Gets paid by orchestrators for video transcoding work</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>AI Worker</td>
+      <td style={{ padding: '10px 16px' }}>Gets paid by orchestrators for AI model inference</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: 'transparent' }}>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Redeemer</td>
+      <td style={{ padding: '10px 16px' }}>Earns fees for redeeming winning tickets on blockchain</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Gateway</td>
+      <td style={{ padding: '10px 16px' }}>PAYS for services (does not earn)</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+### Gateway Costs
+Gateways incur costs for:
+
+- Video transcoding: Per segment based on pixels processed
+- AI processing: Per pixel based on output dimensions live_payment.go:162-165
+- Live AI video: Interval-based payments during streaming ai_http.go:181-211
+
+### Why Run a Gateway?
+If gateways don't earn money, why run one?
+
+- Content providers run gateways to process their own video/AI content
+- Service providers may charge end-users higher rates than what they pay orchestrators
+- Integrated platforms use gateways as part of larger media services
+
+## Gateways Arbitrage Earnings
+Gateways make money through business arbitrage:
+
+- Content providers pay gateways for video/AI processing services
+- Gateways pay orchestrators for the actual computational work
+
+The difference is the gateway's profit margin
+
+## Gateway Fee Structure
+
+As a gateway operator, you don't set protocol-level "fees" in Livepeer - you set **business pricing** at the application layer. 
+The protocol only controls what you **pay** orchestrators, not what you **charge** customers.
+
+### Protocol-Level Costs (What You Pay)
+
+You control your costs through these configuration flags [1](#10-0) :
+
+```bash
+# Maximum you'll pay per pixel for transcoding
+-maxPricePerUnit=1000
+
+# Maximum you'll pay per AI capability/model
+-maxPricePerCapability='{"capabilities_prices": [{"pipeline": "text-to-image", "model_id": "stabilityai/sd-turbo", "price_per_unit": 1000}]}'
+```
+
+### Business-Level Pricing (What You Charge)
+
+Your actual fees to end-users are set at the application layer, outside the Livepeer protocol. Common approaches include:
+
+1. **Per-request pricing**: Charge per API call to your gateway
+2. **Usage-based pricing**: Charge per minute of video or per AI generation
+3. **Subscription models**: Monthly fees for access to your gateway services
+
+### Implementation Example
+
+Here's how you'd implement pricing logic in your application:
+
+```go
+// Your application code (not in Livepeer protocol)
+func calculateUserPrice(requestType string, pixels int64) float64 {
+    basePrice := getYourBusinessPrice(requestType)
+    yourCost := getOrchestratorCost(pixels)
+    profitMargin := 0.20 // 20% margin
+    
+    return basePrice + yourCost*profitMargin
+}
+```
+
+### Price Discovery
+
+Use the CLI to discover orchestrator prices and set your margins [2](#10-1) :
+
+```bash
+livepeer_cli
+# Select "Set broadcast config" to see current market rates
+# Then set your max prices accordingly
+```
+
+## Notes
+
+The Livepeer protocol intentionally separates infrastructure costs from business pricing. This allows gateway operators to:
+- Set competitive pricing based on their market position
+- Offer different service levels and pricing tiers
+- Build business models on top of the decentralized infrastructure
+
+Your "fee" is the difference between what customers pay you and what you pay orchestrators for processing [3](#10-2) .
+
+Wiki pages you might want to explore:
+- [Node Types (livepeer/go-livepeer)](/wiki/livepeer/go-livepeer#1.2)
+- [AI Processing (livepeer/go-livepeer)](/wiki/livepeer/go-livepeer#2.5)
+
+### Citations
+
+**File:** cmd/livepeer/livepeer.go (L137-139)
+```go
+	cfg.MaxPricePerUnit = flag.String("maxPricePerUnit", *cfg.MaxPricePerUnit, "The maximum transcoding price per 'pixelsPerUnit' a broadcaster is willing to accept. If not set explicitly, broadcaster is willing to accept ANY price. Can be specified in wei or a custom currency in the format <price><currency> (e.g. 0.50USD). When using a custom currency, a corresponding price feed must be configured with -priceFeedAddr")
+	cfg.MaxPricePerCapability = flag.String("maxPricePerCapability", *cfg.MaxPricePerCapability, `json list of prices per capability/model or path to json config file. Use "model_id": "default" to price all models in a pipeline the same. Example: {"capabilities_prices": [{"pipeline": "text-to-image", "model_id": "stabilityai/sd-turbo", "price_per_unit": 1000, "pixels_per_unit": 1}, {"pipeline": "upscale", "model_id": "default", price_per_unit": 1200, "pixels_per_unit": 1}]}`)
+	cfg.IgnoreMaxPriceIfNeeded = flag.Bool("ignoreMaxPriceIfNeeded", *cfg.IgnoreMaxPriceIfNeeded, "Set to true to allow exceeding max price condition if there is no O that meets this requirement")
+```
+
+**File:** cmd/livepeer_cli/wizard_broadcast.go (L56-67)
+```go
+	fmt.Printf("Enter a maximum transcoding price per pixel, in wei per pixels (pricePerUnit / pixelsPerUnit).\n")
+	fmt.Printf("eg. 1 wei / 10 pixels = 0,1 wei per pixel \n")
+	fmt.Printf("\n")
+	fmt.Printf("Enter amount of pixels that make up a single unit (default: 1 pixel) - ")
+	// Read numbers as strings not to lose precision and support big numbers
+	pixelsPerUnit := w.readDefaultString("1")
+	fmt.Printf("\n")
+	fmt.Printf("Enter the currency for the price per unit (default: Wei) - ")
+	currency := w.readDefaultString("Wei")
+	fmt.Printf("\n")
+	fmt.Printf("Enter the maximum price to pay for %s pixels in %s (default: 0) - ", pixelsPerUnit, currency)
+	maxPricePerUnit := w.readDefaultString("0")
+```

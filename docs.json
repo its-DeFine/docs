@@ -380,7 +380,8 @@
                           "v2/pages/04_gateways/gateways-home",
                           "v2/pages/04_gateways/about-gateways/gateway-explainer",
                           "v2/pages/04_gateways/about-gateways/gateway-functions",
-                          "v2/pages/04_gateways/about-gateways/gateway-architecture"
+                          "v2/pages/04_gateways/about-gateways/gateway-architecture",
+                          "v2/pages/04_gateways/about-gateways/gateway-economics"
                         ]
                       },
                       {
@@ -428,8 +429,8 @@
                               "v2/pages/04_gateways/run-a-gateway/configure/video-configuration",
                               "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration",
                               "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration",
-                              "v2/pages/04_gateways/run-a-gateway/configure/fund-gateway",
-                              "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration"
+                              "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration",
+                              "v2/pages/04_gateways/run-a-gateway/configure/fund-gateway"
                             ]
                           },
                           {
@@ -460,34 +461,34 @@
                         "group": "Gateway Guides & Resources",
                         "icon": "laptop-file",
                         "pages": [
-                          "v2/pages/04_gateways/guides-references/community-guides",
-                          "v2/pages/04_gateways/guides-references/community-projects"
+                          "v2/pages/04_gateways/guides-and-resources/community-guides",
+                          "v2/pages/04_gateways/guides-and-resources/community-projects",
+                          "v2/pages/04_gateways/guides-and-resources/faq"
                         ]
                       },
                       {
                         "group": "Technical References",
                         "icon": "code",
                         "pages": [
-                          "v2/pages/04_gateways/guides-references/technical-architecture",
-                          "v2/pages/04_gateways/guides-references/configuration-flags",
-                          "v2/pages/04_gateways/guides-references/FAQ",
+                          "v2/pages/04_gateways/references/technical-architecture",
+                          "v2/pages/04_gateways/references/configuration-flags",
                           {
                             "group": "API Reference [AI]",
                             "pages": [
-                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/ai",
-                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/text-to-image",
-                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/image-to-image",
-                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/image-to-video",
-                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/upscale",
-                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/audio-to-text",
-                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/segment-anything-2",
-                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/llm",
-                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/image-to-text",
-                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/live-video-to-video",
-                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/text-to-speech",
-                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/health",
-                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/hardware-info",
-                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/hardware-stats"
+                              "v2/pages/04_gateways/references/api-reference/AI-API/ai",
+                              "v2/pages/04_gateways/references/api-reference/AI-API/text-to-image",
+                              "v2/pages/04_gateways/references/api-reference/AI-API/image-to-image",
+                              "v2/pages/04_gateways/references/api-reference/AI-API/image-to-video",
+                              "v2/pages/04_gateways/references/api-reference/AI-API/upscale",
+                              "v2/pages/04_gateways/references/api-reference/AI-API/audio-to-text",
+                              "v2/pages/04_gateways/references/api-reference/AI-API/segment-anything-2",
+                              "v2/pages/04_gateways/references/api-reference/AI-API/llm",
+                              "v2/pages/04_gateways/references/api-reference/AI-API/image-to-text",
+                              "v2/pages/04_gateways/references/api-reference/AI-API/live-video-to-video",
+                              "v2/pages/04_gateways/references/api-reference/AI-API/text-to-speech",
+                              "v2/pages/04_gateways/references/api-reference/AI-API/health",
+                              "v2/pages/04_gateways/references/api-reference/AI-API/hardware-info",
+                              "v2/pages/04_gateways/references/api-reference/AI-API/hardware-stats"
                             ]
                           }
                         ]
@@ -629,7 +630,8 @@
                         "group": "Guides & Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/pages/06_delegators/token-resources/lpt-exchanges"
+                          "v2/pages/06_delegators/token-resources/lpt-exchanges",
+                          "v2/pages/06_delegators/token-resources/lpt-eth-usage"
                         ]
                       }
                     ]

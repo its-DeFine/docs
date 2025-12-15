@@ -6,6 +6,7 @@ description: 'Welcome To The Gateway Portal: Explore, Navigate, Create'
 ---
 
 import { ScrollableDiagram } from '/snippets/components/zoomable-diagram.jsx'
+import { BlinkingIcon } from '/snippets/components/links.jsx'
 
 <Tip> In earlier Livepeer documentation, Gateways were referred to as Broadcasters </Tip>
 <Image src="../../assets/gateways/gateway-portal-header.png" alt="Gateway Portal Header" />
@@ -159,8 +160,9 @@ They accept video transcoding and AI inference requests from end customers, then
 </AccordionGroup>
 
 
-##  <Icon icon="signs-post" size={32} color={"#2b9a66"}/> Gateway Portal: Your Journey Starts Here
-Choose Your Mission
+##  <Icon icon="signs-post" size={32} color={"#2b9a66"}/> Gateway Portal: Choose Your Mission
+
+<span><BlinkingIcon icon="circle-play"/> Your Journey Starts Here </span>
 
 <Columns cols={2}>
   <Card
@@ -193,8 +195,11 @@ Choose Your Mission
   <Card title="Gateway Tools & Dashboards" icon="tools" href="./gateway-tools/explorer" arrow >
     Tools and Dashboards to help find and manage Gateways -> for users and operators.
   </Card>
-  <Card title="Gateway Guides & Resources" icon="laptop-file" href="./guides-references/community-guides" arrow >
+  <Card title="Gateway Guides & Resources" icon="laptop-file" href="./guides-and-resources/community-guides" arrow >
     Full guides, examples and tutorials on running a Livepeer Gateway node.
+  </Card>
+  <Card title="Gateway Technical References" icon="code" href="./references/technical-architecture" arrow >
+    All your Gateway questions answered.
   </Card>
 </Columns>
 
