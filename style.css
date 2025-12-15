@@ -97,3 +97,18 @@ a.nav-tabs-item[href="/v2/pages/07_resources/resources_hub"] > div:last-child {
 .code-block > div > div > svg {
   background-color: #18794e !important;
 }
+
+#error-description > span > img {
+  width: 500px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border: 1px solid #fff;
+}
+
+body
+  > div.relative.antialiased.text-gray-500.dark\:text-gray-400
+  > div.peer-\[\.is-not-custom\]\:lg\:flex.peer-\[\.is-custom\]\:\[\&\>div\:first-child\]\:\!hidden.peer-\[\.is-custom\]\:\[\&\>div\:first-child\]\:sm\:\!hidden.peer-\[\.is-custom\]\:\[\&\>div\:first-child\]\:md\:\!hidden.peer-\[\.is-custom\]\:\[\&\>div\:first-child\]\:lg\:\!hidden.peer-\[\.is-custom\]\:\[\&\>div\:first-child\]\:xl\:\!hidden
+  > div.flex.flex-col.items-center.justify-center.w-full.max-w-lg.overflow-x-hidden.mx-auto.py-48.px-5.text-center.\*\:text-center.gap-y-8.not-found-container
+  > div {
+  margin-top: -4rem;
+}

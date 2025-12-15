@@ -2897,6 +2897,13 @@
       }
     ]
   },
+  "errors": {
+    "404": {
+      "redirect": false,
+      "title": "Ruh oh. This page doesn't exist.",
+      "description": "<img src=\"https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2FteDJ4bno5MHU5Y3QxdGx3eWR2emdhejRhc2c1Y2d3ejY5ajlxMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ju7l5y9osyymQ/giphy.gif\" alt=\"Rick Roll\" /><br/><br/>Sorry About That."
+    }
+  },
   "redirects": [
     {
       "source": "/v2/pages/07_resources/redirect",
