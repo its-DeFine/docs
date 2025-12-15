@@ -449,42 +449,47 @@
                         ]
                       },
                       {
-                        "group": "Gateway Guides & Resources",
-                        "icon": "laptop-file",
-                        "pages": [
-                          {
-                            "group": "Gateway Tools & Dashboards",
-                            "pages": [
-                              "v2/pages/04_gateways/gateway-tools/explorer",
-                              "v2/pages/04_gateways/gateway-tools/livepeer-tools"
-                            ]
-                          },
-                          {
-                            "group": "Community Resources",
-                            "pages": [
-                              "v2/pages/04_gateways/guides-references/community-guides",
-                              "v2/pages/04_gateways/guides-references/community-projects"
-                            ]
-                          },
-                          {
-                            "group": "Technical References",
-                            "pages": [
-                              "v2/pages/04_gateways/guides-references/technical-architecture",
-                              "v2/pages/04_gateways/guides-references/protocol-specifications"
-                            ]
-                          },
-                          {
-                            "group": "API Reference",
-                            "openapi": "ai/worker/api/openapi.yaml"
-                          },
-                          "v2/pages/04_gateways/guides-references/FAQ"
-                        ]
-                      },
-                      {
-                        "group": "[moved] Gateway Tools & Dashboards",
+                        "group": "Gateway Tools & Dashboards",
+                        "icon": "tools",
                         "pages": [
                           "v2/pages/04_gateways/gateway-tools/explorer",
                           "v2/pages/04_gateways/gateway-tools/livepeer-tools"
+                        ]
+                      },
+                      {
+                        "group": "Gateway Guides & Resources",
+                        "icon": "laptop-file",
+                        "pages": [
+                          "v2/pages/04_gateways/guides-references/community-guides",
+                          "v2/pages/04_gateways/guides-references/community-projects"
+                        ]
+                      },
+                      {
+                        "group": "Technical References",
+                        "icon": "code",
+                        "pages": [
+                          "v2/pages/04_gateways/guides-references/technical-architecture",
+                          "v2/pages/04_gateways/guides-references/configuration-flags",
+                          "v2/pages/04_gateways/guides-references/FAQ",
+                          {
+                            "group": "API Reference [AI]",
+                            "pages": [
+                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/ai",
+                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/text-to-image",
+                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/image-to-image",
+                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/image-to-video",
+                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/upscale",
+                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/audio-to-text",
+                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/segment-anything-2",
+                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/llm",
+                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/image-to-text",
+                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/live-video-to-video",
+                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/text-to-speech",
+                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/health",
+                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/hardware-info",
+                              "v2/pages/04_gateways/guides-references/api-reference/AI-API/hardware-stats"
+                            ]
+                          }
                         ]
                       }
                     ]

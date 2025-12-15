@@ -24,15 +24,23 @@ and video workloads to the orchestrators who perform the GPU compute.
 They operate as the essential technical layer between the protocol and 
 the distributed compute network. 
 
-If you are coming from an Ethereum background, Gateways could loosely be thought of as network validators. 
-If you are coming from a traditional cloud background, Gateways are akin to...<Danger/>
-
-Anyone that wants to build applications and services (like [Daydream] and [example2] ) on top of the Livepeer 
-protocol will build their own Gateway in order to offer their services to Livepeer Developers / Builders & enable 
-communication of their application with the Livepeer GPU network (DePIN / Orchestrators) 
-
 A gateway is a self-operated Livepeer node that interacts directly with orchestrators, submits jobs, handles payment, and exposes direct protocol interfaces.
 Hosted services like Daydream are not gateways.
+
+A Gateway is responsible for
+- validating requests
+- selecting Workers
+- translating requests into Worker OpenAPI calls
+- aggregating results
+
+Gateways earn revenue from transaction fees on all jobs they route.
+
+If you are coming from an Ethereum background, Gateways could loosely be thought of as sequencers in L2 rollups. 
+If you are coming from a traditional cloud background, Gateways are akin to API gateways or load balancers.
+
+Anyone that wants to build applications and services (like [Daydream] and [Stream.place] ) on top of the Livepeer 
+protocol will build their own Gateway in order to offer their services to Livepeer Developers, Builders & end-users and enable 
+communication of their application with the Livepeer GPU network (DePIN / Orchestrators) 
 
 
 ## What Gateways Do
@@ -61,8 +69,9 @@ Gateways do _not_ perform GPU compute. Instead, they focus on coordination and s
 
 ## Why Gateways Matter
 
-As Livepeer transitions into a high-demand, real-time AI network, Gateways become essential infrastructure. They enable:
+As Livepeer transitions into a high-demand, real-time AI network, Gateways become essential infrastructure.
 
+They enable:
 - Low-latency workflows for Daydream, ComfyStream, and other real-time AI video tools
 - Dynamic GPU routing for inference-heavy workloads
 - A decentralized marketplace of compute capabilities
@@ -72,7 +81,8 @@ Gateways simplify the developer experience while preserving the decentralization
 
 ## Summary
 
-Gateways are the coordination and routing layer of the Livepeer ecosystem. They expose capabilities, price services, accept workloads, and dispatch them to orchestrators for GPU execution. This design enables a scalable, low-latency, AI-ready decentralized compute marketplace.
+Gateways are the coordination and routing layer of the Livepeer ecosystem. They expose capabilities, price services, accept workloads, 
+and dispatch them to orchestrators for GPU execution. This design enables a scalable, low-latency, AI-ready decentralized compute marketplace.
 
 This architecture enables Livepeer to scale into a global provider of real-time AI video infrastructure.
 
@@ -86,83 +96,85 @@ This architecture enables Livepeer to scale into a global provider of real-time 
 
 <Warning> WIP: Unsure where below section belongs currently</Warning>
 
-## Key Marketplace Features
+<Accordian title="Marketplace Content">
+  ## Key Marketplace Features
 
-### 1. Capability Discovery
+  ### 1. Capability Discovery
 
-Gateways and orchestrators list:
+  Gateways and orchestrators list:
 
-- AI model support
-- Versioning and model weights
-- Pipeline compatibility
-- GPU type and compute class
+  - AI model support
+  - Versioning and model weights
+  - Pipeline compatibility
+  - GPU type and compute class
 
-Applications can programmatically choose the best provider.
+  Applications can programmatically choose the best provider.
 
-### 2. Dynamic Pricing
+  ### 2. Dynamic Pricing
 
-Pricing can vary by:
+  Pricing can vary by:
 
-- GPU class
-- Model complexity
-- Latency SLA
-- Throughput requirements
-- Region
+  - GPU class
+  - Model complexity
+  - Latency SLA
+  - Throughput requirements
+  - Region
 
-Gateways expose pricing APIs for transparent selection.
+  Gateways expose pricing APIs for transparent selection.
 
-### 3. Performance Competition
+  ### 3. Performance Competition
 
-Orchestrators compete on:
+  Orchestrators compete on:
 
-- Speed
-- Reliability
-- GPU quality
-- Cost efficiency
+  - Speed
+  - Reliability
+  - GPU quality
+  - Cost efficiency
 
-Gateways compete on:
+  Gateways compete on:
 
-- Routing quality
-- Supported features
-- Latency
-- Developer ecosystem fit
+  - Routing quality
+  - Supported features
+  - Latency
+  - Developer ecosystem fit
 
-This creates a healthy decentralized market.
+  This creates a healthy decentralized market.
 
-### 4. BYOC Integration
+  ### 4. BYOC Integration
 
-Any container-based pipeline can be brought into the marketplace:
+  Any container-based pipeline can be brought into the marketplace:
 
-- Run custom AI models
-- Run ML workflows
-- Execute arbitrary compute
-- Support enterprise workloads
+  - Run custom AI models
+  - Run ML workflows
+  - Execute arbitrary compute
+  - Support enterprise workloads
 
-Gateways advertise BYOC offerings; orchestrators execute containers.
+  Gateways advertise BYOC offerings; orchestrators execute containers.
 
-<GotoCard
-  label="Protocol Overview"
-  text="Understand the Full Livepeer Network Design"
-  relativePath="../../01_about/livepeer-protocol/livepeer-protocol/protocol-overview.mdx"
-/>
+  <GotoCard
+    label="Protocol Overview"
+    text="Understand the Full Livepeer Network Design"
+    relativePath="../../01_about/livepeer-protocol/livepeer-protocol/protocol-overview.mdx"
+  />
 
-## Marketplace Benefits
+  ## Marketplace Benefits
 
-- **Developer choice** — choose the best model, price, and performance
-- **Economic incentives** — better nodes earn more work
-- **Scalability** — network supply grows independently of demand
-- **Innovation unlock** — new models and pipelines can be added instantly
-- **Decentralization** — no single operator controls the workload flow
+  - **Developer choice** — choose the best model, price, and performance
+  - **Economic incentives** — better nodes earn more work
+  - **Scalability** — network supply grows independently of demand
+  - **Innovation unlock** — new models and pipelines can be added instantly
+  - **Decentralization** — no single operator controls the workload flow
 
-## Summary
+  ## Summary
 
-The Marketplace turns Livepeer into a competitive, discoverable, real-time AI compute layer.
+  The Marketplace turns Livepeer into a competitive, discoverable, real-time AI compute layer.
 
-- Gateways expose services
-- Orchestrators execute them
-- Applications choose the best fit
-- Developers build on top of it
-- Users benefit from low-latency, high-performance AI
+  - Gateways expose services
+  - Orchestrators execute them
+  - Applications choose the best fit
+  - Developers build on top of it
+  - Users benefit from low-latency, high-performance AI
+</Accordian>
 
 # References
 
@@ -177,56 +189,3 @@ https://github.com/videoDAC/livepeer-gateway
 >
   <p>Your browser does not support iframes.</p>
 </iframe>
-
-<Accordion title="Old Content">
-
-## Gateway Architecture
-
-### Flow Diagram
-
-<div style={{ display: 'flex', justifyContent: 'center' }}>
-  <Mermaid
-    chart={`graph TD
-      A["Application<br/>(Daydream, ComfyUI, BYOC)"] -->|Job Request| B["Gateway<br/>Job Intake, Pricing, Capability Match"]
-      B -->|Route Job| C["Orchestrator<br/>GPU Compute, AI Inference, Transcoding"]
-      C -->|Results| B
-      B -->|Response| A `}
-  />
-</div>
-
-### Layered Architecture
-
-<Mermaid
-  chart={`graph LR
-    subgraph APP[Application Layer]
-        X["User App<br/>(Web, Mobile, TouchDesigner)"]
-    end
-    subgraph GW[Gateway Layer]
-        G1[Job Intake]
-        G2[Capability Discovery]
-        G3[Pricing & Marketplace]
-        G4[Routing / Scheduling]
-    end
-    subgraph ORC[Orchestrator Layer]
-        O1[GPU Worker]
-        O2[AI Models / BYOC Containers]
-        O3[Transcoder]
-    end
-    X --> G1
-    G1 --> O1
-    O1 --> G1
-    G1 --> X`}
-/>
-
-Orchestrators are GPU operators who execute the actual workload—transcoding, AI inference, or BYOC containers. Gateways route jobs _to_ orchestrators, collect results, and return them to the application.
-
-**Applications → Gateway → Orchestrator → Gateway → Application**
-
-This separation allows:
-
-- Clean abstraction for developers
-- Efficient load balancing
-- Competition and specialization across operators
-- Support for a broad range of real-time AI pipelines
-
-</Accordion>
