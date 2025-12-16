@@ -405,6 +405,7 @@
                         "group": "Run Your Own Gateway",
                         "icon": "sign-posts-wrench",
                         "pages": [
+                          "v2/pages/04_gateways/run-a-gateway/why-run-a-gateway",
                           "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
                           {
                             "group": "Requirements",

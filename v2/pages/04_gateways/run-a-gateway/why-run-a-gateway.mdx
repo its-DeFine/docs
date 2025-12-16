@@ -1,0 +1,464 @@
+---
+title: 'Why Run a Gateway?'
+description: 'Why you should run a Livepeer Gateway'
+sidebarTitle: 'Why Run a Gateway'
+---
+<Icon icon="hat-wizard" /> **Business Hat Time!**
+
+As discussed in the Gateway Economics section, Gateways in Livepeer do not currently earn protocol fees - by design.
+
+<Card title="Gateway Economics" arrow horizontal href="../about-gateways/gateway-economics" icon="hand-holding-dollar">
+Read about Gateway Economics Here
+</Card>
+
+Instead, Gateways sit at the demand, control, and product layer of the Livepeer network.
+
+They are not just services routers - they are also where businesses, products, SLAs, compliance,
+and customer relationships actually live.
+
+This is where customers connect, policy is enforced, workloads are shaped, and real businesses are built.
+
+<Tip>
+    **Running a gateway is a strategic infrastructure decision**
+
+    Reasons include both technical and product needs.
+</Tip>
+
+### Product Mental Model
+
+Gateways
+- own customer relationships
+- control ingress and demand
+- shape reliability and latency
+- enable compliance and enterprise sales
+- provide product differentiation
+
+In every mature infrastructure market (cloud, CDNs, payments, telecom), the
+control plane and edge capture durable value even when execution is commoditised
+(ie. by Orchestrators in the case of Livepeer).
+
+If orchestrators are "factories," gateways are the ports, customs offices, and logistics companies.
+
+<br/>
+
+# Why Run a Gateway?
+
+Below is some of the reasons you might decide to run a Livepeer Gateway - grouped into clear business and technical categories.
+
+<AccordionGroup>
+    <Accordion title="Direct Usage & Platform Integration">
+        ## 1) Direct Usage & Platform Integration
+
+        Reasons related to *using a gateway as part of your own product or operations*.
+
+        * **Run your own workloads** – Process your own video or AI content end-to-end with full control over ingestion, routing, retries, and delivery.
+        * **Ensure SLAs on orchestrators** – Enforce latency, availability, retries, and failover through explicit orchestrator selection and routing logic.
+        * **Embed in a larger platform** – Use the gateway as internal infrastructure powering a broader media or AI product rather than exposing protocol primitives.
+
+    </Accordion>
+    <Accordion title="Economics & Monetization">
+
+        ## 2) Economics & Monetization
+
+        Reasons related to *where money is made or saved*.
+
+        * **Service-layer monetization** – Charge end users more than orchestrator cost for reliability, compliance, convenience, or performance guarantees.
+        * **Avoid third-party gateway fees** – Eliminate routing fees, pricing risk, and policy constraints imposed by another gateway operator.
+
+    </Accordion>
+    <Accordion title="Reliability, Performance & QoS">
+
+        ## 3) Demand Control & Traffic Ownership
+
+        Reasons related to *owning and shaping demand*.
+
+        * **Demand aggregation & traffic ownership** – Own ingress, customer relationships, usage data, and traffic predictability across apps or customers.
+        * **Workload normalization** – Smooth bursty demand into predictable, orchestrator-friendly workloads.
+
+    </Accordion>
+    <Accordion title="Reliability, Performance & QoS">
+
+        ## 4) Reliability, Performance & QoS
+
+        Reasons related to *making the system work in real production environments*.
+
+        * **QoS enforcement & workload shaping** – Control routing, retries, failover, and latency vs cost trade-offs beyond protocol defaults.
+        * **Geographic request steering** – Route users to regionally optimal orchestrators to reduce latency and improve reliability.
+
+    </Accordion>
+    <Accordion title="Security & Compliance">
+
+        ## 5) Security & Compliance
+
+        Reasons related to *enterprise and production requirements*.
+
+        * **Enterprise policy enforcement** – IP allowlists, audit logs, authentication, rate limits, and deterministic behavior.
+        * **Cost-explosion & abuse protection** – Prevent buggy or malicious clients from generating runaway compute costs.
+
+    </Accordion>
+    <Accordion title="Product Differentiation & UX">
+
+        ## 6) Product Differentiation & UX
+
+        Reasons related to *building differentiated products on top of the protocol*.
+
+        * **Product differentiation above the protocol** – Custom APIs, SDKs, dashboards, billing abstractions, and AI workflow presets live at the gateway layer.
+        * **Stable API surface** – Shield customers from protocol or orchestrator churn with versioning and controlled change.
+
+    </Accordion>
+    <Accordion title="Observability & Feedback Loops">
+
+        ## 7) Observability & Feedback Loops
+
+        Reasons related to *seeing and improving the system over time*.
+
+        * **Analytics & feedback loops** – Visibility into request patterns, failures, latency distributions, model performance, and customer behavior.
+
+    </Accordion>
+    <Accordion title="Strategy, Optionality & Ecosystem Power">
+
+        ## 8) Strategy, Optionality & Ecosystem Power
+
+        Reasons related to *long-term leverage and positioning*.
+
+        * **Strategic independence** – Avoid pricing, roadmap, availability, or censorship risk from other gateway operators.
+        * **Future optionality** – Early positioning if gateway incentives or economics evolve in the future.
+        * **Ecosystem influence** – Gateways shape standards, surface protocol gaps, and influence real-world usage patterns.
+    </Accordion>
+</AccordionGroup>
+
+====== DO NOT DELETE ABOVE HERE=======
+
+<div style={{ overflowX: 'auto', marginBottom: '24px' }}>
+<table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+  <thead>
+    <tr style={{ backgroundColor: '#2d9a67', color: '#fff' }}>
+      <th style={{ padding: '12px 16px', textAlign: 'left', fontWeight: '600' }}>Category</th>
+      <th style={{ padding: '12px 16px', textAlign: 'left', fontWeight: '600' }}>Reason</th>
+      <th style={{ padding: '12px 16px', textAlign: 'left', fontWeight: '600' }}>Business Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style={{ backgroundColor: '#333' }}>
+      <td colSpan="3" style={{ padding: '10px 16px', fontWeight: '600', color: '#2d9a67' }}>Direct Usage & Platform Integration</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Direct Usage / Ops</td>
+      <td style={{ padding: '10px 16px' }}>Run your own workloads</td>
+      <td style={{ padding: '10px 16px' }}>Content providers run gateways to process their own video/AI workloads end-to-end, controlling ingestion, routing, retries, and delivery.</td>
+    </tr>
+    <tr style={{ backgroundColor: '#333' }}>
+      <td colSpan="3" style={{ padding: '10px 16px', fontWeight: '600', color: '#2d9a67' }}>Reliability, Performance & QoS</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Reliability</td>
+      <td style={{ padding: '10px 16px' }}>Enforce SLAs on orchestrators</td>
+      <td style={{ padding: '10px 16px' }}>Gateways select orchestrators, apply retries/failover, and enforce latency and uptime guarantees.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Reliability</td>
+      <td style={{ padding: '10px 16px' }}>QoS enforcement & workload shaping</td>
+      <td style={{ padding: '10px 16px' }}>Gateways control routing, retries, failover, and latency-vs-cost trade-offs beyond protocol defaults.</td>
+    </tr>
+    <tr style={{ backgroundColor: '#333' }}>
+      <td colSpan="3" style={{ padding: '10px 16px', fontWeight: '600', color: '#2d9a67' }}>Platform</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Platform</td>
+      <td style={{ padding: '10px 16px' }}>Embed in a larger product</td>
+      <td style={{ padding: '10px 16px' }}>Gateways act as internal infrastructure powering broader media or AI platforms.</td>
+    </tr>
+    <tr style={{ backgroundColor: '#333' }}>
+      <td colSpan="3" style={{ padding: '10px 16px', fontWeight: '600', color: '#2d9a67' }}>Economics</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Economics</td>
+      <td style={{ padding: '10px 16px' }}>Service-layer monetization</td>
+      <td style={{ padding: '10px 16px' }}>Service providers charge end users above orchestrator cost for reliability, compliance, or convenience.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Economics</td>
+      <td style={{ padding: '10px 16px' }}>Avoid third-party gateway fees</td>
+      <td style={{ padding: '10px 16px' }}>Running your own gateway avoids routing fees, pricing risk, and policy constraints imposed by others.</td>
+    </tr>
+    <tr style={{ backgroundColor: '#333' }}>
+      <td colSpan="3" style={{ padding: '10px 16px', fontWeight: '600', color: '#2d9a67' }}>Demand Control & Traffic Ownership</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Demand Control</td>
+      <td style={{ padding: '10px 16px' }}>Demand aggregation & traffic ownership</td>
+      <td style={{ padding: '10px 16px' }}>Gateways own ingress, customer relationships, usage data, and traffic predictability across apps or customers.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Demand Control</td>
+      <td style={{ padding: '10px 16px' }}>Workload normalization</td>
+      <td style={{ padding: '10px 16px' }}>Gateways smooth bursty demand into predictable, orchestrator-friendly workloads.</td>
+    </tr>
+    <tr style={{ backgroundColor: '#333' }}>
+      <td colSpan="3" style={{ padding: '10px 16px', fontWeight: '600', color: '#2d9a67' }}>Performance</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Performance</td>
+      <td style={{ padding: '10px 16px' }}>Geographic request steering</td>
+      <td style={{ padding: '10px 16px' }}>Gateways route users to regionally optimal orchestrators to reduce latency and improve reliability.</td>
+    </tr>
+    <tr style={{ backgroundColor: '#333' }}>
+      <td colSpan="3" style={{ padding: '10px 16px', fontWeight: '600', color: '#2d9a67' }}>Security & Compliance</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Security</td>
+      <td style={{ padding: '10px 16px' }}>Enterprise policy enforcement</td>
+      <td style={{ padding: '10px 16px' }}>Gateways enforce IP allowlists, auth, rate limits, audit logs, and deterministic behavior.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Security</td>
+      <td style={{ padding: '10px 16px' }}>Cost-explosion & abuse protection</td>
+      <td style={{ padding: '10px 16px' }}>Gateways block buggy or malicious clients before they generate runaway compute costs.</td>
+    </tr>
+    <tr style={{ backgroundColor: '#333' }}>
+      <td colSpan="3" style={{ padding: '10px 16px', fontWeight: '600', color: '#2d9a67' }}>Product Differentiation & UX</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Product</td>
+      <td style={{ padding: '10px 16px' }}>Product differentiation above protocol</td>
+      <td style={{ padding: '10px 16px' }}>Custom APIs, SDKs, dashboards, billing abstractions, and AI workflow presets live at the gateway layer.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Product</td>
+      <td style={{ padding: '10px 16px' }}>Stable API surface</td>
+      <td style={{ padding: '10px 16px' }}>Gateways shield customers from protocol or orchestrator churn via versioning and controlled change.</td>
+    </tr>
+    <tr style={{ backgroundColor: '#333' }}>
+      <td colSpan="3" style={{ padding: '10px 16px', fontWeight: '600', color: '#2d9a67' }}>Observability & Feedback Loops</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Observability</td>
+      <td style={{ padding: '10px 16px' }}>Analytics & feedback loops</td>
+      <td style={{ padding: '10px 16px' }}>Gateways see end-to-end request patterns, failures, latency, model performance, and customer behavior.</td>
+    </tr>
+    <tr style={{ backgroundColor: '#333' }}>
+      <td colSpan="3" style={{ padding: '10px 16px', fontWeight: '600', color: '#2d9a67' }}>Strategy, Optionality & Ecosystem Power</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Strategy</td>
+      <td style={{ padding: '10px 16px' }}>Strategic independence</td>
+      <td style={{ padding: '10px 16px' }}>Running your own gateway avoids pricing, roadmap, availability, and censorship risk from other gateways.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Strategy</td>
+      <td style={{ padding: '10px 16px' }}>Future optionality</td>
+      <td style={{ padding: '10px 16px' }}>Early gateway operators gain leverage if incentives or network economics evolve.</td>
+    </tr>
+    <tr style={{ backgroundColor: '#333' }}>
+      <td colSpan="3" style={{ padding: '10px 16px', fontWeight: '600', color: '#2d9a67' }}>Ecosystem Influence</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px' }}>Ecosystem</td>
+      <td style={{ padding: '10px 16px' }}>Ecosystem influence</td>
+      <td style={{ padding: '10px 16px' }}>Gateways sit at a coordination choke-point that shapes standards, surfaces protocol gaps, and influences real usage.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+====== DO NOT DELETE BELOW HERE=======
+
+#### Direct Usage & Platform Integration
+| Category           | Reason                 | Business Explanation                                                                                                                      |
+| ------------------ | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Direct Usage / Ops | Run your own workloads | Content providers run gateways to process their own video/AI workloads end-to-end, controlling ingestion, routing, retries, and delivery. |
+
+#### Reliability, Performance & QoS
+| Category    | Reason                             | Business Explanation                                                                                  |
+| ----------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------- |
+| Reliability | Enforce SLAs on orchestrators      | Gateways select orchestrators, apply retries/failover, and enforce latency and uptime guarantees.     |
+| Reliability | QoS enforcement & workload shaping | Gateways control routing, retries, failover, and latency-vs-cost trade-offs beyond protocol defaults. |
+
+#### Platform
+| Category | Reason                    | Business Explanation                                                            |
+| -------- | ------------------------- | ------------------------------------------------------------------------------- |
+| Platform | Embed in a larger product | Gateways act as internal infrastructure powering broader media or AI platforms. |
+
+#### Economics
+| Category  | Reason                         | Business Explanation                                                                                    |
+| --------- | ------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| Economics | Service-layer monetization     | Service providers charge end users above orchestrator cost for reliability, compliance, or convenience. |
+| Economics | Avoid third-party gateway fees | Running your own gateway avoids routing fees, pricing risk, and policy constraints imposed by others.   |
+
+#### Demand Control & Traffic Ownership
+| Category       | Reason                                 | Business Explanation                                                                                           |
+| -------------- | -------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| Demand Control | Demand aggregation & traffic ownership | Gateways own ingress, customer relationships, usage data, and traffic predictability across apps or customers. |
+| Demand Control | Workload normalization                 | Gateways smooth bursty demand into predictable, orchestrator-friendly workloads.                               |
+
+#### Performance
+| Category    | Reason                      | Business Explanation                                                                                |
+| ----------- | --------------------------- | --------------------------------------------------------------------------------------------------- |
+| Performance | Geographic request steering | Gateways route users to regionally optimal orchestrators to reduce latency and improve reliability. |
+
+#### Security & Compliance
+| Category | Reason                            | Business Explanation                                                                       |
+| -------- | --------------------------------- | ------------------------------------------------------------------------------------------ |
+| Security | Enterprise policy enforcement     | Gateways enforce IP allowlists, auth, rate limits, audit logs, and deterministic behavior. |
+| Security | Cost-explosion & abuse protection | Gateways block buggy or malicious clients before they generate runaway compute costs.      |
+
+#### Product Differentiation & UX
+| Category | Reason                                 | Business Explanation                                                                                    |
+| -------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Product  | Product differentiation above protocol | Custom APIs, SDKs, dashboards, billing abstractions, and AI workflow presets live at the gateway layer. |
+| Product  | Stable API surface                     | Gateways shield customers from protocol or orchestrator churn via versioning and controlled change.     |
+
+#### Observability & Feedback Loops
+| Category      | Reason                     | Business Explanation                                                                                   |
+| ------------- | -------------------------- | ------------------------------------------------------------------------------------------------------ |
+| Observability | Analytics & feedback loops | Gateways see end-to-end request patterns, failures, latency, model performance, and customer behavior. |
+
+#### Strategy, Optionality & Ecosystem Power
+| Category | Reason                 | Business Explanation                                                                                     |
+| -------- | ---------------------- | -------------------------------------------------------------------------------------------------------- |
+| Strategy | Strategic independence | Running your own gateway avoids pricing, roadmap, availability, and censorship risk from other gateways. |
+| Strategy | Future optionality     | Early gateway operators gain leverage if incentives or network economics evolve.                         |
+
+#### Ecosystem Influence
+| Category  | Reason              | Business Explanation                                                                                                 |
+| --------- | ------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| Ecosystem | Ecosystem influence | Gateways sit at a coordination choke-point that shapes standards, surfaces protocol gaps, and influences real usage. |
+
+
+### Full Table
+<div style={{ overflowX: 'auto', marginBottom: '24px' }}>
+<table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+  <thead>
+    <tr style={{ backgroundColor: '#2d9a67', color: '#fff' }}>
+      <th style={{ padding: '12px 16px', textAlign: 'center', fontWeight: '600', width: '40px' }}>#</th>
+      <th style={{ padding: '12px 16px', textAlign: 'left', fontWeight: '600' }}>Category</th>
+      <th style={{ padding: '12px 16px', textAlign: 'left', fontWeight: '600' }}>Reason</th>
+      <th style={{ padding: '12px 16px', textAlign: 'left', fontWeight: '600' }}>Business Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>1</td>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Direct Usage / Ops</td>
+      <td style={{ padding: '10px 16px' }}>Run your own workloads</td>
+      <td style={{ padding: '10px 16px' }}>Content providers run gateways to process their own video/AI workloads end-to-end, giving full control over ingestion, routing, retries, and delivery.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: 'transparent' }}>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>2</td>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Reliability</td>
+      <td style={{ padding: '10px 16px' }}>Enforce SLAs on orchestrators</td>
+      <td style={{ padding: '10px 16px' }}>Gateways allow explicit orchestrator selection, retries, failover, and quality enforcement to meet latency and uptime guarantees.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>3</td>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Economics</td>
+      <td style={{ padding: '10px 16px' }}>Service-layer monetization</td>
+      <td style={{ padding: '10px 16px' }}>Service providers can charge end-users more than orchestrator cost, monetising reliability, convenience, compliance, or performance.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: 'transparent' }}>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>4</td>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Economics</td>
+      <td style={{ padding: '10px 16px' }}>Avoid third-party gateway fees</td>
+      <td style={{ padding: '10px 16px' }}>Running your own gateway avoids paying fees or accepting constraints imposed by another operator's gateway.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>5</td>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Platform</td>
+      <td style={{ padding: '10px 16px' }}>Use as part of a larger product</td>
+      <td style={{ padding: '10px 16px' }}>Integrated platforms embed gateways as internal infrastructure powering broader media or AI services.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: 'transparent' }}>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>6</td>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Demand Control</td>
+      <td style={{ padding: '10px 16px' }}>Demand aggregation & traffic ownership</td>
+      <td style={{ padding: '10px 16px' }}>Gateways own ingress, customer relationships, usage data, and traffic predictability, enabling aggregation across apps or customers.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>7</td>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Reliability</td>
+      <td style={{ padding: '10px 16px' }}>QoS enforcement & workload shaping</td>
+      <td style={{ padding: '10px 16px' }}>Gateways control routing, retries, failover, and latency vs cost trade-offs beyond protocol defaults.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: 'transparent' }}>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>8</td>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Compliance</td>
+      <td style={{ padding: '10px 16px' }}>Enterprise policy enforcement</td>
+      <td style={{ padding: '10px 16px' }}>Gateways enforce IP allowlists, audit logs, jurisdictional routing, auth, and deterministic behavior required by enterprises.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>9</td>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Product</td>
+      <td style={{ padding: '10px 16px' }}>Product differentiation above protocol</td>
+      <td style={{ padding: '10px 16px' }}>Custom APIs, SDKs, dashboards, billing abstractions, and AI workflow presets live at the gateway layer.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: 'transparent' }}>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>10</td>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Observability</td>
+      <td style={{ padding: '10px 16px' }}>Analytics & feedback loops</td>
+      <td style={{ padding: '10px 16px' }}>Gateways see request patterns, failures, latency distributions, and customer behavior to inform UX, pricing, and routing.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>11</td>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Strategy</td>
+      <td style={{ padding: '10px 16px' }}>Future optionality</td>
+      <td style={{ padding: '10px 16px' }}>Early gateway operators gain leverage if network economics, incentives, or fee models evolve.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: 'transparent' }}>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>12</td>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Strategy</td>
+      <td style={{ padding: '10px 16px' }}>Strategic independence</td>
+      <td style={{ padding: '10px 16px' }}>Running your own gateway avoids pricing, roadmap, availability, and censorship risk from third parties.</td>
+    </tr>
+    <tr style={{ borderBottom: '1px solid #333', backgroundColor: '#1a1a1a' }}>
+      <td style={{ padding: '10px 16px', textAlign: 'center' }}>13</td>
+      <td style={{ padding: '10px 16px', color: '#2d9a67', fontWeight: '500' }}>Ecosystem</td>
+      <td style={{ padding: '10px 16px' }}>Ecosystem influence</td>
+      <td style={{ padding: '10px 16px' }}>Gateways sit at a coordination point that influences standards, surfaces protocol gaps, and shapes real usage patterns.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+### Summary Table
+| #  | Category               | Reason                                 | Business Explanation                                                                                                                                   |
+| -- | ---------------------- | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1  | **Direct Usage / Ops** | Run your own workloads                 | Content providers run gateways to process their own video/AI workloads end-to-end, giving full control over ingestion, routing, retries, and delivery. |
+| 2  | **Reliability**        | Enforce SLAs on orchestrators          | Gateways allow explicit orchestrator selection, retries, failover, and quality enforcement to meet latency and uptime guarantees.                      |
+| 3  | **Economics**          | Service-layer monetization             | Service providers can charge end-users more than orchestrator cost, monetising reliability, convenience, compliance, or performance.                   |
+| 4  | **Economics**          | Avoid third-party gateway fees         | Running your own gateway avoids paying fees or accepting constraints imposed by another operator’s gateway.                                            |
+| 5  | **Platform**           | Use as part of a larger product        | Integrated platforms embed gateways as internal infrastructure powering broader media or AI services.                                                  |
+| 6  | **Demand Control**     | Demand aggregation & traffic ownership | Gateways own ingress, customer relationships, usage data, and traffic predictability, enabling aggregation across apps or customers.                   |
+| 7  | **Reliability**        | QoS enforcement & workload shaping     | Gateways control routing, retries, failover, and latency vs cost trade-offs beyond protocol defaults.                                                  |
+| 8  | **Compliance**         | Enterprise policy enforcement          | Gateways enforce IP allowlists, audit logs, jurisdictional routing, auth, and deterministic behavior required by enterprises.                          |
+| 9  | **Product**            | Product differentiation above protocol | Custom APIs, SDKs, dashboards, billing abstractions, and AI workflow presets live at the gateway layer.                                                |
+| 10 | **Observability**      | Analytics & feedback loops             | Gateways see request patterns, failures, latency distributions, and customer behavior to inform UX, pricing, and routing.                              |
+| 11 | **Strategy**           | Future optionality                     | Early gateway operators gain leverage if network economics, incentives, or fee models evolve.                                                          |
+| 12 | **Strategy**           | Strategic independence                 | Running your own gateway avoids pricing, roadmap, availability, and censorship risk from third parties.                                                |
+| 13 | **Ecosystem**          | Ecosystem influence                    | Gateways sit at a coordination point that influences standards, surfaces protocol gaps, and shapes real usage patterns.                                |
+
+
+<Accordion title="brainstorm stuff">
+    ## Definition
+    If orchestrators are supply-side compute operators, gateways are demand-side coordinators.
+
+    A gateway:
+
+    - Receives user requests
+    - Authenticates and rate-limits them
+    - Decides where work goes
+    - Enforces policy and SLAs
+    - Aggregates and normalizes demand
+    - Exposes a stable API surface to customers
+
+    This makes the gateway the control plane between customers and decentralized compute.
+
+    Gateways are not passive middlemen.
+
+    They are:
+
+    - Demand governors
+    - Reliability layers
+    - Compliance wrappers
+    - Product surfaces
+    - Economic choke points
+</Accordion>

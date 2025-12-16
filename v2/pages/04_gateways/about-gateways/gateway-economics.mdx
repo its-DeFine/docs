@@ -9,9 +9,7 @@ Gateways in Livepeer do not earn money at the _protocol level_ (though they can 
  
 Livepeer follows a service provider model where gateways are customers purchasing media & AI processing services from the network. 
 The actual protocol-level earners are orchestrators, transcoders, AI workers, and redeemers who provide the computational work 
-and blockchain services README.md:13-16 .
-
-The economic flow is from gateways to orchestrators/transcoders, with gateways not earning money at the protocol level (there is no flag to set a % fee on top of orchestrator prices).
+and blockchain services.
 
 **The Payment Flow**
 
@@ -60,14 +58,15 @@ In Livepeer's economic model, gateways are consumers of media processing service
 Gateways incur costs for:
 
 - Video transcoding: Per segment based on pixels processed
-- AI processing: Per pixel based on output dimensions live_payment.go:162-165
-- Live AI video: Interval-based payments during streaming ai_http.go:181-211
+- AI processing: Per pixel based on output dimensions 
+- Live AI video: Interval-based payments during streaming
 
 ### Why Run a Gateway?
 If gateways don't earn money, why run one?
 
-- Content providers run gateways to process their own video/AI content
-- Service providers may charge end-users higher rates than what they pay orchestrators
+- Running your own Gateway means you do not pay a fee to route through another party's Gateway
+- Content providers run gateways to process their own video/AI content and ensure SLAs on their Orchestrators.
+- Service providers may charge end-users higher rates than what they pay Orchestrators as service fees
 - Integrated platforms use gateways as part of larger media services
 
 ## Gateways Arbitrage Earnings
@@ -97,8 +96,9 @@ You control your costs through these configuration flags [1](#10-0) :
 
 ### Business-Level Pricing (What You Charge)
 
-Your actual fees to end-users are set at the application layer, outside the Livepeer protocol. Common approaches include:
+Your actual fees to end-users are set at the application layer, outside the Livepeer protocol. 
 
+Common approaches include:
 1. **Per-request pricing**: Charge per API call to your gateway
 2. **Usage-based pricing**: Charge per minute of video or per AI generation
 3. **Subscription models**: Monthly fees for access to your gateway services
@@ -120,7 +120,7 @@ func calculateUserPrice(requestType string, pixels int64) float64 {
 
 ### Price Discovery
 
-Use the CLI to discover orchestrator prices and set your margins [2](#10-1) :
+Use the CLI to discover orchestrator prices and set your margins:
 
 ```bash
 livepeer_cli
@@ -128,40 +128,14 @@ livepeer_cli
 # Then set your max prices accordingly
 ```
 
-## Notes
+Your "fee" is the difference between what customers pay you and what you pay orchestrators for processing.
 
-The Livepeer protocol intentionally separates infrastructure costs from business pricing. This allows gateway operators to:
-- Set competitive pricing based on their market position
-- Offer different service levels and pricing tiers
-- Build business models on top of the decentralized infrastructure
 
-Your "fee" is the difference between what customers pay you and what you pay orchestrators for processing [3](#10-2) .
+### Case Study: Streamplace
+[Streamplace](https://stream.place) is a gateway that provides video processing services to content creators. 
+Creators pay Streamplace for video processing, and Streamplace pays orchestrators for the actual work. 
+Streamplace's profit margin is the difference between what creators pay and what it pays orchestrators.
 
-Wiki pages you might want to explore:
-- [Node Types (livepeer/go-livepeer)](/wiki/livepeer/go-livepeer#1.2)
-- [AI Processing (livepeer/go-livepeer)](/wiki/livepeer/go-livepeer#2.5)
-
-### Citations
-
-**File:** cmd/livepeer/livepeer.go (L137-139)
-```go
-	cfg.MaxPricePerUnit = flag.String("maxPricePerUnit", *cfg.MaxPricePerUnit, "The maximum transcoding price per 'pixelsPerUnit' a broadcaster is willing to accept. If not set explicitly, broadcaster is willing to accept ANY price. Can be specified in wei or a custom currency in the format <price><currency> (e.g. 0.50USD). When using a custom currency, a corresponding price feed must be configured with -priceFeedAddr")
-	cfg.MaxPricePerCapability = flag.String("maxPricePerCapability", *cfg.MaxPricePerCapability, `json list of prices per capability/model or path to json config file. Use "model_id": "default" to price all models in a pipeline the same. Example: {"capabilities_prices": [{"pipeline": "text-to-image", "model_id": "stabilityai/sd-turbo", "price_per_unit": 1000, "pixels_per_unit": 1}, {"pipeline": "upscale", "model_id": "default", price_per_unit": 1200, "pixels_per_unit": 1}]}`)
-	cfg.IgnoreMaxPriceIfNeeded = flag.Bool("ignoreMaxPriceIfNeeded", *cfg.IgnoreMaxPriceIfNeeded, "Set to true to allow exceeding max price condition if there is no O that meets this requirement")
-```
-
-**File:** cmd/livepeer_cli/wizard_broadcast.go (L56-67)
-```go
-	fmt.Printf("Enter a maximum transcoding price per pixel, in wei per pixels (pricePerUnit / pixelsPerUnit).\n")
-	fmt.Printf("eg. 1 wei / 10 pixels = 0,1 wei per pixel \n")
-	fmt.Printf("\n")
-	fmt.Printf("Enter amount of pixels that make up a single unit (default: 1 pixel) - ")
-	// Read numbers as strings not to lose precision and support big numbers
-	pixelsPerUnit := w.readDefaultString("1")
-	fmt.Printf("\n")
-	fmt.Printf("Enter the currency for the price per unit (default: Wei) - ")
-	currency := w.readDefaultString("Wei")
-	fmt.Printf("\n")
-	fmt.Printf("Enter the maximum price to pay for %s pixels in %s (default: 0) - ", pixelsPerUnit, currency)
-	maxPricePerUnit := w.readDefaultString("0")
-```
+[Daydream](https://daydream.live) is another example of a gateway that provides AI video processing services. 
+Builders & Creators pay Daydream for AI video processing, and Daydream pays orchestrators for the actual work. 
+Daydream's profit margin is the difference between what creators pay and what it pays orchestrators.
