@@ -1,12 +1,170 @@
-# Livepeer Marketplace Overview
+---
+title: 'Livepeer Marketplace Overview'
+description: 'This page provides an overview of the Livepeer Marketplace, 
+including what offerings Orchestrators publish, in order to provide Gateway operators 
+the context they need to discover & route application requests'
+sidebarTitle: 'Livepeer Marketplace'
+---
+import { ScrollableDiagram } from '/snippets/components/zoomable-diagram.jsx'
 
-The Livepeer marketplace is a decentralized discovery system where orchestrators publish their service offerings and gateways discover and expose them through multiple mechanisms. There's no central marketplace - it's a distributed network of service providers.
+<div style={{ 
+  display: 'flex', 
+  flexDirection: 'column', 
+  margin: '0 auto',
+  alignItems: 'center',
+}}>
+  <Callout icon="party-horn" color="#2d9a67" >
+    So... you have a gateway running - yay!
+  </Callout>
+</div>
+<br />
+<div style={{ display: 'flex', justifyContent: 'center', margin: '0 auto', width: '80%' }}>
+<Frame     caption="Let's find and share some Livepeer Marketplace Orchestrator Services!">
+  <img
+    src="https://gifsec.com/wp-content/uploads/2023/01/the-office-gif-3.gif"
+    alt="The Office: Raise the Roof Party Gif"
+  />
+</Frame>
+</div>
 
-## Who Publishes Offerings
+<br />
 
-### Orchestrators as Service Providers
+# What is the Marketplace?
+The Livepeer Marketplace allows **_Orchestrators_** to advertise available compute, 
+compute services (AI & Video), pricing, and performance characteristics.
 
-Orchestrators publish their offerings through the `OrchestratorInfo` structure [1](#13-0) :
+The Marketplace is **NOT** a public marketplace for end-users, rather, it is a programmatic 
+interface for Gateways to discover and connect applications to available services.
+
+In the Livepeer Marketplace, **Gateways act like a search engine** 
+
+They discover orchestrator offerings, apply selection and routing logic, and broker access to appropriate 
+services for applications based on cost, performance, and policy requirements.
+
+
+<br />
+> - **Orchestrators** publish services to the Livepeer Marketplace;
+> - **Gateways** filter & connect application requests to those services.
+<br />
+<br />
+
+<ScrollableDiagram title="Livepeer Marketplace Offering Flow" maxHeight="700px">
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#1a1a1a',
+    'primaryTextColor': '#ffffffff',
+    'primaryBorderColor': '#ffffff',
+    'lineColor': '#2d9a67',
+    'secondaryColor': '#0d0d0d',
+    'titleColor': '#2d9a67',
+    'tertiaryColor': '#1a1a1a',
+    'background': '#0d0d0d',
+    'fontFamily': 'system-ui',
+    'clusterBkg': '#1a1a1a',
+    'clusterBorder': '#ffffff',
+    'nodeTextColor': '#ffffff',
+    'nodeBorder': '#ffffff',
+    'mainBkg': '#1a1a1a',
+    'edgeLabelBackground': 'transparent',
+    'textColor': '#2d9a67'
+  },
+  'flowchart': {
+    'useMaxWidth': true,
+    'htmlLabels': true
+  }
+}}%%
+flowchart TB
+
+    %% --- APPLICATION LAYER ---
+    subgraph App["<b>APPLICATIONS&nbsp;/&nbsp;CLIENTS</b>"]
+        A1["App / User<br/>Video or AI Request"]
+    end
+
+    %% --- GATEWAY LAYER ---
+    subgraph Gateway["<b>GATEWAY (BROKER)</b>"]
+        direction LR
+        G1["API Ingress"]
+        G2["Auth / Rate Limits"]
+        G3["Policy & Routing Logic"]
+        G4["SLA / Retry / Failover"]
+    end
+
+    %% --- LIVEPEER MARKETPLACE ---
+    subgraph Market["<b>LIVEPEER&nbsp;MARKETPLACE</b>"]
+        direction LR
+        M1["Capability Metadata"]
+        M2["Pricing Signals"]
+        M3["Performance Characteristics"]
+        M0[ ]
+    end
+
+    %% --- SUPPLY LAYER ---
+    subgraph Supply["<b>COMPUTE PROVIDERS</b>"]
+        direction LR
+        O1["Orchestrator A"]
+        O2["Orchestrator B"]
+        O3["Orchestrator C"]
+    end
+
+    %% --- FLOWS ---
+    A1 -->|API Request| G1
+    G1 --> G2
+    G2 --> G3
+    G3 --> G4
+
+    %% Marketplace lookup
+    G3 -.->|Query| Market
+
+    %% Brokered execution
+    G4 -->|Brokered Job| O1
+    G4 -->|Brokered Job| O2
+    G4 -->|Brokered Job| O3
+
+    %% Results
+    O1 -->|Results| G4
+    O2 -->|Results| G4
+    O3 -->|Results| G4
+
+    G4 -->|Response| A1
+
+    %% Compute Providers publish to Marketplace
+    O2 -.->|Publish Offerings| M0
+
+    %% Styling - white borders for main boxes, green borders for internal boxes
+    style App stroke:#ffffff,stroke-width:2px,rx:15,ry:15
+    style Gateway stroke:#ffffff,stroke-width:2px,rx:15,ry:15
+    style Market stroke:#ffffff,stroke-width:2px,rx:15,ry:15
+    style Supply stroke:#ffffff,stroke-width:2px,rx:15,ry:15
+    style A1 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style G1 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style G2 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style G3 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style G4 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style M1 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style M2 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style M3 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style O1 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style O2 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style O3 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style M0 fill:transparent,stroke:transparent,color:transparent
+```
+</ScrollableDiagram>
+<br />
+
+## Orchestrator Offering Details
+
+An offering is a structured declaration of:
+
+- Supported models (e.g., SDXL, ControlNet, depth models)
+- Supported pipelines (ComfyStream, Daydream, BYOC)
+- Pricing per frame / per second / per request
+- GPU tiers and performance metrics
+- Regional availability
+- SLAs and expected latency
+
+Orchestrators publish their offerings through the `OrchestratorInfo` data structure
 
 ```protobuf
 message OrchestratorInfo {
@@ -22,368 +180,70 @@ message OrchestratorInfo {
 }
 ```
 
-### Registration Process
+Orchestrators publish compute-level offerings to the Marketplace for Gateways to discover & route jobs to.
 
-Orchestrators register on-chain via the `activateOrchestrator` endpoint [2](#13-1) :
-
-```bash
-# Required parameters for registration
--blockRewardCut=5.0
--feeShare=10.0
--pricePerUnit=1000
--pixelsPerUnit=1000000000000
--serviceURI=https://orchestrator.example.com:8935
-```
-
-## What is Published
-
-### 1. Service Capabilities
-
-Orchestrators declare their processing capabilities through the `Capabilities` system [3](#13-2) :
-
-- **Video Transcoding**: Format conversion, bitrate adaptation
-- **AI Processing**: Text-to-image, image-to-video, upscaling, etc.
-- **Live AI**: Real-time video-to-video processing
-
-### 2. Pricing Information
-
-Two-tier pricing structure [4](#13-3) :
-
-- **Base Pricing**: Per-pixel rates for transcoding (`-pricePerUnit`)
-- **Capability Pricing**: Per-model AI pricing (`-maxPricePerCapability`)
-
-### 3. Hardware Specifications
-
-Detailed hardware info for performance matching [5](#13-4) :
-
-```go
-type HardwareInformation struct {
-    Pipeline string                    // GPU pipeline info
-    ModelId  string                    // AI model identifier
-    GpuInfo  map[string]*GPUComputeInfo // GPU specifications
-}
-```
-
-## Discovery Mechanisms
-
-### 1. Direct Discovery
-
-Gateways specify orchestrators directly [6](#13-5) :
-
-```bash
--orchAddr=https://orch1.example.com:8935,https://orch2.example.com:8935
-```
-
-### 2. Webhook Discovery
-
-Dynamic discovery via external service [7](#13-6) :
-
-```bash
--orchWebhookUrl=https://discovery.example.com/orchestrators
-```
-
-### 3. On-Chain Discovery
-
-Automatic discovery of registered orchestrators [8](#13-7) :
-
-- Queries blockchain for active orchestrators
-- Caches results in local database
-- Polls for updates periodically
-
-### 4. Network Capabilities API
-
-RESTful discovery endpoint [9](#13-8) :
-
-```bash
-GET /getNetworkCapabilities
-```
-
-Returns:
-```json
-{
-  "capabilities_names": {...},
-  "orchestrators": [
-    {
-      "address": "0x...",
-      "localAddress": "0x...",
-      "orchURI": "https://...",
-      "capabilities": {...},
-      "capabilities_prices": [...],
-      "hardware": [...]
+<ScrollableDiagram title="Offering Publication Flow" maxHeight="500px" >
+```mermaid
+%%{init: {
+  'theme': 'base',
+  'themeVariables': {
+    'primaryColor': '#1a1a1a',
+    'primaryTextColor': '#ffffff',
+    'primaryBorderColor': '#ffffff',
+    'lineColor': '#2d9a67',
+    'titleColor': '#2d9a67',
+    'background': '#0d0d0d',
+    'clusterBkg': '#1a1a1a',
+    'clusterBorder': '#ffffff',
+    'textColor': '#2d9a67'
+  },
+  'flowchart': {
+    'useMaxWidth': true,
+    'htmlLabels': true,
+    'subGraphTitleMargin': {
+      'top': 15,
+      'bottom': 30
     }
-  ]
-}
+  }
+}}%%
+flowchart LR
+    subgraph Orchestrators["<b>⚡&nbsp;ORCHESTRATOR<br/>OFFERING&nbsp;DETAILS</b>"]
+        O1["🧠 Models"]
+        O2["⚙️ Pipelines"]
+        O3["💰 Pricing"]
+        O4["🖥️ GPU Tiers"]
+        O5["🌍 Regions"]
+        O6["📊 SLAs"]
+        O1 ~~~ O2 ~~~ O3 ~~~ O4 ~~~ O5 ~~~ O6
+    end
+
+    subgraph Marketplace["<b>🏪&nbsp;LIVEPEER&nbsp;MARKETPLACE</b>"]
+        MP1["Capability Metadata"]
+        MP2["Pricing Signals"]
+        MP3["Performance Data"]
+        MP1 ~~~ MP2 ~~~ MP3
+    end
+
+    subgraph Gateways["<b>🌐&nbsp;GATEWAYS&nbsp;DISCOVER&nbsp;OFFERS</b>"]
+        GW["Discovery & Selection<br/>Route to Best Provider"]
+    end
+
+    Orchestrators -->|Publish| Marketplace
+    Marketplace <-->|Discover| Gateways
+
+    style Orchestrators fill:#1a1a1a,stroke:#ffffff,stroke-width:2px,rx:15,ry:15
+    style Marketplace fill:#1a1a1a,stroke:#ffffff,stroke-width:2px,rx:15,ry:15
+    style Gateways fill:#1a1a1a,stroke:#ffffff,stroke-width:2px,rx:15,ry:15
+
+    style GW fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style MP1 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style MP2 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style MP3 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style O1 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style O2 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style O3 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style O4 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style O5 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+    style O6 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
 ```
-
-## Selection Process
-
-### Gateway Selection Logic
-
-Gateways select orchestrators based on [10](#13-9) :
-
-1. **Capability Matching**: Required features supported
-2. **Price Constraints**: Within maximum price limits
-3. **Performance Scores**: Historical performance metrics
-4. **Blacklist Filtering**: Exclude problematic orchestrators
-5. **Latency Considerations**: Network proximity
-
-### Selection Algorithm
-
-The discovery system uses a multi-factor scoring algorithm [11](#13-10) :
-
-- **Random Factor** (`-selectRandFreq`): Prevents centralization
-- **Stake Weight** (`-selectStakeWeight`): Considers LPT stake
-- **Price Weight** (`-selectPriceWeight`): Favors competitive pricing
-
-## Marketplace Monitoring
-
-### CLI Tools
-
-Discovery and monitoring via `livepeer_cli` [12](#13-11) :
-
-```bash
-livepeer_cli
-# Select "Set broadcast config" to see market rates
-# View available orchestrators and pricing
-```
-
-### HTTP Endpoints
-
-Real-time marketplace data [13](#13-12) :
-
-- `/registeredOrchestrators` - All on-chain orchestrators
-- `/orchestratorInfo` - Specific orchestrator details
-- `/getNetworkCapabilities` - Available services and pricing
-
-## Notes
-
-The Livepeer marketplace operates as a decentralized discovery network rather than a centralized exchange. Orchestrators publish their service offerings through on-chain registration and off-chain metadata, while gateways discover and select services based on capability requirements, pricing constraints, and performance metrics. The system supports multiple discovery mechanisms to ensure robustness and prevent single points of failure.
-
-Wiki pages you might want to explore:
-- [Node Types (livepeer/go-livepeer)](/wiki/livepeer/go-livepeer#1.2)
-- [Technical Systems (livepeer/go-livepeer)](/wiki/livepeer/go-livepeer#3)
-
-Wiki pages you might want to explore:
-- [Node Types (livepeer/go-livepeer)](/wiki/livepeer/go-livepeer#1.2)
-
-### Citations
-
-**File:** net/lp_rpc.pb.go (L798-822)
-```go
-// miscellaneous data related to the job.
-type OrchestratorInfo struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	// URI of the transcoder to use for submitting segments.
-	Transcoder string `protobuf:"bytes,1,opt,name=transcoder,proto3" json:"transcoder,omitempty"`
-	// Parameters for probabilistic micropayment tickets
-	TicketParams *TicketParams `protobuf:"bytes,2,opt,name=ticket_params,json=ticketParams,proto3" json:"ticket_params,omitempty"`
-	// Price Info containing the price per pixel to transcode
-	PriceInfo *PriceInfo `protobuf:"bytes,3,opt,name=price_info,json=priceInfo,proto3" json:"price_info,omitempty"`
-	// ETH address that should sign transcoded results
-	Address []byte `protobuf:"bytes,4,opt,name=address,proto3" json:"address,omitempty"`
-	// Features and constraints supported by the orchestrator
-	Capabilities *Capabilities `protobuf:"bytes,5,opt,name=capabilities,proto3" json:"capabilities,omitempty"`
-	// Data for transcoding authentication
-	AuthToken *AuthToken `protobuf:"bytes,6,opt,name=auth_token,json=authToken,proto3" json:"auth_token,omitempty"`
-	// Information on Orchestrator hardware
-	Hardware []*HardwareInformation `protobuf:"bytes,7,rep,name=hardware,proto3" json:"hardware,omitempty"`
-	// Orchestrator returns info about own input object storage, if it wants it to be used.
-	Storage []*OSInfo `protobuf:"bytes,32,rep,name=storage,proto3" json:"storage,omitempty"`
-	// prices for capabilities
-	CapabilitiesPrices []*PriceInfo `protobuf:"bytes,33,rep,name=capabilities_prices,json=capabilitiesPrices,proto3" json:"capabilities_prices,omitempty"`
-}
-```
-
-**File:** server/webserver.go (L62-62)
-```go
-	mux.Handle("/activateOrchestrator", mustHaveFormParams(s.activateOrchestratorHandler(client), "blockRewardCut", "feeShare", "pricePerUnit", "pixelsPerUnit", "serviceURI"))
-```
-
-**File:** server/webserver.go (L78-78)
-```go
-	mux.Handle("/registeredOrchestrators", registeredOrchestratorsHandler(client, db))
-```
-
-**File:** server/handlers.go (L270-273)
-```go
-type networkCapabilitiesResponse struct {
-	CapabilitiesNames map[core.Capability]string        `json:"capabilities_names"`
-	Orchestrators     []*common.OrchNetworkCapabilities `json:"orchestrators"`
-}
-```
-
-**File:** server/handlers.go (L275-295)
-```go
-func (s *LivepeerServer) getNetworkCapabilitiesHandler() http.Handler {
-	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		if s.LivepeerNode.NodeType == core.BroadcasterNode {
-
-			orchNetworkCaps := s.LivepeerNode.GetNetworkCapabilities()
-			if orchNetworkCaps == nil {
-				respond500(w, "network capabilities not available")
-			}
-
-			networkCapabilities := &networkCapabilitiesResponse{
-				CapabilitiesNames: core.CapabilityNameLookup,
-				Orchestrators:     orchNetworkCaps,
-			}
-
-			respondJson(w, networkCapabilities)
-			return
-		} else {
-			respond400(w, "Node must be gateway node to get network capabilities")
-			return
-		}
-	})
-```
-
-**File:** cmd/livepeer/livepeer.go (L127-127)
-```go
-	cfg.OrchAddr = flag.String("orchAddr", *cfg.OrchAddr, "Comma-separated list of orchestrators to connect to")
-```
-
-**File:** cmd/livepeer/livepeer.go (L131-134)
-```go
-	cfg.SelectRandWeight = flag.Float64("selectRandFreq", *cfg.SelectRandWeight, "Weight of the random factor in the orchestrator selection algorithm")
-	cfg.SelectStakeWeight = flag.Float64("selectStakeWeight", *cfg.SelectStakeWeight, "Weight of the stake factor in the orchestrator selection algorithm")
-	cfg.SelectPriceWeight = flag.Float64("selectPriceWeight", *cfg.SelectPriceWeight, "Weight of the price factor in the orchestrator selection algorithm")
-	cfg.SelectPriceExpFactor = flag.Float64("selectPriceExpFactor", *cfg.SelectPriceExpFactor, "Expresses how significant a small change of price is for the selection algorithm; default 100")
-```
-
-**File:** cmd/livepeer/livepeer.go (L137-138)
-```go
-	cfg.MaxPricePerUnit = flag.String("maxPricePerUnit", *cfg.MaxPricePerUnit, "The maximum transcoding price per 'pixelsPerUnit' a broadcaster is willing to accept. If not set explicitly, broadcaster is willing to accept ANY price. Can be specified in wei or a custom currency in the format <price><currency> (e.g. 0.50USD). When using a custom currency, a corresponding price feed must be configured with -priceFeedAddr")
-	cfg.MaxPricePerCapability = flag.String("maxPricePerCapability", *cfg.MaxPricePerCapability, `json list of prices per capability/model or path to json config file. Use "model_id": "default" to price all models in a pipeline the same. Example: {"capabilities_prices": [{"pipeline": "text-to-image", "model_id": "stabilityai/sd-turbo", "price_per_unit": 1000, "pixels_per_unit": 1}, {"pipeline": "upscale", "model_id": "default", price_per_unit": 1200, "pixels_per_unit": 1}]}`)
-```
-
-**File:** server/handlers_test.go (L403-415)
-```go
-	wkrHdw := net.HardwareInformation{
-		Pipeline: "32",
-		ModelId:  "livepeer/model1",
-		GpuInfo:  make(map[string]*lpnet.GPUComputeInfo),
-	}
-	wkrHdw.GpuInfo["0"] = &lpnet.GPUComputeInfo{
-		Id:    "gpu-2",
-		Name:  "gpu-name",
-		Major: 8,
-		Minor: 9,
-	}
-	var hdwList []*lpnet.HardwareInformation
-	hdwList = append(hdwList, &wkrHdw)
-```
-
-**File:** cmd/livepeer/starter/starter.go (L1481-1487)
-```go
-		if *cfg.OrchWebhookURL != "" {
-			whurl, err := validateURL(*cfg.OrchWebhookURL)
-			if err != nil {
-				glog.Exit("Error setting orch webhook URL ", err)
-			}
-			glog.Info("Using orchestrator webhook URL ", whurl)
-			n.OrchestratorPool = discovery.NewWebhookPool(bcast, whurl, *cfg.DiscoveryTimeout)
-```
-
-**File:** discovery/db_discovery.go (L44-88)
-```go
-func NewDBOrchestratorPoolCache(ctx context.Context, node *core.LivepeerNode, rm common.RoundsManager, orchBlacklist []string, discoveryTimeout time.Duration) (*DBOrchestratorPoolCache, error) {
-	if node.Eth == nil {
-		return nil, fmt.Errorf("could not create DBOrchestratorPoolCache: LivepeerEthClient is nil")
-	}
-
-	dbo := &DBOrchestratorPoolCache{
-		store:                 node.Database,
-		lpEth:                 node.Eth,
-		ticketParamsValidator: node.Sender,
-		rm:                    rm,
-		bcast:                 core.NewBroadcaster(node),
-		orchBlacklist:         orchBlacklist,
-		discoveryTimeout:      discoveryTimeout,
-		node:                  node,
-	}
-
-	cacheOrchestrators := func() error {
-		if err := dbo.cacheTranscoderPool(); err != nil {
-			return err
-		}
-
-		if err := dbo.cacheOrchestratorStake(); err != nil {
-			return err
-		}
-
-		if err := dbo.pollOrchestratorInfo(ctx); err != nil {
-			return err
-		}
-		return nil
-	}
-
-	if node.OrchestratorPool != nil {
-		// We already have Orchestrator Pool, so we're fine caching in the background and not delay the startup
-		go func() {
-			err := cacheOrchestrators()
-			if err != nil {
-				clog.Errorf(context.Background(), "Error caching orchestrators: %v", err)
-			}
-		}()
-	} else {
-		// We don't have yet Orchestrator Pool, so we need to fetch it synchronously here
-		return dbo, cacheOrchestrators()
-	}
-
-	return dbo, nil
-```
-
-**File:** discovery/discovery.go (L64-111)
-```go
-func (o *orchestratorPool) GetOrchestrators(ctx context.Context, numOrchestrators int, suspender common.Suspender, caps common.CapabilityComparator,
-	scorePred common.ScorePred) (common.OrchestratorDescriptors, error) {
-
-	linfos := make([]*common.OrchestratorLocalInfo, 0, len(o.infos))
-	for i, _ := range o.infos {
-		if scorePred(o.infos[i].Score) {
-			linfos = append(linfos, &o.infos[i])
-		}
-	}
-
-	numAvailableOrchs := len(linfos)
-	numOrchestrators = int(math.Min(float64(numAvailableOrchs), float64(numOrchestrators)))
-
-	// The following allows us to avoid capability check for jobs that only
-	// depend on "legacy" features, since older orchestrators support these
-	// features without capability discovery. This enables interop between
-	// older orchestrators and newer orchestrators as long as the job only
-	// requires the legacy feature set.
-	//
-	// When / if it's justified to completely break interop with older
-	// orchestrators, then we can probably remove this check and work with
-	// the assumption that all orchestrators support capability discovery.
-	legacyCapsOnly := caps.LegacyOnly()
-
-	isBlacklisted := func(info *net.OrchestratorInfo) bool {
-		for _, blacklisted := range o.orchBlacklist {
-			if strings.TrimPrefix(blacklisted, "0x") == strings.ToLower(hex.EncodeToString(info.Address)) {
-				return true
-			}
-		}
-		return false
-	}
-
-	isCompatible := func(info *net.OrchestratorInfo) bool {
-		if o.pred != nil && !o.pred(info) {
-			return false
-		}
-		// Legacy features already have support on the orchestrator.
-		// Capabilities can be omitted in this case for older orchestrators.
-		// Otherwise, capabilities are required to be present.
-		if info.Capabilities == nil {
-			if legacyCapsOnly {
-				return true
-			}
-			return false
-		}
-		return caps.CompatibleWith(info.Capabilities)
-	}
-```
+</ScrollableDiagram>

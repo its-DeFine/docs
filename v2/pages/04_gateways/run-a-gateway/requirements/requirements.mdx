@@ -5,56 +5,145 @@ sidebarTitle: 'Node Requirements'
 
 <Danger>
   These Requirements were transported from the old docs. 
-  TODO: Check all links and info, update copy
+  TODO: Update Flow - give fuller details on missing req's
 </Danger>
+import { DoubleIconLink } from '/snippets/components/links.jsx'
 
-### Requirements Check
+## Gateway Set Up Requirements
 
-**Hardware**
+<Steps>
+  <Step title="Technical Knowledge" icon="brain-circuit" titleSize="h3">  
+    You should have a basic understanding of system administration and CLI tooling.  
+  </Step>
+  <Step title="Hardware Requirements" icon="laptop-code" titleSize="h3">
+    Gateways do not require GPU resources, but must be able to handle high network throughput.
+    This is necessary to route requests between applications and Orchestrators.
+    
+    <div style={{ width: '70%', border: '1px solid #2b9a66', borderRadius: '8px', padding: '16px' }}>
+    **A typical setup includes:** 
+    <Frame>
+      <ul style={{ listStyleType: 'disc', listStylePosition: 'inside', paddingLeft: '20px', margin: 0 }}>
+        <li>4–8 CPU cores</li>
+        <li>16–32 GB RAM</li>
+        <li>High-speed NVMe (optional, recommended)</li>
+        <li>Stable multi-region networking</li>
+        <li>Linux or containerised deployment environment</li>
+      </ul>
+    </Frame>
+    </div>
+  </Step>
+  <Step title="Network Requirements" icon="network-wired" titleSize="h3"> 
+    Your Gateway must be reachable and responsive. 
+    - Public HTTPs endpoint
+    - Low-latency connectivity to Orchestrators
+    - Ability to handle high request throughput
 
-Gateways do not require GPU resources. A typical setup includes:
+    Recommended:
 
-- 4–8 CPU cores
-- 16–32 GB RAM
-- High-speed NVMe (optional, recommended)
-- Stable multi-region networking
-- Linux or containerized deployment environment
+    - Multi-region deployment or failover
+    - Static IP or domain name (required for production)
 
-**Network Requirements**
+  </Step>
+  <Step title="OS & Software Requirements" icon="computer" titleSize="h3"> 
+    Gateways install the [Go-Livepeer Gateway](https://github.com/livepeer/go-livepeer) Software. <br/>
+    Installation requires the following OS with root or sudo access:  
+    
+    <div style={{ width: '100%', border: '1px solid #2b9a66', borderRadius: '8px', padding: '16px', textAlign: 'left' }}>
+      <div style={{ fontWeight: 'bold', marginBottom: '12px' }}>**[OS Requirements]('')**</div>
+      <div style={{ marginBottom: '12px'}}>
+        <strong>Video Only Gateway:</strong> <Icon icon="linux" size={20}/>&nbsp;<Icon icon="windows" size={20} />&nbsp;<Icon icon="docker" size={20}/>
+        <ul style={{ paddingLeft: '20px', margin: '4px 0' }}>
+          <li>Linux, Windows or Docker containerised deployment environment</li>
+        </ul>
+      </div>
+      <div style={{ marginBottom: '12px' }}>
+        **AI or Dual Gateway:** <Icon icon="linux" size={22}/>
+        <ul style={{ paddingLeft: '20px', margin: '4px 0' }}>
+          <li>Linux OS (Windows and macOS support coming soon)</li>
+        </ul>
+      </div>
+    </div>
+    <br/>
+    <DoubleIconLink
+        label="Installation Guide"
+        href="/v2/pages/04_gateways/run-a-gateway/install/install-overview"
+        text="Installation is covered in detail in the"
+        iconLeft="computer"
+      />
+  </Step>
+  <Step title="Blockchain Requirements" icon="ethereum" titleSize="h3">
+    For real production deployments (rather than local testing):
+    
+    You will need:
 
-- Public HTTPS endpoint
-- Low-latency access to orchestrators
-- Ability to handle high request throughput
+    <Icon icon="arrow-right"/> **An Arbitrum** [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) **URL**
+      
+        Popular RPC services include [Infura]("https://www.infura.io/) and [Alchemy]("https://www.alchemy.com/").
+        These services provide free tiers that should be sufficient for a single Gateway.
+        <span>
+        If scaling beyond this, an alternative to paying for these services is to self-host an Arbitrum node. 
+        <DoubleIconLink
+          label="Offchain Labs Self-Hosting Guide"
+          href="https://docs.arbitrum.io/node-running/how-tos/running-a-full-node"
+          iconLeft="link"
+        />
+        </span>
 
-**Software Requirements**
+    <Icon icon="arrow-right"/> **A funded Ethereum account (wallet)** with ETH funds on Arbitrum to pay for services.
+    <span>
+    This is covered in detail in the
+          <DoubleIconLink
+            label="Configuration Guide"
+            href="/v2/pages/04_gateways/run-a-gateway/configure/fund-gateway"
+          />
+    </span>
+  </Step>
+  <Step title="Additional AI Requirements (if applicable)" icon="user-robot" titleSize="h3"> 
+    If you are running an AI Gateway, you must configure model and pipeline metadata. <br/>
 
-[Go-Livepeer Gateway Software](https://github.com/livepeer/go-livepeer)
+    <Icon icon="warning" /> **Linux host** (Windows/macOS are NOT currently supported - though coming soon) with root or sudo access.
 
-- Livepeer Gateway Software (BYOC-ready)
-- Access to PyTrickle routing layer
-- Model/pipeline metadata configuration
-- Marketplace registration tooling
-- Logging, metrics, and alerting
+    This is covered in detail in [Configure the Gateway for AI Inference Services](/v2/pages/04_gateways/run-a-gateway/configure/ai-configuration)  
+  </Step>
+</Steps>
 
-**For AI Setup**
 
-- A Linux system (Support for Windows and macOS coming soon)
-- Root user access to the system
 
-## Prerequisites
 
-Working knowledge of system adminsitration tasks for your target platform are required. This guide provides directions for Linux, Windows, and Docker platforms. Familiarity with Livepeer protocol is beneficial. For more information view the go Livepeer installation guide.
 
-This guide was developed using:
 
-- Ubuntu Linux 22.04
-- Docker 20.10.14
-- Windows
-- Livepeer 0.7.2
-- root user access (sudo is ok)
 
-Have access to an Arbitrum RPC URL. This is required to run Livepeer. Popular services include [Infura]("https://www.infura.io/) and [Alchemy]("https://www.alchemy.com/").
 
-Be aware that these services have their own pricing plans. That being said, the latest versions of Livepeer should be able to stay within the request limit for these provider’s free tier for a single node.
 
-As an alternative, you can self-host your own Arbitrum node, see the [instructions from Offchain Labs](https://docs.arbitrum.io/node-running/how-tos/running-a-full-node).
+
+<Warning> remove below here </Warning>
+Gateway Setup Requirements
+
+Step 6: Prepare On-Chain Production Requirements
+
+For mainnet / production Gateways:
+
+Dedicated static IP or domain
+
+Funded Ethereum account with:
+
+ETH for gas
+
+ETH/LPT for AI inference payments (if applicable)
+
+See: Fund Gateway Guide
+
+**Step 7: (Optional) AI Gateway Requirements**
+
+Only required if your Gateway advertises AI inference capabilities.
+
+Additional requirements:
+
+Linux host (Windows/macOS support coming soon)
+
+Root or sudo access
+
+Model and pipeline metadata configuration
+
+Access to AI routing and pricing configuration
+
