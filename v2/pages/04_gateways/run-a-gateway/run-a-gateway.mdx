@@ -1,16 +1,18 @@
 ---
 title: Run a Gateway
-sidebarTitle: Provide Video & AI Services
-description: "Gateways are essential infrastructure in the Livepeer network. 
-They provide the service coordination layer (routing & verification) that connects applications to the decentralized GPU compute layer (DePIN). 
-This guide explains the requirements, setup steps, and best practices for running a Gateway node."
+sidebarTitle: Run A Gateway
+description: "Provide Video & AI services by running your own Gateway! \n This page gives an overview of the steps to run a Gateway node."
 ---
 
 import { GotoLink } from '/snippets/components/links.jsx'
+import { ScrollableDiagram } from "/snippets/components/zoomable-diagram.jsx"
 
 <br />
+Gateways are essential infrastructure in the Livepeer network. 
+They provide the service coordination layer (routing & verification) that connects applications to the decentralized GPU compute layer (DePIN). 
+This guide explains the requirements, setup steps, and best practices for running a Gateway node."
 
-
+<ScrollableDiagram title="Dual Gateway Architecture: Video & AI Pipelines" maxHeight="600px">
 ```mermaid
 %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
 flowchart LR
@@ -69,7 +71,7 @@ flowchart LR
     style ORCH fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
     style OUTPUTS fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
 ```
-    <div style={{ textAlign: 'center', fontStyle: 'italic', fontSize: '0.75rem', color: '#888' }}>Gateway Node Operations</div>
+</ScrollableDiagram>
 
 <br/>
 

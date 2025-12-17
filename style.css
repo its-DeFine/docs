@@ -98,11 +98,9 @@ a.nav-tabs-item[href="/v2/pages/07_resources/resources_hub"] > div:last-child {
   background-color: #18794e !important;
 }
 
-#error-description > span > img {
-  width: 500px;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border: 1px solid #fff;
+/* Error 404 Styling */
+#error-description > span > div > div {
+  border: 1px solid #18794e !important;
 }
 
 body
@@ -110,5 +108,17 @@ body
   > div.peer-\[\.is-not-custom\]\:lg\:flex.peer-\[\.is-custom\]\:\[\&\>div\:first-child\]\:\!hidden.peer-\[\.is-custom\]\:\[\&\>div\:first-child\]\:sm\:\!hidden.peer-\[\.is-custom\]\:\[\&\>div\:first-child\]\:md\:\!hidden.peer-\[\.is-custom\]\:\[\&\>div\:first-child\]\:lg\:\!hidden.peer-\[\.is-custom\]\:\[\&\>div\:first-child\]\:xl\:\!hidden
   > div.flex.flex-col.items-center.justify-center.w-full.max-w-lg.overflow-x-hidden.mx-auto.py-48.px-5.text-center.\*\:text-center.gap-y-8.not-found-container
   > div {
-  margin-top: -4rem;
+  margin-top: -5rem;
+}
+
+#error-description
+  > span
+  > div
+  > div
+  > div.relative.rounded-xl.overflow-hidden.flex.justify-center
+  > img {
+  width: 500px;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  /* border: 1px solid #fff; */
 }

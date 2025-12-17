@@ -1,3 +1,53 @@
+export const CustomCallout = ({
+  children,
+  icon = "lightbulb",
+  color = "#2d9a67",
+  iconSize = 16,
+  textSize = "0.875rem",
+  textColor,
+}) => {
+  // Default textColor to match the icon color if not specified
+  const resolvedTextColor = textColor || color;
+  // Convert hex to rgba for proper opacity
+  const hexToRgba = (hex, alpha) => {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "flex-start",
+        gap: "12px",
+        padding: "16px 20px",
+        borderRadius: "16px",
+        border: `1px solid ${hexToRgba(color, 0.2)}`,
+        backgroundColor: hexToRgba(color, 0.1),
+        marginTop: "16px",
+        marginBottom: "16px",
+        overflow: "hidden",
+      }}
+    >
+      <div style={{ marginTop: "2px", width: iconSize, flexShrink: 0 }}>
+        <Icon icon={icon} size={iconSize} color={color} />
+      </div>
+      <div
+        style={{
+          fontSize: textSize,
+          color: resolvedTextColor,
+          minWidth: 0,
+          width: "100%",
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
+};
+
 export const BlinkingIcon = ({
   icon = "terminal",
   size = 16,
