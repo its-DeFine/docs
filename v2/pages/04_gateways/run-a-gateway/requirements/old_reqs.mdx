@@ -1,0 +1,103 @@
+
+### All Nodes
+<Steps>
+  <Step title="Technical Knowledge" icon="brain-circuit" titleSize="h3">  
+    You should have a basic understanding of system administration and CLI tooling.  
+  </Step>
+  <Step title="Hardware Requirements" icon="laptop-code" titleSize="h3">
+    Gateways do not require GPU resources, but must be able to handle high network throughput.
+    This is necessary to route requests between applications and Orchestrators.
+    
+    <div style={{ width: '95%', border: '1px solid #2b9a66', borderRadius: '8px', padding: '16px' }}>
+    **[A typical setup includes]('')**
+      <ul style={{ paddingLeft: '20px', margin: 0 }}>
+        <li>4–8 CPU cores</li>
+        <li>16–32 GB RAM</li>
+        <li>High-speed NVMe (optional, recommended)</li>
+        <li>Stable multi-region networking</li>
+        <li>Linux or containerised deployment environment</li>
+      </ul>
+    </div>
+  </Step>
+  <Step title="Network Requirements" icon="network-wired" titleSize="h3"> 
+    Your Gateway must be reachable and responsive. 
+    - Public HTTPs endpoint
+    - Low-latency connectivity to Orchestrators
+    - Ability to handle high request throughput
+
+    Recommended:
+
+    - Multi-region deployment or failover
+    - Static IP or domain name (required for production)
+
+  </Step>
+  <Step title="OS & Software Requirements" icon="computer" titleSize="h3"> 
+    Gateways install the [Go-Livepeer Gateway](https://github.com/livepeer/go-livepeer) Software. <br/>
+    Installation requires the following OS with root or sudo access:  
+    
+    <div style={{ width: '95%', border: '1px solid #2b9a66', borderRadius: '8px', padding: '16px', textAlign: 'left' }}>
+      <div style={{ fontWeight: 'bold', marginBottom: '12px' }}>**[OS Requirements]('')**</div>
+      <div style={{ marginBottom: '12px'}}>
+        <strong>Video Only Gateway:</strong> <Icon icon="linux" size={20}/>&nbsp;<Icon icon="windows" size={20} />&nbsp;<Icon icon="docker" size={20}/>
+        <ul style={{ paddingLeft: '20px', margin: '4px 0' }}>
+          <li>Linux, Windows or Docker containerised deployment environment</li>
+        </ul>
+      </div>
+      <div style={{ marginBottom: '12px' }}>
+        **AI or Dual Gateway:** <Icon icon="linux" size={22}/>
+        <ul style={{ paddingLeft: '20px', margin: '4px 0' }}>
+          <li>Linux OS (Windows and macOS support coming soon)</li>
+        </ul>
+      </div>
+    </div>
+    <br/>
+    <DoubleIconLink
+        label="Installation Guide"
+        href="/v2/pages/04_gateways/run-a-gateway/install/install-overview"
+        text="Installation is covered in detail in the"
+        iconLeft="computer"
+      />
+  </Step>
+  <Step title="Blockchain Requirements (on-chain only nodes)" icon="ethereum" titleSize="h3">
+    For real production deployments (rather than local testing),
+
+    <div style={{ width: '95%', border: '1px solid #2b9a66', borderRadius: '8px', padding: '16px', textAlign: 'left' }}>
+      **[You will need]('')** 
+      <div style={{ marginBottom: '12px', marginTop: '12px' }}>
+        <Icon icon="diamond" iconType="solid" size={10} /> **An Arbitrum** [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) **URL**
+        <ul style={{ paddingLeft: '20px', margin: '4px 0' }}>
+          <li>Popular RPC services include [Infura](https://www.infura.io/) and [Alchemy](https://www.alchemy.com/)</li>
+          <li>These services provide free tiers that should be sufficient for a single Gateway</li>
+          <li>
+          If scaling beyond this, an alternative is to self-host an Arbitrum node. 
+          Self-hosting an RPC is covered in this <DoubleIconLink label="Offchain Labs Self-Hosting Guide" href="https://docs.arbitrum.io/node-running/how-tos/running-a-full-node" iconLeft="link" />
+      </li>
+        </ul>
+      </div>
+      <div style={{ marginBottom: '12px' }}>
+        <Icon icon="diamond" iconType="solid" size={10} /> **A funded Ethereum account (wallet)**
+        <ul style={{ paddingLeft: '20px', margin: '4px 0' }}>
+          <li>with ETH funds on Arbitrum to pay for services</li>
+        </ul>
+      </div>
+    </div>
+    <br/>
+    <DoubleIconLink
+      label="Configuration Guide"
+      href="/v2/pages/04_gateways/run-a-gateway/configure/fund-gateway"
+      text="Funding your Gateway is covered in the"
+      iconLeft="computer"
+    />
+  </Step>
+  <Step title="Additional AI Requirements (if applicable)" icon="user-robot" titleSize="h3"> 
+    If you are running an AI Gateway, you must configure model and pipeline metadata. <br/>
+
+    <Icon icon="warning" /> **Linux host** (Windows/macOS are NOT currently supported - though coming soon) with root or sudo access.
+    <span>
+    This is covered in detail in 
+    <DoubleIconLink label="Configure the Gateway for AI Inference Services" href="/v2/pages/04_gateways/run-a-gateway/configure/ai-configuration" iconLeft="link" />
+    </span>
+  </Step>
+</Steps>
+
+

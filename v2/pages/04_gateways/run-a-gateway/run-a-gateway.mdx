@@ -103,8 +103,8 @@ flowchart TB
     end
 
     subgraph setup["Setup"]
-        C["Deploy Gateway Service"]
-        D["Connect to Orchestrators"]
+        C["Install Gateway Software"]
+        D["Test"]
     end
 
     subgraph config["Configuration"]
@@ -141,7 +141,7 @@ flowchart TB
       relativePath="./requirements"
     />
   </Step>
-  <Step title="Install & Deploy Gateway">
+  <Step title="Install Gateway">
     Install the Livepeer Gateway software, deploy & connect to orchestrators. <br/>
     <GotoLink
       label="Installation Guide"
@@ -155,12 +155,26 @@ flowchart TB
       relativePath="./configure"
     />
   </Step>
-  <Step title="Publish Offerings">
+  <Step title="Deploy Gatway">
     Price & publish offerings to the Marketplace. <br/>
     <GotoLink
-      label="Publish Offerings"
-      relativePath="./publish"
+      label="Deployment Guide"
+      relativePath="./deploy"
     />
+  </Step>
+  <Step title="Test Gatway">
+    Price & publish offerings to the Marketplace. <br/>
+    <GotoLink
+      label="Testing Guide"
+      relativePath="./test"
+    />
+  </Step>
+  <Step title="Fund Gatway">
+    Price & publish offerings to the Marketplace. <br/>
+    <GotoLink
+      label="Funding Guide"
+      relativePath="./fund"
+  />
   </Step>
     <Step title="Monitor & Optimize">
     Monitor performance, optimize routing & service quality. <br/>

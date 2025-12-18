@@ -122,3 +122,17 @@ body
   object-fit: cover;
   /* border: 1px solid #fff; */
 }
+
+/* Step List Color Icons Styling */
+/* #content > div.steps > div > div.absolute.ml-\[-13px\].py-2 > div {
+  background-color: #18794e !important;
+} */
+
+/* Step List Color Titles */
+#content
+  > div.steps.ml-3\.5.mt-10.mb-6
+  > div
+  > div.w-full.overflow-hidden.pl-8.pr-px
+  > p {
+  color: #2b9a66 !important;
+}

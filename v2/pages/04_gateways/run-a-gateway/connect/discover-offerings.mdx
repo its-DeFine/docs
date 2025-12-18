@@ -4,19 +4,36 @@ description: 'This page explains how to discover AI & Video compute services off
 sidebarTitle: 'Discover Compute Offerings'
 ---
 
-## Discovery Process
-Gateways discover orchestrators through the orchestrator pool in `discovery/discovery.go` [discovery.go:64-111](https://github.com/livepeer/go-livepeer/blob/5691cb48/discovery/discovery.go#L64-L111)
+import { StyledSteps, StyledStep } from '/snippets/components/steps.jsx'
 
-1. **Query orchestrators**: Get `OrchestratorInfo` from each orchestrator
-2. **Filter capabilities & price**: Match against required capabilities & pricing limits & optionally rank results
-3. **Expose results**: Make matching orchestrator services available through HTTP endpoints
-4. **Route requests**: Forward incoming requests to selected orchestrators
+## Discovery Process
+Gateways discover orchestrators through the orchestrator pool in [discovery/discovery.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/discovery/discovery.go)
+
+<StyledSteps
+      iconColor="#18794e"
+      titleColor="#fff"
+      lineColor="#18794e"
+      iconSize="24px"
+    >
+    <StyledStep title="Query orchestrators">
+    Get `OrchestratorInfo` from each orchestrator
+    </StyledStep>
+    <StyledStep title="Filter capabilities & price">
+    Match against required capabilities & pricing limits & optionally rank results
+    </StyledStep>
+    <StyledStep title="Expose results">
+    Make matching orchestrator services available through HTTP endpoints
+    </StyledStep>
+    <StyledStep title="Route requests">
+    Forward incoming requests to selected orchestrators
+    </StyledStep>
+</StyledSteps>
 
 ## Find All Orchestrators & Offerings
 The `/getNetworkCapabilities` endpoint in [server/handlers.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/server/handlers.go#L275-L295) 
 exposes all available orchestrator offerings
 
-```go
+```go /getNetworkCapabilities icon="code"
 func (s *LivepeerServer) getNetworkCapabilitiesHandler() http.Handler {  
     return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {  
         // Returns orchestrators with their capabilities, pricing, and hardware  
@@ -28,7 +45,7 @@ func (s *LivepeerServer) getNetworkCapabilitiesHandler() http.Handler {
 
 The response uses NetworkCapabilities structure from `common/types.go` [types.go:166-176](https://github.com/livepeer/go-livepeer/blob/5691cb48/common/types.go#L166-L176)
 
-```go
+```go icon="code" title="NetworkCapabilities"
 type NetworkCapabilities struct {  
     Orchestrators []*OrchNetworkCapabilities `json:"orchestrators"`  
 }  

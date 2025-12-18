@@ -430,13 +430,26 @@
                               "v2/pages/04_gateways/run-a-gateway/configure/video-configuration",
                               "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration",
                               "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration",
-                              "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration",
-                              "v2/pages/04_gateways/run-a-gateway/configure/fund-gateway"
+                              "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration"
+                            ]
+                          },
+                          {
+                            "group": "Deploy",
+                            "pages": [
+                              "v2/pages/04_gateways/run-a-gateway/deploy/deploy-gateway"
+                            ]
+                          },
+                          {
+                            "group": "Funding",
+                            "tag": "On-Chain",
+                            "pages": [
+                              "v2/pages/04_gateways/run-a-gateway/fund/fund-gateway"
                             ]
                           },
                           {
                             "group": "Testing",
                             "pages": [
+                              "v2/pages/04_gateways/run-a-gateway/test/test-gateway",
                               "v2/pages/04_gateways/run-a-gateway/test/publish-content",
                               "v2/pages/04_gateways/run-a-gateway/test/playback-content"
                             ]
