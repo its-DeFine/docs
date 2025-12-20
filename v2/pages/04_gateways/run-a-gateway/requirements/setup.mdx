@@ -1,6 +1,8 @@
 ---
-title: 'Gateway Node Requirements'
-sidebarTitle: 'Node Requirements'
+title: Gateway Node Requirements
+sidebarTitle: Setup Checklist
+description: Learn about the hardware, network, and software requirements for running a Livepeer Gateway.
+icon: clipboard-user
 ---
 
 import { DoubleIconLink } from '/snippets/components/links.jsx'
@@ -91,15 +93,21 @@ import { StyledSteps } from '/snippets/components/steps.jsx'
     <Tabs>
       <Tab title="Off-Chain Gateways">
         Additional requirements apply when running a Gateway in off-chain mode:
-        
+
         You will **need to run an Orchestrator Node** locally to test Gateway functionality. 
         
-        This requires that you
-        1. Have a GPU available (locally or cloud) with root or sudo access
-        2. Setup the GPU as an Orchestrator per the [Orchestrator Setup Guide]('')
+        <div style={{ width: '95%', border: '1px solid #2b9a66', borderRadius: '8px', padding: '16px', textAlign: 'left' }}>
+          **[This requires that you]('')** 
+          <div style={{ marginBottom: '12px', marginTop: '12px' }}>
+            <Icon icon="diamond" iconType="solid" size={10} /> Have a GPU available (locally or cloud) with root or sudo access
+          </div>
+          <div style={{ marginBottom: '12px' }}>
+            <Icon icon="diamond" iconType="solid" size={10} /> Setup the GPU as an Orchestrator per the <DoubleIconLink label="Orchestrator Setup Guide" href="https://docs.livepeer.org/v2/pages/05_orchestrators/setting-up-an-orchestrator" iconLeft="link" />
+          </div>
+        </div>
       </Tab>
       <Tab title="On-Chain Gateways">
-        You will need a blockchain wallet and RPC to connect to the Livepeer Network and pay for services.
+        You will need a blockchain wallet and RPC to connect to the Livepeer Network (on [Arbitrum](https://arbitrum.io/)) and pay for services.
 
         <div style={{ width: '95%', border: '1px solid #2b9a66', borderRadius: '8px', padding: '16px', textAlign: 'left' }}>
           **[You will need]('')** 

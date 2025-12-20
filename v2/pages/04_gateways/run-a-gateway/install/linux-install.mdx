@@ -1,6 +1,6 @@
 ---
 title: Linux Install
-description: How to install a Livepeer Gateway using Linux
+description: How to install a Livepeer Gateway from source binary
 sidebarTitle: Linux Install
 icon: linux
 ---
@@ -11,34 +11,164 @@ icon: linux
   TODO: Check all links and info, update copy
 </Warning>
 
+import { StyledStep, StyledSteps } from '/snippets/components/steps.jsx';
+import { CustomCodeBlock, CodeComponent } from '/snippets/components/code.jsx'; 
+import { LatestRelease } from '/snippets/automationData/globals/globals.jsx';
 
-# Download the Livepeer binary
 
-```
-sudo wget https://github.com/livepeer/go-livepeer/releases/download/<RELEASE_VERSION>/livepeer-linux-amd64.tar.gz
-```
+{/* Test - remove after verifying: */}
 
-Unpack and remove the compressed file
+Latest go-livepeer version: <Badge color="green">{LatestRelease}</Badge> -> this is dynamically fetched
 
-```
-sudo tar -zxvf livepeer-linux-amd64.tar.gz
-sudo rm livepeer-linux-amd64.tar.gz
-sudo mv livepeer-linux-amd64/* /usr/local/bin/
-```
+This guide covers installing the Livepeer Gateway from source binary on Linux.
 
-# Generate a new keystore file
 
-```
-/usr/local/bin/livepeer -network arbitrum-one-mainnet -ethUrl <ARBITRUM RPC URL> -gateway
-exit
-```
+<StyledSteps>
+<StyledStep title="Prerequisites">
+  Ensure you have `wget` and `tar` installed & up-to-date on your system.
 
-<Warning>
-  When generating a new keystore file, the program will prompt you for a
-  password. This password is used to decrypt the keystore file and access the
-  private key. Make sure to never share or lose access to either the password or
-  the keystore file
-</Warning>
+  <Tabs>
+  <Tab title="Linux">
+
+  Using [brew](https://brew.sh/) 
+  ```bash lines icon="terminal" brew install wrap
+  # Install brew if not already installed
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  ```
+  ```bash lines icon="terminal" version check
+  # Check if wget is installed
+  brew list --versions wget
+  brew list --versions tar
+  ```
+
+  ```bash lines icon="terminal" upgrade wget & tar
+  # Upgrade wget if already installed
+  brew upgrade wget
+  brew upgrade tar
+  ```
+
+  ```bash lines icon="terminal" install wget & tar
+  # Install wget if not already installed
+  brew install wget
+  ```
+
+  ```bash lines icon="terminal" update all brew packages
+  # Update all brew packages
+  brew update && bre upgrade
+  ```
+
+  <Expandable title="apt-get & other linux distributions">
+    **Linux Ubuntu**
+    ```bash icon="terminal" lines
+    sudo apt-get update && sudo apt-get upgrade wget tar
+    sudo apt-get install wget tar
+    ```
+
+    **Fedora/RHEL**
+    ```bash lines icon="terminal"
+    sudo dnf update
+    sudo dnf install wget tar
+    ```
+
+    **Arch** 
+    ```bash lines icon="terminal"
+    sudo pacman -Syu
+    sudo pacman -S wget tar
+    ```
+  </Expandable>
+  </Tab>
+  <Tab title="MacOS">
+  Tar is pre-installed on MacOS
+
+  Using [brew](https://brew.sh/) 
+  ```bash lines icon="terminal" brew wrap
+  # Install brew if not already installed
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+  # Check if wget is installed
+  brew list --versions wget
+
+  # Upgrade wget if already installed
+  brew upgrade wget
+
+  # Install wget if not already installed
+  brew install wget
+
+  # Update all brew packages
+  brew update && bre upgrade
+  ```
+
+  Using **curl** 
+
+  Replace {'<VERSION>'} with the latest version number
+  ```bash lines icon="terminal" wrap curl
+  curl -LO https://github.com/livepeer/go-livepeer/releases/download/<VERSION>/livepeer-linux-amd64.tar.gz
+  ```
+  </Tab>
+  </Tabs>
+
+</StyledStep>
+  <StyledStep title="Download & Install Binary">
+
+  {/* <CodeComponent
+          codeString="sudo wget https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-linux-amd64.tar.gz"
+          placeholderValue="v0.8.8"
+          language="bash"
+          icon="terminal"
+  /> */}
+
+    <CustomCodeBlock
+          codeString="sudo wget https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-linux-amd64.tar.gz"
+          placeholderValue={LatestRelease}
+          language="bash"
+          icon="terminal"
+  />
+
+    Unpack and remove the compressed file
+
+    ``` bash icon="terminal" lines 
+    sudo tar -zxvf livepeer-linux-amd64.tar.gz
+    sudo rm livepeer-linux-amd64.tar.gz
+    sudo mv livepeer-linux-amd64/* /usr/local/bin/
+    ```
+</StyledStep>
+<StyledStep title="Run the Gateway">
+
+<Tabs>
+  <Tab title="Off-Chain Gateways">
+    Off-chain mode is the default network and requires no blockchain connectivity (no wallet or RPC).
+
+    - defaultNetwork := "offchain"
+
+    ```bash icon="terminal" lines
+    # Run the gateway
+    /usr/local/bin/livepeer -gateway
+    ```
+  </Tab>
+  <Tab title="On-Chain Gateways">
+
+    You will need to **Generate Keystore File**
+
+    <Warning>
+      When generating a new keystore file, the program will prompt you for a
+      password. This password is used to decrypt the keystore file and access the
+      private key. Make sure to never share or lose access to either the password or
+      the keystore file
+    </Warning>
+
+    ```bash icon="terminal" lines
+    # Set your Arbitrum RPC URL
+    export RPC_URL="<YOUR_ARBITRUM_RPC_URL>"
+
+    # Run the gateway
+    /usr/local/bin/livepeer -network arbitrum-one-mainnet -ethUrl $RPC_URL -gateway
+    ```
+  </Tab>
+
+</Tabs>
+
+</StyledStep>
+<StyledStep title="Configure Gateway">
 
 # Create a file containing your Gateway Ethereum password
 
@@ -49,6 +179,8 @@ sudo nano /usr/local/bin/lptConfig/node.txt
 
 Enter your password and save the file
 
+</StyledStep>
+<StyledStep title="Create System Service">
 # Create a system service
 
 ```
@@ -95,6 +227,8 @@ Open the Livepeer CLI
 ```
 livepeer_cli -host 127.0.0.1 -http 5935
 ```
+</StyledStep>
+</StyledSteps>
 
 Jump to [Configure Transcoding Options](/gateways/guides/transcoding-options) to
 finish configuring the Gateway

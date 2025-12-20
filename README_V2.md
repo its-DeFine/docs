@@ -132,3 +132,34 @@ Gateways
 | Category  | Reason              | Business Explanation                                                                                                 |
 | --------- | ------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | Ecosystem | Ecosystem influence | Gateways sit at a coordination choke-point that shapes standards, surfaces protocol gaps, and influences real usage. |
+
+## NOTES ON SOME FETCHED DATA
+
+Since useState, useEffect, and fetch work in Mintlify JSX components, you can
+pull:
+
+Release info - versions, release notes, assets, dates Repo stats - stars, forks,
+open issues count File contents - README, config files, code examples (via
+raw.githubusercontent.com) Contributors - list of contributors, avatars Commit
+history - recent commits, changelog-style updates Issues/PRs - open issues
+count, specific issue details
+
+**EXAMPLE**
+
+I'm fetching the latest release of livepeer dynamically in some places eg.
+gateways/linux-install. with the `LatestRelease` component.
+
+### !!! Caveats:
+
+- Rate limits - GitHub API is 60 requests/hour for unauthenticated requests. If
+  many users load the page, could hit limits
+- Client-side loading - Shows"loading..." briefly before content appears
+- No SSR - Content won't be in the initial HTML (affects SEO if that matters)
+
+### Future Recommendation:
+
+For high-traffic pages, we might want a build-time approach instead (fetch once
+during deploy, not on every page load).
+
+Then we can use a n8n hook or github action to redeploy the docs when a new
+release is published.

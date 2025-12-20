@@ -6,6 +6,7 @@ description: "Provide Video & AI services by running your own Gateway! \n This p
 
 import { GotoLink } from '/snippets/components/links.jsx'
 import { ScrollableDiagram } from "/snippets/components/zoomable-diagram.jsx"
+import { StyledSteps, StyledStep } from '/snippets/components/steps.jsx'
 
 <br />
 Gateways are essential infrastructure in the Livepeer network. 
@@ -90,117 +91,96 @@ flowchart LR
 </Card>
 
 ## Gateway Operator Journey
-<br/>
 
-<Columns cols={2}>  
+<Columns cols={2}>
 <div style={{ display: 'flex', justifyContent: 'center' }}>
-```mermaid
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
-flowchart TB
-    subgraph reqs["Pre-Reqs"]
-        A["Check Hardware Requirements"]
-        B["Check Network & Software Requirements"]
-    end
+  <Mermaid
+    chart={`%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui', 'clusterBkg': '#0d0d0d', 'clusterBorder': '#2d9a67' }}}%%
+      flowchart TB
+      subgraph check["Check"]
+          A["Check network & hardware requirements"]
+      end
 
-    subgraph setup["Setup"]
-        C["Install Gateway Software"]
-        D["Test"]
-    end
+      subgraph install["Install"]
+          B["Install go-livepeer on your OS"]
+      end
 
-    subgraph config["Configuration"]
-        E["Configure Capabilities"]
-        F["Set Pricing"]
-    end
+      subgraph configure["Configure"]
+          C1["Configure AI, transcoding, or both"]
+          C2["Configure pricing, funding, & regions"]
+      end
 
-    subgraph launch["Launch"]
-        G["Register in Marketplace"]
-        H["Monitor & Optimize"]
-    end
+      subgraph test["Test"]
+          D["Test & troubleshoot"]
+      end
 
-    A --> B
-    B --> C
-    C --> D
-    D --> E
-    E --> F
-    F --> G
-    G --> H
+      subgraph connect["Connect"]
+          E1["Connect with orchestrators"]
+          E2["Route jobs"]
+      end
 
-    classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
-    style reqs fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
-    style setup fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
-    style config fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
-    style launch fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
-```
+      subgraph monitor["Monitor"]
+          F["Monitor & optimise"]
+      end
+
+      A --> B
+      B --> C1
+      C1 --> C2
+      C2 --> D
+      D --> E1
+      E1 --> E2
+      E2 --> F
+
+      classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px`}
+  />
 </div>
-<div style={{ marginTop: '-3.5rem', display: 'flex', justifyContent: 'center' }}>
-<Steps>
-  <Step title="Requirements Check">
+
+<div style={{ marginTop: '-2.5rem', display: 'flex', justifyContent: 'center' }}> 
+<StyledSteps>
+  <StyledStep title="Requirements Check">
     Check hardware, network, and software requirements. <br/>
     <GotoLink
       label="Requirements"
       relativePath="./requirements"
     />
-  </Step>
-  <Step title="Install Gateway">
-    Install the Livepeer Gateway software, deploy & connect to orchestrators. <br/>
+  </StyledStep>
+  <StyledStep title="Install Gateway">
+    Install the Livepeer Gateway software. <br/>
     <GotoLink
       label="Installation Guide"
       relativePath="./install"
     />
-  </Step>
-  <Step title="Configure Gateway">
-    Configure models, pipelines, regions, pricing, and more. <br />
+  </StyledStep>
+  <StyledStep title="Configure & Fund Gateway">
+    Configure transcoding options, models, pipelines & pricing <br />
     <GotoLink
       label="Configuration Guide"
       relativePath="./configure"
     />
-  </Step>
-  <Step title="Deploy Gatway">
-    Price & publish offerings to the Marketplace. <br/>
-    <GotoLink
-      label="Deployment Guide"
-      relativePath="./deploy"
-    />
-  </Step>
-  <Step title="Test Gatway">
+  </StyledStep>
+  <StyledStep title="Test Gatway">
     Price & publish offerings to the Marketplace. <br/>
     <GotoLink
       label="Testing Guide"
       relativePath="./test"
     />
-  </Step>
-  <Step title="Fund Gatway">
-    Price & publish offerings to the Marketplace. <br/>
+  </StyledStep>
+  <StyledStep title="Connect Gatway">
+    Connect with Orchestrators, price & route offerings in the Marketplace. <br/>
     <GotoLink
-      label="Funding Guide"
-      relativePath="./fund"
+      label="Connect to the Livepeer Network"
+      relativePath="./connect"
   />
-  </Step>
-    <Step title="Monitor & Optimize">
+  </StyledStep>
+    <StyledStep title="Monitor & Optimize">
     Monitor performance, optimize routing & service quality. <br/>
     <GotoLink
-      label="Tools & Dashboards"
-      relativePath="./tools"
+      label="Monitor & Optimise your Gateway"
+      relativePath="./monitor"
     />
-  </Step>
-</Steps>
+  </StyledStep>
+</StyledSteps>
 
 </div>
-</Columns>
+</Columns> 
 
-<Danger>
-    This page is a work in progress.
-    <Expandable title="TODO">
-    **TODO:**
-
-    - [ ] Copy fixing
-    - [ ] Editing
-    - [ ] Streamlining
-    - [ ] Format
-    - [ ] Style
-    - [ ] Copy over v1 docs
-    - [ ] Fix Mermaid Diagram
-    - [ ] Add Video
-    - [ ] MISSING: Connecting to Orchestrators?
-    </Expandable>
-</Danger>
