@@ -405,19 +405,20 @@
                         "group": "Run Your Own Gateway",
                         "icon": "sign-posts-wrench",
                         "pages": [
-                          "v2/pages/04_gateways/run-a-gateway/why-run-a-gateway",
                           "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
+                          "v2/pages/04_gateways/run-a-gateway/why-run-a-gateway",
                           {
-                            "group": "Requirements",
+                            "group": "Requirements Check & Set",
                             "pages": [
-                              "v2/pages/04_gateways/run-a-gateway/requirements/setup"
+                              "v2/pages/04_gateways/run-a-gateway/requirements/setup",
+                              "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain",
+                              "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway"
                             ]
                           },
                           {
                             "group": "Installation",
                             "pages": [
                               "v2/pages/04_gateways/run-a-gateway/install/install-overview",
-                              "v2/pages/04_gateways/run-a-gateway/install/on-chain",
                               "v2/pages/04_gateways/run-a-gateway/install/docker-install",
                               "v2/pages/04_gateways/run-a-gateway/install/linux-install",
                               "v2/pages/04_gateways/run-a-gateway/install/windows-install",
@@ -432,19 +433,6 @@
                               "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration",
                               "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration",
                               "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration"
-                            ]
-                          },
-                          {
-                            "group": "Deploy",
-                            "pages": [
-                              "v2/pages/04_gateways/run-a-gateway/deploy/deploy-gateway"
-                            ]
-                          },
-                          {
-                            "group": "Funding",
-                            "tag": "On-Chain",
-                            "pages": [
-                              "v2/pages/04_gateways/run-a-gateway/fund/fund-gateway"
                             ]
                           },
                           {

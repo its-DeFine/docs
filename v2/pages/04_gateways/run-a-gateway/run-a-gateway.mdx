@@ -1,7 +1,7 @@
 ---
 title: Run a Gateway
 sidebarTitle: Run A Gateway
-description: "Provide Video & AI services by running your own Gateway! \n This page gives an overview of the steps to run a Gateway node."
+description: "Connect Applications with Video & AI services by running your own Gateway! \n This page gives an overview of the steps to run a Gateway node."
 ---
 
 import { GotoLink } from '/snippets/components/links.jsx'
@@ -9,9 +9,26 @@ import { ScrollableDiagram } from "/snippets/components/zoomable-diagram.jsx"
 import { StyledSteps, StyledStep } from '/snippets/components/steps.jsx'
 
 <br />
+## Introduction
 Gateways are essential infrastructure in the Livepeer network. 
 They provide the service coordination layer (routing & verification) that connects applications to the decentralized GPU compute layer (DePIN). 
 This guide explains the requirements, setup steps, and best practices for running a Gateway node."
+
+## Gateway Modes
+
+You can run a gateway 
+  - <Icon icon="floppy-disk" size={18} /> **Off-chain** -> dev or local mode
+  - <Icon icon="link" size={18} /> **On-chain** -> production mode connected to the blockchain-based Livepeer network (on Arbitrum). 
+
+## Gateway Capabilities
+
+You can run a Gateway for: 
+  - <Badge color= "blue"> Video Only </Badge> -> traditional transcoding services
+  - <Badge color= "purple"> AI Only </Badge> -> AI inference services
+  - <Badge color= "green"> Dual: AI & Video </Badge> -> both video transcoding and AI inference services
+
+
+## Gateway Architecture
 
 <ScrollableDiagram title="Dual Gateway Architecture: Video & AI Pipelines" maxHeight="600px">
 ```mermaid
@@ -75,20 +92,6 @@ flowchart LR
 </ScrollableDiagram>
 
 <br/>
-
-<Card
-    title="Gateway Economics"
-    href="../about-gateways/gateway-economics"
-    icon="hand-holding-dollar"
-    horizontal
-    arrow
-    >
-    Looking for information on how gateways earn fees for services?
-    <GotoLink
-      label="Read the 'Gateway Economics' section"
-      relativePath="../about-gateways/gateway-economics"
-    />   
-</Card>
 
 ## Gateway Operator Journey
 
@@ -184,3 +187,30 @@ flowchart LR
 </div>
 </Columns> 
 
+## Related Pages
+<Card
+    title="Gateway Economics"
+    href="../about-gateways/gateway-economics"
+    icon="hand-holding-dollar"
+    horizontal
+    arrow
+    >
+    Looking for information on how gateways earn fees for services?
+    <GotoLink
+      label="Read the 'Gateway Economics' section"
+      relativePath="../about-gateways/gateway-economics"
+    />   
+</Card>
+<Card
+    title="Gateway Installation"
+    href="../run-a-gateway/install"
+    icon="sign-posts-wrench"
+    horizontal
+    arrow
+    >
+    Just want to get started?
+    <GotoLink
+      label="Get Started with Installation"
+      relativePath="../run-a-gateway/install"
+    />   
+</Card>
