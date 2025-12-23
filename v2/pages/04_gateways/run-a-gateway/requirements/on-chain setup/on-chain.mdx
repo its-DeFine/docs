@@ -8,10 +8,6 @@ import { StyledSteps, StyledStep } from '/snippets/components/steps.jsx';
 import { DoubleIconLink } from '/snippets/components/links.jsx';
 import { ChainlistRPCs } from '/snippets/components/chainlist.jsx';
 
-<Danger>
-Incomplete
-</Danger>
-
 ## On-Chain Requirements
 
 Livepeer is currently deployed on the Arbitrum L2 network (Arbitrum One). 
@@ -252,6 +248,70 @@ Full Guide to options for setting up an on-chain Gateway
     </Danger>
 </StyledStep>
 <StyledStep title="ETH Keystore `-ethKeystorePath`">
+    This is the path to your keystore directory or keyfile. 
+
+    The keystore files follow Ethereum's UTC-timestamp-address format. 
+    These files, often referred to as "UTC / JSON Wallets" or "Web3 Secret Storage Definition" files, 
+    are encrypted local files that contain your Ethereum private key, allowing access to your account. 
+
+    **Keystore File Format**
+    ```json wrap lines Keystore File Format
+    {  
+    "address": "089d8ab6752bac616a1f17246294eb068ee23d3e",  
+    "crypto": {  
+        "cipher": "aes-128-ctr",  
+        "ciphertext": "...",  
+        "cipherparams": {"iv": "..."},  
+        "kdf": "scrypt",  
+        "kdfparams": {...},  
+        "mac": "..."  
+        },  
+    "id": "unique-id",  
+    "version": 3  
+    }
+    ```
+
+    To bring your existing Ethereum account to Livepeer, you need to create a keystore file with your private key and place it in the correct directory structure.
+
+    1. Export your private key from your existing wallet
+    2. Create a keystore file using Livepeer devtools or Ethereum tooling.
+    3. Place it in Livepeer's keystore directory
+    4. Configure Livepeer to use your account
+
+    <Tabs>
+        <Tab title="Docker">
+        </Tab>
+        <Tab title="Linux/Mac">
+        </Tab>
+        <Tab title="Windows">
+        </Tab>
+    </Tabs>
+
+{/* 
+    ```json wrap Example_Keystore.json
+    UTC--2015-11-16T11-52-22.592017989Z--089d8ab6752bac616a1f17246294eb068ee23d3e.json
+    ```
+
+    <ResponseField name="UTC--" type="" >
+    A prefix to indicate the timestamp that follows is in Coordinated Universal Time (UTC).
+    </ResponseField>
+    <ResponseField name="timestamp" type="" >
+    Date and time, in ISO 8601 format (e.g., 2015-11-16T11-52-22.592017989Z), of when the account was created or the keystore file generated
+    </ResponseField>
+    <ResponseField name="public_address" type="" >
+    The public Ethereum address associated with the private key inside the file, typically _without the 0x prefix_. 
+    </ResponseField> */}
+
+    Keystore files are created in
+
+    ```bash Linux/Mac
+    ~/.lpData/{network}/keystore/
+    ``` 
+
+    ```bash Windows
+    %USERPROFILE%\.lpData\{network}\keystore\
+    ```
+
 
 </StyledStep>
 <StyledStep title="Funding Your Gateway">
