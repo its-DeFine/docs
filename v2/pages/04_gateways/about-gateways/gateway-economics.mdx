@@ -61,6 +61,37 @@ Gateways incur costs for:
 - AI processing: Per pixel based on output dimensions 
 - Live AI video: Interval-based payments during streaming
 
+### Gateway Currency
+Gateways pay for transcoding and AI processing services using ETH (Ethereum), not Livepeer tokens (LPT). 
+
+The payment system is built on Ethereum's currency.
+
+<div style={{ overflowX: 'auto' }}>
+  <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+    <thead>
+      <tr style={{ backgroundColor: '#2d9a67', color: 'white' }}>
+        <th style={{ border: '1px solid #333', padding: '12px 16px', textAlign: 'left' }}>Currency</th>
+        <th style={{ border: '1px solid #333', padding: '12px 16px', textAlign: 'left' }}>Purpose</th>
+        <th style={{ border: '1px solid #333', padding: '12px 16px', textAlign: 'left' }}>Used By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>ETH/Wei</td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>Service payments (transcoding, AI)</td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>Gateways → Orchestrators</td>
+      </tr>
+      <tr>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>LPT</td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>Staking, governance, rewards</td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>Orchestrators, Delegators</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+ETH handles actual service payments while LPT handles protocol governance and staking. This design keeps service costs predictable in a stable currency while allowing LPT to serve its governance function
+
 ### Why Run a Gateway?
 If gateways don't earn money, why run one?
 

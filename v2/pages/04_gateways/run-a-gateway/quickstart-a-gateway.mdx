@@ -1,0 +1,74 @@
+---
+title: 'Quickstart a Gateway - 10 minute Gateway Setup Guide'
+description: 'Quickstart a Livepeer Gateway'
+sidebarTitle: '10 minute Gateway Setup'
+---
+
+This page will have you running a Livepeer Gateway for video trancoding in 10 minutes on Mac, Linux or Windows.
+
+It uses defaults for all optional parameters. See the [full setup guide](/v2/pages/04_gateways/run-a-gateway/run-a-gateway) for more details on customising your Gateway.
+
+<Tabs>
+  <Tab title="On-Chain Gateway">
+    This mode connects your Gateway to the Livepeer network on Arbitrum. 
+
+    The guide uses a public RPC URL (rate-limited) & creates your account (wallet) for you. 
+
+  ## Install
+    Install the latest version of the Livepeer Gateway software: [go-livepeer](https://github.com/livepeer/go-livepeer)
+    <Badge color="green"> Latest Release: <LatestReleaseUrl asset="livepeer-linux-amd64.tar.gz"/> </Badge>
+    <Tabs>
+    <Tab title="Linux/Mac">
+    <LatestReleaseUrl asset="livepeer-linux-amd64.tar.gz">
+    <CustomCodeBlock
+      codeString="sudo wget https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-linux-amd64.tar.gz"
+      placeholderValue={LatestRelease}
+      language="bash"
+      icon="terminal"
+    />  
+    </LatestReleaseUrl>
+    </Tab>
+    <Tab title="Windows">
+    <LatestReleaseUrl asset="livepeer-windows-amd64.zip">
+    <CustomCodeBlock
+      codeString="https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-windows-amd64.zip"
+      placeholderValue={LatestRelease}
+      language="bash"
+      icon="terminal"
+    />  
+    </LatestReleaseUrl>
+    </Tab>
+    <Tab title="Docker">
+    <CustomCodeBlock
+      codeString="docker pull livepeer/go-livepeer:master"
+      language="bash"
+      icon="terminal"
+    />  
+    </Tab>
+    </Tabs>
+
+  ## Configure
+
+  </Tab>
+  <Tab title="Off-Chain Gateway">
+    ## Install
+
+
+    ## Configure
+
+  </Tab>
+</Tabs>
+
+
+
+
+
+
+
+
+
+When you run with empty ETH parameters, Livepeer:
+
+- Detects no existing account in the keystore 
+- Creates a new Ethereum account automatically 
+- Prompts for password to encrypt the keystore file

@@ -378,10 +378,16 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/pages/04_gateways/gateways-home",
-                          "v2/pages/04_gateways/about-gateways/gateway-explainer",
-                          "v2/pages/04_gateways/about-gateways/gateway-functions",
-                          "v2/pages/04_gateways/about-gateways/gateway-architecture",
-                          "v2/pages/04_gateways/about-gateways/gateway-economics"
+                          {
+                            "group": "Gateway Knowledge Hub",
+                            "expanded": true,
+                            "pages": [
+                              "v2/pages/04_gateways/about-gateways/gateway-explainer",
+                              "v2/pages/04_gateways/about-gateways/gateway-functions",
+                              "v2/pages/04_gateways/about-gateways/gateway-architecture",
+                              "v2/pages/04_gateways/about-gateways/gateway-economics"
+                            ]
+                          }
                         ]
                       },
                       {
@@ -405,57 +411,71 @@
                         "group": "Run Your Own Gateway",
                         "icon": "sign-posts-wrench",
                         "pages": [
-                          "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
-                          "v2/pages/04_gateways/run-a-gateway/why-run-a-gateway",
                           {
-                            "group": "Requirements Check & Set",
+                            "group": "Quickstart",
+                            "icon": "fast-forward",
                             "pages": [
-                              "v2/pages/04_gateways/run-a-gateway/requirements/setup",
-                              "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain",
-                              "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway"
+                              "v2/pages/04_gateways/run-a-gateway/quickstart-a-gateway",
+                              "v2/pages/04_gateways/run-a-gateway/get-AI-to-setup-the-gateway.mdx"
                             ]
                           },
                           {
-                            "group": "Installation",
+                            "group": "Gateway Setup Guide",
+                            "expanded": true,
                             "pages": [
-                              "v2/pages/04_gateways/run-a-gateway/install/install-overview",
-                              "v2/pages/04_gateways/run-a-gateway/install/docker-install",
-                              "v2/pages/04_gateways/run-a-gateway/install/linux-install",
-                              "v2/pages/04_gateways/run-a-gateway/install/windows-install",
-                              "v2/pages/04_gateways/run-a-gateway/install/community-projects"
-                            ]
-                          },
-                          {
-                            "group": "Configuration",
-                            "pages": [
-                              "v2/pages/04_gateways/run-a-gateway/configure/configuration-overview",
-                              "v2/pages/04_gateways/run-a-gateway/configure/video-configuration",
-                              "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration",
-                              "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration",
-                              "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration"
-                            ]
-                          },
-                          {
-                            "group": "Testing",
-                            "pages": [
-                              "v2/pages/04_gateways/run-a-gateway/test/test-gateway",
-                              "v2/pages/04_gateways/run-a-gateway/test/publish-content",
-                              "v2/pages/04_gateways/run-a-gateway/test/playback-content"
-                            ]
-                          },
-                          {
-                            "group": "Network Connect",
-                            "tag": "Go Live!",
-                            "pages": [
-                              "v2/pages/04_gateways/run-a-gateway/connect/lp-marketplace",
-                              "v2/pages/04_gateways/run-a-gateway/connect/discover-offerings",
-                              "v2/pages/04_gateways/run-a-gateway/connect/connect-with-offerings"
-                            ]
-                          },
-                          {
-                            "group": "Monitor & Optimise",
-                            "pages": [
-                              "v2/pages/04_gateways/run-a-gateway/monitor/monitor-and-optimise"
+                              "v2/pages/04_gateways/run-a-gateway/why-run-a-gateway",
+                              "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
+                              {
+                                "group": "Setup Checklist",
+                                "pages": [
+                                  "v2/pages/04_gateways/run-a-gateway/requirements/setup",
+                                  "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain",
+                                  "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway"
+                                ]
+                              },
+                              {
+                                "group": "Installation",
+                                "pages": [
+                                  "v2/pages/04_gateways/run-a-gateway/install/install-overview",
+                                  "v2/pages/04_gateways/run-a-gateway/install/docker-install",
+                                  "v2/pages/04_gateways/run-a-gateway/install/linux-install",
+                                  "v2/pages/04_gateways/run-a-gateway/install/windows-install",
+                                  "v2/pages/04_gateways/run-a-gateway/install/community-projects"
+                                ]
+                              },
+                              {
+                                "group": "Configuration",
+                                "pages": [
+                                  "v2/pages/04_gateways/run-a-gateway/configure/configuration-overview",
+                                  "v2/pages/04_gateways/run-a-gateway/configure/video-configuration",
+                                  "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration",
+                                  "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration",
+                                  "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration"
+                                ]
+                              },
+                              {
+                                "group": "Testing",
+                                "pages": [
+                                  "v2/pages/04_gateways/run-a-gateway/test/test-gateway",
+                                  "v2/pages/04_gateways/run-a-gateway/test/publish-content",
+                                  "v2/pages/04_gateways/run-a-gateway/test/playback-content"
+                                ]
+                              },
+                              {
+                                "group": "Network Connect",
+                                "tag": "Go Live!",
+                                "pages": [
+                                  "v2/pages/04_gateways/run-a-gateway/connect/lp-marketplace",
+                                  "v2/pages/04_gateways/run-a-gateway/connect/discover-offerings",
+                                  "v2/pages/04_gateways/run-a-gateway/connect/connect-with-offerings"
+                                ]
+                              },
+                              {
+                                "group": "Monitor & Optimise",
+                                "pages": [
+                                  "v2/pages/04_gateways/run-a-gateway/monitor/monitor-and-optimise"
+                                ]
+                              }
                             ]
                           }
                         ]
@@ -510,16 +530,24 @@
                   {
                     "anchor": "Quickstart",
                     "icon": "fast-forward",
-                    "pages": ["v2/pages/04_gateways/quickstart"]
+                    "pages": [
+                      "v2/pages/04_gateways/run-a-gateway/quickstart-a-gateway",
+                      "v2/pages/04_gateways/run-a-gateway/get-AI-to-setup-the-gateway"
+                    ]
+                  },
+                  {
+                    "anchor": "Quick Links",
+                    "icon": "person-to-portal",
+                    "pages": ["v2/pages/04_gateways/references/"]
                   },
                   {
                     "anchor": "Resources",
                     "icon": "books",
-                    "pages": ["v2/pages/04_gateways/quickstart"]
+                    "pages": ["v2/pages/04_gateways/references/"]
                   },
                   {
                     "anchor": " ",
-                    "icon": "-",
+                    "icon": "horizontal-rule",
                     "pages": [" "]
                   }
                 ]
