@@ -16,7 +16,7 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
   useEffect(() => {
     const fetchExchanges = async () => {
       try {
-        // Fetch coin data from CoinGecko API
+        // Fetch first page of tickers from CoinGecko API
         const response = await fetch(
           `https://api.coingecko.com/api/v3/coins/${coinId}/tickers?depth=true`
         );
@@ -35,6 +35,10 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                   name: ticker.market.name,
                   url: ticker.trade_url,
                   trustScore: ticker.trust_score || "N/A",
+                  tradingPair:
+                    ticker.base && ticker.target
+                      ? `${ticker.base}/${ticker.target}`
+                      : "N/A",
                   type:
                     ticker.market.identifier?.includes("uniswap") ||
                     ticker.market.identifier?.includes("sushiswap") ||
@@ -130,6 +134,8 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                 fontWeight: "600",
                 borderBottom: "2px solid #2d9a67",
                 cursor: "pointer",
+                width: "220px",
+                maxWidth: "220px",
               }}
               onClick={() => handleSort("name")}
               title="Click to sort by name"
@@ -149,6 +155,17 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
               title="Click to sort by type"
             >
               Type {sortBy === "type" && (sortOrder === "asc" ? "↑" : "↓")}
+            </th>
+            <th
+              style={{
+                padding: "12px 16px",
+                textAlign: "center",
+                fontWeight: "600",
+                borderBottom: "2px solid #2d9a67",
+                width: "110px",
+              }}
+            >
+              Pair
             </th>
             <th
               style={{
@@ -177,9 +194,36 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
         <tbody>
           {sortedExchanges.map((exchange, index) => (
             <tr key={index} style={{ borderBottom: "1px solid #333" }}>
-              <td style={{ padding: "10px 16px" }}>{exchange.name}</td>
+              <td
+                style={{
+                  padding: "10px 16px",
+                  width: "220px",
+                  maxWidth: "220px",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {exchange.name}
+              </td>
               <td style={{ padding: "10px 16px", textAlign: "center" }}>
-                {exchange.type}
+                <Badge color={exchange.type === "DEX" ? "purple" : "blue"}>
+                  {exchange.type}
+                </Badge>
+              </td>
+              <td
+                style={{
+                  padding: "10px 16px",
+                  textAlign: "center",
+                  fontFamily: "monospace",
+                  fontSize: "0.85rem",
+                  maxWidth: "110px",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  whiteSpace: "nowrap",
+                }}
+              >
+                {exchange.tradingPair}
               </td>
               <td style={{ padding: "10px 16px", textAlign: "center" }}>
                 <Icon

@@ -501,9 +501,13 @@
                         "group": "Technical References",
                         "icon": "code",
                         "pages": [
-                          "v2/pages/04_gateways/references/technical-architecture",
-                          "v2/pages/04_gateways/references/configuration-flags",
-                          "v2/pages/04_gateways/references/arbitrum-rpc",
+                          {
+                            "group": "Gateways",
+                            "pages": [
+                              "v2/pages/04_gateways/references/technical-architecture",
+                              "v2/pages/04_gateways/references/configuration-flags"
+                            ]
+                          },
                           {
                             "group": "API Reference [AI]",
                             "pages": [
@@ -521,6 +525,14 @@
                               "v2/pages/04_gateways/references/api-reference/AI-API/health",
                               "v2/pages/04_gateways/references/api-reference/AI-API/hardware-info",
                               "v2/pages/04_gateways/references/api-reference/AI-API/hardware-stats"
+                            ]
+                          },
+                          {
+                            "group": "Exchanges & RPCs",
+                            "pages": [
+                              "v2/pages/04_gateways/references/livepeer-exchanges",
+                              "v2/pages/04_gateways/references/artibtrum-exchanges",
+                              "v2/pages/04_gateways/references/arbitrum-rpc"
                             ]
                           }
                         ]
