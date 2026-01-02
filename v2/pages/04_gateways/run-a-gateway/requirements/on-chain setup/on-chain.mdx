@@ -87,62 +87,45 @@ If you plan to run your Gateway in **On-Chain** mode, you will need:
 - Never share your wallet private key. In c ase of accidental public exposure - remove any funds & change your wallet immediately
 </div>
 
-<CustomDivider middleText="QUICKSTART" color="#fff"/>
 
-## <Icon icon="fast-forward" size={24} /> Easy Setup: Quickstart 
+<CustomDivider middleText="EASY SETUP" />
+
+## <Icon icon="fast-forward" size={24} /> Easy Setup with Livepeer Tooling
 
 <Card title="Install Your Gateway Software First" href="/v2/pages/04_gateways/run-a-gateway/install/install-overview" icon="tools" horizontal arrow > -> then come back to this guide. </Card>
 
-<Danger> Doesn't need tabs - remove </Danger>
-<Tabs>
-    <Tab title="New Wallet & Keystore">
-        <div style={{border: '1px solid #2b9a66', borderRadius: '8px', padding: '16px' }}>
-        Livepeer will automatically create a new wallet & keystore for you if you do not provide an existing wallet address after first [installing your Gateway software](/v2/pages/04_gateways/run-a-gateway/install/install-overview).
-        <br/>
-        <br/>
-        Use the below command to quickstart an on-chain gateway with a new wallet and auto-generate all required parameters.
-        <br/>
-        <br/>
-        See [RPC URL](#rpc-url) for instructions on finding or using an alternative Arbitrum RPC URL.
+    Livepeer will automatically create a new wallet & keystore for you if you do not provide an existing wallet address after first [installing your Gateway software](/v2/pages/04_gateways/run-a-gateway/install/install-overview).
 
-        ```bash icon="terminal" wrap lines On-Chain Quickstart Command
-        livepeer -gateway \  
-        -network arbitrum-one-mainnet \  
-        -ethUrl=https://arb1.arbitrum.io/rpc #public RPC: rate-limited 
-        \ -ethAcctAddr="" \
-        -ethKeystorePath="" \  
-        -ethPassword="" 
-        ```
-        </div>
-    </Tab>
-    <Tab title="Existing Wallet, New Keystore">
-        <div style={{border: '1px solid #2b9a66', borderRadius: '8px', padding: '16px' }}>
-            Livepeer will automatically create a new keystore for you if you provide an existing wallet address.
+    The software will detect no keystore exists for that address and ask you to:
+        - Enter your private key
+        - Create an account address (wallet) `-ethAcctAddr`
+        - Set a password for the keystore encryption `-ethPassword`
+        - Create the keystore file `-ethKeystorePath`
 
-            The software will detect no keystore exists for that address and ask you to:
-                - Enter your private key
-                - Set a password for the keystore encryption `-ethPassword`
-                - Create the keystore file in the UTC format
+    Use the below command to quickstart an on-chain gateway with a new wallet and auto-generate all required parameters.
 
-            <br/>
+    See [RPC URL](#rpc-url) for instructions on finding or using an alternative Arbitrum RPC URL.
 
-            See [RPC URL](#rpc-url) for instructions on how to acquire an alternative Arbitrum RPC URL.
-            <br/>
-            <br/>
-            Run the following command after [installing your Gateway software](/v2/pages/04_gateways/run-a-gateway/install/install-overview).
+    ```bash icon="terminal" wrap lines Create New Wallet & Keystore
+    livepeer -gateway \  
+    -network arbitrum-one-mainnet \  
+    -ethUrl=https://arb1.arbitrum.io/rpc #public RPC: rate-limited 
+    \ -ethAcctAddr="" \
+    -ethKeystorePath="" \  
+    -ethPassword="" 
+    ```
 
-            ```bash icon="terminal" wrap lines Exisiting Wallet, New Keystore
-            livepeer -gateway \
-                -network arbitrum-one-mainnet \
-                -ethUrl=https://arb1.arbitrum.io/rpc #public rate-limited RPC
-                \ -ethAcctAddr=<YOUR_WALLET_ADDRESS> \
-                -ethKeystorePath=<PATH_TO_KEYSTORE>
-            ```
-        </div>
-    </Tab>
-</Tabs>
+    If you want to bring an existing wallet - put the public address in the `-ethAcctAddr` flag. 
 
-### Where Your Account Data Is Stored
+    ```bash icon="terminal" wrap lines Exisiting Wallet, New Keystore
+    livepeer -gateway \
+        -network arbitrum-one-mainnet \
+        -ethUrl=https://arb1.arbitrum.io/rpc #public rate-limited RPC
+        \ -ethAcctAddr=<YOUR_WALLET_ADDRESS> \
+        -ethKeystorePath=""
+    ```
+
+### Account Data Default Folders
 Account data is stored in the `~/.lpData` directory by default. 
 
 Keystore files are by default created in:
@@ -169,10 +152,11 @@ Keystore files are by default created in:
     </Tab>
 </Tabs>
 
-<Card icon="coins" title="Next Step" arrow href="/v2/pages/04_gateways/run-a-gateway/fund/fund-gateway"> Fund Your Gateway </Card>
+<Card icon="coins" title="Next Step" arrow href="/v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway/"> Fund Your Gateway </Card>
 
 <br/>
----
+
+<CustomDivider middleText="FULL SETUP GUIDE" />
 
 
 # Comprehensive On-Chain Setup Guide
