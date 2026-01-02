@@ -448,6 +448,7 @@
                                 "pages": [
                                   "v2/pages/04_gateways/run-a-gateway/configure/configuration-overview",
                                   "v2/pages/04_gateways/run-a-gateway/configure/video-configuration",
+                                  "v2/pages/04_gateways/run-a-gateway/configure/video-configuration-view",
                                   "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration",
                                   "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration",
                                   "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration"
@@ -505,7 +506,8 @@
                             "group": "Gateways",
                             "pages": [
                               "v2/pages/04_gateways/references/technical-architecture",
-                              "v2/pages/04_gateways/references/configuration-flags"
+                              "v2/pages/04_gateways/references/configuration-flags",
+                              "v2/pages/04_gateways/references/video-flags"
                             ]
                           },
                           {

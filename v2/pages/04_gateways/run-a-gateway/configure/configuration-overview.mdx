@@ -16,16 +16,28 @@ Config options are:
 </Danger>
 
 ## Introduction
-Gateways in Livepeer serve as the entry point for media streams, handling both traditional video transcoding and 
-AI processing workflows. While the core function of ingesting and distributing media is similar, the processing pipelines and components differ. 
+Gateways in Livepeer serve as the entry point for <Badge color="blue">Video</Badge> transcoding and <Badge color="purple">AI</Badge> processing workflows. 
+While the core function of ingesting and distributing media is similar, the processing pipelines and components differ. 
+
 A single gateway can handle both types of workloads simultaneously.
 
+## Configuration Methods
+You have three ways to configure your Livepeer gateway after installation:
 
+- Command-line flags (most common)
+- Environment variables (prefixed with LP_)
+- Configuration file (plain text key value format)
+
+## Configuration Options
 This section breaks down the Livepeer Gateway configuration space into the following options:
-- **Transcoding Options** - used by Transcoding Network Gateways
+- **Video & Transcoding Options** - used by Video Network Gateways
 - **AI Gateway Flags & Options** - used when running a Gateway in the Livepeer AI network context
 - **Dual Configuration** - used when running a Gateway that supports both video transcoding and AI inference services
 - **Pricing Configuration** - used to configure pricing for service offerings
+
+<Card icon="book-open" title="Full Configuration Reference" href="/v2/pages/04_gateways/references/configuration-flags" arrow horizontal >
+  Full Reference of all Configuration Flags
+</Card>
 
 ## Launch Pad <Icon icon="arrow-up-right" size={18} color={"#909391"}/>
 
