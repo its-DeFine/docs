@@ -53,7 +53,7 @@ export const CustomDivider = ({ color, middleText }) => {
               // fontStyle: "uppercase",
               fontColor: color,
               color: color,
-              opacity: 0.2,
+              opacity: 0.4,
             }}
           >
             {middleText}
