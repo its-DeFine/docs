@@ -42,36 +42,36 @@ This guide will install and configure a Gateway to run video & AI workloads.
       Create the `docker-compose.yml` file that defines the dual gateway service (video & AI).
       ```bash icon="terminal" docker-compose.yml
         cat > docker-compose.yml << EOF
-          dual-gateway:        
-            image: livepeer/go-livepeer:master  
-            container_name: 'dual-gateway'  
-            hostname: 'dual-gateway'  
-            ports:  
-              - 1935:1935  # RTMP for video ingest  
-              - 8935:8935  # HTTP API for both video and AI  
-              - 5935:5935  # CLI port  
-            volumes:  
-              - dual-gateway-lpData:/root/.lpData  
-              - ./aiModels.json:/root/.lpData/aiModels.json  
-              - ./models:/root/.lpData/models  
-            command: '-network offchain   
-                      -gateway  
-                      -httpIngest  
-                      -aiServiceRegistry  
-                      -monitor=true  
-                      -v=6  
-                      -rtmpAddr=0.0.0.0:1935  
-                      -httpAddr=0.0.0.0:8935  
-                      -cliAddr=0.0.0.0:5935  
-                      -orchAddr=<ORCHESTRATOR_ADDRESSES>  
-                      -transcodingOptions=P240p30fps16x9,P360p30fps16x9,P720p30fps16x9  
-                      -aiModels=/root/.lpData/aiModels.json  
-                      -aiModelsDir=/root/.lpData/models  
-                      -livePaymentInterval=5s'  
-          
-        volumes:  
-          dual-gateway-lpData:  
-            external: true
+dual-gateway:
+  image: livepeer/go-livepeer:master
+  container_name: 'dual-gateway'
+  hostname: 'dual-gateway'
+  ports:
+    - 1935:1935  # RTMP for video ingest
+    - 8935:8935  # HTTP API for both video and AI
+    - 5935:5935  # CLI port
+  volumes:
+    - dual-gateway-lpData:/root/.lpData
+    - ./aiModels.json:/root/.lpData/aiModels.json
+    - ./models:/root/.lpData/models
+  command: '-network offchain
+            -gateway
+            -httpIngest
+            -aiServiceRegistry
+            -monitor=true
+            -v=6
+            -rtmpAddr=0.0.0.0:1935
+            -httpAddr=0.0.0.0:8935
+            -cliAddr=0.0.0.0:5935
+            -orchAddr=<ORCHESTRATOR_ADDRESSES>
+            -transcodingOptions=P240p30fps16x9,P360p30fps16x9,P720p30fps16x9
+            -aiModels=/root/.lpData/aiModels.json
+            -aiModelsDir=/root/.lpData/models
+            -livePaymentInterval=5s'
+
+volumes:
+  dual-gateway-lpData:
+    external: true
         EOF
       ```
 
