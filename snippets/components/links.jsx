@@ -150,3 +150,63 @@ export const DownloadLink = ({
     </span>
   );
 };
+
+export const TipWithArrow = ({
+  children,
+  icon = "lightbulb",
+  arrowIcon = "arrow-up-right",
+  color = "#2d9a67",
+  iconSize = 16,
+  arrowSize = 16,
+}) => {
+  // Convert hex to rgba for proper opacity
+  const hexToRgba = (hex, alpha) => {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+  };
+
+  return (
+    <div
+      style={{
+        position: "relative",
+        display: "flex",
+        alignItems: "flex-start",
+        gap: "12px",
+        padding: "16px 20px",
+        paddingRight: "48px", // Extra space for the arrow
+        borderRadius: "16px",
+        border: `1px solid ${hexToRgba(color, 0.2)}`,
+        backgroundColor: hexToRgba(color, 0.1),
+        marginTop: "16px",
+        marginBottom: "16px",
+        overflow: "hidden",
+      }}
+    >
+      <div style={{ marginTop: "2px", width: iconSize, flexShrink: 0 }}>
+        <Icon icon={icon} size={iconSize} color={color} />
+      </div>
+      <div
+        style={{
+          fontSize: "0.875rem",
+          color: color,
+          minWidth: 0,
+          width: "100%",
+        }}
+      >
+        {children}
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          top: "16px",
+          right: "16px",
+          opacity: 0.6,
+        }}
+      >
+        <Icon icon={arrowIcon} size={arrowSize} color={color} />
+      </div>
+    </div>
+  );
+};

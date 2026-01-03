@@ -17,6 +17,8 @@ they're willing to pay Orchestrators for processing work.
 All payments are made in <Badge color="green">ETH(wei)</Badge> - **not** Livepeer tokens (LPT).
 
 #### Pricing Models
+<Warning> Format me.</Warning>
+
 1. <Badge color="blue">Video Transcoding</Badge>: Per video segment processed
   - Unit: Pixels processed (width x height)
   - Calculation: pixels processed × price per pixel
@@ -70,37 +72,40 @@ All payments are made in <Badge color="green">ETH(wei)</Badge> - **not** Livepee
   </ResponseField>
 </Card>
 
-### Price Calculation
+{/* ### Price Calculation
 
 The actual price calculation happens in the orchestrator's `priceInfo` function, which:
 
 1. Checks for fixed prices per manifest ID
 2. Gets base price from Orchestrator configuration
 3. For AI workloads, sums prices of individual capability/model pairs
-4. Applies auto-adjustment based on transaction costs if enabled
+4. Applies auto-adjustment based on transaction costs if enabled */}
 
-### Fee Payment Process
+## Fee Payment Calculation & Process
+
+<Warning> Format me. Add diagram </Warning>
 
 Gateways pay fees through different mechanisms depending on workload type:
 
 _Video Transcoding_
 
-- Per-segment payments: Each video segment generates a payment ticket [segment_rpc.go:237-271](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/segment_rpc.go)
-- Fee calculation: Based on pixels processed × price per pixel [segment_rpc.go:645-653](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/segment_rpc.go)
+- Per-segment payments: Each video segment generates a payment ticket -> [<Icon icon="github" /> segment_rpc.go:](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/segment_rpc.go)
+- Fee calculation: Based on pixels processed × price per pixel -> [<Icon icon="github" /> segment_rpc.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/segment_rpc.go)
 
 _AI Processing_
 
-- Per-pixel payments: Calculated as width × height × outputs [live_payment.go:162-165](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/live_payment.go)
-- Live video: Uses interval-based payments during streaming [ai_http.go:181-211](https://github.com/livepeer/go-livepeer/blob/5691cb48/server/ai_http.go)
+- Per-pixel payments: Calculated as width × height × outputs [<Icon icon="github" /> live_payment.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/live_payment.go)
+- Live video: Uses interval-based payments during streaming [<Icon icon="github" /> ai_http.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/server/ai_http.go)
 
 _Payment Processing Flow_
 
-1. Gateway sends payment with segment/request to orchestrator [live_payment.go:96-114](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/live_payment.go)
-2. Orchestrator validates payment and updates balance [segment_rpc.go:257-261](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/segment_rpc.go)
-3. Fees are debited from gateway's balance account [ai_http.go:568](https://github.com/livepeer/go-livepeer/blob/5691cb48/server/ai_http.go)
+1. Gateway sends payment with segment/request to orchestrator [<Icon icon="github" /> live_payment.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/live_payment.go)
+2. Orchestrator validates payment and updates balance [<Icon icon="github" /> segment_rpc.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/segment_rpc.go)
+3. Fees are debited from gateway's balance account [<Icon icon="github" /> ai_http.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/server/ai_http.go)
 
 
 ## Configuration Methods
+<Warning> Format me. </Warning>
 Gateways set maximum prices they're willing to pay through configuration flags in the `transcodingConfig.json` or directly in the CLI.
 
 1. **Command-line** flags 
@@ -120,14 +125,14 @@ Gateways set maximum prices they're willing to pay through configuration flags i
 
 
 
-<br/>
+
 ## Orchestrator Configuration & Price Information (Gateway Reference)
 A reference for Gateway Operators on how Orchestrators configure pricing and fees for services.
 
-### Per-Gateway Pricing (can be set by Orchestrators)
+#### Per-Gateway Pricing (can be set by Orchestrators)
 
 Orchestrators can set specific prices for individual gateways using 
-`-pricePerGateway` [starter.go:915-926](https://github.com/livepeer/go-livepeer/blob/5691cb48/cmd/livepeer/starter.go)
+`-pricePerGateway` [<Icon icon="github" /> starter.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/cmd/livepeer/starter.go)
 
 ```json
 {  
@@ -142,18 +147,19 @@ Orchestrators can set specific prices for individual gateways using
 }
 ```
 
-### Price Calculation
+#### Price Calculation
+<Warning> Repeated </Warning>
 
-The actual price calculation happens in the orchestrator's `priceInfo` function [orchestrator.go:357-431](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/orchestrator.go)
+The actual price calculation happens in the orchestrator's `priceInfo` function [<Icon icon="github" /> orchestrator.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/orchestrator.go)
 
 1. Checks for fixed prices per manifest ID
 2. Gets base price from orchestrator configuration
 3. For AI workloads, sums prices of individual capability/model pairs
 4. Applies auto-adjustment based on transaction costs if enabled
 
-### Dynamic Price Adjustment
+#### Dynamic Price Adjustment
 
-Orchestrators can enable automatic price adjustments based on transaction costs [orchestrator.go:408-431](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/orchestrator.go)
+Orchestrators can enable automatic price adjustments based on transaction costs - which is why it's important to set maxPricing flags -> [<Icon icon="github" /> orchestrator.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/core/orchestrator.go)
 
 ```go
 if !orch.node.AutoAdjustPrice {  
@@ -169,7 +175,7 @@ if basePrice.Num().Cmp(big.NewInt(0)) > 0 {
 }
 ```
 
-## Complete List of Gateway Pricing Configuration Flags
+## Full List of Gateway Pricing Configuration Flags
 
 #### Video Transcoding Pricing Flags
 
