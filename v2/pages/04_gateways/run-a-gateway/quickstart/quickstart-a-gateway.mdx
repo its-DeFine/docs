@@ -28,7 +28,12 @@ This guide includes both on-chain (production) and off-chain (local) Gateway set
 This guide will install and configure a Gateway to run video & AI workloads.
 
 <Tabs>
-  <Tab title="Off-Chain Gateway">
+  <Tab title="Off-Chain Gateway" icon="floppy-disk">
+  <Warning> 
+  <span style={{fontSize: '1.0rem' }}>You will need to <span style={{ color: 'white' }}>run your own Orchestrator node</span> to test an off-chain Gateway:  [<Icon icon="arrow-up-right" color="#2d9a67"/> Orchestrator Quickstart](/v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer)</span>
+
+  <p>Note: You can use [<Icon icon="arrow-up-right" color="#2d9a67"/> BYOC pipelines](/v2/pages/03_developers/ai-inference-on-livepeer/byoc) for local testing without needing a GPU. </p>
+  </Warning>
   <Steps titleSize="h3">
     <Step title="Install Gateway Software">
       Pull the docker image from [Livepeer Docker Hub]()
@@ -41,54 +46,56 @@ This guide will install and configure a Gateway to run video & AI workloads.
     <Step title="Configure Gateway">
       Create the `docker-compose.yml` file that defines the dual gateway service (video & AI).
       ```bash icon="terminal" docker-compose.yml
-        cat > docker-compose.yml << EOF
-dual-gateway:
-  image: livepeer/go-livepeer:master
-  container_name: 'dual-gateway'
-  hostname: 'dual-gateway'
-  ports:
-    - 1935:1935  # RTMP for video ingest
-    - 8935:8935  # HTTP API for both video and AI
-    - 5935:5935  # CLI port
-  volumes:
-    - dual-gateway-lpData:/root/.lpData
-    - ./aiModels.json:/root/.lpData/aiModels.json
-    - ./models:/root/.lpData/models
-  command: '-network offchain
-            -gateway
-            -httpIngest
-            -aiServiceRegistry
-            -monitor=true
-            -v=6
-            -rtmpAddr=0.0.0.0:1935
-            -httpAddr=0.0.0.0:8935
-            -cliAddr=0.0.0.0:5935
-            -orchAddr=<ORCHESTRATOR_ADDRESSES>
-            -transcodingOptions=P240p30fps16x9,P360p30fps16x9,P720p30fps16x9
-            -aiModels=/root/.lpData/aiModels.json
-            -aiModelsDir=/root/.lpData/models
-            -livePaymentInterval=5s'
+        version: '3.9'  
+  
+        services:  
+          dual-gateway:
+            image: livepeer/go-livepeer:master
+            container_name: 'dual-gateway'
+            hostname: 'dual-gateway'
+            ports:
+              - 1935:1935  # RTMP for video ingest
+              - 8935:8935  # HTTP API for both video and AI
+              - 5935:5935  # CLI port
+            volumes:
+              - dual-gateway-lpData:/root/.lpData
+              - ./aiModels.json:/root/.lpData/aiModels.json
+              - ./models:/root/.lpData/models
+            command: '-network offchain
+                      -gateway
+                      -httpIngest
+                      -aiServiceRegistry
+                      -monitor=true
+                      -v=6
+                      -rtmpAddr=0.0.0.0:1935
+                      -httpAddr=0.0.0.0:8935
+                      -cliAddr=0.0.0.0:5935
+                      -orchAddr=<ORCHESTRATOR_ADDRESSES>
+                      -transcodingOptions=P240p30fps16x9,P360p30fps16x9,P720p30fps16x9
+                      -aiModels=/root/.lpData/aiModels.json
+                      -aiModelsDir=/root/.lpData/models
+                      -livePaymentInterval=5s'
 
-volumes:
-  dual-gateway-lpData:
-    external: true
-        EOF
+          volumes:
+            dual-gateway-lpData:
+              external: true
       ```
+      <Note>
+        Replace <Badge color="gray">{'<ORCHESTRATOR_ADDRESSES>'}</Badge> with your locally running orchestrator http address.
 
-      Create the aiModels.json 
-      <CustomCodeBlock
-        codeString="cat > aiModels.json << EOF
-        [
-          {
-            'pipeline': 'text-to-image',
-            'model_id': 'stabilityai/sd-turbo',
-            'warm': true
-          }
-        ]
-        EOF"
-              language="bash"
-              icon="terminal"
-      />
+        If you don't have this, leave it blank for now. You can add it later.
+      </Note>
+
+      Create the `aiModels.json` file that specifies which AI pipelines & models to load.
+   ```bash icon="brackets-curly" aiModels.json
+  [
+    {
+      'pipeline': 'text-to-image',
+      'model_id': 'stabilityai/sd-turbo',
+      'warm': true {/* preloads the model into GPU memory for faster inference */}
+    }
+  ]
+  ```
 
       Create the models directory
       <CustomCodeBlock
@@ -153,18 +160,18 @@ volumes:
     </Step>
     </Steps>
   </Tab>
-  <Tab title="On-Chain Gateway">
+  <Tab title="On-Chain Gateway" icon="link">
   hello
   </Tab>
 </Tabs>
 
-## Related Pages
+## Reference Pages
 <Columns cols={2}>
   <Card title="Docker Installation Guide" href="../install/docker-install" arrow horizontal >
     View Full Installation Guide
   </Card>
-  <Card title="Docker Installation Guide" href="../install/docker-install" arrow horizontal >
-    View Full Installation Guide
+  <Card title="Configuration Flags Reference" href="../../references/configuration-flags.mdx" arrow horizontal >
+    Gateway Configuration Flag Guide
   </Card>
 </Columns>
 
