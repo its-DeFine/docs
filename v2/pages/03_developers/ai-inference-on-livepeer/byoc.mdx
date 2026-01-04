@@ -4,6 +4,18 @@ sidebarTitle: 'BYOC'
 description: 'Bring Your Own Container (BYOC)'
 ---
 
+# AI Workers
+AI workers are run when you start a node with the -aiWorker flag. They can run in two modes:
+
+Combined with Orchestrator (-orchestrator -aiWorker): The orchestrator also runs AI processing locally
+Standalone AI Worker (-aiWorker only): Connects to a remote orchestrator via gRPC
+
+Key Points:
+AI workers are the component that actually runs Docker containers starter.go:1345-1349
+Gateways only route requests and handle payments; they don't run containers byoc.go:25-35
+BYOC containers are managed by the AI worker's Docker manager
+For CPU models, you don't need the -nvidia flag starter.go:1296-1300
+
 # BYOC (Bring Your Own Container) Overview
 
 BYOC is Livepeer's Generic Processing Pipeline that allows you to run custom Docker containers for media processing tasks on the Livepeer network. It enables you to bring your own processing capabilities while integrating with Livepeer's infrastructure for job distribution, payment, and orchestration.
