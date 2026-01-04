@@ -1,3 +1,6 @@
+import { CustomCodeBlock } from "/snippets/components/code.jsx";
+import { LatestRelease } from "/snippets/automationData/globals/globals.jsx";
+
 export const GatewaySteps = [
   {
     title: "Install Gateway Software",

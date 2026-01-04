@@ -1,13 +1,17 @@
-import {
-  dockerOffChainQuickstart,
-  dockerOnChainQuickstart,
-  linuxOffChainQuickstart,
-  linuxOnChainQuickstart,
-  windowsOffChainQuickstart,
-  windowsOnChainQuickstart,
-} from "/snippets/data/gateways.jsx";
+// THIS MUST BE IMPORTED IN THE PAGE YOU USE IT IN
+// ALT: THE DATA MUST BE IN THE SAME PAGE.
+// import {
+//   dockerOffChainQuickstart,
+//   dockerOnChainQuickstart,
+//   linuxOffChainQuickstart,
+//   linuxOnChainQuickstart,
+//   windowsOffChainQuickstart,
+//   windowsOnChainQuickstart,
+// } from "/snippets/data/gateways.jsx";
 
-export const QuickStartTabs = (offchainSteps, onchainSteps) => {
+import { dockerOffChainQuickstart } from "../../data/gateways";
+
+export const QuickStartTabs = ({ offchainSteps, onchainSteps }) => {
   return (
     <Tabs>
       <Tab title="Off-Chain Gateway" icon="floppy-disk">
@@ -21,19 +25,14 @@ export const QuickStartTabs = (offchainSteps, onchainSteps) => {
   );
 };
 
+// THIS INHERITS IMPORTS FROM THE PAGE ITS CALLED IN.
+// BUT WILL NOT USE IMPORTS FROM THIS PAGE
 export const QuickStartSteps = ({ dataSource }) => {
-  const stepsMap = {
-    dockerOffChainQuickstart,
-    dockerOnChainQuickstart,
-    linuxOffChainQuickstart,
-    linuxOnChainQuickstart,
-    windowsOffChainQuickstart,
-    windowsOnChainQuickstart,
-  };
+  //   console.log("dataSource", dataSource);
+  //   console.log("dockerOffChainQuickstart", dockerOffChainQuickstart);
   const { installStep, configureStep, runStep, connectStep, testStep } =
-    stepsMap[dataSource]; //dataSource;
-  //   console.log("docker", dockerOffChainQuickstart);
-  console.log("dataSource", dataSource, installStep);
+    dataSource;
+  //   console.log("steps obj", installStep);
   return (
     <Steps titleSize="h3">
       <Step title="Install Gateway Software">{installStep}</Step>

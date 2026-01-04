@@ -4,16 +4,23 @@ description: 'Quickstart a Livepeer Gateway'
 sidebarTitle: 'Run a Gateway Quickstart'
 ---
 
-import { QuickStartSteps } from '/snippets/components/gateways/quickstartTabs.jsx';
-import { dockerOffChainQuickstart } from '/snippets/data/gateways.jsx';
+import {
+  dockerOffChainQuickstart,
+  // dockerOnChainQuickstart,
+  // linuxOffChainQuickstart,
+  // linuxOnChainQuickstart,
+  // windowsOffChainQuickstart,
+  // windowsOnChainQuickstart,
+} from "/snippets/data/gateways.jsx";
+import { QuickStartTabs, QuickStartSteps } from '/snippets/components/gateways/quickstartTabs.jsx';
 import { GatewayOffChainWarning } from '/snippets/components/gateways/warnings.jsx';
 import { LatestRelease, LatestReleaseURL } from '/snippets/components/release.jsx';
 import { CustomCodeBlock } from '/snippets/components/code.jsx';
 import { TipWithArrow } from '/snippets/components/links.jsx';
 
 # TEST
+<QuickStartTabs offchainSteps = {<QuickStartSteps dataSource={dockerOffChainQuickstart} />} onchainSteps = {<QuickStartSteps dataSource={dockerOffChainQuickstart} />} />
 
-<QuickStartSteps dataSource={dockerOffChainQuickstart} />
 
 ---
 
