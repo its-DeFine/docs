@@ -4,9 +4,18 @@ description: 'Quickstart a Livepeer Gateway'
 sidebarTitle: 'Run a Gateway Quickstart'
 ---
 
+import { QuickStartSteps } from '/snippets/components/gateways/quickstartTabs.jsx';
+import { dockerOffChainQuickstart } from '/snippets/data/gateways.jsx';
+import { GatewayOffChainWarning } from '/snippets/components/gateways/warnings.jsx';
 import { LatestRelease, LatestReleaseURL } from '/snippets/components/release.jsx';
 import { CustomCodeBlock } from '/snippets/components/code.jsx';
 import { TipWithArrow } from '/snippets/components/links.jsx';
+
+# TEST
+
+<QuickStartSteps dataSource={dockerOffChainQuickstart} />
+
+---
 
 {/* <img src="../../../../assets/gateways/view-dropdown.png" width="200em" height='auto' alt="Quickstart Dropdown" margin="0"/> */}
 <TipWithArrow>
@@ -29,190 +38,228 @@ This guide will install and configure a Gateway to run video & AI workloads.
 
 <Tabs>
   <Tab title="Off-Chain Gateway" icon="floppy-disk">
-  <Warning> 
-  <span style={{fontSize: '1.0rem' }}>You will need to <span style={{ color: 'white' }}>run your own Orchestrator node</span> to test an off-chain Gateway:  [<Icon icon="arrow-up-right" color="#2d9a67"/> Orchestrator Quickstart](/v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer)</span>
-
-  <p>Note: You can use [<Icon icon="arrow-up-right" color="#2d9a67"/> BYOC pipelines](/v2/pages/03_developers/ai-inference-on-livepeer/byoc) for local testing without needing a GPU. </p>
-  </Warning>
-  <Steps titleSize="h3">
-    <Step title="Install Gateway Software">
-      Pull the docker image from [Livepeer Docker Hub]()
-      <CustomCodeBlock
-        codeString="docker pull livepeer/go-livepeer:master"
-        language="bash"
-        icon="terminal"
-      />
-    </Step>
-    <Step title="Configure Gateway">
-      Create the `docker-compose.yml` file that defines the dual gateway service (video & AI).
-      ```bash icon="terminal" docker-compose.yml
-        version: '3.9'  
-  
-        services:  
-          dual-gateway:
-            image: livepeer/go-livepeer:master
-            container_name: 'dual-gateway'
-            hostname: 'dual-gateway'
-            ports:
-              - 1935:1935  # RTMP for video ingest
-              - 8935:8935  # HTTP API for both video and AI
-              - 5935:5935  # CLI port
-            volumes:
-              - dual-gateway-lpData:/root/.lpData
-              - ./aiModels.json:/root/.lpData/aiModels.json
-              - ./models:/root/.lpData/models
-            command: '-network offchain
-                      -gateway
-                      -httpIngest
-                      -aiServiceRegistry
-                      -monitor=true
-                      -v=6
-                      -rtmpAddr=0.0.0.0:1935
-                      -httpAddr=0.0.0.0:8935
-                      -cliAddr=0.0.0.0:5935
-                      -orchAddr=<ORCHESTRATOR_ADDRESSES>
-                      -transcodingOptions=P240p30fps16x9,P360p30fps16x9,P720p30fps16x9
-                      -aiModels=/root/.lpData/aiModels.json
-                      -aiModelsDir=/root/.lpData/models
-                      -livePaymentInterval=5s'
-
-          volumes:
-            dual-gateway-lpData:
-              external: true
-      ```
-      <Note>
-        Replace <Badge color="gray">{'<ORCHESTRATOR_ADDRESSES>'}</Badge> with your locally running orchestrator http address.
-
-        If you don't have this, leave it blank for now. You can add it later.
-      </Note>
-
-      Create the `aiModels.json` file that specifies which AI pipelines & models to load.
-   ```bash icon="brackets-curly" aiModels.json
-  [
-    {
-      'pipeline': 'text-to-image',
-      'model_id': 'stabilityai/sd-turbo',
-      'warm': true {/* preloads the model into GPU memory for faster inference */}
-    }
-  ]
-  ```
-
-      Create the models directory
-      <CustomCodeBlock
-        codeString="mkdir models"
-        language="bash"
-        icon="terminal"
-      />
-
-      OPT: Create the transcodingOptions.json file
-      <CustomCodeBlock
-        codeString="cat > transcodingOptions.json << EOF
-        [
-          {
-            'name': '240p',
-            'width': 426,
-            'height': 240,
-            'bitrate': 250000,
-            'fps': 30,
-            'profile': 'h264constrainedhigh'
-          },
-          {
-            'name': '360p',
-            'width': 640,
-            'height': 360,
-            'bitrate': 500000,
-            'fps': 30,
-            'profile': 'h264constrainedhigh'
-          },
-          {
-            'name': '720p',
-            'width': 1280,
-            'height': 720,
-            'bitrate': 3000000,
-            'fps': 30,
-            'profile': 'h264constrainedhigh'
-          }
-        ]
-        EOF"
-              language="bash"
-              icon="terminal"
-      />
-
-    <Badge color="green"> on-chain </Badge>
-    Create the password.txt file
-    <CustomCodeBlock
-      codeString="echo 'your_password' > password.txt"
-      language="bash"
-      icon="terminal"
-    />
-
-    </Step>
-    <Step title="Run Gateway">
+    <GatewayOffChainWarning />
+    <Steps titleSize="h3">
+      <Step title="Install Gateway Software">
+        Pull the docker image from [Livepeer Docker Hub]()
         <CustomCodeBlock
-        codeString="docker run -p 8935:8935 -p 1935:1935 livepeer/go-livepeer:master -gateway -httpAddr=0.0.0.0:8935 -rtmpAddr=0.0.0.0:1935"
+          codeString="docker pull livepeer/go-livepeer:master"
+          language="bash"
+          icon="terminal"
+        />
+      </Step>
+      <Step title="Configure Gateway">
+        Create the `docker-compose.yml` file that defines the dual gateway service (video & AI).
+        ```bash icon="terminal" docker-compose.yml
+          version: '3.9'  
+    
+          services:  
+            dual-gateway:
+              image: livepeer/go-livepeer:master
+              container_name: 'dual-gateway'
+              hostname: 'dual-gateway'
+              ports:
+                - 1935:1935  # RTMP for video ingest
+                - 8935:8935  # HTTP API for both video and AI
+                - 5935:5935  # CLI port
+              volumes:
+                - dual-gateway-lpData:/root/.lpData
+                - ./aiModels.json:/root/.lpData/aiModels.json
+                - ./models:/root/.lpData/models
+              command: '-network offchain
+                        -gateway
+                        -httpIngest
+                        -aiServiceRegistry
+                        -monitor=true
+                        -v=6
+                        -rtmpAddr=0.0.0.0:1935
+                        -httpAddr=0.0.0.0:8935
+                        -cliAddr=0.0.0.0:5935
+                        -orchAddr=<ORCHESTRATOR_ADDRESSES>
+                        -transcodingOptions=P240p30fps16x9,P360p30fps16x9,P720p30fps16x9
+                        -aiModels=/root/.lpData/aiModels.json
+                        -aiModelsDir=/root/.lpData/models
+                        -livePaymentInterval=5s'
+
+            volumes:
+              dual-gateway-lpData:
+                external: true
+        ```
+        <Note>
+          Replace <Badge color="gray">{'<ORCHESTRATOR_ADDRESSES>'}</Badge> with your locally running orchestrator http address.
+
+          If you don't have this, leave it blank for now. You can add it later.
+        </Note>
+
+        Create the `aiModels.json` file that specifies which AI pipelines & models to load.
+    ```bash icon="brackets-curly" aiModels.json
+    [
+      {
+        'pipeline': 'text-to-image',
+        'model_id': 'stabilityai/sd-turbo',
+        'warm': true {/* preloads the model into GPU memory for faster inference */}
+      }
+    ]
+    ```
+
+        Create the models directory
+        <CustomCodeBlock
+          codeString="mkdir models"
+          language="bash"
+          icon="terminal"
+        />
+
+        OPT: Create the transcodingOptions.json file
+        <CustomCodeBlock
+          codeString="cat > transcodingOptions.json << EOF
+          [
+            {
+              'name': '240p',
+              'width': 426,
+              'height': 240,
+              'bitrate': 250000,
+              'fps': 30,
+              'profile': 'h264constrainedhigh'
+            },
+            {
+              'name': '360p',
+              'width': 640,
+              'height': 360,
+              'bitrate': 500000,
+              'fps': 30,
+              'profile': 'h264constrainedhigh'
+            },
+            {
+              'name': '720p',
+              'width': 1280,
+              'height': 720,
+              'bitrate': 3000000,
+              'fps': 30,
+              'profile': 'h264constrainedhigh'
+            }
+          ]
+          EOF"
+                language="bash"
+                icon="terminal"
+        />
+
+      <Badge color="green"> on-chain </Badge>
+      Create the password.txt file
+      <CustomCodeBlock
+        codeString="echo 'your_password' > password.txt"
         language="bash"
         icon="terminal"
       />
-    </Step>
-    <Step title="Connect Gateway">
-    </Step>
-    <Step title="Test Gateway">
-    </Step>
+
+      </Step>
+      <Step title="Run Gateway">
+          <CustomCodeBlock
+          codeString="docker run -p 8935:8935 -p 1935:1935 livepeer/go-livepeer:master -gateway -httpAddr=0.0.0.0:8935 -rtmpAddr=0.0.0.0:1935"
+          language="bash"
+          icon="terminal"
+        />
+      </Step>
+      <Step title="Connect Gateway">
+      </Step>
+      <Step title="Test Gateway">
+      </Step>
     </Steps>
   </Tab>
   <Tab title="On-Chain Gateway" icon="link">
-  hello
+    hello
   </Tab>
 </Tabs>
 
 ## Reference Pages
-<Columns cols={2}>
-  <Card title="Docker Installation Guide" href="../install/docker-install" arrow horizontal >
-    View Full Installation Guide
-  </Card>
-  <Card title="Configuration Flags Reference" href="../../references/configuration-flags.mdx" arrow horizontal >
-    Gateway Configuration Flag Guide
-  </Card>
-</Columns>
-
+  <Columns cols={2}>
+    <Card title="Docker Installation Guide" href="../install/docker-install" arrow horizontal >
+      View Full Installation Guide
+    </Card>
+    <Card title="Configuration Flags Reference" href="../../references/configuration-flags.mdx" arrow horizontal >
+      Gateway Configuration Flag Guide
+    </Card>
+  </Columns>
 
 </View>
 
 <View title="Linux/Mac" icon="linux" iconType="solid">
 ## <Icon icon="linux" iconType="solid" size={32} /> Linux/Mac Quickstart Guide
-  <Steps>
-  <Step title="Install Gateway Software">
-    hi
-    <LatestReleaseUrl asset="livepeer-linux-amd64.tar.gz">
-      <CustomCodeBlock
-        codeString="sudo wget https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-linux-amd64.tar.gz"
-        placeholderValue={LatestRelease}
-        language="bash"
-        icon="terminal"
-      />  
-    </LatestReleaseUrl>
-  </Step>
-  <Step title="Configure Gateway">
-  </Step>
-  <Step title="Run Gateway">
-  </Step>
-  <Step title="Test Gateway">
-  </Step>
-  </Steps>
+
+  <Tabs>
+    <Tab title="Off-Chain Gateway" icon="floppy-disk">
+    <Warning> 
+    <span style={{fontSize: '1.0rem' }}>You will need to <span style={{ color: 'white' }}>run your own Orchestrator node</span> to test an off-chain Gateway:  [<Icon icon="arrow-up-right" color="#2d9a67"/> Orchestrator Quickstart](/v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer)</span>
+
+    <p>Note: You can use [<Icon icon="arrow-up-right" color="#2d9a67"/> BYOC pipelines](/v2/pages/03_developers/ai-inference-on-livepeer/byoc) for local testing without needing a GPU. </p>
+    </Warning>
+    <Steps titleSize="h3">
+      <Step title="Install Gateway Software">
+        hi
+        {/* <LatestReleaseUrl asset="livepeer-linux-amd64.tar.gz">
+          <CustomCodeBlock
+            codeString="sudo wget https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-linux-amd64.tar.gz"
+            placeholderValue={LatestRelease}
+            language="bash"
+            icon="terminal"
+          />  
+        </LatestReleaseUrl> */}
+        bye
+      </Step>
+      <Step title="Configure Gateway">
+      </Step>
+      <Step title="Run Gateway">
+      </Step>
+      <Step title="Test Gateway">
+      </Step>
+    </Steps>
+    </Tab>
+    <Tab title="On-Chain Gateway" icon="link">
+    </Tab>
+  </Tabs>
+
+  ## Reference Pages
+  <Columns cols={2}>
+    <Card title="Linux Installation Guide" href="../install/windows-install" arrow horizontal >
+      View Full Installation Guide
+    </Card>
+    <Card title="Configuration Flags Reference" href="../../references/configuration-flags.mdx" arrow horizontal >
+      Gateway Configuration Flag Guide
+    </Card>
+  </Columns>
+
 </View>
 
 <View title="Windows" icon="windows" iconType="solid">
 ## <Icon icon="windows" iconType="solid" size={32} /> Windows Quickstart Guide
-  <Steps>
-  <Step title="Install Gateway Software">
-  </Step>
-  <Step title="Configure Gateway">
-  </Step>
-  <Step title="Run Gateway">
-  </Step>
-  <Step title="Test Gateway">
-  </Step>
-  </Steps>
+  
+  <Tabs titleSize="h3">
+    <Tab title="Off-Chain Gateway" icon="floppy-disk">
+      <OffChainWarning />
+      <Steps>
+        <Step title="Install Gateway Software">
+        </Step>
+        <Step title="Configure Gateway">
+        </Step>
+        <Step title="Run Gateway">
+        </Step>
+        <Step title="Test Gateway">
+        </Step>
+      </Steps>
+    </Tab>
+    <Tab title="On-Chain Gateway" icon="link">
+    </Tab>
+  </Tabs>
+
+## Reference Pages
+  <Columns cols={2}>
+    <Card title="Windows Installation Guide" href="../install/windows-install" arrow horizontal >
+      View Full Installation Guide
+    </Card>
+    <Card title="Configuration Flags Reference" href="../../references/configuration-flags.mdx" arrow horizontal >
+      Gateway Configuration Flag Guide
+    </Card>
+  </Columns>
+
 </View>
 
 ## Troubleshooting
