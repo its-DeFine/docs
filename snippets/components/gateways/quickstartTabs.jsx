@@ -9,8 +9,6 @@
 //   windowsOnChainQuickstart,
 // } from "/snippets/data/gateways.jsx";
 
-import { dockerOffChainQuickstart } from "../../data/gateways";
-
 export const QuickStartTabs = ({ offchainSteps, onchainSteps }) => {
   return (
     <Tabs>
@@ -19,6 +17,7 @@ export const QuickStartTabs = ({ offchainSteps, onchainSteps }) => {
         {offchainSteps}
       </Tab>
       <Tab title="On-Chain Gateway" icon="link">
+        <GatewayOnChainWarning />
         {onchainSteps}
       </Tab>
     </Tabs>
@@ -26,7 +25,7 @@ export const QuickStartTabs = ({ offchainSteps, onchainSteps }) => {
 };
 
 // THIS INHERITS IMPORTS FROM THE PAGE ITS CALLED IN.
-// BUT WILL NOT USE IMPORTS FROM THIS PAGE
+// BUT WILL NOT USE IMPORTS FROM THIS PAGE (WTF MINTLIFY)
 export const QuickStartSteps = ({ dataSource }) => {
   //   console.log("dataSource", dataSource);
   //   console.log("dockerOffChainQuickstart", dockerOffChainQuickstart);

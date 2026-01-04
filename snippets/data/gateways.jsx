@@ -1,6 +1,17 @@
-import { CustomCodeBlock } from "/snippets/components/code.jsx";
-import { LatestRelease } from "/snippets/automationData/globals/globals.jsx";
+/**
+ * NOTE:
+ * Mintlify requires you to import this into the page it's being used on.
+ * It CANNOT be imported into a snippet file. (WTF Mintlify)
+ */
 
+// import { CustomCodeBlock } from "/snippets/components/code.jsx";
+// import { LatestRelease } from "/snippets/automationData/globals/globals.jsx";
+
+/**
+ *
+ * QUICKSTART STEPS LAYOUT
+ *
+ */
 export const GatewaySteps = [
   {
     title: "Install Gateway Software",
@@ -28,6 +39,12 @@ export const GatewaySteps = [
     content: "Verify the Gateway is working correctly.",
   },
 ];
+
+/**
+ *
+ * QUICKSTART PAGE DATA
+ *
+ */
 
 export const dockerOffChainQuickstart = {
   installStep: (
@@ -270,7 +287,53 @@ export const windowsOnChainQuickstart = {
   ),
 };
 
-/** CONFIG FILES */
+// INDEX FILE - DOES NOT WORK IN MINTLIFY
+// Mintlify cannot handle object exports that reference other exports
+// You must import the individual quickstart objects directly in your MDX file
+// export const QUICKSTARTS = {
+//   docker: {
+//     offChain: dockerOffChainQuickstart,
+//     onChain: dockerOnChainQuickstart,
+//   },
+//   linux: {
+//     offChain: linuxOffChainQuickstart,
+//     onChain: linuxOnChainQuickstart,
+//   },
+//   windows: {
+//     offChain: windowsOffChainQuickstart,
+//     onChain: windowsOnChainQuickstart,
+//   },
+// };
+
+/**
+ *
+ * CONFIG FILES
+ *
+ * CONFIG FILES
+ *
+ * */
+
+// INDEX FILE - DOES NOT WORK IN MINTLIFY - will need to combine all into one funciton
+export const CONFIG_FILES = {
+  video: {
+    transcodingOptionsJson,
+  },
+  ai: {
+    aiModelsJson,
+    aiPricingJsonMinimal,
+    aiPricingJson,
+  },
+  dual: {
+    transcodingOptionsJson,
+    aiModelsJson,
+    aiPricingJsonMinimal,
+    aiPricingJson,
+  },
+  onchain: {
+    keyStoreJson,
+  },
+};
+
 export const transcodingOptionsJson = `[
   {
     "name": "240p",
@@ -306,7 +369,7 @@ export const aiModelsJson = `[
   }
 ]`;
 
-export const aiPricingJson = `{
+export const aiPricingJsonMinimal = `{
   "capabilities_prices": [
     {
       "pipeline": "text-to-image",
@@ -316,7 +379,7 @@ export const aiPricingJson = `{
   ]
 }`;
 
-export const aiPricingJson2 = `
+export const aiPricingJson = `
 {  
   "capabilities_prices": [  
     {  
@@ -343,8 +406,42 @@ export const aiPricingJson2 = `
   ]  
 }`;
 
-/** DOCKER YML */
-export const dockerYml = {
+// WRONG / FIX
+export const keyStoreJson = `{
+  "address": "0x1234567890123456789012345678901234567890",
+  "crypto": {
+    "cipher": "aes-128-ctr",
+    "ciphertext": "0x123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+    "cipherparams": {
+      "iv": "0x12345678901234567890123456789012"
+    },
+    "kdf": "scrypt",
+    "kdfparams": {
+      "dklen": 32,
+      "n": 262144,
+      "p": 1,
+      "r": 8,
+      "salt": "0x123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890"
+    },
+    "mac": "0x123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+    },
+  "id": "unique-id",
+  "version": 3
+}`;
+
+/* CODE BLOCKS */
+// ?? maybe
+
+/**
+ *
+ * DOCKER YAML
+ *
+ * DOCKER YAML
+ *
+ * */
+
+// INDEX FILE (wont work in mintlify)
+export const DOCKER_YML = {
   offChain: {
     videoMin: devDockerComposeYmlVideoMinimal,
     video: devDockerComposeYmlVideo,
@@ -360,35 +457,61 @@ export const dockerYml = {
   },
 };
 
-// API-only gateway (no RTMP):
+/** OFFCHAIN  */
+const randomNotes = {
+  devDocker: {
+    // API-only gateway (no RTMP):
+    // services:
+    //   gateway:
+    //     image: livepeer/go-livepeer:master
+    //     ports:
+    //       - 8935:8935  # HTTP API only
+    //     command: '-gateway
+    //               -orchAddr=<ORCHESTRATOR_ADDRESSES>
+    //               -httpAddr=0.0.0.0:8935'
+    // Full video gateway (with RTMP):
+    // services:
+    //   gateway:
+    //     image: livepeer/go-livepeer:master
+    //     ports:
+    //       - 1935:1935  # RTMP ingest
+    //       - 8935:8935  # HTTP API
+    //     command: '-gateway
+    //               -orchAddr=<ORCHESTRATOR_ADDRESSES>
+    //               -httpAddr=0.0.0.0:8935'
+    // When you don't specify -httpAddr:
+    // The gateway automatically starts an HTTP server on 127.0.0.1:8935 starter.go:195-197
+    // This server handles HLS playback, HTTP ingest, and API endpoints
+    // Only connections from within the container/localhost can reach it
+  },
+  recommended: {
+    // RECOMMENDED SETUP
+    // Essential Flags
+    // -gateway - Identifies the node as a gateway flags.go:44
+    // -orchAddr - Connects to orchestrators for transcoding (REQUIRED) flags.go:23
+    // Network Access
+    // -httpAddr=0.0.0.0:8935 - Allows external HLS playback and API access flags.go:14
+    // -rtmpAddr=0.0.0.0:1935 - Accepts RTMP streams from external sources flags.go:12
+    // Defaults You Get Automatically
+    // Network: offchain (simpler, no blockchain needed) starter.go:194
+    // Transcoding profiles: P240p30fps16x9,P360p30fps16x9 (basic quality levels) starter.go:210
+    // HTTP ingest: Enabled by default starter.go:282-283
+  },
+  aiEssential: {
+    // The only essential flags for an AI gateway are:
+    // -gateway - To identify as a gateway
+    // -orchAddr - To connect to your orchestrator with AI worker flags.go:23
+    // -httpAddr - To expose the API (optional but recommended)
+    // Not needed for gateway:
+    // -httpIngest # Only needed for HTTP video ingest
+    // -aiModels - Only required on AI workers/orchestrators starter.go:231
+    // -aiModelsDir - Only relevant for AI workers flags.go:60
+    // -aiServiceRegistry - Only needed for on-chain AI discovery
+    // ./aiModels.json volume mount - Not used by gateway
+  },
+};
 
-// services:
-//   gateway:
-//     image: livepeer/go-livepeer:master
-//     ports:
-//       - 8935:8935  # HTTP API only
-//     command: '-gateway
-//               -orchAddr=<ORCHESTRATOR_ADDRESSES>
-//               -httpAddr=0.0.0.0:8935'
-
-// Full video gateway (with RTMP):
-
-// services:
-//   gateway:
-//     image: livepeer/go-livepeer:master
-//     ports:
-//       - 1935:1935  # RTMP ingest
-//       - 8935:8935  # HTTP API
-//     command: '-gateway
-//               -orchAddr=<ORCHESTRATOR_ADDRESSES>
-//               -httpAddr=0.0.0.0:8935'
-
-// When you don't specify -httpAddr:
-
-// The gateway automatically starts an HTTP server on 127.0.0.1:8935 starter.go:195-197
-// This server handles HLS playback, HTTP ingest, and API endpoints
-// Only connections from within the container/localhost can reach it
-
+/** OFFCHAIN VIDEO */
 export const devDockerComposeYmlVideoMinimal = `
 version: '3.9'
 
@@ -411,18 +534,6 @@ version: '3.9'
     gateway-lpData:  
       external: true
 `;
-
-// RECOMMENDED SETUP
-// Essential Flags
-// -gateway - Identifies the node as a gateway flags.go:44
-// -orchAddr - Connects to orchestrators for transcoding (REQUIRED) flags.go:23
-// Network Access
-// -httpAddr=0.0.0.0:8935 - Allows external HLS playback and API access flags.go:14
-// -rtmpAddr=0.0.0.0:1935 - Accepts RTMP streams from external sources flags.go:12
-// Defaults You Get Automatically
-// Network: offchain (simpler, no blockchain needed) starter.go:194
-// Transcoding profiles: P240p30fps16x9,P360p30fps16x9 (basic quality levels) starter.go:210
-// HTTP ingest: Enabled by default starter.go:282-283
 
 // Below works for both dev & prod
 export const devDockerComposeYmlVideo = `
@@ -459,6 +570,7 @@ version: '3.9'
       external: true
 `;
 
+/** OFFCHAIN AI */
 export const devDockerComposeYmlAiMinimal = `
 version: '3.9'  
   
@@ -481,18 +593,6 @@ volumes:
     external: true
 `;
 
-// The only essential flags for an AI gateway are:
-
-// -gateway - To identify as a gateway
-// -orchAddr - To connect to your orchestrator with AI worker flags.go:23
-// -httpAddr - To expose the API (optional but recommended)
-
-// Not needed for gateway:
-// -httpIngest # Only needed for HTTP video ingest
-// -aiModels - Only required on AI workers/orchestrators starter.go:231
-// -aiModelsDir - Only relevant for AI workers flags.go:60
-// -aiServiceRegistry - Only needed for on-chain AI discovery
-// ./aiModels.json volume mount - Not used by gateway
 export const devDockerComposeYmlAi = `
 version: '3.9'
 
@@ -521,6 +621,7 @@ version: '3.9'
       external: true
 `;
 
+/** OFFCHAIN DUAL */
 export const devDockerComposeYmlDualMinimal = `
   version: '3.9'  
     
@@ -578,6 +679,8 @@ export const devDockerComposeYmlDual = `
           external: true
 `;
 
+/** ONCHAIN */
+/** ONCHAIN VIDEO */
 export const prodDockerComposeYmlVideo = `
 version: '3.9'
   
@@ -622,6 +725,7 @@ version: '3.9'
       external: true
 `;
 
+/** ONCHAIN AI */
 export const prodDockerComposeYmlAi = `
 version: '3.9'
   
@@ -664,6 +768,7 @@ version: '3.9'
       external: true
 `;
 
+/** ONCHAIN DUAL */
 export const prodDockerComposeYmlDual = `
 version: '3.9'
 
