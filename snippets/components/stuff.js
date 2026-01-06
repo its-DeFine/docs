@@ -6,4 +6,4 @@
 //   title="Co-Founder & CTO Doug Petkanics on Livepeer (2025)"
 // />
 // <Video url={url} title={title} />
-export const embedUrl = url.replace('watch?v=', 'embed/')
+export const embedUrl = url.replace("watch?v=", "embed/");

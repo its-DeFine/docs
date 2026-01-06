@@ -1,6 +1,6 @@
 ---
 title: Orchestrator Offerings Reference
-description: "Reference: Orchestrator Offerings & Discovery"
+description: 'Reference: Orchestrator Offerings & Discovery'
 sidebarTitle: Orchestrator Offerings
 ---
 
@@ -37,7 +37,7 @@ Orchestrators register on-chain via the `activateOrchestrator` endpoint
 
 ### 1. Service Capabilities
 
-Orchestrators declare their processing capabilities through the `Capabilities` system 
+Orchestrators declare their processing capabilities through the `Capabilities` system
 
 - **Video Transcoding**: Format conversion, bitrate adaptation
 - **AI Processing**: Text-to-image, image-to-video, upscaling, etc.
@@ -52,7 +52,7 @@ Two-tier pricing structure
 
 ### 3. Hardware Specifications
 
-Detailed hardware info for performance matching 
+Detailed hardware info for performance matching
 
 ```go
 type HardwareInformation struct {
@@ -82,7 +82,7 @@ Dynamic discovery via external service
 
 ### 3. On-Chain Discovery
 
-Automatic discovery of registered orchestrators 
+Automatic discovery of registered orchestrators
 
 - Queries blockchain for active orchestrators
 - Caches results in local database
@@ -97,6 +97,7 @@ GET /getNetworkCapabilities
 ```
 
 Returns:
+
 ```json
 {
   "capabilities_names": {...},
@@ -147,7 +148,7 @@ livepeer_cli
 
 ### HTTP Endpoints
 
-Real-time marketplace data 
+Real-time marketplace data
 
 - `/registeredOrchestrators` - All on-chain orchestrators
 - `/orchestratorInfo` - Specific orchestrator details

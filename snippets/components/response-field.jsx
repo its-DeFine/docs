@@ -24,3 +24,23 @@ export const CustomResponseField = ({ children, ...props }) => {
     </div>
   );
 };
+
+export const ValueResponseField = ({ description, post = null, ...props }) => {
+  const uniqueId = `custom-rf-${Math.random().toString(36).substring(2, 11)}`;
+  const value = post
+    ? [
+        <span>
+          <span style={{ color: "gray" }}>value: </span>
+          <span style={{ color: "#3b82f6" }}>{post[0]}</span>
+        </span>,
+      ]
+    : null;
+
+  return (
+    <div className={uniqueId}>
+      <ResponseField {...props} post={value}>
+        {description}
+      </ResponseField>
+    </div>
+  );
+};

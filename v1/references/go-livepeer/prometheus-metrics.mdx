@@ -10,8 +10,8 @@ documents all metrics that you can scrape via the `/metrics` endpoint when the
 
 ### General
 
-| Name                                                     | Description                                                                                                      | Node Type                                       |
-| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| Name                                                     | Description                                                                                                      | Node Type                                   |
+| -------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------- |
 | `livepeer_versions`                                      | Versions used by Livepeer node.                                                                                  | Gateway, Orchestrator, Transcoder, Redeemer |
 | `livepeer_segment_source_appeared_total`                 | SegmentSourceAppeared                                                                                            | Gateway                                     |
 | `livepeer_segment_source_emerged_total`                  | SegmentEmerged                                                                                                   | Gateway                                     |
@@ -57,40 +57,40 @@ documents all metrics that you can scrape via the `/metrics` endpoint when the
 
 ### Sending payments
 
-| Name                             | Description                                        | Node Type   |
-| -------------------------------- | -------------------------------------------------- | ----------- |
-| `livepeer_ticket_value_sent`     | Ticket value sent                                  | Gateway |
-| `livepeer_tickets_sent`          | Tickets sent                                       | Gateway |
-| `livepeer_payment_create_errors` | Errors when creating payments                      | Gateway |
-| `livepeer_gateway_deposit`   | Current remaining deposit for the gateway node | Gateway |
-| `livepeer_gateway_reserve`   | Current remaining reserve for the gateway node | Gateway |
+| Name                             | Description                                    | Node Type |
+| -------------------------------- | ---------------------------------------------- | --------- |
+| `livepeer_ticket_value_sent`     | Ticket value sent                              | Gateway   |
+| `livepeer_tickets_sent`          | Tickets sent                                   | Gateway   |
+| `livepeer_payment_create_errors` | Errors when creating payments                  | Gateway   |
+| `livepeer_gateway_deposit`       | Current remaining deposit for the gateway node | Gateway   |
+| `livepeer_gateway_reserve`       | Current remaining reserve for the gateway node | Gateway   |
 
 ### Receiving payments
 
-| Name                                | Description                                        | Node Type                           |
-| ----------------------------------- | -------------------------------------------------- | ----------------------------------- |
-| `livepeer_ticket_value_recv`        | Ticket value received                              | Orchestrator                        |
-| `livepeer_tickets_recv`             | Tickets received                                   | Orchestrator                        |
-| `livepeer_payment_recv_errors`      | Errors when receiving payments                     | Orchestrator                        |
-| `livepeer_winning_tickets_recv`     | Winning tickets received                           | Orchestrator                        |
-| `livepeer_value_redeemed`           | Winning ticket value redeemed                      | Orchestrator, Redeemer              |
-| `livepeer_ticket_redemption_errors` | Errors when redeeming tickets                      | Orchestrator, Redeemer              |
+| Name                                | Description                                        | Node Type                       |
+| ----------------------------------- | -------------------------------------------------- | ------------------------------- |
+| `livepeer_ticket_value_recv`        | Ticket value received                              | Orchestrator                    |
+| `livepeer_tickets_recv`             | Tickets received                                   | Orchestrator                    |
+| `livepeer_payment_recv_errors`      | Errors when receiving payments                     | Orchestrator                    |
+| `livepeer_winning_tickets_recv`     | Winning tickets received                           | Orchestrator                    |
+| `livepeer_value_redeemed`           | Winning ticket value redeemed                      | Orchestrator, Redeemer          |
+| `livepeer_ticket_redemption_errors` | Errors when redeeming tickets                      | Orchestrator, Redeemer          |
 | `livepeer_suggested_gas_price`      | Suggested gas price for winning ticket redemption  | Gateway, Orchestrator, Redeemer |
 | `livepeer_min_gas_price`            | Minimum gas price to use for gas price suggestions | Gateway, Orchestrator, Redeemer |
 | `livepeer_max_gas_price`            | Maximum gas price to use for gas price suggestions | Gateway, Orchestrator, Redeemer |
-| `livepeer_transcoding_price`        | Transcoding price per pixel                        | Orchestrator                        |
+| `livepeer_transcoding_price`        | Transcoding price per pixel                        | Orchestrator                    |
 
 ### Pixel accounting
 
-| Name                            | Description              | Node Type                 |
-| ------------------------------- | ------------------------ | ------------------------- |
+| Name                            | Description              | Node Type             |
+| ------------------------------- | ------------------------ | --------------------- |
 | `livepeer_mil_pixels_processed` | Million pixels processed | Gateway, Orchestrator |
 
 ### Fast verification
 
-| Name                                                        | Description                                                                                                             | Node Type   |
-| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `livepeer_fast_verification_done`                           | Number of fast verifications done                                                                                       | Gateway |
-| `livepeer_fast_verification_failed`                         | Number of fast verifications failed                                                                                     | Gateway |
-| `livepeer_fast_verification_enabled_current_sessions_total` | Number of currently transcoded streams that have fast verification enabled                                              | Gateway |
-| `livepeer_fast_verification_using_current_sessions_total`   | Number of currently transcoded streams that have fast verification enabled and that are using an untrusted orchestrator | Gateway |
+| Name                                                        | Description                                                                                                             | Node Type |
+| ----------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------- | --------- |
+| `livepeer_fast_verification_done`                           | Number of fast verifications done                                                                                       | Gateway   |
+| `livepeer_fast_verification_failed`                         | Number of fast verifications failed                                                                                     | Gateway   |
+| `livepeer_fast_verification_enabled_current_sessions_total` | Number of currently transcoded streams that have fast verification enabled                                              | Gateway   |
+| `livepeer_fast_verification_using_current_sessions_total`   | Number of currently transcoded streams that have fast verification enabled and that are using an untrusted orchestrator | Gateway   |

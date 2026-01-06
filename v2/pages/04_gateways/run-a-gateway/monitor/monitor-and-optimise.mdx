@@ -40,6 +40,7 @@ flowchart TB
 </ScrollableDiagram>
 
 #### Transcoding Requests
+
 Traditional video transcoding requests are handled through:
 
 - **RTMP ingest**: Port `1935` by default
@@ -47,6 +48,7 @@ Traditional video transcoding requests are handled through:
 - **HLS output**: Adaptive bitrate streams for playback
 
 #### AI Requests
+
 AI processing requests are routed through dedicated endpoints <DoubleIconLink label="ai_mediaserver.go" href="https://github.com/livepeer/go-livepeer/blob/5691cb48/server/ai_mediaserver.go" iconLeft="github" />
 
 <Danger> (fixme) OpenAPI Spec is here: ai/worker/api/openapi.json </Danger>
@@ -73,6 +75,7 @@ AI processing requests are routed through dedicated endpoints <DoubleIconLink la
     </ResponseField>
 
 ## Payment Models
+
 The dual setup handles two different payment models:
 
 #### Transcoding Payments
@@ -82,13 +85,15 @@ Method: Payment tickets sent with each segment
 Verification: Multi-orchestrator verification for quality assurance
 
 #### AI Payments
+
 Basis: Per pixel processed (width × height × outputs)
 Method: Pixel-based payment calculation
 Live Video: Interval-based payments during streaming
 
-
 ## Operational Considerations
+
 #### Resource Allocation
+
 When running dual setup, consider:
 
 - GPU resources: Shared between transcoding and AI workloads
@@ -96,12 +101,14 @@ When running dual setup, consider:
 - Network: Bandwidth for both stream ingest and AI request/response
 
 #### Monitoring
+
 Monitor both workload types:
 
 - Transcoding: Segment processing latency, success rates
 - AI: Model loading times, inference latency, pixel processing rates
 
 #### Scaling Strategies
+
 - Horizontal: Deploy multiple gateway instances behind a load balancer
 - Vertical: Allocate more GPU resources for AI model parallelism
 - Specialized: Separate nodes for transcoding vs AI based on workload patterns

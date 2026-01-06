@@ -5,46 +5,56 @@ including what offerings Orchestrators publish, in order to provide Gateway oper
 the context they need to discover & route application requests'
 sidebarTitle: 'Livepeer Marketplace'
 ---
+
 import { ScrollableDiagram } from '/snippets/components/zoomable-diagram.jsx'
 
-<div style={{ 
-  display: 'flex', 
-  flexDirection: 'column', 
-  margin: '0 auto',
-  alignItems: 'center',
-}}>
-  <Callout icon="party-horn" color="#2d9a67" >
+<div
+  style={{
+    display: 'flex',
+    flexDirection: 'column',
+    margin: '0 auto',
+    alignItems: 'center',
+  }}
+>
+  <Callout icon="party-horn" color="#2d9a67">
     So... you have a gateway running - yay!
   </Callout>
 </div>
 <br />
-<div style={{ display: 'flex', justifyContent: 'center', margin: '0 auto', width: '80%' }}>
-<Frame     caption="Let's find and share some Livepeer Marketplace Orchestrator Services!">
-  <img
-    src="https://gifsec.com/wp-content/uploads/2023/01/the-office-gif-3.gif"
-    alt="The Office: Raise the Roof Party Gif"
-  />
-</Frame>
+<div
+  style={{
+    display: 'flex',
+    justifyContent: 'center',
+    margin: '0 auto',
+    width: '80%',
+  }}
+>
+  <Frame caption="Let's find and share some Livepeer Marketplace Orchestrator Services!">
+    <img
+      src="https://gifsec.com/wp-content/uploads/2023/01/the-office-gif-3.gif"
+      alt="The Office: Raise the Roof Party Gif"
+    />
+  </Frame>
 </div>
 
 <br />
 
 # What is the Marketplace?
-The Livepeer Marketplace allows **_Orchestrators_** to advertise available compute, 
+
+The Livepeer Marketplace allows **_Orchestrators_** to advertise available compute,
 compute services (AI & Video), pricing, and performance characteristics.
 
-The Marketplace is **NOT** a public marketplace for end-users, rather, it is a programmatic 
+The Marketplace is **NOT** a public marketplace for end-users, rather, it is a programmatic
 interface for Gateways to discover and connect applications to available services.
 
-In the Livepeer Marketplace, **Gateways act like a search engine** 
+In the Livepeer Marketplace, **Gateways act like a search engine**
 
-They discover orchestrator offerings, apply selection and routing logic, and broker access to appropriate 
+They discover orchestrator offerings, apply selection and routing logic, and broker access to appropriate
 services for applications based on cost, performance, and policy requirements.
 
-
 <br />
-> - **Orchestrators** publish services to the Livepeer Marketplace;
-> - **Gateways** filter & connect application requests to those services.
+> - **Orchestrators** publish services to the Livepeer Marketplace; > - **Gateways**
+filter & connect application requests to those services.
 <br />
 <br />
 
@@ -149,7 +159,8 @@ flowchart TB
     style O2 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
     style O3 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
     style M0 fill:transparent,stroke:transparent,color:transparent
-```
+
+````
 </ScrollableDiagram>
 <br />
 
@@ -178,7 +189,7 @@ message OrchestratorInfo {
     repeated OSInfo storage = 32;     // Storage options
     repeated PriceInfo capabilities_prices = 33;  // AI model pricing
 }
-```
+````
 
 Orchestrators publish compute-level offerings to the Marketplace for Gateways to discover & route jobs to.
 
@@ -245,5 +256,7 @@ flowchart LR
     style O4 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
     style O5 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
     style O6 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
+
 ```
 </ScrollableDiagram>
+```

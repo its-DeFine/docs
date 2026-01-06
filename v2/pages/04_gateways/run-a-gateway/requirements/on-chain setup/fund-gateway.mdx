@@ -9,23 +9,25 @@ description:
   CLI to allocate the proper deposit and reserve amounts.
 ---
 
-import { StyledSteps, StyledStep } from '/snippets/components/steps.jsx';
+import { StyledSteps, StyledStep } from '/snippets/components/steps.jsx'
 
 <Warning> Complete: needs review </Warning>
 
 # Add Funds to Gateway Wallet
+
 In order to operate the Gateway in production you need to have Ethereum on [Arbitrum One](https://arbitrum.io/) L2 Blockchain - which is where Livepeer's smart contracts are deployed and which provides the payment layer for Livepeer.
 
 <Callout icon="question-circle" color="#2d9a67">
   Not Web3 native?
-  <Expandable title="Arbitrum Quick Explainer"> 
-    Each blockchain operates as it's own network and uses it's own currency. Ethereum is the currency for the Ethereum L1 Network and Arbitrum ETH is the 
-    currency for the Arbitrum L2 Network. 
-    
-    Arbitrum is a scaling solution for the Ethereum network - it operates by batching transactions and processing them 
-    off-chain then reconciling them with the Ethereum mainnet, kind of like a store would tally all their sales each day and reconcile their receipts. 
-    
-    This makes transactions on Arbitrum much cheaper than on Ethereum, while still providing the security and trust of the Ethereum network.
+  <Expandable title="Arbitrum Quick Explainer">
+    Each blockchain operates as it's own network and uses it's own currency.
+    Ethereum is the currency for the Ethereum L1 Network and Arbitrum ETH is the
+    currency for the Arbitrum L2 Network. Arbitrum is a scaling solution for the
+    Ethereum network - it operates by batching transactions and processing them
+    off-chain then reconciling them with the Ethereum mainnet, kind of like a
+    store would tally all their sales each day and reconcile their receipts.
+    This makes transactions on Arbitrum much cheaper than on Ethereum, while
+    still providing the security and trust of the Ethereum network.
   </Expandable>
 </Callout>
 
@@ -54,49 +56,49 @@ In order to operate the Gateway in production you need to have Ethereum on [Arbi
     <Accordion title="View Instructions: Popular Exchanges" icon="wallet">
       <Tabs>
         <Tab title="Binance">
-        You can buy Ethereum (ETH) on [Binance](https://www.binance.com/) in over 200 countries where the platform is available. 
+        You can buy Ethereum (ETH) on [Binance](https://www.binance.com/) in over 200 countries where the platform is available.
 
         Follow this guide to buy ETH on Binance: [Binance - Buy Ethereum](https://www.binance.com/en/support/faq/360033617792)
 
         <Note>
-          **Availability**: 
+          **Availability**:
           - Global Availability: Binance operates in over 180 countries including most of Europe, Asia, Africa, Australia and South America.
           - United States: Binance services for U.S. citizens and residents are handled by a separate entity, Binance.US. You must use their specific app and platform.
           - Mainland China: Due to policy reasons, direct access to the main Binance site is blocked.
-          - Jurisdiction Matters: The specific payment methods and services available will vary depending on your location due to different local laws and regulations. The Binance website will automatically show you the relevant options for your country once you log in and verify your account. 
+          - Jurisdiction Matters: The specific payment methods and services available will vary depending on your location due to different local laws and regulations. The Binance website will automatically show you the relevant options for your country once you log in and verify your account.
 
-          **Fees**: Binance charges fees for buying and selling cryptocurrency, which are determined by factors such as your location, payment method, and order size. The exact fees will be displayed before you finalize your transaction.   
+          **Fees**: Binance charges fees for buying and selling cryptocurrency, which are determined by factors such as your location, payment method, and order size. The exact fees will be displayed before you finalize your transaction.
 
         </Note>
 
         <ExternalContent repoName="livepeer-docs" githubUrl="https://github.com/livepeer/livepeer-docs/blob/main/v1/images/delegating-guides/binance-buy-eth.png" />
         </Tab>
         <Tab title="Coinbase">
-        You can buy Ethereum (ETH) on [Coinbase](https://www.coinbase.com/) in over 100 countries where the platform is available. 
+        You can buy Ethereum (ETH) on [Coinbase](https://www.coinbase.com/) in over 100 countries where the platform is available.
 
         Follow this guide to buy ETH on Coinbase: [Coinbase - Buy Ethereum](https://www.coinbase.com/how-to-buy/ethereum)
 
         <Note>
         **Availability**: While Coinbase operates in many countries, product features and payment method availability are subject to local regulations. You can check the specific options for your location by logging into your account.
-        
+
         **Fees**: Coinbase charges fees for buying and selling cryptocurrency, which are determined by factors such as your location, payment method, and order size. The exact fees will be displayed before you finalize your transaction.
-        
-        **Security**: Coinbase is a publicly traded and regulated US company, which means it operates with high financial transparency and security standards. 
+
+        **Security**: Coinbase is a publicly traded and regulated US company, which means it operates with high financial transparency and security standards.
         </Note>
 
           <ExternalContent repoName="livepeer-docs" githubUrl="https://github.com/livepeer/livepeer-docs/blob/main/v1/images/delegating-guides/coinbase-buy-eth.png" />
         </Tab>
         <Tab title="Kraken">
-        You can buy Ethereum (ETH) on [Kraken](https://www.kraken.com/) in over 100 countries where the platform is available. 
+        You can buy Ethereum (ETH) on [Kraken](https://www.kraken.com/) in over 100 countries where the platform is available.
 
         Follow this guide to buy ETH on Kraken: [Kraken - Buy Ethereum](https://support.kraken.com/hc/en-us/articles/360000920066-How-to-buy-Ethereum)
 
         <Note>
         **Availability**: Kraken operates in many countries, but product features and payment method availability are subject to local regulations. You can check the specific options for your location by logging into your account.
-        
+
         **Fees**: Kraken charges fees for buying and selling cryptocurrency, which are determined by factors such as your location, payment method, and order size. The exact fees will be displayed before you finalize your transaction.
-        
-        **Security**: Kraken is a well-regarded and secure platform with robust security features and a strong track record. 
+
+        **Security**: Kraken is a well-regarded and secure platform with robust security features and a strong track record.
         </Note>
         </Tab>
       </Tabs>
@@ -122,7 +124,7 @@ In order to operate the Gateway in production you need to have Ethereum on [Arbi
     <Note>You can do this in the previous step by simply sending the Arbitrum ETH to your Gateway address.</Note>
     
     Once you have ETH on the Arbitrum network, transfer it to your newly created
-    Gateway address. 
+    Gateway address.
 
   </StyledStep>
   <StyledStep title="Setup Gateway Reserve & Deposit Funds" titleSize="h2">
@@ -139,7 +141,7 @@ In order to operate the Gateway in production you need to have Ethereum on [Arbi
       **For production environments**, we recommend a **Reserve** of at least 0.36 ETH to prevent service interruptions during gas spikes. The higher reserve amount helps maintain service continuity during periods of high gas prices on the network. There is [an issue open](https://github.com/livepeer/go-livepeer/issues/3744) to reduce this requirement in the future.
     </Warning>
 
-    This is minimum recommended for testing is 0.1 ETH. 
+    This is minimum recommended for testing is 0.1 ETH.
 
     {/* To calculate the price your Gateway will pay for transcoding, divide the
     _Reserve_ amount by 100. In our example each payment will be 0.0003 ETH (0.03
@@ -149,7 +151,7 @@ In order to operate the Gateway in production you need to have Ethereum on [Arbi
     make sure to monitor your _Deposit_ balance and top it up to keep your Gateway
     services running.
 
-    #### Open the Livepeer CLI 
+    #### Open the Livepeer CLI
     Follow the instructions for your platform:
     <Tabs>
         <Tab title="Linux / Mac" icon="linux">
@@ -181,12 +183,12 @@ In order to operate the Gateway in production you need to have Ethereum on [Arbi
 
     You should see something like this:
     ```bash icon="terminal" Wizard Stats
-      +-----------------+  
-      |BROADCASTER STATS|  
-      +-----------------+  
-      Max Price Per Pixel    [your setting]  
-      Deposit               0.065 ETH  
-      Reserve               0.030 ETH  
+      +-----------------+
+      |BROADCASTER STATS|
+      +-----------------+
+      Max Price Per Pixel    [your setting]
+      Deposit               0.065 ETH
+      Reserve               0.030 ETH
     ```
 
   </StyledStep>
@@ -194,6 +196,3 @@ In order to operate the Gateway in production you need to have Ethereum on [Arbi
     Create automation to deposit funds automatically when low.
   </StyledStep> */}
 </StyledSteps>
-
-
-

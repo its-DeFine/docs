@@ -18,9 +18,7 @@
   "paths": {
     "/text-to-image": {
       "post": {
-        "tags": [
-          "generate"
-        ],
+        "tags": ["generate"],
         "summary": "Text To Image",
         "description": "Generate images from text prompts.",
         "operationId": "genTextToImage",
@@ -97,9 +95,7 @@
     },
     "/image-to-image": {
       "post": {
-        "tags": [
-          "generate"
-        ],
+        "tags": ["generate"],
         "summary": "Image To Image",
         "description": "Apply image transformations to a provided image.",
         "operationId": "genImageToImage",
@@ -176,9 +172,7 @@
     },
     "/image-to-video": {
       "post": {
-        "tags": [
-          "generate"
-        ],
+        "tags": ["generate"],
         "summary": "Image To Video",
         "description": "Generate a video from a provided image.",
         "operationId": "genImageToVideo",
@@ -255,9 +249,7 @@
     },
     "/upscale": {
       "post": {
-        "tags": [
-          "generate"
-        ],
+        "tags": ["generate"],
         "summary": "Upscale",
         "description": "Upscale an image by increasing its resolution.",
         "operationId": "genUpscale",
@@ -334,9 +326,7 @@
     },
     "/audio-to-text": {
       "post": {
-        "tags": [
-          "generate"
-        ],
+        "tags": ["generate"],
         "summary": "Audio To Text",
         "description": "Transcribe audio files to text.",
         "operationId": "genAudioToText",
@@ -433,9 +423,7 @@
     },
     "/segment-anything-2": {
       "post": {
-        "tags": [
-          "generate"
-        ],
+        "tags": ["generate"],
         "summary": "Segment Anything 2",
         "description": "Segment objects in an image.",
         "operationId": "genSegmentAnything2",
@@ -512,9 +500,7 @@
     },
     "/llm": {
       "post": {
-        "tags": [
-          "generate"
-        ],
+        "tags": ["generate"],
         "summary": "LLM",
         "description": "Generate text using a language model.",
         "operationId": "genLLM",
@@ -590,9 +576,7 @@
     },
     "/image-to-text": {
       "post": {
-        "tags": [
-          "generate"
-        ],
+        "tags": ["generate"],
         "summary": "Image To Text",
         "description": "Transform image files to text.",
         "operationId": "genImageToText",
@@ -679,9 +663,7 @@
     },
     "/live-video-to-video": {
       "post": {
-        "tags": [
-          "generate"
-        ],
+        "tags": ["generate"],
         "summary": "Live Video To Video",
         "description": "Apply transformations to a live video streamed to the returned endpoints.",
         "operationId": "genLiveVideoToVideo",
@@ -758,9 +740,7 @@
     },
     "/text-to-speech": {
       "post": {
-        "tags": [
-          "generate"
-        ],
+        "tags": ["generate"],
         "summary": "Text To Speech",
         "description": "Generate a text-to-speech audio file based on the provided text input and speaker description.",
         "operationId": "genTextToSpeech",
@@ -901,9 +881,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "msg"
-        ],
+        "required": ["msg"],
         "title": "APIError",
         "description": "API error response model."
       },
@@ -919,9 +897,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "audio"
-        ],
+        "required": ["audio"],
         "title": "AudioResponse",
         "description": "Response model for audio generation."
       },
@@ -953,9 +929,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "audio"
-        ],
+        "required": ["audio"],
         "title": "Body_genAudioToText"
       },
       "Body_genImageToImage": {
@@ -1032,10 +1006,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "prompt",
-          "image"
-        ],
+        "required": ["prompt", "image"],
         "title": "Body_genImageToImage"
       },
       "Body_genImageToText": {
@@ -1060,9 +1031,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "image"
-        ],
+        "required": ["image"],
         "title": "Body_genImageToText"
       },
       "Body_genImageToVideo": {
@@ -1128,9 +1097,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "image"
-        ],
+        "required": ["image"],
         "title": "Body_genImageToVideo"
       },
       "Body_genSegmentAnything2": {
@@ -1187,9 +1154,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "image"
-        ],
+        "required": ["image"],
         "title": "Body_genSegmentAnything2"
       },
       "Body_genUpscale": {
@@ -1230,10 +1195,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "prompt",
-          "image"
-        ],
+        "required": ["prompt", "image"],
         "title": "Body_genUpscale"
       },
       "Chunk": {
@@ -1251,10 +1213,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "timestamp",
-          "text"
-        ],
+        "required": ["timestamp", "text"],
         "title": "Chunk",
         "description": "A chunk of text with a timestamp."
       },
@@ -1348,9 +1307,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "detail"
-        ],
+        "required": ["detail"],
         "title": "HTTPError",
         "description": "HTTP error response model."
       },
@@ -1386,11 +1343,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "pipeline",
-          "model_id",
-          "gpu_info"
-        ],
+        "required": ["pipeline", "model_id", "gpu_info"],
         "title": "HardwareInformation",
         "description": "Response model for GPU information."
       },
@@ -1413,11 +1366,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "pipeline",
-          "model_id",
-          "gpu_stats"
-        ],
+        "required": ["pipeline", "model_id", "gpu_stats"],
         "title": "HardwareStats",
         "description": "Response model for real-time GPU statistics."
       },
@@ -1425,19 +1374,13 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": [
-              "OK",
-              "ERROR",
-              "IDLE"
-            ],
+            "enum": ["OK", "ERROR", "IDLE"],
             "title": "Status",
             "description": "The health status of the pipeline"
           }
         },
         "type": "object",
-        "required": [
-          "status"
-        ],
+        "required": ["status"],
         "title": "HealthCheck"
       },
       "ImageResponse": {
@@ -1452,9 +1395,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "images"
-        ],
+        "required": ["images"],
         "title": "ImageResponse",
         "description": "Response model for image generation."
       },
@@ -1467,9 +1408,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "text"
-        ],
+        "required": ["text"],
         "title": "ImageToTextResponse",
         "description": "Response model for text generation."
       },
@@ -1500,9 +1439,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "index"
-        ],
+        "required": ["index"],
         "title": "LLMChoice"
       },
       "LLMMessage": {
@@ -1517,10 +1454,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "role",
-          "content"
-        ],
+        "required": ["role", "content"],
         "title": "LLMMessage"
       },
       "LLMRequest": {
@@ -1564,9 +1498,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "messages"
-        ],
+        "required": ["messages"],
         "title": "LLMRequest"
       },
       "LLMResponse": {
@@ -1595,13 +1527,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "id",
-          "model",
-          "created",
-          "usage",
-          "choices"
-        ],
+        "required": ["id", "model", "created", "usage", "choices"],
         "title": "LLMResponse"
       },
       "LLMTokenUsage": {
@@ -1620,11 +1546,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "prompt_tokens",
-          "completion_tokens",
-          "total_tokens"
-        ],
+        "required": ["prompt_tokens", "completion_tokens", "total_tokens"],
         "title": "LLMTokenUsage"
       },
       "LiveVideoToVideoParams": {
@@ -1665,10 +1587,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "subscribe_url",
-          "publish_url"
-        ],
+        "required": ["subscribe_url", "publish_url"],
         "title": "LiveVideoToVideoParams"
       },
       "LiveVideoToVideoResponse": {
@@ -1697,10 +1616,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "subscribe_url",
-          "publish_url"
-        ],
+        "required": ["subscribe_url", "publish_url"],
         "title": "LiveVideoToVideoResponse",
         "description": "Response model for live video-to-video generation."
       },
@@ -1723,11 +1639,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "masks",
-          "scores",
-          "logits"
-        ],
+        "required": ["masks", "scores", "logits"],
         "title": "MasksResponse",
         "description": "Response model for object segmentation."
       },
@@ -1750,11 +1662,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "url",
-          "seed",
-          "nsfw"
-        ],
+        "required": ["url", "seed", "nsfw"],
         "title": "Media",
         "description": "A media object containing information about the generated media."
       },
@@ -1767,9 +1675,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "url"
-        ],
+        "required": ["url"],
         "title": "MediaURL",
         "description": "A URL from which media can be accessed."
       },
@@ -1790,10 +1696,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "text",
-          "chunks"
-        ],
+        "required": ["text", "chunks"],
         "title": "TextResponse",
         "description": "Response model for text generation."
       },
@@ -1865,9 +1768,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "prompt"
-        ],
+        "required": ["prompt"],
         "title": "TextToImageParams"
       },
       "TextToSpeechParams": {
@@ -1920,11 +1821,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "loc",
-          "msg",
-          "type"
-        ],
+        "required": ["loc", "msg", "type"],
         "title": "ValidationError"
       },
       "VideoResponse": {
@@ -1942,9 +1839,7 @@
           }
         },
         "type": "object",
-        "required": [
-          "frames"
-        ],
+        "required": ["frames"],
         "title": "VideoResponse",
         "description": "Response model for video generation."
       }

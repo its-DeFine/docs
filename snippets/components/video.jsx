@@ -1,14 +1,14 @@
-import { DownloadLink } from './links'
+import { DownloadLink } from "./links";
 
 // TODO: Deconstruct to change icon props. Only render icon if passed in.
-export const YouTubeVideo = ({ embedUrl, title = '', hint = '', caption }) => {
+export const YouTubeVideo = ({ embedUrl, title = "", hint = "", caption }) => {
   return (
     <Frame
       {...(hint ? { hint } : {})}
       {...(caption
         ? {
             caption: (
-              <span style={{ display: 'flex', alignItems: 'center' }}>
+              <span style={{ display: "flex", alignItems: "center" }}>
                 <Icon icon="microphone" color="grey" />
                 <span style={{ marginLeft: 8 }}>{caption}</span>
               </span>
@@ -24,29 +24,29 @@ export const YouTubeVideo = ({ embedUrl, title = '', hint = '', caption }) => {
         allowFullScreen
       />
     </Frame>
-  )
-}
+  );
+};
 
 export const YouTubeVideoDownload = ({
   embedUrl,
   title,
   hint,
-  caption = '',
+  caption = "",
 }) => {
-  console.log('props', embedUrl, title, hint)
+  console.log("props", embedUrl, title, hint);
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'stretch',
-        width: '100%',
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "stretch",
+        width: "100%",
       }}
     >
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'flex-end',
+          display: "flex",
+          justifyContent: "flex-end",
           marginBottom: 8,
           marginRight: 8,
         }}
@@ -58,7 +58,7 @@ export const YouTubeVideoDownload = ({
         {...(caption
           ? {
               caption: (
-                <span style={{ display: 'flex', alignItems: 'center' }}>
+                <span style={{ display: "flex", alignItems: "center" }}>
                   <Icon icon="microphone" color="grey" />
                   <span style={{ marginLeft: 8 }}>{caption}</span>
                 </span>
@@ -75,8 +75,8 @@ export const YouTubeVideoDownload = ({
         />
       </Frame>
     </div>
-  )
-}
+  );
+};
 
 // export const YouTubeVideoDownload = ({
 //   embedUrl,
@@ -120,12 +120,12 @@ export const YouTubeVideoDownload = ({
 // <Frame caption={title} hint="hint"></Frame>
 
 export const CardVideo = ({ embedUrl, title }) => {
-  console.log('Props:', { embedUrl, title }) // Add this
+  console.log("Props:", { embedUrl, title }); // Add this
   return (
     <Card>
       <iframe
         className="w-full aspect-video rounded-xl"
-        style={{ aspectRatio: '16/9' }}
+        style={{ aspectRatio: "16/9" }}
         src={embedUrl}
         title={title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -138,8 +138,8 @@ export const CardVideo = ({ embedUrl, title }) => {
         </span>
       </span>
     </Card>
-  )
-}
+  );
+};
 
 // Notes: Fetch video information for youtube videos
 

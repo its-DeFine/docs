@@ -15,6 +15,7 @@
     - Docker
     - Kubernetes
     - Bare-metal services
+
   </Accordion>
 
   <Accordion title="3. Connect to Orchestrators" icon="link">
@@ -26,15 +27,15 @@
     - Pricing
 
     Gateways must maintain active communication channels with orchestrator nodes.
+
   </Accordion>
 
-  <Accordion title="4. Configure Capabilities" icon="gear">
-    Your Gateway must declare:
-    - Supported models (diffusion, ControlNet, IPAdapter)
-    - Supported pipelines (ComfyStream, Daydream, BYOC containers)
-    - Region/latency zones
-    - Fallback and load-balancing rules
-  </Accordion>
+{' '}
+<Accordion title="4. Configure Capabilities" icon="gear">
+  Your Gateway must declare: - Supported models (diffusion, ControlNet,
+  IPAdapter) - Supported pipelines (ComfyStream, Daydream, BYOC containers) -
+  Region/latency zones - Fallback and load-balancing rules
+</Accordion>
 
   <Accordion title="5. Set Pricing" icon="dollar-sign">
     Pricing can be:
@@ -44,6 +45,7 @@
     - Per GPU-minute (BYOC)
 
     Gateways publish pricing via Marketplace APIs.
+
   </Accordion>
 
   <Accordion title="6. Register in the Marketplace" icon="store">
@@ -57,6 +59,7 @@
     - SLA guarantees
 
     This enables applications to discover and select your node.
+
   </Accordion>
 
   <Accordion title="7. Monitor & Optimize" icon="chart-line">
@@ -67,12 +70,14 @@
     - Orchestrator stability
 
     This ensures competitive placement in the Marketplace.
+
   </Accordion>
 </AccordionGroup>
 
-<br/>
+<br />
 
 ### Layout 2 & 3
+
 <Columns cols={2}>  
 <div style={{ display: 'flex', justifyContent: 'center' }}>
 ```mermaid
@@ -111,6 +116,7 @@ flowchart TB
     style setup fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
     style config fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
     style launch fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+
 ```
 </div>
 <div style={{ marginTop: '-3.5rem', display: 'flex', justifyContent: 'center' }}>
@@ -169,3 +175,4 @@ flowchart TB
     <Card title="Publish Offerings" icon="store" href="#5-register-in-the-marketplace"  horizontal arrow />
     <Card title="Monitor" icon="chart-line" href="#6-monitor--optimize"  horizontal arrow />
 </CardGroup>
+```

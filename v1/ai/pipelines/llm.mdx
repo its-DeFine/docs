@@ -20,9 +20,9 @@ At the time of writing, the most commonly available model is
 
 <Tip>
   For faster responses with different
-  [LLM](https://huggingface.co/models?pipeline_tag=text-generation) 
-  models, ask Orchestrators to load it on their GPU via the `ai-research` channel
-  in [Discord Server](https://discord.gg/livepeer).
+  [LLM](https://huggingface.co/models?pipeline_tag=text-generation) models, ask
+  Orchestrators to load it on their GPU via the `ai-research` channel in
+  [Discord Server](https://discord.gg/livepeer).
 </Tip>
 
 ## Basic Usage Instructions
@@ -50,7 +50,8 @@ curl -X POST "https://<GATEWAY_IP>/llm" \
 In this command:
 
 - `<GATEWAY_IP>` should be replaced with your AI Gateway's IP address.
-- `<TOKEN>` should be replaced with your API token if required by the AI Gateway.
+- `<TOKEN>` should be replaced with your API token if required by the AI
+  Gateway.
 - `model` is the LLM model to use for generation.
 - `messages` is the conversation or prompt input for the model.
 
@@ -61,6 +62,7 @@ After execution, the Orchestrator processes the request and returns the response
 to the Gateway which forwards the response in response to the request.
 
 Example partial non-streaming response below:
+
 ```json
 {
   "id": "chatcmpl-abc123",

@@ -5,17 +5,24 @@ sidebarTitle: 'Gateway Architecture'
 
 <Danger>
   This page is a work in progress. <br />
-  TODO: Overview, Edit, Streamline, Format, Style, Link to github / other
-  resources
+  TODO: Overview, Edit, Streamline, Format, Style, Link to github / other resources
 </Danger>
 
 import { ScrollableDiagram } from '/snippets/components/zoomable-diagram.jsx'
 import { DoubleIconLink } from '/snippets/components/links.jsx'
 
-Livepeer Gateway Architecture is defined in the livepeer-go core codebase. 
-<Card title="livpeer/go-livepeer/core/livepeernode.go" href="https://github.com/livepeer/go-livepeer/blob/5691cb48/core/livepeernode.go" icon="github" arrow horizontal />
+Livepeer Gateway Architecture is defined in the livepeer-go core codebase.
+
+<Card
+  title="livpeer/go-livepeer/core/livepeernode.go"
+  href="https://github.com/livepeer/go-livepeer/blob/5691cb48/core/livepeernode.go"
+  icon="github"
+  arrow
+  horizontal
+/>
 
 ## Gateway Technical Architecture
+
 <ScrollableDiagram title="Dual Gateway Architecture: Video & AI Pipelines" maxHeight="800px">
 
 ```mermaid
@@ -117,4 +124,3 @@ flowchart TB
       O1 --> G1
       G1 --> X `}
 />
-

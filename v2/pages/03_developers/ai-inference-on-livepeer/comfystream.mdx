@@ -24,23 +24,27 @@ ComfyStream is a real-time AI video processing system that enables live video tr
 - Interactive AI art generation with webcam input
 - Distributed GPU compute for video processing
 
-
 ## Architecture
+
 ComfyStream is organized into six primary architectural layers, each with distinct responsibilities:
-<img src="../../../assets/developers/comfystream.png" alt="ComfyStream Architecture" caption="https://deepwiki.com/livepeer/comfystream"/>
+
+<img
+  src="../../../assets/developers/comfystream.png"
+  alt="ComfyStream Architecture"
+  caption="https://deepwiki.com/livepeer/comfystream"
+/>
 
 #### Layer Responsibilities:
 
-| Layer | Components | Primary Function |
-|-------|------------|------------------|
-| Client | Browser, Webcam | Capture media input and display output |
-| UI | StreamCanvas, Room, Settings | Video standardization, WebRTC setup, configuration |
-| Transport | RTCPeerConnection, MediaTracks | Real-time media streaming with WebRTC |
-| Server | app.py, byoc.py | WebRTC signaling, media track handling, orchestration |
-| Processing | Pipeline, ComfyStreamClient | Frame-to-tensor conversion, workflow execution coordination |
-| Backend | ComfyUI, Custom Nodes | Workflow graph execution, AI model inference |
+| Layer      | Components                     | Primary Function                                            |
+| ---------- | ------------------------------ | ----------------------------------------------------------- |
+| Client     | Browser, Webcam                | Capture media input and display output                      |
+| UI         | StreamCanvas, Room, Settings   | Video standardization, WebRTC setup, configuration          |
+| Transport  | RTCPeerConnection, MediaTracks | Real-time media streaming with WebRTC                       |
+| Server     | app.py, byoc.py                | WebRTC signaling, media track handling, orchestration       |
+| Processing | Pipeline, ComfyStreamClient    | Frame-to-tensor conversion, workflow execution coordination |
+| Backend    | ComfyUI, Custom Nodes          | Workflow graph execution, AI model inference                |
 
 #### Core Components
-
 
 .....

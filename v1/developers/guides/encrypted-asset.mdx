@@ -25,7 +25,7 @@ const key = await window.crypto.subtle.generateKey(
     length: 256,
   },
   true,
-  ["encrypt", "decrypt"],
+  ["encrypt", "decrypt"]
 );
 
 // Export the key as raw data
@@ -52,7 +52,7 @@ const encrypted = await window.crypto.subtle.encrypt(
     iv: iv,
   },
   key, // from generateKey or importKey above
-  arrayBuffer, // ArrayBuffer of data you want to encrypt
+  arrayBuffer // ArrayBuffer of data you want to encrypt
 );
 
 // Concatenate IV and encrypted file into a new ArrayBuffer
@@ -88,7 +88,7 @@ const publicKeyResponse = await fetch(
     headers: {
       Authorization: "Bearer XXXX-XXXXXX-XXXXXXX-XXXX",
     },
-  },
+  }
 );
 
 const publicKeyData = await publicKeyResponse.json();
@@ -112,7 +112,7 @@ sent to Livepeer along with the video file.
 // Decode the SPKI public key from base64 and convert it to a buffer
 const spkiPublicKey = atob(publicKeyData.spki_public_key);
 const publicKeyBuffer = Uint8Array.from(atob(spkiPublicKey), (c) =>
-  c.charCodeAt(0),
+  c.charCodeAt(0)
 ).buffer;
 
 // Import the public key
@@ -124,7 +124,7 @@ const publicKey = await window.crypto.subtle.importKey(
     hash: { name: "SHA-256" },
   },
   false,
-  ["encrypt"],
+  ["encrypt"]
 );
 
 // Encrypt the key data with the public key
@@ -133,12 +133,12 @@ const encryptedKeyData = await window.crypto.subtle.encrypt(
     name: "RSA-OAEP",
   },
   publicKey,
-  keyData,
+  keyData
 );
 
 // Base64 encode the encrypted key data
 const encryptedKeyBase64 = btoa(
-  String.fromCharCode(...new Uint8Array(encryptedKeyData)),
+  String.fromCharCode(...new Uint8Array(encryptedKeyData))
 );
 ```
 
@@ -174,7 +174,7 @@ const response = await fetch(
         // Your playback policy
       },
     }),
-  },
+  }
 );
 
 if (!response.ok) {

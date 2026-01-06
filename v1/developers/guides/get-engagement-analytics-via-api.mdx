@@ -11,20 +11,21 @@ rebuffer ratio, and exit-before-starts across a variety of dimensions.
 ### Realtime Viewership
 
 <Info>
-  Please note that in order to use Realtime Viewership metrics, you need to use Player SDK 
-  `@livepeer/react` version 4.2.0 or higher.
+  Please note that in order to use Realtime Viewership metrics, you need to use
+  Player SDK `@livepeer/react` version 4.2.0 or higher.
 </Info>
 
-This API includes real-time metrics about the ongoing livestream or VOD engagement:
+This API includes real-time metrics about the ongoing livestream or VOD
+engagement:
 
 - Viewer Count: The number of viewers currently watching the stream (or VOD).
-- Error Rate: This metric helps to understand the number of errors that viewers are
-  experiencing while watching the stream (or VOD).
+- Error Rate: This metric helps to understand the number of errors that viewers
+  are experiencing while watching the stream (or VOD).
 
 ### Usage Metrics
 
-This API includes usage metrics to help you understand how viewers are
-engaging with your platform:
+This API includes usage metrics to help you understand how viewers are engaging
+with your platform:
 
 - Number of Views: This metric gives you a comprehensive view of the total
   number of views across your platform. We colloquially define a view as “play
@@ -198,8 +199,8 @@ In the asset's specific detail page you can view its total number of views.
 ### Get the `playbackId` of an existing stream/asset
 
 Get the `playbackId` of an existing asset. A `playbackId` can be found in the
-stream/asset page on the dashboard or from any Asset API call. If you haven't created
-a stream/asset yet, you can follow the
+stream/asset page on the dashboard or from any Asset API call. If you haven't
+created a stream/asset yet, you can follow the
 [upload a video asset guide](/developers/guides/upload-video-asset).
 
 <Info>
@@ -226,8 +227,8 @@ curl --request GET \
 ```
 
 <Info>
-For more information on the API and SDK methods, refer to the
-[API reference](/api-reference/viewership/get-public-total-views).
+  For more information on the API and SDK methods, refer to the [API
+  reference](/api-reference/viewership/get-public-total-views).
 </Info>
 
 ### Diving deeper
@@ -239,8 +240,8 @@ detailed data.
 #### [Realtime Viewership API](/api-reference/viewership/get-realtime-viewership)
 
 This API can be called from the frontend to retrieve realtime engagement metrics
-(current view count and error rate). You can break down the results by playback id,
-browser, device, and country.
+(current view count and error rate). You can break down the results by playback
+id, browser, device, and country.
 
 ```sh
 curl --request GET \
@@ -249,8 +250,8 @@ curl --request GET \
 ```
 
 <Info>
-For more information on the API and SDK methods, refer to the
-[API reference](/api-reference/viewership/get-realtime-viewership).
+  For more information on the API and SDK methods, refer to the [API
+  reference](/api-reference/viewership/get-realtime-viewership).
 </Info>
 
 #### [Creator metrics API](/api-reference/viewership/get-creators-metrics)
@@ -273,8 +274,8 @@ curl --request GET \
 ```
 
 <Info>
-For more information on the API and SDK methods, refer to the
-[API reference](/api-reference/viewership/get-creators-metrics).
+  For more information on the API and SDK methods, refer to the [API
+  reference](/api-reference/viewership/get-creators-metrics).
 </Info>
 
 #### [All metrics API](/api-reference/viewership/get-usage-metrics)
@@ -296,10 +297,9 @@ curl --request GET \
 ```
 
 <Info>
-For more information on the API and SDK methods, refer to the
-[API reference](/api-reference/viewership/get-usage-metrics).
+  For more information on the API and SDK methods, refer to the [API
+  reference](/api-reference/viewership/get-usage-metrics).
 </Info>
-
 
 ### Visualizing Your Data
 

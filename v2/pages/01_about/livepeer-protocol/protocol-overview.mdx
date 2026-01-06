@@ -12,7 +12,9 @@ The Livepeer Protocol is the underlying code that enforces the mechanisms and ru
 # Core Concepts
 
 ## Livepeer Protocol
+
 The protocol is the ruleset + on-chain logic governing:
+
 - staking
 - delegation
 - inflation & rewards
@@ -23,8 +25,10 @@ The protocol is the ruleset + on-chain logic governing:
 
 The economic and coordination layer that enforces correct behavior.
 
-## Livepeer Network 
+## Livepeer Network
+
 The network is the actual running system of machines performing work:
+
 - Orchestrators (GPU nodes)
 - Transcoders / Workers
 - Gateways
@@ -35,31 +39,32 @@ The network is the actual running system of machines performing work:
 
 It is the live, operational decentralized GPU mesh running video + AI jobs.
 
-
 ## Protocol vs Network
+
 | Layer                 | Description                                                                   |
 | --------------------- | ----------------------------------------------------------------------------- |
 | **Livepeer Protocol** | On-chain crypto-economic incentives & coordination; staking; payments.        |
 | **Livepeer Network**  | Off-chain nodes performing real-time work (transcoding, inference, routing).  |
-| **Relationship**      | The network *runs* the compute; the protocol *governs, secures, and pays* it. |
+| **Relationship**      | The network _runs_ the compute; the protocol _governs, secures, and pays_ it. |
 
 <Note> Fix UGHH (brainsotrm) </Note>
-**Bad Analogy Yikes**
-Protocol = the constitution
-Network = the population + infrastructure living under that constitution
+**Bad Analogy Yikes** Protocol = the constitution Network = the population + infrastructure
+living under that constitution
 
 The protocol governs.
 The network performs the work.
 
-The protocol determines the rules of the game 
+The protocol determines the rules of the game
 The network is the players & participants.
 
 # On-chain vs Off-chain
+
 Livepeer protocol = Arbitrum One (L2)
 Livepeer token (LPT) = Ethereum mainnet (L1)
 Livepeer network (GPU nodes + gateways) = off-chain execution layer
 
-# Livepeer Actors 
+# Livepeer Actors
+
 A Livepeer actor is any role or entity that participates in the Livepeer protocol or network and performs actions defined by the system.
 In Livepeer architecture, “actor” is a formal category used to describe participants with distinct responsibilities, incentives, and interactions.
 Actors are fundamental to describing how the network functions end-to-end.
@@ -78,6 +83,7 @@ Who: The users and builders of the network.&#x20;
 What they do:
 
 #### Orchestrators (GPU Nodes)
+
 aka: Transcoders / Workers
 
 Who:
@@ -85,6 +91,7 @@ Who:
 What they do:
 
 #### Gateways
+
 aka: Broadcasters
 
 Who:
@@ -98,6 +105,7 @@ Who:
 What they do:
 
 Historical Livepeer Actors:
+
 1. Orchestrator
 
 GPU node that performs transcoding / AI jobs, earns fees + staking rewards.
@@ -113,8 +121,6 @@ Client submitting jobs (video or AI) into the network.
 4. Delegator
 
 LPT holder who stakes to an orchestrator.
-
-
 
 3. Broadcaster (now a behavior, not an actor)
 

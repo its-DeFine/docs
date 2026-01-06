@@ -30,8 +30,8 @@ Hook for retrieving metrics for an Asset.
 </Info>
 
 The following examples assume an ID has been created for an asset, and the
-[`Player`](/sdks/react/Player) is used for playback (with its built-in
-metrics reporting).
+[`Player`](/sdks/react/Player) is used for playback (with its built-in metrics
+reporting).
 
 ```tsx
 function SomeComponent() {
@@ -119,7 +119,7 @@ import { prefetchAssetMetrics, studioProvider } from "@livepeer/react";
 export const getStaticProps = async () => {
   const dehydratedState = await prefetchAssetMetrics(
     { assetId },
-    { provider: studioProvider({ apiKey: "yourStudioApiKey" }) },
+    { provider: studioProvider({ apiKey: "yourStudioApiKey" }) }
   );
 
   return {
@@ -156,7 +156,7 @@ function App({ Component, pageProps }: AppProps<{ dehydratedState: string }>) {
           apiKey: process.env.NEXT_PUBLIC_STUDIO_API_KEY,
         }),
       }),
-    [],
+    []
   );
 
   return (
@@ -188,7 +188,7 @@ export const handleRequest = async (req, res) => {
       assetId,
       clearClient: true,
     },
-    { provider: studioProvider({ apiKey: "yourStudioApiKey" }) },
+    { provider: studioProvider({ apiKey: "yourStudioApiKey" }) }
   );
 
   // sanitize the custom SSR generated data

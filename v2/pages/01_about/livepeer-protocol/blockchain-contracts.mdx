@@ -10,33 +10,40 @@ Livepeer uses a comprehensive system of Ethereum smart contracts to manage its d
 
 ## Core Smart Contracts
 
-Livepeer's protocol consists of **9 main smart contracts** that work together to manage staking, payments, governance, and service discovery: [1](#0-0) 
+Livepeer's protocol consists of **9 main smart contracts** that work together to manage staking, payments, governance, and service discovery: [1](#0-0)
 
 ### 1. **Controller** - Contract Registry
-The Controller acts as the central registry for all other contract addresses in the protocol. It uses Keccak256 hashes of contract names as keys to store their addresses, enabling upgradeable architecture without changing the Controller address itself. [2](#0-1) 
 
-**Purpose**: 
+The Controller acts as the central registry for all other contract addresses in the protocol. It uses Keccak256 hashes of contract names as keys to store their addresses, enabling upgradeable architecture without changing the Controller address itself. [2](#0-1)
+
+**Purpose**:
+
 - Central address registry for all protocol contracts
 - Enables contract upgrades while maintaining a stable entry point
 - Provides pause functionality for emergency situations
 
 ### 2. **LivepeerToken (LPT)** - ERC20 Token
-The native protocol token used for staking, payments, and governance. [3](#0-2) 
+
+The native protocol token used for staking, payments, and governance. [3](#0-2)
 
 **Purpose**:
+
 - ERC20 token for all economic activity in the network
 - Used for bonding/staking to orchestrators
 - Required for broadcaster deposits and payments
 - Governance voting weight
 
 **Key Operations**:
+
 - `Transfer()`, `BalanceOf()`, `TotalSupply()` - Standard ERC20 operations
 - `Approve()` - Required before bonding or funding deposits
 
 ### 3. **BondingManager** - Staking & Delegation
-The most critical contract managing the staking economy, orchestrator registration, and reward distribution. [4](#0-3) 
+
+The most critical contract managing the staking economy, orchestrator registration, and reward distribution. [4](#0-3)
 
 **Purpose**:
+
 - Manages the transcoder (orchestrator) pool as a sorted linked list
 - Handles bonding (staking) and delegation to orchestrators
 - Distributes inflationary rewards and fees
@@ -44,6 +51,7 @@ The most critical contract managing the staking economy, orchestrator registrati
 - Tracks earnings and claims
 
 **Key Operations**:
+
 - `Bond()` - Delegate stake to an orchestrator
 - `Transcoder()` - Register as an orchestrator with reward/fee parameters
 - `Unbond()` - Start withdrawal process (with lock period)
@@ -51,75 +59,92 @@ The most critical contract managing the staking economy, orchestrator registrati
 - `ClaimEarnings()` - Claim accumulated rewards and fees
 
 ### 4. **TicketBroker** - Probabilistic Micropayments
-Manages the off-chain payment system using probabilistic micropayments for broadcaster-to-orchestrator payments. [5](#0-4) 
+
+Manages the off-chain payment system using probabilistic micropayments for broadcaster-to-orchestrator payments. [5](#0-4)
 
 **Purpose**:
+
 - Holds broadcaster deposits and reserves for micropayments
 - Validates and settles winning payment tickets
 - Manages unlock/withdrawal periods for broadcasters
 - Tracks claimed reserves per orchestrator
 
 **Key Operations**:
+
 - `FundDepositAndReserve()` - Broadcaster deposits funds for payments
 - `RedeemWinningTicket()` - Orchestrator redeems a winning ticket
 - `Unlock()` - Start withdrawal process
 - `Withdraw()` - Complete withdrawal after unlock period
 
 ### 5. **RoundsManager** - Protocol Time Management
-Manages the protocol's time-based round system where each round has a fixed block length. [6](#0-5) 
+
+Manages the protocol's time-based round system where each round has a fixed block length. [6](#0-5)
 
 **Purpose**:
+
 - Defines protocol rounds (epochs) of fixed block length
 - Tracks round initialization and locking
 - Provides block hashes for ticket validation
 - Coordinates time-based protocol operations
 
 **Key Operations**:
+
 - `InitializeRound()` - Initialize new round
 - `CurrentRound()` - Get current round number
 - `BlockHashForRound()` - Get L1 block hash for ticket validation
 
 ### 6. **Minter** - Token Inflation
-Controls the token supply inflation that rewards active orchestrators. [7](#0-6) 
+
+Controls the token supply inflation that rewards active orchestrators. [7](#0-6)
 
 **Purpose**:
+
 - Manages LPT token inflation schedule
 - Calculates mintable tokens per round
 - Adjusts inflation based on target bonding rate
 - Called by BondingManager during reward distribution
 
 **Key Operations**:
+
 - `CurrentMintableTokens()` - Calculate tokens to mint for rewards
 - `Inflation()`, `InflationChange()` - Query inflation parameters
 
 ### 7. **ServiceRegistry** - Orchestrator Discovery
-Maps Ethereum addresses to service URIs for orchestrator discovery. [8](#0-7) 
+
+Maps Ethereum addresses to service URIs for orchestrator discovery. [8](#0-7)
 
 **Purpose**:
+
 - Allows orchestrators to advertise their network endpoints
 - Enables broadcasters to discover and connect to orchestrators
 - Stores URI strings on-chain
 
 **Key Operations**:
+
 - `SetServiceURI()` - Orchestrator registers their endpoint
 - `GetServiceURI()` - Query orchestrator's service URL
 
 ### 8. **LivepeerGovernor** - Protocol Governance
-Implements on-chain governance for protocol upgrades and parameter changes. [9](#0-8) 
+
+Implements on-chain governance for protocol upgrades and parameter changes. [9](#0-8)
 
 **Purpose**:
+
 - On-chain voting on protocol proposals
 - Weighted by bonded stake
 - Implements governance mechanisms
 
 **Key Operations**:
+
 - `CastVote()` - Vote on governance proposals
 - `CastVoteWithReason()` - Vote with explanation
 
 ### 9. **LivepeerTokenFaucet** - Test Token Distribution
-Used on testnets for distributing test LPT tokens. [10](#0-9) 
+
+Used on testnets for distributing test LPT tokens. [10](#0-9)
 
 **Purpose**:
+
 - Provides test tokens on testnets
 - Rate-limited token requests
 - Development and testing support
@@ -128,31 +153,31 @@ Used on testnets for distributing test LPT tokens. [10](#0-9)
 
 Here's how these contracts interact with each other:
 
-```mermaid
+````mermaid
 graph TB
     subgraph "Discovery Layer"
         Controller["Controller<br/>Contract Registry"]
         ServiceRegistry["ServiceRegistry<br/>URI Mapping"]
     end
-    
+
     subgraph "Economic Layer"
         LPT["LivepeerToken<br/>ERC20 Token"]
         BondingManager["BondingManager<br/>Staking & Rewards"]
         TicketBroker["TicketBroker<br/>Micropayments"]
         Minter["Minter<br/>Token Inflation"]
     end
-    
+
     subgraph "Time & Governance"
         RoundsManager["RoundsManager<br/>Protocol Rounds"]
         Governor["LivepeerGovernor<br/>Governance"]
     end
-    
+
     subgraph "Participants"
         Broadcaster["Broadcaster Node"]
         Orchestrator["Orchestrator Node"]
         Delegator["Token Holder"]
     end
-    
+
     Controller -.->|"Address Lookup"| LPT
     Controller -.->|"Address Lookup"| BondingManager
     Controller -.->|"Address Lookup"| TicketBroker
@@ -160,31 +185,31 @@ graph TB
     Controller -.->|"Address Lookup"| Minter
     Controller -.->|"Address Lookup"| ServiceRegistry
     Controller -.->|"Address Lookup"| Governor
-    
+
     Delegator -->|"Approve() LPT"| LPT
     Delegator -->|"Bond(amount, orchestrator)"| BondingManager
     BondingManager -->|"TransferFrom()"| LPT
-    
+
     Orchestrator -->|"Transcoder(cuts)"| BondingManager
     Orchestrator -->|"SetServiceURI(url)"| ServiceRegistry
     Orchestrator -->|"Reward()"| BondingManager
     BondingManager -->|"CreateReward()"| Minter
     Minter -->|"Mint() new LPT"| LPT
-    
+
     Broadcaster -->|"Approve() LPT"| LPT
     Broadcaster -->|"FundDepositAndReserve()"| TicketBroker
     TicketBroker -->|"TransferFrom()"| LPT
-    
+
     Orchestrator -->|"RedeemWinningTicket()"| TicketBroker
     TicketBroker -->|"Transfer() to orchestrator"| LPT
     TicketBroker -->|"Update claimedReserve"| BondingManager
-    
+
     RoundsManager -->|"Round data"| BondingManager
     RoundsManager -->|"Block hashes"| TicketBroker
-    
+
     BondingManager -->|"Stake weight"| Governor
     Delegator -->|"CastVote()"| Governor
-``` [11](#0-10) 
+``` [11](#0-10)
 
 ## Money Flow: LPT Token Economics
 
@@ -198,7 +223,7 @@ Delegators call `Bond(amount, orchestratorAddress)` which:
 - Transfers LPT from delegator to BondingManager
 - Updates orchestrator's delegated stake
 - Calculates pool position hints for gas optimization
-- Updates the transcoder pool sorted by stake [12](#0-11) 
+- Updates the transcoder pool sorted by stake [12](#0-11)
 
 **Step 3: Orchestrator Registration**
 To become an orchestrator, a node must:
@@ -218,7 +243,7 @@ Each round, active orchestrators can call `Reward()` to mint inflationary tokens
 3. Minter calculates: `mintable = inflation * totalSupply / bonded`
 4. Reward distributed proportionally to orchestrator's stake
 5. Orchestrator keeps their commission (rewardCut)
-6. Remaining rewards distributed to delegators proportionally [13](#0-12) 
+6. Remaining rewards distributed to delegators proportionally [13](#0-12)
 
 **Claiming Earnings**:
 Delegators must call `ClaimEarnings(endRound)` to realize their accumulated rewards and fees from past rounds.
@@ -230,7 +255,7 @@ The payment system uses probabilistic micropayments to minimize on-chain transac
 **Step 1: Broadcaster Deposits**
 Broadcasters fund their account via `FundDepositAndReserve()`:
 - **Deposit**: Locked collateral (can't be used immediately)
-- **Reserve**: Available pool for ticket redemptions [14](#0-13) 
+- **Reserve**: Available pool for ticket redemptions [14](#0-13)
 
 **Step 2: Off-Chain Ticket Creation**
 For each video segment processed:
@@ -276,21 +301,21 @@ Orchestrators earn fees from ticket redemptions:
 
 ## Client Integration
 
-The go-livepeer client abstracts all contract interactions through the `LivepeerEthClient` interface: [15](#0-14) 
+The go-livepeer client abstracts all contract interactions through the `LivepeerEthClient` interface: [15](#0-14)
 
 **Contract Address Resolution**:
-All contract addresses are dynamically discovered through the Controller registry using Keccak256 hashes of contract names. This enables contract upgrades without changing client code. [16](#0-15) 
+All contract addresses are dynamically discovered through the Controller registry using Keccak256 hashes of contract names. This enables contract upgrades without changing client code. [16](#0-15)
 
 ## Gas Optimization Strategies
 
 ### 1. **Pool Hints**
-When bonding or calling reward, the client calculates "hints" (previous/next positions in the sorted transcoder pool) to enable O(1) insertions instead of O(n) searches on-chain. [17](#0-16) 
+When bonding or calling reward, the client calculates "hints" (previous/next positions in the sorted transcoder pool) to enable O(1) insertions instead of O(n) searches on-chain. [17](#0-16)
 
 ### 2. **Batch Operations**
 Multiple tickets can be created off-chain in batches, with only winning tickets requiring on-chain transactions.
 
 ### 3. **Dynamic Gas Pricing**
-The client implements sophisticated gas price management, using 2x base fee with user-specified ceilings to balance confirmation speed and cost. [18](#0-17) 
+The client implements sophisticated gas price management, using 2x base fee with user-specified ceilings to balance confirmation speed and cost. [18](#0-17)
 
 ## Summary: Complete Money Flow
 
@@ -332,9 +357,10 @@ This creates a circular economy where:
 //go:generate abigen --abi protocol/abi/LivepeerTokenFaucet.json --pkg contracts --type LivepeerTokenFaucet --out contracts/livepeerTokenFaucet.go
 //go:generate abigen --abi protocol/abi/Poll.json --pkg contracts --type Poll --out contracts/poll.go
 //go:generate abigen --abi protocol/abi/LivepeerGovernor.json --pkg contracts --type Governor --out contracts/LivepeerGovernor.go
-```
+````
 
 **File:** eth/client.go (L46-127)
+
 ```go
 type LivepeerEthClient interface {
 	Account() accounts.Account
@@ -421,6 +447,7 @@ type LivepeerEthClient interface {
 ```
 
 **File:** eth/client.go (L129-165)
+
 ```go
 type client struct {
 	accountManager AccountManager
@@ -462,6 +489,7 @@ type client struct {
 ```
 
 **File:** eth/client.go (L194-351)
+
 ```go
 func (c *client) setContracts(opts *bind.TransactOpts) error {
 	c.setTransactOpts(*opts)
@@ -624,6 +652,7 @@ func (c *client) setContracts(opts *bind.TransactOpts) error {
 ```
 
 **File:** eth/client.go (L392-424)
+
 ```go
 func (c *client) transactOpts() *bind.TransactOpts {
 	c.transOptsMu.RLock()
@@ -661,6 +690,7 @@ func (c *client) transactOpts() *bind.TransactOpts {
 ```
 
 **File:** eth/client.go (L569-654)
+
 ```go
 func (c *client) Bond(amount *big.Int, to ethcommon.Address) (*types.Transaction, error) {
 	sender := c.Account().Address
@@ -751,6 +781,7 @@ func (c *client) Bond(amount *big.Int, to ethcommon.Address) (*types.Transaction
 ```
 
 **File:** eth/client.go (L960-978)
+
 ```go
 func (c *client) Unlock() (*types.Transaction, error) {
 	return c.ticketBroker.Unlock(c.transactOpts())
@@ -774,6 +805,7 @@ func (c *client) ClaimedReserve(reserveHolder ethcommon.Address, claimant ethcom
 ```
 
 **File:** eth/client.go (L1023-1069)
+
 ```go
 func (c *client) Reward() (*types.Transaction, error) {
 	addr := c.accountManager.Account().Address
@@ -825,6 +857,7 @@ func (c *client) Reward() (*types.Transaction, error) {
 ```
 
 **File:** eth/client.go (L1077-1128)
+
 ```go
 // simulateTranscoderPoolUpdate simulates an update to the transcoder pool and returns the positional hints for a transcoder accordingly.
 // if the transcoder will not be in the updated set no hints will be returned

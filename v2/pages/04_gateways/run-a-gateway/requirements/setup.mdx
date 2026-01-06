@@ -12,63 +12,148 @@ import { StyledSteps, StyledStep } from '/snippets/components/steps.jsx'
 
 ## Gateway Modes
 
-You can run a gateway 
-  - <Icon icon="floppy-disk" size={18} /> **Off-chain** -> dev or local mode
-  - <Icon icon="link" size={18} /> **On-chain** -> production mode connected to the blockchain-based Livepeer network. 
+You can run a gateway
+
+- <Icon icon="floppy-disk" size={18} /> **Off-chain** -> dev or local mode
+- <Icon icon="link" size={18} /> **On-chain** -> production mode connected to the
+  blockchain-based Livepeer network.{' '}
 
 ## Gateway Capabilities
 
-You can run a Gateway for: 
-  - <Badge color= "blue"> Video Only </Badge> -> traditional transcoding services
-  - <Badge color= "purple"> AI Only </Badge> -> AI inference services
-  - <Badge color= "green"> Dual: AI & Video </Badge> -> both video transcoding and AI inference services
+You can run a Gateway for:
+
+- <Badge color="blue"> Video Only </Badge> -> traditional transcoding services
+- <Badge color="purple"> AI Only </Badge> -> AI inference services
+- <Badge color="green"> Dual: AI & Video </Badge> -> both video transcoding and AI
+  inference services
 
 ## Quick OS Table
 
 <div style={{ overflowX: 'auto' }}>
-  <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+  <table
+    style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}
+  >
     <thead>
       <tr style={{ backgroundColor: '#2d9a67', color: 'white' }}>
-        <th style={{ border: '1px solid #333', padding: '12px 16px', textAlign: 'left' }}>OS</th>
-        <th style={{ border: '1px solid #333', padding: '12px 16px', textAlign: 'left' }}>Install Method</th>
-        <th style={{ border: '1px solid #333', padding: '12px 16px', textAlign: 'left' }}>Gateway</th>
-        <th style={{ border: '1px solid #333', padding: '12px 16px', textAlign: 'left' }}>Orchestrator / AI Worker</th>
-        <th style={{ border: '1px solid #333', padding: '12px 16px', textAlign: 'left' }}>Notes</th>
+        <th
+          style={{
+            border: '1px solid #333',
+            padding: '12px 16px',
+            textAlign: 'left',
+          }}
+        >
+          OS
+        </th>
+        <th
+          style={{
+            border: '1px solid #333',
+            padding: '12px 16px',
+            textAlign: 'left',
+          }}
+        >
+          Install Method
+        </th>
+        <th
+          style={{
+            border: '1px solid #333',
+            padding: '12px 16px',
+            textAlign: 'left',
+          }}
+        >
+          Gateway
+        </th>
+        <th
+          style={{
+            border: '1px solid #333',
+            padding: '12px 16px',
+            textAlign: 'left',
+          }}
+        >
+          Orchestrator / AI Worker
+        </th>
+        <th
+          style={{
+            border: '1px solid #333',
+            padding: '12px 16px',
+            textAlign: 'left',
+          }}
+        >
+          Notes
+        </th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>macOS (Intel / Apple)</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>Build from source (Go)</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>✅ Yes</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>❌ No</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>Best for local dev & routing. Docker often fails on macOS.</td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          macOS (Intel / Apple)
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          Build from source (Go)
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          ✅ Yes
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          ❌ No
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          Best for local dev & routing. Docker often fails on macOS.
+        </td>
       </tr>
       <tr>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>Windows (Native)</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>Not supported</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>❌ No</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>❌ No</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>No native Windows binaries intended for production.</td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          Windows (Native)
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          Not supported
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          ❌ No
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          ❌ No
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          No native Windows binaries intended for production.
+        </td>
       </tr>
       <tr>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>Windows (WSL2 + Docker)</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>Docker (Linux via WSL2)</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>✅ Yes</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>⚠️ Limited / fragile</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>Effectively Linux-in-WSL. GPU needs NVIDIA + CUDA for WSL.</td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          Windows (WSL2 + Docker)
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          Docker (Linux via WSL2)
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          ✅ Yes
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          ⚠️ Limited / fragile
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          Effectively Linux-in-WSL. GPU needs NVIDIA + CUDA for WSL.
+        </td>
       </tr>
       <tr>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>Linux (Ubuntu recommended)</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>Docker or source build</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>✅ Yes</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>✅ Yes (NVIDIA GPU)</td>
-        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>Only OS suitable for production Orchestrators & AI workers.</td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          Linux (Ubuntu recommended)
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          Docker or source build
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          ✅ Yes
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          ✅ Yes (NVIDIA GPU)
+        </td>
+        <td style={{ border: '1px solid #333', padding: '10px 16px' }}>
+          Only OS suitable for production Orchestrators & AI workers.
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
-
 
 ## Gateway Set Up Requirements
 
@@ -117,10 +202,10 @@ You can run a Gateway for:
   <Step title="OS & Software Requirements" icon="computer" titleSize="h3"> 
     <Badge color="surface"><Icon icon="floppy-disk" /> <Icon icon="link" /></Badge> 
     
-    Gateways install the <DoubleIconLink label="Go-Livepeer Gateway" href="https://github.com/livepeer/go-livepeer" iconLeft="github" />  Software. 
+    Gateways install the <DoubleIconLink label="Go-Livepeer Gateway" href="https://github.com/livepeer/go-livepeer" iconLeft="github" />  Software.
 
-    Installation requires the following OS with **root or sudo access**:  
-    
+    Installation requires the following OS with **root or sudo access**:
+
     <div style={{ width: '100%', border: '1px solid #2b9a66', borderRadius: '8px', padding: '16px', textAlign: 'left' }}>
       <div style={{ fontWeight: 'bold', marginBottom: '12px' }}>**[OS Requirements](#)**</div>
       <div style={{ marginBottom: '12px'}}>
@@ -143,22 +228,23 @@ You can run a Gateway for:
         text="Installation is covered in detail in the"
         iconLeft="computer"
       />
+
   </Step>
   <Step title="Additional Requirements" icon="user-robot" titleSize="h3">
     <Badge color="green"> Dual AI & Video </Badge>
 
-    You can run a gateway 
+    You can run a gateway
     - **<Icon icon="floppy-disk" /> Off-chain** -> dev or local mode
-    - **<Icon icon="link" /> On-chain** -> production mode connected to the blockchain-based Livepeer network. 
+    - **<Icon icon="link" /> On-chain** -> production mode connected to the blockchain-based Livepeer network.
 
     <Tabs>
       <Tab title="Off-Chain Gateways" icon="floppy-disk">
         Additional requirements apply when running a Gateway in off-chain mode:
 
-        You will **need to run an Orchestrator Node** locally to test Gateway functionality. 
-        
+        You will **need to run an Orchestrator Node** locally to test Gateway functionality.
+
         <div style={{ width: '100%', border: '1px solid #2b9a66', borderRadius: '8px', padding: '16px', textAlign: 'left' }}>
-          **[This requires that you]('')** 
+          **[This requires that you]('')**
           <div style={{ marginBottom: '12px', marginTop: '12px' }}>
             <Icon icon="diamond" iconType="solid" size={10} /> Have a GPU available (locally or cloud) with root or sudo access
           </div>
@@ -178,7 +264,7 @@ You can run a Gateway for:
         You will need a blockchain wallet and RPC to connect to the Livepeer Network (on [Arbitrum](https://arbitrum.io/)) and pay for services.
 
         <div style={{ width: '100%', border: '1px solid #2b9a66', borderRadius: '8px', padding: '16px', textAlign: 'left' }}>
-          **[You will need]('')** 
+          **[You will need]('')**
           <div style={{ marginBottom: '12px', marginTop: '12px' }}>
             <Icon icon="diamond" iconType="solid" size={10} /> **An Arbitrum** [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) **URL**
             <ul style={{ paddingLeft: '20px', margin: '4px 0' }}>
@@ -191,19 +277,20 @@ You can run a Gateway for:
         <br/>
 
         <Card title="Go to On-Chain Setup Guide" icon="chain" href="/v2/pages/04_gateways/run-a-gateway/setup/on-chain" horizontal arrow>
-        See the full on-chain setup guide 
+        See the full on-chain setup guide
         </Card>
 
         On-chain mode is for:
         - Public Production Gateways
-        - Running a business  
+        - Running a business
       </Tab>
     </Tabs>
+
   </Step>
 </StyledSteps>
 
+{/\*
 
-{/* 
 <Accordion title="alternative flow">
   Gateway Setup Requirements
   <StyledSteps>
@@ -327,5 +414,6 @@ You can run a Gateway for:
 
     GPU resources are still provided by Orchestrators — not the Gateway.
     </StyledStep>
+
   </StyledSteps>
 </Accordion> */}

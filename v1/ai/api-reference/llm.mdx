@@ -3,7 +3,8 @@ openapi: post /llm
 ---
 
 <Note>
-  The LLM pipeline is OpenAI API-compatible but does **not** implement all features of the OpenAI API.
+  The LLM pipeline is OpenAI API-compatible but does **not** implement all
+  features of the OpenAI API.
 </Note>
 
 <Info>
@@ -26,8 +27,9 @@ By default, the `/llm` endpoint returns a single JSON response in the OpenAI
 [chat/completions](https://platform.openai.com/docs/api-reference/chat/object)
 format, as shown in the sidebar.
 
-To receive responses token-by-token, set `"stream": true` in the request body. The server will then use **Server-Sent Events (SSE)** to stream output in real time.
-
+To receive responses token-by-token, set `"stream": true` in the request body.
+The server will then use **Server-Sent Events (SSE)** to stream output in real
+time.
 
 Each streamed chunk will look like:
 

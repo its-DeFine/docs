@@ -4,8 +4,8 @@ description: "React Hook for retrieving playback details for a playback ID."
 ---
 
 Hook for retrieving playback information related to a playback ID. Used
-internally in the [`Player`](/sdks/react/Player) to fetch the playback URL
-for a playback ID.
+internally in the [`Player`](/sdks/react/Player) to fetch the playback URL for a
+playback ID.
 
 ## Usage
 
@@ -114,7 +114,7 @@ import { prefetchPlaybackInfo, studioProvider } from "@livepeer/react";
 export const getStaticProps = async () => {
   const dehydratedState = await prefetchPlaybackInfo(
     { playbackId },
-    { provider: studioProvider({ apiKey: "yourStudioApiKey" }) },
+    { provider: studioProvider({ apiKey: "yourStudioApiKey" }) }
   );
 
   return {
@@ -151,7 +151,7 @@ function App({ Component, pageProps }: AppProps<{ dehydratedState: string }>) {
           apiKey: process.env.NEXT_PUBLIC_STUDIO_API_KEY,
         }),
       }),
-    [],
+    []
   );
 
   return (
@@ -183,7 +183,7 @@ export const handleRequest = async (req, res) => {
       playbackId,
       clearClient: true,
     },
-    { provider: studioProvider({ apiKey: "yourStudioApiKey" }) },
+    { provider: studioProvider({ apiKey: "yourStudioApiKey" }) }
   );
 
   // sanitize the custom SSR generated data

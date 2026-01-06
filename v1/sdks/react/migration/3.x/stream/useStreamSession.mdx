@@ -114,7 +114,7 @@ import { prefetchStreamSession, studioProvider } from "@livepeer/react";
 export const getStaticProps = async () => {
   const dehydratedState = await prefetchStreamSession(
     { streamSessionId },
-    { provider: studioProvider({ apiKey: "yourStudioApiKey" }) },
+    { provider: studioProvider({ apiKey: "yourStudioApiKey" }) }
   );
 
   return {
@@ -151,7 +151,7 @@ function App({ Component, pageProps }: AppProps<{ dehydratedState: string }>) {
           apiKey: process.env.NEXT_PUBLIC_STUDIO_API_KEY,
         }),
       }),
-    [],
+    []
   );
 
   return (
@@ -183,7 +183,7 @@ export const handleRequest = async (req, res) => {
       streamSessionId,
       clearClient: true,
     },
-    { provider: studioProvider({ apiKey: "yourStudioApiKey" }) },
+    { provider: studioProvider({ apiKey: "yourStudioApiKey" }) }
   );
 
   // sanitize the custom SSR generated data

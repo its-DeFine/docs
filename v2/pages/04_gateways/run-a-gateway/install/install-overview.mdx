@@ -6,8 +6,8 @@ sidebarTitle: Installation Overview
 
 <Warning> Complete: needs review </Warning>
 
-import { DoubleIconLink } from "/snippets/components/links.jsx"
-import { GotoLink } from "/snippets/components/links.jsx"
+import { DoubleIconLink } from '/snippets/components/links.jsx'
+import { GotoLink } from '/snippets/components/links.jsx'
 
 Please ensure you have read the <DoubleIconLink label="Setup Checklist" href="/v2/pages/04_gateways/run-a-gateway/requirements/setup" iconLeft="link" /> before proceeding.
 
@@ -19,34 +19,45 @@ Please ensure you have read the <DoubleIconLink label="Setup Checklist" href="/v
 
 ## Installation Methods
 
-Installing a Gateway means installing the <DoubleIconLink label="go-livepeer" href="https://github.com/livepeer/go-livepeer"/>  Gateway code. 
+Installing a Gateway means installing the <DoubleIconLink label="go-livepeer" href="https://github.com/livepeer/go-livepeer"/> Gateway code.
 
-You can either install using 
-1. <Icon icon="docker" size={20} /> **Docker**  (recommended)
-2. Building from <Icon icon="code" size={20} /> **source (binary)**  
+You can either install using
+
+1. <Icon icon="docker" size={20} /> **Docker** (recommended)
+2. Building from <Icon icon="code" size={20} /> **source (binary)**
 3. Using community developed tooling like <Icon icon="wand-sparkles" size={18} /> **GWID** <Badge color="surface">Beta</Badge> for one-click installation & deployment.
-
 
 ## Gateway Modes
 
-You can run a gateway 
-  - <Icon icon="floppy-disk" size={18} /> **Off-chain** -> dev or local mode
-  - <Icon icon="link" size={18} /> **On-chain** -> production mode connected to the blockchain-based Livepeer network. 
+You can run a gateway
+
+- <Icon icon="floppy-disk" size={18} /> **Off-chain** -> dev or local mode
+- <Icon icon="link" size={18} /> **On-chain** -> production mode connected to the
+  blockchain-based Livepeer network.{' '}
 
 If you plan to run in **On-Chain** mode, please read the additional requirements
-<Card title="On-Chain Setup Requirements" href="/v2/pages/04_gateways/run-a-gateway/install/on-chain" icon="chain" arrow horizontal >
+
+<Card
+  title="On-Chain Setup Requirements"
+  href="/v2/pages/04_gateways/run-a-gateway/install/on-chain"
+  icon="chain"
+  arrow
+  horizontal
+>
   View On-Chain Requirements
 </Card>
 
 ## Gateway Capabilities
 
-You can run a Gateway for: 
-  - <Badge color= "blue"> Video Only </Badge> -> traditional transcoding services
-  - <Badge color= "purple"> AI Only </Badge> -> AI inference services
-  - <Badge color= "green"> Dual: AI & Video </Badge> -> both video transcoding and AI inference services
+You can run a Gateway for:
 
-<br/>
-The below installation applies to both on-chain and off-chain modes. 
+- <Badge color="blue"> Video Only </Badge> -> traditional transcoding services
+- <Badge color="purple"> AI Only </Badge> -> AI inference services
+- <Badge color="green"> Dual: AI & Video </Badge> -> both video transcoding and AI
+  inference services
+
+<br />
+The below installation applies to both on-chain and off-chain modes.{' '}
 
 <CardGroup cols={2}>
   <Card
@@ -56,13 +67,14 @@ The below installation applies to both on-chain and off-chain modes.
     arrow
     cta="Go to Guide"
   >
-    Install & Configure Docker 
+    Install & Configure Docker
 
-    <Icon icon="linux"/> <Icon icon="windows"/> 
-    
+    <Icon icon="linux"/> <Icon icon="windows"/>
+
     <Badge color= "green"> Dual </Badge>&nbsp;
     <Badge color= "purple"> AI </Badge>&nbsp;
     <Badge color= "blue"> Video </Badge>
+
   </Card> 
   <Card
     title="Linux Installation"
@@ -78,6 +90,7 @@ The below installation applies to both on-chain and off-chain modes.
     <Badge color= "green"> Dual </Badge>&nbsp;
     <Badge color= "purple"> AI </Badge>&nbsp;
     <Badge color= "blue"> Video </Badge>
+
   </Card>
   <Card
     title="Windows Installation"
@@ -91,6 +104,7 @@ The below installation applies to both on-chain and off-chain modes.
     <Icon icon="info-circle" /> Linux in WSL2
 
     <Badge color= "blue"> Video </Badge>
+
   </Card>
   <Card
     title="One Click Installation"
@@ -104,7 +118,6 @@ The below installation applies to both on-chain and off-chain modes.
     <Badge color= "green"> Dual </Badge>&nbsp;
     <Badge color= "purple"> AI </Badge>&nbsp;
     <Badge color= "blue"> Video </Badge>
+
   </Card>
 </CardGroup>
-
-

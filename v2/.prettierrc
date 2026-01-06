@@ -3,13 +3,5 @@
   "singleQuote": true,
   "tabWidth": 2,
   "trailingComma": "es5",
-  "proseWrap": "preserve",
-  "overrides": [
-    {
-      "files": "*.mdx",
-      "options": {
-        "parser": "mdx"
-      }
-    }
-  ]
+  "proseWrap": "preserve"
 }

@@ -60,13 +60,13 @@ actions on behalf of your orchestrator if using the same wallet.
 ## TicketParams expired
 
 This error indicates that the gateway sent a payment ticket with too old
-parameters. This may be caused by the gateway's delay (between getting the
-last orchestrator info message and sending the segment) or by the delay in
-polling chain blocks (the expiration time is measured in L1 blocks). For more
-details please check
+parameters. This may be caused by the gateway's delay (between getting the last
+orchestrator info message and sending the segment) or by the delay in polling
+chain blocks (the expiration time is measured in L1 blocks). For more details
+please check
 [TicketParams expiration time](https://github.com/livepeer/go-livepeer/issues/1343).
-There are no actionable steps for an operator, gateway will retry a request
-with the updated ticket parameters.
+There are no actionable steps for an operator, gateway will retry a request with
+the updated ticket parameters.
 
 ## Error creating Ethereum account manager
 
@@ -93,10 +93,10 @@ transcoded in Livepeer.
 **What does being ‘publicly accessible’ mean? Can I run a transcoder from
 home?**
 
-Orchestrators should be reachable by gateways via the public IP and port
-that is set during registration. The only port that is required to be public is
-the one that was set during registration (default 8935). Be aware that there are
-many risks to running a public server. Only set up an orchestrator if you are
+Orchestrators should be reachable by gateways via the public IP and port that is
+set during registration. The only port that is required to be public is the one
+that was set during registration (default 8935). Be aware that there are many
+risks to running a public server. Only set up an orchestrator if you are
 comfortable with managing these risks.
 
 Orchestrators will not be able to serve the Livepeer network if they are behind
@@ -132,8 +132,8 @@ Some orchestrators in the past have used
 
 **What is the service URI? Does this need to be an IP?**
 
-The service registry acts as a discovery mechanism to allow gateways to look
-up the addresses of orchestrators on the network. Orchestrators register their
+The service registry acts as a discovery mechanism to allow gateways to look up
+the addresses of orchestrators on the network. Orchestrators register their
 service URI by storing it on the blockchain. During registration you are only
 asked for your IP:port, but the URI stored on the blockchain in the form of .
 Orchestrators are expected to provide a consistent and reliable service, so IPs

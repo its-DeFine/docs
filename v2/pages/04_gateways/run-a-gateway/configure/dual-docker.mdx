@@ -2,8 +2,9 @@
 title: 'Dual Docker Configuration'
 description: 'Configure Dual AI & Video Services on a Livepeer Gateway using Docker'
 sidebarTitle: 'Dual Docker Configuration'
-icon: "docker"
+icon: 'docker'
 ---
+
 # Configuration Files for Dual Video & AI Gateway
 
 To run a dual video & AI gateway using Docker, you need to create these configuration files:
@@ -11,20 +12,25 @@ To run a dual video & AI gateway using Docker, you need to create these configur
 ## Required Files
 
 ### 1. docker-compose.yml
+
 Main Docker configuration file that defines the gateway service with both video and AI capabilities.
 
 ### 2. aiModels.json
+
 AI model configuration file that specifies which AI pipelines and models to load [1](#54-0) .
 
 ### 3. models/ directory
+
 Directory where AI model weights are stored [2](#54-1) .
 
 ## Optional Files
 
 ### 4. transcodingOptions.json (optional)
+
 Video transcoding profile configuration if you want custom profiles beyond defaults [3](#54-2) .
 
 ### 5. password.txt (optional, on-chain only)
+
 File containing your Ethereum keystore password for on-chain operations [4](#54-3) .
 
 ---
@@ -32,36 +38,37 @@ File containing your Ethereum keystore password for on-chain operations [4](#54-
 ## Complete Example
 
 ### docker-compose.yml
+
 ```yaml
 version: '3.9'
 
 services:
-  dual-gateway:      
+  dual-gateway:
     image: livepeer/go-livepeer:master
-    container_name: "dual-gateway"
-    hostname: "dual-gateway"
+    container_name: 'dual-gateway'
+    hostname: 'dual-gateway'
     ports:
-      - 1935:1935  # RTMP for video ingest
-      - 8935:8935  # HTTP API for both video and AI
-      - 5935:5935  # CLI port
+      - 1935:1935 # RTMP for video ingest
+      - 8935:8935 # HTTP API for both video and AI
+      - 5935:5935 # CLI port
     volumes:
       - dual-gateway-lpData:/root/.lpData
       - ./aiModels.json:/root/.lpData/aiModels.json
       - ./models:/root/.lpData/models
-    command: '-network offchain 
-              -gateway
-              -httpIngest
-              -aiServiceRegistry
-              -monitor=true
-              -v=6
-              -rtmpAddr=0.0.0.0:1935
-              -httpAddr=0.0.0.0:8935
-              -cliAddr=0.0.0.0:5935
-              -orchAddr=<ORCHESTRATOR_ADDRESSES>
-              -transcodingOptions=P240p30fps16x9,P360p30fps16x9,P720p30fps16x9
-              -aiModels=/root/.lpData/aiModels.json
-              -aiModelsDir=/root/.lpData/models
-              -livePaymentInterval=5s'
+    command: '-network offchain
+      -gateway
+      -httpIngest
+      -aiServiceRegistry
+      -monitor=true
+      -v=6
+      -rtmpAddr=0.0.0.0:1935
+      -httpAddr=0.0.0.0:8935
+      -cliAddr=0.0.0.0:5935
+      -orchAddr=<ORCHESTRATOR_ADDRESSES>
+      -transcodingOptions=P240p30fps16x9,P360p30fps16x9,P720p30fps16x9
+      -aiModels=/root/.lpData/aiModels.json
+      -aiModelsDir=/root/.lpData/models
+      -livePaymentInterval=5s'
 
 volumes:
   dual-gateway-lpData:
@@ -69,6 +76,7 @@ volumes:
 ```
 
 ### aiModels.json
+
 ```json
 [
   {
@@ -77,7 +85,7 @@ volumes:
     "warm": true
   },
   {
-    "pipeline": "image-to-image", 
+    "pipeline": "image-to-image",
     "model_id": "stabilityai/sd-turbo",
     "warm": false
   },
@@ -95,6 +103,7 @@ volumes:
 ```
 
 ### transcodingOptions.json (optional)
+
 ```json
 [
   {
@@ -127,12 +136,14 @@ volumes:
 ## Setup Steps
 
 1. **Create directories**:
+
    ```bash
    mkdir -p models
    docker volume create dual-gateway-lpData
    ```
 
 2. **Create configuration files**:
+
    - Save the `docker-compose.yml` above
    - Create `aiModels.json` with your desired AI models
    - Optionally create `transcodingOptions.json` for custom video profiles
@@ -146,18 +157,20 @@ The gateway will handle both video transcoding (via RTMP ingest on port 1935) an
 
 ## Notes
 
-- The `aiModels.json` file defines which AI pipelines and models the gateway will support [6](#54-5) 
+- The `aiModels.json` file defines which AI pipelines and models the gateway will support [6](#54-5)
 - Models are downloaded on-demand when processing requests if not present in the models directory
 - For on-chain operation, add ETH configuration flags and mount the keystore directory
-- The dual gateway exposes both traditional video endpoints and AI processing endpoints through the same HTTP server [7](#54-6) 
+- The dual gateway exposes both traditional video endpoints and AI processing endpoints through the same HTTP server [7](#54-6)
 
 Wiki pages you might want to explore:
+
 - [Architecture (livepeer/go-livepeer)](/wiki/livepeer/go-livepeer#1.1)
 - [AI Workers (livepeer/go-livepeer)](/wiki/livepeer/go-livepeer#2.6)
 
 ### Citations
 
 **File:** core/ai.go (L74-88)
+
 ```go
 type AIModelConfig struct {
 	Pipeline string `json:"pipeline"`
@@ -177,6 +190,7 @@ type AIModelConfig struct {
 ```
 
 **File:** core/ai.go (L90-125)
+
 ```go
 func ParseAIModelConfigs(config string) ([]AIModelConfig, error) {
 	var configs []AIModelConfig
@@ -217,11 +231,13 @@ func ParseAIModelConfigs(config string) ([]AIModelConfig, error) {
 ```
 
 **File:** cmd/livepeer/starter/starter.go (L210-210)
+
 ```go
 	defaultTranscodingOptions := "P240p30fps16x9,P360p30fps16x9"
 ```
 
 **File:** cmd/livepeer/starter/starter.go (L1313-1326)
+
 ```go
 		modelsDir := *cfg.AIModelsDir
 		if modelsDir == "" {
@@ -240,11 +256,13 @@ func ParseAIModelConfigs(config string) ([]AIModelConfig, error) {
 ```
 
 **File:** cmd/livepeer/starter/flags.go (L83-83)
+
 ```go
 	cfg.EthPassword = fs.String("ethPassword", *cfg.EthPassword, "Password for existing Eth account address or path to file")
 ```
 
 **File:** server/mediaserver.go (L191-197)
+
 ```go
 			BroadcastJobVideoProfiles = profiles
 		}

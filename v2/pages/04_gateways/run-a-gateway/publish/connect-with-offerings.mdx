@@ -3,58 +3,63 @@ title: 'Discover & Connect Marketplace Compute Services'
 description: 'This page explains how to find and broker Orchestrator AI & Video Offerings via your Gateway for Livepeer Application consumption.'
 sidebarTitle: 'Discover & Connect Services'
 ---
-import { CustomCallout } from '/snippets/components/links.jsx';
-import { ScrollableDiagram } from '/snippets/components/zoomable-diagram.jsx';
+
+import { CustomCallout } from '/snippets/components/links.jsx'
+import { ScrollableDiagram } from '/snippets/components/zoomable-diagram.jsx'
 
 <Danger>
   This page is a work in progress. Needs a lot of edits.
-    <Expandable title="TODO">
-      TODO: 
-      - [ ] Overview, 
-      - [ ] Edit (A LOT)
-      - [ ] Streamline, 
-      - [ ] Format, 
-      - [ ] Style, 
-      - [ ] Link to github / otherresources
-    </Expandable>
+  <Expandable title="TODO">
+    TODO: - [ ] Overview, - [ ] Edit (A LOT) - [ ] Streamline, - [ ] Format, - [
+    ] Style, - [ ] Link to github / otherresources
+  </Expandable>
 </Danger>
 
-<div style={{ 
-  display: 'flex', 
-  flexDirection: 'column', 
-  margin: '0 auto',
-  alignItems: 'center',
-}}>
-  <Callout icon="party-horn" color="#2d9a67" >
+<div
+  style={{
+    display: 'flex',
+    flexDirection: 'column',
+    margin: '0 auto',
+    alignItems: 'center',
+  }}
+>
+  <Callout icon="party-horn" color="#2d9a67">
     So... you have a gateway running - yay!
   </Callout>
   Let's find and share some Livepeer Marketplace Orchestrator Services!
 </div>
 <br />
-<div style={{ display: 'flex', justifyContent: 'center', margin: '0 auto', width: '80%' }}>
-<Frame>
-  <img
-    src="https://gifsec.com/wp-content/uploads/2023/01/the-office-gif-3.gif"
-    alt="The Office: Raise the Roof Party Gif"
-  />
-</Frame>
+<div
+  style={{
+    display: 'flex',
+    justifyContent: 'center',
+    margin: '0 auto',
+    width: '80%',
+  }}
+>
+  <Frame>
+    <img
+      src="https://gifsec.com/wp-content/uploads/2023/01/the-office-gif-3.gif"
+      alt="The Office: Raise the Roof Party Gif"
+    />
+  </Frame>
 </div>
 <br />
 
 # What is the Marketplace?
-The Livepeer Marketplace allows **_Orchestrators_** to advertise available compute, 
+
+The Livepeer Marketplace allows **_Orchestrators_** to advertise available compute,
 compute services (AI & Video), pricing, and performance characteristics.
 
-In the Livepeer Marketplace, **Gateways act like talent agents** 
+In the Livepeer Marketplace, **Gateways act like talent agents**
 
-They discover orchestrator offerings, apply selection and routing logic, and broker access to appropriate 
-services for applications based on cost, performance, and policy requirements - 
+They discover orchestrator offerings, apply selection and routing logic, and broker access to appropriate
+services for applications based on cost, performance, and policy requirements -
 _like a talent agent scouts venues for promising artists and matches them to the right record deal._
 
-
 <br />
-> - **Orchestrators** publish services to the Livepeer Marketplace;
-> - **Gateways** filter & connect application requests to those services.
+> - **Orchestrators** publish services to the Livepeer Marketplace; > - **Gateways**
+filter & connect application requests to those services.
 <br />
 <br />
 
@@ -159,7 +164,8 @@ flowchart TB
     style O2 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
     style O3 fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px,rx:10,ry:10
     style M0 fill:transparent,stroke:transparent,color:transparent
-```
+
+````
 </ScrollableDiagram>
 <br />
 
@@ -223,10 +229,12 @@ flowchart LR
     style O4 fill:#333,stroke:#2d9a67,stroke-width:1px,color:#fff
     style O5 fill:#333,stroke:#2d9a67,stroke-width:1px,color:#fff
     style O6 fill:#333,stroke:#2d9a67,stroke-width:1px,color:#fff
-```
+````
+
 </ScrollableDiagram>
 
 ## Discovery Process
+
 Gateways discover orchestrators through the orchestrator pool in `discovery/discovery.go` [discovery.go:64-111](https://github.com/livepeer/go-livepeer/blob/5691cb48/discovery/discovery.go#L64-L111)
 
 1. **Query orchestrators**: Get `OrchestratorInfo` from each orchestrator
@@ -235,14 +243,15 @@ Gateways discover orchestrators through the orchestrator pool in `discovery/disc
 4. **Route requests**: Forward incoming requests to selected orchestrators
 
 ## Find All Orchestrators & Offerings
-The `/getNetworkCapabilities` endpoint in [server/handlers.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/server/handlers.go#L275-L295) 
+
+The `/getNetworkCapabilities` endpoint in [server/handlers.go](https://github.com/livepeer/go-livepeer/blob/5691cb48/server/handlers.go#L275-L295)
 exposes all available orchestrator offerings
 
 ```go
-func (s *LivepeerServer) getNetworkCapabilitiesHandler() http.Handler {  
-    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {  
-        // Returns orchestrators with their capabilities, pricing, and hardware  
-    })  
+func (s *LivepeerServer) getNetworkCapabilitiesHandler() http.Handler {
+    return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+        // Returns orchestrators with their capabilities, pricing, and hardware
+    })
 }
 ```
 
@@ -251,17 +260,17 @@ func (s *LivepeerServer) getNetworkCapabilitiesHandler() http.Handler {
 The response uses NetworkCapabilities structure from common/types.go types.go:166-176 :
 
 ```go
-type NetworkCapabilities struct {  
-    Orchestrators []*OrchNetworkCapabilities `json:"orchestrators"`  
-}  
-  
-type OrchNetworkCapabilities struct {  
-    Address            string                     `json:"address"`  
-    LocalAddress       string                     `json:"local_address"`  
-    OrchURI            string                     `json:"orch_uri"`  
-    Capabilities       *net.Capabilities          `json:"capabilities"`  
-    CapabilitiesPrices []*net.PriceInfo           `json:"capabilities_prices"`  
-    Hardware           []*net.HardwareInformation `json:"hardware"`  
+type NetworkCapabilities struct {
+    Orchestrators []*OrchNetworkCapabilities `json:"orchestrators"`
+}
+
+type OrchNetworkCapabilities struct {
+    Address            string                     `json:"address"`
+    LocalAddress       string                     `json:"local_address"`
+    OrchURI            string                     `json:"orch_uri"`
+    Capabilities       *net.Capabilities          `json:"capabilities"`
+    CapabilitiesPrices []*net.PriceInfo           `json:"capabilities_prices"`
+    Hardware           []*net.HardwareInformation `json:"hardware"`
 }
 ```
 
@@ -308,7 +317,6 @@ Gateways may publish:
 - Availability %
 - Average inference latency
 - Failover configuration
-
 
 ## Summary
 

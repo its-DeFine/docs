@@ -7,12 +7,12 @@ icon: docker
 
 <Warning> Complete: needs review </Warning>
 
-import { StyledSteps, StyledStep } from '/snippets/components/steps.jsx';
+import { StyledSteps, StyledStep } from '/snippets/components/steps.jsx'
 import { DoubleIconLink } from '/snippets/components/links.jsx'
 
 <Badge color="green"> Dual AI & Video </Badge>
-<Icon icon="linux"/>
-<Icon icon="windows"/>
+<Icon icon="linux" />
+<Icon icon="windows" />
 
 <StyledSteps>
   {/* <StyledStep title="Pre-Installation Information">
@@ -26,22 +26,22 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
 
       By default, docker will store all volumes in the directory at
 
-        ```bash 
+        ```bash
         /var/lib/docker/volumes
         ```
 
-        This installation will create a volume called: `gateway-lpData` 
-        located at 
+        This installation will create a volume called: `gateway-lpData`
+        located at
 
         ```bash
         /var/lib/docker/volumes/gateway-lpData/_data
         ```
 
         **Container Directory**
-        
+
         Within the docker container, the volume `gateway-lpData` will be mounted at
 
-        ```bash 
+        ```bash
         /root/.lpData
         ```
       </Tab>
@@ -49,11 +49,11 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
       For On-Chain Gateways, you will need to create a directory for your wallet
 
         ```bash
-        # Create keystore directory  
-        mkdir -p gateway-lpData/keystore  
-          
-        # Copy your Ethereum keystore files to gateway-lpData/keystore/  
-        # Create password file with your Ethereum password  
+        # Create keystore directory
+        mkdir -p gateway-lpData/keystore
+
+        # Copy your Ethereum keystore files to gateway-lpData/keystore/
+        # Create password file with your Ethereum password
         echo "your_password" > gateway-lpData/password.txt
         ```
       </Tab>
@@ -61,29 +61,29 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
       For AI gateways, you will need to create a directory for AI models & pipelines
 
         ```bash
-          # AI keystore directory  
-          mkdir -p ai-gateway-lpData/keystore  
-          # AI Model directory  
-          mkdir -p models  
+          # AI keystore directory
+          mkdir -p ai-gateway-lpData/keystore
+          # AI Model directory
+          mkdir -p models
         ```
       </Tab>
     </Tabs>
 
   </StyledStep> */}
   <StyledStep title="Install Docker">
-      <Tip> If docker is already installed at or above version 20.10.x, you can **skip this step**.</Tip> 
+      <Tip> If docker is already installed at or above version 20.10.x, you can **skip this step**.</Tip>
 
       You can check your version by running
       ```bash
       docker --version
       ```
- 
+
       <Tabs>
         <Tab title ="Update Docker">
             If you have an older version of Docker installed - you will need to update the Docker Engine and CLI.
 
             Follow the instructions for your OS and Docker type in the [Docker Docs](https://docs.docker.com/) to install the latest version of Docker or follow the terminal command guide below:
-            <Expandable title=">_ Update Docker">    
+            <Expandable title=">_ Update Docker">
             **Linux**
             1. Update package lists
             ```bash
@@ -99,19 +99,19 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
             ```
 
             **Docker Desktop (Windows & MacOS)**
-            1. Use the GUI 
+            1. Use the GUI
 
               Open Application and go to `Settings > Software Updates` menu
 
             2. Use the CLI
             ```bash
-            docker desktop update 
+            docker desktop update
             ```
             </Expandable>
         </Tab>
           <Tab title ="Install Docker">
             If docker is not installed, follow the instructions for your OS in the [Docker installation guide](https://app.docker.com/) to install Docker Engine & CLI or follow the (non-canonical) quick guide below:
-            <Expandable title=">_ Install Docker">   
+            <Expandable title=">_ Install Docker">
             **Linux**
             1. Update package lists & install dependencies
             ```bash
@@ -135,7 +135,7 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
             ```bash
               sudo apt-get update
               sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-            ``` 
+            ```
             3. Verify the installation
             ```bash
               docker --version
@@ -145,12 +145,13 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
             ```
 
             **Windows & MacOS**
-            1. Download Docker Desktop for [Mac](https://docs.docker.com/desktop/install/mac-install/) 
+            1. Download Docker Desktop for [Mac](https://docs.docker.com/desktop/install/mac-install/)
             or [Windows](https://docs.docker.com/desktop/install/windows-install/)
             2. Follow the instructions in the installer
-            </Expandable> 
+            </Expandable>
         </Tab>
       </Tabs>
+
   </StyledStep>
   {/* <StyledStep title="Pull Livepeer Docker Image ">
     Livepeer hosts a public docker image for the Livepeer Gateway. 
@@ -163,7 +164,7 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
 
     <Tabs>
       <Tab title="Pull Livepeer Docker Image">
-        Fetch the latest <DoubleIconLink label="Livepeer Docker image" href="https://hub.docker.com/r/livepeer/go-livepeer" iconLeft="docker" /> with the following command     
+        Fetch the latest <DoubleIconLink label="Livepeer Docker image" href="https://hub.docker.com/r/livepeer/go-livepeer" iconLeft="docker" /> with the following command
         ```bash
         docker pull livepeer/go-livepeer:master
         ```
@@ -186,16 +187,16 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
       Copy, paste & save the following volume for your Gateway mode
       <Tabs>
       <Tab title="On-Chain Volume">
-        In onchain mode, the gateway requires an ETH wallet to pay for services. 
+        In onchain mode, the gateway requires an ETH wallet to pay for services.
         See the [Fund Gateway Guide](/v2/pages/04_gateways/run-a-gateway/fund/fund-gateway) for more information.]
 
         Ensure you have a directory for your wallet:
         ```bash
-          # Create keystore directory  
-          mkdir -p gateway-lpData/keystore  
-            
-          # Copy your Ethereum keystore files to gateway-lpData/keystore/  
-          # Create password file with your Ethereum password  
+          # Create keystore directory
+          mkdir -p gateway-lpData/keystore
+
+          # Copy your Ethereum keystore files to gateway-lpData/keystore/
+          # Create password file with your Ethereum password
           echo "your_password" > gateway-lpData/password.txt
         ```
 
@@ -205,36 +206,36 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
         ```bash
           version: '3.9'
 
-          services:  
-            gateway:        
-              image: livepeer/go-livepeer:master  
-              container_name: "gateway"  
-              hostname: "gateway"  
-              ports:  
-                - 1935:1935  
-                - 8935:8935  
-                - 5935:5935  # CLI port  
-              volumes:  
-                - gateway-lpData:/root/.lpData  
-              command: '-ethUrl=<YOUR ARB RPC URL>   
-                        -ethKeystorePath=/root/.lpData/keystore   
-                        -ethAcctAddr=<YOUR_ETH_ADDRESS>  
-                        -ethPassword=/root/.lpData/password.txt  
-                        -network=arbitrum-one-mainnet   
-                        -cliAddr=0.0.0.0:5935  
-                        -gateway  
-                        -monitor=true  
-                        -v=6  
-                        -blockPollingInterval=20  
-                        -maxPricePerUnit=300  
-                        -pixelsPerUnit=1  
-                        -rtmpAddr=0.0.0.0:1935  
-                        -httpAddr=0.0.0.0:8935  
-                        -orchAddr=<ORCHESTRATOR_ADDRESSES>  
-                        -transcodingOptions=P240p30fps16x9,P360p30fps16x9'  
-          
-          volumes:  
-            gateway-lpData:  
+          services:
+            gateway:
+              image: livepeer/go-livepeer:master
+              container_name: "gateway"
+              hostname: "gateway"
+              ports:
+                - 1935:1935
+                - 8935:8935
+                - 5935:5935  # CLI port
+              volumes:
+                - gateway-lpData:/root/.lpData
+              command: '-ethUrl=<YOUR ARB RPC URL>
+                        -ethKeystorePath=/root/.lpData/keystore
+                        -ethAcctAddr=<YOUR_ETH_ADDRESS>
+                        -ethPassword=/root/.lpData/password.txt
+                        -network=arbitrum-one-mainnet
+                        -cliAddr=0.0.0.0:5935
+                        -gateway
+                        -monitor=true
+                        -v=6
+                        -blockPollingInterval=20
+                        -maxPricePerUnit=300
+                        -pixelsPerUnit=1
+                        -rtmpAddr=0.0.0.0:1935
+                        -httpAddr=0.0.0.0:8935
+                        -orchAddr=<ORCHESTRATOR_ADDRESSES>
+                        -transcodingOptions=P240p30fps16x9,P360p30fps16x9'
+
+          volumes:
+            gateway-lpData:
               external: true
 
           ```
@@ -246,9 +247,9 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
         Ensure you have a directory for AI models & keystore
 
         ```bash
-          # Create directories  
-          mkdir -p ai-gateway-lpData/keystore  
-          mkdir -p models  
+          # Create directories
+          mkdir -p ai-gateway-lpData/keystore
+          mkdir -p models
         ```
 
         Then copy, paste & save this `docker-compose.yml`
@@ -256,42 +257,42 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
       ```bash
         version: '3.9'
 
-        services:  
-          ai-gateway:        
-            image: livepeer/go-livepeer:master  
-            container_name: "ai-gateway"  
-            hostname: "ai-gateway"  
-            ports:  
-              - 8935:8935  
-              - 5935:5935  
-            volumes:  
-              - ai-gateway-lpData:/root/.lpData  
-              - ./aiModels.json:/root/.lpData/aiModels.json  
-              - ./models:/root/.lpData/models  
-            command: '-ethUrl=<YOUR ARB RPC URL>   
-                      -ethKeystorePath=/root/.lpData/keystore   
-                      -ethAcctAddr=<YOUR_ETH_ADDRESS>  
-                      -ethPassword=/root/.lpData/password.txt  
-                      -network=arbitrum-one-mainnet   
-                      -cliAddr=0.0.0.0:5935  
-                      -gateway  
-                      -httpIngest  
-                      -aiServiceRegistry  
-                      -monitor=true  
-                      -v=6  
-                      -blockPollingInterval=20  
-                      -maxPricePerCapability={"capabilities_prices": [{"pipeline": "text-to-image", "model_id": "stabilityai/sd-turbo", "price_per_unit": 1000}]}  
-                      -httpAddr=0.0.0.0:8935  
-                      -orchAddr=<ORCHESTRATOR_ADDRESSES>  
-                      -aiModels=/root/.lpData/aiModels.json  
-                      -aiModelsDir=/root/.lpData/models  
-                      -livePaymentInterval=5s'  
-        volumes:  
-          ai-gateway-lpData:  
+        services:
+          ai-gateway:
+            image: livepeer/go-livepeer:master
+            container_name: "ai-gateway"
+            hostname: "ai-gateway"
+            ports:
+              - 8935:8935
+              - 5935:5935
+            volumes:
+              - ai-gateway-lpData:/root/.lpData
+              - ./aiModels.json:/root/.lpData/aiModels.json
+              - ./models:/root/.lpData/models
+            command: '-ethUrl=<YOUR ARB RPC URL>
+                      -ethKeystorePath=/root/.lpData/keystore
+                      -ethAcctAddr=<YOUR_ETH_ADDRESS>
+                      -ethPassword=/root/.lpData/password.txt
+                      -network=arbitrum-one-mainnet
+                      -cliAddr=0.0.0.0:5935
+                      -gateway
+                      -httpIngest
+                      -aiServiceRegistry
+                      -monitor=true
+                      -v=6
+                      -blockPollingInterval=20
+                      -maxPricePerCapability={"capabilities_prices": [{"pipeline": "text-to-image", "model_id": "stabilityai/sd-turbo", "price_per_unit": 1000}]}
+                      -httpAddr=0.0.0.0:8935
+                      -orchAddr=<ORCHESTRATOR_ADDRESSES>
+                      -aiModels=/root/.lpData/aiModels.json
+                      -aiModelsDir=/root/.lpData/models
+                      -livePaymentInterval=5s'
+        volumes:
+          ai-gateway-lpData:
             external: true
         ```
 
-        </Expandable> 
+        </Expandable>
 
         <Badge color="green"> Dual AI & Video </Badge> `docker-compose.yml`
         <Expandable title="dual docker-compose.yml">
@@ -299,53 +300,53 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
         Ensure you have a directory for AI models & keystore
 
         ```bash
-          # Create directories  
-          mkdir -p ai-gateway-lpData/keystore  
-          mkdir -p models  
+          # Create directories
+          mkdir -p ai-gateway-lpData/keystore
+          mkdir -p models
         ```
 
         Then copy, paste & save this `docker-compose.yml`
-  
-        ```bash
-        version: '3.9'  
-  
-        services:  
-          gateway:        
-            image: livepeer/go-livepeer:master  
-            container_name: "gateway"  
-            hostname: "gateway"  
-            ports:  
-              - 1935:1935  
-              - 8935:8935  
-              - 5935:5935  
-            volumes:  
-              - gateway-lpData:/root/.lpData  
-              - ./aiModels.json:/root/.lpData/aiModels.json  
-              - ./models:/root/.lpData/models  
-            command: '-ethUrl=<YOUR ARB RPC URL>   
-                      -ethKeystorePath=/root/.lpData/keystore   
-                      -ethAcctAddr=<YOUR_ETH_ADDRESS>  
-                      -ethPassword=/root/.lpData/password.txt  
-                      -network=arbitrum-one-mainnet   
-                      -cliAddr=0.0.0.0:5935  
-                      -gateway  
-                      -httpIngest  
-                      -monitor=true  
-                      -v=6  
-                      -blockPollingInterval=20  
-                      -maxPricePerUnit=300  
-                      -maxPricePerCapability={"capabilities_prices": [{"pipeline": "text-to-image", "model_id": "stabilityai/sd-turbo", "price_per_unit": 1000}]}  
-                      -pixelsPerUnit=1  
-                      -rtmpAddr=0.0.0.0:1935  
-                      -httpAddr=0.0.0.0:8935  
-                      -orchAddr=<ORCHESTRATOR_ADDRESSES>  
-                      -transcodingOptions=P240p30fps16x9,P360p30fps16x9  
-                      -aiModels=/root/.lpData/aiModels.json  
-                      -aiModelsDir=/root/.lpData/models  
-                      -aiServiceRegistry'  
 
-        volumes:  
-          gateway-lpData:  
+        ```bash
+        version: '3.9'
+
+        services:
+          gateway:
+            image: livepeer/go-livepeer:master
+            container_name: "gateway"
+            hostname: "gateway"
+            ports:
+              - 1935:1935
+              - 8935:8935
+              - 5935:5935
+            volumes:
+              - gateway-lpData:/root/.lpData
+              - ./aiModels.json:/root/.lpData/aiModels.json
+              - ./models:/root/.lpData/models
+            command: '-ethUrl=<YOUR ARB RPC URL>
+                      -ethKeystorePath=/root/.lpData/keystore
+                      -ethAcctAddr=<YOUR_ETH_ADDRESS>
+                      -ethPassword=/root/.lpData/password.txt
+                      -network=arbitrum-one-mainnet
+                      -cliAddr=0.0.0.0:5935
+                      -gateway
+                      -httpIngest
+                      -monitor=true
+                      -v=6
+                      -blockPollingInterval=20
+                      -maxPricePerUnit=300
+                      -maxPricePerCapability={"capabilities_prices": [{"pipeline": "text-to-image", "model_id": "stabilityai/sd-turbo", "price_per_unit": 1000}]}
+                      -pixelsPerUnit=1
+                      -rtmpAddr=0.0.0.0:1935
+                      -httpAddr=0.0.0.0:8935
+                      -orchAddr=<ORCHESTRATOR_ADDRESSES>
+                      -transcodingOptions=P240p30fps16x9,P360p30fps16x9
+                      -aiModels=/root/.lpData/aiModels.json
+                      -aiModelsDir=/root/.lpData/models
+                      -aiServiceRegistry'
+
+        volumes:
+          gateway-lpData:
             external: true
     ```
       </Expandable>
@@ -364,33 +365,33 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
         <Expandable title="video docker-compose.yml">
 
         ```bash
-            version: '3.9'  
-              
-            services:    
-              gateway:          
-                image: livepeer/go-livepeer:master    
-                container_name: "gateway"    
-                hostname: "gateway"    
-                ports:    
-                  - 1935:1935    
-                  - 8935:8935    
-                  - 5935:5935  # CLI port    
-                volumes:    
-                  - gateway-lpData:/root/.lpData    
-                command: '-network offchain    
-                          -cliAddr=0.0.0.0:5935    
-                          -gateway    
-                          -monitor=true    
-                          -v=6    
-                          -maxPricePerUnit=300    
-                          -pixelsPerUnit=1    
-                          -rtmpAddr=0.0.0.0:1935    
-                          -httpAddr=0.0.0.0:8935    
-                          -orchAddr=<ORCHESTRATOR_ADDRESSES>    
-                          -transcodingOptions=P240p30fps16x9,P360p30fps16x9'    
-              
-            volumes:    
-              gateway-lpData:    
+            version: '3.9'
+
+            services:
+              gateway:
+                image: livepeer/go-livepeer:master
+                container_name: "gateway"
+                hostname: "gateway"
+                ports:
+                  - 1935:1935
+                  - 8935:8935
+                  - 5935:5935  # CLI port
+                volumes:
+                  - gateway-lpData:/root/.lpData
+                command: '-network offchain
+                          -cliAddr=0.0.0.0:5935
+                          -gateway
+                          -monitor=true
+                          -v=6
+                          -maxPricePerUnit=300
+                          -pixelsPerUnit=1
+                          -rtmpAddr=0.0.0.0:1935
+                          -httpAddr=0.0.0.0:8935
+                          -orchAddr=<ORCHESTRATOR_ADDRESSES>
+                          -transcodingOptions=P240p30fps16x9,P360p30fps16x9'
+
+            volumes:
+              gateway-lpData:
                 external: true
 
           ```
@@ -408,55 +409,55 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
         First, create a directory for AI models & pipelines
 
         ```bash
-          # Create directories  
-          mkdir -p ai-gateway-lpData/keystore  
-          mkdir -p models  
+          # Create directories
+          mkdir -p ai-gateway-lpData/keystore
+          mkdir -p models
         ```
 
         Then copy, paste & save this `docker-compose.yml`
 
       ```bash
-          version: '3.9'  
-    
-          services:  
-            ai-gateway:        
-              image: livepeer/go-livepeer:master  
-              container_name: "ai-gateway"  
-              hostname: "ai-gateway"  
-              ports:  
-                - 8935:8935  
-                - 5935:5935  
-              volumes:  
-                - ai-gateway-lpData:/root/.lpData  
-                - ./aiModels.json:/root/.lpData/aiModels.json  
-                - ./models:/root/.lpData/models  
-              command: '-network offchain   
-                        -cliAddr=0.0.0.0:5935  
-                        -gateway  
-                        -httpIngest  
-                        -aiServiceRegistry  
-                        -monitor=true  
-                        -v=6  
-                        -maxPricePerCapability={"capabilities_prices": [{"pipeline": "text-to-image", "model_id": "stabilityai/sd-turbo", "price_per_unit": 1000}]}  
-                        -httpAddr=0.0.0.0:8935  
-                        -orchAddr=<ORCHESTRATOR_ADDRESSES>  
-                        -aiModels=/root/.lpData/aiModels.json  
-                        -aiModelsDir=/root/.lpData/models  
-                        -livePaymentInterval=5s'  
-            
-          volumes:  
-            ai-gateway-lpData:  
+          version: '3.9'
+
+          services:
+            ai-gateway:
+              image: livepeer/go-livepeer:master
+              container_name: "ai-gateway"
+              hostname: "ai-gateway"
+              ports:
+                - 8935:8935
+                - 5935:5935
+              volumes:
+                - ai-gateway-lpData:/root/.lpData
+                - ./aiModels.json:/root/.lpData/aiModels.json
+                - ./models:/root/.lpData/models
+              command: '-network offchain
+                        -cliAddr=0.0.0.0:5935
+                        -gateway
+                        -httpIngest
+                        -aiServiceRegistry
+                        -monitor=true
+                        -v=6
+                        -maxPricePerCapability={"capabilities_prices": [{"pipeline": "text-to-image", "model_id": "stabilityai/sd-turbo", "price_per_unit": 1000}]}
+                        -httpAddr=0.0.0.0:8935
+                        -orchAddr=<ORCHESTRATOR_ADDRESSES>
+                        -aiModels=/root/.lpData/aiModels.json
+                        -aiModelsDir=/root/.lpData/models
+                        -livePaymentInterval=5s'
+
+          volumes:
+            ai-gateway-lpData:
               external: true
 
         ```
 
-        #### Notes 
-        - `-aiServiceRegistry` enables AI service registry functionality 
+        #### Notes
+        - `-aiServiceRegistry` enables AI service registry functionality
         - `-httpIngest` required for AI HTTP endpoints livepeer.go:124
         - `-aiModels` and `-aiModelsDir` configure AI model support
         - AI Processing: HTTP endpoints for AI models on `port 8935`
 
-        </Expandable> 
+        </Expandable>
 
         <Badge color="green"> Dual AI & Video </Badge> `docker-compose.yml`
         <Expandable title="dual docker-compose.yml">
@@ -464,46 +465,46 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
         Ensure you have a directory for AI models & keystore
 
         ```bash
-          # Create directories  
-          mkdir -p ai-gateway-lpData/keystore  
-          mkdir -p models  
+          # Create directories
+          mkdir -p ai-gateway-lpData/keystore
+          mkdir -p models
         ```
 
         Then copy, paste & save this `docker-compose.yml`
 
       ```bash
-          services:  
-            dual-gateway:        
-              image: livepeer/go-livepeer:master  
-              container_name: "dual-gateway"  
-              hostname: "dual-gateway"  
-              ports:  
-                - 1935:1935  # RTMP for video ingest  
-                - 8935:8935  # HTTP API for both video and AI  
-                - 5935:5935  # CLI port  
-              volumes:  
-                - dual-gateway-lpData:/root/.lpData  
-                - ./aiModels.json:/root/.lpData/aiModels.json  
-                - ./models:/root/.lpData/models  
-              command: '-network offchain   
-                        -cliAddr=0.0.0.0:5935  
-                        -gateway  
-                        -httpIngest  
-                        -aiServiceRegistry  
-                        -monitor=true  
-                        -v=6  
-                        -maxPricePerUnit=300  
-                        -maxPricePerCapability={"capabilities_prices": [{"pipeline": "text-to-image", "model_id": "stabilityai/sd-turbo", "price_per_unit": 1000}]}  
-                        -rtmpAddr=0.0.0.0:1935  
-                        -httpAddr=0.0.0.0:8935  
-                        -orchAddr=<ORCHESTRATOR_ADDRESSES>  
-                        -transcodingOptions=P240p30fps16x9,P360p30fps16x9  
-                        -aiModels=/root/.lpData/aiModels.json  
-                        -aiModelsDir=/root/.lpData/models  
-                        -livePaymentInterval=5s'  
-            
-          volumes:  
-            dual-gateway-lpData:  
+          services:
+            dual-gateway:
+              image: livepeer/go-livepeer:master
+              container_name: "dual-gateway"
+              hostname: "dual-gateway"
+              ports:
+                - 1935:1935  # RTMP for video ingest
+                - 8935:8935  # HTTP API for both video and AI
+                - 5935:5935  # CLI port
+              volumes:
+                - dual-gateway-lpData:/root/.lpData
+                - ./aiModels.json:/root/.lpData/aiModels.json
+                - ./models:/root/.lpData/models
+              command: '-network offchain
+                        -cliAddr=0.0.0.0:5935
+                        -gateway
+                        -httpIngest
+                        -aiServiceRegistry
+                        -monitor=true
+                        -v=6
+                        -maxPricePerUnit=300
+                        -maxPricePerCapability={"capabilities_prices": [{"pipeline": "text-to-image", "model_id": "stabilityai/sd-turbo", "price_per_unit": 1000}]}
+                        -rtmpAddr=0.0.0.0:1935
+                        -httpAddr=0.0.0.0:8935
+                        -orchAddr=<ORCHESTRATOR_ADDRESSES>
+                        -transcodingOptions=P240p30fps16x9,P360p30fps16x9
+                        -aiModels=/root/.lpData/aiModels.json
+                        -aiModelsDir=/root/.lpData/models
+                        -livePaymentInterval=5s'
+
+          volumes:
+            dual-gateway-lpData:
               external: true
 
         ```
@@ -516,7 +517,7 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
 
         **AI-specific**
         - AI Processing: HTTP endpoints for AI models on `port 8935`
-        - `-aiServiceRegistry` enables AI service registry functionality 
+        - `-aiServiceRegistry` enables AI service registry functionality
         - `-httpIngest` required for AI HTTP endpoints livepeer.go:124
         - -`aiModels` and `-aiModelsDir` configure AI model support
         </Expandable>
@@ -525,6 +526,7 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
 
       </Tab>
     </Tabs>
+
   </StyledStep> */}
   <StyledStep title="Pull Livepeer Docker image">
       Fetch the latest <DoubleIconLink label="Livepeer Docker image" href="https://hub.docker.com/r/livepeer/go-livepeer" iconLeft="docker" /> with the following command     
@@ -541,7 +543,7 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
 
     - **On-chain** files: `~/.lpData/arbitrum-one-mainnet`
     - **Off-chain** files: `~/.lpData/offchain`
-    - **AI** files: `~/.ai-gateway-lpData` 
+    - **AI** files: `~/.ai-gateway-lpData`
     <Expandable title="Volume Structure Differences">
       <div style={{ overflowX: 'auto' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '14px' }}>
@@ -590,7 +592,6 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
 
     <Tip>Volume names can be customised as desired to avoid conflicts between different setups or Gateway instances (e.g., `ai-gateway-lpData`, `dual-gateway-lpData`)</Tip>
 
-
   </StyledStep>
 </StyledSteps>
 
@@ -601,26 +602,28 @@ import { DoubleIconLink } from '/snippets/components/links.jsx'
   horizontal
   arrow
 >
-Jump to the configuration guide to see configuration options for the Gateway
+  Jump to the configuration guide to see configuration options for the Gateway
 </Card>
 
+<br />
 
-
-<br/>
-
-<Danger> I think the volumes section belongs in configuration not installation </Danger>
+<Danger>
+  {' '}
+  I think the volumes section belongs in configuration not installation{' '}
+</Danger>
 
 <Expandable title="Really only 2 options for install (Docker Hub or Source)">
     Pull from Docker Hub (recommended) or build from source
 
     You can also build locally instead of pulling from Docker Hub:
 
-    **Clone and build**  
-    git clone https://github.com/livepeer/go-livepeer.git  
-    cd go-livepeer  
+    **Clone and build**
+    git clone https://github.com/livepeer/go-livepeer.git
+    cd go-livepeer
     make livepeer
     The Makefile shows the build process Makefile:110-112 and includes all dependencies including FFmpeg and CUDA support.
     For development, the source build gives you more flexibility to modify and test changes.
+
 </Expandable>
 
 <Expandable title="Notes on install vs Config">
@@ -649,7 +652,6 @@ Installation is a one-time setup, configuration evolves with your needs
 The Livepeer repository provides examples in the box/ directory that demonstrate different configuration patterns box.md:1-119 .
 
 </Expandable>
-
 
 <Expandable title="Create ETH Wallet-> goes in config">
 

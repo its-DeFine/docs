@@ -188,4 +188,4 @@ StreamDiffusionTD is a TouchDesigner operator that connects real-time inputs lik
 The past 18 months have been an energizing time to be in the Livepeer Ecosystem. An onchain treasury was introduced to fund public goods via community governance, the community has coalesced around Livepeer’s opportunity to be the leading infrastructure for realtime AI video, and fees and usage of the network have been steadily increasing due to this focus. The Livepeer Foundation has recently launched to steward the 10+ entities in `,
     readingTime: 5,
   },
-]
+];

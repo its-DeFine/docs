@@ -7,7 +7,7 @@ export const YouTubeVideo = ({ embedUrl, title, hint, caption }) => {
       {...(caption
         ? {
             caption: (
-              <span style={{ display: 'flex', alignItems: 'center' }}>
+              <span style={{ display: "flex", alignItems: "center" }}>
                 <Icon icon="microphone" color="grey" />
                 <span style={{ marginLeft: 8 }}>{caption}</span>
               </span>
@@ -23,8 +23,8 @@ export const YouTubeVideo = ({ embedUrl, title, hint, caption }) => {
         allowFullScreen
       />
     </Frame>
-  )
-}
+  );
+};
 
 //Self-hosted video
 // ;<video
@@ -41,12 +41,12 @@ export const YouTubeVideo = ({ embedUrl, title, hint, caption }) => {
 // <Frame caption={title} hint="hint"></Frame>
 
 export const CardVideo = ({ embedUrl, title }) => {
-  console.log('Props:', { embedUrl, title }) // Add this
+  console.log("Props:", { embedUrl, title }); // Add this
   return (
     <Card>
       <iframe
         className="w-full aspect-video rounded-xl"
-        style={{ aspectRatio: '16/9' }}
+        style={{ aspectRatio: "16/9" }}
         src={embedUrl}
         title={title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -59,5 +59,5 @@ export const CardVideo = ({ embedUrl, title }) => {
         </span>
       </span>
     </Card>
-  )
-}
+  );
+};

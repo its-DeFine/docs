@@ -1,11 +1,13 @@
 ---
 sidebarTitle: 'Gateways Vs. Orchestrators'
 title: 'Gateways Vs. Orchestrators: What’s the Difference?'
-description: "Livepeer uses two core node types—**Gateways** and **Orchestrators**—that work together to provide real-time AI video compute at scale. Although closely connected, they serve entirely different purposes. This page breaks down how they differ and why both roles matter for a decentralized compute marketplace."
+description: 'Livepeer uses two core node types—**Gateways** and **Orchestrators**—that work together to provide real-time AI video compute at scale. Although closely connected, they serve entirely different purposes. This page breaks down how they differ and why both roles matter for a decentralized compute marketplace.'
+---
 
 ---
----
+
 ## Overview
+
 In brief:
 
 <Callout >
@@ -15,7 +17,6 @@ In brief:
 <Icon icon="microchip"/> **Orchestrators compute.**
 </div>
 </Callout>
-
 
 Together, they form the backbone of the Livepeer AI video pipeline.
 
@@ -31,13 +32,10 @@ sequenceDiagram
     GW->>App: Send results back to user
 ```
 
-
-
 | Role             | Function                                       | Performs GPU Work? | External-Facing? |
 | ---------------- | ---------------------------------------------- | ------------------ | ---------------- |
 | **Gateway**      | Job intake, pricing, routing, capability match | ❌ No              | ✅ Yes           |
 | **Orchestrator** | GPU compute, inference, transcoding, BYOC      | ✅ Yes             | ❌ No            |
-
 
 ## Gateway Responsibilities
 
@@ -71,4 +69,3 @@ They provide:
 - Performance guarantees
 
 They do not expose external APIs directly—Gateways handle that.
-

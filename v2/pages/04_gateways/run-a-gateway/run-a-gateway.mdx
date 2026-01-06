@@ -7,28 +7,31 @@ description: "Connect Applications with Video & AI services by running your own 
 <Warning> Complete: needs review. Steps need update </Warning>
 
 import { GotoLink } from '/snippets/components/links.jsx'
-import { ScrollableDiagram } from "/snippets/components/zoomable-diagram.jsx"
+import { ScrollableDiagram } from '/snippets/components/zoomable-diagram.jsx'
 import { StyledSteps, StyledStep } from '/snippets/components/steps.jsx'
 
 <br />
-## Introduction
-Gateways are essential infrastructure in the Livepeer network. 
-They provide the service coordination layer (routing & verification) that connects applications to the decentralized GPU compute layer (DePIN). 
-This guide explains the requirements, setup steps, and best practices for running a Gateway node."
+## Introduction Gateways are essential infrastructure in the Livepeer network. They
+provide the service coordination layer (routing & verification) that connects applications
+to the decentralized GPU compute layer (DePIN). This guide explains the requirements,
+setup steps, and best practices for running a Gateway node."
 
 ## Gateway Modes
 
-You can run a gateway 
-  - <Icon icon="floppy-disk" size={18} /> **Off-chain** -> dev or local mode
-  - <Icon icon="link" size={18} /> **On-chain** -> production mode connected to the blockchain-based Livepeer network (on Arbitrum). 
+You can run a gateway
+
+- <Icon icon="floppy-disk" size={18} /> **Off-chain** -> dev or local mode
+- <Icon icon="link" size={18} /> **On-chain** -> production mode connected to the
+  blockchain-based Livepeer network (on Arbitrum).{' '}
 
 ## Gateway Capabilities
 
-You can run a Gateway for: 
-  - <Badge color= "blue"> Video Only </Badge> -> traditional transcoding services
-  - <Badge color= "purple"> AI Only </Badge> -> AI inference services
-  - <Badge color= "green"> Dual: AI & Video </Badge> -> both video transcoding and AI inference services
+You can run a Gateway for:
 
+- <Badge color="blue"> Video Only </Badge> -> traditional transcoding services
+- <Badge color="purple"> AI Only </Badge> -> AI inference services
+- <Badge color="green"> Dual: AI & Video </Badge> -> both video transcoding and AI
+  inference services
 
 ## Gateway Architecture
 
@@ -90,6 +93,7 @@ flowchart LR
     style JOBS fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
     style ORCH fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
     style OUTPUTS fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
+
 ```
 </ScrollableDiagram>
 
@@ -140,7 +144,7 @@ flowchart LR
   />
 </div>
 
-<div style={{ marginTop: '-2.5rem', display: 'flex', justifyContent: 'center' }}> 
+<div style={{ marginTop: '-2.5rem', display: 'flex', justifyContent: 'center' }}>
 <StyledSteps>
   <StyledStep title="Requirements Check">
     Check hardware, network, and software requirements. <br/>
@@ -187,7 +191,7 @@ flowchart LR
 </StyledSteps>
 
 </div>
-</Columns> 
+</Columns>
 
 ## Related Pages
 <Card
@@ -201,7 +205,7 @@ flowchart LR
     <GotoLink
       label="Read the 'Gateway Economics' section"
       relativePath="../about-gateways/gateway-economics"
-    />   
+    />
 </Card>
 <Card
     title="Gateway Installation"
@@ -214,5 +218,6 @@ flowchart LR
     <GotoLink
       label="Get Started with Installation"
       relativePath="../run-a-gateway/install"
-    />   
+    />
 </Card>
+```

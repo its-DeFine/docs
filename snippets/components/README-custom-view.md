@@ -1,6 +1,7 @@
 # Custom View Dropdown Component
 
-A custom, positionable dropdown component that mimics Mintlify's View component but gives you full control over styling and positioning.
+A custom, positionable dropdown component that mimics Mintlify's View component
+but gives you full control over styling and positioning.
 
 ## Features
 
@@ -16,34 +17,34 @@ A custom, positionable dropdown component that mimics Mintlify's View component 
 ### Basic Example
 
 ```jsx
-import { CustomViewDropdown } from '/snippets/components/custom-view-dropdown.jsx';
+import { CustomViewDropdown } from "/snippets/components/custom-view-dropdown.jsx";
 
 <CustomViewDropdown
   views={[
     {
-      title: 'Docker',
-      icon: 'docker',
-      iconType: 'solid',
+      title: "Docker",
+      icon: "docker",
+      iconType: "solid",
       content: (
         <>
           <h2>Docker Setup</h2>
           <p>Your Docker content here...</p>
         </>
-      )
+      ),
     },
     {
-      title: 'Linux/Mac',
-      icon: 'linux',
-      iconType: 'solid',
+      title: "Linux/Mac",
+      icon: "linux",
+      iconType: "solid",
       content: (
         <>
           <h2>Linux/Mac Setup</h2>
           <p>Your Linux/Mac content here...</p>
         </>
-      )
-    }
+      ),
+    },
   ]}
-/>
+/>;
 ```
 
 ### Position Options
@@ -84,14 +85,20 @@ Then use it:
 ## Props
 
 ### `views` (required)
+
 Array of view objects. Each view object has:
+
 - `title` (string, required): Display name in dropdown
-- `icon` (string, optional): Font Awesome icon name (e.g., 'docker', 'linux', 'windows')
-- `iconType` (string, optional): Font Awesome icon type ('solid', 'regular', 'brands'). Default: 'solid'
+- `icon` (string, optional): Font Awesome icon name (e.g., 'docker', 'linux',
+  'windows')
+- `iconType` (string, optional): Font Awesome icon type ('solid', 'regular',
+  'brands'). Default: 'solid'
 - `content` (JSX, required): The content to display when this view is selected
 
 ### `position` (optional)
+
 String that controls positioning. Options:
+
 - `'inline'` (default): Appears inline with content
 - `'top-right'`: Fixed to top-right corner
 - `'top-left'`: Fixed to top-left corner
@@ -100,6 +107,7 @@ String that controls positioning. Options:
 ## Styling
 
 The component uses your Livepeer brand colors:
+
 - Primary: `#2b9a66`
 - Dark: `#18794e`
 
@@ -126,6 +134,7 @@ You can override styles in your `style.css`:
 ## Converting from Mintlify View Components
 
 **Before (Mintlify View):**
+
 ```jsx
 <View title="Docker" icon="docker" iconType="solid">
   ## Docker Setup
@@ -139,31 +148,22 @@ You can override styles in your `style.css`:
 ```
 
 **After (Custom View Dropdown):**
+
 ```jsx
 <CustomViewDropdown
   views={[
     {
-      title: 'Docker',
-      icon: 'docker',
-      iconType: 'solid',
-      content: (
-        <>
-          ## Docker Setup
-          Content here...
-        </>
-      )
+      title: "Docker",
+      icon: "docker",
+      iconType: "solid",
+      content: <>## Docker Setup Content here...</>,
     },
     {
-      title: 'Linux/Mac',
-      icon: 'linux',
-      iconType: 'solid',
-      content: (
-        <>
-          ## Linux/Mac Setup
-          Content here...
-        </>
-      )
-    }
+      title: "Linux/Mac",
+      icon: "linux",
+      iconType: "solid",
+      content: <>## Linux/Mac Setup Content here...</>,
+    },
   ]}
 />
 ```
@@ -171,4 +171,3 @@ You can override styles in your `style.css`:
 ## Example
 
 See `/snippets/examples/custom-view-example.mdx` for a complete working example.
-

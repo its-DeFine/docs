@@ -5,15 +5,15 @@ info:
   description: An application to run AI pipelines
   version: 0.0.0
 servers:
-- url: https://dream-gateway.livepeer.cloud
-  description: Livepeer Cloud Community Gateway
-- url: https://livepeer.studio/api/beta/generate
-  description: Livepeer Studio Gateway
+  - url: https://dream-gateway.livepeer.cloud
+    description: Livepeer Cloud Community Gateway
+  - url: https://livepeer.studio/api/beta/generate
+    description: Livepeer Studio Gateway
 paths:
   /text-to-image:
     post:
       tags:
-      - generate
+        - generate
       summary: Text To Image
       description: Generate images from text prompts.
       operationId: genTextToImage
@@ -21,47 +21,47 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TextToImageParams'
+              $ref: "#/components/schemas/TextToImageParams"
         required: true
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ImageResponse'
+                $ref: "#/components/schemas/ImageResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '401':
+                $ref: "#/components/schemas/HTTPError"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '500':
+                $ref: "#/components/schemas/HTTPError"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '422':
+                $ref: "#/components/schemas/HTTPError"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
       security:
-      - HTTPBearer: []
+        - HTTPBearer: []
       x-speakeasy-name-override: textToImage
   /image-to-image:
     post:
       tags:
-      - generate
+        - generate
       summary: Image To Image
       description: Apply image transformations to a provided image.
       operationId: genImageToImage
@@ -69,47 +69,47 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_genImageToImage'
+              $ref: "#/components/schemas/Body_genImageToImage"
         required: true
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ImageResponse'
+                $ref: "#/components/schemas/ImageResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '401':
+                $ref: "#/components/schemas/HTTPError"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '500':
+                $ref: "#/components/schemas/HTTPError"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '422':
+                $ref: "#/components/schemas/HTTPError"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
       security:
-      - HTTPBearer: []
+        - HTTPBearer: []
       x-speakeasy-name-override: imageToImage
   /image-to-video:
     post:
       tags:
-      - generate
+        - generate
       summary: Image To Video
       description: Generate a video from a provided image.
       operationId: genImageToVideo
@@ -117,47 +117,47 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_genImageToVideo'
+              $ref: "#/components/schemas/Body_genImageToVideo"
         required: true
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/VideoResponse'
+                $ref: "#/components/schemas/VideoResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '401':
+                $ref: "#/components/schemas/HTTPError"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '500':
+                $ref: "#/components/schemas/HTTPError"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '422':
+                $ref: "#/components/schemas/HTTPError"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
       security:
-      - HTTPBearer: []
+        - HTTPBearer: []
       x-speakeasy-name-override: imageToVideo
   /upscale:
     post:
       tags:
-      - generate
+        - generate
       summary: Upscale
       description: Upscale an image by increasing its resolution.
       operationId: genUpscale
@@ -165,47 +165,47 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_genUpscale'
+              $ref: "#/components/schemas/Body_genUpscale"
         required: true
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ImageResponse'
+                $ref: "#/components/schemas/ImageResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '401':
+                $ref: "#/components/schemas/HTTPError"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '500':
+                $ref: "#/components/schemas/HTTPError"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '422':
+                $ref: "#/components/schemas/HTTPError"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
       security:
-      - HTTPBearer: []
+        - HTTPBearer: []
       x-speakeasy-name-override: upscale
   /audio-to-text:
     post:
       tags:
-      - generate
+        - generate
       summary: Audio To Text
       description: Transcribe audio files to text.
       operationId: genAudioToText
@@ -213,59 +213,59 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_genAudioToText'
+              $ref: "#/components/schemas/Body_genAudioToText"
         required: true
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TextResponse'
+                $ref: "#/components/schemas/TextResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '401':
+                $ref: "#/components/schemas/HTTPError"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '413':
+                $ref: "#/components/schemas/HTTPError"
+        "413":
           description: Request Entity Too Large
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '415':
+                $ref: "#/components/schemas/HTTPError"
+        "415":
           description: Unsupported Media Type
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '500':
+                $ref: "#/components/schemas/HTTPError"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '422':
+                $ref: "#/components/schemas/HTTPError"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
       security:
-      - HTTPBearer: []
+        - HTTPBearer: []
       x-speakeasy-name-override: audioToText
   /segment-anything-2:
     post:
       tags:
-      - generate
+        - generate
       summary: Segment Anything 2
       description: Segment objects in an image.
       operationId: genSegmentAnything2
@@ -273,47 +273,47 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_genSegmentAnything2'
+              $ref: "#/components/schemas/Body_genSegmentAnything2"
         required: true
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/MasksResponse'
+                $ref: "#/components/schemas/MasksResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '401':
+                $ref: "#/components/schemas/HTTPError"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '500':
+                $ref: "#/components/schemas/HTTPError"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '422':
+                $ref: "#/components/schemas/HTTPError"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
       security:
-      - HTTPBearer: []
+        - HTTPBearer: []
       x-speakeasy-name-override: segmentAnything2
   /llm:
     post:
       tags:
-      - generate
+        - generate
       summary: LLM
       description: Generate text using a language model.
       operationId: genLLM
@@ -321,46 +321,46 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LLMRequest'
+              $ref: "#/components/schemas/LLMRequest"
         required: true
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LLMResponse'
-        '400':
+                $ref: "#/components/schemas/LLMResponse"
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '401':
+                $ref: "#/components/schemas/HTTPError"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '500':
+                $ref: "#/components/schemas/HTTPError"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '422':
+                $ref: "#/components/schemas/HTTPError"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
       security:
-      - HTTPBearer: []
+        - HTTPBearer: []
       x-speakeasy-name-override: llm
   /image-to-text:
     post:
       tags:
-      - generate
+        - generate
       summary: Image To Text
       description: Transform image files to text.
       operationId: genImageToText
@@ -368,180 +368,182 @@ paths:
         content:
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Body_genImageToText'
+              $ref: "#/components/schemas/Body_genImageToText"
         required: true
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ImageToTextResponse'
+                $ref: "#/components/schemas/ImageToTextResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '401':
+                $ref: "#/components/schemas/HTTPError"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '413':
+                $ref: "#/components/schemas/HTTPError"
+        "413":
           description: Request Entity Too Large
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '500':
+                $ref: "#/components/schemas/HTTPError"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '422':
+                $ref: "#/components/schemas/HTTPError"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
       security:
-      - HTTPBearer: []
+        - HTTPBearer: []
       x-speakeasy-name-override: imageToText
   /live-video-to-video:
     post:
       tags:
-      - generate
+        - generate
       summary: Live Video To Video
-      description: Apply transformations to a live video streamed to the returned
+      description:
+        Apply transformations to a live video streamed to the returned
         endpoints.
       operationId: genLiveVideoToVideo
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/LiveVideoToVideoParams'
+              $ref: "#/components/schemas/LiveVideoToVideoParams"
         required: true
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/LiveVideoToVideoResponse'
+                $ref: "#/components/schemas/LiveVideoToVideoResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '401':
+                $ref: "#/components/schemas/HTTPError"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '500':
+                $ref: "#/components/schemas/HTTPError"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '422':
+                $ref: "#/components/schemas/HTTPError"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
       security:
-      - HTTPBearer: []
+        - HTTPBearer: []
       x-speakeasy-name-override: liveVideoToVideo
   /text-to-speech:
     post:
       tags:
-      - generate
+        - generate
       summary: Text To Speech
-      description: Generate a text-to-speech audio file based on the provided text
-        input and speaker description.
+      description:
+        Generate a text-to-speech audio file based on the provided text input
+        and speaker description.
       operationId: genTextToSpeech
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TextToSpeechParams'
+              $ref: "#/components/schemas/TextToSpeechParams"
         required: true
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AudioResponse'
+                $ref: "#/components/schemas/AudioResponse"
                 x-speakeasy-name-override: data
-        '400':
+        "400":
           description: Bad Request
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '401':
+                $ref: "#/components/schemas/HTTPError"
+        "401":
           description: Unauthorized
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '500':
+                $ref: "#/components/schemas/HTTPError"
+        "500":
           description: Internal Server Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPError'
-        '422':
+                $ref: "#/components/schemas/HTTPError"
+        "422":
           description: Validation Error
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HTTPValidationError'
+                $ref: "#/components/schemas/HTTPValidationError"
       security:
-      - HTTPBearer: []
+        - HTTPBearer: []
       x-speakeasy-name-override: textToSpeech
   /health:
     get:
       summary: Health
       operationId: health
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HealthCheck'
+                $ref: "#/components/schemas/HealthCheck"
   /hardware/info:
     get:
       summary: Hardware Info
       operationId: hardware_info
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HardwareInformation'
+                $ref: "#/components/schemas/HardwareInformation"
   /hardware/stats:
     get:
       summary: Hardware Stats
       operationId: hardware_stats
       responses:
-        '200':
+        "200":
           description: Successful Response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/HardwareStats'
+                $ref: "#/components/schemas/HardwareStats"
 components:
   schemas:
     APIError:
@@ -552,18 +554,18 @@ components:
           description: The error message.
       type: object
       required:
-      - msg
+        - msg
       title: APIError
       description: API error response model.
     AudioResponse:
       properties:
         audio:
           allOf:
-          - $ref: '#/components/schemas/MediaURL'
+            - $ref: "#/components/schemas/MediaURL"
           description: The generated audio.
       type: object
       required:
-      - audio
+        - audio
       title: AudioResponse
       description: Response model for audio generation.
     Body_genAudioToText:
@@ -577,23 +579,24 @@ components:
           type: string
           title: Model Id
           description: Hugging Face model ID used for transcription.
-          default: ''
+          default: ""
         return_timestamps:
           type: string
           title: Return Timestamps
-          description: 'Return timestamps for the transcribed text. Supported values:
-            ''sentence'', ''word'', or a string boolean (''true'' or ''false''). Default
-            is ''true'' (''sentence''). ''false'' means no timestamps. ''word'' means
-            word-based timestamps.'
-          default: 'true'
+          description:
+            "Return timestamps for the transcribed text. Supported values:
+            'sentence', 'word', or a string boolean ('true' or 'false'). Default
+            is 'true' ('sentence'). 'false' means no timestamps. 'word' means
+            word-based timestamps."
+          default: "true"
         metadata:
           type: string
           title: Metadata
           description: Additional job information to be passed to the pipeline.
-          default: '{}'
+          default: "{}"
       type: object
       required:
-      - audio
+        - audio
       title: Body_genAudioToText
     Body_genImageToImage:
       properties:
@@ -610,43 +613,48 @@ components:
           type: string
           title: Model Id
           description: Hugging Face model ID used for image generation.
-          default: ''
+          default: ""
         loras:
           type: string
           title: Loras
-          description: 'A LoRA (Low-Rank Adaptation) model and its corresponding weight
-            for image generation. Example: { "latent-consistency/lcm-lora-sdxl": 1.0,
-            "nerijs/pixel-art-xl": 1.2}.'
-          default: ''
+          description:
+            'A LoRA (Low-Rank Adaptation) model and its corresponding weight for
+            image generation. Example: { "latent-consistency/lcm-lora-sdxl":
+            1.0, "nerijs/pixel-art-xl": 1.2}.'
+          default: ""
         strength:
           type: number
           title: Strength
-          description: Degree of transformation applied to the reference image (0
-            to 1).
+          description:
+            Degree of transformation applied to the reference image (0 to 1).
           default: 0.8
         guidance_scale:
           type: number
           title: Guidance Scale
-          description: Encourages model to generate images closely linked to the text
+          description:
+            Encourages model to generate images closely linked to the text
             prompt (higher values may reduce image quality).
           default: 7.5
         image_guidance_scale:
           type: number
           title: Image Guidance Scale
-          description: Degree to which the generated image is pushed towards the initial
+          description:
+            Degree to which the generated image is pushed towards the initial
             image.
           default: 1.5
         negative_prompt:
           type: string
           title: Negative Prompt
-          description: Text prompt(s) to guide what to exclude from image generation.
+          description:
+            Text prompt(s) to guide what to exclude from image generation.
             Ignored if guidance_scale < 1.
-          default: ''
+          default: ""
         safety_check:
           type: boolean
           title: Safety Check
-          description: Perform a safety check to estimate if generated images could
-            be offensive or harmful.
+          description:
+            Perform a safety check to estimate if generated images could be
+            offensive or harmful.
           default: true
         seed:
           type: integer
@@ -655,8 +663,9 @@ components:
         num_inference_steps:
           type: integer
           title: Num Inference Steps
-          description: Number of denoising steps. More steps usually lead to higher
-            quality images but slower inference. Modulated by strength.
+          description:
+            Number of denoising steps. More steps usually lead to higher quality
+            images but slower inference. Modulated by strength.
           default: 100
         num_images_per_prompt:
           type: integer
@@ -665,8 +674,8 @@ components:
           default: 1
       type: object
       required:
-      - prompt
-      - image
+        - prompt
+        - image
       title: Body_genImageToImage
     Body_genImageToText:
       properties:
@@ -679,15 +688,15 @@ components:
           type: string
           title: Prompt
           description: Text prompt(s) to guide transformation.
-          default: ''
+          default: ""
         model_id:
           type: string
           title: Model Id
           description: Hugging Face model ID used for transformation.
-          default: ''
+          default: ""
       type: object
       required:
-      - image
+        - image
       title: Body_genImageToText
     Body_genImageToVideo:
       properties:
@@ -700,7 +709,7 @@ components:
           type: string
           title: Model Id
           description: Hugging Face model ID used for video generation.
-          default: ''
+          default: ""
         height:
           type: integer
           title: Height
@@ -719,20 +728,23 @@ components:
         motion_bucket_id:
           type: integer
           title: Motion Bucket Id
-          description: Used for conditioning the amount of motion for the generation.
-            The higher the number the more motion will be in the video.
+          description:
+            Used for conditioning the amount of motion for the generation. The
+            higher the number the more motion will be in the video.
           default: 127
         noise_aug_strength:
           type: number
           title: Noise Aug Strength
-          description: Amount of noise added to the conditioning image. Higher values
+          description:
+            Amount of noise added to the conditioning image. Higher values
             reduce resemblance to the conditioning image and increase motion.
           default: 0.02
         safety_check:
           type: boolean
           title: Safety Check
-          description: Perform a safety check to estimate if generated images could
-            be offensive or harmful.
+          description:
+            Perform a safety check to estimate if generated images could be
+            offensive or harmful.
           default: true
         seed:
           type: integer
@@ -741,12 +753,13 @@ components:
         num_inference_steps:
           type: integer
           title: Num Inference Steps
-          description: Number of denoising steps. More steps usually lead to higher
-            quality images but slower inference. Modulated by strength.
+          description:
+            Number of denoising steps. More steps usually lead to higher quality
+            images but slower inference. Modulated by strength.
           default: 25
       type: object
       required:
-      - image
+        - image
       title: Body_genImageToVideo
     Body_genSegmentAnything2:
       properties:
@@ -759,48 +772,55 @@ components:
           type: string
           title: Model Id
           description: Hugging Face model ID used for image generation.
-          default: ''
+          default: ""
         point_coords:
           type: string
           title: Point Coords
-          description: Nx2 array of point prompts to the model, where each point is
-            in (X,Y) in pixels.
+          description:
+            Nx2 array of point prompts to the model, where each point is in
+            (X,Y) in pixels.
         point_labels:
           type: string
           title: Point Labels
-          description: Labels for the point prompts, where 1 indicates a foreground
-            point and 0 indicates a background point.
+          description:
+            Labels for the point prompts, where 1 indicates a foreground point
+            and 0 indicates a background point.
         box:
           type: string
           title: Box
-          description: A length 4 array given as a box prompt to the model, in XYXY
-            format.
+          description:
+            A length 4 array given as a box prompt to the model, in XYXY format.
         mask_input:
           type: string
           title: Mask Input
-          description: A low-resolution mask input to the model, typically from a
-            previous prediction iteration, with the form 1xHxW (H=W=256 for SAM).
+          description:
+            A low-resolution mask input to the model, typically from a previous
+            prediction iteration, with the form 1xHxW (H=W=256 for SAM).
         multimask_output:
           type: boolean
           title: Multimask Output
-          description: If true, the model will return three masks for ambiguous input
+          description:
+            If true, the model will return three masks for ambiguous input
             prompts, often producing better masks than a single prediction.
           default: true
         return_logits:
           type: boolean
           title: Return Logits
-          description: If true, returns un-thresholded mask logits instead of a binary
+          description:
+            If true, returns un-thresholded mask logits instead of a binary
             mask.
           default: true
         normalize_coords:
           type: boolean
           title: Normalize Coords
-          description: If true, the point coordinates will be normalized to the range
-            [0,1], with point_coords expected to be with respect to image dimensions.
+          description:
+            If true, the point coordinates will be normalized to the range
+            [0,1], with point_coords expected to be with respect to image
+            dimensions.
           default: true
       type: object
       required:
-      - image
+        - image
       title: Body_genSegmentAnything2
     Body_genUpscale:
       properties:
@@ -817,12 +837,13 @@ components:
           type: string
           title: Model Id
           description: Hugging Face model ID used for upscaled image generation.
-          default: ''
+          default: ""
         safety_check:
           type: boolean
           title: Safety Check
-          description: Perform a safety check to estimate if generated images could
-            be offensive or harmful.
+          description:
+            Perform a safety check to estimate if generated images could be
+            offensive or harmful.
           default: true
         seed:
           type: integer
@@ -831,13 +852,14 @@ components:
         num_inference_steps:
           type: integer
           title: Num Inference Steps
-          description: Number of denoising steps. More steps usually lead to higher
-            quality images but slower inference. Modulated by strength.
+          description:
+            Number of denoising steps. More steps usually lead to higher quality
+            images but slower inference. Modulated by strength.
           default: 75
       type: object
       required:
-      - prompt
-      - image
+        - prompt
+        - image
       title: Body_genUpscale
     Chunk:
       properties:
@@ -852,8 +874,8 @@ components:
           description: The text of the chunk.
       type: object
       required:
-      - timestamp
-      - text
+        - timestamp
+        - text
       title: Chunk
       description: A chunk of text with a timestamp.
     GPUComputeInfo:
@@ -878,12 +900,12 @@ components:
           title: Minor
       type: object
       required:
-      - id
-      - name
-      - memory_total
-      - memory_free
-      - major
-      - minor
+        - id
+        - name
+        - memory_total
+        - memory_free
+        - major
+        - minor
       title: GPUComputeInfo
       description: Model for detailed GPU compute information.
     GPUUtilizationInfo:
@@ -908,30 +930,30 @@ components:
           title: Utilization Memory
       type: object
       required:
-      - id
-      - name
-      - memory_total
-      - memory_free
-      - utilization_compute
-      - utilization_memory
+        - id
+        - name
+        - memory_total
+        - memory_free
+        - utilization_compute
+        - utilization_memory
       title: GPUUtilizationInfo
       description: Model for GPU utilization statistics.
     HTTPError:
       properties:
         detail:
           allOf:
-          - $ref: '#/components/schemas/APIError'
+            - $ref: "#/components/schemas/APIError"
           description: Detailed error information.
       type: object
       required:
-      - detail
+        - detail
       title: HTTPError
       description: HTTP error response model.
     HTTPValidationError:
       properties:
         detail:
           items:
-            $ref: '#/components/schemas/ValidationError'
+            $ref: "#/components/schemas/ValidationError"
           type: array
           title: Detail
       type: object
@@ -946,14 +968,14 @@ components:
           title: Model Id
         gpu_info:
           additionalProperties:
-            $ref: '#/components/schemas/GPUComputeInfo'
+            $ref: "#/components/schemas/GPUComputeInfo"
           type: object
           title: Gpu Info
       type: object
       required:
-      - pipeline
-      - model_id
-      - gpu_info
+        - pipeline
+        - model_id
+        - gpu_info
       title: HardwareInformation
       description: Response model for GPU information.
     HardwareStats:
@@ -966,14 +988,14 @@ components:
           title: Model Id
         gpu_stats:
           additionalProperties:
-            $ref: '#/components/schemas/GPUUtilizationInfo'
+            $ref: "#/components/schemas/GPUUtilizationInfo"
           type: object
           title: Gpu Stats
       type: object
       required:
-      - pipeline
-      - model_id
-      - gpu_stats
+        - pipeline
+        - model_id
+        - gpu_stats
       title: HardwareStats
       description: Response model for real-time GPU statistics.
     HealthCheck:
@@ -981,26 +1003,26 @@ components:
         status:
           type: string
           enum:
-          - OK
-          - ERROR
-          - IDLE
+            - OK
+            - ERROR
+            - IDLE
           title: Status
           description: The health status of the pipeline
       type: object
       required:
-      - status
+        - status
       title: HealthCheck
     ImageResponse:
       properties:
         images:
           items:
-            $ref: '#/components/schemas/Media'
+            $ref: "#/components/schemas/Media"
           type: array
           title: Images
           description: The generated images.
       type: object
       required:
-      - images
+        - images
       title: ImageResponse
       description: Response model for image generation.
     ImageToTextResponse:
@@ -1011,7 +1033,7 @@ components:
           description: The generated text.
       type: object
       required:
-      - text
+        - text
       title: ImageToTextResponse
       description: Response model for text generation.
     LLMChoice:
@@ -1022,16 +1044,16 @@ components:
         finish_reason:
           type: string
           title: Finish Reason
-          default: ''
+          default: ""
         delta:
           allOf:
-          - $ref: '#/components/schemas/LLMMessage'
+            - $ref: "#/components/schemas/LLMMessage"
         message:
           allOf:
-          - $ref: '#/components/schemas/LLMMessage'
+            - $ref: "#/components/schemas/LLMMessage"
       type: object
       required:
-      - index
+        - index
       title: LLMChoice
     LLMMessage:
       properties:
@@ -1043,20 +1065,20 @@ components:
           title: Content
       type: object
       required:
-      - role
-      - content
+        - role
+        - content
       title: LLMMessage
     LLMRequest:
       properties:
         messages:
           items:
-            $ref: '#/components/schemas/LLMMessage'
+            $ref: "#/components/schemas/LLMMessage"
           type: array
           title: Messages
         model:
           type: string
           title: Model
-          default: ''
+          default: ""
         temperature:
           type: number
           title: Temperature
@@ -1079,7 +1101,7 @@ components:
           default: false
       type: object
       required:
-      - messages
+        - messages
       title: LLMRequest
     LLMResponse:
       properties:
@@ -1093,19 +1115,19 @@ components:
           type: integer
           title: Created
         usage:
-          $ref: '#/components/schemas/LLMTokenUsage'
+          $ref: "#/components/schemas/LLMTokenUsage"
         choices:
           items:
-            $ref: '#/components/schemas/LLMChoice'
+            $ref: "#/components/schemas/LLMChoice"
           type: array
           title: Choices
       type: object
       required:
-      - id
-      - model
-      - created
-      - usage
-      - choices
+        - id
+        - model
+        - created
+        - usage
+        - choices
       title: LLMResponse
     LLMTokenUsage:
       properties:
@@ -1120,9 +1142,9 @@ components:
           title: Total Tokens
       type: object
       required:
-      - prompt_tokens
-      - completion_tokens
-      - total_tokens
+        - prompt_tokens
+        - completion_tokens
+        - total_tokens
       title: LLMTokenUsage
     LiveVideoToVideoParams:
       properties:
@@ -1137,24 +1159,27 @@ components:
         control_url:
           type: string
           title: Control Url
-          description: URL for subscribing via Trickle protocol for updates in the
-            live video-to-video generation params.
-          default: ''
+          description:
+            URL for subscribing via Trickle protocol for updates in the live
+            video-to-video generation params.
+          default: ""
         events_url:
           type: string
           title: Events Url
-          description: URL for publishing events via Trickle protocol for pipeline
-            status and logs.
-          default: ''
+          description:
+            URL for publishing events via Trickle protocol for pipeline status
+            and logs.
+          default: ""
         model_id:
           type: string
           title: Model Id
-          description: Name of the pipeline to run in the live video to video job.
-            Notice that this is named model_id for consistency with other routes,
-            but it does not refer to a Hugging Face model ID. The exact model(s) depends
-            on the pipeline implementation and might be configurable via the `params`
-            argument.
-          default: ''
+          description:
+            Name of the pipeline to run in the live video to video job. Notice
+            that this is named model_id for consistency with other routes, but
+            it does not refer to a Hugging Face model ID. The exact model(s)
+            depends on the pipeline implementation and might be configurable via
+            the `params` argument.
+          default: ""
         params:
           type: object
           title: Params
@@ -1162,8 +1187,8 @@ components:
           default: {}
       type: object
       required:
-      - subscribe_url
-      - publish_url
+        - subscribe_url
+        - publish_url
       title: LiveVideoToVideoParams
     LiveVideoToVideoResponse:
       properties:
@@ -1179,16 +1204,17 @@ components:
           type: string
           title: Control Url
           description: URL for updating the live video-to-video generation
-          default: ''
+          default: ""
         events_url:
           type: string
           title: Events Url
-          description: URL for subscribing to events for pipeline status and logs
-          default: ''
+          description:
+            URL for subscribing to events for pipeline status and logs
+          default: ""
       type: object
       required:
-      - subscribe_url
-      - publish_url
+        - subscribe_url
+        - publish_url
       title: LiveVideoToVideoResponse
       description: Response model for live video-to-video generation.
     MasksResponse:
@@ -1207,9 +1233,9 @@ components:
           description: The raw, unnormalized predictions (logits) for the masks.
       type: object
       required:
-      - masks
-      - scores
-      - logits
+        - masks
+        - scores
+        - logits
       title: MasksResponse
       description: Response model for object segmentation.
     Media:
@@ -1228,11 +1254,12 @@ components:
           description: Whether the media was flagged as NSFW.
       type: object
       required:
-      - url
-      - seed
-      - nsfw
+        - url
+        - seed
+        - nsfw
       title: Media
-      description: A media object containing information about the generated media.
+      description:
+        A media object containing information about the generated media.
     MediaURL:
       properties:
         url:
@@ -1241,7 +1268,7 @@ components:
           description: The URL where the media can be accessed.
       type: object
       required:
-      - url
+        - url
       title: MediaURL
       description: A URL from which media can be accessed.
     TextResponse:
@@ -1252,14 +1279,14 @@ components:
           description: The generated text.
         chunks:
           items:
-            $ref: '#/components/schemas/Chunk'
+            $ref: "#/components/schemas/Chunk"
           type: array
           title: Chunks
           description: The generated text chunks.
       type: object
       required:
-      - text
-      - chunks
+        - text
+        - chunks
       title: TextResponse
       description: Response model for text generation.
     TextToImageParams:
@@ -1268,19 +1295,21 @@ components:
           type: string
           title: Model Id
           description: Hugging Face model ID used for image generation.
-          default: ''
+          default: ""
         loras:
           type: string
           title: Loras
-          description: 'A LoRA (Low-Rank Adaptation) model and its corresponding weight
-            for image generation. Example: { "latent-consistency/lcm-lora-sdxl": 1.0,
-            "nerijs/pixel-art-xl": 1.2}.'
-          default: ''
+          description:
+            'A LoRA (Low-Rank Adaptation) model and its corresponding weight for
+            image generation. Example: { "latent-consistency/lcm-lora-sdxl":
+            1.0, "nerijs/pixel-art-xl": 1.2}.'
+          default: ""
         prompt:
           type: string
           title: Prompt
-          description: Text prompt(s) to guide image generation. Separate multiple
-            prompts with '|' if supported by the model.
+          description:
+            Text prompt(s) to guide image generation. Separate multiple prompts
+            with '|' if supported by the model.
         height:
           type: integer
           title: Height
@@ -1294,20 +1323,23 @@ components:
         guidance_scale:
           type: number
           title: Guidance Scale
-          description: Encourages model to generate images closely linked to the text
+          description:
+            Encourages model to generate images closely linked to the text
             prompt (higher values may reduce image quality).
           default: 7.5
         negative_prompt:
           type: string
           title: Negative Prompt
-          description: Text prompt(s) to guide what to exclude from image generation.
+          description:
+            Text prompt(s) to guide what to exclude from image generation.
             Ignored if guidance_scale < 1.
-          default: ''
+          default: ""
         safety_check:
           type: boolean
           title: Safety Check
-          description: Perform a safety check to estimate if generated images could
-            be offensive or harmful.
+          description:
+            Perform a safety check to estimate if generated images could be
+            offensive or harmful.
           default: true
         seed:
           type: integer
@@ -1316,8 +1348,9 @@ components:
         num_inference_steps:
           type: integer
           title: Num Inference Steps
-          description: Number of denoising steps. More steps usually lead to higher
-            quality images but slower inference. Modulated by strength.
+          description:
+            Number of denoising steps. More steps usually lead to higher quality
+            images but slower inference. Modulated by strength.
           default: 50
         num_images_per_prompt:
           type: integer
@@ -1326,7 +1359,7 @@ components:
           default: 1
       type: object
       required:
-      - prompt
+        - prompt
       title: TextToImageParams
     TextToSpeechParams:
       properties:
@@ -1334,17 +1367,19 @@ components:
           type: string
           title: Model Id
           description: Hugging Face model ID used for text to speech generation.
-          default: ''
+          default: ""
         text:
           type: string
           title: Text
           description: Text input for speech generation.
-          default: ''
+          default: ""
         description:
           type: string
           title: Description
-          description: Description of speaker to steer text to speech generation.
-          default: A male speaker delivers a slightly expressive and animated speech
+          description:
+            Description of speaker to steer text to speech generation.
+          default:
+            A male speaker delivers a slightly expressive and animated speech
             with a moderate speed and pitch.
       type: object
       title: TextToSpeechParams
@@ -1353,8 +1388,8 @@ components:
         loc:
           items:
             anyOf:
-            - type: string
-            - type: integer
+              - type: string
+              - type: integer
           type: array
           title: Location
         msg:
@@ -1365,23 +1400,23 @@ components:
           title: Error Type
       type: object
       required:
-      - loc
-      - msg
-      - type
+        - loc
+        - msg
+        - type
       title: ValidationError
     VideoResponse:
       properties:
         frames:
           items:
             items:
-              $ref: '#/components/schemas/Media'
+              $ref: "#/components/schemas/Media"
             type: array
           type: array
           title: Frames
           description: The generated video frames.
       type: object
       required:
-      - frames
+        - frames
       title: VideoResponse
       description: Response model for video generation.
   securitySchemes:
