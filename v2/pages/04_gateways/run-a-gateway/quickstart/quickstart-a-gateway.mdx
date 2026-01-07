@@ -25,7 +25,7 @@ import { ResponseFieldExpandable, CustomResponseField } from '/snippets/data/gat
 import { ValueResponseField } from '/snippets/components/response-field.jsx';
 import { CustomCodeBlock } from '/snippets/components/code.jsx';
 import { TipWithArrow } from '/snippets/components/links.jsx';
-import { DoubleIconLink } from '/snippets/components/links.jsx';
+import { DoubleIconLink, DownloadLink } from '/snippets/components/links.jsx';
 
 {/* PAGE LAYOUT HELPERS */}
 {/* UNUSED CURRENTLY */}
@@ -34,7 +34,7 @@ import { DoubleIconLink } from '/snippets/components/links.jsx';
 
 {/* # TEST
 
-<CustomCodeBlock language="yaml" codeString={DOCKER_YML.offChain.videoMin} /> */} 
+<CustomCodeBlock language="yaml" codeString={DOCKER_YML.offChain.videoMin} /> */}
 
 
 {/* <QuickStartTabs
@@ -75,10 +75,7 @@ This guide will install and configure a Gateway to run video & AI workloads.
       <Step title="Install Gateway Software">
         Pull the docker image from [Livepeer Docker Hub]("https://hub.docker.com/r/livepeer/go-livepeer")
         <CustomCodeBlock
-          codeString={DOCKER_CODE.install}
-          language="bash"
-          icon="terminal"
-          filename="Install go-livepeer"
+          {...DOCKER_CODE.install}
           wrap
         />
       </Step>
@@ -110,47 +107,48 @@ This guide will install and configure a Gateway to run video & AI workloads.
       </Step>
       <Step title="Run Gateway">
           <CustomCodeBlock
-          codeString={DOCKER_CODE.create}
-          language="bash"
-                icon="terminal"
-          filename="Create the Gateway Volume"
+          {...DOCKER_CODE.create}
         />
           <CustomCodeBlock
-          codeString={DOCKER_CODE.run}
-          language="bash"
-                icon="terminal"
-          filename="Run the Gateway"
+          {...DOCKER_CODE.run}
         />
-                  <CustomCodeBlock
-          codeString={DOCKER_CODE.verify}
-          language="bash"
-                icon="terminal"
-          filename="Verify its running"
+          <CustomCodeBlock
+          {...DOCKER_CODE.verify}
         />
       </Step>
 
       <Step title="Test Gateway">
       Send a video stream to the gateway:
 
-      <Note> You need a video file called `test-video.mp4` on your machine! </Note>
+      <Note> 
+      You need a video file called `test-video.mp4` on your machine! 
+        <DownloadLink
+          label="Download test-video.mp4" 
+          downloadLink="/v2/assets/gateways/test-video.mp4"
+          icon="download"
+          leftIcon={true}
+        />
+      </Note>
+
       From a host terminal (not in Docker or Volume), run this command:
           <CustomCodeBlock
-          codeString={BASH_CODE.sendVideo}
-          language="bash"
-                icon="terminal"
-
-          filename="Run the Gateway"
+          {...BASH_CODE.sendVideo}
         />
 
+      After streaming, check the HLS output:
+      <CustomCodeBlock
+        {...BASH_CODE.verifyHLS}
+        wrap
+        />
+        Tips:
+          - Replace localhost with your gateway's IP if running remotely
+          - The stream name (test) becomes part of the HLS playback URL
 
       </Step>
       <Step title="Gateway Tips">
         See all available config flags:
-                          <CustomCodeBlock
-          codeString={DOCKER_CODE.flags}
-          language="bash"
-                icon="terminal"
-          filename="Complete list of available flags"
+        <CustomCodeBlock
+          {...DOCKER_CODE.flags}
         />
             {/* The gateway will automatically create the data directory structure on first run
             {/* All configuration can be updated dynamically via the CLI API without restarting */}

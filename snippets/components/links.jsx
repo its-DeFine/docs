@@ -126,19 +126,32 @@ export const GotoCard = ({ label, relativePath, icon, text, cta = "" }) => {
 };
 
 export const DownloadLink = ({
-  label = "Download Transcript",
+  label = "Download",
   icon = "download",
   downloadLink,
   rightIcon = false,
+  border = false,
 }) => {
   console.log("dllink", downloadLink);
   downloadLink = downloadLink ? downloadLink : "https://Livepeer.org";
   console.log("dllink2", downloadLink);
   return (
-    <span>
+    <span
+      style={
+        border
+          ? {
+              border: "1px solid #18794E",
+              borderRadius: "6px",
+              padding: "8px 16px",
+              display: "inline-block",
+            }
+          : {}
+      }
+    >
       {!rightIcon && <Icon icon={icon} />}
       <a
         href={downloadLink}
+        download
         style={{
           marginRight: rightIcon ? 8 : 0,
           marginLeft: rightIcon ? 0 : 8,

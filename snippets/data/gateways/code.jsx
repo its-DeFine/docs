@@ -1,19 +1,60 @@
 // Segmented Code Blocks
-
-import { ValueResponseField } from "/snippets/components/response-field";
-
 // DOCKER
 
 export const DOCKER_CODE = {
-  install: `docker pull livepeer/go-livepeer:master`,
-  create: `docker volume create dual-gateway-lpData`,
-  run: `docker-compose up -d`,
-  verify: `docker logs dual-gateway`,
-  flags: `docker run --rm livepeer/go-livepeer:master -help`,
+  install: {
+    filename: "Install go-livepeer",
+    icon: "terminal",
+    language: "bash",
+    codeString: `docker pull livepeer/go-livepeer:master`,
+  },
+  create: {
+    filename: "Create the Gateway Volume",
+    icon: "terminal",
+    language: "bash",
+    codeString: `docker volume create dual-gateway-lpData`,
+  },
+  run: {
+    filename: "Run the Gateway",
+    icon: "terminal",
+    language: "bash",
+    codeString: `docker-compose up -d`,
+  },
+  verify: {
+    filename: "Verify Gateway is Running",
+    icon: "terminal",
+    language: "bash",
+    codeString: `docker logs dual-gateway`,
+  },
+  flags: {
+    filename: "View all available flags",
+    icon: "terminal",
+    language: "bash",
+    codeString: `docker run --rm livepeer/go-livepeer:master -help`,
+  },
 };
 
 export const BASH_CODE = {
-  sendVideo: `ffmpeg -re -i test-video.mp4 -c copy -f flv rtmp://localhost:1935/stream/test-key`,
+  sendVideo: {
+    filename: "Send a Video Stream",
+    icon: "terminal",
+    language: "bash",
+    codeString: `ffmpeg -re -i test-video.mp4 -c copy -f flv rtmp://localhost:1935/stream/test-key`,
+  },
+  verifyHLS: {
+    filename: "Verify HLS Output",
+    icon: "terminal",
+    language: "bash",
+    codeString: `curl http://localhost:8935/hls/test-key/index.m3u8`,
+  },
+  scriptVerify: {
+    filename: "Use the build-in test stream to verify",
+    icon: "terminal",
+    language: "bash",
+    codeString: `# Generate a test pattern and stream  
+ffmpeg -re -f lavfi -i testsrc=size=1280x720:rate=30,format=yuv420p \  
+  -c:v libx264 -b:v 1000k -f flv rtmp://localhost:1935/stream/test-key`,
+  },
 };
 // The FFmpeg command:
 // Reads test-video.mp4 from your local filesystem
@@ -60,6 +101,7 @@ export const CustomResponseField = ({ description, ...props }) => {
 
 export const ResponseFieldExpandable = ({ fields = {}, ...props }) => {
   const fieldsArray = Array.isArray(fields) ? fields : Object.values(fields);
+  console.log("fieldsArray", fieldsArray);
   return (
     <Expandable {...props}>
       {fieldsArray.map((field, index) => (
