@@ -462,14 +462,15 @@ export const CLI_CODE = {
     filename: "CLI Options",
     icon: "terminal",
     language: "bash",
-    codeString: `# Get current status  
-        curl http://localhost:5935/status  
-          
-        # Get broadcast config  
-        curl http://localhost:5935/getBroadcastConfig  
-          
-        # Get orchestrator info  
-        curl http://localhost:5935/getOrchestrators`,
+    codeString: `
+# Get current status  
+curl http://localhost:5935/status  
+  
+# Get broadcast config  
+curl http://localhost:5935/getBroadcastConfig  
+  
+# Get orchestrator info  
+curl http://localhost:5935/getOrchestrators`,
   },
   status: {
     filename: "Current Status",

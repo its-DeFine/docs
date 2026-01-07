@@ -5,7 +5,7 @@ sidebarTitle: 'Run a Gateway Quickstart'
 ---
 
 {/* DATA & CODE */}
-import { DOCKER_CODE, DOCKER_YML, BASH_CODE, AI_TEST_COMMANDS, CONFIG_FILES } from '/snippets/data/gateways/code.jsx';
+import { DOCKER_CODE, DOCKER_YML, BASH_CODE, AI_TEST_COMMANDS, CONFIG_FILES, CLI_CODE } from '/snippets/data/gateways/code.jsx';
 import { CONFIG_FLAGS } from '/snippets/data/gateways/flags.jsx';
 import { LatestRelease, LatestReleaseUrl } from '/snippets/components/release.jsx';
 
@@ -151,36 +151,25 @@ This guide will install and configure a Gateway to run video & AI workloads.
             To test AI functionality in Livepeer, you can make HTTP requests to the AI endpoints exposed by your gateway. 
             The gateway routes these requests to orchestrators with AI workers for processing.
 
-            Test your HTTP Ingest Stream:
             <CustomCodeBlock
               {...BASH_CODE.testHTTPingest}
               wrap
             />
 
-            Check if your Gateway AI worker is running:
             <CustomCodeBlock
               {...BASH_CODE.checkStatus}
               wrap
             />
 
-            Check Orchestrator's available Capabilities
             <CustomCodeBlock
               {...BASH_CODE.aiCapabilities}
               wrap
             />
 
-            Use the AI API to test functionality of available models
-            <Card
-              title="AI API"
-              href="/v2/pages/04_gateways/references/api-reference/AI-API"
-              icon="books"
-              arrow
-              horizontal
-            >
-              View AI API Reference here
-            </Card>
+            Use the AI API to test functionality of available models.
 
             <Expandable title="AI API Example Commands">
+            <Danger> Fix code formatting </Danger>
               <br/>
               <CustomCodeBlock
                 {...AI_TEST_COMMANDS.textToImage}
@@ -195,6 +184,16 @@ This guide will install and configure a Gateway to run video & AI workloads.
                 wrap
               />
             </Expandable>
+
+            <Card
+              title="AI API"
+              href="/v2/pages/04_gateways/references/api-reference/AI-API"
+              icon="books"
+              arrow
+              horizontal
+            >
+              View AI API Full Reference here
+            </Card>
 
 
             {/* Pre-req's for testing
@@ -217,9 +216,9 @@ This guide will install and configure a Gateway to run video & AI workloads.
             {/* The -orchAddr flag is required and must point to a running orchestrator */}
             {/* For production use, consider adding authentication via -authWebhookUrl flags.go:136  */}
 
-        CLI
+        Useful [CLI Commands](/v2/pages/04_gateways/references/cli-commands) <Icon icon="arrow-up-right" />
         <CustomCodeBlock
-          {...BASH_CODE.cli}
+          {...CLI_CODE.cliOptions}
         />
       </Step>
       {/* <Step title="Troubleshooting">
