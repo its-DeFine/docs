@@ -511,36 +511,41 @@
                             ]
                           },
                           {
-                            "group": "API Reference [AI]",
+                            "group": "API Reference",
                             "pages": [
-                              "v2/pages/04_gateways/references/api-reference/AI-API/ai",
-                              "v2/pages/04_gateways/references/api-reference/AI-API/text-to-image",
-                              "v2/pages/04_gateways/references/api-reference/AI-API/image-to-image",
-                              "v2/pages/04_gateways/references/api-reference/AI-API/image-to-video",
-                              "v2/pages/04_gateways/references/api-reference/AI-API/upscale",
-                              "v2/pages/04_gateways/references/api-reference/AI-API/audio-to-text",
-                              "v2/pages/04_gateways/references/api-reference/AI-API/segment-anything-2",
-                              "v2/pages/04_gateways/references/api-reference/AI-API/llm",
-                              "v2/pages/04_gateways/references/api-reference/AI-API/image-to-text",
-                              "v2/pages/04_gateways/references/api-reference/AI-API/live-video-to-video",
-                              "v2/pages/04_gateways/references/api-reference/AI-API/text-to-speech",
-                              "v2/pages/04_gateways/references/api-reference/AI-API/health",
-                              "v2/pages/04_gateways/references/api-reference/AI-API/hardware-info",
-                              "v2/pages/04_gateways/references/api-reference/AI-API/hardware-stats"
-                            ]
-                          },
-                          {
-                            "group": "CLI HTTP API",
-                            "pages": [
-                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/cli-http-api",
-                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/unbond",
-                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/rebond",
-                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/activateorchestrator",
-                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
-                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
-                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/reward",
-                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/transfertokens",
-                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/signmessage"
+                              {
+                                "group": "AI API",
+                                "pages": [
+                                  "v2/pages/04_gateways/references/api-reference/AI-API/ai",
+                                  "v2/pages/04_gateways/references/api-reference/AI-API/text-to-image",
+                                  "v2/pages/04_gateways/references/api-reference/AI-API/image-to-image",
+                                  "v2/pages/04_gateways/references/api-reference/AI-API/image-to-video",
+                                  "v2/pages/04_gateways/references/api-reference/AI-API/upscale",
+                                  "v2/pages/04_gateways/references/api-reference/AI-API/audio-to-text",
+                                  "v2/pages/04_gateways/references/api-reference/AI-API/segment-anything-2",
+                                  "v2/pages/04_gateways/references/api-reference/AI-API/llm",
+                                  "v2/pages/04_gateways/references/api-reference/AI-API/image-to-text",
+                                  "v2/pages/04_gateways/references/api-reference/AI-API/live-video-to-video",
+                                  "v2/pages/04_gateways/references/api-reference/AI-API/text-to-speech",
+                                  "v2/pages/04_gateways/references/api-reference/AI-API/health",
+                                  "v2/pages/04_gateways/references/api-reference/AI-API/hardware-info",
+                                  "v2/pages/04_gateways/references/api-reference/AI-API/hardware-stats"
+                                ]
+                              },
+                              {
+                                "group": "CLI HTTP API",
+                                "pages": [
+                                  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/cli-http-api",
+                                  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/unbond",
+                                  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/rebond",
+                                  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/activateorchestrator",
+                                  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
+                                  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
+                                  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/reward",
+                                  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/transfertokens",
+                                  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/signmessage"
+                                ]
+                              }
                             ]
                           },
                           {
