@@ -422,7 +422,7 @@ export const BASH_CODE = {
     icon: "terminal",
     language: "bash",
     codeString: `curl -X PUT http://localhost:8935/live/test/0.ts --data-binary @test-segment.ts`,
-    preNote: "Push a segment via HTTP:",
+    preNote: "Test your HTTP Ingest Stream by pushing a segment:",
   },
   testHLS: {
     filename: "Access HLS Stream",
@@ -444,13 +444,16 @@ export const BASH_CODE = {
     icon: "terminal",
     language: "bash",
     codeString: `curl http://localhost:5935/status`,
+    preNote: "Check if your Gateway AI Worker is running:",
   },
   aiCapabilities: {
     filename: "Check Orchestrator's available capabilities",
     icon: "terminal",
     language: "bash",
     codeString: `curl http://localhost:5935/getOrchestrators`,
-    preNote: "Check the orchestrator's AI capabilities:",
+    preNote: "Check Orchestrator's available AI capabilities:",
+    postNote:
+      "◆ Make sure your Orchestrator's AI models directory is properly mounted and accessible",
   },
 };
 

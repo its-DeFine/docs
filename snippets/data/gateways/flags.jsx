@@ -157,6 +157,40 @@ export const CONFIG_FLAGS = {
   },
 };
 
+export const CLI_OPTIONS = {
+  status: {
+    name: "status",
+    description: "Get current status",
+  },
+  broadcastConfig: {
+    name: "getBroadcastConfig",
+    description: "Get broadcast configuration",
+  },
+};
+
+// The CLI commands map to HTTP endpoints on the CLI server (default port 5935) :
+
+// - `/status` - Node status
+// - `/protocolParameters` - Protocol info
+// - `/registeredOrchestrators` - Orchestrator list
+// - `/bond`, `/unbond`, `/rebond` - Staking operations
+// - `/activateOrchestrator` - Orchestrator activation
+// - `/setBroadcastConfig` - Broadcast configuration
+// - `/setMaxPriceForCapability` - AI pricing
+// - `/reward` - Claim rewards
+// - `/transferTokens` - Token transfers
+// - `/signMessage` - Message signing
+export const HTTP_API_OPTIONS = {
+  status: {
+    name: "/status",
+    description: "Get current status",
+  },
+  broadcastConfig: {
+    name: "/getBroadcastConfig",
+    description: "Get broadcast configuration",
+  },
+};
+
 export const CONFIG_FLAGS_DUAL = {
   offchain: {
     required: {

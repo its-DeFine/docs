@@ -506,7 +506,8 @@
                             "pages": [
                               "v2/pages/04_gateways/references/technical-architecture",
                               "v2/pages/04_gateways/references/configuration-flags",
-                              "v2/pages/04_gateways/references/video-flags"
+                              "v2/pages/04_gateways/references/video-flags",
+                              "v2/pages/04_gateways/references/cli-commands"
                             ]
                           },
                           {
@@ -526,6 +527,20 @@
                               "v2/pages/04_gateways/references/api-reference/AI-API/health",
                               "v2/pages/04_gateways/references/api-reference/AI-API/hardware-info",
                               "v2/pages/04_gateways/references/api-reference/AI-API/hardware-stats"
+                            ]
+                          },
+                          {
+                            "group": "CLI HTTP API",
+                            "pages": [
+                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/cli-http-api",
+                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/unbond",
+                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/rebond",
+                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/activateorchestrator",
+                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
+                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
+                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/reward",
+                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/transfertokens",
+                              "v2/pages/04_gateways/references/api-reference/CLI-HTTP/signmessage"
                             ]
                           },
                           {
