@@ -50,14 +50,27 @@ const GatewayOnChainWarning = () => {
   );
 };
 
-const GatewayOnChainNote = () => {
+const GatewayOnChainTTestnetNote = () => {
   return (
     <Note>
-      <>
-        This guide assumes:
-        <>- You have ETH on Arbitrum L2 Network (or can get it from a faucet)</>
-        <>- You have an Arbitrum RPC URL (or can use a public one)</>
-      </>
+      While Livepeer contracts are deployed to the Arbitrum Testnet, there is
+      currently no freely available Orchestrator services on this chain.
+      <br />
+      <strong>
+        If you would like to use the Aribtum Testnet for your Gateway, you will
+        need to run your own Orchestrator node.
+      </strong>
+      <br />
+      There are conversations underway to enable this in the future. Follow &
+      contribute to the discussion on:
+      <span>
+        <Icon icon="arrow-up-right"></Icon>{" "}
+        <a href="https://discord.gg/livepeer">Discord</a>
+      </span>
+      <span>
+        <Icon icon="arrow-up-right"></Icon>{" "}
+        <a href="https://forum.livepeer.org">Forum</a>
+      </span>
     </Note>
   );
 };
@@ -86,7 +99,7 @@ const TestVideoDownload = ({ children }) => {
 export {
   GatewayOffChainWarning,
   GatewayOnChainWarning,
-  GatewayOnChainNote,
+  GatewayOnChainTTestnetNote,
   OrchAddrNote,
   TestVideoDownload,
 };

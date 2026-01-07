@@ -10,15 +10,14 @@ import { CONFIG_FLAGS } from '/snippets/data/gateways/flags.jsx';
 import { LatestRelease, LatestReleaseUrl } from '/snippets/components/release.jsx';
 
 {/* BANNERS, CALLOUTS, VALUE STRINGS */}
-import { GatewayOffChainWarning, GatewayOnChainWarning, OrchAddrNote, TestVideoDownload } from "/snippets/components/gateways/callouts.jsx";
+import { GatewayOffChainWarning, GatewayOnChainWarning, GatewayOnChainTTestnetNote, OrchAddrNote, TestVideoDownload } from "/snippets/components/gateways/callouts.jsx";
 
 {/* LAYOUTS */}
 import { createQuickstart } from '/snippets/data/gateways/quickstart.jsx';
 import { QuickStartTabs, QuickStartSteps } from '/snippets/components/gateways/quickstartTabs.jsx';
 
 {/* COMPONENTS */}
-import { ResponseFieldExpandable, CustomResponseField } from '/snippets/data/gateways/code.jsx';
-import { ValueResponseField } from '/snippets/components/response-field.jsx';
+import { ResponseFieldAccordion, ResponseFieldExpandable, CustomResponseField, ValueResponseField } from '/snippets/components/responseField.jsx';
 import { CustomCodeBlock } from '/snippets/components/code.jsx';
 import { TipWithArrow, DoubleIconLink } from '/snippets/components/links.jsx';
 import { DownloadButton } from '/snippets/components/buttons.jsx';
@@ -51,6 +50,16 @@ This page will have you running a Livepeer Gateway for <Badge color="blue">Video
 
 This guide includes both on-chain (production) and off-chain (local) Gateway setup.
 
+{/* #### Quick Summary: Off-Chain vs On-Chain Gateway Differences
+
+| Aspect | Off-Chain Gateway | On-Chain Gateway |
+|--------|------------------|------------------|
+| **Ethereum** | No RPC needed | Requires `-ethUrl` and wallet |
+| **Network** | Default: offchain | Specify network (e.g., arbitrum-one-mainnet) |
+| **Payments** | No blockchain payments | Ticket-based micropayments |
+| **Verification** | Disabled by default | Enabled by default |
+ */}
+
 {/* #### Assumed (On-chain setup) */}
 {/* - You have ETH on Arbitrum L2 Network (or can get it from a faucet) */}
 
@@ -59,6 +68,14 @@ This guide includes both on-chain (production) and off-chain (local) Gateway set
 <br />
 
 <View title=" Docker" icon="docker" iconType="solid">
+{/* <Panel>
+  <h1> Docker Quickstart Guide </h1>
+  <h3> Install Gateway Software </h3>
+  <h3> Configure Gateway </h3>
+  <h3> Run Gateway </h3>
+  <h3> Test Gateway </h3>
+  <h3> Gateway Tips </h3>
+</Panel> */}
 
 ## <Icon icon="docker" iconType="solid" size={32} /> Docker Quickstart Guide
 
@@ -69,7 +86,7 @@ This guide will install and configure a Gateway to run video & AI workloads.
     <GatewayOffChainWarning />
     <Steps titleSize="h3">
       <Step title="Install Gateway Software">
-        Pull the docker image from [Livepeer Docker Hub]("https://hub.docker.com/r/livepeer/go-livepeer")
+        Pull the docker image from <Icon icon="arrow-up-right" color="#2d9a67" /> [Livepeer Docker Hub]("https://hub.docker.com/r/livepeer/go-livepeer")
         <CustomCodeBlock
           {...DOCKER_CODE.install}
           wrap
@@ -95,18 +112,27 @@ This guide will install and configure a Gateway to run video & AI workloads.
 
        *See flag details below:*
         <Danger> fix me </Danger>
-
-        <ResponseFieldExpandable fields={CONFIG_FLAGS.offchain.required} title="Required Flags" />
-        <ResponseFieldExpandable fields={CONFIG_FLAGS.offchain.optional} title="Optional (Recommended) Flags" />
-        <Expandable title="transcodingOptions.JSON Example"> 
+        *See flag details below:*
+        <AccordionGroup>
+          <ResponseFieldAccordion
+            title="Required Flags"
+            icon="file-circle-exclamation"
+            fields={CONFIG_FLAGS.offchain.required}
+          />
+          <ResponseFieldAccordion
+            title="Recommended Flags"
+            icon="file-circle-info"
+            fields={CONFIG_FLAGS.offchain.optional}
+          />          
+          <Accordion title="Transcoding Options Example" icon="brackets-curly">
             <CustomCodeBlock
-                  codeString={CONFIG_FILES.video.transcodingOptionsJson}
-                  language="json"
-                  icon="brackets-curly"
-                  filename="Example transcodingOptions.json"
-              />
-        </Expandable>
-
+                codeString={CONFIG_FILES.video.transcodingOptionsJson}
+                language="json"
+                icon="brackets-curly"
+                filename="Example transcodingOptions.json"
+            />
+          </Accordion>
+        </AccordionGroup>
 
       </Step>
       <Step title="Run Gateway">
@@ -228,7 +254,117 @@ This guide will install and configure a Gateway to run video & AI workloads.
 
   </Tab>
   <Tab title="On-Chain Gateway" icon="link">
-    hello
+    This guide will set up a Livepeer Gateway on the [Arbitrum One Mainnet](https://arbitrum.io/).
+    
+    <Accordion title="Looking for a 'testnet'?" icon="info-circle">
+        While Livepeer contracts are deployed to Arbitrum Testnet, there is currently no reliable Orchestrator services on this chain.
+        
+        <Note>
+        If you would like to use the [Aribtum Testnet](#arbitrum-testnet) for testing, you will need to run your own Orchestrator node there to connect to.
+        </Note>
+
+        There are conversations underway to enable a public "testnet" in the future. 
+        
+        Follow & contribute to the discussion on the
+        <Icon icon="arrow-up-right" color="#2d9a67" /> [Discord](https://discord.gg/livepeer) and
+        <Icon icon="arrow-up-right" color="#2d9a67" /> [Forum](https://forum.livepeer.org)
+
+    </Accordion>
+    <GatewayOnChainWarning />
+    <Steps titleSize="h3">
+      <Step title="Install Gateway Software">
+        Pull the docker image from <Icon icon="arrow-up-right" color="#2d9a67" /> [Livepeer Docker Hub]("https://hub.docker.com/r/livepeer/go-livepeer")
+        <CustomCodeBlock
+          {...DOCKER_CODE.install}
+          wrap
+        />
+
+      </Step>
+      <Step title="Configure Gateway">
+        <Badge color="blue">Video</Badge> {" "} <Badge color="purple">AI</Badge>
+
+        Create the `docker-compose.yml` file that defines the <Badge color="green">dual</Badge> gateway service.
+
+        <CustomCodeBlock
+          codeString={DOCKER_YML.onChain.dual}
+          language="yaml"
+          icon="docker"
+          filename="docker-compose.yml"
+          expandable={true}
+          wrap={false}
+        />
+
+        <Danger> Needs edit, better explanation & format </Danger>
+        *See flag details below:*
+        <AccordionGroup>
+          <ResponseFieldAccordion
+            title="Required Flags"
+            icon="file-circle-exclamation"
+            fields={CONFIG_FLAGS.onchain.required}
+          />
+          <ResponseFieldAccordion
+            title="Recommended Flags"
+            icon="file-circle-info"
+            fields={CONFIG_FLAGS.onchain.optional}
+          />
+          <ResponseFieldAccordion
+            title="Wallet, Pricing & Auth Flag Options"
+            icon="file-circle-info"
+            fields={CONFIG_FLAGS.onchain.optionalAdvanced}
+          />
+        </AccordionGroup>
+
+        *See Configuration File Examples below:*
+        <AccordionGroup>          
+          <Accordion title="Transcoding Options Example" icon="brackets-curly">
+            <CustomCodeBlock
+                codeString={CONFIG_FILES.video.transcodingOptionsJson}
+                language="json"
+                icon="brackets-curly"
+                filename="Example transcodingOptions.json"
+            />
+          </Accordion>
+          <Accordion title="AI Capability Pricing Example" icon="brackets-curly">
+            <CustomCodeBlock
+                codeString={CONFIG_FILES.ai.aiPricingJson}
+                language="json"
+                icon="brackets-curly"
+                filename="Example aiPricing.json"
+            />
+          </Accordion>
+        </AccordionGroup>
+
+      </Step>
+      <Step title="Run Gateway">
+        <CustomCodeBlock
+          {...DOCKER_CODE.create}
+        />
+        <CustomCodeBlock
+          {...DOCKER_CODE.run}
+        />
+        <CustomCodeBlock
+          {...DOCKER_CODE.verify}
+        />
+      </Step>
+      <Step title="Test Gateway">
+        <Tabs>
+          <Tab title="Video" icon="camera-movie">
+            <CustomCodeBlock
+              {...BASH_CODE.testRTMPingest}
+            />
+            <CustomCodeBlock
+              {...BASH_CODE.testHLS}
+              wrap
+            />
+          </Tab>
+          <Tab title="AI" icon="user-robot">
+            <CustomCodeBlock
+              {...BASH_CODE.testHTTPingest}
+            />
+          </Tab>
+        </Tabs>
+      </Step>
+    </Steps>
   </Tab>
 </Tabs>
 
@@ -397,7 +533,7 @@ This guide will install and configure a Gateway to run video & AI workloads.
     Setup an Orchestrator.
   </Card>
 </Columns>
-
+{/* 
 This page will have you running a Livepeer Gateway for video & AI trancoding in 10 minutes on Mac, Linux or Windows.
 
 It shows both off-chain (local) and on-chain (production) modes.
@@ -409,6 +545,7 @@ It shows both off-chain (local) and on-chain (production) modes.
 
 It uses defaults for all optional parameters. See the [full setup guide](/v2/pages/04_gateways/run-a-gateway/run-a-gateway) for more details on customising your Gateway. \*/}
 
+<Expandable title="TO DELETE">
 <Tabs>
 
   <Tab title="On-Chain Gateway">
@@ -465,4 +602,6 @@ When you run with empty ETH parameters, Livepeer:
 
 - Detects no existing account in the keystore
 - Creates a new Ethereum account automatically
-- Prompts for password to encrypt the keystore file \*/}
+- Prompts for password to encrypt the keystore file \*/} */}
+
+</Expandable>

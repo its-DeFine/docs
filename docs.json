@@ -2,6 +2,9 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "palm",
   "name": "Livepeer Docs",
+  "metadata": {
+    "timestamp": true
+  },
   "colors": {
     "primary": "#18794E",
     "light": "#2b9a66",

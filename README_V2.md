@@ -711,3 +711,93 @@ computational cost [6](#35-5) .
 - You can leave it at the default (5 seconds) for most use cases
 - The payment processor will only be created if there's a price per unit set
   [8](#35-7)
+
+# Production Authentication with -authWebhookUrl
+
+The `-authWebhookUrl` flag enables webhook-based authentication for incoming
+streams in production Livepeer gateways. It's essential for securing publicly
+accessible gateways.
+
+## How It Works
+
+When a stream connects to your gateway, Livepeer makes a POST request to your
+webhook endpoint with the stream URL [1](#46-0) :
+
+```json
+{
+  "url": "rtmp://livepeer.node/manifest"
+}
+```
+
+Your webhook must respond with HTTP 200 to authorize the stream. Any other
+status code denies it [2](#46-1) .
+
+## Webhook Response Options
+
+### Empty Response (200 OK)
+
+- Uses manifestID from URL or generates random one
+- Uses default transcoding profiles
+
+### JSON Response
+
+```json
+{
+  "manifestID": "ManifestID",
+  "streamKey": "SecretKey",
+  "presets": ["Preset", "Names"],
+  "profiles": [
+    {
+      "name": "ProfileName",
+      "width": 320,
+      "height": 240,
+      "bitrate": 1000000,
+      "fps": 30,
+      "fpsDen": 1,
+      "profile": "H264Baseline",
+      "gop": "2.5"
+    }
+  ]
+}
+```
+
+The webhook can customize [3](#46-2) :
+
+- **manifestID**: Stream identifier (alphanumeric only)
+- **streamKey**: Optional RTMP playback protection
+- **presets/profiles**: Override transcoding options
+- **profile**: Codec selection (H264Baseline, H264Main, etc.)
+- **gop**: GOP length in seconds
+
+## Production Implementation
+
+### Simple Auth Server Example
+
+Livepeer provides a basic auth server example [4](#46-3) - ensure fast
+responses 3. **Caching**: Livepeer caches webhook responses to reduce calls 4.
+**Validation**: The gateway validates webhook URLs must be HTTP(S) [5](#46-4)
+
+## Configuration
+
+Add to your gateway command:
+
+```bash
+livepeer -gateway -authWebhookUrl https://your-auth-server.com/auth
+```
+
+## HTTP Ingest Requirement
+
+When using `-httpAddr=0.0.0.0` (public access), HTTP ingest is disabled unless
+you either [6](#46-5)
+
+- Orchestrators can also use webhooks for discovery authentication [7](#46-6)
+- Test your webhook endpoint thoroughly before production deployment
+- Consider rate limiting to prevent abuse
+
+Wiki pages you might want to explore:
+
+- [Architecture (livepeer/go-livepeer)](/wiki/livepeer/go-livepeer#1.1)
+
+Wiki pages you might want to explore:
+
+- [Architecture (livepeer/go-livepeer)](/wiki/livepeer/go-livepeer#1.1)

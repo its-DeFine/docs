@@ -351,16 +351,12 @@ services:
     container_name: dual-gateway
     hostname: dual-gateway
     ports:
-      # RTMP for video ingest
-      - 1935:1935
-      # HTTP API for both video and AI
-      - 8935:8935
-      # CLI port (optional)
-      - 5935:5935
+      - 1935:1935 # RTMP for video ingest
+      - 8935:8935 # HTTP API (AI / video)
+      - 5935:5935 # CLI port (optional, recommended)
     volumes:
       - dual-gateway-lpData:/root/.lpData
-      # (optional) Mount your own keystore
-      # - ./keystore:/root/.lpData/keystore
+      # - ./keystore:/root/.lpData/keystore  # (optional) Mount your own keystore
     command:
       # REQUIRED
       - -gateway
@@ -378,21 +374,18 @@ services:
       - -transcodingOptions=P240p30fps16x9,P360p30fps16x9,P720p30fps16x9
       - -maxSessions=5
 
-      # OPTIONAL (Advanced: Wallet Options - auto-generated if not provided)
-      # Bring your own ETH account address
+      # OPTIONAL (Wallet Options, Auto-generated if not provided)
       # - -ethAcctAddr=<ETH_ACCOUNT_ADDRESS>
-      # Path to keystore directory or keyfile
       # - -ethKeystorePath=/root/.lpData/keystore
-      # Path to password file
-      # - -ethPassword=/root/.lpData/keystore/password.txt
+      # - -ethPassword=/root/.lpData/keystore/password.txt # !! NOT your private key!
 
-      # OPTIONAL (Advanced: Pricing Options)
-      # Max price per pixel in wei (defaults to 0: ANY price)
-      # - -maxPricePerUnit=1000000000
-      # Max price per AI capability (pipeline/model)
-      # - -maxPricePerCapability=/path/to/your/config.json
-      # Payment processing frequency for Live AI Video workflows
+      # OPTIONAL (Recommended: Pricing Options)
+      - -maxPricePerUnit=1000000000 # video 
+      - -maxPricePerCapability=/path/to/aiPricing.json #ai
       # - -livePaymentInterval=5s
+
+      # OPTIONAL (Advanced Config: Authentication)
+      # - -authWebhookUrl=https://your-auth-webhook.com
 
 volumes:
   dual-gateway-lpData:
@@ -757,57 +750,6 @@ export const FFMPEG_CODE = {
       codeString: `choco install ffmpeg`,
     },
   },
-};
-
-//MOVE THESE
-export const createCodeBlock = (codeString, language, icon, ...props) => {
-  const code = `docker pull livepeer/go-livepeer:master`;
-  return (
-    <CustomCodeBlock
-      codeString={code}
-      language="bash"
-      icon="terminal"
-      {...props}
-    />
-  );
-};
-
-export const expandableCode = () => {
-  return (
-    <Expandable title="Required Flags">
-      <ResponseField name="flag" type="type" default="hi">
-        Description
-      </ResponseField>
-    </Expandable>
-  );
-};
-
-export const CustomResponseField = ({ description, ...props }) => {
-  const uniqueId = `custom-rf-${Math.random().toString(36).substring(2, 11)}`;
-
-  return (
-    <div className={uniqueId}>
-      <style>{`
-        .${uniqueId} > .field {
-          border-bottom: none !important;
-          margin-bottom: -20px !important;
-        }
-      `}</style>
-      <ResponseField {...props}>{description}</ResponseField>
-    </div>
-  );
-};
-
-export const ResponseFieldExpandable = ({ fields = {}, ...props }) => {
-  const fieldsArray = Array.isArray(fields) ? fields : Object.values(fields);
-  console.log("fieldsArray", fieldsArray);
-  return (
-    <Expandable {...props}>
-      {fieldsArray.map((field, index) => (
-        <ValueResponseField key={index} {...field} />
-      ))}
-    </Expandable>
-  );
 };
 
 // old stuff
