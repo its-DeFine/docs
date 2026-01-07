@@ -125,45 +125,6 @@ export const GotoCard = ({ label, relativePath, icon, text, cta = "" }) => {
   );
 };
 
-export const DownloadLink = ({
-  label = "Download",
-  icon = "download",
-  downloadLink,
-  rightIcon = false,
-  border = false,
-}) => {
-  console.log("dllink", downloadLink);
-  downloadLink = downloadLink ? downloadLink : "https://Livepeer.org";
-  console.log("dllink2", downloadLink);
-  return (
-    <span
-      style={
-        border
-          ? {
-              border: "1px solid #18794E",
-              borderRadius: "6px",
-              padding: "8px 16px",
-              display: "inline-block",
-            }
-          : {}
-      }
-    >
-      {!rightIcon && <Icon icon={icon} />}
-      <a
-        href={downloadLink}
-        download
-        style={{
-          marginRight: rightIcon ? 8 : 0,
-          marginLeft: rightIcon ? 0 : 8,
-        }}
-      >
-        {label}
-      </a>
-      {rightIcon && <Icon icon={icon} style={{ marginLeft: 8 }} />}
-    </span>
-  );
-};
-
 export const TipWithArrow = ({
   children,
   icon = "lightbulb",

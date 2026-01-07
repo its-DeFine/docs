@@ -71,9 +71,22 @@ const OrchAddrNote = () => {
   );
 };
 
+const TestVideoDownload = ({ children }) => {
+  return (
+    <Note>
+      <div style={{ marginBottom: "1rem" }}>
+        You need a video file called <code>test-video.mp4</code> on your
+        machine!{" "}
+      </div>
+      <span>{children}</span>
+    </Note>
+  );
+};
+
 export {
   GatewayOffChainWarning,
   GatewayOnChainWarning,
   GatewayOnChainNote,
   OrchAddrNote,
+  TestVideoDownload,
 };

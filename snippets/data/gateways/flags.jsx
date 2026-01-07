@@ -1,3 +1,5 @@
+// Available AI Endpoints
+// The gateway exposes these AI endpoints ai_http.go :
 export const CONFIG_FLAGS = {
   offchain: {
     required: {
@@ -109,6 +111,48 @@ export const CONFIG_FLAGS = {
         default: "false",
         description: "Enables metrics collection",
       },
+    },
+  },
+  aiEndpoints: {
+    textToImage: {
+      name: "/text-to-image",
+      description: "Generate images from text prompts",
+    },
+    imageToImage: {
+      name: "/image-to-image",
+      description: "Transform images with text prompts",
+    },
+    imageToVideo: {
+      name: "/image-to-video",
+      description: "Create videos from images",
+    },
+    upscale: {
+      name: "/upscale",
+      description: "Increase image resolution",
+    },
+    audioToText: {
+      name: "/audio-to-text",
+      description: "Transcribe audio to text",
+    },
+    llm: {
+      name: "/llm",
+      description: "Large language model chat",
+    },
+    segmentAnything2: {
+      name: "/segment-anything-2",
+      description: "Image segmentation",
+    },
+    imageToText: {
+      name: "/image-to-text",
+      description: "Describe images",
+    },
+    textToSpeech: {
+      name: "/text-to-speech",
+      description: "Generate audio from text",
+    },
+    videoToVideo: {
+      name: "/video-to-video",
+      description: "Live video-to-video AI processing",
     },
   },
 };
