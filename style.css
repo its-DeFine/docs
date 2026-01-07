@@ -202,51 +202,10 @@ body
   color: #2b9a66 !important;
 }
 
-/* Fix dropdown background in dark mode to match theme */
-.dark .nav-dropdown-content,
-.dark .option-dropdown {
-  background-color: #1f2937 !important;
-  border: 1px solid #374151 !important;
-}
-
-/* Fix dropdown items in dark mode */
-.dark .nav-dropdown-content > *,
-.dark .option-dropdown > * {
-  background-color: #1f2937 !important;
-  color: #f3f4f6 !important;
-}
-
-/* Fix dropdown hover state in dark mode */
-.dark .nav-dropdown-content > *:hover,
-.dark .option-dropdown > *:hover {
-  background-color: rgba(43, 154, 102, 0.1) !important;
-}
-
-/* Fix multi-view dropdown button background in dark mode */
-.dark .multi-view-dropdown-trigger {
-  background-color: #1f2937 !important;
-  border-color: #2b9a66 !important;
-}
-
-/* Fix multi-view dropdown button hover in dark mode */
-.dark .multi-view-dropdown-trigger:hover {
-  background-color: #2a3a4a !important;
-}
-
-/* Fix dropdown menu background in dark mode */
-.dark [role="menu"],
-.dark [data-radix-menu-content] {
-  background-color: #1f2937 !important;
-  border-color: #2b9a66 !important;
-}
-
-/* Fix dropdown menu items in dark mode */
-.dark [role="menuitem"] {
-  background-color: #1f2937 !important;
-  color: #f3f4f6 !important;
-}
-
-/* Fix dropdown menu items hover in dark mode */
-.dark [role="menuitem"]:hover {
-  background-color: rgba(43, 154, 102, 0.1) !important;
+/* View Dropdown */
+/* #radix-_R_5slubt9fen9fdb_ */
+/* Turn off bg-white in dark mode for multi-view dropdown (PALM THEME BUG) */
+.dark .bg-white\/\[0\.95\].multi-view-dropdown-trigger {
+  background-color: transparent !important;
+  background: none !important;
 }
