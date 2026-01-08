@@ -1,12 +1,80 @@
+//TEST
+export const useDockerCode = () => ({
+  install: {
+    filename: "Install go-livepeer",
+    icon: "terminal",
+    language: "bash",
+    codeString: `docker pull livepeer/go-livepeer:stable`,
+    preNote: (
+      <>
+        Pull the docker image from{" "}
+        <Icon icon="arrow-up-right" color="#2d9a67" />
+        <a href="https://hub.docker.com/r/livepeer/go-livepeer">
+          Livepeer Docker Hub
+        </a>
+      </>
+    ),
+  },
+});
+
+export const DOCKER_CODE1 = {
+  install: {
+    filename: "Install go-livepeer",
+    icon: "terminal",
+    language: "bash",
+    codeString: `docker pull livepeer/go-livepeer:stable`,
+    preNoteFactory: ({ Icon }) =>
+      React.createElement(
+        React.Fragment,
+        null,
+        "Pull the docker image from ",
+        React.createElement(Icon, { icon: "arrow-up-right", color: "#2d9a67" }),
+        " ",
+        React.createElement(
+          "a",
+          { href: "https://hub.docker.com/r/livepeer/go-livepeer" },
+          "Livepeer Docker Hub",
+        ),
+      ),
+  },
+};
+
+{
+  /* preNoteKey: (
+    <>
+      Pull the docker image from <Icon icon="arrow-up-right" color="#2d9a67" /> <a href="https://hub.docker.com/r/livepeer/go-livepeer">Livepeer Docker Hub</a>
+    </>
+  ), */
+}
+
+export const preNotes = {
+  dockerInstall: (
+    <>
+      Pull the docker image from <Icon icon="arrow-up-right" color="#2d9a67" />{" "}
+      <a href="https://hub.docker.com/r/livepeer/go-livepeer">
+        Livepeer Docker Hub
+      </a>
+    </>
+  ),
+};
+
 // Segmented Code Blocks
 // DOCKER
-
 export const DOCKER_CODE = {
   install: {
     filename: "Install go-livepeer",
     icon: "terminal",
     language: "bash",
-    codeString: `docker pull livepeer/go-livepeer:master`,
+    codeString: `docker pull livepeer/go-livepeer:stable`,
+    // preNote: (
+    //   <>
+    //     Pull the docker image from{" "}
+    //     <Icon icon="arrow-up-right" color="#2d9a67" />
+    //     <a href="https://hub.docker.com/r/livepeer/go-livepeer">
+    //       Livepeer Docker Hub{" "}
+    //     </a>
+    //   </>
+    // ),
   },
   create: {
     filename: "Create the Gateway Volume",
@@ -47,8 +115,7 @@ export const DOCKER_CODE = {
 
 export const DOCKER_YML = {
   offChain: {
-    videoMin: `version: '3.9'
-
+    videoMin: `
 services:
   video-gateway:
     image: livepeer/go-livepeer:master
@@ -74,8 +141,6 @@ volumes:
     external: true
 `,
     video: `
-version: '3.9'
-
   services:  
     video-gateway:  
         image: livepeer/go-livepeer:master  
@@ -107,8 +172,7 @@ version: '3.9'
     gateway-lpData:  
       external: true
 `,
-    aiMin: `version: '3.9'
-
+    aiMin: `
 services:
   ai-gateway:
     image: livepeer/go-livepeer:master
@@ -131,8 +195,7 @@ volumes:
   ai-gateway-lpData:
     external: true
 `,
-    ai: `version: '3.9'
-
+    ai: `
 services:
   ai-gateway:
     image: livepeer/go-livepeer:master
@@ -167,8 +230,7 @@ volumes:
   ai-gateway-lpData:
     external: true
 `,
-    dualMin: `version: '3.9'
-
+    dualMin: `
 services:
   dual-gateway:
     image: livepeer/go-livepeer:master
@@ -193,8 +255,7 @@ volumes:
   dual-gateway-lpData:
     external: true
 `,
-    dual: `version: '3.9'
-
+    dual: `
 services:
   dual-gateway:
     image: livepeer/go-livepeer:master
@@ -227,8 +288,7 @@ volumes:
 `,
   },
   onChain: {
-    video: `version: '3.9'
-
+    video: `
 services:
   video-gateway:
     image: livepeer/go-livepeer:master
@@ -287,8 +347,7 @@ volumes:
   video-gateway-lpData:
     external: true
 `,
-    ai: `version: '3.9'
-
+    ai: `
 services:
   ai-gateway:
     image: livepeer/go-livepeer:master
@@ -343,8 +402,7 @@ volumes:
   ai-gateway-lpData:
     external: true
 `,
-    dual: `version: '3.9'
-
+    dual: `
 services:
   dual-gateway:
     image: livepeer/go-livepeer:master

@@ -3,7 +3,6 @@ title: 'Run a Gateway: Quickstart Guide'
 description: 'Quickstart a Livepeer Gateway'
 sidebarTitle: 'Run a Gateway Quickstart'
 ---
-
 {/* DATA & CODE */}
 import { DOCKER_CODE, DOCKER_YML, BASH_CODE, AI_TEST_COMMANDS, CONFIG_FILES, CLI_CODE } from '/snippets/data/gateways/code.jsx';
 import { CONFIG_FLAGS } from '/snippets/data/gateways/flags.jsx';
@@ -18,28 +17,25 @@ import { QuickStartTabs, QuickStartSteps } from '/snippets/components/gateways/q
 
 {/* COMPONENTS */}
 import { ResponseFieldAccordion, ResponseFieldExpandable, CustomResponseField, ValueResponseField } from '/snippets/components/responseField.jsx';
-import { CustomCodeBlock } from '/snippets/components/code.jsx';
+import { CustomCodeBlock, CodeSection, ComplexCodeBlock, } from '/snippets/components/code.jsx';
 import { TipWithArrow, DoubleIconLink } from '/snippets/components/links.jsx';
 import { DownloadButton } from '/snippets/components/buttons.jsx';
+
+import DockerOffChainTab from '/snippets/pages/gateways/run/quickstart/views/docker/dockerOffChainTab.mdx';
+
+{/* # TEST */}
+{/* works - this will be the best way to separate files.
+import TestPage from "/snippets/pages/response.mdx";
+<TestPage />
+*/}
 
 {/* PAGE LAYOUT HELPERS */}
 {/* UNUSED CURRENTLY */}
 
 {/* PAGE LAYOUT */}
 
-{/* # TEST
-
-<CustomCodeBlock language="yaml" codeString={DOCKER_YML.offChain.videoMin} /> */}
-
-
-{/* <QuickStartTabs
-  offchainSteps={<QuickStartSteps dataSource={dockerOffChain} />}
-  onchainSteps={<QuickStartSteps dataSource={dockerOnChain} />}
-/> */}
 
 {/* PAGE CONTENT */}
-
-{/* <img src="../../../../assets/gateways/view-dropdown.png" width="200em" height='auto' alt="Quickstart Dropdown" margin="0"/> */}
 
 <TipWithArrow>
   Use the Dropdown at the top-right of this page to view the Quickstart Guide
@@ -82,177 +78,7 @@ This guide includes both on-chain (production) and off-chain (local) Gateway set
 This guide will install and configure a Gateway to run video & AI workloads.
 
 <Tabs>
-  <Tab title="Off-Chain Gateway" icon="floppy-disk">
-    <GatewayOffChainWarning />
-    <Steps titleSize="h3">
-      <Step title="Install Gateway Software">
-        Pull the docker image from <Icon icon="arrow-up-right" color="#2d9a67" /> [Livepeer Docker Hub]("https://hub.docker.com/r/livepeer/go-livepeer")
-        <CustomCodeBlock
-          {...DOCKER_CODE.install}
-          wrap
-        />
-      </Step>
-      <Step title="Configure Gateway">
-        <Badge color="blue">Video</Badge> {" "} <Badge color="purple">AI</Badge>
-
-        Create the `docker-compose.yml` file that defines the <Badge color="green">dual</Badge> gateway service.
-
-        <OrchAddrNote />
-
-        <CustomCodeBlock
-          codeString={DOCKER_YML.offChain.dual}
-          language="yaml"
-          icon="docker"
-          filename="docker-compose.yml"
-          highlight="[18]"
-          expandable={true}
-          wrap={false}
-        />
-
-
-       *See flag details below:*
-        <Danger> fix me </Danger>
-        *See flag details below:*
-        <AccordionGroup>
-          <ResponseFieldAccordion
-            title="Required Flags"
-            icon="file-circle-exclamation"
-            fields={CONFIG_FLAGS.offchain.required}
-          />
-          <ResponseFieldAccordion
-            title="Recommended Flags"
-            icon="file-circle-info"
-            fields={CONFIG_FLAGS.offchain.optional}
-          />          
-          <Accordion title="Transcoding Options Example" icon="brackets-curly">
-            <CustomCodeBlock
-                codeString={CONFIG_FILES.video.transcodingOptionsJson}
-                language="json"
-                icon="brackets-curly"
-                filename="Example transcodingOptions.json"
-            />
-          </Accordion>
-        </AccordionGroup>
-
-      </Step>
-      <Step title="Run Gateway">
-          <CustomCodeBlock
-          {...DOCKER_CODE.create}
-        />
-          <CustomCodeBlock
-          {...DOCKER_CODE.run}
-        />
-          <CustomCodeBlock
-          {...DOCKER_CODE.verify}
-        />
-      </Step>
-
-      <Step title="Test Gateway">
-        <Tabs>
-          <Tab title="Video" icon="camera-movie">
-            {/* You need a test video file (test-video.mp4) in your current directory to use the command */}
-            Send a video stream to the gateway:
-            <TestVideoDownload>
-              <DownloadButton
-                label="test-video.mp4"
-                downloadLink="/v2/assets/gateways/test-video.mp4"
-              />
-            </TestVideoDownload>
-
-            From a host terminal (not in Docker or Volume), run this command:
-                <CustomCodeBlock
-                {...BASH_CODE.testRTMPingest}
-              />
-
-            After streaming, check the HLS playback output:
-            <CustomCodeBlock
-              {...BASH_CODE.testHLS}
-              wrap
-              />
-              Tips:
-                - Replace localhost with your gateway's IP if running remotely
-                - The stream name (test) becomes part of the HLS playback URL
-          </Tab>
-          <Tab title="AI" icon="user-robot">
-            To test AI functionality in Livepeer, you can make HTTP requests to the AI endpoints exposed by your gateway. 
-            The gateway routes these requests to orchestrators with AI workers for processing.
-
-            <CustomCodeBlock
-              {...BASH_CODE.testHTTPingest}
-              wrap
-            />
-
-            <CustomCodeBlock
-              {...BASH_CODE.checkStatus}
-              wrap
-            />
-
-            <CustomCodeBlock
-              {...BASH_CODE.aiCapabilities}
-              wrap
-            />
-
-            Use the AI API to test functionality of available models.
-
-            <Expandable title="AI API Example Commands">
-            <Danger> Fix code formatting </Danger>
-              <br/>
-              <CustomCodeBlock
-                {...AI_TEST_COMMANDS.textToImage}
-                wrap
-              />
-              <CustomCodeBlock
-                {...AI_TEST_COMMANDS.LLM}
-                wrap
-              />
-              <CustomCodeBlock
-                {...AI_TEST_COMMANDS.liveVideoAI}
-                wrap
-              />
-            </Expandable>
-
-            <Card
-              title="AI API"
-              href="/v2/pages/04_gateways/references/api-reference/AI-API"
-              icon="books"
-              arrow
-              horizontal
-            >
-              View AI API Full Reference here
-            </Card>
-
-
-            {/* Pre-req's for testing
-            - AI Worker Running: Your orchestrator must have an AI worker with models loaded
-          - Gateway Connected: Gateway must be connected to the orchestrator with -orchAddr
-          - Models Available: The AI worker must have the requested models available */}
-
-          </Tab>
-        </Tabs>
-      </Step>
-      <Step title="Gateway Tips">
-      {/* FFmpeg is a prerequisite for Livepeer development and is included in the Livepeer Docker images Dockerfile:44-47
-      The box scripts in the repository show examples of using FFmpeg for streaming to Livepeer gateways stream.sh:28-34 */}
-        See all available config flags:
-        <CustomCodeBlock
-          {...DOCKER_CODE.flags}
-        />
-            {/* The gateway will automatically create the data directory structure on first run
-            {/* All configuration can be updated dynamically via the CLI API without restarting */}
-            {/* The -orchAddr flag is required and must point to a running orchestrator */}
-            {/* For production use, consider adding authentication via -authWebhookUrl flags.go:136  */}
-
-        Useful [CLI Commands](/v2/pages/04_gateways/references/cli-commands) <Icon icon="arrow-up-right" />
-        <CustomCodeBlock
-          {...CLI_CODE.cliOptions}
-        />
-      </Step>
-      {/* <Step title="Troubleshooting">
-      .
-      </Step> */}
-    </Steps>
-
-  </Tab>
+  <DockerOffChainTab />
   <Tab title="On-Chain Gateway" icon="link">
     This guide will set up a Livepeer Gateway on the [Arbitrum One Mainnet](https://arbitrum.io/).
     
