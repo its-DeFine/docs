@@ -1,65 +1,7 @@
-//TEST
-export const useDockerCode = () => ({
-  install: {
-    filename: "Install go-livepeer",
-    icon: "terminal",
-    language: "bash",
-    codeString: `docker pull livepeer/go-livepeer:stable`,
-    preNote: (
-      <>
-        Pull the docker image from{" "}
-        <Icon icon="arrow-up-right" color="#2d9a67" />
-        <a href="https://hub.docker.com/r/livepeer/go-livepeer">
-          Livepeer Docker Hub
-        </a>
-      </>
-    ),
-  },
-});
-
-export const DOCKER_CODE1 = {
-  install: {
-    filename: "Install go-livepeer",
-    icon: "terminal",
-    language: "bash",
-    codeString: `docker pull livepeer/go-livepeer:stable`,
-    preNoteFactory: ({ Icon }) =>
-      React.createElement(
-        React.Fragment,
-        null,
-        "Pull the docker image from ",
-        React.createElement(Icon, { icon: "arrow-up-right", color: "#2d9a67" }),
-        " ",
-        React.createElement(
-          "a",
-          { href: "https://hub.docker.com/r/livepeer/go-livepeer" },
-          "Livepeer Docker Hub",
-        ),
-      ),
-  },
-};
-
-{
-  /* preNoteKey: (
-    <>
-      Pull the docker image from <Icon icon="arrow-up-right" color="#2d9a67" /> <a href="https://hub.docker.com/r/livepeer/go-livepeer">Livepeer Docker Hub</a>
-    </>
-  ), */
-}
-
-export const preNotes = {
-  dockerInstall: (
-    <>
-      Pull the docker image from <Icon icon="arrow-up-right" color="#2d9a67" />{" "}
-      <a href="https://hub.docker.com/r/livepeer/go-livepeer">
-        Livepeer Docker Hub
-      </a>
-    </>
-  ),
-};
-
 // Segmented Code Blocks
 // DOCKER
+// preNote is STRING ONLY. Cannot accept mintlify components.
+// Will move this to a different view instead.
 export const DOCKER_CODE = {
   install: {
     filename: "Install go-livepeer",
@@ -81,18 +23,39 @@ export const DOCKER_CODE = {
     icon: "terminal",
     language: "bash",
     codeString: `docker volume create dual-gateway-lpData`,
+    description:
+      "Creates a Docker volume with the name `dual-gateway-lpData` for persistent storage.",
+    output: ` ✔ Volume dual-gateway-lpData  Created`,
   },
   run: {
     filename: "Run the Gateway",
     icon: "terminal",
     language: "bash",
     codeString: `docker-compose up -d`,
+    description:
+      "Starts the gateway container in detached mode (-d flag). The volume is created if it doesn't exist.",
+    output: `
+    [+] Running 2/2  
+    ✔ Volume dual-gateway-lpData  Created  
+    ✔ Container dual-gateway    Started `,
   },
   verify: {
     filename: "Verify Gateway is Running",
     icon: "terminal",
     language: "bash",
     codeString: `docker logs dual-gateway`,
+    description:
+      "The logs show the gateway starting up, binding to the configured ports, and connecting to the orchestrator",
+    output: `
+    INFO[0000] Livepeer v0.5.32  
+    INFO[0000] Starting Livepeer node...  
+    INFO[0000] Node type: BroadcasterNode  
+    INFO[0000] RTMP server listening on 0.0.0.0:1935  
+    INFO[0000] HTTP server listening on 0.0.0.0:8935  
+    INFO[0000] CLI server listening on 0.0.0.0:5935  
+    INFO[0000] Connected to orchestrator at <ORCHESTRATOR_IP:PORT>  
+    INFO[0000] Gateway ready  
+    `,
   },
   flags: {
     filename: "View all available flags",
@@ -110,6 +73,21 @@ export const DOCKER_CODE = {
     preNote: "",
     postNote:
       "Use host.docker.internal instead of localhost when running FFmpeg from a Docker container to connect to services on the host machine.",
+  },
+  verifyEthConnection: {
+    filename: "Verify ETH Connection",
+    icon: "terminal",
+    language: "bash",
+    codeString: `curl http://localhost:5935/status | jq '.eth'`,
+    preNote: "Verify your Gateway has an active Ethereum connection:",
+    description:
+      "The ETH section should show your account address and balance. If it shows default values, your ETH connection is not active.",
+    output: `
+    {  
+      "accountAddr": "0x...",  
+      "balance": "1000000000000000000"  
+    }  
+    `,
   },
 };
 
@@ -452,6 +430,16 @@ volumes:
   },
 };
 
+// OUTPUT NOTES on STATUS
+// The actual version number and addresses will vary
+// If the orchestrator connection fails, you'll see connection error messages in the logs
+// For off-chain gateways, the eth section will show default values
+// The gateway must be running before the status endpoint will respond
+
+// On "BroadcasterNode":
+// The log shows BroadcasterNode because that's the internal enum name in the codebase.
+// The - gateway flag sets the node type to BroadcasterNode internally starter.go: 697 - 699.
+// This is a terminology change where "Broadcaster" was renamed to "Gateway" in v0.7.6, but the internal code still uses the old name.
 export const BASH_CODE = {
   sendVideo: {
     filename: "Send a Video Stream",
@@ -495,7 +483,32 @@ export const BASH_CODE = {
     icon: "terminal",
     language: "bash",
     codeString: `curl http://localhost:5935/status`,
-    preNote: "Check if your Gateway AI Worker is running:",
+    preNote: "Check if your Gateway node is running:",
+    description:
+      "The status endpoint returns a json with node information including type, addresses, and balances.",
+    output: `
+    {  
+      "availability": 100,  
+      "broadcaster": {  
+        "address": "0x...",  
+        "deposit": "1000000000000000000",  
+        "withdrawRound": "0"  
+      },  
+      "eth": {  
+        "accountAddr": "0x...",  
+        "balance": "1000000000000000000"  
+      },  
+      "nodeType": "BroadcasterNode",  
+      "version": "0.5.32"  
+    }
+    `,
+  },
+  checkAvailableOrchestrators: {
+    filename: "Check Available Orchestrators",
+    icon: "terminal",
+    language: "bash",
+    codeString: `curl http://localhost:5935/getOrchestrators`,
+    preNote: "Check available orchestrators:",
   },
   aiCapabilities: {
     filename: "Check Orchestrator's available capabilities",
@@ -505,6 +518,142 @@ export const BASH_CODE = {
     preNote: "Check Orchestrator's available AI capabilities:",
     postNote:
       "◆ Make sure your Orchestrator's AI models directory is properly mounted and accessible",
+  },
+  onchain: {
+    checkAccountAddress: {
+      filename: "Check Your Account Address",
+      icon: "terminal",
+      language: "bash",
+      codeString: `curl http://localhost:5935/status | jq '.eth.accountAddr'`,
+      preNote: "Check your account address:",
+      description:
+        "The gateway must have an active Ethereum connection and valid account.",
+      output: `  
+      {  
+        "address": "0x...",  
+        "deposit": "1000000000000000000",  
+        "withdrawRound": "0"  
+      }  
+      `,
+    },
+    checkCurrentRound: {
+      filename: "Check Current Round",
+      icon: "terminal",
+      language: "bash",
+      codeString: `curl http://localhost:5935/getCurrentRound`,
+      preNote: "Check the current payment round:",
+      description: "Check the current payment round",
+      output: `  
+      {  
+        "currentRound": 1,  
+        "roundLength": 100,  
+        "roundNumber": 1  
+      }  
+      `,
+    },
+    checkDepositAndReserve: {
+      filename: "Check Your Deposit and Reserve",
+      icon: "terminal",
+      language: "bash",
+      codeString: `curl http://localhost:5935/getBroadcasterInfo`,
+      preNote: "Check your Deposit and Reserve:",
+      description: "Check your Deposit and Reserve:",
+      output: `  
+      {  
+        "address": "0x...",  
+        "deposit": "1000000000000000000",  
+        "withdrawRound": "0"  
+      }  
+      `,
+    },
+    depositFunds: {
+      filename: "Deposit Funds",
+      icon: "terminal",
+      language: "bash",
+      codeString: `curl -X POST http://localhost:5935/depositFunds \  
+      -d "amount=1000000000000000000"  # 1 ETH in wei  `,
+      preNote: "Deposit ETH funds into your Gateway (if needed):",
+      description:
+        "Deposit ETH funds into your Gateway. 1 ETH in wei is 1000000000000000000",
+      output: `  
+      {  
+        "success": true  
+      }  
+      `,
+    },
+    checkDeposit: {
+      filename: "Verify Deposit",
+      icon: "terminal",
+      language: "bash",
+      codeString: `curl http://localhost:5935/status | jq '.broadcaster.deposit'`,
+      preNote: "Veirfy your Deposit:",
+      description: "Check your Deposit:",
+      output: `  
+      {  
+        "deposit": "1000000000000000000"  
+      }  
+      `,
+    },
+    depositFundsAndReserve: {
+      filename: "Deposit Funds",
+      icon: "terminal",
+      language: "bash",
+      codeString: `curl http://localhost:5935/fundDepositAndReserve -X POST -d '{"deposit": "100000000000000000", "reserve": "100000000000000000"}' -H "Content-Type: application/json"`,
+      preNote: "Deposit funds into your Gateway:",
+      description: "Deposit funds into your Gateway:",
+      output: `  
+      {  
+        "success": true  
+      }  
+      `,
+    },
+    checkTicketParams: {
+      filename: "Check Ticket Parameters",
+      icon: "terminal",
+      language: "bash",
+      codeString: `curl http://localhost:5935/getOrchestrators | jq '.[].ticketParams'`,
+      preNote: "Check ticket parameters:",
+      description: "Check ticket parameters:",
+      output: `  
+      {  
+        "ticketParams": {  
+          "expiration": 100,  
+          "fee": 0,  
+          "maxPrice": 1000,  
+          "minPrice": 100  
+        }  
+      }  
+      `,
+    },
+    checkPriceInfo: {
+      filename: "Check Price Info",
+      icon: "terminal",
+      language: "bash",
+      codeString: `curl http://localhost:5935/getOrchestrators | jq '.[].priceInfo'`,
+      preNote: "Verify price information:",
+      description: "Check price info:",
+      output: `  
+      {  
+        "priceInfo": {  
+          "pricePerUnit": 100,  
+          "pixelsPerUnit": 1  
+        }  
+      }  
+      `,
+    },
+    withdrawFunds: {
+      filename: "Withdraw Funds",
+      icon: "terminal",
+      language: "bash",
+      codeString: `curl -X POST http://localhost:5935/withdrawFunds`,
+      preNote: "Test withdrawal (if funds are unlocked):",
+      description: "Withdraw funds from your Gateway:",
+      output: `  
+      {  
+        "success": true  
+      }  
+      `,
+    },
   },
 };
 

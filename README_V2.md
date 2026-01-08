@@ -801,3 +801,99 @@ Wiki pages you might want to explore:
 Wiki pages you might want to explore:
 
 - [Architecture (livepeer/go-livepeer)](/wiki/livepeer/go-livepeer#1.1)
+
+Yes, it's possible to test on testnets, and there are orchestrators running on
+them. The Livepeer codebase explicitly supports testnet deployments with
+dedicated network configurations.
+
+## Quick Answer
+
+- **Testnets are supported**: Livepeer supports `arbitrum-one-goerli` and other
+  testnets
+- **Orchestrators exist**: The code assumes orchestrators are available on
+  testnets
+- **Deprecated testnets**: Rinkeby and arbitrum-one-rinkeby are deprecated but
+  still functional
+
+---
+
+## Testnet Support in Codebase
+
+### Network Configurations
+
+The starter code includes specific configurations for testnets [1](#50-0) :
+
+```go
+configOptions := map[string]*NetworkConfig{
+    "rinkeby": {
+        ethController: "0x9a9827455911a858E55f07911904fACC0D66027E",
+        redeemGas:     redeemGasL1,
+    },
+    "arbitrum-one-rinkeby": {
+        ethController: "0x9ceC649179e2C7Ab91688271bcD09fb707b3E574",
+        redeemGas:     redeemGasL2,
+    },
+    // ... other networks
+}
+```
+
+### Test Scripts
+
+The test suite includes testnet-specific tests [2](#50-1) :
+
+```bash
+# Run Rinkeby tests
+if [ -z ${RINKEBY_ETH_URL+x} ]; then
+  echo "RINKEBY_ETH_URL is not set - skipping Rinkeby tests"
+else
+  run_lp -gateway -network rinkeby $ETH_ARGS
+  [ -d "$DEFAULT_DATADIR"/rinkeby ]
+  kill $pid
+fi
+```
+
+### Development Configurations
+
+VS Code launch configurations show testnet setups [3](#50-2) :
+
+```go
+if *cfg.Network == "rinkeby" || *cfg.Network == "arbitrum-one-rinkeby" {
+    glog.Warning("The Rinkeby/ArbRinkeby networks are deprecated in favor of the Goerli/ArbGoerli networks which will be launched in January 2023.")
+}
+```
+
+## Testing on Testnets
+
+### Configuration
+
+Use the testnet configuration:
+
+```yaml
+command:
+  "-gateway -network arbitrum-one-goerli -ethUrl=https://goerli.arbitrum.io/rpc
+  -ethUrl=https://eth-goerli.g.alchemy.com/v2/YOUR_API_KEY"
+```
+
+### Finding Orchestrators
+
+Testnets have fewer orchestrators than mainnet, but they exist:
+
+1. Check the Livepeer explorer for testnet orchestrators
+2. Use the CLI to discover available orchestrators:
+   ```bash
+   curl http://localhost:5935/getOrchestrators
+   ```
+
+### Benefits of Testnet Testing
+
+- No real ETH costs (use testnet faucets)
+- Safe environment for experimentation
+- Test new features before mainnet deployment
+
+## Notes
+
+- Testnet orchestrators are run by community members and the Livepeer team
+- Some testnets may have limited capacity compared to mainnet
+- Always check the network status before deploying to testnet
+- The codebase is designed to work identically across testnet and mainnet, just
+  with different network parameters

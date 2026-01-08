@@ -4,38 +4,33 @@ description: 'Quickstart a Livepeer Gateway'
 sidebarTitle: 'Run a Gateway Quickstart'
 ---
 {/* DATA & CODE */}
+{/* These can be moved to the view using them */}
 import { DOCKER_CODE, DOCKER_YML, BASH_CODE, AI_TEST_COMMANDS, CONFIG_FILES, CLI_CODE } from '/snippets/data/gateways/code.jsx';
 import { CONFIG_FLAGS } from '/snippets/data/gateways/flags.jsx';
 import { LatestRelease, LatestReleaseUrl } from '/snippets/components/release.jsx';
 
 {/* BANNERS, CALLOUTS, VALUE STRINGS */}
+{/* These can be moved to the view using them */}
 import { GatewayOffChainWarning, GatewayOnChainWarning, GatewayOnChainTTestnetNote, OrchAddrNote, TestVideoDownload } from "/snippets/components/gateways/callouts.jsx";
 
-{/* LAYOUTS */}
-import { createQuickstart } from '/snippets/data/gateways/quickstart.jsx';
-import { QuickStartTabs, QuickStartSteps } from '/snippets/components/gateways/quickstartTabs.jsx';
-
 {/* COMPONENTS */}
+{/* These can be moved to the view using them */}
 import { ResponseFieldAccordion, ResponseFieldExpandable, CustomResponseField, ValueResponseField } from '/snippets/components/responseField.jsx';
 import { CustomCodeBlock, CodeSection, ComplexCodeBlock, } from '/snippets/components/code.jsx';
 import { TipWithArrow, DoubleIconLink } from '/snippets/components/links.jsx';
 import { DownloadButton } from '/snippets/components/buttons.jsx';
 
+{/* LAYOUTS & VIEWS */}
 import DockerOffChainTab from '/snippets/pages/gateways/run/quickstart/views/docker/dockerOffChainTab.mdx';
 
-{/* # TEST */}
-{/* works - this will be the best way to separate files.
-import TestPage from "/snippets/pages/response.mdx";
-<TestPage />
-*/}
-
-{/* PAGE LAYOUT HELPERS */}
-{/* UNUSED CURRENTLY */}
-
-{/* PAGE LAYOUT */}
-
-
-{/* PAGE CONTENT */}
+{/* 
+<Panel>
+  <div>
+    <h1>Docker Quickstart Guide</h1>
+      <h4>{" "}<a href="#off-chain-gateway">Off-Chain Gateway</a></h4>
+      <h4>{" "}<a href="#on-chain-gateway">On-Chain Gateway</a></h4>
+  </div>
+</Panel> */}
 
 <TipWithArrow>
   Use the Dropdown at the top-right of this page to view the Quickstart Guide
@@ -64,14 +59,7 @@ This guide includes both on-chain (production) and off-chain (local) Gateway set
 <br />
 
 <View title=" Docker" icon="docker" iconType="solid">
-{/* <Panel>
-  <h1> Docker Quickstart Guide </h1>
-  <h3> Install Gateway Software </h3>
-  <h3> Configure Gateway </h3>
-  <h3> Run Gateway </h3>
-  <h3> Test Gateway </h3>
-  <h3> Gateway Tips </h3>
-</Panel> */}
+
 
 ## <Icon icon="docker" iconType="solid" size={32} /> Docker Quickstart Guide
 
@@ -172,9 +160,76 @@ This guide will install and configure a Gateway to run video & AI workloads.
           {...DOCKER_CODE.verify}
         />
       </Step>
+      <Step title="Connect Gateway">
+        <CustomCodeBlock
+          {...DOCKER_CODE.connect}
+        />
+      </Step>
       <Step title="Test Gateway">
-        <Tabs>
-          <Tab title="Video" icon="camera-movie">
+      <Accordion title="Basic Connectivity Tests" icon="wifi">
+          *Basic Connectivity Tests:*
+
+          These tests verify the gateway is running and can discover orchestrators:
+            <CustomCodeBlock
+              {...BASH_CODE.checkStatus}
+            />
+            <CustomCodeBlock
+              {...BASH_CODE.checkAvailableOrchestrators}
+            />
+        </Accordion>
+      <Accordion title="On-Chain Specific Tests" icon="chain">
+          *On-Chain Specific Tests:*
+
+          Before testing, ensure your on-chain gateway is properly configured.
+          The gateway must have an active Ethereum connection and valid account:
+            <CustomCodeBlock
+              {...BASH_CODE.onchain.checkAccountAddress}
+            />
+            <CustomCodeBlock
+              {...DOCKER_CODE.verifyEthConnection}
+            />
+          </Accordion>
+      <Accordion title="Payment Tests" icon="hand-holding-dollar">
+          *Payment Tests:*
+
+          For on-chain gateways, test the payment system: 
+          {/* The payment system uses probabilistic micropayments with tickets. */}
+          <CustomCodeBlock
+              {...BASH_CODE.onchain.checkCurrentRound}
+            />
+            <CustomCodeBlock
+              {...BASH_CODE.onchain.depositFunds}
+            />
+            <CustomCodeBlock
+              {...BASH_CODE.onchain.checkDeposit}
+            />
+          </Accordion>
+      <Accordion title="Advanced On-Chain Tests" icon="ethereum">
+          *Advanced On-Chain Tests*
+
+          Test smart contract interactions:
+          <CustomCodeBlock
+            {...BASH_CODE.onchain.checkTicketParams}
+          />
+          <CustomCodeBlock
+            {...BASH_CODE.onchain.checkPriceInfo}
+          />
+          <CustomCodeBlock
+            {...BASH_CODE.onchain.checkWithdrawal}
+          />
+          </Accordion>
+      <Accordion title="Video Ingest Tests" icon="camera-movie">
+          *Video Ingest Tests:*
+
+          {/* # RTMP stream (requires FFmpeg)  
+        ffmpeg -re -i test-video.mp4 -c copy -f flv rtmp://localhost:1935/stream/test-key  
+          
+        # HTTP segment push  
+        curl -X PUT http://localhost:8935/live/test/0.ts --data-binary @test-segment.ts  
+          
+        # Verify HLS output  
+        curl http://localhost:8935/hls/test-key/index.m3u8 */}
+            <TestVideoDownload />
             <CustomCodeBlock
               {...BASH_CODE.testRTMPingest}
             />
@@ -182,13 +237,42 @@ This guide will install and configure a Gateway to run video & AI workloads.
               {...BASH_CODE.testHLS}
               wrap
             />
-          </Tab>
-          <Tab title="AI" icon="user-robot">
             <CustomCodeBlock
               {...BASH_CODE.testHTTPingest}
             />
-          </Tab>
-        </Tabs>
+          </Accordion>
+      <Accordion title="AI Tests" icon="user-robot">
+          *AI Tests:*
+          
+            <CustomCodeBlock
+              {...BASH_CODE.testHTTPingest}
+            />
+          </Accordion>
+      <Accordion title="Expected Results" icon="check-circle">
+            **Expected Results**
+
+            Successful Test Indicators
+            - Status endpoint returns valid Ethereum address
+            - Orchestrators list shows pricing and ticket parameters
+            - Video streams generate HLS playlists
+            - AI endpoints return processed results
+            - Payment operations complete without errors
+
+            **Common Issues**
+
+            - No orchestrators found: Check `-orchAddr` configuration
+            - Payment errors: Verify ETH balance and gas settings
+            - AI failures: Ensure `-aiServiceRegistry` is set for on-chain AI
+            - Connection timeouts: Check firewall and network settings
+            
+            **Notes**
+            
+            - On-chain tests require ETH in the gateway account for transactions
+            - Test on a testnet first (e.g., arbitrum-one-goerli) before using mainnet
+            - Monitor gas costs during testing
+            - The test suite includes on-chain validation tests [test_args.sh](https://github.com/livepeer/go-livepeer/blob/master/test_args.sh)
+            - Use `-localVerify=false` to skip local verification if needed
+          </Accordion>
       </Step>
     </Steps>
   </Tab>
