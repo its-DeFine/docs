@@ -78,18 +78,55 @@ export const DOCKER_CODE = {
     filename: "Verify ETH Connection",
     icon: "terminal",
     language: "bash",
-    codeString: `curl http://localhost:5935/status | jq '.eth'`,
-    preNote: "Verify your Gateway has an active Ethereum connection:",
+    codeString: `docker logs dual-gateway | grep -i "ethereum\|eth\|blockchain"`,
+    preNote:
+      "Ensure your Gateway is properly configured by verifying that your Gateway has an active Ethereum connection:",
     description:
-      "The ETH section should show your account address and balance. If it shows default values, your ETH connection is not active.",
+      "The logs should show the ETH account address, balance, and connection status.",
     output: `
-    {  
-      "accountAddr": "0x...",  
-      "balance": "1000000000000000000"  
-    }  
+    INFO[0000] ETH account address: 0x...  
+    INFO[0000] ETH balance: 1000000000000000000  
+    INFO[0000] ETH connection active
+    `,
+  },
+  verifyOnChainConfig: {
+    filename: "Verify On-Chain Configuration",
+    icon: "terminal",
+    language: "bash",
+    codeString: `# Verify Ethereum connection  
+docker logs dual-gateway | grep -i "ethereum\|eth\|blockchain"  
+    
+# Check account address
+curl http://localhost:5935/status | jq '.eth.accountAddr'
+    `,
+    preNote: `
+      The gateway must have an active Ethereum connection and valid account.
+      
+      Before testing, verify your Gateway is properly configured by checking the on-chain settings:
+      `,
+    // postNote:
+    //   "The gateway must have an active Ethereum connection and valid account.",
+    description:
+      "The logs should show the ETH account address, balance, and connection status.",
+    output: `
+    INFO[0000] ETH account address: 0x...  
+    INFO[0000] ETH balance: 1000000000000000000  
+    INFO[0000] ETH connection active
     `,
   },
 };
+
+// video
+{
+  /* # RTMP stream (requires FFmpeg)
+ffmpeg -re -i test-video.mp4 -c copy -f flv rtmp://localhost:1935/stream/test-key
+  
+# HTTP segment push
+curl -X PUT http://localhost:8935/live/test/0.ts --data-binary @test-segment.ts
+  
+# Verify HLS output
+curl http://localhost:8935/hls/test-key/index.m3u8 */
+}
 
 export const DOCKER_YML = {
   offChain: {
@@ -653,6 +690,166 @@ export const BASH_CODE = {
         "success": true  
       }  
       `,
+    },
+  },
+  test: {
+    basic: {
+      checkStatus: {
+        filename: "Check Gateway Status",
+        icon: "terminal",
+        language: "bash",
+        codeString: `curl http://localhost:5935/status`,
+        preNote: "Check if your Gateway node is running:",
+        description:
+          "The status endpoint returns a json with node information including type, addresses, and balances.",
+        output: `
+    {  
+      "availability": 100,  
+      "broadcaster": {  
+        "address": "0x...",  
+        "deposit": "1000000000000000000",  
+        "withdrawRound": "0"  
+      },  
+      "eth": {  
+        "accountAddr": "0x...",  
+        "balance": "1000000000000000000"  
+      },  
+      "nodeType": "BroadcasterNode",  
+      "version": "0.5.32"  
+    }
+    `,
+      },
+      checkAvailableOrchestrators: {
+        filename: "Check Available Orchestrators",
+        icon: "terminal",
+        language: "bash",
+        codeString: `curl http://localhost:5935/getOrchestrators`,
+        preNote: "Check available orchestrators:",
+      },
+      verifyEthConnection: {
+        filename: "Verify ETH Connection",
+        icon: "terminal",
+        language: "bash",
+        codeString: `curl http://localhost:5935/status | jq '.eth'`,
+        preNote: "Verify your Gateway has an active Ethereum connection:",
+        description:
+          "The ETH section should show your account address and balance. If it shows default values, your ETH connection is not active.",
+        output: `
+        {  
+          "accountAddr": "0x...",  
+          "balance": "1000000000000000000"  
+        }  
+        `,
+      },
+    },
+    video: {
+      sendVideo: {
+        filename: "Send a Video Stream",
+        icon: "terminal",
+        language: "bash",
+        codeString: `ffmpeg -re -i test-video.mp4 -c copy -f flv rtmp://localhost:1935/stream/test-key`,
+        wrap: true,
+        preNote: "",
+      },
+      testRTMPingest: {
+        filename: "Test RTMP Ingest",
+        icon: "terminal",
+        language: "bash",
+        codeString: `ffmpeg -re -i test-video.mp4 -c copy -f flv rtmp://localhost:1935/stream/test-key`,
+        preNote: "Send a Video Stream using FFmpeg:",
+      },
+      testHTTPingest: {
+        filename: "Test HTTP Ingest",
+        icon: "terminal",
+        language: "bash",
+        codeString: `curl -X PUT http://localhost:8935/live/test/0.ts --data-binary @test-segment.ts`,
+        preNote: "Test your HTTP Ingest Stream by pushing a segment:",
+      },
+      testHLS: {
+        filename: "Access HLS Stream",
+        icon: "terminal",
+        language: "bash",
+        codeString: `curl http://localhost:8935/hls/test-key/index.m3u8`,
+        preNote: "Test playback by accessing the HLS stream:",
+      },
+      scriptVerify: {
+        filename: "Use the build-in test stream to verify",
+        icon: "terminal",
+        language: "bash",
+        codeString: `# Generate a test pattern and stream  
+        ffmpeg -re -f lavfi -i testsrc=size=1280x720:rate=30,format=yuv420p \  
+        -c:v libx264 -b:v 1000k -f flv rtmp://localhost:1935/stream/test-key`,
+      },
+    },
+    ai: {
+      // AI Capability Tests (if enabled)
+      // If your gateway supports AI processing:
+
+      // # Test text-to-image
+      // curl -X POST http://localhost:8935/text-to-image \
+      //   -H "Content-Type: application/json" \
+      //   -d '{"prompt": "A beautiful sunset", "model_id": "stabilityai/sdxl-turbo"}'
+
+      // # Test LLM
+      // curl -X POST http://localhost:8935/llm \
+      //   -H "Content-Type: application/json" \
+      //   -d '{"model": "meta-llama/llama-3.1-8B-Instruct", "messages": [{"role": "user", "content": "Hello"}]}'
+      textToImage: {
+        filename: "Text-to-Image",
+        icon: "terminal",
+        language: "bash",
+        codeString: `curl -X POST http://localhost:8935/text-to-image \  
+        -H "Content-Type: application/json" \  
+        -d '{  
+          "prompt": "A beautiful sunset over mountains",  
+          "model_id": "stabilityai/sdxl-turbo"  
+        }'`,
+        preNote: "Test Text-to-Image:",
+        description: "Test Text-to-Image:",
+        output: `  
+        {  
+          "image": "base64-encoded-image-data"  
+        }  
+        `,
+      },
+      imageToImage: {
+        filename: "Image-to-Image",
+        icon: "terminal",
+        language: "bash",
+        codeString: `curl -X POST http://localhost:8935/image-to-image \  
+        -F "prompt=Turn this into a watercolor painting" \  
+        -F "model_id=stabilityai/sdxl-turbo" \  
+        -F "image=@input.jpg"`,
+        preNote: "Test Image-to-Image:",
+        description: "Test Image-to-Image:",
+        output: `  
+        {  
+          "image": "base64-encoded-image-data"  
+        }  
+        `,
+      },
+      LLM: {
+        filename: "LLM",
+        icon: "terminal",
+        language: "bash",
+        codeString: `curl -X POST http://localhost:8935/llm \  
+        -H "Content-Type: application/json" \  
+        -d '{  
+          "model": "meta-llama/llama-3.1-8B-Instruct",  
+          "messages": [  
+            {"role": "user", "content": "Hello"}  
+          ]  
+        }'`,
+        preNote: "Test LLM:",
+        description: "Test LLM:",
+        output: `  
+        {  
+          "choices": [  
+            {"message": {"role": "assistant", "content": "Hello! How can I help you today?"}}  
+          ]  
+        }  
+        `,
+      },
     },
   },
 };
