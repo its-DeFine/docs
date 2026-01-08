@@ -23,6 +23,11 @@ import { DownloadButton } from '/snippets/components/buttons.jsx';
 {/* LAYOUTS & VIEWS */}
 import DockerOffChainTab from '/snippets/pages/gateways/run/quickstart/views/docker/dockerOffChainTab.mdx';
 import DockerOnChainTab from '/snippets/pages/gateways/run/quickstart/views/docker/dockerOnChainTab.mdx';
+import LinuxOffChainTab from '/snippets/pages/gateways/run/quickstart/views/linux/linuxOffChainTab.mdx';
+import LinuxOnChainTab from '/snippets/pages/gateways/run/quickstart/views/linux/linuxOnChainTab.mdx';
+import WindowsOffChainTab from '/snippets/pages/gateways/run/quickstart/views/windows/windowsOffChainTab.mdx';
+import WindowsOnChainTab from '/snippets/pages/gateways/run/quickstart/views/windows/windowsOnChainTab.mdx';
+
 
 {/* 
 <Panel>
@@ -81,107 +86,60 @@ This guide includes both on-chain (production) and off-chain (local) Gateway set
 ## <Icon icon="linux" iconType="solid" size={32} /> Linux/Mac Quickstart Guide
 
   <Tabs>
-    <Tab title="Off-Chain Gateway" icon="floppy-disk">
-    <Warning> 
-    <span style={{fontSize: '1.0rem' }}>You will need to <span style={{ color: 'white' }}>run your own Orchestrator node</span> to test an off-chain Gateway:  [<Icon icon="arrow-up-right" color="#2d9a67"/> Orchestrator Quickstart](/v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer)</span>
-
-    <p>Note: You can use [<Icon icon="arrow-up-right" color="#2d9a67"/> BYOC pipelines](/v2/pages/03_developers/ai-inference-on-livepeer/byoc) for local testing without needing a GPU. </p>
-    </Warning>
-    <Steps titleSize="h3">
-      <Step title="Install Gateway Software">
-        hi
-        {/* <LatestReleaseUrl asset="livepeer-linux-amd64.tar.gz">
-          <CustomCodeBlock
-            codeString="sudo wget https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-linux-amd64.tar.gz"
-            placeholderValue={LatestRelease}
-            language="bash"
-            icon="terminal"
-          />
-        </LatestReleaseUrl> */}
-        bye
-      </Step>
-      <Step title="Configure Gateway">
-      .
-      </Step>
-      <Step title="Run Gateway">
-      .
-      </Step>
-      <Step title="Test Gateway">
-      .
-      </Step>
-    </Steps>
-    </Tab>
-    <Tab title="On-Chain Gateway" icon="link">
-    .
-    </Tab>
-
+    <LinuxOffChainTab />
+    <LinuxOnChainTab />
   </Tabs>
 
-## Reference Pages
-
-<Columns cols={2}>
-  <Card
-    title="Linux Installation Guide"
-    href="../install/windows-install"
-    arrow
-    horizontal
-  >
-    View Full Installation Guide
-  </Card>
-  <Card
-    title="Configuration Flags Reference"
-    href="../../references/configuration-flags.mdx"
-    arrow
-    horizontal
-  >
-    Gateway Configuration Flag Guide
-  </Card>
-</Columns>
+  ## Reference Pages
+  {/* MOVE TO OWN PAGE*/}
+  <Columns cols={2}>
+    <Card
+      title="Linux Installation Guide"
+      href="../install/windows-install"
+      arrow
+      horizontal
+    >
+      View Full Installation Guide
+    </Card>
+    <Card
+      title="Configuration Flags Reference"
+      href="../../references/configuration-flags.mdx"
+      arrow
+      horizontal
+    >
+      Gateway Configuration Flag Guide
+    </Card>
+  </Columns>
 
 </View>
 
 <View title="Windows" icon="windows" iconType="solid">
-## <Icon icon="windows" iconType="solid" size={32} /> Windows Quickstart Guide
+  ## <Icon icon="windows" iconType="solid" size={32} /> Windows Quickstart Guide
   <Tabs>
-    <Tab title="Off-Chain Gateway" icon="floppy-disk">
-      <OffChainWarning />
-      <Steps>
-        <Step title="Configure Gateway">
-        .
-        </Step>
-        <Step title="Run Gateway">
-        .
-        </Step>
-        <Step title="Test Gateway">
-        .
-        </Step>
-      </Steps>
-    </Tab>
-    <Tab title="On-Chain Gateway" icon="link">
-    .
-    </Tab>
+    <WindowsOffChainTab />
+    <WindowsOnChainTab />
   </Tabs>
 
-## Reference Pages
+  ## Reference Pages
 
-<Columns cols={2}>
-  <Card
-    title="Windows Installation Guide"
-    href="../install/windows-install"
-    arrow
-    horizontal
-  >
-    View Full Installation Guide
-  </Card>
-  <Card
-    title="Configuration Flags Reference"
-    href="../../references/configuration-flags.mdx"
-    arrow
-    horizontal
-  >
-    Gateway Configuration Flag Guide
-  </Card>
-</Columns>
+  <Columns cols={2}>
+    <Card
+      title="Windows Installation Guide"
+      href="../install/windows-install"
+      arrow
+      horizontal
+    >
+      View Full Installation Guide
+    </Card>
+    <Card
+      title="Configuration Flags Reference"
+      href="../../references/configuration-flags.mdx"
+      arrow
+      horizontal
+    >
+      Gateway Configuration Flag Guide
+    </Card>
+  </Columns>
 
 </View>
 
@@ -230,64 +188,3 @@ It shows both off-chain (local) and on-chain (production) modes.
 -
 
 It uses defaults for all optional parameters. See the [full setup guide](/v2/pages/04_gateways/run-a-gateway/run-a-gateway) for more details on customising your Gateway. \*/}
-
-<Expandable title="TO DELETE">
-<Tabs>
-
-  <Tab title="On-Chain Gateway">
-    This mode connects your Gateway to the Livepeer network on Arbitrum.
-
-    The guide uses a public RPC URL (rate-limited) & creates your account (wallet) for you.
-
-## Install
-
-    Install the latest version of the Livepeer Gateway software: [go-livepeer](https://github.com/livepeer/go-livepeer)
-    {/* <Badge color="green"> Latest Release: <LatestReleaseUrl asset="livepeer-linux-amd64.tar.gz"/> </Badge> */}
-    <Tabs>
-    <Tab title="Linux/Mac">
-    <LatestReleaseUrl asset="livepeer-linux-amd64.tar.gz">
-    <CustomCodeBlock
-      codeString="sudo wget https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-linux-amd64.tar.gz"
-      placeholderValue={LatestRelease}
-      language="bash"
-      icon="terminal"
-    />
-    </LatestReleaseUrl>
-    </Tab>
-    <Tab title="Windows">
-    <LatestReleaseUrl asset="livepeer-windows-amd64.zip">
-    <CustomCodeBlock
-      codeString="https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-windows-amd64.zip"
-      placeholderValue={LatestRelease}
-      language="bash"
-      icon="terminal"
-    />
-    </LatestReleaseUrl>
-    </Tab>
-    <Tab title="Docker">
-    <CustomCodeBlock
-      codeString="docker pull livepeer/go-livepeer:master"
-      language="bash"
-      icon="terminal"
-    />
-    </Tab>
-    </Tabs>
-
-## Configure
-
-  </Tab>
-  <Tab title="Off-Chain Gateway">
-    ## Install
-
-    ## Configure
-
-  </Tab>
-</Tabs>
-
-When you run with empty ETH parameters, Livepeer:
-
-- Detects no existing account in the keystore
-- Creates a new Ethereum account automatically
-- Prompts for password to encrypt the keystore file \*/} */}
-
-</Expandable>
