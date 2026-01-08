@@ -1,8 +1,9 @@
 ---
 title: 'Run a Gateway: Quickstart Guide'
-description: 'Quickstart a Livepeer Gateway'
+description: 'Quickstart a Livepeer Gateway.'
 sidebarTitle: 'Run a Gateway Quickstart'
 ---
+
 {/* DATA & CODE */}
 {/* These can be moved to the view using them */}
 import { DOCKER_CODE, DOCKER_YML, BASH_CODE, AI_TEST_COMMANDS, CONFIG_FILES, CLI_CODE } from '/snippets/data/gateways/code.jsx';
@@ -37,20 +38,50 @@ import WindowsOnChainTab from '/snippets/pages/gateways/run/quickstart/views/win
       <h4>{" "}<a href="#on-chain-gateway">On-Chain Gateway</a></h4>
   </div>
 </Panel> */}
-
+<Icon icon="github" size={20} /> Github: [go-livepeer codebase](https://github.com/livepeer/go-livepeer) <Icon icon="arrow-up-right" color="#2d9a67" size={10}/>
 <TipWithArrow>
-  Use the Dropdown at the top-right of this page to view the Quickstart Guide
+  Use the <Icon icon="circle-chevron-down" /> **Dropdown** at the top-right of this page to view the Quickstart Guide
   for your preferred OS.
+  <br />
+  <br />
+  <Icon icon="docker" /> [Docker]("#docker") is the recommended way to install and run a Livepeer Gateway Node.
 </TipWithArrow>
 
+---
+# Let's Go(-Livepeer) ! <Icon icon="face-grin-wink" size={26} />
 This page will have you running a Livepeer Gateway for <Badge color="blue">Video</Badge> & <Badge color="purple">AI</Badge> services in 10 minutes on Linux, Mac or Windows.
+<Card title="go-livepeer Codebase" href="https://github.com/livepeer/go-livepeer" icon="github" arrow horizontal/>
 
 This guide includes both on-chain (production) and off-chain (local) Gateway setup.
+
+
+{/* Installing a Gateway means installing the <DoubleIconLink label="go-livepeer" href="https://github.com/livepeer/go-livepeer"/> Gateway code. */}
+
+{/* <Note>
+  You can install & run a [Livepeer Gateway Node](https://github.com/livepeer/go-livepeer) using
+  1. <Icon icon="docker" size={20} /> **Docker** (recommended)
+  2. Building from <Icon icon="code" size={20} /> **source (binary)**
+</Note> */}
 
 <br />
 
 <View title=" Docker" icon="docker" iconType="solid">
   ## <Icon icon="docker" iconType="solid" size={32} /> Docker Quickstart Guide
+  <Icon icon="linux" color="#ff9a0e" /><Badge > Linux </Badge>{" "} <Icon icon="windows" color="#14bbf7"/><Badge> Windows </Badge>
+
+  <Expandable title="Docker Supported Hosts Information">
+    <br />
+    Docker is not supported on MacOS at this time.
+    <br />
+    Docker supported hosts:
+
+      Linux (x86_64 — amd64; possibly other arches if images exist for them — verified only linux/amd64 for latest image) 
+      Docker Hub
+
+      macOS (Docker Desktop)
+
+      Windows (Docker Desktop / WSL2)
+  </Expandable>
 
   This guide will install and configure a Gateway to run video & AI workloads.
 
@@ -83,7 +114,11 @@ This guide includes both on-chain (production) and off-chain (local) Gateway set
 </View>
 
 <View title="Linux/Mac" icon="linux" iconType="solid">
-## <Icon icon="linux" iconType="solid" size={32} /> Linux/Mac Quickstart Guide
+  ## <Icon icon="linux" iconType="solid" size={32} /> Linux/Mac Quickstart Guide
+
+  Docker is the recommended way to install and use a Gateway on Linux. 
+  
+  If you prefer to build from source, you can follow the instructions below.
 
   <Tabs>
     <LinuxOffChainTab />
