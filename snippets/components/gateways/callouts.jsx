@@ -6,7 +6,7 @@ const GatewayOffChainWarning = () => {
         <span style={{ fontWeight: "bold", fontStyle: "italic" }}>
           run your own Orchestrator node
         </span>{" "}
-        to test an off-chain Gateway:
+        to test an off-chain (local) Gateway:
       </span>
       <ul>
         <li>
@@ -96,10 +96,23 @@ const TestVideoDownload = ({ children }) => {
   );
 };
 
+const FfmpegWarning = () => {
+  return (
+    <Danger>
+      <div style={{ fontSize: "1.0rem" }}>
+        IMPORTANT! Do not install with sudo! <br />
+        Livepeer uses a <strong> custom build of FFmpeg </strong>that must be
+        installed in a specific location.
+      </div>
+    </Danger>
+  );
+};
+
 export {
   GatewayOffChainWarning,
   GatewayOnChainWarning,
   GatewayOnChainTTestnetNote,
   OrchAddrNote,
   TestVideoDownload,
+  FfmpegWarning,
 };

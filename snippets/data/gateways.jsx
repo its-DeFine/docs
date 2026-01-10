@@ -4,8 +4,10 @@
  * It CANNOT be imported into a snippet file. (WTF Mintlify)
  */
 
+import { latestVersion } from "../automationData/globals/globals.mdx";
+
 // import { CustomCodeBlock } from "/snippets/components/code.jsx";
-// import { LatestRelease } from "/snippets/automationData/globals/globals.jsx";
+// import { latestVersion } from "/snippets/automationData/globals/globals.mdx";
 
 /**
  *
@@ -135,7 +137,7 @@ export const linuxOffChainQuickstart = {
   installStep: (
     <CustomCodeBlock
       codeString="sudo wget https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-linux-amd64.tar.gz"
-      placeholderValue={LatestRelease}
+      placeholderValue={latestVersion}
       language="bash"
       icon="terminal"
     />
@@ -174,7 +176,7 @@ export const linuxOnChainQuickstart = {
   installStep: (
     <CustomCodeBlock
       codeString="sudo wget https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-linux-amd64.tar.gz"
-      placeholderValue={LatestRelease}
+      placeholderValue={latestVersion}
       language="bash"
       icon="terminal"
     />
@@ -213,7 +215,7 @@ export const windowsOffChainQuickstart = {
   installStep: (
     <CustomCodeBlock
       codeString="https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-windows-amd64.zip"
-      placeholderValue={LatestRelease}
+      placeholderValue={latestVersion}
       language="bash"
       icon="terminal"
     />
@@ -252,7 +254,7 @@ export const windowsOnChainQuickstart = {
   installStep: (
     <CustomCodeBlock
       codeString="https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-windows-amd64.zip"
-      placeholderValue={LatestRelease}
+      placeholderValue={latestVersion}
       language="bash"
       icon="terminal"
     />

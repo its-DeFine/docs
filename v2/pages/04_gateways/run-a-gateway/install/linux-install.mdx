@@ -9,7 +9,7 @@ icon: linux
 
 import { StyledStep, StyledSteps } from '/snippets/components/steps.jsx'
 import { CustomCodeBlock, CodeComponent } from '/snippets/components/code.jsx'
-import { LatestRelease } from '/snippets/automationData/globals/globals.jsx'
+import { latestVersion } from '/snippets/automationData/globals/globals.mdx'
 
 <Badge color="green"> Dual AI & Video </Badge>
 <Icon icon="linux" />
@@ -17,7 +17,7 @@ import { LatestRelease } from '/snippets/automationData/globals/globals.jsx'
 
 {/* Test - remove after verifying: */}
 
-Latest go-livepeer version: <Badge color="green">{LatestRelease}</Badge> (dynamically fetched)
+Latest go-livepeer version: <Badge color="green">{latestVersion}</Badge> (dynamically fetched)
 
 This guide covers installing the Livepeer Gateway from source binary on Linux.
 
@@ -139,7 +139,7 @@ You can use brew or curl to install `wget`
         Note: {'<VERSION>'} is dynamically fetched from the [go-livepeer releases page](https://github.com/livepeer/go-livepeer/releases) via Gtihub API.
         <CustomCodeBlock
           codeString="sudo wget https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-linux-amd64.tar.gz"
-          placeholderValue={LatestRelease}
+          placeholderValue={latestVersion}
           language="bash"
           icon="terminal"
         />  
@@ -157,7 +157,7 @@ You can use brew or curl to install `wget`
         Intel
         <CustomCodeBlock
           codeString="curl -LO https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-darwin-amd64.tar.gz"
-          placeholderValue={LatestRelease}
+          placeholderValue={latestVersion}
           language="bash"
           icon="terminal"
         />
@@ -174,7 +174,7 @@ You can use brew or curl to install `wget`
         Apple Silicon
         <CustomCodeBlock
           codeString="curl -LO https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-darwin-arm64.tar.gz"
-          placeholderValue={LatestRelease}
+          placeholderValue={latestVersion}
           language="bash"
           icon="terminal"
         />
@@ -191,7 +191,7 @@ You can use brew or curl to install `wget`
 
         <CustomCodeBlock
               codeString="curl -LO https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-linux-amd64.tar.gz"
-              placeholderValue={LatestRelease}
+              placeholderValue={latestVersion}
               language="bash"
               icon="terminal"
         />

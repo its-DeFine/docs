@@ -9,6 +9,7 @@ export const CustomCodeBlock = ({
   lines = true,
   preNote = "",
   postNote = "",
+  output = "",
 }) => {
   // Return null if no codeString is provided
   if (!codeString || codeString.trim() === "") {
@@ -16,6 +17,8 @@ export const CustomCodeBlock = ({
   }
 
   const renderedCode = codeString.replace(/\{PLACEHOLDER\}/g, placeholderValue);
+  // const CalloutComponent = callout?.type ? callout.type : Note;
+
   return (
     <>
       {preNote && (
@@ -46,10 +49,34 @@ export const CustomCodeBlock = ({
             marginTop: "0.5rem",
             fontSize: "0.875rem",
             color: "#9ca3af",
+            fontStyle: "italic",
           }}
         >
           {postNote}
         </div>
+      )}
+      {output?.codeString && (
+        <>
+          <Expandable
+            title={
+              <span style={{ fontStyle: "italic", fontWeight: "bold" }}>
+                Expected Output
+              </span>
+            }
+          >
+            <CodeBlock
+              filename={output.filename || "Output Example"}
+              icon={output.icon || "terminal"}
+              language={output.language || "bash"}
+              highlight={output.highlight}
+              wrap={output.wrap || false}
+              line={output.lines || false}
+            >
+              {output.codeString}
+            </CodeBlock>
+          </Expandable>
+          <br />
+        </>
       )}
     </>
   );

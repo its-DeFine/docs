@@ -9,6 +9,7 @@ import { useState, useEffect } from "react";
  *   <LatestReleaseUrl>Download here</LatestReleaseUrl>
  */
 
+// TO REMOVE BAD BAD BAD
 export const LatestRelease = ({
   repo = "livepeer/go-livepeer",
   fallback = "latest",
@@ -46,7 +47,7 @@ export const LatestReleaseUrl = ({
       .then((data) => {
         if (data.tag_name) {
           setUrl(
-            `https://github.com/${repo}/releases/download/${data.tag_name}/${asset}`
+            `https://github.com/${repo}/releases/download/${data.tag_name}/${asset}`,
           );
         }
       })
@@ -58,4 +59,8 @@ export const LatestReleaseUrl = ({
       {children || url}
     </a>
   );
+};
+
+export const LatestVersion = (version) => {
+  return <>{version}</>;
 };

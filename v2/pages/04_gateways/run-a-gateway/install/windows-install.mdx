@@ -9,7 +9,7 @@ icon: windows
 
 import { StyledSteps, StyledStep } from '/snippets/components/steps.jsx'
 import { CustomCodeBlock } from '/snippets/components/code.jsx'
-import { LatestRelease } from '/snippets/automationData/globals/globals.jsx'
+import { latestVersion } from '/snippets/automationData/globals/globals.mdx'
 
 <Warning>
   This content is referenced from the [current docs windows install
@@ -20,7 +20,7 @@ import { LatestRelease } from '/snippets/automationData/globals/globals.jsx'
 <Badge color="blue"> Video Only </Badge>
 <Icon icon="windows" />
 
-Latest go-livepeer version: <Badge color="green">{LatestRelease}</Badge> (dynamically fetched)
+Latest go-livepeer version: <Badge color="green">{latestVersion}</Badge> (dynamically fetched)
 
 This guide covers installing the Livepeer Gateway from source binary on Windows.
 
@@ -50,7 +50,7 @@ This guide covers installing the Livepeer Gateway from source binary on Windows.
   ## Download and unzip the Livepeer binary
   <CustomCodeBlock
     codeString="https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-windows-amd64.zip"
-    placeholderValue={LatestRelease}
+    placeholderValue={latestVersion}
     language="bash"
     icon="terminal"
   />

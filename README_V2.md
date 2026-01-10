@@ -147,7 +147,8 @@ count, specific issue details
 **EXAMPLE**
 
 I'm fetching the latest release of livepeer dynamically in some places eg.
-gateways/linux-install. with the `LatestRelease` component.
+gateways/linux-install. with a github action `latestVersion` and
+`latestVersionUrl` are saved in `/snippets/automationData/globals/globals.mdx`.
 
 ### !!! Caveats:
 
@@ -1192,3 +1193,49 @@ Wiki pages you might want to explore:
 Wiki pages you might want to explore:
 
 - [Discovery and Selection (livepeer/go-livepeer)](/wiki/livepeer/go-livepeer#3.5)
+
+# LINUX BUILD FROM SOURCE (ELITEPROXY INFO)
+
+Building from source locally (on linux), usually looks like this:
+
+The purpose of this step is to ensure ffmpeg is built in a specific location and
+does not conflict with any existing installed ffmpeg. Livepeer uses a special
+ffmpeg build.
+
+```
+export ROOT=$HOME/buildoutput
+export LD_LIBRARY_PATH=$ROOT/compiled/lib/ export
+PKG_CONFIG_PATH=$ROOT/compiled/lib/pkgconfig
+export PATH=$ROOT/compiled/bin/:$PATH
+
+./install_ffmpeg.sh $ROOT
+```
+
+If you wanted to build a go-livepeer docker image, you can do so from the root
+of the repository using this go-livepeer from source. See
+[eliteproxy_launch.json](./v2/assets/gateways/code_examples/eliteproxy_launch.json)
+for an example VS Code launch configuration used to build and debug go-livepeer
+from source. The launch config shows the same paths being used to ensure
+libraries are loaded using Livepeer's ffmpeg
+
+### ffmpeg issues
+
+Forgetting to set those paths before building ffmpeg. Also needed when compiling
+or debugging go-livepeer. Yes, sometimes a dev will be accidentally getting
+libraries from ffmpeg installed globally or somewhat worse - you never had
+ffmpeg, ran install_ffmpeg.sh then that ends up as your system ffmpeg with no
+clear way to uninstall lol at least in that case, usually go-livepeer works, but
+good luck with other ffmpeg builds I almost think "building from source"
+deserves a mention inside of
+https://github.com/livepeer/go-livepeer/blob/master/CONTRIBUTING.md if not
+linked there already
+
+System packages I had to install to compile go-livepeer
+
+```
+sudo apt-get update && sudo apt-get -y install build-essential pkg-config autoconf git curl wget
+sudo apt-get -y install protobuf-compiler-grpc golang-goprotobuf-dev
+sudo apt-get -y install clang clang-tools
+```
+
+Y

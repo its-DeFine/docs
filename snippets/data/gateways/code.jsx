@@ -47,16 +47,20 @@ export const DOCKER_CODE = {
     codeString: `docker logs dual-gateway`,
     description:
       "The logs show the gateway starting up, binding to the configured ports, and connecting to the orchestrator",
-    output: `
-    INFO[0000] Livepeer v0.5.32  
-    INFO[0000] Starting Livepeer node...  
-    INFO[0000] Node type: BroadcasterNode  
-    INFO[0000] RTMP server listening on 0.0.0.0:1935  
-    INFO[0000] HTTP server listening on 0.0.0.0:8935  
-    INFO[0000] CLI server listening on 0.0.0.0:5935  
-    INFO[0000] Connected to orchestrator at <ORCHESTRATOR_IP:PORT>  
-    INFO[0000] Gateway ready  
+    postNote: "Expected Output:",
+    output: {
+      icon: "docker",
+      codeString: `
+INFO[0000] Livepeer v0.5.32  
+INFO[0000] Starting Livepeer node...  
+INFO[0000] Node type: BroadcasterNode  
+INFO[0000] RTMP server listening on 0.0.0.0:1935  
+INFO[0000] HTTP server listening on 0.0.0.0:8935  
+INFO[0000] CLI server listening on 0.0.0.0:5935  
+INFO[0000] Connected to orchestrator at <ORCHESTRATOR_IP:PORT>  
+INFO[0000] Gateway ready  
     `,
+    },
   },
   flags: {
     filename: "View all available flags",
@@ -105,15 +109,17 @@ curl http://localhost:5935/status | jq '.eth.accountAddr'
       
       Before testing, verify your Gateway is properly configured by checking the on-chain settings:
       `,
-    // postNote:
-    //   "The gateway must have an active Ethereum connection and valid account.",
+    postNote: "Expected Output:",
     description:
       "The logs should show the ETH account address, balance, and connection status.",
-    output: `
-    INFO[0000] ETH account address: 0x...  
-    INFO[0000] ETH balance: 1000000000000000000  
-    INFO[0000] ETH connection active
+    output: {
+      icon: "docker",
+      codeString: `
+INFO[0000] ETH account address: 0x...  
+INFO[0000] ETH balance: 1000000000000000000  
+INFO[0000] ETH connection active
     `,
+    },
   },
 };
 
@@ -703,22 +709,26 @@ export const BASH_CODE = {
         preNote: "Check if your Gateway node is running:",
         description:
           "The status endpoint returns a json with node information including type, addresses, and balances.",
-        output: `
-    {  
-      "availability": 100,  
-      "broadcaster": {  
-        "address": "0x...",  
-        "deposit": "1000000000000000000",  
-        "withdrawRound": "0"  
-      },  
-      "eth": {  
-        "accountAddr": "0x...",  
-        "balance": "1000000000000000000"  
-      },  
-      "nodeType": "BroadcasterNode",  
-      "version": "0.5.32"  
-    }
-    `,
+        output: {
+          language: "json",
+          icon: "curly-braces",
+          codeString: `
+        {  
+          "availability": 100,  
+          "broadcaster": {  
+            "address": "0x...",  
+            "deposit": "1000000000000000000",  
+            "withdrawRound": "0"  
+          },  
+          "eth": {  
+            "accountAddr": "0x...",  
+            "balance": "1000000000000000000"  
+          },  
+          "nodeType": "BroadcasterNode",  
+          "version": "0.5.32"  
+        }
+      `,
+        },
       },
       checkAvailableOrchestrators: {
         filename: "Check Available Orchestrators",

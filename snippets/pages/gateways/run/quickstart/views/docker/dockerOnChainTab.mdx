@@ -209,7 +209,12 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
                 
                 # Verify HLS output  
                 curl http://localhost:8935/hls/test-key/index.m3u8 */}
-                <TestVideoDownload />
+              <TestVideoDownload>
+                <DownloadButton
+                  label="test-video.mp4"
+                  downloadLink="/v2/assets/gateways/test-video.mp4"
+                />
+              </TestVideoDownload>
                 <CustomCodeBlock
                 {...BASH_CODE.testRTMPingest}
                 />

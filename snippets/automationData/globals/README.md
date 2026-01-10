@@ -8,7 +8,7 @@ This is the recommended approach for your setup. It:
 
 - Polls the go-livepeer releases API every 30 minutes
 - Uses Redis to track the last known version (prevents duplicate updates)
-- Only updates the `LatestRelease` value without touching anything else
+- Only updates the `LatestVersion` value without touching anything else
 - Commits directly to the docs-v2 branch
 
 ## 2. **GitHub Action** (update-livepeer-release.yml) RECOMMENDED
