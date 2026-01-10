@@ -39,8 +39,6 @@ a.nav-tabs-item[href="/pages/08_help/README"] {
   justify-content: flex-start;
 }
 
-.nav-tabs
-
 /* Make the nav-tabs container full width */
 .nav-tabs {
   width: 100%;
