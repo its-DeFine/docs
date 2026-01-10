@@ -82,3 +82,20 @@ docker buildx build --platform linux/amd64 --load -t livepeer/docs .
 # Makefile build
 make all
 ```
+
+snippets/components/ ├── \_index.jsx # Main barrel export │ ├── primitives/ #
+Atomic UI building blocks (no business logic) │ ├── buttons.jsx │ ├── cards.jsx
+│ ├── divider.jsx │ ├── icons.jsx │ ├── image.jsx │ ├── links.jsx │ ├──
+lists.jsx │ ├── table.jsx │ └── video.jsx │ ├── content/ # Content display
+components │ ├── code.jsx # Code blocks, syntax highlighting │ ├── embed.jsx #
+Embeds (iframe, external) │ ├── external-content.jsx # External content fetching
+│ ├── responseField.jsx # API response display │ └── zoomable-diagram.jsx │ ├──
+layout/ # Layout & structure components │ ├── steps.jsx │ ├── ListSteps.jsx │
+└── GroupedResponseField.jsx │ ├── integrations/ # Third-party API integrations
+│ ├── coingecko.jsx │ └── release.jsx # GitHub releases │ ├── domain/ #
+Domain-specific (by section) │ ├── gateways/ │ │ ├── callouts.jsx │ │ └──
+quickstartTabs.jsx │ ├── orchestrators/ │ └── delegators/ │ └── utils/ #
+Helpers, hooks, utilities └── (move stuff.js logic here or delete)
+
+Key Principles Principle Rule Domain Isolation Page-specific components go in
+domain/{section}/ Primitives are Pure No business logic in primitives/

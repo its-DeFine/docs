@@ -215,3 +215,24 @@ body
   padding: 0.75rem !important;
   z-index: 100 !important;
 }
+
+/* Override US flag with UK flag in language selector */
+#localization-select-trigger img[alt="US"] {
+  content: url("https://d3gk2c5xim1je2.cloudfront.net/flags/GB.svg") !important;
+  /* Fallback if CDN doesn't have GB flag */
+}
+
+/* Alternative: hide US flag and show UK flag emoji */
+#localization-select-trigger img[src*="flags/US.svg"] {
+  opacity: 0 !important;
+  position: relative !important;
+}
+
+#localization-select-trigger img[src*="flags/US.svg"]::after {
+  content: "🇬🇧";
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  font-size: 16px;
+}

@@ -61,6 +61,33 @@ Developer
 
 Gateways
 
+## Components Organisation Options
+
+**Atomic Design (Brad Frost)** atoms/ → Smallest units (Button, Icon, Input)
+molecules/ → Combinations of atoms (SearchBar = Input + Button) organisms/ →
+Complex sections (Header, Footer, Card) templates/ → Page layouts pages/ →
+Specific instances
+
+**2. By Function/Purpose**
+
+primitives/ → Base UI (Button, Text, Box) forms/ → Inputs, Select, Checkbox,
+Validation layout/ → Grid, Stack, Container, Spacer navigation/ → Tabs,
+Breadcrumb, Menu, Sidebar feedback/ → Alert, Toast, Modal, Spinner data-display/
+→ Table, List, Card, Badge media/ → Image, Video, Avatar, Icon
+
+**3. By Complexity/Abstraction** base/ → Unstyled primitives core/ → Styled
+basics with no logic composite/ → Composed from multiple core smart/ → Stateful,
+connected to data
+
+**4. Shadcn/Radix Style** (flat + registry) ui/ button.jsx card.jsx dialog.jsx
+...
+
+**5. Domain-First** (feature folders) components/ auth/ → LoginForm, SignupForm
+dashboard/ → Charts, Stats checkout/ → Cart, Payment shared/ → Reusable across
+domains
+
+======
+
 #### Direct Usage & Platform Integration
 
 | Category           | Reason                 | Business Explanation                                                                                                                      |
