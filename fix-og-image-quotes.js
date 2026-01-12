@@ -12,7 +12,7 @@ const { execSync } = require("child_process");
  */
 
 const DRY_RUN = false; // Set to false to actually write files
-const NEW_OG_IMAGE = "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg";
+const NEW_OG_IMAGE = "/snippets/assets/domain/SHARED/LivepeerDocsHero.svg";
 const EXCLUDE_FILES = ["mission-control.mdx"];
 
 function processFile(filePath) {
@@ -39,16 +39,16 @@ function processFile(filePath) {
   const frontmatter = frontmatterMatch[1];
   const body = frontmatterMatch[2];
 
-  // Check if frontmatter has "og:image" with quotes
-  const hasQuotedOgImage = /["']og:image["']:\s*["'].*?["']/.test(frontmatter);
+  // Check if frontmatter has og:image (with or without quotes on key)
+  const hasOgImage = /(["']?og:image["']?):\s*["'].*?["']/.test(frontmatter);
 
-  if (!hasQuotedOgImage) {
-    return { success: true, skipped: true, reason: "No quoted og:image found" };
+  if (!hasOgImage) {
+    return { success: true, skipped: true, reason: "No og:image found" };
   }
 
-  // Replace "og:image": "..." with og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+  // Replace og:image: "..." with og:image: "/snippets/assets/domain/SHARED/LivepeerDocsHero.svg"
   const newFrontmatter = frontmatter.replace(
-    /["']og:image["']:\s*["'].*?["']/g,
+    /(["']?og:image["']?):\s*["'].*?["']/g,
     `og:image: "${NEW_OG_IMAGE}"`,
   );
 
