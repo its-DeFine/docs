@@ -202,14 +202,14 @@ function serializeFrontmatter(frontmatter) {
 
   for (const [key, value] of Object.entries(frontmatter)) {
     if (Array.isArray(value)) {
-      // Format arrays
-      const formattedArray = value.map((v) => `'${v}'`).join(", ");
+      // Format arrays with double quotes
+      const formattedArray = value.map((v) => `"${v}"`).join(", ");
       lines.push(`${key}: [${formattedArray}]`);
     } else if (key.includes(":")) {
       // Quote keys with colons (like og:image)
-      lines.push(`'${key}': '${value}'`);
+      lines.push(`"${key}": "${value}"`);
     } else {
-      lines.push(`${key}: '${value}'`);
+      lines.push(`${key}: "${value}"`);
     }
   }
 

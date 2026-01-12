@@ -69,7 +69,12 @@
                     ]
                   },
                   {
-                    "anchor": "Reference HUB",
+                    "anchor": "Get Started!",
+                    "icon": "play",
+                    "pages": ["v2/pages/03_developers/"]
+                  },
+                  {
+                    "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": ["v2/pages/07_resources/redirect"]
                   },
@@ -120,7 +125,7 @@
                     ]
                   },
                   {
-                    "anchor": "Reference HUB",
+                    "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": ["v2/pages/07_resources/redirect"]
                   },
@@ -183,7 +188,7 @@
                     ]
                   },
                   {
-                    "anchor": "Reference HUB",
+                    "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": ["v2/pages/07_resources/redirect"]
                   },
@@ -322,7 +327,7 @@
                     ]
                   },
                   {
-                    "anchor": "Reference HUB",
+                    "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": ["v2/pages/07_resources/redirect"]
                   },
@@ -537,7 +542,7 @@
                     ]
                   },
                   {
-                    "anchor": "Reference HUB",
+                    "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": ["v2/pages/07_resources/redirect"]
                   },
@@ -607,7 +612,7 @@
                     ]
                   },
                   {
-                    "anchor": "Reference HUB",
+                    "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": ["v2/pages/07_resources/redirect"]
                   },
@@ -671,7 +676,7 @@
                     ]
                   },
                   {
-                    "anchor": "Reference HUB",
+                    "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": ["v2/pages/07_resources/redirect"]
                   },
@@ -816,7 +821,7 @@
                     ]
                   },
                   {
-                    "anchor": "Reference HUB",
+                    "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": ["v2/pages/07_resources/redirect"]
                   },
@@ -2983,7 +2988,7 @@
   "redirects": [
     {
       "source": "/v2/pages/07_resources/redirect",
-      "destination": "/v2/pages/07_resources/resources_hub"
+      "destination": "/v2/pages/07_resources/resources-portal"
     },
     {
       "source": "/v2/pages/08_help/redirect",
