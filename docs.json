@@ -38,11 +38,10 @@
                         ]
                       },
                       {
-                        "group": "About Livepeer",
+                        "group": "Livepeer Story",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
                         "pages": [
                           "v2/pages/00_home/introduction/livepeer-story",
-                          "v2/pages/00_home/introduction/livepeer-evolution",
                           "v2/pages/00_home/introduction/livepeer-vision",
                           "v2/pages/00_home/introduction/livepeer-ecosystem",
                           "v2/pages/00_home/introduction/livepeer-roadmap"
