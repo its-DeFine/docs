@@ -44,6 +44,7 @@ const specificFile = args
 
 /**
  * Extract frontmatter from MDX content
+ * Handles broken YAML like og: 'image': '' by skipping invalid lines
  */
 function extractFrontmatter(content) {
   const match = content.match(/^---\n([\s\S]*?)\n---/);
@@ -60,11 +61,30 @@ function extractFrontmatter(content) {
     const line = lines[i].trim();
     if (!line) continue;
 
+    // Skip broken YAML lines like: og: 'image': '' or 'og:image': ''
+    // Check for multiple colons that aren't part of a valid quoted key
+    const colonCount = (line.match(/:/g) || []).length;
+    if (colonCount > 1) {
+      // Valid format: "og:image": "value" or "twitter:image": "value"
+      const validQuotedKey = line.match(/^"([^"]+)":\s*"([^"]*)"/);
+      if (!validQuotedKey) {
+        console.log(`⚠️  Skipping invalid YAML line: ${line}`);
+        continue; // Skip this broken line
+      }
+      // Parse the valid quoted key
+      const [, key, value] = validQuotedKey;
+      frontmatter[key] = value;
+      continue;
+    }
+
     // Handle key: value or key: [array]
     const colonIndex = line.indexOf(":");
     if (colonIndex === -1) continue;
 
-    const key = line.slice(0, colonIndex).trim().replace(/['"]/g, "");
+    const key = line
+      .slice(0, colonIndex)
+      .trim()
+      .replace(/^["']|["']$/g, "");
     let value = line.slice(colonIndex + 1).trim();
 
     // Handle arrays
@@ -72,9 +92,9 @@ function extractFrontmatter(content) {
       value = value
         .slice(1, -1)
         .split(",")
-        .map((v) => v.trim().replace(/['"]/g, ""));
+        .map((v) => v.trim().replace(/^["']|["']$/g, ""));
     } else {
-      value = value.replace(/^['"]|['"]$/g, "");
+      value = value.replace(/^["']|["']$/g, "");
     }
 
     frontmatter[key] = value;
@@ -103,7 +123,8 @@ function generateKeywords(filePath, frontmatter, content) {
       !lower.includes("livepeer-docs") &&
       !lower.includes("current") &&
       p !== "v2" &&
-      p !== "pages"
+      p !== "pages" &&
+      p !== "tests"
     );
   });
   pathParts.forEach((part) => {
@@ -206,9 +227,10 @@ function serializeFrontmatter(frontmatter) {
       const formattedArray = value.map((v) => `"${v}"`).join(", ");
       lines.push(`${key}: [${formattedArray}]`);
     } else if (key.includes(":")) {
-      // Quote keys with colons (like og:image)
+      // Quote keys with colons (like og:image) - use double quotes for both key and value
       lines.push(`"${key}": "${value}"`);
     } else {
+      // Regular keys don't need quotes, but values do
       lines.push(`${key}: "${value}"`);
     }
   }
@@ -232,10 +254,15 @@ function processFile(filePath) {
     return { processed: false };
   }
 
-  // Use relative path from v2/pages for keyword generation
-  const relativePath = filePath.includes("/v2/pages/")
-    ? filePath.split("/v2/pages/")[1]
-    : filePath;
+  // Use relative path for keyword generation - strip absolute path
+  let relativePath = filePath;
+  if (filePath.includes("/v2/pages/")) {
+    relativePath = filePath.split("/v2/pages/")[1];
+  } else if (filePath.includes("/v2/tests/")) {
+    relativePath = filePath.split("/v2/tests/")[1];
+  } else if (filePath.includes("/v2/")) {
+    relativePath = filePath.split("/v2/")[1];
+  }
 
   const { updated, hasChanges } = updateFrontmatter(
     frontmatter,

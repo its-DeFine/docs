@@ -1,0 +1,719 @@
+
+> docs@1.0.0 generate-seo:dry-run
+> node ../snippets/scripts/generate-seo.js --dry-run
+
+🔍 Livepeer SEO Generator
+
+🏃 Running in DRY RUN mode - no files will be modified
+
+📚 Found 297 MDX files
+
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/faq-home.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/get-started/build-on-livepeer.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/get-started/livepeer-ai-quickstart.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/get-started/stream-video-quickstart.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/get-started/use-livepeer.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: og: 'image': ''
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/home/copy-trending-at-livepeer.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/home/trending-layout-tests.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/home/trending-topics.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: og: 'image: '../../images/home/Eric Shreck Gif.gif'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/home/welcome.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: og:image: '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/introduction/livepeer-ecosystem.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/introduction/livepeer-roadmap.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/introduction/livepeer-story.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/introduction/livepeer-vision.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/mission-control.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/project-showcase/industry-verticals.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/project-showcase/livepeer-applications.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/00_HOME/social-preview-home.jpg'
+✅ pages/00_home/project-showcase/projects-built-on-livepeer.mdx
+   + Added og:image: /snippets/assets/domain/00_HOME/social-preview-home.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/00_home/tab-index.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: og:image: '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/about-livepeer/livepeer-ecosystem.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/about-livepeer/livepeer-evolution.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/about-livepeer/livepeer-overview.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/about-livepeer/why-livepeer.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping invalid YAML line: description: 'Welcome To The About Portal: Explore, Connect, Contribute'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/about-portal.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/faq-about.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/livepeer-network/actor-overview.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping invalid YAML line: title: 'Gateways Vs. Orchestrators: What’s the Difference?'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/livepeer-network/gateways-vs-orchestrators.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/01_about/livepeer-network/livepeer-actors/delegators.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/01_about/livepeer-network/livepeer-actors/end-users.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/livepeer-network/livepeer-actors/gateways.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/01_about/livepeer-network/livepeer-actors/orchestrators.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/livepeer-network/livepeer-governance.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/livepeer-network/livepeer-token-economics.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/livepeer-protocol/blockchain-contracts.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/livepeer-protocol/livepeer-whitepaper.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/livepeer-protocol/protocol-overview.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/livepeer-protocol/technical-overview.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/01_about/livepeer-protocol/technical-roadmap.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/01_ABOUT/social-preview-about.jpg'
+✅ pages/01_about/tab-index.mdx
+   + Added og:image: /snippets/assets/domain/01_ABOUT/social-preview-about.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/02_community/README.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/02_community/SUMMARY.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/02_community/_move_me/livepeer-hubs/livepeer-builder-hub.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/02_community/_move_me/livepeer-hubs/livepeer-partner-hub.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/02_community/_move_me/livepeer-partners/livepeer-builder-hub.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/02_community/_move_me/livepeer-partners/livepeer-partner-hub.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: description: 'Welcome To The Community Portal: Explore, Connect, Contribute'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/02_community/community-portal.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/02_community/faq-community.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/02_community/livepeer-community/community-guidelines.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/02_community/livepeer-community/livepeer-latest-topics.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/02_community/livepeer-community/trending-test.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/02_community/livepeer-connect/events-and-community-streams.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/02_community/livepeer-connect/forums-and-discussions.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/02_community/livepeer-connect/news-and-socials.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/02_community/livepeer-contribute/build-livepeer.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/02_community/livepeer-contribute/contribute.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/02_community/livepeer-contribute/opportunities.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/02_community/tab-index.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/SUMMARY.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/ai-inference-on-livepeer/byoc.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/ai-inference-on-livepeer/comfystream.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/ai-inference-on-livepeer/comfyui.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/README.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-101.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/README.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/api-reference.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/ai-inference-on-livepeer/livepeer-ai/custom-ai-pipelines.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/daydream-generative-ai-video-platform.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: title: 'Overview: AI on Livepeer'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/realtime-ai.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/using-ai-on-livepeer.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/ai-inference-on-livepeer/page-2.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/builder-opportunities/dev-programs.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/builder-opportunities/livepeer-rfps.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/builder-opportunities/oss-contributions.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/building-on-livepeer/developer-guide.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/building-on-livepeer/developer-journey.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/building-on-livepeer/quick-starts/README.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/developer-platforms/builder-hub.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/developer-platforms/daydream/daydream.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/developer-platforms/frameworks/frameworks.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/developer-platforms/streamplace/streamplace-architecture.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: og:image: '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/developer-platforms/streamplace/streamplace-funding-model.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/developer-platforms/streamplace/streamplace-guide.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/developer-platforms/streamplace/streamplace-integration.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/developer-platforms/streamplace/streamplace-provenance.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/developer-platforms/streamplace/streamplace.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: description: 'Welcome To The Developer Portal: Explore, Navigate, Build'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/developer-portal.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/developer-tools/dashboards.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/developer-tools/external-tooling.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/developer-tools/gateways.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/developer-tools/livepeer-cloud.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/developer-tools/livepeer-explorer.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/developer-tools/tooling-hub.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/guides-and-resources/contribution-guide.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/guides-and-resources/developer-guides.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/guides-and-resources/developer-help.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/guides-and-resources/resources.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/livepeer-real-time-video/page-1.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/frameworks-spe.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/streamdiffusion.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/README.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/delegators.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/end-users.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/gateways.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/orchestrators.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-governance.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/README.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/livepeer-whitepaper.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/technical-overview.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/moved-to-about-livepeer-protocol/technical-roadmap.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/technical-references/apis.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/technical-references/awesome-livepeer.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/technical-references/deepwiki.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/03_developers/technical-references/sdks.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/03_developers/technical-references/wiki.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/04_gateways/SUMMARY.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/04_gateways/_tests-to-delete/codemap.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/04_gateways/_tests-to-delete/layouts.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/04_gateways/_tests-to-delete/random-copy.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/04_gateways/_tests-to-delete/response.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/04_gateways/_tests-to-delete/why.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/about-gateways/gateway-architecture.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/about-gateways/gateway-economics.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/about-gateways/gateway-explainer.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/about-gateways/gateway-functions.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/about-gateways/overview.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/gateway-tools/explorer.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/gateway-tools/gateway-middleware.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/gateway-tools/livepeer-tools.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: description: 'Welcome To The Gateway Portal: Explore, Navigate, Create'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/gateways-portal.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/guides-and-resources/community-guides.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/guides-and-resources/community-projects.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/guides-and-resources/faq.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/guides-and-resources/gateway-job-pipelines/byoc.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/04_gateways/guides-and-resources/page-2.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/quickstart-home.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-API/ai.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-API/audio-to-text.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-API/hardware-info.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-API/hardware-stats.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-API/health.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-API/image-to-image.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-API/image-to-text.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-API/image-to-video.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-API/live-video-to-video.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-API/llm.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-API/segment-anything-2.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-API/text-to-image.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-API/text-to-speech.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-API/upscale.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/AI-Worker/ai-worker-api.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/CLI-HTTP/activateorchestrator.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/CLI-HTTP/bond.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/CLI-HTTP/protocolparameters.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/CLI-HTTP/rebond.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/CLI-HTTP/registeredorchestrators.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/CLI-HTTP/reward.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/CLI-HTTP/setbroadcastconfig.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/CLI-HTTP/signmessage.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/CLI-HTTP/status.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/CLI-HTTP/transfertokens.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/CLI-HTTP/unbond.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/_delete-all-api.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/ai-worker-api.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/hardware-info.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/hardware-stats.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/api-reference/health.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/arbitrum-rpc.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/artibtrum-exchanges.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: description: 'Reference: full list of CLI commands for Livepeer Gateways'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/cli-commands.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: description: 'Reference: full list of configuration flags for Livepeer Gateways'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/configuration-flags-old.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: description: 'Reference: full list of configuration flags for Livepeer Gateways'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/configuration-flags.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/contract-addresses.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/go-livepeer/cli-reference.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/go-livepeer/gpu-support.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/go-livepeer/hardware-requirements.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/livepeer-exchanges.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: description: 'Reference: Orchestrator Offerings & Discovery'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/orchestrator-offerings.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/references/technical-architecture.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/04_gateways/run-a-gateway/build-options.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/configure/configuration-overview.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/configure/configuration-reference.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/configure/dual-configuration.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/configure/dual-docker.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/configure/pricing-configuration.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/configure/video-configuration-view.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/configure/video-configuration.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/connect/connect-with-offerings.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/connect/discover-offerings.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/connect/lp-marketplace.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/04_gateways/run-a-gateway/gateway-operator-opportunities.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/install/community-projects.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/install/docker-install.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/install/install-overview.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/install/linux-install.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/install/windows-install.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/monitor/monitor-and-optimise.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/publish/connect-with-offerings.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: title: 'Run a Gateway: Quickstart Guide'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/requirements/setup.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/run-a-gateway.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/test/playback-content.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/test/publish-content.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/test/test-gateway.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/v1/transcoding-options.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/run-a-gateway/why-run-a-gateway.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/using-gateways/choosing-a-gateway.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/04_gateways/using-gateways/gateway-providers/daydream-gateway.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+✅ pages/04_gateways/using-gateways/gateway-providers.mdx
+   + Added og:image: /snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/SUMMARY.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/ai-pipelines.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/transcoding.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/05_ORCHESTRATORS/social-preview-orchestrators.jpg'
+✅ pages/05_orchestrators/about-orchestrators/overview.mdx
+   + Added og:image: /snippets/assets/domain/05_ORCHESTRATORS/social-preview-orchestrators.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/faq.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-community-and-help.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-guides-and-references.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-resources.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-dashboards.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-tools.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: description: 'Welcome To The Orchestrator Portal: Explore, Earn, Operate'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/05_ORCHESTRATORS/social-preview-orchestrators.jpg'
+✅ pages/05_orchestrators/orchestrators-portal.mdx
+   + Added og:image: /snippets/assets/domain/05_ORCHESTRATORS/social-preview-orchestrators.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/05_ORCHESTRATORS/social-preview-orchestrators.jpg'
+✅ pages/05_orchestrators/references/cli-flags.mdx
+   + Added og:image: /snippets/assets/domain/05_ORCHESTRATORS/social-preview-orchestrators.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/setting-up-an-orchestrator/README.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centre-setup.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/setting-up-an-orchestrator/enterprise-and-data-centres.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/setting-up-an-orchestrator/join-a-pool.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/05_ORCHESTRATORS/social-preview-orchestrators.jpg'
+✅ pages/05_orchestrators/setting-up-an-orchestrator/publish-offerings.mdx
+   + Added og:image: /snippets/assets/domain/05_ORCHESTRATORS/social-preview-orchestrators.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/technical-references-sdks.-and-apis/apis.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/technical-references-sdks.-and-apis/deepwiki.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/technical-references-sdks.-and-apis/livepeer-changelog/README.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/technical-references-sdks.-and-apis/livepeer-changelog/livepeer-changelog.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/technical-references-sdks.-and-apis/livepeer-changelog/migration-guides.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/technical-references-sdks.-and-apis/migrations-guides.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/05_orchestrators/technical-references-sdks.-and-apis/sdks.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/06_delegators/README.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/06_delegators/SUMMARY.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/06_delegators/about-lpt-livepeer-token/delegators.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/06_delegators/about-lpt-livepeer-token/how-to-get-lpt.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/06_delegators/about-lpt-livepeer-token/livepeer-token-economics.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg'
+✅ pages/06_delegators/about-lpt-livepeer-token/overview.mdx
+   + Added og:image: /snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/06_delegators/delegating-lpt/about-delegators.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/06_delegators/delegating-lpt/delegation-economics.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/06_delegators/delegating-lpt/how-to-delegate-lpt.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/06_delegators/livepeer-governance/page-1.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/06_delegators/livepeer-governance/page-4.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/06_delegators/livepeer-treasury/page-3.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/06_delegators/livepeer-treasury/page.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: description: 'Welcome To The Token Portal: Explore, Navigate, Delegate, Vote'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg'
+✅ pages/06_delegators/token-portal.mdx
+   + Added og:image: /snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg'
+✅ pages/06_delegators/token-resources/lpt-eth-usage.mdx
+   + Added og:image: /snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg
+⚠️  Skipping invalid YAML line: description: 'A list of exchanges where the Livepeer Token (LPT) is listed. Note: this information is fetched from Coingecko weekly'
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg'
+✅ pages/06_delegators/token-resources/lpt-exchanges.mdx
+   + Added og:image: /snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg'
+✅ pages/07_resources/changelog/changelog.mdx
+   + Added og:image: /snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg'
+✅ pages/07_resources/changelog/migration-guide.mdx
+   + Added og:image: /snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg'
+✅ pages/07_resources/concepts/brief-history-of-video.mdx
+   + Added og:image: /snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/07_resources/concepts/livepeer-101.mdx - no frontmatter found
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/07_resources/concepts/livepeer-core-concepts.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg'
+✅ pages/07_resources/documentation-guide/contribute-to-the-docs.mdx
+   + Added og:image: /snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg'
+✅ pages/07_resources/documentation-guide/docs-features-and-ai-integrations.mdx
+   + Added og:image: /snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg'
+✅ pages/07_resources/documentation-guide/documentation-guide.mdx
+   + Added og:image: /snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg'
+✅ pages/07_resources/documentation-guide/documentation-overview.mdx
+   + Added og:image: /snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg'
+✅ pages/07_resources/livepeer-glossary.mdx
+   + Added og:image: /snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/07_resources/media-kit.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg'
+✅ pages/07_resources/references/contract-addresses.mdx
+   + Added og:image: /snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg
+⚠️  Skipping /Users/alisonhaire/Documents/Livepeer/livepeer-docs-current/v2/pages/07_resources/resources/videos.mdx - no frontmatter found
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg'
+✅ pages/07_resources/resources-portal.mdx
+   + Added og:image: /snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/08_help/README.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/09_internal/ally-notes.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/09_internal/definitions.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/09_internal/docs-philosophy.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/09_internal/docs-status.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/09_internal/ecosystem.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/09_internal/internal-overview.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/09_internal/layout-components-scripts-styling/components.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/09_internal/layout-components-scripts-styling/pages.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/09_internal/personas.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/09_internal/references.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/09_internal/strategic-alignment.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+⚠️  Skipping invalid YAML line: 'og:image': '/snippets/assets/social/livepeer-social-preview.jpg'
+✅ pages/README.mdx
+   + Added og:image: /snippets/assets/social/livepeer-social-preview.jpg
+
+============================================================
+📊 Summary:
+   Total files: 297
+   Processed: 193
+   Skipped: 104
+   Errors: 0
+
+💡 Run without --dry-run to apply changes
+============================================================
