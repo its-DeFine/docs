@@ -96,6 +96,62 @@ node snippets/scripts/generate-docs-status.js
 
 ---
 
+### generate-seo.js
+
+Automatically generates and updates SEO metadata for MDX documentation pages.
+
+**What it does:**
+1. Scans all MDX files in `v2/pages/`
+2. Generates `keywords` from file path, title, and description
+3. Adds `og:image` using domain-specific or default social preview images
+4. Preserves existing SEO metadata (won't overwrite if already present)
+
+**Usage:**
+```bash
+# Dry run (preview changes without modifying files)
+npm run generate-seo:dry-run
+
+# Apply changes
+npm run generate-seo
+
+# Process a single file
+node snippets/scripts/generate-seo.js --file=v2/pages/00_home/mission-control.mdx
+```
+
+**What gets added:**
+
+**Keywords:**
+- Base keyword: `livepeer`
+- Path-based: extracted from folder structure (e.g., `home`, `gateways`, `developers`)
+- Title-based: meaningful words from the page title
+- Description-based: top 3 meaningful words from the description
+
+**Social Images:**
+- Domain-specific images for main sections (e.g., `/snippets/assets/domain/00_HOME/social-preview-home.jpg`)
+- Default fallback: `/snippets/assets/social/livepeer-social-preview.jpg`
+
+**Example output:**
+```yaml
+---
+title: 'Gateway Overview'
+description: 'Learn about Livepeer gateways and how they work'
+keywords: ['livepeer', 'gateways', 'gateway', 'overview', 'learn']
+'og:image': '/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg'
+---
+```
+
+**When to run:**
+- After creating new documentation pages
+- When updating page titles or descriptions
+- Before deploying to improve SEO
+
+**Notes:**
+- Skips files without frontmatter
+- Won't overwrite existing keywords or og:image/twitter:image
+- Generates up to 10 keywords per page
+
+---
+
 ### update-component-library.sh
 
 Auto-generates the component library index page from the current `snippets/components/` folder structure.

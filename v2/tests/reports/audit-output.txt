@@ -1,0 +1,134 @@
+=== COMPREHENSIVE PAGE AUDIT ===
+
+Found 182 page references in docs.json
+
+Total pages: 182
+Existing pages: 159
+Missing pages: 23
+
+=== MISSING FILES (23) ===
+  - v2/pages/00_home/Landing
+  - v2/pages/00_home/changelog/changelog
+  - v2/pages/00_home/changelog/migration-guide
+  - v2/pages/01_about/about-home
+  - v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products/ecosystem-products
+  - v2/pages/03_developers/technical-references-sdks.-and-apis/apis
+  - v2/pages/03_developers/technical-references-sdks.-and-apis/sdks
+  - v2/pages/04_gateways/references/video-flags
+  - v2/pages/04_gateways/run-a-gateway/get-AI-to-setup-the-gateway
+  - v2/pages/04_gateways/run-a-gateway/quickstart-a-gateway
+  - v2/pages/04_gateways/using-gateways/gateway-providers/streamplace
+  - v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers
+  - v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer
+  - v2/pages/06_delegators/about-lpt-livepeer-token/why-have-a-token
+  - v2/pages/06_delegators/delegating-lpt/overview
+  - v2/pages/06_delegators/livepeer-governance/livepeer-governance
+  - v2/pages/06_delegators/livepeer-governance/livepeer-treasury
+  - v2/pages/06_delegators/livepeer-governance/overview
+  - v2/pages/07_resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory
+  - v2/pages/07_resources/changelog/migration-guides
+  - v2/pages/07_resources/concepts/livepeer-actors
+  - v2/pages/07_resources/redirect
+  - v2/pages/08_help/redirect
+
+=== FRONTMATTER ERRORS (31) ===
+
+v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai.mdx:
+  - Missing frontmatter
+
+v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming.mdx:
+  - Missing frontmatter
+
+v2/pages/03_developers/developer-platforms/daydream/daydream.mdx:
+  - Missing frontmatter
+
+v2/pages/03_developers/developer-platforms/frameworks/frameworks.mdx:
+  - Missing frontmatter
+
+v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx:
+  - Missing frontmatter
+
+v2/pages/03_developers/guides-and-resources/contribution-guide.mdx:
+  - Missing frontmatter
+
+v2/pages/03_developers/guides-and-resources/developer-guides.mdx:
+  - Missing frontmatter
+
+v2/pages/03_developers/guides-and-resources/developer-help.mdx:
+  - Missing frontmatter
+
+v2/pages/03_developers/guides-and-resources/resources.mdx:
+  - Missing frontmatter
+
+v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx:
+  - Missing frontmatter
+
+v2/pages/04_gateways/run-a-gateway/connect/lp-marketplace.mdx:
+  - Line 3: Invalid frontmatter syntax: 'including what offerings Orchestrators publish, in order to provide Gateway operators'
+  - Line 4: Invalid frontmatter syntax: 'the context they need to discover & route application requests''
+
+v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx:
+  - Line 5: Invalid frontmatter syntax: 'The following steps will walk you through adding funds to your Gateway'
+  - Line 6: Invalid frontmatter syntax: 'ETH account, including funding the ETH account on Ethereum Mainnet,'
+  - Line 7: Invalid frontmatter syntax: 'bridging the funds to Arbritrum's L2 Network, and then using the Livepeer'
+  - Line 8: Invalid frontmatter syntax: 'CLI to allocate the proper deposit and reserve amounts.'
+
+v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx:
+  - Missing frontmatter
+
+v2/pages/04_gateways/using-gateways/gateway-providers/daydream-gateway.mdx:
+  - Missing frontmatter
+
+v2/pages/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx:
+  - Missing frontmatter
+
+v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/ai-pipelines.mdx:
+  - Missing frontmatter
+
+v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/transcoding.mdx:
+  - Missing frontmatter
+
+v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-community-and-help.mdx:
+  - Missing frontmatter
+
+v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-guides-and-references.mdx:
+  - Missing frontmatter
+
+v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-resources.mdx:
+  - Missing frontmatter
+
+v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-dashboards.mdx:
+  - Missing frontmatter
+
+v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-tools.mdx:
+  - Missing frontmatter
+
+v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx:
+  - Missing frontmatter
+
+v2/pages/05_orchestrators/setting-up-an-orchestrator/join-a-pool.mdx:
+  - Missing frontmatter
+
+v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx:
+  - Missing frontmatter
+
+v2/pages/06_delegators/about-lpt-livepeer-token/delegators.mdx:
+  - Missing frontmatter
+
+v2/pages/06_delegators/about-lpt-livepeer-token/how-to-get-lpt.mdx:
+  - Missing frontmatter
+
+v2/pages/06_delegators/about-lpt-livepeer-token/livepeer-token-economics.mdx:
+  - Missing frontmatter
+
+v2/pages/06_delegators/delegating-lpt/delegation-economics.mdx:
+  - Missing frontmatter
+
+v2/pages/06_delegators/delegating-lpt/how-to-delegate-lpt.mdx:
+  - Missing frontmatter
+
+v2/pages/07_resources/concepts/livepeer-core-concepts.mdx:
+  - Missing frontmatter
+
+
+Audit complete!
