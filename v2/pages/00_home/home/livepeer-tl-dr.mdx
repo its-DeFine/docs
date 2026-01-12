@@ -5,19 +5,19 @@ sidebarTitle: 'Livepeer TL;DR'
 og:image: '../../images/home/Eric Shreck Gif.gif'
 ---
 
-import { url, title, caption, embedUrl } from '/snippets/variables.mdx'
-import { tldrTitles, tldrList } from '/snippets/variables/home.mdx'
+import { url, title, caption, embedUrl } from '/snippets/data/variables.mdx'
+import { tldrTitles, tldrList } from '/snippets/data/variables/home.mdx'
 import {
   YouTubeVideo,
   YouTubeVideoDownload,
   CardVideo,
-} from '/snippets/components/video.jsx'
+} from '/snippets/components/display/video.jsx'
 import {
   GotoLink,
   GotoCard,
-} from '/snippets/components/links.jsx'
-import { DownloadButton } from '/snippets/components/buttons.jsx'
-import { Image } from '/snippets/components/image.jsx'
+} from '/snippets/components/primitives/links.jsx'
+
+import { Image } from '/snippets/components/display/image.jsx'
 import {
   StepList,
   StepLinkList,
@@ -25,7 +25,7 @@ import {
   UpdateLinkList,
   IconList,
   BasicList,
-} from '/snippets/components/lists.jsx'
+} from '/snippets/components/layout/lists.jsx'
 
 Livepeer is an inclusive and welcoming global community with a diverse and talented group of people.
 

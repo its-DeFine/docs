@@ -1,70 +1,88 @@
-Components Folder Structure:
+# Components Library
 
-These components are organised **By Function/Purpose**
+These components are organised **By Function/Purpose**.
 
-Additionally some items are organised by **Domain** where domain specific
-components are extracted to their own folder. ie. code strings used on multiple
-pages, or callouts to users.
+Additionally some items are organised by **Domain** where domain-specific
+components are extracted to their own folder (e.g., callouts, code strings used
+on multiple pages).
 
-| Category     | Components                                                                   |
-| ------------ | ---------------------------------------------------------------------------- |
-| primitives   | Button, Text, Box                                                            |
-| forms        | Inputs, Select, Checkbox, Validation                                         |
-| layout       | Grid, Stack, Container, Spacer                                               |
-| navigation   | Tabs, Breadcrumb, Menu, Sidebar                                              |
-| feedback     | Alert, Toast, Modal, Spinner                                                 |
-| data-display | Table, List, Card, Badge                                                     |
-| media        | Image, Video, Avatar, Icon                                                   |
-| content      | Code, Embed, ExternalContent, ResponseField, ZoomableDiagram                 |
-| integrations | Coingecko, Chainlist                                                         |
-| domain       | Shared, Home, About, Community, Developers, Gateways, GPU, Token,References. |
+## Folder Structure
 
-```bash
-components/
-├── primitives/
-│   ├── button.jsx
-│   ├── card.jsx
-│   ├── divider.jsx
-│   ├── icon.jsx
-│   ├── image.jsx
-│   ├── link.jsx
-│   ├── list.jsx
-│   ├── table.jsx
-│   └── video.jsx
-├── layout/
-│   ├── container.jsx
-│   ├── grid.jsx
-│   ├── stack.jsx
-│   └── spacer.jsx
-├── forms/
-│   ├── input.jsx
-│   ├── select.jsx
-│   ├── checkbox.jsx
-│   └── validation.jsx
-├── navigation/
-│   ├── tabs.jsx
-│   ├── breadcrumb.jsx
-│   ├── menu.jsx
-│   └── sidebar.jsx
-├── feedback/
-│   ├── alert.jsx
-│   ├── toast.jsx
-│   ├── modal.jsx
-│   └── spinner.jsx
-├── data-display/
-│   ├── table.jsx
-│   ├── list.jsx
-│   ├── card.jsx
-│   └── badge.jsx
-├── media/
-│   ├── image.jsx
-│   ├── video.jsx
-│   ├── avatar.jsx
-│   └── icon.jsx
-└── content/
-    ├── code.jsx
-    ├── embed.jsx
-    ├── external-content.jsx
-    ├── response-field.jsx
-    └── zoomable-diagram.jsx
 ```
+components/
+├── primitives/      # Basic UI elements
+├── layout/          # Custom layouts for multiple items
+├── display/         # Display elements for media or embeds
+├── content/         # Content & Data Display Groups
+├── integrations/    # External service integrations
+└── domain/          # Domain-specific components
+```
+
+---
+
+## Component Reference
+
+### primitives/
+
+| File          | Exports                                                                                                       | Description                    |
+| ------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------ |
+| `buttons.jsx` | `BasicBtn`, `DownloadButton`                                                                                  | Button components              |
+| `divider.jsx` | `CustomDivider`                                                                                               | Divider/separator              |
+| `icons.jsx`   | `LivepeerSVG`, `LivepeerIconOld`, `LivepeerIconFlipped`, `LivepeerIcon`                                       | Livepeer brand icons           |
+| `links.jsx`   | `CustomCallout`, `BlinkingIcon`, `BlinkingTerminal`, `DoubleIconLink`, `GotoLink`, `GotoCard`, `TipWithArrow` | Link and navigation components |
+
+### layout/
+
+| File            | Exports                                                                             | Description             |
+| --------------- | ----------------------------------------------------------------------------------- | ----------------------- |
+| `cards.jsx`     | `PostCard`, `CardColumnsPostLayout`, `BlogCard`, `CardBlogDataLayout`               | Card layouts            |
+| `lists.jsx`     | `BasicList`, `IconList`, `StepList`, `StepLinkList`, `UpdateList`, `UpdateLinkList` | List layouts            |
+| `ListSteps.jsx` | `ListSteps`                                                                         | Step list component     |
+| `steps.jsx`     | `StyledSteps`, `StyledStep`                                                         | Styled step components  |
+| `table.jsx`     | `DynamicTable`                                                                      | Dynamic table component |
+
+### display/
+
+| File                   | Exports                                             | Description                 |
+| ---------------------- | --------------------------------------------------- | --------------------------- |
+| `embed.jsx`            | `MarkdownEmbed`, `EmbedMarkdown`                    | Markdown embed components   |
+| `image.jsx`            | `Image`, `LinkImage`                                | Image display components    |
+| `video.jsx`            | `YouTubeVideo`, `YouTubeVideoDownload`, `CardVideo` | Video embed components      |
+| `zoomable-diagram.jsx` | `ScrollableDiagram`                                 | Zoomable/scrollable diagram |
+
+### content/
+
+| File                   | Exports                                                                                                                | Description                   |
+| ---------------------- | ---------------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| `code.jsx`             | `CustomCodeBlock`, `CodeComponent`, `ComplexCodeBlock`, `CodeSection`                                                  | Code display components       |
+| `external-content.jsx` | `ExternalContent`                                                                                                      | External content loader       |
+| `release.jsx`          | `LatestVersion`                                                                                                        | Version display component     |
+| `responseField.jsx`    | `ValueResponseField`, `CustomResponseField`, `ResponseFieldExpandable`, `ResponseFieldAccordion`, `ResponseFieldGroup` | API response field components |
+
+### integrations/
+
+| File            | Exports              | Description                     |
+| --------------- | -------------------- | ------------------------------- |
+| `coingecko.jsx` | `CoinGeckoExchanges` | CoinGecko exchange data display |
+
+### domain/04_GATEWAYS/
+
+| File                 | Exports                                                                                                                               | Description               |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| `callouts.jsx`       | `GatewayOffChainWarning`, `GatewayOnChainWarning`, `GatewayOnChainTTestnetNote`, `OrchAddrNote`, `TestVideoDownload`, `FfmpegWarning` | Gateway-specific callouts |
+| `quickstartTabs.jsx` | `QuickStartTabs`, `QuickStartSteps`                                                                                                   | Gateway quickstart UI     |
+
+---
+
+## Usage
+
+Import components in MDX files using absolute paths from `/snippets/`:
+
+```jsx
+import { YouTubeVideo } from "/snippets/components/display/video.jsx";
+import { GotoCard, GotoLink } from "/snippets/components/primitives/links.jsx";
+import { CustomCodeBlock } from "/snippets/components/content/code.jsx";
+```
+
+**Note:** Mintlify provides `React`, `Frame`, `Card`, `Icon`, and other
+primitives globally - do not import them.

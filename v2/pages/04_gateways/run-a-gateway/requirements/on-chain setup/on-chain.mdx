@@ -5,11 +5,11 @@ sidebarTitle: On-Chain Setup
 icon: chain
 ---
 
-import { StyledSteps, StyledStep } from '/snippets/components/steps.jsx'
-import { DoubleIconLink } from '/snippets/components/links.jsx'
-import { BlinkingIcon } from '/snippets/components/links.jsx'
+import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
+import { DoubleIconLink } from '/snippets/components/primitives/links.jsx'
+import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
 import { ChainlistRPCs } from '/snippets/data/references/chainlist.jsx'
-import { CustomDivider } from '/snippets/components/divider.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 <Warning> Complete: needs review </Warning>
 {/* ## Quick Links
@@ -664,7 +664,7 @@ Full Guide with alternative options for setting up an on-chain Gateway
 
 </Accordion>
 
-{/\*
+{/*
 `json wrap Example_Keystore.json
     UTC--2015-11-16T11-52-22.592017989Z--089d8ab6752bac616a1f17246294eb068ee23d3e.json
     `
