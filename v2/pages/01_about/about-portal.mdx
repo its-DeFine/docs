@@ -1,4 +1,5 @@
 ---
+mode: frame
 title: 'About Livepeer: Protocol & Network'
 sidebarTitle: 'About Portal'
 description: 'Welcome To The About Portal: Explore, Connect, Contribute'
@@ -11,19 +12,104 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
 
 <PreviewCallout />
 
+import { PageHeader, H2, P } from '/snippets/components/display/frameMode.jsx'
+import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
+import { LivepeerIcon } from '/snippets/components/primitives/icons.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
-<Note>
-  Work In Progress
-</Note>
+<PageHeader
+  title="About Livepeer"
+  subtitle={
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
+        <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg" size={20} /> 
+      <>{" "}Explore - Connect - Contribute{" "}</>
+      <span style={{ display: "inline-block", transform: "scaleX(-1)" }}>
+      <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg" size={20} />
+    </span>
+    </div>
+  }
+      description="Learn about the Livepeer Protocol & Network."
+/>
 
-## <Icon icon="map-location" size={32} color={"#2b9a66"}/> About Portal: Map
+<CustomDivider />
 
-**Definition**
+
+<br/>
+<br/>
+
+Livepeer Token (LPT) is the native ERC-20 token that secures the Livepeer Network and enables community-driven governance. 
+Holding LPT allows participants to earn fees and rewards, as well as influence the network’s direction through governance votes. 
+
+<br/>
+<br/>
+
+LPT aligns incentives for all network actors to keep Livepeer cost-effective, efficient, securepelines through a full-stack open hardware network, 
+providing users with affordable, verifiable, permissionless enterprise-grade software solutions. 
+
+<br/>
+<br/>
+
+<br/>
+<br/>
+
+<H2 icon="signs-post" iconSize={32} iconColor="#2b9a66">
+  About Livepeer Portal
+</H2>
+
+<div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
+  <span style={{ lineHeight: "1", color: "var(--text-primary)", opacity: 1, fontStyle: "italic" }}>Choose Your Mission: </span>
+    <BlinkingIcon icon="circle-play" size={20} color="#2b9a66" />
+    {/* <span style={{ lineHeight: "1", color: "var(--text-primary)", opacity: 1, fontStyle: "italic" }}>Choose your mission: </span> */}
+</div>
+
+{/* ## <Icon icon="map-location" size={32} color={"#2b9a66"}/> About Portal: Map */}
+
+{/* **Definition**
 About is...
 
 **Quick Intro**
-Get Situated
+Get Situated */}
 
-## <Icon icon="signs-post" size={32} color={"#2b9a66"}/> About Portal: Choose Your Mission
+{/* ## <Icon icon="signs-post" size={32} color={"#2b9a66"}/> About Portal: Choose Your Mission
 
-Your Journey Starts Here / More "normal" Wording for AI/SEO
+{/* Your Journey Starts Here / More "normal" Wording for AI/SEO */} 
+
+<Columns cols={2}>
+  <Card
+    title="Core Concepts"
+    icon="building-columns"
+    href="./livepeer-network/overview"
+    arrow
+  >
+    A high-level introduction to the key concepts and architecture of the Livepeer Real-time Video AI Network.
+  </Card>
+  <Card
+    title="Livepeer Protocol"
+    icon="cube"
+    href="./livepeer-network/overview"
+    arrow
+  >
+  A deep dive into the on-chain governance and incentive layer that secures and coordinates Livepeer.
+    {/* The Livepeer Protocol is the underlying code that enforces the mechanisms and rules to ensure the reliability, cooperation and coordination of these decentralised actors. */}
+   {/* A deep dive into the on-chain governance and incentive layer that secures and coordinates orchestrators, staking rewards, inflation, slashing, and probabilistic payments. */}
+  </Card>
+  <Card
+    title="Livepeer Network"
+    icon="circle-nodes"
+    href="./livepeer-network/overview"
+    arrow
+  >
+   The models, nodes and actors that contribute to the Livepeer Real-time Video AI Network.
+  </Card>
+  <Card
+    title="Livepeer Glossary"
+    icon="book"
+    href="./livepeer-network/overview"
+    arrow
+  >
+    A comprehensive glossary of terms used in the Livepeer Real-time Video AI Network.
+  </Card>
+</Columns>
+
+<br/>
+<br/>
