@@ -1,4 +1,5 @@
 ---
+mode: frame
 title: 'LP Token Home Portal'
 sidebarTitle: 'LP Token Portal'
 tag: Start Here
@@ -11,65 +12,120 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
 
 <PreviewCallout />
 
+import { PageHeader, H2, P } from '/snippets/components/display/frameMode.jsx'
+import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
+import { LivepeerIcon } from '/snippets/components/primitives/icons.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
+<PageHeader
+  title="Livepeer Token Portal"
+  subtitle={
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
+        <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg" size={20} /> 
+      <>{" "}Learn - Vote - Earn{" "}</>
+      <span style={{ display: "inline-block", transform: "scaleX(-1)" }}>
+      <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg" size={20} />
+    </span>
+    </div>
+  }
+      description="Learn about the Livepeer Token (LPT), delegate your tokens to earn rewards, and vote on network governance proposals."
+/>
+
+<CustomDivider />
+
+
+<br/>
+<br/>
+
+Livepeer Token (LPT) is the native ERC-20 token that secures the Livepeer Network and enables community-driven governance. 
+Holding LPT allows participants to earn fees and rewards, as well as influence the network’s direction through governance votes. 
+
+<br/>
+<br/>
+
+LPT aligns incentives for all network actors to keep Livepeer cost-effective, efficient, securepelines through a full-stack open hardware network, 
+providing users with affordable, verifiable, permissionless enterprise-grade software solutions. 
+
+<br/>
+<br/>
+
+<br/>
+<br/>
+
+<H2 icon="signs-post" iconSize={32} iconColor="#2b9a66">
+  Livepeer Token Portal
+</H2>
+
+<div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
+  <span style={{ lineHeight: "1", color: "var(--text-primary)", opacity: 1, fontStyle: "italic" }}>Choose Your Mission: </span>
+    <BlinkingIcon icon="circle-play" size={20} color="#2b9a66" />
+    {/* <span style={{ lineHeight: "1", color: "var(--text-primary)", opacity: 1, fontStyle: "italic" }}>Choose your mission: </span> */}
+</div>
+
+{/* 
 ## <Icon icon="map-location" size={32} color={"#2b9a66"}/> Token Portal: Map
 
 **Definition**
 Tokens are...
 
 **Quick Intro**
-Get Situated
+Get Situated */}
 
-## <Icon icon="signs-post" size={32} color={"#2b9a66"}/> Token Portal: Choose Your Mission
+{/* ## <Icon icon="signs-post" size={32} color={"#2b9a66"}/> Token Portal: Choose Your Mission
 
-Your Journey Starts Here / More "normal" Wording for AI/SEO
+Your Journey Starts Here / More "normal" Wording for AI/SEO */}
 
 <Columns cols={2}>
   <Card
-    title="What's an Token?"
+    title="What's a Token?"
     icon="comment-question"
-    href="./about-Tokens/overview"
+    href="./about-lpt-livepeer-token/overview"
     arrow
   >
-    ..
+    Learn about the Livepeer Token (LPT)
   </Card>
   <Card
-    title="Orchestrate Your GPU"
-    icon="laptop-code"
-    href="./setting-up-an-Token/hardware-requirements"
+    title="Delegate LPT"
+    icon="coins"
+    href="./delegating-lpt/overview"
     arrow
   >
-    ..
+    Earn rewards by delegating (staking) your LPT on the network.
   </Card>
   <Card
-    title="Run an Token"
+    title="Shape the Future of Livepeer"
+    icon="ballot-check"
+    href="./livepeer-governance/overview"
+    arrow
+  >
+   Vote on governance proposals and contribute to the network's decision-making.
+  </Card>
+  <Card
+    title="Contribute"
     icon="rocket"
-    href="./setting-up-an-Token/hardware-requirements"
+    href="./treasury/overview"
     arrow
   >
-    Token Level up: Deploy your own Gateway on the Livepeer Protocol.
+    Have an idea? Propose it! The Livepeer Treasury funds projects that benefit the network.
   </Card>
-  <Card
-    title="Token Tools & Dashboards"
-    icon="tools"
-    href="./Token-tools/tooling-hub"
-    arrow
-  >
-    .
-  </Card>
-  <Card
-    title="Token Guides & Resources"
+  {/* <Card
+    title="Contribute"
     icon="laptop-file"
     href="./guides-and-resources/orchestrator-guides"
     arrow
   >
-    .
-  </Card>
+    Contribute to discussions & LIPs
+  </Card> */}
 </Columns>
 
----
+<br/>
+<br/>
 
-?Gateway Portal FAQs
+<br/>
+<br/>
+
+
+{/* ?Gateway Portal FAQs
 
 ## <Icon icon="wand-magic-sparkles" size={32} color={"#2b9a66"}/> Gateway Portal Jump Pad
 
@@ -80,4 +136,4 @@ Jump to
 - [Gateway Services & Providers](#gateway-services--providers)
 - [Run a Gateway](#run-a-gateway)
 - [Gateway Tools & Dashboards](#gateway-tools--dashboards)
-- [Gateway Guides & Resources](#gateway-guides--resources)
+- [Gateway Guides & Resources](#gateway-guides--resources) */}

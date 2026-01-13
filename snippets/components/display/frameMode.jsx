@@ -405,4 +405,33 @@ const P = ({
   );
 };
 
-export { PageHeader, H1, H2, H3, H4, H5, H6, P };
+/**
+ * Divider - Horizontal divider line for frame mode
+ *
+ * @description
+ * Renders a horizontal rule (---) with proper styling for frame mode.
+ * Uses the default border color that works in both light and dark themes.
+ *
+ * @param {string} color - Custom color for the divider (optional)
+ * @param {string} margin - Vertical margin (default: "1.5rem 0")
+ * @param {string} opacity - Opacity of the divider (default: 0.2)
+ *
+ * @example
+ * <Divider />
+ * <Divider color="#2b9a66" />
+ * <Divider margin="2rem 0" opacity={0.5} />
+ */
+const Divider = ({ color, margin = "1.5rem 0", opacity = 0.2 }) => {
+  return (
+    <hr
+      style={{
+        border: "none",
+        borderTop: `1px solid ${color || "var(--border-color, #e5e7eb)"}`,
+        margin: margin,
+        opacity: opacity,
+      }}
+    />
+  );
+};
+
+export { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider };
