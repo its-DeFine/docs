@@ -1,8 +1,6 @@
 ---
-title: 
-    "Welcome to Livepeer Mission Control! \u2028 \u2028 \u2028 \u2028 \u2028 
-    \u2028 \u2028 \u2028 \u2028 \u2028 \u2028
-     ♦ Explore - Build - Innovate ♦"
+mode: frame
+title: Welcome to Livepeer Mission Control
 description: 'Livepeer powers on-demand real-time video streaming and AI pipelines through a full-stack open hardware network, providing users with affordable, verifiable, permissionless enterprise-grade software solutions.'
 sidebarTitle: 'Mission Control'
 tag: 'Start Here'
@@ -10,17 +8,42 @@ keywords: ["home", "index", "landing", "livepeer", "real-time AI", "Daydream"]
 og:image: '/snippets/assets/domain/00_HOME/Eric Shreck Gif.gif'
 ---
 
-
+import { PageHeader, H2, P } from '/snippets/components/display/frameMode.jsx'
 import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
+import { LivepeerIcon } from '/snippets/components/primitives/icons.jsx'
 
-{/* Livepeer powers on-demand real-time video streaming and AI pipelines through a full-stack open hardware network, providing users with affordable, verifiable, permissionless enterprise-grade software solutions. */}
----
+<PageHeader
+  title="Welcome to Livepeer"
+  subtitle={
+    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
+        <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg" size={20} /> 
+      <>{" "}Empowering Real-time AI Video{" "}</>
+      <span style={{ display: "inline-block", transform: "scaleX(-1)" }}>
+      <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg" size={20} />
+    </span>
+    </div>
+  }
+  description="Livepeer powers on-demand real-time video streaming and AI pipelines through a full-stack open hardware network, providing users with affordable, verifiable, permissionless enterprise-grade software solutions."
+/>
 
-## <Icon icon="signs-post" size={32} color={"#2b9a66"}/> Livepeer Mission Control
+<Frame caption="Real-time AI Built on Livepeer">
+  <img
+    src="/snippets/assets/domain/01_ABOUT/Eric Shreck Gif.gif"
+    alt="Daydream Realt-time AI example gif shreck realtime"
+  />
+</Frame>
 
-<span>
-  <BlinkingIcon icon="circle-play" /> Your Journey Starts Here{' '}
-</span>
+<br/>
+<br/>
+
+<H2 icon="signs-post" iconSize={32} iconColor="#2b9a66">
+  Livepeer Mission Control
+</H2>
+
+<div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
+  <BlinkingIcon icon="circle-play" size={20} color="#2b9a66" />
+  <span style={{ lineHeight: "1", color: "var(--text-primary)", opacity: 1, fontStyle: "italic" }}>Your Journey Starts Here</span>
+</div>
 
 <Columns cols={3}>
   <Card
@@ -98,9 +121,3 @@ import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
 </Columns>
 
 <br/>
-<Frame>
-  <img
-    src="/snippets/assets/domain/01_ABOUT/Eric Shreck Gif.gif"
-    alt="Daydream Realt-time AI example gif shreck realtime"
-  />
-</Frame>
