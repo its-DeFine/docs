@@ -128,6 +128,46 @@
                 ]
               },
               {
+                "tab": "Products",
+                "icon": "film-canister",
+                "anchors": [
+                  {
+                    "anchor": "Products",
+                    "icon": "display-code",
+                    "groups": [
+                      {
+                        "group": "Daydream",
+                        "icon": "video-camera",
+                        "pages": [
+                          "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx"
+                        ]
+                      },
+                      {
+                        "group": "Livepeer Studio",
+                        "icon": "user-robot",
+                        "pages": [
+                          "v2/pages/03_developers/ai-inference-on-livepeer/comfystream"
+                        ]
+                      },
+                      {
+                        "group": "Streamplace",
+                        "icon": "video-camera",
+                        "pages": [
+                          "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx"
+                        ]
+                      },
+                      {
+                        "group": "All Ecosystem Products",
+                        "icon": "video-camera",
+                        "pages": [
+                          "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx"
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
                 "tab": "Developers",
                 "icon": "display-code",
                 "anchors": [
