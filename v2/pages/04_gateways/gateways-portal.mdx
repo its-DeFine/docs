@@ -19,36 +19,24 @@ import { ScrollableDiagram } from '/snippets/components/display/zoomable-diagram
 import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
 import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
 
-{/* <div style={{ position: "relative", height: "60vh" }}> */}
-  {/* <Starfield /> */}
-{/* </div> */}
-<div className="frame-mode-container">
-<div style={{ position: "relative" }}>
-  <div style={{ position: "relative", height: "60vh" }}>
-    <div
-      style={{
-        position: "absolute",
-        inset: 0,
-        left: "50%",
-        right: "50%",
-        marginLeft: "-50vw",
-        marginRight: "-50vw",
-        width: "100vw",
-        overflow: "hidden",
-        zIndex: 0,
-      }}
-    >
-      <Starfield />
-    </div>
+{/* Hero Section - Full width of content area (excludes sidebar, adapts to sidebar collapse) */}
+<div className="frame-mode-hero-full" style={{ height: "60vh", overflow: "hidden" }}>
+  {/* Full-width Starfield Background - fills entire content area */}
+  <div
+    style={{
+      position: "absolute",
+      inset: 0,
+      overflow: "hidden",
+      zIndex: 0,
+    }}
+  >
+    <Starfield />
+  </div>
 
-  {/* START HERO */}
-
-    {/* Background */}
-    {/* <div style={{
-      position: "relative",
-      overflow: "hidden"
-    }}>
-      <Starfield /> */}
+  {/* Content Container - 80% width, centered within content area */}
+  <div className="frame-mode-container" style={{ position: "relative", zIndex: 1, height: "100%", marginBottom: 0 }}>
+    <div style={{ position: "relative", height: "100%" }}>
+      {/* START HERO */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "20px", margin: "2rem auto", width: "100%" }}>
         <img 
             src="/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg" 

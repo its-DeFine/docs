@@ -268,12 +268,29 @@ img[alt="US"][src*="flags/US.svg"] {
   display: none;
 }
 
+/* Frame mode container - 80% width, centered in content area */
 .frame-mode-container {
   display: block;
-  margin: 0 6rem 2rem 2rem;
   width: 80%;
-  /* padding: 0 2rem 2rem 0;
-  margin: 0 2rem 2rem 0; */
+  max-width: 1200px;
+  margin: 0 auto 2rem auto;
+}
+
+/* Hero full width - fills content area only (excludes sidebar) */
+/* Break out of Mintlify's content container to fill the full width */
+.frame-mode-hero-full {
+  position: relative;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: none;
+}
+
+/* Hero background - breaks out to full width of parent content area */
+.frame-mode-hero-full {
+  width: calc(100% / 0.8);
+  margin-left: calc((100% / 0.8 - 100%) / -2);
+  margin-right: calc((100% / 0.8 - 100%) / -2);
 }
 
 #starfield {
