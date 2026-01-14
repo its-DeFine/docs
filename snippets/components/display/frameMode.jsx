@@ -39,14 +39,18 @@ const PageHeader = ({
 }) => {
   return (
     <div
-      style={{ textAlign: "center", marginTop: "2rem", marginBottom: "3rem" }}
+      style={{
+        textAlign: "center",
+        marginTop: "2rem",
+        marginBottom: "3rem",
+      }}
     >
       <h1
         style={{
           fontSize: "2.5rem",
           fontWeight: "bold",
           lineHeight: "1.2",
-          marginBottom: "1rem",
+          margin: "2rem 0 1rem 0",
           opacity: 1,
           color:
             titleColor ||
@@ -102,6 +106,77 @@ const PageHeader = ({
     </div>
   );
 };
+
+// import { Starfield as HeroStarfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
+// const PageHeader2 = ({
+//   title,
+//   subtitle,
+//   description,
+//   children,
+//   titleColor,
+//   subtitleColor,
+//   descriptionColor,
+// }) => {
+//   return (
+//     <div
+//       style={{
+//         position: "relative",
+//         overflow: "hidden",
+//         textAlign: "center",
+//         marginTop: "2rem",
+//         marginBottom: "3rem",
+//       }}
+//     >
+//       {/* Background */}
+//       <HeroStarfield />
+
+//       {/* Content */}
+//       <div style={{ position: "relative", zIndex: 1 }}>
+//         <h1
+//           style={{
+//             fontSize: "2.5rem",
+//             fontWeight: "bold",
+//             lineHeight: "1.2",
+//             marginBottom: "1rem",
+//             color: titleColor ?? themeColor.light.heroText,
+//           }}
+//         >
+//           {title}
+//         </h1>
+
+//         {subtitle && (
+//           <h2
+//             style={{
+//               fontSize: "1.5rem",
+//               fontWeight: "500",
+//               color: subtitleColor ?? themeColor.light.accent,
+//             }}
+//           >
+//             {subtitle}
+//           </h2>
+//         )}
+
+//         {description && (
+//           <h5
+//             style={{
+//               fontSize: "1.1rem",
+//               marginTop: "1.5rem",
+//               color: descriptionColor ?? themeColor.light.text,
+//             }}
+//           >
+//             {description}
+//           </h5>
+//         )}
+
+//         {children}
+
+//         <div style={{ width: "80%", margin: "0 auto" }}>
+//           <CustomDivider />
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
 
 const H1 = ({
   children,
