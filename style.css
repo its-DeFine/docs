@@ -276,6 +276,22 @@ img[alt="US"][src*="flags/US.svg"] {
   margin: 0 auto 2rem auto;
 }
 
+/* Pagination on frame mode pages ONLY - match container width */
+html[data-page-mode="frame"] #pagination {
+  width: 80%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Pagination on frame mode pages ONLY - match container width */
+[data-page-mode="frame"] #pagination {
+  width: 80%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Hero full width - fills content area only (excludes sidebar) */
 /* Break out of Mintlify's content container to fill the full width */
 .frame-mode-hero-full {
