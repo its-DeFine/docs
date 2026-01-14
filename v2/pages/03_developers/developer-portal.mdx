@@ -20,6 +20,7 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
  I think Products (developer platforms) should be in their own tab / section - there is too much going on here otherwise.
 </Note>
 
+import { themeColor } from '/snippets/styles/colours.jsx'
 import { PageHeader, H2, P } from '/snippets/components/display/frameMode.jsx'
 import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
 import { LivepeerIcon } from '/snippets/components/primitives/icons.jsx'
@@ -29,28 +30,26 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
   title="Livepeer Developer Portal"
   subtitle={
     <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
-        <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg" size={20} /> 
+      <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg" size={20} /> 
       <>{" "}Build - Create - Innovate{" "}</>
       <span style={{ display: "inline-block", transform: "scaleX(-1)" }}>
-      <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg" size={20} />
-    </span>
+        <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg" size={20} />
+      </span>
     </div>
-  }
-      description="Stream Live Video, Run AI Pipelines, & Build Apps on Livepeer's Real-time AI Video Infrastructure."
-/>
-
-<CustomDivider />
-<Card title="awesome-livepeer" href="https://github.com/livepeer/awesome-livepeer" icon="github" arrow horizontal /> 
-
+    }
+  description="Stream Live Video, Run AI Pipelines, & Build Apps on Livepeer's Real-time AI Video Infrastructure."
+>
 <br/>
-<br/>
+<div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "50%", margin: "0 auto" }}>
+  <Card title="awesome-livepeer" href="https://github.com/livepeer/awesome-livepeer" icon="github" arrow horizontal /> 
+</div>
+</PageHeader>
 
 **Definition**
 Developers are...
 
 <br/>
 <br/>
-
 
 **Quick Intro**
 Get Situated

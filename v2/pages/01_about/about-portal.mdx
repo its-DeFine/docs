@@ -7,13 +7,12 @@ tag: 'Start Here'
 keywords: ['livepeer', 'about', 'about livepeer', 'about portal', 'about livepeer portal', 'about livepeer network', 'about livepeer protocol', 'about livepeer network', 'about livepeer protocol', 'about livepeer token', 'about livepeer governance', 'about livepeer actors', 'about livepeer economics', 'about livepeer whitepaper', 'about livepeer faq']
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsHero.svg"
 ---
-{/* Change path to /protocol */}
-
 <Note> 
 This page is a work in progress. <br />
 TODO: Copy Edits - copy not great!
 </Note>
 
+import { themeColor } from '/snippets/styles/colours.jsx'
 import { PageHeader, H2, P } from '/snippets/components/display/frameMode.jsx'
 import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
 import { LivepeerIcon } from '/snippets/components/primitives/icons.jsx'
@@ -31,14 +30,12 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
     </div>
   }
       description="Learn about the Livepeer Protocol & Network."
-/>
-
-<CustomDivider />
-<Card title="livepeer-protocol" href="https://github.com/livepeer/protocol" icon="github" arrow horizontal /> 
-
-
+>
 <br/>
-<br/>
+<div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "50%", margin: "0 auto" }}>
+  <Card title="livepeer-protocol" href="https://github.com/livepeer/protocol" icon="github" arrow horizontal /> 
+</div>
+</PageHeader>
 
 Livepeer is a decentralized infrastructure protocol that allows users to upload, transcode, and serve video content & run AI pipelines. 
 It operates on a network with different node types including Gateways (formerly Broadcasters), Orchestrators, and Transcoders. 

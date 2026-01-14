@@ -8,13 +8,15 @@ keywords: ["home", "index", "landing", "livepeer", "real-time AI", "Daydream"]
 og:image: '/snippets/assets/domain/00_HOME/Eric Shreck Gif.gif'
 ---
 
+import { themeColor } from '/snippets/styles/colours.jsx'
 import { PageHeader, H2, P } from '/snippets/components/display/frameMode.jsx'
 import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
 import { LivepeerIcon } from '/snippets/components/primitives/icons.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 
 <div style={{ display: "flex", justifyContent: "center", alignItems: "center", padding: "2rem 0 0 0" }}>
-<img style={{container: "cover", width: "100%", maxWidth: "600px" }} src="/snippets/assets/logos/Livepeer-Logo-Full-Light.svg" alt="Livepeer Logo" />
+<img style={{container: "cover", width: "100%", maxWidth: "600px" }} src="/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg" alt="Livepeer Logo" />
 </div>
 
 
@@ -27,16 +29,15 @@ import { LivepeerIcon } from '/snippets/components/primitives/icons.jsx'
 Open AI-Infrastructure powering re-imagining Real-time Video. */}
 {/* Experience The Open AI-Infrastructure Redefining Interactive Video */}
 {/* </p>  */}
-
-<PageHeader
-  title=" "
-  subtitle={
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
+  {/* {<div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
       <p style={{ fontSize: "1.5rem", color: "#2b9a66", fontWeight: "500", opacity: 1 }}>
       Open AI-Infrastructure for Real-Time Interactive Video
       </p>  
-    </div>
-  }
+    </div>} */}
+
+<PageHeader
+  title=" "
+      subtitle="Open AI-Infrastructure for Real-Time Interactive Video"
       description="Livepeer powers the future of creative media with a full-stack on-demand AI-infrastructure for real-time video streaming & AI workflows, optimised for performance, designed for innovators."
 />
 

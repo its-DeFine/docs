@@ -6,9 +6,9 @@
     "timestamp": true
   },
   "colors": {
-    "primary": "#18794E",
+    "primary": "#3CB540",
     "light": "#2b9a66",
-    "dark": "#18794E"
+    "dark": "#3CB540"
   },
   "favicon": "/favicon.png",
   "navigation": {

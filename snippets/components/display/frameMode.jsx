@@ -1,4 +1,3 @@
-/* eslint-disable no-undef */
 /**
  * Frame Mode Headers - Custom heading components for Mintlify frame mode
  *
@@ -10,7 +9,7 @@
  *
  * @note Icon is a Mintlify global component - no import needed
  *
- * @author Livepeer Documentation Team
+ * @author Alison Haire
  */
 
 /**
@@ -29,7 +28,15 @@
  * <H1 icon="signs-post" align="center">Centered with Icon</H1>
  */
 
-const PageHeader = ({ title, subtitle, description }) => {
+const PageHeader = ({
+  title,
+  subtitle,
+  description,
+  children,
+  titleColor,
+  subtitleColor,
+  descriptionColor,
+}) => {
   return (
     <div
       style={{ textAlign: "center", marginTop: "2rem", marginBottom: "3rem" }}
@@ -40,8 +47,10 @@ const PageHeader = ({ title, subtitle, description }) => {
           fontWeight: "bold",
           lineHeight: "1.2",
           marginBottom: "1rem",
-          color: "var(--text-primary, #fff)",
           opacity: 1,
+          color:
+            titleColor ||
+            `var(--page-header-title-color, ${themeColor.light.heroText})`,
         }}
       >
         {title}
@@ -50,9 +59,11 @@ const PageHeader = ({ title, subtitle, description }) => {
         <h2
           style={{
             fontSize: "1.5rem",
-            color: "#2b9a66",
             fontWeight: "500",
             opacity: 1,
+            color:
+              subtitleColor ||
+              `var(--page-header-subtitle-color, ${themeColor.light.accent})`,
           }}
         >
           {subtitle}
@@ -62,16 +73,32 @@ const PageHeader = ({ title, subtitle, description }) => {
         <h5
           style={{
             fontSize: "1.1rem",
-            color: "var(--text-secondary, #a0a0a0)",
             marginTop: "1.5rem",
-            maxWidth: "800px",
-            margin: "1.5rem auto 0",
+            // maxWidth: "800px",
+            // margin: "1.5rem auto 0",
             opacity: 1,
+            color: descriptionColor || null,
           }}
         >
           {description}
         </h5>
       )}
+      <style>{`
+        :root {
+          --page-header-title-color: ${themeColor.light.heroText};
+          --page-header-subtitle-color: ${themeColor.light.accent};
+          --page-header-description-color: ${themeColor.light.text};
+        }
+        .dark {
+          --page-header-title-color: ${themeColor.dark.heroText};
+          --page-header-subtitle-color: ${themeColor.dark.accent};
+          --page-header-description-color: ${themeColor.dark.text};
+        }
+      `}</style>
+      {children}
+      <div style={{ width: "80%", margin: "0 auto" }}>
+        <CustomDivider />
+      </div>
     </div>
   );
 };
