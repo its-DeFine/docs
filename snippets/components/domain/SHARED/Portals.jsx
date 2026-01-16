@@ -152,9 +152,10 @@ const PortalHeroContent = ({
   subtitleIcon = "/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg",
   description,
   refCardLink,
-  titleColor = `${themeColor.dark.heroText}`, //defaults to dark mode styles
-  subtitleColor = `${themeColor.dark.accent}`, //defaults to dark mode styles
-  descriptionColor = `${themeColor.dark.text}`, //defaults to dark mode styles
+  overview,
+  titleColor,
+  subtitleColor,
+  descriptionColor,
   divider,
   children,
 }) => {
@@ -175,9 +176,7 @@ const PortalHeroContent = ({
             lineHeight: "1.2",
             margin: "2rem 0 1rem 0",
             opacity: 1,
-            color:
-              titleColor ||
-              `var(--page-header-title-color, ${themeColor.light.heroText})`,
+            color: titleColor || "var(--page-header-title-color)",
           }}
         >
           {title}
@@ -198,9 +197,7 @@ const PortalHeroContent = ({
                 fontSize: "1.5rem",
                 fontWeight: "500",
                 opacity: 1,
-                color:
-                  subtitleColor ||
-                  `var(--page-header-subtitle-color, ${themeColor.light.accent})`,
+                color: subtitleColor || "var(--page-header-subtitle-color)",
               }}
             >
               {subtitle}
@@ -223,10 +220,9 @@ const PortalHeroContent = ({
             style={{
               fontSize: "1.1rem",
               marginTop: "1.5rem",
-              // maxWidth: "800px",
-              // margin: "1.5rem auto 0",
+              width: "80%",
               opacity: 1,
-              color: descriptionColor || null,
+              color: descriptionColor || "var(--page-header-description-color)",
             }}
           >
             {description}
@@ -267,6 +263,23 @@ const PortalHeroContent = ({
           {divider ? divider : <CustomDivider /> ? <CustomDivider /> : null}
           {/* <CustomDivider /> */}
         </div>
+        {overview && (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
+              gap: "1rem 0",
+              width: "80%",
+              margin: "0 auto",
+              fontSize: "1.1rem",
+              color: themeColor.dark.text,
+            }}
+          >
+            {overview}
+          </div>
+        )}
       </div>
       {/* zIndex && */}
     </div>
@@ -332,6 +345,26 @@ const RefCardContainer = ({ children }) => {
         justifyContent: "center",
         flexDirection: "column",
         gap: "1rem",
+      }}
+    >
+      {children}
+    </div>
+  );
+};
+
+const HeroOverviewContent = ({ children }) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        gap: "1rem 0",
+        width: "80%",
+        margin: "0 auto",
+        fontSize: "1.1rem",
+        color: themeColor.dark.text,
       }}
     >
       {children}
@@ -416,4 +449,5 @@ export {
   PortalContentContainer,
   PortalHeroContent,
   LogoHeroContainer,
+  HeroOverviewContent,
 };
