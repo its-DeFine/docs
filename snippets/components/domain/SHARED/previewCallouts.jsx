@@ -2,7 +2,7 @@
 
 export const ComingSoonCallout = () => {
   return (
-    <Callout icon="cauldron" color="#368add">
+    <Callout icon="cauldron" color="#ef1a73">
       <div style={{ fontSize: "1.0rem" }}>
         This page is still cooking... <br />
         Expect big things soon!

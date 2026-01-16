@@ -37,7 +37,7 @@
  *
  * @author Alison Haire
  */
-const HeroSectionContainer = ({ children, minHeight = "60vh" }) => {
+const HeroSectionContainer = ({ children, minHeight = "fit-content" }) => {
   return (
     <div
       className="frame-mode-hero-full"
@@ -269,10 +269,7 @@ const PortalHeroContent = ({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              width: "200px",
-              //   width: "30%",
-              //   minWidth: "200px",
-              //   maxWidth: "400px",
+              width: "fit-content",
               margin: "0 auto",
             }}
           >
@@ -336,6 +333,17 @@ const PortalCardsHeader = ({ children, title }) => {
                 </span>
                 {children}
         </div>
+    </div>
+  );
+};
+
+const PortalSectionHeader = ({ children, title, icon }) => {
+    return (
+    <div style={{ alignContent: "center", justifyContent: "center", gap: "1rem 0" }}>
+        <H3 icon={icon} iconSize={32} >
+            {title}
+        </H3>
+        {children}
     </div>
   );
 };
@@ -407,12 +415,13 @@ const RefCardContainer = ({ children }) => {
 };
 
 export {
-HeroImageBackgroundComponent,
-HeroContentContainer,
-PortalContentContainer,
-PortalHeroContent,
-LogoHeroContainer,
-HeroOverviewContent,
-HeroSectionContainer,
-PortalCardsHeader,
+    HeroImageBackgroundComponent,
+    HeroContentContainer,
+    PortalContentContainer,
+    PortalHeroContent,
+    LogoHeroContainer,
+    HeroOverviewContent,
+    HeroSectionContainer,
+    PortalCardsHeader,
+    PortalSectionHeader
 };

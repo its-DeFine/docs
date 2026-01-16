@@ -77,7 +77,7 @@
               },
               {
                 "tab": "About",
-                "icon": "film-stack",
+                "icon": "camera-movie",
                 "anchors": [
                   {
                     "anchor": "About Livepeer",
@@ -135,35 +135,58 @@
                     "anchor": "Products",
                     "icon": "display-code",
                     "groups": [
+                     { 
+                      "group": "Use Livepeer",
+                      "icon": "play",
+                      "pages": [
+                      "v2/pages/010_products/products-portal",
+                      "v2/pages/010_products/products/builder-hub"
+                        ]
+                      },
                       {
                         "group": "Daydream",
                         "icon": "video-camera",
                         "pages": [
-                          "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx"
+                          "v2/pages/010_products/products/daydream/daydream.mdx"
                         ]
                       },
                       {
                         "group": "Livepeer Studio",
                         "icon": "user-robot",
                         "pages": [
-                          "v2/pages/03_developers/ai-inference-on-livepeer/comfystream"
+                          "v2/pages/010_products/products/livepeer-studio/livepeer-studio.mdx"
                         ]
                       },
                       {
-                        "group": "Streamplace",
+                        "group": "Stream.place",
                         "icon": "video-camera",
                         "pages": [
-                          "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx"
+                          "v2/pages/010_products/products/streamplace/streamplace.mdx",
+                          "v2/pages/010_products/products/streamplace/streamplace-guide.mdx",
+                          "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+                          "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+                          "v2/pages/010_products/products/streamplace/streamplace-provenance.mdx",
+                          "v2/pages/010_products/products/streamplace/streamplace-funding.mdx"
                         ]
                       },
                       {
                         "group": "All Ecosystem Products",
                         "icon": "video-camera",
                         "pages": [
-                          "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx"
+                          "v2/pages/010_products/products/all-ecosystem/ecosystem-products.mdx"
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": "Resource HUB",
+                    "icon": "books",
+                    "pages": ["v2/pages/07_resources/redirect"]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "pages": [" "]
                   }
                 ]
               },
@@ -199,43 +222,6 @@
                                   "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai"
                                 ]
                               }
-                            ]
-                          }
-                        ]
-                      },
-                      {
-                        "group": "Developer Platforms",
-                        "icon": "gear-code",
-                        "pages": [
-                          "v2/pages/03_developers/developer-platforms/builder-hub",
-                          {
-                            "group": "Daydream",
-                            "pages": [
-                              "v2/pages/03_developers/developer-platforms/daydream/daydream"
-                            ]
-                          },
-                          {
-                            "group": "Livepeer Studio",
-                            "pages": [
-                              "v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio"
-                            ]
-                          },
-                          {
-                            "group": "Frameworks",
-                            "pages": [
-                              "v2/pages/03_developers/developer-platforms/frameworks/frameworks"
-                            ]
-                          },
-                          {
-                            "group": "Streamplace",
-                            "pages": [
-                              "v2/pages/03_developers/developer-platforms/streamplace/streamplace"
-                            ]
-                          },
-                          {
-                            "group": "All Ecosystem Products",
-                            "pages": [
-                              "v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products/ecosystem-products"
                             ]
                           }
                         ]

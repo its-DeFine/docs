@@ -337,12 +337,12 @@ img[alt="US"][src*="flags/US.svg"]::before {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   padding-left: 1rem;
-  padding-right: 1rem;
+  padding-right: 2.5rem; /* Space for arrow icon (0.75rem right + icon width ~1rem + margin) */
 }
 
 /* Target the arrow icon */
 .frame-mode-hero-full #card-link-arrow-icon {
-  top: 0.5rem;
+  top: 0.75rem;
   right: 0.75rem;
 }
 
