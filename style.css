@@ -253,13 +253,29 @@ body
 } */
 
 /* Override US flag with UK flag in language selector */
-#localization-select-trigger img[alt="US"],
+/* Hide the original img and use background-image instead */
+/* #localization-select-trigger img[alt="US"],
 #localization-select-item-en img[alt="US"],
 img[alt="US"][src*="flags/US.svg"] {
-  content: url("/snippets/assets/united-kingdom-flag-icon.svg") !important;
-  object-fit: cover !important;
-  object-position: 50% center !important;
+  opacity: 0 !important;
+  position: relative !important;
 }
+
+#localization-select-trigger img[alt="US"]::before,
+#localization-select-item-en img[alt="US"]::before,
+img[alt="US"][src*="flags/US.svg"]::before {
+  content: "" !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background-image: url("/snippets/assets/united-kingdom-flag-icon.svg") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  border-radius: 50% !important;
+  opacity: 1 !important;
+} */
 
 /* Hide the panel on frame mode pages (MINTLIFY SUCKS) */
 /* Hide empty table of contents layout only when it's empty */
@@ -268,45 +284,44 @@ img[alt="US"][src*="flags/US.svg"] {
   display: none;
 }
 
-/* Frame mode container - 80% width, centered in content area */
+/* Frame mode container - 80% of #content-container width, centered */
+/* Breaks out of #content padding to center in full #content-container */
 .frame-mode-container {
   display: block;
-  width: 80%;
-  max-width: 1200px;
-  margin: 0 auto 2rem auto;
+  width: calc(100% + 96px + 20px);
+  margin-left: -96px;
+  margin-right: -20px;
+  margin-bottom: 2rem;
+  padding-left: calc((100% + 96px + 20px) * 0.1 + 96px);
+  padding-right: calc((100% + 96px + 20px) * 0.1 + 20px);
+  box-sizing: border-box;
 }
 
-/* Pagination on frame mode pages ONLY - match container width */
-html[data-page-mode="frame"] #pagination {
-  width: 80%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Pagination on frame mode pages ONLY - match container width */
-[data-page-mode="frame"] #pagination {
-  width: 80%;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* Hero full width - fills content area only (excludes sidebar) */
-/* Break out of Mintlify's content container to fill the full width */
-.frame-mode-hero-full {
-  position: relative;
-  left: 0;
-  right: 0;
+/* Frame mode container inside hero - already broken out, so reset */
+.frame-mode-hero-full .frame-mode-container {
   width: 100%;
-  max-width: none;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
-/* Hero background - breaks out to full width of parent content area */
+/* Pagination on frame mode pages ONLY - match container padding */
+[data-page-mode="frame"] #pagination {
+  width: calc(100% + 96px + 20px);
+  margin-left: -96px;
+  margin-right: -20px;
+  padding-left: calc((100% + 96px + 20px) * 0.1 + 96px);
+  padding-right: calc((100% + 96px + 20px) * 0.1 + 20px);
+  box-sizing: border-box;
+}
+
+/* Hero full width - breaks out of #content padding to fill #content-container */
 .frame-mode-hero-full {
-  width: calc(100% / 0.8);
-  margin-left: calc((100% / 0.8 - 100%) / -2);
-  margin-right: calc((100% / 0.8 - 100%) / -2);
+  width: calc(100% + 96px + 20px);
+  margin-left: -96px;
+  margin-right: -20px;
+  position: relative;
 }
 
 #starfield {
@@ -316,4 +331,14 @@ html[data-page-mode="frame"] #pagination {
   height: 100%;
   pointer-events: none;
   z-index: 0;
+}
+
+#content > div.frame-mode-hero-full > div.frame-mode-container > div > div:nth-child(2) > div > div > div:nth-child(4) > a > div {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+#content > div.frame-mode-hero-full > div.frame-mode-container > div > div:nth-child(2) > div > div > div:nth-child(4) > a > div > #card-link-arrow-icon {
+  top: 0.75rem;
+  right: 0.75rem;
 }
