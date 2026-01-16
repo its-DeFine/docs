@@ -334,6 +334,7 @@ export function MyComponent() { ... }
 
 // Then import as:
 import { MyComponent } from '/snippets/MyComponent.jsx';
+import { ThemeData } from '/snippets/styles/themeStyles.jsx'
 ```
 
 ### Children Prop Handling
@@ -353,12 +354,77 @@ export function Wrapper({ children }) {
 
 ---
 
+## Icon Component Behavior
+
+### Custom Icons are Rendered as Images
+
+**CRITICAL:** Mintlify's `<Icon>` component renders custom icons as `<img>` elements, NOT inline SVG.
+
+```jsx
+// ❌ This will NOT work - color styling has no effect
+<span style={{ color: "#3CB540" }}>
+  <Icon icon="/path/to/icon.svg" size={20} />
+</span>
+
+// Mintlify renders this as:
+<img src="/path/to/icon.svg" width="20" height="20" />
+// CSS color property does NOT affect <img> elements!
+```
+
+**Why this matters:**
+- You **CANNOT** change icon color with CSS `color` property
+- You **CANNOT** use CSS variables to theme icons
+- The SVG file itself must contain the correct `fill=` color
+
+### Solution: Use Theme-Aware SVG Files
+
+Create SVG files that respond to theme changes using CSS media queries or theme classes:
+
+```svg
+<!-- ✅ Theme-aware SVG with CSS -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <style>
+    .icon-fill { fill: #3CB540; } /* Light mode green */
+    @media (prefers-color-scheme: dark) {
+      .icon-fill { fill: #2b9a66; } /* Dark mode green */
+    }
+  </style>
+  <path class="icon-fill" d="M..." />
+</svg>
+```
+
+**Example from codebase:**
+```jsx
+// ✅ Correct - using theme-aware SVG
+<Icon icon="/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg" size={20} />
+```
+
+The SVG file `/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg` contains internal CSS that adapts to light/dark themes.
+
+### Alternative: Use Multiple SVG Files
+
+If you can't use CSS in SVG, use different files for each theme:
+
+```jsx
+// ❌ Not ideal - requires conditional rendering
+{isDark ? (
+  <Icon icon="/icons/logo-dark.svg" size={20} />
+) : (
+  <Icon icon="/icons/logo-light.svg" size={20} />
+)}
+```
+
+**Best Practice:** Always use theme-aware SVG files with internal CSS for icons that need to adapt to theme changes.
+
+---
+
 ## Known Limitations
 
 1. **No `import React from 'react'`** - Will cause build errors
 2. **Client-side only** - No SSR for custom components
 3. **No Node.js APIs** - Can't use `fs`, `path`, etc. in components
 4. **External packages** - Limited to what Mintlify bundles (React, basic utilities)
+5. **Icon styling** - Custom icons render as `<img>` tags, cannot be styled with CSS color
 
 ---
 
@@ -368,3 +434,4 @@ export function Wrapper({ children }) {
 2. **Verify import paths** - Must be absolute from root with extension
 3. **Test components in isolation** - Create a test page to verify components work
 4. **Check Mintlify build output** - Some errors only appear at build time
+5. **Inspect rendered HTML** - Check if icons are `<img>` or `<svg>` elements

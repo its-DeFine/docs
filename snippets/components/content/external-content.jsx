@@ -1,3 +1,5 @@
+import { ThemeData } from "/snippets/styles/themeStyles.jsx";
+
 /**
  * ExternalContent - A reusable component for displaying external GitHub content
  * Usage:
@@ -19,51 +21,67 @@ export const ExternalContent = ({
   children,
 }) => {
   return (
-    <div
-      style={{
-        border: "1px solid #2d9a67",
-        borderRadius: "8px",
-        overflow: "hidden",
-        marginTop: "1rem",
-      }}
-    >
+    <>
+      <style>{`
+        :root {
+          --external-border: ${ThemeData.light.accent};
+          --external-bg: ${ThemeData.light.cardBackground};
+          --external-link: ${ThemeData.light.accent};
+        }
+        .dark {
+          --external-border: ${ThemeData.dark.accent};
+          --external-bg: ${ThemeData.dark.cardBackground};
+          --external-link: ${ThemeData.dark.accent};
+        }
+      `}</style>
       <div
         style={{
-          backgroundColor: "#0d0d0d",
-          padding: "0.75rem 1rem",
-          borderBottom: "1px solid #2d9a67",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
+          border: "1px solid var(--external-border)",
+          borderRadius: "8px",
+          overflow: "hidden",
+          marginTop: "1rem",
         }}
       >
-        <span style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-          <Icon icon={icon} size={16} />
-          <strong>{repoName}</strong>
-        </span>
-        <a
-          href={githubUrl}
-          target="_blank"
+        <div
           style={{
-            color: "#2d9a67",
-            fontSize: "0.875rem",
+            backgroundColor: "var(--external-bg)",
+            padding: "0.75rem 1rem",
+            borderBottom: "1px solid var(--external-border)",
             display: "flex",
             alignItems: "center",
-            gap: "0.25rem",
+            justifyContent: "space-between",
           }}
         >
-          View on GitHub <Icon icon="arrow-up-right-from-square" size={12} />
-        </a>
+          <span
+            style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}
+          >
+            <Icon icon={icon} size={16} />
+            <strong>{repoName}</strong>
+          </span>
+          <a
+            href={githubUrl}
+            target="_blank"
+            style={{
+              color: "var(--external-link)",
+              fontSize: "0.875rem",
+              display: "flex",
+              alignItems: "center",
+              gap: "0.25rem",
+            }}
+          >
+            View on GitHub <Icon icon="arrow-up-right-from-square" size={12} />
+          </a>
+        </div>
+        <div
+          style={{
+            maxHeight: maxHeight,
+            overflowY: "auto",
+            padding: "0 1rem",
+          }}
+        >
+          {children}
+        </div>
       </div>
-      <div
-        style={{
-          maxHeight: maxHeight,
-          overflowY: "auto",
-          padding: "0 1rem",
-        }}
-      >
-        {children}
-      </div>
-    </div>
+    </>
   );
 };

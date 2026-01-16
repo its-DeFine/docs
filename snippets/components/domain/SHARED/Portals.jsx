@@ -8,11 +8,15 @@
  * mode: frame also strips all styling except for Mintlify components.
  * Use display/frameMode.jsx components for headings in frame mode pages.
  *
- * @imports: Some components require imports on the MDX page to function.
- * Example:
- * PortalHeroContent uses CustomDivider which needs to be imported on the MDX page.
- * If not imported, divider will not render.
+ * @imports: REQUIRED - These components require imports on the MDX page to function.
+ *
+ * MUST import ThemeData in the MDX file:
+ * import { ThemeData } from "/snippets/styles/themeStyles.jsx";
+ *
+ * PortalHeroContent uses CustomDivider which needs to be imported on the MDX page:
  * import { CustomDivider } from "/snippets/components/primitives/divider.jsx";
+ *
+ * If not imported, components will not render correctly.
  *
  * @author Alison Haire
  */
@@ -149,7 +153,7 @@ const PortalHeroContent = ({
   zIndex = true, //Not working currently
   title = "Portal Page",
   subtitle = "Build - Explore - Create",
-  subtitleIcon = "/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg",
+  subtitleIcon = "/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg",
   description,
   refCardLink,
   overview,

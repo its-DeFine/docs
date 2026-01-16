@@ -1,3 +1,5 @@
+import { ThemeData } from "/snippets/styles/themeStyles.jsx";
+
 /**
  * CoinGeckoExchanges - Dynamically fetches and displays exchanges that support a coin from CoinGecko
  *
@@ -115,135 +117,170 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
   };
 
   return (
-    <div style={{ overflowX: "auto" }}>
-      <table
-        style={{
-          width: "100%",
-          borderCollapse: "collapse",
-          fontSize: "0.9rem",
-        }}
-      >
-        <thead>
-          <tr style={{ backgroundColor: "#2d9a67", color: "#fff" }}>
-            <th
+    <>
+      <style>{`
+        :root {
+          --coingecko-header-bg: ${ThemeData.light.accent};
+          --coingecko-header-border: ${ThemeData.light.accent};
+          --coingecko-row-border: ${ThemeData.light.border};
+          --coingecko-link: ${ThemeData.light.accent};
+        }
+        .dark {
+          --coingecko-header-bg: ${ThemeData.dark.accent};
+          --coingecko-header-border: ${ThemeData.dark.accent};
+          --coingecko-row-border: ${ThemeData.dark.border};
+          --coingecko-link: ${ThemeData.dark.accent};
+        }
+      `}</style>
+      <div style={{ overflowX: "auto" }}>
+        <table
+          style={{
+            width: "100%",
+            borderCollapse: "collapse",
+            fontSize: "0.9rem",
+          }}
+        >
+          <thead>
+            <tr
               style={{
-                padding: "12px 16px",
-                textAlign: "left",
-                fontWeight: "600",
-                borderBottom: "2px solid #2d9a67",
-                cursor: "pointer",
-                width: "220px",
-                maxWidth: "220px",
-              }}
-              onClick={() => handleSort("name")}
-              title="Click to sort by name"
-            >
-              Exchange {sortBy === "name" && (sortOrder === "asc" ? "↑" : "↓")}
-            </th>
-            <th
-              style={{
-                padding: "12px 16px",
-                textAlign: "center",
-                fontWeight: "600",
-                borderBottom: "2px solid #2d9a67",
-                width: "80px",
-                cursor: "pointer",
-              }}
-              onClick={() => handleSort("type")}
-              title="Click to sort by type"
-            >
-              Type {sortBy === "type" && (sortOrder === "asc" ? "↑" : "↓")}
-            </th>
-            <th
-              style={{
-                padding: "12px 16px",
-                textAlign: "center",
-                fontWeight: "600",
-                borderBottom: "2px solid #2d9a67",
-                width: "110px",
+                backgroundColor: "var(--coingecko-header-bg)",
+                color: "#fff",
               }}
             >
-              Pair
-            </th>
-            <th
-              style={{
-                padding: "12px 16px",
-                textAlign: "center",
-                fontWeight: "600",
-                borderBottom: "2px solid #2d9a67",
-                width: "100px",
-              }}
-            >
-              Trust
-            </th>
-            <th
-              style={{
-                padding: "12px 16px",
-                textAlign: "center",
-                fontWeight: "600",
-                borderBottom: "2px solid #2d9a67",
-                width: "100px",
-              }}
-            >
-              Link
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {sortedExchanges.map((exchange, index) => (
-            <tr key={index} style={{ borderBottom: "1px solid #333" }}>
-              <td
+              <th
                 style={{
-                  padding: "10px 16px",
+                  padding: "12px 16px",
+                  textAlign: "left",
+                  fontWeight: "600",
+                  borderBottom: "2px solid var(--coingecko-header-border)",
+                  cursor: "pointer",
                   width: "220px",
                   maxWidth: "220px",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
+                  color: "#fff",
                 }}
+                onClick={() => handleSort("name")}
+                title="Click to sort by name"
               >
-                {exchange.name}
-              </td>
-              <td style={{ padding: "10px 16px", textAlign: "center" }}>
-                <Badge color={exchange.type === "DEX" ? "purple" : "blue"}>
-                  {exchange.type}
-                </Badge>
-              </td>
-              <td
+                Exchange{" "}
+                {sortBy === "name" && (sortOrder === "asc" ? "↑" : "↓")}
+              </th>
+              <th
                 style={{
-                  padding: "10px 16px",
+                  padding: "12px 16px",
                   textAlign: "center",
-                  fontFamily: "monospace",
-                  fontSize: "0.85rem",
-                  maxWidth: "110px",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
-                  whiteSpace: "nowrap",
+                  fontWeight: "600",
+                  borderBottom: "2px solid var(--coingecko-header-border)",
+                  width: "80px",
+                  cursor: "pointer",
+                  color: "#fff",
+                }}
+                onClick={() => handleSort("type")}
+                title="Click to sort by type"
+              >
+                Type {sortBy === "type" && (sortOrder === "asc" ? "↑" : "↓")}
+              </th>
+              <th
+                style={{
+                  padding: "12px 16px",
+                  textAlign: "center",
+                  fontWeight: "600",
+                  borderBottom: "2px solid var(--coingecko-header-border)",
+                  width: "110px",
+                  color: "#fff",
                 }}
               >
-                {exchange.tradingPair}
-              </td>
-              <td style={{ padding: "10px 16px", textAlign: "center" }}>
-                <Icon
-                  icon="circle"
-                  iconType="solid"
-                  color={getTrustScoreColor(exchange.trustScore)}
-                />
-              </td>
-              <td style={{ padding: "10px 16px", textAlign: "center" }}>
-                <a
-                  href={exchange.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  style={{ color: "#2d9a67", textDecoration: "none" }}
-                >
-                  Trade →
-                </a>
-              </td>
+                Pair
+              </th>
+              <th
+                style={{
+                  padding: "12px 16px",
+                  textAlign: "center",
+                  fontWeight: "600",
+                  borderBottom: "2px solid var(--coingecko-header-border)",
+                  width: "100px",
+                  color: "#fff",
+                }}
+              >
+                Trust
+              </th>
+              <th
+                style={{
+                  padding: "12px 16px",
+                  textAlign: "center",
+                  fontWeight: "600",
+                  borderBottom: "2px solid var(--coingecko-header-border)",
+                  width: "100px",
+                  color: "#fff",
+                }}
+              >
+                Link
+              </th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {sortedExchanges.map((exchange, index) => (
+              <tr
+                key={index}
+                style={{
+                  borderBottom: "1px solid var(--coingecko-row-border)",
+                }}
+              >
+                <td
+                  style={{
+                    padding: "10px 16px",
+                    width: "220px",
+                    maxWidth: "220px",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {exchange.name}
+                </td>
+                <td style={{ padding: "10px 16px", textAlign: "center" }}>
+                  <Badge color={exchange.type === "DEX" ? "purple" : "blue"}>
+                    {exchange.type}
+                  </Badge>
+                </td>
+                <td
+                  style={{
+                    padding: "10px 16px",
+                    textAlign: "center",
+                    fontFamily: "monospace",
+                    fontSize: "0.85rem",
+                    maxWidth: "110px",
+                    overflow: "hidden",
+                    textOverflow: "ellipsis",
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {exchange.tradingPair}
+                </td>
+                <td style={{ padding: "10px 16px", textAlign: "center" }}>
+                  <Icon
+                    icon="circle"
+                    iconType="solid"
+                    color={getTrustScoreColor(exchange.trustScore)}
+                  />
+                </td>
+                <td style={{ padding: "10px 16px", textAlign: "center" }}>
+                  <a
+                    href={exchange.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: "var(--coingecko-link)",
+                      textDecoration: "none",
+                    }}
+                  >
+                    Trade →
+                  </a>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 };

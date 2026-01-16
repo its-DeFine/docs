@@ -1,3 +1,5 @@
+import { ThemeData } from "/snippets/styles/themeStyles.jsx";
+
 /**
  * CustomCallout - Customizable callout/alert box component
  *
@@ -7,7 +9,7 @@
  *
  * @param {React.ReactNode} children - Content to display in the callout
  * @param {string} [icon="lightbulb"] - Icon name to display
- * @param {string} [color="#2d9a67"] - Primary color for icon, border, and background
+ * @param {string} [color] - Primary color for icon, border, and background (defaults to theme accent)
  * @param {number} [iconSize=16] - Size of the icon in pixels
  * @param {string} [textSize="0.875rem"] - Font size for the text content
  * @param {string} [textColor] - Text color (defaults to match icon color)
@@ -22,13 +24,16 @@
 export const CustomCallout = ({
   children,
   icon = "lightbulb",
-  color = "#2d9a67",
+  color,
   iconSize = 16,
   textSize = "0.875rem",
   textColor,
 }) => {
-  // Default textColor to match the icon color if not specified
-  const resolvedTextColor = textColor || color;
+  // Use theme accent if no color specified
+  const defaultColor = ThemeData.light.accent;
+  const resolvedColor = color || defaultColor;
+  const resolvedTextColor = textColor || resolvedColor;
+
   // Convert hex to rgba for proper opacity
   const hexToRgba = (hex, alpha) => {
     const r = parseInt(hex.slice(1, 3), 16);
@@ -45,15 +50,15 @@ export const CustomCallout = ({
         gap: "12px",
         padding: "16px 20px",
         borderRadius: "16px",
-        border: `1px solid ${hexToRgba(color, 0.2)}`,
-        backgroundColor: hexToRgba(color, 0.1),
+        border: `1px solid ${hexToRgba(resolvedColor, 0.2)}`,
+        backgroundColor: hexToRgba(resolvedColor, 0.1),
         marginTop: "16px",
         marginBottom: "16px",
         overflow: "hidden",
       }}
     >
       <div style={{ marginTop: "2px", width: iconSize, flexShrink: 0 }}>
-        <Icon icon={icon} size={iconSize} color={color} />
+        <Icon icon={icon} size={iconSize} color={resolvedColor} />
       </div>
       <div
         style={{
@@ -78,18 +83,15 @@ export const CustomCallout = ({
  *
  * @param {string} [icon="terminal"] - Icon name to display
  * @param {number} [size=16] - Size of the icon in pixels
- * @param {string} [color="#2d9a67"] - Color of the icon
+ * @param {string} [color] - Color of the icon (defaults to theme accent)
  *
  * @example
  * <BlinkingIcon icon="circle" color="#ff0000" size={20} />
  *
  * @author Livepeer Documentation Team
  */
-export const BlinkingIcon = ({
-  icon = "terminal",
-  size = 16,
-  color = "#2d9a67",
-}) => {
+export const BlinkingIcon = ({ icon = "terminal", size = 16, color }) => {
+  const resolvedColor = color || ThemeData.light.accent;
   return (
     <span
       style={{
@@ -97,7 +99,7 @@ export const BlinkingIcon = ({
         animation: "blink 3s ease-in-out infinite",
       }}
     >
-      <Icon icon={icon} size={size} color={color} />
+      <Icon icon={icon} size={size} color={resolvedColor} />
       <style>{`
         @keyframes blink {
           0%, 100% { opacity: 1; }
@@ -162,7 +164,7 @@ export const DoubleIconLink = ({
       {text && <span style={{ marginRight: 8 }}>{text}</span>}
       <Icon icon={iconLeft} />
       <a href={href}>{label}</a>
-      <Icon icon={iconRight} size={12} color="#2d9a67" />
+      <Icon icon={iconRight} size={12} color={ThemeData.light.accent} />
     </span>
   );
 };
@@ -246,7 +248,7 @@ export const GotoCard = ({ label, relativePath, icon, text, cta = "" }) => {
  * @param {React.ReactNode} children - Content to display in the tip
  * @param {string} [icon="lightbulb"] - Main icon to display on the left
  * @param {string} [arrowIcon="arrow-up-right"] - Arrow icon to display in top-right
- * @param {string} [color="#2d9a67"] - Primary color for icons, border, and background
+ * @param {string} [color] - Primary color for icons, border, and background (defaults to theme accent)
  * @param {number} [iconSize=16] - Size of the main icon in pixels
  * @param {number} [arrowSize=16] - Size of the arrow icon in pixels
  *
@@ -261,10 +263,13 @@ export const TipWithArrow = ({
   children,
   icon = "lightbulb",
   arrowIcon = "arrow-up-right",
-  color = "#2d9a67",
+  color,
   iconSize = 16,
   arrowSize = 16,
 }) => {
+  // Use theme accent if no color specified
+  const resolvedColor = color || ThemeData.light.accent;
+
   // Convert hex to rgba for proper opacity
   const hexToRgba = (hex, alpha) => {
     const r = parseInt(hex.slice(1, 3), 16);
@@ -283,20 +288,20 @@ export const TipWithArrow = ({
         padding: "16px 20px",
         paddingRight: "48px", // Extra space for the arrow
         borderRadius: "16px",
-        border: `1px solid ${hexToRgba(color, 0.2)}`,
-        backgroundColor: hexToRgba(color, 0.1),
+        border: `1px solid ${hexToRgba(resolvedColor, 0.2)}`,
+        backgroundColor: hexToRgba(resolvedColor, 0.1),
         marginTop: "16px",
         marginBottom: "16px",
         overflow: "hidden",
       }}
     >
       <div style={{ marginTop: "2px", width: iconSize, flexShrink: 0 }}>
-        <Icon icon={icon} size={iconSize} color={color} />
+        <Icon icon={icon} size={iconSize} color={resolvedColor} />
       </div>
       <div
         style={{
           fontSize: "0.875rem",
-          color: color,
+          color: resolvedColor,
           minWidth: 0,
           width: "100%",
         }}
@@ -311,7 +316,7 @@ export const TipWithArrow = ({
           opacity: 0.6,
         }}
       >
-        <Icon icon={arrowIcon} size={arrowSize} color={color} />
+        <Icon icon={arrowIcon} size={arrowSize} color={resolvedColor} />
       </div>
     </div>
   );

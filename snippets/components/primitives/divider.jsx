@@ -1,52 +1,17 @@
 /**
- * LivepeerIcon - Internal helper for Livepeer logo icon
- *
- * @description
- * Helper component that displays the Livepeer logo icon.
- * Used internally by CustomDivider.
- *
- * @param {Object} props - Icon component props
- * @private
- */
-const LivepeerIcon = ({ ...props }) => {
-  return (
-    <Icon
-      icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg"
-      {...props}
-    />
-  );
-};
-
-/**
- * LivepeerIconFlipped - Internal helper for flipped Livepeer logo
- *
- * @description
- * Helper component that displays a horizontally flipped Livepeer logo.
- * Used internally by CustomDivider.
- *
- * @param {Object} props - Icon component props
- * @private
- */
-const LivepeerIconFlipped = ({ ...props }) => {
-  return (
-    <span style={{ display: "inline-block", transform: "scaleX(-1)" }}>
-      <Icon
-        icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg"
-        {...props}
-      />
-    </span>
-  );
-};
-
-/**
  * CustomDivider - Decorative divider with Livepeer branding
  *
  * @description
- * Displays a horizontal divider line with Livepeer logo icons on both ends.
+ * Displays a horizontal divider line with theme-aware Livepeer logo icons on both ends.
  * Optionally includes centered text between the divider lines.
  *
- * @param {string} [color] - Color for the middle text (currently unused in implementation)
+ * Icons automatically adapt to light/dark theme using theme-aware SVG.
+ *
+ * @param {string} [color] - Color for the middle text
  * @param {string} [middleText] - Optional text to display in the center of the divider
+ *
+ * @requires ThemeData must be imported in the MDX file where this component is used:
+ * import { ThemeData } from "/snippets/styles/themeStyles.jsx";
  *
  * @example
  * <CustomDivider />
@@ -56,67 +21,70 @@ const LivepeerIconFlipped = ({ ...props }) => {
  * @author Livepeer Documentation Team
  */
 export const CustomDivider = ({ color, middleText }) => {
-  const dividerColor = "#e5e7eb";
-
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        margin: "24px 0",
-        fontSize: "16px",
-      }}
-    >
-      <span
+    <>
+      <style>{`
+        :root {
+          --divider-color: ${ThemeData.light.border};
+        }
+        .dark {
+          --divider-color: ${ThemeData.dark.border};
+        }
+      `}</style>
+      <div
         style={{
-          marginRight: "8px",
-          opacity: 0.2,
-          color: `${dividerColor} !important`,
+          display: "flex",
+          alignItems: "center",
+          margin: "24px 0",
+          fontSize: "16px",
         }}
       >
-        <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg" />
-      </span>
-      <div
-        style={{
-          flex: 1,
-          height: "1px",
-          background: dividerColor,
-          opacity: 0.2,
-        }}
-      ></div>
-      {middleText && (
-        <>
-          <Icon icon="circle" size={2} />
-          <span
-            style={{
-              margin: "0 8px",
-              fontWeight: "bold",
-              // fontSize: "12px",
-              // textTransform: "uppercase",
-              // fontStyle: "uppercase",
-              fontColor: color,
-              color: color,
-              opacity: 0.4,
-            }}
-          >
-            {middleText}
-          </span>
-          <Icon icon="circle" size={2} />
-        </>
-      )}
-      <div
-        style={{
-          flex: 1,
-          height: "1px",
-          background: dividerColor,
-          opacity: 0.2,
-        }}
-      ></div>
-      <span style={{ marginLeft: "8px", opacity: 0.2 }}>
-        <span style={{ display: "inline-block", transform: "scaleX(-1)" }}>
-          <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg" />
+        <span
+          style={{
+            marginRight: "8px",
+            opacity: 0.2,
+          }}
+        >
+          <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg" />
         </span>
-      </span>
-    </div>
+        <div
+          style={{
+            flex: 1,
+            height: "1px",
+            background: "var(--divider-color)",
+            opacity: 0.4,
+          }}
+        ></div>
+        {middleText && (
+          <>
+            <Icon icon="circle" size={2} />
+            <span
+              style={{
+                margin: "0 8px",
+                fontWeight: "bold",
+                color: color,
+                opacity: 0.4,
+              }}
+            >
+              {middleText}
+            </span>
+            <Icon icon="circle" size={2} />
+          </>
+        )}
+        <div
+          style={{
+            flex: 1,
+            height: "1px",
+            background: "var(--divider-color)",
+            opacity: 0.4,
+          }}
+        ></div>
+        <span style={{ marginLeft: "8px", opacity: 0.2 }}>
+          <span style={{ display: "inline-block", transform: "scaleX(-1)" }}>
+            <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg" />
+          </span>
+        </span>
+      </div>
+    </>
   );
 };
