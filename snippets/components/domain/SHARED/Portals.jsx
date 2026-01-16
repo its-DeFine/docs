@@ -37,11 +37,11 @@
  *
  * @author Alison Haire
  */
-const HeroSectionContainer = ({ children }) => {
+const HeroSectionContainer = ({ children, minHeight = "60vh" }) => {
   return (
     <div
       className="frame-mode-hero-full"
-      style={{ height: "60vh", overflow: "hidden" }}
+      style={{ minHeight: minHeight, marginBottom: "0.5rem" }}
     >
       {children}
       {/* <HeroImageBackgroundComponent /> */}
@@ -66,7 +66,7 @@ const HeroSectionContainer = ({ children }) => {
  *
  * @author Alison Haire
  */
-const HeroImageBackgroundComponent = ({ children = <Starfield /> }) => {
+const HeroImageBackgroundComponent = ({ children }) => {
   return (
     <div
       style={{
@@ -114,6 +114,30 @@ const HeroContentContainer = ({ children }) => {
   );
 };
 
+//unused
+const HeroOverviewContent = ({ children }) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        gap: "1rem 0",
+        width: "80%",
+        margin: "0 auto",
+        fontSize: "1.1rem",
+        color: ThemeData.dark.text,
+      }}
+    >
+          {children}
+          <div style={{ paddingBottom: "2.5rem" }}> 
+              <CustomDivider />
+         </div>
+    </div>
+  );
+};
+
 /*
  * Portal Content Container
  *
@@ -127,7 +151,13 @@ const HeroContentContainer = ({ children }) => {
  * @author Alison Haire
  */
 const PortalContentContainer = ({ children }) => {
-  return <div className="frame-mode-container">{children}</div>;
+    return (
+        <div className="frame-mode-container">
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>   
+                {children}
+            </div>
+        </div>
+    );
 };
 
 /*
@@ -170,21 +200,13 @@ const PortalHeroContent = ({
         style={{
           textAlign: "center",
           marginTop: "2rem",
-          marginBottom: "3rem",
+          marginBottom: "1rem",
         }}
       >
-        <h1
-          style={{
-            fontSize: "2.5rem",
-            fontWeight: "bold",
-            lineHeight: "1.2",
-            margin: "2rem 0 1rem 0",
-            opacity: 1,
-            color: titleColor || "var(--page-header-title-color)",
-          }}
+        <H1 align="center"
         >
           {title}
-        </h1>
+        </H1>
         {subtitle && (
           //   wrapper for icons
           <div
@@ -271,7 +293,7 @@ const PortalHeroContent = ({
             }
         `}</style>
         {children}
-        <div style={{ width: "80%", margin: "0 auto" }}>
+        <div style={{ width: "80%", margin: "0 auto", paddingBottom: "1rem" }}>
           {divider ? divider : <CustomDivider /> ? <CustomDivider /> : null}
           {/* <CustomDivider /> */}
         </div>
@@ -291,9 +313,29 @@ const PortalHeroContent = ({
           >
             {overview}
           </div>
-        )}
-      </div>
+              )}
+          <div style={{ width: "80%", margin: "0 auto", paddingTop: "1.5rem", paddingBottom: "0.1rem" }}>
+            <CustomDivider />
+          </div>
+        </div>
       {/* zIndex && */}
+    </div>
+  );
+};
+
+const PortalCardsHeader = ({ children, title }) => {
+    return (
+    <div style={{ alignContent: "center", justifyContent: "center" }}>
+        <H2 icon="signs-post" iconSize={32} >
+            {title}
+        </H2>
+
+        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.1rem" }}>
+                <span style={{ lineHeight: "1", color: "var(--text-primary)", opacity: 1, fontStyle: "italic", fontSize: "1.2rem" }}>
+                    Choose Your Mission:
+                </span>
+                {children}
+        </div>
     </div>
   );
 };
@@ -323,7 +365,7 @@ const LogoHeroContainer = ({
   alt = "Livepeer Logo",
   height = "100px",
   width = "100%",
-  margin = "2rem auto",
+  margin = "0 auto 4rem auto",
   imgHeight = "100%",
   imgWidth = "auto",
   objectFit = "contain",
@@ -364,102 +406,13 @@ const RefCardContainer = ({ children }) => {
   );
 };
 
-const HeroOverviewContent = ({ children }) => {
-  return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "column",
-        gap: "1rem 0",
-        width: "80%",
-        margin: "0 auto",
-        fontSize: "1.1rem",
-        color: ThemeData.dark.text,
-      }}
-    >
-      {children}
-    </div>
-  );
-};
-
-// import { Starfield as HeroStarfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
-// const PageHeader2 = ({
-//   title,
-//   subtitle,
-//   description,
-//   children,
-//   titleColor,
-//   subtitleColor,
-//   descriptionColor,
-// }) => {
-//   return (
-//     <div
-//       style={{
-//         position: "relative",
-//         overflow: "hidden",
-//         textAlign: "center",
-//         marginTop: "2rem",
-//         marginBottom: "3rem",
-//       }}
-//     >
-//       {/* Background */}
-//       <HeroStarfield />
-
-//       {/* Content */}
-//       <div style={{ position: "relative", zIndex: 1 }}>
-//         <h1
-//           style={{
-//             fontSize: "2.5rem",
-//             fontWeight: "bold",
-//             lineHeight: "1.2",
-//             marginBottom: "1rem",
-//             color: titleColor ?? ThemeData.light.heroText,
-//           }}
-//         >
-//           {title}
-//         </h1>
-
-//         {subtitle && (
-//           <h2
-//             style={{
-//               fontSize: "1.5rem",
-//               fontWeight: "500",
-//               color: subtitleColor ?? ThemeData.light.accent,
-//             }}
-//           >
-//             {subtitle}
-//           </h2>
-//         )}
-
-//         {description && (
-//           <h5
-//             style={{
-//               fontSize: "1.1rem",
-//               marginTop: "1.5rem",
-//               color: descriptionColor ?? ThemeData.light.text,
-//             }}
-//           >
-//             {description}
-//           </h5>
-//         )}
-
-//         {children}
-
-//         <div style={{ width: "80%", margin: "0 auto" }}>
-//           <CustomDivider />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
 export {
-  HeroImageBackgroundComponent,
-  HeroContentContainer,
-  PortalContentContainer,
-  PortalHeroContent,
-  LogoHeroContainer,
-  HeroOverviewContent,
+HeroImageBackgroundComponent,
+HeroContentContainer,
+PortalContentContainer,
+PortalHeroContent,
+LogoHeroContainer,
+HeroOverviewContent,
+HeroSectionContainer,
+PortalCardsHeader,
 };

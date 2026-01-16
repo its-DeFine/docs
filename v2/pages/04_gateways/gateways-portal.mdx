@@ -8,11 +8,7 @@ keywords: ["home", "index", "landing", "gateway", "gateways", "applications", "p
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
-
-{/* <PreviewCallout /> */}
-
-import { PortalHeroContent, HeroOverviewContent } from '/snippets/components/domain/SHARED/Portals.jsx'
+import { PortalHeroContent, HeroImageBackgroundComponent, LogoHeroContainer, HeroContentContainer, HeroSectionContainer, PortalCardsHeader, PortalContentContainer } from '/snippets/components/domain/SHARED/Portals.jsx'
 import { ThemeData } from '/snippets/styles/themeStyles.jsx'
 import { PageHeader, H1, H2, H5,P } from '/snippets/components/display/frameMode.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -21,37 +17,21 @@ import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
 import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
 
 {/* HeroSectionContainer - Full width of content area (excludes sidebar, adapts to sidebar collapse) */}
-<div className="frame-mode-hero-full">
+<HeroSectionContainer>
   
   {/* HeroImageBackgroundComponent: Full-width Starfield Background - fills entire content area */}
-  <div
-    style={{
-      position: "absolute",
-      inset: 0,
-      overflow: "hidden",
-      zIndex: 0,
-    }}
-  >
+  <HeroImageBackgroundComponent>
     <Starfield />
-  </div>
+  </HeroImageBackgroundComponent>
 
   {/* HeroContentContainer - 80% width, centered within content area */}
-  <div className="frame-mode-container" style={{ position: "relative", zIndex: 1, height: "100%", marginBottom: 0 }}>
-    <div style={{ position: "relative", height: "100%" }}>
+  <HeroContentContainer>
       {/* LogoHeroContainer  */}
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", height: "20px", margin: "2rem auto", width: "100%" }}>
-        <img 
-            src="/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg" 
-            alt="Livepeer Logo" 
-            style={{ height: "100%", width: "auto", objectFit: "contain" }} 
-        />
-      </div>
+      <LogoHeroContainer height="20px" />
 
-      {/* Foreground */}
-      <div style={{ position: "relative", zIndex: 1 }}>
       {/* PortalHeroContent */}
         <PortalHeroContent
-          title="Gateway Portal"
+          title="Gateways"
           subtitle="Build – Create – Innovate"
           refCardLink={
               <Card
@@ -69,28 +49,21 @@ import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
             then distribute these jobs across the network of GPU-equipped Orchestrators.
               <br />
               <br />
-            Gateways are the core building block for those developers looking to productise applications built on top of the Livepeer protocol.
+              Gateways are the core building block for those developers looking to productise applications built on top of the Livepeer protocol.
+              {/* <div style={{ fontSize: "0.9rem", fontStyle: "italic", color: "#888" }}>
+                  Note: In earlier documentation, Gateways were referred to as Broadcasters
+              </div> */}
           </>
           }
         />
-      </div>
-      <br />
-    </div>
-    {/* </div> */}
-    {/* END HERO */}
-  </div>
 
-</div>
+      </HeroContentContainer>
 
-<div className="frame-mode-container">
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "65%", margin: "0 auto" }}>
-    <Note>
-      In earlier documentation, Gateways were referred to as Broadcasters{' '}
-    </Note>
-    </div>
-    <br/>
-    <H5>*Mental Model*</H5>
-    <br/>
+</HeroSectionContainer>
+  {/* END HERO */ }
+
+<PortalContentContainer>
+    {/* <H5>*Mental Model*</H5>
     <AccordionGroup>
       <Accordion title="From a Cloud Background?" icon="cloud" >
 
@@ -230,20 +203,13 @@ import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
 
       </ScrollableDiagram>
       </Accordion>
-    </AccordionGroup>
+    </AccordionGroup> */}
 
-    <br/>
-    <br/>
-    <H2 icon="signs-post" iconSize={32} >
-      Gateway Portal
-    </H2>
-
-    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
-      <span style={{ lineHeight: "1", color: "var(--text-primary)", opacity: 1, fontStyle: "italic" }}>Choose Your Mission: </span>
+    <PortalCardsHeader title="Gateway Portal">
         <BlinkingIcon icon="circle-play" size={20}  />
-    </div>
+    </PortalCardsHeader>
 
-    <Columns cols={3}>
+    <Columns cols={2}>
       <Card
         title="What's a Gateway?"
         icon="comment-question"
@@ -300,11 +266,4 @@ import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
     </Columns>
 
     <br/>
-  </div>
-{/* </div> */}
-
-{/* <Danger> Remove me? </Danger>
-## <Icon icon="transporter-1" size={32} color={'#2b9a66'} /> Gateway Launch Pad Jump
-to - [What's a Gateway?](#whats-a-gateway) - [Gateway Services & Providers](#gateway-services--providers)
-- [Run a Gateway](#run-a-gateway) - [Gateway Tools & Dashboards](#gateway-tools--dashboards)
-- [Gateway Guides & Resources](#gateway-guides--resources) - [Gateway FAQ Emporium](#gateway-faq-emporium) */}
+</PortalContentContainer>

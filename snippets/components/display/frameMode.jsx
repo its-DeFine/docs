@@ -204,15 +204,14 @@ const H1 = ({
           ? "flex-end"
           : "flex-start",
     textAlign: align,
-    marginBottom: "1rem",
   };
 
   const headingStyle = {
-    margin: 0,
+    margin: "2rem 0 1rem 0",
     fontSize: "2.5rem",
     fontWeight: "bold",
     lineHeight: "1.2",
-    color: "var(--h1-text-color)",
+    color: "var(--page-header-title-color)",
     opacity: 1,
   };
 
@@ -221,11 +220,9 @@ const H1 = ({
       <style>{`
         :root {
           --h1-icon-color: ${ThemeData.light.accent};
-          --h1-text-color: ${ThemeData.light.heroText};
         }
         .dark {
           --h1-icon-color: ${ThemeData.dark.accent};
-          --h1-text-color: ${ThemeData.dark.heroText};
         }
       `}</style>
       <div style={containerStyle}>
