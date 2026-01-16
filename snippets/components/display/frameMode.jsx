@@ -6,6 +6,10 @@
  * frame mode where default markdown headings may not render correctly.
  *
  * All components support optional icons at the beginning of the heading.
+ * Icons use theme-aware colors that adapt to light/dark mode.
+ *
+ * @requires ThemeData must be imported in the MDX file where these components are used:
+ * import { ThemeData } from "/snippets/styles/themeStyles.jsx";
  *
  * @note Icon is a Mintlify global component - no import needed
  *
@@ -16,16 +20,16 @@
  * H1 - Custom H1 heading component for frame mode
  *
  * @param {string} children - The heading text
- * @param {string} icon - Optional icon name (e.g., "rocket", "signs-post")
+ * @param {string} icon - Optional icon name or path to theme-aware SVG (e.g., "rocket", "/snippets/assets/logos/icon.svg")
  * @param {number} iconSize - Size of the icon (default: 32)
- * @param {string} iconColor - Color of the icon (default: "#2b9a66")
+ * @param {string} iconColor - Color of the icon (default: theme-aware accent color)
  * @param {string} align - Text alignment: "left", "center", "right" (default: "left")
  * @param {string} gap - Gap between icon and text (default: "0.75rem")
  *
  * @example
  * <H1>Simple Heading</H1>
- * <H1 icon="rocket" iconColor="#ff0000">Heading with Icon</H1>
- * <H1 icon="signs-post" align="center">Centered with Icon</H1>
+ * <H1 icon="rocket">Heading with Icon</H1>
+ * <H1 icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg" align="center">Centered with Theme Icon</H1>
  */
 
 const PageHeader = ({
@@ -182,10 +186,13 @@ const H1 = ({
   children,
   icon,
   iconSize = 32,
-  iconColor = "#2b9a66",
+  iconColor,
   align = "left",
   gap = "0.75rem",
 }) => {
+  // Use theme-aware color if not specified
+  const defaultIconColor = iconColor || "var(--h1-icon-color, #2b9a66)";
+
   const containerStyle = {
     display: icon ? "flex" : "block",
     alignItems: "center",
@@ -210,10 +217,20 @@ const H1 = ({
   };
 
   return (
-    <div style={containerStyle}>
-      {icon && <Icon icon={icon} size={iconSize} color={iconColor} />}
-      <h1 style={headingStyle}>{children}</h1>
-    </div>
+    <>
+      <style>{`
+        :root {
+          --h1-icon-color: ${ThemeData.light.accent};
+        }
+        .dark {
+          --h1-icon-color: ${ThemeData.dark.accent};
+        }
+      `}</style>
+      <div style={containerStyle}>
+        {icon && <Icon icon={icon} size={iconSize} color={defaultIconColor} />}
+        <h1 style={headingStyle}>{children}</h1>
+      </div>
+    </>
   );
 };
 
@@ -221,9 +238,9 @@ const H1 = ({
  * H2 - Custom H2 heading component for frame mode
  *
  * @param {string} children - The heading text
- * @param {string} icon - Optional icon name
+ * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} iconSize - Size of the icon (default: 28)
- * @param {string} iconColor - Color of the icon (default: "#2b9a66")
+ * @param {string} iconColor - Color of the icon (default: theme-aware accent color)
  * @param {string} align - Text alignment: "left", "center", "right" (default: "left")
  * @param {string} gap - Gap between icon and text (default: "0.75rem")
  */
@@ -231,10 +248,12 @@ const H2 = ({
   children,
   icon,
   iconSize = 28,
-  iconColor = "#2b9a66",
+  iconColor,
   align = "left",
   gap = "0.75rem",
 }) => {
+  const defaultIconColor = iconColor || "var(--h2-icon-color, #2b9a66)";
+
   const containerStyle = {
     display: icon ? "flex" : "block",
     alignItems: "center",
@@ -258,10 +277,20 @@ const H2 = ({
   };
 
   return (
-    <div style={containerStyle}>
-      {icon && <Icon icon={icon} size={iconSize} color={iconColor} />}
-      <h2 style={headingStyle}>{children}</h2>
-    </div>
+    <>
+      <style>{`
+        :root {
+          --h2-icon-color: ${ThemeData.light.accent};
+        }
+        .dark {
+          --h2-icon-color: ${ThemeData.dark.accent};
+        }
+      `}</style>
+      <div style={containerStyle}>
+        {icon && <Icon icon={icon} size={iconSize} color={defaultIconColor} />}
+        <h2 style={headingStyle}>{children}</h2>
+      </div>
+    </>
   );
 };
 
@@ -269,9 +298,9 @@ const H2 = ({
  * H3 - Custom H3 heading component for frame mode
  *
  * @param {string} children - The heading text
- * @param {string} icon - Optional icon name
+ * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} iconSize - Size of the icon (default: 24)
- * @param {string} iconColor - Color of the icon (default: "#2b9a66")
+ * @param {string} iconColor - Color of the icon (default: theme-aware accent color)
  * @param {string} align - Text alignment: "left", "center", "right" (default: "left")
  * @param {string} gap - Gap between icon and text (default: "0.5rem")
  */
@@ -279,10 +308,12 @@ const H3 = ({
   children,
   icon,
   iconSize = 24,
-  iconColor = "#2b9a66",
+  iconColor,
   align = "left",
   gap = "0.5rem",
 }) => {
+  const defaultIconColor = iconColor || "var(--h3-icon-color, #2b9a66)";
+
   const containerStyle = {
     display: icon ? "flex" : "block",
     alignItems: "center",
@@ -306,10 +337,20 @@ const H3 = ({
   };
 
   return (
-    <div style={containerStyle}>
-      {icon && <Icon icon={icon} size={iconSize} color={iconColor} />}
-      <h3 style={headingStyle}>{children}</h3>
-    </div>
+    <>
+      <style>{`
+        :root {
+          --h3-icon-color: ${ThemeData.light.accent};
+        }
+        .dark {
+          --h3-icon-color: ${ThemeData.dark.accent};
+        }
+      `}</style>
+      <div style={containerStyle}>
+        {icon && <Icon icon={icon} size={iconSize} color={defaultIconColor} />}
+        <h3 style={headingStyle}>{children}</h3>
+      </div>
+    </>
   );
 };
 
@@ -317,9 +358,9 @@ const H3 = ({
  * H4 - Custom H4 heading component for frame mode
  *
  * @param {string} children - The heading text
- * @param {string} icon - Optional icon name
+ * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} iconSize - Size of the icon (default: 20)
- * @param {string} iconColor - Color of the icon (default: "#2b9a66")
+ * @param {string} iconColor - Color of the icon (default: theme-aware accent color)
  * @param {string} align - Text alignment: "left", "center", "right" (default: "left")
  * @param {string} gap - Gap between icon and text (default: "0.5rem")
  */
@@ -327,10 +368,12 @@ const H4 = ({
   children,
   icon,
   iconSize = 20,
-  iconColor = "#2b9a66",
+  iconColor,
   align = "left",
   gap = "0.5rem",
 }) => {
+  const defaultIconColor = iconColor || "var(--h4-icon-color, #2b9a66)";
+
   const containerStyle = {
     display: icon ? "flex" : "block",
     alignItems: "center",
@@ -354,10 +397,20 @@ const H4 = ({
   };
 
   return (
-    <div style={containerStyle}>
-      {icon && <Icon icon={icon} size={iconSize} color={iconColor} />}
-      <h4 style={headingStyle}>{children}</h4>
-    </div>
+    <>
+      <style>{`
+        :root {
+          --h4-icon-color: ${ThemeData.light.accent};
+        }
+        .dark {
+          --h4-icon-color: ${ThemeData.dark.accent};
+        }
+      `}</style>
+      <div style={containerStyle}>
+        {icon && <Icon icon={icon} size={iconSize} color={defaultIconColor} />}
+        <h4 style={headingStyle}>{children}</h4>
+      </div>
+    </>
   );
 };
 
@@ -365,9 +418,9 @@ const H4 = ({
  * H5 - Custom H5 heading component for frame mode
  *
  * @param {string} children - The heading text
- * @param {string} icon - Optional icon name
+ * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} iconSize - Size of the icon (default: 18)
- * @param {string} iconColor - Color of the icon (default: "#2b9a66")
+ * @param {string} iconColor - Color of the icon (default: theme-aware accent color)
  * @param {string} align - Text alignment: "left", "center", "right" (default: "left")
  * @param {string} gap - Gap between icon and text (default: "0.5rem")
  */
@@ -375,10 +428,12 @@ const H5 = ({
   children,
   icon,
   iconSize = 18,
-  iconColor = "#2b9a66",
+  iconColor,
   align = "left",
   gap = "0.5rem",
 }) => {
+  const defaultIconColor = iconColor || "var(--h5-icon-color, #2b9a66)";
+
   const containerStyle = {
     display: icon ? "flex" : "block",
     alignItems: "center",
@@ -402,10 +457,20 @@ const H5 = ({
   };
 
   return (
-    <div style={containerStyle}>
-      {icon && <Icon icon={icon} size={iconSize} color={iconColor} />}
-      <h5 style={headingStyle}>{children}</h5>
-    </div>
+    <>
+      <style>{`
+        :root {
+          --h5-icon-color: ${ThemeData.light.accent};
+        }
+        .dark {
+          --h5-icon-color: ${ThemeData.dark.accent};
+        }
+      `}</style>
+      <div style={containerStyle}>
+        {icon && <Icon icon={icon} size={iconSize} color={defaultIconColor} />}
+        <h5 style={headingStyle}>{children}</h5>
+      </div>
+    </>
   );
 };
 
@@ -413,9 +478,9 @@ const H5 = ({
  * H6 - Custom H6 heading component for frame mode
  *
  * @param {string} children - The heading text
- * @param {string} icon - Optional icon name
+ * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} iconSize - Size of the icon (default: 16)
- * @param {string} iconColor - Color of the icon (default: "#2b9a66")
+ * @param {string} iconColor - Color of the icon (default: theme-aware accent color)
  * @param {string} align - Text alignment: "left", "center", "right" (default: "left")
  * @param {string} gap - Gap between icon and text (default: "0.5rem")
  */
@@ -423,10 +488,12 @@ const H6 = ({
   children,
   icon,
   iconSize = 16,
-  iconColor = "#2b9a66",
+  iconColor,
   align = "left",
   gap = "0.5rem",
 }) => {
+  const defaultIconColor = iconColor || "var(--h6-icon-color, #2b9a66)";
+
   const containerStyle = {
     display: icon ? "flex" : "block",
     alignItems: "center",
@@ -450,10 +517,20 @@ const H6 = ({
   };
 
   return (
-    <div style={containerStyle}>
-      {icon && <Icon icon={icon} size={iconSize} color={iconColor} />}
-      <h6 style={headingStyle}>{children}</h6>
-    </div>
+    <>
+      <style>{`
+        :root {
+          --h6-icon-color: ${ThemeData.light.accent};
+        }
+        .dark {
+          --h6-icon-color: ${ThemeData.dark.accent};
+        }
+      `}</style>
+      <div style={containerStyle}>
+        {icon && <Icon icon={icon} size={iconSize} color={defaultIconColor} />}
+        <h6 style={headingStyle}>{children}</h6>
+      </div>
+    </>
   );
 };
 
@@ -461,25 +538,27 @@ const H6 = ({
  * P - Custom paragraph component for frame mode
  *
  * @param {string} children - The paragraph text
- * @param {string} icon - Optional icon name
+ * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} iconSize - Size of the icon (default: 16)
- * @param {string} iconColor - Color of the icon (default: "#2b9a66")
+ * @param {string} iconColor - Color of the icon (default: theme-aware accent color)
  * @param {string} align - Text alignment: "left", "center", "right" (default: "left")
  * @param {string} gap - Gap between icon and text (default: "0.5rem")
  *
  * @example
  * <P>Simple paragraph</P>
  * <P icon="info-circle">Paragraph with icon</P>
- * <P icon="check" iconColor="#00ff00" align="center">Centered with icon</P>
+ * <P icon="/snippets/assets/logos/icon.svg" align="center">Centered with theme icon</P>
  */
 const P = ({
   children,
   icon,
   iconSize = 16,
-  iconColor = "#2b9a66",
+  iconColor,
   align = "left",
   gap = "0.5rem",
 }) => {
+  const defaultIconColor = iconColor || "var(--p-icon-color, #2b9a66)";
+
   const containerStyle = {
     display: icon ? "flex" : "block",
     alignItems: "center",
@@ -500,10 +579,20 @@ const P = ({
   };
 
   return (
-    <div style={containerStyle}>
-      {icon && <Icon icon={icon} size={iconSize} color={iconColor} />}
-      <p style={paragraphStyle}>{children}</p>
-    </div>
+    <>
+      <style>{`
+        :root {
+          --p-icon-color: ${ThemeData.light.accent};
+        }
+        .dark {
+          --p-icon-color: ${ThemeData.dark.accent};
+        }
+      `}</style>
+      <div style={containerStyle}>
+        {icon && <Icon icon={icon} size={iconSize} color={defaultIconColor} />}
+        <p style={paragraphStyle}>{children}</p>
+      </div>
+    </>
   );
 };
 
