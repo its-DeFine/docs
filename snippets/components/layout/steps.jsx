@@ -1,3 +1,5 @@
+import { ThemeData } from "/snippets/styles/themeStyles.jsx";
+
 /**
  * StyledSteps - A customizable Steps component with color and styling support
  *
@@ -6,9 +8,9 @@
  * Uses scoped styles with a unique ID to avoid conflicts.
  *
  * @param {React.ReactNode} children - Step components to render
- * @param {string} [iconColor="#18794e"] - Background color for step icons
- * @param {string} [titleColor="#2b9a66"] - Color for step titles
- * @param {string} [lineColor="#2b9a66"] - Color for the connecting line between steps
+ * @param {string} [iconColor] - Background color for step icons (defaults to theme accentDark)
+ * @param {string} [titleColor] - Color for step titles (defaults to theme accent)
+ * @param {string} [lineColor] - Color for the connecting line between steps (defaults to theme accent)
  * @param {string} [iconSize="24px"] - Size of the step icons (currently unused in implementation)
  *
  * @example
@@ -21,24 +23,27 @@
  */
 export const StyledSteps = ({
   children,
-  iconColor = "#18794e",
-  titleColor = "#2b9a66",
-  lineColor = "#2b9a66",
+  iconColor,
+  titleColor,
+  lineColor,
   iconSize = "24px",
 }) => {
   const stepsId = `styled-steps-${Math.random().toString(36).substr(2, 9)}`;
+  const resolvedIconColor = iconColor || ThemeData.light.accentDark;
+  const resolvedTitleColor = titleColor || ThemeData.light.accent;
+  const resolvedLineColor = lineColor || ThemeData.light.accent;
 
   return (
     <>
       <style>{`
         #${stepsId} .steps > div > div.absolute > div {
-          background-color: ${iconColor} !important;
+          background-color: ${resolvedIconColor} !important;
         }
         #${stepsId} .steps > div > div.w-full > p {
-          color: ${titleColor} !important;
+          color: ${resolvedTitleColor} !important;
         }
         #${stepsId} > div > div > div.absolute.w-px {
-          background-color: ${lineColor} !important;
+          background-color: ${resolvedLineColor} !important;
         }
       `}</style>
       <div id={stepsId}>

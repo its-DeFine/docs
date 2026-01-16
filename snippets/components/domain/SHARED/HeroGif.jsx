@@ -121,13 +121,28 @@
 export const Starfield = () => {
   const canvasRef = useRef(null);
 
-  const COLORS = [
-    "#3CB540",
-    "#2b9a66",
-    "#18794E",
-    "#6BBF59",
-    // "#FFFFFA",
-    // "#004225",
+  // Detect theme mode
+  const isDarkMode = () => {
+    if (typeof window === "undefined") return false;
+    return (
+      document.documentElement.classList.contains("dark") ||
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    );
+  };
+
+  // Theme-aware color palettes - leaning toward primary green for each mode
+  const COLORS_LIGHT = [
+    "#5DD662", // Brighter primary green (more weight)
+    "#5DD662", // Brighter primary green (duplicate for higher probability)
+    "#7FE584", // Very bright green
+    "#A0F0A5", // Lightest bright accent
+  ];
+
+  const COLORS_DARK = [
+    "#2b9a66", // Primary dark green (more weight)
+    "#2b9a66", // Primary dark green (duplicate for higher probability)
+    "#18794E", // Darker shade
+    "#3CB540", // Light green accent
   ];
 
   const SIZE_BUCKETS = [
@@ -156,6 +171,9 @@ export const Starfield = () => {
     let rafId;
     let stars = [];
     let tintedCache = new Map(); // key: color -> tinted ImageBitmap|canvas
+
+    // Select color palette based on theme
+    const COLORS = isDarkMode() ? COLORS_DARK : COLORS_LIGHT;
 
     // IMPORTANT: try no leading slash first in Mintlify
     const logo = new Image();
@@ -192,7 +210,7 @@ export const Starfield = () => {
       canvas.height = rect.height * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const count = Math.floor((rect.width * rect.height) / 16000);
+      const count = Math.floor(((rect.width * rect.height) / 16000) * 1.1);
       stars = Array.from({ length: count }).map(() => {
         const color = COLORS[Math.floor(Math.random() * COLORS.length)];
         return {

@@ -1,3 +1,5 @@
+import { ThemeData } from "/snippets/styles/themeStyles.jsx";
+
 /**
  * CustomCodeBlock - Advanced code block with placeholder replacement and optional output
  *
@@ -56,12 +58,20 @@ export const CustomCodeBlock = ({
 
   return (
     <>
+      <style>{`
+        :root {
+          --code-note-text: ${ThemeData.light.mutedText};
+        }
+        .dark {
+          --code-note-text: ${ThemeData.dark.mutedText};
+        }
+      `}</style>
       {preNote && (
         <div
           style={{
             marginBottom: "0.5rem",
             fontSize: "0.875rem",
-            color: "#9ca3af",
+            color: "var(--code-note-text)",
           }}
         >
           {preNote}
@@ -83,7 +93,7 @@ export const CustomCodeBlock = ({
           style={{
             marginTop: "0.5rem",
             fontSize: "0.875rem",
-            color: "#9ca3af",
+            color: "var(--code-note-text)",
             fontStyle: "italic",
           }}
         >
@@ -201,12 +211,20 @@ export const ComplexCodeBlock = ({
 
   return (
     <>
+      <style>{`
+        :root {
+          --code-note-text: ${ThemeData.light.mutedText};
+        }
+        .dark {
+          --code-note-text: ${ThemeData.dark.mutedText};
+        }
+      `}</style>
       {preNote && (
         <div
           style={{
             marginBottom: "0.5rem",
             fontSize: "0.875rem",
-            color: "#9ca3af",
+            color: "var(--code-note-text)",
           }}
         >
           {preNote}
@@ -228,7 +246,7 @@ export const ComplexCodeBlock = ({
           style={{
             marginTop: "0.5rem",
             fontSize: "0.875rem",
-            color: "#9ca3af",
+            color: "var(--code-note-text)",
           }}
         >
           {postNote}
