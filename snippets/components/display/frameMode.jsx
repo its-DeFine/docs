@@ -191,7 +191,7 @@ const H1 = ({
   gap = "0.75rem",
 }) => {
   // Use theme-aware color if not specified
-  const defaultIconColor = iconColor || "var(--h1-icon-color, #2b9a66)";
+  const defaultIconColor = iconColor || "var(--h1-icon-color)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -212,7 +212,7 @@ const H1 = ({
     fontSize: "2.5rem",
     fontWeight: "bold",
     lineHeight: "1.2",
-    color: "var(--text-primary, #fff)",
+    color: "var(--h1-text-color)",
     opacity: 1,
   };
 
@@ -221,9 +221,11 @@ const H1 = ({
       <style>{`
         :root {
           --h1-icon-color: ${ThemeData.light.accent};
+          --h1-text-color: ${ThemeData.light.heroText};
         }
         .dark {
           --h1-icon-color: ${ThemeData.dark.accent};
+          --h1-text-color: ${ThemeData.dark.heroText};
         }
       `}</style>
       <div style={containerStyle}>
@@ -252,7 +254,7 @@ const H2 = ({
   align = "left",
   gap = "0.75rem",
 }) => {
-  const defaultIconColor = iconColor || "var(--h2-icon-color, #2b9a66)";
+  const defaultIconColor = iconColor || "var(--h2-icon-color)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -272,7 +274,7 @@ const H2 = ({
     margin: 0,
     fontSize: "1.875rem",
     fontWeight: "bold",
-    color: "var(--text-primary, #fff)",
+    color: "var(--h2-text-color)",
     opacity: 1,
   };
 
@@ -281,9 +283,11 @@ const H2 = ({
       <style>{`
         :root {
           --h2-icon-color: ${ThemeData.light.accent};
+          --h2-text-color: ${ThemeData.light.heroText};
         }
         .dark {
           --h2-icon-color: ${ThemeData.dark.accent};
+          --h2-text-color: ${ThemeData.dark.heroText};
         }
       `}</style>
       <div style={containerStyle}>
@@ -312,7 +316,7 @@ const H3 = ({
   align = "left",
   gap = "0.5rem",
 }) => {
-  const defaultIconColor = iconColor || "var(--h3-icon-color, #2b9a66)";
+  const defaultIconColor = iconColor || "var(--h3-icon-color)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -332,7 +336,7 @@ const H3 = ({
     margin: 0,
     fontSize: "1.5rem",
     fontWeight: "bold",
-    color: "var(--text-primary, #fff)",
+    color: "var(--h3-text-color)",
     opacity: 1,
   };
 
@@ -341,9 +345,11 @@ const H3 = ({
       <style>{`
         :root {
           --h3-icon-color: ${ThemeData.light.accent};
+          --h3-text-color: ${ThemeData.light.heroText};
         }
         .dark {
           --h3-icon-color: ${ThemeData.dark.accent};
+          --h3-text-color: ${ThemeData.dark.heroText};
         }
       `}</style>
       <div style={containerStyle}>
@@ -372,7 +378,7 @@ const H4 = ({
   align = "left",
   gap = "0.5rem",
 }) => {
-  const defaultIconColor = iconColor || "var(--h4-icon-color, #2b9a66)";
+  const defaultIconColor = iconColor || "var(--h4-icon-color)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -392,7 +398,7 @@ const H4 = ({
     margin: 0,
     fontSize: "1.25rem",
     fontWeight: "bold",
-    color: "var(--text-primary, #fff)",
+    color: "var(--h4-text-color)",
     opacity: 1,
   };
 
@@ -401,9 +407,11 @@ const H4 = ({
       <style>{`
         :root {
           --h4-icon-color: ${ThemeData.light.accent};
+          --h4-text-color: ${ThemeData.light.heroText};
         }
         .dark {
           --h4-icon-color: ${ThemeData.dark.accent};
+          --h4-text-color: ${ThemeData.dark.heroText};
         }
       `}</style>
       <div style={containerStyle}>
@@ -432,7 +440,7 @@ const H5 = ({
   align = "left",
   gap = "0.5rem",
 }) => {
-  const defaultIconColor = iconColor || "var(--h5-icon-color, #2b9a66)";
+  const defaultIconColor = iconColor || "var(--h5-icon-color)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -452,7 +460,7 @@ const H5 = ({
     margin: 0,
     fontSize: "1.125rem",
     fontWeight: "bold",
-    color: "var(--text-primary, #fff)",
+    color: "var(--h5-text-color)",
     opacity: 1,
   };
 
@@ -461,9 +469,11 @@ const H5 = ({
       <style>{`
         :root {
           --h5-icon-color: ${ThemeData.light.accent};
+          --h5-text-color: ${ThemeData.light.heroText};
         }
         .dark {
           --h5-icon-color: ${ThemeData.dark.accent};
+          --h5-text-color: ${ThemeData.dark.heroText};
         }
       `}</style>
       <div style={containerStyle}>
@@ -492,7 +502,7 @@ const H6 = ({
   align = "left",
   gap = "0.5rem",
 }) => {
-  const defaultIconColor = iconColor || "var(--h6-icon-color, #2b9a66)";
+  const defaultIconColor = iconColor || "var(--h6-icon-color)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -512,7 +522,7 @@ const H6 = ({
     margin: 0,
     fontSize: "1rem",
     fontWeight: "bold",
-    color: "var(--text-primary, #fff)",
+    color: "var(--h6-text-color)",
     opacity: 1,
   };
 
@@ -521,9 +531,11 @@ const H6 = ({
       <style>{`
         :root {
           --h6-icon-color: ${ThemeData.light.accent};
+          --h6-text-color: ${ThemeData.light.heroText};
         }
         .dark {
           --h6-icon-color: ${ThemeData.dark.accent};
+          --h6-text-color: ${ThemeData.dark.heroText};
         }
       `}</style>
       <div style={containerStyle}>
@@ -557,7 +569,7 @@ const P = ({
   align = "left",
   gap = "0.5rem",
 }) => {
-  const defaultIconColor = iconColor || "var(--p-icon-color, #2b9a66)";
+  const defaultIconColor = iconColor || "var(--p-icon-color)";
 
   const containerStyle = {
     display: icon ? "flex" : "block",
@@ -574,7 +586,7 @@ const P = ({
 
   const paragraphStyle = {
     margin: 0,
-    color: "var(--text-primary, #fff)",
+    color: "var(--p-text-color)",
     opacity: 1,
   };
 
@@ -583,9 +595,11 @@ const P = ({
       <style>{`
         :root {
           --p-icon-color: ${ThemeData.light.accent};
+          --p-text-color: ${ThemeData.light.text};
         }
         .dark {
           --p-icon-color: ${ThemeData.dark.accent};
+          --p-text-color: ${ThemeData.dark.text};
         }
       `}</style>
       <div style={containerStyle}>
@@ -601,27 +615,36 @@ const P = ({
  *
  * @description
  * Renders a horizontal rule (---) with proper styling for frame mode.
- * Uses the default border color that works in both light and dark themes.
+ * Uses theme-aware border color that adapts to light and dark themes.
  *
- * @param {string} color - Custom color for the divider (optional)
+ * @param {string} color - Custom color for the divider (optional, defaults to theme border color)
  * @param {string} margin - Vertical margin (default: "1.5rem 0")
  * @param {string} opacity - Opacity of the divider (default: 0.2)
  *
  * @example
  * <Divider />
- * <Divider color="#2b9a66" />
  * <Divider margin="2rem 0" opacity={0.5} />
  */
 const Divider = ({ color, margin = "1.5rem 0", opacity = 0.2 }) => {
   return (
-    <hr
-      style={{
-        border: "none",
-        borderTop: `1px solid ${color || "var(--border-color, #e5e7eb)"}`,
-        margin: margin,
-        opacity: opacity,
-      }}
-    />
+    <>
+      <style>{`
+        :root {
+          --divider-color: ${ThemeData.light.border};
+        }
+        .dark {
+          --divider-color: ${ThemeData.dark.border};
+        }
+      `}</style>
+      <hr
+        style={{
+          border: "none",
+          borderTop: `1px solid ${color || "var(--divider-color)"}`,
+          margin: margin,
+          opacity: opacity,
+        }}
+      />
+    </>
   );
 };
 

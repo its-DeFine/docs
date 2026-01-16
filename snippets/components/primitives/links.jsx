@@ -30,7 +30,7 @@ export const CustomCallout = ({
   textColor,
 }) => {
   // Use theme accent if no color specified
-  const defaultColor = ThemeData.light.accent;
+  const defaultColor = "var(--custom-callout-color)";
   const resolvedColor = color || defaultColor;
   const resolvedTextColor = textColor || resolvedColor;
 
@@ -43,34 +43,44 @@ export const CustomCallout = ({
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        alignItems: "flex-start",
-        gap: "12px",
-        padding: "16px 20px",
-        borderRadius: "16px",
-        border: `1px solid ${hexToRgba(resolvedColor, 0.2)}`,
-        backgroundColor: hexToRgba(resolvedColor, 0.1),
-        marginTop: "16px",
-        marginBottom: "16px",
-        overflow: "hidden",
-      }}
-    >
-      <div style={{ marginTop: "2px", width: iconSize, flexShrink: 0 }}>
-        <Icon icon={icon} size={iconSize} color={resolvedColor} />
-      </div>
+    <>
+      <style>{`
+        :root {
+          --custom-callout-color: ${ThemeData.light.accent};
+        }
+        .dark {
+          --custom-callout-color: ${ThemeData.dark.accent};
+        }
+      `}</style>
       <div
         style={{
-          fontSize: textSize,
-          color: resolvedTextColor,
-          minWidth: 0,
-          width: "100%",
+          display: "flex",
+          alignItems: "flex-start",
+          gap: "12px",
+          padding: "16px 20px",
+          borderRadius: "16px",
+          border: `1px solid ${hexToRgba(resolvedColor, 0.2)}`,
+          backgroundColor: hexToRgba(resolvedColor, 0.1),
+          marginTop: "16px",
+          marginBottom: "16px",
+          overflow: "hidden",
         }}
       >
-        {children}
+        <div style={{ marginTop: "2px", width: iconSize, flexShrink: 0 }}>
+          <Icon icon={icon} size={iconSize} color={resolvedColor} />
+        </div>
+        <div
+          style={{
+            fontSize: textSize,
+            color: resolvedTextColor,
+            minWidth: 0,
+            width: "100%",
+          }}
+        >
+          {children}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
@@ -91,22 +101,30 @@ export const CustomCallout = ({
  * @author Livepeer Documentation Team
  */
 export const BlinkingIcon = ({ icon = "terminal", size = 16, color }) => {
-  const resolvedColor = color || ThemeData.light.accent;
+  const resolvedColor = color || "var(--blinking-icon-color)";
   return (
-    <span
-      style={{
-        display: "inline-flex",
-        animation: "blink 3s ease-in-out infinite",
-      }}
-    >
-      <Icon icon={icon} size={size} color={resolvedColor} />
+    <>
       <style>{`
+        :root {
+          --blinking-icon-color: ${ThemeData.light.accent};
+        }
+        .dark {
+          --blinking-icon-color: ${ThemeData.dark.accent};
+        }
         @keyframes blink {
           0%, 100% { opacity: 1; }
           50% { opacity: 0.3; }
         }
       `}</style>
-    </span>
+      <span
+        style={{
+          display: "inline-flex",
+          animation: "blink 3s ease-in-out infinite",
+        }}
+      >
+        <Icon icon={icon} size={size} color={resolvedColor} />
+      </span>
+    </>
   );
 };
 
@@ -152,20 +170,34 @@ export const DoubleIconLink = ({
   iconRight = "arrow-up-right",
 }) => {
   return (
-    <span
-      style={{
-        whiteSpace: "nowrap",
-        display: "inline-flex",
-        alignItems: "center",
-        gap: "0.25rem",
-        marginLeft: "0.3rem",
-      }}
-    >
-      {text && <span style={{ marginRight: 8 }}>{text}</span>}
-      <Icon icon={iconLeft} />
-      <a href={href}>{label}</a>
-      <Icon icon={iconRight} size={12} color={ThemeData.light.accent} />
-    </span>
+    <>
+      <style>{`
+        :root {
+          --double-icon-link-color: ${ThemeData.light.accent};
+        }
+        .dark {
+          --double-icon-link-color: ${ThemeData.dark.accent};
+        }
+      `}</style>
+      <span
+        style={{
+          whiteSpace: "nowrap",
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "0.25rem",
+          marginLeft: "0.3rem",
+        }}
+      >
+        {text && <span style={{ marginRight: 8 }}>{text}</span>}
+        <Icon icon={iconLeft} />
+        <a href={href}>{label}</a>
+        <Icon
+          icon={iconRight}
+          size={12}
+          color="var(--double-icon-link-color)"
+        />
+      </span>
+    </>
   );
 };
 
@@ -268,7 +300,7 @@ export const TipWithArrow = ({
   arrowSize = 16,
 }) => {
   // Use theme accent if no color specified
-  const resolvedColor = color || ThemeData.light.accent;
+  const resolvedColor = color || "var(--tip-with-arrow-color)";
 
   // Convert hex to rgba for proper opacity
   const hexToRgba = (hex, alpha) => {
@@ -279,45 +311,55 @@ export const TipWithArrow = ({
   };
 
   return (
-    <div
-      style={{
-        position: "relative",
-        display: "flex",
-        alignItems: "flex-start",
-        gap: "12px",
-        padding: "16px 20px",
-        paddingRight: "48px", // Extra space for the arrow
-        borderRadius: "16px",
-        border: `1px solid ${hexToRgba(resolvedColor, 0.2)}`,
-        backgroundColor: hexToRgba(resolvedColor, 0.1),
-        marginTop: "16px",
-        marginBottom: "16px",
-        overflow: "hidden",
-      }}
-    >
-      <div style={{ marginTop: "2px", width: iconSize, flexShrink: 0 }}>
-        <Icon icon={icon} size={iconSize} color={resolvedColor} />
-      </div>
+    <>
+      <style>{`
+        :root {
+          --tip-with-arrow-color: ${ThemeData.light.accent};
+        }
+        .dark {
+          --tip-with-arrow-color: ${ThemeData.dark.accent};
+        }
+      `}</style>
       <div
         style={{
-          fontSize: "0.875rem",
-          color: resolvedColor,
-          minWidth: 0,
-          width: "100%",
+          position: "relative",
+          display: "flex",
+          alignItems: "flex-start",
+          gap: "12px",
+          padding: "16px 20px",
+          paddingRight: "48px", // Extra space for the arrow
+          borderRadius: "16px",
+          border: `1px solid ${hexToRgba(resolvedColor, 0.2)}`,
+          backgroundColor: hexToRgba(resolvedColor, 0.1),
+          marginTop: "16px",
+          marginBottom: "16px",
+          overflow: "hidden",
         }}
       >
-        {children}
+        <div style={{ marginTop: "2px", width: iconSize, flexShrink: 0 }}>
+          <Icon icon={icon} size={iconSize} color={resolvedColor} />
+        </div>
+        <div
+          style={{
+            fontSize: "0.875rem",
+            color: resolvedColor,
+            minWidth: 0,
+            width: "100%",
+          }}
+        >
+          {children}
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            top: "16px",
+            right: "16px",
+            opacity: 0.6,
+          }}
+        >
+          <Icon icon={arrowIcon} size={arrowSize} color={resolvedColor} />
+        </div>
       </div>
-      <div
-        style={{
-          position: "absolute",
-          top: "16px",
-          right: "16px",
-          opacity: 0.6,
-        }}
-      >
-        <Icon icon={arrowIcon} size={arrowSize} color={resolvedColor} />
-      </div>
-    </div>
+    </>
   );
 };
