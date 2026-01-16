@@ -34,19 +34,22 @@ F61067 - Razzmatazz Pink
 6BBF59 - Moss Green
 */
 
-// Theme Colors
+// Theme Colors, Fonts
 // Used for frame mode (which STRIPS styling in Palm theme)
 // Mintlify is really limited in so many many ways)
 // Seriously just add a bloody theme config already
-export const themeColor = {
+export const ThemeData = {
+  font: {
+    inter: "Inter, 'Inter Fallback', -apple-system, system-ui",
+  },
   light: {
     accent: "#3CB540",
-    text: "#6b7280",
-    heroText: "#0C0C0C",
+    heroText: "#181C18",
+    text: "#717571",
   },
   dark: {
     accent: "#2b9a66",
-    text: "#9ca3af",
-    heroText: "#ffffff",
+    heroText: "#E0E4E0",
+    text: "#A0A4A0",
   },
 };

@@ -191,7 +191,15 @@ const PortalHeroContent = ({
               gap: "0.5rem",
             }}
           >
-            {subtitleIcon && <Icon icon={subtitleIcon} size={20} />}
+            {subtitleIcon && (
+              <span
+                style={{
+                  marginRight: "0.5rem",
+                }}
+              >
+                <Icon icon={subtitleIcon} size={20} />
+              </span>
+            )}
             <h2
               style={{
                 fontSize: "1.5rem",
@@ -200,13 +208,13 @@ const PortalHeroContent = ({
                 color: subtitleColor || "var(--page-header-subtitle-color)",
               }}
             >
-              {subtitle}
-              {/* flipped icon */}
+              {subtitle} {/* flipped icon */}
               {subtitleIcon && (
                 <span
                   style={{
                     display: "inline-block",
                     transform: "scaleX(-1)",
+                    marginLeft: "0.5rem",
                   }}
                 >
                   <Icon icon={subtitleIcon} size={20} />
@@ -248,14 +256,14 @@ const PortalHeroContent = ({
         )}
         <style>{`
             :root {
-            --page-header-title-color: ${themeColor.light.heroText};
-            --page-header-subtitle-color: ${themeColor.light.accent};
-            --page-header-description-color: ${themeColor.light.text};
+            --page-header-title-color: ${ThemeData.light.heroText};
+            --page-header-subtitle-color: ${ThemeData.light.accent};
+            --page-header-description-color: ${ThemeData.light.text};
             }
             .dark {
-            --page-header-title-color: ${themeColor.dark.heroText};
-            --page-header-subtitle-color: ${themeColor.dark.accent};
-            --page-header-description-color: ${themeColor.dark.text};
+            --page-header-title-color: ${ThemeData.dark.heroText};
+            --page-header-subtitle-color: ${ThemeData.dark.accent};
+            --page-header-description-color: ${ThemeData.dark.text};
             }
         `}</style>
         {children}
@@ -274,7 +282,7 @@ const PortalHeroContent = ({
               width: "80%",
               margin: "0 auto",
               fontSize: "1.1rem",
-              color: themeColor.dark.text,
+              color: ThemeData.dark.text,
             }}
           >
             {overview}
@@ -364,7 +372,7 @@ const HeroOverviewContent = ({ children }) => {
         width: "80%",
         margin: "0 auto",
         fontSize: "1.1rem",
-        color: themeColor.dark.text,
+        color: ThemeData.dark.text,
       }}
     >
       {children}
@@ -403,7 +411,7 @@ const HeroOverviewContent = ({ children }) => {
 //             fontWeight: "bold",
 //             lineHeight: "1.2",
 //             marginBottom: "1rem",
-//             color: titleColor ?? themeColor.light.heroText,
+//             color: titleColor ?? ThemeData.light.heroText,
 //           }}
 //         >
 //           {title}
@@ -414,7 +422,7 @@ const HeroOverviewContent = ({ children }) => {
 //             style={{
 //               fontSize: "1.5rem",
 //               fontWeight: "500",
-//               color: subtitleColor ?? themeColor.light.accent,
+//               color: subtitleColor ?? ThemeData.light.accent,
 //             }}
 //           >
 //             {subtitle}
@@ -426,7 +434,7 @@ const HeroOverviewContent = ({ children }) => {
 //             style={{
 //               fontSize: "1.1rem",
 //               marginTop: "1.5rem",
-//               color: descriptionColor ?? themeColor.light.text,
+//               color: descriptionColor ?? ThemeData.light.text,
 //             }}
 //           >
 //             {description}

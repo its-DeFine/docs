@@ -13,7 +13,7 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
 {/* <PreviewCallout /> */}
 
 import { PortalHeroContent, HeroOverviewContent } from '/snippets/components/domain/SHARED/Portals.jsx'
-import { themeColor } from '/snippets/styles/colours.jsx'
+import { ThemeData } from '/snippets/styles/themeStyles.jsx'
 import { PageHeader, H1, H2, H5,P } from '/snippets/components/display/frameMode.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { ScrollableDiagram } from '/snippets/components/display/zoomable-diagram.jsx'
@@ -52,28 +52,7 @@ import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
       {/* PortalHeroContent */}
         <PortalHeroContent
           title="Gateway Portal"
-          subtitle={
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "0.5rem",
-              }}
-            >
-              <Icon
-                icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg"
-                size={20}
-              />
-              <> Build – Create – Innovate </>
-              <span style={{ display: "inline-block", transform: "scaleX(-1)" }}>
-                <Icon
-                  icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg"
-                  size={20}
-                />
-              </span>
-            </div>
-          }
+          subtitle="Build – Create – Innovate"
           refCardLink={
               <Card
                 title="go-livepeer"

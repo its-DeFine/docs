@@ -3,7 +3,7 @@ title: 'Frame Mode Page Header Snippet'
 ---
 
 import {CustomDivider} from '/snippets/components/primitives/divider.jsx'
-import { themeColor } from '/snippets/styles/colours.jsx'
+import { ThemeData } from '/snippets/styles/themeStyles.jsx'
 
 <div
     style={{ textAlign: "center", marginTop: "2rem", marginBottom: "3rem" }}
@@ -17,7 +17,7 @@ import { themeColor } from '/snippets/styles/colours.jsx'
         opacity: 1,
         color:
         titleColor ||
-        `var(--page-header-title-color, ${themeColor.light.heroText})`,
+        `var(--page-header-title-color, ${ThemeData.light.heroText})`,
     }}
     >
     {title}
@@ -30,7 +30,7 @@ import { themeColor } from '/snippets/styles/colours.jsx'
         opacity: 1,
         color:
             subtitleColor ||
-            `var(--page-header-subtitle-color, ${themeColor.light.accent})`,
+            `var(--page-header-subtitle-color, ${ThemeData.light.accent})`,
         }}
     >
         {subtitle}
@@ -46,7 +46,7 @@ import { themeColor } from '/snippets/styles/colours.jsx'
         opacity: 1,
         color:
             descriptionColor ||
-            `var(--page-header-description-color, ${themeColor.light.text})`,
+            `var(--page-header-description-color, ${ThemeData.light.text})`,
         }}
     >
         {description}
@@ -54,14 +54,14 @@ import { themeColor } from '/snippets/styles/colours.jsx'
     )}
     <style>{`
     :root {
-        --page-header-title-color: ${themeColor.light.heroText};
-        --page-header-subtitle-color: ${themeColor.light.accent};
-        --page-header-description-color: ${themeColor.light.text};
+        --page-header-title-color: ${ThemeData.light.heroText};
+        --page-header-subtitle-color: ${ThemeData.light.accent};
+        --page-header-description-color: ${ThemeData.light.text};
     }
     .dark {
-        --page-header-title-color: ${themeColor.dark.heroText};
-        --page-header-subtitle-color: ${themeColor.dark.accent};
-        --page-header-description-color: ${themeColor.dark.text};
+        --page-header-title-color: ${ThemeData.dark.heroText};
+        --page-header-subtitle-color: ${ThemeData.dark.accent};
+        --page-header-description-color: ${ThemeData.dark.text};
     }
     `}</style>
     {children}

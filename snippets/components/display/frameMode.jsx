@@ -54,7 +54,7 @@ const PageHeader = ({
           opacity: 1,
           color:
             titleColor ||
-            `var(--page-header-title-color, ${themeColor.light.heroText})`,
+            `var(--page-header-title-color, ${ThemeData.light.heroText})`,
         }}
       >
         {title}
@@ -67,7 +67,7 @@ const PageHeader = ({
             opacity: 1,
             color:
               subtitleColor ||
-              `var(--page-header-subtitle-color, ${themeColor.light.accent})`,
+              `var(--page-header-subtitle-color, ${ThemeData.light.accent})`,
           }}
         >
           {subtitle}
@@ -89,14 +89,14 @@ const PageHeader = ({
       )}
       <style>{`
         :root {
-          --page-header-title-color: ${themeColor.light.heroText};
-          --page-header-subtitle-color: ${themeColor.light.accent};
-          --page-header-description-color: ${themeColor.light.text};
+          --page-header-title-color: ${ThemeData.light.heroText};
+          --page-header-subtitle-color: ${ThemeData.light.accent};
+          --page-header-description-color: ${ThemeData.light.text};
         }
         .dark {
-          --page-header-title-color: ${themeColor.dark.heroText};
-          --page-header-subtitle-color: ${themeColor.dark.accent};
-          --page-header-description-color: ${themeColor.dark.text};
+          --page-header-title-color: ${ThemeData.dark.heroText};
+          --page-header-subtitle-color: ${ThemeData.dark.accent};
+          --page-header-description-color: ${ThemeData.dark.text};
         }
       `}</style>
       {children}
@@ -138,7 +138,7 @@ const PageHeader = ({
 //             fontWeight: "bold",
 //             lineHeight: "1.2",
 //             marginBottom: "1rem",
-//             color: titleColor ?? themeColor.light.heroText,
+//             color: titleColor ?? ThemeData.light.heroText,
 //           }}
 //         >
 //           {title}
@@ -149,7 +149,7 @@ const PageHeader = ({
 //             style={{
 //               fontSize: "1.5rem",
 //               fontWeight: "500",
-//               color: subtitleColor ?? themeColor.light.accent,
+//               color: subtitleColor ?? ThemeData.light.accent,
 //             }}
 //           >
 //             {subtitle}
@@ -161,7 +161,7 @@ const PageHeader = ({
 //             style={{
 //               fontSize: "1.1rem",
 //               marginTop: "1.5rem",
-//               color: descriptionColor ?? themeColor.light.text,
+//               color: descriptionColor ?? ThemeData.light.text,
 //             }}
 //           >
 //             {description}
