@@ -1,4 +1,5 @@
 ---
+mode: frame
 title: 'Orchestrator Home Portal'
 sidebarTitle: 'Orchestrator Portal'
 tag: Start Here
@@ -7,77 +8,127 @@ keywords: ["home", "index", "landing", "gpu", "earn", "rewards", "orchestrator",
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
-
-<PreviewCallout />
+import { ComingSoonCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
 
 
 {/* TEST: Barrel export from index.jsx */}
-import { CustomCodeBlock } from '/snippets/components/content/code.jsx';
+import { PortalHeroContent, HeroImageBackgroundComponent, LogoHeroContainer, HeroContentContainer, HeroSectionContainer, PortalCardsHeader, PortalContentContainer } from '/snippets/components/domain/SHARED/Portals.jsx'
 import { ThemeData } from '/snippets/styles/themeStyles.jsx'
+import { H1, H2, H5,P } from '/snippets/components/display/frameMode.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
+import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
 
-<CustomCodeBlock
+import { CustomCodeBlock } from '/snippets/components/content/code.jsx';
+
+{/* <CustomCodeBlock
   codeString="docker pull livepeer/go-livepeer:master"
   language="bash"
   icon="terminal"
-/>
+/> */}
 
-## <Icon icon="map-location" size={32} color={"#2b9a66"}/> Orchestrator Portal: Map
+{/* ## <Icon icon="map-location" size={32} color={"#2b9a66"}/> Orchestrator Portal: Map */}
 
-**Definition**
+{/* **Definition**
 Orchestrators are...
 
 **Quick Intro**
-Get Situated
+Get Situated */}
+<HeroSectionContainer>
 
-## <Icon icon="signs-post" size={32} color={"#2b9a66"}/> Orchestrator Portal: Choose Your Mission
+  <HeroImageBackgroundComponent>
+    <Starfield />
+  </HeroImageBackgroundComponent>
 
-Your Journey Starts Here / More "normal" Wording for AI/SEO
+  <HeroContentContainer>
+      <LogoHeroContainer imgHeight="20px" />
 
-<Columns cols={2}>
-  <Card
-    title="What's an Orchestrator?"
-    icon="comment-question"
-    href="./about-orchestrators/overview"
-    arrow
-  >
-    ..
-  </Card>
-  <Card
-    title="Orchestrate Your GPU"
-    icon="laptop-code"
-    href="./setting-up-an-orchestrator/hardware-requirements"
-    arrow
-  >
-    ..
-  </Card>
-  <Card
-    title="Run an Orchestrator"
-    icon="rocket"
-    href="./setting-up-an-orchestrator/hardware-requirements"
-    arrow
-  >
-    Orchestrator Level up: Deploy your own Gateway on the Livepeer Protocol.
-  </Card>
-  <Card
-    title="Orchestrator Tools & Dashboards"
-    icon="tools"
-    href="./orchestrator-tools/tooling-hub"
-    arrow
-  >
-    .
-  </Card>
-  <Card
-    title="Orchestrator Guides & Resources"
-    icon="laptop-file"
-    href="./guides-and-resources/orchestrator-guides"
-    arrow
-  >
-    .
-  </Card>
-</Columns>
+        <PortalHeroContent
+          callout={<ComingSoonCallout />}
+          title="GPUs for AI Video"
+          subtitle="Run – Provide – Earn"
+          refCardLink={
+              <Card
+                title="go-livepeer"
+                href="https://github.com/livepeer/go-livepeer"
+                icon="github"
+                arrow
+                horizontal
+              />
+            }
+          overview={
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              Orchestrators are the GPU compute nodes that power the Livepeer network. They provide the GPU horsepower and services to run AI pipelines & real-time video workloads.
+                <br />
+                <br />
+              Anyone can add a GPU to the Livepeer network and earn from idle GPU downtimes - either by adding it to a pool or setting up their own orchestrator container.
+                <br />
+                <br />
+              <CustomCodeBlock
+                codeString="docker pull livepeer/go-livepeer:master"
+                language="bash"
+                icon="terminal"
+              />
+            </div>
+          }
+        >
+        </PortalHeroContent>
 
----
+      </HeroContentContainer>
+
+</HeroSectionContainer>
+
+<PortalContentContainer>
+    <PortalCardsHeader title="Orchestrator Portal">
+        <BlinkingIcon icon="circle-play" size={20}  />
+    </PortalCardsHeader>
+
+    <Columns cols={2}>
+      <Card
+        title="What's an Orchestrator?"
+        icon="comment-question"
+        href="./about-orchestrators/overview"
+        arrow
+      >
+        ..
+      </Card>
+      <Card
+        title="Orchestrate Your GPU"
+        icon="laptop-code"
+        href="./setting-up-an-orchestrator/hardware-requirements"
+        arrow
+      >
+        ..
+      </Card>
+      <Card
+        title="Run an Orchestrator"
+        icon="rocket"
+        href="./setting-up-an-orchestrator/hardware-requirements"
+        arrow
+      >
+        Orchestrator Level up: Deploy your own Gateway on the Livepeer Protocol.
+      </Card>
+      <Card
+        title="Orchestrator Tools & Dashboards"
+        icon="tools"
+        href="./orchestrator-tools/tooling-hub"
+        arrow
+      >
+        .
+      </Card>
+      <Card
+        title="Orchestrator Guides & Resources"
+        icon="laptop-file"
+        href="./guides-and-resources/orchestrator-guides"
+        arrow
+      >
+        .
+      </Card>
+    </Columns>
+
+</PortalContentContainer>
+
+{/* ---
 
 ?Gateway Portal FAQs
 
@@ -90,4 +141,4 @@ Jump to
 - [Gateway Services & Providers](#gateway-services--providers)
 - [Run a Gateway](#run-a-gateway)
 - [Gateway Tools & Dashboards](#gateway-tools--dashboards)
-- [Gateway Guides & Resources](#gateway-guides--resources)
+- [Gateway Guides & Resources](#gateway-guides--resources) */}

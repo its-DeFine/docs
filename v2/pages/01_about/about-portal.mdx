@@ -16,10 +16,6 @@ import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
 import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
 import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
 
-<PreviewCallout />
-<br/>
-<br/>
-
 <HeroSectionContainer>
   
   {/* HeroImageBackgroundComponent: Full-width Starfield Background - fills entire content area */}
@@ -31,6 +27,7 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
     <LogoHeroContainer height="20px" />
 
     <PortalHeroContent
+      callout={<PreviewCallout />}
       title="Livepeer Protocol"
       subtitle="Discover – Participate – Innovate"
       refCardLink={
@@ -55,8 +52,8 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
         Since the Confluence upgrade, the protocol primarily runs on Arbitrum Mainnet.
         </>
       }
-
     />
+
 
     </HeroContentContainer>
 </HeroSectionContainer>

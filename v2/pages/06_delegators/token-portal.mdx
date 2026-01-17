@@ -8,122 +8,115 @@ keywords: ["livepeer", "delegators", "token portal", "token", "home", "portal", 
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+import { ComingSoonCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
 
-<PreviewCallout />
-
-import { PageHeader, H2, P } from '/snippets/components/display/frameMode.jsx'
-import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
-import { LivepeerIcon } from '/snippets/components/primitives/icons.jsx'
-import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+import { PortalHeroContent, HeroImageBackgroundComponent, LogoHeroContainer, HeroContentContainer, HeroSectionContainer, PortalCardsHeader, PortalContentContainer } from '/snippets/components/domain/SHARED/Portals.jsx'
 import { ThemeData } from '/snippets/styles/themeStyles.jsx'
-
-<PageHeader
-  title="Livepeer Token Portal"
-  subtitle={
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "0.5rem" }}>
-        <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg" size={20} /> 
-      <>{" "}Learn - Vote - Earn{" "}</>
-      <span style={{ display: "inline-block", transform: "scaleX(-1)" }}>
-      <Icon icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green.svg" size={20} />
-    </span>
-    </div>
-  }
-      description="Learn about the Livepeer Token (LPT), delegate your tokens to earn rewards, and vote on network governance proposals."
-/>
-
-<CustomDivider />
+import { H1, H2, H5,P } from '/snippets/components/display/frameMode.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
+import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
 
 
-<br/>
-<br/>
+<HeroSectionContainer>
 
-Livepeer Token (LPT) is the native ERC-20 token that secures the Livepeer Network and enables community-driven governance. 
-Holding LPT allows participants to earn fees and rewards, as well as influence the network’s direction through governance votes. 
+  <HeroImageBackgroundComponent>
+    <Starfield />
+  </HeroImageBackgroundComponent>
 
-<br/>
-<br/>
+  <HeroContentContainer>
+      <LogoHeroContainer imgHeight="20px" />
+        <PortalHeroContent
+          callout={<ComingSoonCallout />}
+          title="Shape the Future of Livepeer"
+          subtitle="Learn - Vote - Earn"
+          refCardLink={ <Card
+                title="Vote on Proposals"
+                href="https://explorer.livepeer.org/voting"
+                icon="ballot-check"
+                arrow
+                horizontal
+              /> }
+          description="Learn about the Livepeer Token (LPT), delegate your tokens to earn rewards, and vote on network governance proposals."
+          overview={
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              Livepeer Token (LPT) is the native ERC-20 token that secures the Livepeer Network and enables community-driven governance. 
+              Holding LPT allows participants to earn fees and rewards, as well as influence the network’s direction through governance votes. 
+                <br />
+                <br />
+              LPT aligns incentives for all network actors to keep Livepeer cost-effective, efficient, securepelines through a full-stack open hardware network, 
+              providing users with affordable, verifiable, permissionless enterprise-grade software solutions. 
+                <br />
+                <br />
+            </div>
+          }
+        >
+        </PortalHeroContent>
 
-LPT aligns incentives for all network actors to keep Livepeer cost-effective, efficient, securepelines through a full-stack open hardware network, 
-providing users with affordable, verifiable, permissionless enterprise-grade software solutions. 
+      </HeroContentContainer>
 
-<br/>
-<br/>
+</HeroSectionContainer>
 
-<br/>
-<br/>
+<PortalContentContainer>
+    <PortalCardsHeader title="LP Token Portal">
+        <BlinkingIcon icon="circle-play" size={20}  />
+    </PortalCardsHeader>
 
-<H2 icon="signs-post" iconSize={32} iconColor="#2b9a66">
-  Livepeer Token Portal
-</H2>
+  <Columns cols={2}>
+    <Card
+      title="What's a Token?"
+      icon="comment-question"
+      href="./about-lpt-livepeer-token/overview"
+      arrow
+    >
+      Learn about the Livepeer Token (LPT)
+    </Card>
+    <Card
+      title="Delegate LPT"
+      icon="coins"
+      href="./delegating-lpt/overview"
+      arrow
+    >
+      Earn rewards by delegating (staking) your LPT on the network.
+    </Card>
+    <Card
+      title="Shape the Future of Livepeer"
+      icon="ballot-check"
+      href="./livepeer-governance/overview"
+      arrow
+    >
+    Vote on governance proposals and contribute to the network's decision-making.
+    </Card>
+    <Card
+      title="Contribute"
+      icon="rocket"
+      href="./treasury/overview"
+      arrow
+    >
+      Have an idea? Propose it! The Livepeer Treasury funds projects that benefit the network.
+    </Card>
+    {/* <Card
+      title="Contribute"
+      icon="laptop-file"
+      href="./guides-and-resources/orchestrator-guides"
+      arrow
+    >
+      Contribute to discussions & LIPs
+    </Card> */}
+  </Columns>
 
-<div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "1rem" }}>
-  <span style={{ lineHeight: "1", color: "var(--text-primary)", opacity: 1, fontStyle: "italic" }}>Choose Your Mission: </span>
-    <BlinkingIcon icon="circle-play" size={20} color="#2b9a66" />
-    {/* <span style={{ lineHeight: "1", color: "var(--text-primary)", opacity: 1, fontStyle: "italic" }}>Choose your mission: </span> */}
-</div>
+    <PortalSectionHeader title="Token Portal: Map" icon="map-location">
+    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+        <H5>**Definition**</H5>
+        LPT is...
+        <br/>
+        <H5>**Quick Intro**</H5>
+        Get Situated
+      </div>
+  </PortalSectionHeader>
 
-{/* 
-## <Icon icon="map-location" size={32} color={"#2b9a66"}/> Token Portal: Map
+</PortalContentContainer>
 
-**Definition**
-Tokens are...
-
-**Quick Intro**
-Get Situated */}
-
-{/* ## <Icon icon="signs-post" size={32} color={"#2b9a66"}/> Token Portal: Choose Your Mission
-
-{/* Your Journey Starts Here / More "normal" Wording for AI/SEO  */}
-
-<Columns cols={2}>
-  <Card
-    title="What's a Token?"
-    icon="comment-question"
-    href="./about-lpt-livepeer-token/overview"
-    arrow
-  >
-    Learn about the Livepeer Token (LPT)
-  </Card>
-  <Card
-    title="Delegate LPT"
-    icon="coins"
-    href="./delegating-lpt/overview"
-    arrow
-  >
-    Earn rewards by delegating (staking) your LPT on the network.
-  </Card>
-  <Card
-    title="Shape the Future of Livepeer"
-    icon="ballot-check"
-    href="./livepeer-governance/overview"
-    arrow
-  >
-   Vote on governance proposals and contribute to the network's decision-making.
-  </Card>
-  <Card
-    title="Contribute"
-    icon="rocket"
-    href="./treasury/overview"
-    arrow
-  >
-    Have an idea? Propose it! The Livepeer Treasury funds projects that benefit the network.
-  </Card>
-  {/* <Card
-    title="Contribute"
-    icon="laptop-file"
-    href="./guides-and-resources/orchestrator-guides"
-    arrow
-  >
-    Contribute to discussions & LIPs
-  </Card> */}
-</Columns>
-
-<br/>
-<br/>
-
-<br/>
-<br/>
 
 
 {/* ?Gateway Portal FAQs

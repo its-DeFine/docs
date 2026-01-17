@@ -187,7 +187,8 @@ const PortalHeroContent = ({
   description,
   refCardLink,
   overview,
-  divider=true,
+  divider = true,
+  callout=null,
   titleColor,
   subtitleColor,
   children,
@@ -274,13 +275,12 @@ const PortalHeroContent = ({
               justifyContent: "center",
               width: "fit-content",
               margin: "0 auto",
+              marginTop: "1rem",
             }}
            >
-            <br />
-            {/* <Card /> Component */}
             {refCardLink}
           </div>
-        )}
+              )}
         <style>{`
             :root {
             --page-header-title-color: ${ThemeData.light.heroText};
@@ -293,7 +293,8 @@ const PortalHeroContent = ({
             --page-header-description-color: ${ThemeData.dark.text};
             }
         `}</style>
-        <div style={{ width: "80%", margin: "0 auto", paddingBottom: "1rem" }}>
+         <div style={{ width: "80%", margin: "0 auto", paddingBottom: "1rem" }}>
+          {callout && callout}
           {divider ? <CustomDivider /> : null }
           {/* <CustomDivider /> */}
         </div>

@@ -8,9 +8,8 @@ keywords: ["community", "connect", "contribute", "livepeer", "home", "help", "in
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsHero.svg"
 ---
 
-import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+import { ComingSoonCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
 
-<PreviewCallout />
 
 import { PortalHeroContent, HeroImageBackgroundComponent, LogoHeroContainer, HeroContentContainer, HeroSectionContainer, PortalCardsHeader, PortalContentContainer, PortalSectionHeader } from '/snippets/components/domain/SHARED/Portals.jsx'
 import { ThemeData } from '/snippets/styles/themeStyles.jsx'
@@ -18,14 +17,7 @@ import { H1, H2, H3, H5,P } from '/snippets/components/display/frameMode.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
 import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
-
-<Note>
-  {' '}
-  An aggregated layout of all news, socials, forums and other community hangouts
-</Note>
-
-<br/>
-<br/>
+import { YouTubeVideo } from '/snippets/components/display/video.jsx'
 
 <HeroSectionContainer>
   
@@ -38,23 +30,26 @@ import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
     <LogoHeroContainer height="20px" />
 
     <PortalHeroContent
+      callout={<ComingSoonCallout />}
       title="Community"
       subtitle="Connect – Participate – Contribute"
       refCardLink={
           <Card
-            title="livepeer-protocol"
-            href="https://github.com/livepeer/protocol"
-            icon="github"
+            title="Join the Community"
+            href="https://discord.gg/livepeer"
+            icon="discord"
             arrow
             horizontal
           />
         }
       overview={
-        <>
-        The Livepeer Community is a diverse and vibrant group of individuals and organizations that are passionate about the Livepeer Real-time Video AI Network. 
-        </>
-      }
-    />
+          <>
+          The Livepeer Community is a diverse and vibrant group of individuals and organizations that are passionate about the Livepeer Real-time Video AI Network. 
+          </>
+        }
+      >
+      <YouTubeVideo embedUrl="https://www.youtube.com/embed/LmZNEaOOb9I?si=ZWhKc31ynnj_bsi4" title="Join the weekly Watercooler Chat"/>
+    </PortalHeroContent>
   </HeroContentContainer>
 </HeroSectionContainer>
 
@@ -120,3 +115,8 @@ import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
   </PortalSectionHeader>
 
 </PortalContentContainer>
+
+{/* <Note>
+  {' '}
+  An aggregated layout of all news, socials, forums and other community hangouts
+</Note> */}

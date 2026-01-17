@@ -18,10 +18,6 @@ import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
 import { YouTubeVideo } from '/snippets/components/display/video.jsx'
 import { ComingSoonCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
 
-<ComingSoonCallout />
-<br/>
-<br/>
-
 <HeroSectionContainer>
   
   {/* HeroImageBackgroundComponent: Full-width Starfield Background - fills entire content area */}
@@ -33,7 +29,8 @@ import { ComingSoonCallout } from '/snippets/components/domain/SHARED/previewCal
     <LogoHeroContainer height="20px" />
 
     <PortalHeroContent
-      title="Livepeer Products"
+      callout={<ComingSoonCallout />}
+      title="Use Livepeer AI Video"
       subtitle="Discover – Create – Run"
       refCardLink={
           <Card
@@ -47,12 +44,12 @@ import { ComingSoonCallout } from '/snippets/components/domain/SHARED/previewCal
       overview={
         <>
         Using real-time AI video apps is easy with these ecosytem products and developer platforms.
-
+        {/* "Stream Live Video, Run AI Pipelines, & Build Apps on Livepeer's Real-time AI Video Infrastructure. */}
         <br/>
         <br/>
 
         Run Agents, AI Video, Live-Stream and embed real-time interactive AI video experiences in your social platforms, apps and more..
-        </>
+          </>
       }
       >  
         <YouTubeVideo embedUrl="https://www.youtube.com/embed/t9jhLn2fZcc?si=AM29wXYZwFJWw3UN" title="Discover Daydream" />
