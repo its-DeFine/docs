@@ -118,7 +118,7 @@
 //   );
 // };
 
-export const Starfield = () => {
+export const Starfield = ({ density = 1.1 }) => {
   const canvasRef = useRef(null);
 
   // Detect theme mode
@@ -210,7 +210,7 @@ export const Starfield = () => {
       canvas.height = rect.height * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
-      const count = Math.floor(((rect.width * rect.height) / 16000) * 1.1);
+      const count = Math.floor(((rect.width * rect.height) / 16000) * density);
       stars = Array.from({ length: count }).map(() => {
         const color = COLORS[Math.floor(Math.random() * COLORS.length)];
         return {

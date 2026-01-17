@@ -127,7 +127,7 @@ const HeroOverviewContent = ({ children }) => {
         width: "80%",
         margin: "0 auto",
         fontSize: "1.1rem",
-        color: ThemeData.dark.text,
+        color: "var(--page-header-description-color)",
       }}
     >
           {children}
@@ -189,8 +189,6 @@ const PortalHeroContent = ({
   overview,
   titleColor,
   subtitleColor,
-  descriptionColor,
-  divider,
   children,
 }) => {
   return (
@@ -250,19 +248,23 @@ const PortalHeroContent = ({
           </div>
         )}
         {description && (
-          <h5
+          <div
             style={{
-              fontSize: "1.1rem",
-              marginTop: "1.5rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexDirection: "column",
+              gap: "1rem 0",
               width: "80%",
-              opacity: 1,
-              color: descriptionColor || "var(--page-header-description-color)",
+              margin: "0 auto",
+              fontSize: "1.1rem",
+              color: "var(--page-header-description-color)",
+              paddingTop: "3rem",
             }}
           >
             {description}
-          </h5>
+          </div>
         )}
-        <br />
         {refCardLink && (
           <div
             style={{
@@ -272,7 +274,8 @@ const PortalHeroContent = ({
               width: "fit-content",
               margin: "0 auto",
             }}
-          >
+           >
+            <br />
             {/* <Card /> Component */}
             {refCardLink}
           </div>
@@ -289,9 +292,8 @@ const PortalHeroContent = ({
             --page-header-description-color: ${ThemeData.dark.text};
             }
         `}</style>
-        {children}
         <div style={{ width: "80%", margin: "0 auto", paddingBottom: "1rem" }}>
-          {divider ? divider : <CustomDivider /> ? <CustomDivider /> : null}
+          {children ? null : <CustomDivider /> }
           {/* <CustomDivider /> */}
         </div>
         {overview && (
@@ -305,15 +307,15 @@ const PortalHeroContent = ({
               width: "80%",
               margin: "0 auto",
               fontSize: "1.1rem",
-              color: ThemeData.dark.text,
+              color: "var(--page-header-description-color)",
             }}
           >
             {overview}
           </div>
               )}
-          <div style={{ width: "80%", margin: "0 auto", paddingTop: "1.5rem", paddingBottom: "0.1rem" }}>
-            <CustomDivider />
-          </div>
+        <div style={{ width: "80%", margin: "0 auto", paddingTop: "1.5rem", paddingBottom: "0.1rem" }}>
+          {children ? children : <CustomDivider />}
+        </div>
         </div>
       {/* zIndex && */}
     </div>
@@ -371,12 +373,12 @@ const PortalSectionHeader = ({ children, title, icon }) => {
 const LogoHeroContainer = ({
   src = "/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg",
   alt = "Livepeer Logo",
-  height = "100px",
   width = "100%",
-  margin = "0 auto 4rem auto",
-  imgHeight = "100%",
+  margin = "1rem auto 0 auto",
+  imgHeight = "20px",
   imgWidth = "auto",
   objectFit = "contain",
+  children,
 }) => {
   return (
     <div
@@ -384,16 +386,32 @@ const LogoHeroContainer = ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        height: height,
         margin: margin,
         width: width,
+        paddingBottom: children ? "3.5rem" : "0",
       }}
     >
-      <img
-        src={src}
-        alt={alt}
-        style={{ height: imgHeight, width: imgWidth, objectFit: objectFit }}
-      />
+      <div style={{ position: "relative", display: "inline-block" }}>
+        <img
+          src={src}
+          alt={alt}
+          style={{ height: imgHeight, width: imgWidth, objectFit: objectFit, display: "block" }}
+        />
+        {children &&
+          <div style={{
+            position: "absolute",
+            top: "100%",
+            right: "0",
+            fontSize: "2rem",
+            color: "var(--page-header-subtitle-color)",
+            fontWeight: "500",
+            lineHeight: "1",
+            paddingTop:"0.5rem"
+          }}>
+            {children}
+          </div>
+        }
+      </div>
     </div>
   );
 };
