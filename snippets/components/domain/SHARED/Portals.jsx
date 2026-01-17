@@ -187,6 +187,7 @@ const PortalHeroContent = ({
   description,
   refCardLink,
   overview,
+  divider=true,
   titleColor,
   subtitleColor,
   children,
@@ -293,7 +294,7 @@ const PortalHeroContent = ({
             }
         `}</style>
         <div style={{ width: "80%", margin: "0 auto", paddingBottom: "1rem" }}>
-          {children ? null : <CustomDivider /> }
+          {divider ? <CustomDivider /> : null }
           {/* <CustomDivider /> */}
         </div>
         {overview && (
@@ -314,7 +315,7 @@ const PortalHeroContent = ({
           </div>
               )}
         <div style={{ width: "80%", margin: "0 auto", paddingTop: "1.5rem", paddingBottom: "0.1rem" }}>
-          {children ? children : <CustomDivider />}
+          {children ? <>{children}<CustomDivider /></> :  <CustomDivider />}
         </div>
         </div>
       {/* zIndex && */}
