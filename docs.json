@@ -41,18 +41,19 @@
                         "group": "Livepeer",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
                         "pages": [
-                          "v2/pages/00_home/introduction/livepeer-story",
-                          "v2/pages/00_home/introduction/livepeer-vision",
-                          "v2/pages/00_home/introduction/livepeer-future",
-                          "v2/pages/00_home/introduction/livepeer-ecosystem"
+                          "v2/pages/00_home/introduction/vision",
+                          "v2/pages/00_home/introduction/evolution",
+                          "v2/pages/00_home/introduction/roadmap",
+                          "v2/pages/00_home/introduction/ecosystem"
                         ]
                       },
                       {
                         "group": "Showcase",
                         "icon": "clapperboard-play",
                         "pages": [
-                          "v2/pages/00_home/project-showcase/projects-built-on-livepeer",
-                          "v2/pages/00_home/project-showcase/livepeer-applications",
+                          "v2/pages/00_home/project-showcase/why-livepeer",
+                          "v2/pages/00_home/project-showcase/showcase",
+                          "v2/pages/00_home/project-showcase/applications",
                           "v2/pages/00_home/project-showcase/industry-verticals"
                         ]
                       }

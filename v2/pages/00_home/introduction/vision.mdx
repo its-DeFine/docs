@@ -1,0 +1,132 @@
+---
+title: 'Livepeer Story'
+sidebarTitle: 'Vision'
+description: 'How Livepeer began with video streaming and grew to become the open AI-infrastructure for real-time Interactive Video & world models.'
+keywords: ["livepeer", "livepeer overview", "livepeer introduction", "livepeer primer", "livepeer mission", "livepeer vision", "livepeer goals", "livepeer objectives", "livepeer targets", "livepeer aspirations", "livepeer ambitions"]
+og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+---
+
+{/* The story, founder vision & Livepeer Mission */}
+
+import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+
+<PreviewCallout />
+
+import { ThemeData } from '/snippets/styles/themeStyles.jsx'
+import { YouTubeVideo, LinkedInEmbed } from '/snippets/components/display/video.jsx'
+import { Image } from '/snippets/components/display/image.jsx'
+import { LinkArrow, GotoLink, GotoCard } from '/snippets/components/primitives/links.jsx'
+import { Quote } from '/snippets/components/display/quote.jsx'
+
+{/* # Livepeer Founders
+Livepeer was founded by Doug Petkanics (CTO) and Eric Tang (CEO) in 2017.
+
+<Note> Insert intro's here </Note> */}
+
+# Livepeer Story
+<Frame caption="Doug Petkanics - Building Livepeer">
+  <video
+    controls
+    className="w-full aspect-video rounded-xl"
+    src="/snippets/assets/media/videos/livepeer-founders-post.mp4"
+  ></video>
+</Frame>
+
+Livepeer was [founded](https://medium.com/livepeer-blog/the-livepeer-development-stack-technology-behind-live-streaming-built-on-ethereum-d6a06158d5e2) in 2017 by entrepeneurs 
+[Doug Petkanics](https://www.linkedin.com/in/doug-petkanics/) and [Eric Tang](https://www.linkedin.com/in/erictang/), who, 
+frustrated by the high costs and rigid infrastructure of existing video streaming solutions, wondered:
+
+
+<Quote>
+    What if video — the most captivating, expressive medium online — ran on open, permissionless infrastructure instead of expensive, proprietary systems?
+</Quote>
+
+This conviction, alongside a deep belief in both the practical need and open source potential of decentalised open infrastruture, led them to found Livepeer.
+
+Doug and Eric set out to revolutionise video streaming infrastructure from the hardware infrastructure up by:
+- Turning idle GPUs around the world into a competitive marketplace,
+- Using crypto-economic incentives to guarantee reliability and quality,
+- Delivering real cost reductions via decentralised economies of scale.
+
+{/* Livepeer has been delivering on this promise since 2017. */}
+
+## Livepeer Vision
+
+Livepeer exists to power open, decentralized video infrastructure — infrastructure that anyone can build on, operate, and benefit from.
+
+From the beginning, Livepeer’s goal has been simple but ambitious:
+
+Make video infrastructure open, permissionless, and economically efficient — the way the internet itself was meant to be.
+
+As video becomes increasingly real-time, interactive, and AI-driven, Livepeer is evolving to meet the next wave of demand: real-time AI video pipelines.
+
+{/* That vision remains unchanged today, as Livepeer continues to evolve from a video streaming network to a full-stack AI infrastructure. Livepeer's mission is to enable next-generation applications in interactive media, AI training, and digital creativity.
+Livepeer’s end goal is to [serve](https://medium.com/livepeer-blog/livepeer-for-beginners-3b49945c24a7?source=collection_home---------163----------------------------) 
+as the infrastructure service layer for decentralised streaming & AI, [making](https://livepeer.org/primer) video streaming more reliable and affordable, & AI more accessible. */}
+
+## Livepeer Evolution
+
+{/* What's shaped Livepeer and what does the future look like? */}
+<Image
+  src="/snippets/assets/domain/00_HOME/evolution.png"
+  alt="Evolution of Livepeer"
+  caption="Evolution of the Livepeer Network"
+  href="TBD"
+  arrow
+/>
+
+Livepeer’s development unfolds across six phases, including Snowmelt, Tributary, Streamflow, Confluence, Delta, Ocean and Cascade:
+
+<Update label="Snowmelt" description="April 30, 2018" tags={["Livepeer Alpha Launches"]}>
+- Proposed in [LIP-1](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0001.md) and went live in April 2018.
+- Marked the launch of Livepeer Alpha on Ethereum mainnet. 
+- The first functional version of the network-enabled basic video broadcasting and the generation of LPT rewards from an initial total token supply of 10 million LPT at Genesis.
+</Update>
+<Update label="Tributary" description="Aug. 23, 2018" tags={["Developer Enabling"]}>
+- Propsed in [LIP-10](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0010.md) and went live in August 2018.
+- Enabled developers to build on Livepeer’s video infrastructure and addressed major pain points identified in the protocol’s first iteration.
+</Update>
+<Update label="Streamflow" description="Jan. 17, 2020" tags={["Scalability & Micropayments"]}>
+- Proposed in May 2019 in [LIP-30](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0030.md) and went live in January 2020.
+- Expanded the network’s node capacity from 25 to 100, introduced the “Transcoder” role, splitting the original orchestrator role to drive network efficiency and performance. 
+- This upgrade also introduced Probabilistic Micropayments and offchain job negotiations.
+</Update>
+<Update label="Confluence" description="Feb. 15, 2022" tags={["Layer 2"]}>
+  - Initially proposed in September 2021 in [LIP-80](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0080.md) and went live in February 2022. 
+  - This upgrade deployed Livepeer on Arbitrum, moving the protocol’s functionalities to the Layer-2 network. 
+  - This significantly reduced the protocol’s gas fees and offered faster transactions to network participants.
+</Update>
+<Update label="Delta" description="Oct. 13, 2023" tags={["Onchain Treasury"]}>
+  - Proposed in April 2023, Livepeer Delta went live in October 2023 following the passing of [LIP-91](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0091.md). 
+  - This upgrade deployed a community-governed onchain treasury for the protocol Livepeer. 
+  - It also introduced new parameters to Livepeer’s staking contract that routes a portion of LPT’s inflationary emissions to the treasury, which is used to fund Public goods.
+</Update>
+<Update label="Cascade" description="TBD" tags={["AI-first Gateways"]}>
+- Proposed in May 2025 in [LIP-100](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0100.md). 
+- This upgrade introduces AI-first gateways, combining video & AI workloads.
+- Supporting custom AI models and job types, allowing AI developers to utilize its global GPU network for both video-specific and broader applications.
+</Update>
+
+{/* <GotoCard
+  label="Read More in this blog post"
+  relativePath="https://blog.livepeer.org/introducing-livepeer-cascade-a-vision-for-livepeers-future-in-the-age-of-real-time-ai-video/"
+  text=""
+/> */}
+
+
+{/* ## Future of Livepeer */}
+{/* 
+Roadmap Milestones would be good & invite community to build the future with us / takes a village ...
+
+... image quote here -> the future is what we create today .. */}
+{/* 
+<Card
+  title="Livepeer Roadmap"
+  icon="road"
+  href="./livepeer-roadmap"
+  horizontal
+  arrow
+>
+  {' '}
+  See the Livepeer Roadmap Here{' '}
+</Card> */}
