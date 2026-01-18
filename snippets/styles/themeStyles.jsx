@@ -64,4 +64,23 @@ export const ThemeData = {
     border: "#333333",
     buttonText: "#ffffff",
   },
+  css: {
+    accent:
+      ":root { --theme-accent: #3CB540; } .dark { --theme-accent: #2b9a66; }",
+    accentDark:
+      ":root { --theme-accent-dark: #18794E; } .dark { --theme-accent-dark: #18794E; }",
+    heroText:
+      ":root { --theme-hero-text: #181C18; } .dark { --theme-hero-text: #E0E4E0; }",
+    text: ":root { --theme-text: #717571; } .dark { --theme-text: #A0A4A0; }",
+    mutedText:
+      ":root { --theme-muted-text: #9ca3af; } .dark { --theme-muted-text: #6b7280; }",
+    background:
+      ":root { --theme-background: #ffffff; } .dark { --theme-background: #0d0d0d; }",
+    cardBackground:
+      ":root { --theme-card-background: #f9fafb; } .dark { --theme-card-background: #1a1a1a; }",
+    border:
+      ":root { --theme-border: #e5e7eb; } .dark { --theme-border: #333333; }",
+    buttonText:
+      ":root { --theme-button-text: #ffffff; } .dark { --theme-button-text: #ffffff; }",
+  },
 };

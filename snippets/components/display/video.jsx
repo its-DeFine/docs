@@ -47,6 +47,65 @@ export const YouTubeVideo = ({ embedUrl, title = "", hint = "", caption }) => {
 };
 
 /**
+ * LinkedInEmbed - Embeds a LinkedIn post with optional caption and hint
+ *
+ * @description
+ * Displays a LinkedIn post in a responsive iframe within a Frame component.
+ * Follows LinkedIn's official embed requirements and terms of use.
+ * See: https://developer.linkedin.com/legal/embed-terms-of-use
+ *
+ * @param {string} embedUrl - LinkedIn embed URL (e.g., "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:...")
+ *                            Note: URL should include ?compact=1 parameter for proper rendering
+ * @param {string} [title="Embedded post"] - Post title for accessibility (matches LinkedIn default)
+ * @param {string} [hint=""] - Optional hint text to display
+ * @param {string} [caption] - Optional caption text to display below the post
+ * @param {string} [height="399"] - Height of the embed iframe (LinkedIn default: 399px)
+ *
+ * @example
+ * <LinkedInEmbed
+ *   embedUrl="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7387171661868933120?compact=1"
+ *   title="Livepeer Update"
+ *   caption="Latest news from the Livepeer team"
+ *   height="500"
+ * />
+ *
+ * @author Livepeer Documentation Team
+ */
+export const LinkedInEmbed = ({
+  embedUrl,
+  title = "Embedded post",
+  hint = "",
+  caption,
+  height = "399",
+}) => {
+  // Ensure URL has compact parameter if not already present
+  const finalUrl = embedUrl.includes("?") ? embedUrl : `${embedUrl}?compact=1`;
+
+  return (
+    <Frame
+      {...(hint ? { hint } : {})}
+      {...(caption
+        ? {
+            caption: (
+              <span style={{ display: "flex", alignItems: "center" }}>
+                <Icon icon="linkedin" color="grey" />
+                <span style={{ marginLeft: 8 }}>{caption}</span>
+              </span>
+            ),
+          }
+        : {})}
+    >
+      <iframe
+        src={finalUrl}
+        title={title}
+        height={height}
+        className="w-full rounded-xl"
+      />
+    </Frame>
+  );
+};
+
+/**
  * YouTubeVideoDownload - Placeholder for YouTube video with download functionality
  *
  * @description

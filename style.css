@@ -4,8 +4,8 @@
 18794E - Dark Green
 
 Complementary Greens
-See https://coolors.co/004225-1a794e-08a045-3cb540-62ba4f 
-004225 - Deep Forrest 
+See https://coolors.co/004225-1a794e-08a045-3cb540-62ba4f
+004225 - Deep Forrest
 1A794E - Turf Green
 08A045 - Medium Jungle
 3CB540 - Jade Green
@@ -33,6 +33,39 @@ F61067 - Razzmatazz Pink
 08A045 - Medium Jungle
 6BBF59 - Moss Green
 */
+
+/* ============================================
+   GLOBAL THEME VARIABLES
+   Matches ThemeData from snippets/styles/themeStyles.jsx
+   ============================================ */
+
+:root {
+  /* Light Mode Colors */
+  --accent: #3cb540;
+  --accent-dark: #18794e;
+  --hero-text: #181c18;
+  --text: #717571;
+  --muted-text: #9ca3af;
+  --background: #ffffff;
+  --card-background: #f9fafb;
+  --border: #e5e7eb;
+  --button-text: #ffffff;
+}
+
+.dark {
+  /* Dark Mode Colors */
+  --accent: #2b9a66;
+  --accent-dark: #18794e;
+  --hero-text: #e0e4e0;
+  --text: #a0a4a0;
+  --muted-text: #6b7280;
+  --background: #0d0d0d;
+  --card-background: #1a1a1a;
+  --border: #333333;
+  --button-text: #ffffff;
+}
+
+/* ============================================ */
 
 /* Code block themes
 hiki codeblock themes:
@@ -287,12 +320,12 @@ img[alt="US"][src*="flags/US.svg"]::before {
 /* Frame mode container - 80% of #content-container width, centered */
 /* Breaks out of #content padding to center in full #content-container */
 .frame-mode-container {
-  width: calc(100% + 96px + 20px);  /* 976px */
+  width: calc(100% + 96px + 20px); /* 976px */
   margin-left: -96px;
   margin-right: -20px;
   margin-bottom: 2rem;
-  padding-left: 15%;   /* Adjust this for desired content width */
-  padding-right: 15%;  /* Adjust this for desired content width */
+  padding-left: 15%; /* Adjust this for desired content width */
+  padding-right: 15%; /* Adjust this for desired content width */
   box-sizing: border-box;
 }
 
