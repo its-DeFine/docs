@@ -1,5 +1,3 @@
-import { ThemeData } from "/snippets/styles/themeStyles.jsx";
-
 /**
  * CustomCallout - Customizable callout/alert box component
  *
@@ -21,7 +19,7 @@ import { ThemeData } from "/snippets/styles/themeStyles.jsx";
  *
  * @author Livepeer Documentation Team
  */
-export const CustomCallout = ({
+const CustomCallout = ({
   children,
   icon = "lightbulb",
   color,
@@ -100,7 +98,7 @@ export const CustomCallout = ({
  *
  * @author Livepeer Documentation Team
  */
-export const BlinkingIcon = ({ icon = "terminal", size = 16, color }) => {
+const BlinkingIcon = ({ icon = "terminal", size = 16, color }) => {
   const resolvedColor = color || "var(--blinking-icon-color)";
   return (
     <>
@@ -137,7 +135,7 @@ export const BlinkingIcon = ({ icon = "terminal", size = 16, color }) => {
  * @deprecated Use BlinkingIcon instead
  * @author Livepeer Documentation Team
  */
-export const BlinkingTerminal = BlinkingIcon;
+const BlinkingTerminal = BlinkingIcon;
 
 /**
  * DoubleIconLink - Link component with icons on both sides
@@ -162,7 +160,7 @@ export const BlinkingTerminal = BlinkingIcon;
  *
  * @author Livepeer Documentation Team
  */
-export const DoubleIconLink = ({
+const DoubleIconLink = ({
   label = "",
   href = "#",
   text = "",
@@ -221,7 +219,7 @@ export const DoubleIconLink = ({
  *
  * @author Livepeer Documentation Team
  */
-export const GotoLink = ({
+const GotoLink = ({
   label,
   relativePath,
   text = "",
@@ -261,7 +259,7 @@ export const GotoLink = ({
  *
  * @author Livepeer Documentation Team
  */
-export const GotoCard = ({ label, relativePath, icon, text, cta = "" }) => {
+const GotoCard = ({ label, relativePath, icon, text, cta = "" }) => {
   icon = icon ? icon : "arrow-turn-down-right";
   return (
     <Card title={label} icon={icon} href={relativePath} arrow cta={cta}>
@@ -291,7 +289,7 @@ export const GotoCard = ({ label, relativePath, icon, text, cta = "" }) => {
  *
  * @author Livepeer Documentation Team
  */
-export const TipWithArrow = ({
+const TipWithArrow = ({
   children,
   icon = "lightbulb",
   arrowIcon = "arrow-up-right",
@@ -362,4 +360,33 @@ export const TipWithArrow = ({
       </div>
     </>
   );
+};
+
+const LinkArrow = ({ href, label, newline = true }) => {
+  const linkArrowStyle = {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "4px",
+    paddingTop: "0.2rem",
+  };
+  return (
+    <>
+      {newline && <br />}
+      <a href={href} target="_blank" style={linkArrowStyle}>
+        {label}
+        <Icon icon="arrow-up-right" size={12} color="var(--accent)" />
+      </a>
+    </>
+  );
+};
+
+export {
+  CustomCallout,
+  BlinkingIcon,
+  BlinkingTerminal,
+  DoubleIconLink,
+  GotoLink,
+  GotoCard,
+  TipWithArrow,
+  LinkArrow,
 };
