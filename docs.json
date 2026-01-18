@@ -43,8 +43,8 @@
                         "pages": [
                           "v2/pages/00_home/introduction/livepeer-story",
                           "v2/pages/00_home/introduction/livepeer-vision",
-                          "v2/pages/00_home/introduction/livepeer-ecosystem",
-                          "v2/pages/00_home/introduction/livepeer-roadmap"
+                          "v2/pages/00_home/introduction/livepeer-future",
+                          "v2/pages/00_home/introduction/livepeer-ecosystem"
                         ]
                       },
                       {
@@ -135,45 +135,45 @@
                     "anchor": "Products",
                     "icon": "display-code",
                     "groups": [
-                     { 
-                      "group": "Use Livepeer",
-                      "icon": "play",
-                      "pages": [
-                      "v2/pages/010_products/products-portal",
-                      "v2/pages/010_products/products/builder-hub"
+                      {
+                        "group": "Use Livepeer",
+                        "icon": "play",
+                        "pages": [
+                          "v2/pages/010_products/products-portal",
+                          "v2/pages/010_products/products/builder-hub"
                         ]
                       },
                       {
                         "group": "Daydream",
                         "icon": "video-camera",
                         "pages": [
-                          "v2/pages/010_products/products/daydream/daydream.mdx"
+                          "v2/pages/010_products/products/daydream/daydream"
                         ]
                       },
                       {
                         "group": "Livepeer Studio",
                         "icon": "user-robot",
                         "pages": [
-                          "v2/pages/010_products/products/livepeer-studio/livepeer-studio.mdx"
+                          "v2/pages/010_products/products/livepeer-studio/livepeer-studio"
                         ]
                       },
                       {
                         "group": "Stream.place",
                         "icon": "video-camera",
                         "pages": [
-                          "v2/pages/010_products/products/streamplace/streamplace.mdx",
-                          "v2/pages/010_products/products/streamplace/streamplace-guide.mdx",
-                          "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
-                          "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
-                          "v2/pages/010_products/products/streamplace/streamplace-provenance.mdx",
-                          "v2/pages/010_products/products/streamplace/streamplace-funding.mdx"
+                          "v2/pages/010_products/products/streamplace/streamplace",
+                          "v2/pages/010_products/products/streamplace/streamplace-guide",
+                          "v2/pages/010_products/products/streamplace/streamplace-architecture",
+                          "v2/pages/010_products/products/streamplace/streamplace-integration",
+                          "v2/pages/010_products/products/streamplace/streamplace-provenance",
+                          "v2/pages/010_products/products/streamplace/streamplace-funding"
                         ]
                       },
                       {
                         "group": "All Ecosystem Products",
                         "icon": "video-camera",
                         "pages": [
-                          "v2/pages/010_products/products/all-ecosystem/ecosystem-products.mdx"
+                          "v2/pages/010_products/products/all-ecosystem/ecosystem-products"
                         ]
                       }
                     ]
@@ -203,6 +203,7 @@
                         "icon": "code",
                         "pages": [
                           "v2/pages/03_developers/developer-portal",
+                          "v2/pages/03_developers/building-on-livepeer/developer-guide",
                           {
                             "group": "Quickstart",
                             "icon": "fast-forward",
@@ -227,10 +228,18 @@
                         ]
                       },
                       {
+                        "group": "AI Pipelines",
+                        "icon": "user-robot",
+                        "pages": [
+                          "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview",
+                          "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc",
+                          "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream"
+                        ]
+                      },
+                      {
                         "group": "Guides & Tutorials",
                         "icon": "laptop-file",
                         "pages": [
-                          "v2/pages/03_developers/building-on-livepeer/developer-guide",
                           "v2/pages/03_developers/guides-and-resources/developer-guides",
                           "v2/pages/03_developers/guides-and-resources/resources",
                           "v2/pages/03_developers/guides-and-resources/developer-help",
