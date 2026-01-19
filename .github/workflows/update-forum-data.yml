@@ -1,0 +1,35 @@
+name: Update Forum Data
+
+on:
+  schedule:
+    # Run daily at 00:00 UTC
+    - cron: "0 0 * * *"
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  update-forum-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout docs repository
+        uses: actions/checkout@v4
+        with:
+          repository: livepeer/docs
+          ref: docs-v2-preview
+          token: ${{ secrets.DOCS_PAT }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Fetch and process forum data
+        run: |
+          node .github/scripts/fetch-forum-data.js
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "GitHub Action"
+          git config user.email "action@github.com"
+          git add snippets/automations/forum/forumData.jsx
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update forum data - $(date -u +"%Y-%m-%dT%H:%M:%SZ")" && git push)
