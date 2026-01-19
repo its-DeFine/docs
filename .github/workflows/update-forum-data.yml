@@ -16,7 +16,7 @@ jobs:
         with:
           repository: livepeer/docs
           ref: docs-v2-preview
-          token: ${{ secrets.DOCS_PAT }}
+          token: ${{ secrets.DOCS_V2 }}
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
