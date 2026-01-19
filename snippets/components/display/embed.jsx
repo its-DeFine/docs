@@ -48,3 +48,55 @@ export const EmbedMarkdown = ({ url }) => {
 
   return <Markdown>{content}</Markdown>;
 };
+
+export const TwitterTimeline = ({}) => {
+  return (
+    <div
+      style={{
+        border: "3px solid var(--accent)",
+        borderRadius: "12px",
+        overflow: "hidden",
+        height: "600px",
+      }}
+    >
+      <iframe
+        src="https://feed.mikle.com/widget/v2/176804/"
+        style={{
+          border: "none",
+          transform: "scale(1.01)", // Shrink by 1% to hide border
+          transformOrigin: "center",
+        }}
+        height="652px" // Increase height by 4px (2px top + 2px bottom)
+        width="100%" // Increase width by 4px (2px left + 2px right)
+        class="fw-iframe"
+        frameborder="none"
+        scrolling="no"
+      ></iframe>
+    </div>
+  );
+};
+
+// export const TwitterTimeline = ({}) => {
+//   return (
+//     <a href="https://twitter.com/livepeer">
+//       <div
+//         style={{
+//           overflow: "hidden",
+//           height: "600px",
+//           border: "3px solid var(--accent)",
+//           borderRadius: "12px",
+//         }}
+//       >
+//         <iframe
+//           src="https://widgets.sociablekit.com/twitter-feed/iframe/25645137"
+//           style={{
+//             border: "none",
+//             width: "100%",
+//             height: "calc(600px + 240px)", // Container height + shift amount
+//             transform: "translateY(-240px)",
+//           }}
+//         />
+//       </div>
+//     </a>
+//   );
+// };

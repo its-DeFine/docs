@@ -34,7 +34,8 @@
                         "pages": [
                           "v2/pages/00_home/mission-control",
                           "v2/pages/00_home/home/primer",
-                          "v2/pages/00_home/home/trending-topics"
+                          "v2/pages/00_home/home/trending-topics",
+                          "v2/pages/00_home/home/trending-layout-tests"
                         ]
                       },
                       {

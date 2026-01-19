@@ -258,11 +258,13 @@ const GotoLink = ({
  * />
  *
  * @author Livepeer Documentation Team
+ *
+ * Kind of an irrelevant component - just use card?
  */
-const GotoCard = ({ label, relativePath, icon, text, cta = "" }) => {
+const GotoCard = ({ label, relativePath, icon, text, cta = "", ...props }) => {
   icon = icon ? icon : "arrow-turn-down-right";
   return (
-    <Card title={label} icon={icon} href={relativePath} arrow cta={cta}>
+    <Card title={label} icon={icon} href={relativePath} cta={cta} {...props}>
       {text}
     </Card>
   );

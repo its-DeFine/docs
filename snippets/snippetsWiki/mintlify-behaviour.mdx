@@ -159,7 +159,7 @@ import { childSpecificVariable } from '/snippets/data/childSpecific.jsx'  // ✅
 
 **Parent:** `quickstart-a-gateway.mdx`
 ```mdx
-import { latestVersion } from '/snippets/automationData/globals/globals.jsx'
+import { latestVersion } from '/snippets/automations/globals/globals.jsx'
 import { DOCKER_CODE } from '/snippets/data/gateways/code.jsx'
 import DockerOffChainTab from '/snippets/pages/docker/dockerOffChainTab.mdx'
 import LinuxOffChainTab from '/snippets/pages/linux/linuxOffChainTab.mdx'
@@ -177,7 +177,7 @@ import LinuxOffChainTab from '/snippets/pages/linux/linuxOffChainTab.mdx'
 **Child 2:** `linuxOffChainTab.mdx` (HAS imports)
 ```mdx
 {/* Parent has latestVersion, but child re-imports it */}
-import { latestVersion as version } from '/snippets/automationData/globals/globals.mdx'
+import { latestVersion as version } from '/snippets/automations/globals/globals.mdx'
 import { LINUX_CODE } from '/snippets/data/gateways/linux/code.jsx'  {/* Not in parent */}
 
 <Badge><span>{version}</span></Badge>  {/* ❌ Needs import - direct JSX interpolation */}

@@ -10,6 +10,18 @@ import {PreviewCallout} from '/snippets/components/domain/SHARED/previewCallouts
 
 <PreviewCallout />
 
+import {
+  PostCard,
+  BlogCard,
+  CardBlogDataLayout,
+  CardColumnsPostLayout,
+  ColumnsBlogCardLayout
+} from '/snippets/components/content/data.jsx'
+import { TwitterTimeline } from '/snippets/components/display/embed.jsx'
+import { LinkArrow } from '/snippets/components/primitives/links.jsx'
+import { forumData } from '/snippets/automations/forum/forumData.jsx'
+import { ghostData } from '/snippets/automations/blog/ghostBlogData.jsx'
+
 <Info>
   Use automation & AI to aggregate latest Livepeer product drops, guides and
   discord/forum questions
@@ -20,7 +32,21 @@ import {PreviewCallout} from '/snippets/components/domain/SHARED/previewCallouts
   pre-fill 5 cards
 </Info>
 
-## Trending
+# Trending
+
+## X Posts
+See the latest <LinkArrow label="X posts" href="https://x.com/Livepeer" newline={false} /> from Livepeer.
+{/* Note: widget used from "https://www.mikle.com/". Alt: https://www.sociablekit.com/ */}
+<TwitterTimeline />
+
+## Blogs
+
+<ColumnsBlogCardLayout items={ghostData} limit={2} />
+
+## Forum
+<CardColumnsPostLayout cols={2} items={forumData} />
+
+
 
 import { YouTubeVideo } from '/snippets/components/display/video.jsx'
 

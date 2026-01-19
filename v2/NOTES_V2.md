@@ -175,7 +175,7 @@ count, specific issue details
 
 I'm fetching the latest release of livepeer dynamically in some places eg.
 gateways/linux-install. with a github action `latestVersion` and
-`latestVersionUrl` are saved in `/snippets/automationData/globals/globals.mdx`.
+`latestVersionUrl` are saved in `/snippets/automations/globals/globals.mdx`.
 
 ### !!! Caveats:
 
