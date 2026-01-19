@@ -76,6 +76,7 @@ export const TwitterTimeline = ({}) => {
   );
 };
 
+//Doesnt work
 // export const TwitterTimeline = ({}) => {
 //   return (
 //     <a href="https://twitter.com/livepeer">

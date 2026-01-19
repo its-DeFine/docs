@@ -1,0 +1,237 @@
+{
+  "name": "YouTube to GitHub (No Shorts)",
+  "nodes": [
+    {
+      "parameters": {
+        "url": "=https://www.youtube.com/feeds/videos.xml?channel_id={{ $json.channelId }}",
+        "options": {}
+      },
+      "id": "youtube_rss_fetch",
+      "name": "Fetch YouTube RSS",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "mode": "xml",
+        "value": "={{ $json.data }}"
+      },
+      "id": "parse_xml",
+      "name": "Parse XML",
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [450, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const xml2js = require('xml2js');\n\nconst parser = new xml2js.Parser();\nconst xmlData = $input.first().binary.data;\nconst xmlString = Buffer.from(xmlData, 'base64').toString('utf-8');\n\nlet result;\nawait parser.parseString(xmlString, (err, parsedResult) => {\n  if (err) throw err;\n  result = parsedResult;\n});\n\nconst entries = result.feed.entry || [];\nconst videos = [];\n\nfor (const entry of entries) {\n  const videoId = entry['yt:videoId'][0];\n  const title = entry.title[0];\n  const link = entry.link[0].$.href;\n  const published = entry.published[0];\n  const updated = entry.updated[0];\n  \n  // Check video duration via media:group\n  const mediaGroup = entry['media:group'][0];\n  const description = mediaGroup['media:description'][0];\n  \n  videos.push({\n    videoId,\n    title,\n    link,\n    published,\n    updated,\n    description\n  });\n}\n\nreturn videos.map(v => ({ json: v }));"
+      },
+      "id": "extract_videos",
+      "name": "Extract Videos",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "url": "=https://www.googleapis.com/youtube/v3/videos?part=contentDetails&id={{ $json.videoId }}&key={{ $('Set Channel ID').item.json.youtubeApiKey }}",
+        "options": {}
+      },
+      "id": "check_duration",
+      "name": "Check Video Duration",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $input.item;\nconst videoData = item.json;\n\n// Parse ISO 8601 duration (PT1M30S format)\nconst duration = videoData.items[0].contentDetails.duration;\nconst match = duration.match(/PT(?:(\\d+)H)?(?:(\\d+)M)?(?:(\\d+)S)?/);\n\nconst hours = parseInt(match[1] || 0);\nconst minutes = parseInt(match[2] || 0);\nconst seconds = parseInt(match[3] || 0);\n\nconst totalSeconds = hours * 3600 + minutes * 60 + seconds;\n\n// Shorts are typically under 60 seconds\nconst isShort = totalSeconds <= 60;\n\nreturn {\n  ...item.json,\n  duration,\n  totalSeconds,\n  isShort\n};"
+      },
+      "id": "parse_duration",
+      "name": "Parse Duration",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.isShort }}",
+              "value2": false
+            }
+          ]
+        }
+      },
+      "id": "filter_shorts",
+      "name": "Filter Out Shorts",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [1250, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const videos = $input.all().map(item => ({\n  title: item.json.title,\n  videoId: item.json.videoId,\n  url: item.json.link,\n  published: item.json.published,\n  duration: item.json.duration,\n  description: item.json.description\n}));\n\nconst markdown = `# Latest YouTube Videos\\n\\nLast updated: ${new Date().toISOString()}\\n\\n` +\n  videos.map(v => \n    `## ${v.title}\\n\\n` +\n    `- **Video ID**: ${v.videoId}\\n` +\n    `- **URL**: ${v.url}\\n` +\n    `- **Published**: ${v.published}\\n` +\n    `- **Duration**: ${v.duration}\\n\\n` +\n    `${v.description}\\n\\n---\\n\\n`\n  ).join('');\n\nreturn [{ json: { content: markdown } }];"
+      },
+      "id": "format_output",
+      "name": "Format as Markdown",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1450, 300]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "edit",
+        "owner": "={{ $json.githubOwner }}",
+        "repository": "={{ $json.githubRepo }}",
+        "filePath": "={{ $json.githubFilePath }}",
+        "fileContent": "={{ $('Format as Markdown').item.json.content }}",
+        "commitMessage": "=Update YouTube videos - {{ new Date().toISOString() }}"
+      },
+      "id": "update_github",
+      "name": "Update GitHub File",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [1650, 300]
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "channel_id",
+              "name": "channelId",
+              "value": "UCB0KR1ItxlEOLIMkKFCHgcg",
+              "type": "string"
+            },
+            {
+              "id": "youtube_api",
+              "name": "youtubeApiKey",
+              "value": "YOUR_YOUTUBE_API_KEY",
+              "type": "string"
+            },
+            {
+              "id": "github_owner",
+              "name": "githubOwner",
+              "value": "your-username",
+              "type": "string"
+            },
+            {
+              "id": "github_repo",
+              "name": "githubRepo",
+              "value": "your-repo",
+              "type": "string"
+            },
+            {
+              "id": "github_path",
+              "name": "githubFilePath",
+              "value": "youtube-videos.md",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "set_config",
+      "name": "Set Channel ID",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.3,
+      "position": [50, 300]
+    }
+  ],
+  "connections": {
+    "Set Channel ID": {
+      "main": [
+        [
+          {
+            "node": "Fetch YouTube RSS",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Fetch YouTube RSS": {
+      "main": [
+        [
+          {
+            "node": "Parse XML",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse XML": {
+      "main": [
+        [
+          {
+            "node": "Extract Videos",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Videos": {
+      "main": [
+        [
+          {
+            "node": "Check Video Duration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check Video Duration": {
+      "main": [
+        [
+          {
+            "node": "Parse Duration",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Duration": {
+      "main": [
+        [
+          {
+            "node": "Filter Out Shorts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Out Shorts": {
+      "main": [
+        [
+          {
+            "node": "Format as Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Format as Markdown": {
+      "main": [
+        [
+          {
+            "node": "Update GitHub File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "pinData": {}
+}

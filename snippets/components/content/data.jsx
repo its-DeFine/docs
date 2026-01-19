@@ -218,3 +218,218 @@ export const ColumnsBlogCardLayout = ({ items = [], cols = 2, limit }) => {
     </Columns>
   );
 };
+
+export const BlogDataLayout = ({ items = [], limit }) => {
+  console.log("items", items);
+  const displayItems = limit ? items.slice(0, limit) : items;
+  return (
+    <div>
+      {displayItems.map((props, idx) => (
+        <BlogCard key={props.href || idx} {...props} />
+      ))}
+    </div>
+  );
+};
+
+/**
+ * PostCard - A card component for displaying forum posts or articles
+ *
+ * @description
+ * Displays a post with title, content, author, date, and optional metadata.
+ * Includes automatic scroll detection and hints for long content.
+ *
+ * @param {string} title - The title of the post
+ * @param {string} content - HTML content to display (rendered with dangerouslySetInnerHTML)
+ * @param {string} href - Link URL for the card
+ * @param {string} [author="Unknown"] - Author name
+ * @param {string} [datePosted=null] - Date the post was published
+ * @param {number} [replyCount=null] - Number of replies (currently unused)
+ * @param {string} [icon="book-open"] - Icon to display on the card
+ * @param {string} [authorIcon="user-pen"] - Icon for the author section
+ * @param {string} [dateIcon="calendar"] - Icon for the date section
+ * @param {string} [cta="Read More"] - Call-to-action button text
+ * @param {string} [img=null] - Optional image URL for the card
+ *
+ * @example
+ * <PostCard
+ *   title="Getting Started with Livepeer"
+ *   content="<p>Learn how to use Livepeer...</p>"
+ *   href="/guides/getting-started"
+ *   author="John Doe"
+ *   datePosted="2024-01-15"
+ * />
+ *
+ * @author Livepeer Documentation Team
+ */
+export const PostCard = ({
+  title,
+  content,
+  href,
+  author = "Unknown",
+  datePosted = null,
+  replyCount = null,
+  icon = "book-open",
+  authorIcon = "user-pen",
+  dateIcon = "calendar",
+  cta = "Read More",
+  img = null,
+}) => {
+  console.log("item", title, content, href, img);
+  // Show hint if content is likely to overflow (>500 chars as proxy)
+  const showScrollHint = content && content.length > 500;
+
+  // FIX STYLES
+  return (
+    <Card title={title} icon={icon} href={href} cta={cta} img={img} arrow>
+      {author && (
+        <div
+          style={{
+            display: "flex",
+            marginTop: "12px",
+            fontSize: 13,
+            color: "white",
+            gap: 8,
+          }}
+        >
+          <span>
+            <Icon icon={authorIcon} size={20} />
+          </span>
+          <span>{author}</span>
+        </div>
+      )}
+      {datePosted && (
+        <div
+          style={{
+            display: "flex",
+            marginTop: "10px",
+            fontSize: 12,
+            color: "white",
+            gap: 8,
+          }}
+        >
+          <span>
+            <Icon icon={dateIcon} size={20} />
+          </span>
+          <span>{datePosted}</span>
+        </div>
+      )}
+      {/* {replyCount && (
+        <div
+          style={{
+            display: 'flex',
+            marginBottom: 8,
+            fontSize: 12,
+            color: 'white',
+            gap: 8,
+          }}
+        >
+          <span>
+            <Icon icon="comment" />
+          </span>
+          <span>Replies: {replyCount}</span>
+        </div>
+            )} */}
+      <div
+        style={{
+          height: 1,
+          backgroundColor: "rgba(255,255,255,0.1)",
+          margin: "12px 0",
+        }}
+      />
+      <div
+        style={{
+          maxHeight: 300,
+          overflowY: "auto",
+        }}
+        onScroll={(e) => {
+          const el = e.target;
+          const atBottom =
+            el.scrollHeight - el.scrollTop <= el.clientHeight + 10;
+          const hint = el.nextSibling;
+          if (hint) hint.style.display = atBottom ? "none" : "block";
+        }}
+        dangerouslySetInnerHTML={{ __html: content }}
+      />
+      {showScrollHint && (
+        <div
+          style={{
+            fontSize: 11,
+            color: "rgba(255,255,255,0.5)",
+            textAlign: "center",
+            marginTop: 10,
+            marginBottom: 10,
+          }}
+        >
+          Scroll for more ↓
+        </div>
+      )}
+    </Card>
+  );
+};
+
+/**
+ * CardColumnsPostLayout - Layout component for displaying multiple PostCards in columns
+ *
+ * @description
+ * Renders an array of post items in a multi-column layout using the Columns component.
+ * Each item is rendered as a PostCard.
+ *
+ * @param {number} [cols=2] - Number of columns to display
+ * @param {Array<Object>} [items=[]] - Array of PostCard props objects
+ *
+ * @example
+ * const posts = [
+ *   { title: "Post 1", content: "...", href: "/post-1" },
+ *   { title: "Post 2", content: "...", href: "/post-2" }
+ * ];
+ * <CardColumnsPostLayout cols={3} items={posts} />
+ *
+ * @author Livepeer Documentation Team
+ */
+export const CardColumnsPostLayout = ({ cols = 2, items = [], limit }) => {
+  const displayItems = limit ? items.slice(0, limit) : items;
+
+  return (
+    <>
+      <Columns cols={cols}>
+        {displayItems.map((props, idx) => (
+          <PostCard key={props.href || idx} {...props} />
+        ))}
+      </Columns>
+    </>
+  );
+};
+
+export const CardInCardLayout = ({ items = [], limit }) => {
+  return (
+    <Card
+      img="/snippets/automations/forum/Hero_Livepeer_Forum.png"
+      href="https://forum.livepeer.org"
+      arrow={false}
+    >
+      <CardColumnsPostLayout cols={2} items={forumData} limit={2} />
+    </Card>
+  );
+};
+
+export const ForumLatestLayout = ({ items = [], limit }) => {
+  return (
+    <>
+      <a href="https:/forum.livepeer.org" target="_blank">
+        <img
+          src="/snippets/automations/forum/Hero_Livepeer_Forum.png"
+          alt="Livepeer Forum"
+          noZoom
+          style={{
+            border: "1px solid var(--border)",
+            borderRadius: "0.5rem",
+            marginBottom: "0",
+            paddingBottom: "0",
+          }}
+        />
+      </a>
+
+      <CardColumnsPostLayout cols={2} items={items} limit={limit} />
+    </>
+  );
+};

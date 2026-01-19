@@ -15,12 +15,15 @@ import {
   BlogCard,
   CardBlogDataLayout,
   CardColumnsPostLayout,
-  ColumnsBlogCardLayout
+  ColumnsBlogCardLayout,
+  ForumLatestLayout,
 } from '/snippets/components/content/data.jsx'
 import { TwitterTimeline } from '/snippets/components/display/embed.jsx'
+import { YouTubeVideo } from '/snippets/components/display/video.jsx'
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { forumData } from '/snippets/automations/forum/forumData.jsx'
 import { ghostData } from '/snippets/automations/blog/ghostBlogData.jsx'
+import { youtubeData } from '/snippets/automations/youtube/youtubeData.jsx'
 
 <Info>
   Use automation & AI to aggregate latest Livepeer product drops, guides and
@@ -34,25 +37,8 @@ import { ghostData } from '/snippets/automations/blog/ghostBlogData.jsx'
 
 # Trending
 
-## X Posts
-See the latest <LinkArrow label="X posts" href="https://x.com/Livepeer" newline={false} /> from Livepeer.
-{/* Note: widget used from "https://www.mikle.com/". Alt: https://www.sociablekit.com/ */}
-<TwitterTimeline />
-
-## Blogs
-
-<ColumnsBlogCardLayout items={ghostData} limit={2} />
-
-## Forum
-<CardColumnsPostLayout cols={2} items={forumData} />
-
-
-
-import { YouTubeVideo } from '/snippets/components/display/video.jsx'
-
+## Videos
 {/* { DownloadButton } from "/snippets/components/primitives/buttons.jsx"; */}
-
-#### Eric Tang | Live in Lisbon
 
 <Columns cols={2}>
 <YouTubeVideo
@@ -68,7 +54,22 @@ Daydream, the real-time video Ai gateway for the Livepeer network."
 
 </Columns>
 
-<br />
+## X Posts
+See the latest <LinkArrow label="X posts" href="https://x.com/Livepeer" newline={false} /> from Livepeer.
+{/* Note: widget used from "https://www.mikle.com/". Alt: https://www.sociablekit.com/ */}
+<TwitterTimeline />
+
+## Blogs
+
+<ColumnsBlogCardLayout items={ghostData} limit={2} />
+
+## Forum
+*Latest Forum Discussions* 
+
+<ForumLatestLayout items={forumData} limit={2} />
+
+
+{/* <br />
 
 #### Live in Lisbon Livepeer Summit 2025 Recap
 
@@ -205,4 +206,4 @@ October 2025, something special happened in the heart of Portugal: builders, cor
   className="w-full h-96 rounded-xl"
   title="Your presentation title"
   allowFullScreen
-></iframe>
+></iframe> */}
