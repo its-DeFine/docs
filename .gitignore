@@ -22,6 +22,9 @@ pnpm-lock.yaml
 .env
 .env.*local
 
+# Google OAuth secrets
+**/client_secret*.json
+
 # ------------------------------------
 # Logs
 # ------------------------------------
