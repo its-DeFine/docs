@@ -19,29 +19,24 @@ import {
   ForumLatestLayout,
 } from '/snippets/components/content/data.jsx'
 import { TwitterTimeline } from '/snippets/components/display/embed.jsx'
-import { YouTubeVideo } from '/snippets/components/display/video.jsx'
+import { YouTubeVideo, YouTubeVideoData } from '/snippets/components/display/video.jsx'
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { forumData } from '/snippets/automations/forum/forumData.jsx'
 import { ghostData } from '/snippets/automations/blog/ghostBlogData.jsx'
 import { youtubeData } from '/snippets/automations/youtube/youtubeData.jsx'
 
 <Info>
-  Use automation & AI to aggregate latest Livepeer product drops, guides and
-  discord/forum questions
-</Info>
-
-<Info>
-  Will pull in the latest youtube videos via an automation & automatically
-  pre-fill 5 cards
+  Uses automations to pull in the latest youtube videos, forum posts and blogs
 </Info>
 
 # Trending
 
 ## Videos
+Latest Uploads from Livepeer
 {/* { DownloadButton } from "/snippets/components/primitives/buttons.jsx"; */}
 
-<Columns cols={2}>
-<YouTubeVideo
+  <YouTubeVideoData items={youtubeData} limit={2} />
+{/* <YouTubeVideo
   embedUrl="https://www.youtube.com/embed/-iO7HsR3KE4?si=AU--M5NWUD057Lw5"
   caption="A deep dive into
 Daydream, the real-time video Ai gateway for the Livepeer network."
@@ -50,24 +45,22 @@ Daydream, the real-time video Ai gateway for the Livepeer network."
 <YouTubeVideo
   embedUrl="https://www.youtube.com/embed/q6MP7OgfBzg?si=uBznrWck83liVYO8"
   caption="Peter Schroedl | Live in Lisbon"
-/>
-
-</Columns>
-
-## X Posts
-See the latest <LinkArrow label="X posts" href="https://x.com/Livepeer" newline={false} /> from Livepeer.
-{/* Note: widget used from "https://www.mikle.com/". Alt: https://www.sociablekit.com/ */}
-<TwitterTimeline />
-
-## Blogs
-
-<ColumnsBlogCardLayout items={ghostData} limit={2} />
+/> */}
 
 ## Forum
-*Latest Forum Discussions* 
+Contribute to the latest <LinkArrow label="Livepeer forum" href="https://forum.livepeer.org/" newline={false} /> Forum Discussions
 
 <ForumLatestLayout items={forumData} limit={2} />
 
+## Blogs
+Read the latest news from the <LinkArrow label="Livepeer blog" href="https://blog.livepeer.org/" newline={false} /> Livepeer blog.
+<ColumnsBlogCardLayout items={ghostData} limit={2} />
+
+
+## X Posts
+Follow the latest <LinkArrow label="X posts" href="https://x.com/Livepeer" newline={false} /> from Livepeer.
+{/* Note: widget used from "https://www.mikle.com/". Alt: https://www.sociablekit.com/ */}
+<TwitterTimeline />
 
 {/* <br />
 
