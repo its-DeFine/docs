@@ -6,10 +6,6 @@ keywords: ["trending", "topics", "livepeer", "real-time AI", "Daydream"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsHero.svg"
 ---
 
-import {PreviewCallout} from '/snippets/components/domain/SHARED/previewCallouts.jsx'
-
-<PreviewCallout />
-
 import {
   PostCard,
   BlogCard,
@@ -25,14 +21,12 @@ import { forumData } from '/snippets/automations/forum/forumData.jsx'
 import { ghostData } from '/snippets/automations/blog/ghostBlogData.jsx'
 import { youtubeData } from '/snippets/automations/youtube/youtubeData.jsx'
 
-<Info>
+<Warning>
   Uses automations to pull in the latest youtube videos, forum posts and blogs
-</Info>
-
-# Trending
+</Warning>
 
 ## Videos
-Latest Uploads from Livepeer
+Latest Uploads on the <LinkArrow label="Livepeer Youtube Channel" href="https://www.youtube.com/@livepeer" newline={false} />
 {/* { DownloadButton } from "/snippets/components/primitives/buttons.jsx"; */}
 
   <YouTubeVideoData items={youtubeData} limit={2} />
