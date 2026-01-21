@@ -75,7 +75,7 @@
       "type": "n8n-nodes-base.github",
       "typeVersion": 1,
       "position": [
-        1216,
+        1296,
         -96
       ],
       "id": "6ea25cad-b0ce-46e2-8e2d-df449de5650e",
@@ -106,7 +106,7 @@
             {
               "id": "github_path",
               "name": "githubFilePath",
-              "value": "snippets/automations/luma/lumaData.jsx",
+              "value": "snippets/automations/luma/lumaEventsData.jsx",
               "type": "string"
             },
             {
@@ -150,7 +150,7 @@
       "typeVersion": 3.2,
       "position": [
         1008,
-        -272
+        -256
       ],
       "id": "2884d9f4-db09-4594-8016-886a4833d387",
       "name": "Merge",
@@ -248,7 +248,7 @@
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "7501525c-3504-485f-b1dd-078c03b4837e",
+  "versionId": "cfceb7ce-785a-4a19-9995-543b1933c476",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "b77ce31e344450acd6ad20bd6cde79f46c1e07d55921483122bfba86e8350352"

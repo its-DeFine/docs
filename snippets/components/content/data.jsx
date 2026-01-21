@@ -530,3 +530,127 @@ export const DiscordAnnouncements = ({ items = [], limit }) => {
     </div>
   );
 };
+
+/**
+ * LumaEvents - Displays Luma events from lumaEventsData.jsx
+ *
+ * @param {Object} data - Event data object with upcoming and past arrays
+ * @param {number} [limit] - Optional limit on number of events to display
+ * @param {string} [type="upcoming"] - Type of events to display: "upcoming", "past", or "all"
+ *
+ * @example
+ * import { lumaEvents } from 'snippets/automations/luma/lumaEventsData.jsx';
+ *
+ * <LumaEvents data={lumaEvents} type="upcoming" limit={5} />
+ */
+export const LumaEvents = ({ data, limit, type = "upcoming" }) => {
+  console.log("LumaEvents - data:", data);
+  console.log("LumaEvents - type:", type);
+  console.log("LumaEvents - limit:", limit);
+
+  let events = [];
+
+  if (type === "all") {
+    events = [...data.upcoming, ...data.past];
+  } else if (type === "past") {
+    events = data.past;
+  } else {
+    events = data.upcoming;
+  }
+
+  console.log("LumaEvents - events:", events);
+  const displayEvents = limit ? events.slice(0, limit) : events;
+  console.log("LumaEvents - displayEvents:", displayEvents);
+
+  if (displayEvents.length === 0) {
+    return (
+      <Card>
+        <p style={{ color: "var(--text-secondary)", textAlign: "center" }}>
+          No {type} events at this time.
+        </p>
+      </Card>
+    );
+  }
+
+  return (
+    // <div
+    //   style={{
+    //     display: "grid",
+    //     gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+    //     gap: "1rem",
+    //   }}
+    // >
+    <Columns cols={3}>
+      {displayEvents.map((event, index) => (
+        <Card
+          key={index}
+          href={event.url}
+          arrow
+          style={{ display: "flex", flexDirection: "column", height: "100%" }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.5rem",
+              flex: 1,
+              justifyContent: "space-between",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "0.5rem",
+              }}
+            >
+              <h3 style={{ margin: 0, fontSize: "1.125rem", fontWeight: 600 }}>
+                {event.title}
+              </h3>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  fontSize: "0.875rem",
+                  color: "var(--text-secondary)",
+                }}
+              >
+                <Icon icon="calendar" size={16} />
+                <span>{event.date}</span>
+              </div>
+              {event.location && !event.location.startsWith("https://") && (
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.5rem",
+                    fontSize: "0.875rem",
+                    color: "var(--text-secondary)",
+                  }}
+                >
+                  <Icon icon="map-pin" size={16} />
+                  <span>{event.location}</span>
+                </div>
+              )}
+            </div>
+            <a
+              style={{
+                marginTop: "1rem",
+                fontSize: "0.875rem",
+                color: "var(--accent)",
+                textDecoration: "none",
+                width: "fit-content",
+              }}
+              href={event.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Event →
+            </a>
+          </div>
+        </Card>
+      ))}
+    </Columns>
+  );
+};
