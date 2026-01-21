@@ -469,7 +469,7 @@ export const DiscordAnnouncements = ({ items = [], limit }) => {
         padding: "1rem",
       }}
     >
-      {displayItems.map((announcement) => (
+      {displayItems.map((announcement, index) => (
         <div key={announcement.id} href={announcement.url} target="_blank">
           <div
             style={{
@@ -477,7 +477,7 @@ export const DiscordAnnouncements = ({ items = [], limit }) => {
               alignItems: "center",
               gap: "0.5rem",
               fontSize: "0.875rem",
-              marginBottom: "0.5rem",
+              marginBottom: "0.75rem",
               width: "100%",
             }}
           >
@@ -509,18 +509,22 @@ export const DiscordAnnouncements = ({ items = [], limit }) => {
             </span>
           </div>
           <div
-            style={{ marginBottom: "0.5rem", color: "var(--text)" }}
+            style={{ color: "var(--text)" }}
             dangerouslySetInnerHTML={{
               __html: parseContent(announcement.content),
             }}
           />
-          <hr
-            style={{
-              border: "none",
-              borderTop: "1px solid var(--border)",
-              margin: "0",
-            }}
-          />
+          {index < displayItems.length - 1 && (
+            <div style={{ marginTop: "0.75rem" }}>
+              <hr
+                style={{
+                  border: "none",
+                  borderBottom: "1px solid var(--border)",
+                  margin: "0",
+                }}
+              />
+            </div>
+          )}
         </div>
       ))}
     </div>
