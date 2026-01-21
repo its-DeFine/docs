@@ -39,7 +39,7 @@
                       },
                       {
                         "group": "Livepeer",
-                        "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
+                        "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
                         "pages": [
                           "v2/pages/00_home/introduction/vision",
                           "v2/pages/00_home/introduction/evolution",

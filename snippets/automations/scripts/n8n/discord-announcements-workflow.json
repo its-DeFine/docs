@@ -1,0 +1,288 @@
+{
+  "name": "Discord Announcements to Docs",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 6
+            }
+          ]
+        }
+      },
+      "id": "schedule-trigger",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "authentication": "botToken",
+        "resource": "message",
+        "operation": "getAll",
+        "channelId": "YOUR_CHANNEL_ID",
+        "limit": 50,
+        "additionalFields": {}
+      },
+      "id": "discord-get-messages",
+      "name": "Get Discord Messages",
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 2,
+      "position": [450, 300],
+      "credentials": {
+        "discordBotApi": {
+          "id": "YOUR_DISCORD_BOT_CREDENTIAL_ID",
+          "name": "Discord Bot"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "filter-recent",
+              "leftValue": "={{ new Date($json.timestamp).getTime() }}",
+              "rightValue": "={{ Date.now() - (24 * 60 * 60 * 1000) }}",
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "filter-recent-messages",
+      "name": "Filter Recent Messages",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const announcements = [];\n\nfor (const item of $input.all()) {\n  const message = item.json;\n  \n  announcements.push({\n    id: message.id,\n    content: message.content,\n    author: message.author.username,\n    timestamp: message.timestamp,\n    url: `https://discord.com/channels/${message.guild_id}/${message.channel_id}/${message.id}`,\n    attachments: message.attachments || [],\n    embeds: message.embeds || []\n  });\n}\n\n// Sort by timestamp, newest first\nannouncements.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));\n\nreturn [{ json: { announcements } }];"
+      },
+      "id": "process-announcements",
+      "name": "Process Announcements",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "const announcements = $input.first().json.announcements;\n\n// Helper function to escape JSX content\nfunction escapeJSX(str) {\n  if (!str) return '';\n  return str\n    .replace(/&/g, '&amp;')\n    .replace(/</g, '&lt;')\n    .replace(/>/g, '&gt;')\n    .replace(/\"/g, '&quot;')\n    .replace(/'/g, '&#039;')\n    .replace(/\\{/g, '&#123;')\n    .replace(/\\}/g, '&#125;');\n}\n\n// Helper function to format Discord markdown to HTML\nfunction formatContent(content) {\n  if (!content) return '';\n  \n  let formatted = escapeJSX(content);\n  \n  // Convert Discord markdown\n  formatted = formatted\n    .replace(/\\*\\*(.+?)\\*\\*/g, '<strong>$1</strong>') // Bold\n    .replace(/\\*(.+?)\\*/g, '<em>$1</em>') // Italic\n    .replace(/\\n/g, '<br />'); // Line breaks\n  \n  return formatted;\n}\n\n// Generate JSX content\nconst jsxContent = `export const DiscordAnnouncements = () => {\n  const announcements = [\n${announcements.map(ann => `    {\n      id: \"${ann.id}\",\n      content: \"${formatContent(ann.content)}\",\n      author: \"${escapeJSX(ann.author)}\",\n      timestamp: \"${ann.timestamp}\",\n      url: \"${ann.url}\"\n    }`).join(',\\n')}\n  ];\n\n  return (\n    <div className=\"discord-announcements\">\n      <div className=\"announcements-header\">\n        <h3>Latest Livepeer Announcements</h3>\n        <p className=\"text-sm text-gray-600\">From Discord</p>\n      </div>\n      <div className=\"announcements-list space-y-4 mt-4\">\n        {announcements.map((announcement) => (\n          <div key={announcement.id} className=\"announcement-card border rounded-lg p-4\">\n            <div className=\"announcement-meta flex items-center gap-2 text-sm text-gray-600 mb-2\">\n              <span className=\"font-semibold\">{announcement.author}</span>\n              <span>•</span>\n              <time dateTime={announcement.timestamp}>\n                {new Date(announcement.timestamp).toLocaleDateString('en-US', {\n                  month: 'short',\n                  day: 'numeric',\n                  year: 'numeric'\n                })}\n              </time>\n            </div>\n            <div \n              className=\"announcement-content\" \n              dangerouslySetInnerHTML={{ __html: announcement.content }}\n            />\n            <a \n              href={announcement.url} \n              target=\"_blank\" \n              rel=\"noopener noreferrer\"\n              className=\"text-sm text-blue-600 hover:text-blue-800 mt-2 inline-block\"\n            >\n              View in Discord →\n            </a>\n          </div>\n        ))}\n      </div>\n    </div>\n  );\n};\n`;\n\nreturn [{ json: { content: jsxContent, announcements } }];"
+      },
+      "id": "generate-jsx",
+      "name": "Generate JSX",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "get",
+        "owner": "livepeer",
+        "repository": "docs",
+        "filePath": "snippets/automations/discord/announcements.jsx",
+        "additionalParameters": {
+          "branch": "docs-v2-preview"
+        }
+      },
+      "id": "get-current-file",
+      "name": "Get Current File",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [1250, 300],
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "YOUR_GITHUB_CREDENTIAL_ID",
+          "name": "GitHub OAuth2"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "edit",
+        "owner": "livepeer",
+        "repository": "docs",
+        "filePath": "snippets/automations/discord/announcements.jsx",
+        "fileContent": "={{ $('Generate JSX').item.json.content }}",
+        "commitMessage": "chore: update Discord announcements from workflow",
+        "additionalParameters": {
+          "branch": "docs-v2-preview",
+          "sha": "={{ $('Get Current File').item.json.sha }}"
+        }
+      },
+      "id": "update-github-file",
+      "name": "Update GitHub File",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [1450, 300],
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "YOUR_GITHUB_CREDENTIAL_ID",
+          "name": "GitHub OAuth2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict"
+          },
+          "conditions": [
+            {
+              "id": "check-file-exists",
+              "leftValue": "={{ $('Get Current File').item.json.sha }}",
+              "rightValue": "",
+              "operator": {
+                "type": "string",
+                "operation": "exists"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "check-if-file-exists",
+      "name": "Check If File Exists",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [1250, 450]
+    },
+    {
+      "parameters": {
+        "authentication": "oAuth2",
+        "resource": "file",
+        "operation": "create",
+        "owner": "livepeer",
+        "repository": "docs",
+        "filePath": "snippets/automations/discord/announcements.jsx",
+        "fileContent": "={{ $('Generate JSX').item.json.content }}",
+        "commitMessage": "chore: create Discord announcements file from workflow",
+        "additionalParameters": {
+          "branch": "docs-v2-preview"
+        }
+      },
+      "id": "create-github-file",
+      "name": "Create GitHub File",
+      "type": "n8n-nodes-base.github",
+      "typeVersion": 1,
+      "position": [1450, 550],
+      "credentials": {
+        "githubOAuth2Api": {
+          "id": "YOUR_GITHUB_CREDENTIAL_ID",
+          "name": "GitHub OAuth2"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Get Discord Messages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Discord Messages": {
+      "main": [
+        [
+          {
+            "node": "Filter Recent Messages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Filter Recent Messages": {
+      "main": [
+        [
+          {
+            "node": "Process Announcements",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Process Announcements": {
+      "main": [
+        [
+          {
+            "node": "Generate JSX",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate JSX": {
+      "main": [
+        [
+          {
+            "node": "Get Current File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Current File": {
+      "main": [
+        [
+          {
+            "node": "Check If File Exists",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Check If File Exists": {
+      "main": [
+        [
+          {
+            "node": "Update GitHub File",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Create GitHub File",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

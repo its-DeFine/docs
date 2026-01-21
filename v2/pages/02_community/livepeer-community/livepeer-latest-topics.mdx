@@ -1,24 +1,53 @@
 ---
 title: 'Livepeer Hot Topics & Updates'
+sidebarTitle: 'Trending Topics'
+desctiption: 'The latest product updates, videos, forum discussions, X posts and blogs from Livepeer.'
 keywords: ["livepeer", "community", "livepeer community", "livepeer latest topics", "topics", "updates"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+import {
+  PostCard,
+  BlogCard,
+  CardBlogDataLayout,
+  CardColumnsPostLayout,
+  ColumnsBlogCardLayout,
+  ForumLatestLayout,
+} from '/snippets/components/content/data.jsx'
+import { TwitterTimeline } from '/snippets/components/display/embed.jsx'
+import { YouTubeVideo, YouTubeVideoData } from '/snippets/components/display/video.jsx'
+import { LinkArrow } from '/snippets/components/primitives/links.jsx'
+import { forumData } from '/snippets/automations/forum/forumData.jsx'
+import { ghostData } from '/snippets/automations/blog/ghostBlogData.jsx'
+import { youtubeData } from '/snippets/automations/youtube/youtubeData.jsx'
 
-<PreviewCallout />
+<Warning>
+  Uses automations to pull in the latest youtube videos, forum posts and blogs
+</Warning>
 
-
-# Livepeer Hot Topics & Updates
-
-## Forum Hot Topics
-
-<Info>Automation that links the forum news here</Info>
-
-## Discord Hot Topics
-
-<Info>Automation that links the latest Q & A and topics from Discord</Info>
 
 ## Latest Product Updates
 
-<Info>Automation that links the most recent blogs or youtube videos</Info>
+<Tip>Coming Soon: Automation that links to product updates feed</Tip>
+
+
+## Videos
+Latest Uploads on the <LinkArrow label="Livepeer Youtube Channel" href="https://www.youtube.com/@livepeer" newline={false} />
+{/* { DownloadButton } from "/snippets/components/primitives/buttons.jsx"; */}
+
+<YouTubeVideoData items={youtubeData} limit={2} />
+
+## Forum
+Contribute to the latest <LinkArrow label="Livepeer forum" href="https://forum.livepeer.org/" newline={false} /> Forum Discussions
+
+<ForumLatestLayout items={forumData} limit={2} />
+
+## X Posts
+Follow the latest <LinkArrow label="X posts" href="https://x.com/Livepeer" newline={false} /> from Livepeer.
+{/* Note: widget used from "https://www.mikle.com/". Alt: https://www.sociablekit.com/ */}
+<TwitterTimeline />
+
+## Blogs
+Read the latest news from the <LinkArrow label="Livepeer blog" href="https://blog.livepeer.org/" newline={false} /> Livepeer blog.
+<ColumnsBlogCardLayout items={ghostData} limit={2} />
+
