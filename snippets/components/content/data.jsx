@@ -544,10 +544,6 @@ export const DiscordAnnouncements = ({ items = [], limit }) => {
  * <LumaEvents data={lumaEvents} type="upcoming" limit={5} />
  */
 export const LumaEvents = ({ data, limit, type = "upcoming" }) => {
-  console.log("LumaEvents - data:", data);
-  console.log("LumaEvents - type:", type);
-  console.log("LumaEvents - limit:", limit);
-
   let events = [];
 
   if (type === "all") {
@@ -558,9 +554,7 @@ export const LumaEvents = ({ data, limit, type = "upcoming" }) => {
     events = data.upcoming;
   }
 
-  console.log("LumaEvents - events:", events);
   const displayEvents = limit ? events.slice(0, limit) : events;
-  console.log("LumaEvents - displayEvents:", displayEvents);
 
   if (displayEvents.length === 0) {
     return (

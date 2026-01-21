@@ -6,8 +6,7 @@
         "rule": {
           "interval": [
             {
-              "field": "hours",
-              "hoursInterval": 6
+              "field": "weeks"
             }
           ]
         }
@@ -75,7 +74,7 @@
       "type": "n8n-nodes-base.github",
       "typeVersion": 1,
       "position": [
-        1296,
+        1712,
         -96
       ],
       "id": "6ea25cad-b0ce-46e2-8e2d-df449de5650e",
@@ -149,8 +148,8 @@
       "type": "n8n-nodes-base.merge",
       "typeVersion": 3.2,
       "position": [
-        1008,
-        -256
+        1632,
+        -352
       ],
       "id": "2884d9f4-db09-4594-8016-886a4833d387",
       "name": "Merge",
@@ -158,16 +157,45 @@
     },
     {
       "parameters": {
-        "jsCode": "const events = $input.item.json.events;\n\nconst now = new Date();\nconst upcoming = events.filter(e => new Date(e.start) >= now);\nconst past = events.filter(e => new Date(e.start) < now);\n\nconst formatDate = (dateStr) => {\n  const date = new Date(dateStr);\n  return date.toLocaleDateString('en-US', { \n    year: 'numeric', \n    month: 'long', \n    day: 'numeric',\n    hour: '2-digit',\n    minute: '2-digit',\n    timeZoneName: 'short'\n  });\n};\n\nconst formatDateShort = (dateStr) => {\n  const date = new Date(dateStr);\n  return date.toLocaleDateString('en-US', { \n    year: 'numeric', \n    month: 'long', \n    day: 'numeric'\n  });\n};\n\nlet jsx = `export const lumaEvents = {\\n`;\njsx += `  lastUpdated: \"${new Date().toISOString()}\",\\n`;\njsx += `  upcoming: [\\n`;\n\nupcoming.forEach((event, idx) => {\n  jsx += `    {\\n`;\n  jsx += `      title: \"${event.title.replace(/\"/g, '\\\\\"')}\",\\n`;\n  jsx += `      date: \"${formatDate(event.start)}\",\\n`;\n  jsx += `      location: \"${event.location.replace(/\"/g, '\\\\\"')}\",\\n`;\n  jsx += `      url: \"${event.url}\",\\n`;\n  jsx += `      description: \"${event.description.split('\\\\n\\\\n')[0].replace(/\"/g, '\\\\\"').replace(/\\n/g, ' ')}\"\\n`;\n  jsx += `    }${idx < upcoming.length - 1 ? ',' : ''}\\n`;\n});\n\njsx += `  ],\\n`;\njsx += `  past: [\\n`;\n\npast.forEach((event, idx) => {\n  jsx += `    {\\n`;\n  jsx += `      title: \"${event.title.replace(/\"/g, '\\\\\"')}\",\\n`;\n  jsx += `      date: \"${formatDateShort(event.start)}\",\\n`;\n  jsx += `      location: \"${event.location.replace(/\"/g, '\\\\\"')}\",\\n`;\n  jsx += `      url: \"${event.url}\"\\n`;\n  jsx += `    }${idx < past.length - 1 ? ',' : ''}\\n`;\n});\n\njsx += `  ]\\n`;\njsx += `};\\n`;\n\nreturn [{ \n  json: { \n    content: jsx,\n    filename: 'lumaEvents.jsx'\n  } \n}];"
+        "jsCode": "const events = $input.item.json.events;\n\nconst now = new Date();\nconst upcoming = events.filter(e => new Date(e.start) >= now);\nconst past = events.filter(e => new Date(e.start) < now);\n\nconst formatDate = (dateStr) => {\n  const date = new Date(dateStr);\n  return date.toLocaleDateString('en-US', { \n    year: 'numeric', \n    month: 'long', \n    day: 'numeric',\n    hour: '2-digit',\n    minute: '2-digit',\n    timeZoneName: 'short'\n  });\n};\n\nconst formatDateShort = (dateStr) => {\n  const date = new Date(dateStr);\n  return date.toLocaleDateString('en-US', { \n    year: 'numeric', \n    month: 'long', \n    day: 'numeric'\n  });\n};\n\nlet jsx = `export const lumaEventsData = {\\n`;\njsx += `  lastUpdated: \"${new Date().toISOString()}\",\\n`;\njsx += `  upcoming: [\\n`;\n\nupcoming.forEach((event, idx) => {\n  jsx += `    {\\n`;\n  jsx += `      title: \"${event.title.replace(/\"/g, '\\\\\"')}\",\\n`;\n  jsx += `      date: \"${formatDate(event.start)}\",\\n`;\n  jsx += `      location: \"${event.location.replace(/\"/g, '\\\\\"')}\",\\n`;\n  jsx += `      url: \"${event.url}\",\\n`;\n  jsx += `      description: \"${event.description.split('\\\\n\\\\n')[0].replace(/\"/g, '\\\\\"').replace(/\\n/g, ' ')}\"\\n`;\n  jsx += `    }${idx < upcoming.length - 1 ? ',' : ''}\\n`;\n});\n\njsx += `  ],\\n`;\njsx += `  past: [\\n`;\n\npast.forEach((event, idx) => {\n  jsx += `    {\\n`;\n  jsx += `      title: \"${event.title.replace(/\"/g, '\\\\\"')}\",\\n`;\n  jsx += `      date: \"${formatDateShort(event.start)}\",\\n`;\n  jsx += `      location: \"${event.location.replace(/\"/g, '\\\\\"')}\",\\n`;\n  jsx += `      url: \"${event.url}\"\\n`;\n  jsx += `    }${idx < past.length - 1 ? ',' : ''}\\n`;\n});\n\njsx += `  ]\\n`;\njsx += `};\\n`;\n\nreturn [{ \n  json: { \n    content: jsx,\n    filename: 'lumaEventsData.jsx'\n  } \n}];"
       },
       "name": "Generate JSX",
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        816,
+        1424,
         -96
       ],
       "id": "d2e845cd-bbab-4f8b-88d6-1a5497541fdd"
+    },
+    {
+      "parameters": {
+        "url": "https://luma.com/livepeer",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        832,
+        160
+      ],
+      "id": "af12e7c9-8c57-4381-aa62-29f247c4da1b",
+      "name": "HTTP Request",
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "jsCode": "const events = $input.first().json.events;\nconst html = $input.last().json.data;\n\n// Extract __NEXT_DATA__ which has event images\nconst match = html.match(/<script id=\"__NEXT_DATA__\" type=\"application\\/json\">(.*?)<\\/script>/s);\n\nlet imageMap = {};\n\nif (match) {\n  try {\n    const nextData = JSON.parse(match[1]);\n    const pageEvents = nextData.props?.pageProps?.events || [];\n    \n    // Map images to events by UID\n    pageEvents.forEach(e => {\n      if (e.cover_url || e.image_url) {\n        imageMap[e.api_id] = e.cover_url || e.image_url;\n      }\n    });\n  } catch (e) {\n    // If parsing fails, continue without images\n  }\n}\n\n// Add images to parsed events\nconst eventsWithImages = events.map(event => ({\n  ...event,\n  image: imageMap[event.uid] || null\n}));\n\nreturn [{ json: { events: eventsWithImages } }];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1056,
+        176
+      ],
+      "id": "33ed85c3-4151-4a4d-88ac-9ece0dc45c08",
+      "name": "Fetch Thumbnails",
+      "disabled": true
     }
   ],
   "pinData": {},
@@ -242,13 +270,23 @@
           }
         ]
       ]
+    },
+    "HTTP Request": {
+      "main": [
+        []
+      ]
+    },
+    "Fetch Thumbnails": {
+      "main": [
+        []
+      ]
     }
   },
-  "active": false,
+  "active": true,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "cfceb7ce-785a-4a19-9995-543b1933c476",
+  "versionId": "c77566d0-f7e5-43a0-a3fd-f802beca9aba",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "b77ce31e344450acd6ad20bd6cde79f46c1e07d55921483122bfba86e8350352"

@@ -10,26 +10,26 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
 
 <PreviewCallout />
 
-import { lumaEvents } from '/snippets/automations/luma/lumaEventsData.jsx';
+import { lumaEventsData } from '/snippets/automations/luma/lumaEventsData.jsx';
 import { LumaEvents } from '/snippets/components/content/data.jsx';
 import { LinkArrow } from '/snippets/components/primitives/links.jsx';
-
-<Danger> Fix styling </Danger>
 
 # <Icon icon="calendar" size={24} /> Events Calendar
 
 Subscribe to the <LinkArrow label="Livepeer Events Calendar" href="https://luma.com/livepeer" newline={false} /> to stay up to date with all Livepeer in-person and online events.
 
 ### Upcoming Events
-<LumaEvents data={lumaEvents} type="upcoming" limit={5} />
+<LumaEvents data={lumaEventsData} type="upcoming" limit={5} />
 
 ### Past Events
-<LumaEvents data={lumaEvents} type="past" limit={5} />
+<LumaEvents data={lumaEventsData} type="past" limit={5} />
 
 #### All Events
-<LumaEvents data={lumaEvents} type="all" />
+<LumaEvents data={lumaEventsData} type="all" />
 
-{/* <Frame>
+{/* 
+Doesn't work
+<Frame>
   <iframe 
     src="https://lu.ma/embed/calendar/cal-giBner4VGLXeKjy/events?period=all" 
     width="100%" 
@@ -37,52 +37,3 @@ Subscribe to the <LinkArrow label="Livepeer Events Calendar" href="https://luma.
     frameBorder="0"
   ></iframe>
 </Frame> */}
-
-{/* <iframe 
-  src="https://lu.ma/embed/calendar/cal-abc123/events?compact=true" 
-  width="100%" 
-  height="600" 
-  frameborder="0"
-  style="border: 1px solid #bfcbda88; border-radius: 4px;"
-  allowfullscreen 
-  aria-hidden="false" 
-  tabindex="0"
-></iframe> */}
-
-{/* <iFrame
-    src="https://luma.com/livepeer"
-    style={{
-      width: '100%',
-      height: '600px',
-      borderRadius: '12px',
-      border: 'none',
-    }}
-    title="Livepeer Events Calendar"
-  >
-
-</iFrame> */}
-
-{/* <Info>
-  Embed Luma Events feed here. Also include the YouTube Community Streams (if
-  possible - they should be aggregated on Luma too - with a separate tag for
-  easy embedding)
-</Info>
-
-<Info>
-  To embed the luma feed an automation will be required. Gitbook can only pull
-  in html - it will not render.
-</Info>
-
-<a href="https://luma.com/livepeer?period=past" class="button primary">
-  Subscribe to Events
-</a>
-
-## Upcoming Events
-
-| Event | Date        | Location | Tags |
-| ----- | ----------- | -------- | ---- |
-| Event | Date & Time | Location | AI   |
-
-## Past Events
-
-[View past events on Luma](https://luma.com/livepeer?period=past) */}
