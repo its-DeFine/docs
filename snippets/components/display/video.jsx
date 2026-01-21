@@ -21,6 +21,19 @@
  * @author Livepeer Documentation Team
  */
 export const YouTubeVideo = ({ embedUrl, title = "", hint = "", caption }) => {
+  // Return null if embedUrl is missing or invalid
+  if (!embedUrl || typeof embedUrl !== "string" || embedUrl.trim() === "") {
+    return null;
+  }
+
+  // Basic validation for YouTube embed URLs
+  const isValidYouTubeUrl =
+    embedUrl.includes("youtube.com/embed/") || embedUrl.includes("youtu.be/");
+  if (!isValidYouTubeUrl) {
+    console.warn("Invalid YouTube embed URL:", embedUrl);
+    return null;
+  }
+
   return (
     <Frame
       {...(hint ? { hint } : {})}
