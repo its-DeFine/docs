@@ -8,9 +8,6 @@ keywords: ["community", "connect", "contribute", "livepeer", "home", "help", "in
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsHero.svg"
 ---
 
-import { ComingSoonCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
-
-
 import { PortalHeroContent, HeroImageBackgroundComponent, LogoHeroContainer, HeroContentContainer, HeroSectionContainer, PortalCardsHeader, PortalContentContainer, PortalSectionHeader } from '/snippets/components/domain/SHARED/Portals.jsx'
 import { ThemeData } from '/snippets/styles/themeStyles.jsx'
 import { H1, H2, H3, H5,P } from '/snippets/components/display/frameMode.jsx'
@@ -30,7 +27,6 @@ import { YouTubeVideo } from '/snippets/components/display/video.jsx'
     <LogoHeroContainer height="20px" />
 
     <PortalHeroContent
-      callout={<ComingSoonCallout />}
       title="Community"
       subtitle="Connect – Participate – Contribute"
       refCardLink={
@@ -61,50 +57,74 @@ import { YouTubeVideo } from '/snippets/components/display/video.jsx'
 
   <Columns cols={2}>
     <Card
-      title="Community Map"
+      title="Join the Discord"
+      icon="discord"
+      href="https://discord.livepeer.org"
+      arrow
+    >
+      The Livepeer Discord is the primary communication platform for the Livepeer community. Get Involved!
+    </Card>
+    <Card
+      title="Join the Forum"
       icon="comment-question"
-      href="./about-Communitys/overview"
+      href="https://forum.livepeer.org"
       arrow
     >
-      ..
+      The Livepeer Forum is a great place to ask questions, share ideas, and connect with other members of the Livepeer community.
     </Card>
     <Card
-      title="Community Connect"
-      icon="laptop-code"
-      href="./setting-up-an-Community/hardware-requirements"
+      title="Follow Livepeer on X"
+      icon="twitter"
+      href="https://x.com/livepeer"
       arrow
     >
-      ..
+      Follow, like, share & comment on the latest news and updates from Livepeer on X.
     </Card>
     <Card
-      title="Community Participate"
-      icon="rocket"
-      href="./setting-up-an-Community/hardware-requirements"
+      title="Follow the YouTube Channel"
+      icon="camera-movie"
+      href="https://www.youtube.com/@livepeer"
       arrow
     >
-      Community Level up: Deploy your own Gateway on the Livepeer Protocol.
+      From product updates to community hangouts, you can find it all on the Livepeer YouTube Channel.
     </Card>
     <Card
-      title="Community Contribute"
-      icon="tools"
-      href="./Community-tools/tooling-hub"
+      title="Subscribe to the Livepeer Blog"
+      icon="pencil-line"
+      href="https://blog.livepeer.org/"
       arrow
     >
-      .
+      Read the latest news and updates from Livepeer on the official Livepeer Blog.
     </Card>
     <Card
-      title="Community Guides & Resources"
-      icon="laptop-file"
-      href="./guides-and-resources/Community-guides"
+      title="Star the Livepeer Github"
+      icon="github"
+      href="https://github.com/livepeer"
       arrow
     >
-      .
+      The Livepeer codebase is open-source and available on GitHub. Contribute to the code and help shape the future of Livepeer.
+    </Card>
+    <Card
+      title="Visit the Livepeer Explorer"
+      icon="chart-line"
+      href="https://explorer.livepeer.org/"
+      arrow
+      >
+      The Explorer is an analytics tool that allows users to monitor network activity, track performance, and participate in the network's governance and staking processes.
+    </Card>
+    <Card
+      title="Join the Livepeer Watercooler"
+      icon="messages"
+      href="https://www.youtube.com/@livepeer"
+      arrow
+    >
+      Join the Livepeer Watercooler, a weekly community meeting where you can ask questions, share ideas, and connect with other members of the Livepeer community.
     </Card>
   </Columns>
 
-  <br/>
-  <br/>
-  <PortalSectionHeader title="? Community Portal: Map" icon="map-location">
+  {/* <br/>
+  <br/> */}
+  {/* <PortalSectionHeader title="? Community Portal: Map" icon="map-location">
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
       <H5>**Definition**</H5>
       Community is...
@@ -112,7 +132,7 @@ import { YouTubeVideo } from '/snippets/components/display/video.jsx'
       <H5>**Quick Intro**</H5>
       Get Situated
     </div>
-  </PortalSectionHeader>
+  </PortalSectionHeader> */}
 
 </PortalContentContainer>
 
