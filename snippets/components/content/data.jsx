@@ -433,3 +433,96 @@ export const ForumLatestLayout = ({ items = [], limit }) => {
     </>
   );
 };
+
+/**
+ * DiscordAnnouncements - Displays Discord announcements from discordAnnouncementsData.jsx
+ *
+ * @param {Array} items - Array of announcement objects
+ * @param {number} [limit] - Optional limit on number of announcements to display
+ *
+ * @example
+ * import { discordAnnouncementsData } from 'snippets/automations/discord/discordAnnouncementsData.jsx';
+ *
+ * <DiscordAnnouncements items={discordAnnouncementsData} limit={3} />
+ */
+export const DiscordAnnouncements = ({ items = [], limit }) => {
+  const displayItems = limit ? items.slice(0, limit) : items;
+
+  // Convert markdown links [text](url) to HTML <a> tags
+  const parseContent = (content) => {
+    // First convert markdown links to HTML with icon placeholder
+    const withLinks = content.replace(
+      /\[([^\]]+)\]\(([^)]+)\)/g,
+      '<a href="$2" target="_blank" rel="noopener noreferrer">$1 ↗</a>'
+    );
+    return withLinks;
+  };
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+        border: "1px solid var(--border)",
+        borderRadius: "0.5rem",
+        padding: "1rem",
+      }}
+    >
+      {displayItems.map((announcement) => (
+        <div key={announcement.id} href={announcement.url} target="_blank">
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "0.5rem",
+              fontSize: "0.875rem",
+              marginBottom: "0.5rem",
+              width: "100%",
+            }}
+          >
+            <Icon icon="discord" color="#5965f3" />
+            <span style={{ fontWeight: 600, color: "var(--accent)" }}>
+              Livepeer
+              {/* {announcement.author} */}
+            </span>
+            <span style={{ color: "var(--text)" }}>•</span>
+            <time
+              dateTime={announcement.timestamp}
+              style={{ color: "var(--text)" }}
+            >
+              {new Date(announcement.timestamp).toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </time>
+            <span
+              style={{
+                fontSize: "0.875rem",
+                color: "var(--text) !important",
+                marginLeft: "auto",
+              }}
+            >
+              View in Discord{" "}
+              <Icon icon="arrow-up-right" size={12} color="var(--accent)" />
+            </span>
+          </div>
+          <div
+            style={{ marginBottom: "0.5rem", color: "var(--text)" }}
+            dangerouslySetInnerHTML={{
+              __html: parseContent(announcement.content),
+            }}
+          />
+          <hr
+            style={{
+              border: "none",
+              borderTop: "1px solid var(--border)",
+              margin: "0",
+            }}
+          />
+        </div>
+      ))}
+    </div>
+  );
+};
