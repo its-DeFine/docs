@@ -12,7 +12,8 @@ import {
   CardBlogDataLayout,
   CardColumnsPostLayout,
   ColumnsBlogCardLayout,
-  ForumLatestLayout,
+ ForumLatestLayout,
+  DiscordAnnouncements,
 } from '/snippets/components/content/data.jsx'
 import { TwitterTimeline } from '/snippets/components/display/embed.jsx'
 import { YouTubeVideo, YouTubeVideoData } from '/snippets/components/display/video.jsx'
@@ -20,10 +21,11 @@ import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { forumData } from '/snippets/automations/forum/forumData.jsx'
 import { ghostData } from '/snippets/automations/blog/ghostBlogData.jsx'
 import { youtubeData } from '/snippets/automations/youtube/youtubeData.jsx'
+import { discordAnnouncementsData } from '/snippets/automations/discord/discordAnnouncementsData.jsx'
 
-<Warning>
+<Tip>
   Uses automations to pull in the latest youtube videos, forum posts and blogs
-</Warning>
+</Tip>
 
 
 ## Latest Product Updates
@@ -41,6 +43,10 @@ Latest Uploads on the <LinkArrow label="Livepeer Youtube Channel" href="https://
 Contribute to the latest <LinkArrow label="Livepeer forum" href="https://forum.livepeer.org/" newline={false} /> Forum Discussions
 
 <ForumLatestLayout items={forumData} limit={2} />
+
+## Discord
+Join the latest <LinkArrow label="Discord Discussions" href="https://discord.livepeer.org/" newline={false} /> 
+<DiscordAnnouncements items={discordAnnouncementsData} limit={2} />
 
 ## X Posts
 Follow the latest <LinkArrow label="X posts" href="https://x.com/Livepeer" newline={false} /> from Livepeer.

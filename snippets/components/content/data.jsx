@@ -464,7 +464,7 @@ export const DiscordAnnouncements = ({ items = [], limit }) => {
         display: "flex",
         flexDirection: "column",
         gap: "1rem",
-        border: "1px solid var(--border)",
+        border: "1px solid var(--accent)",
         borderRadius: "0.5rem",
         padding: "1rem",
       }}
