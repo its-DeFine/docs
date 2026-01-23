@@ -71,3 +71,8 @@ build/
 # External docs (fetched at build time)
 # ------------------------------------
 snippets/external/
+
+# ------------------------------------
+# Notion exports (contains API keys)
+# ------------------------------------
+notion/

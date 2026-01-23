@@ -6,13 +6,23 @@ keywords: ["livepeer", "built on livepeer", "livepeer projects", "livepeer ecosy
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-import {PreviewCallout} from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+
+import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+import { ProjectShowcaseColumns } from '/snippets/components/display/ProjectShowcaseColumns.jsx'
+
+{/* { showcaseData } from '/automations/showcase/showcaseData.jsx' */}
+
+
 
 <PreviewCallout />
+
 <Note>
-  Insert Card Layout here & enable an automation for users to add projects via a
-  form
+	Insert Card Layout here & enable an automation for users to add projects via a form.
+	The Data Object is at automations/showcase/showcaseData.jsx
+	There may be some helper functions for sorting this data also in automations/showcase
 </Note>
+
+{/* <ProjectShowcaseColumns data={showcaseData} /> */}
 
 Livepeer creates an open, competitive marketplace for reliable, low-cost video streaming and AI pipelines.
 

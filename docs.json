@@ -43,15 +43,15 @@
                         "pages": [
                           "v2/pages/00_home/introduction/vision",
                           "v2/pages/00_home/introduction/evolution",
-                          "v2/pages/00_home/introduction/roadmap",
-                          "v2/pages/00_home/introduction/ecosystem"
+                          "v2/pages/00_home/introduction/why-livepeer",
+                          "v2/pages/00_home/introduction/ecosystem",
+                          "v2/pages/00_home/introduction/roadmap"
                         ]
                       },
                       {
                         "group": "Showcase",
                         "icon": "clapperboard-play",
                         "pages": [
-                          "v2/pages/00_home/project-showcase/why-livepeer",
                           "v2/pages/00_home/project-showcase/showcase",
                           "v2/pages/00_home/project-showcase/applications",
                           "v2/pages/00_home/project-showcase/industry-verticals"
@@ -62,7 +62,7 @@
                   {
                     "anchor": "Get Started!",
                     "icon": "play",
-                    "pages": ["v2/pages/03_developers/"]
+                    "pages": ["v2/pages/03_developers/building-on-livepeer/"]
                   },
                   {
                     "anchor": "Resource HUB",
