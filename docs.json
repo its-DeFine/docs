@@ -54,7 +54,8 @@
                         "pages": [
                           "v2/pages/00_home/project-showcase/showcase",
                           "v2/pages/00_home/project-showcase/applications",
-                          "v2/pages/00_home/project-showcase/industry-verticals"
+                          "v2/pages/00_home/project-showcase/industry-verticals",
+                          "v2/pages/00_home/project-showcase/landscape"
                         ]
                       }
                     ]
