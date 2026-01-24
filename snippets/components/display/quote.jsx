@@ -31,7 +31,7 @@ export const FrameQuote = ({
         display: "flex",
         flexDirection: "column",
         padding: "0.75rem 1rem 0.25rem 1rem",
-        gap: "0.1rem",
+        gap: "0.25rem",
       }}
     >
       <div
@@ -80,13 +80,13 @@ export const FrameQuote = ({
   );
 
   return frame ? (
-    <div style={{ marginBottom: "2rem" }}>
-      <Frame {...props}>
-        {img && <img src={img.src} alt={img.alt} />}
-        {content}
-      </Frame>
-    </div>
+    // <div style={{ marginBottom: "2rem" }}>
+    <Frame {...props}>
+      {img && <img src={img.src} alt={img.alt} />}
+      {content}
+    </Frame>
   ) : (
+    // </div>
     content
   );
 };

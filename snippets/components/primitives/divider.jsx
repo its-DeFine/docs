@@ -51,7 +51,7 @@ export const CustomDivider = ({ color = "var(--border)", middleText = "" }) => {
               margin: "0 8px",
               fontWeight: "bold",
               color: color,
-              opacity: 0.4,
+              opacity: 0.7,
             }}
           >
             {middleText}

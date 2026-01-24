@@ -6,21 +6,27 @@
  * Supports optional hint text and caption with microphone icon.
  *
  * @param {string} embedUrl - YouTube embed URL (e.g., "https://www.youtube.com/embed/VIDEO_ID")
- * @param {string} [title=""] - Video title for accessibility
+ * @param {string} [title=""] - Video title for accessibility and caption display
+ * @param {string} [author=""] - Author name to display in caption
  * @param {string} [hint=""] - Optional hint text to display
- * @param {string} [caption] - Optional caption text to display below the video
+ * @param {string} [caption] - Optional custom caption (overrides author/title format)
  *
  * @example
  * <YouTubeVideo
  *   embedUrl="https://www.youtube.com/embed/dQw4w9WgXcQ"
- *   title="Introduction to Livepeer"
- *   caption="Watch this tutorial to get started"
+ *   author="Doug Petkanics"
+ *   title="A Decade of Bleeding Edge Innovation"
  * />
  *
- * @todo Deconstruct to change icon props. Only render icon if passed in.
  * @author Livepeer Documentation Team
  */
-export const YouTubeVideo = ({ embedUrl, title = "", hint = "", caption }) => {
+export const YouTubeVideo = ({
+  embedUrl,
+  title = "",
+  author = "",
+  hint = "",
+  caption,
+}) => {
   // Return null if embedUrl is missing or invalid
   if (!embedUrl || typeof embedUrl !== "string" || embedUrl.trim() === "") {
     return null;
@@ -34,24 +40,43 @@ export const YouTubeVideo = ({ embedUrl, title = "", hint = "", caption }) => {
     return null;
   }
 
+  // Build caption from author and title if no custom caption provided
+  const buildCaption = () => {
+    if (caption) return caption;
+    if (!author && !title) return null;
+    return (
+      <span
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+          lineHeight: 1.2,
+        }}
+      >
+        <span>
+          {author && (
+            <>
+              <Icon icon="microphone" size={16} /> <strong>{author}</strong>
+            </>
+          )}
+          {author && title ? `${" "} • ${title}` : title}
+        </span>
+      </span>
+    );
+  };
+
+  const captionContent = buildCaption();
+
   return (
     <Frame
       {...(hint ? { hint } : {})}
-      {...(caption
-        ? {
-            caption: (
-              <span style={{ display: "flex", alignItems: "center" }}>
-                <Icon icon="microphone" color="grey" />
-                <span style={{ marginLeft: 8 }}>{caption}</span>
-              </span>
-            ),
-          }
-        : {})}
+      {...(captionContent ? { caption: captionContent } : {})}
     >
       <iframe
         className="w-full aspect-video rounded-xl"
         src={embedUrl}
-        title={title}
+        title={title || author || "YouTube Video"}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       />

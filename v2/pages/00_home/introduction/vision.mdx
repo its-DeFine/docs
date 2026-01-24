@@ -8,29 +8,33 @@ og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 
 {/* The story, founder vision & Livepeer Mission */}
 
-import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
-
-<PreviewCallout />
-
 import { ThemeData } from '/snippets/styles/themeStyles.jsx'
 import { YouTubeVideo, LinkedInEmbed } from '/snippets/components/display/video.jsx'
 import { Image } from '/snippets/components/display/image.jsx'
 import { LinkArrow, GotoLink, GotoCard } from '/snippets/components/primitives/links.jsx'
 import { Quote, FrameQuote } from '/snippets/components/display/quote.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
-{/* # Livepeer Founders
-Livepeer was founded by Doug Petkanics (CTO) and Eric Tang (CEO) in 2017.
-
-<Note> Insert intro's here </Note> */}
-
-# Livepeer Story
-<Frame caption="Doug Petkanics - Building Livepeer">
-  <video
-    controls
-    className="w-full aspect-video rounded-xl"
-    src="/snippets/assets/media/videos/livepeer-founders-post.mp4"
-  ></video>
+{/* Video of Doug talking about Livepeer */}
+<Frame >
+  <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+    <video
+      controls
+      className="w-full aspect-video rounded-xl" 
+      src="/snippets/assets/media/videos/livepeer-founders-post.mp4"
+    />
+    <FrameQuote 
+      author="Doug Petkanics"
+      source="Livepeer Founder"
+      frame={false}
+    >
+      Livepeer was founded on the belief that a decentralized network could power the future of video infrastructure at _internet scale_. <br/><br/>
+      That vision is now more relevant than ever — with the rise of realtime AI video workloads. <br/>
+    </FrameQuote>
+  </div>
 </Frame>
+
+<CustomDivider />
 
 Livepeer was [founded](https://medium.com/livepeer-blog/the-livepeer-development-stack-technology-behind-live-streaming-built-on-ethereum-d6a06158d5e2) in 2017 by entrepeneurs 
 [Doug Petkanics](https://www.linkedin.com/in/doug-petkanics/) and [Eric Tang](https://www.linkedin.com/in/erictang/), who, 
@@ -59,14 +63,6 @@ From the beginning, Livepeer’s goal has been simple but ambitious:
 
 As video becomes increasingly real-time, interactive, and AI-driven, Livepeer is evolving to meet the next wave of demand: real-time AI video pipelines.
 
-<FrameQuote 
-  author="Doug Petkanics"
-  source="Livepeer Founder"
->
-    Livepeer was founded on the belief that a decentralized network could power the future of video infrastructure at _internet scale_. <br/><br/>
-    That vision is now more relevant than ever — with the rise of realtime AI video workloads. <br/>
-</FrameQuote>
-
 {/* > Livepeer was founded on the belief that a decentralized network could power the future of video infrastructure at _internet scale_. <br/>
 > That vision is now more relevant than ever — with the rise of realtime AI video workloads. <br/>
 > Doug Petkanics - Founder */}
@@ -85,29 +81,17 @@ Doug: "open video infrastructure” enabling next-generation applications in int
 <YouTubeVideo embedUrl="https://www.youtube.com/embed/BXMArwnp-No?si=TYSJUyxshUPKS1h4" />
 
 ## Core Mission 
- 
-Video is one of the most compute-intensive workloads on the internet — and historically one of the most centralized.
 
-Today, most video and AI workloads are:
+Since its launch in 2017, Livepeer’s mission has been to deliver affordable, performant open video & AI infrastructure rooted in decentralized video technology enabled by cryptoeconomic primitives. 
 
-- Expensive to run
-- Locked into proprietary cloud providers
-- Opaque in pricing and performance
-- Difficult to scale globally without long-term contracts
+Today, Livepeer is a respected and trusted brand, enabling internet-scale, next-generation applications in interactive media, AI training, and digital creativity.
 
-Livepeer's mission is to deliver affordable, performant open video & AI infrastructure that powers real-time interactive media innovation and gives creators the tools they need to dream.
+Livepeer is on a mission to give innovators and creators the tools they need to build the future of interactive media experiences. 
+{" "}
+**Core Pillars**
 
-{/* Instead of centralized data centers, Livepeer coordinates a global, permissionless marketplace of GPUs — where independent operators compete on price, performance, and reliability.
-
-This model enables:
-- 5–10× lower costs compared to traditional cloud video processing
-- Built-in redundancy and global distribution
-- Transparent, usage-based pricing
-- Open participation on both the supply and demand side  */}
 
 The network's strategy is built upon a foundation of core value propositions and messaging pillars:
-
-**Core Pillars**
   - **Real-time Performance / Performance at Scale:** Industry-standard low latency optimized for real-time video AI and media, enabling sub-second inference and proven scalability.
   - **Cost Efficiency:** Access to GPU compute at 5–10x lower cost through an open marketplace with transparent on-chain economics and a pay-per-use model.
   - **Automagic Scalability:** The ability to scale capacity up or down dynamically in real-time via an elastic network supply, smart routing, and incentivized idle GPU utilization.
