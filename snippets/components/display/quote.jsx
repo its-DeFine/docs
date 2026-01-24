@@ -44,10 +44,17 @@ export const FrameQuote = ({
         {children}
       </div>
       {(author || source) && (
-        <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: frame ? "flex-end" : "flex-start",
+            marginLeft: frame ? 0 : "1.5rem",
+          }}
+        >
           <div style={{ textAlign: "left" }}>
             {author && (
               <div>
+                <br />
                 <Icon icon="microphone" />{" "}
                 <strong>
                   <em>{author}</em>
@@ -80,13 +87,11 @@ export const FrameQuote = ({
   );
 
   return frame ? (
-    // <div style={{ marginBottom: "2rem" }}>
     <Frame {...props}>
       {img && <img src={img.src} alt={img.alt} />}
       {content}
     </Frame>
   ) : (
-    // </div>
     content
   );
 };
