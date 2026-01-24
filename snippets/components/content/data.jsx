@@ -43,7 +43,6 @@ export const BlogCard = ({
   cta = "Read More",
   img = null,
 }) => {
-  console.log("item", title, content, href, img);
   // Show hint if content is likely to overflow (>500 chars as proxy)
   const showScrollHint = content && content.length > 500;
 
@@ -196,8 +195,17 @@ export const BlogCard = ({
  * @author Livepeer Documentation Team
  */
 export const CardBlogDataLayout = ({ items = [], limit }) => {
-  //   console.log("items", items);
+  console.debug("items", items);
   const displayItems = limit ? items.slice(0, limit) : items;
+  if (!displayItems || displayItems.length === 0) {
+    return (
+      <Note>
+        <p style={{ color: "var(--text-secondary)", textAlign: "center" }}>
+          No blog posts at this time.
+        </p>
+      </Note>
+    );
+  }
   return (
     <div>
       {displayItems.map((props, idx) => (
@@ -208,7 +216,7 @@ export const CardBlogDataLayout = ({ items = [], limit }) => {
 };
 
 export const ColumnsBlogCardLayout = ({ items = [], cols = 2, limit }) => {
-  console.log("items", items);
+  console.debug("items", items);
   const displayItems = limit ? items.slice(0, limit) : items;
   return (
     <Columns cols={cols}>
@@ -220,7 +228,7 @@ export const ColumnsBlogCardLayout = ({ items = [], cols = 2, limit }) => {
 };
 
 export const BlogDataLayout = ({ items = [], limit }) => {
-  console.log("items", items);
+  console.debug("blogdata items", items);
   const displayItems = limit ? items.slice(0, limit) : items;
   return (
     <div>
@@ -274,7 +282,7 @@ export const PostCard = ({
   cta = "Read More",
   img = null,
 }) => {
-  console.log("item", title, content, href, img);
+  console.debug("item", title, content, href, img);
   // Show hint if content is likely to overflow (>500 chars as proxy)
   const showScrollHint = content && content.length > 500;
 
@@ -447,6 +455,15 @@ export const ForumLatestLayout = ({ items = [], limit }) => {
  */
 export const DiscordAnnouncements = ({ items = [], limit }) => {
   const displayItems = limit ? items.slice(0, limit) : items;
+  if (!displayItems || displayItems.length === 0) {
+    return (
+      <Note>
+        <p style={{ color: "var(--text-secondary)", textAlign: "center" }}>
+          No announcements at this time.
+        </p>
+      </Note>
+    );
+  }
 
   // Convert markdown links [text](url) to HTML <a> tags
   const parseContent = (content) => {
