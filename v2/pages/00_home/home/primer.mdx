@@ -8,29 +8,7 @@ og:image: '/snippets/assets/domain/00_HOME/Eric Shreck Gif.gif'
 import {PreviewCallout} from '/snippets/components/domain/SHARED/previewCallouts.jsx'
 
 <PreviewCallout />
-
-import { url, title, caption, embedUrl } from '/snippets/data/variables.mdx'
-import { tldrTitles, tldrList } from '/snippets/data/variables/home.mdx'
-import {
-  YouTubeVideo,
-  YouTubeVideoDownload,
-  CardVideo,
-} from '/snippets/components/display/video.jsx'
-import {
-  GotoLink,
-  GotoCard,
-} from '/snippets/components/primitives/links.jsx'
-
-import { Image } from '/snippets/components/display/image.jsx'
-import {
-  StepList,
-  StepLinkList,
-  UpdateList,
-  UpdateLinkList,
-  IconList,
-  BasicList,
-} from '/snippets/components/layout/lists.jsx'
-import { ThemeData } from '/snippets/styles/themeStyles.jsx'
+import { SocialLinks } from '/snippets/components/display/socialLinks.jsx'
 
 Livepeer is an inclusive and welcoming global community with a diverse and talented group of people.
 
@@ -90,16 +68,29 @@ It powers apps that stream, transform, and remix video — all in real time.
 
 Built on a decentralized network of GPUs, Livepeer lets developers and creators run high-performance video and AI workflows without relying on expensive cloud infrastructure.## 
 
-## Who uses Livepeer?
-{/* need example media and images here */}
-From individuals to enterprises, and from creators to innovators and entrepeneurs, Livepeer caters to anyone looking for a customisable, dynamically scalable, cost effective, on-demand real-time AI video platform for their business, side project or creative pursuit:
+## Why Livepeer
 
-- Developers & Founders — ship products with video + AI faster, cheaper, and openly
-- Creators & Performers — transform live video into art with no setup
-- Orchestrators & Infra People — earn by running jobs for the network
-- Enterprises — deploy custom video solutions with low latency and high performance
-- Everyone else — explore wild, expressive, and programmable video
+Livepeer offers a decentralised, open-source platform for video streaming and AI that dramatically reduces costs by utilising idle compute resources.
 
+It provides:
+
+- **Transparency** via blockchain verification
+- **Scalability** for high-demand workloads
+- **AI integration** and modular machine-learning pipelines
+- **Developer tools** for fast innovation
+- **Earnings** for GPU operators and LPT holders
+<Columns cols={2}>
+<Card title="Soaring Video Demand" icon="chart-line">
+~80% of internet traffic, and emerging formats (4K, VR, interactive live streams) are driving ever-higher bandwidth and compute needs. Infrastructure must keep up with this exponential growth.
+</Card>
+<Card title="AI + Video Convergence" icon="circle-play">
+Emerging AI formats like real-time video generation, editing, and upscaling are creating new demands for flexible, cost-effective infrastructure.
+</Card>
+<Card title="Open Innovation" icon="alicorn">
+Livepeer is built on open-source principles, fostering a community-driven ecosystem that accelerates innovation.
+</Card>
+</Columns>
+ 
 
 {/* 
 - Creators
@@ -118,6 +109,15 @@ From individuals to enterprises, and from creators to innovators and entrepeneur
 - 🎛 Run your own nodes (or earn by staking) to support and monetize GPU workloads
 - 💰 Earn by delegating your LPT and vote in governance processes
 
+## Who uses Livepeer?
+{/* need example media and images here */}
+From individuals to enterprises, and from creators to innovators and entrepeneurs, Livepeer caters to anyone looking for a customisable, dynamically scalable, cost effective, on-demand real-time AI video platform for their business, side project or creative pursuit:
+
+- Developers & Founders — ship products with video + AI faster, cheaper, and openly
+- Creators & Performers — transform live video into art with no setup
+- Orchestrators & Infra People — earn by running jobs for the network
+- Enterprises — deploy custom video solutions with low latency and high performance
+- Everyone else — explore wild, expressive, and programmable video
 
 {/* - Real-time AI video generation
 - Interactive livestreams
@@ -126,36 +126,28 @@ From individuals to enterprises, and from creators to innovators and entrepeneur
 - AI-powered video editing
 - And more... */}
 
-## What Makes Livepeer Different?
+## Real Use Cases
+Real Projects Using Livepeer:
+
+Daydream: turn your face into animated art in real time
+
+MetaDJ: crowd-controlled visual DJ sets
+
+TouchDesigner x StreamDiffusionTD: live sensor-based generative visuals
+
+Farcaster apps: bringing AI-native video to web3 social
+
+<Card title="Project Showcase" href="/00_home/project-showcase" icon="video-camera" horizontal arrow>
+  Explore the Livepeer Project Showcase
+</Card>
+
+## Key Features and Benefits
 
 - 🧱 Fully programmable, composable video infrastructure
 - 🌍 Runs on a global, open GPU network — not cloud monopolies
 - 💰 Pay-as-you-go, usage-based pricing — no over-provisioning
 - 🔓 Open source, developer-first, no gatekeeping
 
-<Columns cols={2}>
-<Card title="Soaring Video Demand" icon="camera-motion">
-~80% of internet traffic, and emerging formats (4K, VR, interactive live streams) are driving ever-higher bandwidth and compute needs. Infrastructure must keep up with this exponential growth.
-</Card>
-<Card title="AI + Video Convergence" icon="circle-play">
-Emerging AI formats like real-time video generation, editing, and upscaling are creating new demands for flexible, cost-effective infrastructure.
-</Card>
-<Card title="Open Innovation" icon="video-camera">
-
-</Card>
-</Columns>
- 
-
-
-Livepeer offers a decentralised, open-source platform for video streaming and AI that dramatically reduces costs by utilising idle compute resources.
-
-It provides:
-
-- **Transparency** via blockchain verification
-- **Scalability** for high-demand workloads
-- **AI integration** and modular machine-learning pipelines
-- **Developer tools** for fast innovation
-- **Earnings** for GPU operators and LPT holders
 
 By empowering a distributed ecosystem, Livepeer disrupts traditional centralised streaming platforms.
 
@@ -168,10 +160,6 @@ By empowering a distributed ecosystem, Livepeer disrupts traditional centralised
 />
 
 <br />
-
-## Key Features and Benefits
-- 
-- Open Participation & Incentives
 
 {/* ## What You Can Do On Livepeer
 
@@ -196,6 +184,22 @@ Here's a quick breakdown of what you can accomplish with Livepeer: */}
   </Card>
   <Card title="Community" icon="users" href="../../02_community/community-portal">
     Meet the people building the future of the AI-first internet
+    <SocialLinks size={24} />
+    {/* <span style={{ display: "flex", justifyContent: "center", gap: "0.5rem", marginTop: "0.5rem" }}>
+    <a href="https://discord.com/invite/livepeer" target="_blank" rel="noopener noreferrer" style={{border: "0px solide white"}}></a>
+    <a href="https://github.com/livepeer" target="_blank" rel="noopener noreferrer"></a>
+    <a href="https://forum.livepeer.org" target="_blank" rel="noopener noreferrer"><Icon icon="discord" size={20} color="var(--accent)" /></a>
+    <a href="https://github.com/livepeer" target="_blank" rel="noopener noreferrer"><Icon icon="github" size={20} color="var(--accent)" /></a>
+    <a href="https://forum.livepeer.org" target="_blank" rel="noopener noreferrer"><Icon icon="message" size={20} color="var(--accent)" /></a>
+    <a href="https://twitter.com/livepeer" target="_blank" rel="noopener noreferrer"><Icon icon="twitter" size={20} color="var(--accent)" /></a>
+    </span> */}
+  </Card>
+  <Card title={<span style={{ display: "flex", height: "30px", justifyContent: "left", alignItems: "center", gap: "0.5rem", marginBottom: "0.5rem" }}><Icon icon="space-awesome" size={20} color="var(--accent)" />{" "}Explore More</span>} href="../../02_community/community-portal" horizontal>
+    🔗 [Developer Portal](/v2/pages/03_developers/developer-portal)<Icon icon="arrow-up-right" size={12} color="var(--accent)" /><br/>
+    🔗 [Blog](https://blog.livepeer.org/)<Icon icon="arrow-up-right" size={12} color="var(--accent)" /><br/>
+    🔗 [Forum](https://forum.livepeer.org/)<Icon icon="arrow-up-right" size={12} color="var(--accent)" /><br/>
+    🔗 [GitHub](https://github.com/livepeer)<Icon icon="arrow-up-right" size={12} color="var(--accent)" /><br/>
+    🔗 [Discord](https://discord.com/invite/livepeer)<Icon icon="arrow-up-right" size={12} color="var(--accent)" /><br/>
   </Card>
 </Columns>
 
@@ -220,26 +224,36 @@ Here's a quick breakdown of what you can accomplish with Livepeer: */}
 💬 Discord
  — meet the people building the future of video */}
 
-## Real Projects Using Livepeer
-Real Projects Using Livepeer
 
-Daydream: turn your face into animated art in real time
+{/* ## Explore More
 
-MetaDJ: crowd-controlled visual DJ sets
+🔗 [Developer Portal](/v2/pages/03_developers/developer-portal)<br/>
+🔗 [Blog](https://blog.livepeer.org/)<br/>
+🔗 [Forum](https://forum.livepeer.org/)<br/>
+🔗 [GitHub](https://github.com/livepeer)<br/>
+🔗 [Discord](https://discord.com/invite/livepeer)<br/> */}
 
-TouchDesigner x StreamDiffusionTD: live sensor-based generative visuals
+{/* <div>
+  import { url, title, caption, embedUrl } from '/snippets/data/variables.mdx'
+  import { tldrTitles, tldrList } from '/snippets/data/variables/home.mdx'
+  import {
+    YouTubeVideo,
+    YouTubeVideoDownload,
+    CardVideo,
+  } from '/snippets/components/display/video.jsx'
+  import {
+    GotoLink,
+    GotoCard,
+  } from '/snippets/components/primitives/links.jsx'
 
-Farcaster apps: bringing AI-native video to web3 social
-
-<Card title="Project Showcase" href="/00_home/project-showcase" icon="video-camera" horizontal arrow>
-  Explore the Livepeer Project Showcase
-</Card>
-
-
-## Explore More
-
-🔗 [Developer Portal](/v2/pages/03_developers/developer-portal)
-🔗 [Blog](https://blog.livepeer.org/)
-🔗 [Forum](https://forum.livepeer.org/)
-🔗 [GitHub](https://github.com/livepeer)
-🔗 [Discord](https://discord.com/invite/livepeer)
+  import { Image } from '/snippets/components/display/image.jsx'
+  import {
+    StepList,
+    StepLinkList,
+    UpdateList,
+    UpdateLinkList,
+    IconList,
+    BasicList,
+  } from '/snippets/components/layout/lists.jsx'
+  import { ThemeData } from '/snippets/styles/themeStyles.jsx'
+</div> */}
