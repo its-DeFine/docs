@@ -1,4 +1,101 @@
 /**
+ * Video - Self-hosted video component
+ *
+ * @description
+ * Displays a self-hosted video file within a Frame component.
+ * Supports local .mp4 files and other video formats.
+ *
+ * @param {string} src - Path to the video file (e.g., "/snippets/assets/media/videos/demo.mp4")
+ * @param {string} [title=""] - Video title for accessibility
+ * @param {string} [author=""] - Author name to display with microphone icon
+ * @param {string} [caption] - Optional caption text (if author provided, styled with icon)
+ * @param {boolean} [controls=true] - Whether to show video controls
+ * @param {boolean} [autoPlay=false] - Whether to autoplay the video
+ * @param {boolean} [loop=false] - Whether to loop the video
+ * @param {boolean} [muted=false] - Whether to mute the video
+ * @param {ReactNode} [children] - Optional children to render inside Frame
+ *
+ * @example
+ * <Video src="/snippets/assets/media/videos/demo.mp4" title="Demo Video" />
+ * <Video src="/snippets/assets/media/videos/intro.mp4" author="Doug Petkanics" title="Livepeer Vision" />
+ * <Video src="/snippets/assets/media/videos/intro.mp4" caption="Introduction" autoPlay muted loop />
+ *
+ * @author Livepeer Documentation Team
+ */
+export const Video = ({
+  src,
+  title = "",
+  author = "",
+  caption,
+  href = "",
+  controls = true,
+  autoPlay = false,
+  loop = false,
+  muted = false,
+  children,
+}) => {
+  // Build caption from author and caption
+  const buildCaption = () => {
+    if (!author && caption) return caption;
+    if (!author && !title) return null;
+    return (
+      // If author and title are provided, display author with microphone icon and title
+      <span
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+          lineHeight: 1.2,
+        }}
+      >
+        <span>
+          {author && (
+            href ? (
+              <span style={{ display: "flex", width: "100%", height: "fit-content", gap: "0.5rem" }}>
+                <a href={href} target="_blank" rel="noopener noreferrer">
+                  <Icon icon="microphone" size={16} />
+                  <span style={{ borderBottom: "2px solid var(--accent)", marginLeft: "0.2rem" }}><strong>{author}</strong></span>
+                  <span style={{ alignSelf: "flex-end", marginLeft: "6px" }}><Icon icon="arrow-up-right" size={12} color="var(--accent)" /></span>
+                </a>
+              </span>
+            ) : (
+              <>
+                <Icon icon="microphone" size={16} /> <strong>{author}</strong>
+              </>
+            )
+          )}
+          {author && title ? ` • ${title}` : title}
+        </span>
+        {caption && 
+          <span style={{ marginTop: "0.5rem", fontStyle: "italic" }}>
+            {caption}
+          </span>
+        }
+      </span>
+    );
+  };
+
+  const captionContent = buildCaption();
+
+  return (
+      <Frame {...(captionContent ? { caption: captionContent } : {})}>
+          <video
+            controls={controls}
+            autoPlay={autoPlay}
+            loop={loop}
+            muted={muted}
+            playsInline
+            className="w-full aspect-video rounded-xl"
+            src={src}
+            title={title || author || "Video"}
+          />
+              {children}
+      </Frame>
+  );
+};
+
+/**
  * YouTubeVideo - Embeds a YouTube video with optional caption and hint
  *
  * @description
