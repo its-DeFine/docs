@@ -1,7 +1,10 @@
+<<<<<<< Updated upstream
 // Available AI Endpoints
 // The gateway exposes these AI endpoints ai_http.go :
 
 //Change description to an array of objects to render better
+=======
+>>>>>>> Stashed changes
 export const CONFIG_FLAGS = {
   offchain: {
     required: {
@@ -9,6 +12,7 @@ export const CONFIG_FLAGS = {
         name: "-gateway",
         type: "boolean",
         default: "false",
+<<<<<<< Updated upstream
         required: true,
         description: "Enable gateway mode",
       },
@@ -19,14 +23,31 @@ export const CONFIG_FLAGS = {
       //   required: true,
       //   description: "Network type (offchain, arbitrum-one-mainnet)",
       // },
+=======
+        description: "Enable gateway mode (required)",
+      },
+      network: {
+        name: "-network",
+        type: "string",
+        default: "offchain",
+        description: "Network type (offchain, arbitrum-one-mainnet)",
+        post: ["arbitrum-one-mainnet"],
+      },
+>>>>>>> Stashed changes
       orchAddr: {
         name: "-orchAddr",
         type: "string",
         default: "none",
+<<<<<<< Updated upstream
         required: true,
         description:
           "Set to <Badge color='gray'> `http://<ORCHESTRATOR_IP>:<PORT>` </Badge> to connect to orchestrators",
         post: "http://<ORCHESTRATOR_IP>:<PORT>",
+=======
+        description:
+          "Set to <Badge color='gray'> `http://<ORCHESTRATOR_IP>:<PORT>` </Badge> to connect to orchestrators",
+        post: ["http://<ORCHESTRATOR_IP>:<PORT>"],
+>>>>>>> Stashed changes
       },
     },
     optional: {
@@ -59,6 +80,7 @@ export const CONFIG_FLAGS = {
           "Set to <Badge color='gray'> `0.0.0.0:8935` </Badge> to allow external HLS/API access",
         post: ["0.0.0.0:8935"],
       },
+<<<<<<< Updated upstream
       httpIngest: {
         name: "-httpIngest",
         type: "boolean",
@@ -68,6 +90,8 @@ export const CONFIG_FLAGS = {
         required: true,
         post: ["true"],
       },
+=======
+>>>>>>> Stashed changes
       cliAddr: {
         name: "-cliAddr",
         type: "string",
@@ -99,14 +123,20 @@ export const CONFIG_FLAGS = {
         name: "-gateway",
         type: "boolean",
         default: "false",
+<<<<<<< Updated upstream
         required: true,
+=======
+>>>>>>> Stashed changes
         description: "Enable gateway mode (required)",
       },
       network: {
         name: "-network",
         type: "string",
         default: "offchain",
+<<<<<<< Updated upstream
         required: true,
+=======
+>>>>>>> Stashed changes
         description: "Network type (offchain, arbitrum-one-mainnet)",
         post: ["arbitrum-one-mainnet"],
       },
@@ -114,11 +144,15 @@ export const CONFIG_FLAGS = {
         name: "-ethUrl",
         type: "string",
         default: "none",
+<<<<<<< Updated upstream
         required: true,
+=======
+>>>>>>> Stashed changes
         description:
           "Set to <Badge color='gray'> `https://arb1.arbitrum.io/rpc` </Badge> to connect to Arbitrum Mainnet",
         post: ["https://arb1.arbitrum.io/rpc"],
       },
+<<<<<<< Updated upstream
       httpIngest: {
         name: "-httpIngest",
         type: "boolean",
@@ -150,6 +184,8 @@ export const CONFIG_FLAGS = {
         default: "false",
         description: "Enables AI on-chain service registry",
       },
+=======
+>>>>>>> Stashed changes
     },
     optional: {
       monitor: {
@@ -158,6 +194,7 @@ export const CONFIG_FLAGS = {
         default: "false",
         description: "Enables metrics collection",
       },
+<<<<<<< Updated upstream
       v: {
         name: "-v",
         type: "number",
@@ -405,6 +442,9 @@ export const HTTP_API_OPTIONS = {
   broadcastConfig: {
     name: "/getBroadcastConfig",
     description: "Get broadcast configuration",
+=======
+    },
+>>>>>>> Stashed changes
   },
 };
 
