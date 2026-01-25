@@ -138,6 +138,13 @@
                     "icon": "display-code",
                     "groups": [
                       {
+                        "group": "All Ecosystem Products",
+                        "icon": "video-camera",
+                        "pages": [
+                          "v2/pages/010_products/products/all-ecosystem/ecosystem-products"
+                        ]
+                      },
+                      {
                         "group": "Use Livepeer",
                         "icon": "play",
                         "pages": [
@@ -172,10 +179,10 @@
                         ]
                       },
                       {
-                        "group": "All Ecosystem Products",
-                        "icon": "video-camera",
+                        "group": "Embody Avatars",
+                        "icon": "user-robot",
                         "pages": [
-                          "v2/pages/010_products/products/all-ecosystem/ecosystem-products"
+                          "v2/pages/010_products/products/embody/overview"
                         ]
                       }
                     ]
