@@ -28,6 +28,7 @@ export const SocialLinks = ({
   size = 20,
   gap = "0.75rem",
   justify = "center",
+  color,
 }) => {
   const linkStyle = {
     border: "none",
@@ -38,11 +39,12 @@ export const SocialLinks = ({
 
   // Brand colors
   const colors = {
-    discord: "#5865F2",
-    github: "#f0f0f0",
-    forum: "var(--accent)",
-    twitter: "#1DA1F2",
-    website: "var(--accent)",
+    discord: color ? color : "#5865F2",
+    twitter: color ? color : "var(--hero-text)",
+    github: color ? color : "#f0f0f0",
+    forum: color ? color : "#00AEEF",
+    website: color ? color : "var(--accent)",
+    blog: color ? color : "var(--accent)",
   };
 
   return (
@@ -62,6 +64,16 @@ export const SocialLinks = ({
           marginTop: "0.5rem",
         }}
       >
+                <a
+          href="https://discord.com/invite/livepeer"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={linkStyle}
+        >
+          <Tooltip headline="Livepeer Discord">
+            <Icon icon="discord" size={size} color={colors.discord} />
+          </Tooltip>
+        </a>
         <a
           href="https://livepeer.org"
           target="_blank"
@@ -70,16 +82,6 @@ export const SocialLinks = ({
         >
           <Tooltip headline="Livepeer Website">
             <Icon icon="globe" size={size} color={colors.website} />
-          </Tooltip>
-        </a>
-        <a
-          href="https://discord.com/invite/livepeer"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={linkStyle}
-        >
-          <Tooltip headline="Livepeer Discord">
-            <Icon icon="discord" size={size} color={colors.discord} />
           </Tooltip>
         </a>
         <a
@@ -92,17 +94,7 @@ export const SocialLinks = ({
             <Icon icon="github" size={size} color={colors.github} />
           </Tooltip>
         </a>
-        <a
-          href="https://twitter.com/livepeer"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={linkStyle}
-        >
-          <Tooltip headline="Livepeer Twitter">
-            <Icon icon="twitter" size={size} color={colors.twitter} />
-          </Tooltip>
-        </a>
-        <a
+                        <a
           href="https://forum.livepeer.org"
           target="_blank"
           rel="noopener noreferrer"
@@ -110,6 +102,26 @@ export const SocialLinks = ({
         >
           <Tooltip headline="Livepeer Forum">
             <Icon icon="comment-pen" size={size} color={colors.forum} />
+          </Tooltip>
+        </a>
+        <a
+          href="https://livepeer.org/blog"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={linkStyle}
+        >
+          <Tooltip headline="Livepeer Blog">
+            <Icon icon="pen-line" size={size} color={colors.blog} />
+          </Tooltip>
+        </a>
+                <a
+          href="https://x.com/livepeer"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={linkStyle}
+        >
+          <Tooltip headline="Livepeer X">
+            <Icon icon="x-twitter" size={size} color={colors.twitter} />
           </Tooltip>
         </a>
       </span>
