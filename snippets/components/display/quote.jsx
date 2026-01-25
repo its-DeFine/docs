@@ -22,9 +22,16 @@ export const FrameQuote = ({
   source,
   href,
   frame = true,
+  align = "right",
   img,
   ...props
 }) => {
+  const alignmentMap = {
+    left: "flex-start",
+    center: "center",
+    right: "flex-end",
+  };
+
   const content = (
     <div
       style={{
@@ -47,11 +54,11 @@ export const FrameQuote = ({
         <div
           style={{
             display: "flex",
-            justifyContent: frame ? "flex-end" : "flex-start",
-            marginLeft: frame ? 0 : "1.5rem",
+            justifyContent: alignmentMap[align] || "flex-end",
+            marginLeft: align === "left" ? "1.5rem" : 0,
           }}
         >
-          <div style={{ textAlign: "left" }}>
+          <div style={{ textAlign: align === "center" ? "center" : "left" }}>
             {author && (
               <div>
                 <br />
