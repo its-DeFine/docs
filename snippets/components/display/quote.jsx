@@ -23,6 +23,7 @@ export const FrameQuote = ({
   href,
   frame = true,
   align = "right",
+  borderColor,
   img,
   ...props
 }) => {
@@ -43,7 +44,7 @@ export const FrameQuote = ({
     >
       <div
         style={{
-          borderLeft: "4px solid var(--accent)",
+          borderLeft: `4px solid ${borderColor}`,
           paddingLeft: "1rem",
           fontStyle: "italic",
         }}
@@ -94,10 +95,16 @@ export const FrameQuote = ({
   );
 
   return frame ? (
-    <Frame {...props}>
-      {img && <img src={img.src} alt={img.alt} />}
-      {content}
-    </Frame>
+    <div style={{
+      border: borderColor ? `1px solid ${borderColor}` : "none",
+      borderRadius: "8px",
+      overflow: "hidden",
+    }}>
+      <Frame {...props} style={{ border: "none" }}>
+        {img && <img src={img.src} alt={img.alt} />}
+        {content}
+      </Frame>
+    </div>
   ) : (
     content
   );
