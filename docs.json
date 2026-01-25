@@ -141,13 +141,7 @@
                         "group": "Use Livepeer",
                         "icon": "play",
                         "pages": [
-                          "v2/pages/010_products/products-portal"
-                        ]
-                      },
-                      {
-                        "group": "All Ecosystem Products",
-                        "icon": "video-camera",
-                        "pages": [
+                          "v2/pages/010_products/products-portal",
                           "v2/pages/010_products/products/all-ecosystem/product-hub",
                           "v2/pages/010_products/products/all-ecosystem/ecosystem-products"
                         ]
@@ -171,11 +165,16 @@
                         "icon": "projector",
                         "pages": [
                           "v2/pages/010_products/products/streamplace/streamplace",
+                          {
+                          "group": "Stream.place", 
+                          "pages": [
                           "v2/pages/010_products/products/streamplace/streamplace-guide",
                           "v2/pages/010_products/products/streamplace/streamplace-architecture",
                           "v2/pages/010_products/products/streamplace/streamplace-integration",
                           "v2/pages/010_products/products/streamplace/streamplace-provenance",
                           "v2/pages/010_products/products/streamplace/streamplace-funding"
+                          ]
+                          }
                         ]
                       },
                       {
