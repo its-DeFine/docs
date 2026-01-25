@@ -36,41 +36,64 @@ Several entities play distinct roles in Livepeer’s ecosystem:
 - Livepeer [DAO](https://en.wikipedia.org/wiki/Decentralized_autonomous_organization) (Decentralised Autonomous Organisation) (community governance)
 - Special Purpose Entities (SPEs) */}
 
-<Columns cols={2}>
-<Card
-  title="Livepeer Inc."
-  icon="clapperboard-play"
-  href="#livepeer-inc"
-  arrow
->
-  Livepeer Inc is the original for-profit company behind the Livepeer protocol.
-</Card>
-<Card
-  title="Livepeer Foundation"
-  icon="handshake-angle"
-  href="#livepeer-foundation"
-  arrow
->
-  The Livepeer Foundation is a non-profit organisation that stewards the long-term vision, ecosystem growth, and core development of the Livepeer network.
-</Card>
-<Card
-  title="Livepeer DAO"
-  icon="chart-network"
-  href="#livepeer-dao"
-  arrow
->
-  The Livepeer DAO is a community-governed organisation that manages the Livepeer protocol and its treasury.
-</Card>
-<Card
-  title="Special Purpose Entities (SPEs)"
-  icon="shapes"
-  href="#special-purpose-entities"
-  arrow
->
-  Special Purpose Entities (SPEs) are mission-driven engineering or operational teams funded by the Livepeer ecosystem to deliver:
-</Card>
-
-</Columns>
+<div style={{ position: "relative" }}>
+  <Columns cols={2}>
+    <Card
+      title="Livepeer Inc."
+      icon="clapperboard-play"
+      href="#livepeer-inc"
+      arrow
+    >
+      Livepeer Inc is the original for-profit company behind the Livepeer protocol.
+    </Card>
+    <Card
+      title="Livepeer Foundation"
+      icon="handshake-angle"
+      href="#livepeer-foundation"
+      arrow
+    >
+      The Livepeer Foundation is a non-profit organisation that stewards the long-term vision, ecosystem growth, and core development of the Livepeer network.
+    </Card>
+    <Card
+      title="Livepeer DAO"
+      icon="chart-network"
+      href="#livepeer-dao"
+      arrow
+    >
+      The Livepeer DAO is a community-governed organisation that manages the Livepeer protocol and its treasury.
+    </Card>
+    <Card
+      title="Special Purpose Entities (SPEs)"
+      icon="shapes"
+      href="#special-purpose-entities"
+      arrow
+    >
+      Special Purpose Entities (SPEs) are mission-driven engineering or operational teams funded by the Livepeer ecosystem to deliver:
+    </Card>
+  </Columns>
+  <style>{`
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+  `}</style>
+  <div style={{
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    zIndex: 10,
+  }}>
+    <div style={{
+      backgroundColor: "var(--background)",
+      borderRadius: "50%",
+      padding: "0.5rem",
+      animation: "spin 10s linear infinite",
+    }}>
+      <Icon icon="arrows-spin" size={50} color="var(--accent)" />
+    </div>
+  </div>
+</div>
 
 This section describes each and how they interrelate, including ownership of key products like Livepeer Studio and Daydream, 
 strategic focuses, and insights from team members on their collaboration.
