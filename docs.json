@@ -138,37 +138,37 @@
                     "icon": "display-code",
                     "groups": [
                       {
+                        "group": "Use Livepeer",
+                        "icon": "play",
+                        "pages": [
+                          "v2/pages/010_products/products-portal"
+                        ]
+                      },
+                      {
                         "group": "All Ecosystem Products",
                         "icon": "video-camera",
                         "pages": [
+                          "v2/pages/010_products/products/all-ecosystem/product-hub",
                           "v2/pages/010_products/products/all-ecosystem/ecosystem-products"
                         ]
                       },
                       {
-                        "group": "Use Livepeer",
-                        "icon": "play",
-                        "pages": [
-                          "v2/pages/010_products/products-portal",
-                          "v2/pages/010_products/products/builder-hub"
-                        ]
-                      },
-                      {
                         "group": "Daydream",
-                        "icon": "video-camera",
+                        "icon": "camera-movie",
                         "pages": [
                           "v2/pages/010_products/products/daydream/daydream"
                         ]
                       },
                       {
                         "group": "Livepeer Studio",
-                        "icon": "user-robot",
+                        "icon": "film-canister",
                         "pages": [
                           "v2/pages/010_products/products/livepeer-studio/livepeer-studio"
                         ]
                       },
                       {
                         "group": "Stream.place",
-                        "icon": "video-camera",
+                        "icon": "projector",
                         "pages": [
                           "v2/pages/010_products/products/streamplace/streamplace",
                           "v2/pages/010_products/products/streamplace/streamplace-guide",
@@ -183,6 +183,13 @@
                         "icon": "user-robot",
                         "pages": [
                           "v2/pages/010_products/products/embody/overview"
+                        ]
+                      },
+                      {
+                        "group": "Frameworks",
+                        "icon": "clapperboard-play",
+                        "pages": [
+                          "v2/pages/010_products/products/frameworks/frameworks"
                         ]
                       }
                     ]
