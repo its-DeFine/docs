@@ -1,331 +1,38 @@
 ---
-mode: wide
 title: 'Livepeer Ecosystem'
 sidebarTitle: 'Ecosystem'
-description: "Livepeer has grown into a robust network over 8 years. Here's your guide to finding who you need and what the ecosystem offers!"
-keywords: ["livepeer", "home", "introduction", "livepeer ecosystem", "ecosystem", "grown", "robust"]
+description: 'A look at the Livepeer ecosystem and how it works'
+keywords: ["livepeer", "livepeer ecosystem", "livepeer network", "livepeer protocol", "livepeer community"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+import { ComingSoonCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
 
-<PreviewCallout />
+<ComingSoonCallout />
 
-import { LinkArrow } from '/snippets/components/primitives/links.jsx'
-import { FrameQuote } from '/snippets/components/display/quote.jsx'
 
-{/* The Livepeer ecosystem and how it works */}
+Livepeer is a multi-layered ecosystem that includes a public, open-source, and permissionless network, a set of products and services built on top of the network, and a community of developers, users, and organizations that contribute to and benefit from the ecosystem.
 
-{/* ## Livepeer Values
+## Livepeer Network
 
-Livepeer is driven by a set of core values that guide its development, operations, and community interactions.
+The Livepeer Network is a public, open-source, and permissionless network that provides a decentralized infrastructure for real-time video and AI processing. The network is composed of three main components: gateways, orchestrators, and delegators.
 
-- **Innovation**: Embrace new ideas and technologies to stay ahead of the curve.
-- **Collaboration**: Build with and for the community, fostering open dialogue and shared ownership.
-- **Accessibility**: Make cutting-edge video and AI tools available to everyone, regardless of technical background.
-- **Community**: Build with and for the community, fostering open dialogue and shared ownership.
+### Gateways
 
-With this in mind, Livepeer is dedicated not just to open, accessible architecture but also to a *contributive organisational structure*.  */}
+Gateways are the entry point for applications into the Livepeer network. They are the coordination layer that connects real-time AI and video workloads to the orchestrators who perform the GPU compute. Gateways earn revenue from transaction fees on all jobs they route.
 
-## Livepeer Organisational Structure
+### Orchestrators
 
-Livepeer’s project structure has evolved to balance a focused core team with a growing community governance model. 
-Several entities play distinct roles in Livepeer’s ecosystem: 
-{/* - Livepeer Inc. 
-- Livepeer Foundation
-- Livepeer [DAO](https://en.wikipedia.org/wiki/Decentralized_autonomous_organization) (Decentralised Autonomous Organisation) (community governance)
-- Special Purpose Entities (SPEs) */}
+Orchestrators are GPU operators who run real-time AI inference, Daydream / ComfyStream pipelines, BYOC containers, and traditional transcoding. They provide GPU horsepower, model execution, deterministic and verifiable output, and performance guarantees. Orchestrators earn revenue from job fees and LPT staking rewards.
 
-import { QuadGrid } from '/snippets/components/layout/quadGrid.jsx'
+### Delegators
 
-<QuadGrid icon="arrows-spin" iconSize={50}>
-  <Card
-    title="Livepeer Inc."
-    icon="clapperboard-play"
-    href="#livepeer-inc"
-    arrow
-  >
-    Livepeer Inc is the original for-profit company behind the Livepeer protocol.
-  </Card>
-  <Card
-    title="Livepeer Foundation"
-    icon="handshake-angle"
-    href="#livepeer-foundation"
-    arrow
-  >
-    The Livepeer Foundation is a non-profit organisation that stewards the long-term vision, ecosystem growth, and core development of the Livepeer network.
-  </Card>
-  <Card
-    title="Livepeer DAO"
-    icon="chart-network"
-    href="#livepeer-dao"
-    arrow
-  >
-    The Livepeer DAO is a community-governed organisation that manages the Livepeer protocol and its treasury.
-  </Card>
-  <Card
-    title="Special Purpose Entities (SPEs)"
-    icon="shapes"
-    href="#special-purpose-entities"
-    arrow
-  >
-    Special Purpose Entities (SPEs) are mission-driven engineering or operational teams funded by the Livepeer ecosystem to deliver:
-  </Card>
-</QuadGrid>
+Delegators are token holders who stake their LPT to an orchestrator to help secure the network and earn a share of rewards. Delegators do not participate in the day-to-day operations of the network, but they do play a crucial role in the network's security and decentralization.
 
-This section describes each and how they interrelate, including ownership of key products like Livepeer Studio and Daydream, 
-strategic focuses, and insights from team members on their collaboration.
+## Livepeer Ecosystem Projects
 
-### Livepeer Inc.
-Livepeer Inc is the original for-profit company behind the Livepeer protocol. Livepeer Inc built the core network infrastructure and continues to drive product development.
+Livepeer Ecosystem Projects are built on top of the Livepeer Network and use its infrastructure to provide specialized services. These projects include everything from AI-powered video editing tools to decentralized video marketplaces.
 
-Livepeer Inc’s current focus is product-market fit (PMF) for the Livepeer network in the era of real-time AI video.
+## Livepeer Community
 
-<Accordion title="See more about Livepeer Inc.'s strategic focus" icon="camera-retro" >
-  **Strategic Focus:**
-  - Livepeer Inc is laser-focused on demand generation and utility for the network, particularly in the AI video domain. Doug Petkanics (CEO) outlined that Inc’s core thesis is proving that builders will use Livepeer for AI-powered video applications because it’s the best option.
-  <FrameQuote source="-Doug Petkanics" frame={false} align="left">
-  “The team is focused, funded, and running hard at the next major milestone: unlocking product-market fit… as the leading infrastructure for realtime AI video.” 
-  </FrameQuote>
-
-  **Role in Ecosystem:**
-  - Livepeer Inc acts as a pioneer and catalyst. By running a focused product strategy, Inc provides “proof of utility” for the network.
-  - Livepeer Inc. focuses on developing cutting-edge video products and core software to drive growth.
-
-  <FrameQuote
-    source="- Livepeer Inc. team"
-    frame={false}
-    align="left"
-  >
-  “Livepeer Inc’s work is critical… by building products that generate real demand for the network, Inc provides proof of utility, inspiration, and compounding network effects (more demand → more usage → more infrastructure → more contributors)”
-  </FrameQuote>
-
-  **Products:**
-  - [Livepeer Studio](https://livepeer.studio) (commercial API platform for developers)
-  - [Daydream](https://daydream.live) (real-time generative AI video app)
-</Accordion>
-
-### Livepeer Foundation
-{/* The Livepeer Foundation is a non-profit organisation that stewards the long-term vision, ecosystem growth, and core development of the Livepeer network. 
-It is owned and governed by its members, who have the ability to vote on proposals and make decisions about the direction of the organisation. */}
-Launched in mid-2025, the <LinkArrow
-  label="Livepeer Foundation (LF)"
-  href="https://blog.livepeer.org/introducing-the-livepeer-foundation/"
-  target="_blank"
-  newline={false}
-  /> 
-  is a non-profit entity created to _“to steward the long-term vision, ecosystem growth, and core development of the network”_ complementing the work of Livepeer Inc.
-<br/>
-{/* The Foundation represents a major step in Livepeer’s progressive decentralization. */}
-{/* > “The Foundation represents a major step in Livepeer’s progressive decentralization, enabling broader participation and parallel progress to Livepeer Inc. By supporting and coordinating community-led projects, Livepeer's accelerates its growth.” */}
-<FrameQuote
-  author="Rich O’Grady"
-  source="Launching the Livepeer Foundation"
-  href="https://forum.livepeer.org/t/launching-the-livepeer-foundation/2849"
-  align="center"
-  borderColor="var(--accent)"
->
-  "The LF’s role is to ensure that, over time, the Livepeer project builds a thriving ecosystem of founders, applications and gateways, and a highly-performant, secure network, truly accountable and governed by token holders." <br/>
-</FrameQuote>
-<br/>
-  Broadly speaking, the Livepeer Foundation makes decisions in the following areas:
-  - Define strategic objectives for Livepeer
-  - Design initiatives to accelerate or steer progress towards objectives
-  - Drawing on available resources, recruit and coordinate task forces to execute on initiatives
-{/* <Icon icon="microphone" /> [Rich O’Grady](https://twitter.com/richogrady) - Livepeer Foundation Lead */}
-<br/>
-<Accordion title="See more about the Livepeer Foundation's Stewardship role" icon="camera-retro" >
-  **Leadership & Strategy:**
-  - The Livepeer Foundation - led by [Rich O’Grady](https://linkedin.com/in/rich-ogrady-3400042/), is owned and governed by its members, who have the ability to vote on proposals and make decisions about the direction of the organisation.
-  - Strategy is shaped through multi-stakeholder Advisory Boards (network operators, builders, community members, Inc., and domain experts) across Protocol, Network, Governance, and Markets/Demand.
-  - The Foundation synthesizes this input into a long-term [roadmap](https://roadmap.livepeer.org/roadmap), budget, and defined workstreams, which are proposed to the community for approval.
-  - Livepeer stakeholders (tokenholders, node operators, developers, and community members) vote on budgets, programs, and the Foundation’s board.
-  - The Foundation then coordinates and executes on the approved strategy and workstreams with transparent, regular reporting back to its members.
-
-  <div style={{ justifySelf: "center", width: "80%", alignContent: "center" }}>
-    <Tip> 
-      You can join in the conversation on the 
-      {" "}<Icon icon="comment-pen" /> **[Livepeer Forum](https://forum.livepeer.org/c/foundation/14)** 
-      or weekly 
-      {" "}<Icon icon="tv-retro" /> **[Watercooler Chats](https://discord.com/events/423160867534929930/1394387788568203274)** 
-    </Tip>
-  </div>
-  
-  **Role in Ecosystem:**
-  - The Foundation is responsible for the long-term health and decentralization of the Livepeer network.
-  - The Foundation communitcates closely with the [Livepeer DAO](#livepeer-dao) for its initiatives to ensure it has its members’ trust and support.
-  - Funds and coordinates the work of [Special Purpose Entities](#special-purpose-entities) (SPEs) - focused teams delivering long-term infrastructure, open-source software, and public goods.
-  - The Foundation is a critical partner in driving the long-term success of the Livepeer network.
-
-</Accordion>
-
-### Livepeer DAO
-The Livepeer DAO is a community-governed organisation that manages the Livepeer protocol and its treasury. It is responsible for making decisions about the direction of the protocol, including funding for development, infrastructure, and ecosystem growth.
-
-### Special Purpose Entities (SPEs)
-Special Purpose Entities (SPEs) are mission-driven engineering or operational teams funded by the Livepeer ecosystem to deliver:
-- Long-term infrastructure
-- Open-source software
-- Network-level capabilities
-- Public goods that benefit creators, developers, and node operators
-
-
-
-{/* This governance framework, often called a [DAO](https://en.wikipedia.org/wiki/Decentralized_autonomous_organization) (Decentralised Autonomous Organisation) in the web3 space, enables stakeholders to tangibly participate in the direction and future of Livepeer. */}
-
-{/* It includes governance decisions on the direction of the protocol as well as funding mechanisms for founders & contributors (via the <LinkArrow label="Onchain Treasury" href="https://explorer.livepeer.org/treasury" target="_blank" newline={false} />) that will benefit the Livepeer Network and its users.onchain treasury) that will benefit the Livepeer Network and its users. */}
-
-
-{/* ### Overview
-
-This page serves as a guide to understanding Livepeer's Organisational Structure & Plans
-
-- Livepeer Inc.
-  - Core Teams & Function
-- Livepeer Foundation
-  - Core Teams & Function
-- Livepeer Network
-  - gateways, orchestrators, delegators
-- Livepeer Ecosystem Projects
-  - use livepeer: daydream etc.
-- Livepeer Partner Companies
-  - Do more with Livepeer with our partners -> storage, security etc.
-- Livepeer Enterprise
-
-<br /> */}
-
-### Livepeer Ecosystem
-
-<Note> Mermaid Embedded Fowchart Example Only </Note>
-```mermaid flowchart TB A[Livepeer Inc.]:::main --> B[Livepeer Foundation]:::main
-A --> C[Livepeer Network]:::main A --> D[Livepeer Ecosystem Projects]:::main A -->
-E[Livepeer Partner Companies]:::main A --> F[Livepeer Enterprise]:::main
-
-classDef main fill:#197a4d,stroke:#15803D,stroke-width:2px,color:#fff
-
-````
-
-### Livepeer Inc.
-
-```mermaid
-flowchart TD
-  subgraph Inc["Livepeer Inc."]
-    B1[AI SPE]
-    B2[Cloud SPE]
-  end
-  style Inc fill:#197a4d,stroke:#15803D,stroke-width:2px,color:#fff
-  style B1 fill:#07C983,stroke:#197a4d,color:#000
-  style B2 fill:#07C983,stroke:#197a4d,color:#000
-````
-
-### Livepeer Foundation
-
-```mermaid
-flowchart TD
-  subgraph Foundation["Livepeer Foundation"]
-    C1[Strategic Objectives]
-    C2[Initiatives]
-    C3[Task Forces]
-    C4[Operations]
-  end
-  style Foundation fill:#197a4d,stroke:#15803D,stroke-width:2px,color:#fff
-  style C1 fill:#07C983,stroke:#197a4d,color:#000
-  style C2 fill:#07C983,stroke:#197a4d,color:#000
-  style C3 fill:#07C983,stroke:#197a4d,color:#000
-  style C4 fill:#07C983,stroke:#197a4d,color:#000
-```
-
-### Livepeer Network
-
-```mermaid
-flowchart TD
-  subgraph Network["Livepeer Network"]
-    D1[Gateways]
-    D2[Orchestrators]
-    D3[Delegators]
-    D4[Storage]
-  end
-  style Network fill:#197a4d,stroke:#15803D,stroke-width:2px,color:#fff
-  style D1 fill:#07C983,stroke:#197a4d,color:#000
-  style D2 fill:#07C983,stroke:#197a4d,color:#000
-  style D3 fill:#07C983,stroke:#197a4d,color:#000
-  style D4 fill:#07C983,stroke:#197a4d,color:#000
-```
-
-### Livepeer Ecosystem Projects
-
-```mermaid
-flowchart TD
-  subgraph EcoProjects["Livepeer Ecosystem Projects"]
-    E1[Daydream]
-    E2[Other Projects]
-  end
-  style EcoProjects fill:#197a4d,stroke:#15803D,stroke-width:2px,color:#fff
-  style E1 fill:#07C983,stroke:#197a4d,color:#000
-  style E2 fill:#07C983,stroke:#197a4d,color:#000
-```
-
-### Livepeer Partner Companies
-
-```mermaid
-flowchart TD
-  subgraph Partners["Livepeer Partner Companies"]
-    F1[Storage Partners]
-    F2[Security Partners]
-  end
-  style Partners fill:#197a4d,stroke:#15803D,stroke-width:2px,color:#fff
-  style F1 fill:#07C983,stroke:#197a4d,color:#000
-  style F2 fill:#07C983,stroke:#197a4d,color:#000
-```
-
-### Livepeer Enterprise
-
-```mermaid
-flowchart TD
-  subgraph Enterprise["Livepeer Enterprise"]
-    G1[Enterprise Services]
-  end
-  style Enterprise fill:#197a4d,stroke:#15803D,stroke-width:2px,color:#fff
-  style G1 fill:#07C983,stroke:#197a4d,color:#000
-```
-
-### Livepeer Inc.
-
-- AI SPE
-- Cloud SPE
-
-### Livepeer Foundation
-
-The [Livepeer Foundation](https://forum.livepeer.org/t/launching-the-livepeer-foundation/2849) was launched in April 2025 with the mission:
-
-> \[...] to steward the long-term vision, ecosystem growth, and core development of the network.
-
-Broadly speaking, the Livepeer Foundation makes decisions in the following areas:
-
-1. Define strategic objectives for Livepeer
-2. Design initiatives to accelerate or steer progress towards objectives
-3. Drawing on available resources, recruit and coordinate task forces to execute on initiatives
-4. Foundation operations
-
-### Livepeer Network
-
--
-- Storage
--
-
-<br />
-### Livepeer Ecosystem Projects
-
-<br />
-
-### Livepeer Partner Companies
-
-<br />
-
-### Decentralising Livepeer
-
-<br />
-
-# Livepeer Ecosystem
-
-<Note> Set up a github for self-registering as an ecosystem project </Note>
+The Livepeer Community is a diverse and vibrant group of individuals and organizations that are passionate about the Livepeer Real-time Video AI Network. The community includes developers, users, organizations, and enthusiasts from around the world.

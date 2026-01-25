@@ -1,4 +1,4 @@
-import React from "react";
+
 
 export const QuadGrid = ({ 
   children, 
@@ -7,9 +7,7 @@ export const QuadGrid = ({
   iconColor = "var(--accent)",
   spinDuration = "10s",
 }) => {
-  // Ensure we have exactly 4 children
-  const childArray = React.Children.toArray(children);
-  
+
   return (
     <div style={{ position: "relative" }}>
       <style>{`
@@ -19,7 +17,7 @@ export const QuadGrid = ({
         }
       `}</style>
       <Columns cols={2}>
-        {childArray}
+        {children}
       </Columns>
       <div style={{
         position: "absolute",
