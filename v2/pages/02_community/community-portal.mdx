@@ -44,7 +44,16 @@ import { YouTubeVideo } from '/snippets/components/display/video.jsx'
           </>
         }
       >
-      <YouTubeVideo embedUrl="https://www.youtube.com/embed/LmZNEaOOb9I?si=ZWhKc31ynnj_bsi4" title="Join the weekly Watercooler Chat"/>
+      <YouTubeVideo
+            embedUrl="https://www.youtube.com/embed/LmZNEaOOb9I?si=ZWhKc31ynnj_bsi4"
+            title={
+              <span style={{ display: "flex", alignItems: "center", color: "var(--hero-text)", gap: "0.2rem" }}>
+                <a href="https://discord.com/events/423160867534929930/1394387788568203274" style={{ color: "var(--hero-text)", borderBottom: "1.5px solid var(--accent)", paddingBottom: "2px" }} >
+                  Join the weekly Watercooler Chat on Discord
+                </a>
+                  <Icon icon="arrow-up-right" size={14} color="var(--accent)" iconType="solid" />
+              </span>}
+      />
     </PortalHeroContent>
   </HeroContentContainer>
 </HeroSectionContainer>
@@ -82,7 +91,7 @@ import { YouTubeVideo } from '/snippets/components/display/video.jsx'
     </Card>
     <Card
       title="Follow the YouTube Channel"
-      icon="camera-movie"
+      icon="youtube"
       href="https://www.youtube.com/@livepeer"
       arrow
     >
@@ -110,7 +119,7 @@ import { YouTubeVideo } from '/snippets/components/display/video.jsx'
       href="https://github.com/livepeer"
       arrow
     >
-      The Livepeer codebase is open-source and available on GitHub. Contribute to the code and help shape the future of Livepeer.
+      The Livepeer codebase is open-source and available on GitHub. Explor the code, raise issues or contribute to help shape the future of Livepeer.
     </Card>
     <Card
       title="Visit the Livepeer Explorer"
@@ -118,7 +127,31 @@ import { YouTubeVideo } from '/snippets/components/display/video.jsx'
       href="https://explorer.livepeer.org/"
       arrow
       >
-      The Explorer allows users to monitor network activity, track performance, and participate in the network's governance and staking processes.
+      The Explorer allows users to monitor network activity, track performance, view proposals and participate in the network's governance and staking processes.
+    </Card>
+    {/* <Card
+      title="Join the Watercooler Chat"
+      icon="calendar"
+      href="https://discord.com/events/423160867534929930/1394387788568203274"
+      arrow
+    >
+      Join the weekly Livepeer Watercooler, a weekly community meeting hosted on Discord where you can ask questions, share ideas, and connect with other members of the Livepeer community.
+    </Card> */}
+    <Card
+      title="Livepeer Telegram (official)"
+      icon="telegram"
+      href="@livepeerorg"
+      arrow
+    >
+      The official Livepeer Telegram group is a great place to ask questions, share ideas, and connect with other members of the Livepeer community.
+    </Card>
+    <Card
+      title="Livepeer Reddit (unofficial)"
+      icon="reddit"
+      href="https://www.reddit.com/r/livepeer/"
+      arrow
+    >
+      The Livepeer Reddit is an unofficial community-run forum for discussion and sharing.
     </Card>
     {/* <Card
       title="Join the Livepeer Watercooler"

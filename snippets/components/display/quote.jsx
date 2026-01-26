@@ -44,7 +44,7 @@ export const FrameQuote = ({
     >
       <div
         style={{
-          borderLeft: `4px solid ${borderColor}`,
+          borderLeft: `4px solid var(--accent)`,
           paddingLeft: "1rem",
           fontStyle: "italic",
         }}

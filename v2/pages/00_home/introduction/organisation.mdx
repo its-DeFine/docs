@@ -66,7 +66,7 @@ import { QuadGrid } from '/snippets/components/layout/quadGrid.jsx'
   <Card
     title="Special Purpose Entities (SPEs)"
     icon="shapes"
-    href="#special-purpose-entities"
+    href="#special-purpose-entities-spes"
     arrow
   >
     Special Purpose Entities (SPEs) are mission-driven engineering or operational teams funded by the Livepeer ecosystem to deliver the DAO's accepted proposals.
@@ -133,7 +133,7 @@ It is owned and governed by its members, who have the ability to vote on proposa
   "The LF’s role is to ensure that, over time, the Livepeer project builds a thriving ecosystem of founders, applications and gateways, and a highly-performant, secure network, truly accountable and governed by token holders." <br/>
 </FrameQuote>
 <br/>
-  Broadly speaking, the Livepeer Foundation makes decisions in the following areas:
+  The Livepeer Foundation makes decisions in the following areas:
   - Define strategic objectives for Livepeer
   - Design initiatives to accelerate or steer progress towards objectives
   - Drawing on available resources, recruit and coordinate task forces to execute on initiatives
@@ -188,23 +188,40 @@ It is owned and governed by its members, who have the ability to vote on proposa
 </Accordion>
 
 ### Livepeer DAO
-While not officially called the Livepeer DAO, the Livepeer protocol is governed by a collective of LP tokenholders who decide on the direction of the network via on-chain proposals and an on-chain treasury.
+While not officially called the Livepeer DAO, the Livepeer protocol is governed by a collective of Livpeer (LP) tokenholders who decide on the direction of the network via [on-chain proposals](https://explorer.livepeer.org/voting) and an [on-chain treasury]().
+
+As Rich O'Grady, Livepeer Foundation Lead, explains:
+<FrameQuote
+  source="Launching the Livepeer Foundation"
+  href="https://forum.livepeer.org/t/launching-the-livepeer-foundation/2849"
+  align="left"
+>
+  “The Livepeer community is the DAO. The Foundation is a critical partner in driving the long-term success of the Livepeer network, but it is the community that holds the final say in all matters via on-chain governance.” <br/>
+</FrameQuote>
+
+Anyone who holds Livepeer tokens (LPT) is a member of the Livepeer DAO, though in order to participate in voting & governance, a non-zero [delegated stake](../../06_delegators/delegating-lpt/how-to-delegate-lpt) of LPT is required.
+
+<Note> Even if you are not a tokenholder (or do not have a non-zero delegated stake), you can still participate in the Livepeer ecosystem by joining the community and influencing the direction of the network indirectly through [forum discussion](https://forum.livepeer.org/t/about-the-governance-category/1059) and collaboration. </Note>
 
 {/* The on-chain treasury is managed by the Livepeer Foundation on behalf of the tokenholders, with the goal of funding the long-term growth and sustainability of the network. */}
-
-**On-Chain Treasury**
-{/* Formed in 2022, the on-chain treasury is issued with 10% of Livepeer block rewards to fund the long-term growth and sustainability of the network. */}
-In 2022, Livepeer launched the [On-Chain Treasury](../../06_delegators/livepeer-treasury/) to fund the long-term growth and sustainability of the network.
-This treasury accumulates a portion of protocol fees (often called block rewards on other chains and also known as 'inflation' within Livepeer) and is controlled by token holder votes. 
-
-The treasury has become a significant source of funding for Special Purpose Entities (SPEs) and other needed initiatives in the Livepeer ecosystem.
-
-<Accordion title="See more about the Livepeer DAO" icon="camera-retro" >
+<br/>
+<Accordion title="See more about the Livepeer DAO" icon="camera-retro" defaultOpen >
   **Role in Ecosystem**
-  - The Livepeer DAO is responsible for the long-term health and decentralization of the Livepeer network.
+  - The Livepeer tokenholders (collectively unofficially called the Livepeer DAO in this documentation) are the ultimate decision-makers on funding and protocol changes. 
+  - They elect to fund SPEs, approve Foundation proposals, and ratify protocol upgrades - [LIPs](https://github.com/livepeer/LIPs).
+  - The Livepeer DAO are the key decision-makers and stakeholders for the long-term health and collective product direction of the Livepeer network.
+
+  **DAO Members**
+
+  Livepeer (LPT) DAO members, with non-zero delegated stake, include:
+  - Orchestrators who have LPT staked as collateral on the Livepeer network
+  - Delegators who have staked their LPT to an orchestrator (with votes generally following the orchestrator's vote)
+  - Developers & Other Node operators (gateways)
+  - Community members holding LPT (even if not delegating or actively participating as an actor in the network)
+  - Other Tokenholders such as those that may also be part of Livepeer Inc., the Livepeer Foundation, SPEs or other Ecosystem projects.
 
   **Governance**
-  - Decisions are made by tokenholders via on-chain proposals
+  - Decisions are made by tokenholders via [on-chain proposals](https://explorer.livepeer.org/voting)
   - The on-chain treasury is managed by the Livepeer Foundation on behalf of the tokenholders, with the goal of funding the long-term growth and sustainability of the network.
   <LinkArrow
     label="Livepeer Governance Model"
@@ -212,6 +229,14 @@ The treasury has become a significant source of funding for Special Purpose Enti
     target="_blank"
     newline={false}
     />
+
+  **On-Chain Treasury**
+  {/* Formed in 2022, the on-chain treasury is issued with 10% of Livepeer block rewards to fund the long-term growth and sustainability of the network. */}
+  In 2022, Livepeer launched the [On-Chain Treasury](../../06_delegators/livepeer-treasury/) to fund the long-term growth and sustainability of the network.
+  This treasury accumulates a portion of protocol fees (often called block rewards on other chains and also known as 'inflation' within Livepeer).
+  Livepeer tokenholders (the DAO members) vote on how to allocate these funds via on-chain proposals.
+  {/* The treasury has become a significant source of funding for Special Purpose Entities (SPEs) and other needed initiatives in the Livepeer ecosystem. */}
+
 
   **Notable Decisions**
   - Approval of the [Confluence upgrade](https://medium.com/livepeer-blog/the-confluence-upgrade-is-live-3b6b342ea71e) (migrating to Arbitrum) via [LIP-73](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0073.md)
