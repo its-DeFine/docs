@@ -1,33 +1,31 @@
 ---
-mode: wide
 title: 'Livepeer Organisational Structure'
 sidebarTitle: 'Organisation'
-description: "Livepeer has grown into a robust network over 8 years. Here's your guide to finding who you need and what the ecosystem offers!"
+description: "A look at the Livepeer organisational structure, including the Livepeer Foundation, Livepeer Inc., and the key role of the Livepeer Community in governing the future of network."
 keywords: ["livepeer", "home", "introduction", "livepeer ecosystem", "ecosystem", "grown", "robust"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
-
-<PreviewCallout />
-
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { FrameQuote } from '/snippets/components/display/quote.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
+{/* NEEDS A CTA HERE */}
 {/* The Livepeer ecosystem and how it works */}
+<CustomDivider />
 
-{/* ## Livepeer Values
+## Livepeer Values
 
-Livepeer is driven by a set of core values that guide its development, operations, and community interactions.
+Livepeer has also been driven by a set of core values that guide its development, operations, and community interactions.
 
 - **Innovation**: Embrace new ideas and technologies to stay ahead of the curve.
 - **Collaboration**: Build with and for the community, fostering open dialogue and shared ownership.
 - **Accessibility**: Make cutting-edge video and AI tools available to everyone, regardless of technical background.
 - **Community**: Build with and for the community, fostering open dialogue and shared ownership.
 
-With this in mind, Livepeer is dedicated not just to open, accessible architecture but also to a *contributive organisational structure*.  */}
+With this in mind, Livepeer is dedicated not just to open, accessible architecture but also to a *contributive organisational structure* that optimises for the right people, with the right incentives, working on the right things. 
 
-## Livepeer Organisational Structure
+## Entities
 
 Livepeer’s project structure has evolved to balance a focused core team with a growing community governance model. 
 Several entities play distinct roles in Livepeer’s ecosystem: 
@@ -188,7 +186,7 @@ It is owned and governed by its members, who have the ability to vote on proposa
 </Accordion>
 
 ### Livepeer DAO
-While not officially called the Livepeer DAO, the Livepeer protocol is governed by a collective of Livpeer (LP) tokenholders who decide on the direction of the network via [on-chain proposals](https://explorer.livepeer.org/voting) and an [on-chain treasury]().
+While not officially called the Livepeer DAO, the Livepeer protocol is governed by a collective of Livpeer (LP) tokenholders who decide on the direction of the network via [on-chain proposals](https://explorer.livepeer.org/voting) and an [on-chain treasury](https://explorer.livepeer.org/treasury).
 
 As Rich O'Grady, Livepeer Foundation Lead, explains:
 <FrameQuote
@@ -199,62 +197,66 @@ As Rich O'Grady, Livepeer Foundation Lead, explains:
   “The Livepeer community is the DAO. The Foundation is a critical partner in driving the long-term success of the Livepeer network, but it is the community that holds the final say in all matters via on-chain governance.” <br/>
 </FrameQuote>
 
-Anyone who holds Livepeer tokens (LPT) is a member of the Livepeer DAO, though in order to participate in voting & governance, a non-zero [delegated stake](../../06_delegators/delegating-lpt/how-to-delegate-lpt) of LPT is required.
+DAO members are collectively the ultimate decision-makers of protocol upgrades, network growth proposals and treasury allocations.
 
-<Note> Even if you are not a tokenholder (or do not have a non-zero delegated stake), you can still participate in the Livepeer ecosystem by joining the community and influencing the direction of the network indirectly through [forum discussion](https://forum.livepeer.org/t/about-the-governance-category/1059) and collaboration. </Note>
+Anyone who holds (and has delegated) Livepeer tokens (LPT) is a member of the Livepeer DAO and can participate in voting & governance. 
 
-{/* The on-chain treasury is managed by the Livepeer Foundation on behalf of the tokenholders, with the goal of funding the long-term growth and sustainability of the network. */}
+
+<Note> Even if you are not a tokenholder (or do not have a non-zero delegated stake), you can still participate in the Livepeer ecosystem by joining the community and influencing the direction of the network indirectly through [discussions](https://forum.livepeer.org/t/about-the-governance-category/1059) and collaboration. </Note>
+
 <br/>
-<Accordion title="See more about the Livepeer DAO" icon="camera-retro" defaultOpen >
+<Accordion title="See more about the Livepeer DAO" icon="camera-retro" >
   **Role in Ecosystem**
-  - The Livepeer tokenholders (collectively unofficially called the Livepeer DAO in this documentation) are the ultimate decision-makers on funding and protocol changes. 
-  - They elect to fund SPEs, approve Foundation proposals, and ratify protocol upgrades - [LIPs](https://github.com/livepeer/LIPs).
-  - The Livepeer DAO are the key decision-makers and stakeholders for the long-term health and collective product direction of the Livepeer network.
+  - The Livepeer DAO members are the ultimate decision-makers on all matters related to funding, protocol changes and ultimate product direction of the Livepeer network.
+  - While Livepeer Inc. and the Livepeer Foundation may self-fund their own projects, all protocol and network changes require approval by the DAO.
+  - The DAO votes on whether to fund Foundation Roadmap items, SPEs, Request for Proposals [(RFPs)](https://en.wikipedia.org/wiki/Request_for_proposal), and protocol upgrades in Livepeer Improvement Proposals [(LIPs)](https://github.com/livepeer/LIPs).
+
+  **On-Chain Treasury**
+    {/* Formed in 2022, the on-chain treasury is issued with 10% of Livepeer block rewards to fund the long-term growth and sustainability of the network. */}
+    - In 2022, Livepeer launched the [On-Chain Treasury](../../06_delegators/livepeer-treasury/) to fund the long-term growth and sustainability of the network.
+    - This treasury accumulates a portion of protocol fees (often called block rewards on other chains and also known as 'inflation' within Livepeer).
+    - Livepeer tokenholders (the DAO members) vote on how to allocate these funds via on-chain proposals.
+    {/* The treasury has become a significant source of funding for Special Purpose Entities (SPEs) and other needed initiatives in the Livepeer ecosystem. */}
+
+  **Governance**
+
+  - The Livepeer community uses a [standardised governance framework](https://forum.livepeer.org/t/livepeer-governance-workstreams-govworks-whitepaper/3720) to ensure that all on-chain decisions are well-informed, transparent, and executed effectively.
+  - Decisions are made by tokenholders via [on-chain proposals](https://explorer.livepeer.org/voting)
+  - Any tokenholder can participate in governance by delegating their tokens to a delegator or running a delegate node themselves.
+    <span>
+      {"(see "}   
+      <LinkArrow
+        label="Delegating LPT"
+        href="(../../06_delegators/delegating-lpt/how-to-delegate-lpt)"
+        target="_blank"
+        newline={false}
+        />
+        {" )."} 
+    </span>
 
   **DAO Members**
 
-  Livepeer (LPT) DAO members, with non-zero delegated stake, include:
-  - Orchestrators who have LPT staked as collateral on the Livepeer network
-  - Delegators who have staked their LPT to an orchestrator (with votes generally following the orchestrator's vote)
-  - Developers & Other Node operators (gateways)
-  - Community members holding LPT (even if not delegating or actively participating as an actor in the network)
-  - Other Tokenholders such as those that may also be part of Livepeer Inc., the Livepeer Foundation, SPEs or other Ecosystem projects.
+    Livepeer DAO members include: 
+    - Orchestrators who have LPT staked as collateral on the Livepeer network
+    - Delegators who have staked their LPT to an orchestrator (with votes generally following the orchestrator's vote)
+    - Developers & Other Node operators (gateways)
+    - Community members holding LPT (even if not delegating or actively participating as an actor in the network)
+    - Other Tokenholders such as those that may also be part of Livepeer Inc., the Livepeer Foundation, SPEs or other Ecosystem projects.
 
-  **Governance**
-  - Decisions are made by tokenholders via [on-chain proposals](https://explorer.livepeer.org/voting)
-  - The on-chain treasury is managed by the Livepeer Foundation on behalf of the tokenholders, with the goal of funding the long-term growth and sustainability of the network.
-  <LinkArrow
-    label="Livepeer Governance Model"
-    href="../../06_delegators/livepeer-governance/governance-model.mdx"
-    target="_blank"
-    newline={false}
-    />
-
-  **On-Chain Treasury**
-  {/* Formed in 2022, the on-chain treasury is issued with 10% of Livepeer block rewards to fund the long-term growth and sustainability of the network. */}
-  In 2022, Livepeer launched the [On-Chain Treasury](../../06_delegators/livepeer-treasury/) to fund the long-term growth and sustainability of the network.
-  This treasury accumulates a portion of protocol fees (often called block rewards on other chains and also known as 'inflation' within Livepeer).
-  Livepeer tokenholders (the DAO members) vote on how to allocate these funds via on-chain proposals.
-  {/* The treasury has become a significant source of funding for Special Purpose Entities (SPEs) and other needed initiatives in the Livepeer ecosystem. */}
-
-
-  **Notable Decisions**
-  - Approval of the [Confluence upgrade](https://medium.com/livepeer-blog/the-confluence-upgrade-is-live-3b6b342ea71e) (migrating to Arbitrum) via [LIP-73](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0073.md)
-  - Funding of the [AI Video SPE](https://forum.livepeer.org/t/ai-video-spe-stage-3-pre-proposal/2693) (multiple stages funded by votes), 
-  - Grants to applications like [Lenstube](https://lenstube.com/) and [Dlive](https://dlive.tv/)
-  
-  The DAO also elects a Security Committee for multisig control and other meta-governance structures (GovWorks working group, etc., see below). 
-  
-  By 2025, token holder sentiment pushed for more strategic use of the treasury: “Token holders want to see the onchain treasury deployed more strategically to drive more utility and earning potential from the token”
- – this desire was a driving factor in establishing the Foundation and advisory boards.
-
-
----
-  - The Livepeer community uses a [standardised governance framework](https://forum.livepeer.org/t/livepeer-governance-workstreams-govworks-whitepaper/3720) to ensure that all on-chain decisions are well-informed, transparent, and executed effectively.
-  - The community formed a Governance Working Group (GovWorks) to streamline proposal processes and improve engagement. GovWorks helps coordinate between Livepeer Inc, the Foundation, and token holders (for example, facilitating the new Advisory Boards,
-
-  **Participation**
-  - Any tokenholder can participate in governance by delegating their tokens to a delegator or running a delegate node themselves.
+    **Notable Decisions**
+    - Approval of the [Confluence upgrade](https://medium.com/livepeer-blog/the-confluence-upgrade-is-live-3b6b342ea71e) (migrating to Arbitrum) via [LIP-73](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0073.md)
+    - Funding of the [AI Video SPE](https://forum.livepeer.org/t/ai-video-spe-stage-3-pre-proposal/2693) (multiple stages funded by votes), 
+    - Grants to applications like [Lenstube](https://lenstube.com/) and [Dlive](https://dlive.tv/)
+    -  The **Livepeer DAO was a driving factor in establishing the Foundation and advisory boards**, with members pushing for more strategic use of the treasury in 2024 and 2025.
+      
+      <FrameQuote
+        author= "Rich O'Grady"
+        source="Launching the Livepeer Foundation"
+        href="https://forum.livepeer.org/t/launching-the-livepeer-foundation/2849"
+        align="left"
+      >
+      "Token holders want to see the onchain treasury deployed more strategically to drive more utility and earning potential from the token”
+      </FrameQuote>
 
 </Accordion>
 
@@ -262,11 +264,91 @@ Anyone who holds Livepeer tokens (LPT) is a member of the Livepeer DAO, though i
 
 
 ### Special Purpose Entities (SPEs)
-Special Purpose Entities (SPEs) are mission-driven engineering or operational teams funded by the Livepeer ecosystem to deliver:
-- Long-term infrastructure
-- Open-source software
-- Network-level capabilities
-- Public goods that benefit creators, developers, and node operators
+
+Special Purpose Entities (SPEs) are mission-driven, community-funded teams formed to execute specific projects for the Livepeer network. They allow faster, focused progress on particular needs, funded by the on-chain treasury and accountable to token holders.
+
+<FrameQuote
+    source="Livepeer Blog"
+    href="https://blog.livepeer.org/special-purpose-entities-a-new-model-for-livepeer-ecosystem-growth/"
+    >
+  "SPEs are typically mission-driven groups that operate independently to build infrastructure, applications, or tooling that expand and improve the Livepeer protocol. These teams are funded through proposals to the onchain treasury and are accountable to the community."
+</FrameQuote>
+
+These teams provide agile, responsive, accountable and focused progress on ecosystem needs.
+They allow Livepeer to innovate fast and move quickly on opportunities.
+
+
+{/* <iframe width="70%" height="auto" style={{margin: "0 -1rem"}} frameBorder="0" src="https://imgflip.com/embed/aidjmm"></iframe> */}
+<iframe width="70%" height="auto" style={{border: "3px solid var(--accent)", borderRadius: "8px"}} frameBorder="0" src="https://imgflip.com/embed/aidl1c"></iframe>
+
+
+
+  <Accordion title="See more about SPEs" icon="shapes"> 
+
+
+    **_Role in Ecosystem_**
+
+    - SPEs execute on strategic initiatives voted on by the Livepeer DAO.
+    - They are accountable to the community and must align with the long-term vision of the Livepeer network.
+    - These teams provide agile, responsive, and accountable progress on ecosystem needs and allow Livepeer to _innovate fast_ and move quickly on opportunities.
+  
+
+    **_SPE Model_**
+    - Funded by the Livepeer on-chain treasury via community votes
+    - Accountable to the community and must align with the long-term vision of the Livepeer network
+    - Provide agile, responsive, and accountable progress on ecosystem needs
+    
+
+    **_Governance_**
+    - SPEs are formed by a [RFP](https://en.wikipedia.org/wiki/Request_for_proposal) process and have a [DAO](#livepeer-dao)-mandated budget. 
+    - The Livpeer Foundation coordinates and oversees the operational and technical execution of the SPEs.
+    - The SPEs report to the DAO via the [Livepeer Forum](https://forum.livepeer.org/c/special-purpose-entities/15) and [ProductLane](https://productlane.com/livepeer).
+    
+<br/>
+    **_SPE Focus Areas_**
+
+    <Columns cols={2}>
+    <div>
+    SPEs may focus on:
+    - Long-term infrastructure
+    - Protocol development
+    - Network-level capabilities
+    - Ecosystem growth and adoption
+    - Operational Leadership
+    </div>
+    <div>
+    - Research and Development
+    - Product Management
+    - Education and Outreach
+    - Advocacy and Policy
+    - Community Management
+    - Public Goods
+    </div>
+    </Columns>
+    _... and any other area as identified by the Livepeer ecosystem, it's strategic goals and opportunities._
+    
+    
+    **_Notable SPEs_**
+
+    - [AI Video SPE](https://livepeer-ai.productlane.com/changelog) - one of the first and most important SPEs
+       - Strategic Focus: Build out AI-first video infrastructure. The AI SPE is crucial for Livepeer’s goal to be _“the leading infrastructure for realtime AI video.”_ 
+       - Status: Active <Icon icon="circle-arrow-up-right" iconType="solid" size={18} color="var(--accent)" />
+       - Impact: 
+          - Helped Livepeer pivot from solely transcoding into broader compute. 
+          - By Stage 2, the SPE reported successfully running new AI use cases on testnet, and 
+          - By Stage 3, built BYOC and comfystream to scale this work. 
+
+    - [Livepeer Cloud SPE](https://livepeer-cloud.productlane.com/changelog): 
+       - Strategic Focus: Build out cloud-native video infrastructure & address the issues of _“over-reliance on a few demand sources.”_
+       - Status: Active <Icon icon="circle-arrow-up-right" iconType="solid" size={18} color="var(--accent)" />
+       - Impact: The Livepeer Cloud SPE built the [Community Gateway](https://livepeer.com/gateway) and also builds tooling and analytics for orchestrators.
+
+    - [Streamplace SPE](https://livepeer-streamplace.productlane.com/changelog): 
+       - Strategic Focus: Build a public goods video layer for social networks and Web3 apps.
+       - Status: Active <Icon icon="circle-arrow-up-right" iconType="solid" size={18} color="var(--accent)" />
+       - Impact: The Streamplace SPE is building a video layer for social networks and Web3 apps.
+
+  </Accordion>
 
 {/* Move to governance section: ## Livepeer Protocol [LIPs]
 The Livepeer Improvement Proposals (LIPs) document and propose changes to the Livepeer protocol. They are submitted by community members and voted on by the Livepeer community. */}
