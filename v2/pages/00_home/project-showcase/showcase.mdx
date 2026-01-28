@@ -9,6 +9,8 @@ og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 
 import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
 import { ProjectShowcaseColumns } from '/snippets/components/display/ProjectShowcaseColumns.jsx'
+import { LinkArrow } from '/snippets/components/primitives/links.jsx'
+import ProjectShowcase from '/snippets/pages/00_HOME/project-showcase.mdx'
 
 {/* { showcaseData } from '/automations/showcase/showcaseData.jsx' */}
 
@@ -17,9 +19,13 @@ import { ProjectShowcaseColumns } from '/snippets/components/display/ProjectShow
 <PreviewCallout />
 
 <Note>
-	Insert Card Layout here & enable an automation for users to add projects via a form.
-	The Data Object is at automations/showcase/showcaseData.jsx
-	There may be some helper functions for sorting this data also in automations/showcase
+TODO:
+- Enable an automation for users to add projects via a form [google form here](https://docs.google.com/forms/d/e/1FAIpQLSeJ4uoxQ9LUSg89RDWcGiTsbePXsSkRXzGzrdyJ8RVrM1171Q/viewform?usp=sharing&ouid=103197690869380433914).
+- The Data Object is at `snippets/automations/showcase/showcaseData.jsx`
+- Should use: `<ProjectShowcaseColumns data={showcaseData} />`
+- There may be some helper functions for sorting this data also in automations/showcase
+- Cards should display an image, short description and links
+- We need to add a search bar and sort options to the top of the page
 </Note>
 
 {/* <ProjectShowcaseColumns data={showcaseData} /> */}
@@ -28,7 +34,12 @@ Livepeer creates an open, competitive marketplace for reliable, low-cost video s
 
 Tokenisation (using crypto payment rails) enables monetisation for network participants & provides a payment mechanism for the creator economy
 
-### Creators
+## Showcase
+_Explore and be insprired by these Livepeer powered projects!_
+<ProjectShowcase />
+
+
+{/* ### Creators
 
 MetaDJ -> [https://www.instagram.com/reel/DPd6RUsErGF/](https://www.instagram.com/reel/DPd6RUsErGF/)
 
@@ -43,4 +54,4 @@ MetaDJ -> [https://www.instagram.com/reel/DPd6RUsErGF/](https://www.instagram.co
 ### Social Media
 
 - Lens
-- Bluesky
+- Bluesky */}
