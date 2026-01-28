@@ -1,1 +1,79 @@
-# Join a Pool
+---
+title: 'Join a Pool'
+description: 'Contribute GPU capacity to an existing Livepeer orchestrator and earn rewards without running protocol infrastructure.'
+sidebarTitle: 'Join a Pool'
+keywords: ["livepeer", "orchestrators", "setting up an orchestrator", "join a pool", "join", "pool"]
+og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+---
+
+import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+
+<PreviewCallout />
+
+import {Quote} from '/snippets/components/display/quote.jsx'
+
+<Quote> Orchestrator pools are operator-run GPU pools where multiple GPU providers contribute hardware to a single Livepeer orchestrator, which aggregates capacity, routes jobs, and distributes rewards. </Quote>
+
+Joining a community-run pool is a low-lift way to get started with the Livepeer network. 
+
+Pools are run by experienced operators who manage the day-to-day operations of the network. 
+They handle tasks such as staking, delegating, and managing the orchestrator node. 
+
+All you need to do is contribute your GPU and earn rewards!
+
+<Tip> Pools are not official Livepeer infrastructure. They are community-run and vary in terms of pricing, rewards, and management. Always research and choose a pool that best fits your needs.</Tip>
+
+#### About Pools
+A Pool has:
+- One stake + delegation set
+- Many GPUs behind it, often from different owners
+- Unified pricing, routing, uptime, and reputation
+- Revenue shared internally across the pool
+
+In a pool:
+- GPUs are scheduled and load-balanced
+- Rewards are aggregated then split
+- Operators advertise pool capacity, not single GPUs
+- GPU owners can join / leave without affecting the on-chain identity
+
+Benefits of a pool:
+- **Easier to get started**: No need to stake, delegate, or manage your own node
+- **Lower risk**: Pools are run by experienced operators
+- **Higher rewards**: Pools can negotiate better pricing and earn more revenue
+- **Flexibility**: You can join multiple pools and switch at any time
+
+Tradeoffs:
+- **Less control**: Pools make pricing, routing, and delegation decisions
+- **Lower rewards**: Pools take a cut of the revenue
+- **More competition**: Pools are more attractive to applications   
+
+
+{/* How to find & choose a pool:
+- Ask in the [Livepeer Discord](https://discord.gg/livepeer)
+- Research the pool's performance, pricing, and reputation */}
+
+#### Canonical flow (use this)
+
+1. Choose an orchestrator pool  
+    - Accepts external GPUs
+    - Publishes supported hardware + workloads
+    - Defines revenue split
+
+2. Connect your GPU to the pool
+    - Bare metal
+    - Cloud GPU
+    - BYOC container (preferred)
+
+3. Orchestrator aggregates your GPU
+    - Adds it to their capacity pool
+    - Schedules jobs across the pool
+    - Maintains uptime, pricing, reputation
+
+4. Earn rewards
+    - Usage fees
+    - Inflation rewards (via orchestrator)
+    - Paid off-chain per pool terms
+
+---
+
+{/* THIS IS FUCKED. There is no on‑chain directory of pools. */}

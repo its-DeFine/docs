@@ -8,9 +8,6 @@ keywords: ["home", "index", "landing", "gpu", "earn", "rewards", "orchestrator",
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-import { ComingSoonCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
-
-
 {/* TEST: Barrel export from index.jsx */}
 import { PortalHeroContent, HeroImageBackgroundComponent, LogoHeroContainer, HeroContentContainer, HeroSectionContainer, PortalCardsHeader, PortalContentContainer } from '/snippets/components/domain/SHARED/Portals.jsx'
 import { ThemeData } from '/snippets/styles/themeStyles.jsx'
@@ -44,9 +41,9 @@ Get Situated */}
       <LogoHeroContainer imgHeight="20px" />
 
         <PortalHeroContent
-          callout={<ComingSoonCallout />}
           title="GPUs for AI Video"
           subtitle="Run – Provide – Earn"
+          callout={<div style={{ display: "flex", justifyContent: "center", width: "100%" }}><div style={{ width: "70%", minWidth: "fit-content" }}><Tip>In the Livepeer network, GPU nodes are known as Orchestrators </Tip></div></div>}
           refCardLink={
               <Card
                 title="go-livepeer"
@@ -85,20 +82,12 @@ Get Situated */}
 
     <Columns cols={2}>
       <Card
-        title="What's an Orchestrator?"
+        title="Just Exploring? Start here"
         icon="comment-question"
         href="./about-orchestrators/overview"
         arrow
       >
-        ..
-      </Card>
-      <Card
-        title="Orchestrate Your GPU"
-        icon="laptop-code"
-        href="./setting-up-an-orchestrator/hardware-requirements"
-        arrow
-      >
-        ..
+        Learn about Livepeer Orchestrators (GPU Nodes), their role, economics and the functions they perform in the Livepeer network.
       </Card>
       <Card
         title="Run an Orchestrator"
@@ -106,23 +95,32 @@ Get Situated */}
         href="./setting-up-an-orchestrator/hardware-requirements"
         arrow
       >
-        Orchestrator Level up: Deploy your own Gateway on the Livepeer Protocol.
+        Whether you want to add a single GPU to the network for passive income in idle times, or you want to run a full-fledged business in your data-center, this is the place to start.
+        <Badge color="green" icon="wand-magic-sparkles">
+          Developer Level Up
+        </Badge>
+      </Card>
+      <Card title="Advanced Orchestrator Information" icon="circle-play" href="./about-orchestrators/orchestrator-functions/ai-pipelines" arrow>
+        Find out how to set pricing and authentication, become a delegator, vote in governance, earn rewards, and more.
       </Card>
       <Card
-        title="Orchestrator Tools & Dashboards"
+        title="Running AI Pipelines on your Orchestrator"
         icon="tools"
         href="./orchestrator-tools/tooling-hub"
         arrow
       >
-        .
+        Learn how to run AI pipelines on your orchestrator, how to add models, route to gateways, set pricing, and more.
       </Card>
       <Card
-        title="Orchestrator Guides & Resources"
+        title="Orchestrator Tools & Guides"
         icon="laptop-file"
         href="./guides-and-resources/orchestrator-guides"
         arrow
       >
-        .
+        Find & Access Orchestrator Tools & Dashboards and see full guides, examples and tutorials from the community on running a Livepeer Orchestrator.
+      </Card>
+      <Card title="Orchestrator References" icon="book" href="./references/orchestrator-references" arrow>
+        Find technical references, API docs, contract addresses and other references.
       </Card>
     </Columns>
 

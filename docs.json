@@ -328,24 +328,18 @@
                     "icon": "torii-gate",
                     "groups": [
                       {
-                        "group": "About Gateways",
+                        "group": "Gateway Knowledge Hub",
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/pages/04_gateways/gateways-portal",
-                          {
-                            "group": "Gateway Knowledge Hub",
-                            "expanded": true,
-                            "pages": [
-                              "v2/pages/04_gateways/about-gateways/gateway-explainer",
-                              "v2/pages/04_gateways/about-gateways/gateway-functions",
-                              "v2/pages/04_gateways/about-gateways/gateway-architecture",
-                              "v2/pages/04_gateways/about-gateways/gateway-economics"
-                            ]
-                          }
+                          "v2/pages/04_gateways/about-gateways/gateway-explainer",
+                          "v2/pages/04_gateways/about-gateways/gateway-functions",
+                          "v2/pages/04_gateways/about-gateways/gateway-architecture",
+                          "v2/pages/04_gateways/about-gateways/gateway-economics"
                         ]
                       },
                       {
-                        "group": "Quickstart",
+                        "group": "Quickstart ⚡",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
                         "pages": [
                           "v2/pages/04_gateways/run-a-gateway/quickstart-a-gateway",
@@ -370,7 +364,7 @@
                         ]
                       },
                       {
-                        "group": "Run Your Own Gateway",
+                        "group": "Run A Gateway",
                         "icon": "sign-posts-wrench",
                         "pages": [
                           {
@@ -443,17 +437,11 @@
                         ]
                       },
                       {
-                        "group": "Gateway Tools & Dashboards",
+                        "group": "Gateway Tools & Resources",
                         "icon": "tools",
                         "pages": [
                           "v2/pages/04_gateways/gateway-tools/explorer",
-                          "v2/pages/04_gateways/gateway-tools/livepeer-tools"
-                        ]
-                      },
-                      {
-                        "group": "Gateway Guides & Resources",
-                        "icon": "laptop-file",
-                        "pages": [
+                          "v2/pages/04_gateways/gateway-tools/livepeer-tools",
                           "v2/pages/04_gateways/guides-and-resources/community-guides",
                           "v2/pages/04_gateways/guides-and-resources/community-projects",
                           "v2/pages/04_gateways/guides-and-resources/faq"
@@ -543,22 +531,26 @@
                     "icon": "microchip",
                     "groups": [
                       {
-                        "group": "About Orchestrators (GPU Nodes)",
+                        "group": "Orchestrator Knowledge Hub",
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/pages/05_orchestrators/orchestrators-portal",
                           "v2/pages/05_orchestrators/about-orchestrators/overview",
-                          {
-                            "group": "Orchestrator Functions",
-                            "pages": [
-                              "v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/transcoding",
-                              "v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/ai-pipelines"
-                            ]
-                          }
+                          "v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions",
+                          "v2/pages/05_orchestrators/about-orchestrators/architecture",
+                          "v2/pages/05_orchestrators/about-orchestrators/economics"
                         ]
                       },
                       {
-                        "group": "Set up an Orchestrator",
+                        "group": "Quickstart ⚡",
+                        "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
+                        "pages": [
+                          "v2/pages/05_orchestrators/setting-up-an-orchestrator/join-a-pool",
+                          "v2/pages/05_orchestrators/setting-up-an-orchestrator/quickstart-a-gpu-node"
+                        ]
+                      },
+                      {
+                        "group": "Run an Orchestrator",
                         "icon": "gear-code",
                         "pages": [
                           "v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements",
@@ -566,25 +558,24 @@
                           {
                             "group": "Setting Up An Orchestrator",
                             "pages": [
-                              "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
-                              "v2/pages/05_orchestrators/setting-up-an-orchestrator/join-a-pool",
                               "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                             ]
                           }
                         ]
                       },
                       {
-                        "group": "Orchestrator Tooling",
-                        "icon": "tools",
+                        "group": "Advanced Orchestrator Information",
+                        "icon": "gamepad",
                         "pages": [
-                          "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-tools",
-                          "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-dashboards"
+                          "v2/pages/05_orchestrators/monitor-and-optimise/monitoring-and-optimisation"
                         ]
                       },
                       {
-                        "group": "Orchestrator Guides & Resources",
+                        "group": "Orchestrator Tools & Resources",
                         "icon": "laptop-file",
                         "pages": [
+                          "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-tools",
+                          "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-dashboards",
                           "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-guides-and-references",
                           "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-resources",
                           "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-community-and-help"
@@ -2976,16 +2967,8 @@
         "header": "links",
         "items": [
           {
-            "label": "custom link here",
-            "href": "https://livepeer.org"
-          },
-          {
-            "label": "custom link here",
-            "href": "https://livepeer.org"
-          },
-          {
-            "label": "custom link here",
-            "href": "https://livepeer.org"
+            "label": " ",
+            "href": " "
           }
         ]
       }
