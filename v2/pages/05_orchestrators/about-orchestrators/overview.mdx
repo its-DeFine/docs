@@ -9,8 +9,8 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
 
 <PreviewCallout />
 
+import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 
-{/* ### Overview? */}
 
 An orchestrator is a supply-side operator that contributes compute resources (predominately GPU resources) to the network.
 They receive jobs, perform transcoding or AI inference, and get compensated via LPT rewards + ETH fees.
@@ -18,45 +18,33 @@ They receive jobs, perform transcoding or AI inference, and get compensated via 
 ### Orchestrator Role
 
 In the early days of Livepeer, orchestrators were solely responsible for transcoding video. 
-{/* However, as the network has evolved, the role of orchestrators has also expanded.  */}
- {/* to include running AI inference pipelines, managing staking and rewards, voting in governance, and even hosting novel services like AI avatars and agent workloads. */}
-{/* //orchestrators have taken on a more general role of providing GPU compute resources to the network.  */}
 
 Today, as the Livepeer network has evolved from a video streaming network to a real-time AI video network, the role of orchestrators has greatly expanded beyond “just transcoding” with it.
 
-Today’s orchestrators are general purpose GPU compute providers that transcode video, run AI inference pipelines, manage staking and rewards, vote in governance, and even host novel services like AI avatars and agent workloads. 
+Today’s orchestrators are general purpose GPU compute providers that transcode video, run AI inference pipelines and custom workloads, manage staking and rewards, vote in governance, and even host novel services like AI avatars and agent workloads. 
 
-This multi-faceted responsibility makes them critical to Livepeer’s vision as a unified compute layer for real-time media
-{/* orchestrators are responsible for transcoding video, running AI inference pipelines, managing staking and rewards, voting in governance, and even hosting novel services like AI avatars and agent workloads. */}
-{/* In the same way that Livepeer has evolved form a video streaming network to a real-time AI video network, the role of Orchestrators has expanded from just transcoding to running real-time AI inference, and soon will expand to running real-time AI agents and other GPU compute workloads.
+This multi-faceted responsibility makes them critical to Livepeer’s vision as a unified compute layer for real-time AI workloads as well as a key component of the network’s strategic roadmap and a core partnr for novel production applications to be developed and deployed.
 
-today it is a general-purpose GPU compute network for real-time AI and video. */}
-
-
-
-{/* <Note> The role of orchestrators has greatly expanded beyond “just transcoding.” Today’s orchestrators transcode video, run AI inference pipelines, manage staking and rewards, vote in governance, and even host novel services like AI avatars and agent workloads. This multi-faceted responsibility makes them critical to Livepeer’s vision as a unified compute layer for real-time media </Note> */}
-{/* . The current Orchestrator Explainer documentation should be updated to reflect these new services and responsibilities – highlighting that an orchestrator is no longer solely a video transcoder, but a general GPU service provider in the network. Emphasizing the emerging AI use cases (Daydream, etc.) and how orchestrators interface with them would help readers understand Livepeer’s evolution. */} 
+_See more:_ <LinkArrow label="Orchestrator-Delegate Dual Role" href="https://github.com/shtukaresearch/livepeer-data-geography/blob/651a56e8c8290b30855f1393543ee9e0961c071c/roles/orchestrator-delegate.md" newline={false} />
 
 ### Orchestrator Types
-There are two main types of orchestrators on the Livepeer Network: GPU nodes and AI nodes.
-GPU nodes perform transcoding, while AI nodes perform AI inference.
+There are two main types of orchestrators on the Livepeer Network: 
+- GPU nodes that perform video transcoding  
+- AI nodes that perform AI inference
+- Custom workloads ie. BYOC pipelines or application-specific workloads
 
-{/* An orchestrator runs a node that performs transcoding or AI inference.
-They receive jobs from the network, execute them on their GPU resources, and return the results. */}
-
-{/* ### What are the different types of Orchestrators?
-
-There are two main types of orchestrators on the Livepeer Network: GPU nodes and AI nodes.
-GPU nodes perform transcoding, while AI nodes perform AI inference. */}
+<Tip> [BYOC](/03_developers/ai-inference-on-livepeer/byoc) pipelines are a recent addition to the AI node type that allows AI nodes to run arbitrary containers for processing tasks on the Livepeer network. </Tip>
 
 ### Orchestrator Setup Options 
 
-Anyone with a GPU can run an orchestrator on the Livepeer Network, whether you want to add your GPU to the network for passive income in idle times, or you want to run a full-fledged business.
+Anyone with a GPU can monetise their compute resources on the Livepeer Network, whether you want to add your GPU to the network for passive income in idle times, or you want to run a full-fledged business.
 
-If you're a hobbyist, the best place to start is by contributing your GPU to a pool.
-If you're a data center or want to have full control over your node, you can run your own GPU node.
+If you're a hobbyist, the best place to start is by contributing your GPU to an Orchestrator pool.
+If you're a data center or want to have full control over your node, you can setup your own Orchestrator node. 
 
-### Choose your own adventure!
+{/* If you're from the web3 space, this is roughly similar to running a full chain node on your own infrastructure or simply using an RPC provider who manages that for you.
+
+If you're from a devOps or cloud background, this is similar to either running your own bare metal infrastructure or using a managed service. */}
 
 <Columns cols={2}>
   <Card
