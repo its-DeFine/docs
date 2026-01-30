@@ -1,5 +1,3 @@
-import { ThemeData } from "/snippets/styles/themeStyles.jsx";
-
 /**
  * DynamicTable - A reusable table component with site-consistent styling
  *
@@ -9,6 +7,7 @@ import { ThemeData } from "/snippets/styles/themeStyles.jsx";
  *   - monospaceColumns: Optional array of column indices (0-based) to render in monospace
  */
 export const DynamicTable = ({
+  tableTitle = null,
   headerList = [],
   itemsList = [],
   monospaceColumns = [],
@@ -19,31 +18,21 @@ export const DynamicTable = ({
 
   return (
     <>
-      <style>{`
-        :root {
-          --table-header-bg: ${ThemeData.light.accent};
-          --table-header-border: ${ThemeData.light.accent};
-          --table-row-border: ${ThemeData.light.border};
-        }
-        .dark {
-          --table-header-bg: ${ThemeData.dark.accent};
-          --table-header-border: ${ThemeData.dark.accent};
-          --table-row-border: ${ThemeData.dark.border};
-        }
-      `}</style>
+      {tableTitle && <div style={{fontStyle: "italic", margin: 0 }}><strong>{tableTitle}</strong></div>}
       <div style={{ overflowX: "auto" }}>
         <table
           style={{
             width: "100%",
             borderCollapse: "collapse",
             fontSize: "0.9rem",
+            marginTop: 0
           }}
         >
           <thead>
             <tr
               style={{
-                backgroundColor: "var(--table-header-bg)",
-                color: "#fff",
+                backgroundColor: "var(--accent)",
+                color: "#fff", //DO NOT CHANGE
               }}
             >
               {headerList.map((header, index) => (
@@ -53,7 +42,7 @@ export const DynamicTable = ({
                     padding: "12px 16px",
                     textAlign: "left",
                     fontWeight: "600",
-                    borderBottom: "2px solid var(--table-header-border)",
+                    borderBottom: "2px solid var(--accent)",
                     color: "#fff",
                   }}
                 >
@@ -66,7 +55,7 @@ export const DynamicTable = ({
             {itemsList.map((item, rowIndex) => (
               <tr
                 key={rowIndex}
-                style={{ borderBottom: "1px solid var(--table-row-border)" }}
+                style={{ borderBottom: "1px solid var(--border)" }}
               >
                 {headerList.map((header, colIndex) => {
                   const value =

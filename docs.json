@@ -2963,17 +2963,6 @@
     "prompt": "Need help? Ask our AI"
   },
   "footer": {
-    "links": [
-      {
-        "header": "links",
-        "items": [
-          {
-            "label": " ",
-            "href": "www.stream.place.com"
-          }
-        ]
-      }
-    ],
     "socials": {
       "website": "https://forum.livepeer.org",
       "github": "https://github.com/livepeer",

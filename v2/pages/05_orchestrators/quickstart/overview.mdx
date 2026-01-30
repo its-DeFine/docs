@@ -10,7 +10,40 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
 
 <PreviewCallout />
 
-#### Join a GPU Pool vs. Run your own Orchestrator
+If you're a hobbyist, the best place to start is by contributing your GPU to an Orchestrator pool.
+If you're a data center or want to have full control over your node, you can setup your own Orchestrator node. 
+
+{/* If you're from the web3 space, this is roughly similar to running a full chain node on your own infrastructure or simply using an RPC provider who manages that for you.
+
+If you're from a devOps or cloud background, this is similar to either running your own bare metal infrastructure or using a managed service. */}
+
+<Columns cols={2}>
+  <Card
+    title="Add your consumer GPU to a pool"
+    icon="swimming-pool"
+    href="../setting-up-an-orchestrator/join-a-pool"
+    arrow
+  >
+    See how to add your GPU to an Orchestrator pool. <br/> Best for hobbyists or those with limited technical expertise.
+    <Badge color="green" icon="wand-magic-sparkles">
+      Quick Setup
+    </Badge>
+  </Card>
+  <Card
+    title="Run your own Orchestrator node"
+    icon="microchip"
+    href="../setting-up-an-orchestrator/data-centre-setup"
+    arrow
+  >
+    See how to run your own Orchestrator GPU node on the Livepeer Network. <br/> Best for data centers or those who want full control over their node.
+    <Badge color="green" icon="wand-magic-sparkles">
+      Advanced Setup
+    </Badge>
+  </Card>
+</Columns>
+
+#### Decision Tree
+Join a GPU Pool vs. Run your own Orchestrator
 
 {/* Add your GPU to a pool if:
 

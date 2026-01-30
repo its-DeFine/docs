@@ -1,5 +1,3 @@
-import { ThemeData } from "/snippets/styles/themeStyles.jsx";
-
 /**
  * StyledSteps - A customizable Steps component with color and styling support
  *
@@ -8,9 +6,9 @@ import { ThemeData } from "/snippets/styles/themeStyles.jsx";
  * Uses scoped styles with a unique ID to avoid conflicts.
  *
  * @param {React.ReactNode} children - Step components to render
- * @param {string} [iconColor] - Background color for step icons (defaults to theme accentDark)
- * @param {string} [titleColor] - Color for step titles (defaults to theme accent)
- * @param {string} [lineColor] - Color for the connecting line between steps (defaults to theme accent)
+ * @param {string} [iconColor] - Background color for step icons (defaults to #18794E)
+ * @param {string} [titleColor] - Color for step titles (defaults to #3CB540 light / #2b9a66 dark)
+ * @param {string} [lineColor] - Color for the connecting line between steps (defaults to #3CB540 light / #2b9a66 dark)
  * @param {string} [iconSize="24px"] - Size of the step icons (currently unused in implementation)
  *
  * @example
@@ -29,9 +27,9 @@ export const StyledSteps = ({
   iconSize = "24px",
 }) => {
   const stepsId = `styled-steps-${Math.random().toString(36).substr(2, 9)}`;
-  const resolvedIconColor = iconColor || ThemeData.light.accentDark;
-  const resolvedTitleColor = titleColor || ThemeData.light.accent;
-  const resolvedLineColor = lineColor || ThemeData.light.accent;
+  const resolvedIconColor = iconColor || "#18794E";
+  const resolvedTitleColor = titleColor || "#3CB540";
+  const resolvedLineColor = lineColor || "#3CB540";
 
   return (
     <>
