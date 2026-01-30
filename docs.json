@@ -547,19 +547,53 @@
                         "pages": [
                           "v2/pages/05_orchestrators/quickstart/overview",
                           "v2/pages/05_orchestrators/quickstart/join-a-pool",
-                          "v2/pages/05_orchestrators/quickstart/quickstart-a-gpu-node"
+                          "v2/pages/05_orchestrators/quickstart/orchestrator-setup"
                         ]
                       },
                       {
                         "group": "Run an Orchestrator",
                         "icon": "gear-code",
                         "pages": [
-                          "v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements",
-                          "v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats",
                           {
-                            "group": "Setting Up An Orchestrator",
+                            "group": "Orchestrator Setup Guide",
                             "pages": [
-                              "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                              "v2/pages/05_orchestrators/setting-up-an-orchestrator/overview",
+                              {
+                                "group": "Setup Checklist",
+                                "pages": [
+                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements"
+                                ]
+                              },
+                              {
+                                "group": "Installation",
+                                "pages": [
+                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats"
+                                ]
+                              },
+                              {
+                                "group": "Configuration",
+                                "pages": [
+                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer"
+                                ]
+                              },
+                              {
+                                "group": "Testing",
+                                "pages": [
+                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                ]
+                              },
+                              {
+                                "group": "Network Integration",
+                                "pages": [
+                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                ]
+                              },
+                              {
+                                "group": "Monitor & Optimise",
+                                "pages": [
+                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                ]
+                              }
                             ]
                           }
                         ]
@@ -568,18 +602,30 @@
                         "group": "Advanced Orchestrator Information",
                         "icon": "gamepad",
                         "pages": [
-                          "v2/pages/05_orchestrators/monitor-and-optimise/monitoring-and-optimisation"
+                          "v2/pages/05_orchestrators/advanced-setup/staking-LPT",
+                          "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees",
+                          "v2/pages/05_orchestrators/advanced-setup/delegation",
+                           "v2/pages/05_orchestrators/advanced-setup/ai-pipelines",
+                          "v2/pages/05_orchestrators/advanced-setup/run-a-pool"
                         ]
                       },
                       {
                         "group": "Orchestrator Tools & Resources",
                         "icon": "laptop-file",
                         "pages": [
-                          "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-tools",
-                          "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-dashboards",
-                          "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-guides-and-references",
-                          "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-resources",
-                          "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-community-and-help"
+                          "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
+                          "v2/pages/05_orchestrators/orchestrator-tools-and-resources/community-pools",
+                          "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides",
+                          "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-resources",
+                          "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help"
+                        ]
+                      },
+                      {
+                        "group": "Technical References",
+                        "icon": "code",
+                        "pages": [
+                          "v2/pages/05_orchestrators/references/cli-flags",
+                          "v2/pages/05_orchestrators/references/faq"
                         ]
                       }
                     ]
