@@ -1,5 +1,5 @@
 export const lumaEventsData = {
-  lastUpdated: "2026-01-25T05:00:29.480Z",
+  lastUpdated: "2026-02-01T05:00:29.397Z",
   upcoming: [
   ],
   past: [
