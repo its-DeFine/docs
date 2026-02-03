@@ -102,7 +102,9 @@
                           "v2/pages/01_about/livepeer-protocol/protocol-overview",
                           "v2/pages/01_about/livepeer-protocol/livepeer-whitepaper",
                           "v2/pages/01_about/livepeer-protocol/technical-overview",
-                          "v2/pages/01_about/livepeer-protocol/protocol-mechanisms"
+                          "v2/pages/01_about/livepeer-protocol/blockchain-contracts",
+                          "v2/pages/01_about/livepeer-protocol/protocol-mechanisms",
+                          "v2/pages/01_about/livepeer-protocol/protocol-economics"
                         ]
                       },
                       {
@@ -167,14 +169,14 @@
                         "pages": [
                           "v2/pages/010_products/products/streamplace/streamplace",
                           {
-                          "group": "Stream.place", 
-                          "pages": [
-                          "v2/pages/010_products/products/streamplace/streamplace-guide",
-                          "v2/pages/010_products/products/streamplace/streamplace-architecture",
-                          "v2/pages/010_products/products/streamplace/streamplace-integration",
-                          "v2/pages/010_products/products/streamplace/streamplace-provenance",
-                          "v2/pages/010_products/products/streamplace/streamplace-funding"
-                          ]
+                            "group": "Stream.place",
+                            "pages": [
+                              "v2/pages/010_products/products/streamplace/streamplace-guide",
+                              "v2/pages/010_products/products/streamplace/streamplace-architecture",
+                              "v2/pages/010_products/products/streamplace/streamplace-integration",
+                              "v2/pages/010_products/products/streamplace/streamplace-provenance",
+                              "v2/pages/010_products/products/streamplace/streamplace-funding"
+                            ]
                           }
                         ]
                       },
@@ -605,7 +607,7 @@
                           "v2/pages/05_orchestrators/advanced-setup/staking-LPT",
                           "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees",
                           "v2/pages/05_orchestrators/advanced-setup/delegation",
-                           "v2/pages/05_orchestrators/advanced-setup/ai-pipelines",
+                          "v2/pages/05_orchestrators/advanced-setup/ai-pipelines",
                           "v2/pages/05_orchestrators/advanced-setup/run-a-pool"
                         ]
                       },
@@ -624,8 +626,24 @@
                         "group": "Technical References",
                         "icon": "code",
                         "pages": [
-                          "v2/pages/05_orchestrators/references/cli-flags",
-                          "v2/pages/05_orchestrators/references/faq"
+                          {
+                            "group": "Orchestrators",
+                            "pages": [
+                              "v2/pages/05_orchestrators/references/faq"
+                            ]
+                          },
+                          {
+                            "group": "API & CLI Reference",
+                            "pages": [
+                              "v2/pages/05_orchestrators/references/cli-flags"
+                            ]
+                          },
+                          {
+                            "group": "On-Chain Reference",
+                            "pages": [
+                              "v2/pages/05_orchestrators/references/faq"
+                            ]
+                          }
                         ]
                       }
                     ]

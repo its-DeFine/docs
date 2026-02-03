@@ -10,100 +10,229 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
 
 <PreviewCallout />
 
+import { Image } from '/snippets/components/display/image.jsx'
+import { CustomDivider } from '/snippets/components/domain/SHARED/dividers.jsx'
+import { LinkArrow } from '/snippets/components/primitives/links.jsx'
+import { Subtitle, CopyText } from '/snippets/components/primitives/text.jsx'
 
-# Livepeer Blockchain Contracts: Full Architectural Breakdown
+# Livepeer Blockchain Contracts
 
-Livepeer uses a comprehensive system of Ethereum smart contracts to manage its decentralized video transcoding network. Here's a complete breakdown of the contracts, their purposes, interactions, and money flow.
+Livepeer uses a comprehensive system of Ethereum smart contracts to permissionlessly govern its decentralized network. 
 
-## Core Smart Contracts
+The Livepeer Protocol is currently deployed on Arbitrum One and uses a collection of Ethereum smart contracts to govern:
 
-Livepeer's protocol consists of **9 main smart contracts** that work together to manage staking, payments, governance, and service discovery: [1](#0-0)
+- LivepeerToken (LPT) ownership and delegation
+- Staking and selection of active transcoder operators (orchestrators)
+- Distribution of inflationary rewards and fees to participants
+- Time-based progression of the protocol through rounds
+- Payment processing through a probabilistic micropayment system
 
-### 1. **Controller** - Contract Registry
+There are 3 core functions of contracts in the Livepeer Protocol:
+1. Core Protocol Contracts
+2. Token System
+3. Governance
 
-The Controller acts as the central registry for all other contract addresses in the protocol. It uses Keccak256 hashes of contract names as keys to store their addresses, enabling upgradeable architecture without changing the Controller address itself. [2](#0-1)
+That consist of **10 smart contracts** that work together to manage staking, payments, governance, and service discovery: 
 
-**Purpose**:
+{/* 1. Controller [Core]
+2. BondingManager [Core]
+3. TicketBroker [Core]
+4. RoundsManager [Core]
+5. Minter [Core]
+6. ServiceRegistry [Core]
+7. MerkleSnapshot [Core]
+8. BondingVotes [Core]
+7. LivepeerToken [Token]
+8. Governor[Governance]
+9. LivepeerGovernor [Governance]
+10. Treasury [Governance] */}
 
-- Central address registry for all protocol contracts
-- Enables contract upgrades while maintaining a stable entry point
-- Provides pause functionality for emergency situations
+## Contract Interaction Architecture
 
-### 2. **LivepeerToken (LPT)** - ERC20 Token
+Here's how these contracts interact with each other:
 
-The native protocol token used for staking, payments, and governance. [3](#0-2)
+<Danger> FIX THIS DIAGRAM - unreadable </Danger>
+````mermaid
+graph TB
+    subgraph "Discovery Layer"
+        Controller["Controller<br/>Contract Registry"]
+        ServiceRegistry["ServiceRegistry<br/>URI Mapping"]
+    end
 
-**Purpose**:
+    subgraph "Economic Layer"
+        LPT["LivepeerToken<br/>ERC20 Token"]
+        BondingManager["BondingManager<br/>Staking & Rewards"]
+        TicketBroker["TicketBroker<br/>Micropayments"]
+        Minter["Minter<br/>Token Inflation"]
+    end
 
-- ERC20 token for all economic activity in the network
-- Used for bonding/staking to orchestrators
-- Required for broadcaster deposits and payments
-- Governance voting weight
+    subgraph "Time & Governance"
+        RoundsManager["RoundsManager<br/>Protocol Rounds"]
+        Governor["LivepeerGovernor<br/>Governance"]
+    end
 
-**Key Operations**:
+    subgraph "Participants"
+        Broadcaster["Broadcaster Node"]
+        Orchestrator["Orchestrator Node"]
+        Delegator["Token Holder"]
+    end
 
-- `Transfer()`, `BalanceOf()`, `TotalSupply()` - Standard ERC20 operations
-- `Approve()` - Required before bonding or funding deposits
+    Controller -.->|"Address Lookup"| LPT
+    Controller -.->|"Address Lookup"| BondingManager
+    Controller -.->|"Address Lookup"| TicketBroker
+    Controller -.->|"Address Lookup"| RoundsManager
+    Controller -.->|"Address Lookup"| Minter
+    Controller -.->|"Address Lookup"| ServiceRegistry
+    Controller -.->|"Address Lookup"| Governor
 
-### 3. **BondingManager** - Staking & Delegation
+    Delegator -->|"Approve() LPT"| LPT
+    Delegator -->|"Bond(amount, orchestrator)"| BondingManager
+    BondingManager -->|"TransferFrom()"| LPT
 
-The most critical contract managing the staking economy, orchestrator registration, and reward distribution. [4](#0-3)
+    Orchestrator -->|"Transcoder(cuts)"| BondingManager
+    Orchestrator -->|"SetServiceURI(url)"| ServiceRegistry
+    Orchestrator -->|"Reward()"| BondingManager
+    BondingManager -->|"CreateReward()"| Minter
+    Minter -->|"Mint() new LPT"| LPT
 
-**Purpose**:
+    Broadcaster -->|"Approve() LPT"| LPT
+    Broadcaster -->|"FundDepositAndReserve()"| TicketBroker
+    TicketBroker -->|"TransferFrom()"| LPT
 
-- Manages the transcoder (orchestrator) pool as a sorted linked list
-- Handles bonding (staking) and delegation to orchestrators
-- Distributes inflationary rewards and fees
-- Manages unbonding periods and withdrawals
-- Tracks earnings and claims
+    Orchestrator -->|"RedeemWinningTicket()"| TicketBroker
+    TicketBroker -->|"Transfer() to orchestrator"| LPT
+    TicketBroker -->|"Update claimedReserve"| BondingManager
 
-**Key Operations**:
+    RoundsManager -->|"Round data"| BondingManager
+    RoundsManager -->|"Block hashes"| TicketBroker
 
-- `Bond()` - Delegate stake to an orchestrator
-- `Transcoder()` - Register as an orchestrator with reward/fee parameters
-- `Unbond()` - Start withdrawal process (with lock period)
-- `Reward()` - Called by orchestrators to mint inflationary rewards
-- `ClaimEarnings()` - Claim accumulated rewards and fees
+    BondingManager -->|"Stake weight"| Governor
+    Delegator -->|"CastVote()"| Governor
+````
 
-### 4. **TicketBroker** - Probabilistic Micropayments
 
-Manages the off-chain payment system using probabilistic micropayments for broadcaster-to-orchestrator payments. [5](#0-4)
+## Core Protocol Contracts
 
-**Purpose**:
+The core protocol contracts are the backbone of the Livepeer Protocol. 
+They manage the staking, delegation, and reward distribution for orchestrators. 
+They also manage the time-based progression of the protocol through rounds and the payment processing through a probabilistic micropayment system.
+The Controller serves as the central registry, enabling upgrades by updating implementation addresses
 
-- Holds broadcaster deposits and reserves for micropayments
-- Validates and settles winning payment tickets
-- Manages unlock/withdrawal periods for broadcasters
-- Tracks claimed reserves per orchestrator
+{/* - Controller
+- Bonding Manager
+- Rounds Manager
+- TicketBroker
+- Minter
+- ServiceRegistry
+------ */}
 
-**Key Operations**:
 
-- `FundDepositAndReserve()` - Broadcaster deposits funds for payments
-- `RedeemWinningTicket()` - Orchestrator redeems a winning ticket
-- `Unlock()` - Start withdrawal process
-- `Withdraw()` - Complete withdrawal after unlock period
+#### **Controller**: <Subtitle text="Contract Registry" />
 
-### 5. **RoundsManager** - Protocol Time Management
+The [Controller](https://github.com/livepeer/protocol/blob/e8b6243c/deploy/deploy_contracts.ts) is the central registry for all protocol contracts. 
+All protocol contracts check with the Controller for the addresses of other contracts they need to interact with.
 
-Manages the protocol's time-based round system where each round has a fixed block length. [6](#0-5)
+<Accordion title="Controller">
+	The Controller acts as the central registry for all other contract addresses in the protocol. 
 
-**Purpose**:
+	It maintains a mapping of contract IDs to their addresses, enabling protocol upgrades by updating the registered implementation addresses. 
+	It uses [Keccak256](https://en.wikipedia.org/wiki/Keccak#Keccak-256) hashes of contract names as keys to store their addresses, enabling upgradeable architecture without changing the Controller address itself.
 
-- Defines protocol rounds (epochs) of fixed block length
-- Tracks round initialization and locking
-- Provides block hashes for ticket validation
-- Coordinates time-based protocol operations
+	**Address**:
+	<LinkArrow label="See on Arbiscan" href="https://arbiscan.io/address/0xD8E8328501E9645d16Cf49539efC04f734606ee4" newline={false} />
+	```
+	0xD8E8328501E9645d16Cf49539efC04f734606ee4
+	```
 
-**Key Operations**:
+	**Purpose**:
 
-- `InitializeRound()` - Initialize new round
-- `CurrentRound()` - Get current round number
-- `BlockHashForRound()` - Get L1 block hash for ticket validation
+	- Central address registry for all protocol contracts
+	- Enables contract upgrades while maintaining a stable entry point
+	- Provides pause functionality for emergency situations
 
-### 6. **Minter** - Token Inflation
+	**Key Operations**:
 
-Controls the token supply inflation that rewards active orchestrators. [7](#0-6)
+	- `getContract()` - Get address of a contract by name
+	- `setContract()` - Set address of a contract by name
+	- `pause()`/`unpause()` - Emergency pause for critical situations
 
+	<Image src="https://media1.tenor.com/m/_vT9Qzw03N4AAAAd/sir-topham-hatt-topham.gif" alt="Controller" />	
+	{/* <iframe href="https://tenor.com/view/sir-topham-hatt-the-fat-controller-sir-toping-hat-happy-bald-gif-6999538172963206619"/> */}
+
+</Accordion>
+
+#### **BondingManager**: <Subtitle text="Staking & Delegation" />
+The [BondingManager](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/bonding/BondingManager.sol) is the most critical contract managing the staking economy, orchestrator registration, and reward distribution.
+
+<Accordion title="BondingManager">
+	**Address**:
+	<LinkArrow label="See on Arbiscan" href="https://arbiscan.io/address/0x0000000000000000000000000000000000000000" newline={false} />
+	```
+	0x0000000000000000000000000000000000000000
+	```
+
+	**Purpose**:
+
+	- Manages the transcoder (orchestrator) pool as a sorted linked list
+	- Handles bonding (staking) and delegation to orchestrators
+	- Distributes inflationary rewards and fees
+	- Manages unbonding periods and withdrawals
+	- Tracks earnings and claims
+
+	**Key Operations**:
+
+	- `Bond()` - Delegate stake to an orchestrator
+	- `Transcoder()` - Register as an orchestrator with reward/fee parameters
+	- `Unbond()` - Start withdrawal process (with lock period)
+	- `Reward()` - Called by orchestrators to mint inflationary rewards
+	- `ClaimEarnings()` - Claim accumulated rewards and fees
+
+</Accordion>
+
+#### **TicketBroker**: <Subtitle text="Probabilistic Micropayments" />
+
+The [TicketBroker](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/ticket/TicketBroker.sol) manages the off-chain payment system using probabilistic micropayments for broadcaster-to-orchestrator payments.
+
+<Accordion title="TicketBroker">
+	**Purpose**:
+
+	- Holds broadcaster deposits and reserves for micropayments
+	- Validates and settles winning payment tickets
+	- Manages unlock/withdrawal periods for broadcasters
+	- Tracks claimed reserves per orchestrator
+
+	**Key Operations**:
+
+	- `FundDepositAndReserve()` - Broadcaster deposits funds for payments
+	- `RedeemWinningTicket()` - Orchestrator redeems a winning ticket
+	- `Unlock()` - Start withdrawal process
+	- `Withdraw()` - Complete withdrawal after unlock period
+</Accordion>
+
+#### **RoundsManager**: <Subtitle text="Protocol Time Management" /> 
+
+The [RoundsManager](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/RoundsManager.sol) manages the protocol's time-based round system where each round has a fixed block length.
+
+<Accordion title="RoundsManager">
+	**Purpose**:
+
+	- Defines protocol rounds (epochs) of fixed block length
+	- Tracks round initialization and locking
+	- Provides block hashes for ticket validation
+	- Coordinates time-based protocol operations
+
+	**Key Operations**:
+
+	- `InitializeRound()` - Initialize new round
+	- `CurrentRound()` - Get current round number
+	- `BlockHashForRound()` - Get L1 block hash for ticket validation
+</Accordion>
+
+#### **Minter**: <Subtitle text="Token Inflation" />
+
+The [Minter](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/Minter.sol) controls the token supply inflation that rewards active orchestrators.
+
+<Accordion title="Minter">
 **Purpose**:
 
 - Manages LPT token inflation schedule
@@ -116,47 +245,157 @@ Controls the token supply inflation that rewards active orchestrators. [7](#0-6)
 - `CurrentMintableTokens()` - Calculate tokens to mint for rewards
 - `Inflation()`, `InflationChange()` - Query inflation parameters
 
-### 7. **ServiceRegistry** - Orchestrator Discovery
+</Accordion>
 
-Maps Ethereum addresses to service URIs for orchestrator discovery. [8](#0-7)
+#### **ServiceRegistry**: <Subtitle text="Orchestrator Discovery" /> 
 
-**Purpose**:
+The [ServiceRegistry](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/service/ServiceRegistry.sol) maps Ethereum addresses to service URIs for orchestrator discovery.
 
-- Allows orchestrators to advertise their network endpoints
-- Enables broadcasters to discover and connect to orchestrators
-- Stores URI strings on-chain
+<Accordion title="ServiceRegistry">
+	**Purpose**:
 
-**Key Operations**:
+	- Allows orchestrators to advertise their network endpoints
+	- Enables broadcasters to discover and connect to orchestrators
+	- Stores URI strings on-chain
 
-- `SetServiceURI()` - Orchestrator registers their endpoint
-- `GetServiceURI()` - Query orchestrator's service URL
+	**Key Operations**:
 
-### 8. **LivepeerGovernor** - Protocol Governance
+	- `SetServiceURI()` - Orchestrator registers their endpoint
+	- `GetServiceURI()` - Query orchestrator's service URL
+</Accordion>
 
-Implements on-chain governance for protocol upgrades and parameter changes. [9](#0-8)
+#### **MerkleSnapshot**
 
-**Purpose**:
+[MerkleSnapshot](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/MerkleSnapshot.sol) creates a snapshot of the staking pool at a given round and generates a merkle root for verifiable delegation.
 
-- On-chain voting on protocol proposals
-- Weighted by bonded stake
-- Implements governance mechanisms
+<Accordion title="MerkleSnapshot">
+	**Purpose**:
 
-**Key Operations**:
+	- Creates a snapshot of the staking pool at a given round
+	- Generates a merkle root for verifiable delegation
+	- Used for delegator rewards and governance
 
-- `CastVote()` - Vote on governance proposals
-- `CastVoteWithReason()` - Vote with explanation
+	**Key Operations**:
 
-### 9. **LivepeerTokenFaucet** - Test Token Distribution
+	- `CreateSnapshot()` - Create snapshot at current round
+	- `MerkleRoot()` - Get merkle root for a round
+</Accordion>
 
-Used on testnets for distributing test LPT tokens. [10](#0-9)
+<CustomDivider />
 
-**Purpose**:
+## Token & Utility Contracts
 
-- Provides test tokens on testnets
-- Rate-limited token requests
-- Development and testing support
+<Tip> 
 
-## Contract Interaction Architecture
+Livepeer moved from the Ethereum mainnet to the Arbitrum One network in 2022 to increase transaction throughput and reduce fees. <br/> 
+
+On Ethereum mainnet, only the `LivepeerToken` and `BridgeMinter` contracts remain operational; all other contracts have migrated to Arbitrum One.
+
+This ensures the token has the higher security of the Ethereum mainnet while the network enjoys the higher throughput and lower fees of Arbitrum. 
+
+</Tip>
+
+#### **LivepeerToken (LPT)**: <Subtitle text="ERC20 Token" /> 
+<Badge color="green">Ethereum Mainnet Only </Badge>
+
+The [LivepeerToken](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/token/LivepeerToken.sol) is the native protocol token used for staking, payments, and governance based on the [ERC-20](https://eips.ethereum.org/EIPS/eip-20) standard.
+
+<Accordion title="LivepeerToken">
+	**Purpose**:
+
+	- ERC20 token for all economic activity in the network
+	- Used for bonding/staking to orchestrators
+	- Required for broadcaster deposits and payments
+	- Governance voting weight
+
+	**Key Operations**:
+
+	- `Transfer()`, `BalanceOf()`, `TotalSupply()` - Standard ERC20 operations
+	- `Approve()` - Required before bonding or funding deposits
+</Accordion>
+
+#### **BridgeMinter**: <Subtitle text="Token Bridge" />
+<Badge color="green">Ethereum Mainnet Only </Badge>
+
+The [BridgeMinter](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/token/BridgeMinter.sol) is a minting contract that mints LPT tokens on the Arbitrum One network when it receives a valid deposit from the Ethereum mainnet.
+
+<Accordion title="BridgeMinter">
+	**Purpose**:
+
+	- Mints LPT tokens on Arbitrum One when it receives a valid deposit from the Ethereum mainnet
+
+</Accordion>
+
+#### **LivepeerTokenFaucet**: <Subtitle text="Test Token Distribution" />
+<Badge color="surface">Testnets Only </Badge>
+
+The [LivepeerTokenFaucet](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/token/LivepeerTokenFaucet.sol) is used on testnets for distributing test LPT tokens. 
+
+<Accordion title="LivepeerTokenFaucet">
+	**Purpose**:
+
+	- Provides test tokens on testnets
+	- Rate-limited token requests
+	- Development and testing support
+
+</Accordion>
+
+<CustomDivider />
+
+## Governance Contracts
+
+#### **Governor**: <Subtitle text="Contract Upgrades" />
+
+[Governor](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/governance/Governor.sol) handles protocol upgrades through a multi-step transaction proposal and execution process.
+
+<Accordion title="Governor">
+	**Purpose**:
+
+	- Handles protocol upgrades through a multi-step transaction proposal and execution process
+
+	**Key Operations**:
+
+	- `Propose()` - Submit a new proposal
+	- `Queue()` - Queue a proposal for execution
+	- `Execute()` - Execute a queued proposal
+</Accordion>
+
+#### **LivepeerGovernor**: <Subtitle text=" Protocol Governance" />
+
+The [LivepeerGovernor](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/governance/LivepeerGovernor.sol) implements on-chain governance for protocol upgrades and parameter changes.
+
+<Accordion title="LivepeerGovernor">
+	**Purpose**:
+
+	- On-chain voting on protocol proposals
+	- Weighted by bonded stake
+	- Implements governance mechanisms
+
+	**Key Operations**:
+
+	- `CastVote()` - Vote on governance proposals
+	- `CastVoteWithReason()` - Vote with explanation
+</Accordion>
+
+#### **Treasury**: <Subtitle text="On-chain Treasury Management" />
+
+[Treasury](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/governance/Treasury.sol) manages the on-chain treasury for funding and accounting.
+
+<Accordion title="Treasury">
+	**Purpose**:
+
+	- Manages protocol treasury for funding
+	- Tracks allocations and expenditures
+	- Funds Special Purpose Entities (SPEs)
+
+	**Key Operations**:
+
+	- `Deposit()` - Add funds to the treasury
+	- `Withdraw()` - Allocate funds to recipients
+</Accordion>
+
+
+{/* ## Contract Interaction Architecture
 
 Here's how these contracts interact with each other:
 
@@ -216,706 +455,5 @@ graph TB
 
     BondingManager -->|"Stake weight"| Governor
     Delegator -->|"CastVote()"| Governor
-``` [11](#0-10)
+```  */}
 
-## Money Flow: LPT Token Economics
-
-### 1. **Staking Flow (Delegators → Orchestrators)**
-
-**Step 1: Token Approval**
-Before bonding, delegators must approve the BondingManager to transfer their LPT tokens.
-
-**Step 2: Bonding**
-Delegators call `Bond(amount, orchestratorAddress)` which:
-- Transfers LPT from delegator to BondingManager
-- Updates orchestrator's delegated stake
-- Calculates pool position hints for gas optimization
-- Updates the transcoder pool sorted by stake [12](#0-11)
-
-**Step 3: Orchestrator Registration**
-To become an orchestrator, a node must:
-- First bond LPT to itself
-- Call `Transcoder(rewardCut, feeShare)` with commission parameters
-- Register service URI via `SetServiceURI()`
-
-The transcoder pool maintains orchestrators sorted by delegated stake as a linked list, with hints optimizing insertions.
-
-### 2. **Reward Flow (Minter → Orchestrators → Delegators)**
-
-Each round, active orchestrators can call `Reward()` to mint inflationary tokens:
-
-**Reward Calculation Process**:
-1. Orchestrator calls `Reward()` on BondingManager
-2. BondingManager queries `CurrentMintableTokens()` from Minter
-3. Minter calculates: `mintable = inflation * totalSupply / bonded`
-4. Reward distributed proportionally to orchestrator's stake
-5. Orchestrator keeps their commission (rewardCut)
-6. Remaining rewards distributed to delegators proportionally [13](#0-12)
-
-**Claiming Earnings**:
-Delegators must call `ClaimEarnings(endRound)` to realize their accumulated rewards and fees from past rounds.
-
-### 3. **Payment Flow (Broadcasters → Orchestrators)**
-
-The payment system uses probabilistic micropayments to minimize on-chain transactions:
-
-**Step 1: Broadcaster Deposits**
-Broadcasters fund their account via `FundDepositAndReserve()`:
-- **Deposit**: Locked collateral (can't be used immediately)
-- **Reserve**: Available pool for ticket redemptions [14](#0-13)
-
-**Step 2: Off-Chain Ticket Creation**
-For each video segment processed:
-- Broadcaster creates a signed ticket with faceValue and winProb
-- Ticket sent off-chain to orchestrator via HTTP headers
-- Most tickets don't win (e.g., 1% win probability)
-
-**Step 3: Ticket Validation & Queuing**
-Orchestrator validates ticket:
-- Checks signature and expiration
-- Calculates if ticket wins using `recipientRand`
-- Winning tickets queued in local database
-- Tracks sender's MaxFloat (reserve - pending redemptions)
-
-**Step 4: On-Chain Redemption**
-When sufficient funds available:
-- Orchestrator calls `RedeemWinningTicket(ticket, sig, recipientRand)`
-- TicketBroker validates ticket against on-chain state
-- Transfers `faceValue` from broadcaster's reserve to orchestrator
-- Updates `claimedReserve` in BondingManager
-
-This achieves ~99% cost reduction vs. per-segment on-chain payments while maintaining fair compensation through probabilistic expected value.
-
-### 4. **Fee Flow (Broadcasters → Orchestrators → Delegators)**
-
-Orchestrators earn fees from ticket redemptions:
-- Fees accumulate in orchestrator's earnings pool
-- Orchestrator keeps their commission (feeShare)
-- Remaining fees distributed to delegators
-- Delegators claim via `ClaimEarnings()`
-
-### 5. **Withdrawal Flows**
-
-**Unstaking (Delegators)**:
-1. Call `Unbond(amount)` - creates unbonding lock
-2. Wait `UnbondingPeriod` rounds (typically 7 rounds)
-3. Call `WithdrawStake(unbondingLockId)` - receive LPT back
-
-**Payment Withdrawal (Broadcasters)**:
-1. Call `Unlock()` on TicketBroker
-2. Wait unlock period
-3. Call `Withdraw()` - receive remaining deposit + reserve
-
-## Client Integration
-
-The go-livepeer client abstracts all contract interactions through the `LivepeerEthClient` interface: [15](#0-14)
-
-**Contract Address Resolution**:
-All contract addresses are dynamically discovered through the Controller registry using Keccak256 hashes of contract names. This enables contract upgrades without changing client code. [16](#0-15)
-
-## Gas Optimization Strategies
-
-### 1. **Pool Hints**
-When bonding or calling reward, the client calculates "hints" (previous/next positions in the sorted transcoder pool) to enable O(1) insertions instead of O(n) searches on-chain. [17](#0-16)
-
-### 2. **Batch Operations**
-Multiple tickets can be created off-chain in batches, with only winning tickets requiring on-chain transactions.
-
-### 3. **Dynamic Gas Pricing**
-The client implements sophisticated gas price management, using 2x base fee with user-specified ceilings to balance confirmation speed and cost. [18](#0-17)
-
-## Summary: Complete Money Flow
-
-1. **Token holders** approve and bond LPT → **BondingManager** (staking)
-2. **Minter** mints new LPT → **BondingManager** → **Orchestrators** (inflation rewards)
-3. **Orchestrators** distribute rewards → **Delegators** (minus commission)
-4. **Broadcasters** deposit LPT → **TicketBroker** (payment reserves)
-5. **Orchestrators** redeem tickets → receive LPT from **TicketBroker** (fees)
-6. **Orchestrators** distribute fees → **Delegators** (minus commission)
-7. **Delegators** claim earnings from **BondingManager** (accumulated rewards + fees)
-
-This creates a circular economy where:
-- Staking secures the network and earns inflation rewards
-- Active orchestrators earn fees from broadcasters
-- Delegators participate in rewards without running infrastructure
-- Probabilistic payments enable cost-efficient micropayments
-- All flows tracked on-chain with minimal gas overhead
-
-## Notes
-
-- The contracts are deployed on Ethereum mainnet (and Arbitrum for L2)
-- Contract addresses are stored in the Controller registry for upgradeability
-- All token operations use standard ERC20 approval patterns
-- The system supports both L1 and L2 deployments with backward compatibility
-- Round-based operations ensure coordinated protocol upgrades and state transitions
-- The probabilistic payment system reduces on-chain transactions by ~99% while maintaining fair expected value for all parties
-
-### Citations
-
-**File:** eth/client.go (L6-15)
-```go
-//go:generate abigen --abi protocol/abi/Controller.json --pkg contracts --type Controller --out contracts/controller.go
-//go:generate abigen --abi protocol/abi/LivepeerToken.json --pkg contracts --type LivepeerToken --out contracts/livepeerToken.go
-//go:generate abigen --abi protocol/abi/ServiceRegistry.json --pkg contracts --type ServiceRegistry --out contracts/serviceRegistry.go
-//go:generate abigen --abi protocol/abi/BondingManager.json --pkg contracts --type BondingManager --out contracts/bondingManager.go
-//go:generate abigen --abi protocol/abi/TicketBroker.json --pkg contracts --type TicketBroker --out contracts/ticketBroker.go
-//go:generate abigen --abi protocol/abi/RoundsManager.json --pkg contracts --type RoundsManager --out contracts/roundsManager.go
-//go:generate abigen --abi protocol/abi/Minter.json --pkg contracts --type Minter --out contracts/minter.go
-//go:generate abigen --abi protocol/abi/LivepeerTokenFaucet.json --pkg contracts --type LivepeerTokenFaucet --out contracts/livepeerTokenFaucet.go
-//go:generate abigen --abi protocol/abi/Poll.json --pkg contracts --type Poll --out contracts/poll.go
-//go:generate abigen --abi protocol/abi/LivepeerGovernor.json --pkg contracts --type Governor --out contracts/LivepeerGovernor.go
-````
-
-**File:** eth/client.go (L46-127)
-
-```go
-type LivepeerEthClient interface {
-	Account() accounts.Account
-	Backend() Backend
-
-	// Rounds
-	InitializeRound() (*types.Transaction, error)
-	CurrentRound() (*big.Int, error)
-	LastInitializedRound() (*big.Int, error)
-	BlockHashForRound(round *big.Int) ([32]byte, error)
-	CurrentRoundInitialized() (bool, error)
-	CurrentRoundLocked() (bool, error)
-	CurrentRoundStartBlock() (*big.Int, error)
-
-	// Token
-	Transfer(toAddr ethcommon.Address, amount *big.Int) (*types.Transaction, error)
-	Request() (*types.Transaction, error)
-	NextValidRequest(addr ethcommon.Address) (*big.Int, error)
-	BalanceOf(ethcommon.Address) (*big.Int, error)
-	TotalSupply() (*big.Int, error)
-
-	// Service Registry
-	SetServiceURI(serviceURI string) (*types.Transaction, error)
-	GetServiceURI(addr ethcommon.Address) (string, error)
-
-	// Staking
-	Transcoder(blockRewardCut, feeShare *big.Int) (*types.Transaction, error)
-	Reward() (*types.Transaction, error)
-	Bond(amount *big.Int, toAddr ethcommon.Address) (*types.Transaction, error)
-	Rebond(unbondingLockID *big.Int) (*types.Transaction, error)
-	RebondFromUnbonded(toAddr ethcommon.Address, unbondingLockID *big.Int) (*types.Transaction, error)
-	Unbond(amount *big.Int) (*types.Transaction, error)
-	WithdrawStake(unbondingLockID *big.Int) (*types.Transaction, error)
-	WithdrawFees(addr ethcommon.Address, amount *big.Int) (*types.Transaction, error)
-	// for L1 contracts backwards-compatibility
-	L1WithdrawFees() (*types.Transaction, error)
-	ClaimEarnings(endRound *big.Int) (*types.Transaction, error)
-	GetTranscoder(addr ethcommon.Address) (*lpTypes.Transcoder, error)
-	GetDelegator(addr ethcommon.Address) (*lpTypes.Delegator, error)
-	GetDelegatorUnbondingLock(addr ethcommon.Address, unbondingLockId *big.Int) (*lpTypes.UnbondingLock, error)
-	GetTranscoderEarningsPoolForRound(addr ethcommon.Address, round *big.Int) (*lpTypes.TokenPools, error)
-	TranscoderPool() ([]*lpTypes.Transcoder, error)
-	IsActiveTranscoder() (bool, error)
-	GetTotalBonded() (*big.Int, error)
-	GetTranscoderPoolSize() (*big.Int, error)
-
-	// TicketBroker
-	FundDepositAndReserve(depositAmount, penaltyEscrowAmount *big.Int) (*types.Transaction, error)
-	FundDeposit(amount *big.Int) (*types.Transaction, error)
-	FundReserve(amount *big.Int) (*types.Transaction, error)
-	Unlock() (*types.Transaction, error)
-	CancelUnlock() (*types.Transaction, error)
-	Withdraw() (*types.Transaction, error)
-	RedeemWinningTicket(ticket *pm.Ticket, sig []byte, recipientRand *big.Int) (*types.Transaction, error)
-	IsUsedTicket(ticket *pm.Ticket) (bool, error)
-	GetSenderInfo(addr ethcommon.Address) (*pm.SenderInfo, error)
-	UnlockPeriod() (*big.Int, error)
-	ClaimedReserve(reserveHolder ethcommon.Address, claimant ethcommon.Address) (*big.Int, error)
-
-	// Parameters
-	GetTranscoderPoolMaxSize() (*big.Int, error)
-	RoundLength() (*big.Int, error)
-	RoundLockAmount() (*big.Int, error)
-	UnbondingPeriod() (uint64, error)
-	Inflation() (*big.Int, error)
-	InflationChange() (*big.Int, error)
-	TargetBondingRate() (*big.Int, error)
-	GetGlobalTotalSupply() (*big.Int, error)
-	Paused() (bool, error)
-
-	// Governance
-	Vote(ethcommon.Address, *big.Int) (*types.Transaction, error)
-	ProposalVote(*big.Int, uint8) (*types.Transaction, error)
-	ProposalVoteWithReason(*big.Int, uint8, string) (*types.Transaction, error)
-
-	// Helpers
-	ContractAddresses() map[string]ethcommon.Address
-	CheckTx(*types.Transaction) error
-	Sign([]byte) ([]byte, error)
-	SignTypedData(apitypes.TypedData) ([]byte, error)
-	SetGasInfo(uint64) error
-	SetMaxGasPrice(*big.Int) error
-}
-```
-
-**File:** eth/client.go (L129-165)
-
-```go
-type client struct {
-	accountManager AccountManager
-	backend        Backend
-	tm             *TransactionManager
-	transOpts      bind.TransactOpts
-	transOptsMu    sync.RWMutex
-
-	controllerAddr       ethcommon.Address
-	tokenAddr            ethcommon.Address
-	serviceRegistryAddr  ethcommon.Address
-	bondingManagerAddr   ethcommon.Address
-	ticketBrokerAddr     ethcommon.Address
-	roundsManagerAddr    ethcommon.Address
-	minterAddr           ethcommon.Address
-	verifierAddr         ethcommon.Address
-	faucetAddr           ethcommon.Address
-	livepeerGovernorAddr ethcommon.Address
-
-	// Contracts
-	controller          *contracts.Controller
-	livepeerToken       *contracts.LivepeerToken
-	serviceRegistry     *contracts.ServiceRegistry
-	bondingManager      *contracts.BondingManager
-	ticketBroker        *contracts.TicketBroker
-	roundsManager       *contracts.RoundsManager
-	minter              *contracts.Minter
-	livepeerTokenFaucet *contracts.LivepeerTokenFaucet
-	livepeerGovernor    *contracts.Governor
-
-	// for L1 contracts backwards-compatibility
-	l1BondingManager *contracts.L1BondingManager
-
-	gasLimit uint64
-	gasPrice *big.Int
-
-	checkTxTimeout time.Duration
-}
-```
-
-**File:** eth/client.go (L194-351)
-
-```go
-func (c *client) setContracts(opts *bind.TransactOpts) error {
-	c.setTransactOpts(*opts)
-
-	controller, err := contracts.NewController(c.controllerAddr, c.backend)
-	if err != nil {
-		glog.Errorf("Error creating Controller binding: %v", err)
-		return err
-	}
-	c.controller = controller
-
-	glog.V(common.SHORT).Infof("Controller: %v", c.controllerAddr.Hex())
-
-	tokenAddr, err := c.GetContract(crypto.Keccak256Hash([]byte("LivepeerToken")))
-	if err != nil {
-		glog.Errorf("Error getting LivepeerToken address: %v", err)
-		return err
-	}
-
-	c.tokenAddr = tokenAddr
-
-	token, err := contracts.NewLivepeerToken(tokenAddr, c.backend)
-	if err != nil {
-		glog.Errorf("Error creating LivpeerToken binding: %v", err)
-		return err
-	}
-	c.livepeerToken = token
-
-	glog.V(common.SHORT).Infof("LivepeerToken: %v", c.tokenAddr.Hex())
-
-	if c.serviceRegistryAddr == (ethcommon.Address{}) {
-		c.serviceRegistryAddr, err = c.GetContract(crypto.Keccak256Hash([]byte("ServiceRegistry")))
-		if err != nil {
-			glog.Errorf("Error getting ServiceRegistry address: %v", err)
-			return err
-		}
-	}
-
-	serviceRegistry, err := contracts.NewServiceRegistry(c.serviceRegistryAddr, c.backend)
-	if err != nil {
-		glog.Errorf("Error creating ServiceRegistry binding: %v", err)
-		return err
-	}
-	c.serviceRegistry = serviceRegistry
-
-	glog.V(common.SHORT).Infof("ServiceRegistry: %v", c.serviceRegistryAddr.Hex())
-
-	bondingManagerAddr, err := c.GetContract(crypto.Keccak256Hash([]byte("BondingManager")))
-	if err != nil {
-		glog.Errorf("Error getting BondingManager address: %v", err)
-		return err
-	}
-
-	c.bondingManagerAddr = bondingManagerAddr
-
-	bondingManager, err := contracts.NewBondingManager(bondingManagerAddr, c.backend)
-	if err != nil {
-		glog.Errorf("Error creating BondingManager binding: %v", err)
-		return err
-	}
-	c.bondingManager = bondingManager
-
-	// for L1 contracts backwards-compatibility
-	l1BondingManager, err := contracts.NewL1BondingManager(bondingManagerAddr, c.backend)
-	if err != nil {
-		glog.Errorf("Error creating L1BondingManager binding: %v", err)
-		return err
-	}
-	c.l1BondingManager = l1BondingManager
-
-	glog.V(common.SHORT).Infof("BondingManager: %v", c.bondingManagerAddr.Hex())
-
-	brokerAddr, err := c.GetContract(crypto.Keccak256Hash([]byte("TicketBroker")))
-	if err != nil {
-		glog.Errorf("Error getting TicketBroker address: %v", err)
-		return err
-	}
-
-	c.ticketBrokerAddr = brokerAddr
-
-	broker, err := contracts.NewTicketBroker(brokerAddr, c.backend)
-	if err != nil {
-		glog.Errorf("Error creating TicketBroker binding: %v", err)
-		return err
-	}
-	c.ticketBroker = broker
-
-	glog.V(common.SHORT).Infof("TicketBroker: %v", c.ticketBrokerAddr.Hex())
-
-	roundsManagerAddr, err := c.GetContract(crypto.Keccak256Hash([]byte("RoundsManager")))
-	if err != nil {
-		glog.Errorf("Error getting RoundsManager address: %v", err)
-		return err
-	}
-
-	c.roundsManagerAddr = roundsManagerAddr
-
-	roundsManager, err := contracts.NewRoundsManager(roundsManagerAddr, c.backend)
-	if err != nil {
-		glog.Errorf("Error creating RoundsManager binding: %v", err)
-		return err
-	}
-	c.roundsManager = roundsManager
-
-	glog.V(common.SHORT).Infof("RoundsManager: %v", c.roundsManagerAddr.Hex())
-
-	minterAddr, err := c.GetContract(crypto.Keccak256Hash([]byte("Minter")))
-	if err != nil {
-		glog.Errorf("Error getting Minter address: %v", err)
-		return err
-	}
-
-	c.minterAddr = minterAddr
-
-	minter, err := contracts.NewMinter(minterAddr, c.backend)
-	if err != nil {
-		glog.Errorf("Error creating Minter binding: %v", err)
-		return err
-	}
-	c.minter = minter
-
-	glog.V(common.SHORT).Infof("Minter: %v", c.minterAddr.Hex())
-
-	faucetAddr, err := c.GetContract(crypto.Keccak256Hash([]byte("LivepeerTokenFaucet")))
-	if err != nil {
-		glog.Errorf("Error getting LivepeerTokenFaucet address: %v", err)
-		return err
-	}
-
-	c.faucetAddr = faucetAddr
-
-	faucet, err := contracts.NewLivepeerTokenFaucet(faucetAddr, c.backend)
-	if err != nil {
-		glog.Errorf("Error creating LivepeerTokenFaucet binding: %v", err)
-		return err
-	}
-	c.livepeerTokenFaucet = faucet
-
-	glog.V(common.SHORT).Infof("LivepeerTokenFaucet: %v", c.faucetAddr.Hex())
-
-	livepeerGovernorAddr, err := c.GetContract(crypto.Keccak256Hash([]byte("LivepeerGovernor")))
-	if err != nil {
-		glog.Errorf("Error getting Governor address: %v", err)
-		return err
-	}
-
-	c.livepeerGovernorAddr = livepeerGovernorAddr
-
-	governor, err := contracts.NewGovernor(livepeerGovernorAddr, c.backend)
-	if err != nil {
-		glog.Errorf("Error creating Governor binding: %v", err)
-		return err
-	}
-	c.livepeerGovernor = governor
-
-	glog.V(common.SHORT).Infof("LivepeerGovernor: %v", c.livepeerGovernorAddr.Hex())
-
-	return nil
-}
-```
-
-**File:** eth/client.go (L392-424)
-
-```go
-func (c *client) transactOpts() *bind.TransactOpts {
-	c.transOptsMu.RLock()
-	opts := c.transOpts
-	c.transOptsMu.RUnlock()
-
-	opts.Context = newEthRpcContext()
-
-	// If GasFeeCap is nil then one of the following will be true:
-	// - A dynamic tx will be created by BoundContract and GasFeeCap will automatically be set.
-	// - A legacy tx will be created by BoundContract in which case the GasFeeCap field is not used.
-	if opts.GasFeeCap == nil {
-		return &opts
-	}
-
-	// If GasFeeCap is non-nil ensure that we adjust it to be min(gasPriceEstimate, current GasFeeCap).
-	gasPriceEstimate := opts.GasFeeCap
-	head, err := c.backend.HeaderByNumber(context.Background(), nil)
-	if err != nil {
-		glog.Errorf("failed to calculate gas price estimate - defaulting to using GasFeeCap = maxGasPrice")
-	} else {
-		gasPriceEstimate = new(big.Int).Mul(head.BaseFee, big.NewInt(2))
-	}
-	// Setting GasFeeCap > gasPriceEstimate is detrimental to the user because the user account will need at least gas * GasFeeCap in their balance
-	// to pay for the tx when they only need gas * gasPriceEstimate. GasFeeCap is initially going to be set to the maxGasPrice specified by the user which
-	// they expect to be the maximum gas price they will ever pay. So, a user might set maxGasPrice to 100 gwei as a safety precaution even if the average gas price
-	// is 0.1 gwei. In this case, the gasPriceEstimate would be 0.1 * 2 = 0.2 gwei (multiplied by 2 to add a buffer). So, the user account would need 500x more funds
-	// in its balance if its GasFeeCap is set to the maxGasPrice.
-	if opts.GasFeeCap.Cmp(gasPriceEstimate) > 0 {
-		opts.GasFeeCap = gasPriceEstimate
-	}
-
-	return &opts
-}
-```
-
-**File:** eth/client.go (L569-654)
-
-```go
-func (c *client) Bond(amount *big.Int, to ethcommon.Address) (*types.Transaction, error) {
-	sender := c.Account().Address
-	allowance, err := c.Allowance(sender, c.bondingManagerAddr)
-	if err != nil {
-		return nil, err
-	}
-
-	// If existing allowance set by account for BondingManager is
-	// less than the bond amount, approve the necessary amount
-	if allowance.Cmp(amount) == -1 {
-		tx, err := c.livepeerToken.Approve(c.transactOpts(), c.bondingManagerAddr, amount)
-		if err != nil {
-			return nil, err
-		}
-
-		err = c.CheckTx(tx)
-		if err != nil {
-			return nil, err
-		}
-	}
-
-	// Get transcoder pool
-	transcoders, err := c.TranscoderPool()
-	if err != nil {
-		return nil, errors.Wrapf(err, "unable to get transcoder pool")
-	}
-
-	// Get max pool size
-	maxSize, err := c.GetTranscoderPoolMaxSize()
-	if err != nil {
-		return nil, errors.Wrapf(err, "unable to get transcoder pool max size")
-	}
-
-	// Get delegator
-	delegator, err := c.GetDelegator(sender)
-	if err != nil {
-		return nil, errors.Wrapf(err, "unable to get delegator")
-	}
-
-	isFull := int64(len(transcoders)) == maxSize.Int64()
-
-	// Switching delegate's calculate old delegate positions
-	var oldHints lpTypes.TranscoderPoolHints
-	if delegator.DelegateAddress != to && delegator.DelegateAddress != (ethcommon.Address{}) {
-		currentRound, err := c.CurrentRound()
-		if err != nil {
-			return nil, err
-		}
-
-		delegatorTotalStake, err := c.PendingStake(sender, currentRound)
-		if err != nil {
-			return nil, err
-		}
-
-		// If the caller is switching delegate's with additional stake the new amount becomes
-		// the delegator's current pending stake plus the amount
-		amount = new(big.Int).Add(delegatorTotalStake, amount)
-		// Get total bonded
-		totalBonded, err := c.TranscoderTotalStake(delegator.DelegateAddress)
-		if err != nil {
-			return nil, err
-		}
-
-		// Only subtract the delegator's pending stake from the old delegate since 'amount' is newly added stake
-		oldHints = simulateTranscoderPoolUpdate(delegator.DelegateAddress, new(big.Int).Sub(totalBonded, delegatorTotalStake), transcoders, isFull)
-	}
-
-	// Get total bonded
-	totalBonded, err := c.TranscoderTotalStake(to)
-	if err != nil {
-		return nil, err
-	}
-	newStake := totalBonded.Add(totalBonded, amount)
-
-	newHints := simulateTranscoderPoolUpdate(to, newStake, transcoders, isFull)
-
-	return c.bondingManager.BondWithHint(
-		c.transactOpts(),
-		amount,
-		to,
-		oldHints.PosPrev,
-		oldHints.PosNext,
-		newHints.PosPrev,
-		newHints.PosNext,
-	)
-}
-```
-
-**File:** eth/client.go (L960-978)
-
-```go
-func (c *client) Unlock() (*types.Transaction, error) {
-	return c.ticketBroker.Unlock(c.transactOpts())
-}
-
-func (c *client) CancelUnlock() (*types.Transaction, error) {
-	return c.ticketBroker.CancelUnlock(c.transactOpts())
-}
-
-func (c *client) Withdraw() (*types.Transaction, error) {
-	return c.ticketBroker.Withdraw(c.transactOpts())
-}
-
-func (c *client) UnlockPeriod() (*big.Int, error) {
-	return c.ticketBroker.UnlockPeriod(c.callOpts())
-}
-
-func (c *client) ClaimedReserve(reserveHolder ethcommon.Address, claimant ethcommon.Address) (*big.Int, error) {
-	return c.ticketBroker.ClaimedReserve(c.callOpts(), reserveHolder, claimant)
-}
-```
-
-**File:** eth/client.go (L1023-1069)
-
-```go
-func (c *client) Reward() (*types.Transaction, error) {
-	addr := c.accountManager.Account().Address
-
-	tr, err := c.GetTranscoder(addr)
-	if err != nil {
-		return nil, err
-	}
-
-	ep, err := c.GetTranscoderEarningsPoolForRound(addr, tr.LastActiveStakeUpdateRound)
-	if err != nil {
-		return nil, err
-	}
-	activeTotalStake := ep.TotalStake
-
-	mintable, err := c.CurrentMintableTokens()
-	if err != nil {
-		return nil, errors.Wrapf(err, "unable to get current mintable tokens")
-	}
-
-	totalBonded, err := c.GetTotalBonded()
-	if err != nil {
-		return nil, errors.Wrapf(err, "unable to get total bonded")
-	}
-
-	if totalBonded.Cmp(big.NewInt(0)) == 0 {
-		return nil, errors.New("no rewards to be minted")
-	}
-
-	// reward = (current mintable tokens for the round * active transcoder stake) / total active stake
-	reward := new(big.Int).Div(new(big.Int).Mul(mintable, activeTotalStake), totalBonded)
-
-	// get the transcoder pool
-	transcoders, err := c.TranscoderPool()
-	if err != nil {
-		return nil, errors.Wrapf(err, "unable to get transcoder pool")
-	}
-
-	// get max pool size
-	maxSize, err := c.GetTranscoderPoolMaxSize()
-	if err != nil {
-		return nil, errors.Wrapf(err, "unable to get transcoder pool max size")
-	}
-
-	hints := simulateTranscoderPoolUpdate(addr, reward.Add(reward, tr.DelegatedStake), transcoders, len(transcoders) == int(maxSize.Int64()))
-
-	return c.bondingManager.RewardWithHint(c.transactOpts(), hints.PosPrev, hints.PosNext)
-}
-```
-
-**File:** eth/client.go (L1077-1128)
-
-```go
-// simulateTranscoderPoolUpdate simulates an update to the transcoder pool and returns the positional hints for a transcoder accordingly.
-// if the transcoder will not be in the updated set no hints will be returned
-func simulateTranscoderPoolUpdate(del ethcommon.Address, newStake *big.Int, transcoders []*lpTypes.Transcoder, isFull bool) lpTypes.TranscoderPoolHints {
-	for i, t := range transcoders {
-		if t.Address == del {
-			// I don't think an out-of-bounds panic is an issue here when i == len(transcoders) - 1
-			// because transcoders[len(transcoders):] is valid
-			transcoders = append(transcoders[:i], transcoders[i+1:]...)
-			break
-		}
-	}
-
-	// insert 'del' into the pool
-	transcoders = append(transcoders, &lpTypes.Transcoder{
-		Address:        del,
-		DelegatedStake: newStake,
-	})
-
-	// re-sort the list
-	sort.SliceStable(transcoders, func(i, j int) bool {
-		return transcoders[i].DelegatedStake.Cmp(transcoders[j].DelegatedStake) > 0
-	})
-
-	// if the list was full evict the last transcoder
-	if isFull {
-		transcoders = transcoders[:len(transcoders)-1]
-	}
-
-	return findTranscoderHints(del, transcoders)
-}
-
-func findTranscoderHints(del ethcommon.Address, transcoders []*lpTypes.Transcoder) lpTypes.TranscoderPoolHints {
-	hints := lpTypes.TranscoderPoolHints{}
-
-	// do a linear search to get the previous and next transcoder relative to 'del'
-	for i, t := range transcoders {
-		if t.Address == del && len(transcoders) > 1 {
-			if i == 0 {
-				// 'del' is head
-				hints.PosNext = transcoders[i+1].Address
-			} else if i == len(transcoders)-1 {
-				// 'del' is tail
-				hints.PosPrev = transcoders[i-1].Address
-			} else {
-				hints.PosNext = transcoders[i+1].Address
-				hints.PosPrev = transcoders[i-1].Address
-			}
-		}
-	}
-
-	return hints
-}
-```
