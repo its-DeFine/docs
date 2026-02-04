@@ -34,7 +34,8 @@
                         "pages": [
                           "v2/pages/00_home/mission-control",
                           "v2/pages/00_home/home/primer",
-                          "v2/pages/00_home/home/trending-topics"
+                          "v2/pages/00_home/home/trending-topics",
+                          "v2/pages/00_home/introduction/roadmap"
                         ]
                       },
                       {
@@ -44,8 +45,7 @@
                           "v2/pages/00_home/introduction/vision",
                           "v2/pages/00_home/introduction/evolution",
                           "v2/pages/00_home/introduction/why-livepeer",
-                          "v2/pages/00_home/introduction/ecosystem",
-                          "v2/pages/00_home/introduction/roadmap"
+                          "v2/pages/00_home/introduction/ecosystem"
                         ]
                       },
                       {
@@ -54,9 +54,7 @@
                         "pages": [
                           "v2/pages/00_home/project-showcase/showcase",
                           "v2/pages/00_home/project-showcase/industry-verticals",
-                          "v2/pages/00_home/project-showcase/partners",
-                          "v2/pages/00_home/project-showcase/applications",
-                          "v2/pages/00_home/project-showcase/landscape"
+                          "v2/pages/00_home/project-showcase/applications"
                         ]
                       }
                     ]
@@ -92,6 +90,7 @@
                         "pages": [
                           "v2/pages/01_about/about-portal",
                           "v2/pages/01_about/core-concepts/livepeer-core-concepts",
+                          "v2/pages/01_about/core-concepts/mental-model",
                           "v2/pages/01_about/core-concepts/livepeer-glossary"
                         ]
                       },
@@ -99,8 +98,8 @@
                         "group": "Livepeer Protocol",
                         "icon": "cube",
                         "pages": [
-                          "v2/pages/01_about/livepeer-protocol/protocol-overview",
                           "v2/pages/01_about/livepeer-protocol/livepeer-whitepaper",
+                          "v2/pages/01_about/livepeer-protocol/protocol-overview",
                           "v2/pages/01_about/livepeer-protocol/technical-overview",
                           "v2/pages/01_about/livepeer-protocol/blockchain-contracts",
                           "v2/pages/01_about/livepeer-protocol/protocol-mechanisms",
@@ -222,25 +221,26 @@
                         "pages": [
                           "v2/pages/03_developers/developer-portal",
                           "v2/pages/03_developers/building-on-livepeer/developer-guide",
+                          "v2/pages/03_developers/building-on-livepeer/partners",
+                          "v2/pages/03_developers/building-on-livepeer/developer-journey"
+                        ]
+                      },
+                      {
+                        "group": "Quickstart",
+                        "icon": "fast-forward",
+                        "pages": [
                           {
-                            "group": "Quickstart",
-                            "icon": "fast-forward",
-                            "expanded": true,
+                            "group": "Real-time Video",
                             "pages": [
-                              {
-                                "group": "Real-time Video",
-                                "pages": [
-                                  "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai",
-                                  "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx"
-                                ]
-                              },
-                              {
-                                "group": "AI Pipelines",
-                                "pages": [
-                                  "v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming",
-                                  "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai"
-                                ]
-                              }
+                              "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai",
+                              "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx"
+                            ]
+                          },
+                          {
+                            "group": "AI Pipelines",
+                            "pages": [
+                              "v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming",
+                              "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai"
                             ]
                           }
                         ]
