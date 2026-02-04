@@ -1,10 +1,15 @@
 ---
+mode: wide
 title: 'Livepeer Project Showcase'
 sidebarTitle: 'Showcase'
 description: 'Be inspired by this collection of creative ecosystem use cases re-inventing their industries with Livepeer.'
 keywords: ["livepeer", "built on livepeer", "livepeer projects", "livepeer ecosystem", "livepeer apps", "livepeer applications", "livepeer use cases", "livepeer projects built on livepeer", "livepeer apps built on livepeer", "livepeer applications built on livepeer", "livepeer use cases built on livepeer"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
+
+import { ScrollBox } from '/snippets/components/layout/cards.jsx'
+import { Subtitle } from '/snippets/components/primitives/text.jsx'
+import { TitledVideo, ShowcaseVideo } from '/snippets/components/display/video.jsx'
 
 {/* TODO: USE COMPONENT ProjectShowcaseColumns.jsx */}
 
@@ -30,47 +35,67 @@ og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 
 <Warning>TODO:  _Sort & Search bar here_ </Warning>
 
-TODO: Add images to cards.. links to docs etc (make specialised component)
-
 <Columns cols={2}>
-    <Card title="NYTV" href="https://nycrypto.tv/" arrow>
-    NYTV – New York City’s first-ever Web3-native TV network
-    <Badge color="green">Video Streaming</Badge>
+    {/* <CardVideo title="NYTV" embedUrl="/snippets/assets/media/videos/daydream.mp4" style={{ width: "100%", height: "auto" }} /> */}
+    <Card href="nytv/">
+        <ShowcaseVideo
+            src="/snippets/assets/media/videos/daydream.mp4"
+            title="NYTV"
+        />
+        <div style={{ display: "flex", flexDirection: "column", gap: "1rem", margin: "1rem 0", width: "calc(100% + 1.5rem)", marginRight: "-1.5rem", }}>
+            <div
+                style={{
+                    display: "flex",
+                    width: "100%",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    flexDirection: "row",
+                }}
+                >
+                <Subtitle text="New York City’s first-ever Web3-native TV network" style={{ color: "var(--hero-text)", width: "100%", fontStyle: "normal", fontWeight: "bold", fontSize: "1rem" }} />
+                <Icon icon="arrow-up-right" size={14} style={{ flexShrink: 0 }} color="rgba(255,255,255,0.4)"/>
+            </div>
+            <Badge color="green">Video Streaming</Badge>
+        </div>
+        <ScrollBox maxHeight={250} style={{ color: "var(--text)", fontStyle: "italic" }}>
+            NYTV is a Web3-native TV network that broadcasts live shows, documentaries, and news programs. It uses Livepeer for its video streaming infrastructure, ensuring low latency and high quality for its viewers.
+        </ScrollBox>
+        {/* <LinkArrow label="Visit Project" href="nytv/" /> */}
     </Card>
-    <Card title="StreamETH" href="https://streameth.com/" arrow>
+    <Card title="StreamETH" href="https://streameth.com/" img="/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png" arrow>
     StreamETH – enables Ethereum event streaming using Livepeer
     <Badge color="green">Video Streaming</Badge>
     </Card>
-    <Card title="Huddle01" href="https://huddle01.com/" arrow>
+    <Card title="Huddle01" href="https://huddle01.com/" img="/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png"arrow>
     Huddle01 – a Web3 video meeting platform, which incorporated Livepeer for live streaming features (early on)
     <Badge color="yellow">Interactive Media</Badge>
     </Card>
-    <Card title="MetaDJ" href="https://www.instagram.com/reel/DPd6RUsErGF/" arrow>
+    <Card title="MetaDJ" href="https://www.instagram.com/reel/DPd6RUsErGF/" img="/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png" arrow>
     MetaDJ – AI-powered DJ experience for creators.
     <Badge color="purple">Creative Industry</Badge>
     </Card>
-    <Card title="Spencer (cerspense)" href="https://www.instagram.com/reel/DPd6RUsErGF/" arrow>
+    <Card title="Spencer (cerspense)" href="https://www.instagram.com/reel/DPd6RUsErGF/" img="/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png" arrow>
     Spencer (cerspense) – used Livepeer’s Daydream for AI-driven live performances
     <Badge color="purple">Creative Industry</Badge>
     <Badge color="surface">Daydream</Badge>
     </Card>
-    <Card title="Lenstube Bytes" href="https://lenstube.com/" arrow>
+    <Card title="Lenstube Bytes" href="https://lenstube.com/" img="/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png" arrow>
     Lenstube Bytes – short-form video apps using Livepeer for content delivery (emerging TikTok alternatives in Web3)
     <Badge color="blue">Social Media</Badge>
     </Card>
-    <Card title="Bluesky" href="https://blueskyweb.xyz/" arrow>
+    <Card title="Bluesky" href="https://blueskyweb.xyz/" img="/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png"arrow>
     Bluesky – Open social network protocol with Livepeer video integration.
     <Badge color="blue">Social Media</Badge>
     </Card>
-    <Card title="Beem" href="https://beem.com/" arrow>
+    <Card title="Beem" href="https://beem.com/" img="/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png" arrow>
     Beem – a decentralized streaming app for creators
     <Badge color="green">Video Streaming</Badge>
     </Card>
-    <Card title="Twaku" href="https://twaku.com/" arrow>
+    <Card title="Twaku" href="https://twaku.com/" img="/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png"arrow>
     Twaku / Lenstube Bytes – short-form video apps using Livepeer for content delivery (emerging TikTok alternatives in Web3)
     <Badge color="blue">Social Media</Badge>
     </Card>
-    <Card title="Xeenon" href="https://xeenon.com/" arrow>
+    <Card title="Xeenon" href="https://xeenon.com/" img="/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png"arrow>
     Xeenon – a decentralized Twitch-like streaming site (now historical; it launched with Livepeer but later shut down, illustrating both interest and challenges in Web3 streaming)
     <Badge color="green">Streaming</Badge>
     </Card>

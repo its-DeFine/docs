@@ -6,6 +6,8 @@ export const Subtitle = ({ style = {}, text, children }) => {
           fontSize: style.fontSize ? style.fontSize : "1rem",
           fontStyle: style.fontStyle ? style.fontStyle : "italic",
           color: style.color ? style.color : "var(--accent)",
+          marginBottom: style.marginBottom ? style.marginBottom : 0,
+          ...style,
         }}
       >
         {text}

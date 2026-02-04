@@ -18,7 +18,12 @@
  *
  * @author Livepeer Documentation Team
  */
-export const ScrollBox = ({ children, maxHeight = 300, showHint = true }) => {
+export const ScrollBox = ({
+  children,
+  maxHeight = 300,
+  showHint = true,
+  style,
+}) => {
   return (
     <div style={{ position: "relative" }}>
       <div
@@ -27,6 +32,7 @@ export const ScrollBox = ({ children, maxHeight = 300, showHint = true }) => {
             typeof maxHeight === "number" ? `${maxHeight}px` : maxHeight,
           overflowY: "auto",
           paddingRight: 4,
+          ...style,
         }}
         onScroll={(e) => {
           const el = e.target;

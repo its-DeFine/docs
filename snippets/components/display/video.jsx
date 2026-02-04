@@ -1,4 +1,137 @@
 /**
+ * TitledVideo - A video component with an overlay title
+ *
+ * @description
+ * Displays a looping video with an optional title overlay and styled border.
+ *
+ * @param {string} src - Video source URL
+ * @param {string} [title] - Title text to overlay on the video
+ * @param {string} [titlePosition="top"] - Position of title: "top" or "bottom"
+ * @param {string} [borderRadius="12px"] - Border radius of the video
+ * @param {string} [borderColor="var(--border)"] - Border color
+ * @param {string} [borderWidth="1px"] - Border width
+ * @param {object} [style={}] - Additional styles for the container
+ *
+ * @example
+ * <TitledVideo
+ *   src="/snippets/assets/media/videos/daydream.mp4"
+ *   title="Daydream Demo"
+ * />
+ *
+ * @author Livepeer Documentation Team
+ */
+export const TitledVideo = ({
+  src,
+  title,
+  subtitle,
+  arrow = false,
+  borderRadius = "12px",
+  style = {},
+}) => {
+  return (
+    <div
+      style={{
+        position: "relative",
+        display: "block",
+        // width: "calc(100% + 4rem)",
+        borderRadius,
+        overflow: "hidden",
+        isolation: "isolate",
+        ...style,
+      }}
+    >
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        src={src}
+        style={{
+          display: "block",
+          width: "100%",
+          height: "auto",
+          margin: "0",
+          padding: "0",
+        }}
+      />
+      {title && (
+        <div
+          style={{
+            position: "absolute",
+            top: "0",
+            left: "0",
+            right: "0",
+            bottom: "0",
+            display: "flex",
+            paddingTop: "0.5rem",
+            alignItems: "flex-start",
+            justifyContent: "center",
+            zIndex: "10",
+            pointerEvents: "none",
+          }}
+        >
+          <span
+            style={{
+              background: "rgba(0, 0, 0, 0.5)",
+              color: "white",
+              fontSize: "18px",
+              fontWeight: "800",
+              padding: "6px 16px",
+              borderRadius: "6px",
+              border: "1px solid rgba(255, 255, 255, 0.5)",
+            }}
+          >
+            {title}
+            <br />
+            {subtitle}
+          </span>
+        </div>
+      )}
+      {arrow && (
+        <div
+          style={{
+            position: "absolute",
+            top: "0",
+            left: "0",
+            right: "0",
+            bottom: "0",
+            display: "flex",
+            paddingTop: "0.5rem",
+            paddingRight: "0.5rem",
+            alignItems: "flex-start",
+            justifyContent: "right",
+            zIndex: "10",
+            pointerEvents: "none",
+          }}
+        >
+          <span>
+            <Icon icon="arrow-up-right" size={14} color="rgba(0, 0, 0, 0.5)" />
+          </span>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export const ShowcaseVideo = ({ src, title, subtitle }) => {
+  return (
+    <TitledVideo
+      src={src}
+      title={title}
+      subtitle={subtitle}
+      style={{
+        marginLeft: "-1.5rem",
+        marginRight: "-2.5rem",
+        marginTop: "-1.5rem",
+        borderRadius: 0,
+        maxHeight: "300px",
+        width: "calc(100% + 4rem)",
+      }}
+    />
+  );
+};
+
+/**
  * Video - Self-hosted video component
  *
  * @description
@@ -50,28 +183,47 @@ export const Video = ({
         }}
       >
         <span>
-          {author && (
-            href ? (
-              <span style={{ display: "flex", width: "100%", height: "fit-content", gap: "0.5rem" }}>
+          {author &&
+            (href ? (
+              <span
+                style={{
+                  display: "flex",
+                  width: "100%",
+                  height: "fit-content",
+                  gap: "0.5rem",
+                }}
+              >
                 <a href={href} target="_blank" rel="noopener noreferrer">
                   <Icon icon="microphone" size={16} />
-                  <span style={{ borderBottom: "2px solid var(--accent)", marginLeft: "0.2rem" }}><strong>{author}</strong></span>
-                  <span style={{ alignSelf: "flex-end", marginLeft: "6px" }}><Icon icon="arrow-up-right" size={12} color="var(--accent)" /></span>
+                  <span
+                    style={{
+                      borderBottom: "2px solid var(--accent)",
+                      marginLeft: "0.2rem",
+                    }}
+                  >
+                    <strong>{author}</strong>
+                  </span>
+                  <span style={{ alignSelf: "flex-end", marginLeft: "6px" }}>
+                    <Icon
+                      icon="arrow-up-right"
+                      size={12}
+                      color="var(--accent)"
+                    />
+                  </span>
                 </a>
               </span>
             ) : (
               <>
                 <Icon icon="microphone" size={16} /> <strong>{author}</strong>
               </>
-            )
-          )}
+            ))}
           {author && title ? ` • ${title}` : title}
         </span>
-        {caption && 
+        {caption && (
           <span style={{ marginTop: "0.5rem", fontStyle: "italic" }}>
             {caption}
           </span>
-        }
+        )}
       </span>
     );
   };
@@ -79,19 +231,19 @@ export const Video = ({
   const captionContent = buildCaption();
 
   return (
-      <Frame {...(captionContent ? { caption: captionContent } : {})}>
-          <video
-            controls={controls}
-            autoPlay={autoPlay}
-            loop={loop}
-            muted={muted}
-            playsInline
-            className="w-full aspect-video rounded-xl"
-            src={src}
-            title={title || author || "Video"}
-          />
-              {children}
-      </Frame>
+    <Frame {...(captionContent ? { caption: captionContent } : {})}>
+      <video
+        controls={controls}
+        autoPlay={autoPlay}
+        loop={loop}
+        muted={muted}
+        playsInline
+        className="w-full aspect-video rounded-xl"
+        src={src}
+        title={title || author || "Video"}
+      />
+      {children}
+    </Frame>
   );
 };
 
@@ -345,47 +497,6 @@ export const YouTubeVideoDownload = ({
   );
 };
 
-// export const YouTubeVideoDownload = ({
-//   embedUrl,
-//   title,
-//   hint,
-//   caption,
-//   downloadLink,
-// }) => {
-//   return (
-//     <Frame
-//       {...(hint ? { hint } : {})}
-//       {...(caption
-//         ? {
-//             caption: <DownloadLink downloadLink={downloadLink} />,
-//           }
-//         : {})}
-//     >
-//       <iframe
-//         className="w-full aspect-video rounded-xl"
-//         src={embedUrl}
-//         title={title}
-//         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-//         allowFullScreen
-//       />
-//     </Frame>
-//   )
-// }
-
-//Self-hosted video
-// ;<video
-//   autoPlay
-//   playsInline
-//   controls
-//   className="w-full aspect-video rounded-xl"
-//   src="https://www.youtube.com/watch?v=9yLIPZ4iBLw"
-// ></video>
-
-// ;<div className="custom-caption">
-//   <Icon icon="microphone" /> {title}
-// </div>
-// <Frame caption={title} hint="hint"></Frame>
-
 /**
  * CardVideo - YouTube video embedded in a Card component
  *
@@ -404,13 +515,13 @@ export const YouTubeVideoDownload = ({
  *
  * @author Livepeer Documentation Team
  */
-export const CardVideo = ({ embedUrl, title }) => {
+export const CardVideo = ({ embedUrl, title, style }) => {
   console.log("Props:", { embedUrl, title }); // Add this
   return (
     <Card>
       <iframe
         className="w-full aspect-video rounded-xl"
-        style={{ aspectRatio: "16/9" }}
+        style={{ aspectRatio: "16/9", ...style }}
         src={embedUrl}
         title={title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
