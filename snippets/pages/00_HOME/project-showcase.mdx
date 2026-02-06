@@ -9,7 +9,9 @@ og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 
 import { ScrollBox } from '/snippets/components/layout/cards.jsx'
 import { Subtitle } from '/snippets/components/primitives/text.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { TitledVideo, ShowcaseVideo } from '/snippets/components/display/video.jsx'
+import { InteractiveCard } from '/snippets/components/display/interactiveCards.jsx'
 
 {/* TODO: USE COMPONENT ProjectShowcaseColumns.jsx */}
 
@@ -60,8 +62,18 @@ import { TitledVideo, ShowcaseVideo } from '/snippets/components/display/video.j
         <ScrollBox maxHeight={250} style={{ color: "var(--text)", fontStyle: "italic" }}>
             NYTV is a Web3-native TV network that broadcasts live shows, documentaries, and news programs. It uses Livepeer for its video streaming infrastructure, ensuring low latency and high quality for its viewers.
         </ScrollBox>
-        {/* <LinkArrow label="Visit Project" href="nytv/" /> */}
     </Card>
+    <InteractiveCard
+              title="ProjectName"
+              subtitle="New York City’s first-ever Web3-native TV network"
+              href="nytv/"
+              imgSrc="/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png"
+              videoSrc="/snippets/assets/media/videos/daydream.mp4"
+              mediaSrc="https://github.com/livepeer/docs/blob/docs-v2-preview/snippets/assets/media/gifs/daydream.gif?raw=true"
+              categoryTags={["Video Streaming"]}
+              productTags={["Daydream"]}
+              description="NYTV is a Web3-native TV network that broadcasts live shows, documentaries, and news programs. It uses Livepeer for its video streaming infrastructure, ensuring low latency and high quality for its viewers. NYTV is a Web3-native TV network that broadcasts live shows, documentaries, and news programs. It uses Livepeer for its video streaming infrastructure, ensuring low latency and high quality for its viewers. NYTV is a Web3-native TV network that broadcasts live shows, documentaries, and news programs. It uses Livepeer for its video streaming infrastructure, ensuring low latency and high quality for its viewers."
+          />
     <Card title="StreamETH" href="https://streameth.com/" img="/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png" arrow>
     StreamETH – enables Ethereum event streaming using Livepeer
     <Badge color="green">Video Streaming</Badge>

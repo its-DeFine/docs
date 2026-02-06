@@ -33,9 +33,8 @@
                         "icon": "house-heart",
                         "pages": [
                           "v2/pages/00_home/mission-control",
-                          "v2/pages/00_home/home/primer",
-                          "v2/pages/00_home/home/trending-topics",
-                          "v2/pages/00_home/introduction/roadmap"
+                          "v2/pages/00_home/home/user-journey",
+                          "v2/pages/00_home/home/primer"
                         ]
                       },
                       {
@@ -45,7 +44,8 @@
                           "v2/pages/00_home/introduction/vision",
                           "v2/pages/00_home/introduction/evolution",
                           "v2/pages/00_home/introduction/why-livepeer",
-                          "v2/pages/00_home/introduction/ecosystem"
+                          "v2/pages/00_home/introduction/ecosystem",
+                          "v2/pages/00_home/introduction/roadmap"
                         ]
                       },
                       {
@@ -737,7 +737,8 @@
                         "icon": "people-group",
                         "pages": [
                           "v2/pages/02_community/community-portal",
-                          "v2/pages/02_community/livepeer-community/livepeer-Latest-Topics",
+                          "v2/pages/02_community/livepeer-community/trending-topics",
+                          "v2/pages/02_community/livepeer-community/livepeer-latest-topics",
                           "v2/pages/02_community/livepeer-community/community-guidelines"
                         ]
                       },

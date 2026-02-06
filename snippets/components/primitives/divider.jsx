@@ -17,14 +17,22 @@
  *
  * @author Livepeer Documentation Team
  */
-export const CustomDivider = ({ color = "var(--border)", middleText = "" }) => {
+
+// FIX THIS - IT SHOULD DYNAMICALLY TAKE UP THE HEIGHT IT HAS
+export const CustomDivider = ({
+  color = "var(--border)",
+  middleText = "",
+  style,
+}) => {
   return (
     <div
       style={{
         display: "flex",
         alignItems: "center",
-        margin: "24px 0",
-        fontSize: "16px",
+        margin: style.margin ? style.margin : "24px 0",
+        fontSize: style.fontSize ? style.fontSize : "16px",
+        height: "fit-content",
+        ...style,
       }}
     >
       <span

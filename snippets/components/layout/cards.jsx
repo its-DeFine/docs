@@ -24,9 +24,29 @@ export const ScrollBox = ({
   showHint = true,
   style,
 }) => {
+  const contentRef = useRef(null);
+  const [isOverflowing, setIsOverflowing] = useState(false);
+
+  useEffect(() => {
+    const checkOverflow = () => {
+      if (contentRef.current) {
+        const maxHeightPx =
+          typeof maxHeight === "number"
+            ? maxHeight
+            : parseInt(maxHeight, 10) || 300;
+        setIsOverflowing(contentRef.current.scrollHeight > maxHeightPx);
+      }
+    };
+    checkOverflow();
+    // Re-check on window resize
+    window.addEventListener("resize", checkOverflow);
+    return () => window.removeEventListener("resize", checkOverflow);
+  }, [maxHeight, children]);
+
   return (
     <div style={{ position: "relative" }}>
       <div
+        ref={contentRef}
         style={{
           maxHeight:
             typeof maxHeight === "number" ? `${maxHeight}px` : maxHeight,
@@ -44,7 +64,7 @@ export const ScrollBox = ({
       >
         {children}
       </div>
-      {showHint && (
+      {showHint && isOverflowing && (
         <div
           data-scroll-hint
           style={{
