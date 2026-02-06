@@ -2,15 +2,18 @@
 
 export const InteractiveCard = ({
   mediaSrc = "",
-  imgSrc = "",
+  logo = "",
   title = "",
   subtitle = "",
   description = "",
   href = "#",
-  arrow = true,
   categoryTags = [],
   productTags = [],
+  cta = "",
+  links = [],
+  contact = [],
   style = {},
+  arrow = false,
   ...cardProps
 }) => {
   //     < Badge color = "blue" > Social Media</Badge>
@@ -136,7 +139,7 @@ export const InteractiveCard = ({
   };
 
   // Check if mediaSrc is a video or image based on extension
-  const videoExtensions = [".mp4", ".webm", ".ogg", ".mov"];
+  const videoExtensions = [".mp4", ".webm", ".ogg", ".mov", ".mp4?raw=true"];
   const imageExtensions = [
     ".jpg",
     ".jpeg",
@@ -197,16 +200,17 @@ export const InteractiveCard = ({
           <span>⚠️ Media file too large</span>
         </div>
       )}
-      {mediaStatus === "ok" && isVideo && (
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          src={mediaSrc}
-          style={mediaStyle}
-        />
-      )}
+      {(mediaStatus === "ok" && isVideo) ||
+        (!isImage && (
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            src={mediaSrc}
+            style={mediaStyle}
+          />
+        ))}
       {mediaStatus === "ok" && isImage && (
         <img src={mediaSrc} alt={title} style={mediaStyle} />
       )}
@@ -220,7 +224,7 @@ export const InteractiveCard = ({
   );
 
   return (
-    <Card href={href} {...cardProps}>
+    <Card href={href} arrow={false} {...cardProps}>
       {mediaCard}
       {/* SUBTITLE & ARROW */}
       <div style={subtitleContainerStyle}>
