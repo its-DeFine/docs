@@ -75,19 +75,21 @@ export const InteractiveCard = ({
     objectFit: "cover",
   };
   const titleContainerStyle = {
-    position: "absolute",
-    top: "0",
-    left: "0",
-    right: "0",
-    bottom: "0",
+    // position: "absolute",
+    // top: "0",
+    // left: "0",
+    // right: "0",
+    // bottom: "0",
     display: "flex",
-    paddingTop: "0.5rem",
-    alignItems: "flex-start",
+    // alignItems: "flex-start",
     justifyContent: "center",
     zIndex: "10",
     pointerEvents: "none",
   };
   const titleStyle = {
+    position: "absolute",
+    top: "0",
+    marginTop: "0.5rem",
     background: "rgba(0, 0, 0, 0.5)",
     color: "white",
     fontSize: "18px",
@@ -95,6 +97,20 @@ export const InteractiveCard = ({
     padding: "6px 16px",
     borderRadius: "6px",
     border: "1px solid rgba(255, 255, 255, 0.5)",
+  };
+  const logoStyle = {
+    position: "absolute",
+    bottom: "0",
+    width: "60%",
+    height: "auto",
+    objectFit: "contain",
+    alignSelf: "flex-end",
+    opacity: 0.8,
+    borderRadius: "6px",
+    border: "1px solid rgba(255, 255, 255, 0.5)",
+    margin: 0,
+    padding: 0,
+    marginBottom: "0.5rem",
   };
   const arrowStyle = {
     position: "absolute",
@@ -200,23 +216,23 @@ export const InteractiveCard = ({
           <span>⚠️ Media file too large</span>
         </div>
       )}
-      {(mediaStatus === "ok" && isVideo) ||
-        (!isImage && (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            src={mediaSrc}
-            style={mediaStyle}
-          />
-        ))}
+      {mediaStatus === "ok" && isVideo && (
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          src={mediaSrc}
+          style={mediaStyle}
+        />
+      )}
       {mediaStatus === "ok" && isImage && (
         <img src={mediaSrc} alt={title} style={mediaStyle} />
       )}
       {/* END MEDIA */}
       {/* TITLE */}
       <div style={titleContainerStyle}>
+        {logo && <img src={logo} alt={title} style={logoStyle} />}
         <span style={titleStyle}>{title}</span>
       </div>
       {/* END TITLE */}
