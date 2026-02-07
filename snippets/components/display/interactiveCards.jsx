@@ -1,14 +1,14 @@
 // used in project showcase
 
 export const InteractiveCard = ({
-  mediaSrc = "",
+  mediaSrc = "/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png",
   logo = "",
   title = "",
   subtitle = "",
   description = "",
   href = "#",
-  categoryTags = [],
-  productTags = [],
+  categoryTags = ["Other"],
+  productTags = ["Livepeer"],
   cta = "",
   links = [],
   contact = [],
@@ -16,15 +16,29 @@ export const InteractiveCard = ({
   arrow = false,
   ...cardProps
 }) => {
-  //     < Badge color = "blue" > Social Media</Badge>
-  // <Badge color="green">Video Streaming</Badge>
-  // <Badge color="purple">Creative Industry</Badge>
-  // <Badge color="yellow">Events & Communication</Badge>
-  // <Badge color="orange">TBD</Badge>
-  // <Badge color="red">TBD</Badge>
-
-  // Product Used:
-  // <Badge color="surface">PRODUCT_NAME</Badge>
+  // DEBUG
+  console.log("InteractiveCard", {
+    mediaSrc,
+    logo,
+    title,
+    subtitle,
+    description,
+    href,
+    categoryTags,
+    productTags,
+    cta,
+    links,
+    contact,
+    style,
+    arrow,
+    cardProps,
+  });
+  // STATE
+  const [mediaStatus, setMediaStatus] = useState("loading"); // "loading" | "ok" | "too-large" | "error"
+  // CONST
+  const MAX_VIDEO_SIZE = 5 * 1024 * 1024; // 5MB
+  const MAX_IMAGE_SIZE = 2 * 1024 * 1024; // 2MB
+  // DATA
   const categoryBadgeKeys = {
     "Social Media": "blue",
     "Video Streaming": "green",
@@ -50,8 +64,42 @@ export const InteractiveCard = ({
       "../../../10_products/products/frameworks/frameworks.mdx",
       "https://frameworks.network/",
     ],
+    Livepeer: [
+      "../../../01_about/concepts/overview.mdx",
+      "https://livepeer.org/",
+    ],
     other: ["../../../10_products/products/ecosystem-products.mdx", ""],
   };
+  const linkIcons = {
+    github: "github",
+    youtube: "youtube",
+    blog: "newspaper",
+    x: "x-twitter",
+    instagram: "instagram",
+    email: "envelope",
+    website: "globe-pointer",
+    forum: "message",
+    discord: "discord",
+    bluesky: "bluesky",
+    telegram: "telegram",
+    linkedin: "linkedin",
+    whatsapp: "whatsapp",
+    snapchat: "snapchat",
+    reddit: "reddit",
+    twitch: "twitch",
+    other: "link",
+  };
+  const videoExtensions = [".mp4", ".webm", ".ogg", ".mov", ".mp4?raw=true"];
+  const imageExtensions = [
+    ".jpg",
+    ".jpeg",
+    ".png",
+    ".webp",
+    ".svg",
+    ".gif",
+    ".gif?raw=true",
+  ];
+  // STYLES
   const mediaContainerStyle = {
     position: "relative",
     display: "block",
@@ -97,6 +145,7 @@ export const InteractiveCard = ({
     padding: "6px 16px",
     borderRadius: "6px",
     border: "1px solid rgba(255, 255, 255, 0.5)",
+    ...style,
   };
   const logoStyle = {
     position: "absolute",
@@ -106,6 +155,22 @@ export const InteractiveCard = ({
     objectFit: "contain",
     alignSelf: "flex-end",
     opacity: 0.8,
+    borderRadius: "6px",
+    border: "1px solid rgba(255, 255, 255, 0.5)",
+    margin: 0,
+    padding: 0,
+    marginBottom: "0.5rem",
+  };
+  const logoMediaStyle = {
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    width: "80%",
+    height: "auto",
+    objectFit: "contain",
+    alignSelf: "center",
+    justifySelf: "center",
+    opacity: 1,
     borderRadius: "6px",
     border: "1px solid rgba(255, 255, 255, 0.5)",
     margin: 0,
@@ -151,33 +216,66 @@ export const InteractiveCard = ({
   const scrollBoxStyle = {
     color: "var(--text)",
     fontStyle: "italic",
-    maxHeight: "250px",
   };
-
-  // Check if mediaSrc is a video or image based on extension
-  const videoExtensions = [".mp4", ".webm", ".ogg", ".mov", ".mp4?raw=true"];
-  const imageExtensions = [
-    ".jpg",
-    ".jpeg",
-    ".png",
-    ".webp",
-    ".svg",
-    ".gif",
-    ".gif?raw=true",
-  ];
+  const linkIconContainerStyle = {
+    display: "flex",
+    justifyContent: "center",
+    gap: "0.5rem",
+    marginTop: "1rem",
+    paddingTop: "0.5rem",
+    width: "fit-content",
+    justifySelf: "center",
+  };
+  const linkIconStyle = {
+    borderBottom: "none",
+    fontWeight: "bold",
+    fontSize: "11px",
+    marginLeft: "0.25rem",
+  };
+  const dividerStyle = {
+    margin: 0,
+    marginBottom: "-1rem",
+    padding: 0,
+    fontSize: "10px",
+    minWidth: "70%",
+    maxWidth: "85%",
+    alignSelf: "center",
+    justifySelf: "center",
+    width: "90%",
+  };
+  const productTagContainerStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    alignSelf: "center",
+    justifySelf: "center",
+    fontSize: "10px",
+    margin: 0,
+    padding: 0,
+  };
+  const productTagStyle = {
+    borderBottom: "none",
+    color: "var(--accent)",
+    fontWeight: "bold",
+    fontSize: "11px",
+    marginLeft: "0.25rem",
+  };
+  //HELPER FUNCTIONS
   const isVideo =
     mediaSrc &&
     videoExtensions.some((ext) => mediaSrc.toLowerCase().endsWith(ext));
   const isImage =
     mediaSrc &&
     imageExtensions.some((ext) => mediaSrc.toLowerCase().endsWith(ext));
-
-  // Check file size - useState/useEffect provided globally by Mintlify
-  const MAX_VIDEO_SIZE = 5 * 1024 * 1024; // 5MB
-  const MAX_IMAGE_SIZE = 2 * 1024 * 1024; // 2MB
-  const [mediaStatus, setMediaStatus] = useState("loading"); // "loading" | "ok" | "too-large" | "error"
-
+  const isDefaultMedia =
+    mediaSrc ===
+    "/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png";
+  // EFFECTS
   useEffect(() => {
+    if (isDefaultMedia) {
+      setMediaStatus("ok");
+      return;
+    }
     if (!mediaSrc) {
       setMediaStatus("error");
       return;
@@ -199,6 +297,17 @@ export const InteractiveCard = ({
       .catch(() => setMediaStatus("ok")); // If HEAD fails, try to render anyway
   }, [mediaSrc, isVideo]);
 
+  // COMPONENTS
+  // Media Card (display logo if no media)
+  const logoMediaCard = (
+    <div style={{ ...mediaContainerStyle, height: "300px" }}>
+      <div style={titleContainerStyle}>
+        {logo && <img src={logo} alt={title} style={logoMediaStyle} />}
+        <span style={titleStyle}>{title}</span>
+      </div>
+    </div>
+  );
+  // Media Card (display video or image)
   const mediaCard = (
     <div style={mediaContainerStyle}>
       {/* VIDEO OR IMAGE */}
@@ -238,106 +347,107 @@ export const InteractiveCard = ({
       {/* END TITLE */}
     </div>
   );
+  // Subtitle & Arrow
+  const renderSubtitleArrow = (
+    <div style={subtitleArrowStyle}>
+      <Subtitle text={subtitle} style={subtitleStyle} />
+      <Icon
+        icon="arrow-up-right"
+        iconType="solid"
+        size={14}
+        style={{ flexShrink: 0 }}
+        color="rgba(255,255,255,0.4)"
+      />
+    </div>
+  );
+  // Category Tags
+  const renderCategoryTags = (
+    <>
+      {categoryTags.map((tag) => (
+        <Badge key={tag} color={categoryBadgeKeys[tag]}>
+          {tag}
+        </Badge>
+      ))}
+    </>
+  );
+  // Link Icons
+  const renderLinkIcons = (
+    <div style={linkIconContainerStyle}>
+      {links.map((link, index) => {
+        if (!link || typeof link !== "object") {
+          return null;
+        }
 
-  return (
-    <Card href={href} arrow={false} {...cardProps}>
-      {mediaCard}
-      {/* SUBTITLE & ARROW */}
-      <div style={subtitleContainerStyle}>
-        <div style={subtitleArrowStyle}>
-          <Subtitle text={subtitle} style={subtitleStyle} />
+        const [key, value] = Object.entries(link)[0] || [];
+
+        if (!key || !value) {
+          return null;
+        }
+
+        return (
+          <a
+            href={value}
+            target="_blank"
+            key={`${key}-${index}`}
+            style={linkIconStyle}
+          >
+            <Tooltip tip={value}>
+              <Icon
+                icon={linkIcons[key]}
+                iconType="solid"
+                size={16}
+                color="var(--text)"
+              />
+            </Tooltip>
+          </a>
+        );
+      })}
+    </div>
+  );
+  // Product Tags
+  const renderProductTags = (
+    <div style={productTagContainerStyle}>
+      Powered by
+      {productTags.map((tag) => (
+        <a
+          href={productTagHrefKeys[tag][1]}
+          target="_blank"
+          key={tag}
+          style={productTagStyle}
+        >
+          {tag}{" "}
           <Icon
             icon="arrow-up-right"
             iconType="solid"
-            size={14}
-            style={{ flexShrink: 0 }}
-            color="rgba(255,255,255,0.4)"
+            size={10}
+            color="var(--text)"
           />
-        </div>
-        {/* RENDER CATEGORY TAGS */}
-        {categoryTags.map((tag) => (
-          <Badge key={tag} color={categoryBadgeKeys[tag]}>
-            {tag}
-          </Badge>
-        ))}
+        </a>
+      ))}
+    </div>
+  );
+
+  return (
+    <Card href={href} arrow={false} {...cardProps}>
+      {isDefaultMedia && logo ? logoMediaCard : mediaCard}
+      <div style={subtitleContainerStyle}>
+        {renderSubtitleArrow}
+        {renderCategoryTags}
       </div>
-      <ScrollBox
-        height={350}
-        style={{
-          color: "var(--text)",
-          fontStyle: "italic",
-        }}
-      >
+      <ScrollBox height={350} style={scrollBoxStyle}>
         {description}
+        {renderLinkIcons}
       </ScrollBox>
-      {/* <div style={{ width: "100%" }}> */}
-      {productTags && (
-        <>
-          <CustomDivider
-            style={{
-              margin: 0,
-              marginBottom: "-1rem",
-              padding: 0,
-              fontSize: "10px",
-              minWidth: "70%",
-              maxWidth: "85%",
-              alignSelf: "center",
-              justifySelf: "center",
-              width: "90%",
-            }}
-          />
-          {
-            <div
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                alignSelf: "center",
-                justifySelf: "center",
-                fontSize: "10px",
-                //   margin: "1rem 0 0",
-                margin: 0,
-                padding: 0,
-                //   borderTop: "1px solid var(--border)",
-                //   minWidth: "70%",
-                //   maxWidth: "90%",
-              }}
-            >
-              Powered by
-              {productTags.map((tag) => (
-                <a
-                  href={productTagHrefKeys[tag][1]}
-                  target="_blank"
-                  key={tag}
-                  style={{
-                    borderBottom: "none",
-                    color: "var(--accent)",
-                    fontWeight: "bold",
-                    // fontStyle: "italic",
-                    fontSize: "11px",
-                    marginLeft: "0.25rem",
-                  }}
-                >
-                  {tag}{" "}
-                  <Icon
-                    icon="arrow-up-right"
-                    iconType="solid"
-                    size={10}
-                    color="var(--hero-text)"
-                  />
-                </a>
-              ))}
-            </div>
-          }
-        </>
-      )}
-      {/* </div> */}
+      <>
+        <CustomDivider style={dividerStyle} />
+        {renderProductTags}
+      </>
     </Card>
   );
 };
 
 //take a list of data objects and return a list of InteractiveCards
-export const InteractiveCards = () => {
+export const InteractiveCards = ({ items = [] }) => {
   return (
     <Columns cols={2}>
       <InteractiveCard />
