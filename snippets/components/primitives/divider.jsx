@@ -22,15 +22,15 @@
 export const CustomDivider = ({
   color = "var(--border)",
   middleText = "",
-  style,
+  style = {},
 }) => {
   return (
     <div
       style={{
         display: "flex",
         alignItems: "center",
-        margin: style.margin ? style.margin : "24px 0",
-        fontSize: style.fontSize ? style.fontSize : "16px",
+        margin: style?.margin || "24px 0",
+        fontSize: style?.fontSize || "16px",
         height: "fit-content",
         ...style,
       }}

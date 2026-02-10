@@ -1,13 +1,12 @@
-const categories = [
-  [
-    "Video Streaming",
-    "Developer Tools",
-    "Social Media",
-    "Community",
-    "Marketplaces",
-    "AI-Powered Apps",
-    "Other",
-  ],
+const categoryTags = [
+  "Video Streaming",
+  "Creative Industry",
+  "Social Media",
+  "Events & Communication",
+  "Community & Social Good",
+  "AI-Powered Apps",
+  "Gaming",
+  "Other",
 ];
 
 const linkIcons = {
@@ -82,13 +81,32 @@ const hrefs = [
 
 export const showcaseData = [
   {
+    title: "NYTV.live",
+    subtitle: "New York City’s free, independent 24/7 TV network",
+    href: "https://nytv.live/",
+    mediaSrc:
+      "https://raw.githubusercontent.com/livepeer/docs/1507052999ca4a633e26d20d1d038d00883168ec/snippets/assets/media/videos/nytvlive.mp4",
+    logo: "/snippets/assets/media/images/nytv-logo.png",
+    categoryTags: ["Video Streaming"],
+    productTags: ["Livepeer Network"],
+    description:
+      "NYTV is a free, independent internet TV network that broadcasts live shows, documentaries, and news programs 24/7 from New York City. It uses Livepeer for its video streaming infrastructure, ensuring low latency and high quality for its viewers. ",
+    cta: "",
+    links: [
+      { bluesky: "https://bsky.app/profile/nytv.live" },
+      { email: "info@nytv.live" },
+      { website: "https://nytv.live/" },
+      { instagram: "https://www.instagram.com/newyorktelevision/" },
+    ],
+  },
+  {
     title: "BeyondClub",
     subtitle: "Loyalty and membership",
     href: "https://www.beyondclub.xyz",
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://www.beyondclub.xyz",
     categoryTags: ["Apps"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "A Web3 loyalty and membership platform enabling gated video content and live experiences using decentralized video delivery via Livepeer, allowing communities to own engagement without centralized platforms.",
     cta: "Follow @beyondClub_xyz for campaign announcements.",
@@ -105,7 +123,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://www.bonfire.xyz",
     categoryTags: ["Apps"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "An open-source, no-code community platform. Livepeer enables decentralized video for calls, announcements, and events, keeping community coordination censorship-resistant.",
     cta: "Read the repo + follow @SwitchToBonfire.",
@@ -124,10 +142,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://buttrfly.app",
     categoryTags: ["Apps", "Social Media"],
-    productTags: [
-      "Livepeer Network (ecosystem listing)",
-      "Lens Protocol (app description)",
-    ],
+    productTags: ["Livepeer Network", "Lens Protocol (app description)"],
     description:
       "A decentralized social aggregator across Farcaster and Lens. Livepeer powers native video playback, enabling cross-graph video feeds without centralized CDNs.",
     cta: "Follow @buttrfly_app for releases/updates.",
@@ -146,7 +161,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: null,
     categoryTags: ["Apps"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "A community knowledge and event hub. Uses Livepeer to stream and archive live Ethereum community events at low cost.",
     cta: "No verifiable source found (official link/social).",
@@ -160,7 +175,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://ethglobal.tv",
     categoryTags: ["Apps"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Official livestream hub for ETHGlobal hackathons. Livepeer supports global-scale live event streaming efficiently.",
     cta: "Open the site during an ETHGlobal event.",
@@ -174,7 +189,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: null,
     categoryTags: ["Apps", "Community"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Community engagement and rewards platform. Livepeer enables video-based engagement and announcements inside tokenized communities.",
     cta: "No verifiable source found (official link/social).",
@@ -189,7 +204,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://hey.xyz",
     categoryTags: ["Apps", "Social Media"],
-    productTags: ["Lens Protocol", "Livepeer Network (ecosystem listing)"],
+    productTags: ["Lens Protocol", "Livepeer Network"],
     description:
       "Lens-based decentralized social app. Livepeer powers video posts and playback, ensuring decentralized social + media infrastructure.",
     cta: "Explore Hey and Lens posting.",
@@ -208,7 +223,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://huddle01.com",
     categoryTags: ["Apps"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Web3-native video meetings. Livepeer provides decentralized live video transport alongside wallet-based identity.",
     cta: "Check their site/docs for SDK + product updates.",
@@ -222,7 +237,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: null,
     categoryTags: ["Apps", "Marketplaces"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Crypto-enabled livestreaming marketplace. Livepeer supports creator monetization through decentralized live video.",
     cta: "No verifiable source found (official site/social) in this pass.",
@@ -237,7 +252,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: null,
     categoryTags: ["Apps"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Creator-focused Web3 video streaming platform. Uses Livepeer for censorship-resistant video distribution.",
     cta: "No verifiable source found (official link/social).",
@@ -251,7 +266,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://lenspeer.com",
     categoryTags: ["Apps", "Video Streaming"],
-    productTags: ["Lens Protocol", "Livepeer Network (ecosystem listing)"],
+    productTags: ["Lens Protocol", "Livepeer Network"],
     description:
       "All-in-one decentralized social platform. Livepeer enables livestreams and video posts inside Lens-based UX.",
     cta: "Follow @Lenspeer for updates.",
@@ -288,7 +303,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://lensport.io",
     categoryTags: ["Apps", "Social Media"],
-    productTags: ["Lens Protocol", "Livepeer Network (ecosystem listing)"],
+    productTags: ["Lens Protocol", "Livepeer Network"],
     description:
       "NFT marketplace for Lens posts. Livepeer supports video NFT playback.",
     cta: "Use 'Join the community' on LensPort and follow Lens/Twitter links from the site.",
@@ -303,7 +318,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: null,
     categoryTags: ["Apps", "Marketplaces"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Tool for minting large video NFTs. Livepeer handles video encoding and delivery.",
     cta: "No verifiable source found (official link/social).",
@@ -317,7 +332,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://www.minds.com",
     categoryTags: ["Social Media"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Decentralized social network. Livepeer enables video streaming without corporate platforms.",
     cta: "Explore Minds channels; look for their official community links on-site.",
@@ -331,7 +346,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://mintflick.app",
     categoryTags: ["Apps"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Video NFT minting and sharing platform using Livepeer for heavy video workloads.",
     cta: "Open Mintflick and look for their community links in footer/about.",
@@ -345,7 +360,7 @@ export const showcaseData = [
     mediaSrc: "https://www.youtube.com/@monaverse",
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://monaverse.com",
     categoryTags: ["Apps"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Interoperable 3D worlds platform. Livepeer powers live events and streaming inside virtual worlds.",
     cta: "Join their Discord and follow @monaverse.",
@@ -365,7 +380,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://orb.ac",
     categoryTags: ["Apps", "Social Media"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Web3 discovery and social app. Livepeer enables embedded video.",
     cta: "Open Orb and follow their on-site socials (not verified in this pass).",
@@ -379,7 +394,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://picarto.tv",
     categoryTags: ["Apps"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Artist-focused livestreaming platform. Uses Livepeer for cost-efficient live streaming.",
     cta: "Browse live streams; developers can inspect Picarto’s public repos.",
@@ -398,7 +413,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://pinsta.xyz",
     categoryTags: ["Social Media"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Decentralized image and video sharing app. Livepeer supports video hosting and playback.",
     cta: "Join their Discord and follow @PinstaApp.",
@@ -418,7 +433,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://www.radardao.xyz",
     categoryTags: ["Community"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Community events discovery platform using Livepeer for video announcements.",
     cta: "Open RadarDAO site; use on-site socials (not verified in this pass).",
@@ -432,7 +447,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://sanko.tv",
     categoryTags: ["Apps"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Creator clubhouse and streaming platform built on Livepeer video infrastructure.",
     cta: "Open SankoTV and follow their published socials (not verified in this pass).",
@@ -446,7 +461,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: null,
     categoryTags: ["Apps", "Developer Tools"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Virtual world experiences with live video, powered by Livepeer.",
     cta: "No verifiable source found (official link/social).",
@@ -460,7 +475,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://app.soclly.com",
     categoryTags: ["Social Media"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Decentralized social app with video content delivered via Livepeer.",
     cta: "Open Soclly and look for official socials in-app/site (not verified in this pass).",
@@ -493,7 +508,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://switchboard.live",
     categoryTags: ["Developer Tools"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Developer tool for launching decentralized livestreams on Livepeer.",
     cta: "Open Switchboard and use their docs/onboarding.",
@@ -527,7 +542,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://www.tribesocial.io",
     categoryTags: ["Apps", "Community"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Private community platform with video features powered by Livepeer.",
     cta: "Book a demo or install the Android app.",
@@ -551,7 +566,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://www.unlonely.app",
     categoryTags: ["Apps"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Crypto-native livestreaming platform with gamified creator mechanics using Livepeer.",
     cta: "Follow @unlonely_app for stream drops and updates.",
@@ -570,7 +585,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: "https://www.google.com/s2/favicons?sz=256&domain_url=https://www.wav3s.app",
     categoryTags: ["Social Media"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "On-chain content promotion platform with Livepeer video support.",
     cta: "Open WAV3S and find their official socials on-site (not verified in this pass).",
@@ -586,7 +601,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: null,
     categoryTags: ["Video Streaming"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Creator-driven livestreaming platform. Livepeer provides scalable live video backend.",
     cta: "No verifiable source found (official link/social).",
@@ -602,7 +617,7 @@ export const showcaseData = [
     mediaSrc: null,
     logo: null,
     categoryTags: ["Social Media"],
-    productTags: ["Livepeer Network (ecosystem listing)"],
+    productTags: ["Livepeer Network"],
     description:
       "Video-centric decentralized social app. Livepeer handles video distribution.",
     cta: "No verifiable source found (official link/social).",

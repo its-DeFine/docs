@@ -1,24 +1,14 @@
 // Example showcase data for ProjectShowcaseColumns
 // Replace or extend with real data/automation as needed
 const categoryTags = [
-  "Social Media",
   "Video Streaming",
   "Creative Industry",
+  "Social Media",
   "Events & Communication",
+  "Community & Social Good",
+  "AI-Powered Apps",
+  "Gaming",
   "Other",
-  "Social Good",
-];
-
-const categories = [
-  [
-    "Video Streaming",
-    "Developer Tools",
-    "Social Media",
-    "Community",
-    "Marketplaces",
-    "AI-Powered Apps",
-    "Other",
-  ],
 ];
 
 export const showcaseData = [
