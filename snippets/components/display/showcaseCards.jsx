@@ -468,8 +468,60 @@
 //   );
 // };
 
-export const ShowcaseCards = ({ items = [], limit = null }) => {
-  // console.log("ShowcaseCards", items);
+export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
+  const [search, setSearch] = useState("");
+  const [categoryFilter, setCategoryFilter] = useState("All");
+  const [productFilter, setProductFilter] = useState("All");
+  const [page, setPage] = useState(1);
+
+  // Extract unique categories and products from items
+  const allCategories = [
+    "All",
+    ...Array.from(
+      new Set(items.flatMap((item) => item.categoryTags || [])),
+    ).sort(),
+  ];
+  const allProducts = [
+    "All",
+    ...Array.from(
+      new Set(
+        items.flatMap((item) =>
+          (item.productTags || []).map((t) => t.replace(/\s*\(.*?\)\s*/g, "")),
+        ),
+      ),
+    ).sort(),
+  ];
+
+  // Filter items
+  const filtered = items.filter((item) => {
+    const matchesSearch =
+      !search ||
+      item.title?.toLowerCase().includes(search.toLowerCase()) ||
+      item.description?.toLowerCase().includes(search.toLowerCase()) ||
+      item.subtitle?.toLowerCase().includes(search.toLowerCase());
+    const matchesCategory =
+      categoryFilter === "All" ||
+      (item.categoryTags || []).includes(categoryFilter);
+    const matchesProduct =
+      productFilter === "All" ||
+      (item.productTags || [])
+        .map((t) => t.replace(/\s*\(.*?\)\s*/g, ""))
+        .includes(productFilter);
+    return matchesSearch && matchesCategory && matchesProduct;
+  });
+
+  // Pagination
+  const totalItems = limit ? Math.min(filtered.length, limit) : filtered.length;
+  const totalPages = Math.max(1, Math.ceil(totalItems / pageSize));
+  const safePage = Math.min(page, totalPages);
+  const paginatedItems = filtered
+    .slice(0, limit || filtered.length)
+    .slice((safePage - 1) * pageSize, safePage * pageSize);
+
+  // Reset page when filters change
+  useEffect(() => {
+    setPage(1);
+  }, [search, categoryFilter, productFilter]);
   const ShowcaseCard = ({
     mediaSrc: _mediaSrc,
     logo = "",
@@ -563,6 +615,7 @@ export const ShowcaseCards = ({ items = [], limit = null }) => {
       snapchat: "snapchat",
       reddit: "reddit",
       twitch: "twitch",
+      android: "google-play",
       other: "link",
     };
     const videoExtensions = [".mp4", ".webm", ".ogg", ".mov", ".mp4?raw=true"];
@@ -852,7 +905,7 @@ export const ShowcaseCards = ({ items = [], limit = null }) => {
             >
               <Tooltip tip={value}>
                 <Icon
-                  icon={linkIcons[key]}
+                  icon={linkIcons[key] || "link"}
                   iconType="solid"
                   size={16}
                   color="var(--text)"
@@ -911,11 +964,123 @@ export const ShowcaseCards = ({ items = [], limit = null }) => {
     );
   };
 
+  const filterBarStyle = {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "0.5rem",
+    alignItems: "center",
+    marginBottom: "1rem",
+  };
+  const inputStyle = {
+    flex: "1 1 200px",
+    padding: "0.5rem 0.75rem",
+    borderRadius: "6px",
+    border: "1px solid var(--border)",
+    background: "var(--background)",
+    color: "var(--text)",
+    fontSize: "0.875rem",
+    outline: "none",
+  };
+  const selectStyle = {
+    padding: "0.5rem 0.75rem",
+    borderRadius: "6px",
+    border: "1px solid var(--border)",
+    background: "var(--background)",
+    color: "var(--text)",
+    fontSize: "0.875rem",
+    outline: "none",
+    cursor: "pointer",
+  };
+  const paginationStyle = {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    gap: "0.75rem",
+    marginTop: "1.5rem",
+  };
+  const pageButtonStyle = (disabled) => ({
+    padding: "0.4rem 1rem",
+    borderRadius: "6px",
+    border: "1px solid var(--border)",
+    background: disabled ? "transparent" : "var(--background)",
+    color: disabled ? "var(--border)" : "var(--text)",
+    cursor: disabled ? "default" : "pointer",
+    fontSize: "0.875rem",
+    opacity: disabled ? 0.5 : 1,
+  });
+
   return (
-    <Columns cols={2}>
-      {(limit ? items.slice(0, limit) : items).map((item) => (
-        <ShowcaseCard {...item} />
-      ))}
-    </Columns>
+    <div>
+      <div style={filterBarStyle}>
+        <input
+          type="text"
+          placeholder="Search projects..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          style={inputStyle}
+        />
+        <select
+          value={categoryFilter}
+          onChange={(e) => setCategoryFilter(e.target.value)}
+          style={selectStyle}
+        >
+          {allCategories.map((cat) => (
+            <option key={cat} value={cat}>
+              {cat === "All" ? "All Categories" : cat}
+            </option>
+          ))}
+        </select>
+        <select
+          value={productFilter}
+          onChange={(e) => setProductFilter(e.target.value)}
+          style={selectStyle}
+        >
+          {allProducts.map((prod) => (
+            <option key={prod} value={prod}>
+              {prod === "All" ? "All Products" : prod}
+            </option>
+          ))}
+        </select>
+      </div>
+      {paginatedItems.length === 0 ? (
+        <div
+          style={{
+            textAlign: "center",
+            padding: "2rem",
+            color: "var(--text)",
+            opacity: 0.6,
+          }}
+        >
+          No projects found.
+        </div>
+      ) : (
+        <Columns cols={2}>
+          {paginatedItems.map((item) => (
+            <ShowcaseCard key={item.title} {...item} />
+          ))}
+        </Columns>
+      )}
+      {totalPages > 1 && (
+        <div style={paginationStyle}>
+          <button
+            style={pageButtonStyle(safePage <= 1)}
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            disabled={safePage <= 1}
+          >
+            ← Prev
+          </button>
+          <span style={{ fontSize: "0.875rem", color: "var(--text)" }}>
+            Page {safePage} of {totalPages}
+          </span>
+          <button
+            style={pageButtonStyle(safePage >= totalPages)}
+            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            disabled={safePage >= totalPages}
+          >
+            Next →
+          </button>
+        </div>
+      )}
+    </div>
   );
 };
