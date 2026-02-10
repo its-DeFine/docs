@@ -538,9 +538,30 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
     arrow = false,
     ...cardProps
   }) => {
-    const mediaSrc =
-      _mediaSrc ??
+    const defaultMedia =
       "/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png";
+    const videoExtensionsList = [
+      ".mp4",
+      ".webm",
+      ".ogg",
+      ".mov",
+      ".mp4?raw=true",
+    ];
+    const imageExtensionsList = [
+      ".jpg",
+      ".jpeg",
+      ".png",
+      ".webp",
+      ".gif",
+      ".svg",
+      ".avif",
+    ];
+    const isRecognizedMedia =
+      _mediaSrc &&
+      [...videoExtensionsList, ...imageExtensionsList].some((ext) =>
+        _mediaSrc.toLowerCase().endsWith(ext),
+      );
+    const mediaSrc = isRecognizedMedia ? _mediaSrc : defaultMedia;
     // DEBUG
     // console.log("ShowcaseCard", {
     //   mediaSrc,
@@ -679,7 +700,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
       alignSelf: "flex-end",
       opacity: 0.8,
       borderRadius: "6px",
-      border: "1px solid rgba(255, 255, 255, 0.5)",
+      // border: "1px solid rgba(255, 255, 255, 0.5)",
       margin: 0,
       padding: 0,
       marginBottom: "0.5rem",
@@ -688,14 +709,14 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
       position: "absolute",
       top: "50%",
       transform: "translateY(-50%)",
-      width: "80%",
+      width: "101%",
       height: "auto",
       objectFit: "contain",
       alignSelf: "center",
       justifySelf: "center",
       opacity: 1,
       borderRadius: "6px",
-      border: "1px solid rgba(255, 255, 255, 0.5)",
+      // border: "1px solid rgba(255, 255, 255, 0.5)",
       margin: 0,
       padding: 0,
       marginBottom: "0.5rem",
@@ -776,9 +797,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
     const isImage =
       mediaSrc &&
       imageExtensions.some((ext) => mediaSrc.toLowerCase().endsWith(ext));
-    const isDefaultMedia =
-      mediaSrc ===
-      "/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png";
+    const isDefaultMedia = mediaSrc === defaultMedia;
     // EFFECTS
     useEffect(() => {
       if (isDefaultMedia) {
