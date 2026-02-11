@@ -524,6 +524,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
   }, [search, categoryFilter, productFilter]);
   const ShowcaseCard = ({
     mediaSrc: _mediaSrc,
+    mediaType = "image",
     logo = "",
     title = "",
     subtitle = "",
@@ -540,50 +541,9 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
   }) => {
     const defaultMedia =
       "/snippets/assets/domain/00_HOME/Hero_Images/hero_showcase.png";
-    const videoExtensionsList = [
-      ".mp4",
-      ".webm",
-      ".ogg",
-      ".mov",
-      ".mp4?raw=true",
-    ];
-    const imageExtensionsList = [
-      ".jpg",
-      ".jpeg",
-      ".png",
-      ".webp",
-      ".gif",
-      ".svg",
-      ".avif",
-    ];
-    const isRecognizedMedia =
-      _mediaSrc &&
-      [...videoExtensionsList, ...imageExtensionsList].some((ext) =>
-        _mediaSrc.toLowerCase().endsWith(ext),
-      );
-    const mediaSrc = isRecognizedMedia ? _mediaSrc : defaultMedia;
-    // DEBUG
-    // console.log("ShowcaseCard", {
-    //   mediaSrc,
-    //   logo,
-    //   title,
-    //   subtitle,
-    //   description,
-    //   href,
-    //   categoryTags,
-    //   productTags,
-    //   cta,
-    //   links,
-    //   contact,
-    //   style,
-    //   arrow,
-    //   cardProps,
-    // });
-    // STATE
-    const [mediaStatus, setMediaStatus] = useState("loading"); // "loading" | "ok" | "too-large" | "error"
-    // CONST
-    const MAX_VIDEO_SIZE = 5 * 1024 * 1024; // 5MB
-    const MAX_IMAGE_SIZE = 2 * 1024 * 1024; // 2MB
+    const mediaSrc = _mediaSrc || defaultMedia;
+    const isVideo = mediaType === "video";
+    const isImage = mediaType === "image";
     // DATA
 
     const categoryBadgeKeys = {
@@ -639,16 +599,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
       android: "google-play",
       other: "link",
     };
-    const videoExtensions = [".mp4", ".webm", ".ogg", ".mov", ".mp4?raw=true"];
-    const imageExtensions = [
-      ".jpg",
-      ".jpeg",
-      ".png",
-      ".webp",
-      ".svg",
-      ".gif",
-      ".gif?raw=true",
-    ];
+
     // STYLES
     const mediaContainerStyle = {
       position: "relative",
@@ -791,39 +742,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
       marginLeft: "0.25rem",
     };
     //HELPER FUNCTIONS
-    const isVideo =
-      mediaSrc &&
-      videoExtensions.some((ext) => mediaSrc.toLowerCase().endsWith(ext));
-    const isImage =
-      mediaSrc &&
-      imageExtensions.some((ext) => mediaSrc.toLowerCase().endsWith(ext));
     const isDefaultMedia = mediaSrc === defaultMedia;
-    // EFFECTS
-    useEffect(() => {
-      if (isDefaultMedia) {
-        setMediaStatus("ok");
-        return;
-      }
-      if (!mediaSrc) {
-        setMediaStatus("error");
-        return;
-      }
-      // Fetch file size using HEAD request
-      fetch(mediaSrc, { method: "HEAD" })
-        .then((res) => {
-          const size = parseInt(res.headers.get("content-length") || "0", 10);
-          const maxSize = isVideo ? MAX_VIDEO_SIZE : MAX_IMAGE_SIZE;
-          if (size > maxSize) {
-            console.warn(
-              `Media too large: ${(size / 1024 / 1024).toFixed(2)}MB - ${mediaSrc}`,
-            );
-            setMediaStatus("too-large");
-          } else {
-            setMediaStatus("ok");
-          }
-        })
-        .catch(() => setMediaStatus("ok")); // If HEAD fails, try to render anyway
-    }, [mediaSrc, isVideo]);
 
     // COMPONENTS
     // Media Card (display logo if no media)
@@ -839,21 +758,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
     const mediaCard = (
       <div style={mediaContainerStyle}>
         {/* VIDEO OR IMAGE */}
-        {mediaStatus === "too-large" && (
-          <div
-            style={{
-              ...mediaStyle,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              background: "var(--background-dark)",
-              color: "var(--text-muted)",
-            }}
-          >
-            <span>⚠️ Media file too large</span>
-          </div>
-        )}
-        {mediaStatus === "ok" && isVideo && (
+        {isVideo && (
           <video
             autoPlay
             muted
@@ -863,9 +768,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
             style={mediaStyle}
           />
         )}
-        {mediaStatus === "ok" && isImage && (
-          <img src={mediaSrc} alt={title} style={mediaStyle} />
-        )}
+        {isImage && <img src={mediaSrc} alt={title} style={mediaStyle} />}
         {/* END MEDIA */}
         {/* TITLE */}
         <div style={titleContainerStyle}>
