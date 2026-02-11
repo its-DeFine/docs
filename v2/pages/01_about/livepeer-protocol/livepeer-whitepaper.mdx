@@ -5,15 +5,13 @@ keywords: ["livepeer", "about", "livepeer protocol", "livepeer whitepaper", "whi
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
-
-<PreviewCallout />
-
-
 import WhitepaperContent from '/snippets/external/whitepaper.mdx'
 import { ExternalContent } from '/snippets/components/content/external-content.jsx'
 import { ThemeData } from '/snippets/styles/themeStyles.jsx'
 
+Livepeer’s original whitepaper (published 2017) outlined an ambitious design for a fully decentralized live video streaming network. 
+The goal was to build _“the world’s open video infrastructure”_, where anyone could contribute or access video encoding and delivery on-demand. 
+{/* Over time, Livepeer’s mission and architecture have evolved significantly to meet real-world challenges and opportunities */}
 <Card
   title="View Livepeer Whitepaper"
   icon="github"
@@ -24,14 +22,10 @@ import { ThemeData } from '/snippets/styles/themeStyles.jsx'
   View the Livepeer Whitepaper on Github
 </Card>
 
-Livepeer’s original whitepaper (published 2017) outlined an ambitious design for a fully decentralized live video streaming network. 
-The goal was to build _“the world’s open video infrastructure”_, where anyone could contribute or access video encoding and delivery on-demand. 
-{/* Over time, Livepeer’s mission and architecture have evolved significantly to meet real-world challenges and opportunities */}
-
 Livepeer was one of the earliest DePIN (Decentralized Public Infrastructure Network) projects in the blockchain space, a blockchain use case that is only more relevant today as AI reshapes industries and the way we work, collaborate and communicate.
 
 Key ideas outlined in the whitepaper included:
-- incentivized participation with a native token (Livepeer Token, LPT) and a trustless verification mechanism for video transcoding work.
+- **Incentivized Participation** with a native token (Livepeer Token, LPT) and a trustless verification mechanism for video transcoding work.
 In the whitepaper’s design, anyone running a node could perform video transcoding (reformatting videos for efficient streaming) and be rewarded in LPT, while verifiers and game-theoretic protocols would ensure outputs were correct without a central authority.
 
 - **Trustless Verification:** A standout proposal was to use Truebit (a decentralized computation oracle) as a “black box” to verify transcoded video segments. Transcoding nodes would commit results on-chain, and a Truebit-based challenge could detect incorrect outputs, ensuring correctness without manual oversight.
@@ -42,13 +36,12 @@ In the whitepaper’s design, anyone running a node could perform video transcod
 
 <Tip>Did you know? Livepeer’s token distribution had no [ICO](https://messari.io/report/merkle-mine) LPT was distributed in a novel way called a [Merkle Mine](https://github.com/livepeer/merkle-mine), allowing a wide set of participants to claim tokens at network launch. <br/> You can view the [github code here](https://github.com/livepeer/merkle-mine).</Tip>
 
-
+### Livepeer Now
 Livepeer today both honors and extends the original whitepaper’s vision. The core idea of a decentralized video network powered by a crypto token has been proven in production – Livepeer handles millions of video minutes and has hundreds of node operators on five continents. Key technical shifts like off-chain scaling (Streamflow, Arbitrum) and the expansion into GPU-based AI workloads have kept the project on the cutting edge of what “open video infrastructure” means.
 
 What began as a decentralized live streaming protocol has grown into a general platform for real-time media computing.
 
 <br />
-Below is the Livepeer Whitepaper.
 
 <ExternalContent
   repoName="livepeer/wiki - WHITEPAPER.md"

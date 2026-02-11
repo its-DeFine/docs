@@ -90,15 +90,13 @@
                         "pages": [
                           "v2/pages/01_about/about-portal",
                           "v2/pages/01_about/core-concepts/livepeer-core-concepts",
-                          "v2/pages/01_about/core-concepts/mental-model",
-                          "v2/pages/01_about/core-concepts/livepeer-glossary"
+                          "v2/pages/01_about/core-concepts/mental-model"
                         ]
                       },
                       {
                         "group": "Livepeer Protocol",
                         "icon": "cube",
                         "pages": [
-                          "v2/pages/01_about/livepeer-protocol/livepeer-whitepaper",
                           "v2/pages/01_about/livepeer-protocol/protocol-overview",
                           "v2/pages/01_about/livepeer-protocol/technical-overview",
                           "v2/pages/01_about/livepeer-protocol/blockchain-contracts",
@@ -115,6 +113,14 @@
                           "v2/pages/01_about/livepeer-network/governance-model",
                           "v2/pages/01_about/livepeer-network/token",
                           "v2/pages/01_about/livepeer-network/treasury"
+                        ]
+                      },
+                      {
+                        "group": "Resources",
+                        "icon": "books",
+                        "pages": [
+                          "v2/pages/01_about/livepeer-protocol/livepeer-whitepaper",
+                          "v2/pages/01_about/core-concepts/livepeer-glossary"
                         ]
                       }
                     ]
