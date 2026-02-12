@@ -1,6 +1,7 @@
 ---
 title: 'Technical Overview'
 sidebarTitle: 'Technical Overview'
+description: 'A technical overview of the Livepeer protocol.'
 keywords: ["livepeer", "about", "livepeer protocol", "technical overview", "technical", "overview"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
@@ -8,23 +9,58 @@ og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
 
 <PreviewCallout />
+{/* Use a 6-part framework:
 
+1. Mental Model (High-Level Summary)
+2. Layered Stack (Protocol + Network)
+3. Actor & Incentive Model
+4. Trust / Verification Model
+5. Job Lifecycle
+6. Governance & Treasury */}
 
 import { GotoCard, GotoLink } from '/snippets/components/primitives/links.jsx'
+import { Image } from '/snippets/components/display/image.jsx'
 import { ThemeData } from '/snippets/styles/themeStyles.jsx'
 
-Livepeer is a decentralized infrastructure protocol that allows users to upload, transcode, and serve video content & run AI pipelines. It operates on a network with different node types including Gateways (formerly Broadcasters), Orchestrators, and Transcoders. The protocol uses smart contracts deployed on Ethereum Mainnet and Arbitrum Mainnet, with the native token LPT (Livepeer Token). Since the Confluence upgrade, the protocol primarily runs on Arbitrum Mainnet.
+The [go-livepeer](https://github.com/livepeer/go-livepeer) architecture is organized around three node types that work together to form a decentralised media processing network:
 
-## Protocol Technical Architecture
+- Gateway: Accepts video streams and AI jobs, routes work to orchestrators
+- Orchestrator: Manages transcoding tasks, pays out rewards
+- Worker Nodes: (Transcoder & AI Worker) Performs video transcoding or AI inference work
 
-TODO
+<Image src="/snippets/assets/domain/01_ABOUT/ProtocolNodeDiagram.png" alt="System Overview" caption="Livepeer System Overview" height="500px"/>
 
-Definitely want image here
+{/* Livepeer is a decentralized infrastructure protocol that allows users to upload, transcode, and serve video content & run AI pipelines. It operates on a network with different node types including Gateways (formerly Broadcasters), Orchestrators, and Transcoders. The protocol uses smart contracts deployed on Ethereum Mainnet and Arbitrum Mainnet, with the native token LPT (Livepeer Token). Since the Confluence upgrade, the protocol primarily runs on Arbitrum Mainnet.
+
+The core components of the Livepeer node implementation work together to provide a distributed, scalable video transcoding platform. Each component has specific responsibilities:
+- LivepeerNode: The central structure representing a node in the network
+- LivepeerServer: Handles media operations and HTTP interfaces
+- Orchestrator: Manages transcoding tasks and payment processing
+- BroadcastSessionsManager: Coordinates with multiple orchestrators
+- RemoteTranscoderManager: Distributes work to transcoders
+- RPC System: Enables communication between different node types
+
+These components implement the Livepeer protocol, allowing video to be efficiently transcoded in a decentralized network. */}
+
+
+## Actor & Incentive Model 
+
+
+## Trust & Verification Model
+
+
+## Job Lifecycle
+
+
+## Governance & Treasury
+
+
 
 ## Protocol References
 
 <Note>Aggregate from from internal Livepeer Notions, Prev site & deepwiki</Note>
 
+{/* 
 ### A/B/C TEST LAYOUTS
 
 **Expandable**
@@ -89,4 +125,4 @@ Internal
 
 Docs Current
 
--
+- */}

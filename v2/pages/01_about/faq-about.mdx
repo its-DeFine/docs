@@ -24,3 +24,193 @@ Most protocols take the philosophy of self-interested parties acting in their ow
 
 Technical Architecture:
 Diagram - interactions & flows between actors
+
+
+If you’re trying to explain something as complex as **Livepeer**, don’t just pick one framework. Layer them. Each one clarifies a different dimension.
+
+Here are the ones that actually work for distributed, crypto-native, multi-actor systems.
+
+---
+
+
+# Canonical Livepeer Architecture Framework
+
+## 1. C4 Model (Structure & Scope Clarity)
+
+Best for: **Making complexity legible**
+
+Created by Simon Brown, C4 forces you to explain a system at 4 zoom levels:
+
+* **Context** – What is the system? Who uses it?
+* **Containers** – Major deployable components (nodes, APIs, services)
+* **Components** – Internal modules
+* **Code** – (optional deep dive)
+
+For something like Livepeer:
+
+* Context → The decentralized video compute protocol
+* Containers → Orchestrators, Broadcasters, Transcoders, Ethereum contracts
+* Components → Pricing logic, job verification, reward distribution
+
+Why it’s powerful:
+It forces you to stop hand-waving and define boundaries.
+
+---
+
+## 2. Layered / OSI-Style Stack (Abstraction & Primitives)
+
+Best for: **Explaining “how it builds upward”**
+
+Borrow from networking:
+
+* Physical layer (GPUs, bandwidth)
+* Network transport
+* Coordination layer
+* Execution layer
+* Incentives layer
+* Application layer
+
+For Livepeer specifically, this works extremely well because:
+
+* There’s a physical compute layer
+* A peer-to-peer coordination layer
+* A blockchain settlement layer
+* An incentive layer (LPT inflation, staking)
+* An app layer (Streamplace, Studio, etc.)
+
+This shows abstraction and dependency direction.
+
+---
+
+## 3. Actor / Role-Based Model (Economic & Governance Clarity)
+
+Best for: **Who does what, who earns what**
+
+Distributed systems aren’t just software. They’re incentive systems.
+
+Define:
+
+* Actors (Orchestrators, Delegators, Broadcasters, Token Holders)
+* Capabilities
+* Risks
+* Revenue sources
+* Governance rights
+
+This explains:
+
+* Why LPT exists
+* Why ETH is used for jobs
+* Why inflation funds security
+
+This is critical in crypto systems.
+
+---
+
+## 4. Trust & Verification Model
+
+Best for: **Security explanation**
+
+In distributed compute, you must explain:
+
+* What can be trusted?
+* What cannot be trusted?
+* How is work verified?
+* Where is slashing possible?
+* What is cryptoeconomic vs algorithmic enforcement?
+
+Livepeer has:
+
+* On-chain bonding
+* Off-chain computation
+* Verification mechanisms
+* Slashing conditions
+
+If you don’t explain trust boundaries, your architecture is incomplete.
+
+---
+
+## 5. Economic Flow Diagrams
+
+Best for: **Tokenomics clarity**
+
+Show:
+
+* Inflation → Orchestrators + Treasury
+* Fees (ETH) → Orchestrators
+* Delegation → Shared rewards
+* Governance → Treasury allocation
+
+Without this, the system looks like random moving parts.
+
+---
+
+## 6. Deployment Topology Diagrams
+
+Best for: **Real-world implementation**
+
+Show:
+
+* Cloud GPUs
+* On-prem nodes
+* Geographic distribution
+* Gateway architecture
+* Load balancing
+
+This grounds the protocol in reality.
+
+---
+
+## 7. State Machine / Lifecycle Model
+
+Best for: **Job processing explanation**
+
+Example for Livepeer:
+
+1. Broadcaster submits job
+2. Orchestrator bids
+3. Segment distributed
+4. Transcoded
+5. Verified
+6. Paid
+
+This is critical for engineers.
+
+---
+
+## 8. Governance Model
+
+Best for: **Explaining evolution**
+
+* LIPs (Livepeer Improvement Proposals)
+* Token-holder voting
+* Treasury allocation
+* Foundation vs Community
+
+If you don’t describe governance, you’re describing a static system — and Livepeer is not static.
+
+---
+
+# What I Recommend For Livepeer
+
+If you want elite-level clarity:
+
+Use a 6-part framework:
+
+1. **Mental Model (High-Level Summary)**
+2. **Layered Stack (Protocol + Network)**
+3. **Actor & Incentive Model**
+4. **Trust / Verification Model**
+5. **Job Lifecycle**
+6. **Governance & Treasury**
+
+That gives:
+
+* Technical clarity
+* Economic clarity
+* Security clarity
+* Evolution clarity
+
+Most docs fail because they only describe components.
+Great docs describe **structure + incentives + trust + evolution**.
+
+---

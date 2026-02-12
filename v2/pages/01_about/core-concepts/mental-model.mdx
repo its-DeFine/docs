@@ -6,17 +6,13 @@ keywords: ["livepeer", "about", "core concepts", "mental model", "introduction",
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
-
-<PreviewCallout />
-
 import { Subtitle } from '/snippets/components/primitives/text.jsx'
+import { AccordionLayout } from '/snippets/components/layout/text.jsx'
 
-Livepeer is a crypto‑economic coordination protocol that secures a global, permissionless GPU network optimized for real‑time video and AI, exposed through developer‑friendly products and applications.
-
+<Note> image would be good </Note>
 
 # Livepeer Mental Model
-
+Livepeer is a crypto‑economic coordination protocol that secures a global, on-demand GPU network optimized for real‑time video and AI, and exposed through developer‑friendly platforms and applications.
 {/* Livepeer is a decentralised real-time compute infrastructure, exposed through a set of developer-friendly products and applications, much like how you build on traditional cloud providers, but with a cryptoeconomic control plane. */}
 
 You can think of Livepeer as a decentralised serverless GPU fabric with a cryptoeconomic control plane, where services are exposed through a set of developer-friendly products and applications.
@@ -40,39 +36,53 @@ Livepeer's crypto-economic primitives and decentralised compute mesh provide add
 
 {/* such as censorship resistance, economic security, and trustless coordination, but the core value proposition remains the same: a global, open, and permissionless compute infrastructure that anyone can build on, operate, and benefit from. */}
 
-### Basic Layers
-
-**Protocol** <Badge color="green"> Livepeer Protocol </Badge>
+### Infra Layers
+**Protocol** 
+<div style = {{ border: "1px solid #2d9a67", borderRadius: "8px", padding: "16px", margin: "16px 0" }}>
 
 A crypto‑economic protocol that secures and coordinates the network. (incentives, staking, governance, payments)
 - the **protocol** provides trust, coordination and payment mechanisms
 
+<Badge color="green"> Livepeer Protocol </Badge>
+</div>
+
 **Network**
-<Badge color="blue"> Orchestrators </Badge> <Badge color="purple"> Gateways </Badge>
+<div style = {{ border: "1px solid #2d9a67", borderRadius: "8px", padding: "16px", margin: "16px 0" }}>
 
 A global GPU network that performs the actual compute work. (supply, routing, performance)
 - the **network** supplies compute, routing, and verification
 
-**Applications and Platforms** <Badge color="purple"> Gateways </Badge> <Badge color="orange"> Platforms </Badge>
+<Badge color="blue"> Orchestrators </Badge> {" "} <Badge color="purple"> Gateways </Badge>
+</div>
+
+**Applications and Platforms** 
+<div style = {{ border: "1px solid #2d9a67", borderRadius: "8px", padding: "16px", margin: "16px 0" }}>
 
 A set of developer‑facing tools and applications (APIs, SDKs, apps) which expose the network's capabilities in a usable way.
 - the **platforms** expose the network's capabilities in a usable way.
 
-<br/>
+<Badge color="purple"> Gateways </Badge> {" "} <Badge color="orange"> Platforms </Badge>
+</div>
+
+{/* <br/>
 _**Mapping Protocol vs Network vs Platform**_
 | Concern | Lives Where | Examples |
 |---------|-------------|----------|
 | Security & incentives | Protocol | LPT, staking, inflation |
 | Performance & routing | Network | Orchestrators, fees |
 | UX & onboarding | Product | APIs, dashboards |
-| Creativity & apps | Application | Daydream, studios |
+| Creativity & apps | Application | Daydream, studios | */}
 {/* where the **protocol** provides trust, coordination and payment mechanisms, the **network** supplies compute, routing, and verification, and **products** expose the network's capabilities in a usable way. */}
 
 {/* Livepeer is a crypto-economic coordination protocol that secures a global, permissionless GPU network optimized for real-time video and AI, exposed through developer-friendly products and applications. */}
 
 ## Livepeer as an OSI-Like Stack 
 
-You can think of Livepeer as an [OSI stack](https://en.wikipedia.org/wiki/OSI_model) where the “cloud control plane” is replaced by a cryptoeconomic protocol, and persistent storage is optional, external, and secondary to real-time streamed compute.
+One of the traditional ways to map infrastructure architectures is with the [OSI model](https://en.wikipedia.org/wiki/OSI_model).
+
+While this model doesn't map perfectly to decentralised systems - and is also being rapidly transformed by AI, the framework is still useful for understanding the different layers and how they interact.
+
+Livepeer can be roughly pictured as an OSI stack where the “cloud control plane” is replaced by a cryptoeconomic protocol, and persistent storage is optional, external, and secondary to real-time streamed compute.
 
 
 ### Network & Protocol Stack
@@ -83,7 +93,15 @@ You can think of Livepeer as an [OSI stack](https://en.wikipedia.org/wiki/OSI_mo
 (OSI: Physical) */}
 
 
-<Accordion title="Layer 1: Physical Compute & Resource Layer" description={<Subtitle text="OSI: Physical" />}>
+<Accordion
+          title="Layer 1: Physical Compute & Resource Layer"
+          description={
+              <AccordionLayout>
+                  <Subtitle text="OSI: Physical" />
+                  <Badge color="blue"> Orchestrators </Badge>
+              </AccordionLayout>
+          }
+      >
     > *"Raw atoms"*
 
     **What it is:**
@@ -106,7 +124,15 @@ You can think of Livepeer as an [OSI stack](https://en.wikipedia.org/wiki/OSI_mo
 
 </Accordion>
 
-<Accordion title="Layer 2: Transport & Media Substrate" description={<Subtitle text="OSI: Data Link / Transport" />}>
+<Accordion
+          title="Layer 2: Transport & Media Substrate"
+          description={
+              <AccordionLayout>
+                  <Subtitle text="OSI: Data Link / Transport" />
+                  <Badge color="purple"> Gateways </Badge>
+              </AccordionLayout>
+          }
+          >
     > *"Bits move"*
 
     **What it is:**
@@ -134,7 +160,15 @@ You can think of Livepeer as an [OSI stack](https://en.wikipedia.org/wiki/OSI_mo
 
 </Accordion>
 
-<Accordion title="Layer 3: Distributed Execution Network" description={<Subtitle text="OSI: Network" />}>
+<Accordion
+          title="Layer 3: Distributed Execution Network"
+          description={
+              <AccordionLayout>
+                  <Subtitle text="OSI: Network" />
+                  <Badge color="blue"> Orchestrators </Badge>
+              </AccordionLayout>
+          }
+      >
     > *"Who Actually does the work?"*
 
     **What it is:**
@@ -157,7 +191,15 @@ You can think of Livepeer as an [OSI stack](https://en.wikipedia.org/wiki/OSI_mo
 
 </Accordion>
 
-<Accordion title="Layer 4: Crypto-Economic Coordination Layer" description={<div><Subtitle text="OSI: Session / Control Plane (conceptual)" /><br/><Badge color="green"> Livepeer Protocol </Badge></div>}>
+<Accordion
+          title="Layer 4: Crypto-Economic Coordination Layer"
+          description={
+             <AccordionLayout>
+                <Subtitle text="OSI: Session / Control Plane (conceptual)" />
+                <Badge color="green"> Protocol </Badge>
+            </AccordionLayout>
+          }
+      >
     > *"Coordination, Trust, Provenance"*
 
     **What it is:**
@@ -338,8 +380,9 @@ You can think of Livepeer as an [OSI stack](https://en.wikipedia.org/wiki/OSI_mo
 Livepeer replaces persistent storage coupling with streamed, ephemeral compute coordination.
 </Info>
 
+**The "joining layer" is:** 
 
-**The "joining layer" is:** Protocol-level orchestration, segment-based streaming, economic guarantees.
+Protocol-level orchestration, segment-based streaming, economic guarantees.
 
 <Note>Not Kafka. Not Airflow. Not Kubernetes. But conceptually: **A decentralized serverless GPU fabric with a cryptoeconomic control plane.**</Note>
 

@@ -1,179 +1,144 @@
 ---
 title: 'Protocol Overview'
 sidebarTitle: 'Protocol Overview'
+description: 'An overview of the Livepeer protocol.'
 keywords: ["livepeer", "about", "livepeer protocol", "protocol overview", "protocol", "overview"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+{/* Livepeer is a decentralized infrastructure protocol, nodes including Gateways (formerly broadcasters), Orchestrators, and Transcoders, run the Livepeer network.
+The protocol uses smart contracts deployed on Ethereum Mainnet and Arbitrum Mainnet, with the native token LPT (Livepeer Token). Since the Confluence upgrade, the protocol primarily runs on Arbitrum Mainnet. */}
+{/* * **Containers** – Major deployable components (nodes, APIs, services)
+*     -> The Network: Orchestrators, Gateways, Worker Nodes
+* **Components** – Internal modules
+*     -> The Protocol: Pricing logic, job verification, reward distribution 
+* **Code** – (optional deep dive)
 
-<PreviewCallout />
+For something like Livepeer:
 
-{/* https://deepwiki.com/livepeer/protocol */}
-# Overview
+* Context → The decentralized video compute protocol
+* Containers → Orchestrators, Broadcasters, Transcoders, Ethereum contracts
+* Components → Pricing logic, job verification, reward distribution */} 
 
-Livepeer is a full-stack platform for video streaming & AI. The video streaming software is underpinned by a network of actors that perform the work needed to compute, transcode & orchestrate video & AI jobs in the Livepeer network.
+In any decentralised system involving independent participants, its essential to provide:
+- Incentives for participants to act honestly and cooperate (often based on game theory)
+- Mechanisms for punishing bad behaviour
+- Coordination mechanisms for agreeing on the state of the system
+- Payment systems for compensating participants for their useful work / contributions
+- Governance systems for evolving the protocol rules over time and ensuring the growth & health of the network.
 
-The Livepeer Protocol is the underlying code that enforces the mechanisms and rules to ensure the reliability, cooperation and coordination of these decentralised actors.
+The protocol is the underlying logic that provides these mechanisms to ensure the desired network outcomes are achieved as efficiently, reliably and fairly as possible (in this case, video streaming & AI pipelines).
 
-<Note> This page is far from ready </Note>
+<Note> If you're interested in learning more about game theory, mechanism design and token economics for building digital ecosystems, [this module](https://tokenflows.xyz/tutorials/introduction-tutorials/module3/) is a good primer. <br/><br/> Yale also offers an academic theoretical overview of Game Theory Economics in this [Open Yale Course](https://oyc.yale.edu/economics/econ-159)  </Note>
 
-The Livepeer protocol is the software layer that coordinates decentralized video and AI processing. Its core is implemented as Ethereum smart contracts (now on Arbitrum L2 after the Confluence upgrade) complemented by off-chain nodes and services. The protocol enforces staking, bonding, slashing, and reward rules on-chain, while specialized nodes handle the actual video jobs.
+# Protocol Guide
+The protocol is the ruleset + on-chain logic governing network actors and providing payment, coordination & security primitives to the network.
 
-## Livepeer Protocol
+[Protocol Overview](#)
+- Actors, Nodes & Roles
+- Actor Interactions
+- Governance & Treasury
+- Token Role
 
-The protocol is the ruleset + on-chain logic governing:
+[Technical Architecture](technical-overview.mdx)
+- Architecture Diagrams
+- Node Types
+- Core Components
+- Job Lifecycle
+- Protocol Implementation Code
 
+[Protocol Mechanisms](protocol-mechanisms.mdx)
+- Governance and Upgrades
+- Payment System
+- Reward System, Slashing & Incentives
+- Token Economics
+
+{/* - Delegation & Staking
+- Reward System
+- Probabilistic Payments
+- Slashing & Incentives
+- Governance & Upgrades
+- Tokenomics & Inflation */}
+
+[On-Chain Functions](blockchain-contracts.mdx)
+- Blockchain Contract List
+- Contract Interaction Architecture
+- Contract Details
+
+[Protocol Behaviour Mechanics](protocol-economics.mdx)
+aka Tokenomics
+- Inflation
+- Staking & Delegation
+- Reward System
+- Probabilistic Payments
+- Slashing & Incentives
+- Governance & Upgrades
+- Tokenomics & Inflation
+
+# Network Guide
+The network is the execution layer, made up of actors, nodes and services.
+-> The Livepeer network is the actual running system of machines performing work.
+These actors are off-chain entities that use the on-chain protocol to coordinate and transact.
+
+[Network Overview](network-overview.mdx)
+- Actor Roles
+- Node Types
+- Core Services
+- Job Processing Pipeline
+
+[Network Operations](network-operations.mdx)
+- Network Setup
+- Node Deployment
+- Service Configuration
+- Job Submission
+- Result Retrieval
+
+# Protocol Implementation
+
+The Livepeer protocol is implemented by the `go-livepeer` codebase and deployed on Arbitrum L2 (with the token deployed on Ethereum L1).
+
+It uses smart contracts to enforce staking, bonding, slashing, and reward rules on-chain, while network nodes handle the actual compute jobs. 
+
+The protocol is responsible for governing the network, securing the system, and paying participants.
+
+## Node Types
+- BroadcasterNode: Centers on LivepeerServer managing rtmpConnections and BroadcastSessionsManager
+- OrchestratorNode: Uses the orchestrator struct with SegmentChans for job distribution and Recipient for payments
+- TranscoderNode: RemoteTranscoderManager coordinates local or remote transcoding via LocalTranscoder
+- AIWorkerNode: RemoteAIWorkerManager manages Docker containers running AI models
+- Gateway: Adds AISessionManager and AI HTTP handlers on top of broadcaster functionality
+
+
+## Core Components
+- LivepeerNode: And interface node implemented by all other node types in the network (gateway/broadcaster, orchestrator, transcoder)
+- Media Server (`LivpeerServer`): The LivepeerServer manages media processing and serves HTTP/RTMP endpoints, providing 
+    - RTMP ingestion for live streams
+    - HTTP push for video segments
+    - HLS playback endpoints
+    - Management of active connections
+- Broadcast Sessions Manager: 
+- Orchestrator
+- Transcoder
+- AI Gateway 
+- AI Workers
+
+
+
+{/* Protocol Definition */}
+
+
+{/* Protocol Positioning
+- depin */}
+
+
+{/* Protocol Function */}
+
+
+{/* Protocol Components
 - staking
 - delegation
 - inflation & rewards
 - orchestrator selection
 - slashing
 - probabilistic payments
-- verification rules
-
-The economic and coordination layer that enforces correct behavior.
-
-{/* ## Livepeer Network
-
-The network is the actual running system of machines performing work:
-
-- Orchestrators (GPU nodes)
-- Transcoders / Workers
-- Gateways
-- Broadcasters
-- Verification processes
-- Job routing
-- Real-time AI & video compute
-
-It is the live, operational decentralized GPU mesh running video + AI jobs.
-
-## Protocol vs Network
-
-| Layer                 | Description                                                                   |
-| --------------------- | ----------------------------------------------------------------------------- |
-| **Livepeer Protocol** | On-chain crypto-economic incentives & coordination; staking; payments.        |
-| **Livepeer Network**  | Off-chain nodes performing real-time work (transcoding, inference, routing).  |
-| **Relationship**      | The network _runs_ the compute; the protocol _governs, secures, and pays_ it. |
-
-<Note> Fix UGHH (brainsotrm) </Note>
-**Bad Analogy Yikes** Protocol = the constitution Network = the population + infrastructure
-living under that constitution
-
-The protocol governs.
-The network performs the work.
-
-The protocol determines the rules of the game
-The network is the players & participants. */}
-
-{/* # On-chain vs Off-chain
-
-Livepeer protocol = Arbitrum One (L2)
-Livepeer token (LPT) = Ethereum mainnet (L1)
-Livepeer network (GPU nodes + gateways) = off-chain execution layer */}
-
-# Livepeer Actors
-
-A Livepeer actor is any role or entity that participates in the Livepeer protocol or network and performs actions defined by the system.
-In Livepeer architecture, “actor” is a formal category used to describe participants with distinct responsibilities, incentives, and interactions.
-Actors are fundamental to describing how the network functions end-to-end.
-
-<Note>INSERT LIVEPEER ACTOR DIAGRAM HERE \[THIS ONE LOOKS OLD (whitpaper)</Note>
-
-<figure>
-  <img src="../../.gitbook/assets/image (1).png" alt="" />
-  <figcaption></figcaption>
-</figure>
-
-#### Broadcasters (deprecated -> Gateway)
-
-Who: The users and builders of the network.&#x20;
-
-What they do:
-
-#### Orchestrators (GPU Nodes)
-
-aka: Transcoders / Workers
-
-Who:
-
-What they do:
-
-#### Gateways
-
-aka: Broadcasters
-
-Who:
-
-What they do:
-
-#### Delegators
-
-Who:
-
-What they do:
-
-Historical Livepeer Actors:
-
-1. Orchestrator
-
-GPU node that performs transcoding / AI jobs, earns fees + staking rewards.
-
-2. Transcoder (Worker)
-
-Child processes or machines managed by an orchestrator to perform compute.
-
-3. Broadcaster
-
-Client submitting jobs (video or AI) into the network.
-
-4. Delegator
-
-LPT holder who stakes to an orchestrator.
-
-3. Broadcaster (now a behavior, not an actor)
-
-In modern Livepeer, which has expanded beyond just video transcoding:
-
-A gateway acts as a broadcaster when submitting video
-A service (e.g., Studio) can also be a broadcaster
-The term is no longer treated as a standalone actor
-Broadcaster is no longer considered its own actor - it’s now a function performed by a gateway or service, not a role a user operates.
-
-“Broadcaster” is now just a function gateways perform, not a user-facing or protocol-facing actor
-
-4. Worker (legacy)
-
-Workers are still used, but only inside GPU node setups.
-
-Workers are not protocol actors
-
-They do not appear on-chain
-
-They are implementation detail for orchestrator/GPU Node setups
-
-5. Delegator (protocol-defined actor)
-
-They stake LPT
-
-They help secure the network
-
-They share in inflation + orchestrator rewards
-
-Protocol Actors
-
-GPU Node (Orchestrator) — supply-side compute provider
-
-Delegator — stake from demand side
-
-## Network / Execution Actors
-
-Gateway Node — submits and manages jobs (AI/video)
-
-Worker — internal compute role (not user-facing)
-
-Behaviors (not actors anymore)
-
-Broadcaster — any gateway/service sending video or AI jobs
-
-Transcoder — a type of worker behavior
+- verification rules */}
