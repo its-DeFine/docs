@@ -1,7 +1,7 @@
 ---
 title: 'Protocol Overview'
 sidebarTitle: 'Overview'
-description: 'This section covers the high-level components, function and mechanisms of the Livepeer protocol. This page serves to provide context and a high-level overview of the Livepeer protocol function and system design. '
+description: 'This section covers the design, functions, components and mechanisms of the Livepeer Protocol and how it governs and interacts with the larger Livepeer ecosystem. This page serves to provide context and a high-level overview.'
 keywords: ["livepeer", "about", "livepeer protocol", "protocol overview", "protocol", "overview"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 audience: "all"
@@ -12,8 +12,6 @@ import { CardTitleTextWithArrow } from '/snippets/components/primitives/text.jsx
 import { AccordionTitleWithArrow } from '/snippets/components/primitives/text.jsx'
 import { Quote } from '/snippets/components/display/quote.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
-
-{/* <CardTitleTextWithArrow icon="github" horizontal href="https://github.com/livepeer/protocol"> Livepeer Protocol </CardTitleTextWithArrow> */}
 
 {/* 
 This page describes:
@@ -26,11 +24,17 @@ This page describes:
 ---
 
 # Protocol Function */}
-<Quote> The protocol is responsible for governing the network, securing the system, and incentivising desired behaviour from participants. </Quote>
 
+<div style={{ display: "flex", justifyContent: "center"}}>
+  <CardTitleTextWithArrow icon="github" horizontal href="https://github.com/livepeer/protocol"> Livepeer Protocol </CardTitleTextWithArrow> 
+</div>
 
+<Quote> The Protocol is the **on-chain coordination and economic security layer** deployed on a blockchain to leverage unique cyrptoeconomic primitives. It is responsible for _governing the network_, _securing the system_, and _incentivising desired behaviour_ from participants. </Quote>
 
 #### <Icon icon="map-location" size={22} color="var(--accent)" /> {" "} Protocol Section Map
+{/* This section describes the Livepeer protocol, the on‑chain smart contracts that secure the network and coordinate incentives.
+It emphasises the hard boundary between the on‑chain logic and the off‑chain network, explains the key economic mechanisms and governance rules, and defines the actors involved. 
+The goal is to provide a complete, self‑contained description of how the protocol works and how it interacts with the larger Livepeer ecosystem. */}
 <Columns cols={2}>
     <Accordion title={<AccordionTitleWithArrow text="Core Mechanisms" href="./core-mechanisms" />} icon="cubes-stacked" >
         The core mechanisms of the Livepeer protocol:
@@ -80,7 +84,7 @@ This page describes:
 
 <CustomDivider style={{ margin: 0 }} />
 
-## Protocol Context
+## Protocol Design
 In any decentralised system involving independent participants, its essential to provide:
 - **Reward Systems** including
     - **Incentives** for participants to act honestly and cooperate (often based on game theory)
@@ -90,6 +94,15 @@ In any decentralised system involving independent participants, its essential to
 - **Governance systems** for evolving the protocol rules over time and ensuring the growth & health of the network.
 
 The protocol is the underlying logic that provides these mechanisms to ensure the desired network outcomes are achieved as efficiently, reliably and fairly as possible (in this case, video streaming & AI pipelines).
+
+{/* ## Livepeer Protocol Design
+The Livepeer protocol is the trustless backbone of a decentralised video and AI network. By separating on‑chain state and off‑chain execution, it achieves scalability and flexibility. 
+
+ETH fees, probabilistic tickets, LPT staking and adaptive inflation align the incentives of orchestrators, delegators and broadcasters. 
+
+Governance via LIPs and on‑chain voting empowers the community to steer evolution while maintaining security. 
+
+Any future development should preserve the protocol’s modularity, respect the division between protocol and network, and continue to foster an open, incentive‑aligned ecosystem. */}
 
 ## Protocol Function
 The Livepeer protocol is a crypto-economic system that governs a network of actors to achieve a desired network outcome.
