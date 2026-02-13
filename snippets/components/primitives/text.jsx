@@ -121,3 +121,29 @@ export const CardTitleTextWithArrow = ({ children, ...cardProps }) => {
   //   </span>
   // );
 };
+
+export const AccordionTitleWithArrow = ({
+  text,
+  href,
+  color = "var(--text)",
+}) => {
+  return (
+    <a href={href}>
+      <span
+        style={{
+          justifyContent: "center",
+          alignContent: "center",
+          color: color,
+          display: "flex",
+          alignItems: "center",
+          gap: "0.5rem",
+        }}
+      >
+        {text}
+        <span style={{ alignSelf: "flex-end" }}>
+          <Icon icon="arrow-up-right" size={14} color="var(--text)" />
+        </span>
+      </span>
+    </a>
+  );
+};

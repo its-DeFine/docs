@@ -1,7 +1,7 @@
 ---
 title: 'Protocol Overview'
 sidebarTitle: 'Overview'
-description: 'An overview of the Livepeer protocol.'
+description: 'This section covers the high-level components, function and mechanisms of the Livepeer protocol. This page serves to provide context and a high-level overview of the Livepeer protocol function and system design. '
 keywords: ["livepeer", "about", "livepeer protocol", "protocol overview", "protocol", "overview"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 audience: "all"
@@ -9,6 +9,7 @@ aim: "What the protocol is. What it secures. What it does not do"
 ---
 
 import { CardTitleTextWithArrow } from '/snippets/components/primitives/text.jsx'
+import { AccordionTitleWithArrow } from '/snippets/components/primitives/text.jsx'
 import { Quote } from '/snippets/components/display/quote.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
@@ -25,29 +26,73 @@ This page describes:
 ---
 
 # Protocol Function */}
-This section covers the high-level components, function and mechanisms of the Livepeer protocol.
+<Quote> The protocol is responsible for governing the network, securing the system, and incentivising desired behaviour from participants. </Quote>
+
+
+
+#### <Icon icon="map-location" size={22} color="var(--accent)" /> {" "} Protocol Section Map
 <Columns cols={2}>
-    <Accordion title={<a href="./core-mechanisms"><span style={{ justifyContent: "center", alignContent: "center", color: "var(--accent)" }}>Core Mechanisms <Icon icon="arrow-up-right" size={12} color="var(--text)" /></span></a>} icon="cubes-stacked" ><span style={{ marginBottom: "0.5rem" }}><Icon icon="cubes-stacked"/> [Core Mechanisms](./core-mechanisms)</span></Accordion>
-    <Accordion title="Livepeer Token" icon="coin"><span style={{ marginBottom: "0.5rem" }}><Icon icon="coin" /> [Livepeer Token](./livepeer-token)</span></Accordion>
-    <Accordion title="Governance Model" icon="gears"><span style={{ marginBottom: "0.5rem" }}><Icon icon="gears" /> [Governance Model](./governance-model)</span></Accordion>
-    <Accordion title="Treasury" icon="money-bill"><span style={{ marginBottom: "0.5rem" }}><Icon icon="money-bill" /> [Treasury](./treasury)</span></Accordion>
-    <Accordion title="Protocol Economics" icon="coins"><span style={{ marginBottom: "0.5rem" }}><Icon icon="coins" /> [Protocol Economics](./protocol-economics)</span></Accordion>
-    <Accordion title="Technical Architecture" icon="code-fork"><span style={{ marginBottom: "0.5rem" }}><Icon icon="code-fork" /> [Technical Architecture](./technical-architecture)</span></Accordion>
+    <Accordion title={<AccordionTitleWithArrow text="Core Mechanisms" href="./core-mechanisms" />} icon="cubes-stacked" >
+        The core mechanisms of the Livepeer protocol:
+        * Staking
+        * Delegation
+        * Reward distribution
+        * Inflation model
+        * Slashing
+        * Rounds
+    </Accordion>
+    <Accordion title={<AccordionTitleWithArrow text="Livepeer Token" href="./livepeer-token" />} icon="coin">
+        The Livepeer Token (LPT) utility and role in the protocol.
+        * Purpose of LPT
+        * Security model
+        * Inflation mechanics
+        * Not used for job payments (ETH is)
+    </Accordion>
+    <Accordion title={<AccordionTitleWithArrow text="Governance Model" href="./governance-model" />} icon="gears">
+        The governance model of the Livepeer protocol.
+        * Purpose
+        * LIPs (Livepeer Improvement Proposals)
+        * Voting
+        * Upgrade process
+    </Accordion>
+    <Accordion title={<AccordionTitleWithArrow text="Treasury" href="./treasury" />} icon="money-bill">
+        The role of the treasury in the Livepeer protocol.
+        * Funding source
+        * Inflation allocation
+        * Grants / SPEs
+        * Budget governance
+    </Accordion>
+    <Accordion title={<AccordionTitleWithArrow text="Protocol Economics" href="./protocol-economics" />} icon="coins">
+        The economics and reward model of the Livepeer protocol.
+        * Inflation vs usage-based fees
+        * Participation rate mechanics
+        * Security assumptions
+        * Incentive alignment
+    </Accordion>
+    <Accordion title={<AccordionTitleWithArrow text="Technical Architecture" href="./technical-architecture" />} icon="code-fork">
+        The technical architecture of the Livepeer protocol.
+        * Architecture Diagrams
+        * Smart contracts
+        * On-chain components
+        * How protocol interacts with network
+    </Accordion>
 </Columns>
 
 <CustomDivider style={{ margin: 0 }} />
 
 ## Protocol Context
 In any decentralised system involving independent participants, its essential to provide:
-- Incentives for participants to act honestly and cooperate (often based on game theory)
-- Mechanisms for punishing bad behaviour
-- Coordination mechanisms for agreeing on the state of the system
-- Payment systems for compensating participants for their useful work / contributions
-- Governance systems for evolving the protocol rules over time and ensuring the growth & health of the network.
+- **Reward Systems** including
+    - **Incentives** for participants to act honestly and cooperate (often based on game theory)
+    - **Penalties** for punishing negative behaviour
+- **Coordination mechanisms** for agreeing on the state of the system
+- **Payment systems** for compensating participants for their useful work / contributions
+- **Governance systems** for evolving the protocol rules over time and ensuring the growth & health of the network.
 
 The protocol is the underlying logic that provides these mechanisms to ensure the desired network outcomes are achieved as efficiently, reliably and fairly as possible (in this case, video streaming & AI pipelines).
 
-<Note> If you're interested in learning more about game theory, mechanism design and token economics for building digital ecosystems, [this module](https://tokenflows.xyz/tutorials/introduction-tutorials/module3/) is a good primer. <br/><br/> Yale also offers an academic theoretical overview of Game Theory Economics in this [Open Yale Course](https://oyc.yale.edu/economics/econ-159)  </Note>
+## Protocol Function
+The Livepeer protocol is a crypto-economic system that governs a network of actors to achieve a desired network outcome.
 
 
 ## Protocol Implementation
@@ -56,9 +101,10 @@ The Livepeer protocol is implemented by the [`go-livepeer`](https://github.com/l
 
 It uses smart contracts to enforce staking, bonding, slashing, and reward rules on-chain, while network nodes handle the actual compute jobs. 
 
-<Quote> The protocol is responsible for governing the network, securing the system, and paying participants. </Quote>
 
-### Node Types
+<Note> If you're interested in learning more about game theory, mechanism design and token economics for building digital ecosystems, [this module](https://tokenflows.xyz/tutorials/introduction-tutorials/module3/) is a good primer. <br/><br/> Yale also offers an academic theoretical overview of Game Theory Economics in this [Open Yale Course](https://oyc.yale.edu/economics/econ-159)  </Note>
+
+{/* ### Node Types
 - BroadcasterNode: Centers on LivepeerServer managing rtmpConnections and BroadcastSessionsManager
 - OrchestratorNode: Uses the orchestrator struct with SegmentChans for job distribution and Recipient for payments
 - TranscoderNode: RemoteTranscoderManager coordinates local or remote transcoding via LocalTranscoder
@@ -77,7 +123,7 @@ It uses smart contracts to enforce staking, bonding, slashing, and reward rules 
 - Orchestrator
 - Transcoder
 - AI Gateway 
-- AI Workers
+- AI Workers */}
 
 
 
