@@ -89,7 +89,7 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/pages/01_about/about-portal",
-                          "v2/pages/01_about/about-livepeer/livpeer-overview",
+                          "v2/pages/01_about/core-concepts/livepeer-overview",
                           "v2/pages/01_about/core-concepts/livepeer-core-concepts",
                           "v2/pages/01_about/core-concepts/mental-model"
                         ]
@@ -98,30 +98,37 @@
                         "group": "Livepeer Protocol",
                         "icon": "cube",
                         "pages": [
-                          "v2/pages/01_about/livepeer-protocol/protocol-overview",
-                          "v2/pages/01_about/livepeer-protocol/technical-overview",
-                          "v2/pages/01_about/livepeer-protocol/blockchain-contracts",
-                          "v2/pages/01_about/livepeer-protocol/protocol-mechanisms",
-                          "v2/pages/01_about/livepeer-protocol/protocol-economics"
+                          "v2/pages/01_about/livepeer-protocol/overview",
+                          "v2/pages/01_about/livepeer-protocol/core-mechanisms",
+                          "v2/pages/01_about/livepeer-protocol/livepeer-token",
+                          "v2/pages/01_about/livepeer-protocol/governance-model",
+                          "v2/pages/01_about/livepeer-protocol/treasury",
+                          "v2/pages/01_about/livepeer-protocol/protocol-economics",
+                          "v2/pages/01_about/livepeer-protocol/technical-architecture"
                         ]
                       },
                       {
                         "group": "Livepeer Network",
                         "icon": "circle-nodes",
                         "pages": [
-                          "v2/pages/01_about/livepeer-network/network-overview",
-                          "v2/pages/01_about/livepeer-network/actor-overview",
-                          "v2/pages/01_about/livepeer-network/governance-model",
-                          "v2/pages/01_about/livepeer-network/token",
-                          "v2/pages/01_about/livepeer-network/treasury"
+                          "v2/pages/01_about/livepeer-network/overview",
+                          "v2/pages/01_about/livepeer-network/actors",
+                          "v2/pages/01_about/livepeer-network/job-lifecycle",
+                          "v2/pages/01_about/livepeer-network/supply-side",
+                          "v2/pages/01_about/livepeer-network/demand-side",
+                          "v2/pages/01_about/livepeer-network/fee-flow",
+                          "v2/pages/01_about/livepeer-network/scaling"
                         ]
                       },
                       {
                         "group": "Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/pages/01_about/livepeer-protocol/livepeer-whitepaper",
-                          "v2/pages/01_about/core-concepts/livepeer-glossary"
+                          "v2/pages/01_about/resources/livepeer-whitepaper",
+                          "v2/pages/01_about/resources/livepeer-glossary",
+                          "v2/pages/01_about/resources/blockchain-contracts",
+                          "v2/pages/01_about/resources/technical-roadmap",
+                          "v2/pages/01_about/resources/gateways-vs-orchestrators"
                         ]
                       }
                     ]

@@ -10,6 +10,278 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
 
 <PreviewCallout />
 
+{/* * **Containers** – Major deployable components (nodes, APIs, services)
+*     -> The Network: Orchestrators, Gateways, Worker Nodes
+* **Components** – Internal modules
+*     -> The Protocol: Pricing logic, job verification, reward distribution 
+* **Code** – (optional deep dive)
+
+For something like Livepeer:
+
+* Context → The decentralized video compute protocol
+* Containers → Orchestrators, Broadcasters, Transcoders, Ethereum contracts
+* Components → Pricing logic, job verification, reward distribution */} 
+
+{/* Use a 6-part framework:
+
+1. Mental Model (High-Level Summary)
+2. Layered Stack (Protocol + Network)
+3. Actor & Incentive Model
+4. Trust / Verification Model
+5. Job Lifecycle
+6. Governance & Treasury */}
+
+--- 
+
+# Notes
+
+
+## 🔷 Livepeer Protocol
+
+*(On-chain coordination + economic security layer)*
+
+This is about rules, staking, governance, token flows.
+
+### Headers Under “Livepeer Protocol”
+
+1. **Protocol Overview**
+
+   * What the protocol is
+   * What it secures
+   * What it does *not* do
+
+2. **Core Mechanisms**
+
+   * Staking
+   * Delegation
+   * Reward distribution
+   * Inflation model
+   * Slashing
+   * Rounds
+
+3. **Token (LPT)**
+
+   * Purpose of LPT
+   * Security model
+   * Inflation mechanics
+   * Not used for job payments (ETH is)
+
+4. **Governance**
+
+   * LIPs
+   * Voting
+   * Upgrade process
+   * Foundation role
+   * Advisory boards
+
+5. **Treasury**
+
+   * Treasury funding source
+   * Inflation allocation
+   * Grants / SPEs
+   * Budget governance
+
+6. **Protocol Economics**
+
+   * Inflation vs usage-based fees
+   * Participation rate mechanics
+   * Security assumptions
+   * Incentive alignment
+
+7. **Technical Architecture**
+
+   * Smart contracts
+   * On-chain components
+   * How protocol interacts with network
+
+---
+
+## 🔶 Livepeer Network
+
+*(Off-chain distributed compute + execution layer)*
+
+This is about GPUs, routing, execution, real jobs.
+
+### Headers Under “Livepeer Network”
+
+1. **Network Overview**
+
+   * What the network does
+   * Real-time video & AI compute
+   * Marketplace dynamics
+
+2. **Actors**
+
+   * Orchestrators
+   * Delegators (economic actors, but listed here too)
+   * Broadcasters
+   * Gateways
+   * AI builders
+
+3. **Job Lifecycle**
+
+   * Job submission
+   * Assignment
+   * Execution
+   * Verification
+   * Payment (ETH fees)
+
+4. **Supply Side**
+
+   * GPU operators
+   * Pools
+   * Hardware requirements
+   * Performance metrics
+
+5. **Demand Side**
+
+   * Developers
+   * Applications (Daydream, ComfyStream, etc.)
+   * Real-time AI workloads
+
+6. **Fee Flow**
+
+   * ETH payments
+   * Revenue to orchestrators
+   * Revenue sharing to delegators
+
+7. **Performance & Reliability**
+
+   * Latency
+   * Redundancy
+   * Global distribution
+   * Scaling
+
+---
+
+# 🔥 What You Must Move
+
+From your screenshot:
+
+❌ Treasury → move to Protocol
+❌ Economics → move to Protocol
+
+“Actors Overview” stays under Network.
+Token absolutely belongs under Protocol.
+
+---
+
+# 🧠 Clean Mental Rule
+
+If it involves:
+
+* LPT
+* Inflation
+* Governance
+* Slashing
+* Voting
+* Treasury
+
+👉 It’s Protocol.
+
+If it involves:
+
+* GPUs
+* Jobs
+* Routing
+* Streaming
+* Inference
+* Real workloads
+
+👉 It’s Network.
+
+---
+
+# 🎯 Final Clean Sidebar Structure
+
+```
+Livepeer Protocol
+  - Protocol Overview
+  - Core Mechanisms
+  - Token (LPT)
+  - Governance
+  - Treasury
+  - Protocol Economics
+  - Technical Architecture
+
+Livepeer Network
+  - Network Overview
+  - Actors
+  - Job Lifecycle
+  - Supply Side
+  - Demand Side
+  - Fee Flow
+  - Performance & Scaling
+```
+
+---
+
+
+## Protocol Guide
+The protocol is the ruleset + on-chain logic governing network actors and providing payment, coordination & security primitives to the network.
+
+[Protocol Overview](#)
+- Actors, Nodes & Roles
+- Actor Interactions
+- Governance & Treasury
+- Token Role
+
+[Technical Architecture](technical-overview.mdx)
+- Architecture Diagrams
+- Node Types
+- Core Components
+- Job Lifecycle
+- Protocol Implementation Code
+
+[Protocol Mechanisms](protocol-mechanisms.mdx)
+- Governance and Upgrades
+- Payment System
+- Reward System, Slashing & Incentives
+- Token Economics
+
+{/* - Delegation & Staking
+- Reward System
+- Probabilistic Payments
+- Slashing & Incentives
+- Governance & Upgrades
+- Tokenomics & Inflation */}
+
+[On-Chain Functions](blockchain-contracts.mdx)
+- Blockchain Contract List
+- Contract Interaction Architecture
+- Contract Details
+
+[Protocol Behaviour Mechanics](protocol-economics.mdx)
+aka Tokenomics
+- Inflation
+- Staking & Delegation
+- Reward System
+- Probabilistic Payments
+- Slashing & Incentives
+- Governance & Upgrades
+- Tokenomics & Inflation
+
+## Network Guide
+The network is the execution layer, made up of actors, nodes and services.
+-> The Livepeer network is the actual running system of machines performing work.
+These actors are off-chain entities that use the on-chain protocol to coordinate and transact.
+
+[Network Overview](network-overview.mdx)
+- Actor Roles
+- Node Types
+- Core Services
+- Job Processing Pipeline
+
+[Network Operations](network-operations.mdx)
+- Network Setup
+- Node Deployment
+- Service Configuration
+- Job Submission
+- Result Retrieval
+
+---
+
+
 
 Roadmap: https://roadmap.livepeer.org/roadmap
 

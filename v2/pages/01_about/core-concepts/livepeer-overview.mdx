@@ -12,6 +12,8 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
 
 import { QuadGrid } from '/snippets/components/layout/quadGrid.jsx'
 
+{/* Livepeer is a decentralized infrastructure protocol, nodes including Gateways (formerly broadcasters), Orchestrators, and Transcoders, run the Livepeer network.
+The protocol uses smart contracts deployed on Ethereum Mainnet and Arbitrum Mainnet, with the native token LPT (Livepeer Token). Since the Confluence upgrade, the protocol primarily runs on Arbitrum Mainnet. */}
 
 {/* Use: 
 
@@ -60,15 +62,23 @@ Why inflation funds security
 This is critical in crypto systems. */}
 
 {/* https://deepwiki.com/livepeer/protocol */}
-# Context
+# Overview
+Livepeer is a full-stack decentralised infrastructure platform and marketplace for video streaming & AI. The video streaming software is underpinned by a network of actors that perform the work needed to compute, transcode & orchestrate video & AI jobs in the Livepeer network.
 
-Livepeer is a full-stack platform for video streaming & AI. The video streaming software is underpinned by a network of actors that perform the work needed to compute, transcode & orchestrate video & AI jobs in the Livepeer network.
+Open-participation, distributed infrastructure systems like Livepeer aren’t just software systems - they're digital ecosystems that require careful design of economic incentives, governance structures, and technical architecture.
 
-Distributed systems aren’t just software. They’re incentive systems.
+From a marketplace perspective, Livepeer has:
+- A **demand-side** agent (an app, platform, or operator) which brings video or AI jobs; 
+- A **supply-side** agent (Orchestrators and their GPU capacity, optionally backed by separate worker processes) which performs compute and other work;
+- A **protocol** which provides the governance, payment primitives and reward system to coordinate open participation and make the market viable at scale.
+    {/* // - routing, measurement, and payment primitives to make that market viable at scale.  */}
+
 
 The **Livepeer Protocol** is the underlying software layer code that enforces the mechanisms, incentives and rules to ensure the reliability, cooperation and coordination of these decentralised actors for the desired network outcomes (video streaming & AI pipelines).
 
-The core [protocol](https://wikipedia.com/wiki/Protocol) is implemented as Ethereum smart contracts (now on Arbitrum L2 after the Confluence upgrade) complemented by off-chain nodes and services. The protocol enforces staking, bonding, slashing, and reward rules on-chain, while specialized nodes handle the actual compute jobs.
+The core [protocol](https://wikipedia.com/wiki/Protocol) is implemented by `go-livepeer` and on-chain Ethereum smart contracts (now on Arbitrum L2 after the Confluence upgrade) 
+{/* complemented by off-chain nodes and services.  */}
+The protocol enforces staking, bonding, slashing, and reward rules on-chain, while off-chain nodes and services handle the actual compute jobs and job routing.
 
 ## Livepeer Protocol
 

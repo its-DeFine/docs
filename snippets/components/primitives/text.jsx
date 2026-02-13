@@ -72,3 +72,52 @@ export const CopyText = ({ text, label }) => {
     </span>
   );
 };
+
+export const CardTitleTextWithArrow = ({ children, ...cardProps }) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        width: "fit-content",
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: "-1rem",
+      }}
+    >
+      <Card
+        arrow={false}
+        title={
+          <span
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            {" "}
+            {children}{" "}
+            <span style={{ margin: "0 -1rem 0.2rem 0.75rem" }}>
+              <Icon icon="arrow-up-right" size={16} color="var(--text)" />
+            </span>
+          </span>
+        }
+        {...cardProps}
+      />
+    </div>
+  );
+  // return (
+  //   <span
+  //     style={{
+  //       display: "flex",
+  //       alignItems: "center",
+  //       justifyContent: "center",
+  //     }}
+  //   >
+  //     {" "}
+  //     {children}{" "}
+  //     <span style={{ margin: "0 -1rem 0.2rem 0.75rem" }}>
+  //       <Icon icon="arrow-up-right" size={16} color="var(--text)" />
+  //     </span>
+  //   </span>
+  // );
+};
