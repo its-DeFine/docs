@@ -1,0 +1,69 @@
+---
+title: 'Actors Overview'
+sidebarTitle: 'Actors Overview'
+description: 'Who participates in Livepeer, what each role does, and how roles interact.'
+keywords: ["livepeer", "about", "actors", "gateway", "orchestrator", "delegator", "developers"]
+og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+---
+
+import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+
+<PreviewCallout />
+
+Actors are the participants that make the Livepeer network function economically and technically.
+
+## Role Summary
+
+### Developers And Applications
+
+- Bring demand into the network
+- Integrate through gateway-facing APIs
+- Optimize for latency, quality, and cost
+
+### Gateway Operators
+
+- Provide job intake and coordination
+- Match workloads to available orchestrators
+- Handle routing, retries, and service-level interfaces
+
+### Orchestrator Operators
+
+- Provide supply-side compute participation
+- Execute or coordinate transcoding and AI workloads
+- Earn fees and rewards based on activity and stake backing
+
+### Delegators
+
+- Bond LPT to orchestrators
+- Influence security and economic weight
+- Share in reward and fee outcomes
+
+## Interaction Pattern
+
+Applications do not usually coordinate directly with every compute node.
+
+A common pattern is:
+
+- Application -> Gateway -> Orchestrator -> Gateway -> Application
+
+This separation improves operator specialization and system composability.
+
+## Actor Pages
+
+- [Gateways](./livepeer-actors/gateways)
+- [Orchestrators](./livepeer-actors/orchestrators)
+- [Delegators](./livepeer-actors/delegators)
+- [Builders and End Users](./livepeer-actors/end-users)
+
+## Why Role Separation Matters
+
+- Better developer experience on the demand side
+- Operational specialization on the supply side
+- Open competition across service and compute providers
+- Clearer accountability for pricing, performance, and reliability
+
+## Related Pages
+
+- [Demand Side](./demand-side)
+- [Supply Side](./supply-side)
+- [Job Lifecycle](./job-lifecycle)

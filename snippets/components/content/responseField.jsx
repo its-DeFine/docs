@@ -59,7 +59,6 @@ const CustomResponseField = ({ description, ...props }) => {
 
 const ResponseFieldExpandable = ({ fields = {}, ...props }) => {
   const fieldsArray = Array.isArray(fields) ? fields : Object.values(fields);
-  // console.log("fieldsArray", fieldsArray);
   return (
     <Expandable {...props}>
       {fieldsArray.map((field, index) => (
@@ -70,7 +69,6 @@ const ResponseFieldExpandable = ({ fields = {}, ...props }) => {
 };
 
 const ResponseFieldAccordion = ({ fields = {}, ...props }) => {
-  console.log("fields", fields);
   const fieldsArray = Array.isArray(fields) ? fields : Object.values(fields);
   return (
     <Accordion {...props}>
@@ -81,23 +79,20 @@ const ResponseFieldAccordion = ({ fields = {}, ...props }) => {
   );
 };
 
-// Not Working.
+// Wrapper that chooses accordion or expandable layout at runtime.
 const ResponseFieldGroup = ({
   component = "accordion",
   fields = {},
   ...props
 }) => {
-  console.log("fields", fields);
   const fieldsArray = Array.isArray(fields) ? fields : Object.values(fields);
   const componentMap = {
     expandable: Expandable,
     accordion: Accordion,
   };
-  console.log("fieldsArray", fieldsArray);
-  const Component = componentMap[component];
-  console.log("Component", Component.typeOf, Component);
+  const Component = componentMap[component] || Accordion;
   return (
-    <Component>
+    <Component {...props}>
       {fieldsArray.map((field, index) => (
         <ValueResponseField key={index} {...field} />
       ))}

@@ -1,0 +1,101 @@
+---
+title: 'Protocol Overview'
+sidebarTitle: 'Overview'
+description: 'An overview of the Livepeer protocol.'
+keywords: ["livepeer", "about", "livepeer protocol", "protocol overview", "protocol", "overview"]
+og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+audience: "all"
+aim: "What the protocol is. What it secures. What it does not do"
+---
+
+import { CardTitleTextWithArrow } from '/snippets/components/primitives/text.jsx'
+import { Quote } from '/snippets/components/display/quote.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
+{/* <CardTitleTextWithArrow icon="github" horizontal href="https://github.com/livepeer/protocol"> Livepeer Protocol </CardTitleTextWithArrow> */}
+
+{/* 
+This page describes:
+1. **Protocol Overview**
+
+   * What the protocol is
+   * What it secures
+   * What it does *not* do
+
+---
+
+# Protocol Function */}
+This section covers the high-level components, function and mechanisms of the Livepeer protocol.
+<Columns cols={2}>
+    <Accordion title={<a href="./core-mechanisms"><span style={{ justifyContent: "center", alignContent: "center", color: "var(--accent)" }}>Core Mechanisms <Icon icon="arrow-up-right" size={12} color="var(--text)" /></span></a>} icon="cubes-stacked" ><span style={{ marginBottom: "0.5rem" }}><Icon icon="cubes-stacked"/> [Core Mechanisms](./core-mechanisms)</span></Accordion>
+    <Accordion title="Livepeer Token" icon="coin"><span style={{ marginBottom: "0.5rem" }}><Icon icon="coin" /> [Livepeer Token](./livepeer-token)</span></Accordion>
+    <Accordion title="Governance Model" icon="gears"><span style={{ marginBottom: "0.5rem" }}><Icon icon="gears" /> [Governance Model](./governance-model)</span></Accordion>
+    <Accordion title="Treasury" icon="money-bill"><span style={{ marginBottom: "0.5rem" }}><Icon icon="money-bill" /> [Treasury](./treasury)</span></Accordion>
+    <Accordion title="Protocol Economics" icon="coins"><span style={{ marginBottom: "0.5rem" }}><Icon icon="coins" /> [Protocol Economics](./protocol-economics)</span></Accordion>
+    <Accordion title="Technical Architecture" icon="code-fork"><span style={{ marginBottom: "0.5rem" }}><Icon icon="code-fork" /> [Technical Architecture](./technical-architecture)</span></Accordion>
+</Columns>
+
+<CustomDivider style={{ margin: 0 }} />
+
+## Protocol Context
+In any decentralised system involving independent participants, its essential to provide:
+- Incentives for participants to act honestly and cooperate (often based on game theory)
+- Mechanisms for punishing bad behaviour
+- Coordination mechanisms for agreeing on the state of the system
+- Payment systems for compensating participants for their useful work / contributions
+- Governance systems for evolving the protocol rules over time and ensuring the growth & health of the network.
+
+The protocol is the underlying logic that provides these mechanisms to ensure the desired network outcomes are achieved as efficiently, reliably and fairly as possible (in this case, video streaming & AI pipelines).
+
+<Note> If you're interested in learning more about game theory, mechanism design and token economics for building digital ecosystems, [this module](https://tokenflows.xyz/tutorials/introduction-tutorials/module3/) is a good primer. <br/><br/> Yale also offers an academic theoretical overview of Game Theory Economics in this [Open Yale Course](https://oyc.yale.edu/economics/econ-159)  </Note>
+
+
+## Protocol Implementation
+
+The Livepeer protocol is implemented by the [`go-livepeer`](https://github.com/livepeer/go-livepeer) codebase and deployed on Arbitrum L2 (with the token deployed on Ethereum L1).
+
+It uses smart contracts to enforce staking, bonding, slashing, and reward rules on-chain, while network nodes handle the actual compute jobs. 
+
+<Quote> The protocol is responsible for governing the network, securing the system, and paying participants. </Quote>
+
+### Node Types
+- BroadcasterNode: Centers on LivepeerServer managing rtmpConnections and BroadcastSessionsManager
+- OrchestratorNode: Uses the orchestrator struct with SegmentChans for job distribution and Recipient for payments
+- TranscoderNode: RemoteTranscoderManager coordinates local or remote transcoding via LocalTranscoder
+- AIWorkerNode: RemoteAIWorkerManager manages Docker containers running AI models
+- Gateway: Adds AISessionManager and AI HTTP handlers on top of broadcaster functionality
+
+
+### Core Components
+- LivepeerNode: And interface node implemented by all other node types in the network (gateway/broadcaster, orchestrator, transcoder)
+- Media Server (`LivpeerServer`): The LivepeerServer manages media processing and serves HTTP/RTMP endpoints, providing 
+    - RTMP ingestion for live streams
+    - HTTP push for video segments
+    - HLS playback endpoints
+    - Management of active connections
+- Broadcast Sessions Manager: 
+- Orchestrator
+- Transcoder
+- AI Gateway 
+- AI Workers
+
+
+
+{/* Protocol Definition */}
+
+
+{/* Protocol Positioning
+- depin */}
+
+
+{/* Protocol Function */}
+
+
+{/* Protocol Components
+- staking
+- delegation
+- inflation & rewards
+- orchestrator selection
+- slashing
+- probabilistic payments
+- verification rules */}

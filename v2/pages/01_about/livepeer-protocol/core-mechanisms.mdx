@@ -1,0 +1,190 @@
+---
+title: 'Protocol Mechanisms and Functions'
+sidebarTitle: 'Core Mechanisms'
+keywords: ["livepeer", "about", "livepeer protocol", "protocol"]
+og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+---
+
+import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+
+<PreviewCallout />
+{/* This page describes:
+2. **Core Mechanisms**
+
+   * Staking
+   * Delegation
+   * Reward distribution
+   * Inflation model
+   * Slashing
+   * Rounds */}
+
+
+
+{/* 
+# Livepeer Protocol
+
+Livepeer is a full-stack platform for video streaming & AI. The software is underpinned by a network of actors that perform the work needed to compute, transcode & orchestrate video & AI jobs in the Livepeer network. */}
+
+{/* The Livepeer Protocol is build on Ethereum and uses a collection of smart contracts to govern:
+
+- LivepeerToken (LPT) ownership and delegation
+- Staking and selection of active transcoder operators (orchestrators)
+- Distribution of inflationary rewards and fees to participants
+- Time-based progression of the protocol through rounds
+- Payment processing through a probabilistic micropayment system
+
+There are 3 core categories of governance in the Livepeer Protocol contracts:
+1. Core Protocol Contracts
+2. Token System
+3. Governance
+
+### 1. Core Protocol Contracts
+
+The core protocol contracts are the backbone of the Livepeer Protocol. 
+They manage the staking, delegation, and reward distribution for orchestrators. 
+They also manage the time-based progression of the protocol through rounds and the payment processing through a probabilistic micropayment system.
+
+- Controller
+- Bonding Manager
+- Rounds Manager
+- TicketBroker
+- Minter
+- ServiceRegistry
+
+
+**Controller**
+
+The [Controller](https://github.com/livepeer/protocol/blob/e8b6243c/deploy/deploy_contracts.ts) is the central registry for all protocol contracts. It maintains a mapping of contract IDs to their addresses, enabling protocol upgrades by updating the registered implementation addresses. All protocol contracts check with the Controller for the addresses of other contracts they need to interact with.
+
+
+**Bonding Manager**
+
+The [BondingManager](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/bonding/BondingManager.sol#L23-L449) is one of the most critical contracts, responsible for:
+
+Managing token stake from delegators
+Maintaining the active transcoder set
+Tracking rewards and fees
+Processing stake-related operations (bonding, unbonding, claiming rewards)
+
+**Rounds Manager**
+
+The RoundsManager manages the timing and progression of the protocol through rounds. It:
+
+Defines the length of rounds in blocks
+Initializes rounds
+Tracks current round information
+Signals to other contracts when rounds change
+Manages the round lock mechanism that prevents parameter updates during specific periods
+
+**TicketBroker** 
+
+The TicketBroker implements the probabilistic micropayment system used by broadcasters to pay orchestrators (transcoders) for transcoding work. Key functions include:
+
+Managing broadcaster deposits and reserves
+Processing ticket redemptions
+Handling the withdrawal of fees to orchestrators
+Updating the BondingManager when fees are earned
+
+**Minter**
+
+The Minter controls token inflation according to the protocol's monetary policy. It mints new LPT tokens as rewards and manages the protocol's token supply. 
+
+### 2. Token System
+
+The LivepeerToken is the ERC20 implementation of the Livepeer Token (LPT). <br/>
+The token system is responsible for managing the LivepeerToken (LPT) and its distribution. 
+The LPT token is used to stake and delegate to orchestrators, and is also used to pay for video transcoding and AI inference jobs. The LPT token is also used for governance, with tokenholders able to vote on protocol upgrades and parameter changes.
+
+
+### 3. Governance
+The governance system consists of:
+
+**Governor**: 
+
+Handles protocol upgrades through a multi-step transaction proposal and execution process
+
+**LivepeerGovernor**: 
+
+Implements LPT-based voting
+
+**BondingVotes**: 
+
+Tracks voting power based on delegated stake
+
+**Treasury**: 
+
+Manages protocol funds and timelock functionality for governance actions */}
+
+# Protocol Mechanisms / Functions
+
+### Delegation & Staking
+
+The staking and delegation mechanism allows token holders to:
+
+1. Bond tokens to themselves or other addresses using bond()
+2. Register as transcoders with transcoder() specifying reward cut and fee share
+3. Unbond tokens with unbond() which creates an unbonding lock
+4. Withdraw tokens after the unbonding period with withdrawStake()
+
+The protocol maintains a limited active set of transcoders, ordered by total stake, which are eligible to perform transcoding work and earn rewards.
+<Note> This is not the case for AI pipelines </Note>
+
+### Reward System
+The reward system distributes newly minted tokens based on:
+
+1. A transcoder calling reward() during its active round
+2. The protocol's current inflation rate (managed by the Minter)
+3. The transcoder's rewardCut parameter which determines commission percentage
+4. The treasury's treasuryRewardCutRate which allocates a portion to the protocol treasury
+5. The remaining rewards distributed proportionally to delegators
+
+Rewards accumulate in earnings pools which are claimed by delegators through claimEarnings() or automatically when performing bonding operations.
+
+### Micropayment System
+The probabilistic micropayment system allows broadcasters to pay orchestrators efficiently at high throughput. It works as follows:
+
+1. Broadcasters fund their account with a deposit and reserve via fundDepositAndReserve()
+2. For each video segment, the broadcaster creates a signed ticket with faceValue and winProb
+3. Tickets are submitted off-chain to the orchestrator
+4. Orchestrators redeem winning tickets on-chain via redeemWinningTicket()
+5. Funds are transferred from the broadcaster's reserve to the orchestrator's account
+
+This system allows for efficient microtransactions without requiring every payment to be recorded on-chain.
+
+### Upgradeabilitity
+The protocol uses a standard proxy pattern for upgradeability, for example when new LIPs are passed and implemented.
+{/* The Controller contract stores the addresses of the current implementation contracts for each contract ID. 
+When an upgrade is needed, a new implementation contract is deployed and its address is registered in the Controller. 
+All protocol contracts check with the Controller for the current implementation address to ensure they are always using the latest version. */}
+
+1. The Controller maintains a registry of contract IDs to implementation addresses
+2. Each core contract is deployed with a proxy that delegates calls to the implementation
+3. Upgrades are performed by deploying a new implementation contract
+4. The Governor is used to update the implementation address in the Controller
+5. Proxies continue to maintain state while using the new implementation logic
+
+This pattern allows the protocol to evolve without migrating state or requiring users to interact with new addresses.
+
+### Protocol Timing & Rounds
+The protocol uses a round-based system for timing and progress where:
+{/* Each round has a fixed number of blocks and represents a period for reward distribution and staking activity. */}
+{/* The RoundsManager contract defines the length of rounds in blocks and initializes new rounds. It tracks the current round number and round initialization status. */}
+
+1. Rounds have a fixed length in blocks (configured in RoundsManager)
+2. New rounds must be initialized by calling initializeRound()
+3. Various protocol operations are only valid during specific times in a round
+4. Parameter updates are restricted during "locked" periods of a round
+5. Rewards can only be claimed once per round by a transcoder
+
+This timing system ensures orderly progression of the protocol and synchronizes important state transitions.
+
+### Deployment and Network Configuration
+The protocol is deployed on Ethereum mainnet though is actively used on Arbitrum One (due to its lower fees and hight throughput), with specific configurations for each environment. 
+
+The main configuration parameters include:
+
+- Number of active transcoders
+- Unbonding period length
+- Round length and lock parameters
+- Inflation rate and target bonding rate
+- Treasury reward cut rate
