@@ -39,13 +39,62 @@ Voting is conducted on-chain via the Livepeer Governor contract, with the protoc
 Livepeer uses a hybrid on‑chain/off‑chain governance model that combines open community discussion with binding on‑chain votes.
 This model ensures that the community (token holders) collectively controls upgrades and spending, with the protocol enforcing the outcome.
 
+<div style={{ display: "flex", justifyContent: "center", width: "fit-content", margin: "0 auto" }}>
+<Accordion title="ELI5: Governance Model" icon="user-crown">
+   Imagine a community garden run by people who own shares (tokens).
+
+   - **Proposing a Change:** If someone has 100 share tokens, they can suggest a new rule (like “we should plant carrots”). They put 100 tokens in a safe place while the idea is considered.
+   - **Voting:** Over the next month (30 days), everyone with tokens decides yes or no. If at least 33 out of every 100 token shares vote, and more than half vote “yes,” the idea becomes official. The 100 tokens go back to the proposer.
+   - **Delegating Votes:** If you’ve given your shares to a friend to manage (delegation), you still get to vote because your votes travel with your shares.
+   
+   Rules are set by token holders: stake some tokens to propose, everyone votes, and a rule only passes if enough people say yes.
+</Accordion>
+</div>
+
+
 ### Governance Functions
 Governance in Livepeer serves two primary functions:
 - **Protocol Upgrades**: Proposals to upgrade the protocol.
 - **Treasury Spending**: Proposals to spend from the treasury.
 
+### Governance Process
+
+Governance applies to both the protocol and the treasury. Protocol upgrades and parameter changes are formalized as LIPs. 
+After community vetting, an on-chain vote is held. Stake-weighted voting ensures larger delegations have proportional say.
+
+<Steps>
+   <Step title="Idea Phase: Community Discussion" icon="comment-dots">
+      Proposals typically start with community discussion to gather feedback on the <LinkArrow label="Livepeer Forum" href="https://forum.livepeer.org/c/lips/18" newline={false} />.
+   </Step>
+   <Step title="Draft Phase: Request For Feedback (RFP)" icon="comments">
+      Community members post pre-proposals (requests for feedback) on the forum.
+   </Step>
+   <Step title="Proposal: Livepeer Improvement Proposal (LIP)" icon="file-pen">
+      Once an idea is refined, an official proposal is drafted in the form of a <LinkArrow label="Livepeer Improvement Proposal (LIP)" href="https://github.com/livepeer/LIPs" newline={ false} />
+      {/* Proposals are first discussed and drafted off-chain - in the form of a <LinkArrow label="Livepeer Improvement Proposal (LIP)" href="https://github.com/livepeer/LIPs" newline={false} />.
+      <br/> The forum is the primary place for discussion: <LinkArrow label="Livepeer Forum" href="https://forum.livepeer.org/c/lips/18" newline={false} /> */}
+   </Step>
+   <Step title="Proposal Submission: On-Chain" icon="arrow-up-right-from-square">
+      Once a LIP is finalized, anyone with ≥100 LPT can submit it on-chain to the [Governor](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/governance/Governor.sol) contract for a vote. This stake is large by design to ensure only serious proposals advance and is returned if the proposal passes.
+   </Step>
+   <Step title="Proposal Voting: On-Chain" icon="link">
+      After submission, a voting period of 30 rounds (≈3.75 days) opens where eligible voters (Orchestrators and their delegated LPT) cast votes. Anyone with 1+ LPT staked can vote.
+      <br/> The on-chain proposals and votes can be found on <LinkArrow label="Livepeer Explorer" href="https://explorer.livepeer.org/voting" newline={false} />.
+   </Step>
+   <Step title="Proposal Voting: Details" icon="ballot">
+      Voting power is driven by LPT **stake-weighted voting**. If an orchestrator has X LPT staked (including delegated stake), that weight applies to its vote. 
+      <br/> Note: Delegators can withdraw their delegation temporarily to vote separately if they disagree with their operator.
+   </Step>
+   <Step title="Proposal Voting: Quorum & Approval" icon="people">
+      A proposal passes only if at least **33% of total staked LPT participates (quorum)** and **>50% of the votes** cast are “For”. These thresholds prevent minority-rule.
+   </Step>
+   <Step title="Proposal Execution: On-Chain" icon="check-to-slot">
+      If a proposal passes, the Governor automatically executes the proposal’s instructions (changing a contract parameter or sending treasury funds).
+   </Step>
+</Steps>
+
 ### Livepeer Improvement Proposals (LIPs)
-Livepeer Improvement Proposals (LIPs) are formal design documents (hosted on GitHub) that describe protocol upgrades, similar to Ethereum’s EIPs. 
+Livepeer Improvement Proposals (LIPs) are formal design documents ([hosted on GitHub](https://github.com/livepeer/LIPs)) that describe protocol upgrades, similar to Ethereum’s [EIPs](https://eips.ethereum.org/EIPS/eip-1). 
 
 *Impactful LIPs include:*
 - **Treasury Creation**: [LIP-89](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md) and [LIP-92](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md) which established the [Treasury](./treasury.mdx) and set the on-chain revenue allocation (sending 10% of new LPT emissions into the treasury).
@@ -53,7 +102,7 @@ Livepeer Improvement Proposals (LIPs) are formal design documents (hosted on Git
 - **Monetary Policy**: [LIP-34](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0034.md), [LIP-35](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0035.md), [LIP-40](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0040.md), [LIP-83](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0083.md), and [LIP-100](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0100.md) which have shaped the monetary policy of the protocol including inflation calculations, adjustment and bounds.
 - **Governance Framework**: [LIP-15](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0015.md), [LIP-16](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0016.md), [LIP-19](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0019.md), [LIP-25](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0025.md), [LIP-69](https://github.com), [LIP-19](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0019.md) and [LIP-25](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0025.md) which established the current decentralised governance framework.
 
-*See More LIPs:*
+*LIPs by Category:*
 <Accordion title="Governance & Process" icon="building-columns">
 **Governance & Process:**
 - [LIP-1](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0001.md) established the initial on‑chain governance process (Process, Purpose and Guidelines)
@@ -97,44 +146,34 @@ The Livepeer protocol uses a custom Governor contract that inherits from OpenZep
 - **Voting period**: 30 rounds (~3.75 days)
 - **Quorum**: 33% of all staked LPT
 - **Threshold**: Majority (>50%) of votes cast
-- **Voting delay**: 1 round (24 hours)
+- **Voting delay**: 1 round
 
-## Governance Process
+### Key Roles & Stakeholders
 
-### Proposal Process
+**[On-Chain Treasury](./treasury.mdx)**: A portion (10%) of token emissions flows to a community treasury (itself created by LIPs). 
+This treasury exists to fund ecosystem-wide projects (public goods) for the benefit of the entire network. 
+Livepeer’s social consensus is that treasury funds should primarily go to **SPEs**, which then deploy them to specific initiatives.
 
-Governance applies to both the protocol and the treasury.
+**[Livepeer Foundation](../../00_home/introduction/ecosystem.mdx#livepeer-foundation)**: The Foundation fosters long-term strategy and ecosystem coordination. 
+It establishes advisory boards, publishes roadmaps, and coordinates the work of **[Special Purpose Entities (SPEs)](../../00_home/introduction/ecosystem.mdx#special-purpose-entities)** to execute core development, research, on-chain proposals and long‑term vision.
 
-<Steps>
-   <Step title="Idea Phase: Community Discussion" icon="comment-dots">
-      Proposals typically start with community discussion to gather feedback on the <LinkArrow label="Livepeer Forum" href="https://forum.livepeer.org/c/lips/18" newline={false} />.
-   </Step>
-   <Step title="Draft Phase: Request For Feedback (RFP)" icon="comments">
-      Community members post pre-proposals (requests for feedback) on the forum.
-   </Step>
-   <Step title="Proposal: Livepeer Improvement Proposal (LIP)" icon="file-pen">
-      Once an idea is refined, an official proposal is drafted in the form of a <LinkArrow label="Livepeer Improvement Proposal (LIP)" href="https://github.com/livepeer/LIPs" newline={ false} />
-      {/* Proposals are first discussed and drafted off-chain - in the form of a <LinkArrow label="Livepeer Improvement Proposal (LIP)" href="https://github.com/livepeer/LIPs" newline={false} />.
-      <br/> The forum is the primary place for discussion: <LinkArrow label="Livepeer Forum" href="https://forum.livepeer.org/c/lips/18" newline={false} /> */}
-   </Step>
-   <Step title="Proposal Submission: On-Chain" icon="arrow-up-right-from-square">
-      Once a LIP is finalized, anyone with ≥100 LPT can submit it on-chain to the [Governor](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/governance/Governor.sol) contract for a vote. This stake is large by design to ensure only serious proposals advance and is returned if the proposal passes.
-   </Step>
-   <Step title="Proposal Voting: On-Chain" icon="link">
-      After submission, a voting period of 30 rounds (≈3.75 days) opens where eligible voters (Orchestrators and their delegated LPT) cast votes. Anyone with 1+ LPT staked can vote.
-      <br/> The on-chain proposals and votes can be found on <LinkArrow label="Livepeer Explorer" href="https://explorer.livepeer.org/voting" newline={false} />.
-   </Step>
-   <Step title="Proposal Voting: Details" icon="ballot">
-      Voting power is driven by LPT **stake-weighted voting**. If an orchestrator has X LPT staked (including delegated stake), that weight applies to its vote. 
-      <br/> Note: Delegators can withdraw their delegation temporarily to vote separately if they disagree with their operator.
-   </Step>
-   <Step title="Proposal Voting: Quorum & Approval" icon="people">
-      A proposal passes only if at least **33% of total staked LPT participates (quorum)** and **>50% of the votes** cast are “For”. These thresholds prevent minority-rule.
-   </Step>
-   <Step title="Proposal Execution: On-Chain" icon="check-to-slot">
-      If a proposal passes, the Governor automatically executes the proposal’s instructions (changing a contract parameter or sending treasury funds).
-   </Step>
-</Steps>
+The foundation may also manage treasury disbursements, support grant programmes and maintain the network’s public goods. 
+However, while the Foundation facilitates community participation, ultimate authority rests with the community via on-chain votes by LPT holders.
+
+
+### Visualising the Governance Process
+This flowchart shows the governance process: community brainstorming leads to a LIP submission, which triggers an on-chain vote. A successful vote executes the change, while a rejected vote sends the proposal back for revision.
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+flowchart TD
+A[Community Discussion] --> B[LIP Proposal]
+B --> C[On-Chain Vote]
+C --> D{Vote Outcome}
+D -- Approved --> E[Execute Change Protocol/Treasury]
+D -- Rejected --> F[Revise or Abandon]
+```
+
 
 {/* ## Protocol Proposals
 
@@ -151,78 +190,6 @@ Livepeer’s governance is fully on-chain and stakeholder-driven.
 - Votes last for 30 rounds (~30 days). 
 - For a proposal to pass, at least 33% of all staked tokens must participate (quorum), and a majority (>50%) of votes must be in favour. 
 - If a proposal passes, the change is executed automatically by the smart contracts (where possible). This means the community (token holders) collectively controls upgrades and spending, with the protocol enforcing the outcome. */}
-
-<div style={{ display: "flex", justifyContent: "center", width: "fit-content", margin: "0 auto" }}>
-<Accordion title="ELI5: Governance Model" icon="user-crown">
-   Imagine a community garden run by people who own shares (tokens).
-
-   - **Proposing a Change:** If someone has 100 share tokens, they can suggest a new rule (like “we should plant carrots”). They put 100 tokens in a safe place while the idea is considered.
-   - **Voting:** Over the next month (30 days), everyone with tokens decides yes or no. If at least 33 out of every 100 token shares vote, and more than half vote “yes,” the idea becomes official. The 100 tokens go back to the proposer.
-   - **Delegating Votes:** If you’ve given your shares to a friend to manage (delegation), you still get to vote because your votes travel with your shares.
-   
-   Rules are set by token holders: stake some tokens to propose, everyone votes, and a rule only passes if enough people say yes.
-</Accordion>
-</div>
-
-## Technical Details
-
-### Contracts
-The Livepeer protocol uses a custom Governor contract that inherits from OpenZeppelin's [Governor](https://docs.openzeppelin.com/contracts/4.x/api/governance#governor) and [GovernorSettings](https://docs.openzeppelin.com/contracts/4.x/api/governance#governorsettings) contracts. The key parameters are:
-
-- **Voting period**: 30 rounds (~3.75 days)
-- **Quorum**: 33% of all staked LPT
-- **Threshold**: Majority (>50%) of votes cast
-- **Voting delay**: 1 round (24 hours)
-
-#### Livepeer Improvement Proposals (LIPs)
-Livepeer Improvement Proposals (LIPs) are formal design documents (hosted on GitHub) that describe protocol upgrades, similar to Ethereum’s EIPs. 
-
-In late 2023, the community passed a bundle creating the Livepeer treasury. 
-LIP-89 deployed a custom OpenZeppelin Governor (with a 100 LPT proposal threshold and stake-weighted voting). 
-LIP-90 established that the treasury should fund public goods (primarily via Special Purpose Entities). 
-Subsequent LIP-92 set the on-chain revenue allocation (sending 10% of new LPT emissions into the treasury). 
-Today, Livepeer maintains an on-chain treasury that accrues 10% of all LPT block rewards, with any LPT holder able to propose how to spend it (subject to voting).
-
-Key examples include 
-- [LIP‑89](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md) established the [Treasury](./treasury.mdx).
-- [LIP‑90](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0090.md) established that the treasury should fund public goods.
-- [LIP‑92](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md) set the on-chain revenue allocation (sending 10% of new LPT emissions into the treasury). 
-
-To submit a LIP, proposers must hold at least 100 LPT staked on‑chain. 
-
-
-
----
-## OLD
-
-Livepeer governance combines on-chain voting with community processes. Protocol changes are made via Livepeer Improvement Proposals (LIPs). A typical flow is:
-
-The community discusses and drafts a LIP (often on the Livepeer forum).
-
-Once a LIP is finalized, anyone with ≥100 LPT can submit it on-chain to the Governor contract.
-
-LPT holders vote in a stake-weighted on-chain referendum. If the vote passes, the change is executed automatically by the smart contract framework.
-
-Recent LIPs illustrate this process. In late 2023, the community passed a bundle creating the Livepeer treasury. LIP-89 deployed a custom OpenZeppelin Governor (with a 100 LPT proposal threshold and stake-weighted voting). LIP-90 established that the treasury should fund public goods (primarily via Special Purpose Entities). Subsequent LIP-92 set the on-chain revenue allocation (sending 10% of new LPT emissions into the treasury). Today, Livepeer maintains an on-chain treasury that accrues 10% of all LPT block rewards, with any LPT holder able to propose how to spend it (subject to voting).
-
-Governance Highlights:
-
-LIPs & Voting: Protocol upgrades and parameter changes are formalized as LIPs. After community vetting, an on-chain vote is held. Stake-weighted voting ensures larger delegations have proportional say.
-
-On-Chain Treasury: A portion of token emissions flows to a community treasury (created by LIPs). This treasury is meant to fund ecosystem-wide projects (public goods). Livepeer’s social consensus is that treasury funds should primarily go to SPEs, which then deploy them to specific initiatives.
-
-Livepeer Foundation: The Livepeer Foundation (formed 2024) is a neutral entity that fosters long-term strategy and ecosystem coordination. It establishes advisory boards, publishes roadmaps, and helps shepherd core development and on-chain proposals. Importantly, the Foundation facilitates community participation but does not override token-holder authority – only on-chain votes by LPT holders can enact funding or protocol changes.
-
-```mermaid
-flowchart TD
-  A[Community Discussion] --> B[LIP Proposal (Forum/GitHub)]
-  B --> C[On-Chain Vote (100 LPT threshold)]
-  C --> D{Vote Outcome}
-  D -- Approved --> E[Execute Change (Protocol/Treasury)]
-  D -- Rejected --> F[Revise or Abandon]
-```
-
-This flowchart shows the governance process: community brainstorming leads to a LIP submission, which triggers an on-chain vote. A successful vote executes the change, while a rejected vote sends the proposal back for revision.
 
 {/* Livepeer is committed to open-source, transparent, community governance.
 
