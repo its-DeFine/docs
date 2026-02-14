@@ -9,6 +9,437 @@ og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
 
 <PreviewCallout />
+Good. This is the right moment to fix the IA instead of patching content.
+
+
+Below is a **clean IA-aligned master document** that:
+
+* Clearly separates **Protocol** vs **Network**
+* Adds a **Product-Forward WHY section** at the top of the Protocol
+* Aligns exactly with your proposed page groups
+* Suggests a refined structure (including a few additions)
+* Clarifies what belongs where
+* Removes legacy terminology bleed
+* Keeps 2026 accuracy and scope
+
+This is a **structural + content blueprint** you can now split into MDX pages.
+
+---
+
+# ✅ Proposed IA (Refined + Clean Separation)
+
+## GROUP 1: About Livepeer
+
+(Conceptual foundation. No implementation detail.)
+
+* About Portal
+* Livepeer Overview
+* Core Concepts
+* Mental Model
+
+No changes needed here.
+
+---
+
+# GROUP 2: Livepeer Protocol (On-Chain, Economic, Governance Layer)
+
+This is the **credibly neutral coordination layer**.
+
+It does NOT:
+
+* Route jobs
+* Define AI pipelines
+* Transport video
+* Manage GPUs
+
+It DOES:
+
+* Secure the network
+* Allocate rewards
+* Enforce staking
+* Govern upgrades
+* Penalize dishonesty
+
+---
+
+# 📘 `v2/pages/01_about/livepeer-protocol/overview`
+
+## Livepeer Protocol — Product & Design Philosophy (NEW STRUCTURE)
+
+This page should be product-forward.
+
+## 1. Why the Protocol Exists (Product-Forward)
+
+### The Core Problem
+
+Video and AI inference require:
+
+* High GPU availability
+* Real-time reliability
+* Economic incentives for uptime
+* Permissionless participation
+* Credible neutrality
+
+Centralized providers:
+
+* Control pricing
+* Can censor workloads
+* Own the coordination layer
+
+Livepeer separates:
+
+* **Compute execution (off-chain)**
+* **Economic coordination (on-chain)**
+
+The protocol exists to solve:
+
+> How do you coordinate thousands of GPU operators without trusting a company?
+
+---
+
+## 2. Design Principles (WHY Decisions Were Made)
+
+### 🔐 1. Stake as Security (Why LPT exists)
+
+Instead of reputation systems:
+
+* Stake creates measurable economic risk.
+* Slashing deters fraud.
+* Delegation decentralizes security.
+
+Why not proof-of-work?
+
+* Wasteful.
+* Not aligned with service quality.
+
+Why not permissioned operators?
+
+* Kills neutrality.
+* Limits scale.
+
+---
+
+### 🔄 2. Inflation Instead of Fixed Supply
+
+Why dynamic inflation?
+
+* Bootstraps early participation.
+* Adapts to bonding rate.
+* Encourages minimum 50% stake participation.
+
+Without inflation:
+
+* Early security would be weak.
+* Delegation would be unattractive.
+
+---
+
+### 🎟 3. Probabilistic Payments
+
+Why not pay per segment?
+
+* Gas costs would make it impossible.
+* On-chain payments per video chunk are not scalable.
+
+Lottery-based tickets:
+
+* Preserve economic correctness.
+* Reduce L2 congestion.
+* Enable microtransactions at scale.
+
+---
+
+### 🧩 4. Protocol/Network Separation
+
+The protocol does NOT:
+
+* Assign AI jobs
+* Define routing
+* Define GPU scheduling
+
+Why?
+
+* Compute evolves faster than smart contracts.
+* Avoid ossification.
+* Allow Daydream/Cascade to innovate without LIP upgrades.
+
+This modularity is intentional.
+
+---
+
+# 📘 `core-mechanisms.mdx` (Protocol Only)
+
+Strictly:
+
+## What the Protocol Governs
+
+### 1. Staking
+
+* Bonding
+* Unbonding period
+* Delegation mechanics
+
+### 2. Active Set Selection
+
+Only applies to:
+
+* Transcoding rounds
+
+Not AI workloads.
+
+Clarify:
+
+* AI workloads are marketplace-driven.
+* Stake does not determine AI job routing.
+
+---
+
+### 3. Inflation & Rewards
+
+* Dynamic inflation target (~50% bonding)
+* Reward distribution per round
+* rewardCut / feeShare mechanics
+
+---
+
+### 4. Slashing
+
+What can be slashed?
+
+* Fraud proof
+* Double claim
+* Incorrect job proof (transcoding only)
+
+Clarify:
+AI workloads currently rely on:
+
+* Off-chain verification
+* Reputation
+* Not protocol slashing (unless integrated later)
+
+---
+
+# 📘 `livepeer-token.mdx`
+
+Combine with protocol-economics.
+
+No reason to split.
+
+Include:
+
+* LPT purpose
+* Supply mechanics
+* Inflation formula
+* Security assumptions
+* Governance power
+* Not used for job payments
+* ETH vs LPT clarity
+
+---
+
+# 📘 `governance-model.mdx`
+
+Purely:
+
+* LIPs
+* Proposal threshold
+* Voting quorum
+* Execution model
+* Treasury control
+* Foundation vs DAO boundaries
+
+No discussion of job routing.
+
+---
+
+# 📘 `treasury.mdx`
+
+Only:
+
+* Treasury funding sources
+* Governance flow
+* LIP-89 context
+* LIP-92 potential inflation contribution
+* What it can fund
+* Transparency guarantees
+
+---
+
+# 📘 `technical-architecture.mdx`
+
+Protocol architecture only:
+
+* Arbitrum contracts
+* BondingManager
+* TicketBroker
+* RoundsManager
+* Governor
+* Minter
+
+No Trickle.
+No Daydream.
+No Cascade.
+
+---
+
+# GROUP 3: Livepeer Network (Off-Chain Execution Layer)
+
+This is where confusion previously happened.
+
+This section is about:
+
+* GPU operators
+* Gateways
+* AI pipelines
+* Job routing
+* Transport mechanisms
+* Market dynamics
+
+---
+
+# 📘 `livepeer-network/overview.mdx`
+
+## What is the Livepeer Network?
+
+It is:
+
+* A distributed GPU marketplace
+* A permissionless compute layer
+* The execution environment
+
+It is NOT:
+
+* The protocol
+* The governance layer
+
+---
+
+# 📘 `actors.mdx`
+
+Network participants:
+
+* Orchestrator Node Operators
+* GPU Workers
+* Gateway Operators
+* AI Application Developers
+* Streamers
+* Infrastructure Providers
+
+Clarify:
+Protocol roles vs network roles.
+
+---
+
+# 📘 `job-lifecycle.mdx`
+
+Separate:
+
+## A. Transcoding Lifecycle (Protocol-Governed)
+
+Stake-weighted selection
+Ticket redemption
+Round-based reward
+
+## B. AI Job Lifecycle (Market-Governed)
+
+Gateway → Orchestrator → GPU
+No stake routing
+No ticket-based slashing
+Payment via API / credit / ETH
+
+Include both diagrams.
+
+---
+
+# 📘 `marketplace.mdx`
+
+Explain:
+
+* Price discovery
+* Competition
+* Fee structures
+* Latency advantages
+* GPU specialization
+* Why stake ≠ workload allocation for AI
+
+---
+
+# 📘 `technical-stack.mdx`
+
+Off-chain stack:
+
+* go-livepeer
+* GPU pipelines
+* Cascade architecture
+* ComfyStream
+* SDKs
+* RPC requirements
+
+---
+
+# 📘 `interfaces.mdx`
+
+APIs:
+
+* Studio API
+* On-chain contract calls
+* Explorer
+* SDKs
+* Gateway integration patterns
+
+---
+
+# ✅ Structural Fix Summary
+
+The mistake before:
+We mixed:
+
+* Governance
+* AI routing
+* Slashing
+* Gateway logic
+* Protocol contracts
+* Daydream pipelines
+
+Now we have:
+
+| Layer       | Responsibility                         |
+| ----------- | -------------------------------------- |
+| Protocol    | Security, staking, rewards, governance |
+| Network     | Compute execution & routing            |
+| Application | UX layer (Daydream, Cascade, Studio)   |
+
+Clean separation.
+
+---
+
+# 🔥 Recommendation
+
+Add a new page:
+
+## `livepeer-protocol/design-philosophy.mdx`
+
+Purely product-forward.
+
+Why:
+
+This prevents:
+
+* Docs becoming mechanical
+* Losing narrative
+* Confusing new contributors
+
+---
+
+If you want, next step:
+
+I can now:
+
+1. Rewrite `livepeer-protocol/overview.mdx` as a fully product-forward narrative.
+2. Then rewrite `livepeer-network/overview.mdx` as a clean execution-layer doc.
+3. Then clean-split the rest accordingly.
+
+
 
 {/* * **Containers** – Major deployable components (nodes, APIs, services)
 *     -> The Network: Orchestrators, Gateways, Worker Nodes

@@ -114,10 +114,9 @@
                           "v2/pages/01_about/livepeer-network/overview",
                           "v2/pages/01_about/livepeer-network/actors",
                           "v2/pages/01_about/livepeer-network/job-lifecycle",
-                          "v2/pages/01_about/livepeer-network/supply-side",
-                          "v2/pages/01_about/livepeer-network/demand-side",
-                          "v2/pages/01_about/livepeer-network/fee-flow",
-                          "v2/pages/01_about/livepeer-network/scaling"
+                          "v2/pages/01_about/livepeer-network/marketplace",
+                          "v2/pages/01_about/livepeer-network/technical-architecture",
+                          "v2/pages/01_about/livepeer-network/interfaces?"
                         ]
                       },
                       {

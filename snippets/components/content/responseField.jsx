@@ -10,22 +10,35 @@
  *   - All ResponseField props are supported (name, type, default, required, post, etc.)
  */
 
-const ValueResponseField = ({ description, post = null, ...props }) => {
-  const uniqueId = `custom-rf-${Math.random().toString(36).substring(2, 11)}`;
-
+const ValueResponseField = ({
+  description,
+  post = null,
+  label = "value",
+  line = true,
+  children,
+  ...props
+}) => {
   const value = post
     ? [
         <span>
-          <span style={{ color: "gray" }}>value: </span>
+          <span style={{ color: "gray" }}>{label}: </span>
           <span style={{ color: "#3b82f6" }}>{post[0]}</span>
         </span>,
       ]
     : null;
 
   return (
-    <div className={uniqueId}>
+    <div className={!line ? "vrf-noline" : undefined}>
+      <style>{`
+        .vrf-noline > .field {
+          border-bottom: none !important;
+          margin-bottom: -0.5rem !important;
+          padding: 0;
+        }
+      `}</style>
       <ResponseField {...props} post={value}>
         {typeof description === "function" ? description() : description}
+        {children}
       </ResponseField>
     </div>
   );
