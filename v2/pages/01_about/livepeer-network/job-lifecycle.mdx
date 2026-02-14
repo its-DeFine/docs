@@ -1,12 +1,14 @@
 ---
 title: 'Livepeer Job Lifecycle'
-sidebarTitle: 'Job Lifecycle'
-description: 'Learn about the Livepeer job lifecycle.'
+sidebarTitle: Job Lifecycle
+description: 'This page describes the end-to-end “compute job” as a state machine. Since Livepeer’s compute is segment-oriented, the lifecycle is modelled at the level of a stream session and per-segment processing, with payment settlement occurring continuously via tickets and periodically via reward calls.'
 keywords: ["livepeer", "about", "livepeer network", "job lifecycle", "job", "lifecycle", "learn"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
+import { DynamicTable } from "/snippets/components/layout/table.jsx"
 
+{/* 
 This page describes:
 6. **Job Lifecycle**
 
@@ -15,4 +17,89 @@ This page describes:
    * Execution
    * Verification
    * Payment (ETH fees)
+ */}
 
+{/* ## Job Lifecycle
+This view describes the end-to-end “compute job” as a state machine. Because Livepeer’s compute is segment-oriented, the lifecycle is modelled at the level of a stream session and per-segment processing, with payment settlement occurring continuously via tickets and periodically via reward calls. */}
+
+### Lifecycle Narrative
+A minimal, source-grounded job lifecycle is:
+<Steps>
+<Step title="Ingest and segmentation">
+Ingest and segmentation: A Gateway receives an RTMP stream (docs provide explicit RTMP ingest examples) and produces segments to be processed. 
+</Step>
+<Step title="Discovery and selection">
+Discovery and selection: The Gateway selects an Orchestrator set according to the node software’s discovery logic; operational failures here appear as discovery errors and orchestrator swaps. 
+</Step>
+<Step title="Price and session parameters">
+Price and session parameters: Orchestrators advertise a price per pixel (Wei denominated) to gateways off-chain; orchestrators may auto-adjust price to compensate for ticket redemption overhead when gas is high. 
+</Step>
+<Step title="Segment dispatch and compute">
+Segment dispatch and compute: The Gateway uploads segments; the Orchestrator executes transcoding/AI compute locally or delegates to attached transcoder processes. 
+</Step>
+<Step title="Result return and verification">
+Result return and verification: Results are returned to the Gateway; verification may be performed (fast verification metrics exist and are explicitly named). Failures can trigger orchestrator swaps and retries. 
+</Step>
+<Step title="Continuous settlement">
+Continuous settlement: The Gateway sends probabilistic payment tickets; the Orchestrator redeems winning tickets and the system tracks redemption errors and redeemed value. 
+</Step>
+<Step title="Periodic reward accounting">
+Periodic reward accounting: Each round, orchestrators may call reward() as an Arbitrum transaction distributing minted rewards to itself and its delegators.
+</Step>
+</Steps>
+
+### State machine diagram
+
+```mermaid
+stateDiagram-v2
+  [*] --> Idle
+
+  Idle --> Ingesting: RTMP/HTTP ingest starts
+  Ingesting --> Discovering: segmenter emits segments
+
+  Discovering --> SessionEstablished: orchestrator(s) selected + pricing accepted
+  Discovering --> Failed: discovery errors exceed tolerance
+
+  SessionEstablished --> SegmentDispatch: next segment ready
+  SegmentDispatch --> Executing: segment uploaded to orchestrator
+
+  Executing --> Returning: transcoded result ready
+  Executing --> Retry: transcode failed / timeout
+
+  Retry --> SegmentDispatch: retry attempt (up to maxAttempts)
+  Retry --> SwapOrchestrator: retry budget exhausted
+  SwapOrchestrator --> Discovering: choose new orchestrator
+
+  Returning --> Verifying: (optional) fast/local verification
+  Verifying --> Publishing: verified OK
+  Verifying --> SwapOrchestrator: verification failed
+
+  Publishing --> Settling: tickets sent + (if winning) redemption
+  Settling --> SegmentDispatch: next segment
+  Settling --> Drained: gateway reserve/deposit depleted
+
+  Drained --> Failed: insufficient funds
+  Failed --> [*]
+
+  Publishing --> RoundReward: per-round reward() (periodic)
+  RoundReward --> Publishing
+```
+
+### Events and transitions
+The table below maps concrete triggers to transitions using explicit config knobs/metrics where possible:
+
+<DynamicTable
+  headerList={["Event / Trigger", "Observable Evidence", "Transition", "Notes"]}
+  itemsList={[
+    { "Event / Trigger": "Stream starts", "Observable Evidence": "livepeer_stream_started_total increments", "Transition": "Idle → Ingesting", "Notes": "Metrics are defined in node docs." },
+    { "Event / Trigger": "Discovery fails", "Observable Evidence": "livepeer_discovery_errors_total increments", "Transition": "Discovering → Failed", "Notes": "Exact selection algorithm is not fully specified in docs; treat as implementation detail." },
+    { "Event / Trigger": "Segment transcode fails", "Observable Evidence": "livepeer_segment_transcode_failed_total / livepeer_transcode_retried", "Transition": "Executing → Retry", "Notes": "Retry budget controlled by maxAttempts (default 3)." },
+    { "Event / Trigger": "Orchestrator swap mid-stream", "Observable Evidence": "livepeer_orchestrator_swaps", "Transition": "Retry/Verifying → SwapOrchestrator", "Notes": "Swap behaviour is observable though exact policy is not fully specified." },
+    { "Event / Trigger": "Payment sent", "Observable Evidence": "livepeer_tickets_sent, livepeer_ticket_value_sent", "Transition": "Publishing → Settling", "Notes": "Deposit/reserve are explicitly surfaced per gateway." },
+    { "Event / Trigger": "Reserve/deposit depleted", "Observable Evidence": "livepeer_gateway_reserve / livepeer_gateway_deposit low/zero", "Transition": "Settling → Drained", "Notes": "Some community guides discuss splitting ETH into deposit + reserve for testing; treat exact sizing as operator-specific." },
+    { "Event / Trigger": "Ticket redemption error", "Observable Evidence": "livepeer_ticket_redemption_errors", "Transition": "Settling → (degraded)", "Notes": "Redemption reliability impacts realised revenue for Orchestrator." },
+    { "Event / Trigger": "On-chain tx confirmation timeout", "Observable Evidence": "txTimeout (default 5 mins)", "Transition": "Settling/RoundReward → (retry/replace tx)", "Notes": "Transaction replacement knobs are defined in CLI options." },
+    { "Event / Trigger": "Per-round reward minted/distributed", "Observable Evidence": "orchestrator reward service enabled", "Transition": "Publishing ↔ RoundReward", "Notes": "Docs describe default auto reward calls per round on Arbitrum." }
+  ]}
+  monospaceColumns={[1]}
+/>

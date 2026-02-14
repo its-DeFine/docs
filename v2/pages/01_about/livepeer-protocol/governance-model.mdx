@@ -36,11 +36,12 @@ Voting is conducted on-chain via the Livepeer Governor contract, with the protoc
 <CustomDivider style={{margin: 0, marginBottom: "-2rem" }} />
 
 ## Governance 
-Livepeer uses a hybrid on‑chain/off‑chain governance model that combines open community discussion with binding on‑chain votes.
+Livepeer is committed to open-source, transparent, community governance.
+It uses a hybrid on‑chain/off‑chain governance model that combines open community discussion with binding on‑chain votes.
 This model ensures that the community (token holders) collectively controls upgrades and spending, with the protocol enforcing the outcome.
 
 <div style={{ display: "flex", justifyContent: "center", width: "fit-content", margin: "0 auto" }}>
-<Accordion title="ELI5: Governance Model" icon="user-crown">
+<Accordion title={<div style={{color: "var(--accent)"}}>ELI5: Governance Model</div>} icon="user-crown">
    Imagine a community garden run by people who own shares (tokens).
 
    - **Proposing a Change:** If someone has 100 share tokens, they can suggest a new rule (like “we should plant carrots”). They put 100 tokens in a safe place while the idea is considered.
@@ -102,7 +103,7 @@ Livepeer Improvement Proposals (LIPs) are formal design documents ([hosted on Gi
 - **Monetary Policy**: [LIP-34](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0034.md), [LIP-35](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0035.md), [LIP-40](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0040.md), [LIP-83](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0083.md), and [LIP-100](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0100.md) which have shaped the monetary policy of the protocol including inflation calculations, adjustment and bounds.
 - **Governance Framework**: [LIP-15](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0015.md), [LIP-16](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0016.md), [LIP-19](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0019.md), [LIP-25](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0025.md), [LIP-69](https://github.com), [LIP-19](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0019.md) and [LIP-25](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0025.md) which established the current decentralised governance framework.
 
-*LIPs by Category:*
+*Key LIPs by Category:*
 <Accordion title="Governance & Process" icon="building-columns">
 **Governance & Process:**
 - [LIP-1](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0001.md) established the initial on‑chain governance process (Process, Purpose and Guidelines)
@@ -111,6 +112,16 @@ Livepeer Improvement Proposals (LIPs) are formal design documents ([hosted on Gi
 - [LIP-19](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0019.md) established the core governance mechanism (poll-based) for the Livepeer protocol.
 - [LIP-25](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0025.md) established the technical foundation for protocol upgrades.
 </Accordion> 
+<Accordion title="Protocol Migration (Confluence)" icon="arrow-down-up-across-line">
+- [LIP-73](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0073.md): Confluence - Arbitrum One Migration (Final) - Complete L1→L2 migration LIP-73.md:1-256
+- [LIP-74](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0074.md): L1 Minting and L2 Staking (Abandoned) - Alternative migration approach
+</Accordion>
+<Accordion title="Treasury Launch & System" icon="bank">
+- [LIP-89](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md): Livepeer Treasury (Final) - Onchain treasury for public goods LIP-89.md:1-139
+- [LIP-90](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0090.md): Funding Entity Conversations (Final)
+- [LIP-91](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0091.md): Livepeer Treasury Bundle (Final)
+- [LIP-92](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md): Treasury Contribution Percentage (Final) - 10% of inflation to treasury LIP-92.md:1-150
+</Accordion>
 <Accordion title="Economic Parameters & Monetary Policy" icon="coins">
 **Economic Parameters & Monetary Policy**
 - [LIP-34](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0034.md): InflationChange Parameter Update (Final) - Slowed inflation adjustment rate
@@ -119,29 +130,21 @@ Livepeer Improvement Proposals (LIPs) are formal design documents ([hosted on Gi
 - [LIP-83](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0083.md): roundLength Parameter Update (Final) - Adjusted for Ethereum Merge
 - [LIP-100](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0100.md): Introduction of Inflation Bounds (Draft) - Added ceiling/floor to inflation
 </Accordion>
-<Accordion title="Earnings & Claiming" icon="money-check-dollar">
-- [LIP-36](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0036.md): Cumulative Earnings Claiming (Final) - O(1) gas cost for earnings claims
-- [LIP-52](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0052.md): Snapshot For Claiming Earnings (Final) - Merkle tree for historical claims
-</Accordion>
-<Accordion title="Protocol Migration" icon="arrow-down-up-across-line">
-- [LIP-73](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0073.md): Confluence - Arbitrum One Migration (Final) - Complete L1→L2 migration LIP-73.md:1-256
-- [LIP-74](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0074.md): L1 Minting and L2 Staking (Abandoned) - Alternative migration approach
-</Accordion>
-<Accordion title="Treasury System" icon="bank">
-- [LIP-89](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md): Livepeer Treasury (Final) - Onchain treasury for public goods LIP-89.md:1-139
-- [LIP-90](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0090.md): Funding Entity Conversations (Final)
-- [LIP-91](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0091.md): Livepeer Treasury Bundle (Final)
-- [LIP-92](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md): Treasury Contribution Percentage (Final) - 10% of inflation to treasury LIP-92.md:1-150
-</Accordion>
 <Accordion title="Core Protocol Features" icon="cubes-stacked">
 - [LIP-3](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0003.md): Ability To Update Registered Solver in LivepeerVerifier (Final)
 - [LIP-8](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0008.md): Enable Partial Unbonding (Final)
 - [LIP-9](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0009.md): Service Registry (Final) - Service endpoint discovery
 - [LIP-11](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0011.md): Bond Event Details (Final)
 </Accordion>
+<Accordion title="Earnings & Claiming" icon="money-check-dollar">
+- [LIP-36](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0036.md): Cumulative Earnings Claiming (Final) - O(1) gas cost for earnings claims
+- [LIP-52](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0052.md): Snapshot For Claiming Earnings (Final) - Merkle tree for historical claims
+</Accordion>
 
 ### On-Chain Contracts
-The Livepeer protocol uses a custom Governor contract that inherits from OpenZeppelin's [Governor](https://docs.openzeppelin.com/contracts/4.x/api/governance#governor) and [GovernorSettings](https://docs.openzeppelin.com/contracts/4.x/api/governance#governorsettings) contracts. The key parameters are:
+The Livepeer protocol uses a custom Governor contract that inherits from OpenZeppelin's [Governor](https://docs.openzeppelin.com/contracts/4.x/api/governance#governor) and [GovernorSettings](https://docs.openzeppelin.com/contracts/4.x/api/governance#governorsettings) contracts. 
+
+The key rules enforced are:
 
 - **Voting period**: 30 rounds (~3.75 days)
 - **Quorum**: 33% of all staked LPT
@@ -174,6 +177,11 @@ D -- Approved --> E[Execute Change Protocol/Treasury]
 D -- Rejected --> F[Revise or Abandon]
 ```
 
+## Related Resources
+<Columns cols={2}>
+   <Card title="Governance Model" href="/delegators/livepeer-governance/governance-model" icon="ballot-check" arrow > Read more about the technical details of the governance model. </Card> 
+   <Card title="Delegate LPT" href="https://github.com/livepeer/LIPs" icon="github" arrow > Find out more about Delegating LPT. </Card>
+</Columns>
 
 {/* ## Protocol Proposals
 

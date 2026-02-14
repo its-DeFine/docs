@@ -10,7 +10,7 @@ aim: "What the protocol is. What it secures. What it does not do"
 
 import { CardTitleTextWithArrow } from '/snippets/components/primitives/text.jsx'
 import { AccordionTitleWithArrow } from '/snippets/components/primitives/text.jsx'
-import { Quote } from '/snippets/components/display/quote.jsx'
+import { Quote, FrameQuote } from '/snippets/components/display/quote.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 {/* 
@@ -82,7 +82,7 @@ The goal is to provide a complete, self‑contained description of how the proto
     </Accordion>
 </Columns>
 
-<CustomDivider style={{ margin: 0 }} />
+<CustomDivider style={{ margin: 0, marginBottom: "-2rem" }} />
 
 ## Protocol Design
 In any decentralised system involving independent participants, its essential to provide:
@@ -95,14 +95,30 @@ In any decentralised system involving independent participants, its essential to
 
 The protocol is the underlying logic that provides these mechanisms to ensure the desired network outcomes are achieved as efficiently, reliably and fairly as possible (in this case, video streaming & AI pipelines).
 
-{/* ## Livepeer Protocol Design
-The Livepeer protocol is the trustless backbone of a decentralised video and AI network. By separating on‑chain state and off‑chain execution, it achieves scalability and flexibility. 
+<Tip> 
+    If you're interested in learning more about game theory, mechanism design and token economics for building digital ecosystems, [this module](https://tokenflows.xyz/tutorials/introduction-tutorials/module3/) is a good primer. 
+    {/* <br/><br/>  */}
+    {/* Yale also offers an academic theoretical overview of Game Theory Economics in this [Open Yale Course](https://oyc.yale.edu/economics/econ-159)   */}
+</Tip>
 
-ETH fees, probabilistic tickets, LPT staking and adaptive inflation align the incentives of orchestrators, delegators and broadcasters. 
+## Livepeer Whitepaper
 
-Governance via LIPs and on‑chain voting empowers the community to steer evolution while maintaining security. 
+Livepeer’s [original whitepaper](https://github.com/livepeer/wiki/blob/master/WHITEPAPER.md) (published 2017) provides a deep dive into the system design and economic incentives alignment behind the Livepeer protocol.
 
-Any future development should preserve the protocol’s modularity, respect the division between protocol and network, and continue to foster an open, incentive‑aligned ecosystem. */}
+<FrameQuote>
+The **Livepeer Protocol defines how the various actors** in a live streaming ecosystem **participate in a secure and economically rational way** ...[incl] the economic incentives for encouraging participation in the network in a secure and game-theoretic manner.
+</FrameQuote>
+
+The whitepaper outlined an ambitious system design for the fully decentralized live video streaming network - aiming to provide _“the world’s open video infrastructure”_.
+
+<Card title={<div style={{ color: "var(--accent)", marginBottom: "1rem" }}><Icon icon="scroll" size={22} color="var(--accent)" /> {" "}Livepeer Whitepaper</div>} href="/about/resources/livepeer-whitepaper" arrow cta="Read More"> 
+    The original Livepeer whitepaper centred on 4 key ideas: 
+    - _**Incentivized Participation**_,
+    - _**Trustless Verification**_, 
+    - _**Open Participation**_ and 
+    - _**Economic Security**_ via Token.
+</Card>
+
 
 ## Protocol Function
 The Livepeer protocol is a crypto-economic system that governs a network of actors to achieve a desired network outcome.
@@ -110,12 +126,12 @@ The Livepeer protocol is a crypto-economic system that governs a network of acto
 
 ## Protocol Implementation
 
+{/* The core [protocol](https://wikipedia.com/wiki/Protocol) is implemented by `go-livepeer` and on-chain Ethereum smart contracts (now on Arbitrum L2 after the Confluence upgrade) that enforce the rules of the network. */}
+
 The Livepeer protocol is implemented by the [`go-livepeer`](https://github.com/livepeer/go-livepeer) codebase and deployed on Arbitrum L2 (with the token deployed on Ethereum L1).
 
 It uses smart contracts to enforce staking, bonding, slashing, and reward rules on-chain, while network nodes handle the actual compute jobs. 
 
-
-<Note> If you're interested in learning more about game theory, mechanism design and token economics for building digital ecosystems, [this module](https://tokenflows.xyz/tutorials/introduction-tutorials/module3/) is a good primer. <br/><br/> Yale also offers an academic theoretical overview of Game Theory Economics in this [Open Yale Course](https://oyc.yale.edu/economics/econ-159)  </Note>
 
 {/* ### Node Types
 - BroadcasterNode: Centers on LivepeerServer managing rtmpConnections and BroadcastSessionsManager

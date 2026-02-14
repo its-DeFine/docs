@@ -6,9 +6,6 @@ keywords: ["livepeer", "about", "livepeer network", "livepeer token economics", 
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
-
-<PreviewCallout />
 {/* This page describes:
 3. **Token (LPT)**
 
@@ -20,15 +17,27 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
 BUT ONLY BRIEFLY -> DEFERS TO TOKEN TAB
 */}
 
+import { CardTitleTextWithArrow } from '/snippets/components/primitives/text.jsx'
+import { AccordionTitleWithArrow } from '/snippets/components/primitives/text.jsx'
+import { Quote } from '/snippets/components/display/quote.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
+<div style={{ display: "flex", justifyContent: "center"}}>
+  <CardTitleTextWithArrow icon="hand-holding-dollar" horizontal href="https://www.livepeer.org/lpt"> Livepeer Token </CardTitleTextWithArrow> 
+</div>
 
-<Danger> Incorrect, Old content. </Danger>
+<Quote> 
+Livepeer Token (LPT) is the native proof-of-stake token of the Livepeer network. It is the key to participating in the protocol: to operate or delegate in the transcoding network, to earn rewards, and to vote on governance proposals
+</Quote>
 
-See more on the LPT Token here [https://www.livepeer.org/lpt](https://www.livepeer.org/lpt)
+<CustomDivider style={{margin: 0, marginBottom: "-2rem" }} />
 
+## LP Token
 Livepeer is a utility token used to secure the decentralised Livepeer Network, enabling reliable, cost-efficient, powerful AI and video streaming functions.
 
 One of the biggest competitive advantages of Livepeer is its decentralisation - creating free markets and competitive pricing. This network of decentralised nodes, orchestrators, gateways and broadcasters, and the flow of payments in the network for doing useful work, is underpinned by the Livepeer Token (LPT)
+
+<Tip>Did you know? Livepeer’s token distribution had no [ICO](https://messari.io/report/merkle-mine) LPT was distributed in a novel way called a [Merkle Mine](https://github.com/livepeer/merkle-mine), allowing a wide set of participants to claim tokens at network launch. <br/> You can view the [github code here](https://github.com/livepeer/merkle-mine).</Tip>
 
 {/* #### Actors
 
