@@ -35,46 +35,108 @@ Voting is conducted on-chain via the Livepeer Governor contract, with the protoc
 </Quote>
 <CustomDivider style={{margin: 0, marginBottom: "-2rem" }} />
 
-## Overview 
+## Governance 
 Livepeer uses a hybrid on‑chain/off‑chain governance model that combines open community discussion with binding on‑chain votes.
 This model ensures that the community (token holders) collectively controls upgrades and spending, with the protocol enforcing the outcome.
 
-
 ### Governance Functions
-- Protocol Upgrades and Changes
-- Treasury Spending
+Governance in Livepeer serves two primary functions:
+- **Protocol Upgrades**: Proposals to upgrade the protocol.
+- **Treasury Spending**: Proposals to spend from the treasury.
 
-### Governance Process
+### Livepeer Improvement Proposals (LIPs)
+Livepeer Improvement Proposals (LIPs) are formal design documents (hosted on GitHub) that describe protocol upgrades, similar to Ethereum’s EIPs. 
+
+*Impactful LIPs include:*
+- **Treasury Creation**: [LIP-89](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md) and [LIP-92](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md) which established the [Treasury](./treasury.mdx) and set the on-chain revenue allocation (sending 10% of new LPT emissions into the treasury).
+- **Confluence - Arbitrum Migration**: [LIP-73](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0073.md) which completed the migration of the protocol from Ethereum to Arbitrum to reduce transaction costs and increase throughput.
+- **Monetary Policy**: [LIP-34](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0034.md), [LIP-35](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0035.md), [LIP-40](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0040.md), [LIP-83](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0083.md), and [LIP-100](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0100.md) which have shaped the monetary policy of the protocol including inflation calculations, adjustment and bounds.
+- **Governance Framework**: [LIP-15](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0015.md), [LIP-16](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0016.md), [LIP-19](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0019.md), [LIP-25](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0025.md), [LIP-69](https://github.com), [LIP-19](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0019.md) and [LIP-25](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0025.md) which established the current decentralised governance framework.
+
+*See More LIPs:*
+<Accordion title="Governance & Process" icon="building-columns">
+**Governance & Process:**
+- [LIP-1](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0001.md) established the initial on‑chain governance process (Process, Purpose and Guidelines)
+- [LIP-15](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0015.md) established the polling system for LIP adoption.
+- [LIP-69](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0069.md) established the stake-based polling system & implemented stake-weighted voting.
+- [LIP-19](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0019.md) established the core governance mechanism (poll-based) for the Livepeer protocol.
+- [LIP-25](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0025.md) established the technical foundation for protocol upgrades.
+</Accordion> 
+<Accordion title="Economic Parameters & Monetary Policy" icon="coins">
+**Economic Parameters & Monetary Policy**
+- [LIP-34](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0034.md): InflationChange Parameter Update (Final) - Slowed inflation adjustment rate
+- [LIP-35](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0035.md): inflationChange Calculation and Parameter Update (Final) - Bundle with LIP-40
+- [LIP-40](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0040.md): Minter Math Precision (Final) - Enhanced precision for percentage calculations
+- [LIP-83](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0083.md): roundLength Parameter Update (Final) - Adjusted for Ethereum Merge
+- [LIP-100](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0100.md): Introduction of Inflation Bounds (Draft) - Added ceiling/floor to inflation
+</Accordion>
+<Accordion title="Earnings & Claiming" icon="money-check-dollar">
+- [LIP-36](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0036.md): Cumulative Earnings Claiming (Final) - O(1) gas cost for earnings claims
+- [LIP-52](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0052.md): Snapshot For Claiming Earnings (Final) - Merkle tree for historical claims
+</Accordion>
+<Accordion title="Protocol Migration" icon="arrow-down-up-across-line">
+- [LIP-73](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0073.md): Confluence - Arbitrum One Migration (Final) - Complete L1→L2 migration LIP-73.md:1-256
+- [LIP-74](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0074.md): L1 Minting and L2 Staking (Abandoned) - Alternative migration approach
+</Accordion>
+<Accordion title="Treasury System" icon="bank">
+- [LIP-89](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md): Livepeer Treasury (Final) - Onchain treasury for public goods LIP-89.md:1-139
+- [LIP-90](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0090.md): Funding Entity Conversations (Final)
+- [LIP-91](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0091.md): Livepeer Treasury Bundle (Final)
+- [LIP-92](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md): Treasury Contribution Percentage (Final) - 10% of inflation to treasury LIP-92.md:1-150
+</Accordion>
+<Accordion title="Core Protocol Features" icon="cubes-stacked">
+- [LIP-3](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0003.md): Ability To Update Registered Solver in LivepeerVerifier (Final)
+- [LIP-8](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0008.md): Enable Partial Unbonding (Final)
+- [LIP-9](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0009.md): Service Registry (Final) - Service endpoint discovery
+- [LIP-11](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0011.md): Bond Event Details (Final)
+</Accordion>
+
+### On-Chain Contracts
+The Livepeer protocol uses a custom Governor contract that inherits from OpenZeppelin's [Governor](https://docs.openzeppelin.com/contracts/4.x/api/governance#governor) and [GovernorSettings](https://docs.openzeppelin.com/contracts/4.x/api/governance#governorsettings) contracts. The key parameters are:
+
+- **Voting period**: 30 rounds (~3.75 days)
+- **Quorum**: 33% of all staked LPT
+- **Threshold**: Majority (>50%) of votes cast
+- **Voting delay**: 1 round (24 hours)
+
+## Governance Process
+
+### Proposal Process
 
 Governance applies to both the protocol and the treasury.
 
 <Steps>
-   <Step title="Community Discussion" icon="comment-dots">
-      Proposals typically start with a discussion on the <LinkArrow label="Livepeer Forum" href="https://forum.livepeer.org/c/lips/18" newline={false} />.
+   <Step title="Idea Phase: Community Discussion" icon="comment-dots">
+      Proposals typically start with community discussion to gather feedback on the <LinkArrow label="Livepeer Forum" href="https://forum.livepeer.org/c/lips/18" newline={false} />.
    </Step>
-   <Step title="Request For Feedback (RFP)" icon="comments">Community members post pre-proposals (requests for feedback) on the forum.</Step>
-   <Step title="Livepeer Improvement Proposal (LIP)" icon="file-pen">
+   <Step title="Draft Phase: Request For Feedback (RFP)" icon="comments">
+      Community members post pre-proposals (requests for feedback) on the forum.
+   </Step>
+   <Step title="Proposal: Livepeer Improvement Proposal (LIP)" icon="file-pen">
       Once an idea is refined, an official proposal is drafted in the form of a <LinkArrow label="Livepeer Improvement Proposal (LIP)" href="https://github.com/livepeer/LIPs" newline={ false} />
       {/* Proposals are first discussed and drafted off-chain - in the form of a <LinkArrow label="Livepeer Improvement Proposal (LIP)" href="https://github.com/livepeer/LIPs" newline={false} />.
       <br/> The forum is the primary place for discussion: <LinkArrow label="Livepeer Forum" href="https://forum.livepeer.org/c/lips/18" newline={false} /> */}
    </Step>
-   <Step title="On-Chain Submission" icon="arrow-up-right-from-square">
+   <Step title="Proposal Submission: On-Chain" icon="arrow-up-right-from-square">
       Once a LIP is finalized, anyone with ≥100 LPT can submit it on-chain to the [Governor](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/governance/Governor.sol) contract for a vote. This stake is large by design to ensure only serious proposals advance and is returned if the proposal passes.
    </Step>
-   <Step title="On-Chain Voting" icon="check-to-slot">
-      After submission, a voting period opens where eligible voters (Orchestrators and their delegated LPT) cast votes. Anyone with 1+ LPT staked can vote.
+   <Step title="Proposal Voting: On-Chain" icon="link">
+      After submission, a voting period of 30 rounds (≈3.75 days) opens where eligible voters (Orchestrators and their delegated LPT) cast votes. Anyone with 1+ LPT staked can vote.
       <br/> The on-chain proposals and votes can be found on <LinkArrow label="Livepeer Explorer" href="https://explorer.livepeer.org/voting" newline={false} />.
    </Step>
-   <Step title="Voting Power" icon="check-to-slot">
+   <Step title="Proposal Voting: Details" icon="ballot">
       Voting power is driven by LPT **stake-weighted voting**. If an orchestrator has X LPT staked (including delegated stake), that weight applies to its vote. 
       <br/> Note: Delegators can withdraw their delegation temporarily to vote separately if they disagree with their operator.
    </Step>
-   <Step title="Quorum & Approval" icon="check-to-slot">
+   <Step title="Proposal Voting: Quorum & Approval" icon="people">
       A proposal passes only if at least **33% of total staked LPT participates (quorum)** and **>50% of the votes** cast are “For”. These thresholds prevent minority-rule.
+   </Step>
+   <Step title="Proposal Execution: On-Chain" icon="check-to-slot">
+      If a proposal passes, the Governor automatically executes the proposal’s instructions (changing a contract parameter or sending treasury funds).
    </Step>
 </Steps>
 
-## Protocol Proposals
+{/* ## Protocol Proposals
 
 What can be proposed? 
 What are the types?
@@ -88,7 +150,7 @@ Livepeer’s governance is fully on-chain and stakeholder-driven.
 - All staked LPT holders (including Delegators via their Orchestrators) can vote on proposals. 
 - Votes last for 30 rounds (~30 days). 
 - For a proposal to pass, at least 33% of all staked tokens must participate (quorum), and a majority (>50%) of votes must be in favour. 
-- If a proposal passes, the change is executed automatically by the smart contracts. This means the community (token holders) collectively controls upgrades and spending, with the protocol enforcing the outcome.
+- If a proposal passes, the change is executed automatically by the smart contracts (where possible). This means the community (token holders) collectively controls upgrades and spending, with the protocol enforcing the outcome. */}
 
 <div style={{ display: "flex", justifyContent: "center", width: "fit-content", margin: "0 auto" }}>
 <Accordion title="ELI5: Governance Model" icon="user-crown">
@@ -103,14 +165,30 @@ Livepeer’s governance is fully on-chain and stakeholder-driven.
 </div>
 
 ## Technical Details
+
+### Contracts
 The Livepeer protocol uses a custom Governor contract that inherits from OpenZeppelin's [Governor](https://docs.openzeppelin.com/contracts/4.x/api/governance#governor) and [GovernorSettings](https://docs.openzeppelin.com/contracts/4.x/api/governance#governorsettings) contracts. The key parameters are:
 
-- **Voting period**: 30 rounds (~30 days)
+- **Voting period**: 30 rounds (~3.75 days)
 - **Quorum**: 33% of all staked LPT
-- **Threshold**: 100 LPT
+- **Threshold**: Majority (>50%) of votes cast
 - **Voting delay**: 1 round (24 hours)
 
-#### Proposal Process 
+#### Livepeer Improvement Proposals (LIPs)
+Livepeer Improvement Proposals (LIPs) are formal design documents (hosted on GitHub) that describe protocol upgrades, similar to Ethereum’s EIPs. 
+
+In late 2023, the community passed a bundle creating the Livepeer treasury. 
+LIP-89 deployed a custom OpenZeppelin Governor (with a 100 LPT proposal threshold and stake-weighted voting). 
+LIP-90 established that the treasury should fund public goods (primarily via Special Purpose Entities). 
+Subsequent LIP-92 set the on-chain revenue allocation (sending 10% of new LPT emissions into the treasury). 
+Today, Livepeer maintains an on-chain treasury that accrues 10% of all LPT block rewards, with any LPT holder able to propose how to spend it (subject to voting).
+
+Key examples include 
+- [LIP‑89](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md) established the [Treasury](./treasury.mdx).
+- [LIP‑90](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0090.md) established that the treasury should fund public goods.
+- [LIP‑92](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md) set the on-chain revenue allocation (sending 10% of new LPT emissions into the treasury). 
+
+To submit a LIP, proposers must hold at least 100 LPT staked on‑chain. 
 
 
 
