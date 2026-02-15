@@ -1,5 +1,3 @@
-import { ThemeData } from "/snippets/styles/themeStyles.jsx";
-
 /**
  * ScrollableDiagram - Interactive diagram viewer with zoom and pan controls
  *
@@ -34,17 +32,17 @@ export const ScrollableDiagram = ({
   const containerStyle = {
     overflow: "auto",
     maxHeight: maxHeight,
-    border: "1px solid var(--diagram-border)",
+    border: "1px solid var(--border)",
     borderRadius: "8px",
     padding: "1rem",
-    background: "var(--diagram-bg)",
+    background: "var(--card-background)",
     cursor: "grab",
     position: "relative",
   };
 
   const buttonStyle = {
-    background: "var(--diagram-button-bg)",
-    color: "var(--diagram-button-text)",
+    background: "var(--accent)",
+    color: "var(--button-text)",
     border: "none",
     borderRadius: "4px",
     padding: "4px 10px",
@@ -55,35 +53,13 @@ export const ScrollableDiagram = ({
 
   return (
     <>
-      <style>{`
-        :root {
-          --diagram-border: ${ThemeData.light.border};
-          --diagram-bg: ${ThemeData.light.cardBackground};
-          --diagram-title-text: ${ThemeData.light.text};
-          --diagram-hint-text: ${ThemeData.light.mutedText};
-          --diagram-zoom-text: ${ThemeData.light.mutedText};
-          --diagram-button-bg: ${ThemeData.light.accent};
-          --diagram-button-text: ${ThemeData.light.buttonText};
-          --diagram-reset-bg: ${ThemeData.light.border};
-        }
-        .dark {
-          --diagram-border: ${ThemeData.dark.border};
-          --diagram-bg: ${ThemeData.dark.cardBackground};
-          --diagram-title-text: ${ThemeData.dark.text};
-          --diagram-hint-text: ${ThemeData.dark.mutedText};
-          --diagram-zoom-text: ${ThemeData.dark.mutedText};
-          --diagram-button-bg: ${ThemeData.dark.accent};
-          --diagram-button-text: ${ThemeData.dark.buttonText};
-          --diagram-reset-bg: ${ThemeData.dark.border};
-        }
-      `}</style>
       <div style={{ position: "relative", marginBottom: "1rem" }}>
         {title && (
           <p
             style={{
               textAlign: "center",
               fontStyle: "italic",
-              color: "var(--diagram-title-text)",
+              color: "var(--text)",
               marginBottom: "0.5rem",
               fontSize: "0.875rem",
             }}
@@ -114,7 +90,7 @@ export const ScrollableDiagram = ({
           <span
             style={{
               fontSize: "0.75rem",
-              color: "var(--diagram-hint-text)",
+              color: "var(--muted-text)",
               marginRight: "auto",
             }}
           >
@@ -126,7 +102,7 @@ export const ScrollableDiagram = ({
           <span
             style={{
               fontSize: "0.75rem",
-              color: "var(--diagram-zoom-text)",
+              color: "var(--muted-text)",
               minWidth: "40px",
               textAlign: "center",
             }}
@@ -137,7 +113,7 @@ export const ScrollableDiagram = ({
             +
           </button>
           <button
-            style={{ ...buttonStyle, background: "var(--diagram-reset-bg)" }}
+            style={{ ...buttonStyle, background: "var(--border)" }}
             onClick={resetZoom}
             title="Reset zoom"
           >
