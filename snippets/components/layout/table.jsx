@@ -5,12 +5,14 @@
  *   - headerList: Array of strings for column headers
  *   - itemsList: Array of objects where keys match headerList values
  *   - monospaceColumns: Optional array of column indices (0-based) to render in monospace
+ *   - margin: Optional CSS margin override (e.g. "0", "1rem 0")
  */
 export const DynamicTable = ({
   tableTitle = null,
   headerList = [],
   itemsList = [],
   monospaceColumns = [],
+  margin,
 }) => {
   if (!headerList.length) {
     return <div>No headers provided</div>;
@@ -18,14 +20,18 @@ export const DynamicTable = ({
 
   return (
     <>
-      {tableTitle && <div style={{fontStyle: "italic", margin: 0 }}><strong>{tableTitle}</strong></div>}
-      <div style={{ overflowX: "auto" }}>
+      {tableTitle && (
+        <div style={{ fontStyle: "italic", margin: 0 }}>
+          <strong>{tableTitle}</strong>
+        </div>
+      )}
+      <div style={{ overflowX: "auto", ...(margin != null && { margin }) }}>
         <table
           style={{
             width: "100%",
             borderCollapse: "collapse",
             fontSize: "0.9rem",
-            marginTop: 0
+            marginTop: 0,
           }}
         >
           <thead>

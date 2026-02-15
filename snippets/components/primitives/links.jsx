@@ -364,12 +364,13 @@ const TipWithArrow = ({
   );
 };
 
-const LinkArrow = ({ href, label, newline = true }) => {
+const LinkArrow = ({ href, label, newline = true, borderColor }) => {
   const linkArrowStyle = {
     display: "inline-flex",
     alignItems: "center",
     gap: "4px",
     paddingTop: "0.2rem",
+    ...(borderColor && { borderColor }),
   };
   return (
     <>
