@@ -172,7 +172,73 @@
                         "group": "Livepeer Studio",
                         "icon": "film-canister",
                         "pages": [
-                          "v2/pages/010_products/products/livepeer-studio/livepeer-studio"
+                          "v2/pages/010_products/products/livepeer-studio/overview/overview",
+                          "v2/pages/010_products/products/livepeer-studio/overview/client-use-cases",
+                          {
+                            "group": "Get started",
+                            "pages": [
+                              "v2/pages/010_products/products/livepeer-studio/getting-started/overview",
+                              "v2/pages/010_products/products/livepeer-studio/overview/quickstart",
+                              "v2/pages/010_products/products/livepeer-studio/getting-started/authentication",
+                              "v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli"
+                            ]
+                          },
+                          {
+                            "group": "Livestream",
+                            "pages": [
+                              "v2/pages/010_products/products/livepeer-studio/overview/livestream-overview",
+                              "v2/pages/010_products/products/livepeer-studio/guides/create-livestream",
+                              "v2/pages/010_products/products/livepeer-studio/guides/playback-livestream",
+                              "v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs",
+                              "v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser",
+                              "v2/pages/010_products/products/livepeer-studio/guides/multistream",
+                              "v2/pages/010_products/products/livepeer-studio/guides/clip-livestream",
+                              "v2/pages/010_products/products/livepeer-studio/guides/stream-health",
+                              "v2/pages/010_products/products/livepeer-studio/guides/optimize-latency"
+                            ]
+                          },
+                          {
+                            "group": "Video on demand",
+                            "pages": [
+                              "v2/pages/010_products/products/livepeer-studio/overview/vod-overview",
+                              "v2/pages/010_products/products/livepeer-studio/guides/upload-asset",
+                              "v2/pages/010_products/products/livepeer-studio/guides/playback-asset",
+                              "v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets",
+                              "v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod",
+                              "v2/pages/010_products/products/livepeer-studio/guides/transcode-video"
+                            ]
+                          },
+                          {
+                            "group": "Access control & security",
+                            "pages": [
+                              "v2/pages/010_products/products/livepeer-studio/guides/access-control/overview",
+                              "v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks",
+                              "v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt"
+                            ]
+                          },
+                          {
+                            "group": "Events & analytics",
+                            "pages": [
+                              "v2/pages/010_products/products/livepeer-studio/guides/webhooks",
+                              "v2/pages/010_products/products/livepeer-studio/guides/listen-to-events",
+                              "v2/pages/010_products/products/livepeer-studio/guides/analytics/overview"
+                            ]
+                          },
+                          {
+                            "group": "Player & embed",
+                            "pages": [
+                              "v2/pages/010_products/products/livepeer-studio/guides/player-and-embed"
+                            ]
+                          },
+                          {
+                            "group": "Reference",
+                            "pages": [
+                              "v2/pages/010_products/products/livepeer-studio/overview/api-overview",
+                              "v2/pages/010_products/products/livepeer-studio/api-reference/overview",
+                              "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview",
+                              "v2/pages/010_products/products/livepeer-studio/guides/managing-projects"
+                            ]
+                          }
                         ]
                       },
                       {
@@ -313,8 +379,8 @@
                           {
                             "group": "SDKs & APIs",
                             "pages": [
-                              "v2/pages/03_developers/technical-references-sdks.-and-apis/sdks",
-                              "v2/pages/03_developers/technical-references-sdks.-and-apis/apis"
+                              "v2/pages/03_developers/technical-references/sdks",
+                              "v2/pages/03_developers/technical-references/apis"
                             ]
                           },
                           "v2/pages/03_developers/technical-references/awesome-livepeer",
@@ -828,7 +894,23 @@
                           "v2/pages/07_resources/documentation-guide/documentation-overview",
                           "v2/pages/07_resources/documentation-guide/documentation-guide",
                           "v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations",
-                          "v2/pages/07_resources/documentation-guide/contribute-to-the-docs"
+                          "v2/pages/07_resources/documentation-guide/style-guide",
+                          "v2/pages/07_resources/documentation-guide/snippets-inventory",
+                          "v2/pages/07_resources/documentation-guide/contribute-to-the-docs",
+                          "v2/pages/07_resources/documentation-guide/automations-workflows",
+                          {
+                            "group": "Component Library",
+                            "icon": "puzzle-piece",
+                            "pages": [
+                              "v2/pages/07_resources/documentation-guide/component-library",
+                              "v2/pages/07_resources/documentation-guide/component-library/primitives",
+                              "v2/pages/07_resources/documentation-guide/component-library/display",
+                              "v2/pages/07_resources/documentation-guide/component-library/content",
+                              "v2/pages/07_resources/documentation-guide/component-library/layout",
+                              "v2/pages/07_resources/documentation-guide/component-library/integrations",
+                              "v2/pages/07_resources/documentation-guide/component-library/domain"
+                            ]
+                          }
                         ]
                       },
                       {
@@ -966,6 +1048,7 @@
                         "pages": [
                           "v2/pages/09_internal/internal-overview",
                           "v2/pages/09_internal/docs-status",
+                          "v2/pages/09_internal/governance",
                           "v2/pages/09_internal/strategic-alignment",
                           "v2/pages/09_internal/docs-philosophy",
                           "v2/pages/09_internal/definitions",
