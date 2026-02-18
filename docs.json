@@ -15,7 +15,7 @@
     "versions": [
       {
         "version": "v2",
-        "default": true,
+        "default": false,
         "languages": [
           {
             "language": "en",
@@ -1067,6 +1067,7 @@
       },
       {
         "version": "v1",
+        "default": true,
         "languages": [
           {
             "language": "en",
