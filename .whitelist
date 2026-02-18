@@ -10,6 +10,7 @@ LICENSE
 Dockerfile
 Makefile
 style.css
+ASSISTANT.md
 .gitignore
 .mintignore
 .prettierrc.yaml
@@ -19,6 +20,7 @@ style.css
 # Allowed root directories
 .github
 .githooks
+.gitattributes
 .vscode
 .claude
 ai-tools
