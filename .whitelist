@@ -10,7 +10,7 @@ LICENSE
 Dockerfile
 Makefile
 style.css
-ASSISTANT.md
+Assistant.md
 .gitignore
 .mintignore
 .prettierrc.yaml
