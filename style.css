@@ -319,14 +319,30 @@ img[alt="US"][src*="flags/US.svg"]::before {
 
 /* Frame mode container - 80% of #content-container width, centered */
 /* Breaks out of #content padding to center in full #content-container */
+[data-page-mode="frame"] {
+  --frame-left-breakout: 96px;
+  --frame-right-breakout: 20px;
+  --frame-inline-padding: clamp(1rem, 4vw, 15%);
+  --frame-content-max-width: 1200px;
+}
+
 .frame-mode-container {
-  width: calc(100% + 96px + 20px); /* 976px */
-  margin-left: -96px;
-  margin-right: -20px;
+  width: calc(
+    100% + var(--frame-left-breakout) + var(--frame-right-breakout)
+  );
+  margin-left: calc(-1 * var(--frame-left-breakout));
+  margin-right: calc(-1 * var(--frame-right-breakout));
   margin-bottom: 2rem;
-  padding-left: 15%; /* Adjust this for desired content width */
-  padding-right: 15%; /* Adjust this for desired content width */
+  padding-left: var(--frame-inline-padding);
+  padding-right: var(--frame-inline-padding);
   box-sizing: border-box;
+}
+
+.frame-mode-container > * {
+  width: 100%;
+  max-width: var(--frame-content-max-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Frame mode container inside hero - already broken out, so reset */
@@ -334,26 +350,74 @@ img[alt="US"][src*="flags/US.svg"]::before {
   width: 100%;
   margin-left: 0;
   margin-right: 0;
-  padding-left: 0%;
-  padding-right: 0%;
+  padding-left: var(--frame-inline-padding);
+  padding-right: var(--frame-inline-padding);
 }
 
 /* Pagination on frame mode pages ONLY - match container padding */
 [data-page-mode="frame"] #pagination {
-  width: calc(100% + 96px + 20px);
-  margin-left: -96px;
-  margin-right: -20px;
-  padding-left: calc((100% + 96px + 20px) * 0.1 + 96px);
-  padding-right: calc((100% + 96px + 20px) * 0.1 + 20px);
+  width: calc(
+    100% + var(--frame-left-breakout) + var(--frame-right-breakout)
+  );
+  margin-left: calc(-1 * var(--frame-left-breakout));
+  margin-right: calc(-1 * var(--frame-right-breakout));
+  padding-left: var(--frame-inline-padding);
+  padding-right: var(--frame-inline-padding);
   box-sizing: border-box;
+}
+
+[data-page-mode="frame"] #pagination > * {
+  width: 100%;
+  max-width: var(--frame-content-max-width);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Hero full width - breaks out of #content padding to fill #content-container */
 .frame-mode-hero-full {
-  width: calc(100% + 96px + 20px);
-  margin-left: -96px;
-  margin-right: -20px;
+  width: calc(
+    100% + var(--frame-left-breakout) + var(--frame-right-breakout)
+  );
+  margin-left: calc(-1 * var(--frame-left-breakout));
+  margin-right: calc(-1 * var(--frame-right-breakout));
   position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+  [data-page-mode="frame"] {
+    --frame-left-breakout: 64px;
+    --frame-right-breakout: 16px;
+    --frame-inline-padding: clamp(1rem, 4vw, 10%);
+  }
+}
+
+@media (max-width: 1024px) {
+  [data-page-mode="frame"] {
+    --frame-left-breakout: 32px;
+    --frame-right-breakout: 16px;
+    --frame-inline-padding: clamp(1rem, 4vw, 2rem);
+  }
+}
+
+@media (max-width: 768px) {
+  [data-page-mode="frame"] {
+    --frame-left-breakout: 16px;
+    --frame-right-breakout: 12px;
+    --frame-inline-padding: 1rem;
+  }
+
+  .frame-mode-container {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  [data-page-mode="frame"] {
+    --frame-left-breakout: 8px;
+    --frame-right-breakout: 8px;
+    --frame-inline-padding: 0.875rem;
+  }
 }
 
 #starfield {

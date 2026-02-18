@@ -108,7 +108,9 @@ const HeroContentContainer = ({ children }) => {
         marginBottom: 0,
       }}
     >
-      <div style={{ position: "relative", height: "100%" }}>{children}</div>
+      <div style={{ position: "relative", height: "100%", width: "100%" }}>
+        {children}
+      </div>
     </div>
   );
 };
@@ -123,10 +125,13 @@ const HeroOverviewContent = ({ children }) => {
         justifyContent: "center",
         flexDirection: "column",
         gap: "1rem 0",
-        width: "80%",
+        width: "100%",
+        maxWidth: "72ch",
         margin: "0 auto",
-        fontSize: "1.1rem",
+        fontSize: "clamp(0.98rem, 1.6vw, 1.1rem)",
         color: "var(--page-header-description-color)",
+        paddingLeft: "0.5rem",
+        paddingRight: "0.5rem",
       }}
     >
           {children}
@@ -150,13 +155,19 @@ const HeroOverviewContent = ({ children }) => {
  * @author Alison Haire
  */
 const PortalContentContainer = ({ children }) => {
-    return (
-        <div className="frame-mode-container">
-            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>   
-                {children}
-            </div>
-        </div>
-    );
+  return (
+    <div className="frame-mode-container">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "clamp(0.875rem, 1.8vw, 1.25rem)",
+        }}
+      >
+        {children}
+      </div>
+    </div>
+  );
 };
 
 /*
@@ -198,7 +209,7 @@ const PortalHeroContent = ({
       <div
         style={{
           textAlign: "center",
-          marginTop: "2rem",
+          marginTop: "clamp(1.25rem, 3vw, 2rem)",
           marginBottom: "1rem",
         }}
       >
@@ -213,7 +224,9 @@ const PortalHeroContent = ({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+              flexWrap: "wrap",
               gap: "0.5rem",
+              rowGap: "0.25rem",
             }}
           >
             {subtitleIcon && (
@@ -227,7 +240,7 @@ const PortalHeroContent = ({
             )}
             <h2
               style={{
-                fontSize: "1.5rem",
+                fontSize: "clamp(1.05rem, 2.4vw, 1.5rem)",
                 fontWeight: "500",
                 opacity: 1,
                 color: subtitleColor || "var(--accent)",
@@ -256,11 +269,14 @@ const PortalHeroContent = ({
               justifyContent: "center",
               flexDirection: "column",
               gap: "1rem 0",
-              width: "80%",
+              width: "100%",
+              maxWidth: "72ch",
               margin: "0 auto",
-              fontSize: "1.1rem",
+              fontSize: "clamp(0.98rem, 1.6vw, 1.1rem)",
               color: "var(--text)",
-              paddingTop: "3rem",
+              paddingTop: "clamp(1.5rem, 4vw, 3rem)",
+              paddingLeft: "0.5rem",
+              paddingRight: "0.5rem",
             }}
           >
             {description}
@@ -272,7 +288,8 @@ const PortalHeroContent = ({
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              width: "fit-content",
+              width: "100%",
+              maxWidth: "720px",
               margin: "0 auto",
               marginTop: "1rem",
             }}
@@ -280,7 +297,7 @@ const PortalHeroContent = ({
             {refCardLink}
           </div>
               )}
-         <div style={{ width: "80%", margin: "0 auto", paddingBottom: "1rem" }}>
+         <div style={{ width: "100%", maxWidth: "72ch", margin: "0 auto", paddingBottom: "1rem" }}>
           {callout && callout}
           {divider ? <CustomDivider /> : null }
           {/* <CustomDivider /> */}
@@ -293,16 +310,19 @@ const PortalHeroContent = ({
               justifyContent: "center",
               flexDirection: "column",
               gap: "1rem 0",
-              width: "80%",
+              width: "100%",
+              maxWidth: "72ch",
               margin: "0 auto",
-              fontSize: "1.1rem",
+              fontSize: "clamp(0.98rem, 1.6vw, 1.1rem)",
               color: "var(--text)",
+              paddingLeft: "0.5rem",
+              paddingRight: "0.5rem",
             }}
           >
             {overview}
           </div>
               )}
-        <div style={{ width: "80%", margin: "0 auto", paddingTop: "1.5rem", paddingBottom: "0.1rem" }}>
+        <div style={{ width: "100%", maxWidth: "72ch", margin: "0 auto", paddingTop: "1.5rem", paddingBottom: "0.1rem" }}>
           {children ? <>{children}<CustomDivider /></> :  <CustomDivider />}
         </div>
         </div>
@@ -312,18 +332,36 @@ const PortalHeroContent = ({
 };
 
 const PortalCardsHeader = ({ children, title }) => {
-    return (
+  return (
     <div style={{ alignContent: "center", justifyContent: "center" }}>
-        <H2 icon="signs-post" iconSize={32} >
-            {title}
-        </H2>
+      <H2 icon="signs-post" iconSize={32} align="center">
+        {title}
+      </H2>
 
-        <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "0.1rem" }}>
-                <span style={{ lineHeight: "1", color: "var(--text-primary)", opacity: 1, fontStyle: "italic", fontSize: "1.2rem" }}>
-                    Choose Your Mission:
-                </span>
-                {children}
-        </div>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          gap: "0.5rem",
+          marginBottom: "0.1rem",
+        }}
+      >
+        <span
+          style={{
+            lineHeight: "1.2",
+            color: "var(--text-primary)",
+            opacity: 1,
+            fontStyle: "italic",
+            fontSize: "clamp(1rem, 2vw, 1.2rem)",
+            textAlign: "center",
+          }}
+        >
+          Choose Your Mission:
+        </span>
+        {children}
+      </div>
     </div>
   );
 };
