@@ -17,6 +17,7 @@ jobs:
     permissions:
       contents: read
       pull-requests: write # For commenting on PRs
+      issues: write # Required for github.rest.issues.createComment API
 
     steps:
       - name: Checkout repository
@@ -27,7 +28,7 @@ jobs:
         with:
           node-version: "22"
           cache: 'npm'
-          cache-dependency-path: tools/package-lock.json
+          cache-dependency-path: 'tools/package-lock.json'
 
       - name: Install Mintlify globally
         run: npm install -g mintlify
@@ -76,24 +77,24 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: v2-pages-test-report
-          path: v2-page-test-report.json
+          path: tools/v2-page-test-report.json
           retention-days: 7
 
       - name: Parse test results
         if: always()
         id: test-results
         run: |
-          if [ -f v2-page-test-report.json ]; then
-            TOTAL=$(jq -r '.totalPages' v2-page-test-report.json)
-            PASSED=$(jq -r '.passed' v2-page-test-report.json)
-            FAILED=$(jq -r '.failed' v2-page-test-report.json)
+          if [ -f tools/v2-page-test-report.json ]; then
+            TOTAL=$(jq -r '.totalPages' tools/v2-page-test-report.json)
+            PASSED=$(jq -r '.passed' tools/v2-page-test-report.json)
+            FAILED=$(jq -r '.failed' tools/v2-page-test-report.json)
             
             echo "total=$TOTAL" >> $GITHUB_OUTPUT
             echo "passed=$PASSED" >> $GITHUB_OUTPUT
             echo "failed=$FAILED" >> $GITHUB_OUTPUT
             
             # Get failed pages summary
-            FAILED_PAGES=$(jq -r '.results[] | select(.success == false) | .pagePath' v2-page-test-report.json | head -10)
+            FAILED_PAGES=$(jq -r '.results[] | select(.success == false) | .pagePath' tools/v2-page-test-report.json | head -10)
             echo "failed_pages<<EOF" >> $GITHUB_OUTPUT
             echo "$FAILED_PAGES" >> $GITHUB_OUTPUT
             echo "EOF" >> $GITHUB_OUTPUT
@@ -105,6 +106,7 @@ jobs:
 
       - name: Comment on PR
         if: github.event_name == 'pull_request' && always()
+        continue-on-error: true  # Prevent job failure if commenting fails (e.g., fork permissions)
         uses: actions/github-script@v7
         with:
           script: |
@@ -141,32 +143,45 @@ jobs:
               }
             }
             
-            // Find existing comment
-            const comments = await github.rest.issues.listComments({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: context.issue.number,
-            });
-            
-            const botComment = comments.data.find(comment => 
-              comment.user.type === 'Bot' && 
-              comment.body.includes('## 📊 V2 Pages Test Results')
-            );
-            
-            if (botComment) {
-              await github.rest.issues.updateComment({
+            try {
+              // Find existing comment
+              const issueNumber = context.payload.pull_request?.number || context.issue?.number;
+              
+              if (!issueNumber) {
+                console.log('⚠️ No issue number found, skipping comment');
+                return;
+              }
+              
+              const comments = await github.rest.issues.listComments({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                comment_id: botComment.id,
-                body: comment
+                issue_number: issueNumber,
               });
-            } else {
-              await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.issue.number,
-                body: comment
-              });
+              
+              const botComment = comments.data.find(comment => 
+                comment.user.type === 'Bot' && 
+                comment.body.includes('## 📊 V2 Pages Test Results')
+              );
+              
+              if (botComment) {
+                await github.rest.issues.updateComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  comment_id: botComment.id,
+                  body: comment
+                });
+              } else {
+                await github.rest.issues.createComment({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  issue_number: issueNumber,
+                  body: comment
+                });
+              }
+              console.log('✅ Comment posted successfully');
+            } catch (error) {
+              console.log('⚠️ Could not post comment (likely due to fork permissions):', error.message);
+              console.log('Test results:', { total, passed, failed });
             }
 
       - name: Stop Mintlify dev server
