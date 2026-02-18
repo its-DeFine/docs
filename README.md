@@ -4,6 +4,12 @@ The official documentation repository for [Livepeer](https://livepeer.org), a de
 
 Built with [Mintlify](https://mintlify.com) and deployed at [docs.livepeer.org](https://docs.livepeer.org).
 
+## NOTE
+
+-Looking for the old docs? They are in this repo under `/v1`.
+
+- Additionally, you can find the original repo on the [docs-v1 branch](https://github.com/livepeer/docs/tree/docs-v1)
+
 ## IMPORTANT
 
 - **THIS REPOSITORY IS mostly COMMUNITY MAINTAINED.** The Livepeer Foundation helps guide it, however, generally if you think improvements are needed you should submit them (via PR) or create an issue asking for the feature/bug fix etc. See the [Contributing section](#-contributing) for details.
@@ -27,30 +33,35 @@ Built with [Mintlify](https://mintlify.com) and deployed at [docs.livepeer.org](
 ### Setup
 
 1. **Fork or clone the repository:**
+
    ```bash
    # If you forked the repo:
    git clone https://github.com/YOUR_USERNAME/docs.git
    cd docs
-   
+
    # Or if you have direct access:
    git clone https://github.com/livepeer/docs.git
    cd docs
    ```
 
 2. **Install Mintlify CLI:**
+
    ```bash
    npm i -g mintlify
    ```
+
    See [Development](#-development) section for troubleshooting and detailed usage.
 
 3. **Install pre-commit hooks** (HIGHLY RECOMMENDED - especially if using AI agents):
+
    ```bash
    # First, install dependencies (required for tests to run)
    cd tools && npm install
-   
+
    # Then install hooks
    cd .. && ./.githooks/install.sh
    ```
+
    See [Pre-Commit Hooks](#-pre-commit-hooks) section for details on what the hooks check.
 
 4. **Start the development server:**
@@ -77,6 +88,7 @@ We welcome contributions! Please read the following before making changes:
 ### Before You Start
 
 **MANDATORY Reading:**
+
 1. **[Style Guide](v2/pages/07_resources/documentation-guide/style-guide.mdx)** - Production-grade styling guidelines, CSS Custom Properties, Mintlify limitations, and best practices
 2. **[Documentation Guide](v2/pages/07_resources/documentation-guide/documentation-guide.mdx)** - Complete guide to writing and organizing documentation
 3. **[Component Library](v2/pages/07_resources/documentation-guide/component-library.mdx)** - Available components and how to use them
@@ -104,6 +116,7 @@ We welcome contributions! Please read the following before making changes:
 ### Component Development
 
 **Creating New Components:**
+
 1. **Location:** Create components in `snippets/components/`
 2. **File naming:** Use kebab-case (e.g., `my-component.jsx`)
 3. **Component naming:** Use PascalCase (e.g., `MyComponent`)
@@ -112,6 +125,7 @@ We welcome contributions! Please read the following before making changes:
 6. **Check component library first:** Review existing components before creating new ones
 
 **Component Immutability Rules:**
+
 - ⚠️ **CRITICAL:** Components in `snippets/components/` are **IMMUTABLE**
 - **NEVER modify existing component files** - They're used across many pages
 - **Allowed:** Creating new components, modifying MDX files that use components
@@ -119,6 +133,7 @@ We welcome contributions! Please read the following before making changes:
 - **Exception:** Only if explicitly requested AND after confirming impact assessment
 
 **Component Organization:**
+
 - Organize by domain/feature (e.g., `components/domain/SHARED/`, `components/domain/GATEWAYS/`)
 - Use descriptive names that indicate purpose
 - Document component props and usage
@@ -130,10 +145,12 @@ See [Component Library](v2/pages/07_resources/documentation-guide/component-libr
 **⚠️ IMPORTANT:** When creating issues, **always use the GitHub issue templates**. The templates automatically apply the `docs-v2` and `help wanted` labels, so you don't need to add them manually.
 
 **Available Templates:**
+
 - **Docs Review** - For reviewing multiple documentation pages
 - **Request Feature (Internal Team)** - For internal team feature requests
 
 **If no template fits:**
+
 - Manually add the `docs-v2` label (REQUIRED for all v2 documentation issues)
 - Add `help wanted` label if you want community help
 - Include relevant labels from the [label categories](#standard-github-labels) below
@@ -141,18 +158,21 @@ See [Component Library](v2/pages/07_resources/documentation-guide/component-libr
 ### Standard GitHub Labels
 
 **Priority:**
+
 - `priority: critical` - Security issues, broken critical paths
 - `priority: high` - Important content gaps, user blockers
 - `priority: medium` - Standard improvements
 - `priority: low` - Nice-to-have enhancements
 
 **Type:**
+
 - `type: bug` - Something is broken
 - `type: enhancement` - Improvement or new feature
 - `type: documentation` - Documentation-related
 - `type: question` - Question or clarification needed
 
 **Area (Documentation Sections):**
+
 - `area: ai` - AI/Gateway documentation
 - `area: developers` - Developer documentation
 - `area: orchestrators` - Orchestrator documentation
@@ -163,6 +183,7 @@ See [Component Library](v2/pages/07_resources/documentation-guide/component-libr
 - `area: style-guide` - Style guide violations or questions
 
 **Status:**
+
 - `status: needs-triage` - Needs initial review
 - `status: in-progress` - Work in progress
 - `status: blocked` - Blocked on something
@@ -170,6 +191,7 @@ See [Component Library](v2/pages/07_resources/documentation-guide/component-libr
 - `good first issue` - Good for new contributors
 
 **Other Common Labels:**
+
 - `help wanted` - Community help requested (automatically applied by templates)
 - `wontfix` - Issue won't be fixed
 - `duplicate` - Duplicate of another issue
@@ -209,11 +231,13 @@ See [CONTRIBUTING.md](contribute/CONTRIBUTING.md) for detailed contribution guid
 ### Local Development Setup
 
 **Install Mintlify CLI:**
+
 ```bash
 npm i -g mintlify
 ```
 
 **Start the development server:**
+
 ```bash
 mint dev
 ```
@@ -243,6 +267,7 @@ npm run format-mdx     # Format MDX files
 ```
 
 Or from root directory:
+
 ```bash
 node tests/run-all.js                    # All tests
 node tests/unit/style-guide.test.js     # Style guide only
@@ -256,6 +281,7 @@ See `tools/package.json` for all available scripts. See [Testing](#-testing) sec
 This repository uses git hooks to enforce style guide compliance and code quality. **Hooks are REQUIRED and must be installed.**
 
 **Prerequisites:**
+
 1. Install dependencies: `cd tools && npm install`
 2. Install hooks: `./.githooks/install.sh`
 
@@ -311,6 +337,7 @@ SKIP_ALL=1 git commit -m "Critical hotfix"
 **Troubleshooting:**
 
 **Hook not running?**
+
 ```bash
 # Reinstall hooks
 ./.githooks/install.sh
@@ -320,12 +347,14 @@ ls -la .git/hooks/pre-commit
 ```
 
 **Hook failing?**
+
 - Read the error message carefully
 - Fix the violations (structure, style, imports)
 - Don't bypass unless it's a true emergency
 - See [contribute/CONTRIBUTING/GIT-HOOKS.md](contribute/CONTRIBUTING/GIT-HOOKS.md) for help
 
 **Common errors:**
+
 - **MDX syntax errors:** Check for unclosed tags, incorrect JSX syntax
 - **Import path errors:** Use absolute paths (`/snippets/components/...`)
 - **Structure violations:** Check `.whitelist` for allowed root files
@@ -342,6 +371,7 @@ This repository includes a comprehensive test suite to ensure code quality, styl
 ### When Tests Run
 
 **1. Pre-Commit Hooks (Local - Automatic)**
+
 - **When:** Every time you run `git commit`
 - **Speed:** Fast (~10-30 seconds) - only tests staged files
 - **What Runs:**
@@ -352,6 +382,7 @@ This repository includes a comprehensive test suite to ensure code quality, styl
 - **Blocks Commit:** YES - if violations found
 
 **2. CI/CD Workflow (GitHub Actions - Automatic)**
+
 - **When:** On push to `main` or `docs-v2-preview`, or on pull requests
 - **Speed:** Slower (~5-10 minutes) - tests entire codebase
 - **What Runs:**
@@ -365,6 +396,7 @@ This repository includes a comprehensive test suite to ensure code quality, styl
 - **Location:** `.github/workflows/test-suite.yml`
 
 **3. Manual Execution (On-Demand)**
+
 - **When:** You run them manually
 - **Commands:** See [Development](#-development) section for test commands
 
@@ -617,6 +649,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 ### Directory Descriptions
 
 **`.github/`** - GitHub configuration and automation
+
 - **workflows/**: GitHub Actions workflows for CI/CD, testing, and auto-updates
 - **scripts/**: Helper scripts for CI/CD processes (data fetching, table generation)
 - **ISSUE_TEMPLATE/**: Issue templates that automatically apply `docs-v2` and `help wanted` labels
@@ -624,6 +657,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 - **AGENTS.md, augment-instructions.md, copilot-instructions.md**: AI agent guidelines
 
 **`.githooks/`** - Git pre-commit hooks
+
 - **pre-commit**: Main hook that enforces structure, style, and quality checks
 - **verify.sh**: Verification script called by pre-commit hook
 - **verify-browser.js**: Browser validation for MDX pages
@@ -631,10 +665,12 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 - **BYPASS.md**: Documentation for bypass flags (emergency use only)
 
 **`ai-tools/`** - AI development tool setup guides
+
 - Setup instructions for Claude Code, Cursor, and Windsurf IDEs
 - These files are at root level (whitelisted)
 
 **`api/`** - API specifications (OpenAPI/Swagger)
+
 - Consolidated location for all API specs
 - **studio.yaml**: Main Livepeer Studio API
 - **ai-worker.yaml**: AI Worker API
@@ -642,11 +678,13 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 - **worker/**: Worker-specific API files
 
 **`contribute/`** - Contribution documentation
+
 - **CONTRIBUTING.md**: Main contribution guide
 - **CONTRIBUTING/**: Detailed contribution sub-docs (Git hooks, agent instructions)
 - **STRUCTURE.md**: Detailed repository structure rules
 
 **`snippets/`** - Mintlify snippets directory (MUST follow Mintlify conventions)
+
 - **assets/**: Static assets (images, videos, logos, favicon) organized by domain
 - **components/**: React/JSX components organized by type (content, display, domain, layout, primitives)
 - **data/**: Data files (gateways, references, variables) - NOT OpenAPI specs
@@ -659,6 +697,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 - **styles/**: Snippet-specific styles (NOT global styles - global styles in root `style.css`)
 
 **`tools/`** - Development tooling and scripts
+
 - **ai-rules/**: AI agent rules, guidelines, and protocols
 - **config/**: Tool configurations (cspell, workflows)
 - **scripts/**: Development scripts organized by purpose:
@@ -668,6 +707,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 - **package.json**: Tooling dependencies
 
 **`tests/`** - Test suite
+
 - **config/**: Test configuration files
 - **fixtures/**: Test fixtures and sample data
 - **integration/**: Integration tests (browser tests)
@@ -677,6 +717,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 - **run-all.js**: Script to run all tests
 
 **`tasks/`** - AI working directory (NOT for production content)
+
 - **plan/**: Planning documents and task specifications
   - **complete/**: Completed plans archive
 - **reports/**: Task outputs and audit reports
@@ -685,12 +726,14 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 - **errors/**: Error documentation and troubleshooting guides
 
 **`v1/`** - IMMUTABLE/FROZEN legacy documentation
+
 - **pages/**: Legacy documentation pages
 - **ai/, api-reference/, delegators/, developers/, gateways/, orchestrators/**: Legacy section docs
 - **images/, references/, sdks/, self-hosting/**: Legacy assets and references
 - ⚠️ **DO NOT MODIFY** - Pre-commit hook blocks all changes
 
 **`v2/`** - Active documentation version
+
 - **pages/**: Active documentation organized by section (home, about, developers, etc.)
 - **assets/**: V2-specific assets
 - **scripts/**: V2-specific scripts
@@ -705,7 +748,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 4. **No `public/` folder**: Mintlify doesn't support it - favicon/logo are in `snippets/assets/`
 5. **No `styles/` folder**: Mintlify only allows ONE CSS file at root (`style.css`)
    - Snippet-specific styles can go in `snippets/styles/` but global styles must be in root
-6. **Scripts**: 
+6. **Scripts**:
    - Development scripts → `tools/scripts/` organized by purpose
    - Snippet-related scripts → `snippets/scripts/` (data generation, fetching)
    - Task scripts → `tasks/scripts/`
@@ -717,6 +760,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 ### Enforcement
 
 The pre-commit hook automatically enforces:
+
 - ✅ Root directory whitelist (blocks unauthorized files)
 - ✅ Snippets directory structure (blocks scripts/wiki/styles in snippets/)
 - ✅ v1/ frozen protection (blocks all changes to v1/)
@@ -724,6 +768,7 @@ The pre-commit hook automatically enforces:
 - ✅ Import path enforcement (absolute paths required)
 
 **Bypass flags available** (IF YOU ARE AN AI YOU SHOULD NEVER EVER USE THESE):
+
 - `SKIP_STRUCTURE_CHECK=1` - Skip structure checks
 - `SKIP_STYLE_CHECK=1` - Skip style guide checks
 - `SKIP_VERIFICATION=1` - Skip verification scripts
@@ -748,12 +793,14 @@ See [`.githooks/BYPASS.md`](.githooks/BYPASS.md) for details.
 ### v1 vs v2 Documentation
 
 **v1/ Directory:**
+
 - **Status:** IMMUTABLE/FROZEN - DO NOT CHANGE, REMOVE, OR ARCHIVE
 - **Purpose:** Legacy documentation preserved for historical reference
 - **Location:** `v1/pages/`
 - **Enforcement:** Pre-commit hook blocks all changes to `v1/`
 
 **v2/ Directory:**
+
 - **Status:** ACTIVE - Current documentation version
 - **Purpose:** Active documentation being maintained and updated
 - **Location:** `v2/pages/`
@@ -775,24 +822,29 @@ This repository uses automated workflows to keep content up-to-date:
 ### Auto-Update Workflows
 
 **1. Livepeer Release Version** (`.github/workflows/update-livepeer-release.yml`)
+
 - **Frequency:** Every 30 minutes
 - **Purpose:** Updates latest Livepeer version from GitHub releases
 - **Updates:** `snippets/automationData/globals/globals.mdx`
 - **Manual trigger:** Available via `workflow_dispatch`
 
 **2. Blog Data** (`.github/workflows/update-blog-data.yml`)
+
 - **Purpose:** Updates blog content from external sources
 - **Updates:** Blog-related data files
 
 **3. Forum Data** (`.github/workflows/update-forum-data.yml`)
+
 - **Purpose:** Updates forum content
 - **Updates:** Forum-related data files
 
 **4. YouTube Data** (`.github/workflows/update-youtube-data.yml`)
+
 - **Purpose:** Updates YouTube video content
 - **Updates:** YouTube-related data files
 
 **5. Ghost Blog Data** (`.github/workflows/update-ghost-blog-data.yml`)
+
 - **Purpose:** Updates Ghost blog content
 - **Updates:** Ghost blog-related data files
 
@@ -812,6 +864,7 @@ See [Automations & Workflows Guide](v2/pages/07_resources/documentation-guide/au
 ### Deployment Process
 
 **Mintlify Auto-Deployment:**
+
 - Changes merged to `main` or `docs-v2-preview` are automatically deployed by Mintlify
 - Deployment typically takes 2-5 minutes after merge
 - Live site: [docs.livepeer.org](https://docs.livepeer.org)
@@ -822,15 +875,18 @@ See [Automations & Workflows Guide](v2/pages/07_resources/documentation-guide/au
 This repository uses several GitHub Actions workflows:
 
 **1. Test Suite** (`.github/workflows/test-suite.yml`)
+
 - Runs on: Push to `main`/`docs-v2-preview`, Pull requests
 - Tests: Style guide, MDX, spelling, quality, browser tests
 - Blocks PR if tests fail
 
 **2. Broken Links Check** (`.github/workflows/broken-links.yml`)
+
 - Validates all links in documentation
 - Runs on pull requests
 
 **3. Auto-Update Workflows:**
+
 - **Update Livepeer Release** (`.github/workflows/update-livepeer-release.yml`)
   - Runs every 30 minutes
   - Updates latest Livepeer version from GitHub releases
@@ -842,6 +898,7 @@ This repository uses several GitHub Actions workflows:
   - Updates YouTube video content
 
 **4. SDK Generation** (`.github/workflows/sdk_generation.yaml`)
+
 - Generates SDK documentation from API specs
 
 ### Build Process
