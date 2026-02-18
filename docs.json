@@ -3119,7 +3119,7 @@
     "dark": "/snippets/assets/logo/dark.svg"
   },
   "api": {
-    "openapi": "openapi.yaml",
+    "openapi": "api/openapi.yaml",
     "mdx": {
       "server": "https://livepeer.studio/api"
     }
