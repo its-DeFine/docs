@@ -274,6 +274,7 @@ lpd help
 lpd dev --test --test-mode staged
 lpd test --browser
 lpd hooks status
+lpd hooks info
 lpd scripts list --group tools
 ```
 
@@ -382,6 +383,15 @@ git commit -m "Remove obsolete files" --trailer "allow-deletions=true"
 **⚠️ Warning:** Bypassing hooks can lead to broken builds, style violations, and merge conflicts. Always fix issues properly when possible.
 **⚠️ `.whitelist` is protected:** Only humans may use the trailer override above.
 **⚠️ Deletions are protected:** Only humans may use the deletion trailer override.
+
+**LPD Hook Command Reference:**
+
+```bash
+lpd hooks install   # Install/update hooks from .githooks/
+lpd hooks status    # Check hook install/sync status
+lpd hooks verify    # Run hook verification checks
+lpd hooks info      # Print hooks, bypass flags, and override guidance
+```
 
 **Troubleshooting:**
 

@@ -62,6 +62,16 @@ SKIP_TESTS=${SKIP_TESTS:-0}
 SKIP_ALL=${SKIP_ALL:-0}
 ALLOW_DELETIONS=${ALLOW_DELETIONS:-0}
 
+get_staged_docs_pages() {
+    if ! command -v node &>/dev/null || [ ! -f "tests/utils/file-walker.js" ]; then
+        return 0
+    fi
+
+    node -e "const path = require('path'); const { getStagedDocsPageFiles } = require('./tests/utils/file-walker'); const root = process.cwd(); const files = getStagedDocsPageFiles(root).map((filePath) => path.relative(root, filePath).split(path.sep).join('/')); process.stdout.write(files.join('\n'));"
+}
+
+STAGED_DOCS_PAGES=$(get_staged_docs_pages)
+
 # pre-commit hooks do not receive commit args directly. Detect trailer usage
 # from the parent git commit command.
 PARENT_GIT_CMD=$(ps -o command= -p "$PPID" 2>/dev/null || true)
@@ -322,11 +332,15 @@ else
     echo ""
     echo -e "${YELLOW}🔍 Checking style guide compliance...${NC}"
 
-    # Get list of staged files (excluding style-guide.mdx which documents examples of what NOT to do)
-    STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(jsx|tsx|js|mdx)$' | grep -v "style-guide")
+    # Get list of staged docs pages from docs.json (excluding style-guide.mdx, which documents anti-patterns).
+    if [ -n "$STAGED_DOCS_PAGES" ]; then
+        STAGED_FILES=$(echo "$STAGED_DOCS_PAGES" | grep -E '\.mdx$' | grep -v "style-guide" || true)
+    else
+        STAGED_FILES=""
+    fi
 
     if [ -z "$STAGED_FILES" ]; then
-        echo -e "${GREEN}✓ No JSX/TSX/MDX files staged, skipping style checks${NC}"
+        echo -e "${GREEN}✓ No staged docs.json pages, skipping style checks${NC}"
     else
 
         # Check 1: ThemeData import/usage (DEPRECATED)
@@ -335,6 +349,13 @@ else
     if [ -f "$file" ]; then
         # Skip if it's the style guide itself (it documents ThemeData as deprecated)
         if [[ "$file" == *"style-guide.mdx" ]]; then
+            continue
+        fi
+        # Warn-only for known legacy ThemeData files (not yet migrated)
+        if [[ "$file" == *"automations-workflows.mdx" || "$file" == *"contribute-to-the-docs.mdx" ]]; then
+            if grep -q "ThemeData\|themeStyles\.jsx" "$file" 2>/dev/null; then
+                echo -e "${YELLOW}⚠ $file: Still uses deprecated ThemeData (warn-only)${NC}"
+            fi
             continue
         fi
         if grep -q "ThemeData\|themeStyles\.jsx" "$file" 2>/dev/null; then

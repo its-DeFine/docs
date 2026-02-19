@@ -38,6 +38,7 @@
 const { execSync } = require('child_process');
 const path = require('path');
 const fs = require('fs');
+const { getStagedDocsPageFiles } = require('../tests/utils/file-walker');
 
 // Find puppeteer in tools/node_modules, tests/node_modules, or root node_modules
 let puppeteer;
@@ -70,13 +71,16 @@ const MAX_PAGES = 10; // Limit to 10 pages for pre-commit speed
 /**
  * Get staged MDX files from git
  */
+function toPosix(filePath) {
+  return String(filePath || '').split(path.sep).join('/');
+}
+
 function getStagedMdxFiles() {
   try {
-    const output = execSync('git diff --cached --name-only --diff-filter=ACM', { encoding: 'utf8' });
-    const files = output
-      .split('\n')
-      .filter(line => line.trim() && line.endsWith('.mdx'))
-      .filter(line => line.startsWith('v2/pages/'))
+    const repoRoot = execSync('git rev-parse --show-toplevel', { encoding: 'utf8' }).trim();
+    const files = getStagedDocsPageFiles(repoRoot)
+      .map((filePath) => toPosix(path.relative(repoRoot, filePath)))
+      .filter((filePath) => filePath.endsWith('.mdx') && filePath.startsWith('v2/pages/'))
       .slice(0, MAX_PAGES); // Limit for speed
     
     return files;

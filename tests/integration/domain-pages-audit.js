@@ -32,8 +32,8 @@
 
 const fs = require('fs');
 const path = require('path');
-const { execSync } = require('child_process');
 const puppeteer = require('puppeteer');
+const { getStagedDocsPageFiles, toDocsRouteKeyFromFile } = require('../utils/file-walker');
 
 const args = process.argv.slice(2);
 const stagedOnly = args.includes('--staged');
@@ -104,20 +104,9 @@ function getAllDocsPages() {
 }
 
 function getStagedDocsPages() {
-  let staged = '';
-  try {
-    staged = execSync('git diff --cached --name-only --diff-filter=ACM', { encoding: 'utf8' });
-  } catch (_err) {
-    return [];
-  }
-
-  return staged
-    .split('\n')
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .filter((file) => file.endsWith('.mdx'))
-    .filter((file) => file.startsWith('v1/') || file.startsWith('v2/pages/'))
-    .map((file) => file.replace(/\.mdx$/, ''));
+  return getStagedDocsPageFiles(ROOT)
+    .map((filePath) => toDocsRouteKeyFromFile(filePath, ROOT))
+    .filter(Boolean);
 }
 
 function is404Content(text, title) {

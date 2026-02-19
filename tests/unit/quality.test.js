@@ -28,7 +28,7 @@
  * Quality checks: alt text, links, frontmatter, SEO
  */
 
-const { getMdxFiles, getStagedFiles, readFile } = require('../utils/file-walker');
+const { getMdxFiles, getStagedDocsPageFiles, readFile } = require('../utils/file-walker');
 const { extractFrontmatter } = require('../utils/mdx-parser');
 
 let errors = [];
@@ -166,7 +166,7 @@ function runTests(options = {}) {
   let testFiles = files;
   if (!testFiles) {
     if (stagedOnly) {
-      testFiles = getStagedFiles().filter(f => f.endsWith('.mdx'));
+      testFiles = getStagedDocsPageFiles().filter(f => f.endsWith('.mdx'));
     } else {
       testFiles = getMdxFiles();
     }

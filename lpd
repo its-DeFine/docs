@@ -62,7 +62,7 @@ Usage:
     - flags: optionally skip browser checks and set domain audit base URL.
     - info: Run CI-like validation flow locally.
 
-  lpd hooks <install|status|verify|<hook-script tokens...>>
+  lpd hooks <install|status|verify|info|<hook-script tokens...>>
     - flags: subcommands define the hook action.
     - info: Manage hooks or run hook scripts.
 
@@ -135,6 +135,7 @@ Command Groups:
     lpd hooks install
     lpd hooks status
     lpd hooks verify
+    lpd hooks info
 
   script runner
     lpd scripts list [--group tools|tasks|tests|v2|hooks] [--show-ignored]
@@ -604,12 +605,59 @@ cmd_hooks() {
                 finish 1 "hooks verify" "Hook verification failed."
             fi
             ;;
+        info)
+            cat <<'EOF'
+`lpd hooks` manages repository git hooks and related validation scripts.
+
+Usage:
+  lpd hooks install
+    - info: Install/update `.git/hooks/pre-commit` from `.githooks/pre-commit`.
+
+  lpd hooks status
+    - info: Check whether the installed pre-commit hook exists, is executable, and matches source.
+
+  lpd hooks verify
+    - info: Run hook verification checks from `.githooks/verify.sh`.
+
+  lpd hooks <hook-script tokens...> [-- script args]
+    - info: Run managed scripts under `.githooks/` (via script runner fallback).
+
+Hook Scripts:
+  - `.githooks/install.sh`
+  - `.githooks/pre-commit`
+  - `.githooks/pre-commit-no-deletions`
+  - `.githooks/verify.sh`
+  - `.githooks/verify-browser.js`
+  - `.githooks/server-manager.js`
+
+Bypass Flags (pre-commit; use sparingly):
+  - `SKIP_STRUCTURE_CHECK=1`  : skip root/snippets/v1 structure checks.
+  - `SKIP_STYLE_CHECK=1`      : skip style-guide compliance checks.
+  - `SKIP_VERIFICATION=1`     : skip verification script checks.
+  - `SKIP_TESTS=1`            : skip staged test suite checks.
+  - `SKIP_ALL=1`              : skip all pre-commit checks.
+
+Human-Only Overrides:
+  - `git commit ... --trailer "allow-whitelist-edit=true"`
+  - `git commit ... --trailer "allow-deletions=true"`
+
+Legacy Environment Overrides:
+  - `ALLOW_WHITELIST_EDIT=1` (legacy fallback for whitelist edits)
+  - `ALLOW_DELETIONS=1`      (legacy fallback for deletions)
+
+Notes:
+  - Human `.whitelist` edits require explicit human override.
+  - Human deletions outside `tasks/` require explicit human override.
+  - See `.githooks/BYPASS.md` and `contribute/CONTRIBUTING/GIT-HOOKS.md` for policy and details.
+EOF
+            ;;
         --help|-h)
             cat <<'EOF'
 Usage:
   lpd hooks install
   lpd hooks status
   lpd hooks verify
+  lpd hooks info
   lpd hooks <hook-script tokens...> [-- script args]
 
 Note:

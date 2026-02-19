@@ -15,8 +15,8 @@ This GitHub Actions workflow automatically tests all v2 pages from `docs.json` u
 
 ## When it runs
 
-- **On push** to `main` or `docs-v2-preview` branches
-- **On pull requests** targeting `main` or `docs-v2-preview` branches
+- **On push** to `main` or `docs-v2` branches
+- **On pull requests** targeting `main` or `docs-v2` branches
 
 ## Workflow steps
 

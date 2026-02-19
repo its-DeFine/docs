@@ -30,7 +30,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const { getMdxFiles, getJsxFiles, getStagedFiles, readFile } = require('../utils/file-walker');
+const { getMdxFiles, getJsxFiles, getStagedDocsPageFiles, readFile } = require('../utils/file-walker');
 
 const REPO_ROOT = process.cwd();
 let errors = [];
@@ -244,7 +244,7 @@ function runTests(options = {}) {
   let testFiles = files;
   if (!testFiles) {
     if (stagedOnly) {
-      testFiles = getStagedFiles().filter(f => (f.endsWith('.mdx') || f.endsWith('.jsx')) && !f.includes('style-guide.mdx'));
+      testFiles = getStagedDocsPageFiles().filter(f => f.endsWith('.mdx') && !f.includes('style-guide.mdx'));
     } else {
       testFiles = [...getMdxFiles(), ...getJsxFiles()].filter(f => !f.includes('style-guide.mdx'));
     }

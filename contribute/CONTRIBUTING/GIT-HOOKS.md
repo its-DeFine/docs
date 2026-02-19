@@ -12,6 +12,19 @@ Git hooks are scripts that run automatically at certain points in the git workfl
 
 ## Pre-commit Hook
 
+### LPD Hook Commands
+
+Use the Livepeer Docs CLI (`lpd`) to manage and inspect hooks:
+
+```bash
+lpd hooks install   # Install/update hooks from .githooks/
+lpd hooks status    # Check if installed hook is current/executable
+lpd hooks verify    # Run .githooks/verify.sh checks
+lpd hooks info      # Print hooks, bypass flags, and override guidance
+```
+
+`lpd hooks info` is the command reference for hook scripts, bypass flags (`SKIP_*`), and human-only trailer overrides.
+
 ### What It Does
 
 The pre-commit hook runs automatically when you run `git commit`. It checks:

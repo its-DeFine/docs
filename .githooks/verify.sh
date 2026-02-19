@@ -43,6 +43,16 @@ echo -e "${YELLOW}🔍 Running verification checks...${NC}"
 # Get staged files
 STAGED_FILES=$(git diff --cached --name-only --diff-filter=ACM)
 
+get_staged_docs_pages() {
+    if ! command -v node &>/dev/null || [ ! -f "tests/utils/file-walker.js" ]; then
+        return 0
+    fi
+
+    node -e "const path = require('path'); const { getStagedDocsPageFiles } = require('./tests/utils/file-walker'); const root = process.cwd(); const files = getStagedDocsPageFiles(root).map((filePath) => path.relative(root, filePath).split(path.sep).join('/')); process.stdout.write(files.join('\n'));"
+}
+
+STAGED_DOCS_PAGES=$(get_staged_docs_pages)
+
 if [ -z "$STAGED_FILES" ]; then
     echo -e "${GREEN}✓ No files staged${NC}"
     exit 0
@@ -50,7 +60,11 @@ fi
 
 # Check 1: MDX syntax validation (basic)
 echo "Checking MDX syntax..."
-MDX_FILES=$(echo "$STAGED_FILES" | grep -E '\.mdx$' || true)
+if [ -n "$STAGED_DOCS_PAGES" ]; then
+    MDX_FILES=$(echo "$STAGED_DOCS_PAGES" | grep -E '\.mdx$' || true)
+else
+    MDX_FILES=$(echo "$STAGED_FILES" | grep -E '\.mdx$' || true)
+fi
 if [ -n "$MDX_FILES" ]; then
     for file in $MDX_FILES; do
         if [ -f "$file" ]; then
@@ -137,7 +151,11 @@ fi
 
 # Check 6: Import path validation (absolute paths for snippets)
 echo "Checking import paths..."
-JSX_MDX_FILES=$(echo "$STAGED_FILES" | grep -E '\.(jsx|tsx|mdx)$' | grep -v "style-guide" || true)
+if [ -n "$STAGED_DOCS_PAGES" ]; then
+    JSX_MDX_FILES=$(echo "$STAGED_DOCS_PAGES" | grep -E '\.mdx$' | grep -v "style-guide" || true)
+else
+    JSX_MDX_FILES=$(echo "$STAGED_FILES" | grep -E '\.(jsx|tsx|mdx)$' | grep -v "style-guide" || true)
+fi
 if [ -n "$JSX_MDX_FILES" ]; then
     for file in $JSX_MDX_FILES; do
         if [ -f "$file" ]; then

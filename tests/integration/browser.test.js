@@ -32,7 +32,7 @@
 const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
-const { getMdxFiles, getStagedFiles } = require('../utils/file-walker');
+const { getMdxFiles, getStagedDocsPageFiles } = require('../utils/file-walker');
 const { getV2Pages } = require('../../tools/scripts/test-v2-pages');
 const { ensureServerRunning, stopServer } = require('../../.githooks/server-manager');
 
@@ -224,7 +224,7 @@ async function runTests(options = {}) {
   if (!testFiles) {
     if (stagedOnly) {
       // Pre-commit: only test staged files (limited to 10 for speed)
-      testFiles = getStagedFiles().filter(f => f.endsWith('.mdx') && f.includes('v2/pages')).slice(0, 10);
+      testFiles = getStagedDocsPageFiles().filter(f => f.endsWith('.mdx') && f.includes('v2/pages')).slice(0, 10);
     } else {
       // Full test: get ALL pages from docs.json (ensures all pages are tested)
       try {
