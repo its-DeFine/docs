@@ -48,7 +48,16 @@ The Livepeer Foundation helps guide it, however, generally if you think improvem
    cd docs
    ```
 
-2. **Install Mintlify CLI:**
+2. **Run one-time repo setup (installs deps/hooks and wires `lpd` on PATH):**
+
+   ```bash
+   bash lpd setup --yes
+   ```
+
+   This creates a user-level `lpd` command via symlink and updates your shell config if needed.
+   If `lpd` is not available in the current shell yet, use `bash lpd <command>` until you reload shell config.
+
+3. **Install Mintlify CLI (if not already installed):**
 
    ```bash
    npm i -g mintlify
@@ -56,7 +65,7 @@ The Livepeer Foundation helps guide it, however, generally if you think improvem
 
    See [Development](#-development) section for troubleshooting and detailed usage.
 
-3. **Install pre-commit hooks** (HIGHLY RECOMMENDED - especially if using AI agents):
+4. **Install pre-commit hooks** (HIGHLY RECOMMENDED - especially if using AI agents):
 
    ```bash
    # First, install dependencies (required for tests to run)
@@ -68,9 +77,13 @@ The Livepeer Foundation helps guide it, however, generally if you think improvem
 
    See [Pre-Commit Hooks](#-pre-commit-hooks) section for details on what the hooks check.
 
-4. **Start the development server (auto-installs/updates git hooks):**
+5. **Start the development server (auto-installs/updates git hooks):**
    ```bash
-   ./lp mint dev
+   lpd dev
+   ```
+   Alternative (no PATH required):
+   ```bash
+   bash lpd dev
    ```
    The docs will be available at `http://localhost:3000`. See [Development](#-development) section for troubleshooting.
 
@@ -78,7 +91,7 @@ The Livepeer Foundation helps guide it, however, generally if you think improvem
 
 1. **Create a branch:** `git checkout -b docs/your-feature-name`
 2. **Make your changes** in `v2/pages/` or `snippets/`
-3. **Test locally:** `./lp mint dev`
+3. **Test locally:** `lpd dev`
 4. **Commit your changes:** `git commit -m "docs: description of your change"`
    - Pre-commit hooks will run automatically (see [Pre-Commit Hooks](#-pre-commit-hooks))
 5. **Push and create a PR:** `git push origin docs/your-feature-name`
@@ -215,7 +228,7 @@ See [Component Library](v2/pages/07_resources/documentation-guide/component-libr
 
 1. **Branch naming:** Use `docs/` prefix (e.g., `docs/fix-typo-quickstart`)
 2. **Commit messages:** Use conventional format: `docs: description`
-3. **Test locally:** Always test with `./lp mint dev` before submitting
+3. **Test locally:** Always test with `lpd dev` before submitting
 4. **Follow style guide:** All changes must pass pre-commit hooks
 5. **Update related docs:** If structure changes, update this README
 
@@ -243,16 +256,34 @@ npm i -g mintlify
 **Start the development server (auto-installs/updates git hooks):**
 
 ```bash
-./lp mint dev
+lpd dev
 ```
 
 To see launcher options:
 
 ```bash
-./lp mint dev --help
+lpd dev --help
 ```
 
 Then open **http://localhost:3000** in your browser. To test the AI assistant: open **Home → Test** in the sidebar and use the chat button.
+
+**LP CLI Quick Reference:**
+
+```bash
+lpd help
+lpd dev --test --test-mode staged
+lpd test --browser
+lpd hooks status
+lpd scripts list --group tools
+```
+
+**Optional `.lpdignore`:**
+
+You can create a root `.lpdignore` (gitignore-style patterns) to hide/block scripts from `lpd scripts ...` discovery and execution.
+
+```bash
+cp tools/cli/lpdignore.example .lpdignore
+```
 
 **Troubleshooting Mintlify:**
 
@@ -260,7 +291,7 @@ If you see `MODULE_NOT_FOUND` for `_document.js`, **"No docs config"**, or **ENO
 
 ```bash
 rm -rf ~/.mintlify ~/.mintlify-last
-./lp mint dev
+lpd dev
 ```
 
 **Running Tests:**
@@ -913,7 +944,7 @@ This repository uses several GitHub Actions workflows:
 
 ### Build Process
 
-- **Local Development:** `./lp mint dev` - Installs/updates hooks, then starts local server at `http://localhost:3000`
+- **Local Development:** `lpd dev` - Installs/updates hooks, then starts local server at `http://localhost:3000`
 - **Production Build:** Handled automatically by Mintlify
 - **Docker Build:** `docker build -t livepeer/docs .` (see `Dockerfile`)
 

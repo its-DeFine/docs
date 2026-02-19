@@ -11,6 +11,8 @@ Dockerfile
 Makefile
 style.css
 Assistant.md
+lpd
+.lpdignore
 .gitignore
 .mintignore
 .prettierrc.yaml

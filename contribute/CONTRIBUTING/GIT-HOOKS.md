@@ -65,7 +65,9 @@ cd tools && npm install
 Or run local dev with:
 
 ```bash
-./lp mint dev
+lpd dev
+# or without PATH setup
+bash lpd dev
 ```
 
 This command installs/updates hooks first, then starts `mint dev`.

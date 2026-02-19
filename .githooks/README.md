@@ -14,7 +14,9 @@ This directory contains git hooks for enforcing repository standards.
 Or start local docs dev (auto-installs/updates hooks first):
 
 ```bash
-./lp mint dev
+lpd dev
+# or without PATH setup
+bash lpd dev
 ```
 
 ## Pre-commit Hook
