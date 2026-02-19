@@ -227,12 +227,16 @@ const PortalHeroContent = ({
               flexWrap: "wrap",
               gap: "0.5rem",
               rowGap: "0.25rem",
+              maxWidth: "72ch",
+              margin: "0 auto",
+              paddingLeft: "0.5rem",
+              paddingRight: "0.5rem",
             }}
           >
             {subtitleIcon && (
               <span
                 style={{
-                  marginRight: "0.5rem",
+                  lineHeight: 1,
                 }}
               >
                 <Icon icon={subtitleIcon} size={20} />
@@ -244,6 +248,9 @@ const PortalHeroContent = ({
                 fontWeight: "500",
                 opacity: 1,
                 color: subtitleColor || "var(--accent)",
+                margin: 0,
+                lineHeight: 1.3,
+                textAlign: "center",
               }}
             >
               {subtitle} {/* flipped icon */}
@@ -252,7 +259,8 @@ const PortalHeroContent = ({
                   style={{
                     display: "inline-block",
                     transform: "scaleX(-1)",
-                    marginLeft: "0.5rem",
+                    marginLeft: "0.35rem",
+                    lineHeight: 1,
                   }}
                 >
                   <Icon icon={subtitleIcon} size={20} />
@@ -292,6 +300,8 @@ const PortalHeroContent = ({
               maxWidth: "720px",
               margin: "0 auto",
               marginTop: "1rem",
+              paddingLeft: "0.5rem",
+              paddingRight: "0.5rem",
             }}
            >
             {refCardLink}
@@ -415,6 +425,7 @@ const LogoHeroContainer = ({
         justifyContent: "center",
         margin: margin,
         width: width,
+        maxWidth: "100%",
         paddingBottom: children ? "3.5rem" : "0",
       }}
     >
@@ -422,7 +433,13 @@ const LogoHeroContainer = ({
         <img
           src={src}
           alt={alt}
-          style={{ height: imgHeight, width: imgWidth, objectFit: objectFit, display: "block" }}
+          style={{
+            height: imgHeight,
+            width: imgWidth,
+            maxWidth: "100%",
+            objectFit: objectFit,
+            display: "block",
+          }}
         />
         {children &&
           <div style={{

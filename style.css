@@ -384,42 +384,6 @@ img[alt="US"][src*="flags/US.svg"]::before {
   overflow: hidden;
 }
 
-@media (max-width: 1200px) {
-  [data-page-mode="frame"] {
-    --frame-left-breakout: 64px;
-    --frame-right-breakout: 16px;
-    --frame-inline-padding: clamp(1rem, 4vw, 10%);
-  }
-}
-
-@media (max-width: 1024px) {
-  [data-page-mode="frame"] {
-    --frame-left-breakout: 32px;
-    --frame-right-breakout: 16px;
-    --frame-inline-padding: clamp(1rem, 4vw, 2rem);
-  }
-}
-
-@media (max-width: 768px) {
-  [data-page-mode="frame"] {
-    --frame-left-breakout: 16px;
-    --frame-right-breakout: 12px;
-    --frame-inline-padding: 1rem;
-  }
-
-  .frame-mode-container {
-    margin-bottom: 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  [data-page-mode="frame"] {
-    --frame-left-breakout: 8px;
-    --frame-right-breakout: 8px;
-    --frame-inline-padding: 0.875rem;
-  }
-}
-
 #starfield {
   position: absolute;
   inset: 0;
