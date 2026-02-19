@@ -82,7 +82,8 @@ npm --prefix tests run test:domain:both
   `node tests/integration/domain-pages-audit.js --staged --base-url https://docs.livepeer.org --version "$DOMAIN_AUDIT_VERSION"`
 - Set `DOMAIN_AUDIT_VERSION=v1|v2|both` to control scope in pre-commit.
 - Pre-commit enforces script header docs for newly added scripts and auto-updates script indexes:
-  `node tests/unit/script-docs.test.js --staged --write --stage`
+  `node tests/unit/script-docs.test.js --staged --write --stage --autofill`
+  Missing headers are auto-inserted, then commit remains blocked until placeholder values are filled.
 
 ## Script Header Template (Required for New Scripts)
 Newly added scripts must include these tags near the top of the file:
@@ -125,6 +126,13 @@ Example:
  * @notes
  *   Overwrites the same report file each run.
  */
+```
+
+### Auto-create Script Template
+Use the generator to create a new script with header already attached:
+```bash
+node tools/scripts/new-script.js --path tools/scripts/my-script.js
+node tools/scripts/new-script.js --path tasks/scripts/my-script.sh --owner docs --scope tasks/scripts
 ```
 
 <!-- SCRIPT-INDEX:START -->

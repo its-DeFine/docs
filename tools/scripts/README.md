@@ -5,6 +5,8 @@ This folder contains operational and audit scripts used for docs workflows.
 <!-- SCRIPT-INDEX:START -->
 ## Script Index
 
-_No documented scripts found in this scope yet._
+| Script | Summary | Usage |
+|---|---|---|
+| `tools/scripts/new-script.js` | Create a new script file prefilled with the required docs header template. | `node tools/scripts/new-script.js --path tests/integration/my-script.js` |
 <!-- SCRIPT-INDEX:END -->
 

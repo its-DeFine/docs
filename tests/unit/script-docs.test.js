@@ -12,6 +12,7 @@
  *   --staged (checks newly added staged scripts only)
  *   --write (updates README script indexes)
  *   --stage (git add changed README indexes)
+ *   --autofill (inject template into newly added scripts missing tags)
  *
  * @outputs
  *   - Updated README index blocks between SCRIPT-INDEX markers
@@ -47,6 +48,18 @@ const REQUIRED_TAGS = [
   '@exit-codes',
   '@examples',
   '@notes'
+];
+
+const INLINE_REQUIRED_TAGS = ['@script', '@summary', '@owner', '@scope'];
+const BLOCK_REQUIRED_TAGS = ['@usage', '@inputs', '@outputs', '@exit-codes', '@examples', '@notes'];
+const PLACEHOLDER_PATTERNS = [
+  /^<.*>$/,
+  /^todo\b/i,
+  /^tbd\b/i,
+  /^fill\b/i,
+  /^replace\b/i,
+  /^n\/a$/i,
+  /^none$/i
 ];
 
 const SCRIPT_EXTENSIONS = new Set([
@@ -136,6 +149,38 @@ function getTagValue(header, tagName) {
   return match ? match[1].trim() : '';
 }
 
+function isPlaceholderValue(value) {
+  const v = String(value || '').trim();
+  if (!v) return true;
+  return PLACEHOLDER_PATTERNS.some((pattern) => pattern.test(v));
+}
+
+function getSectionLines(header, tagName) {
+  const lines = header.split('\n');
+  const out = [];
+  const tagToken = tagName.replace('@', '');
+  const idx = lines.findIndex((line) => line.includes(`@${tagToken}`));
+  if (idx === -1) return out;
+
+  for (let i = idx + 1; i < lines.length; i++) {
+    const raw = lines[i];
+    const trimmed = raw.trim();
+    if (!trimmed) continue;
+
+    const stripped = trimmed
+      .replace(/^\*\s?/, '')
+      .replace(/^#\s?/, '')
+      .trim();
+
+    if (stripped.startsWith('@')) break;
+    if (stripped.startsWith('/**') || stripped.startsWith('*/')) continue;
+
+    out.push(stripped);
+  }
+
+  return out;
+}
+
 function extractPrimaryUsage(header) {
   const lines = header.split('\n');
   const idx = lines.findIndex((line) => line.includes('@usage'));
@@ -162,14 +207,128 @@ function validateTemplate(repoPath) {
   const content = readFileSafe(repoPath);
   const header = getHeaderChunk(content);
   const missing = REQUIRED_TAGS.filter((tag) => !header.includes(tag));
+  const empty = [];
+
+  INLINE_REQUIRED_TAGS.forEach((tag) => {
+    if (missing.includes(tag)) return;
+    const value = getTagValue(header, tag);
+    if (isPlaceholderValue(value)) {
+      empty.push(tag);
+    }
+  });
+
+  BLOCK_REQUIRED_TAGS.forEach((tag) => {
+    if (missing.includes(tag)) return;
+    const sectionLines = getSectionLines(header, tag);
+    const meaningful = sectionLines.filter((line) => !isPlaceholderValue(line));
+    if (meaningful.length === 0) {
+      empty.push(tag);
+    }
+  });
+
   return {
     file: repoPath,
-    valid: missing.length === 0,
+    valid: missing.length === 0 && empty.length === 0,
     missing,
+    empty,
     script: getTagValue(header, '@script') || path.basename(repoPath),
     summary: getTagValue(header, '@summary'),
     usage: extractPrimaryUsage(header)
   };
+}
+
+function buildUsageDefault(repoPath) {
+  if (repoPath.endsWith('.sh') || repoPath.endsWith('.bash')) return `bash ${repoPath}`;
+  if (repoPath.endsWith('.py')) return `python3 ${repoPath}`;
+  return `node ${repoPath}`;
+}
+
+function buildTemplateBlock(repoPath, style) {
+  const scriptName = path.basename(repoPath, path.extname(repoPath));
+  const usageDefault = buildUsageDefault(repoPath);
+
+  if (style === 'hash') {
+    const lines = [
+      '# @script ' + scriptName,
+      '# @summary TODO: one-line purpose',
+      '# @owner TODO: team-or-role',
+      '# @scope TODO: paths-or-domain',
+      '#',
+      '# @usage',
+      '#   ' + usageDefault,
+      '#',
+      '# @inputs',
+      '#   TODO: --flag <description> (default: ...)',
+      '#',
+      '# @outputs',
+      '#   - TODO: output file/path/side effect',
+      '#',
+      '# @exit-codes',
+      '#   0 = success',
+      '#   1 = failure',
+      '#',
+      '# @examples',
+      '#   ' + usageDefault,
+      '#',
+      '# @notes',
+      '#   TODO: caveats, constraints, safety notes',
+      ''
+    ];
+    return lines.join('\n');
+  }
+
+  const lines = [
+    '/**',
+    ` * @script ${scriptName}`,
+    ' * @summary TODO: one-line purpose',
+    ' * @owner TODO: team-or-role',
+    ' * @scope TODO: paths-or-domain',
+    ' *',
+    ' * @usage',
+    ` *   ${usageDefault}`,
+    ' *',
+    ' * @inputs',
+    ' *   TODO: --flag <description> (default: ...)',
+    ' *',
+    ' * @outputs',
+    ' *   - TODO: output file/path/side effect',
+    ' *',
+    ' * @exit-codes',
+    ' *   0 = success',
+    ' *   1 = failure',
+    ' *',
+    ' * @examples',
+    ` *   ${usageDefault}`,
+    ' *',
+    ' * @notes',
+    ' *   TODO: caveats, constraints, safety notes',
+    ' */',
+    ''
+  ];
+  return lines.join('\n');
+}
+
+function injectTemplateIfMissing(repoPath) {
+  const fullPath = path.join(REPO_ROOT, repoPath);
+  const existing = readFileSafe(repoPath);
+  if (!existing) return false;
+
+  const header = getHeaderChunk(existing);
+  const hasAnyTag = REQUIRED_TAGS.some((tag) => header.includes(tag));
+  if (hasAnyTag) return false;
+
+  const shebangMatch = existing.match(/^(#![^\n]*\n)/);
+  const shebang = shebangMatch ? shebangMatch[1] : '';
+  const body = shebang ? existing.slice(shebang.length) : existing;
+  const style = (repoPath.endsWith('.sh') || repoPath.endsWith('.bash') || repoPath.endsWith('.py')) ? 'hash' : 'block';
+  const template = buildTemplateBlock(repoPath, style);
+  const updated = `${shebang}${template}${body}`;
+
+  if (updated !== existing) {
+    fs.writeFileSync(fullPath, updated);
+    return true;
+  }
+  return false;
 }
 
 function resolveReadmeForScript(scriptPath) {
@@ -267,24 +426,52 @@ function runTests(options = {}) {
   const stagedOnly = Boolean(options.stagedOnly);
   const write = Boolean(options.write);
   const stage = Boolean(options.stage);
+  const autofill = Boolean(options.autofill);
 
   const errors = [];
   const warnings = [];
   const changedReadmes = [];
+  const autofilledScripts = [];
 
   const candidateScripts = stagedOnly
     ? getStagedAddedFiles().filter((file) => isScriptFile(file))
     : getAllScriptFiles();
+
+  if (autofill) {
+    candidateScripts.forEach((scriptPath) => {
+      const changed = injectTemplateIfMissing(scriptPath);
+      if (changed) autofilledScripts.push(scriptPath);
+    });
+    if (stage && autofilledScripts.length > 0) {
+      try {
+        stageFiles(autofilledScripts);
+      } catch (err) {
+        warnings.push({
+          file: '(git add)',
+          rule: 'Script template staging',
+          message: `Failed to stage autofilled scripts: ${err.message}`,
+          line: 1
+        });
+      }
+    }
+  }
 
   // Enforce template only for newly added scripts.
   const enforceTargets = stagedOnly ? candidateScripts : [];
   enforceTargets.forEach((scriptPath) => {
     const result = validateTemplate(scriptPath);
     if (!result.valid) {
+      const parts = [];
+      if (result.missing.length > 0) {
+        parts.push(`missing required tags: ${result.missing.join(', ')}`);
+      }
+      if (result.empty.length > 0) {
+        parts.push(`empty/placeholder values: ${result.empty.join(', ')}`);
+      }
       errors.push({
         file: scriptPath,
         rule: 'Script header template',
-        message: `Missing required tags: ${result.missing.join(', ')}`,
+        message: parts.join(' | '),
         line: 1
       });
     }
@@ -320,6 +507,7 @@ function runTests(options = {}) {
     errors,
     warnings,
     changedReadmes,
+    autofilledScripts,
     passed: errors.length === 0,
     total: candidateScripts.length
   };
@@ -330,8 +518,9 @@ if (require.main === module) {
   const stagedOnly = args.includes('--staged');
   const write = args.includes('--write');
   const stage = args.includes('--stage');
+  const autofill = args.includes('--autofill');
 
-  const result = runTests({ stagedOnly, write, stage });
+  const result = runTests({ stagedOnly, write, stage, autofill });
 
   if (result.errors.length > 0) {
     console.error('\n❌ Script documentation enforcement failed:\n');
@@ -345,6 +534,12 @@ if (require.main === module) {
   if (result.changedReadmes.length > 0) {
     console.log('\n📝 Updated README script indexes:');
     result.changedReadmes.forEach((p) => console.log(`  - ${p}`));
+  }
+
+  if (result.autofilledScripts.length > 0) {
+    console.log('\n🧩 Injected script header template into:');
+    result.autofilledScripts.forEach((p) => console.log(`  - ${p}`));
+    console.log('Fill placeholder values before commit.');
   }
 
   if (result.errors.length === 0) {

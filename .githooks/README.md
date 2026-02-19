@@ -45,7 +45,7 @@ The hook also runs `.githooks/verify.sh` which checks:
 
 The pre-commit hook also runs:
 
-- `node tests/unit/script-docs.test.js --staged --write --stage`
+- `node tests/unit/script-docs.test.js --staged --write --stage --autofill`
 - `node tests/run-all.js --staged --skip-browser`
 - `node tests/integration/domain-pages-audit.js --staged --base-url https://docs.livepeer.org --version "$DOMAIN_AUDIT_VERSION"`
 
@@ -59,6 +59,7 @@ Domain audit report path (stable, overwritten each run):
 
 Script documentation enforcement:
 - Newly added scripts must include required header tags.
+- Missing headers are auto-inserted on pre-commit.
 - If valid, per-folder README script indexes are auto-updated and staged.
 - If invalid, commit is blocked.
 

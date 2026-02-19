@@ -50,6 +50,7 @@ const versionScope = String(versionScopeRaw).toLowerCase();
 const ROOT = path.join(__dirname, '..', '..');
 const DOCS_JSON_PATH = path.join(ROOT, 'docs.json');
 const REPORT_PATH = path.join(ROOT, 'tests', 'reports', 'domain-page-load-report.json');
+const REPORT_MD_PATH = path.join(ROOT, 'tests', 'reports', 'domain-page-load-report.md');
 const TIMEOUT = 25000;
 const CONCURRENCY = 8;
 const ALLOWED_SCOPES = new Set(['v1', 'v2', 'both']);
@@ -130,6 +131,41 @@ function pageToUrl(pagePath) {
   return `${baseUrl.replace(/\/$/, '')}/${pagePath}`;
 }
 
+function toMarkdownReport(report) {
+  const lines = [];
+  lines.push('# Domain Page Load Report');
+  lines.push('');
+  lines.push(`- Timestamp: ${report.timestamp}`);
+  lines.push(`- Completed: ${report.completedAt || report.timestamp}`);
+  lines.push(`- Base URL: ${report.baseUrl}`);
+  lines.push(`- Mode: ${report.mode}`);
+  lines.push(`- Version Scope: ${report.versionScope}`);
+  lines.push(`- Total: ${report.total}`);
+  lines.push(`- Passed: ${report.passed}`);
+  lines.push(`- Failed: ${report.failed}`);
+  if (typeof report.durationSec === 'number') lines.push(`- Duration: ${report.durationSec}s`);
+  lines.push('');
+
+  const failed = (report.results || []).filter((r) => !r.passed);
+  lines.push('## Failures');
+  lines.push('');
+  if (failed.length === 0) {
+    lines.push('_No failures_');
+  } else {
+    failed.forEach((item) => {
+      lines.push(`- \`${item.pagePath}\``);
+      lines.push(`  - URL: ${item.url}`);
+      lines.push(`  - Status: ${item.status === null ? '(none)' : item.status}`);
+      lines.push(`  - Title: ${item.title || '(none)'}`);
+      lines.push(`  - Content Length: ${item.contentLength}`);
+      (item.errors || []).forEach((e) => lines.push(`  - Error: ${e}`));
+    });
+  }
+  lines.push('');
+
+  return lines.join('\n');
+}
+
 async function testSinglePage(browser, pagePath) {
   const url = pageToUrl(pagePath);
   const page = await browser.newPage();
@@ -205,7 +241,9 @@ async function run() {
     };
     fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true });
     fs.writeFileSync(REPORT_PATH, JSON.stringify(emptyReport, null, 2));
+    fs.writeFileSync(REPORT_MD_PATH, toMarkdownReport(emptyReport));
     console.log(`📝 Report written: ${REPORT_PATH}`);
+    console.log(`📝 Report written: ${REPORT_MD_PATH}`);
     return 0;
   }
 
@@ -252,6 +290,7 @@ async function run() {
 
   fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true });
   fs.writeFileSync(REPORT_PATH, JSON.stringify(report, null, 2));
+  fs.writeFileSync(REPORT_MD_PATH, toMarkdownReport(report));
 
   console.log('\n============================================================');
   console.log('Domain Page Load Audit Summary');
@@ -261,6 +300,7 @@ async function run() {
   console.log(`Failed: ${report.failed}`);
   console.log(`Time:   ${report.durationSec}s`);
   console.log(`Report: ${REPORT_PATH}`);
+  console.log(`Report: ${REPORT_MD_PATH}`);
 
   return failed > 0 ? 1 : 0;
 }
