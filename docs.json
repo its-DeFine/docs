@@ -2080,7 +2080,7 @@
                         "icon": "house-heart",
                         "pages": [
                           "v2/pages/00_home/mission-control",
-                          "v2/pages/00_home/home/user-journey",
+                          "v2/pages/00_home/home/get-started",
                           "v2/pages/00_home/home/primer"
                         ]
                       },

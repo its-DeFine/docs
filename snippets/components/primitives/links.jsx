@@ -166,11 +166,7 @@ const DoubleIconLink = ({
         {text && <span style={{ marginRight: 8 }}>{text}</span>}
         <Icon icon={iconLeft} />
         <a href={href}>{label}</a>
-        <Icon
-          icon={iconRight}
-          size={12}
-          color="var(--accent)"
-        />
+        <Icon icon={iconRight} size={12} color="var(--accent)" />
       </span>
     </>
   );
@@ -333,21 +329,32 @@ const TipWithArrow = ({
   );
 };
 
-const LinkArrow = ({ href, label, newline = true, borderColor }) => {
+const LinkArrow = ({
+  href,
+  label,
+  description,
+  newline = true,
+  borderColor,
+}) => {
   const linkArrowStyle = {
     display: "inline-flex",
     alignItems: "center",
-    gap: "4px",
-    paddingTop: "0.2rem",
+    justifyContent: "center",
+    gap: "0.25rem",
+    width: "fit-content",
     ...(borderColor && { borderColor }),
   };
   return (
     <>
       {newline && <br />}
-      <a href={href} target="_blank" style={linkArrowStyle}>
-        {label}
-        <Icon icon="arrow-up-right" size={12} color="var(--accent)" />
-      </a>
+      <span style={linkArrowStyle}>
+        <a href={href} target="_blank">
+          {label}
+        </a>
+        <Icon icon="arrow-up-right" size={14} color="var(--accent)" />
+      </span>
+      {description && description}
+      {description && <div style={{ height: "0.75rem" }} />}
     </>
   );
 };
