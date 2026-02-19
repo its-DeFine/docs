@@ -1,5 +1,3 @@
-import { useRef, useState, useEffect } from "react";
-
 /**
  * ScrollBox - A scrollable container for use inside Card components
  *

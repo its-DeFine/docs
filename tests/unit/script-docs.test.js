@@ -43,8 +43,8 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const REPO_ROOT = process.cwd();
-const INDEX_START = '<!-- SCRIPT-INDEX:START -->';
-const INDEX_END = '<!-- SCRIPT-INDEX:END -->';
+const INDEX_START = '{/* SCRIPT-INDEX:START */}';
+const INDEX_END = '{/* SCRIPT-INDEX:END */}';
 
 const REQUIRED_TAGS = [
   '@script',
@@ -96,6 +96,10 @@ function readFileSafe(repoPath) {
   } catch (_err) {
     return '';
   }
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
 function shouldExclude(repoPath) {
@@ -418,7 +422,9 @@ function updateIndexFile(indexPath, body) {
   let updated;
 
   if (existing.includes(INDEX_START) && existing.includes(INDEX_END)) {
-    updated = existing.replace(new RegExp(`${INDEX_START}[\\s\\S]*?${INDEX_END}`, 'm'), block);
+    const start = escapeRegExp(INDEX_START);
+    const end = escapeRegExp(INDEX_END);
+    updated = existing.replace(new RegExp(`${start}[\\s\\S]*?${end}`, 'm'), block);
   } else {
     updated = `${existing.trimEnd()}\n\n${block}\n`;
   }

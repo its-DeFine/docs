@@ -188,6 +188,35 @@ Planned automations include:
 - **AI Prompt Pages** — Generate quickstart guides from prompts
 - **Feedback Loops** — Integration with Discord and GitHub for community feedback
 
+## Docs Structure Features
+
+### Automatic Page Index Generation
+
+The repository includes an internal docs feature that keeps `v2/pages` index files synchronized with the current folder and markdown file structure.
+
+What it generates:
+
+- `v2/pages/<section>/.../index.mdx` for folders under `v2/pages/`
+- `v2/pages/index.mdx` as the root aggregate index
+
+Format rules:
+
+- Root-level markdown links appear first at the top of each folder index.
+- Folder and subfolder names are rendered as headings.
+- Links are rendered in markdown link-list format (`- [Title](path/file.mdx)`).
+
+Automation behavior:
+
+- Runs in pre-commit when staged files include `v2/pages` changes:
+  `node tools/scripts/generate-pages-index.js --staged --write --stage`
+- Supports manual verification/rebuild:
+  - `node tools/scripts/generate-pages-index.js`
+  - `node tools/scripts/generate-pages-index.js --write --rebuild-indexes`
+
+<Note>
+This is a repository documentation feature (internal indexing), not an external automation workflow.
+</Note>
+
 ## Accessibility
 
 The documentation is designed with accessibility in mind:

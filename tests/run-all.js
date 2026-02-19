@@ -34,6 +34,7 @@ const spellingTests = require('./unit/spelling.test');
 const qualityTests = require('./unit/quality.test');
 const linksImportsTests = require('./unit/links-imports.test');
 const scriptDocsTests = require('./unit/script-docs.test');
+const pagesIndexGenerator = require('../tools/scripts/generate-pages-index');
 const browserTests = require('./integration/browser.test');
 
 const args = process.argv.slice(2);
@@ -92,6 +93,17 @@ async function runAllTests() {
   totalErrors += scriptDocsResult.errors.length;
   totalWarnings += scriptDocsResult.warnings.length;
   console.log(`   ${scriptDocsResult.errors.length} errors, ${scriptDocsResult.warnings.length} warnings`);
+
+  // Pages Index Sync Validation
+  console.log('\n🗂️  Running Pages Index Sync Validation...');
+  const pagesIndexResult = pagesIndexGenerator.run({ stagedOnly });
+  totalErrors += pagesIndexResult.errors.length;
+  totalWarnings += pagesIndexResult.warnings.length;
+  if (pagesIndexResult.skipped) {
+    console.log('   skipped (no staged v2/pages changes)');
+  } else {
+    console.log(`   ${pagesIndexResult.errors.length} errors, ${pagesIndexResult.warnings.length} warnings`);
+  }
   
   // Browser Tests (optional)
   if (!skipBrowser) {

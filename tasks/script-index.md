@@ -1,6 +1,6 @@
 # tasks Script Index
 
-<!-- SCRIPT-INDEX:START -->
+{/* SCRIPT-INDEX:START */}
 ## Script Index
 
 | Script | Summary | Usage | Owner |
@@ -14,4 +14,4 @@
 | `tasks/scripts/run-audit-now.js` | Utility script for tasks/scripts/run-audit-now.js. | `node tasks/scripts/run-audit-now.js` | docs |
 | `tasks/scripts/run-audit.sh` | Utility script for tasks/scripts/run-audit.sh. | `bash tasks/scripts/run-audit.sh` | docs |
 | `tasks/scripts/test-audit.js` | Utility script for tasks/scripts/test-audit.js. | `node tasks/scripts/test-audit.js` | docs |
-<!-- SCRIPT-INDEX:END -->
+{/* SCRIPT-INDEX:END */}

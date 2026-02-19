@@ -1,5 +1,3 @@
-import React, { useMemo, useState } from "react";
-
 /**
  * CardCarousel
  *
@@ -26,7 +24,13 @@ export const CardCarousel = ({
   showDots = true,
   style,
 }) => {
-  const cards = useMemo(() => React.Children.toArray(children), [children]);
+  const cards = useMemo(() => {
+    if (children == null || children === false) return [];
+    if (Array.isArray(children)) {
+      return children.filter((child) => child != null && child !== false);
+    }
+    return [children];
+  }, [children]);
   const total = cards.length;
   const count = Math.max(1, Math.min(visibleCount, total || 1));
   const pageCount = Math.max(1, Math.ceil(total / count));

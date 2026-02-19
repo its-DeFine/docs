@@ -1,6 +1,3 @@
-import { Frame } from "./frame.jsx";
-import { Icon } from "mintlify/components";
-
 export const Quote = ({ children }) => {
   const quoteStyle = {
     fontSize: "1rem",

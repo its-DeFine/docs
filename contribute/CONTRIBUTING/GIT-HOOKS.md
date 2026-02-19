@@ -45,6 +45,19 @@ The pre-commit hook now runs the comprehensive test suite on staged files:
 
 The test suite runs in fast mode for pre-commit (staged files only, browser tests skipped). For full testing, run `npm test` manually or check CI results.
 
+#### Generated Pages Index Sync
+
+The pre-commit hook also keeps `v2/pages` index files synchronized:
+
+- `node tools/scripts/generate-pages-index.js --staged --write --stage`
+
+What this does:
+
+- Regenerates `index.mdx` for folders under `v2/pages/`.
+- Uses section-style output with root-level links first, then folder headings.
+- Rebuilds root aggregate at `v2/pages/index.mdx`.
+- Removes legacy `index.md` files in `v2/pages/`.
+
 ### Installation
 
 **Prerequisites:**

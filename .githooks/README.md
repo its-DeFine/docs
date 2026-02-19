@@ -48,6 +48,7 @@ The hook also runs `.githooks/verify.sh` which checks:
 The pre-commit hook also runs:
 
 - `node tests/unit/script-docs.test.js --staged --write --stage --autofill`
+- `node tools/scripts/generate-pages-index.js --staged --write --stage`
 - `node tests/run-all.js --staged --skip-browser`
 - `node tests/integration/domain-pages-audit.js --staged --base-url https://docs.livepeer.org --version "$DOMAIN_AUDIT_VERSION"`
 
@@ -64,6 +65,12 @@ Script documentation enforcement:
 - Missing headers are auto-inserted on pre-commit.
 - If valid, group `script-index.md` files and aggregate index are auto-updated and staged.
 - If invalid, commit is blocked.
+
+Pages index generation:
+- Keeps `v2/pages/**/index.mdx` synchronized with the current folder + subfolder markdown structure.
+- Uses section-style rendering with root-level files listed first, then folder headings.
+- Rebuilds root aggregate at `v2/pages/index.mdx` from section index files.
+- Migrates/removes legacy `index.md` files.
 
 Current script index targets:
 - `.githooks/*` -> `.githooks/script-index.md`
@@ -161,8 +168,8 @@ This allows deletions while still running all other checks.
 
 See: `v2/pages/07_resources/documentation-guide/style-guide.mdx`
 
-<!-- SCRIPT-INDEX:START -->
+{/* SCRIPT-INDEX:START */}
 ## Script Index
 
 _No documented scripts found in this scope yet._
-<!-- SCRIPT-INDEX:END -->
+{/* SCRIPT-INDEX:END */}

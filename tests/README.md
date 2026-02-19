@@ -29,6 +29,7 @@ Runs unit + integration suite.
 - `node tests/unit/spelling.test.js`
 - `node tests/unit/quality.test.js`
 - `node tests/unit/links-imports.test.js`
+- `node tools/scripts/generate-pages-index.js`
 
 ### Integration Suites
 - `node tests/integration/browser.test.js`
@@ -69,6 +70,9 @@ npm --prefix tests run test:mdx
 npm --prefix tests run test:spell
 npm --prefix tests run test:quality
 npm --prefix tests run test:links
+npm --prefix tests run test:pages-index
+npm --prefix tests run test:pages-index:write
+npm --prefix tests run test:pages-index:rebuild
 npm --prefix tests run test:browser
 npm --prefix tests run test:domain
 npm --prefix tests run test:domain:v1
@@ -84,6 +88,9 @@ npm --prefix tests run test:domain:both
 - Pre-commit enforces script header docs for newly added scripts and auto-updates script indexes:
   `node tests/unit/script-docs.test.js --staged --write --stage --autofill`
   Missing headers are auto-inserted, then commit remains blocked until placeholder values are filled.
+- Pre-commit also synchronizes `v2/pages` index files:
+  `node tools/scripts/generate-pages-index.js --staged --write --stage`
+  This regenerates section `index.mdx` files and updates root `v2/pages/index.mdx`.
 
 ## Script Header Template (Required for New Scripts)
 Newly added scripts must include these tags near the top of the file:
@@ -135,11 +142,11 @@ node tools/scripts/new-script.js --path tools/scripts/my-script.js
 node tools/scripts/new-script.js --path tasks/scripts/my-script.sh --owner docs --scope tasks/scripts
 ```
 
-<!-- SCRIPT-INDEX:START -->
+{/* SCRIPT-INDEX:START */}
 ## Script Index
 
 | Script | Summary | Usage |
 |---|---|---|
 | `tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. | `node tests/integration/domain-pages-audit.js --version both` |
 | `tests/unit/script-docs.test.js` | Enforce script header schema, keep group script indexes in sync, and build aggregate script index. | `node tests/unit/script-docs.test.js --staged --write --stage --autofill` |
-<!-- SCRIPT-INDEX:END -->
+{/* SCRIPT-INDEX:END */}

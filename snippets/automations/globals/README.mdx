@@ -88,7 +88,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add snippets/automationData/globals/globals.jsx
+          git add snippets/automations/globals/globals.jsx
           git commit -m "chore: update latest release to ${{ steps.get_release.outputs.release }}"
           git push origin docs-v2
 ```

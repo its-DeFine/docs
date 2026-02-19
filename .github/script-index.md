@@ -1,6 +1,6 @@
 # .github Script Index
 
-<!-- SCRIPT-INDEX:START -->
+{/* SCRIPT-INDEX:START */}
 ## Script Index
 
 | Script | Summary | Usage | Owner |
@@ -12,4 +12,4 @@
 | `.github/scripts/gen-table.js` | Reserved CI utility script placeholder for generated table output. | `node .github/scripts/gen-table.js` | docs |
 | `.github/scripts/gen-textareas.js` | Reserved CI utility script placeholder for textarea generation tasks. | `node .github/scripts/gen-textareas.js` | docs |
 | `.github/scripts/project-showcase-sync.js` | Utility script for .github/scripts/project-showcase-sync.js. | `node .github/scripts/project-showcase-sync.js` | docs |
-<!-- SCRIPT-INDEX:END -->
+{/* SCRIPT-INDEX:END */}

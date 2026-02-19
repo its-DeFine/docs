@@ -458,6 +458,20 @@ else
                 fi
             fi
 
+            # Keep v2/pages index.mdx files synced and staged
+            if [ -f "tools/scripts/generate-pages-index.js" ]; then
+                echo -e "${YELLOW}Running v2/pages index generation (staged changes)...${NC}"
+                if node tools/scripts/generate-pages-index.js --staged --write --stage 2>&1; then
+                    echo -e "${GREEN}✓ v2/pages index generation passed${NC}"
+                else
+                    PAGES_INDEX_EXIT=$?
+                    if [ $PAGES_INDEX_EXIT -ne 0 ]; then
+                        VIOLATIONS=$((VIOLATIONS + 1))
+                        WARNINGS+=("❌ v2/pages index generation failed - fix index sync issues")
+                    fi
+                fi
+            fi
+
             if node tests/run-all.js --staged --skip-browser 2>&1; then
                 echo -e "${GREEN}✓ Test suite passed${NC}"
             else
@@ -496,6 +510,20 @@ else
                     if [ $DOCS_ENFORCE_EXIT -ne 0 ]; then
                         VIOLATIONS=$((VIOLATIONS + 1))
                         WARNINGS+=("❌ Script documentation enforcement failed - missing required script header template")
+                    fi
+                fi
+            fi
+
+            # Keep v2/pages index.mdx files synced and staged
+            if [ -f "tools/scripts/generate-pages-index.js" ]; then
+                echo -e "${YELLOW}Running v2/pages index generation (staged changes)...${NC}"
+                if node tools/scripts/generate-pages-index.js --staged --write --stage 2>&1; then
+                    echo -e "${GREEN}✓ v2/pages index generation passed${NC}"
+                else
+                    PAGES_INDEX_EXIT=$?
+                    if [ $PAGES_INDEX_EXIT -ne 0 ]; then
+                        VIOLATIONS=$((VIOLATIONS + 1))
+                        WARNINGS+=("❌ v2/pages index generation failed - fix index sync issues")
                     fi
                 fi
             fi

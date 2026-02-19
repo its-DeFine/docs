@@ -876,7 +876,7 @@ This repository uses automated workflows to keep content up-to-date:
 
 - **Frequency:** Every 30 minutes
 - **Purpose:** Updates latest Livepeer version from GitHub releases
-- **Updates:** `snippets/automationData/globals/globals.mdx`
+- **Updates:** `snippets/automations/globals/globals.mdx`
 - **Manual trigger:** Available via `workflow_dispatch`
 
 **2. Blog Data** (`.github/workflows/update-blog-data.yml`)

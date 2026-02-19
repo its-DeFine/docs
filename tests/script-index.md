@@ -1,6 +1,6 @@
 # tests Script Index
 
-<!-- SCRIPT-INDEX:START -->
+{/* SCRIPT-INDEX:START */}
 ## Script Index
 
 | Script | Summary | Usage | Owner |
@@ -17,4 +17,4 @@
 | `tests/utils/file-walker.js` | Utility script for tests/utils/file-walker.js. | `node tests/utils/file-walker.js` | docs |
 | `tests/utils/mdx-parser.js` | Utility script for tests/utils/mdx-parser.js. | `node tests/utils/mdx-parser.js` | docs |
 | `tests/utils/spell-checker.js` | Utility script for tests/utils/spell-checker.js. | `node tests/utils/spell-checker.js` | docs |
-<!-- SCRIPT-INDEX:END -->
+{/* SCRIPT-INDEX:END */}

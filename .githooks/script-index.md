@@ -1,6 +1,6 @@
 # .githooks Script Index
 
-<!-- SCRIPT-INDEX:START -->
+{/* SCRIPT-INDEX:START */}
 ## Script Index
 
 | Script | Summary | Usage | Owner |
@@ -11,4 +11,4 @@
 | `.githooks/server-manager.js` | Utility script for .githooks/server-manager.js. | `node .githooks/server-manager.js` | docs |
 | `.githooks/verify-browser.js` | Utility script for .githooks/verify-browser.js. | `node .githooks/verify-browser.js` | docs |
 | `.githooks/verify.sh` | Utility script for .githooks/verify.sh. | `bash .githooks/verify.sh` | docs |
-<!-- SCRIPT-INDEX:END -->
+{/* SCRIPT-INDEX:END */}

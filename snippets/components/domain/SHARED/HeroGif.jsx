@@ -1,5 +1,3 @@
-import { useEffect, useRef } from "react";
-
 // SVG needs fixing...
 // export const Starfield1 = () => {
 //   const canvasRef = useRef(null);
