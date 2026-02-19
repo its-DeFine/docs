@@ -3,7 +3,7 @@ openapi: 3.1.0
 info:
   title: Livepeer AI Runner
   description: An application to run AI pipelines
-  version: 0.1.0
+  version: 0.14.1
 servers:
   - url: https://dream-gateway.livepeer.cloud
     description: Livepeer Cloud Community Gateway
@@ -1053,8 +1053,7 @@ components:
     AudioResponse:
       properties:
         audio:
-          allOf:
-            - $ref: '#/components/schemas/MediaURL'
+          $ref: '#/components/schemas/MediaURL'
           description: The generated audio.
       type: object
       required:
@@ -1331,8 +1330,7 @@ components:
     HTTPError:
       properties:
         detail:
-          allOf:
-            - $ref: '#/components/schemas/APIError'
+          $ref: '#/components/schemas/APIError'
           description: Detailed error information.
       type: object
       required:
@@ -1382,11 +1380,9 @@ components:
           title: Finish Reason
           default: ''
         delta:
-          allOf:
-            - $ref: '#/components/schemas/LLMMessage'
+          $ref: '#/components/schemas/LLMMessage'
         message:
-          allOf:
-            - $ref: '#/components/schemas/LLMMessage'
+          $ref: '#/components/schemas/LLMMessage'
       type: object
       required:
         - index
@@ -1508,6 +1504,7 @@ components:
           description: Name of the pipeline to run in the live video to video job. Notice that this is named model_id for consistency with other routes, but it does not refer to a Hugging Face model ID. The exact model(s) depends on the pipeline implementation and might be configurable via the `params` argument.
           default: ''
         params:
+          additionalProperties: true
           type: object
           title: Params
           description: Initial parameters for the pipeline.
@@ -1516,6 +1513,11 @@ components:
           type: string
           title: Gateway Request Id
           description: The ID of the Gateway request (for logging purposes).
+          default: ''
+        manifest_id:
+          type: string
+          title: Manifest Id
+          description: The manifest ID from the orchestrator (for logging purposes).
           default: ''
         stream_id:
           type: string
@@ -1552,6 +1554,11 @@ components:
           type: string
           title: Request Id
           description: The ID generated for this request
+          default: ''
+        manifest_id:
+          type: string
+          title: Manifest Id
+          description: Orchestrator manifest ID for this request
           default: ''
       type: object
       required:
