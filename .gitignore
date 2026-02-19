@@ -78,7 +78,7 @@ snippets/external/
 notion/
 
 # ------------------------------------
-# Generated reports (kept in docs/PLAN/reports)
+# AI task planning & execution folder 
 # ------------------------------------
-docs/PLAN/reports/browser-test-report.json
-v2-page-test-report.json
+tasks/plan/*
+

@@ -25,6 +25,7 @@ lpd
 .gitattributes
 .vscode
 .claude
+docs-guide
 ai-tools
 api
 contribute
