@@ -14,6 +14,8 @@
     "test:pages-index:rebuild": "node ../tools/scripts/generate-pages-index.js --write --rebuild-indexes",
     "test:scripts": "node unit/script-docs.test.js",
     "test:browser": "node integration/browser.test.js",
+    "test:link-audit": "node integration/v2-link-audit.js --full --write-links",
+    "test:link-audit:staged": "node integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md",
     "test:domain": "node integration/domain-pages-audit.js",
     "test:domain:v1": "node integration/domain-pages-audit.js --version v1",
     "test:domain:v2": "node integration/domain-pages-audit.js --version v2",

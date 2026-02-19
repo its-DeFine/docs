@@ -93,7 +93,7 @@ import { Video } from "/snippets/components/display/video.jsx";
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
-| `src` | `string` | - | **Yes** | Path to the video file (e.g., "/snippets/assets/media/videos/demo.mp4") |
+| `src` | `string` | - | **Yes** | Path to the video file (e.g., "/snippets/assets/media/videos/HeroBackground.mp4") |
 | `title` | `string` | `""` | No | Video title for accessibility |
 | `author` | `string` | `""` | No | Author name to display with microphone icon |
 | `caption` | `string` | - | No | Optional caption text (if author provided, styled with icon) |
@@ -108,11 +108,11 @@ import { Video } from "/snippets/components/display/video.jsx";
 
 <Tabs>
   <Tab title="Basic">
-    <Video src="/snippets/assets/media/videos/demo.mp4" title="Demo Video" />
+    <Video src="/snippets/assets/media/videos/HeroBackground.mp4" title="Demo Video" />
   </Tab>
   <Tab title="Autoplay Loop">
     <Video 
-      src="/snippets/assets/media/videos/demo.mp4" 
+      src="/snippets/assets/media/videos/HeroBackground.mp4" 
       title="Demo"
       autoPlay
       muted
@@ -121,17 +121,17 @@ import { Video } from "/snippets/components/display/video.jsx";
   </Tab>
   <Tab title="With Author">
     <Video 
-      src="/snippets/assets/media/videos/intro.mp4" 
+      src="/snippets/assets/media/videos/livepeer-founders-post.mp4" 
       author="Doug Petkanics"
       title="Livepeer Vision"
     />
   </Tab>
   <Tab title="Code">
 ```jsx
-<Video src="/snippets/assets/media/videos/demo.mp4" title="Demo Video" />
+<Video src="/snippets/assets/media/videos/HeroBackground.mp4" title="Demo Video" />
 
 <Video 
-  src="/snippets/assets/media/videos/demo.mp4" 
+  src="/snippets/assets/media/videos/HeroBackground.mp4" 
   autoPlay
   muted
   loop
@@ -176,7 +176,7 @@ import { TitledVideo } from "/snippets/components/display/video.jsx";
   <Tab title="Code">
 ```jsx
 <TitledVideo
-  src="/snippets/assets/media/videos/demo.mp4"
+  src="/snippets/assets/media/videos/HeroBackground.mp4"
   title="Demo Title"
   subtitle="Subtitle text"
   arrow={true}
@@ -351,7 +351,7 @@ import { Image } from "/snippets/components/display/image.jsx";
   <Tab title="Code">
 ```jsx
 <Image 
-  src="/images/diagram.png" 
+  src="/snippets/assets/media/images/Livepeer%20Stats.png" 
   alt="System Diagram"
   caption="Figure 1: Architecture"
 />
@@ -388,16 +388,16 @@ import { LinkImage } from "/snippets/components/display/image.jsx";
     <LinkImage 
       src="/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg" 
       alt="Logo"
-      href="/images/full-logo.png"
+      href="/snippets/assets/media/images/nytv-logo.png"
       caption="Click to view full size"
     />
   </Tab>
   <Tab title="Code">
 ```jsx
 <LinkImage 
-  src="/images/preview.png" 
+  src="/snippets/assets/media/images/GPUImg.webp" 
   alt="Preview"
-  href="/images/full-diagram.png"
+  href="/snippets/assets/media/images/DelegatorImg.avif"
   caption="Click to view full size"
 />
 ```
@@ -686,7 +686,7 @@ import { ScrollableDiagram } from "/snippets/components/display/zoomable-diagram
   <Tab title="Code">
 ```jsx
 <ScrollableDiagram title="System Architecture" maxHeight="600px">
-  <img src="/diagrams/architecture.png" alt="Architecture" />
+  <img src="/snippets/assets/media/images/Livepeer%20Stats.png" alt="Architecture" />
 </ScrollableDiagram>
 ```
   </Tab>

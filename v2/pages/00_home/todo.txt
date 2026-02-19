@@ -12,9 +12,9 @@
 - [The Livepeer Advantage](introduction/why-livepeer.mdx)
 
 ## Project Showcase
-- [Key Applications for Livepeer](project-showcase/applications.mdx)
-- [Industry Verticals](project-showcase/industry-verticals.mdx)
-- [Creative Projects Built with Livepeer](project-showcase/showcase.mdx)
+- [Key Applications for Livepeer](/v2/pages/00_home/project-showcase/showcase)
+- [Industry Verticals](/v2/pages/00_home/project-showcase/showcase)
+- [Creative Projects Built with Livepeer](/v2/pages/00_home/project-showcase/showcase)
 
 
 # TODO:
@@ -22,7 +22,7 @@
 ## Upgrade:
 - [Get Started](home/get-started.mdx)
 - [Livepeer Primer](home/primer.mdx)
-- [Livepeer Applications](project-showcase/applications.mdx)
+- [Livepeer Applications](/v2/pages/00_home/project-showcase/showcase)
 - SEO & AEO (see scripts)
 - OG image
 - Seed more showcase projects

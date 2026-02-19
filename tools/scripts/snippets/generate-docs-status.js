@@ -75,6 +75,35 @@ const OUTPUT_DIR = path.join(
 );
 const OUTPUT_PATH = path.join(OUTPUT_DIR, "docs-status-table.mdx");
 
+const ROUTE_EXTENSIONS = [".mdx", ".md"];
+
+function routeExists(routePath) {
+  const clean = String(routePath || "").replace(/^\/+/, "").replace(/\/+$/, "");
+  if (!clean) return false;
+
+  const asFile = path.join(REPO_ROOT, clean);
+  if (fs.existsSync(asFile)) return true;
+
+  for (const ext of ROUTE_EXTENSIONS) {
+    if (fs.existsSync(`${asFile}${ext}`)) return true;
+  }
+
+  for (const idx of ["index.mdx", "index.md", "README.mdx", "README.md"]) {
+    if (fs.existsSync(path.join(asFile, idx))) return true;
+  }
+
+  return false;
+}
+
+function formatRouteLink(routePath) {
+  const pageName = routePath.split("/").pop().replace(/-/g, " ");
+  const href = `/${routePath}`;
+  if (routeExists(routePath)) {
+    return `[${pageName}](${href})`;
+  }
+  return `${pageName} ⚠️ missing-route`;
+}
+
 // Read docs.json
 const docsJson = JSON.parse(fs.readFileSync(DOCS_JSON_PATH, "utf8"));
 
@@ -160,11 +189,10 @@ This table is auto-generated from \`docs.json\`. To update status, priority, or 
 `;
 
 for (const row of rows) {
-  const pageName = row.page.split("/").pop().replace(/-/g, " ");
   const groupDisplay = row.subgroup
     ? `${row.group} > ${row.subgroup}`
     : row.group;
-  output += `| ${row.tab} | ${groupDisplay} | [${pageName}](/${row.page}) | ${row.status} | ${row.priority} | ${row.notes} |\n`;
+  output += `| ${row.tab} | ${groupDisplay} | ${formatRouteLink(row.page)} | ${row.status} | ${row.priority} | ${row.notes} |\n`;
 }
 
 // Add summary
@@ -293,8 +321,7 @@ for (const tab of tabData) {
     mermaid += `### ${group.name}\n\n`;
     if (group.pages.length > 0) {
       for (const page of group.pages) {
-        const pageName = page.split("/").pop().replace(/-/g, " ");
-        mermaid += `- [${pageName}](/${page})\n`;
+        mermaid += `- ${formatRouteLink(page)}\n`;
       }
     } else {
       mermaid += `*No pages*\n`;

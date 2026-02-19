@@ -537,7 +537,7 @@ Self-hosted video component with Frame wrapper.
 import { Video } from "/snippets/components/display/video.jsx";
 
 <Video 
-  src="/snippets/assets/media/videos/demo.mp4" 
+  src="/snippets/assets/media/videos/HeroBackground.mp4" 
   title="Demo Video"
   author="Livepeer Team"
   autoPlay
@@ -579,15 +579,15 @@ Image components with Frame wrapper and optional linking.
 import { Image, LinkImage } from "/snippets/components/display/image.jsx";
 
 <Image 
-  src="/images/diagram.png" 
+  src="/snippets/assets/media/images/Livepeer%20Stats.png" 
   alt="System Diagram"
   caption="Figure 1: Architecture"
 />
 
 <LinkImage 
-  src="/images/preview.png" 
+  src="/snippets/assets/media/images/GPUImg.webp" 
   alt="Preview"
-  href="/images/full-diagram.png"
+  href="/snippets/assets/media/images/DelegatorImg.avif"
   caption="Click to view full size"
 />
 ```
@@ -634,7 +634,7 @@ Interactive diagram viewer with zoom controls (25%-200%) and pan support.
 import { ScrollableDiagram } from "/snippets/components/display/zoomable-diagram.jsx";
 
 <ScrollableDiagram title="System Architecture" maxHeight="600px">
-  <img src="/diagrams/architecture.png" alt="Architecture" />
+  <img src="/snippets/assets/media/images/Livepeer%20Stats.png" alt="Architecture" />
 </ScrollableDiagram>
 ```
   </Tab>
@@ -1613,7 +1613,7 @@ Specialized callout components for Gateway documentation.
     <GatewayOnChainWarning />
     <OrchAddrNote />
     <TestVideoDownload>
-      Download a sample video from <a href="/samples">here</a>
+      Download a sample video from <a href="/04_gateways/run-a-gateway/test/publish-content">here</a>
     </TestVideoDownload>
   </Tab>
   <Tab title="Code">
@@ -1765,7 +1765,7 @@ These components are provided globally by Mintlify and don't need to be imported
 </Columns>
 
 <CardGroup cols={2}>
-  <Card title="Card" href="/path">Content</Card>
+  <Card title="Card" href="/07_resources/documentation-guide/component-library">Content</Card>
 </CardGroup>
 ```
   </Tab>
@@ -1794,7 +1794,7 @@ These components are provided globally by Mintlify and don't need to be imported
 <Card 
   title="Link Card" 
   icon="arrow-right" 
-  href="/path" 
+  href="/07_resources/documentation-guide/component-library" 
   arrow
   horizontal
   cta="Learn More"
@@ -1900,7 +1900,7 @@ Wraps content with optional caption and hint.
 
 ```jsx
 <Frame caption="Figure 1: Architecture Diagram" hint="Click to enlarge">
-  <img src="/images/diagram.png" alt="Diagram" />
+  <img src="/snippets/assets/media/images/Livepeer%20Stats.png" alt="Diagram" />
 </Frame>
 ```
 

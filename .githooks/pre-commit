@@ -503,6 +503,20 @@ else
                 fi
             fi
 
+            # Staged link audit (internal links/imports strict, external links classify-only)
+            if [ -f "tests/integration/v2-link-audit.js" ]; then
+                echo -e "${YELLOW}Running staged V2 link audit...${NC}"
+                if node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-precommit.md 2>&1; then
+                    echo -e "${GREEN}✓ Staged V2 link audit passed${NC}"
+                else
+                    LINK_AUDIT_EXIT=$?
+                    if [ $LINK_AUDIT_EXIT -ne 0 ]; then
+                        VIOLATIONS=$((VIOLATIONS + 1))
+                        WARNINGS+=("❌ Staged V2 link audit failed - see output above")
+                    fi
+                fi
+            fi
+
             # Domain page load audit (stable report path in tests/reports)
             if [ -f "tests/integration/domain-pages-audit.js" ]; then
                 echo -e "${YELLOW}Running domain page load audit (staged pages)...${NC}"
@@ -556,6 +570,20 @@ else
                 if [ $TEST_EXIT -ne 0 ]; then
                     VIOLATIONS=$((VIOLATIONS + 1))
                     WARNINGS+=("❌ Test suite failed - see output above")
+                fi
+            fi
+
+            # Staged link audit (internal links/imports strict, external links classify-only)
+            if [ -f "tests/integration/v2-link-audit.js" ]; then
+                echo -e "${YELLOW}Running staged V2 link audit...${NC}"
+                if node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-precommit.md 2>&1; then
+                    echo -e "${GREEN}✓ Staged V2 link audit passed${NC}"
+                else
+                    LINK_AUDIT_EXIT=$?
+                    if [ $LINK_AUDIT_EXIT -ne 0 ]; then
+                        VIOLATIONS=$((VIOLATIONS + 1))
+                        WARNINGS+=("❌ Staged V2 link audit failed - see output above")
+                    fi
                 fi
             fi
 

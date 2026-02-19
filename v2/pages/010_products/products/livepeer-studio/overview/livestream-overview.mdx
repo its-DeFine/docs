@@ -17,22 +17,22 @@ If recording is enabled, the session can be stored as an **asset** when the stre
 
 You can send live video into a stream with:
 
-- **RTMP** — Default; use with OBS or other RTMP encoders. See [Stream via OBS](stream-via-obs).
-- **WebRTC** — Low-latency ingest from the browser. See [Livestream from browser](livestream-from-browser).
+- **RTMP** — Default; use with OBS or other RTMP encoders. See [Stream via OBS](../guides/stream-via-obs).
+- **WebRTC** — Low-latency ingest from the browser. See [Livestream from browser](../guides/livestream-from-browser).
 - **SRT** — Also supported for ingest.
 
-When a stream is live, [stream health](stream-health) provides metrics (e.g. transcoding status, ingest rate) so you can monitor quality and troubleshoot.
+When a stream is live, [stream health](../guides/stream-health) provides metrics (e.g. transcoding status, ingest rate) so you can monitor quality and troubleshoot.
 
 ## Multistream
 
-You can send the same stream to multiple RTMP/RTMPS destinations (e.g. Twitch, YouTube, Facebook Live) using [multistream](multistream). Targets are configured per stream in the dashboard or via the API. Webhooks (`multistream.connected`, `multistream.error`, `multistream.disconnected`) report target status.
+You can send the same stream to multiple RTMP/RTMPS destinations (e.g. Twitch, YouTube, Facebook Live) using [multistream](../guides/multistream). Targets are configured per stream in the dashboard or via the API. Webhooks (`multistream.connected`, `multistream.error`, `multistream.disconnected`) report target status.
 
 ## Playback
 
-Viewers use the **playback ID** to watch the stream. The [Livepeer Player](/products/livepeer-studio/player-and-embed) prefers WebRTC for low latency (about 0.5–3 seconds) and falls back to HLS when needed (e.g. if the stream has B-frames). Playback URLs can also be obtained from the [Playback Info API](https://livepeer.studio/docs/api-reference/playback/get).
+Viewers use the **playback ID** to watch the stream. The [Livepeer Player](/010_products/products/livepeer-studio/guides/player-and-embed) prefers WebRTC for low latency (about 0.5–3 seconds) and falls back to HLS when needed (e.g. if the stream has B-frames). Playback URLs can also be obtained from the [Playback Info API](https://livepeer.studio/docs/api-reference/playback/get).
 
 <Warning>
-  **B-frames** (bidirectional frames) can break WebRTC playback and cause fallback to HLS. With OBS, use the Livepeer Studio preset or set keyframe interval to 1 and turn off B-frames. See [Stream via OBS](stream-via-obs).
+  **B-frames** (bidirectional frames) can break WebRTC playback and cause fallback to HLS. With OBS, use the Livepeer Studio preset or set keyframe interval to 1 and turn off B-frames. See [Stream via OBS](../guides/stream-via-obs).
 </Warning>
 
 ## Webhooks
@@ -44,15 +44,15 @@ Common stream-related events:
 - `recording.*` — Recording started, ready, or waiting.
 - `multistream.*` — Multistream target connected, error, or disconnected.
 
-See [Webhooks](webhooks) and [Listen to events](listen-to-events).
+See [Webhooks](../guides/webhooks) and [Listen to events](../guides/listen-to-events).
 
 ## Guides
 
-- [Create a livestream](create-livestream)
-- [Play a livestream](playback-livestream)
-- [Stream via OBS](stream-via-obs)
-- [Livestream from browser](livestream-from-browser)
-- [Multistream](multistream)
-- [Clip a livestream](clip-livestream)
-- [Stream health](stream-health)
-- [Optimize latency](optimize-latency)
+- [Create a livestream](../guides/create-livestream)
+- [Play a livestream](../guides/playback-livestream)
+- [Stream via OBS](../guides/stream-via-obs)
+- [Livestream from browser](../guides/livestream-from-browser)
+- [Multistream](../guides/multistream)
+- [Clip a livestream](../guides/clip-livestream)
+- [Stream health](../guides/stream-health)
+- [Optimize latency](../guides/optimize-latency)

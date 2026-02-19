@@ -119,38 +119,38 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "00_home/project-showcase/applications.mdx",
-      "resolvedPath": "v2/pages/00_home/project-showcase/applications.mdx",
-      "exists": true,
-      "status": "route-missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "00_home/project-showcase/industry-verticals.mdx",
-      "resolvedPath": "v2/pages/00_home/project-showcase/industry-verticals.mdx",
-      "exists": true,
-      "status": "route-missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "00_home/project-showcase/landscape.mdx",
-      "resolvedPath": "v2/pages/00_home/project-showcase/landscape.mdx",
-      "exists": true,
-      "status": "route-missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "00_home/project-showcase/showcase.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
       "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
       "exists": true,
-      "status": "route-missing",
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
+      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
+      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
+      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -389,11 +389,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "05_orchestrators/orchestrators-portal.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
       "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
       "exists": true,
-      "status": "route-missing",
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -1532,11 +1532,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "02_community/community-portal.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/02_community/community-portal",
       "resolvedPath": "v2/pages/02_community/community-portal.mdx",
       "exists": true,
-      "status": "route-missing",
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -2225,11 +2225,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "05_orchestrators/orchestrators-portal.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
       "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
       "exists": true,
-      "status": "route-missing",
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -3251,11 +3251,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "05_orchestrators/orchestrators-portal.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
       "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
       "exists": true,
-      "status": "route-missing",
+      "status": "ok",
       "movedCandidates": []
     },
     {
