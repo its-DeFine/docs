@@ -112,8 +112,10 @@ What it supports:
 - `schedule` polling mode (every 15 minutes)
 - `workflow_dispatch` mode (`poll` or `dispatch`)
 - `repository_dispatch` event (`showcase-review-submitted`) for webhook bridge setups (for example Google Apps Script)
+- New-submission intake from Sheets (validate, transform, append transformed row, reviewer notify)
 - Review decision processing (`approve`/`deny`) from Google Sheets
-- Update of `showcaseData.jsx` in GitHub after approvals
+- Asset sync on approval (download source media/logo, commit to `docs-v2-assets`)
+- Update of `showcaseData.jsx` in GitHub after approvals/denials
 - Discord notifications to reviewer and submitter
 - Error notification to reviewer DM
 
@@ -124,16 +126,20 @@ Required GitHub secrets:
 Required GitHub variables:
 - `SHOWCASE_GOOGLE_SHEET_ID`
 - `SHOWCASE_REVIEW_SHEET_NAME`
+- `SHOWCASE_SUBMISSIONS_SHEET_NAME`
+- `SHOWCASE_SUBMISSIONS_SHEET_URL`
 - `SHOWCASE_TRANSFORMED_SHEET_NAME`
 - `SHOWCASE_REVIEW_PROCESSED_COLUMN`
+- `SHOWCASE_APPROVAL_FORM_BASE_URL`
 - `SHOWCASE_GITHUB_OWNER`
 - `SHOWCASE_GITHUB_REPO`
 - `SHOWCASE_GITHUB_DATA_BRANCH`
+- `SHOWCASE_GITHUB_ASSETS_BRANCH`
 - `SHOWCASE_DATA_FILE_PATH`
+- `SHOWCASE_ASSETS_BASE_PATH`
 - `SHOWCASE_DISCORD_REVIEWER_USER_ID`
 - `SHOWCASE_DISCORD_API_BASE_URL`
 - `SHOWCASE_MAX_ROWS_PER_RUN`
 
 Notes:
-- This is the upgrade path for moving core approval sync logic from n8n into GitHub Actions.
-- Asset ingestion/upload parity (Drive -> `docs-v2-assets`) can be added as a second step once branch and storage strategy are finalized.
+- This is the upgrade path for moving the full intake/review/publish pipeline from n8n into GitHub Actions.
