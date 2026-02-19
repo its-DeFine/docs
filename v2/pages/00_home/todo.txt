@@ -1,0 +1,19 @@
+
+To Upgrade:
+- [Get Started](home/get-started.mdx)
+- [Livepeer Primer](home/primer.mdx)
+- [Livepeer Applications](project-showcase/applications.mdx)
+- SEO & AEO (see scripts)
+- OG image
+- Seed more showcase projects
+
+Remove:
+- Get Started Anchor (or change to platform link)
+
+Rename
+- why-livepeer -> benefits
+- Folder (00_home -> home)
+
+Move 
+- all of /home to Root
+
