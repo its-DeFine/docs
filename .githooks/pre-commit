@@ -398,6 +398,21 @@ else
                     WARNINGS+=("❌ Test suite failed - see output above")
                 fi
             fi
+
+            # Domain page load audit (stable report path in tests/reports)
+            if [ -f "tests/integration/domain-pages-audit.js" ]; then
+                echo -e "${YELLOW}Running domain page load audit (staged pages)...${NC}"
+                DOMAIN_AUDIT_VERSION=${DOMAIN_AUDIT_VERSION:-both}
+                if node tests/integration/domain-pages-audit.js --staged --base-url "https://docs.livepeer.org" --version "$DOMAIN_AUDIT_VERSION" 2>&1; then
+                    echo -e "${GREEN}✓ Domain page load audit passed${NC}"
+                else
+                    DOMAIN_AUDIT_EXIT=$?
+                    if [ $DOMAIN_AUDIT_EXIT -ne 0 ]; then
+                        VIOLATIONS=$((VIOLATIONS + 1))
+                        WARNINGS+=("❌ Domain page load audit failed - see tests/reports/domain-page-load-report.json")
+                    fi
+                fi
+            fi
         elif [ -d "tests/node_modules" ]; then
             # Fallback to tests/node_modules if tools doesn't exist
             export NODE_PATH="$(pwd)/tests/node_modules:${NODE_PATH:-}"
@@ -408,6 +423,21 @@ else
                 if [ $TEST_EXIT -ne 0 ]; then
                     VIOLATIONS=$((VIOLATIONS + 1))
                     WARNINGS+=("❌ Test suite failed - see output above")
+                fi
+            fi
+
+            # Domain page load audit (stable report path in tests/reports)
+            if [ -f "tests/integration/domain-pages-audit.js" ]; then
+                echo -e "${YELLOW}Running domain page load audit (staged pages)...${NC}"
+                DOMAIN_AUDIT_VERSION=${DOMAIN_AUDIT_VERSION:-both}
+                if node tests/integration/domain-pages-audit.js --staged --base-url "https://docs.livepeer.org" --version "$DOMAIN_AUDIT_VERSION" 2>&1; then
+                    echo -e "${GREEN}✓ Domain page load audit passed${NC}"
+                else
+                    DOMAIN_AUDIT_EXIT=$?
+                    if [ $DOMAIN_AUDIT_EXIT -ne 0 ]; then
+                        VIOLATIONS=$((VIOLATIONS + 1))
+                        WARNINGS+=("❌ Domain page load audit failed - see tests/reports/domain-page-load-report.json")
+                    fi
                 fi
             fi
         else

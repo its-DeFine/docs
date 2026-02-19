@@ -9,7 +9,11 @@
     "test:spell": "node unit/spelling.test.js",
     "test:quality": "node unit/quality.test.js",
     "test:links": "node unit/links-imports.test.js",
-    "test:browser": "node integration/browser.test.js"
+    "test:browser": "node integration/browser.test.js",
+    "test:domain": "node integration/domain-pages-audit.js",
+    "test:domain:v1": "node integration/domain-pages-audit.js --version v1",
+    "test:domain:v2": "node integration/domain-pages-audit.js --version v2",
+    "test:domain:both": "node integration/domain-pages-audit.js --version both"
   },
   "dependencies": {
     "js-yaml": "^4.1.0",

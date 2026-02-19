@@ -11,6 +11,12 @@ This directory contains git hooks for enforcing repository standards.
 ./.githooks/install.sh
 ```
 
+Or start local docs dev (auto-installs/updates hooks first):
+
+```bash
+./tools/scripts/mint-dev.sh
+```
+
 ## Pre-commit Hook
 
 The pre-commit hook enforces style guide compliance and runs verification scripts:
@@ -34,6 +40,26 @@ The hook also runs `.githooks/verify.sh` which checks:
 - ✅ **Mintlify config** - Validates docs.json/mint.json syntax
 - ✅ **Import paths** - Ensures snippets imports use absolute paths
 - ✅ **Browser validation** - Tests MDX files in headless browser (requires `mint dev` running)
+
+### Test Suite + Domain Audit
+
+The pre-commit hook also runs:
+
+- `node tests/run-all.js --staged --skip-browser`
+- `node tests/integration/domain-pages-audit.js --staged --base-url https://docs.livepeer.org --version "$DOMAIN_AUDIT_VERSION"`
+
+Domain audit scope:
+- `DOMAIN_AUDIT_VERSION=v1`
+- `DOMAIN_AUDIT_VERSION=v2`
+- `DOMAIN_AUDIT_VERSION=both` (default)
+
+Domain audit report path (stable, overwritten each run):
+- `tests/reports/domain-page-load-report.json`
+
+Example:
+```bash
+DOMAIN_AUDIT_VERSION=v2 git commit -m "docs update"
+```
 
 ## Installation
 
