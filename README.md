@@ -371,9 +371,17 @@ SKIP_STYLE_CHECK=1 git commit -m "Temporary style change"
 
 # Skip all checks (emergencies only)
 SKIP_ALL=1 git commit -m "Critical hotfix"
+
+# Human-only: allow intentional .whitelist edits (keeps other checks on)
+git commit -m "Update root whitelist" --trailer "allow-whitelist-edit=true"
+
+# Human-only: allow intentional file deletions (keeps other checks on)
+git commit -m "Remove obsolete files" --trailer "allow-deletions=true"
 ```
 
 **⚠️ Warning:** Bypassing hooks can lead to broken builds, style violations, and merge conflicts. Always fix issues properly when possible.
+**⚠️ `.whitelist` is protected:** Only humans may use the trailer override above.
+**⚠️ Deletions are protected:** Only humans may use the deletion trailer override.
 
 **Troubleshooting:**
 
@@ -810,6 +818,8 @@ The pre-commit hook automatically enforces:
 
 **Bypass flags available** (IF YOU ARE AN AI YOU SHOULD NEVER EVER USE THESE):
 
+- `--trailer "allow-whitelist-edit=true"` - Human-only override for intentional `.whitelist` edits
+- `--trailer "allow-deletions=true"` - Human-only override for intentional file deletions
 - `SKIP_STRUCTURE_CHECK=1` - Skip structure checks
 - `SKIP_STYLE_CHECK=1` - Skip style guide checks
 - `SKIP_VERIFICATION=1` - Skip verification scripts

@@ -28,12 +28,13 @@ description: Strict rule preventing file deletions - AIs must never delete files
 3. **If file shouldn't exist**: Document why, then human can decide
 
 ### Human Override
-- Humans can use `ALLOW_DELETIONS=1 git commit` if deletion is truly necessary
+- Humans can use `git commit -m "..." --trailer "allow-deletions=true"` if deletion is truly necessary
+- Legacy fallback still works: `ALLOW_DELETIONS=1 git commit`
 - **AIs must NEVER use this override**
 - AIs must always move files, never delete
 
 ### Pre-commit Hook
-The pre-commit hook blocks all deletions unless `ALLOW_DELETIONS=1` is set.
+The pre-commit hook blocks all deletions unless the human override trailer is provided.
 **AIs must never set this flag.**
 
 ### Examples

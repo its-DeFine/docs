@@ -95,6 +95,8 @@ Examples:
 
 Notes:
   - `lpd dev` auto-installs/updates pre-commit hooks via tools/scripts/mint-dev.sh.
+  - Human `.whitelist` edits require: `git commit -m "msg" --trailer "allow-whitelist-edit=true"`.
+  - Human deletions require: `git commit -m "msg" --trailer "allow-deletions=true"`.
   - Script discovery supports `.lpdignore` (gitignore-style patterns) if present in repo root.
 EOF
 }
@@ -151,6 +153,8 @@ Common Workflows:
 
 Notes:
   - lpd uses .lpdignore (if present) to hide/block scripts from discovery and execution.
+  - Human `.whitelist` edits require: `git commit -m "msg" --trailer "allow-whitelist-edit=true"`.
+  - Human deletions require: `git commit -m "msg" --trailer "allow-deletions=true"`.
   - High-risk script groups require confirmation unless --yes is supplied.
 EOF
 }
@@ -607,6 +611,12 @@ Usage:
   lpd hooks status
   lpd hooks verify
   lpd hooks <hook-script tokens...> [-- script args]
+
+Note:
+  Human `.whitelist` edits require:
+  git commit -m "msg" --trailer "allow-whitelist-edit=true"
+  Human deletions require:
+  git commit -m "msg" --trailer "allow-deletions=true"
 EOF
             ;;
         *)

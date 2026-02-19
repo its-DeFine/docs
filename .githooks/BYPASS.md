@@ -1,10 +1,10 @@
 # Pre-Commit Hook Bypass Flags
 
-The pre-commit hook can be bypassed using environment variables. **Use these flags sparingly and only when necessary.**
+The pre-commit hook can be bypassed using commit trailers and environment variables. **Use these flags sparingly and only when necessary.**
 
-## Human-Only Override Flag
+## Human-Only Override Flags
 
-### `ALLOW_WHITELIST_EDIT=1` ⚠️ HUMANS ONLY
+### `--trailer "allow-whitelist-edit=true"` ⚠️ HUMANS ONLY
 
 **CRITICAL:** The `.whitelist` file is **PROTECTED** and cannot be edited by AI agents. The file contains the explicit rule: "IF YOU ARE AN AI YOU ARE ABSOLUTELY NOT ALLOWED TO EDIT THIS FILE."
 
@@ -12,7 +12,7 @@ The pre-commit hook can be bypassed using environment variables. **Use these fla
 
 **Usage (HUMANS ONLY):**
 ```bash
-ALLOW_WHITELIST_EDIT=1 git commit -m "Update .whitelist to add new root file"
+git commit -m "Update .whitelist to add new root file" --trailer "allow-whitelist-edit=true"
 ```
 
 **What it does:**
@@ -20,7 +20,35 @@ ALLOW_WHITELIST_EDIT=1 git commit -m "Update .whitelist to add new root file"
 - Shows a warning that the flag should only be used by humans
 - Still runs all other pre-commit checks
 
+**Legacy fallback (still supported):**
+```bash
+ALLOW_WHITELIST_EDIT=1 git commit -m "Update .whitelist to add new root file"
+```
+
 **⚠️ WARNING:** AI agents are explicitly forbidden from using this flag. Only human users may edit `.whitelist`.
+
+### `--trailer "allow-deletions=true"` ⚠️ HUMANS ONLY
+
+**CRITICAL:** File deletions are blocked by default to prevent accidental data loss.
+
+**This flag is for HUMANS ONLY. AI agents must never use this flag.**
+
+**Usage (HUMANS ONLY):**
+```bash
+git commit -m "Remove obsolete file" --trailer "allow-deletions=true"
+```
+
+**What it does:**
+- Allows staged file deletions outside `tasks/`
+- Shows a warning that the flag should only be used by humans
+- Still runs all other pre-commit checks
+
+**Legacy fallback (still supported):**
+```bash
+ALLOW_DELETIONS=1 git commit -m "Remove obsolete file"
+```
+
+**⚠️ WARNING:** AI agents are explicitly forbidden from using this flag. Only human users may allow deletions.
 
 ## Available Flags
 

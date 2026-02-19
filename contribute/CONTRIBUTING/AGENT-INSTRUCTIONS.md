@@ -126,6 +126,18 @@ If you encounter a false positive:
 2. Ask for guidance
 3. Do NOT bypass the hook
 
+If a human explicitly needs to edit `.whitelist`, they must commit with:
+
+```bash
+git commit -m "Update .whitelist" --trailer "allow-whitelist-edit=true"
+```
+
+If a human explicitly needs to allow file deletions, they must commit with:
+
+```bash
+git commit -m "Remove obsolete files" --trailer "allow-deletions=true"
+```
+
 ## Browser Validation
 
 The hook includes **headless browser validation** that tests MDX files actually render in the browser.

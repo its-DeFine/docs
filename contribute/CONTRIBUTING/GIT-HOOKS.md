@@ -296,6 +296,30 @@ VIOLATIONS=$((VIOLATIONS + 1))
 
 **⚠️ WARNING:** Only bypass hooks if you have a legitimate reason and understand the consequences.
 
+### Protected `.whitelist` Edits (Human-Only)
+
+The pre-commit hook protects `.whitelist` by default.
+
+If a human intentionally needs to update `.whitelist`, use:
+
+```bash
+git commit -m "Update .whitelist" --trailer "allow-whitelist-edit=true"
+```
+
+This override is scoped to `.whitelist` edits and still runs all other pre-commit checks.
+
+### Protected Deletions (Human-Only)
+
+The pre-commit hook blocks staged file deletions outside `tasks/` by default.
+
+If a human intentionally needs to allow deletions, use:
+
+```bash
+git commit -m "Remove obsolete files" --trailer "allow-deletions=true"
+```
+
+This override is scoped to deletions and still runs all other pre-commit checks.
+
 ```bash
 # Bypass pre-commit hook
 git commit --no-verify -m "message"

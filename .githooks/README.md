@@ -133,6 +133,30 @@ git commit --no-verify -m "message"
 
 **Warning:** Only bypass if you have a legitimate reason and understand the style guide violations.
 
+### Human-Only `.whitelist` Override
+
+The `.whitelist` file is protected by the pre-commit hook.
+
+If a human needs to intentionally edit `.whitelist`, use:
+
+```bash
+git commit -m "Update .whitelist" --trailer "allow-whitelist-edit=true"
+```
+
+This allows `.whitelist` edits while still running all other checks.
+
+### Human-Only Deletions Override
+
+File deletions are blocked by default outside `tasks/`.
+
+If a human intentionally needs to delete files, use:
+
+```bash
+git commit -m "Remove obsolete files" --trailer "allow-deletions=true"
+```
+
+This allows deletions while still running all other checks.
+
 ## Style Guide Reference
 
 See: `v2/pages/07_resources/documentation-guide/style-guide.mdx`
