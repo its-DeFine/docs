@@ -9,6 +9,7 @@
     "test:spell": "node unit/spelling.test.js",
     "test:quality": "node unit/quality.test.js",
     "test:links": "node unit/links-imports.test.js",
+    "test:scripts": "node unit/script-docs.test.js",
     "test:browser": "node integration/browser.test.js",
     "test:domain": "node integration/domain-pages-audit.js",
     "test:domain:v1": "node integration/domain-pages-audit.js --version v1",

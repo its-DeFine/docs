@@ -62,6 +62,14 @@ cd tools && npm install
 ./.githooks/install.sh
 ```
 
+Or run local dev with:
+
+```bash
+./lp mint dev
+```
+
+This command installs/updates hooks first, then starts `mint dev`.
+
 **Note:** If dependencies are not installed, the hooks will still run but tests will be skipped with a warning. Install dependencies in `tools/` for full test coverage.
 
 #### Manual Installation

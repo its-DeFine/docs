@@ -8,7 +8,7 @@ Welcome! This guide will help you contribute to the Livepeer documentation.
 2. **Install Git Hooks** - See [Git Hooks Documentation](./GIT-HOOKS.md)
 3. **Fork and Clone** - Create your fork and clone it locally
 4. **Make Changes** - Follow the style guide and component library
-5. **Test Locally** - Run `mint dev` to preview changes
+5. **Test Locally** - Run `./lp mint dev` to preview changes (auto-installs/updates hooks)
 6. **Submit PR** - Open a pull request with your changes
 
 ## Essential Reading
@@ -37,7 +37,7 @@ See [Git Hooks Documentation](./GIT-HOOKS.md) for details.
 npm i -g mintlify
 
 # Run development server
-mint dev
+./lp mint dev
 ```
 
 ## Style Guide Rules
@@ -55,7 +55,7 @@ mint dev
 
 Before submitting:
 
-- [ ] Run `mint dev` and verify pages render correctly
+- [ ] Run `./lp mint dev` and verify pages render correctly
 - [ ] Test in both light and dark modes
 - [ ] Check all links work
 - [ ] Verify no console errors

@@ -1,8 +1,33 @@
 #!/usr/bin/env node
 /**
- * Audit docs page load status on a deployed domain.
- * Writes a stable report file (overwritten each run):
- *   tests/reports/domain-page-load-report.json
+ * @script domain-pages-audit
+ * @summary Audit deployed docs page load status and emit a stable JSON report.
+ * @owner docs
+ * @scope tests/integration, tests/reports, docs.livepeer.org
+ *
+ * @usage
+ *   node tests/integration/domain-pages-audit.js --version both
+ *
+ * @inputs
+ *   --version v1|v2|both (default: both)
+ *   --staged (only staged docs pages)
+ *   --base-url <url> (default: https://docs.livepeer.org)
+ *   DOMAIN_AUDIT_VERSION (default: both)
+ *   MINT_BASE_URL (fallback base URL)
+ *
+ * @outputs
+ *   - tests/reports/domain-page-load-report.json
+ *
+ * @exit-codes
+ *   0 = all checked pages passed
+ *   1 = any checked page failed or invalid --version value
+ *
+ * @examples
+ *   node tests/integration/domain-pages-audit.js --staged --version v2
+ *   node tests/integration/domain-pages-audit.js --base-url https://docs.livepeer.org --version both
+ *
+ * @notes
+ *   Overwrites the same report file each run to avoid report sprawl.
  */
 
 const fs = require('fs');

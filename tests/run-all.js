@@ -8,6 +8,7 @@ const mdxTests = require('./unit/mdx.test');
 const spellingTests = require('./unit/spelling.test');
 const qualityTests = require('./unit/quality.test');
 const linksImportsTests = require('./unit/links-imports.test');
+const scriptDocsTests = require('./unit/script-docs.test');
 const browserTests = require('./integration/browser.test');
 
 const args = process.argv.slice(2);
@@ -59,6 +60,13 @@ async function runAllTests() {
   totalErrors += linksResult.errors.length;
   totalWarnings += linksResult.warnings.length;
   console.log(`   ${linksResult.errors.length} errors, ${linksResult.warnings.length} warnings`);
+
+  // Script Docs Enforcement
+  console.log('\n🧾 Running Script Documentation Enforcement...');
+  const scriptDocsResult = scriptDocsTests.runTests({ stagedOnly });
+  totalErrors += scriptDocsResult.errors.length;
+  totalWarnings += scriptDocsResult.warnings.length;
+  console.log(`   ${scriptDocsResult.errors.length} errors, ${scriptDocsResult.warnings.length} warnings`);
   
   // Browser Tests (optional)
   if (!skipBrowser) {

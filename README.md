@@ -12,7 +12,10 @@ Built with [Mintlify](https://mintlify.com) and deployed at [docs.livepeer.org](
 
 ## IMPORTANT
 
-- **THIS REPOSITORY IS mostly COMMUNITY MAINTAINED.** The Livepeer Foundation helps guide it, however, generally if you think improvements are needed you should submit them (via PR) or create an issue asking for the feature/bug fix etc. See the [Contributing section](#-contributing) for details.
+- **THIS REPOSITORY IS mostly COMMUNITY MAINTAINED.** 
+
+The Livepeer Foundation helps guide it, however, generally if you think improvements are needed you should submit them (via PR) or create an issue asking for the feature/bug fix etc. See the [Contributing section](#-contributing) for details.
+
 - **Issue templates:** When creating issues, use the GitHub issue templates which will automatically apply the `docs-v2` and `help wanted` labels. See [Creating Issues](#creating-issues) in the Contributing section for details.
 
 ---
@@ -21,7 +24,8 @@ Built with [Mintlify](https://mintlify.com) and deployed at [docs.livepeer.org](
 
 ### Prerequisites
 
-**⚠️ CRITICAL:** Always verify requirements with [Mintlify's official documentation](https://mintlify.com/docs/installation) before making changes.
+**⚠️ CRITICAL:** Always verify requirements with [Mintlify's official documentation](https://mintlify.com/docs/installation) before making changes 
+- Note: many of Mintlify's quirks are also documented in the [style guide](/v2/pages/07_resources/documentation-guide/) in this repo.
 
 - **Node.js v20.17.0+ (LTS recommended)** - Required by Mintlify CLI
   - Install from [nodejs.org](https://nodejs.org/)
@@ -64,9 +68,9 @@ Built with [Mintlify](https://mintlify.com) and deployed at [docs.livepeer.org](
 
    See [Pre-Commit Hooks](#-pre-commit-hooks) section for details on what the hooks check.
 
-4. **Start the development server:**
+4. **Start the development server (auto-installs/updates git hooks):**
    ```bash
-   mint dev
+   ./lp mint dev
    ```
    The docs will be available at `http://localhost:3000`. See [Development](#-development) section for troubleshooting.
 
@@ -74,7 +78,7 @@ Built with [Mintlify](https://mintlify.com) and deployed at [docs.livepeer.org](
 
 1. **Create a branch:** `git checkout -b docs/your-feature-name`
 2. **Make your changes** in `v2/pages/` or `snippets/`
-3. **Test locally:** `mint dev`
+3. **Test locally:** `./lp mint dev`
 4. **Commit your changes:** `git commit -m "docs: description of your change"`
    - Pre-commit hooks will run automatically (see [Pre-Commit Hooks](#-pre-commit-hooks))
 5. **Push and create a PR:** `git push origin docs/your-feature-name`
@@ -211,7 +215,7 @@ See [Component Library](v2/pages/07_resources/documentation-guide/component-libr
 
 1. **Branch naming:** Use `docs/` prefix (e.g., `docs/fix-typo-quickstart`)
 2. **Commit messages:** Use conventional format: `docs: description`
-3. **Test locally:** Always test with `mint dev` before submitting
+3. **Test locally:** Always test with `./lp mint dev` before submitting
 4. **Follow style guide:** All changes must pass pre-commit hooks
 5. **Update related docs:** If structure changes, update this README
 
@@ -236,10 +240,16 @@ See [CONTRIBUTING.md](contribute/CONTRIBUTING.md) for detailed contribution guid
 npm i -g mintlify
 ```
 
-**Start the development server:**
+**Start the development server (auto-installs/updates git hooks):**
 
 ```bash
-mint dev
+./lp mint dev
+```
+
+To see launcher options:
+
+```bash
+./lp mint dev --help
 ```
 
 Then open **http://localhost:3000** in your browser. To test the AI assistant: open **Home → Test** in the sidebar and use the chat button.
@@ -250,7 +260,7 @@ If you see `MODULE_NOT_FOUND` for `_document.js`, **"No docs config"**, or **ENO
 
 ```bash
 rm -rf ~/.mintlify ~/.mintlify-last
-mint dev
+./lp mint dev
 ```
 
 **Running Tests:**
@@ -903,7 +913,7 @@ This repository uses several GitHub Actions workflows:
 
 ### Build Process
 
-- **Local Development:** `mint dev` - Starts local server at `http://localhost:3000`
+- **Local Development:** `./lp mint dev` - Installs/updates hooks, then starts local server at `http://localhost:3000`
 - **Production Build:** Handled automatically by Mintlify
 - **Docker Build:** `docker build -t livepeer/docs .` (see `Dockerfile`)
 

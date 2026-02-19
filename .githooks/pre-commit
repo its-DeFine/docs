@@ -389,6 +389,21 @@ else
         if [ -d "tools/node_modules" ]; then
             # Set NODE_PATH to include tools/node_modules for module resolution
             export NODE_PATH="$(pwd)/tools/node_modules:${NODE_PATH:-}"
+
+            # Enforce script documentation template for newly added scripts and update README indexes
+            if [ -f "tests/unit/script-docs.test.js" ]; then
+                echo -e "${YELLOW}Running script documentation enforcement (staged additions)...${NC}"
+                if node tests/unit/script-docs.test.js --staged --write --stage 2>&1; then
+                    echo -e "${GREEN}✓ Script documentation enforcement passed${NC}"
+                else
+                    DOCS_ENFORCE_EXIT=$?
+                    if [ $DOCS_ENFORCE_EXIT -ne 0 ]; then
+                        VIOLATIONS=$((VIOLATIONS + 1))
+                        WARNINGS+=("❌ Script documentation enforcement failed - missing required script header template")
+                    fi
+                fi
+            fi
+
             if node tests/run-all.js --staged --skip-browser 2>&1; then
                 echo -e "${GREEN}✓ Test suite passed${NC}"
             else
@@ -416,6 +431,21 @@ else
         elif [ -d "tests/node_modules" ]; then
             # Fallback to tests/node_modules if tools doesn't exist
             export NODE_PATH="$(pwd)/tests/node_modules:${NODE_PATH:-}"
+
+            # Enforce script documentation template for newly added scripts and update README indexes
+            if [ -f "tests/unit/script-docs.test.js" ]; then
+                echo -e "${YELLOW}Running script documentation enforcement (staged additions)...${NC}"
+                if node tests/unit/script-docs.test.js --staged --write --stage 2>&1; then
+                    echo -e "${GREEN}✓ Script documentation enforcement passed${NC}"
+                else
+                    DOCS_ENFORCE_EXIT=$?
+                    if [ $DOCS_ENFORCE_EXIT -ne 0 ]; then
+                        VIOLATIONS=$((VIOLATIONS + 1))
+                        WARNINGS+=("❌ Script documentation enforcement failed - missing required script header template")
+                    fi
+                fi
+            fi
+
             if node tests/run-all.js --staged --skip-browser 2>&1; then
                 echo -e "${GREEN}✓ Test suite passed${NC}"
             else

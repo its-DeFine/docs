@@ -14,7 +14,7 @@ This directory contains git hooks for enforcing repository standards.
 Or start local docs dev (auto-installs/updates hooks first):
 
 ```bash
-./tools/scripts/mint-dev.sh
+./lp mint dev
 ```
 
 ## Pre-commit Hook
@@ -45,6 +45,7 @@ The hook also runs `.githooks/verify.sh` which checks:
 
 The pre-commit hook also runs:
 
+- `node tests/unit/script-docs.test.js --staged --write --stage`
 - `node tests/run-all.js --staged --skip-browser`
 - `node tests/integration/domain-pages-audit.js --staged --base-url https://docs.livepeer.org --version "$DOMAIN_AUDIT_VERSION"`
 
@@ -55,6 +56,18 @@ Domain audit scope:
 
 Domain audit report path (stable, overwritten each run):
 - `tests/reports/domain-page-load-report.json`
+
+Script documentation enforcement:
+- Newly added scripts must include required header tags.
+- If valid, per-folder README script indexes are auto-updated and staged.
+- If invalid, commit is blocked.
+
+Current script-folder README targets:
+- `.githooks/*` -> `.githooks/README.md`
+- `tests/*` -> `tests/README.md`
+- `tools/scripts/*` -> `tools/scripts/README.md`
+- `tasks/scripts/*` -> `tasks/scripts/README.md`
+- `v2/scripts/dev/*` -> `v2/scripts/dev/README.mdx`
 
 Example:
 ```bash
@@ -119,3 +132,9 @@ git commit --no-verify -m "message"
 ## Style Guide Reference
 
 See: `v2/pages/07_resources/documentation-guide/style-guide.mdx`
+
+<!-- SCRIPT-INDEX:START -->
+## Script Index
+
+_No documented scripts found in this scope yet._
+<!-- SCRIPT-INDEX:END -->

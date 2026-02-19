@@ -81,3 +81,57 @@ npm --prefix tests run test:domain:both
 - Pre-commit also runs domain audit on staged docs pages:
   `node tests/integration/domain-pages-audit.js --staged --base-url https://docs.livepeer.org --version "$DOMAIN_AUDIT_VERSION"`
 - Set `DOMAIN_AUDIT_VERSION=v1|v2|both` to control scope in pre-commit.
+- Pre-commit enforces script header docs for newly added scripts and auto-updates script indexes:
+  `node tests/unit/script-docs.test.js --staged --write --stage`
+
+## Script Header Template (Required for New Scripts)
+Newly added scripts must include these tags near the top of the file:
+- `@script`
+- `@summary`
+- `@owner`
+- `@scope`
+- `@usage`
+- `@inputs`
+- `@outputs`
+- `@exit-codes`
+- `@examples`
+- `@notes`
+
+Example:
+```js
+/**
+ * @script domain-pages-audit
+ * @summary Audit deployed docs page load status.
+ * @owner docs
+ * @scope tests/integration, tests/reports
+ *
+ * @usage
+ *   node tests/integration/domain-pages-audit.js --version both
+ *
+ * @inputs
+ *   --version v1|v2|both (default: both)
+ *   --base-url <url> (default: https://docs.livepeer.org)
+ *
+ * @outputs
+ *   - tests/reports/domain-page-load-report.json
+ *
+ * @exit-codes
+ *   0 = success
+ *   1 = failures or invalid config
+ *
+ * @examples
+ *   node tests/integration/domain-pages-audit.js --staged --version v2
+ *
+ * @notes
+ *   Overwrites the same report file each run.
+ */
+```
+
+<!-- SCRIPT-INDEX:START -->
+## Script Index
+
+| Script | Summary | Usage |
+|---|---|---|
+| `tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. | `node tests/integration/domain-pages-audit.js --version both` |
+| `tests/unit/script-docs.test.js` | Enforce script header template for new scripts and maintain README script indexes. | `node tests/unit/script-docs.test.js --staged --write --stage` |
+<!-- SCRIPT-INDEX:END -->
