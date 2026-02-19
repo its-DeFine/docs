@@ -39,7 +39,7 @@ This report assesses the current state of the Livepeer documentation against the
 | Goal | Status | Evidence | Gap/Suggestion |
 |------|--------|----------|-----------------|
 | **Implement redesigned IA and content in Mintlify/Docusaurus** | ✅ **Met** | New IA implemented in Mintlify with tabs, anchors, and groups | **Evidence:** `docs.json` shows complete navigation structure |
-| **Set up redirects, SEO and AEO optimization, accessibility compliance (WCAG)** | ⚠️ **Partial** | Redirects exist in `docs.json`; SEO scripts exist; WCAG compliance not verified | **Evidence:** Redirects in `docs.json` (lines 3156+); SEO scripts (`snippets/scripts/generate-seo.js`); **Gap:** No WCAG audit or compliance verification documented |
+| **Set up redirects, SEO and AEO optimization, accessibility compliance (WCAG)** | ⚠️ **Partial** | Redirects exist in `docs.json`; SEO scripts exist; WCAG compliance not verified | **Evidence:** Redirects in `docs.json` (lines 3156+); SEO scripts (`tools/scripts/snippets/generate-seo.js`); **Gap:** No WCAG audit or compliance verification documented |
 | **Integrate multilingual readiness and analytics tracking** | ❌ **Not Met** | No i18n implementation found; analytics content exists but tracking not verified | **Gap:** No i18n plugin/configuration; **Evidence:** Analytics pages exist (`v2/pages/010_products/products/livepeer-studio/guides/analytics/overview.mdx`) but instrumentation not confirmed |
 | **Integrate the documentation into the website** | ⚠️ **Unknown** | Cannot verify from codebase | **Gap:** Need to verify website integration status |
 

@@ -22,7 +22,7 @@ Ensure that for every MDX page, if it uses a component that depends on a Mintlif
 ## Scope
 
 - Define rules: which custom components require which Mintlify (or other) imports when used in MDX.
-- Implement a script (e.g. in `v2/scripts/` or `snippets/scripts/`) that parses MDX files and component usage and verifies required imports are present.
+- Implement a script (e.g. in `v2/scripts/` or `tools/scripts/snippets/`) that parses MDX files and component usage and verifies required imports are present.
 - Optionally integrate into CI or pre-commit.
 
 ## Deliverables

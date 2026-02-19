@@ -73,7 +73,7 @@ Below are concrete plans for each gap: either a **new PLAN task** or an **extens
 - **Goal:** Ensure that for every MDX page, if it uses a component that depends on a Mintlify (or other) component, that dependency is imported in the MDX (since MDX controls imports).
 - **Scope:**
   - Define rules: which components require which Mintlify (or other) imports.
-  - Implement a script (e.g. in `v2/scripts/` or `snippets/scripts/`) that parses MDX and component usage and checks imports.
+  - Implement a script (e.g. in `v2/scripts/` or `tools/scripts/snippets/`) that parses MDX and component usage and checks imports.
   - Integrate into CI and/or pre-commit (optional).
 - **Deliverables:** Script, short doc in style-guide or component-library, and optionally a report under `docs/PLAN/reports/`.
 - **Suggested PLAN number:** 22 (e.g. `22-page-imports-check-script.md`).

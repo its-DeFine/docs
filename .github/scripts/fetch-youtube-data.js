@@ -1,3 +1,28 @@
+/**
+ * @script fetch-youtube-data
+ * @summary Utility script for .github/scripts/fetch-youtube-data.js.
+ * @owner docs
+ * @scope .github/scripts
+ *
+ * @usage
+ *   node .github/scripts/fetch-youtube-data.js
+ *
+ * @inputs
+ *   No required CLI flags; optional flags are documented inline.
+ *
+ * @outputs
+ *   - Console output and/or file updates based on script purpose.
+ *
+ * @exit-codes
+ *   0 = success
+ *   1 = runtime or validation failure
+ *
+ * @examples
+ *   node .github/scripts/fetch-youtube-data.js
+ *
+ * @notes
+ *   Keep script behavior deterministic and update script indexes after changes.
+ */
 const https = require("https");
 const fs = require("fs");
 

@@ -41,7 +41,7 @@ Fix critical configuration issues in GitHub Actions workflows and n8n automation
 
 - GitHub Actions workflows in `.github/workflows/`
 - n8n workflow JSON files in `snippets/automations/scripts/n8n/`
-- Scripts in `v2/scripts/dev/` and `.github/scripts/`
+- Scripts in `tools/scripts/dev/` and `.github/scripts/`
 - Documentation updates
 
 ---
@@ -189,11 +189,11 @@ Fix critical configuration issues in GitHub Actions workflows and n8n automation
 #### Task 2.2: Consolidate SEO Generators
 
 **Files:**
-- `snippets/scripts/generate-seo.js` - **KEEP** (canonical)
-- `v2/scripts/dev/seo-generator-safe.js` - **REMOVE**
+- `tools/scripts/snippets/generate-seo.js` - **KEEP** (canonical)
+- `tools/scripts/dev/seo-generator-safe.js` - **REMOVE**
 
 **Actions:**
-1. Delete `v2/scripts/dev/seo-generator-safe.js`
+1. Delete `tools/scripts/dev/seo-generator-safe.js`
 2. Search for any references to `seo-generator-safe.js` in:
    - README files
    - Other scripts
@@ -235,15 +235,15 @@ Fix critical configuration issues in GitHub Actions workflows and n8n automation
 #### Task 3.1: Consolidate OG Image Updaters
 
 **Files:**
-- `v2/scripts/dev/update-og-image.js`
-- `v2/scripts/dev/update-all-og-images.js`
-- `v2/scripts/dev/batch-update-og-image.sh`
-- `v2/scripts/dev/replace-og-image.py`
+- `tools/scripts/dev/update-og-image.js`
+- `tools/scripts/dev/update-all-og-images.js`
+- `tools/scripts/dev/batch-update-og-image.sh`
+- `tools/scripts/dev/replace-og-image.py`
 
 **Actions:**
 1. Test each script to see which works best
 2. Document the canonical version in usage guide
-3. Add note in `v2/scripts/dev/README.mdx` about which to use
+3. Add note in `tools/scripts/dev/README.mdx` about which to use
 4. Optionally remove or archive unused ones
 
 **Note:** This is optional - can be done later if needed.

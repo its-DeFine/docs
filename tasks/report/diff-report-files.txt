@@ -398,4 +398,4 @@ A	v2/pages/07_resources/documentation-guide/snippets-inventory.mdx
 A	v2/pages/07_resources/documentation-guide/style-guide.mdx
 A	v2/pages/09_internal/governance.mdx
 M	v2/pages/09_internal/layout-components-scripts-styling/components.mdx
-D	v2/scripts/dev/auto-commit.sh
+D	tools/scripts/dev/auto-commit.sh

@@ -1,4 +1,27 @@
 #!/bin/bash
+# @script install
+# @summary Utility script for .githooks/install.sh.
+# @owner docs
+# @scope .githooks
+#
+# @usage
+#   bash .githooks/install.sh
+#
+# @inputs
+#   No required CLI flags; optional flags are documented inline.
+#
+# @outputs
+#   - Console output and/or file updates based on script purpose.
+#
+# @exit-codes
+#   0 = success
+#   1 = runtime or validation failure
+#
+# @examples
+#   bash .githooks/install.sh
+#
+# @notes
+#   Keep script behavior deterministic and update script indexes after changes.
 # Install git hooks
 
 HOOKS_DIR=".git/hooks"

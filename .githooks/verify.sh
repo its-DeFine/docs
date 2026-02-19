@@ -1,4 +1,27 @@
 #!/bin/bash
+# @script verify
+# @summary Utility script for .githooks/verify.sh.
+# @owner docs
+# @scope .githooks
+#
+# @usage
+#   bash .githooks/verify.sh
+#
+# @inputs
+#   No required CLI flags; optional flags are documented inline.
+#
+# @outputs
+#   - Console output and/or file updates based on script purpose.
+#
+# @exit-codes
+#   0 = success
+#   1 = runtime or validation failure
+#
+# @examples
+#   bash .githooks/verify.sh
+#
+# @notes
+#   Keep script behavior deterministic and update script indexes after changes.
 # Verification script for pre-commit hook
 # Runs various validation checks on staged files
 

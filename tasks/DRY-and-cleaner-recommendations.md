@@ -68,7 +68,7 @@ import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
 **DRY options:**
 
 - **A. Build-time / script default:** If the docs build or a pre-build script reads frontmatter, treat missing `og:image` as “derive from path” (like `seo-generator-safe.js`). Then remove explicit `og:image` from files that match the default rule.
-- **B. Single config for “default” og:image:** e.g. in `snippets/scripts/paths.config.json` or a small constants file, define `DEFAULT_OG_IMAGE` and the path→image mapping. Scripts and (if possible) theme use it; pages only override when needed.
+- **B. Single config for “default” og:image:** e.g. in `tools/scripts/snippets/paths.config.json` or a small constants file, define `DEFAULT_OG_IMAGE` and the path→image mapping. Scripts and (if possible) theme use it; pages only override when needed.
 - **C. Keep generating via script:** Run `seo-generator-safe.js` (or equivalent) in CI so `keywords` and `og:image` are always set from a single source of truth (path + config). Then avoid hand-editing these in MDX except for overrides.
 
 **Recommendation:** Consolidate on one SEO script (see §2.2) and use it to set defaults; document “override only when necessary.”
@@ -79,7 +79,7 @@ import { BlinkingIcon } from '/snippets/components/primitives/links.jsx'
 
 ### 2.1 Shared frontmatter parsing
 
-**Problem:** `v2/scripts/dev/seo-generator-safe.js` has `extractFrontmatter()` and `parseFrontmatterFields()`. Other scripts (e.g. add-callouts, update-og-image) do ad-hoc regex or string splits. Duplication and risk of inconsistent behaviour.
+**Problem:** `tools/scripts/dev/seo-generator-safe.js` has `extractFrontmatter()` and `parseFrontmatterFields()`. Other scripts (e.g. add-callouts, update-og-image) do ad-hoc regex or string splits. Duplication and risk of inconsistent behaviour.
 
 **DRY option:** Add a small shared module, e.g. `v2/scripts/shared/frontmatter.js`, that exports:
 
@@ -94,16 +94,16 @@ Then `seo-generator-safe.js`, `add-callouts.js`, and any future script that touc
 ### 2.2 Two SEO / og:image scripts
 
 **Problem:**  
-- `v2/scripts/dev/seo-generator-safe.js` — updates keywords + og:image by path; has domain mapping (00_home, 01_about, …).  
-- `v2/scripts/dev/update-og-image.js` — sets every file to one fixed `NEW_OG_IMAGE`.  
-- `snippets/scripts/generate-seo.js` — also does keywords + og:image with a slightly different domain map (e.g. 02_developers vs 02_community).
+- `tools/scripts/dev/seo-generator-safe.js` — updates keywords + og:image by path; has domain mapping (00_home, 01_about, …).  
+- `tools/scripts/dev/update-og-image.js` — sets every file to one fixed `NEW_OG_IMAGE`.  
+- `tools/scripts/snippets/generate-seo.js` — also does keywords + og:image with a slightly different domain map (e.g. 02_developers vs 02_community).
 
 So there are two different “domain → og:image” mappings and two ways to bulk-update. Confusing and easy to drift.
 
 **DRY option:**
 
-- **Single source of truth for “domain → og:image”:** One JSON or JS config (e.g. in `snippets/scripts/` or `v2/scripts/shared/`) used by:
-  - the main SEO generator (prefer `seo-generator-safe.js` or merge into `snippets/scripts/generate-seo.js`),
+- **Single source of truth for “domain → og:image”:** One JSON or JS config (e.g. in `tools/scripts/snippets/` or `v2/scripts/shared/`) used by:
+  - the main SEO generator (prefer `seo-generator-safe.js` or merge into `tools/scripts/snippets/generate-seo.js`),
   - and any “update all og:images” script.
 - **One “canonical” script:** Decide whether v2 or snippets owns the script; the other calls it or is deprecated. Document in a single README (e.g. `docs/scripts-seo.md`).
 

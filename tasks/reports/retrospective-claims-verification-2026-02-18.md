@@ -30,10 +30,10 @@ Status legend:
 | Automation layer (GitHub Actions + n8n) | Verified | `v2/pages/07_resources/documentation-guide/automations-workflows.mdx:34`, `v2/pages/07_resources/documentation-guide/automations-workflows.mdx:214`, `snippets/automations/scripts/n8n/` |
 | Forum/blog/youtube ingestion pipelines exist | Verified | `.github/scripts/fetch-forum-data.js`, `.github/scripts/fetch-ghost-blog-data.js`, `.github/scripts/fetch-youtube-data.js`, `snippets/automations/forum/forumData.jsx`, `snippets/automations/blog/ghostBlogData.jsx`, `snippets/automations/youtube/youtubeData.jsx` |
 | Project showcase automation exists | Verified | `.github/scripts/project-showcase-sync.js`, `.github/workflows/project-showcase-sync.yml`, `snippets/automations/showcase/showcaseData.jsx` |
-| SEO metadata automation exists in-repo | Verified | `snippets/scripts/generate-seo.js`, `v2/pages/README.mdx:54`, `v2/pages/README.mdx:55` |
-| AEO is systemically implemented | Partial | AEO logic exists in SEO generator (`snippets/scripts/generate-seo.js`), but full sitewide rollout/compliance is not evidenced |
+| SEO metadata automation exists in-repo | Verified | `tools/scripts/snippets/generate-seo.js`, `v2/pages/README.mdx:54`, `v2/pages/README.mdx:55` |
+| AEO is systemically implemented | Partial | AEO logic exists in SEO generator (`tools/scripts/snippets/generate-seo.js`), but full sitewide rollout/compliance is not evidenced |
 | AI assistant integration in docs | Verified | `v2/pages/00_home/test.mdx`, `README.md:245` |
-| Automated glossary generation exists | Verified | `snippets/scripts/generate-data/scripts/generate-glossary.js`, `snippets/scripts/generate-data/data/glossary-terms.json` |
+| Automated glossary generation exists | Verified | `tools/scripts/snippets/generate-data/scripts/generate-glossary.js`, `tools/scripts/snippets/generate-data/data/glossary-terms.json` |
 | Glossary is enforced across all content | Partial | Discovery/generation scripts exist, but hard enforcement gates are not evident in CI |
 | “Quantified structural impact” is measured | Partial | Many capabilities exist, but no single KPI dashboard/report proving quantified impact |
 | “Docs as continuously refreshed ecosystem intelligence surface” | Partial | Ingestion/data update assets exist, but coverage/completeness/freshness SLAs are not proven end-to-end |
@@ -61,7 +61,7 @@ This means the requested “create tasks for RFP gaps” work is largely already
 - Expanded governance and contribution process docs: `v2/pages/09_internal/governance.mdx`, `README.md`, `.github/CODEOWNERS`
 - Automation catalog and operational documentation: `v2/pages/07_resources/documentation-guide/automations-workflows.mdx`
 - Ecosystem data ingestion scripts/workflows for forum/blog/youtube/showcase: `.github/scripts/`, `.github/workflows/update-*.yml`, `.github/workflows/project-showcase-sync.yml`
-- SEO/AEO and terminology tooling in scripts: `snippets/scripts/generate-seo.js`, `snippets/scripts/generate-data/scripts/`
+- SEO/AEO and terminology tooling in scripts: `tools/scripts/snippets/generate-seo.js`, `tools/scripts/snippets/generate-data/scripts/`
 - AI-assistant and LLM-surface documentation pages: `v2/pages/00_home/test.mdx`, `tools/ai-rules/llms.txt.information.md`
 
 ## New Tasks Needed for Non-RFP Claim Gaps

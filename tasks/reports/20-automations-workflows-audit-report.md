@@ -13,7 +13,7 @@ This audit examined all automation scripts, GitHub Actions workflows, n8n automa
 - **Intentional Duplications:** Multiple workflows and scripts perform similar functions (Ghost blog, Forum, YouTube data fetching) - **This is intentional to provide flexibility for future maintainers**
 - **Configuration Issues:** Several workflows reference wrong branches, paths, or have placeholder API keys
 - **Active vs Inactive:** Many n8n workflows are marked as `"active": false` but GitHub Actions note they're being used as alternatives
-- **Dangerous Scripts:** `auto-commit.sh` in `v2/scripts/dev/` automatically commits changes without review - **REMOVED**
+- **Dangerous Scripts:** `auto-commit.sh` in `tools/scripts/dev/` automatically commits changes without review - **REMOVED**
 - **Path Mismatches:** Some workflows reference `snippets/automationData/` but actual path is `snippets/automations/`
 - **Missing Documentation:** Several scripts lack usage documentation
 
@@ -213,13 +213,13 @@ This audit examined all automation scripts, GitHub Actions workflows, n8n automa
 
 ### 3.1 Content Generation Scripts
 
-#### `snippets/scripts/generate-seo.js`
+#### `tools/scripts/snippets/generate-seo.js`
 - **Purpose:** Generates SEO metadata (keywords, og:image) for MDX files
 - **Status:** ✅ Well-documented
 - **Issues:** None identified
 - **Recommendation:** Keep as primary SEO generator
 
-#### `v2/scripts/dev/seo-generator-safe.js`
+#### `tools/scripts/dev/seo-generator-safe.js`
 - **Purpose:** "Safe" SEO generator that only modifies keywords and og:image
 - **Status:** ⚠️ **DUPLICATE FUNCTIONALITY**
 - **Issues:**
@@ -228,19 +228,19 @@ This audit examined all automation scripts, GitHub Actions workflows, n8n automa
   - Less documented than main script
 - **Recommendation:** **REMOVE OR CONSOLIDATE** - Use `generate-seo.js` as canonical version
 
-#### `snippets/scripts/generate-docs-status.js`
+#### `tools/scripts/snippets/generate-docs-status.js`
 - **Purpose:** Generates documentation status tables from docs.json
 - **Status:** ✅ Well-documented
 - **Issues:** None identified
 - **Recommendation:** Keep as-is
 
-#### `snippets/scripts/generate-api-docs.sh`
+#### `tools/scripts/snippets/generate-api-docs.sh`
 - **Purpose:** Generates API documentation from OpenAPI specs
 - **Status:** ✅ Well-documented
 - **Issues:** None identified
 - **Recommendation:** Keep as-is
 
-#### `snippets/scripts/update-component-library.sh`
+#### `tools/scripts/snippets/update-component-library.sh`
 - **Purpose:** Auto-generates component library index page
 - **Status:** ✅ Well-documented
 - **Issues:** None identified
@@ -266,19 +266,19 @@ This audit examined all automation scripts, GitHub Actions workflows, n8n automa
 - **Issues:** Script exists but workflow doesn't use it
 - **Recommendation:** **UPDATE WORKFLOW** - Use this script instead of inline code
 
-#### `snippets/scripts/fetch-openapi-specs.sh`
+#### `tools/scripts/snippets/fetch-openapi-specs.sh`
 - **Purpose:** Fetches OpenAPI specs from external repos
 - **Status:** ✅ Well-documented
 - **Issues:** None identified
 - **Recommendation:** Keep as-is
 
-#### `snippets/scripts/fetch-external-docs.sh`
+#### `tools/scripts/snippets/fetch-external-docs.sh`
 - **Purpose:** Fetches external documentation files
 - **Status:** ✅ Well-documented
 - **Issues:** None identified
 - **Recommendation:** Keep as-is
 
-#### `snippets/scripts/fetch-lpt-exchanges.sh`
+#### `tools/scripts/snippets/fetch-lpt-exchanges.sh`
 - **Purpose:** Fetches LPT exchange data from CoinGecko
 - **Status:** ✅ Well-documented
 - **Issues:** None identified
@@ -294,31 +294,31 @@ This audit examined all automation scripts, GitHub Actions workflows, n8n automa
 
 ### 3.4 Utility Scripts
 
-#### `v2/scripts/dev/update-og-image.js`
+#### `tools/scripts/dev/update-og-image.js`
 - **Purpose:** Updates OG images for pages
 - **Status:** ⚠️ **POTENTIALLY DUPLICATE**
 - **Issues:** Multiple OG image updaters exist
 - **Recommendation:** **CONSOLIDATE** - Document which one to use
 
-#### `v2/scripts/dev/update-all-og-images.js`
+#### `tools/scripts/dev/update-all-og-images.js`
 - **Purpose:** Batch updates OG images
 - **Status:** ⚠️ **POTENTIALLY DUPLICATE**
 - **Issues:** Multiple OG image updaters exist
 - **Recommendation:** **CONSOLIDATE** - Document which one to use
 
-#### `v2/scripts/dev/batch-update-og-image.sh`
+#### `tools/scripts/dev/batch-update-og-image.sh`
 - **Purpose:** Batch updates OG images (shell script)
 - **Status:** ⚠️ **POTENTIALLY DUPLICATE**
 - **Issues:** Multiple OG image updaters exist
 - **Recommendation:** **CONSOLIDATE** - Document which one to use
 
-#### `v2/scripts/dev/replace-og-image.py`
+#### `tools/scripts/dev/replace-og-image.py`
 - **Purpose:** Python script to replace OG images
 - **Status:** ⚠️ **POTENTIALLY DUPLICATE**
 - **Issues:** Multiple OG image updaters exist, different language
 - **Recommendation:** **CONSOLIDATE** - Choose one language/tool
 
-#### `v2/scripts/dev/add-callouts.js`
+#### `tools/scripts/dev/add-callouts.js`
 - **Purpose:** Adds callouts to pages
 - **Status:** Has README documentation
 - **Issues:** None identified
@@ -338,7 +338,7 @@ This audit examined all automation scripts, GitHub Actions workflows, n8n automa
 
 ### 3.5 Dangerous Scripts
 
-#### `v2/scripts/dev/auto-commit.sh`
+#### `tools/scripts/dev/auto-commit.sh`
 - **Purpose:** Automatically commits all changes
 - **Status:** ⚠️ **⚠️ DANGEROUS ⚠️**
 - **Issues:**
@@ -451,16 +451,16 @@ Based on `snippets/automations/README.mdx`, the following are listed but not fou
 
 ### 7.1 High Priority Removals
 
-1. **`v2/scripts/dev/auto-commit.sh`** - ⚠️ **DANGEROUS** - Remove immediately
+1. **`tools/scripts/dev/auto-commit.sh`** - ⚠️ **DANGEROUS** - Remove immediately
 2. **`update-blog-data.yml`** - Has placeholder API key, duplicates other workflows
-3. **`v2/scripts/dev/seo-generator-safe.js`** - Duplicates `generate-seo.js`
+3. **`tools/scripts/dev/seo-generator-safe.js`** - Duplicates `generate-seo.js`
 
 ### 7.2 Medium Priority Removals
 
-1. **`v2/scripts/dev/update-og-image.js`** - If not actively used, consolidate
-2. **`v2/scripts/dev/update-all-og-images.js`** - If not actively used, consolidate
-3. **`v2/scripts/dev/batch-update-og-image.sh`** - If not actively used, consolidate
-4. **`v2/scripts/dev/replace-og-image.py`** - If not actively used, consolidate
+1. **`tools/scripts/dev/update-og-image.js`** - If not actively used, consolidate
+2. **`tools/scripts/dev/update-all-og-images.js`** - If not actively used, consolidate
+3. **`tools/scripts/dev/batch-update-og-image.sh`** - If not actively used, consolidate
+4. **`tools/scripts/dev/replace-og-image.py`** - If not actively used, consolidate
 5. **Inactive n8n workflows** - If not planning to use, remove to reduce confusion
 
 ### 7.3 Low Priority (Document or Remove)
@@ -567,8 +567,8 @@ Based on `snippets/automations/README.mdx`, the following are listed but not fou
 
 #### Task 5: Consolidate SEO Generators
 **Files:**
-- `snippets/scripts/generate-seo.js` (keep - canonical)
-- `v2/scripts/dev/seo-generator-safe.js` (remove - duplicate)
+- `tools/scripts/snippets/generate-seo.js` (keep - canonical)
+- `tools/scripts/dev/seo-generator-safe.js` (remove - duplicate)
 
 **Fix:** Remove `seo-generator-safe.js`, update any references to use `generate-seo.js`
 - **Impact:** Reduces confusion, maintains single source of truth
@@ -587,10 +587,10 @@ Based on `snippets/automations/README.mdx`, the following are listed but not fou
 
 #### Task 8: Consolidate OG Image Updaters
 **Files:**
-- `v2/scripts/dev/update-og-image.js`
-- `v2/scripts/dev/update-all-og-images.js`
-- `v2/scripts/dev/batch-update-og-image.sh`
-- `v2/scripts/dev/replace-og-image.py`
+- `tools/scripts/dev/update-og-image.js`
+- `tools/scripts/dev/update-all-og-images.js`
+- `tools/scripts/dev/batch-update-og-image.sh`
+- `tools/scripts/dev/replace-og-image.py`
 
 **Fix:** 
 1. Test which one works best
@@ -676,32 +676,32 @@ These can be done quickly with minimal risk:
 ### Scripts by Category
 
 **Content Generation (5):**
-- `snippets/scripts/generate-seo.js` ✅
-- `snippets/scripts/generate-docs-status.js` ✅
-- `snippets/scripts/generate-api-docs.sh` ✅
-- `snippets/scripts/update-component-library.sh` ✅
-- `v2/scripts/dev/seo-generator-safe.js` ⚠️
+- `tools/scripts/snippets/generate-seo.js` ✅
+- `tools/scripts/snippets/generate-docs-status.js` ✅
+- `tools/scripts/snippets/generate-api-docs.sh` ✅
+- `tools/scripts/snippets/update-component-library.sh` ✅
+- `tools/scripts/dev/seo-generator-safe.js` ⚠️
 
 **Data Fetching (6):**
 - `.github/scripts/fetch-forum-data.js` ✅
 - `.github/scripts/fetch-ghost-blog-data.js` ✅
 - `.github/scripts/fetch-youtube-data.js` ⚠️
-- `snippets/scripts/fetch-openapi-specs.sh` ✅
-- `snippets/scripts/fetch-external-docs.sh` ✅
-- `snippets/scripts/fetch-lpt-exchanges.sh` ✅
+- `tools/scripts/snippets/fetch-openapi-specs.sh` ✅
+- `tools/scripts/snippets/fetch-external-docs.sh` ✅
+- `tools/scripts/snippets/fetch-lpt-exchanges.sh` ✅
 
 **Testing (1):**
 - `scripts/test-v2-pages.js` ✅
 
 **Utilities (8):**
-- `v2/scripts/dev/update-og-image.js` ⚠️
-- `v2/scripts/dev/update-all-og-images.js` ⚠️
-- `v2/scripts/dev/batch-update-og-image.sh` ⚠️
-- `v2/scripts/dev/replace-og-image.py` ⚠️
-- `v2/scripts/dev/add-callouts.js` ✅
+- `tools/scripts/dev/update-og-image.js` ⚠️
+- `tools/scripts/dev/update-all-og-images.js` ⚠️
+- `tools/scripts/dev/batch-update-og-image.sh` ⚠️
+- `tools/scripts/dev/replace-og-image.py` ⚠️
+- `tools/scripts/dev/add-callouts.js` ✅
 - `scripts/download-linkedin-video.sh` ❓
 - `scripts/download-linkedin-with-cookies.sh` ❓
-- `v2/scripts/dev/auto-commit.sh` ⚠️⚠️⚠️
+- `tools/scripts/dev/auto-commit.sh` ⚠️⚠️⚠️
 
 **Pre-commit Hooks (3):**
 - `.githooks/pre-commit` ✅

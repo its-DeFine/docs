@@ -1,4 +1,29 @@
 #!/usr/bin/env node
+/**
+ * @script project-showcase-sync
+ * @summary Utility script for .github/scripts/project-showcase-sync.js.
+ * @owner docs
+ * @scope .github/scripts
+ *
+ * @usage
+ *   node .github/scripts/project-showcase-sync.js
+ *
+ * @inputs
+ *   No required CLI flags; optional flags are documented inline.
+ *
+ * @outputs
+ *   - Console output and/or file updates based on script purpose.
+ *
+ * @exit-codes
+ *   0 = success
+ *   1 = runtime or validation failure
+ *
+ * @examples
+ *   node .github/scripts/project-showcase-sync.js
+ *
+ * @notes
+ *   Keep script behavior deterministic and update script indexes after changes.
+ */
 /*
  * Project Showcase sync job for GitHub Actions.
  *

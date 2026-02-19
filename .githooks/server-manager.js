@@ -1,5 +1,30 @@
 #!/usr/bin/env node
 /**
+ * @script server-manager
+ * @summary Utility script for .githooks/server-manager.js.
+ * @owner docs
+ * @scope .githooks
+ *
+ * @usage
+ *   node .githooks/server-manager.js
+ *
+ * @inputs
+ *   No required CLI flags; optional flags are documented inline.
+ *
+ * @outputs
+ *   - Console output and/or file updates based on script purpose.
+ *
+ * @exit-codes
+ *   0 = success
+ *   1 = runtime or validation failure
+ *
+ * @examples
+ *   node .githooks/server-manager.js
+ *
+ * @notes
+ *   Keep script behavior deterministic and update script indexes after changes.
+ */
+/**
  * Server management utility for browser tests
  * Automatically starts mint dev if not running and manages the process lifecycle
  */

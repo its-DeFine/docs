@@ -143,7 +143,7 @@ v2/                    # Active version of documentation
 - Duplicate style.css files (root and v2/)
 - Separate package.json in v2/ (unclear purpose)
 - Tests scattered (root tests/ and v2/tests/)
-- Scripts scattered (root scripts/, snippets/scripts/, v2/scripts/)
+- Scripts scattered (root scripts/, tools/scripts/snippets/, v2/scripts/)
 
 ### Scripts Organization Issues
 
@@ -155,7 +155,7 @@ v2/                    # Active version of documentation
 ├── verify-*.js
 └── download-*.sh
 
-/snippets/scripts/           # In snippets - 17 files
+/tools/scripts/snippets/           # In snippets - 17 files
 ├── fetch-*.sh
 ├── generate-*.sh
 └── generate-data/
@@ -482,7 +482,7 @@ Based on Mintlify documentation and best practices:
 
 #### 2. Snippets Directory Cleanup
 - **KEEP `snippets/pages/`** - Required for MDX-in-MDX pattern (Mintlify limitation: can only import from /snippets)
-- Move `snippets/scripts/` → `tools/scripts/`
+- Move `tools/scripts/snippets/` → `tools/scripts/`
 - Move `snippets/snippetsWiki/` → `tools/wiki/`
 - Remove `snippets/styles/` directory entirely (contains only deprecated themeStyles.jsx, not used anywhere)
 - Move `snippets/docs-status-data.json` → `snippets/data/status/`
@@ -704,7 +704,7 @@ Based on Mintlify documentation and best practices:
 
 - [ ] Reorganize snippets/ directory
 - [ ] KEEP snippets/pages/ - Required for MDX-in-MDX pattern (Mintlify limitation)
-- [ ] Move snippets/scripts/ to tools/scripts/
+- [ ] Move tools/scripts/snippets/ to tools/scripts/
 - [ ] Consolidate scripts from all locations
 - [ ] Organize scripts by purpose
 - [ ] Update import paths in components

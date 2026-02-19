@@ -1,4 +1,27 @@
 #!/usr/bin/env bash
+# @script mint-dev
+# @summary Utility script for tools/scripts/mint-dev.sh.
+# @owner docs
+# @scope tools/scripts
+#
+# @usage
+#   bash tools/scripts/mint-dev.sh
+#
+# @inputs
+#   No required CLI flags; optional flags are documented inline.
+#
+# @outputs
+#   - Console output and/or file updates based on script purpose.
+#
+# @exit-codes
+#   0 = success
+#   1 = runtime or validation failure
+#
+# @examples
+#   bash tools/scripts/mint-dev.sh
+#
+# @notes
+#   Keep script behavior deterministic and update script indexes after changes.
 
 set -euo pipefail
 

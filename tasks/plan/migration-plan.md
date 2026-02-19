@@ -184,7 +184,7 @@ if [ ! -z "$NEW_ROOT_FILES" ]; then
 fi
 
 # Check for scripts in snippets/
-SNIPPETS_SCRIPTS=$(git diff --cached --name-only | grep '^snippets/scripts/')
+SNIPPETS_SCRIPTS=$(git diff --cached --name-only | grep '^tools/scripts/snippets/')
 if [ ! -z "$SNIPPETS_SCRIPTS" ]; then
     echo "❌ ERROR: Scripts cannot be in snippets/. Move to tools/scripts/"
     exit 1
@@ -487,7 +487,7 @@ snippets/
 
 **Migration:**
 1. **KEEP** `snippets/pages/` - Do not remove!
-2. Move `snippets/scripts/` → `tools/scripts/`
+2. Move `tools/scripts/snippets/` → `tools/scripts/`
 3. Move `snippets/snippetsWiki/` → `tools/wiki/`
 4. Remove `snippets/styles/` (deprecated)
 5. Move `snippets/docs-status-data.json` → `snippets/data/status/`
@@ -833,12 +833,12 @@ docs/
 ---
 
 #### Task 3.2: Move Snippets Scripts
-- [ ] Move `snippets/scripts/fetch-*.sh` → `tools/scripts/fetch/`
-- [ ] Move `snippets/scripts/generate-*.sh` → `tools/scripts/generate/`
-- [ ] Move `snippets/scripts/generate-data/` → `tools/scripts/generate/`
-- [ ] Move `snippets/scripts/test-scripts.sh` → `tools/scripts/test/`
-- [ ] Move `snippets/scripts/update-component-library.sh` → `tools/scripts/generate/`
-- [ ] Move `snippets/scripts/README.mdx` → `tools/scripts/README.mdx`
+- [ ] Move `tools/scripts/snippets/fetch-*.sh` → `tools/scripts/fetch/`
+- [ ] Move `tools/scripts/snippets/generate-*.sh` → `tools/scripts/generate/`
+- [ ] Move `tools/scripts/snippets/generate-data/` → `tools/scripts/generate/`
+- [ ] Move `tools/scripts/snippets/test-scripts.sh` → `tools/scripts/test/`
+- [ ] Move `tools/scripts/snippets/update-component-library.sh` → `tools/scripts/generate/`
+- [ ] Move `tools/scripts/snippets/README.mdx` → `tools/scripts/README.mdx`
 - [ ] Update any references to these scripts
 - [ ] Test that scripts still work
 - [ ] Commit changes

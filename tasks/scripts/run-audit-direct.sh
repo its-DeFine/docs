@@ -1,4 +1,27 @@
 #!/bin/bash
+# @script run-audit-direct
+# @summary Utility script for tasks/scripts/run-audit-direct.sh.
+# @owner docs
+# @scope tasks/scripts
+#
+# @usage
+#   bash tasks/scripts/run-audit-direct.sh
+#
+# @inputs
+#   No required CLI flags; optional flags are documented inline.
+#
+# @outputs
+#   - Console output and/or file updates based on script purpose.
+#
+# @exit-codes
+#   0 = success
+#   1 = runtime or validation failure
+#
+# @examples
+#   bash tasks/scripts/run-audit-direct.sh
+#
+# @notes
+#   Keep script behavior deterministic and update script indexes after changes.
 set -e
 cd "$(dirname "$0")/../../.."
 echo "=== AUDIT START ===" > tasks/PLAN/reports/audit-run.log

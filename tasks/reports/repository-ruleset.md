@@ -497,7 +497,7 @@ const data = {
 
 **Forbidden Locations:**
 - ❌ Root `/scripts/`
-- ❌ `snippets/scripts/`
+- ❌ `tools/scripts/snippets/`
 - ❌ `v2/scripts/`
 - ❌ `.github/scripts/` (CI/CD helpers only)
 

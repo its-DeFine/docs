@@ -55,9 +55,9 @@
 | Item | Finding |
 |------|--------|
 | **Scale** | 180+ MDX files set `og:image` (many to the same default or domain image). |
-| **Current scripts** | `v2/scripts/dev/seo-generator-safe.js` has path-based `og:image` (00_home, 01_about, …). `v2/scripts/dev/update-og-image.js` overwrites all with one fixed image. `snippets/scripts/generate-seo.js` has a different domain map (e.g. 02_developers vs 02_community). So two different domain→image mappings exist. |
+| **Current scripts** | `tools/scripts/dev/seo-generator-safe.js` has path-based `og:image` (00_home, 01_about, …). `tools/scripts/dev/update-og-image.js` overwrites all with one fixed image. `tools/scripts/snippets/generate-seo.js` has a different domain map (e.g. 02_developers vs 02_community). So two different domain→image mappings exist. |
 | **Option A (Build-time default)** | **Feasible.** Run one canonical SEO script (after consolidating per §2.2) in CI or pre-build; treat missing `og:image` as “derive from path.” Then remove explicit `og:image` from files that match the default. |
-| **Option B (Single config)** | **Feasible.** One JSON/JS config (e.g. in `v2/scripts/shared/` or `snippets/scripts/`) for default image and path→image map; scripts and (if possible) theme use it. |
+| **Option B (Single config)** | **Feasible.** One JSON/JS config (e.g. in `v2/scripts/shared/` or `tools/scripts/snippets/`) for default image and path→image map; scripts and (if possible) theme use it. |
 | **Option C (Script-only, document overrides)** | **Feasible.** Rely on the consolidated SEO script to set defaults; document that hand-editing is only for overrides. |
 | **Effort** | Depends on doing §2.2 first (one script + one config). Then A/B/C are low–medium. |
 | **Risk** | Medium if scripts are not consolidated (drift between scripts). Low once consolidated. |
@@ -72,7 +72,7 @@
 
 | Item | Finding |
 |------|--------|
-| **Current state** | `seo-generator-safe.js` has `extractFrontmatter()` and `parseFrontmatterFields()` and exports them. `add-callouts.js` uses ad-hoc `content.split('---')` and does not use the same parser. `snippets/scripts/generate-seo.js` has its own `extractFrontmatter()` with different YAML handling (e.g. broken `og:image` lines). |
+| **Current state** | `seo-generator-safe.js` has `extractFrontmatter()` and `parseFrontmatterFields()` and exports them. `add-callouts.js` uses ad-hoc `content.split('---')` and does not use the same parser. `tools/scripts/snippets/generate-seo.js` has its own `extractFrontmatter()` with different YAML handling (e.g. broken `og:image` lines). |
 | **DRY option** | Add `v2/scripts/shared/frontmatter.js` with `extractFrontmatter(content)`, `parseFrontmatterFields(frontmatter)`, and optionally `stringifyFrontmatter(fields)`. Refactor the three scripts to use it. |
 | **Feasibility** | **Feasible.** Logic already exists in seo-generator-safe; needs extraction and handling of edge cases (e.g. generate-seo’s broken YAML). add-callouts’ simple split could be replaced by shared extract + parse. |
 | **Effort** | Low–medium (extract, unify behaviour, add tests if desired). |
@@ -86,7 +86,7 @@
 
 | Item | Finding |
 |------|--------|
-| **Current state** | (1) `v2/scripts/dev/seo-generator-safe.js` — path-based keywords + og:image; domain list 00_home … 06_delegators, 07_resources, etc. (2) `v2/scripts/dev/update-og-image.js` — sets every file to one `NEW_OG_IMAGE`. (3) `v2/scripts/dev/update-all-og-images.js` — similar bulk update. (4) `snippets/scripts/generate-seo.js` — path-based keywords + og:image but domain keys differ (e.g. 02_developers, 03_community vs 02_community in v2). So two domain→image mappings and multiple ways to bulk-update. |
+| **Current state** | (1) `tools/scripts/dev/seo-generator-safe.js` — path-based keywords + og:image; domain list 00_home … 06_delegators, 07_resources, etc. (2) `tools/scripts/dev/update-og-image.js` — sets every file to one `NEW_OG_IMAGE`. (3) `tools/scripts/dev/update-all-og-images.js` — similar bulk update. (4) `tools/scripts/snippets/generate-seo.js` — path-based keywords + og:image but domain keys differ (e.g. 02_developers, 03_community vs 02_community in v2). So two domain→image mappings and multiple ways to bulk-update. |
 | **DRY option** | One config (JSON/JS) for domain→og:image; one canonical script (either keep seo-generator-safe and call it from snippets, or merge into generate-seo and deprecate the other). Document in e.g. `docs/scripts-seo.md`. |
 | **Feasibility** | **Feasible.** Need to agree on canonical domain list (00_home, 01_about, 02_community vs 02_developers, etc.) then single config + single entrypoint. |
 | **Effort** | Medium (merge logic, align domain names with actual folders, deprecate or redirect other scripts). |
@@ -145,7 +145,7 @@
 
 | Item | Finding |
 |------|--------|
-| **Current state** | `v2/deprecated/docs.json` exists. `snippets/scripts/paths.config.json` and `generate-docs-status.js` reference `docs.json` (root); no reference to `deprecated/docs.json` in code. Only mention outside the DRY doc is inside `v2/deprecated/docs.json` itself and the DRY doc. Root `docs.json` is the one used (docs-status, structure diagram, etc.). |
+| **Current state** | `v2/deprecated/docs.json` exists. `tools/scripts/snippets/paths.config.json` and `generate-docs-status.js` reference `docs.json` (root); no reference to `deprecated/docs.json` in code. Only mention outside the DRY doc is inside `v2/deprecated/docs.json` itself and the DRY doc. Root `docs.json` is the one used (docs-status, structure diagram, etc.). |
 | **DRY option** | If deprecated is unused: remove it or move to `archive/` and document. If something still needs it: single source (root docs.json) and generate the other from it, or document which is canonical. |
 | **Feasibility** | **Feasible.** No script or build references deprecated; safe to archive or delete after a quick grep in CI/config. |
 | **Effort** | Low. |
@@ -205,7 +205,7 @@
 
 | Item | Finding |
 |------|--------|
-| **Current state** | `snippets/scripts/generate-data/data/glossary-terms.json` exists (generated). Glossary pages and terminology appear in multiple places. |
+| **Current state** | `tools/scripts/snippets/generate-data/data/glossary-terms.json` exists (generated). Glossary pages and terminology appear in multiple places. |
 | **DRY option** | One glossary source (e.g. extend or formalise glossary-terms.json / script output) as source of truth; other pages reference “see Glossary” or pull terms via a small component. |
 | **Feasibility** | **Feasible.** Source already exists; need to decide canonical format and how pages reference it (link vs component). |
 | **Effort** | Medium (define canonical source, update glossary page(s), add references or component). |

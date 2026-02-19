@@ -38,12 +38,12 @@ Add **AEO (Answer Engine Optimization)** to the docs site so that the RFP requir
 ### Implemented levers
 
 1. **Page descriptions (AEO)**  
-   - **Script:** `snippets/scripts/generate-seo.js` now adds a **description** when missing, generated from the first paragraph (50–160 chars). This gives every page a clear summary for snippets and LLMs.
+   - **Script:** `tools/scripts/snippets/generate-seo.js` now adds a **description** when missing, generated from the first paragraph (50–160 chars). This gives every page a clear summary for snippets and LLMs.
    - **Usage:**  
-     - Dry run: `node snippets/scripts/generate-seo.js --dry-run`  
-     - Apply: `node snippets/scripts/generate-seo.js`  
-     - Single file: `node snippets/scripts/generate-seo.js --file=v2/pages/path/to/page.mdx`  
-     - From repo root: `npm run generate-seo` (in `v2/`) or run from `snippets/scripts/` with paths above.
+     - Dry run: `node tools/scripts/snippets/generate-seo.js --dry-run`  
+     - Apply: `node tools/scripts/snippets/generate-seo.js`  
+     - Single file: `node tools/scripts/snippets/generate-seo.js --file=v2/pages/path/to/page.mdx`  
+     - From repo root: `npm run generate-seo` (in `v2/`) or run from `tools/scripts/snippets/` with paths above.
 
 2. **AEO quality checks**  
    - **File:** `tests/unit/quality.test.js`  
@@ -61,7 +61,7 @@ Add **AEO (Answer Engine Optimization)** to the docs site so that the RFP requir
 
 ### How to automate in CI / pre-deploy
 
-- **Before deploy:** run `node snippets/scripts/generate-seo.js` (or `npm run generate-seo` from `v2/`) so new or updated pages get keywords, description, and images.
+- **Before deploy:** run `node tools/scripts/snippets/generate-seo.js` (or `npm run generate-seo` from `v2/`) so new or updated pages get keywords, description, and images.
 - **CI:** run `node tests/unit/quality.test.js` so missing or poor descriptions and missing H1s surface as warnings; fix by running the SEO script or editing frontmatter.
 
 ### Checklist for closing M10
@@ -76,5 +76,5 @@ Add **AEO (Answer Engine Optimization)** to the docs site so that the RFP requir
 
 - [16-rfp-notion-gaps-and-incomplete.md](../reports/16-rfp-notion-gaps-and-incomplete.md) — M10
 - [Forum RFP 3071](https://forum.livepeer.org/t/rfp-documentation-restructure/3071)
-- SEO + AEO script: `snippets/scripts/generate-seo.js`
+- SEO + AEO script: `tools/scripts/snippets/generate-seo.js`
 - Quality (SEO/AEO) checks: `tests/unit/quality.test.js`

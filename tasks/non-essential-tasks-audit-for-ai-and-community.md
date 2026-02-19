@@ -110,7 +110,7 @@
 
 | Task | Scope | Delegatable to | Notes |
 |------|--------|----------------|-------|
-| **Scripts README index** | `v2/scripts/dev/` | Community | Single README listing every script (add-callouts, seo-generator, update-og-image, etc.) with one-line purpose and how to run. |
+| **Scripts README index** | `tools/scripts/dev/` | Community | Single README listing every script (add-callouts, seo-generator, update-og-image, etc.) with one-line purpose and how to run. |
 | **Contributor "first issue" labels** | GitHub | Maintainer | Label issues from this audit as `good first issue` / `documentation` / `help wanted` so community can pick them. |
 | **Deepwiki / automation note** | Internal docs | Community | Document idea from Phase 3: "deepwiki for different repos + n8n" as future automation for keeping 3rd-party refs up to date. |
 

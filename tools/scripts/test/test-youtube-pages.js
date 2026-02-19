@@ -1,5 +1,30 @@
 #!/usr/bin/env node
 /**
+ * @script test-youtube-pages
+ * @summary Utility script for tools/scripts/test/test-youtube-pages.js.
+ * @owner docs
+ * @scope tools/scripts
+ *
+ * @usage
+ *   node tools/scripts/test/test-youtube-pages.js
+ *
+ * @inputs
+ *   No required CLI flags; optional flags are documented inline.
+ *
+ * @outputs
+ *   - Console output and/or file updates based on script purpose.
+ *
+ * @exit-codes
+ *   0 = success
+ *   1 = runtime or validation failure
+ *
+ * @examples
+ *   node tools/scripts/test/test-youtube-pages.js
+ *
+ * @notes
+ *   Keep script behavior deterministic and update script indexes after changes.
+ */
+/**
  * Test pages that use YouTubeVideo component to verify they render correctly
  * with privacy-enhanced URLs
  */

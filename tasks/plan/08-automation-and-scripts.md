@@ -20,7 +20,7 @@ Propose and document automation/scripts for: SEO (sitemap, canonical, meta); lan
 
 ## Scope
 
-- Scripts in [v2/scripts/](../../v2/scripts/), [snippets/scripts/](../../snippets/scripts/), [.github/workflows/](../../.github/workflows/)
+- Scripts in [v2/scripts/](../../v2/scripts/), [tools/scripts/snippets/](../../tools/scripts/snippets/), [.github/workflows/](../../.github/workflows/)
 - Consolidate per [docs/DRY-tasks-feasibility-report.md](../DRY-tasks-feasibility-report.md) §2
 
 ## Deliverables

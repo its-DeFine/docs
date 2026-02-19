@@ -52,26 +52,26 @@ This task cleans up the `snippets/` directory to follow Mintlify conventions str
 
 ## Task 3.2: Move Snippets Scripts
 
-**Purpose:** Move all scripts from `snippets/scripts/` to `tools/scripts/` organized by purpose
+**Purpose:** Move all scripts from `tools/scripts/snippets/` to `tools/scripts/` organized by purpose
 
 **Files to move:**
-- `snippets/scripts/fetch-*.sh` → `tools/scripts/fetch/`
-- `snippets/scripts/generate-*.sh` → `tools/scripts/generate/`
-- `snippets/scripts/generate-data/` → `tools/scripts/generate/`
-- `snippets/scripts/test-scripts.sh` → `tools/scripts/test/`
-- `snippets/scripts/update-component-library.sh` → `tools/scripts/generate/`
-- `snippets/scripts/README.mdx` → `tools/scripts/README.mdx`
+- `tools/scripts/snippets/fetch-*.sh` → `tools/scripts/fetch/`
+- `tools/scripts/snippets/generate-*.sh` → `tools/scripts/generate/`
+- `tools/scripts/snippets/generate-data/` → `tools/scripts/generate/`
+- `tools/scripts/snippets/test-scripts.sh` → `tools/scripts/test/`
+- `tools/scripts/snippets/update-component-library.sh` → `tools/scripts/generate/`
+- `tools/scripts/snippets/README.mdx` → `tools/scripts/README.mdx`
 
 **Steps:**
-1. List all files in `snippets/scripts/`:
+1. List all files in `tools/scripts/snippets/`:
    ```bash
-   ls -la snippets/scripts/
+   ls -la tools/scripts/snippets/
    ```
 2. Categorize each script by purpose (audit, generate, test, verify, fetch)
 3. Move files to appropriate `tools/scripts/` subdirectories
 4. Search for references:
    ```bash
-   grep -r "snippets/scripts" . --exclude-dir=node_modules
+   grep -r "tools/scripts/snippets" . --exclude-dir=node_modules
    ```
 5. Check `package.json` scripts section
 6. Update ALL references to new paths
@@ -81,7 +81,7 @@ This task cleans up the `snippets/` directory to follow Mintlify conventions str
    # Test a generate script
    # Test a test script
    ```
-8. Commit: `git commit -m "Move snippets/scripts/ to tools/scripts/ organized by purpose"`
+8. Commit: `git commit -m "Move tools/scripts/snippets/ to tools/scripts/ organized by purpose"`
 
 **Estimated Time:** 1 hour  
 **Risk Level:** Medium
@@ -178,7 +178,7 @@ After each task, verify:
 ## Success Criteria
 
 - [ ] `snippets/styles/` removed (deprecated)
-- [ ] All scripts moved from `snippets/scripts/` to `tools/scripts/`
+- [ ] All scripts moved from `tools/scripts/snippets/` to `tools/scripts/`
 - [ ] Wiki moved from `snippets/snippetsWiki/` to `tools/wiki/`
 - [ ] Data files organized in `snippets/data/`
 - [ ] `snippets/pages/` verified and documented (NOT removed)

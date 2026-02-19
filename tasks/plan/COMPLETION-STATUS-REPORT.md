@@ -334,7 +334,7 @@
 **Objective:** Automate the generation of the snippets inventory page to keep it up-to-date with changes to the snippets folder structure
 
 **Deliverables Needed:**
-- Script (`snippets/scripts/generate-snippets-inventory.sh`)
+- Script (`tools/scripts/snippets/generate-snippets-inventory.sh`)
 - Documentation updates
 - Testing verification
 - Optional: Pre-commit hook, GitHub Actions workflow

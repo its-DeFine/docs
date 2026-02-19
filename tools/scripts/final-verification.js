@@ -1,3 +1,28 @@
+/**
+ * @script final-verification
+ * @summary Utility script for tools/scripts/final-verification.js.
+ * @owner docs
+ * @scope tools/scripts
+ *
+ * @usage
+ *   node tools/scripts/final-verification.js
+ *
+ * @inputs
+ *   No required CLI flags; optional flags are documented inline.
+ *
+ * @outputs
+ *   - Console output and/or file updates based on script purpose.
+ *
+ * @exit-codes
+ *   0 = success
+ *   1 = runtime or validation failure
+ *
+ * @examples
+ *   node tools/scripts/final-verification.js
+ *
+ * @notes
+ *   Keep script behavior deterministic and update script indexes after changes.
+ */
 const puppeteer = require('puppeteer');
 
 (async () => {

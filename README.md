@@ -760,7 +760,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
    - Snippet-specific styles can go in `snippets/styles/` but global styles must be in root
 6. **Scripts**:
    - Development scripts → `tools/scripts/` organized by purpose
-   - Snippet-related scripts → `snippets/scripts/` (data generation, fetching)
+   - Snippet-related scripts → `tools/scripts/snippets/` (data generation, fetching)
    - Task scripts → `tasks/scripts/`
 7. **Configs**: All config files go in `tools/config/`, **EXCEPT**:
    - `.prettierrc.yaml` → **ROOT** (Prettier convention)

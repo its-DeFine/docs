@@ -255,7 +255,7 @@ ai/worker/api/openapi.yaml.backup → ./api/openapi.yaml.backup
 favicon.png → ./snippets/assets/favicon.png
 logo/dark.svg → ./snippets/assets/logos/dark.svg
 logo/light.svg → ./snippets/assets/logos/light.svg
-package.json → ./snippets/scripts/generate-data/scripts/package.json
+package.json → ./tools/scripts/snippets/generate-data/scripts/package.json
 tasks/PLAN/03-component-library-wiki.md → ./tasks/plan/03-component-library-wiki.md
 tasks/PLAN/03-component-library-wiki.md → tasks/plan/03-component-library-wiki.md
 tasks/PLAN/04-ai-setup-guides-network-nodes.md → ./tasks/plan/04-ai-setup-guides-network-nodes.md
@@ -380,7 +380,7 @@ tasks/PLAN/testing-suite-future-tasks.md → ./tasks/plan/testing-suite-future-t
 tasks/PLAN/testing-suite-future-tasks.md → tasks/plan/testing-suite-future-tasks.md
 testing/README.md → ./snippets/snippetsWiki/README.md
 testing/README.md → tests/README.md
-testing/README.mdx → ./snippets/scripts/README.mdx
+testing/README.mdx → ./tools/scripts/snippets/README.mdx
 testing/README.mdx → tests/README.mdx
 testing/WHEN-TESTS-RUN.md → ./tests/WHEN-TESTS-RUN.md
 testing/WHEN-TESTS-RUN.md → tests/WHEN-TESTS-RUN.md

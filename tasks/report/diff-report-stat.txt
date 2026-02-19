@@ -398,5 +398,5 @@
  .../documentation-guide/style-guide.mdx            |    952 +
  v2/pages/09_internal/governance.mdx                |    302 +
  .../components.mdx                                 |      6 +-
- v2/scripts/dev/auto-commit.sh                      |      9 -
+ tools/scripts/dev/auto-commit.sh                      |      9 -
  401 files changed, 164320 insertions(+), 2748 deletions(-)

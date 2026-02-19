@@ -35,7 +35,7 @@ Automate the generation of the snippets inventory page (`v2/pages/07_resources/d
 
 ## Deliverables
 
-1. **Script** - `snippets/scripts/generate-snippets-inventory.sh` that:
+1. **Script** - `tools/scripts/snippets/generate-snippets-inventory.sh` that:
    - Scans all directories in `snippets/`
    - Generates categorized file listings with descriptions
    - Includes file counts and metadata
@@ -50,7 +50,7 @@ Automate the generation of the snippets inventory page (`v2/pages/07_resources/d
 
 ### Option 1: Extend Existing Script (Recommended)
 
-Extend `snippets/scripts/update-component-library.sh` to generate a complete inventory:
+Extend `tools/scripts/snippets/update-component-library.sh` to generate a complete inventory:
 
 **Enhancements:**
 1. Add sections for data, pages, scripts, automations, assets, styles, snippetsWiki
@@ -72,7 +72,7 @@ generate_data_section() {
 
 ### Option 2: Create New Comprehensive Script
 
-Create `snippets/scripts/generate-snippets-inventory.sh`:
+Create `tools/scripts/snippets/generate-snippets-inventory.sh`:
 
 **Features:**
 - Scan all directories in `snippets/`
@@ -115,7 +115,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Generate Inventory
-        run: ./snippets/scripts/generate-snippets-inventory.sh
+        run: ./tools/scripts/snippets/generate-snippets-inventory.sh
       - name: Commit Changes
         run: |
           git config user.name "GitHub Actions"
@@ -177,8 +177,8 @@ jobs:
 
 ## References
 
-- `snippets/scripts/update-component-library.sh` - Existing automation script pattern
-- `snippets/scripts/paths.config.json` - Path configuration
+- `tools/scripts/snippets/update-component-library.sh` - Existing automation script pattern
+- `tools/scripts/snippets/paths.config.json` - Path configuration
 - `v2/pages/07_resources/documentation-guide/snippets-inventory.mdx` - Target output file
 - `snippets/components/README.md` - Component descriptions
 - `snippets/README.md` - Snippets folder overview

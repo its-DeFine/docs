@@ -1,5 +1,30 @@
 #!/usr/bin/env node
 /**
+ * @script file-walker
+ * @summary Utility script for tests/utils/file-walker.js.
+ * @owner docs
+ * @scope tests
+ *
+ * @usage
+ *   node tests/utils/file-walker.js
+ *
+ * @inputs
+ *   No required CLI flags; optional flags are documented inline.
+ *
+ * @outputs
+ *   - Console output and/or file updates based on script purpose.
+ *
+ * @exit-codes
+ *   0 = success
+ *   1 = runtime or validation failure
+ *
+ * @examples
+ *   node tests/utils/file-walker.js
+ *
+ * @notes
+ *   Keep script behavior deterministic and update script indexes after changes.
+ */
+/**
  * File traversal utilities for testing
  */
 

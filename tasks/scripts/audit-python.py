@@ -1,4 +1,27 @@
 #!/usr/bin/env python3
+# @script audit-python
+# @summary Utility script for tasks/scripts/audit-python.py.
+# @owner docs
+# @scope tasks/scripts
+#
+# @usage
+#   python3 tasks/scripts/audit-python.py
+#
+# @inputs
+#   No required CLI flags; optional flags are documented inline.
+#
+# @outputs
+#   - Console output and/or file updates based on script purpose.
+#
+# @exit-codes
+#   0 = success
+#   1 = runtime or validation failure
+#
+# @examples
+#   python3 tasks/scripts/audit-python.py
+#
+# @notes
+#   Keep script behavior deterministic and update script indexes after changes.
 """
 Comprehensive audit script for all v2 pages
 Runs file checks, MDX validation, and link checking

@@ -1,3 +1,28 @@
+/**
+ * @script audit-component-usage
+ * @summary Utility script for tasks/scripts/audit-component-usage.js.
+ * @owner docs
+ * @scope tasks/scripts
+ *
+ * @usage
+ *   node tasks/scripts/audit-component-usage.js
+ *
+ * @inputs
+ *   No required CLI flags; optional flags are documented inline.
+ *
+ * @outputs
+ *   - Console output and/or file updates based on script purpose.
+ *
+ * @exit-codes
+ *   0 = success
+ *   1 = runtime or validation failure
+ *
+ * @examples
+ *   node tasks/scripts/audit-component-usage.js
+ *
+ * @notes
+ *   Keep script behavior deterministic and update script indexes after changes.
+ */
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');

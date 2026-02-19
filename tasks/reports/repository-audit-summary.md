@@ -111,7 +111,7 @@ Root: Only essentials (docs.json, package.json, README, etc.)
 
 5. **Reorganize snippets/**
    - Remove `snippets/pages/` (if not needed)
-   - Move `snippets/scripts/` → `tools/scripts/`
+   - Move `tools/scripts/snippets/` → `tools/scripts/`
    - Move `snippets/snippetsWiki/` → `tools/wiki/`
    - Remove deprecated `snippets/styles/themeStyles.jsx`
 

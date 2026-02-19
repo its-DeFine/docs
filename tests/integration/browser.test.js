@@ -1,5 +1,30 @@
 #!/usr/bin/env node
 /**
+ * @script browser.test
+ * @summary Utility script for tests/integration/browser.test.js.
+ * @owner docs
+ * @scope tests
+ *
+ * @usage
+ *   node tests/integration/browser.test.js
+ *
+ * @inputs
+ *   No required CLI flags; optional flags are documented inline.
+ *
+ * @outputs
+ *   - Console output and/or file updates based on script purpose.
+ *
+ * @exit-codes
+ *   0 = success
+ *   1 = runtime or validation failure
+ *
+ * @examples
+ *   node tests/integration/browser.test.js
+ *
+ * @notes
+ *   Keep script behavior deterministic and update script indexes after changes.
+ */
+/**
  * Browser rendering tests
  * Tests pages in headless browser with theme checks
  */

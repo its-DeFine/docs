@@ -237,8 +237,8 @@ It is a foundation for scalable ecosystem coordination.
 - `.github/scripts/project-showcase-sync.js`
 - `.github/workflows/`
 - `snippets/automations/scripts/n8n/`
-- `snippets/scripts/generate-seo.js`
-- `snippets/scripts/generate-data/scripts/generate-glossary.js`
-- `snippets/scripts/generate-data/scripts/terminology-search.js`
+- `tools/scripts/snippets/generate-seo.js`
+- `tools/scripts/snippets/generate-data/scripts/generate-glossary.js`
+- `tools/scripts/snippets/generate-data/scripts/terminology-search.js`
 - `v2/pages/00_home/test.mdx`
 - `tools/ai-rules/llms.txt.information.md`

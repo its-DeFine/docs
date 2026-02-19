@@ -1,5 +1,30 @@
 #!/usr/bin/env node
 /**
+ * @script mdx.test
+ * @summary Utility script for tests/unit/mdx.test.js.
+ * @owner docs
+ * @scope tests
+ *
+ * @usage
+ *   node tests/unit/mdx.test.js
+ *
+ * @inputs
+ *   No required CLI flags; optional flags are documented inline.
+ *
+ * @outputs
+ *   - Console output and/or file updates based on script purpose.
+ *
+ * @exit-codes
+ *   0 = success
+ *   1 = runtime or validation failure
+ *
+ * @examples
+ *   node tests/unit/mdx.test.js
+ *
+ * @notes
+ *   Keep script behavior deterministic and update script indexes after changes.
+ */
+/**
  * MDX validation tests
  */
 

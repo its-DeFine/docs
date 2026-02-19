@@ -347,20 +347,20 @@ Scripts are organized into several directories based on their purpose. All scrip
 
 #### Generate SEO Metadata
 
-**File:** `snippets/scripts/generate-seo.js`
+**File:** `tools/scripts/snippets/generate-seo.js`
 
 **Purpose:** Automatically generates and updates SEO metadata for MDX documentation pages
 
 **Usage:**
 ```bash
 # Dry run (preview changes)
-node snippets/scripts/generate-seo.js --dry-run
+node tools/scripts/snippets/generate-seo.js --dry-run
 
 # Process all files
-node snippets/scripts/generate-seo.js
+node tools/scripts/snippets/generate-seo.js
 
 # Process single file
-node snippets/scripts/generate-seo.js --file=v2/pages/00_home/mission-control.mdx
+node tools/scripts/snippets/generate-seo.js --file=v2/pages/00_home/mission-control.mdx
 ```
 
 **What it does:**
@@ -380,13 +380,13 @@ node snippets/scripts/generate-seo.js --file=v2/pages/00_home/mission-control.md
 
 #### Generate Documentation Status
 
-**File:** `snippets/scripts/generate-docs-status.js`
+**File:** `tools/scripts/snippets/generate-docs-status.js`
 
 **Purpose:** Generates documentation status tables and structure diagrams from `docs.json`
 
 **Usage:**
 ```bash
-node snippets/scripts/generate-docs-status.js
+node tools/scripts/snippets/generate-docs-status.js
 ```
 
 **What it does:**
@@ -407,18 +407,18 @@ node snippets/scripts/generate-docs-status.js
 
 #### Generate API Documentation
 
-**File:** `snippets/scripts/generate-api-docs.sh`
+**File:** `tools/scripts/snippets/generate-api-docs.sh`
 
 **Purpose:** Generates Mintlify API documentation from an OpenAPI specification file
 
 **Usage:**
 ```bash
-./snippets/scripts/generate-api-docs.sh <openapi-spec> <output-dir> <api-name> [github-repo-url]
+./tools/scripts/snippets/generate-api-docs.sh <openapi-spec> <output-dir> <api-name> [github-repo-url]
 ```
 
 **Example:**
 ```bash
-./snippets/scripts/generate-api-docs.sh \
+./tools/scripts/snippets/generate-api-docs.sh \
   ai/worker/api/openapi.yaml \
   v2/pages/04_gateways/api-reference/AI-API \
   "AI API" \
@@ -446,13 +446,13 @@ output-dir/
 
 #### Update Component Library
 
-**File:** `snippets/scripts/update-component-library.sh`
+**File:** `tools/scripts/snippets/update-component-library.sh`
 
 **Purpose:** Auto-generates the component library index page from the current `snippets/components/` folder structure
 
 **Usage:**
 ```bash
-./snippets/scripts/update-component-library.sh
+./tools/scripts/snippets/update-component-library.sh
 ```
 
 **What it does:**
@@ -473,13 +473,13 @@ output-dir/
 
 #### Fetch OpenAPI Specs
 
-**File:** `snippets/scripts/fetch-openapi-specs.sh`
+**File:** `tools/scripts/snippets/fetch-openapi-specs.sh`
 
 **Purpose:** Fetches OpenAPI specification files from the livepeer/ai-runner repository
 
 **Usage:**
 ```bash
-./snippets/scripts/fetch-openapi-specs.sh
+./tools/scripts/snippets/fetch-openapi-specs.sh
 ```
 
 **What it does:**
@@ -494,13 +494,13 @@ output-dir/
 
 #### Fetch External Documentation
 
-**File:** `snippets/scripts/fetch-external-docs.sh`
+**File:** `tools/scripts/snippets/fetch-external-docs.sh`
 
 **Purpose:** Fetches external documentation files from other Livepeer repositories and sanitizes them for MDX compatibility
 
 **Usage:**
 ```bash
-./snippets/scripts/fetch-external-docs.sh
+./tools/scripts/snippets/fetch-external-docs.sh
 ```
 
 **What it does:**
@@ -524,13 +524,13 @@ output-dir/
 
 #### Fetch LPT Exchanges
 
-**File:** `snippets/scripts/fetch-lpt-exchanges.sh`
+**File:** `tools/scripts/snippets/fetch-lpt-exchanges.sh`
 
 **Purpose:** Fetches LPT exchange listings from CoinGecko API and updates the exchanges page
 
 **Usage:**
 ```bash
-./snippets/scripts/fetch-lpt-exchanges.sh
+./tools/scripts/snippets/fetch-lpt-exchanges.sh
 ```
 
 **What it does:**
@@ -688,8 +688,8 @@ Most scripts can be run directly from the command line:
 
 ```bash
 # From repository root
-node snippets/scripts/generate-seo.js
-./snippets/scripts/fetch-lpt-exchanges.sh
+node tools/scripts/snippets/generate-seo.js
+./tools/scripts/snippets/fetch-lpt-exchanges.sh
 npm run test:v2-pages
 ```
 
@@ -817,7 +817,7 @@ npm run test:v2-pages
 - [Style Guide](./style-guide) - Styling conventions and Mintlify gotchas
 - [Component Library](./component-library) - Available components and usage
 - [Git Hooks Documentation](/docs/CONTRIBUTING/GIT-HOOKS.md) - Complete pre-commit hook documentation
-- [Scripts README](/snippets/scripts/README.mdx) - Detailed scripts documentation
+- [Scripts README](/tools/scripts/snippets/README.mdx) - Detailed scripts documentation
 - [Automations README](/snippets/automations/README.mdx) - Automation overview
 - [Audit Report](/docs/PLAN/reports/20-automations-workflows-audit-report.md) - Comprehensive automation audit
 

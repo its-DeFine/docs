@@ -111,7 +111,7 @@ Modular MDX content imported into main documentation pages:
 - `05_GPUS/` - GPU-related content
 - `08_SHARED/` - Shared page content
 
-### Scripts (`/snippets/scripts/`)
+### Scripts (`/tools/scripts/snippets/`)
 
 Automation and generation scripts:
 
@@ -204,13 +204,13 @@ import DockerOffChainTab from "/snippets/pages/04_GATEWAYS/run/quickstart/views/
 
 The component library listing is automated:
 
-**Script:** `snippets/scripts/update-component-library.sh`
+**Script:** `tools/scripts/snippets/update-component-library.sh`
 
 **Output:** `snippets/snippetsWiki/componentLibrary/index.mdx`
 
 **Usage:**
 ```bash
-./snippets/scripts/update-component-library.sh
+./tools/scripts/snippets/update-component-library.sh
 ```
 
 This script automatically generates a Tree structure listing all components in `snippets/components/`.

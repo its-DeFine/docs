@@ -1,7 +1,7 @@
 # Task R-04: Operationalize SEO/AEO automation
 
 ## Why
-SEO/AEO script exists (`snippets/scripts/generate-seo.js`), but systematic enforcement/coverage is not yet clear.
+SEO/AEO script exists (`tools/scripts/snippets/generate-seo.js`), but systematic enforcement/coverage is not yet clear.
 
 ## Scope
 - Define when and how SEO/AEO generation runs (pre-commit, CI, scheduled, or manual release step)

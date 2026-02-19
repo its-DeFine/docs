@@ -1,32 +1,41 @@
 #!/usr/bin/env node
 /**
  * @script script-docs-test
- * @summary Enforce script header template for new scripts and maintain README script indexes.
+ * @summary Enforce script header schema, keep group script indexes in sync, and build aggregate script index.
  * @owner docs
- * @scope tests/unit, tests/README.md, .githooks/README.md, tools/scripts, tasks/scripts
+ * @scope .githooks, .github/scripts, tests, tools/scripts, tasks/scripts, docs-guide/scripts-index.md
  *
  * @usage
- *   node tests/unit/script-docs.test.js --staged --write --stage
+ *   node tests/unit/script-docs.test.js --staged --write --stage --autofill
+ *   node tests/unit/script-docs.test.js --enforce-existing --write --rebuild-indexes
  *
  * @inputs
- *   --staged (checks newly added staged scripts only)
- *   --write (updates README script indexes)
- *   --stage (git add changed README indexes)
- *   --autofill (inject template into newly added scripts missing tags)
+ *   --staged Enforce only newly added staged scripts.
+ *   --enforce-existing Enforce all scoped scripts.
+ *   --autofill Inject placeholder header for brand-new scripts missing the template.
+ *   --backfill-existing Inject non-placeholder headers for existing scripts missing the template.
+ *   --write Update script-index files and aggregate index.
+ *   --rebuild-indexes Rebuild all group indexes regardless of staged scope.
+ *   --stage Stage any updated script/index files.
  *
  * @outputs
- *   - Updated README index blocks between SCRIPT-INDEX markers
+ *   - .githooks/script-index.md
+ *   - .github/script-index.md
+ *   - tests/script-index.md
+ *   - tools/script-index.md
+ *   - tasks/script-index.md
+ *   - docs-guide/scripts-index.md
  *
  * @exit-codes
  *   0 = validation passed
- *   1 = template violations detected
+ *   1 = template or index validation failed
  *
  * @examples
- *   node tests/unit/script-docs.test.js --staged --write --stage
- *   node tests/unit/script-docs.test.js --staged
+ *   node tests/unit/script-docs.test.js --staged --write --stage --autofill
+ *   node tests/unit/script-docs.test.js --enforce-existing --write --rebuild-indexes
  *
  * @notes
- *   Template enforcement targets newly added scripts by design.
+ *   Excludes node_modules, .venv, .git, tmp, notion, and backup files matching .bak*.
  */
 
 const fs = require('fs');
@@ -59,35 +68,25 @@ const PLACEHOLDER_PATTERNS = [
   /^fill\b/i,
   /^replace\b/i,
   /^n\/a$/i,
-  /^none$/i
+  /^none$/i,
+  /^placeholder$/i
 ];
 
-const SCRIPT_EXTENSIONS = new Set([
-  '.js',
-  '.cjs',
-  '.mjs',
-  '.ts',
-  '.tsx',
-  '.sh',
-  '.bash',
-  '.py'
-]);
+const SCRIPT_EXTENSIONS = new Set(['.js', '.cjs', '.mjs', '.ts', '.tsx', '.sh', '.bash', '.py']);
+const SCOPED_ROOTS = ['.githooks', '.github/scripts', 'tests', 'tools/scripts', 'tasks/scripts'];
 
-// Explicit mapping for script folders to documentation files.
-const README_MAP = [
-  { root: '.githooks', readme: '.githooks/README.md' },
-  { root: 'tests', readme: 'tests/README.md' },
-  { root: 'tools/scripts', readme: 'tools/scripts/README.md' },
-  { root: 'tasks/scripts', readme: 'tasks/scripts/README.md' },
-  { root: 'v2/scripts/dev', readme: 'v2/scripts/dev/README.mdx' }
+const GROUP_INDEX_MAP = [
+  { root: '.githooks', index: '.githooks/script-index.md' },
+  { root: '.github/scripts', index: '.github/script-index.md' },
+  { root: 'tests', index: 'tests/script-index.md' },
+  { root: 'tools/scripts', index: 'tools/script-index.md' },
+  { root: 'tasks/scripts', index: 'tasks/script-index.md' }
 ];
+
+const AGGREGATE_INDEX_PATH = 'docs-guide/scripts-index.md';
 
 function normalizeRepoPath(filePath) {
   return filePath.split(path.sep).join('/');
-}
-
-function existsRepoPath(repoPath) {
-  return fs.existsSync(path.join(REPO_ROOT, repoPath));
 }
 
 function readFileSafe(repoPath) {
@@ -98,30 +97,40 @@ function readFileSafe(repoPath) {
   }
 }
 
+function shouldExclude(repoPath) {
+  const p = normalizeRepoPath(repoPath);
+  return (
+    p.includes('/node_modules/') ||
+    p.startsWith('node_modules/') ||
+    p.includes('/.git/') ||
+    p.startsWith('.git/') ||
+    p.includes('/.venv/') ||
+    p.startsWith('.venv/') ||
+    p.includes('/tmp/') ||
+    p.startsWith('tmp/') ||
+    p.startsWith('notion/') ||
+    p.includes('.bak') ||
+    p.endsWith('.disabled')
+  );
+}
+
 function isScriptFile(repoPath) {
+  if (shouldExclude(repoPath)) return false;
   const ext = path.extname(repoPath).toLowerCase();
   if (SCRIPT_EXTENSIONS.has(ext)) return true;
   const content = readFileSafe(repoPath);
   return content.startsWith('#!/usr/bin/env') || content.startsWith('#!/bin/');
 }
 
-function getStagedAddedFiles() {
-  try {
-    const output = execSync('git diff --cached --name-only --diff-filter=A', { encoding: 'utf8' });
-    return output.split('\n').map((line) => line.trim()).filter(Boolean);
-  } catch (_err) {
-    return [];
-  }
-}
-
 function walkFiles(dirPath, out = []) {
   const full = path.join(REPO_ROOT, dirPath);
   if (!fs.existsSync(full)) return out;
+
   const entries = fs.readdirSync(full, { withFileTypes: true });
   for (const entry of entries) {
     const rel = normalizeRepoPath(path.join(dirPath, entry.name));
+    if (shouldExclude(rel)) continue;
     if (entry.isDirectory()) {
-      if (entry.name === 'node_modules' || entry.name === '.git') continue;
       walkFiles(rel, out);
     } else {
       out.push(rel);
@@ -130,17 +139,33 @@ function walkFiles(dirPath, out = []) {
   return out;
 }
 
-function getAllScriptFiles() {
-  const roots = [...new Set(README_MAP.map((x) => x.root))];
-  const all = [];
-  for (const root of roots) {
-    walkFiles(root, all);
+function getAllScopedScripts() {
+  const scripts = [];
+  for (const root of SCOPED_ROOTS) {
+    walkFiles(root, scripts);
   }
-  return all.filter((file) => isScriptFile(file));
+  return [...new Set(scripts)].filter(isScriptFile).sort();
+}
+
+function getStagedAddedScripts() {
+  let output = '';
+  try {
+    output = execSync('git diff --cached --name-only --diff-filter=A', { encoding: 'utf8' });
+  } catch (_err) {
+    return [];
+  }
+
+  return output
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map(normalizeRepoPath)
+    .filter((file) => SCOPED_ROOTS.some((root) => file === root || file.startsWith(`${root}/`)))
+    .filter(isScriptFile);
 }
 
 function getHeaderChunk(content) {
-  return content.split('\n').slice(0, 120).join('\n');
+  return content.split('\n').slice(0, 160).join('\n');
 }
 
 function getTagValue(header, tagName) {
@@ -157,11 +182,11 @@ function isPlaceholderValue(value) {
 
 function getSectionLines(header, tagName) {
   const lines = header.split('\n');
-  const out = [];
   const tagToken = tagName.replace('@', '');
   const idx = lines.findIndex((line) => line.includes(`@${tagToken}`));
-  if (idx === -1) return out;
+  if (idx === -1) return [];
 
+  const out = [];
   for (let i = idx + 1; i < lines.length; i++) {
     const raw = lines[i];
     const trimmed = raw.trim();
@@ -174,7 +199,6 @@ function getSectionLines(header, tagName) {
 
     if (stripped.startsWith('@')) break;
     if (stripped.startsWith('/**') || stripped.startsWith('*/')) continue;
-
     out.push(stripped);
   }
 
@@ -182,23 +206,9 @@ function getSectionLines(header, tagName) {
 }
 
 function extractPrimaryUsage(header) {
-  const lines = header.split('\n');
-  const idx = lines.findIndex((line) => line.includes('@usage'));
-  if (idx === -1) return '';
-  for (let i = idx + 1; i < lines.length; i++) {
-    const t = lines[i].trim();
-    if (!t) continue;
-    if (t.includes('@') && t.startsWith('*')) break;
-    if (t.includes('@') && t.startsWith('#')) break;
-    if (t.startsWith('*')) {
-      const c = t.replace(/^\*\s?/, '').trim();
-      if (c) return c;
-    } else if (t.startsWith('#')) {
-      const c = t.replace(/^#\s?/, '').trim();
-      if (c) return c;
-    } else if (!t.startsWith('//')) {
-      return t;
-    }
+  const lines = getSectionLines(header, '@usage');
+  for (const line of lines) {
+    if (line && !line.startsWith('@')) return line;
   }
   return '';
 }
@@ -209,22 +219,18 @@ function validateTemplate(repoPath) {
   const missing = REQUIRED_TAGS.filter((tag) => !header.includes(tag));
   const empty = [];
 
-  INLINE_REQUIRED_TAGS.forEach((tag) => {
-    if (missing.includes(tag)) return;
+  for (const tag of INLINE_REQUIRED_TAGS) {
+    if (missing.includes(tag)) continue;
     const value = getTagValue(header, tag);
-    if (isPlaceholderValue(value)) {
-      empty.push(tag);
-    }
-  });
+    if (isPlaceholderValue(value)) empty.push(tag);
+  }
 
-  BLOCK_REQUIRED_TAGS.forEach((tag) => {
-    if (missing.includes(tag)) return;
+  for (const tag of BLOCK_REQUIRED_TAGS) {
+    if (missing.includes(tag)) continue;
     const sectionLines = getSectionLines(header, tag);
     const meaningful = sectionLines.filter((line) => !isPlaceholderValue(line));
-    if (meaningful.length === 0) {
-      empty.push(tag);
-    }
-  });
+    if (meaningful.length === 0) empty.push(tag);
+  }
 
   return {
     file: repoPath,
@@ -232,7 +238,8 @@ function validateTemplate(repoPath) {
     missing,
     empty,
     script: getTagValue(header, '@script') || path.basename(repoPath),
-    summary: getTagValue(header, '@summary'),
+    summary: getTagValue(header, '@summary') || '',
+    owner: getTagValue(header, '@owner') || '',
     usage: extractPrimaryUsage(header)
   };
 }
@@ -243,72 +250,105 @@ function buildUsageDefault(repoPath) {
   return `node ${repoPath}`;
 }
 
-function buildTemplateBlock(repoPath, style) {
+function buildTemplateValues(repoPath, placeholderMode) {
   const scriptName = path.basename(repoPath, path.extname(repoPath));
   const usageDefault = buildUsageDefault(repoPath);
+  const group = GROUP_INDEX_MAP.find((g) => repoPath === g.root || repoPath.startsWith(`${g.root}/`));
+  const ownerValue = 'docs';
 
-  if (style === 'hash') {
-    const lines = [
-      '# @script ' + scriptName,
-      '# @summary TODO: one-line purpose',
-      '# @owner TODO: team-or-role',
-      '# @scope TODO: paths-or-domain',
-      '#',
-      '# @usage',
-      '#   ' + usageDefault,
-      '#',
-      '# @inputs',
-      '#   TODO: --flag <description> (default: ...)',
-      '#',
-      '# @outputs',
-      '#   - TODO: output file/path/side effect',
-      '#',
-      '# @exit-codes',
-      '#   0 = success',
-      '#   1 = failure',
-      '#',
-      '# @examples',
-      '#   ' + usageDefault,
-      '#',
-      '# @notes',
-      '#   TODO: caveats, constraints, safety notes',
-      ''
-    ];
-    return lines.join('\n');
+  if (placeholderMode) {
+    return {
+      script: scriptName,
+      summary: 'TODO: one-line purpose',
+      owner: ownerValue,
+      scope: group ? group.root : path.dirname(repoPath),
+      usage: usageDefault,
+      inputs: 'TODO: --flag <description> (default: ...)',
+      outputs: 'TODO: output file/path/side effect',
+      exitCodes: ['0 = success', '1 = failure'],
+      examples: usageDefault,
+      notes: 'TODO: caveats, constraints, safety notes'
+    };
   }
 
-  const lines = [
-    '/**',
-    ` * @script ${scriptName}`,
-    ' * @summary TODO: one-line purpose',
-    ' * @owner TODO: team-or-role',
-    ' * @scope TODO: paths-or-domain',
-    ' *',
-    ' * @usage',
-    ` *   ${usageDefault}`,
-    ' *',
-    ' * @inputs',
-    ' *   TODO: --flag <description> (default: ...)',
-    ' *',
-    ' * @outputs',
-    ' *   - TODO: output file/path/side effect',
-    ' *',
-    ' * @exit-codes',
-    ' *   0 = success',
-    ' *   1 = failure',
-    ' *',
-    ' * @examples',
-    ` *   ${usageDefault}`,
-    ' *',
-    ' * @notes',
-    ' *   TODO: caveats, constraints, safety notes',
-    ' */',
-    ''
-  ];
-  return lines.join('\n');
+  return {
+    script: scriptName,
+    summary: `Utility script for ${repoPath}.`,
+    owner: ownerValue,
+    scope: group ? group.root : path.dirname(repoPath),
+    usage: usageDefault,
+    inputs: 'No required CLI flags; optional flags are documented inline.',
+    outputs: 'Console output and/or file updates based on script purpose.',
+    exitCodes: ['0 = success', '1 = runtime or validation failure'],
+    examples: usageDefault,
+    notes: 'Keep script behavior deterministic and update script indexes after changes.'
+  };
 }
 
-function injectTemplateIfMissing(repoPath) {
+function buildTemplateBlock(repoPath, placeholderMode) {
+  const values = buildTemplateValues(repoPath, placeholderMode);
+  const hashStyle = repoPath.endsWith('.sh') || repoPath.endsWith('.bash') || repoPath.endsWith('.py');
+
+  if (hashStyle) {
+    return [
+      `# @script ${values.script}`,
+      `# @summary ${values.summary}`,
+      `# @owner ${values.owner}`,
+      `# @scope ${values.scope}`,
+      '#',
+      '# @usage',
+      `#   ${values.usage}`,
+      '#',
+      '# @inputs',
+      `#   ${values.inputs}`,
+      '#',
+      '# @outputs',
+      `#   - ${values.outputs}`,
+      '#',
+      '# @exit-codes',
+      `#   ${values.exitCodes[0]}`,
+      `#   ${values.exitCodes[1]}`,
+      '#',
+      '# @examples',
+      `#   ${values.examples}`,
+      '#',
+      '# @notes',
+      `#   ${values.notes}`,
+      ''
+    ].join('\n');
+  }
+
+  return [
+    '/**',
+    ` * @script ${values.script}`,
+    ` * @summary ${values.summary}`,
+    ` * @owner ${values.owner}`,
+    ` * @scope ${values.scope}`,
+    ' *',
+    ' * @usage',
+    ` *   ${values.usage}`,
+    ' *',
+    ' * @inputs',
+    ` *   ${values.inputs}`,
+    ' *',
+    ' * @outputs',
+    ` *   - ${values.outputs}`,
+    ' *',
+    ' * @exit-codes',
+    ` *   ${values.exitCodes[0]}`,
+    ` *   ${values.exitCodes[1]}`,
+    ' *',
+    ' * @examples',
+    ` *   ${values.examples}`,
+    ' *',
+    ' * @notes',
+    ` *   ${values.notes}`,
+    ' */',
+    ''
+  ].join('\n');
+}
+
+function injectTemplate(repoPath, placeholderMode) {
   const fullPath = path.join(REPO_ROOT, repoPath);
   const existing = readFileSafe(repoPath);
   if (!existing) return false;
@@ -320,97 +360,11 @@ function injectTemplateIfMissing(repoPath) {
   const shebangMatch = existing.match(/^(#![^\n]*\n)/);
   const shebang = shebangMatch ? shebangMatch[1] : '';
   const body = shebang ? existing.slice(shebang.length) : existing;
-  const style = (repoPath.endsWith('.sh') || repoPath.endsWith('.bash') || repoPath.endsWith('.py')) ? 'hash' : 'block';
-  const template = buildTemplateBlock(repoPath, style);
+  const template = buildTemplateBlock(repoPath, placeholderMode);
   const updated = `${shebang}${template}${body}`;
 
   if (updated !== existing) {
     fs.writeFileSync(fullPath, updated);
-    return true;
-  }
-  return false;
-}
-
-function resolveReadmeForScript(scriptPath) {
-  const normalized = normalizeRepoPath(scriptPath);
-  const explicit = README_MAP.find((m) => normalized === m.root || normalized.startsWith(`${m.root}/`));
-  if (explicit) {
-    return {
-      readmePath: explicit.readme,
-      scopeRoot: explicit.root
-    };
-  }
-
-  let dir = path.dirname(normalized);
-  while (dir && dir !== '.') {
-    const md = normalizeRepoPath(path.join(dir, 'README.md'));
-    const mdx = normalizeRepoPath(path.join(dir, 'README.mdx'));
-    if (existsRepoPath(md)) return { readmePath: md, scopeRoot: dir };
-    if (existsRepoPath(mdx)) return { readmePath: mdx, scopeRoot: dir };
-    dir = path.dirname(dir);
-    if (dir === '/') break;
-  }
-
-  const fallbackReadme = normalizeRepoPath(path.join(path.dirname(normalized), 'README.md'));
-  return {
-    readmePath: fallbackReadme,
-    scopeRoot: path.dirname(normalized)
-  };
-}
-
-function generateIndexMarkdown(scopeRoot) {
-  const scripts = walkFiles(scopeRoot, []).filter((file) => isScriptFile(file));
-  const docs = scripts
-    .map(validateTemplate)
-    .filter((x) => x.valid)
-    .sort((a, b) => a.file.localeCompare(b.file));
-
-  if (docs.length === 0) {
-    return [
-      '## Script Index',
-      '',
-      '_No documented scripts found in this scope yet._'
-    ].join('\n');
-  }
-
-  const rows = [
-    '## Script Index',
-    '',
-    '| Script | Summary | Usage |',
-    '|---|---|---|'
-  ];
-
-  docs.forEach((doc) => {
-    const usage = doc.usage ? `\`${doc.usage.replace(/\|/g, '\\|')}\`` : '';
-    const summary = (doc.summary || '').replace(/\|/g, '\\|');
-    rows.push(`| \`${doc.file}\` | ${summary} | ${usage} |`);
-  });
-
-  return rows.join('\n');
-}
-
-function upsertReadmeIndex(readmePath, scopeRoot) {
-  const readmeFullPath = path.join(REPO_ROOT, readmePath);
-  const indexBlock = `${INDEX_START}\n${generateIndexMarkdown(scopeRoot)}\n${INDEX_END}`;
-
-  let existing = '';
-  if (fs.existsSync(readmeFullPath)) {
-    existing = fs.readFileSync(readmeFullPath, 'utf8');
-  } else {
-    const title = `# ${path.basename(scopeRoot)} Scripts`;
-    existing = `${title}\n\n`;
-  }
-
-  let updated;
-  if (existing.includes(INDEX_START) && existing.includes(INDEX_END)) {
-    updated = existing.replace(new RegExp(`${INDEX_START}[\\s\\S]*?${INDEX_END}`, 'm'), indexBlock);
-  } else {
-    updated = `${existing.trimEnd()}\n\n${indexBlock}\n`;
-  }
-
-  if (updated !== existing) {
-    fs.mkdirSync(path.dirname(readmeFullPath), { recursive: true });
-    fs.writeFileSync(readmeFullPath, updated);
     return true;
   }
   return false;
@@ -422,94 +376,189 @@ function stageFiles(repoPaths) {
   execSync(`git add ${args}`, { stdio: 'ignore' });
 }
 
+function ensureIndexFile(indexPath) {
+  const fullPath = path.join(REPO_ROOT, indexPath);
+  if (fs.existsSync(fullPath)) return;
+  const title = `# ${path.basename(path.dirname(indexPath) || indexPath)} Script Index`;
+  const content = `${title}\n\n${INDEX_START}\n## Script Index\n\n_No scripts indexed yet._\n${INDEX_END}\n`;
+  fs.mkdirSync(path.dirname(fullPath), { recursive: true });
+  fs.writeFileSync(fullPath, content);
+}
+
+function scriptsForGroup(root) {
+  return getAllScopedScripts().filter((file) => file === root || file.startsWith(`${root}/`));
+}
+
+function buildGroupIndexMarkdown(root) {
+  const scripts = scriptsForGroup(root)
+    .map(validateTemplate)
+    .filter((x) => x.valid)
+    .sort((a, b) => a.file.localeCompare(b.file));
+
+  if (scripts.length === 0) {
+    return ['## Script Index', '', '_No scripts indexed yet._'].join('\n');
+  }
+
+  const lines = ['## Script Index', '', '| Script | Summary | Usage | Owner |', '|---|---|---|---|'];
+  scripts.forEach((s) => {
+    const summary = s.summary.replace(/\|/g, '\\|');
+    const usage = (s.usage || '').replace(/\|/g, '\\|');
+    const owner = (s.owner || '').replace(/\|/g, '\\|');
+    lines.push(`| \`${s.file}\` | ${summary} | \`${usage}\` | ${owner} |`);
+  });
+  return lines.join('\n');
+}
+
+function updateIndexFile(indexPath, body) {
+  ensureIndexFile(indexPath);
+  const fullPath = path.join(REPO_ROOT, indexPath);
+  const existing = fs.readFileSync(fullPath, 'utf8');
+  const block = `${INDEX_START}\n${body}\n${INDEX_END}`;
+  let updated;
+
+  if (existing.includes(INDEX_START) && existing.includes(INDEX_END)) {
+    updated = existing.replace(new RegExp(`${INDEX_START}[\\s\\S]*?${INDEX_END}`, 'm'), block);
+  } else {
+    updated = `${existing.trimEnd()}\n\n${block}\n`;
+  }
+
+  if (updated !== existing) {
+    fs.writeFileSync(fullPath, updated);
+    return true;
+  }
+  return false;
+}
+
+function parseGroupIndexRows(indexPath) {
+  const content = readFileSafe(indexPath);
+  const lines = content.split('\n');
+  const rows = [];
+  for (const line of lines) {
+    if (!line.startsWith('| `')) continue;
+    const parts = line.split('|').map((p) => p.trim());
+    if (parts.length < 6) continue;
+    rows.push({
+      script: parts[1].replace(/^`|`$/g, ''),
+      summary: parts[2],
+      usage: parts[3].replace(/^`|`$/g, ''),
+      owner: parts[4]
+    });
+  }
+  return rows;
+}
+
+function buildAggregateMarkdown() {
+  const lines = ['# Script Index', '', 'Aggregate catalog generated from group script indexes.', ''];
+  for (const group of GROUP_INDEX_MAP) {
+    const rows = parseGroupIndexRows(group.index);
+    lines.push(`## ${group.root}`);
+    lines.push('');
+    if (rows.length === 0) {
+      lines.push('_No scripts indexed yet._');
+      lines.push('');
+      continue;
+    }
+    lines.push('| Script | Summary | Usage | Owner |');
+    lines.push('|---|---|---|---|');
+    rows.forEach((row) => {
+      lines.push(`| \`${row.script}\` | ${row.summary} | \`${row.usage}\` | ${row.owner} |`);
+    });
+    lines.push('');
+  }
+  return lines.join('\n');
+}
+
+function updateAggregateIndex() {
+  const fullPath = path.join(REPO_ROOT, AGGREGATE_INDEX_PATH);
+  const content = buildAggregateMarkdown();
+  fs.mkdirSync(path.dirname(fullPath), { recursive: true });
+  const existing = fs.existsSync(fullPath) ? fs.readFileSync(fullPath, 'utf8') : '';
+  if (content !== existing) {
+    fs.writeFileSync(fullPath, content);
+    return true;
+  }
+  return false;
+}
+
 function runTests(options = {}) {
   const stagedOnly = Boolean(options.stagedOnly);
   const write = Boolean(options.write);
   const stage = Boolean(options.stage);
   const autofill = Boolean(options.autofill);
+  const backfillExisting = Boolean(options.backfillExisting);
+  const enforceExisting = Boolean(options.enforceExisting);
+  const rebuildIndexes = Boolean(options.rebuildIndexes);
 
   const errors = [];
   const warnings = [];
-  const changedReadmes = [];
+  const changedIndexes = [];
   const autofilledScripts = [];
+  const backfilledScripts = [];
 
-  const candidateScripts = stagedOnly
-    ? getStagedAddedFiles().filter((file) => isScriptFile(file))
-    : getAllScriptFiles();
+  const scopedScripts = getAllScopedScripts();
+  const stagedAddedScripts = getStagedAddedScripts();
 
   if (autofill) {
-    candidateScripts.forEach((scriptPath) => {
-      const changed = injectTemplateIfMissing(scriptPath);
-      if (changed) autofilledScripts.push(scriptPath);
-    });
-    if (stage && autofilledScripts.length > 0) {
-      try {
-        stageFiles(autofilledScripts);
-      } catch (err) {
-        warnings.push({
-          file: '(git add)',
-          rule: 'Script template staging',
-          message: `Failed to stage autofilled scripts: ${err.message}`,
-          line: 1
-        });
-      }
+    for (const scriptPath of stagedAddedScripts) {
+      if (injectTemplate(scriptPath, true)) autofilledScripts.push(scriptPath);
     }
   }
 
-  // Enforce template only for newly added scripts.
-  const enforceTargets = stagedOnly ? candidateScripts : [];
-  enforceTargets.forEach((scriptPath) => {
+  if (backfillExisting) {
+    for (const scriptPath of scopedScripts) {
+      if (injectTemplate(scriptPath, false)) backfilledScripts.push(scriptPath);
+    }
+  }
+
+  const enforceTargets = enforceExisting ? scopedScripts : stagedOnly ? stagedAddedScripts : [];
+  for (const scriptPath of enforceTargets) {
     const result = validateTemplate(scriptPath);
     if (!result.valid) {
       const parts = [];
-      if (result.missing.length > 0) {
-        parts.push(`missing required tags: ${result.missing.join(', ')}`);
-      }
-      if (result.empty.length > 0) {
-        parts.push(`empty/placeholder values: ${result.empty.join(', ')}`);
-      }
-      errors.push({
-        file: scriptPath,
-        rule: 'Script header template',
-        message: parts.join(' | '),
-        line: 1
-      });
+      if (result.missing.length > 0) parts.push(`missing required tags: ${result.missing.join(', ')}`);
+      if (result.empty.length > 0) parts.push(`empty/placeholder values: ${result.empty.join(', ')}`);
+      errors.push({ file: scriptPath, rule: 'Script header template', message: parts.join(' | '), line: 1 });
     }
-  });
+  }
 
-  if (write) {
-    const affected = new Map();
-    candidateScripts.forEach((scriptPath) => {
-      const mapping = resolveReadmeForScript(scriptPath);
-      affected.set(mapping.readmePath, mapping.scopeRoot);
-    });
+  const stagedPaths = [...autofilledScripts, ...backfilledScripts];
 
-    for (const [readmePath, scopeRoot] of affected.entries()) {
-      const changed = upsertReadmeIndex(readmePath, scopeRoot);
-      if (changed) changedReadmes.push(readmePath);
-    }
-
-    if (stage && changedReadmes.length > 0) {
-      try {
-        stageFiles(changedReadmes);
-      } catch (err) {
-        warnings.push({
-          file: '(git add)',
-          rule: 'README staging',
-          message: `Failed to stage updated READMEs automatically: ${err.message}`,
-          line: 1
+  if (write || rebuildIndexes) {
+    const indexTargets = rebuildIndexes
+      ? GROUP_INDEX_MAP
+      : GROUP_INDEX_MAP.filter((g) => {
+          const candidates = stagedOnly ? stagedAddedScripts : scopedScripts;
+          return candidates.some((f) => f === g.root || f.startsWith(`${g.root}/`));
         });
+
+    for (const target of indexTargets) {
+      const body = buildGroupIndexMarkdown(target.root);
+      if (updateIndexFile(target.index, body)) {
+        changedIndexes.push(target.index);
       }
+    }
+
+    if (updateAggregateIndex()) {
+      changedIndexes.push(AGGREGATE_INDEX_PATH);
+    }
+  }
+
+  if (stage) {
+    try {
+      stageFiles([...new Set([...stagedPaths, ...changedIndexes])]);
+    } catch (err) {
+      warnings.push({ file: '(git add)', rule: 'Staging', message: `Failed to stage generated files: ${err.message}`, line: 1 });
     }
   }
 
   return {
     errors,
     warnings,
-    changedReadmes,
+    changedIndexes,
     autofilledScripts,
+    backfilledScripts,
     passed: errors.length === 0,
-    total: candidateScripts.length
+    total: enforceTargets.length
   };
 }
 
@@ -519,8 +568,11 @@ if (require.main === module) {
   const write = args.includes('--write');
   const stage = args.includes('--stage');
   const autofill = args.includes('--autofill');
+  const backfillExisting = args.includes('--backfill-existing');
+  const enforceExisting = args.includes('--enforce-existing');
+  const rebuildIndexes = args.includes('--rebuild-indexes');
 
-  const result = runTests({ stagedOnly, write, stage, autofill });
+  const result = runTests({ stagedOnly, write, stage, autofill, backfillExisting, enforceExisting, rebuildIndexes });
 
   if (result.errors.length > 0) {
     console.error('\n❌ Script documentation enforcement failed:\n');
@@ -531,15 +583,20 @@ if (require.main === module) {
     console.error(`  ${REQUIRED_TAGS.join(', ')}`);
   }
 
-  if (result.changedReadmes.length > 0) {
-    console.log('\n📝 Updated README script indexes:');
-    result.changedReadmes.forEach((p) => console.log(`  - ${p}`));
-  }
-
   if (result.autofilledScripts.length > 0) {
-    console.log('\n🧩 Injected script header template into:');
+    console.log('\n🧩 Injected placeholder header template into:');
     result.autofilledScripts.forEach((p) => console.log(`  - ${p}`));
     console.log('Fill placeholder values before commit.');
+  }
+
+  if (result.backfilledScripts.length > 0) {
+    console.log('\n🛠️  Backfilled non-placeholder headers into:');
+    result.backfilledScripts.forEach((p) => console.log(`  - ${p}`));
+  }
+
+  if (result.changedIndexes.length > 0) {
+    console.log('\n📝 Updated script indexes:');
+    result.changedIndexes.forEach((p) => console.log(`  - ${p}`));
   }
 
   if (result.errors.length === 0) {

@@ -1,3 +1,28 @@
+/**
+ * @script verify-pages
+ * @summary Utility script for tools/scripts/test/verify-pages.js.
+ * @owner docs
+ * @scope tools/scripts
+ *
+ * @usage
+ *   node tools/scripts/test/verify-pages.js
+ *
+ * @inputs
+ *   No required CLI flags; optional flags are documented inline.
+ *
+ * @outputs
+ *   - Console output and/or file updates based on script purpose.
+ *
+ * @exit-codes
+ *   0 = success
+ *   1 = runtime or validation failure
+ *
+ * @examples
+ *   node tools/scripts/test/verify-pages.js
+ *
+ * @notes
+ *   Keep script behavior deterministic and update script indexes after changes.
+ */
 const puppeteer = require('puppeteer');
 const browser = await puppeteer.launch({ headless: true });
 const page = await browser.newPage();

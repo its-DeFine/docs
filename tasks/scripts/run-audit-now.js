@@ -1,4 +1,29 @@
 #!/usr/bin/env node
+/**
+ * @script run-audit-now
+ * @summary Utility script for tasks/scripts/run-audit-now.js.
+ * @owner docs
+ * @scope tasks/scripts
+ *
+ * @usage
+ *   node tasks/scripts/run-audit-now.js
+ *
+ * @inputs
+ *   No required CLI flags; optional flags are documented inline.
+ *
+ * @outputs
+ *   - Console output and/or file updates based on script purpose.
+ *
+ * @exit-codes
+ *   0 = success
+ *   1 = runtime or validation failure
+ *
+ * @examples
+ *   node tasks/scripts/run-audit-now.js
+ *
+ * @notes
+ *   Keep script behavior deterministic and update script indexes after changes.
+ */
 
 // Quick audit runner that writes to files immediately
 const fs = require('fs');

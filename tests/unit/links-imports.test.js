@@ -1,5 +1,30 @@
 #!/usr/bin/env node
 /**
+ * @script links-imports.test
+ * @summary Utility script for tests/unit/links-imports.test.js.
+ * @owner docs
+ * @scope tests
+ *
+ * @usage
+ *   node tests/unit/links-imports.test.js
+ *
+ * @inputs
+ *   No required CLI flags; optional flags are documented inline.
+ *
+ * @outputs
+ *   - Console output and/or file updates based on script purpose.
+ *
+ * @exit-codes
+ *   0 = success
+ *   1 = runtime or validation failure
+ *
+ * @examples
+ *   node tests/unit/links-imports.test.js
+ *
+ * @notes
+ *   Keep script behavior deterministic and update script indexes after changes.
+ */
+/**
  * Broken links and imports validation
  * Checks that all internal links and imports resolve to existing files
  */
