@@ -196,14 +196,23 @@ The repository includes an internal docs feature that keeps `v2/pages` index fil
 
 What it generates:
 
-- `v2/pages/<section>/.../index.mdx` for folders under `v2/pages/`
+- `v2/pages/<top-level-section>/index.mdx` for each direct child folder under `v2/pages/`
 - `v2/pages/index.mdx` as the root aggregate index
 
 Format rules:
 
-- Root-level markdown links appear first at the top of each folder index.
+- Root-level markdown links appear first at the top of each top-level folder index.
 - Folder and subfolder names are rendered as headings.
 - Links are rendered in markdown link-list format (`- [Title](path/file.mdx)`).
+- Links include a warning marker when a page is missing from `docs.json` navigation:
+  `- [⚠️ Title](path/file.mdx)`.
+
+Validation and cleanup rules:
+
+- `docs.json` is treated as a read-only route allowlist for warning markers.
+- Matching is strict after normalization (remove `.md`/`.mdx`, remove trailing `/index`, trim trailing `/`).
+- Nested `index.mdx` / `index.md` files under top-level sections are automatically removed in `--write` mode.
+- In verify mode (no `--write`), nested indexes cause a failure until removed.
 
 Automation behavior:
 

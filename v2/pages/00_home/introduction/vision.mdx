@@ -14,6 +14,8 @@ import { Image } from '/snippets/components/display/image.jsx'
 import { LinkArrow, GotoLink, GotoCard } from '/snippets/components/primitives/links.jsx'
 import { Quote, FrameQuote } from '/snippets/components/display/quote.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+import { QuadGrid } from '/snippets/components/layout/quadGrid.jsx'
+import { DisplayCard } from '/snippets/components/display/customCards.jsx'
 
 {/* Video of Doug talking about Livepeer */}
 <Frame >
@@ -90,17 +92,26 @@ Livepeer is on a mission to give innovators and creators the tools they need to 
 {" "}
 **Core Pillars**
 
+This mission drives the why's of Livepeer and informs its competitive edge and business advantage.
+The network's strategy is built upon a foundation of core value propositions and messaging pillars derived from this mission: 
 
-The network's strategy is built upon a foundation of core value propositions and messaging pillars:
-  - **Real-time Performance / Performance at Scale:** Industry-standard low latency optimized for real-time video AI and media, enabling sub-second inference and proven scalability.
-  - **Cost Efficiency:** Access to GPU compute at 5–10x lower cost through an open marketplace with transparent on-chain economics and a pay-per-use model.
-  - **Automagic Scalability:** The ability to scale capacity up or down dynamically in real-time via an elastic network supply, smart routing, and incentivized idle GPU utilization.
-  - **Openness & Community:** Permissionless, open-source, community-driven infrastructure that provides global access, on-chain verifiable compute, and rewards all participants.
+
+<QuadGrid icon="arrows-spin" iconSize={50}>
+  <DisplayCard title="Real-time Performance" icon="bolt">
+    Industry-standard low latency optimized for real-time video AI and media, enabling sub-second inference and proven scalability.
+  </DisplayCard>
+  <DisplayCard title="Cost Efficiency" icon="piggy-bank">
+    Access to GPU compute at 5–10x lower cost through an open marketplace with transparent on-chain economics and a pay-per-use model.
+  </DisplayCard>
+  <DisplayCard title="Automagic Scalability" icon="arrows-maximize">
+    Scale capacity up or down dynamically in real-time via an elastic network supply, smart routing, and incentivized idle GPU utilization.
+  </DisplayCard>
+  <DisplayCard title="Openness & Community" icon="people-group">
+    Permissionless, open-source, community-driven infrastructure that provides global access, on-chain verifiable compute, and rewards all participants.
+  </DisplayCard>
+</QuadGrid>
 
 {/* <Danger> Add more current points here - provenance, agent payment rails etc. </Danger> */}
-
-This mission drives the why's of Livepeer and informs its competitive edge and business advantage.
-
 
 {/* # Why Livepeer? */}
 

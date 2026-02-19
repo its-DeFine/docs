@@ -15,7 +15,7 @@
  *   --rebuild-indexes Force full rebuild even when --staged has no matching files.
  *
  * @outputs
- *   - v2/pages/<folder>/.../index.mdx
+ *   - v2/pages/<top-level-folder>/index.mdx
  *   - v2/pages/index.mdx
  *
  * @exit-codes
@@ -36,6 +36,7 @@ const { execSync, spawnSync } = require('child_process');
 const PAGES_ROOT = 'v2/pages';
 const INDEX_FILENAME = 'index.mdx';
 const LEGACY_INDEX_FILENAME = 'index.md';
+const DOCS_JSON_FILENAME = 'docs.json';
 
 function getRepoRoot() {
   try {
@@ -86,21 +87,63 @@ function getDirectMarkdownFiles(absDir) {
   );
 }
 
-function getAllDirectories(rootRel) {
-  const out = [];
+function normalizeDocsRouteKey(routePath) {
+  let normalized = normalizeRel(String(routePath || '').trim());
+  normalized = normalized.replace(/\.(md|mdx)$/i, '');
+  normalized = normalized.replace(/\/index$/i, '');
+  normalized = normalized.replace(/\/+$/, '');
+  return normalized;
+}
 
-  function walk(relDir) {
-    const absDir = path.join(REPO_ROOT, relDir);
-    if (!fs.existsSync(absDir)) return;
-    out.push(normalizeRel(relDir));
-    const subdirs = getDirectSubdirs(absDir);
-    for (const subdir of subdirs) {
-      walk(path.join(relDir, subdir));
+function collectDocsPageEntries(node, out = []) {
+  if (typeof node === 'string') {
+    const value = node.trim();
+    if (value.startsWith('v1/') || value.startsWith('v2/pages/')) {
+      out.push(value);
     }
+    return out;
   }
 
-  walk(rootRel);
-  return sortAlpha(out);
+  if (Array.isArray(node)) {
+    node.forEach((item) => collectDocsPageEntries(item, out));
+    return out;
+  }
+
+  if (!node || typeof node !== 'object') {
+    return out;
+  }
+
+  if (Array.isArray(node.pages)) {
+    node.pages.forEach((item) => collectDocsPageEntries(item, out));
+  }
+
+  Object.values(node).forEach((value) => collectDocsPageEntries(value, out));
+  return out;
+}
+
+function getDocsJsonRouteKeys() {
+  const docsJsonAbs = path.join(REPO_ROOT, DOCS_JSON_FILENAME);
+  if (!fileExists(docsJsonAbs)) {
+    throw new Error(`Missing ${DOCS_JSON_FILENAME} at repo root`);
+  }
+
+  const docsJson = JSON.parse(fs.readFileSync(docsJsonAbs, 'utf8'));
+  const versions = docsJson?.navigation?.versions || [];
+  const entries = [];
+
+  versions.forEach((versionNode) => {
+    if (versionNode?.languages) {
+      collectDocsPageEntries(versionNode.languages, entries);
+    }
+  });
+
+  const keys = new Set();
+  entries.forEach((entry) => {
+    const key = normalizeDocsRouteKey(entry);
+    if (key) keys.add(key);
+  });
+
+  return keys;
 }
 
 function sanitizeTitle(raw) {
@@ -178,12 +221,20 @@ function getFileTitle(fileAbsPath, fallbackName) {
   return resolved;
 }
 
-function buildFolderIndexData(dirRel) {
+function isMissingFromDocsJson(repoFileRel, docsRouteKeys) {
+  if (!docsRouteKeys || docsRouteKeys.size === 0) return false;
+  const routeKey = normalizeDocsRouteKey(repoFileRel);
+  return !docsRouteKeys.has(routeKey);
+}
+
+function buildFolderIndexData(dirRel, docsRouteKeys) {
   const dirAbs = path.join(REPO_ROOT, dirRel);
   const rootFiles = getDirectMarkdownFiles(dirAbs).map((fileName) => {
+    const repoFileRel = normalizeRel(path.join(dirRel, fileName));
     return {
       title: getFileTitle(path.join(dirAbs, fileName), fileName),
-      href: buildLinkHref(fileName)
+      href: buildLinkHref(fileName),
+      missingFromDocsJson: isMissingFromDocsJson(repoFileRel, docsRouteKeys)
     };
   });
 
@@ -197,10 +248,12 @@ function buildFolderIndexData(dirRel) {
       const childRel = normalizeRel(path.join(localRel, subdirName));
       const childAbs = path.join(REPO_ROOT, childRel);
       const files = getDirectMarkdownFiles(childAbs).map((fileName) => {
+        const repoFileRel = normalizeRel(path.join(childRel, fileName));
         const relFromCurrent = normalizeRel(path.relative(dirAbs, path.join(childAbs, fileName)));
         return {
           title: getFileTitle(path.join(childAbs, fileName), fileName),
-          href: buildLinkHref(relFromCurrent)
+          href: buildLinkHref(relFromCurrent),
+          missingFromDocsJson: isMissingFromDocsJson(repoFileRel, docsRouteKeys)
         };
       });
 
@@ -228,12 +281,17 @@ function buildFolderIndexData(dirRel) {
   };
 }
 
+function renderLinkTitle(link) {
+  const safeTitle = escapeLinkText(link.title || '');
+  return link.missingFromDocsJson ? `⚠️ ${safeTitle}` : safeTitle;
+}
+
 function renderIndexContent(data) {
   const lines = ['# Table of contents', ''];
 
   if (data.rootLinks.length > 0) {
     for (const link of data.rootLinks) {
-      lines.push(`- [${escapeLinkText(link.title)}](${link.href})`);
+      lines.push(`- [${renderLinkTitle(link)}](${link.href})`);
     }
     if (data.sections.length > 0) {
       lines.push('');
@@ -244,7 +302,7 @@ function renderIndexContent(data) {
     lines.push(`${'#'.repeat(section.level)} ${section.title}`);
     if (section.links.length > 0) {
       for (const link of section.links) {
-        lines.push(`- [${escapeLinkText(link.title)}](${link.href})`);
+        lines.push(`- [${renderLinkTitle(link)}](${link.href})`);
       }
     }
     lines.push('');
@@ -402,6 +460,39 @@ function stagePaths(repoRelativePaths) {
   return null;
 }
 
+function findNestedIndexFiles(topLevelDirRel) {
+  const topLevelAbs = path.join(REPO_ROOT, topLevelDirRel);
+  if (!fileExists(topLevelAbs)) return [];
+
+  const allowedTopLevelIndexes = new Set([
+    normalizeRel(path.join(topLevelDirRel, INDEX_FILENAME)),
+    normalizeRel(path.join(topLevelDirRel, LEGACY_INDEX_FILENAME))
+  ]);
+
+  const nested = [];
+
+  function walk(currentAbs) {
+    const entries = fs.readdirSync(currentAbs, { withFileTypes: true });
+    for (const entry of entries) {
+      const fullPath = path.join(currentAbs, entry.name);
+      if (entry.isDirectory()) {
+        walk(fullPath);
+        continue;
+      }
+      if (!entry.isFile() || !isIndexFile(entry.name)) {
+        continue;
+      }
+      const relPath = normalizeRel(path.relative(REPO_ROOT, fullPath));
+      if (!allowedTopLevelIndexes.has(relPath)) {
+        nested.push(relPath);
+      }
+    }
+  }
+
+  walk(topLevelAbs);
+  return sortAlpha(nested);
+}
+
 function run(options = {}) {
   const stagedOnly = Boolean(options.stagedOnly);
   const write = Boolean(options.write);
@@ -412,31 +503,39 @@ function run(options = {}) {
   const warnings = [];
   const changed = [];
   const removedLegacy = [];
+  const removedNested = [];
 
   if (!fileExists(PAGES_ROOT_ABS)) {
     errors.push(`Missing pages root: ${PAGES_ROOT}`);
-    return { passed: false, skipped: false, errors, warnings, changed, removedLegacy };
+    return { passed: false, skipped: false, errors, warnings, changed, removedLegacy, removedNested };
   }
 
   const stagedFiles = getStagedFiles();
   const hasStagedPagesChange = stagedFiles.some((file) => file === PAGES_ROOT || file.startsWith(`${PAGES_ROOT}/`));
 
   if (stagedOnly && !rebuildIndexes && !hasStagedPagesChange) {
-    return { passed: true, skipped: true, errors, warnings, changed, removedLegacy };
+    return { passed: true, skipped: true, errors, warnings, changed, removedLegacy, removedNested };
   }
 
-  const allDirs = getAllDirectories(PAGES_ROOT);
-  const folderDirs = allDirs.filter((rel) => rel !== PAGES_ROOT);
+  const topLevelDirs = getDirectSubdirs(PAGES_ROOT_ABS).map((name) => normalizeRel(path.join(PAGES_ROOT, name)));
+  const expectedByTopDir = new Map();
 
-  const expectedByDir = new Map();
+  let docsRouteKeys = new Set();
+  try {
+    docsRouteKeys = getDocsJsonRouteKeys();
+  } catch (error) {
+    errors.push(`Failed to load ${DOCS_JSON_FILENAME}: ${error.message}`);
+    return { passed: false, skipped: false, errors, warnings, changed, removedLegacy, removedNested };
+  }
 
-  for (const dirRel of folderDirs) {
-    const data = buildFolderIndexData(dirRel);
+  for (const dirRel of topLevelDirs) {
+    const data = buildFolderIndexData(dirRel, docsRouteKeys);
     const content = renderIndexContent(data);
-    expectedByDir.set(dirRel, content);
+    expectedByTopDir.set(dirRel, content);
 
     const indexAbs = path.join(REPO_ROOT, dirRel, INDEX_FILENAME);
     const legacyAbs = path.join(REPO_ROOT, dirRel, LEGACY_INDEX_FILENAME);
+    const nestedIndexFiles = findNestedIndexFiles(dirRel);
 
     if (write) {
       const didWrite = writeIfChanged(indexAbs, content);
@@ -446,7 +545,14 @@ function run(options = {}) {
         fs.unlinkSync(legacyAbs);
         const legacyRel = normalizeRel(path.join(dirRel, LEGACY_INDEX_FILENAME));
         removedLegacy.push(legacyRel);
-        changed.push(legacyRel);
+      }
+
+      for (const nestedRel of nestedIndexFiles) {
+        const nestedAbs = path.join(REPO_ROOT, nestedRel);
+        if (fileExists(nestedAbs)) {
+          fs.unlinkSync(nestedAbs);
+          removedNested.push(nestedRel);
+        }
       }
     } else {
       if (!fileExists(indexAbs)) {
@@ -461,27 +567,15 @@ function run(options = {}) {
       if (fileExists(legacyAbs)) {
         errors.push(`Legacy ${LEGACY_INDEX_FILENAME} must be migrated: ${normalizeRel(path.join(dirRel, LEGACY_INDEX_FILENAME))}`);
       }
+
+      for (const nestedRel of nestedIndexFiles) {
+        errors.push(`Nested index file must be removed: ${nestedRel}`);
+      }
     }
   }
 
-  const topLevelDirs = getDirectSubdirs(PAGES_ROOT_ABS).map((name) => normalizeRel(path.join(PAGES_ROOT, name)));
   const sourceByTopDir = new Map();
-
-  for (const dirRel of topLevelDirs) {
-    const indexRel = normalizeRel(path.join(dirRel, INDEX_FILENAME));
-    const indexAbs = path.join(REPO_ROOT, indexRel);
-
-    if (write && fileExists(indexAbs)) {
-      sourceByTopDir.set(dirRel, readTextSafe(indexAbs));
-      continue;
-    }
-
-    if (fileExists(indexAbs)) {
-      sourceByTopDir.set(dirRel, readTextSafe(indexAbs));
-    } else {
-      sourceByTopDir.set(dirRel, expectedByDir.get(dirRel) || '');
-    }
-  }
+  topLevelDirs.forEach((dirRel) => sourceByTopDir.set(dirRel, expectedByTopDir.get(dirRel) || ''));
 
   const aggregate = renderAggregateContent(buildAggregateData(topLevelDirs, sourceByTopDir));
   const rootIndexAbs = path.join(PAGES_ROOT_ABS, INDEX_FILENAME);
@@ -495,7 +589,6 @@ function run(options = {}) {
       fs.unlinkSync(rootLegacyAbs);
       const legacyRel = normalizeRel(path.join(PAGES_ROOT, LEGACY_INDEX_FILENAME));
       removedLegacy.push(legacyRel);
-      changed.push(legacyRel);
     }
   } else {
     if (!fileExists(rootIndexAbs)) {
@@ -512,8 +605,9 @@ function run(options = {}) {
     }
   }
 
-  if (stage && write && changed.length > 0) {
-    const stageError = stagePaths(changed);
+  if (stage && write) {
+    const stageTargets = [...new Set([...changed, ...removedLegacy, ...removedNested])];
+    const stageError = stagePaths(stageTargets);
     if (stageError) {
       warnings.push(`Failed to stage generated index files: ${stageError}`);
     }
@@ -525,7 +619,8 @@ function run(options = {}) {
     errors,
     warnings,
     changed: [...new Set(changed)],
-    removedLegacy: [...new Set(removedLegacy)]
+    removedLegacy: [...new Set(removedLegacy)],
+    removedNested: [...new Set(removedNested)]
   };
 }
 
@@ -553,6 +648,13 @@ if (require.main === module) {
   if (result.removedLegacy.length > 0) {
     console.log('\n🧹 Removed legacy index.md files:');
     for (const file of result.removedLegacy) {
+      console.log(`  - ${file}`);
+    }
+  }
+
+  if (result.removedNested.length > 0) {
+    console.log('\n🧹 Removed nested index files:');
+    for (const file of result.removedNested) {
       console.log(`  - ${file}`);
     }
   }

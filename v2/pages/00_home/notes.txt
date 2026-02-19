@@ -1,0 +1,8 @@
+
+To Upgrade:
+- [Get Started](home/get-started.mdx)
+- [Livepeer Primer](home/primer.mdx)
+- [Livepeer Applications](project-showcase/applications.mdx)
+
+Remove:
+- Get Started Anchor (or change to platform link)

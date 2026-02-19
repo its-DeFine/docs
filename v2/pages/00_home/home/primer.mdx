@@ -1,35 +1,37 @@
 ---
 title: 'Livepeer Primer'
-description: 'A Brief Introduction to the Livepeer Network, Protocol & Community'
+description: 'A 10 minute primer on Livepeer, the community, the use cases, technology and where to get started'
 sidebarTitle: 'Livepeer Primer'
 keywords: ["livepeer intro", "livepeer introduction", "livepeer overview", "livepeer primer"]
 og:image: 'https://raw.githubusercontent.com/livepeer/docs/docs-v2/snippets/assets/domain/00_HOME/Eric%20Shreck%20Gif.gif'
 ---
-import {PreviewCallout} from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
 
 <PreviewCallout />
+
 import { SocialLinks } from '/snippets/components/display/socialLinks.jsx'
-
-Livepeer is an inclusive and welcoming global community with a diverse and talented group of people.
-
-From DJs, creators, developers, founders, network contributors and enterprise clients — it takes a village to build a cutting-edge open video streaming & AI platform!
-
-Get started on your journey by reading about Livepeer and joining the community on Discord to get involved.
+import { Image } from '/snippets/components/display/image.jsx'
+import { CustomCardTitle } from '/snippets/components/display/customCards.jsx'
 
 <Image
   src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjgxanlyczB0NW05M2xlYWEwdDg1N20zanowNGxmdzNnbWZ2bHQwdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ae7SI3LoPYj8Q/giphy.gif"
   alt="Livepeer Community GIF"
 />
+Livepeer is an inclusive and welcoming global community with a diverse and talented group of people.
 
-<GotoCard
-  label="Community Hub"
-  relativePath="../../02_community/livepeer-Community"
-  text="Join the Community Here"
-  horizontal
+From DJs, creators, developers, founders, network contributors and enterprise clients, it takes a village to build a cutting-edge open video streaming & AI platform!
+
+Get started on your journey by reading about Livepeer and joining the community on Discord to get involved.
+
+
+<Card
+  title={<CustomCardTitle icon="users" title="Community Hub" />}
+  href="../../02_community/livepeer-Community"
   arrow
-/>
-
-<br />
+>  
+  Join the Community Here
+  <SocialLinks size={24} justify="flex-start" />
+</Card>
 
 {/* ## Livepeer Video Overview
 
@@ -59,7 +61,7 @@ The grand experiment of building a community-owned video infrastructure network.
 
 <br />
 
-<Danger> Needs Work - if you feel you could contribute reach out </Danger>
+{/* <Danger> Needs Work - if you feel you could contribute reach out </Danger> */}
 
 ## What Is Livepeer?
 

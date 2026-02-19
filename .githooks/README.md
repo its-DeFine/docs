@@ -67,10 +67,11 @@ Script documentation enforcement:
 - If invalid, commit is blocked.
 
 Pages index generation:
-- Keeps `v2/pages/**/index.mdx` synchronized with the current folder + subfolder markdown structure.
+- Keeps `v2/pages/<top-level>/index.mdx` synchronized with the full folder + subfolder markdown structure.
 - Uses section-style rendering with root-level files listed first, then folder headings.
-- Rebuilds root aggregate at `v2/pages/index.mdx` from section index files.
-- Migrates/removes legacy `index.md` files.
+- Adds `⚠️` to links for files that are not present in `docs.json` navigation.
+- Rebuilds root aggregate at `v2/pages/index.mdx` from top-level section index files.
+- Migrates/removes legacy `index.md` files and removes nested index files under top-level sections.
 
 Current script index targets:
 - `.githooks/*` -> `.githooks/script-index.md`

@@ -1,5 +1,5 @@
 /**
- * IconCard
+ * DisplayCard
  * --------
  * A Card wrapper that renders an icon + title header and accepts children.
  *
@@ -9,7 +9,7 @@
  *   style    (object)  – Optional style overrides for the title span
  *   children           – Card body content (markdown lists, etc.)
  */
-export const IconCard = ({ icon, title, style, children }) => {
+export const DisplayCard = ({ icon, title, style, children }) => {
   const cardStyle = {
     display: "flex",
     flexDirection: "column",
@@ -45,6 +45,41 @@ export const IconCard = ({ icon, title, style, children }) => {
         {title}
       </div>
       <div style={bodyStyle}>{children}</div>
+    </div>
+  );
+};
+
+export const CustomCardTitle = ({ icon, title, style }) => {
+  const titleStyle = {
+    display: "flex",
+    alignItems: "center",
+    gap: "0.5rem",
+    marginBottom: "0.75rem",
+    color: "var(--hero-text)",
+    fontSize: "1rem",
+    fontWeight: 600,
+    ...style,
+  };
+  return (
+    <div style={titleStyle}>
+      <Icon icon={icon} size={20} color="var(--accent)" />
+      {title}
+    </div>
+  );
+};
+
+export const WidthCard = ({ width = "80%", children, ...cardProps }) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        minWidth: "350px",
+      }}
+    >
+      <div style={{ width: width }}>
+        <Card {...cardProps}>{children}</Card>
+      </div>
     </div>
   );
 };

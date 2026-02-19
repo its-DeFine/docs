@@ -90,7 +90,7 @@ npm --prefix tests run test:domain:both
   Missing headers are auto-inserted, then commit remains blocked until placeholder values are filled.
 - Pre-commit also synchronizes `v2/pages` index files:
   `node tools/scripts/generate-pages-index.js --staged --write --stage`
-  This regenerates section `index.mdx` files and updates root `v2/pages/index.mdx`.
+  This regenerates top-level section `index.mdx` files, updates root `v2/pages/index.mdx`, marks missing `docs.json` pages with `⚠️`, and removes nested `index.mdx`/`index.md` files.
 
 ## Script Header Template (Required for New Scripts)
 Newly added scripts must include these tags near the top of the file:

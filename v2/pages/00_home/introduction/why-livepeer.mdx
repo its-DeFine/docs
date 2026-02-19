@@ -14,6 +14,7 @@ import { Image } from '/snippets/components/display/image.jsx'
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { FrameQuote } from '/snippets/components/display/quote.jsx';
+import { CustomCardTitle } from '/snippets/components/display/customCards.jsx'
 
 
 <FrameQuote 
@@ -99,9 +100,10 @@ cooperative, innovative ecosystem: where creators, developers, and businesses ca
 
 <br/>
 <Card
-  title={<span style={{ display: "flex", alignItems: "center", gap: "0.6rem", marginBottom: "1.5rem", lineHeight: 1 }}><Icon icon="video-camera" size={28} color="var(--accent)" /> See what creators are building on Livepeer</span>}
+  title={<CustomCardTitle icon="video-camera" title="See what creators are building on Livepeer" />}
   href="/00_home/project-showcase"
   horizontal
+  arrow
 >
   Explore the Livepeer Project Showcase
 </Card>
