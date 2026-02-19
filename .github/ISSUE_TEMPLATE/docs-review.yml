@@ -5,9 +5,6 @@ labels:
   - docs-review
   - docs-v2
   - help wanted
-
-body:
-
 body:
   - type: textarea
     id: overall_feedback
@@ -23,7 +20,7 @@ body:
 
         <!-- BEGIN AUTO-GENERATED TABLE -->
         # Docs Review Table (Auto-Generated)
-        
+
         | Page | Section | Status | Content Feedback | UI/UX Feedback |
         |------|---------|--------|------------------|----------------|
         <!-- END AUTO-GENERATED TABLE -->
@@ -31,4 +28,4 @@ body:
   # This stays EMPTY and gets filled with real textarea elements
   # inserted as actual YAML items (not markdown)
   # AUTO-GENERATED TEXTAREAS START
-# AUTO-GENERATED TEXTAREAS END
+  # AUTO-GENERATED TEXTAREAS END
