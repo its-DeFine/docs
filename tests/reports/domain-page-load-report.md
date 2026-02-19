@@ -1,14 +1,770 @@
 # Domain Page Load Report
 
-- Timestamp: 2026-02-19T01:28:52.282Z
-- Completed: 2026-02-19T01:28:52.282Z
+- Timestamp: 2026-02-19T07:20:20.956Z
+- Completed: 2026-02-19T07:23:11.065Z
 - Base URL: https://docs.livepeer.org
 - Mode: staged
 - Version Scope: both
-- Total: 0
-- Passed: 0
-- Failed: 0
+- Total: 128
+- Passed: 2
+- Failed: 126
+- Duration: 170s
 
 ## Failures
 
-_No failures_
+- `v2/pages/00_home/_contextData_/index`
+  - URL: https://docs.livepeer.org/v2/pages/00_home/_contextData_/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 289
+  - Error: 404 content
+- `v2/pages/00_home/get-started/index`
+  - URL: https://docs.livepeer.org/v2/pages/00_home/get-started/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 288
+  - Error: 404 content
+- `v2/pages/00_home/home/index`
+  - URL: https://docs.livepeer.org/v2/pages/00_home/home/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 288
+  - Error: 404 content
+- `v2/pages/00_home/index`
+  - URL: https://docs.livepeer.org/v2/pages/00_home/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 288
+  - Error: 404 content
+- `v2/pages/00_home/introduction/index`
+  - URL: https://docs.livepeer.org/v2/pages/00_home/introduction/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 209
+  - Error: 404 content
+- `v2/pages/00_home/project-showcase/index`
+  - URL: https://docs.livepeer.org/v2/pages/00_home/project-showcase/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 209
+  - Error: 404 content
+- `v2/pages/010_products/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 288
+  - Error: 404 content
+- `v2/pages/010_products/products/all-ecosystem/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/all-ecosystem/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 270
+  - Error: 404 content
+- `v2/pages/010_products/products/daydream/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/daydream/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 265
+  - Error: 404 content
+- `v2/pages/010_products/products/daydream/overview/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/daydream/overview/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 265
+  - Error: 404 content
+- `v2/pages/010_products/products/embody/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/embody/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 266
+  - Error: 404 content
+- `v2/pages/010_products/products/frameworks/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/frameworks/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/010_products/products/frameworks/overview/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/frameworks/overview/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/010_products/products/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 288
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/api-reference/assets/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/assets/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 281
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/api-reference/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 281
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/api-reference/multistream/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/multistream/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 268
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/api-reference/playback/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/playback/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 281
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/api-reference/rooms/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/rooms/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 281
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/api-reference/sessions/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/sessions/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 281
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 281
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/api-reference/streams/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/streams/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 276
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/api-reference/tasks/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/tasks/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 281
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/api-reference/transcode/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/transcode/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 258
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/api-reference/viewership/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/viewership/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 281
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 269
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/getting-started/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/getting-started/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 304
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/guides/access-control/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/guides/access-control/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 295
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/guides/analytics/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/guides/analytics/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 297
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/guides/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/guides/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 297
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 297
+  - Error: 404 content
+- `v2/pages/010_products/products/livepeer-studio/overview/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/overview/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 294
+  - Error: 404 content
+- `v2/pages/010_products/products/streamplace/index`
+  - URL: https://docs.livepeer.org/v2/pages/010_products/products/streamplace/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 277
+  - Error: 404 content
+- `v2/pages/01_about/_contextData_/index`
+  - URL: https://docs.livepeer.org/v2/pages/01_about/_contextData_/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 289
+  - Error: 404 content
+- `v2/pages/01_about/about-livepeer/index`
+  - URL: https://docs.livepeer.org/v2/pages/01_about/about-livepeer/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 299
+  - Error: 404 content
+- `v2/pages/01_about/about-livepeer/moved/index`
+  - URL: https://docs.livepeer.org/v2/pages/01_about/about-livepeer/moved/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 299
+  - Error: 404 content
+- `v2/pages/01_about/core-concepts/concepts/index`
+  - URL: https://docs.livepeer.org/v2/pages/01_about/core-concepts/concepts/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 285
+  - Error: 404 content
+- `v2/pages/01_about/core-concepts/index`
+  - URL: https://docs.livepeer.org/v2/pages/01_about/core-concepts/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 285
+  - Error: 404 content
+- `v2/pages/01_about/index`
+  - URL: https://docs.livepeer.org/v2/pages/01_about/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 288
+  - Error: 404 content
+- `v2/pages/01_about/livepeer-network/index`
+  - URL: https://docs.livepeer.org/v2/pages/01_about/livepeer-network/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 296
+  - Error: 404 content
+- `v2/pages/01_about/livepeer-network/livepeer-actors/index`
+  - URL: https://docs.livepeer.org/v2/pages/01_about/livepeer-network/livepeer-actors/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 296
+  - Error: 404 content
+- `v2/pages/01_about/livepeer-protocol/index`
+  - URL: https://docs.livepeer.org/v2/pages/01_about/livepeer-protocol/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 298
+  - Error: 404 content
+- `v2/pages/01_about/resources/index`
+  - URL: https://docs.livepeer.org/v2/pages/01_about/resources/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 288
+  - Error: 404 content
+- `v2/pages/02_community/_move_me/index`
+  - URL: https://docs.livepeer.org/v2/pages/02_community/_move_me/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/02_community/_move_me/livepeer-hubs/index`
+  - URL: https://docs.livepeer.org/v2/pages/02_community/_move_me/livepeer-hubs/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 288
+  - Error: 404 content
+- `v2/pages/02_community/_move_me/livepeer-partners/index`
+  - URL: https://docs.livepeer.org/v2/pages/02_community/_move_me/livepeer-partners/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 305
+  - Error: 404 content
+- `v2/pages/02_community/index`
+  - URL: https://docs.livepeer.org/v2/pages/02_community/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/02_community/livepeer-community/index`
+  - URL: https://docs.livepeer.org/v2/pages/02_community/livepeer-community/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 291
+  - Error: 404 content
+- `v2/pages/02_community/livepeer-connect/index`
+  - URL: https://docs.livepeer.org/v2/pages/02_community/livepeer-connect/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 291
+  - Error: 404 content
+- `v2/pages/02_community/livepeer-contribute/index`
+  - URL: https://docs.livepeer.org/v2/pages/02_community/livepeer-contribute/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 281
+  - Error: 404 content
+- `v2/pages/02_community/resources/index`
+  - URL: https://docs.livepeer.org/v2/pages/02_community/resources/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 268
+  - Error: 404 content
+- `v2/pages/03_developers/ai-inference-on-livepeer/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/ai-inference-on-livepeer/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 277
+  - Error: 404 content
+- `v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 277
+  - Error: 404 content
+- `v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/index
+  - Status: (none)
+  - Title: (none)
+  - Content Length: 0
+  - Error: navigation error: Navigation timeout of 25000 ms exceeded
+- `v2/pages/03_developers/builder-opportunities/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/builder-opportunities/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/03_developers/building-on-livepeer/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/building-on-livepeer/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 286
+  - Error: 404 content
+- `v2/pages/03_developers/building-on-livepeer/quick-starts/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/building-on-livepeer/quick-starts/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 286
+  - Error: 404 content
+- `v2/pages/03_developers/developer-platforms/all-ecosystem/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/developer-platforms/all-ecosystem/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 279
+  - Error: 404 content
+- `v2/pages/03_developers/developer-platforms/daydream/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/developer-platforms/daydream/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 279
+  - Error: 404 content
+- `v2/pages/03_developers/developer-platforms/frameworks/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/developer-platforms/frameworks/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 279
+  - Error: 404 content
+- `v2/pages/03_developers/developer-platforms/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/developer-platforms/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 279
+  - Error: 404 content
+- `v2/pages/03_developers/developer-platforms/livepeer-studio/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/developer-platforms/livepeer-studio/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 307
+  - Error: 404 content
+- `v2/pages/03_developers/developer-platforms/streamplace/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/developer-platforms/streamplace/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 277
+  - Error: 404 content
+- `v2/pages/03_developers/developer-tools/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/developer-tools/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 261
+  - Error: 404 content
+- `v2/pages/03_developers/guides-and-resources/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/guides-and-resources/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/03_developers/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/03_developers/livepeer-real-time-video/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/livepeer-real-time-video/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 291
+  - Error: 404 content
+- `v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 291
+  - Error: 404 content
+- `v2/pages/03_developers/moved-to-about-livepeer-protocol/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/moved-to-about-livepeer-protocol/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 293
+  - Error: 404 content
+- `v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 293
+  - Error: 404 content
+- `v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 293
+  - Error: 404 content
+- `v2/pages/03_developers/technical-references/index`
+  - URL: https://docs.livepeer.org/v2/pages/03_developers/technical-references/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/04_gateways/_context_data_/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/_context_data_/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/04_gateways/_tests-to-delete/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/_tests-to-delete/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/04_gateways/about-gateways/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/about-gateways/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/04_gateways/gateway-tools/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/gateway-tools/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 269
+  - Error: 404 content
+- `v2/pages/04_gateways/guides-and-resources/gateway-job-pipelines/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/guides-and-resources/gateway-job-pipelines/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 292
+  - Error: 404 content
+- `v2/pages/04_gateways/guides-and-resources/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/guides-and-resources/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/04_gateways/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/04_gateways/references/api-reference/AI-API/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/references/api-reference/AI-API/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 265
+  - Error: 404 content
+- `v2/pages/04_gateways/references/api-reference/AI-Worker/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/references/api-reference/AI-Worker/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 265
+  - Error: 404 content
+- `v2/pages/04_gateways/references/api-reference/CLI-HTTP/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/references/api-reference/CLI-HTTP/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 268
+  - Error: 404 content
+- `v2/pages/04_gateways/references/api-reference/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/references/api-reference/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 267
+  - Error: 404 content
+- `v2/pages/04_gateways/references/go-livepeer/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/references/go-livepeer/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 277
+  - Error: 404 content
+- `v2/pages/04_gateways/references/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/references/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/04_gateways/run-a-gateway/configure/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/configure/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 311
+  - Error: 404 content
+- `v2/pages/04_gateways/run-a-gateway/connect/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/connect/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 282
+  - Error: 404 content
+- `v2/pages/04_gateways/run-a-gateway/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 282
+  - Error: 404 content
+- `v2/pages/04_gateways/run-a-gateway/install/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/install/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 311
+  - Error: 404 content
+- `v2/pages/04_gateways/run-a-gateway/monitor/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/monitor/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 304
+  - Error: 404 content
+- `v2/pages/04_gateways/run-a-gateway/publish/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/publish/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 282
+  - Error: 404 content
+- `v2/pages/04_gateways/run-a-gateway/quickstart/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/quickstart/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 296
+  - Error: 404 content
+- `v2/pages/04_gateways/run-a-gateway/requirements/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/requirements/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 294
+  - Error: 404 content
+- `v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 289
+  - Error: 404 content
+- `v2/pages/04_gateways/run-a-gateway/v1/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/v1/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 282
+  - Error: 404 content
+- `v2/pages/04_gateways/using-gateways/gateway-providers/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/using-gateways/gateway-providers/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 309
+  - Error: 404 content
+- `v2/pages/04_gateways/using-gateways/index`
+  - URL: https://docs.livepeer.org/v2/pages/04_gateways/using-gateways/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 280
+  - Error: 404 content
+- `v2/pages/05_orchestrators/_context_data_/index`
+  - URL: https://docs.livepeer.org/v2/pages/05_orchestrators/_context_data_/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 285
+  - Error: 404 content
+- `v2/pages/05_orchestrators/about-orchestrators/index`
+  - URL: https://docs.livepeer.org/v2/pages/05_orchestrators/about-orchestrators/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 285
+  - Error: 404 content
+- `v2/pages/05_orchestrators/advanced-setup/index`
+  - URL: https://docs.livepeer.org/v2/pages/05_orchestrators/advanced-setup/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 289
+  - Error: 404 content
+- `v2/pages/05_orchestrators/index`
+  - URL: https://docs.livepeer.org/v2/pages/05_orchestrators/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 285
+  - Error: 404 content
+- `v2/pages/05_orchestrators/orchestrator-tools-and-resources/index`
+  - URL: https://docs.livepeer.org/v2/pages/05_orchestrators/orchestrator-tools-and-resources/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 289
+  - Error: 404 content
+- `v2/pages/05_orchestrators/quickstart/index`
+  - URL: https://docs.livepeer.org/v2/pages/05_orchestrators/quickstart/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 267
+  - Error: 404 content
+- `v2/pages/05_orchestrators/references/index`
+  - URL: https://docs.livepeer.org/v2/pages/05_orchestrators/references/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 285
+  - Error: 404 content
+- `v2/pages/05_orchestrators/setting-up-an-orchestrator/index`
+  - URL: https://docs.livepeer.org/v2/pages/05_orchestrators/setting-up-an-orchestrator/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 282
+  - Error: 404 content
+- `v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/index`
+  - URL: https://docs.livepeer.org/v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 282
+  - Error: 404 content
+- `v2/pages/06_lptoken/_contextData_/index`
+  - URL: https://docs.livepeer.org/v2/pages/06_lptoken/_contextData_/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 292
+  - Error: 404 content
+- `v2/pages/06_lptoken/about/index`
+  - URL: https://docs.livepeer.org/v2/pages/06_lptoken/about/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 283
+  - Error: 404 content
+- `v2/pages/06_lptoken/delegation/index`
+  - URL: https://docs.livepeer.org/v2/pages/06_lptoken/delegation/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 273
+  - Error: 404 content
+- `v2/pages/06_lptoken/governance/index`
+  - URL: https://docs.livepeer.org/v2/pages/06_lptoken/governance/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 283
+  - Error: 404 content
+- `v2/pages/06_lptoken/index`
+  - URL: https://docs.livepeer.org/v2/pages/06_lptoken/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 283
+  - Error: 404 content
+- `v2/pages/06_lptoken/resources/index`
+  - URL: https://docs.livepeer.org/v2/pages/06_lptoken/resources/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 283
+  - Error: 404 content
+- `v2/pages/06_lptoken/treasury/index`
+  - URL: https://docs.livepeer.org/v2/pages/06_lptoken/treasury/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 280
+  - Error: 404 content
+- `v2/pages/07_resources/changelog/index`
+  - URL: https://docs.livepeer.org/v2/pages/07_resources/changelog/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/07_resources/concepts/index`
+  - URL: https://docs.livepeer.org/v2/pages/07_resources/concepts/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 275
+  - Error: 404 content
+- `v2/pages/07_resources/documentation-guide/component-library/index`
+  - URL: https://docs.livepeer.org/v2/pages/07_resources/documentation-guide/component-library/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 293
+  - Error: 404 content
+- `v2/pages/07_resources/documentation-guide/index`
+  - URL: https://docs.livepeer.org/v2/pages/07_resources/documentation-guide/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 272
+  - Error: 404 content
+- `v2/pages/07_resources/index`
+  - URL: https://docs.livepeer.org/v2/pages/07_resources/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 292
+  - Error: 404 content
+- `v2/pages/07_resources/references/index`
+  - URL: https://docs.livepeer.org/v2/pages/07_resources/references/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 275
+  - Error: 404 content
+- `v2/pages/07_resources/resources/index`
+  - URL: https://docs.livepeer.org/v2/pages/07_resources/resources/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 275
+  - Error: 404 content
+- `v2/pages/09_internal/index`
+  - URL: https://docs.livepeer.org/v2/pages/09_internal/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 288
+  - Error: 404 content
+- `v2/pages/09_internal/layout-components-scripts-styling/index`
+  - URL: https://docs.livepeer.org/v2/pages/09_internal/layout-components-scripts-styling/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 283
+  - Error: 404 content
+- `v2/pages/experimental/index`
+  - URL: https://docs.livepeer.org/v2/pages/experimental/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 275
+  - Error: 404 content
+- `v2/pages/index`
+  - URL: https://docs.livepeer.org/v2/pages/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 275
+  - Error: 404 content
+- `v2/pages/notes/index`
+  - URL: https://docs.livepeer.org/v2/pages/notes/index
+  - Status: 200
+  - Title: Page Not Found
+  - Content Length: 275
+  - Error: 404 content

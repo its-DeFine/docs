@@ -1,10 +1,1545 @@
 {
-  "timestamp": "2026-02-19T01:28:52.282Z",
+  "timestamp": "2026-02-19T07:20:20.956Z",
+  "completedAt": "2026-02-19T07:23:11.065Z",
   "baseUrl": "https://docs.livepeer.org",
   "mode": "staged",
   "versionScope": "both",
-  "total": 0,
-  "passed": 0,
-  "failed": 0,
-  "results": []
+  "total": 128,
+  "passed": 2,
+  "failed": 126,
+  "durationSec": 170,
+  "results": [
+    {
+      "pagePath": "v2/pages/00_home/_contextData_/index",
+      "url": "https://docs.livepeer.org/v2/pages/00_home/_contextData_/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 289,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/get-started/index",
+      "url": "https://docs.livepeer.org/v2/pages/00_home/get-started/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 288,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/home/index",
+      "url": "https://docs.livepeer.org/v2/pages/00_home/home/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 288,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/index",
+      "url": "https://docs.livepeer.org/v2/pages/00_home/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 288,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/introduction/index",
+      "url": "https://docs.livepeer.org/v2/pages/00_home/introduction/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 209,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/00_home/project-showcase/index",
+      "url": "https://docs.livepeer.org/v2/pages/00_home/project-showcase/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 209,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 288,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/all-ecosystem/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/all-ecosystem/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 270,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/daydream/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/daydream/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 265,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/daydream/overview/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/daydream/overview/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 265,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/embody/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/embody/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 266,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/frameworks/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/frameworks/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/frameworks/overview/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/frameworks/overview/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 288,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/api-reference/assets/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/assets/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 281,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/api-reference/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 281,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/api-reference/multistream/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/multistream/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 268,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/api-reference/playback/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/playback/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 281,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/api-reference/rooms/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/rooms/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 281,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/api-reference/sessions/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/sessions/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 281,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 281,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/api-reference/streams/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/streams/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 276,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/api-reference/tasks/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/tasks/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 281,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/api-reference/transcode/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/transcode/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 258,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/api-reference/viewership/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/viewership/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 281,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 269,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/getting-started/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/getting-started/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 304,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/guides/access-control/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 295,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/analytics/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/guides/analytics/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 297,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/guides/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 297,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 297,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/livepeer-studio/overview/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 294,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/010_products/products/streamplace/index",
+      "url": "https://docs.livepeer.org/v2/pages/010_products/products/streamplace/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 277,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/_contextData_/index",
+      "url": "https://docs.livepeer.org/v2/pages/01_about/_contextData_/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 289,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/about-livepeer/index",
+      "url": "https://docs.livepeer.org/v2/pages/01_about/about-livepeer/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 299,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/about-livepeer/moved/index",
+      "url": "https://docs.livepeer.org/v2/pages/01_about/about-livepeer/moved/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 299,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/core-concepts/concepts/index",
+      "url": "https://docs.livepeer.org/v2/pages/01_about/core-concepts/concepts/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 285,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/core-concepts/index",
+      "url": "https://docs.livepeer.org/v2/pages/01_about/core-concepts/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 285,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/index",
+      "url": "https://docs.livepeer.org/v2/pages/01_about/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 288,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-network/index",
+      "url": "https://docs.livepeer.org/v2/pages/01_about/livepeer-network/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 296,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-network/livepeer-actors/index",
+      "url": "https://docs.livepeer.org/v2/pages/01_about/livepeer-network/livepeer-actors/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 296,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/livepeer-protocol/index",
+      "url": "https://docs.livepeer.org/v2/pages/01_about/livepeer-protocol/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 298,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/01_about/resources/index",
+      "url": "https://docs.livepeer.org/v2/pages/01_about/resources/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 288,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/_move_me/index",
+      "url": "https://docs.livepeer.org/v2/pages/02_community/_move_me/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/_move_me/livepeer-hubs/index",
+      "url": "https://docs.livepeer.org/v2/pages/02_community/_move_me/livepeer-hubs/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 288,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/_move_me/livepeer-partners/index",
+      "url": "https://docs.livepeer.org/v2/pages/02_community/_move_me/livepeer-partners/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 305,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/index",
+      "url": "https://docs.livepeer.org/v2/pages/02_community/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-community/index",
+      "url": "https://docs.livepeer.org/v2/pages/02_community/livepeer-community/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 291,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-connect/index",
+      "url": "https://docs.livepeer.org/v2/pages/02_community/livepeer-connect/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 291,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/livepeer-contribute/index",
+      "url": "https://docs.livepeer.org/v2/pages/02_community/livepeer-contribute/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 281,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/02_community/resources/index",
+      "url": "https://docs.livepeer.org/v2/pages/02_community/resources/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 268,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/ai-inference-on-livepeer/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/ai-inference-on-livepeer/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 277,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 277,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/index",
+      "status": null,
+      "title": "",
+      "contentLength": 0,
+      "passed": false,
+      "errors": [
+        "navigation error: Navigation timeout of 25000 ms exceeded"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/builder-opportunities/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/builder-opportunities/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/building-on-livepeer/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/building-on-livepeer/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 286,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/building-on-livepeer/quick-starts/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/building-on-livepeer/quick-starts/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 286,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/developer-platforms/all-ecosystem/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/developer-platforms/all-ecosystem/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 279,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/developer-platforms/daydream/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/developer-platforms/daydream/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 279,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/developer-platforms/frameworks/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/developer-platforms/frameworks/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 279,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/developer-platforms/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/developer-platforms/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 279,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/developer-platforms/livepeer-studio/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/developer-platforms/livepeer-studio/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 307,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/developer-platforms/streamplace/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/developer-platforms/streamplace/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 277,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/developer-tools/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/developer-tools/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 261,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/guides-and-resources/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/guides-and-resources/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/livepeer-real-time-video/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/livepeer-real-time-video/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 291,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 291,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/moved-to-about-livepeer-protocol/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/moved-to-about-livepeer-protocol/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 293,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 293,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 293,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/03_developers/technical-references/index",
+      "url": "https://docs.livepeer.org/v2/pages/03_developers/technical-references/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/_context_data_/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/_context_data_/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/_tests-to-delete/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/_tests-to-delete/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/about-gateways/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/about-gateways/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/gateway-tools/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/gateway-tools/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 269,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/guides-and-resources/gateway-job-pipelines/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/guides-and-resources/gateway-job-pipelines/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 292,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/guides-and-resources/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/guides-and-resources/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/references/api-reference/AI-API/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 265,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-Worker/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/references/api-reference/AI-Worker/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 265,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/references/api-reference/CLI-HTTP/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 268,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/api-reference/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/references/api-reference/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 267,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/go-livepeer/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/references/go-livepeer/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 277,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/references/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/references/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/configure/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/configure/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 311,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/connect/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/connect/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 282,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 282,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/install/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/install/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 311,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/monitor/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/monitor/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 304,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/publish/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/publish/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 282,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/quickstart/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/quickstart/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 296,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/requirements/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/requirements/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 294,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 289,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/run-a-gateway/v1/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/run-a-gateway/v1/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 282,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/using-gateways/gateway-providers/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/using-gateways/gateway-providers/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 309,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/04_gateways/using-gateways/index",
+      "url": "https://docs.livepeer.org/v2/pages/04_gateways/using-gateways/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 280,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/_context_data_/index",
+      "url": "https://docs.livepeer.org/v2/pages/05_orchestrators/_context_data_/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 285,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/about-orchestrators/index",
+      "url": "https://docs.livepeer.org/v2/pages/05_orchestrators/about-orchestrators/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 285,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/advanced-setup/index",
+      "url": "https://docs.livepeer.org/v2/pages/05_orchestrators/advanced-setup/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 289,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/index",
+      "url": "https://docs.livepeer.org/v2/pages/05_orchestrators/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 285,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/index",
+      "url": "https://docs.livepeer.org/v2/pages/05_orchestrators/orchestrator-tools-and-resources/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 289,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/quickstart/index",
+      "url": "https://docs.livepeer.org/v2/pages/05_orchestrators/quickstart/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 267,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/references/index",
+      "url": "https://docs.livepeer.org/v2/pages/05_orchestrators/references/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 285,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/index",
+      "url": "https://docs.livepeer.org/v2/pages/05_orchestrators/setting-up-an-orchestrator/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 282,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/index",
+      "url": "https://docs.livepeer.org/v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 282,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/_contextData_/index",
+      "url": "https://docs.livepeer.org/v2/pages/06_lptoken/_contextData_/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 292,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/about/index",
+      "url": "https://docs.livepeer.org/v2/pages/06_lptoken/about/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 283,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/delegation/index",
+      "url": "https://docs.livepeer.org/v2/pages/06_lptoken/delegation/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 273,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/governance/index",
+      "url": "https://docs.livepeer.org/v2/pages/06_lptoken/governance/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 283,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/index",
+      "url": "https://docs.livepeer.org/v2/pages/06_lptoken/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 283,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/resources/index",
+      "url": "https://docs.livepeer.org/v2/pages/06_lptoken/resources/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 283,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/06_lptoken/treasury/index",
+      "url": "https://docs.livepeer.org/v2/pages/06_lptoken/treasury/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 280,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/changelog/index",
+      "url": "https://docs.livepeer.org/v2/pages/07_resources/changelog/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/concepts/index",
+      "url": "https://docs.livepeer.org/v2/pages/07_resources/concepts/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 275,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/component-library/index",
+      "url": "https://docs.livepeer.org/v2/pages/07_resources/documentation-guide/component-library/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 293,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations",
+      "url": "https://docs.livepeer.org/v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations",
+      "status": 200,
+      "title": "Features and AI Integrations - Livepeer Docs",
+      "contentLength": 6354,
+      "passed": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/documentation-guide",
+      "url": "https://docs.livepeer.org/v2/pages/07_resources/documentation-guide/documentation-guide",
+      "status": 200,
+      "title": "Guide To Using The Documentation - Livepeer Docs",
+      "contentLength": 5742,
+      "passed": true,
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/documentation-guide/index",
+      "url": "https://docs.livepeer.org/v2/pages/07_resources/documentation-guide/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 272,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/index",
+      "url": "https://docs.livepeer.org/v2/pages/07_resources/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 292,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/references/index",
+      "url": "https://docs.livepeer.org/v2/pages/07_resources/references/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 275,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/07_resources/resources/index",
+      "url": "https://docs.livepeer.org/v2/pages/07_resources/resources/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 275,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/09_internal/index",
+      "url": "https://docs.livepeer.org/v2/pages/09_internal/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 288,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/09_internal/layout-components-scripts-styling/index",
+      "url": "https://docs.livepeer.org/v2/pages/09_internal/layout-components-scripts-styling/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 283,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/experimental/index",
+      "url": "https://docs.livepeer.org/v2/pages/experimental/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 275,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/index",
+      "url": "https://docs.livepeer.org/v2/pages/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 275,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    },
+    {
+      "pagePath": "v2/pages/notes/index",
+      "url": "https://docs.livepeer.org/v2/pages/notes/index",
+      "status": 200,
+      "title": "Page Not Found",
+      "contentLength": 275,
+      "passed": false,
+      "errors": [
+        "404 content"
+      ],
+      "warnings": []
+    }
+  ]
 }

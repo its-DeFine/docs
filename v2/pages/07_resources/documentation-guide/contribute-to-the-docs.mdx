@@ -201,6 +201,18 @@ git commit -m "docs: fix typo in quickstart guide"
 
 **The pre-commit hook will run automatically** and may block your commit if there are style guide violations.
 
+If a human intentionally needs to edit `.whitelist`, use:
+
+```bash
+git commit -m "Update .whitelist" --trailer "allow-whitelist-edit=true"
+```
+
+If a human intentionally needs to allow file deletions, use:
+
+```bash
+git commit -m "Remove obsolete files" --trailer "allow-deletions=true"
+```
+
 #### 9. Push to Your Fork
 
 ```bash

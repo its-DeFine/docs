@@ -918,6 +918,26 @@ If you attempt to commit code that violates the style guide:
 2. You receive a detailed error message listing all violations
 3. You must fix the violations before committing again
 
+### Protected `.whitelist` Edits (Human-Only)
+
+The `.whitelist` file is protected by pre-commit checks.
+
+If a human intentionally needs to edit `.whitelist`, use:
+
+```bash
+git commit -m "Update .whitelist" --trailer "allow-whitelist-edit=true"
+```
+
+This override still runs all other pre-commit checks.
+
+If a human intentionally needs to allow file deletions, use:
+
+```bash
+git commit -m "Remove obsolete files" --trailer "allow-deletions=true"
+```
+
+This deletion override also runs all other pre-commit checks.
+
 ### Example Error Output
 
 ```
