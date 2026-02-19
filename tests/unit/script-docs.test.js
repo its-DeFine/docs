@@ -66,7 +66,8 @@ const PLACEHOLDER_PATTERNS = [
   /^todo\b/i,
   /^tbd\b/i,
   /^fill\b/i,
-  /^replace\b/i,
+  /^replace$/i,
+  /^replace me$/i,
   /^n\/a$/i,
   /^none$/i,
   /^placeholder$/i
