@@ -2,26 +2,8 @@ export const LINK_MAP = {
   "v2/pages/09_internal/ally-notes.mdx": [
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
+      "linkType": "external-https",
       "rawPath": "\"https://github.com/livepeer/wiki/blob/master/WHITEPAPER.md\"",
-      "resolvedPath": "v2/pages/09_internal/\"https:/github.com/livepeer/wiki/blob/master/WHITEPAPER.md\"",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://raw.githubusercontent.com/livepeer/wiki/master/WHITEPAPER.md",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://raw.githubusercontent.com/livepeer/wiki/master/WHITEPAPER.md",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -152,11 +134,15 @@ export const LINK_MAP = {
       "resolvedPath": "v2/07_resources/changelog/changelog",
       "exists": false,
       "status": "missing",
-      "movedCandidates": []
+      "movedCandidates": [
+        "v2/pages/07_resources/changelog/changelog.mdx",
+        "v2/resources/changelog/changelog.mdx",
+        "v2/pages/07_resources/changelog/migration-guide.mdx"
+      ]
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "anchor",
+      "linkType": "empty",
       "rawPath": "#quarterly-review-checklist",
       "resolvedPath": null,
       "exists": null,
@@ -198,7 +184,7 @@ export const LINK_MAP = {
       "rawPath": "ally-notes.mdx",
       "resolvedPath": "v2/pages/09_internal/ally-notes.mdx",
       "exists": true,
-      "status": "ok",
+      "status": "route-missing",
       "movedCandidates": []
     },
     {
@@ -207,7 +193,7 @@ export const LINK_MAP = {
       "rawPath": "definitions.mdx",
       "resolvedPath": "v2/pages/09_internal/definitions.mdx",
       "exists": true,
-      "status": "ok",
+      "status": "route-missing",
       "movedCandidates": []
     },
     {
@@ -216,7 +202,7 @@ export const LINK_MAP = {
       "rawPath": "docs-philosophy.mdx",
       "resolvedPath": "v2/pages/09_internal/docs-philosophy.mdx",
       "exists": true,
-      "status": "ok",
+      "status": "route-missing",
       "movedCandidates": []
     },
     {
@@ -225,7 +211,7 @@ export const LINK_MAP = {
       "rawPath": "docs-status.mdx",
       "resolvedPath": "v2/pages/09_internal/docs-status.mdx",
       "exists": true,
-      "status": "ok",
+      "status": "route-missing",
       "movedCandidates": []
     },
     {
@@ -234,7 +220,7 @@ export const LINK_MAP = {
       "rawPath": "ecosystem.mdx",
       "resolvedPath": "v2/pages/09_internal/ecosystem.mdx",
       "exists": true,
-      "status": "ok",
+      "status": "route-missing",
       "movedCandidates": []
     },
     {
@@ -243,7 +229,7 @@ export const LINK_MAP = {
       "rawPath": "governance.mdx",
       "resolvedPath": "v2/pages/09_internal/governance.mdx",
       "exists": true,
-      "status": "ok",
+      "status": "route-missing",
       "movedCandidates": []
     },
     {
@@ -252,7 +238,7 @@ export const LINK_MAP = {
       "rawPath": "internal-overview.mdx",
       "resolvedPath": "v2/pages/09_internal/internal-overview.mdx",
       "exists": true,
-      "status": "ok",
+      "status": "route-missing",
       "movedCandidates": []
     },
     {
@@ -261,7 +247,7 @@ export const LINK_MAP = {
       "rawPath": "personas.mdx",
       "resolvedPath": "v2/pages/09_internal/personas.mdx",
       "exists": true,
-      "status": "ok",
+      "status": "route-missing",
       "movedCandidates": []
     },
     {
@@ -270,7 +256,7 @@ export const LINK_MAP = {
       "rawPath": "references.mdx",
       "resolvedPath": "v2/pages/09_internal/references.mdx",
       "exists": true,
-      "status": "ok",
+      "status": "route-missing",
       "movedCandidates": []
     },
     {
@@ -279,7 +265,7 @@ export const LINK_MAP = {
       "rawPath": "strategic-alignment.mdx",
       "resolvedPath": "v2/pages/09_internal/strategic-alignment.mdx",
       "exists": true,
-      "status": "ok",
+      "status": "route-missing",
       "movedCandidates": []
     },
     {
@@ -288,7 +274,7 @@ export const LINK_MAP = {
       "rawPath": "layout-components-scripts-styling/components.mdx",
       "resolvedPath": "v2/pages/09_internal/layout-components-scripts-styling/components.mdx",
       "exists": true,
-      "status": "ok",
+      "status": "route-missing",
       "movedCandidates": []
     },
     {
@@ -297,7 +283,7 @@ export const LINK_MAP = {
       "rawPath": "layout-components-scripts-styling/pages.mdx",
       "resolvedPath": "v2/pages/09_internal/layout-components-scripts-styling/pages.mdx",
       "exists": true,
-      "status": "ok",
+      "status": "route-missing",
       "movedCandidates": []
     }
   ],
@@ -315,10 +301,13 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "\"../../00_home/documentation-guide/documentation-overview\"",
-      "resolvedPath": "v2/pages/09_internal/00_home/documentation-guide/documentation-overview\"",
+      "resolvedPath": "v2/00_home/documentation-guide/documentation-overview",
       "exists": false,
       "status": "missing",
-      "movedCandidates": []
+      "movedCandidates": [
+        "v2/pages/07_resources/documentation-guide/documentation-overview.mdx",
+        "v2/resources/documentation-guide/documentation-overview.mdx"
+      ]
     },
     {
       "sourceType": "jsx-attr",
@@ -376,15 +365,6 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "comments-question-check",
-      "resolvedPath": "v2/pages/09_internal/comments-question-check",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
       "linkType": "external-https",
       "rawPath": "https://www.notion.so/livepeer/Documentation-Reviews-2c50a3485687800e98e8f3e1f1a802a9",
       "resolvedPath": null,
@@ -395,20 +375,14 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "book-open",
-      "resolvedPath": "v2/pages/09_internal/book-open",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
       "rawPath": "../../00_home/documentation-guide/documentation-overview",
       "resolvedPath": "v2/00_home/documentation-guide/documentation-overview",
       "exists": false,
       "status": "missing",
-      "movedCandidates": []
+      "movedCandidates": [
+        "v2/pages/07_resources/documentation-guide/documentation-overview.mdx",
+        "v2/resources/documentation-guide/documentation-overview.mdx"
+      ]
     },
     {
       "sourceType": "import-path",
@@ -424,17 +398,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "puzzle-piece",
-      "resolvedPath": "v2/pages/09_internal/layout-components-scripts-styling/puzzle-piece",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
       "rawPath": "../../07_resources/documentation-guide/component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -450,60 +415,21 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../assets/home/Hero_Images/hero_community.png",
-      "resolvedPath": "v2/pages/assets/home/Hero_Images/hero_community.png",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/assets/domain/00_HOME/Hero_Images/hero_community.png",
-        "snippets/assets/media/heros/hero_community.png"
-      ]
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../assets/home/Hero_Images/hero_about.png",
-      "resolvedPath": "v2/pages/assets/home/Hero_Images/hero_about.png",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/assets/domain/00_HOME/Hero_Images/hero_about.png",
-        "snippets/assets/media/heros/hero_about.png"
-      ]
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://www.mintlify.com/docs/components/tiles",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/domain/00_HOME/Hero_Images/hero_community.png",
+      "resolvedPath": "snippets/assets/domain/00_HOME/Hero_Images/hero_community.png",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../assets/hero/hero_gateways.png",
-      "resolvedPath": "v2/pages/assets/hero/hero_gateways.png",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/assets/domain/00_HOME/Hero_Images/hero_gateways.png",
-        "snippets/assets/media/heros/hero_gateways.png"
-      ]
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../assets/hero/hero_gpu.png",
-      "resolvedPath": "v2/pages/assets/hero/hero_gpu.png",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/assets/domain/00_HOME/Hero_Images/hero_gpu.png",
-        "snippets/assets/media/heros/hero_gpu.png"
-      ]
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/domain/00_HOME/Hero_Images/hero_about.png",
+      "resolvedPath": "snippets/assets/domain/00_HOME/Hero_Images/hero_about.png",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -517,19 +443,46 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/images/tiles/accordion-light.svg",
-      "resolvedPath": "v2/pages/images/tiles/accordion-light.svg",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/snippets/assets/domain/00_HOME/Hero_Images/hero_gateways.png",
+      "resolvedPath": "snippets/assets/domain/00_HOME/Hero_Images/hero_gateways.png",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/images/tiles/accordion-dark.svg",
-      "resolvedPath": "v2/pages/images/tiles/accordion-dark.svg",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/snippets/assets/domain/00_HOME/Hero_Images/hero_gpu.png",
+      "resolvedPath": "snippets/assets/domain/00_HOME/Hero_Images/hero_gpu.png",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://www.mintlify.com/docs/components/tiles",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/domain/00_HOME/Hero_Images/hero_about.png",
+      "resolvedPath": "snippets/assets/domain/00_HOME/Hero_Images/hero_about.png",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/domain/00_HOME/Hero_Images/hero_community.png",
+      "resolvedPath": "snippets/assets/domain/00_HOME/Hero_Images/hero_community.png",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -556,11 +509,11 @@ export const LINK_MAP = {
   "v2/pages/09_internal/personas.mdx": [
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
+      "linkType": "external-https",
       "rawPath": "\"https://github.com/shtukaresearch/livepeer-data-geography/tree/main/roles\"",
-      "resolvedPath": "v2/pages/09_internal/\"https:/github.com/shtukaresearch/livepeer-data-geography/tree/main/roles\"",
-      "exists": false,
-      "status": "missing",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {
@@ -599,46 +552,82 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/Landing",
-      "resolvedPath": "v2/pages/00_home/Landing",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/00_home/mission-control",
+      "resolvedPath": "v2/pages/00_home/mission-control.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/home/livepeer-tl-dr",
-      "resolvedPath": "v2/home/home/livepeer-tl-dr",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/00_home/home/get-started",
+      "resolvedPath": "v2/pages/00_home/home/get-started.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/home/trending-at-livepeer",
-      "resolvedPath": "v2/home/home/trending-at-livepeer",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/00_home/home/primer",
+      "resolvedPath": "v2/pages/00_home/home/primer.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/projects-built-on-livepeer",
-      "resolvedPath": "v2/pages/00_home/project-showcase/projects-built-on-livepeer",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/00_home/introduction/vision",
+      "resolvedPath": "v2/pages/00_home/introduction/vision.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/livepeer-applications",
-      "resolvedPath": "v2/pages/00_home/project-showcase/livepeer-applications",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/00_home/introduction/evolution",
+      "resolvedPath": "v2/pages/00_home/introduction/evolution.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/introduction/why-livepeer",
+      "resolvedPath": "v2/pages/00_home/introduction/why-livepeer.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/introduction/ecosystem",
+      "resolvedPath": "v2/pages/00_home/introduction/ecosystem.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/introduction/roadmap",
+      "resolvedPath": "v2/pages/00_home/introduction/roadmap.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
+      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -653,8 +642,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/use-livepeer",
-      "resolvedPath": "v2/pages/00_home/get-started/use-livepeer.mdx",
+      "rawPath": "/v2/pages/00_home/project-showcase/applications",
+      "resolvedPath": "v2/pages/00_home/project-showcase/applications.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -662,8 +651,21 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/stream-video-quickstart",
-      "resolvedPath": "v2/pages/00_home/get-started/stream-video-quickstart.mdx",
+      "rawPath": "/v2/pages/03_developers/building-on-livepeer/",
+      "resolvedPath": "v2/pages/03_developers/building-on-livepeer",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/pages/03_developers/building-on-livepeer/quick-starts/README.mdx",
+        "v2/pages/03_developers/building-on-livepeer/developer-guide.mdx",
+        "v2/pages/03_developers/building-on-livepeer/developer-journey.mdx"
+      ]
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/about-portal",
+      "resolvedPath": "v2/pages/01_about/about-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -671,8 +673,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/livepeer-ai-quickstart",
-      "resolvedPath": "v2/pages/00_home/get-started/livepeer-ai-quickstart.mdx",
+      "rawPath": "/v2/pages/01_about/core-concepts/livepeer-overview",
+      "resolvedPath": "v2/pages/01_about/core-concepts/livepeer-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -680,8 +682,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/build-on-livepeer",
-      "resolvedPath": "v2/pages/00_home/get-started/build-on-livepeer.mdx",
+      "rawPath": "/v2/pages/01_about/core-concepts/livepeer-core-concepts",
+      "resolvedPath": "v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -689,53 +691,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/Landing",
-      "resolvedPath": "v2/pages/00_home/Landing",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/home/home/livepeer-tl-dr",
-      "resolvedPath": "v2/home/home/livepeer-tl-dr",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/home/home/trending-at-livepeer",
-      "resolvedPath": "v2/home/home/trending-at-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/projects-built-on-livepeer",
-      "resolvedPath": "v2/pages/00_home/project-showcase/projects-built-on-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/livepeer-applications",
-      "resolvedPath": "v2/pages/00_home/project-showcase/livepeer-applications",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/industry-verticals",
-      "resolvedPath": "v2/pages/00_home/project-showcase/industry-verticals.mdx",
+      "rawPath": "/v2/pages/01_about/core-concepts/mental-model",
+      "resolvedPath": "v2/pages/01_about/core-concepts/mental-model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -743,8 +700,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/use-livepeer",
-      "resolvedPath": "v2/pages/00_home/get-started/use-livepeer.mdx",
+      "rawPath": "/v2/pages/01_about/livepeer-protocol/overview",
+      "resolvedPath": "v2/pages/01_about/livepeer-protocol/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -752,8 +709,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/stream-video-quickstart",
-      "resolvedPath": "v2/pages/00_home/get-started/stream-video-quickstart.mdx",
+      "rawPath": "/v2/pages/01_about/livepeer-protocol/core-mechanisms",
+      "resolvedPath": "v2/pages/01_about/livepeer-protocol/core-mechanisms.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -761,8 +718,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/livepeer-ai-quickstart",
-      "resolvedPath": "v2/pages/00_home/get-started/livepeer-ai-quickstart.mdx",
+      "rawPath": "/v2/pages/01_about/livepeer-protocol/livepeer-token",
+      "resolvedPath": "v2/pages/01_about/livepeer-protocol/livepeer-token.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -770,8 +727,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/build-on-livepeer",
-      "resolvedPath": "v2/pages/00_home/get-started/build-on-livepeer.mdx",
+      "rawPath": "/v2/pages/01_about/livepeer-protocol/governance-model",
+      "resolvedPath": "v2/pages/01_about/livepeer-protocol/governance-model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -779,26 +736,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/home/trending-at-livepeer",
-      "resolvedPath": "v2/home/home/trending-at-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/redirect",
-      "resolvedPath": "v2/pages/07_resources/redirect",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/",
-      "resolvedPath": "",
+      "rawPath": "/v2/pages/01_about/livepeer-protocol/treasury",
+      "resolvedPath": "v2/pages/01_about/livepeer-protocol/treasury.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -806,116 +745,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/about-home",
-      "resolvedPath": "v2/pages/01_about/about-home",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/about-livepeer/livepeer-overview",
-      "resolvedPath": "v2/pages/01_about/about-livepeer/livepeer-overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/about-livepeer/why-livepeer",
-      "resolvedPath": "v2/pages/01_about/about-livepeer/why-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/about-livepeer/livepeer-evolution",
-      "resolvedPath": "v2/pages/01_about/about-livepeer/livepeer-evolution",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/about-livepeer/livepeer-ecosystem",
-      "resolvedPath": "v2/pages/01_about/about-livepeer/livepeer-ecosystem",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-protocol/protocol-overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/protocol-overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-protocol/livepeer-whitepaper",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/livepeer-whitepaper",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-protocol/technical-overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/technical-overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-network/actor-overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/actor-overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-network/livepeer-token-economics",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/livepeer-token-economics",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-network/livepeer-governance",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/livepeer-governance",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/redirect",
-      "resolvedPath": "v2/pages/07_resources/redirect",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/",
-      "resolvedPath": "",
+      "rawPath": "/v2/pages/01_about/livepeer-protocol/protocol-economics",
+      "resolvedPath": "v2/pages/01_about/livepeer-protocol/protocol-economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -923,17 +754,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/community-home",
-      "resolvedPath": "v2/pages/02_community/community-home",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/livepeer-Latest-Topics",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/livepeer-Latest-Topics.mdx",
+      "rawPath": "/v2/pages/01_about/livepeer-protocol/technical-architecture",
+      "resolvedPath": "v2/pages/01_about/livepeer-protocol/technical-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -941,8 +763,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/community-guidelines",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/community-guidelines.mdx",
+      "rawPath": "/v2/pages/01_about/livepeer-network/overview",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -950,8 +772,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-connect/news-and-socials",
-      "resolvedPath": "v2/pages/02_community/livepeer-connect/news-and-socials.mdx",
+      "rawPath": "/v2/pages/01_about/livepeer-network/actors",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/actors.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -959,8 +781,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-connect/events-and-community-streams",
-      "resolvedPath": "v2/pages/02_community/livepeer-connect/events-and-community-streams.mdx",
+      "rawPath": "/v2/pages/01_about/livepeer-network/job-lifecycle",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/job-lifecycle.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -968,8 +790,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-connect/forums-and-discussions",
-      "resolvedPath": "v2/pages/02_community/livepeer-connect/forums-and-discussions.mdx",
+      "rawPath": "/v2/pages/01_about/livepeer-network/marketplace",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/marketplace.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -977,8 +799,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-contribute/contribute",
-      "resolvedPath": "v2/pages/02_community/livepeer-contribute/contribute.mdx",
+      "rawPath": "/v2/pages/01_about/livepeer-network/technical-architecture",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/technical-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -986,8 +808,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-contribute/opportunities",
-      "resolvedPath": "v2/pages/02_community/livepeer-contribute/opportunities.mdx",
+      "rawPath": "/v2/pages/01_about/livepeer-network/interfaces",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/interfaces.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -995,8 +817,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-contribute/build-livepeer",
-      "resolvedPath": "v2/pages/02_community/livepeer-contribute/build-livepeer.mdx",
+      "rawPath": "/v2/pages/01_about/resources/livepeer-whitepaper",
+      "resolvedPath": "v2/pages/01_about/resources/livepeer-whitepaper.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1004,35 +826,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/trending-test",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/trending-test",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/trending-test",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/trending-test",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/redirect",
-      "resolvedPath": "v2/pages/07_resources/redirect",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/",
-      "resolvedPath": "",
+      "rawPath": "/v2/pages/01_about/resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/01_about/resources/livepeer-glossary.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1040,10 +835,424 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-home",
-      "resolvedPath": "v2/pages/03_developers/developer-home",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/01_about/resources/blockchain-contracts",
+      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/resources/technical-roadmap",
+      "resolvedPath": "v2/pages/01_about/resources/technical-roadmap.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/resources/gateways-vs-orchestrators",
+      "resolvedPath": "v2/pages/01_about/resources/gateways-vs-orchestrators.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products-portal",
+      "resolvedPath": "v2/pages/010_products/products-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/all-ecosystem/product-hub",
+      "resolvedPath": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/all-ecosystem/ecosystem-products",
+      "resolvedPath": "v2/pages/010_products/products/all-ecosystem/ecosystem-products.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/daydream/daydream",
+      "resolvedPath": "v2/pages/010_products/products/daydream/daydream.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/overview/overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/overview/client-use-cases",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/client-use-cases.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/getting-started/overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/overview/quickstart",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/getting-started/authentication",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/authentication.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/overview/livestream-overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/livestream-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/create-livestream",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/create-livestream.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/playback-livestream",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/playback-livestream.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/multistream",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/multistream.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/clip-livestream",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/clip-livestream.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/stream-health",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/stream-health.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/optimize-latency",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/optimize-latency.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/overview/vod-overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/vod-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/upload-asset",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/upload-asset.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/playback-asset",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/playback-asset.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/transcode-video",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/transcode-video.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/access-control/overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/webhooks",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/webhooks.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/listen-to-events",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/listen-to-events.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/analytics/overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/analytics/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/player-and-embed",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/overview/api-overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/api-reference/overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/overview/sdks-overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/managing-projects",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/managing-projects.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/streamplace/streamplace",
+      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/streamplace/streamplace-guide",
+      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace-guide.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/streamplace/streamplace-architecture",
+      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/streamplace/streamplace-integration",
+      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/streamplace/streamplace-provenance",
+      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace-provenance.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/embody/overview",
+      "resolvedPath": "v2/pages/010_products/products/embody/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/frameworks/frameworks",
+      "resolvedPath": "v2/pages/010_products/products/frameworks/frameworks.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/03_developers/developer-portal",
+      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -1051,6 +1260,24 @@ export const LINK_MAP = {
       "linkType": "internal-rooted",
       "rawPath": "/v2/pages/03_developers/building-on-livepeer/developer-guide",
       "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-guide.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/03_developers/building-on-livepeer/partners",
+      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/partners.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/03_developers/building-on-livepeer/developer-journey",
+      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-journey.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1094,8 +1321,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-platforms/builder-hub",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/builder-hub.mdx",
+      "rawPath": "/v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview",
+      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1103,8 +1330,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-platforms/daydream/daydream",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/daydream/daydream.mdx",
+      "rawPath": "/v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc",
+      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1112,71 +1339,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-platforms/frameworks/frameworks",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/frameworks/frameworks.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-platforms/streamplace/streamplace",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/streamplace/streamplace.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products/ecosystem-products",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products/ecosystem-products",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-tools/tooling-hub",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/tooling-hub.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-tools/livepeer-explorer",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/livepeer-explorer.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-tools/livepeer-cloud",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/livepeer-cloud.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-tools/dashboards",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/dashboards.mdx",
+      "rawPath": "/v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream",
+      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1238,19 +1402,55 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references-sdks.-and-apis/sdks",
-      "resolvedPath": "v2/pages/03_developers/technical-references-sdks.-and-apis/sdks",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/03_developers/developer-tools/tooling-hub",
+      "resolvedPath": "v2/pages/03_developers/developer-tools/tooling-hub.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references-sdks.-and-apis/apis",
-      "resolvedPath": "v2/pages/03_developers/technical-references-sdks.-and-apis/apis",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/03_developers/developer-tools/livepeer-explorer",
+      "resolvedPath": "v2/pages/03_developers/developer-tools/livepeer-explorer.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/03_developers/developer-tools/livepeer-cloud",
+      "resolvedPath": "v2/pages/03_developers/developer-tools/livepeer-cloud.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/03_developers/developer-tools/dashboards",
+      "resolvedPath": "v2/pages/03_developers/developer-tools/dashboards.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/03_developers/technical-references/sdks",
+      "resolvedPath": "v2/pages/03_developers/technical-references/sdks.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/03_developers/technical-references/apis",
+      "resolvedPath": "v2/pages/03_developers/technical-references/apis.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -1292,37 +1492,10 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/changelog/migration-guides",
-      "resolvedPath": "v2/pages/07_resources/changelog/migration-guides",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/redirect",
-      "resolvedPath": "v2/pages/07_resources/redirect",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/",
-      "resolvedPath": "",
+      "rawPath": "/v2/pages/04_gateways/gateways-portal",
+      "resolvedPath": "v2/pages/04_gateways/gateways-portal.mdx",
       "exists": true,
       "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/gateways-home",
-      "resolvedPath": "v2/pages/04_gateways/gateways-home",
-      "exists": false,
-      "status": "missing",
       "movedCandidates": []
     },
     {
@@ -1364,24 +1537,6 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/run-a-gateway/quickstart-a-gateway",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/quickstart-a-gateway",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/run-a-gateway/get-AI-to-setup-the-gateway",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/get-AI-to-setup-the-gateway",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
       "rawPath": "/v2/pages/04_gateways/using-gateways/choosing-a-gateway",
       "resolvedPath": "v2/pages/04_gateways/using-gateways/choosing-a-gateway.mdx",
       "exists": true,
@@ -1392,7 +1547,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
       "rawPath": "/v2/pages/04_gateways/using-gateways/gateway-providers",
-      "resolvedPath": "v2/pages/04_gateways/using-gateways/gateway-providers",
+      "resolvedPath": "v2/pages/04_gateways/using-gateways/gateway-providers.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1422,15 +1577,6 @@ export const LINK_MAP = {
       "resolvedPath": "v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx",
       "exists": true,
       "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/using-gateways/gateway-providers/streamplace",
-      "resolvedPath": "v2/pages/04_gateways/using-gateways/gateway-providers/streamplace",
-      "exists": false,
-      "status": "missing",
       "movedCandidates": []
     },
     {
@@ -1715,15 +1861,6 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/video-flags",
-      "resolvedPath": "v2/pages/04_gateways/references/video-flags",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
       "rawPath": "/v2/pages/04_gateways/references/cli-commands",
       "resolvedPath": "v2/pages/04_gateways/references/cli-commands.mdx",
       "exists": true,
@@ -1967,28 +2104,10 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/redirect",
-      "resolvedPath": "v2/pages/07_resources/redirect",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/",
-      "resolvedPath": "",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
       "exists": true,
       "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-home",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-home",
-      "exists": false,
-      "status": "missing",
       "movedCandidates": []
     },
     {
@@ -2003,19 +2122,64 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/transcoding",
-      "resolvedPath": "v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/transcoding",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions",
+      "resolvedPath": "v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/ai-pipelines",
-      "resolvedPath": "v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/ai-pipelines",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/05_orchestrators/about-orchestrators/architecture",
+      "resolvedPath": "v2/pages/05_orchestrators/about-orchestrators/architecture.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/about-orchestrators/economics",
+      "resolvedPath": "v2/pages/05_orchestrators/about-orchestrators/economics.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/quickstart/overview",
+      "resolvedPath": "v2/pages/05_orchestrators/quickstart/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/quickstart/join-a-pool",
+      "resolvedPath": "v2/pages/05_orchestrators/quickstart/join-a-pool.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/quickstart/orchestrator-setup",
+      "resolvedPath": "v2/pages/05_orchestrators/quickstart/orchestrator-setup.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/setting-up-an-orchestrator/overview",
+      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/overview.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -2048,80 +2212,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/setting-up-an-orchestrator/join-a-pool",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/join-a-pool",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-tools",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-tools",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-dashboards",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-dashboards",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-guides-and-references",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-guides-and-references",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-resources",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-resources",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-community-and-help",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-community-and-help",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/redirect",
-      "resolvedPath": "v2/pages/07_resources/redirect",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/",
-      "resolvedPath": "",
+      "rawPath": "/v2/pages/05_orchestrators/advanced-setup/staking-LPT",
+      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/staking-LPT.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2129,116 +2221,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/token-home",
-      "resolvedPath": "v2/pages/06_delegators/token-home",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/about-lpt-livepeer-token/overview",
-      "resolvedPath": "v2/pages/06_delegators/about-lpt-livepeer-token/overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/about-lpt-livepeer-token/why-have-a-token",
-      "resolvedPath": "v2/pages/06_delegators/about-lpt-livepeer-token/why-have-a-token",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/about-lpt-livepeer-token/livepeer-token-economics",
-      "resolvedPath": "v2/pages/06_delegators/about-lpt-livepeer-token/livepeer-token-economics",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/about-lpt-livepeer-token/how-to-get-lpt",
-      "resolvedPath": "v2/pages/06_delegators/about-lpt-livepeer-token/how-to-get-lpt",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/about-lpt-livepeer-token/delegators",
-      "resolvedPath": "v2/pages/06_delegators/about-lpt-livepeer-token/delegators",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/delegating-lpt/overview",
-      "resolvedPath": "v2/pages/06_delegators/delegating-lpt/overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/delegating-lpt/delegation-economics",
-      "resolvedPath": "v2/pages/06_delegators/delegating-lpt/delegation-economics",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/delegating-lpt/how-to-delegate-lpt",
-      "resolvedPath": "v2/pages/06_delegators/delegating-lpt/how-to-delegate-lpt",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/livepeer-governance/overview",
-      "resolvedPath": "v2/pages/06_delegators/livepeer-governance/overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/livepeer-governance/livepeer-governance",
-      "resolvedPath": "v2/pages/06_delegators/livepeer-governance/livepeer-governance",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/livepeer-governance/livepeer-treasury",
-      "resolvedPath": "v2/pages/06_delegators/livepeer-governance/livepeer-treasury",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/",
-      "resolvedPath": "",
+      "rawPath": "/v2/pages/05_orchestrators/advanced-setup/rewards-and-fees",
+      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2246,35 +2230,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/token-resources/lpt-exchanges",
-      "resolvedPath": "v2/pages/06_delegators/token-resources/lpt-exchanges",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/token-resources/lpt-eth-usage",
-      "resolvedPath": "v2/pages/06_delegators/token-resources/lpt-eth-usage",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/redirect",
-      "resolvedPath": "v2/pages/07_resources/redirect",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/",
-      "resolvedPath": "",
+      "rawPath": "/v2/pages/05_orchestrators/advanced-setup/delegation",
+      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/delegation.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2282,17 +2239,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/resources_hub",
-      "resolvedPath": "v2/pages/07_resources/resources_hub",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/documentation-guide/documentation-overview",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/documentation-overview.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/advanced-setup/ai-pipelines",
+      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/ai-pipelines.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2300,8 +2248,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/documentation-guide/documentation-guide",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/documentation-guide.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/advanced-setup/run-a-pool",
+      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/run-a-pool.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2309,8 +2257,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
+      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-tools.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2318,8 +2266,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/documentation-guide/contribute-to-the-docs",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrator-tools-and-resources/community-pools",
+      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/community-pools.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2327,17 +2275,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/concepts/livepeer-core-concepts",
-      "resolvedPath": "v2/pages/07_resources/concepts/livepeer-core-concepts",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides",
+      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2345,17 +2284,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/concepts/livepeer-actors",
-      "resolvedPath": "v2/pages/07_resources/concepts/livepeer-actors",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-resources",
+      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-resources.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2363,17 +2293,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory",
-      "resolvedPath": "v2/pages/07_resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help",
+      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2381,8 +2302,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/references/faq",
+      "resolvedPath": "v2/pages/05_orchestrators/references/faq.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2390,8 +2311,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/references/cli-flags",
+      "resolvedPath": "v2/pages/05_orchestrators/references/cli-flags.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2399,8 +2320,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/references/faq",
+      "resolvedPath": "v2/pages/05_orchestrators/references/faq.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2408,8 +2329,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/pages/06_lptoken/token-portal",
+      "resolvedPath": "v2/pages/06_lptoken/token-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2417,8 +2338,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/",
-      "resolvedPath": "",
+      "rawPath": "/v2/pages/06_lptoken/about/overview",
+      "resolvedPath": "v2/pages/06_lptoken/about/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2426,82 +2347,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/changelog/changelog",
-      "resolvedPath": "v2/pages/00_home/changelog/changelog",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/changelog/migration-guide",
-      "resolvedPath": "v2/pages/00_home/changelog/migration-guide",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/08_help/redirect",
-      "resolvedPath": "v2/pages/08_help/redirect",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    }
-  ],
-  "snippets/generated/docs-structure-diagram.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/Landing",
-      "resolvedPath": "v2/pages/00_home/Landing",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/home/home/livepeer-tl-dr",
-      "resolvedPath": "v2/home/home/livepeer-tl-dr",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/home/home/trending-at-livepeer",
-      "resolvedPath": "v2/home/home/trending-at-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/projects-built-on-livepeer",
-      "resolvedPath": "v2/pages/00_home/project-showcase/projects-built-on-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/livepeer-applications",
-      "resolvedPath": "v2/pages/00_home/project-showcase/livepeer-applications",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/industry-verticals",
-      "resolvedPath": "v2/pages/00_home/project-showcase/industry-verticals.mdx",
+      "rawPath": "/v2/pages/06_lptoken/about/purpose",
+      "resolvedPath": "v2/pages/06_lptoken/about/purpose.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2509,8 +2356,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/use-livepeer",
-      "resolvedPath": "v2/pages/00_home/get-started/use-livepeer.mdx",
+      "rawPath": "/v2/pages/06_lptoken/about/tokenomics",
+      "resolvedPath": "v2/pages/06_lptoken/about/tokenomics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2518,8 +2365,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/stream-video-quickstart",
-      "resolvedPath": "v2/pages/00_home/get-started/stream-video-quickstart.mdx",
+      "rawPath": "/v2/pages/06_lptoken/about/mechanics",
+      "resolvedPath": "v2/pages/06_lptoken/about/mechanics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2527,8 +2374,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/livepeer-ai-quickstart",
-      "resolvedPath": "v2/pages/00_home/get-started/livepeer-ai-quickstart.mdx",
+      "rawPath": "/v2/pages/06_lptoken/delegation/overview",
+      "resolvedPath": "v2/pages/06_lptoken/delegation/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2536,8 +2383,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/build-on-livepeer",
-      "resolvedPath": "v2/pages/00_home/get-started/build-on-livepeer.mdx",
+      "rawPath": "/v2/pages/06_lptoken/delegation/about-delegators",
+      "resolvedPath": "v2/pages/06_lptoken/delegation/about-delegators.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2545,53 +2392,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/Landing",
-      "resolvedPath": "v2/pages/00_home/Landing",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/home/home/livepeer-tl-dr",
-      "resolvedPath": "v2/home/home/livepeer-tl-dr",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/home/home/trending-at-livepeer",
-      "resolvedPath": "v2/home/home/trending-at-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/projects-built-on-livepeer",
-      "resolvedPath": "v2/pages/00_home/project-showcase/projects-built-on-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/livepeer-applications",
-      "resolvedPath": "v2/pages/00_home/project-showcase/livepeer-applications",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/industry-verticals",
-      "resolvedPath": "v2/pages/00_home/project-showcase/industry-verticals.mdx",
+      "rawPath": "/v2/pages/06_lptoken/delegation/delegation-guide",
+      "resolvedPath": "v2/pages/06_lptoken/delegation/delegation-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2599,8 +2401,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/use-livepeer",
-      "resolvedPath": "v2/pages/00_home/get-started/use-livepeer.mdx",
+      "rawPath": "/v2/pages/06_lptoken/governance/overview",
+      "resolvedPath": "v2/pages/06_lptoken/governance/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2608,8 +2410,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/stream-video-quickstart",
-      "resolvedPath": "v2/pages/00_home/get-started/stream-video-quickstart.mdx",
+      "rawPath": "/v2/pages/06_lptoken/governance/model",
+      "resolvedPath": "v2/pages/06_lptoken/governance/model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2617,8 +2419,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/livepeer-ai-quickstart",
-      "resolvedPath": "v2/pages/00_home/get-started/livepeer-ai-quickstart.mdx",
+      "rawPath": "/v2/pages/06_lptoken/governance/processes",
+      "resolvedPath": "v2/pages/06_lptoken/governance/processes.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2626,8 +2428,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/get-started/build-on-livepeer",
-      "resolvedPath": "v2/pages/00_home/get-started/build-on-livepeer.mdx",
+      "rawPath": "/v2/pages/06_lptoken/treasury/overview",
+      "resolvedPath": "v2/pages/06_lptoken/treasury/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2635,125 +2437,62 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/home/trending-at-livepeer",
-      "resolvedPath": "v2/home/home/trending-at-livepeer",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/06_lptoken/treasury/proposals",
+      "resolvedPath": "v2/pages/06_lptoken/treasury/proposals.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/about-home",
-      "resolvedPath": "v2/pages/01_about/about-home",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/06_lptoken/treasury/allocations",
+      "resolvedPath": "v2/pages/06_lptoken/treasury/allocations.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/about-livepeer/livepeer-overview",
-      "resolvedPath": "v2/pages/01_about/about-livepeer/livepeer-overview",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/06_lptoken/resources/exchanges",
+      "resolvedPath": "v2/pages/06_lptoken/resources/exchanges.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/about-livepeer/why-livepeer",
-      "resolvedPath": "v2/pages/01_about/about-livepeer/why-livepeer",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/06_lptoken/resources/lpt-eth-usage",
+      "resolvedPath": "v2/pages/06_lptoken/resources/lpt-eth-usage.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/about-livepeer/livepeer-evolution",
-      "resolvedPath": "v2/pages/01_about/about-livepeer/livepeer-evolution",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/02_community/community-portal",
+      "resolvedPath": "v2/pages/02_community/community-portal.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/about-livepeer/livepeer-ecosystem",
-      "resolvedPath": "v2/pages/01_about/about-livepeer/livepeer-ecosystem",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/02_community/livepeer-community/trending-topics",
+      "resolvedPath": "v2/pages/02_community/livepeer-community/trending-topics.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-protocol/protocol-overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/protocol-overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-protocol/livepeer-whitepaper",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/livepeer-whitepaper",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-protocol/technical-overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/technical-overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-network/actor-overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/actor-overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-network/livepeer-token-economics",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/livepeer-token-economics",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-network/livepeer-governance",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/livepeer-governance",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/community-home",
-      "resolvedPath": "v2/pages/02_community/community-home",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/livepeer-Latest-Topics",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/livepeer-Latest-Topics.mdx",
+      "rawPath": "/v2/pages/02_community/livepeer-community/roadmap",
+      "resolvedPath": "v2/pages/02_community/livepeer-community/roadmap.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2824,28 +2563,894 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/trending-test",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/trending-test",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/07_resources/resources-portal",
+      "resolvedPath": "v2/pages/07_resources/resources-portal.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/trending-test",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/trending-test",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/documentation-overview",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/documentation-overview.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-home",
-      "resolvedPath": "v2/pages/03_developers/developer-home",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/documentation-guide",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/documentation-guide.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/style-guide",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/style-guide.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/snippets-inventory",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/snippets-inventory.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/contribute-to-the-docs",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/automations-workflows",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/automations-workflows.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/component-library",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/component-library/primitives",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/primitives.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/component-library/display",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/display.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/component-library/content",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/content.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/component-library/layout",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/layout.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/component-library/integrations",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/integrations.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/component-library/domain",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/domain.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "snippets/generated/docs-structure-diagram.mdx": [
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/mission-control",
+      "resolvedPath": "v2/pages/00_home/mission-control.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/home/get-started",
+      "resolvedPath": "v2/pages/00_home/home/get-started.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/home/primer",
+      "resolvedPath": "v2/pages/00_home/home/primer.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/introduction/vision",
+      "resolvedPath": "v2/pages/00_home/introduction/vision.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/introduction/evolution",
+      "resolvedPath": "v2/pages/00_home/introduction/evolution.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/introduction/why-livepeer",
+      "resolvedPath": "v2/pages/00_home/introduction/why-livepeer.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/introduction/ecosystem",
+      "resolvedPath": "v2/pages/00_home/introduction/ecosystem.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/introduction/roadmap",
+      "resolvedPath": "v2/pages/00_home/introduction/roadmap.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
+      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/project-showcase/industry-verticals",
+      "resolvedPath": "v2/pages/00_home/project-showcase/industry-verticals.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/project-showcase/applications",
+      "resolvedPath": "v2/pages/00_home/project-showcase/applications.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/about-portal",
+      "resolvedPath": "v2/pages/01_about/about-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/core-concepts/livepeer-overview",
+      "resolvedPath": "v2/pages/01_about/core-concepts/livepeer-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/core-concepts/livepeer-core-concepts",
+      "resolvedPath": "v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/core-concepts/mental-model",
+      "resolvedPath": "v2/pages/01_about/core-concepts/mental-model.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/livepeer-protocol/overview",
+      "resolvedPath": "v2/pages/01_about/livepeer-protocol/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/livepeer-protocol/core-mechanisms",
+      "resolvedPath": "v2/pages/01_about/livepeer-protocol/core-mechanisms.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/livepeer-protocol/livepeer-token",
+      "resolvedPath": "v2/pages/01_about/livepeer-protocol/livepeer-token.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/livepeer-protocol/governance-model",
+      "resolvedPath": "v2/pages/01_about/livepeer-protocol/governance-model.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/livepeer-protocol/treasury",
+      "resolvedPath": "v2/pages/01_about/livepeer-protocol/treasury.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/livepeer-protocol/protocol-economics",
+      "resolvedPath": "v2/pages/01_about/livepeer-protocol/protocol-economics.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/livepeer-protocol/technical-architecture",
+      "resolvedPath": "v2/pages/01_about/livepeer-protocol/technical-architecture.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/livepeer-network/overview",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/livepeer-network/actors",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/actors.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/livepeer-network/job-lifecycle",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/job-lifecycle.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/livepeer-network/marketplace",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/marketplace.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/livepeer-network/technical-architecture",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/technical-architecture.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/livepeer-network/interfaces",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/interfaces.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/resources/livepeer-whitepaper",
+      "resolvedPath": "v2/pages/01_about/resources/livepeer-whitepaper.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/01_about/resources/livepeer-glossary.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/resources/blockchain-contracts",
+      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/resources/technical-roadmap",
+      "resolvedPath": "v2/pages/01_about/resources/technical-roadmap.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/01_about/resources/gateways-vs-orchestrators",
+      "resolvedPath": "v2/pages/01_about/resources/gateways-vs-orchestrators.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products-portal",
+      "resolvedPath": "v2/pages/010_products/products-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/all-ecosystem/product-hub",
+      "resolvedPath": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/all-ecosystem/ecosystem-products",
+      "resolvedPath": "v2/pages/010_products/products/all-ecosystem/ecosystem-products.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/daydream/daydream",
+      "resolvedPath": "v2/pages/010_products/products/daydream/daydream.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/overview/overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/overview/client-use-cases",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/client-use-cases.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/getting-started/overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/overview/quickstart",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/getting-started/authentication",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/authentication.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/overview/livestream-overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/livestream-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/create-livestream",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/create-livestream.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/playback-livestream",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/playback-livestream.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/multistream",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/multistream.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/clip-livestream",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/clip-livestream.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/stream-health",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/stream-health.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/optimize-latency",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/optimize-latency.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/overview/vod-overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/vod-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/upload-asset",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/upload-asset.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/playback-asset",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/playback-asset.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/transcode-video",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/transcode-video.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/access-control/overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/webhooks",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/webhooks.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/listen-to-events",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/listen-to-events.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/analytics/overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/analytics/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/player-and-embed",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/overview/api-overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/api-reference/overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/overview/sdks-overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/livepeer-studio/guides/managing-projects",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/managing-projects.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/streamplace/streamplace",
+      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/streamplace/streamplace-guide",
+      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace-guide.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/streamplace/streamplace-architecture",
+      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/streamplace/streamplace-integration",
+      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/streamplace/streamplace-provenance",
+      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace-provenance.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/embody/overview",
+      "resolvedPath": "v2/pages/010_products/products/embody/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/010_products/products/frameworks/frameworks",
+      "resolvedPath": "v2/pages/010_products/products/frameworks/frameworks.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/03_developers/developer-portal",
+      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -2853,6 +3458,24 @@ export const LINK_MAP = {
       "linkType": "internal-rooted",
       "rawPath": "/v2/pages/03_developers/building-on-livepeer/developer-guide",
       "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-guide.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/03_developers/building-on-livepeer/partners",
+      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/partners.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/03_developers/building-on-livepeer/developer-journey",
+      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-journey.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2896,8 +3519,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-platforms/builder-hub",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/builder-hub.mdx",
+      "rawPath": "/v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview",
+      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2905,8 +3528,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-platforms/daydream/daydream",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/daydream/daydream.mdx",
+      "rawPath": "/v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc",
+      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2914,71 +3537,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-platforms/frameworks/frameworks",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/frameworks/frameworks.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-platforms/streamplace/streamplace",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/streamplace/streamplace.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products/ecosystem-products",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products/ecosystem-products",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-tools/tooling-hub",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/tooling-hub.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-tools/livepeer-explorer",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/livepeer-explorer.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-tools/livepeer-cloud",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/livepeer-cloud.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-tools/dashboards",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/dashboards.mdx",
+      "rawPath": "/v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream",
+      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3040,73 +3600,10 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references-sdks.-and-apis/sdks",
-      "resolvedPath": "v2/pages/03_developers/technical-references-sdks.-and-apis/sdks",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references-sdks.-and-apis/apis",
-      "resolvedPath": "v2/pages/03_developers/technical-references-sdks.-and-apis/apis",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references/awesome-livepeer",
-      "resolvedPath": "v2/pages/03_developers/technical-references/awesome-livepeer.mdx",
+      "rawPath": "/v2/pages/04_gateways/gateways-portal",
+      "resolvedPath": "v2/pages/04_gateways/gateways-portal.mdx",
       "exists": true,
       "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references/wiki",
-      "resolvedPath": "v2/pages/03_developers/technical-references/wiki.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references/deepwiki",
-      "resolvedPath": "v2/pages/03_developers/technical-references/deepwiki.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/changelog/changelog",
-      "resolvedPath": "v2/pages/07_resources/changelog/changelog.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/changelog/migration-guides",
-      "resolvedPath": "v2/pages/07_resources/changelog/migration-guides",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/gateways-home",
-      "resolvedPath": "v2/pages/04_gateways/gateways-home",
-      "exists": false,
-      "status": "missing",
       "movedCandidates": []
     },
     {
@@ -3148,24 +3645,6 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/run-a-gateway/quickstart-a-gateway",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/quickstart-a-gateway",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/run-a-gateway/get-AI-to-setup-the-gateway",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/get-AI-to-setup-the-gateway",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
       "rawPath": "/v2/pages/04_gateways/using-gateways/choosing-a-gateway",
       "resolvedPath": "v2/pages/04_gateways/using-gateways/choosing-a-gateway.mdx",
       "exists": true,
@@ -3176,7 +3655,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
       "rawPath": "/v2/pages/04_gateways/using-gateways/gateway-providers",
-      "resolvedPath": "v2/pages/04_gateways/using-gateways/gateway-providers",
+      "resolvedPath": "v2/pages/04_gateways/using-gateways/gateway-providers.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3206,15 +3685,6 @@ export const LINK_MAP = {
       "resolvedPath": "v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx",
       "exists": true,
       "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/using-gateways/gateway-providers/streamplace",
-      "resolvedPath": "v2/pages/04_gateways/using-gateways/gateway-providers/streamplace",
-      "exists": false,
-      "status": "missing",
       "movedCandidates": []
     },
     {
@@ -3319,15 +3789,6 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/video-flags",
-      "resolvedPath": "v2/pages/04_gateways/references/video-flags",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
       "rawPath": "/v2/pages/04_gateways/references/cli-commands",
       "resolvedPath": "v2/pages/04_gateways/references/cli-commands.mdx",
       "exists": true,
@@ -3364,10 +3825,10 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-home",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-home",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -3382,26 +3843,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/transcoding",
-      "resolvedPath": "v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/transcoding",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/ai-pipelines",
-      "resolvedPath": "v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions/ai-pipelines",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions",
+      "resolvedPath": "v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3409,8 +3852,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/about-orchestrators/architecture",
+      "resolvedPath": "v2/pages/05_orchestrators/about-orchestrators/architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3418,8 +3861,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/about-orchestrators/economics",
+      "resolvedPath": "v2/pages/05_orchestrators/about-orchestrators/economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3427,179 +3870,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/setting-up-an-orchestrator/join-a-pool",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/join-a-pool",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-tools",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-tools",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-dashboards",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tooling/orchestrator-dashboards",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-guides-and-references",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-guides-and-references",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-resources",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-resources",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-community-and-help",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-guides-and-references/orchestrator-community-and-help",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/token-home",
-      "resolvedPath": "v2/pages/06_delegators/token-home",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/about-lpt-livepeer-token/overview",
-      "resolvedPath": "v2/pages/06_delegators/about-lpt-livepeer-token/overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/about-lpt-livepeer-token/why-have-a-token",
-      "resolvedPath": "v2/pages/06_delegators/about-lpt-livepeer-token/why-have-a-token",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/about-lpt-livepeer-token/livepeer-token-economics",
-      "resolvedPath": "v2/pages/06_delegators/about-lpt-livepeer-token/livepeer-token-economics",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/about-lpt-livepeer-token/how-to-get-lpt",
-      "resolvedPath": "v2/pages/06_delegators/about-lpt-livepeer-token/how-to-get-lpt",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/about-lpt-livepeer-token/delegators",
-      "resolvedPath": "v2/pages/06_delegators/about-lpt-livepeer-token/delegators",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/delegating-lpt/overview",
-      "resolvedPath": "v2/pages/06_delegators/delegating-lpt/overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/delegating-lpt/delegation-economics",
-      "resolvedPath": "v2/pages/06_delegators/delegating-lpt/delegation-economics",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/delegating-lpt/how-to-delegate-lpt",
-      "resolvedPath": "v2/pages/06_delegators/delegating-lpt/how-to-delegate-lpt",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/livepeer-governance/overview",
-      "resolvedPath": "v2/pages/06_delegators/livepeer-governance/overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/livepeer-governance/livepeer-governance",
-      "resolvedPath": "v2/pages/06_delegators/livepeer-governance/livepeer-governance",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/livepeer-governance/livepeer-treasury",
-      "resolvedPath": "v2/pages/06_delegators/livepeer-governance/livepeer-treasury",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/",
-      "resolvedPath": "",
+      "rawPath": "/v2/pages/05_orchestrators/quickstart/overview",
+      "resolvedPath": "v2/pages/05_orchestrators/quickstart/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3607,28 +3879,388 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/token-resources/lpt-exchanges",
-      "resolvedPath": "v2/pages/06_delegators/token-resources/lpt-exchanges",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/05_orchestrators/quickstart/join-a-pool",
+      "resolvedPath": "v2/pages/05_orchestrators/quickstart/join-a-pool.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_delegators/token-resources/lpt-eth-usage",
-      "resolvedPath": "v2/pages/06_delegators/token-resources/lpt-eth-usage",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/05_orchestrators/quickstart/orchestrator-setup",
+      "resolvedPath": "v2/pages/05_orchestrators/quickstart/orchestrator-setup.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/resources_hub",
-      "resolvedPath": "v2/pages/07_resources/resources_hub",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/05_orchestrators/setting-up-an-orchestrator/overview",
+      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/advanced-setup/staking-LPT",
+      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/staking-LPT.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/advanced-setup/rewards-and-fees",
+      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/advanced-setup/delegation",
+      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/delegation.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/advanced-setup/ai-pipelines",
+      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/ai-pipelines.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/advanced-setup/run-a-pool",
+      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/run-a-pool.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
+      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-tools.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrator-tools-and-resources/community-pools",
+      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/community-pools.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides",
+      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-resources",
+      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-resources.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help",
+      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/references/faq",
+      "resolvedPath": "v2/pages/05_orchestrators/references/faq.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/references/cli-flags",
+      "resolvedPath": "v2/pages/05_orchestrators/references/cli-flags.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/05_orchestrators/references/faq",
+      "resolvedPath": "v2/pages/05_orchestrators/references/faq.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/token-portal",
+      "resolvedPath": "v2/pages/06_lptoken/token-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/about/overview",
+      "resolvedPath": "v2/pages/06_lptoken/about/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/about/purpose",
+      "resolvedPath": "v2/pages/06_lptoken/about/purpose.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/about/tokenomics",
+      "resolvedPath": "v2/pages/06_lptoken/about/tokenomics.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/about/mechanics",
+      "resolvedPath": "v2/pages/06_lptoken/about/mechanics.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/delegation/overview",
+      "resolvedPath": "v2/pages/06_lptoken/delegation/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/delegation/about-delegators",
+      "resolvedPath": "v2/pages/06_lptoken/delegation/about-delegators.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/delegation/delegation-guide",
+      "resolvedPath": "v2/pages/06_lptoken/delegation/delegation-guide.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/governance/overview",
+      "resolvedPath": "v2/pages/06_lptoken/governance/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/governance/model",
+      "resolvedPath": "v2/pages/06_lptoken/governance/model.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/governance/processes",
+      "resolvedPath": "v2/pages/06_lptoken/governance/processes.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/treasury/overview",
+      "resolvedPath": "v2/pages/06_lptoken/treasury/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/treasury/proposals",
+      "resolvedPath": "v2/pages/06_lptoken/treasury/proposals.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/treasury/allocations",
+      "resolvedPath": "v2/pages/06_lptoken/treasury/allocations.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/resources/exchanges",
+      "resolvedPath": "v2/pages/06_lptoken/resources/exchanges.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/06_lptoken/resources/lpt-eth-usage",
+      "resolvedPath": "v2/pages/06_lptoken/resources/lpt-eth-usage.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/02_community/community-portal",
+      "resolvedPath": "v2/pages/02_community/community-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/02_community/livepeer-community/trending-topics",
+      "resolvedPath": "v2/pages/02_community/livepeer-community/trending-topics.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/02_community/livepeer-community/roadmap",
+      "resolvedPath": "v2/pages/02_community/livepeer-community/roadmap.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/02_community/livepeer-community/community-guidelines",
+      "resolvedPath": "v2/pages/02_community/livepeer-community/community-guidelines.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/02_community/livepeer-connect/news-and-socials",
+      "resolvedPath": "v2/pages/02_community/livepeer-connect/news-and-socials.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/02_community/livepeer-connect/events-and-community-streams",
+      "resolvedPath": "v2/pages/02_community/livepeer-connect/events-and-community-streams.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/02_community/livepeer-connect/forums-and-discussions",
+      "resolvedPath": "v2/pages/02_community/livepeer-connect/forums-and-discussions.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/02_community/livepeer-contribute/contribute",
+      "resolvedPath": "v2/pages/02_community/livepeer-contribute/contribute.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/02_community/livepeer-contribute/opportunities",
+      "resolvedPath": "v2/pages/02_community/livepeer-contribute/opportunities.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/02_community/livepeer-contribute/build-livepeer",
+      "resolvedPath": "v2/pages/02_community/livepeer-contribute/build-livepeer.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/resources-portal",
+      "resolvedPath": "v2/pages/07_resources/resources-portal.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -3661,6 +4293,24 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/style-guide",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/style-guide.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/snippets-inventory",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/snippets-inventory.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
       "rawPath": "/v2/pages/07_resources/documentation-guide/contribute-to-the-docs",
       "resolvedPath": "v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx",
       "exists": true,
@@ -3670,17 +4320,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/concepts/livepeer-core-concepts",
-      "resolvedPath": "v2/pages/07_resources/concepts/livepeer-core-concepts",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/automations-workflows",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/automations-workflows.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3688,17 +4329,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/concepts/livepeer-actors",
-      "resolvedPath": "v2/pages/07_resources/concepts/livepeer-actors",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/component-library",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3706,17 +4338,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory",
-      "resolvedPath": "v2/pages/07_resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/component-library/primitives",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/primitives.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3724,8 +4347,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/component-library/display",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/display.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3733,8 +4356,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/component-library/content",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/content.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3742,8 +4365,26 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/component-library/layout",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/layout.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/component-library/integrations",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/integrations.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/documentation-guide/component-library/domain",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/domain.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3760,8 +4401,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/",
-      "resolvedPath": "",
+      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3769,91 +4410,46 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/changelog/changelog",
-      "resolvedPath": "v2/pages/00_home/changelog/changelog",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/changelog/migration-guide",
-      "resolvedPath": "v2/pages/00_home/changelog/migration-guide",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "folder",
-      "resolvedPath": "snippets/generated/folder",
-      "exists": false,
-      "status": "missing",
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "folder",
-      "resolvedPath": "snippets/generated/folder",
-      "exists": false,
-      "status": "missing",
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "folder",
-      "resolvedPath": "snippets/generated/folder",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "folder",
-      "resolvedPath": "snippets/generated/folder",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "folder",
-      "resolvedPath": "snippets/generated/folder",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "folder",
-      "resolvedPath": "snippets/generated/folder",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "folder",
-      "resolvedPath": "snippets/generated/folder",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "folder",
-      "resolvedPath": "snippets/generated/folder",
-      "exists": false,
-      "status": "missing",
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/07_resources/livepeer-glossary",
+      "resolvedPath": "v2/pages/07_resources/livepeer-glossary.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     }
   ]
