@@ -70,10 +70,10 @@ containerized with Docker.
     `docker buildx build --platform linux/amd64 --load -t livepeer/docs .`
   - Makefile: `make all`
 - **API Docs Generation:**
-  - Use `snippets/scripts/generate-api-docs.sh` to convert OpenAPI specs to
+  - Use `tools/scripts/snippets/generate-api-docs.sh` to convert OpenAPI specs to
     MDX/API docs and navigation JSON. Example:
     ```bash
-    ./snippets/scripts/generate-api-docs.sh ai/worker/api/openapi.yaml v2/pages/04_gateways/guides-references/api-reference/AI-API "AI API"
+    ./tools/scripts/snippets/generate-api-docs.sh ai/worker/api/openapi.yaml v2/pages/04_gateways/guides-references/api-reference/AI-API "AI API"
     ```
   - Output: MDX files + navigation snippet for `docs.json`.
 - **External Data Fetching:**
@@ -110,7 +110,7 @@ containerized with Docker.
 - **OpenAPI:** API docs generated from `openapi.yaml` (see also
   `ai/worker/api/openapi.yaml`).
 - **Docker:** Containerized builds for CI/CD and local dev.
-- **Automations:** Scripts in `snippets/scripts/` automate API doc generation
+- **Automations:** Scripts in `tools/scripts/snippets/` automate API doc generation
   and external data sync.
 
 ## Key Files & Directories

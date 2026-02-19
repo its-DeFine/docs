@@ -63,12 +63,13 @@ Script documentation enforcement:
 - If valid, per-folder README script indexes are auto-updated and staged.
 - If invalid, commit is blocked.
 
-Current script-folder README targets:
-- `.githooks/*` -> `.githooks/README.md`
-- `tests/*` -> `tests/README.md`
-- `tools/scripts/*` -> `tools/scripts/README.md`
-- `tasks/scripts/*` -> `tasks/scripts/README.md`
-- `v2/scripts/dev/*` -> `v2/scripts/dev/README.mdx`
+Current script index targets:
+- `.githooks/*` -> `.githooks/script-index.md`
+- `.github/scripts/*` -> `.github/script-index.md`
+- `tests/*` -> `tests/script-index.md`
+- `tools/scripts/*` -> `tools/script-index.md`
+- `tasks/scripts/*` -> `tasks/script-index.md`
+- Aggregate -> `docs-guide/scripts-index.md`
 
 Example:
 ```bash
