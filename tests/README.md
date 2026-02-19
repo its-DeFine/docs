@@ -141,5 +141,5 @@ node tools/scripts/new-script.js --path tasks/scripts/my-script.sh --owner docs 
 | Script | Summary | Usage |
 |---|---|---|
 | `tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. | `node tests/integration/domain-pages-audit.js --version both` |
-| `tests/unit/script-docs.test.js` | Enforce script header template for new scripts and maintain README script indexes. | `node tests/unit/script-docs.test.js --staged --write --stage` |
+| `tests/unit/script-docs.test.js` | Enforce script header schema, keep group script indexes in sync, and build aggregate script index. | `node tests/unit/script-docs.test.js --staged --write --stage --autofill` |
 <!-- SCRIPT-INDEX:END -->

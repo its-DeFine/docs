@@ -25,7 +25,7 @@ EOF
 }
 
 command_mint_dev() {
-    local script_path="$REPO_ROOT/mint-dev.sh"
+    local script_path="$REPO_ROOT/tools/scripts/mint-dev.sh"
     local dry_run=false
 
     while [ "$#" -gt 0 ]; do

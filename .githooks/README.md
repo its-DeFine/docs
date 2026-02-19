@@ -60,7 +60,7 @@ Domain audit report path (stable, overwritten each run):
 Script documentation enforcement:
 - Newly added scripts must include required header tags.
 - Missing headers are auto-inserted on pre-commit.
-- If valid, per-folder README script indexes are auto-updated and staged.
+- If valid, group `script-index.md` files and aggregate index are auto-updated and staged.
 - If invalid, commit is blocked.
 
 Current script index targets:
