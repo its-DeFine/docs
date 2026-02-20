@@ -13,6 +13,8 @@ on:
 jobs:
   test-suite:
     runs-on: ubuntu-latest
+    env:
+      NODE_PATH: ${{ github.workspace }}/tools/node_modules
 
     permissions:
       contents: read
@@ -29,10 +31,6 @@ jobs:
 
       - name: Install dependencies (tools)
         working-directory: tools
-        run: npm install
-
-      - name: Install dependencies (tests)
-        working-directory: tests
         run: npm install
 
       - name: Run Style Guide Tests
