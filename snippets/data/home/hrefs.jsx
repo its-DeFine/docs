@@ -1467,11 +1467,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "TBD",
-      "resolvedPath": "v2/pages/00_home/introduction/TBD",
-      "exists": false,
-      "status": "missing",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/introduction/roadmap",
+      "resolvedPath": "v2/pages/00_home/introduction/roadmap.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {

@@ -3,7 +3,7 @@
 Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.
 
 ## Run Metadata
-- Timestamp: 2026-02-19T16:44:20.366Z
+- Timestamp: 2026-02-20T03:02:41.462Z
 - Mode: full
 - Strict: false
 - Files analyzed: 467
@@ -18,16 +18,16 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-http | 8 |
 | external-https | 1078 |
 | import-path | 630 |
-| internal-relative | 496 |
-| internal-rooted | 689 |
+| internal-relative | 495 |
+| internal-rooted | 690 |
 | mailto | 2 |
 
 ### By Status
 | status | count |
 |---|---:|
 | 🟡 untested-external | 1086 |
-| missing | 79 |
-| ok | 1713 |
+| missing | 78 |
+| ok | 1714 |
 | ok-folder-route | 6 |
 | route-missing | 16 |
 | skipped | 200 |
@@ -39,8 +39,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - Welcome to Livepeer Mission Control (00_home/mission-control.mdx)
 - ### Get Started
   - ⚠️ Use Livepeer (00_home/get-started/build-on-livepeer.mdx)
-  - ⚠️ Livepeer AI (quickstart) (00_home/get-started//v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai)
-  - ⚠️ Stream Video (quickstart) (00_home/get-started//v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming)
+  - ⚠️ Livepeer AI (quickstart) (00_home/get-started/livepeer-ai-quickstart.mdx)
+  - ⚠️ Stream Video (quickstart) (00_home/get-started/stream-video-quickstart.mdx)
   - ⚠️ Use Livepeer (00_home/get-started/use-livepeer.mdx)
 - ### Home
   - Get Started with Livepeer (00_home/home/get-started.mdx)
@@ -53,31 +53,19 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
   - Livepeer Story (00_home/introduction/vision.mdx)
   - The Livepeer Advantage (00_home/introduction/why-livepeer.mdx)
 - ### Project Showcase
-  - Key Applications for Livepeer (/v2/pages/00_home/project-showcase/showcase)
-  - Industry Verticals (/v2/pages/00_home/project-showcase/showcase)
-  - ⚠️ DeAI & Video Landscape (/v2/pages/00_home/project-showcase/showcase)
-  - Creative Projects Built with Livepeer (/v2/pages/00_home/project-showcase/showcase)
+  - Key Applications for Livepeer (00_home/project-showcase/applications.mdx)
+  - Industry Verticals (00_home/project-showcase/industry-verticals.mdx)
+  - ⚠️ DeAI & Video Landscape (00_home/project-showcase/landscape.mdx)
+  - Creative Projects Built with Livepeer (00_home/project-showcase/showcase.mdx)
 - Unindexed Pages
-  - v2/pages/00_home/get-started/livepeer-ai-quickstart.mdx
-  - v2/pages/00_home/get-started/stream-video-quickstart.mdx
-  - v2/pages/00_home/project-showcase/applications.mdx
-  - v2/pages/00_home/project-showcase/industry-verticals.mdx
-  - v2/pages/00_home/project-showcase/landscape.mdx
-  - v2/pages/00_home/project-showcase/showcase.mdx
+  - (none)
 
 ### About
 - About Livepeer: Protocol & Network (01_about/about-portal.mdx)
 - ⚠️ FAQ (01_about/faq-about.mdx)
 - ### Contextdata
-  - ⚠️ Deep Research Report (ia) (01_about/_contextData_/deep-research-report (IA).md)
   - ⚠️ Deep Research Report (01_about/_contextData_/deep-research-report.md)
   - ⚠️ Protocol Frameworks Report.mdx (01_about/_contextData_/protocol-frameworks-report.mdx.md)
-- ### About Livepeer
-  - #### Moved
-    - ⚠️ Livepeer Ecosystem (deprecated/about-livepeer/moved/livepeer-ecosystem.mdx)
-    - ⚠️ Livpeer Evolution (deprecated/about-livepeer/moved/livepeer-evolution.mdx)
-    - ⚠️ Livepeer Overview (deprecated/about-livepeer/moved/livepeer-overview.mdx)
-    - ⚠️ Why Livepeer (deprecated/about-livepeer/moved/why-livepeer.mdx)
 - ### Core Concepts
   - Livepeer Core Concepts (01_about/core-concepts/livepeer-core-concepts.mdx)
     - Imported MDX: snippets/pages/01_ABOUT/concepts/protocol.mdx
@@ -102,7 +90,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
     - ⚠️ Delegators (01_about/livepeer-network/livepeer-actors/delegators.mdx)
     - ⚠️ Builders and End Users (01_about/livepeer-network/livepeer-actors/end-users.mdx)
     - ⚠️ Gateways (01_about/livepeer-network/livepeer-actors/gateways.mdx)
-    - ⚠️ Orchestrators (/v2/pages/05_orchestrators/orchestrators-portal)
+    - ⚠️ Orchestrators (01_about/livepeer-network/livepeer-actors/orchestrators.mdx)
 - ### Livepeer Protocol
   - Core Mechanisms and Functions (01_about/livepeer-protocol/core-mechanisms.mdx)
   - Livepeer Governance Model (01_about/livepeer-protocol/governance-model.mdx)
@@ -119,7 +107,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
     - Imported MDX: snippets/external/whitepaper.mdx
   - Technical Roadmap (01_about/resources/technical-roadmap.mdx)
 - Unindexed Pages
-  - v2/pages/01_about/livepeer-network/livepeer-actors/orchestrators.mdx
+  - (none)
 
 ### Products
 - Livepeer Products & Developer Platforms (010_products/products-portal.mdx)
@@ -266,7 +254,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
   - (none)
 
 ### Community
-- Livepeer Community Portal (/v2/pages/02_community/community-portal)
+- Livepeer Community Portal (02_community/community-portal.mdx)
 - ⚠️ FAQ (02_community/faq.mdx)
 - ### Move Me
   - #### Livepeer Hubs
@@ -277,7 +265,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
     - ⚠️ Livepeer Partner Hub (02_community/_move_me/livepeer-partners/livepeer-partner-hub.mdx)
 - ### Livepeer Community
   - Livepeer Community Guidelines (02_community/livepeer-community/community-guidelines.mdx)
-  - ⚠️ Livepeer Hot Topics & Updates (02_community/livepeer-community/livepeer-latest-topics.mdx)
+  - Livepeer Hot Topics & Updates (02_community/livepeer-community/livepeer-latest-topics.mdx)
   - Livepeer Foundation Roadmap (02_community/livepeer-community/roadmap.mdx)
   - Trending Topics (02_community/livepeer-community/trending-topics.mdx)
 - ### Livepeer Connect
@@ -293,7 +281,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
   - ⚠️ Dashboards (02_community/resources/dashboards.mdx)
   - ⚠️ Guides (02_community/resources/guides.mdx)
 - Unindexed Pages
-  - v2/pages/02_community/community-portal.mdx
+  - (none)
 
 ### Developers
 - Livepeer Developer Portal (03_developers/developer-portal.mdx)
@@ -373,7 +361,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
     - ⚠️ Delegators (03_developers/moved-to-about-livepeer-protocol/livepeer-actors/delegators.mdx)
     - ⚠️ End Users (03_developers/moved-to-about-livepeer-protocol/livepeer-actors/end-users.mdx)
     - ⚠️ Gateways (03_developers/moved-to-about-livepeer-protocol/livepeer-actors/gateways.mdx)
-    - ⚠️ Orchestrators (/v2/pages/05_orchestrators/orchestrators-portal)
+    - ⚠️ Orchestrators (03_developers/moved-to-about-livepeer-protocol/livepeer-actors/orchestrators.mdx)
     - ⚠️ README (03_developers/moved-to-about-livepeer-protocol/livepeer-actors/README.mdx)
   - #### Livepeer Protocol
     - ⚠️ Livepeer Whitepaper (03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/livepeer-whitepaper.mdx)
@@ -388,7 +376,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
   - Livepeer Wiki (03_developers/technical-references/wiki.mdx)
     - Imported MDX: snippets/external/wiki-readme.mdx
 - Unindexed Pages
-  - v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/orchestrators.mdx
+  - (none)
 
 ### Gateways
 - Gateway Home Portal (04_gateways/gateways-portal.mdx)
@@ -533,7 +521,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
   - v2/pages/04_gateways/run-a-gateway/install/community-projects.mdx
 
 ### Orchestrators
-- Orchestrator Home Portal (/v2/pages/05_orchestrators/orchestrators-portal)
+- Orchestrator Home Portal (05_orchestrators/orchestrators-portal.mdx)
 - ### About Orchestrators
   - Orchestrator Architecture (05_orchestrators/about-orchestrators/architecture.mdx)
   - Orchestrator Economics (05_orchestrators/about-orchestrators/economics.mdx)
@@ -574,7 +562,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
   - #### Setting Up An Orchestrator
     - Configure your Orchestrator (05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx)
 - Unindexed Pages
-  - v2/pages/05_orchestrators/orchestrators-portal.mdx
+  - (none)
 
 ### Lptoken
 - LP Token Home Portal (06_lptoken/token-portal.mdx)
@@ -654,6 +642,16 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Layout Components Scripts Styling
   - ⚠️ Components (09_internal/layout-components-scripts-styling/components.mdx)
   - ⚠️ Pages (09_internal/layout-components-scripts-styling/pages.mdx)
+- Unindexed Pages
+  - (none)
+
+### Deprecated
+- ### About Livepeer
+  - #### Moved
+    - ⚠️ Livepeer Ecosystem (deprecated/about-livepeer/moved/livepeer-ecosystem.mdx)
+    - ⚠️ Livpeer Evolution (deprecated/about-livepeer/moved/livepeer-evolution.mdx)
+    - ⚠️ Livepeer Overview (deprecated/about-livepeer/moved/livepeer-overview.mdx)
+    - ⚠️ Why Livepeer (deprecated/about-livepeer/moved/why-livepeer.mdx)
 - Unindexed Pages
   - (none)
 
@@ -1632,7 +1630,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://blog.livepeer.org/livepeer-foundation-is-live/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://roadmap.livepeer.org/roadmap |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /snippets/assets/domain/00_HOME/evolution.png | snippets/assets/domain/00_HOME/evolution.png | true | ok |  |  |  |
-| internal-relative | TBD | v2/pages/00_home/introduction/TBD | false | missing |  |  |  |
+| internal-rooted | /v2/pages/00_home/introduction/roadmap | v2/pages/00_home/introduction/roadmap.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/display/video.jsx | snippets/components/display/video.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/display/image.jsx | snippets/components/display/image.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/links.jsx | snippets/components/primitives/links.jsx | true | ok |  |  |  |

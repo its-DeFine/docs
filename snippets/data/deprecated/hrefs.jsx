@@ -83,7 +83,11 @@ export const LINK_MAP = {
       "resolvedPath": "v2/pages/assets/about/image.png",
       "exists": false,
       "status": "missing",
-      "movedCandidates": []
+      "movedCandidates": [
+        "snippets/assets/media/images/GPU callout.png",
+        "snippets/assets/media/images/Livepeer Stats.png",
+        "snippets/assets/media/images/nytv-logo.png"
+      ]
     },
     {
       "sourceType": "import-path",
