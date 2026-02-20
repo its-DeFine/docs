@@ -16,7 +16,7 @@ Built with [Mintlify](https://mintlify.com) and deployed at [docs.livepeer.org](
 
 The Livepeer Foundation helps guide it, however, generally if you think improvements are needed you should submit them (via PR) or create an issue asking for the feature/bug fix etc. See the [Contributing section](#-contributing) for details.
 
-- **Issue templates:** When creating issues, use the GitHub issue templates which will automatically apply the `docs-v2` and `help wanted` labels. See [Creating Issues](#creating-issues) in the Contributing section for details.
+- **Issue templates:** When creating issues, use the GitHub issue templates. They apply base labels and the issue auto-label workflow adds clear `area:*`, `priority:*`, and subtype labels. See [Creating Issues](#creating-issues) in the Contributing section for details.
 
 ---
 
@@ -159,18 +159,21 @@ See [Component Library](v2/pages/07_resources/documentation-guide/component-libr
 
 ### Creating Issues
 
-**⚠️ IMPORTANT:** When creating issues, **always use the GitHub issue templates**. The templates automatically apply the `docs-v2` and `help wanted` labels, so you don't need to add them manually.
+**⚠️ IMPORTANT:** When creating issues, **always use the GitHub issue templates**. Templates apply base labels and the issue auto-label workflow adds `area:*`, `priority:*`, and docs page subtype labels from your form selections.
 
 **Available Templates:**
 
-- **Docs Review** - For reviewing multiple documentation pages
-- **Request Feature (Internal Team)** - For internal team feature requests
+- **Bug Report (Docs and Guidance)** - Broken behavior, incorrect instructions, broken links/assets
+- **Docs Page Issue (Actionable)** - Page-specific issue with requested action and done criteria
+- **Feature Request (Docs/Site)** - New docs/site capability requests
+- **Content Request (Missing Topic/Tutorial/Reference)** - Missing content requests with outline/source context
+- **Tooling / CI Issue** - Scripts, hooks, local tooling, and workflow failures
+- **Question / Clarification** - Tracked clarifications requiring maintainer response
 
-**If no template fits:**
+**Security reports:**
 
-- Manually add the `docs-v2` label (REQUIRED for all v2 documentation issues)
-- Add `help wanted` label if you want community help
-- Include relevant labels from the [label categories](#standard-github-labels) below
+- Do **not** report vulnerabilities in public issues
+- Use private reporting via [SECURITY.md](SECURITY.md)
 
 ### Standard GitHub Labels
 
@@ -190,14 +193,16 @@ See [Component Library](v2/pages/07_resources/documentation-guide/component-libr
 
 **Area (Documentation Sections):**
 
-- `area: ai` - AI/Gateway documentation
+- `area: home-about` - Home and About sections
+- `area: community` - Community and contribution sections
 - `area: developers` - Developer documentation
 - `area: orchestrators` - Orchestrator documentation
 - `area: gateways` - Gateway documentation
-- `area: about` - About section
+- `area: lpt-governance` - LPT/delegation/governance/treasury docs
 - `area: resources` - Resources section
+- `area: ci-cd` - Tooling and CI/CD issues
 - `area: structure` - Repository structure issues
-- `area: style-guide` - Style guide violations or questions
+- `area: multiple` - Cross-area issues
 
 **Status:**
 
@@ -210,6 +215,8 @@ See [Component Library](v2/pages/07_resources/documentation-guide/component-libr
 **Other Common Labels:**
 
 - `help wanted` - Community help requested (automatically applied by templates)
+- `scope: page` - Issue is scoped to one page/section
+- `kind:*` - Docs page issue subtype labels (auto-assigned)
 - `wontfix` - Issue won't be fixed
 - `duplicate` - Duplicate of another issue
 - `invalid` - Issue is invalid or incorrect
@@ -486,6 +493,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 │   │   ├── test-v2-pages.yml        # V2 pages testing workflow
 │   │   ├── broken-links.yml         # Link validation workflow
 │   │   ├── update-*.yml             # Auto-update workflows (blog, forum, YouTube, etc.)
+│   │   ├── issue-auto-label.yml     # Auto-apply labels from issue form fields
 │   │   ├── sdk_generation.yaml      # SDK documentation generation
 │   │   ├── auto-assign-docs-reviewers.yml  # Auto-assign reviewers
 │   │   ├── build-review-assets.yml  # Build review assets
@@ -499,8 +507,14 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 │   │   ├── gen-table.js              # Generate review tables
 │   │   └── gen-textareas.js          # Generate textarea elements
 │   ├── ISSUE_TEMPLATE/     # GitHub issue templates
-│   │   ├── docs-review.yml           # Docs review template (auto-applies docs-v2, help wanted)
-│   │   └── feature_internal.yml      # Internal feature request template
+│   │   ├── 01_bug_report.yml         # Bug intake template
+│   │   ├── 02_docs_page_issue.yml    # Page-specific docs issue template
+│   │   ├── 03_feature_request.yml    # Feature request template
+│   │   ├── 04_content_request.yml    # Missing content request template
+│   │   ├── 05_tooling_ci_issue.yml   # Tooling and CI issue template
+│   │   ├── 06_question_clarification.yml # Question/clarification template
+│   │   ├── config.yml                # Issue chooser + contact links
+│   │   └── deprecated/               # Preserved retired templates
 │   ├── CODEOWNERS          # Section ownership and review assignments
 │   ├── AGENTS.md           # AI agent guidelines
 │   ├── augment-instructions.md  # Augment AI instructions
@@ -711,7 +725,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 
 - **workflows/**: GitHub Actions workflows for CI/CD, testing, and auto-updates
 - **scripts/**: Helper scripts for CI/CD processes (data fetching, table generation)
-- **ISSUE_TEMPLATE/**: Issue templates that automatically apply `docs-v2` and `help wanted` labels
+- **ISSUE_TEMPLATE/**: Public issue templates + chooser config + deprecated preserved templates
 - **CODEOWNERS**: Defines section ownership for automatic PR reviewer assignment
 - **AGENTS.md, augment-instructions.md, copilot-instructions.md**: AI agent guidelines
 
