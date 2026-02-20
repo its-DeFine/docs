@@ -128,16 +128,12 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/wiki/livepeer/explorer#4",
-      "resolvedPath": "v2/pages/wiki/livepeer/explorer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/gateway-tools/explorer.mdx",
-        "v2/gateways/gateway-tools/explorer.mdx",
-        "v2/pages/03_developers/developer-tools/livepeer-explorer.mdx"
-      ]
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/wiki",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
     }
   ],
   "v2/pages/04_gateways/_tests-to-delete/codemap.mdx": [],
@@ -348,15 +344,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../using-gateways/using-gateways",
-      "resolvedPath": "v2/pages/04_gateways/using-gateways/using-gateways",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/using-gateways/choosing-a-gateway.mdx",
-        "v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx",
-        "v2/pages/04_gateways/using-gateways/gateway-providers/daydream-gateway.mdx"
-      ]
+      "rawPath": "../using-gateways/choosing-a-gateway",
+      "resolvedPath": "v2/pages/04_gateways/using-gateways/choosing-a-gateway.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
@@ -497,15 +489,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "./using-gateways/using-gateways",
-      "resolvedPath": "v2/pages/04_gateways/using-gateways/using-gateways",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/using-gateways/choosing-a-gateway.mdx",
-        "v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx",
-        "v2/pages/04_gateways/using-gateways/gateway-providers/daydream-gateway.mdx"
-      ]
+      "rawPath": "./using-gateways/choosing-a-gateway",
+      "resolvedPath": "v2/pages/04_gateways/using-gateways/choosing-a-gateway.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -1571,16 +1559,12 @@ export const LINK_MAP = {
   "v2/pages/04_gateways/references/cli-commands.mdx": [
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/wiki/livepeer/go-livepeer#4.4",
-      "resolvedPath": "v2/pages/wiki/livepeer/go-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
-        "v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx",
-        "v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx"
-      ]
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/wiki",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
@@ -1785,16 +1769,12 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/references/go-livepeer/gpu-support",
-      "resolvedPath": "v2/pages/references/go-livepeer/gpu-support",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx",
-        "v1/references/go-livepeer/gpu-support.mdx",
-        "v2/gateways/references/go-livepeer/gpu-support.mdx"
-      ]
+      "linkType": "internal-relative",
+      "rawPath": "./gpu-support",
+      "resolvedPath": "v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
@@ -1810,13 +1790,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/05_orchestrators/orchestrators-portal/guides/monitor-metrics",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal/guides/monitor-metrics",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v1/orchestrators/guides/monitor-metrics.mdx"
-      ]
+      "rawPath": "/v2/pages/04_gateways/run-a-gateway/monitor/monitor-and-optimise",
+      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/monitor/monitor-and-optimise.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
@@ -1963,29 +1941,21 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/wiki/livepeer/go-livepeer#1",
-      "resolvedPath": "v2/pages/wiki/livepeer/go-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
-        "v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx",
-        "v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx"
-      ]
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/wiki",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/wiki/livepeer/go-livepeer#4",
-      "resolvedPath": "v2/pages/wiki/livepeer/go-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
-        "v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx",
-        "v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx"
-      ]
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/wiki",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
     }
   ],
   "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx": [
@@ -2359,29 +2329,21 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/wiki/livepeer/go-livepeer#1.1",
-      "resolvedPath": "v2/pages/wiki/livepeer/go-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
-        "v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx",
-        "v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx"
-      ]
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/wiki",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/wiki/livepeer/go-livepeer#2.6",
-      "resolvedPath": "v2/pages/wiki/livepeer/go-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
-        "v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx",
-        "v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx"
-      ]
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/wiki",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
@@ -2487,27 +2449,20 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../about-gateways/gateway-economics",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/about-gateways/gateway-economics",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
-        "v2/gateways/about-gateways/gateway-economics.mdx"
-      ]
+      "rawPath": "../../about-gateways/gateway-economics",
+      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "fund-gateway",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/configure/fund-gateway",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
-        "v1/gateways/guides/fund-gateway.mdx",
-        "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx"
-      ]
+      "rawPath": "../requirements/on-chain%20setup/fund-gateway",
+      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
@@ -2687,15 +2642,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/run-a-gateway/requirements/on-chain-setup/on-chain",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain-setup/on-chain",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
-        "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
-        "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx"
-      ]
+      "rawPath": "/v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/on-chain",
+      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -3053,15 +3004,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/run-a-gateway/fund/fund-gateway",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/fund/fund-gateway",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
-        "v1/gateways/guides/fund-gateway.mdx",
-        "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx"
-      ]
+      "rawPath": "/v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway",
+      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -3140,15 +3087,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/run-a-gateway/install/on-chain",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/install/on-chain",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
-        "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
-        "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx"
-      ]
+      "rawPath": "/v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/on-chain",
+      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -3180,10 +3123,10 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "./experimental-installs",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/install/experimental-installs",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "./community-projects",
+      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/install/community-projects.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -3263,14 +3206,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/gateways/run-a-gateway/configure/configuration-overview",
-      "resolvedPath": "v2/pages/gateways/run-a-gateway/configure/configuration-overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/run-a-gateway/configure/configuration-overview.mdx",
-        "v2/gateways/run-a-gateway/configure/configuration-overview.mdx"
-      ]
+      "rawPath": "/v2/pages/04_gateways/run-a-gateway/configure/configuration-overview",
+      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/configure/configuration-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
@@ -3349,14 +3289,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/gateways/run-a-gateway/configure/configuration-overview",
-      "resolvedPath": "v2/pages/gateways/run-a-gateway/configure/configuration-overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/run-a-gateway/configure/configuration-overview.mdx",
-        "v2/gateways/run-a-gateway/configure/configuration-overview.mdx"
-      ]
+      "rawPath": "/v2/pages/04_gateways/run-a-gateway/configure/configuration-overview",
+      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/configure/configuration-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -3612,10 +3549,10 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../references/configuration-flags.mdx",
+      "rawPath": "../../references/configuration-flags",
       "resolvedPath": "v2/pages/04_gateways/references/configuration-flags.mdx",
       "exists": true,
-      "status": "route-missing",
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -3630,10 +3567,10 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../references/configuration-flags.mdx",
+      "rawPath": "../../references/configuration-flags",
       "resolvedPath": "v2/pages/04_gateways/references/configuration-flags.mdx",
       "exists": true,
-      "status": "route-missing",
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -3648,10 +3585,10 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../references/configuration-flags.mdx",
+      "rawPath": "../../references/configuration-flags",
       "resolvedPath": "v2/pages/04_gateways/references/configuration-flags.mdx",
       "exists": true,
-      "status": "route-missing",
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -4221,7 +4158,7 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway",
+      "rawPath": "/v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway",
       "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
       "exists": true,
       "status": "ok",
@@ -4419,15 +4356,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway/",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
-        "v1/gateways/guides/fund-gateway.mdx",
-        "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx"
-      ]
+      "rawPath": "/v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway",
+      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -4513,16 +4446,16 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/run-a-gateway/requirements/funding-your-gateway",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/funding-your-gateway",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway",
+      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway",
+      "rawPath": "/v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway",
       "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
       "exists": true,
       "status": "ok",
@@ -4677,15 +4610,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/run-a-gateway/setup/on-chain",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/setup/on-chain",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
-        "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
-        "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx"
-      ]
+      "rawPath": "/v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/on-chain",
+      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
@@ -4979,10 +4908,10 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "./gateway-providers/experimental-installs",
-      "resolvedPath": "v2/pages/04_gateways/using-gateways/gateway-providers/experimental-installs",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "../guides-and-resources/community-projects",
+      "resolvedPath": "v2/pages/04_gateways/guides-and-resources/community-projects.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {

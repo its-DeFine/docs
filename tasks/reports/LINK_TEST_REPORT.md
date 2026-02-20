@@ -3,7 +3,7 @@
 Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.
 
 ## Run Metadata
-- Timestamp: 2026-02-20T03:17:18.989Z
+- Timestamp: 2026-02-20T03:24:29.217Z
 - Mode: full
 - Strict: false
 - Files analyzed: 467
@@ -16,20 +16,19 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 |---|---:|
 | empty | 198 |
 | external-http | 8 |
-| external-https | 1082 |
+| external-https | 1088 |
 | import-path | 630 |
-| internal-relative | 479 |
-| internal-rooted | 701 |
+| internal-relative | 480 |
+| internal-rooted | 694 |
 | mailto | 2 |
 
 ### By Status
 | status | count |
 |---|---:|
-| 🟡 untested-external | 1090 |
-| missing | 53 |
-| ok | 1747 |
+| 🟡 untested-external | 1096 |
+| missing | 31 |
+| ok | 1766 |
 | ok-folder-route | 6 |
-| route-missing | 3 |
 | skipped | 200 |
 | skipped-style-guide-example | 1 |
 
@@ -3743,7 +3742,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | empty | #0-11 |  | null | skipped |  |  |  |
 | empty | #0-12 |  | null | skipped |  |  |  |
 | empty | #0-13 |  | null | skipped |  |  |  |
-| internal-rooted | /wiki/livepeer/explorer#4 | v2/pages/wiki/livepeer/explorer | false | missing | v2/pages/04_gateways/gateway-tools/explorer.mdx | v2/gateways/gateway-tools/explorer.mdx | v2/pages/03_developers/developer-tools/livepeer-explorer.mdx |
+| external-https | https://github.com/livepeer/wiki |  | null | 🟡 untested-external |  |  |  |
 
 ### v2/pages/04_gateways/_tests-to-delete/codemap.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
@@ -3808,7 +3807,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | internal-relative | ../run-a-gateway/run-a-gateway | v2/pages/04_gateways/run-a-gateway/run-a-gateway.mdx | true | ok |  |  |  |
-| internal-relative | ../using-gateways/using-gateways | v2/pages/04_gateways/using-gateways/using-gateways | false | missing | v2/pages/04_gateways/using-gateways/choosing-a-gateway.mdx | v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx | v2/pages/04_gateways/using-gateways/gateway-providers/daydream-gateway.mdx |
+| internal-relative | ../using-gateways/choosing-a-gateway | v2/pages/04_gateways/using-gateways/choosing-a-gateway.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
 ### v2/pages/04_gateways/about-gateways/quickstart-home.mdx
@@ -3843,7 +3842,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 |---|---|---|---|---|---|---|---|
 | external-https | https://github.com/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
 | internal-relative | ./about-gateways/gateway-explainer | v2/pages/04_gateways/about-gateways/gateway-explainer.mdx | true | ok |  |  |  |
-| internal-relative | ./using-gateways/using-gateways | v2/pages/04_gateways/using-gateways/using-gateways | false | missing | v2/pages/04_gateways/using-gateways/choosing-a-gateway.mdx | v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx | v2/pages/04_gateways/using-gateways/gateway-providers/daydream-gateway.mdx |
+| internal-relative | ./using-gateways/choosing-a-gateway | v2/pages/04_gateways/using-gateways/choosing-a-gateway.mdx | true | ok |  |  |  |
 | internal-relative | ./run-a-gateway/run-a-gateway | v2/pages/04_gateways/run-a-gateway/run-a-gateway.mdx | true | ok |  |  |  |
 | internal-relative | ./gateway-tools/explorer | v2/pages/04_gateways/gateway-tools/explorer.mdx | true | ok |  |  |  |
 | internal-relative | ./guides-and-resources/community-guides | v2/pages/04_gateways/guides-and-resources/community-guides.mdx | true | ok |  |  |  |
@@ -4118,7 +4117,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 ### v2/pages/04_gateways/references/cli-commands.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-rooted | /wiki/livepeer/go-livepeer#4.4 | v2/pages/wiki/livepeer/go-livepeer | false | missing | v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx | v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx | v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx |
+| external-https | https://github.com/livepeer/wiki |  | null | 🟡 untested-external |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
 ### v2/pages/04_gateways/references/configuration-flags-old.mdx
@@ -4164,13 +4163,13 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /references/go-livepeer/gpu-support | v2/pages/references/go-livepeer/gpu-support | false | missing | v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx | v1/references/go-livepeer/gpu-support.mdx | v2/gateways/references/go-livepeer/gpu-support.mdx |
+| internal-relative | ./gpu-support | v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
 ### v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-rooted | /05_orchestrators/orchestrators-portal/guides/monitor-metrics | v2/pages/05_orchestrators/orchestrators-portal/guides/monitor-metrics | false | missing | v1/orchestrators/guides/monitor-metrics.mdx |  |  |
+| internal-rooted | /v2/pages/04_gateways/run-a-gateway/monitor/monitor-and-optimise | v2/pages/04_gateways/run-a-gateway/monitor/monitor-and-optimise.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
 ### v2/pages/04_gateways/references/livepeer-exchanges.mdx
@@ -4202,8 +4201,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | empty | #63-4 |  | null | skipped |  |  |  |
 | empty | #63-5 |  | null | skipped |  |  |  |
 | empty | #63-6 |  | null | skipped |  |  |  |
-| internal-rooted | /wiki/livepeer/go-livepeer#1 | v2/pages/wiki/livepeer/go-livepeer | false | missing | v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx | v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx | v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx |
-| internal-rooted | /wiki/livepeer/go-livepeer#4 | v2/pages/wiki/livepeer/go-livepeer | false | missing | v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx | v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx | v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx |
+| external-https | https://github.com/livepeer/wiki |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://github.com/livepeer/wiki |  | null | 🟡 untested-external |  |  |  |
 
 ### v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
@@ -4264,8 +4263,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | empty | #54-4 |  | null | skipped |  |  |  |
 | empty | #54-5 |  | null | skipped |  |  |  |
 | empty | #54-6 |  | null | skipped |  |  |  |
-| internal-rooted | /wiki/livepeer/go-livepeer#1.1 | v2/pages/wiki/livepeer/go-livepeer | false | missing | v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx | v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx | v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx |
-| internal-rooted | /wiki/livepeer/go-livepeer#2.6 | v2/pages/wiki/livepeer/go-livepeer | false | missing | v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx | v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx | v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx |
+| external-https | https://github.com/livepeer/wiki |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://github.com/livepeer/wiki |  | null | 🟡 untested-external |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
 ### v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration.mdx
@@ -4281,8 +4280,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://github.com/livepeer/go-livepeer/blob/5691cb48/cmd/livepeer/starter.go |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/go-livepeer/blob/5691cb48/core/orchestrator.go |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/go-livepeer/blob/5691cb48/core/orchestrator.go |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../about-gateways/gateway-economics | v2/pages/04_gateways/run-a-gateway/about-gateways/gateway-economics | false | missing | v2/pages/04_gateways/about-gateways/gateway-economics.mdx | v2/gateways/about-gateways/gateway-economics.mdx |  |
-| internal-relative | fund-gateway | v2/pages/04_gateways/run-a-gateway/configure/fund-gateway | false | missing | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx | v1/gateways/guides/fund-gateway.mdx | v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx |
+| internal-relative | ../../about-gateways/gateway-economics | v2/pages/04_gateways/about-gateways/gateway-economics.mdx | true | ok |  |  |  |
+| internal-relative | ../requirements/on-chain%20setup/fund-gateway | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/layout/table.jsx | snippets/components/layout/table.jsx | true | ok |  |  |  |
 
@@ -4310,7 +4309,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://github.com/livepeer/go-livepeer/blob/5691cb48/core/live_payment.go |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /v2/pages/04_gateways/run-a-gateway/connect/connect-with-offerings | v2/pages/04_gateways/run-a-gateway/connect/connect-with-offerings.mdx | true | ok |  |  |  |
 | external-https | https://github.com/livepeer/go-livepeer/blob/5691cb48/core/livepeernode.go |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /v2/pages/04_gateways/run-a-gateway/requirements/on-chain-setup/on-chain | v2/pages/04_gateways/run-a-gateway/requirements/on-chain-setup/on-chain | false | missing | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx | v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx |
+| internal-rooted | /v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/on-chain | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx | true | ok |  |  |  |
 | internal-relative | ./pricing-configuration | v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/links.jsx | snippets/components/primitives/links.jsx | true | ok |  |  |  |
@@ -4374,7 +4373,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://docs.docker.com/desktop/install/mac-install/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://docs.docker.com/desktop/install/windows-install/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://hub.docker.com/r/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /v2/pages/04_gateways/run-a-gateway/fund/fund-gateway | v2/pages/04_gateways/run-a-gateway/fund/fund-gateway | false | missing | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx | v1/gateways/guides/fund-gateway.mdx | v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx |
+| internal-rooted | /v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx | true | ok |  |  |  |
 | external-https | https://hub.docker.com/r/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://hub.docker.com/r/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /v2/pages/04_gateways/run-a-gateway/configure/configuration-overview | v2/pages/04_gateways/run-a-gateway/configure/configuration-overview.mdx | true | ok |  |  |  |
@@ -4387,11 +4386,11 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 |---|---|---|---|---|---|---|---|
 | internal-rooted | /v2/pages/04_gateways/run-a-gateway/requirements/setup | v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx | true | ok |  |  |  |
 | external-https | https://github.com/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /v2/pages/04_gateways/run-a-gateway/install/on-chain | v2/pages/04_gateways/run-a-gateway/install/on-chain | false | missing | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx | v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx |
+| internal-rooted | /v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/on-chain | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx | true | ok |  |  |  |
 | internal-relative | ./docker-install | v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx | true | ok |  |  |  |
 | internal-relative | ./linux-install | v2/pages/04_gateways/run-a-gateway/install/linux-install.mdx | true | ok |  |  |  |
 | internal-relative | ./windows-install | v2/pages/04_gateways/run-a-gateway/install/windows-install.mdx | true | ok |  |  |  |
-| internal-relative | ./experimental-installs | v2/pages/04_gateways/run-a-gateway/install/experimental-installs | false | missing |  |  |  |
+| internal-relative | ./community-projects | v2/pages/04_gateways/run-a-gateway/install/community-projects.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/links.jsx | snippets/components/primitives/links.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/links.jsx | snippets/components/primitives/links.jsx | true | ok |  |  |  |
@@ -4404,7 +4403,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://curl.haxx.se/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/go-livepeer/releases |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/go-livepeer/releases |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /gateways/run-a-gateway/configure/configuration-overview | v2/pages/gateways/run-a-gateway/configure/configuration-overview | false | missing | v2/pages/04_gateways/run-a-gateway/configure/configuration-overview.mdx | v2/gateways/run-a-gateway/configure/configuration-overview.mdx |  |
+| internal-rooted | /v2/pages/04_gateways/run-a-gateway/configure/configuration-overview | v2/pages/04_gateways/run-a-gateway/configure/configuration-overview.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/layout/steps.jsx | snippets/components/layout/steps.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/content/code.jsx | snippets/components/content/code.jsx | true | ok |  |  |  |
@@ -4417,7 +4416,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://docs.livepeer.org/gateways/guides/windows-install |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/go-livepeer/releases |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://nssm.cc/ |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /gateways/run-a-gateway/configure/configuration-overview | v2/pages/gateways/run-a-gateway/configure/configuration-overview | false | missing | v2/pages/04_gateways/run-a-gateway/configure/configuration-overview.mdx | v2/gateways/run-a-gateway/configure/configuration-overview.mdx |  |
+| internal-rooted | /v2/pages/04_gateways/run-a-gateway/configure/configuration-overview | v2/pages/04_gateways/run-a-gateway/configure/configuration-overview.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/04_gateways/run-a-gateway/configure/configuration-overview | v2/pages/04_gateways/run-a-gateway/configure/configuration-overview.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/layout/steps.jsx | snippets/components/layout/steps.jsx | true | ok |  |  |  |
@@ -4461,11 +4460,11 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://github.com/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
 | internal-relative | ../install/docker-install | v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx | true | ok |  |  |  |
-| internal-relative | ../../references/configuration-flags.mdx | v2/pages/04_gateways/references/configuration-flags.mdx | true | route-missing |  |  |  |
+| internal-relative | ../../references/configuration-flags | v2/pages/04_gateways/references/configuration-flags.mdx | true | ok |  |  |  |
 | internal-relative | ../install/windows-install | v2/pages/04_gateways/run-a-gateway/install/windows-install.mdx | true | ok |  |  |  |
-| internal-relative | ../../references/configuration-flags.mdx | v2/pages/04_gateways/references/configuration-flags.mdx | true | route-missing |  |  |  |
+| internal-relative | ../../references/configuration-flags | v2/pages/04_gateways/references/configuration-flags.mdx | true | ok |  |  |  |
 | internal-relative | ../install/windows-install | v2/pages/04_gateways/run-a-gateway/install/windows-install.mdx | true | ok |  |  |  |
-| internal-relative | ../../references/configuration-flags.mdx | v2/pages/04_gateways/references/configuration-flags.mdx | true | route-missing |  |  |  |
+| internal-relative | ../../references/configuration-flags | v2/pages/04_gateways/references/configuration-flags.mdx | true | ok |  |  |  |
 | internal-relative | ../requirements/setup | v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx | true | ok |  |  |  |
 | internal-relative | ../requirements/on-chain%20setup/on-chain | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx | true | ok |  |  |  |
 | internal-relative | ../run-a-gateway | v2/pages/04_gateways/run-a-gateway/run-a-gateway.mdx | true | ok |  |  |  |
@@ -4540,7 +4539,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | empty | #eth-password |  | null | skipped |  |  |  |
 | empty | #eth-keystore |  | null | skipped |  |  |  |
 | internal-rooted | /v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway | v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/04_gateways/run-a-gateway/install/install-overview | v2/pages/04_gateways/run-a-gateway/install/install-overview.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/04_gateways/references/arbitrum-rpc | v2/pages/04_gateways/references/arbitrum-rpc.mdx | true | ok |  |  |  |
 | external-https | https://docs.arbitrum.io/build-decentralized-apps/public-chains#arbitrum-one |  | null | 🟡 untested-external |  |  |  |
@@ -4562,7 +4561,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://github.com/ethereum/go-ethereum/tree/master/cmd/ethkey |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://www.myetherwallet.com/ |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /v2/pages/04_gateways/run-a-gateway/install/install-overview | v2/pages/04_gateways/run-a-gateway/install/install-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway/ | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway | false | missing | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx | v1/gateways/guides/fund-gateway.mdx | v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx |
+| internal-rooted | /v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx | true | ok |  |  |  |
 | external-https | https://chainlist.org/chain/42161 |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /v2/pages/04_gateways/references/arbitrum-rpc | v2/pages/04_gateways/references/arbitrum-rpc.mdx | true | ok |  |  |  |
 | external-https | https://docs.arbitrum.io/build-decentralized-apps/reference/node-providers#third-party-rpc-providers |  | null | 🟡 untested-external |  |  |  |
@@ -4572,8 +4571,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://support.metamask.io/configure/accounts/how-to-view-your-account-details-and-public-address |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://support.ledger.com/article/8978919811485-zd |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://support.trezor.io/en/articles/360018565096-trezor-faq |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /v2/pages/04_gateways/run-a-gateway/requirements/funding-your-gateway | v2/pages/04_gateways/run-a-gateway/requirements/funding-your-gateway | false | missing |  |  |  |
-| internal-rooted | /v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/layout/steps.jsx | snippets/components/layout/steps.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/links.jsx | snippets/components/primitives/links.jsx | true | ok |  |  |  |
@@ -4594,7 +4593,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://github.com/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /v2/pages/04_gateways/run-a-gateway/install/install-overview | v2/pages/04_gateways/run-a-gateway/install/install-overview.mdx | true | ok |  |  |  |
 | external-https | https://docs.livepeer.org/v2/pages/05_orchestrators/setting-up-an-orchestrator |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /v2/pages/04_gateways/run-a-gateway/setup/on-chain | v2/pages/04_gateways/run-a-gateway/setup/on-chain | false | missing | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx | v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx |
+| internal-rooted | /v2/pages/04_gateways/run-a-gateway/requirements/on-chain%20setup/on-chain | v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/links.jsx | snippets/components/primitives/links.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/layout/steps.jsx | snippets/components/layout/steps.jsx | true | ok |  |  |  |
@@ -4657,7 +4656,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-relative | ./gateway-providers/daydream-gateway | v2/pages/04_gateways/using-gateways/gateway-providers/daydream-gateway.mdx | true | ok |  |  |  |
 | internal-relative | ./gateway-providers/livepeer-studio-gateway | v2/pages/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx | true | ok |  |  |  |
 | internal-relative | ./gateway-providers/cloud-spe-gateway | v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx | true | ok |  |  |  |
-| internal-relative | ./gateway-providers/experimental-installs | v2/pages/04_gateways/using-gateways/gateway-providers/experimental-installs | false | missing |  |  |  |
+| internal-relative | ../guides-and-resources/community-projects | v2/pages/04_gateways/guides-and-resources/community-projects.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/links.jsx | snippets/components/primitives/links.jsx | true | ok |  |  |  |
 
