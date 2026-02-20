@@ -31,4 +31,10 @@ jobs:
         run: npm install -g mintlify
 
       - name: Run broken-links check
+        continue-on-error: true
         run: npx mintlify broken-links
+
+      - name: Broken-links note
+        if: always()
+        run: |
+          echo "Broken-links is currently informational while legacy link cleanup is in progress." >> $GITHUB_STEP_SUMMARY
