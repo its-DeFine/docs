@@ -13,7 +13,7 @@ on:
 jobs:
   test-suite:
     runs-on: ubuntu-latest
-    
+
     permissions:
       contents: read
       pull-requests: write
@@ -26,52 +26,52 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: 'npm'
-              cache-dependency-path: tools/package-lock.json
+          cache: "npm"
+          cache-dependency-path: tools/package-lock.json
 
       - name: Install dependencies (tools)
         working-directory: tools
         run: npm ci
 
-          - name: Run Style Guide Tests
-            continue-on-error: true
-            working-directory: tools
-            run: npm run test:style
+      - name: Run Style Guide Tests
         id: style-test
+        continue-on-error: true
+        working-directory: tools
+        run: npm run test:style
 
-          - name: Run MDX Validation Tests
-            continue-on-error: true
-            working-directory: tools
-            run: npm run test:mdx
+      - name: Run MDX Validation Tests
         id: mdx-test
+        continue-on-error: true
+        working-directory: tools
+        run: npm run test:mdx
 
-          - name: Run Spelling Tests
-            continue-on-error: true
-            working-directory: tools
-            run: npm run test:spell
+      - name: Run Spelling Tests
         id: spell-test
+        continue-on-error: true
+        working-directory: tools
+        run: npm run test:spell
 
-          - name: Run Quality Tests
-            continue-on-error: true
-            working-directory: tools
-            run: npm run test:quality
+      - name: Run Quality Tests
         id: quality-test
+        continue-on-error: true
+        working-directory: tools
+        run: npm run test:quality
 
-          - name: Run Links & Imports Tests
-            continue-on-error: true
-            working-directory: tools
-            run: npm run test:links
+      - name: Run Links & Imports Tests
         id: links-test
+        continue-on-error: true
+        working-directory: tools
+        run: npm run test:links
 
       - name: Install Mintlify globally
         run: npm install -g mintlify
 
       - name: Start Mintlify dev server
+        continue-on-error: false
         run: |
           mint dev > /tmp/mint-dev.log 2>&1 &
           echo $! > /tmp/mint-dev.pid
           echo "Mint dev server starting (PID: $(cat /tmp/mint-dev.pid))"
-        continue-on-error: false
 
       - name: Wait for server to be ready
         run: |
@@ -88,16 +88,16 @@ jobs:
           tail -50 /tmp/mint-dev.log || true
           exit 1
 
-          - name: Run Browser Tests (All Pages)
-            continue-on-error: true
-            working-directory: tools
-            run: |
-              # Force test ALL pages from docs.json (ensures complete coverage)
-              echo "Testing ALL pages from docs.json navigation..."
-              npm run test:browser
+      - name: Run Browser Tests (All Pages)
         id: browser-test
+        continue-on-error: true
+        working-directory: tools
         env:
           MINT_BASE_URL: http://localhost:3000
+        run: |
+          # Force test ALL pages from docs.json (ensures complete coverage)
+          echo "Testing ALL pages from docs.json navigation..."
+          npm run test:browser
 
       - name: Stop Mintlify dev server
         if: always()

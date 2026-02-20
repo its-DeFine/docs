@@ -64,8 +64,15 @@ function formatDate(iso) {
 async function main() {
   console.log("Fetching Ghost blog posts...");
 
+  const apiKey = process.env.GHOST_CONTENT_API_KEY;
+  if (!apiKey) {
+    throw new Error(
+      "GHOST_CONTENT_API_KEY environment variable is not set. Please configure your Ghost Content API key."
+    );
+  }
+
   const apiUrl =
-    "https://livepeer-studio.ghost.io/ghost/api/content/posts/?key=eaf54ba5c9d4ab35ce268663b0&limit=4&include=tags,authors";
+    `https://livepeer-studio.ghost.io/ghost/api/content/posts/?key=${apiKey}&limit=4&include=tags,authors`;
 
   const response = await fetchJSON(apiUrl);
 
@@ -114,8 +121,8 @@ async function main() {
   jsExport += "];\n";
 
   // Write to file
-  const outputPath = "snippets/automations/ghost/ghostBlogData.jsx";
-  fs.mkdirSync("snippets/automations/ghost", { recursive: true });
+  const outputPath = "snippets/automations/blog/ghostBlogData.jsx";
+  fs.mkdirSync("snippets/automations/blog", { recursive: true });
   fs.writeFileSync(outputPath, jsExport);
   console.log(`Written to ${outputPath}`);
 }

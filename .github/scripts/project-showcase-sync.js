@@ -313,10 +313,18 @@ async function notifySubmitter(discordId, message) {
   await discordSendMessage(dm, message);
 }
 
+function encodeGitHubContentPath(path) {
+  return String(path)
+    .split('/')
+    .map((segment) => encodeURIComponent(segment))
+    .join('/');
+}
+
 async function githubGetFile(path, branch) {
-  const url = `https://api.github.com/repos/${cfg.githubOwner}/${cfg.githubRepo}/contents/${encodeURIComponent(
-    path
-  )}?ref=${encodeURIComponent(branch)}`;
+  const encodedPath = encodeGitHubContentPath(path);
+  const url = `https://api.github.com/repos/${cfg.githubOwner}/${cfg.githubRepo}/contents/${encodedPath}?ref=${encodeURIComponent(
+    branch
+  )}`;
   const res = await fetch(url, {
     headers: {
       Authorization: `Bearer ${cfg.githubToken}`,
@@ -332,9 +340,8 @@ async function githubGetFile(path, branch) {
 }
 
 async function githubPutFile(path, branch, contentBase64, message, sha) {
-  const url = `https://api.github.com/repos/${cfg.githubOwner}/${cfg.githubRepo}/contents/${encodeURIComponent(
-    path
-  )}`;
+  const encodedPath = encodeGitHubContentPath(path);
+  const url = `https://api.github.com/repos/${cfg.githubOwner}/${cfg.githubRepo}/contents/${encodedPath}`;
   const body = { message, content: contentBase64, branch };
   if (sha) body.sha = sha;
 

@@ -170,6 +170,12 @@ See [Component Library](v2/pages/07_resources/documentation-guide/component-libr
 - **Tooling / CI Issue** - Scripts, hooks, local tooling, and workflow failures
 - **Question / Clarification** - Tracked clarifications requiring maintainer response
 
+**Discord intake (Phase 1):**
+
+- You can also open page-issue intake from Discord with `/docs-issue` in approved channels.
+- Current Discord intake scope is limited to **Docs Page Issue (Actionable)** (`02_docs_page_issue`).
+- The Discord flow uses preview + confirm, then dispatches to GitHub where issue creation and labeling complete.
+
 **Security reports:**
 
 - Do **not** report vulnerabilities in public issues
@@ -224,6 +230,7 @@ See [Component Library](v2/pages/07_resources/documentation-guide/component-libr
 ### Issue Workflow
 
 1. **Create Issue** - Use appropriate template (automatically applies `docs-v2` and `help wanted` labels)
+   Discord alternative: use `/docs-issue` in approved channels for phase-1 page-issue intake.
 2. **Triage** - Maintainers review and add additional labels
 3. **Assignment** - Issue assigned to section owner or contributor
 4. **Work** - Contributor works on the issue
@@ -493,6 +500,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 │   │   ├── test-v2-pages.yml        # V2 pages testing workflow
 │   │   ├── broken-links.yml         # Link validation workflow
 │   │   ├── update-*.yml             # Auto-update workflows (blog, forum, YouTube, etc.)
+│   │   ├── discord-issue-intake.yml # Create issues from Discord dispatch payloads
 │   │   ├── issue-auto-label.yml     # Auto-apply labels from issue form fields
 │   │   ├── sdk_generation.yaml      # SDK documentation generation
 │   │   ├── auto-assign-docs-reviewers.yml  # Auto-assign reviewers
@@ -903,25 +911,24 @@ This repository uses automated workflows to keep content up-to-date:
 - **Updates:** `snippets/automations/globals/globals.mdx`
 - **Manual trigger:** Available via `workflow_dispatch`
 
-**2. Blog Data** (`.github/workflows/update-blog-data.yml`)
-
-- **Purpose:** Updates blog content from external sources
-- **Updates:** Blog-related data files
-
-**3. Forum Data** (`.github/workflows/update-forum-data.yml`)
+**2. Forum Data** (`.github/workflows/update-forum-data.yml`)
 
 - **Purpose:** Updates forum content
-- **Updates:** Forum-related data files
+- **Updates:** `snippets/automations/forum/forumData.jsx`
+- **Manual trigger:** Available via `workflow_dispatch`
 
-**4. YouTube Data** (`.github/workflows/update-youtube-data.yml`)
+**3. YouTube Data** (`.github/workflows/update-youtube-data.yml`)
 
 - **Purpose:** Updates YouTube video content
-- **Updates:** YouTube-related data files
+- **Updates:** `snippets/automations/youtube/youtubeData.jsx`
+- **Manual trigger:** Available via `workflow_dispatch`
 
-**5. Ghost Blog Data** (`.github/workflows/update-ghost-blog-data.yml`)
+**4. Ghost Blog Data** (`.github/workflows/update-ghost-blog-data.yml`)
 
 - **Purpose:** Updates Ghost blog content
-- **Updates:** Ghost blog-related data files
+- **Updates:** `snippets/automations/blog/ghostBlogData.jsx`
+- **Required secret:** `GHOST_CONTENT_API_KEY`
+- **Manual trigger:** Available via `workflow_dispatch`
 
 ### Workflow Management
 
@@ -965,12 +972,13 @@ This repository uses several GitHub Actions workflows:
 - **Update Livepeer Release** (`.github/workflows/update-livepeer-release.yml`)
   - Runs every 30 minutes
   - Updates latest Livepeer version from GitHub releases
-- **Update Blog Data** (`.github/workflows/update-blog-data.yml`)
-  - Updates blog content from external sources
 - **Update Forum Data** (`.github/workflows/update-forum-data.yml`)
-  - Updates forum content
+  - Updates `snippets/automations/forum/forumData.jsx`
+- **Update Ghost Blog Data** (`.github/workflows/update-ghost-blog-data.yml`)
+  - Updates `snippets/automations/blog/ghostBlogData.jsx`
+  - Requires `GHOST_CONTENT_API_KEY`
 - **Update YouTube Data** (`.github/workflows/update-youtube-data.yml`)
-  - Updates YouTube video content
+  - Updates `snippets/automations/youtube/youtubeData.jsx`
 
 **4. SDK Generation** (`.github/workflows/sdk_generation.yaml`)
 

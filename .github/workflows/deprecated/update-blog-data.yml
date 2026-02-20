@@ -1,3 +1,7 @@
+# DEPRECATED: Retained for historical reference only.
+# This workflow is intentionally inactive because it has been replaced by:
+# - .github/workflows/update-ghost-blog-data.yml
+# - .github/workflows/update-forum-data.yml
 name: Update Blog and Forum Data
 
 on:
@@ -20,7 +24,7 @@ jobs:
 
       - name: Fetch Ghost blog data
         run: |
-          curl -f -o ghost-data.json "https://livepeer.org/ghost/api/content/posts/?key=YOUR_CONTENT_API_KEY&limit=all&include=tags,authors" || echo "[]" > ghost-data.json
+          curl -f -o ghost-data.json "https://livepeer.org/ghost/api/content/posts/?key=${{ secrets.GHOST_CONTENT_API_KEY }}&limit=all&include=tags,authors" || echo "[]" > ghost-data.json
         continue-on-error: true
 
       - name: Fetch Forum data
