@@ -1,99 +1,223 @@
 ---
 title: 'Livepeer Governance Model'
 sidebarTitle: 'Governance Model'
-keywords: ["livepeer", "delegators", "livepeer governance", "governance", "model"]
+description: 'Formal model of stake-weighted governance, quorum mechanics, voting thresholds, timelock execution, and attack surface analysis.'
+keywords: ["livepeer", "lpt", "governance", "model", "quorum", "voting", "timelock", "security"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-import { ComingSoonCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+## Executive Summary
 
-<ComingSoonCallout />
+Livepeer governance is a capital-weighted, proposal-based system enforced entirely by smart contracts. Authority is proportional to bonded stake, and execution is deterministic once quorum and threshold conditions are met.
 
-How do the system’s rules and parameters change, who decides, and what are the systemic risks?
+This page formalizes the governance decision process, including quorum mechanics, voting thresholds, timelock semantics, and attack surface considerations.
 
-Livepeer is a community-governed protocol. LPT token holders propose and vote on [Livepeer Improvement Proposals](https://github.com/livepeer/LIPs) (LIPs) and funding proposals via the on-chain treasury. 
-{/* For example, when the Livepeer Foundation or an SPE needs funding, a proposal is put forth and token holders must vote to approve it on-chain.  */}
-The process ensures that major decisions (protocol upgrades, treasury spending) have community consensus. 
+---
 
-{/* A [forum post](https://forum.livepeer.org/t/3153) emphasizes that even with new advisory boards recommending projects, **_“Token Holders still have to vote on each SPE… onchain.”_**
+## 1. Governance Primitives
 
-This guarantees that ultimate power resides with the wider community of stakeholders.
- */}
+Let:
 
-## Governance objects and “what can change”
-Official contract address documentation lists governance-related contracts on Arbitrum mainnet (Delta): Governor, LivepeerGovernor (proxy/target), BondingVotes, and Treasury. 
- This establishes that governance is not merely social; it is enacted through deployed contracts with published addresses.
+- \(B_i\) = bonded stake attributed to participant \(i\)
+- \(B_T\) = total bonded stake
+- \(V_i\) = voting power of participant \(i\)
 
-Separately, the “community treasury” framing is explicitly described in a Livepeer blog post as introducing an on-chain treasury funded by protocol inflation (without changing token economics), governed by token holders, and including on-chain controls related to a “security committee”. 
+Voting power:
 
-### Treasury flows and parameterisation
+\[
+V_i = \frac{B_i}{B_T}
+\]
+
+All governance weight is derived from bonded stake.
+
+---
+
+## 2. Proposal Lifecycle
+
+A governance proposal typically follows these deterministic phases:
+
+1. **Creation** — proposal submitted with encoded actions
+2. **Voting Delay** — period before voting opens
+3. **Voting Period** — bonded participants cast votes
+4. **Quorum Check** — minimum participation requirement
+5. **Threshold Check** — majority condition
+6. **Queue (Timelock)** — execution delay
+7. **Execution** — state transition if conditions met
+
+These transitions are enforced by governance contracts.
+
+---
+
+## 3. Quorum Requirement
+
+Let:
+
+- \(Q\) = quorum fraction
+- \(V_{cast}\) = total voting power cast
+
+Quorum condition:
+
+\[
+V_{cast} \ge Q \cdot B_T
+\]
+
+At least 33% of all staked LPT must participate in the vote for it to be valid. This requirement ensures that a small cabal cannot push through radical changes without broad community involvement.
+
+---
+
+## 4. Majority / Threshold Condition
+
+Let:
+
+- \(V_{for}\) = stake-weighted votes in favor
+- \(V_{against}\) = stake-weighted votes against
+
+Majority condition (simple majority):
+
+\[
+V_{for} > V_{against}
+\]
+
+More than 50% of participating votes must favour the proposal. Simple majority approval balances inclusivity with decisiveness: proposals that split the community evenly cannot pass.
+
+---
+
+## 5. Timelock Semantics
+
+Approved proposals enter a timelock period before execution.
+
+Timelock properties:
+
+- Introduces delay between approval and execution
+- Provides opportunity for stakeholder reaction
+- Reduces sudden-parameter-change risk
+
+Timelock delay \(T_{delay}\) is defined at the protocol level.
+
+---
+
+## 6. Execution Model
+
+If quorum and threshold conditions are satisfied and timelock has elapsed:
+
+- Encoded actions are executed
+- Contract state transitions deterministically
+
+Execution may include:
+
+- Parameter modification
+- Proxy implementation updates
+- Treasury transfers
+
+Execution is atomic per proposal.
+
+---
+
+## 7. Governance Objects and Contract Architecture
+
+Official contract address documentation lists governance-related contracts on Arbitrum mainnet:
+
+- **Governor** — proposal and voting logic
+- **LivepeerGovernor (proxy/target)** — upgradeable governor implementation
+- **BondingVotes** — stake-weighted voting power tracking
+- **Treasury** — governance-controlled funds
+
+This establishes that governance is not merely social; it is enacted through deployed contracts with published addresses.
+
+---
+
+## 8. Treasury Parameters
+
 Treasury governance discussions identify two parameters as especially important:
 
-- `treasuryRewardCutRate`: a percentage cut of inflationary rewards routed into the treasury each round (draft discussion converged on lowering an initial 12.5% proposal to 10%). 
-- `treasuryBalanceCeiling`: once the treasury balance exceeds a ceiling (discussed as 750,000 LPT), the cut can be set to zero, halting further automatic contributions until governance re-enables. 
-A 2025 proposal (“LIP 101”) explicitly states that the treasury stopped accumulating due to hitting the ceiling and resetting the reward cut to 0%, and proposes reactivating the cut (10%). It also states that “the security committee, as owners of the protocol” invokes the function to set the value per vote outcome—an important current centralisation/trust consideration. 
+| Parameter | Description |
+|-----------|-------------|
+| `treasuryRewardCutRate` | Percentage cut of inflationary rewards routed into the treasury each round (currently ~10%) |
+| `treasuryBalanceCeiling` | Once the treasury balance exceeds a ceiling (750,000 LPT), the cut can be set to zero |
 
-### Governance process and decision flow
-The following diagram is tailored to the sources available here (forum-driven proposals, votes, parameter execution by a committee/owners in at least some contexts, and treasury funding allocations).
+---
 
-Key actors
+## 9. Security and Game-Theoretic Considerations
 
-Idea / Need (protocol or treasury)
+### 9.1 Capital Requirement for Control
 
-Community discussion (forum threads)
+Let \(\theta\) represent the minimum fraction required to control outcomes.
 
-Draft proposal (LIP / SPE proposal)
+Minimum capital required:
 
-On-chain / explorer voting process
+\[
+Capital_{control} \ge \theta B_T
+\]
 
-Execution (contract call / parameter update)
+Higher bonded stake increases governance capture cost.
 
-Protocol effects (rewards, treasury funding, registries, etc.)
+### 9.2 Stake Concentration Risk
 
-LPT holders / Delegators (voters)
+If a small number of addresses control a large fraction of \(B_T\), governance capture risk increases. Security is inversely proportional to concentration.
 
-Orchestrators / Operators (implementers)
+### 9.3 Voter Apathy Risk
 
-Security committee / protocol owners (executor in some flows)
+If quorum fraction \(Q\) is high relative to typical participation:
+- Proposals may fail due to insufficient turnout
 
-Treasury contract (funds)
+If \(Q\) is low:
+- Small coordinated groups may pass proposals
 
+Quorum calibration is therefore a security parameter.
+
+### 9.4 Executor Centralisation
+
+The security committee/protocol owners invoke functions to set values per vote outcome. This introduces a trust dependency: even if voting is decentralised, execution may remain centralised in some paths.
+
+---
+
+## 10. Risks to Governance Capture
+
+The system highlights several structurally important risks:
+
+1. **Low participation and voting power concentration** — reduces defence against hostile governance actions
+2. **Executor centralisation** — security committee dependency introduces trust requirements
+3. **Slashing disabled** — reduces the system's ability to impose automatic economic penalties for misbehaviour, increasing reliance on reputation and social remedies
+
+---
+
+## 11. Governance State Machine
 
 ```mermaid
-    flowchart TB
-    Idea["Idea / Need (protocol or treasury)"] --> Forum["Community discussion (forum threads)"]
-    Forum --> Draft["Draft proposal (LIP / SPE proposal)"]
-    Draft --> Vote["On-chain / explorer voting process"]
-    Vote --> Exec["Execution (contract call / parameter update)"]
-    Exec --> Effects["Protocol effects (rewards, treasury funding, registries, etc.)"]
-
-    subgraph Actors["Key actors"]
-        Holders["LPT holders / Delegators (voters)"]
-        Ops["Orchestrators / Operators (implementers)"]
-        SC["Security committee / protocol owners (executor in some flows)"]
-        Treas["Treasury contract (funds)"]
-    end
-
-    Holders --> Vote
-    Ops --> Forum
-    Vote --> SC
-    SC --> Exec
-    Exec --> Treas
+stateDiagram-v2
+    [*] --> Created
+    Created --> VotingDelay
+    VotingDelay --> VotingPeriod
+    VotingPeriod --> QuorumCheck
+    QuorumCheck --> Failed : quorum not met
+    QuorumCheck --> ThresholdCheck : quorum met
+    ThresholdCheck --> Failed : threshold not met
+    ThresholdCheck --> Timelock : threshold met
+    Timelock --> Executed
 ```
 
-### Risks to governance capture
-The sources highlight several structurally important risks:
+---
 
-- Low participation and voting power concentration can reduce defence against hostile governance actions; this is explicitly discussed in community reflections on staking participation. 
-- Executor centralisation (security committee / protocol owners) introduces a trust dependency: even if voting is decentralised, execution may remain centralised in some paths (as described in LIP 101’s implementation section). 
-- Slashing as governance/security backstop is currently not implemented/off, reducing the system’s ability to impose automatic economic penalties for certain classes of misbehaviour; this increases reliance on reputation, monitoring, and social/governance remedies. 
+## 12. Protocol vs Network Separation
 
+**Protocol (On-Chain):**
+- Proposal submission
+- Vote casting
+- Quorum and threshold enforcement
+- Timelock execution
+- Parameter modification
 
-### Treasury allocation examples
-The primary sources describe the treasury as intended for “strategic ecosystem projects”, “public goods”, and incentivising demand-side contributors (builders) rather than only node operators. 
- Translating that intent into concrete, explainable categories (without asserting specific real-world allocations unless explicitly documented) yields a canonical set of example buckets:
+**Network (Off-Chain):**
+- Node operation
+- Performance
+- Job execution
 
-- Protocol safety and maintenance: security reviews, audits, incident response tooling (supported by the explicit emphasis on protocol security and governance processes). 
-- Demand generation public goods: developer UX improvements, documentation, “shots on goal” for adoption (explicitly described as a motivation for sustainable funding). 
-- Ecosystem infrastructure: shared gateway infrastructure (community gateways, onboarding paths) as discussed in ecosystem proposals and gateway funding concepts. 
-Where allocations depend on additional governance frameworks (e.g., SPE-specific procedures), treat those mechanics as implementation-specific unless your architecture documentation is explicitly targeting that governance subsystem.
+Governance modifies the rules; network actors operate within those rules.
+
+---
+
+## References
+
+- [Livepeer Protocol Repository](https://github.com/livepeer/protocol)
+- [Contract Registry](https://docs.livepeer.org/references/contract-addresses)
+- [Livepeer Improvement Proposals (LIPs)](https://github.com/livepeer/LIPs)
