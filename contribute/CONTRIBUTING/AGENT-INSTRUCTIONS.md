@@ -126,10 +126,10 @@ If you encounter a false positive:
 2. Ask for guidance
 3. Do NOT bypass the hook
 
-If a human explicitly needs to edit `.whitelist`, they must commit with:
+If a human explicitly needs to edit `.allowlist`, they must commit with:
 
 ```bash
-git commit -m "Update .whitelist" --trailer "allow-whitelist-edit=true"
+git commit -m "Update .allowlist" --trailer "allow-allowlist-edit=true"
 ```
 
 If a human explicitly needs to allow file deletions, they must commit with:

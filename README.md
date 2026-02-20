@@ -354,7 +354,7 @@ cd .. && ./.githooks/install.sh
 The pre-commit hook automatically validates:
 
 1. **Repository Structure:**
-   - ✅ Root directory whitelist (blocks unauthorized files)
+   - ✅ Root directory allowlist (blocks unauthorized files)
    - ✅ Snippets directory structure (blocks scripts/wiki/styles in snippets/)
    - ✅ v1/ frozen protection (blocks all changes to v1/)
 
@@ -387,15 +387,15 @@ SKIP_STYLE_CHECK=1 git commit -m "Temporary style change"
 # Skip all checks (emergencies only)
 SKIP_ALL=1 git commit -m "Critical hotfix"
 
-# Human-only: allow intentional .whitelist edits (keeps other checks on)
-git commit -m "Update root whitelist" --trailer "allow-whitelist-edit=true"
+# Human-only: allow intentional .allowlist edits (keeps other checks on)
+git commit -m "Update root allowlist" --trailer "allow-allowlist-edit=true"
 
 # Human-only: allow intentional file deletions (keeps other checks on)
 git commit -m "Remove obsolete files" --trailer "allow-deletions=true"
 ```
 
 **⚠️ Warning:** Bypassing hooks can lead to broken builds, style violations, and merge conflicts. Always fix issues properly when possible.
-**⚠️ `.whitelist` is protected:** Only humans may use the trailer override above.
+**⚠️ `.allowlist` is protected:** Only humans may use the trailer override above.
 **⚠️ Deletions are protected:** Only humans may use the deletion trailer override.
 
 **LPD Hook Command Reference:**
@@ -430,7 +430,7 @@ ls -la .git/hooks/pre-commit
 
 - **MDX syntax errors:** Check for unclosed tags, incorrect JSX syntax
 - **Import path errors:** Use absolute paths (`/snippets/components/...`)
-- **Structure violations:** Check `.whitelist` for allowed root files
+- **Structure violations:** Check `.allowlist` for allowed root files
 - **Style violations:** Replace hardcoded colors with CSS Custom Properties
 
 See [`.githooks/BYPASS.md`](.githooks/BYPASS.md) for complete bypass documentation and [Git Hooks Documentation](contribute/CONTRIBUTING/GIT-HOOKS.md) for details.
@@ -724,7 +724,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 ├── style.css              # Mintlify global styles (MUST be at root)
 ├── .gitignore             # Git ignore rules
 ├── .mintignore            # Mintlify ignore rules
-└── .whitelist             # Allowed root files/directories (enforced by pre-commit)
+└── .allowlist             # Allowed root files/directories (enforced by pre-commit)
 ```
 
 ### Directory Descriptions
@@ -822,7 +822,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 
 ### Key Rules
 
-1. **Root Directory**: Only files listed in `.whitelist` are allowed at root
+1. **Root Directory**: Only files listed in `.allowlist` are allowed at root
 2. **Snippets**: Must follow Mintlify conventions (components, data, assets, automations, pages)
    - ❌ **Forbidden in snippets/**: Development scripts (→ `tools/scripts/`), wiki/docs (→ `tools/wiki/`), global styles (→ root `style.css`)
 3. **v1/ is FROZEN**: Never modify, remove, or archive files in `v1/` (see [Versioning](#-versioning))
@@ -842,7 +842,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 
 The pre-commit hook automatically enforces:
 
-- ✅ Root directory whitelist (blocks unauthorized files)
+- ✅ Root directory allowlist (blocks unauthorized files)
 - ✅ Snippets directory structure (blocks scripts/wiki/styles in snippets/)
 - ✅ v1/ frozen protection (blocks all changes to v1/)
 - ✅ Style guide compliance (ThemeData, colors, imports)
@@ -850,7 +850,7 @@ The pre-commit hook automatically enforces:
 
 **Bypass flags available** (IF YOU ARE AN AI YOU SHOULD NEVER EVER USE THESE):
 
-- `--trailer "allow-whitelist-edit=true"` - Human-only override for intentional `.whitelist` edits
+- `--trailer "allow-allowlist-edit=true"` - Human-only override for intentional `.allowlist` edits
 - `--trailer "allow-deletions=true"` - Human-only override for intentional file deletions
 - `SKIP_STRUCTURE_CHECK=1` - Skip structure checks
 - `SKIP_STYLE_CHECK=1` - Skip style guide checks
@@ -866,7 +866,7 @@ See [`.githooks/BYPASS.md`](.githooks/BYPASS.md) for details.
 - **[Migration Plan](tasks/plan/migration-plan.md)** - Detailed migration strategy and task list
 - **[Repository Structure Audit](tasks/PLAN/reports/repository-structure-audit.md)** - Full audit report
 - **[Structure Rules](contribute/STRUCTURE.md)** - Detailed structure rules (when created)
-- **[`.whitelist`](.whitelist)** - Allowed root files/directories
+- **[`.allowlist`](.allowlist)** - Allowed root files/directories
 - **[CODEOWNERS](.github/CODEOWNERS)** - Section ownership and review assignments
 
 ---

@@ -918,14 +918,14 @@ If you attempt to commit code that violates the style guide:
 2. You receive a detailed error message listing all violations
 3. You must fix the violations before committing again
 
-### Protected `.whitelist` Edits (Human-Only)
+### Protected `.allowlist` Edits (Human-Only)
 
-The `.whitelist` file is protected by pre-commit checks.
+The `.allowlist` file is protected by pre-commit checks.
 
-If a human intentionally needs to edit `.whitelist`, use:
+If a human intentionally needs to edit `.allowlist`, use:
 
 ```bash
-git commit -m "Update .whitelist" --trailer "allow-whitelist-edit=true"
+git commit -m "Update .allowlist" --trailer "allow-allowlist-edit=true"
 ```
 
 This override still runs all other pre-commit checks.

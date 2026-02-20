@@ -39,7 +39,7 @@ Fast-forward merge completed
 ```
 
 **Files Changed (193 files):**
-- Modified: `.githooks/pre-commit`, `.whitelist`, `README.md`, various config files
+- Modified: `.githooks/pre-commit`, `.allowlist`, `README.md`, various config files
 - Added: New migration task files, reports, API specs, contribution docs
 - Deleted: Old `tasks/PLAN/` structure (moved to `tasks/plan/`)
 - Renamed: Multiple files from `tasks/PLAN/` to `tasks/plan/`
@@ -213,7 +213,7 @@ Files deleted in fork but modified in upstream:
    - **Upstream:** In root `.cursorrules`
    - **Resolution:** Keep in root (Cursor IDE convention) - move fork's file
 
-5. **`.whitelist`**
+5. **`.allowlist`**
    - **Fork:** Exists with updated structure
    - **Upstream:** Does not exist
    - **Resolution:** Keep fork's version
@@ -1458,7 +1458,7 @@ Monitor for 1-2 weeks after merge:
 **Completed Operations:**
 - ✅ Local branch `docs-v2-preview` now includes all changes from `docs-v2-test`
 - ✅ Fork `origin/docs-v2-preview` is synced with local branch
-- ✅ Both branches at commit `9eefa87` ("whitelist")
+- ✅ Both branches at commit `9eefa87` ("allowlist")
 
 **Remaining Work:**
 - ⚠️ **Upstream Migration:** Fork is 160 commits ahead of upstream

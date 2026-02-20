@@ -271,7 +271,7 @@ After each task, verify:
 ## Next Steps
 
 After completing Phase 1 & 2:
-1. Create `.whitelist` file (Phase 3)
+1. Create `.allowlist` file (Phase 3)
 2. Update pre-commit hook (Phase 3)
 3. Create structure documentation (Phase 4)
 

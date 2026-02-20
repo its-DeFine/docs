@@ -39,8 +39,8 @@
 #   SKIP_ALL=1             - Skip all checks (use with extreme caution)
 #
 # Human-only override flags:
-#   --trailer "allow-whitelist-edit=true" - Allow editing .whitelist file (HUMANS ONLY - AIs must never use this)
-#   ALLOW_WHITELIST_EDIT=1                - Legacy fallback for automation contexts
+#   --trailer "allow-allowlist-edit=true" - Allow editing .allowlist file (HUMANS ONLY - AIs must never use this)
+#   ALLOW_ALLOWLIST_EDIT=1                - Legacy fallback for automation contexts
 #   --trailer "allow-deletions=true"      - Allow file deletions (HUMANS ONLY - AIs must never use this)
 #   ALLOW_DELETIONS=1                      - Legacy fallback for automation contexts
 
@@ -124,7 +124,7 @@ if [ -n "$DELETED_FILES" ]; then
         echo "  1. READ THE FILES to understand their content and purpose"
         echo "  2. CHECK THE MIGRATION PLAN: tasks/plan/migration-plan.md"
         echo "  3. CHECK THE README: README.md (source of truth for structure)"
-        echo "  4. CHECK THE WHITELIST: .whitelist (allowed root files)"
+        echo "  4. CHECK THE ALLOWLIST: .allowlist (allowed root files)"
         echo "  5. DETERMINE CORRECT LOCATION based on file content and structure rules"
         echo "  6. MOVE files to correct location using 'git mv' (NOT delete+add)"
         echo ""
@@ -158,63 +158,63 @@ if [ -n "$DELETED_FILES" ]; then
     fi
 fi
 
-# Check for .whitelist file changes (BLOCKED for AIs, requires human override)
-WHITELIST_CHANGES=$(git diff --cached --name-only | grep -E '^\.whitelist$|^\.whitelist ' || true)
+# Check for .allowlist file changes (BLOCKED for AIs, requires human override)
+WHITELIST_CHANGES=$(git diff --cached --name-only | grep -E '^\.allowlist$|^\.allowlist ' || true)
 if [ -n "$WHITELIST_CHANGES" ]; then
-    ALLOW_WHITELIST_EDIT=${ALLOW_WHITELIST_EDIT:-0}
+    ALLOW_ALLOWLIST_EDIT=${ALLOW_ALLOWLIST_EDIT:-0}
 
-    if [ "$ALLOW_WHITELIST_EDIT" != "1" ]; then
-        if has_human_override_trailer "allow-whitelist-edit"; then
-            ALLOW_WHITELIST_EDIT=1
+    if [ "$ALLOW_ALLOWLIST_EDIT" != "1" ]; then
+        if has_human_override_trailer "allow-allowlist-edit"; then
+            ALLOW_ALLOWLIST_EDIT=1
         fi
     fi
 
-    if [ "$ALLOW_WHITELIST_EDIT" != "1" ]; then
+    if [ "$ALLOW_ALLOWLIST_EDIT" != "1" ]; then
         VIOLATIONS=$((VIOLATIONS + 1))
         echo -e "${RED}╔═══════════════════════════════════════════════════════════════╗${NC}"
-        echo -e "${RED}║  .whitelist FILE CHANGES BLOCKED                              ║${NC}"
+        echo -e "${RED}║  .allowlist FILE CHANGES BLOCKED                              ║${NC}"
         echo -e "${RED}╚═══════════════════════════════════════════════════════════════╝${NC}"
         echo ""
-        echo -e "${RED}Attempted changes to .whitelist:${NC}"
-        echo -e "${RED}  ❌ .whitelist${NC}"
+        echo -e "${RED}Attempted changes to .allowlist:${NC}"
+        echo -e "${RED}  ❌ .allowlist${NC}"
         echo ""
-        echo -e "${YELLOW}⚠️  CRITICAL: .whitelist file is protected.${NC}"
-        echo -e "${YELLOW}   The .whitelist file contains the rule:${NC}"
+        echo -e "${YELLOW}⚠️  CRITICAL: .allowlist file is protected.${NC}"
+        echo -e "${YELLOW}   The .allowlist file contains the rule:${NC}"
         echo -e "${YELLOW}   'IF YOU ARE AN AI YOU ARE ABSOLUTELY NOT ALLOWED TO EDIT THIS FILE.'${NC}"
         echo ""
-        echo -e "${YELLOW}To allow editing .whitelist (HUMANS ONLY):${NC}"
-        echo -e "${YELLOW}  git commit -m \"your message\" --trailer \"allow-whitelist-edit=true\"${NC}"
-        echo -e "${YELLOW}  (legacy fallback: ALLOW_WHITELIST_EDIT=1 git commit -m \"your message\")${NC}"
+        echo -e "${YELLOW}To allow editing .allowlist (HUMANS ONLY):${NC}"
+        echo -e "${YELLOW}  git commit -m \"your message\" --trailer \"allow-allowlist-edit=true\"${NC}"
+        echo -e "${YELLOW}  (legacy fallback: ALLOW_ALLOWLIST_EDIT=1 git commit -m \"your message\")${NC}"
         echo ""
-        echo -e "${RED}Commit blocked. Only humans may edit .whitelist with explicit override.${NC}"
+        echo -e "${RED}Commit blocked. Only humans may edit .allowlist with explicit override.${NC}"
         echo ""
         exit 1
     else
-        echo -e "${YELLOW}⚠️  WARNING: .whitelist edit allowed (human override detected)${NC}"
+        echo -e "${YELLOW}⚠️  WARNING: .allowlist edit allowed (human override detected)${NC}"
         echo -e "${YELLOW}   This flag should ONLY be used by humans, never by AI agents.${NC}"
     fi
 fi
 
-# Check root directory structure against whitelist
+# Check root directory structure against allowlist
 if [ "$SKIP_STRUCTURE_CHECK" = "1" ]; then
     echo -e "${YELLOW}⚠️  Structure checks bypassed (SKIP_STRUCTURE_CHECK=1)${NC}"
 else
     echo -e "${YELLOW}🔍 Checking root directory structure...${NC}"
 
-    if [ ! -f ".whitelist" ]; then
-        echo -e "${YELLOW}⚠️  .whitelist file not found, skipping root structure check${NC}"
+    if [ ! -f ".allowlist" ]; then
+        echo -e "${YELLOW}⚠️  .allowlist file not found, skipping root structure check${NC}"
     else
-    # Read whitelist (skip comments and empty lines)
-    WHITELIST=$(grep -v '^#' .whitelist | grep -v '^$' | tr '\n' '|' | sed 's/|$//')
+    # Read allowlist (skip comments and empty lines)
+    ALLOWLIST=$(grep -v '^#' .allowlist | grep -v '^$' | tr '\n' '|' | sed 's/|$//')
     
-    if [ -z "$WHITELIST" ]; then
-        echo -e "${YELLOW}⚠️  .whitelist is empty, skipping root structure check${NC}"
+    if [ -z "$ALLOWLIST" ]; then
+        echo -e "${YELLOW}⚠️  .allowlist is empty, skipping root structure check${NC}"
     else
-        # Check for new root files (not in whitelist)
-        NEW_ROOT_FILES=$(git diff --cached --name-only --diff-filter=A | grep -E '^[^/]+$' | grep -vE "^($WHITELIST)$" || true)
+        # Check for new root files (not in allowlist)
+        NEW_ROOT_FILES=$(git diff --cached --name-only --diff-filter=A | grep -E '^[^/]+$' | grep -vE "^($ALLOWLIST)$" || true)
         
-        # Check for new root directories (not in whitelist)
-        NEW_ROOT_DIRS=$(git diff --cached --name-only --diff-filter=A | grep -E '^[^/]+/' | cut -d'/' -f1 | sort -u | grep -vE "^($WHITELIST)$" || true)
+        # Check for new root directories (not in allowlist)
+        NEW_ROOT_DIRS=$(git diff --cached --name-only --diff-filter=A | grep -E '^[^/]+/' | cut -d'/' -f1 | sort -u | grep -vE "^($ALLOWLIST)$" || true)
         
         if [ -n "$NEW_ROOT_FILES" ] || [ -n "$NEW_ROOT_DIRS" ]; then
             VIOLATIONS=$((VIOLATIONS + 1))
@@ -245,7 +245,7 @@ else
                 echo ""
             fi
             
-            echo -e "${YELLOW}Allowed root files/directories are listed in .whitelist${NC}"
+            echo -e "${YELLOW}Allowed root files/directories are listed in .allowlist${NC}"
             echo -e "${YELLOW}See contribute/STRUCTURE.md for repository structure rules${NC}"
             echo ""
         else

@@ -141,17 +141,17 @@ git commit --no-verify -m "message"
 
 **Warning:** Only bypass if you have a legitimate reason and understand the style guide violations.
 
-### Human-Only `.whitelist` Override
+### Human-Only `.allowlist` Override
 
-The `.whitelist` file is protected by the pre-commit hook.
+The `.allowlist` file is protected by the pre-commit hook.
 
-If a human needs to intentionally edit `.whitelist`, use:
+If a human needs to intentionally edit `.allowlist`, use:
 
 ```bash
-git commit -m "Update .whitelist" --trailer "allow-whitelist-edit=true"
+git commit -m "Update .allowlist" --trailer "allow-allowlist-edit=true"
 ```
 
-This allows `.whitelist` edits while still running all other checks.
+This allows `.allowlist` edits while still running all other checks.
 
 ### Human-Only Deletions Override
 

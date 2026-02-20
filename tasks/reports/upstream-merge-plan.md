@@ -20,9 +20,9 @@
 
 ### Key Differences
 1. **Structure:** Fork uses `tasks/` instead of `docs/` for planning/reports
-2. **Hooks:** Fork has enhanced pre-commit hooks with whitelist protection
+2. **Hooks:** Fork has enhanced pre-commit hooks with allowlist protection
 3. **Workflows:** Fork has updated test workflows with `tools/` instead of `tooling/`
-4. **Config:** Fork has `.cursorrules`, `.whitelist`, and other fork-specific files
+4. **Config:** Fork has `.cursorrules`, `.allowlist`, and other fork-specific files
 
 ---
 
@@ -54,8 +54,8 @@
 
 ### 4. Root Files
 **Fork-specific files (keep):**
-- `.cursorrules` - Fork-specific (already in whitelist)
-- `.whitelist` - Fork-specific structure enforcement
+- `.cursorrules` - Fork-specific (already in allowlist)
+- `.allowlist` - Fork-specific structure enforcement
 - `tools/package.json` - Fork's tooling (upstream may not have)
 
 **Upstream files to integrate:**

@@ -134,9 +134,35 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 
 ---
 
+#### Discord Issue Intake (Phase 1)
+
+**File:** `.github/workflows/discord-issue-intake.yml`
+
+**Purpose:** Creates GitHub issues from Discord intake payloads delivered via `repository_dispatch`
+
+**Triggers:**
+- `repository_dispatch` with type `discord-issue-intake`
+
+**What it does:**
+1. Validates dispatch payload schema and required fields for template `docs_page_issue`
+2. Rejects placeholder-only or security-sensitive content
+3. Enforces idempotency using `correlation_id` marker in issue body
+4. Creates issue with template-aligned headings and base labels
+5. Leaves dynamic label mapping (`area:*`, `priority:*`, `kind:*`) to `issue-auto-label.yml`
+
+**Required secrets:**
+- None (uses repository-dispatch caller token and GitHub Actions `GITHUB_TOKEN`)
+
+**Related files:**
+- `snippets/automations/scripts/n8n/Discord-Issue-Intake.json`
+- `snippets/assets/scripts/n8n/README-discord-issue-intake-workflow.md`
+- `.github/workflows/issue-auto-label.yml`
+
+---
+
 ### Data Fetching Workflows (GitHub Actions & n8n Available)
 
-The following workflows have both GitHub Actions and n8n versions available. Both are maintained to provide flexibility - use whichever you prefer. GitHub Actions are simpler and repository-native, while n8n provides more robust workflows for complex integrations.
+The GitHub Actions implementation uses dedicated workflows split by data source (`update-forum-data.yml`, `update-ghost-blog-data.yml`, and `update-youtube-data.yml`). n8n versions of these flows are also maintained for teams that prefer external automation orchestration.
 
 #### Update Forum Data
 
@@ -157,6 +183,7 @@ The following workflows have both GitHub Actions and n8n versions available. Bot
 
 **Required secrets:**
 - `DOCS_V2` - GitHub token for docs repository access
+- `GHOST_CONTENT_API_KEY` - Ghost Content API key used by `.github/scripts/fetch-ghost-blog-data.js`
 
 **Note:** Both GitHub Actions and n8n workflows are available for this functionality. Use whichever you prefer.
 
@@ -199,7 +226,7 @@ The following workflows have both GitHub Actions and n8n versions available. Bot
 - Manual dispatch
 
 **What it does:**
-1. Fetches recent videos from YouTube API
+1. Runs `.github/scripts/fetch-youtube-data.js`
 2. Filters out Shorts (≤60 seconds)
 3. Updates `snippets/automations/youtube/youtubeData.jsx`
 4. Commits and pushes if changes detected
@@ -290,6 +317,43 @@ Most n8n workflows are currently **inactive** (`"active": false`). Only active w
 
 ---
 
+#### Discord Issue Intake (Phase 1)
+
+**File:** `snippets/automations/scripts/n8n/Discord-Issue-Intake.json`
+
+**Status:** ✅ Ready to import (defaults to inactive)
+
+**Purpose:** Handles Discord slash-command intake (`/docs-issue`) and relays normalized issue payloads to GitHub Actions.
+
+**Trigger:** Discord interactions webhook (`POST`)
+
+**What it does:**
+1. Verifies Discord request signatures
+2. Enforces channel allowlist and per-user rate limit
+3. Collects long-form fields via modal
+4. Shows preview with inferred labels + confirm/cancel buttons
+5. Sends `repository_dispatch` to GitHub (`discord-issue-intake`)
+6. Polls for created issue and sends follow-up message with issue URL
+
+**Runbook:**
+- `snippets/assets/scripts/n8n/README-discord-issue-intake-workflow.md`
+
+**Required environment variables:**
+- `DISCORD_PUBLIC_KEY`
+- `ALLOWED_CHANNEL_IDS`
+- `GITHUB_DISPATCH_TOKEN`
+- `GITHUB_OWNER`
+- `GITHUB_REPO`
+- `GITHUB_DISPATCH_EVENT_TYPE`
+- `SECURITY_REPORT_URL`
+- `RATE_LIMIT_WINDOW_SEC`
+- `RATE_LIMIT_MAX`
+- `DISCORD_ISSUE_SCHEMA_VERSION`
+- `GITHUB_POLL_ATTEMPTS`
+- `GITHUB_POLL_DELAY_MS`
+
+---
+
 ### Additional n8n Workflows (Alternative to GitHub Actions)
 
 The following n8n workflows provide alternative implementations to GitHub Actions. Both are maintained for flexibility:
@@ -298,6 +362,7 @@ The following n8n workflows provide alternative implementations to GitHub Action
 - **Forum-To-Mintlify-Latest-Topics.json** - Fetches forum topics (alternative to `update-forum-data.yml`)
 - **YouTube-To-Mintlify.json** - Fetches YouTube videos (alternative to `update-youtube-data.yml`)
 - **Discord_Announce_to_Mintlify.json** - Fetches Discord announcements (n8n only - no GitHub Action equivalent)
+- **Discord-Issue-Intake.json** - Discord issue intake relay (paired with `.github/workflows/discord-issue-intake.yml`)
 
 <Warning>
 **Repository Configuration:** Some n8n workflows may be configured to write to `DeveloperAlly/livepeer-automations` instead of `livepeer/docs`. Before activating, verify the GitHub node is configured to write to the correct repository (`livepeer/docs`) and branch (`docs-v2-preview`).
@@ -586,7 +651,7 @@ These scripts are used by GitHub Actions workflows and typically shouldn't be ru
 
 - **`.github/scripts/fetch-forum-data.js`** - Fetches forum data (used by `update-forum-data.yml`)
 - **`.github/scripts/fetch-ghost-blog-data.js`** - Fetches Ghost blog data (used by `update-ghost-blog-data.yml`)
-- **`.github/scripts/fetch-youtube-data.js`** - Fetches YouTube data (not currently used by workflow)
+- **`.github/scripts/fetch-youtube-data.js`** - Fetches YouTube data (used by `update-youtube-data.yml`)
 
 ---
 
@@ -655,10 +720,10 @@ The hooks include headless browser validation that tests MDX files actually rend
 
 **⚠️ WARNING:** Only bypass hooks if you have a legitimate reason and understand the consequences.
 
-For intentional `.whitelist` edits by a human, use:
+For intentional `.allowlist` edits by a human, use:
 
 ```bash
-git commit -m "Update .whitelist" --trailer "allow-whitelist-edit=true"
+git commit -m "Update .allowlist" --trailer "allow-allowlist-edit=true"
 ```
 
 This keeps all other pre-commit checks enabled.

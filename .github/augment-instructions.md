@@ -73,7 +73,7 @@
 ### Critical Structure Rules
 
 1. **Root Directory** - Only essential files allowed:
-   - ✅ Allowed: `docs.json`, `package.json`, `README.md`, `LICENSE`, `Dockerfile`, `Makefile`, `style.css`, `.gitignore`, `.mintignore`, `.whitelist`
+   - ✅ Allowed: `docs.json`, `package.json`, `README.md`, `LICENSE`, `Dockerfile`, `Makefile`, `style.css`, `.gitignore`, `.mintignore`, `.allowlist`
    - ❌ Forbidden: Scripts, config files, documentation files, temporary files, OpenAPI specs
    - **CRITICAL:** Mintlify only allows ONE CSS file (`style.css`) at root - NO `styles/` folder
 
@@ -96,7 +96,7 @@
    - ❌ Components cannot import other components
 
 4. **Enforcement** - Structure is enforced:
-   - `.whitelist` file lists allowed root files/directories
+   - `.allowlist` file lists allowed root files/directories
    - Pre-commit hook blocks unauthorized root files/directories
    - Always check structure rules before creating new files
 

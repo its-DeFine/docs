@@ -322,17 +322,17 @@ VIOLATIONS=$((VIOLATIONS + 1))
 
 **⚠️ WARNING:** Only bypass hooks if you have a legitimate reason and understand the consequences.
 
-### Protected `.whitelist` Edits (Human-Only)
+### Protected `.allowlist` Edits (Human-Only)
 
-The pre-commit hook protects `.whitelist` by default.
+The pre-commit hook protects `.allowlist` by default.
 
-If a human intentionally needs to update `.whitelist`, use:
+If a human intentionally needs to update `.allowlist`, use:
 
 ```bash
-git commit -m "Update .whitelist" --trailer "allow-whitelist-edit=true"
+git commit -m "Update .allowlist" --trailer "allow-allowlist-edit=true"
 ```
 
-This override is scoped to `.whitelist` edits and still runs all other pre-commit checks.
+This override is scoped to `.allowlist` edits and still runs all other pre-commit checks.
 
 ### Protected Deletions (Human-Only)
 

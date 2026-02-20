@@ -66,7 +66,7 @@ This PR merges 168 commits from the fork back into the upstream repository, brin
 - Various API specs consolidated into `api/`
 
 ### New Configuration Files
-- `.whitelist` - Root directory file whitelist enforcement
+- `.allowlist` - Root directory file allowlist enforcement
 - `.github/AGENTS.md` - AI agent safety protocols
 - `.github/ISSUE_TEMPLATE/` - New issue templates
 - Enhanced `.github/augment-instructions.md` - Improved AI rules
@@ -146,7 +146,7 @@ This PR merges 168 commits from the fork back into the upstream repository, brin
 - `.githooks/BYPASS.md` - New documentation
 
 ### Configuration
-- `.whitelist` - New root directory enforcement
+- `.allowlist` - New root directory enforcement
 - `.github/AGENTS.md` - New AI safety rules
 - `.github/augment-instructions.md` - Enhanced AI rules
 - `.github/copilot-instructions.md` - Enhanced Copilot rules
@@ -202,7 +202,7 @@ npm test
 
 2. **Hook Enhancements:** The enhanced pre-commit hook is more strict but provides better protection. Review the bypass flags in `.githooks/BYPASS.md`.
 
-3. **Whitelist System:** The `.whitelist` file enforces root directory structure. This prevents accidental file placement.
+3. **Whitelist System:** The `.allowlist` file enforces root directory structure. This prevents accidental file placement.
 
 4. **Tooling Consolidation:** All tooling is now in `tools/` directory (replaces `tooling/`). Update any scripts that reference the old path.
 

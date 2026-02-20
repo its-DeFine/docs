@@ -18,7 +18,7 @@ lpd
 .mintignore
 .prettierrc.yaml
 .cursorrules
-.whitelist
+.allowlist
 
 # Allowed root directories
 .github
