@@ -3,7 +3,7 @@
 Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.
 
 ## Run Metadata
-- Timestamp: 2026-02-20T03:25:58.212Z
+- Timestamp: 2026-02-20T03:27:36.293Z
 - Mode: full
 - Strict: false
 - Files analyzed: 467
@@ -26,8 +26,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | status | count |
 |---|---:|
 | 🟡 untested-external | 1096 |
-| missing | 30 |
-| ok | 1767 |
+| missing | 29 |
+| ok | 1768 |
 | ok-folder-route | 6 |
 | skipped | 200 |
 | skipped-style-guide-example | 1 |
@@ -5158,7 +5158,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-relative | ./delegation/overview | v2/pages/06_lptoken/delegation/overview.mdx | true | ok |  |  |  |
 | internal-relative | ./governance/overview | v2/pages/06_lptoken/governance/overview.mdx | true | ok |  |  |  |
 | internal-relative | ./treasury/overview | v2/pages/06_lptoken/treasury/overview.mdx | true | ok |  |  |  |
-| internal-relative | ./guides-and-resources/orchestrator-guides | v2/pages/06_lptoken/guides-and-resources/orchestrator-guides | false | missing | v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides.mdx | v2/orchestrators/orchestrator-tools-and-resources/orchestrator-guides.mdx |  |
+| internal-relative | ./governance/overview | v2/pages/06_lptoken/governance/overview.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/Portals.jsx | snippets/components/domain/SHARED/Portals.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/display/frameMode.jsx | snippets/components/display/frameMode.jsx | true | ok |  |  |  |

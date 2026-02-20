@@ -1030,14 +1030,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "./guides-and-resources/orchestrator-guides",
-      "resolvedPath": "v2/pages/06_lptoken/guides-and-resources/orchestrator-guides",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides.mdx",
-        "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-guides.mdx"
-      ]
+      "rawPath": "./governance/overview",
+      "resolvedPath": "v2/pages/06_lptoken/governance/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
