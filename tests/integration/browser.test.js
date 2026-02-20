@@ -34,9 +34,9 @@ const fs = require('fs');
 const path = require('path');
 const { getMdxFiles, getStagedDocsPageFiles } = require('../utils/file-walker');
 const { getV2Pages } = require('../../tools/scripts/test-v2-pages');
-const { ensureServerRunning, stopServer } = require('../../.githooks/server-manager');
+const { ensureServerRunning, stopServer, getServerUrl } = require('../../.githooks/server-manager');
 
-const BASE_URL = process.env.MINT_BASE_URL || 'http://localhost:3000';
+const DEFAULT_BASE_URL = process.env.MINT_BASE_URL || 'http://localhost:3000';
 const TIMEOUT = 30000;
 
 /**
@@ -72,9 +72,9 @@ function filePathToUrl(filePath) {
  * Test page in browser
  */
 async function testPage(browser, filePath, options = {}) {
-  const { theme = 'dark' } = options;
+  const { theme = 'dark', baseUrl = DEFAULT_BASE_URL } = options;
   const url = filePathToUrl(filePath);
-  const fullUrl = `${BASE_URL}${url}`;
+  const fullUrl = `${baseUrl}${url}`;
   const page = await browser.newPage();
   
   // Set desktop viewport (fixed size - documentation is not responsive)
@@ -245,10 +245,13 @@ async function runTests(options = {}) {
     return {
       errors: [`Failed to start server: ${error.message}`],
       warnings: [],
-      passed: false,
+      passed: 0,
+      failed: 0,
       total: testFiles.length
     };
   }
+  
+  const baseUrl = process.env.MINT_BASE_URL || getServerUrl();
   
   const browser = await puppeteer.launch({ 
     headless: true,
@@ -261,7 +264,7 @@ async function runTests(options = {}) {
   
   for (const file of testFiles) {
     for (const theme of themes) {
-      const result = await testPage(browser, file, { theme });
+      const result = await testPage(browser, file, { theme, baseUrl });
       results.push(result);
       
       if (result.success) {
@@ -295,6 +298,12 @@ if (require.main === module) {
   const themes = args.includes('--light') ? ['light'] : ['dark'];
   
   runTests({ stagedOnly, themes }).then(result => {
+    const infraErrors = Array.isArray(result.errors) ? result.errors : [];
+    if (infraErrors.length > 0) {
+      console.error('\n❌ Browser test infrastructure failed:\n');
+      infraErrors.forEach(err => console.error(`  - ${err}`));
+      process.exit(1);
+    }
     if (result.failed > 0) {
       console.error(`\n❌ ${result.failed} of ${result.total} page test(s) failed:\n`);
       result.results.filter(r => !r.success).forEach(r => {
