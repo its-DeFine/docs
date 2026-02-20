@@ -123,18 +123,16 @@ export const LINK_MAP = {
     }
   ],
   "v2/pages/07_resources/concepts/livepeer-101.mdx": [],
+  "v2/pages/07_resources/documentation-guide/authoring-standard.mdx": [],
   "v2/pages/07_resources/documentation-guide/automations-workflows.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/docs/PLAN/reports/20-automations-workflows-audit-report.md",
-      "resolvedPath": "v2/pages/docs/PLAN/reports/20-automations-workflows-audit-report.md",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "tasks/plan/reports/20-automations-workflows-audit-report.md",
-        "tasks/reports/20-automations-workflows-audit-report.md"
-      ]
+      "rawPath": "/tasks/reports/20-automations-workflows-audit-report.md",
+      "resolvedPath": "tasks/reports/20-automations-workflows-audit-report.md",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -193,14 +191,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/docs/PLAN/reports/20-automations-workflows-audit-report.md",
-      "resolvedPath": "v2/pages/docs/PLAN/reports/20-automations-workflows-audit-report.md",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "tasks/plan/reports/20-automations-workflows-audit-report.md",
-        "tasks/reports/20-automations-workflows-audit-report.md"
-      ]
+      "rawPath": "/tasks/reports/20-automations-workflows-audit-report.md",
+      "resolvedPath": "tasks/reports/20-automations-workflows-audit-report.md",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
@@ -631,15 +626,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/docs",
-      "resolvedPath": "v2/pages/docs",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "docs.json",
-        "v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx",
-        "v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations.mdx"
-      ]
+      "rawPath": "/v2/pages/00_home/mission-control",
+      "resolvedPath": "v2/pages/00_home/mission-control.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -1261,29 +1252,21 @@ export const LINK_MAP = {
   "v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations.mdx": [
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "path/file.mdx",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/path/file.mdx",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "Dockerfile",
-        "Makefile",
-        "tasks/plan/24-audit-repo-files-removal.md"
-      ]
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/mission-control",
+      "resolvedPath": "v2/pages/00_home/mission-control.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "path/file.mdx",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/path/file.mdx",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "Dockerfile",
-        "Makefile",
-        "tasks/plan/24-audit-repo-files-removal.md"
-      ]
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/pages/00_home/mission-control",
+      "resolvedPath": "v2/pages/00_home/mission-control.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",

@@ -3,10 +3,10 @@
 Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.
 
 ## Run Metadata
-- Timestamp: 2026-02-20T03:27:36.293Z
+- Timestamp: 2026-02-20T03:38:18.548Z
 - Mode: full
 - Strict: false
-- Files analyzed: 467
+- Files analyzed: 468
 - Total extracted references: 3100
 
 ## Summary Counts
@@ -18,16 +18,16 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-http | 8 |
 | external-https | 1088 |
 | import-path | 630 |
-| internal-relative | 480 |
-| internal-rooted | 694 |
+| internal-relative | 478 |
+| internal-rooted | 696 |
 | mailto | 2 |
 
 ### By Status
 | status | count |
 |---|---:|
 | 🟡 untested-external | 1096 |
-| missing | 29 |
-| ok | 1768 |
+| missing | 24 |
+| ok | 1773 |
 | ok-folder-route | 6 |
 | skipped | 200 |
 | skipped-style-guide-example | 1 |
@@ -623,7 +623,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Resources
   - ⚠️ Videos (07_resources/resources/videos.mdx)
 - Unindexed Pages
-  - (none)
+  - v2/pages/07_resources/documentation-guide/authoring-standard.mdx
 
 ### Internal
 - ⚠️ Ally Notes (09_internal/ally-notes.mdx)
@@ -5214,17 +5214,22 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 |---|---|---|---|---|---|---|---|
 | (none) |  |  |  |  |  |  |  |
 
+### v2/pages/07_resources/documentation-guide/authoring-standard.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| (none) |  |  |  |  |  |  |  |
+
 ### v2/pages/07_resources/documentation-guide/automations-workflows.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-rooted | /docs/PLAN/reports/20-automations-workflows-audit-report.md | v2/pages/docs/PLAN/reports/20-automations-workflows-audit-report.md | false | missing | tasks/plan/reports/20-automations-workflows-audit-report.md | tasks/reports/20-automations-workflows-audit-report.md |  |
+| internal-rooted | /tasks/reports/20-automations-workflows-audit-report.md | tasks/reports/20-automations-workflows-audit-report.md | true | ok |  |  |  |
 | internal-rooted | /contribute/CONTRIBUTING/GIT-HOOKS.md | contribute/CONTRIBUTING/GIT-HOOKS.md | true | ok |  |  |  |
 | internal-relative | ./style-guide | v2/pages/07_resources/documentation-guide/style-guide.mdx | true | ok |  |  |  |
 | internal-relative | ./component-library | v2/pages/07_resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
 | internal-rooted | /contribute/CONTRIBUTING/GIT-HOOKS.md | contribute/CONTRIBUTING/GIT-HOOKS.md | true | ok |  |  |  |
 | internal-rooted | /tools/scripts/snippets/README.mdx | tools/scripts/snippets/README.mdx | true | ok |  |  |  |
 | internal-rooted | /snippets/automations/README.mdx | snippets/automations/README.mdx | true | ok |  |  |  |
-| internal-rooted | /docs/PLAN/reports/20-automations-workflows-audit-report.md | v2/pages/docs/PLAN/reports/20-automations-workflows-audit-report.md | false | missing | tasks/plan/reports/20-automations-workflows-audit-report.md | tasks/reports/20-automations-workflows-audit-report.md |  |
+| internal-rooted | /tasks/reports/20-automations-workflows-audit-report.md | tasks/reports/20-automations-workflows-audit-report.md | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
 ### v2/pages/07_resources/documentation-guide/component-library.mdx
@@ -5339,7 +5344,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 |---|---|---|---|---|---|---|---|
 | internal-relative | ../component-library | v2/pages/07_resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.org |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /docs | v2/pages/docs | false | missing | docs.json | v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx | v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations.mdx |
+| internal-rooted | /v2/pages/00_home/mission-control | v2/pages/00_home/mission-control.mdx | true | ok |  |  |  |
 | internal-relative | ../component-library/display | v2/pages/07_resources/documentation-guide/component-library/display.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/divider.jsx | snippets/components/primitives/divider.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/icons.jsx | snippets/components/primitives/icons.jsx | true | ok |  |  |  |
@@ -5376,8 +5381,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 ### v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | path/file.mdx | v2/pages/07_resources/documentation-guide/path/file.mdx | false | missing | Dockerfile | Makefile | tasks/plan/24-audit-repo-files-removal.md |
-| internal-relative | path/file.mdx | v2/pages/07_resources/documentation-guide/path/file.mdx | false | missing | Dockerfile | Makefile | tasks/plan/24-audit-repo-files-removal.md |
+| internal-rooted | /v2/pages/00_home/mission-control | v2/pages/00_home/mission-control.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/00_home/mission-control | v2/pages/00_home/mission-control.mdx | true | ok |  |  |  |
 | internal-relative | ./documentation-guide | v2/pages/07_resources/documentation-guide/documentation-guide.mdx | true | ok |  |  |  |
 | internal-relative | ./contribute-to-the-docs | v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx | true | ok |  |  |  |
 | internal-relative | ./component-library | v2/pages/07_resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
