@@ -6,6 +6,7 @@
 # Allowed root files
 docs.json
 README.md
+SECURITY.md
 LICENSE
 Dockerfile
 Makefile
