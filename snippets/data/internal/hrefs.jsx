@@ -130,15 +130,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../../07_resources/changelog/changelog",
-      "resolvedPath": "v2/07_resources/changelog/changelog",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/07_resources/changelog/changelog.mdx",
-        "v2/resources/changelog/changelog.mdx",
-        "v2/pages/07_resources/changelog/migration-guide.mdx"
-      ]
+      "rawPath": "../07_resources/changelog/changelog",
+      "resolvedPath": "v2/pages/07_resources/changelog/changelog.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -190,14 +186,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "\"../../00_home/documentation-guide/documentation-overview\"",
-      "resolvedPath": "v2/00_home/documentation-guide/documentation-overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/07_resources/documentation-guide/documentation-overview.mdx",
-        "v2/resources/documentation-guide/documentation-overview.mdx"
-      ]
+      "rawPath": "../07_resources/documentation-guide/documentation-overview",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/documentation-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -265,14 +258,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../00_home/documentation-guide/documentation-overview",
-      "resolvedPath": "v2/00_home/documentation-guide/documentation-overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/07_resources/documentation-guide/documentation-overview.mdx",
-        "v2/resources/documentation-guide/documentation-overview.mdx"
-      ]
+      "rawPath": "../07_resources/documentation-guide/documentation-overview",
+      "resolvedPath": "v2/pages/07_resources/documentation-guide/documentation-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",

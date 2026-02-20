@@ -3,7 +3,7 @@
 Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.
 
 ## Run Metadata
-- Timestamp: 2026-02-20T03:38:18.548Z
+- Timestamp: 2026-02-20T03:40:00.367Z
 - Mode: full
 - Strict: false
 - Files analyzed: 468
@@ -26,8 +26,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | status | count |
 |---|---:|
 | 🟡 untested-external | 1096 |
-| missing | 24 |
-| ok | 1773 |
+| missing | 21 |
+| ok | 1776 |
 | ok-folder-route | 6 |
 | skipped | 200 |
 | skipped-style-guide-example | 1 |
@@ -5606,7 +5606,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://github.com/livepeer/docs/issues/new?template=bug_report.md |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/docs/issues/new?template=feature_request.md |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/docs/issues/new?template=question.md |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../../07_resources/changelog/changelog | v2/07_resources/changelog/changelog | false | missing | v2/pages/07_resources/changelog/changelog.mdx | v2/resources/changelog/changelog.mdx | v2/pages/07_resources/changelog/migration-guide.mdx |
+| internal-relative | ../07_resources/changelog/changelog | v2/pages/07_resources/changelog/changelog.mdx | true | ok |  |  |  |
 | empty | #quarterly-review-checklist |  | null | skipped |  |  |  |
 | external-https | https://github.com/livepeer/docs/issues |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.org/discord |  | null | 🟡 untested-external |  |  |  |
@@ -5616,7 +5616,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://www.notion.so/livepeer/Documentation-Reviews-2c50a3485687800e98e8f3e1f1a802a9 |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | "../../00_home/documentation-guide/documentation-overview" | v2/00_home/documentation-guide/documentation-overview | false | missing | v2/pages/07_resources/documentation-guide/documentation-overview.mdx | v2/resources/documentation-guide/documentation-overview.mdx |  |
+| internal-relative | ../07_resources/documentation-guide/documentation-overview | v2/pages/07_resources/documentation-guide/documentation-overview.mdx | true | ok |  |  |  |
 | internal-relative | ./strategic-alignment | v2/pages/09_internal/strategic-alignment.mdx | true | ok |  |  |  |
 | internal-relative | ./definitions | v2/pages/09_internal/definitions.mdx | true | ok |  |  |  |
 | internal-relative | ./personas | v2/pages/09_internal/personas.mdx | true | ok |  |  |  |
@@ -5624,7 +5624,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-relative | ./ecosystem | v2/pages/09_internal/ecosystem.mdx | true | ok |  |  |  |
 | internal-relative | ./references | v2/pages/09_internal/references.mdx | true | ok |  |  |  |
 | external-https | https://www.notion.so/livepeer/Documentation-Reviews-2c50a3485687800e98e8f3e1f1a802a9 |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../../00_home/documentation-guide/documentation-overview | v2/00_home/documentation-guide/documentation-overview | false | missing | v2/pages/07_resources/documentation-guide/documentation-overview.mdx | v2/resources/documentation-guide/documentation-overview.mdx |  |
+| internal-relative | ../07_resources/documentation-guide/documentation-overview | v2/pages/07_resources/documentation-guide/documentation-overview.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
 ### v2/pages/09_internal/layout-components-scripts-styling/components.mdx
