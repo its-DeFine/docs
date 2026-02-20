@@ -78,16 +78,12 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../../assets/about/image.png",
-      "resolvedPath": "v2/pages/assets/about/image.png",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/assets/media/images/GPU callout.png",
-        "snippets/assets/media/images/Livepeer Stats.png",
-        "snippets/assets/media/images/nytv-logo.png"
-      ]
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/domain/00_HOME/evolution.png",
+      "resolvedPath": "snippets/assets/domain/00_HOME/evolution.png",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",

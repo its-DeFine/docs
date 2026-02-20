@@ -3,7 +3,7 @@
 Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.
 
 ## Run Metadata
-- Timestamp: 2026-02-20T03:40:00.367Z
+- Timestamp: 2026-02-20T03:41:39.056Z
 - Mode: full
 - Strict: false
 - Files analyzed: 468
@@ -18,16 +18,16 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-http | 8 |
 | external-https | 1088 |
 | import-path | 630 |
-| internal-relative | 478 |
-| internal-rooted | 696 |
+| internal-relative | 477 |
+| internal-rooted | 697 |
 | mailto | 2 |
 
 ### By Status
 | status | count |
 |---|---:|
 | 🟡 untested-external | 1096 |
-| missing | 21 |
-| ok | 1776 |
+| missing | 20 |
+| ok | 1777 |
 | ok-folder-route | 6 |
 | skipped | 200 |
 | skipped-style-guide-example | 1 |
@@ -5682,7 +5682,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://medium.com/livepeer-blog/the-livepeer-development-stack-technology-behind-live-streaming-built-on-ethereum-d6a06158d5e2 |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://medium.com/livepeer-blog/livepeer-for-beginners-3b49945c24a7?source=collection_home---------163---------------------------- |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.org/primer |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../../../assets/about/image.png | v2/pages/assets/about/image.png | false | missing | snippets/assets/media/images/GPU callout.png | snippets/assets/media/images/Livepeer Stats.png | snippets/assets/media/images/nytv-logo.png |
+| internal-rooted | /snippets/assets/domain/00_HOME/evolution.png | snippets/assets/domain/00_HOME/evolution.png | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/display/video.jsx | snippets/components/display/video.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/display/image.jsx | snippets/components/display/image.jsx | true | ok |  |  |  |
