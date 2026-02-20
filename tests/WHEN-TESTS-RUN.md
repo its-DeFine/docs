@@ -146,3 +146,10 @@ Graduate to full-repo blocking only after agreed criteria are met, for example:
 - Baseline static violations reduced to near-zero for style/MDX/quality/links checks
 - The team agrees the remaining debt is not expected to cause widespread PR failures
 - CI timing and developer experience remain acceptable after widening scope
+
+---
+
+## Detailed Matrix
+
+For the full PR CI test breakdown and full script run-context inventory, see:
+`tests/PR-CI-TESTS-AND-SCRIPT-RUN-MATRIX.md`

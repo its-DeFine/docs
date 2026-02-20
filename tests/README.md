@@ -108,6 +108,7 @@ npm --prefix tests run test:domain:both
 - The same workflow also runs full browser tests from `docs.json`.
 - `.github/workflows/test-v2-pages.yml` is responsible for PR comments and artifact uploads for V2 browser sweep results.
 - `.github/workflows/broken-links.yml` is currently advisory (non-blocking) while legacy link cleanup is in progress.
+- Full matrix: `tests/PR-CI-TESTS-AND-SCRIPT-RUN-MATRIX.md`
 
 ## Pre-commit Interaction
 - Pre-commit runs `tests/run-all.js --staged --skip-browser` in fast mode.
