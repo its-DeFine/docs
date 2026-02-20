@@ -1488,15 +1488,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../advanced-setup/ai-pipelines",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/advanced-setup/ai-pipelines",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/05_orchestrators/advanced-setup/ai-pipelines.mdx",
-        "v2/orchestrators/advanced-setup/ai-pipelines.mdx",
-        "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx"
-      ]
+      "rawPath": "../../advanced-setup/ai-pipelines",
+      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/ai-pipelines.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",

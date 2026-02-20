@@ -3,7 +3,7 @@
 Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.
 
 ## Run Metadata
-- Timestamp: 2026-02-20T03:24:29.217Z
+- Timestamp: 2026-02-20T03:25:58.212Z
 - Mode: full
 - Strict: false
 - Files analyzed: 467
@@ -26,8 +26,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | status | count |
 |---|---:|
 | 🟡 untested-external | 1096 |
-| missing | 31 |
-| ok | 1766 |
+| missing | 30 |
+| ok | 1767 |
 | ok-folder-route | 6 |
 | skipped | 200 |
 | skipped-style-guide-example | 1 |
@@ -4969,7 +4969,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 |---|---|---|---|---|---|---|---|
 | internal-relative | ../install-go-livepeer | v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx | true | ok |  |  |  |
 | internal-relative | ../connect-to-arbitrum | v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx | true | ok |  |  |  |
-| internal-relative | ../advanced-setup/ai-pipelines | v2/pages/05_orchestrators/setting-up-an-orchestrator/advanced-setup/ai-pipelines | false | missing | v2/pages/05_orchestrators/advanced-setup/ai-pipelines.mdx | v2/orchestrators/advanced-setup/ai-pipelines.mdx | v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx |
+| internal-relative | ../../advanced-setup/ai-pipelines | v2/pages/05_orchestrators/advanced-setup/ai-pipelines.mdx | true | ok |  |  |  |
 | internal-rooted | /03_developers/ai-inference-on-livepeer/byoc | v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx | true | ok |  |  |  |
 | external-https | https://explorer.livepeer.org/ |  | null | 🟡 untested-external |  |  |  |
 | internal-relative | ../install-go-livepeer | v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx | true | ok |  |  |  |
