@@ -29,30 +29,36 @@
 
 ---
 
-## 2. CI/CD Workflow (GitHub Actions - Automatic)
+## 2. CI/CD Workflows (GitHub Actions - Automatic)
 
 **When:** 
-- On push to `main` or `docs-v2-preview`
-- On pull requests to `main` or `docs-v2-preview`
+- On push to `main`
+- On pull requests to `main` or `docs-v2`
 
-**Location:** `.github/workflows/test-suite.yml`
+**Locations:**
+- `.github/workflows/test-suite.yml` (Docs CI - Content Quality Suite)
+- `.github/workflows/test-v2-pages.yml` (Docs CI - V2 Browser Sweep)
 
 **What Runs:**
-- Style guide tests (all files)
-- MDX validation (all files)
-- Spelling tests (all files)
-- Quality checks (all files)
-- Broken links & imports validation (all files)
-- **Browser tests (ALL 264 pages from docs.json)**
+- **Content Quality Suite**
+  - Style guide tests (all files)
+  - MDX validation (all files)
+  - Spelling tests (all files)
+  - Quality checks (all files)
+  - Broken links & imports validation (all files)
+  - Browser tests (all pages)
+- **V2 Browser Sweep**
+  - V2 route/browser console sweep from `docs.json`
+  - PR comment summary and test artifact
 
 **Speed:** Slower (~5-10 minutes) - tests entire codebase
 
-**Blocks PR:** YES - if any test fails
+**Blocks PR:** YES - if any required check fails
 
 **Requirements:**
 - Starts Mintlify dev server automatically
-- Tests all pages in headless browser
-- Generates test summary in PR comments
+- Tests pages in headless browser
+- Generates test summaries in CI output/PR comments
 
 ---
 
@@ -86,7 +92,7 @@ npm run test:all-pages                  # All pages browser test
 
 **Browser Tests (All Pages):**
 ```bash
-# Make sure mint dev is running on port 3333
+# Make sure Mintlify dev is running on port 3333
 MINT_BASE_URL=http://localhost:3333 node scripts/test-all-pages-browser.js
 ```
 
@@ -130,9 +136,9 @@ Generate summary
 
 ---
 
-## Current Issues
+## Current Status
 
-**Note:** The CI workflow references `npm run test:*` scripts, but these are in `v2/package.json`, not root. The workflow needs to be updated to:
-- Either run from `v2/` directory
-- Or use direct `node` commands
-- Or install dependencies in v2/ first
+- CI workflow names are intentionally split by purpose:
+  - `Docs CI - Content Quality Suite`
+  - `Docs CI - V2 Browser Sweep`
+- Push-triggered checks run on `main` only to avoid duplicate `push` + `pull_request` checks on feature branches.

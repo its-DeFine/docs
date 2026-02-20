@@ -454,19 +454,17 @@ This repository includes a comprehensive test suite to ensure code quality, styl
   - Test suite (fast mode) - browser tests skipped
 - **Blocks Commit:** YES - if violations found
 
-**2. CI/CD Workflow (GitHub Actions - Automatic)**
+**2. CI/CD Workflows (GitHub Actions - Automatic)**
 
-- **When:** On push to `main` or `docs-v2-preview`, or on pull requests
+- **When:** On pull requests to `main`/`docs-v2`, and on push to `main`
 - **Speed:** Slower (~5-10 minutes) - tests entire codebase
 - **What Runs:**
-  - Style guide tests (all files)
-  - MDX validation (all files)
-  - Spelling tests (all files)
-  - Quality checks (all files)
-  - Broken links & imports validation (all files)
-  - **Browser tests (ALL pages from docs.json)**
+  - **Content Quality Suite** (`.github/workflows/test-suite.yml`)
+    - Style guide, MDX, spelling, quality, links/imports, browser tests
+  - **V2 Browser Sweep** (`.github/workflows/test-v2-pages.yml`)
+    - Browser/console sweep across v2 pages from `docs.json`
 - **Blocks PR:** YES - if any test fails
-- **Location:** `.github/workflows/test-suite.yml`
+- **Runs on:** PRs to `main`/`docs-v2`, pushes to `main`
 
 **3. Manual Execution (On-Demand)**
 
@@ -496,8 +494,8 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 /
 ├── .github/                # GitHub configuration
 │   ├── workflows/          # GitHub Actions workflows
-│   │   ├── test-suite.yml           # Main test suite workflow
-│   │   ├── test-v2-pages.yml        # V2 pages testing workflow
+│   │   ├── test-suite.yml           # Docs CI - Content Quality Suite
+│   │   ├── test-v2-pages.yml        # Docs CI - V2 Browser Sweep
 │   │   ├── broken-links.yml         # Link validation workflow
 │   │   ├── update-*.yml             # Auto-update workflows (blog, forum, YouTube, etc.)
 │   │   ├── discord-issue-intake.yml # Create issues from Discord dispatch payloads
@@ -956,18 +954,24 @@ See [Automations & Workflows Guide](v2/pages/07_resources/documentation-guide/au
 
 This repository uses several GitHub Actions workflows:
 
-**1. Test Suite** (`.github/workflows/test-suite.yml`)
+**1. Content Quality Suite** (`.github/workflows/test-suite.yml`)
 
-- Runs on: Push to `main`/`docs-v2-preview`, Pull requests
-- Tests: Style guide, MDX, spelling, quality, browser tests
+- Runs on: Pull requests to `main`/`docs-v2`, push to `main`
+- Tests: Style guide, MDX, spelling, quality, links/imports, browser tests
 - Blocks PR if tests fail
 
-**2. Broken Links Check** (`.github/workflows/broken-links.yml`)
+**2. V2 Browser Sweep** (`.github/workflows/test-v2-pages.yml`)
+
+- Runs on: Pull requests to `main`/`docs-v2`, push to `main`
+- Tests: V2 page render/console sweep with PR summary comments
+- Blocks PR if tests fail
+
+**3. Broken Links Check** (`.github/workflows/broken-links.yml`)
 
 - Validates all links in documentation
 - Runs on pull requests
 
-**3. Auto-Update Workflows:**
+**4. Auto-Update Workflows:**
 
 - **Update Livepeer Release** (`.github/workflows/update-livepeer-release.yml`)
   - Runs every 30 minutes
@@ -980,7 +984,7 @@ This repository uses several GitHub Actions workflows:
 - **Update YouTube Data** (`.github/workflows/update-youtube-data.yml`)
   - Updates `snippets/automations/youtube/youtubeData.jsx`
 
-**4. SDK Generation** (`.github/workflows/sdk_generation.yaml`)
+**5. SDK Generation** (`.github/workflows/sdk_generation.yaml`)
 
 - Generates SDK documentation from API specs
 

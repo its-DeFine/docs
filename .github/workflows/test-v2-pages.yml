@@ -1,17 +1,21 @@
-name: Test V2 Pages
+name: Docs CI - V2 Browser Sweep
 
 on:
   push:
     branches:
       - main
-      - docs-v2
   pull_request:
     branches:
       - main
       - docs-v2
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test-pages:
+    name: v2-browser-sweep
     runs-on: ubuntu-latest
     
     permissions:
@@ -109,7 +113,7 @@ jobs:
         with:
           script: |
             const fs = require('fs');
-            let comment = '## 📊 V2 Pages Test Results\n\n';
+            let comment = '## 📊 V2 Browser Sweep Results\n\n';
             
             const total = '${{ steps.test-results.outputs.total }}';
             const passed = '${{ steps.test-results.outputs.passed }}';
@@ -164,7 +168,10 @@ jobs:
               
               const botComment = comments.data.find(comment => 
                 comment.user.type === 'Bot' && 
-                comment.body.includes('## 📊 V2 Pages Test Results')
+                (
+                  comment.body.includes('## 📊 V2 Browser Sweep Results') ||
+                  comment.body.includes('## 📊 V2 Pages Test Results')
+                )
               );
               
               if (botComment) {

@@ -1,4 +1,4 @@
-# V2 Pages Browser Test Workflow
+# Docs CI - V2 Browser Sweep
 
 This GitHub Actions workflow automatically tests all v2 pages from `docs.json` using Puppeteer in a headless browser whenever code is pushed or a PR is created.
 
@@ -15,7 +15,7 @@ This GitHub Actions workflow automatically tests all v2 pages from `docs.json` u
 
 ## When it runs
 
-- **On push** to `main` or `docs-v2` branches
+- **On push** to `main`
 - **On pull requests** targeting `main` or `docs-v2` branches
 
 ## Workflow steps
@@ -107,7 +107,7 @@ The JSON report (`v2-page-test-report.json`) contains:
 ## Troubleshooting
 
 ### Server fails to start
-- Check the workflow logs for mint dev output
+- Check the workflow logs for Mintlify dev server output
 - May need to increase wait time or check for port conflicts
 
 ### Tests timeout
@@ -123,8 +123,8 @@ The JSON report (`v2-page-test-report.json`) contains:
 To test locally before pushing:
 
 ```bash
-# Start mint dev
-mint dev
+# Start Mintlify dev
+npx mintlify dev
 
 # In another terminal
 npm run test:v2-pages

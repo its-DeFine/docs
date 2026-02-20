@@ -82,15 +82,15 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 
 ---
 
-#### Test V2 Pages
+#### Docs CI - V2 Browser Sweep
 
 **File:** `.github/workflows/test-v2-pages.yml`
 
 **Purpose:** Tests all v2 documentation pages for console errors and rendering issues
 
 **Triggers:**
-- Push to `main` or `docs-v2-preview` branches
-- Pull requests to `main` or `docs-v2-preview` branches
+- Push to `main`
+- Pull requests to `main` or `docs-v2`
 
 **What it does:**
 1. Starts Mintlify dev server
@@ -612,17 +612,17 @@ output-dir/
 
 ### Testing Scripts
 
-#### Test V2 Pages
+#### V2 Browser Sweep Script (`test:v2-pages`)
 
-**File:** `scripts/test-v2-pages.js`
+**File:** `tools/scripts/test-v2-pages.js`
 
 **Purpose:** Tests all v2 pages for console errors and rendering issues
 
 **Usage:**
 ```bash
-npm run test:v2-pages
+cd tools && npm run test:v2-pages
 # or
-node scripts/test-v2-pages.js
+node tools/scripts/test-v2-pages.js
 ```
 
 **What it does:**
@@ -633,7 +633,7 @@ node scripts/test-v2-pages.js
 5. Generates detailed JSON report
 
 **Prerequisites:**
-- `mint dev` must be running (or set `MINT_BASE_URL` environment variable)
+- `npx mintlify dev` must be running (or set `MINT_BASE_URL` environment variable)
 - Puppeteer installed (`npm install`)
 
 **Output:**
@@ -695,7 +695,7 @@ The hook also runs `.githooks/verify.sh` which checks:
 - ✅ **JavaScript syntax** - Validates JS files with `node --check`
 - ✅ **Mintlify config** - Validates `docs.json`/`mint.json` syntax
 - ✅ **Import paths** - Ensures snippets imports use absolute paths
-- ✅ **Browser validation** - Tests MDX files in headless browser (if `mint dev` is running)
+- ✅ **Browser validation** - Tests MDX files in headless browser (if `npx mintlify dev` is running)
 
 ### What Happens on Violation
 
@@ -714,7 +714,7 @@ The hooks include headless browser validation that tests MDX files actually rend
 - Console errors
 - Render failures
 
-**Note:** Browser validation requires `mint dev` to be running. If it's not running, the check is skipped (doesn't block commit).
+**Note:** Browser validation requires `npx mintlify dev` to be running. If it's not running, the check is skipped (doesn't block commit).
 
 ### Bypassing Hooks (Not Recommended)
 

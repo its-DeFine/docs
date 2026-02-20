@@ -1,17 +1,21 @@
-name: Test Suite
+name: Docs CI - Content Quality Suite
 
 on:
   push:
     branches:
       - main
-      - docs-v2
   pull_request:
     branches:
       - main
       - docs-v2
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test-suite:
+    name: content-quality-suite
     runs-on: ubuntu-latest
     env:
       NODE_PATH: ${{ github.workspace }}/tools/node_modules
@@ -110,7 +114,7 @@ jobs:
       - name: Test Summary
         if: always()
         run: |
-          echo "## Test Suite Results" >> $GITHUB_STEP_SUMMARY
+          echo "## Content Quality Suite Results" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| Test | Status |" >> $GITHUB_STEP_SUMMARY
           echo "|------|--------|" >> $GITHUB_STEP_SUMMARY
