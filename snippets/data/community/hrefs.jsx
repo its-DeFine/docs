@@ -105,11 +105,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "@livepeerorg",
-      "resolvedPath": "v2/pages/02_community/@livepeerorg",
-      "exists": false,
-      "status": "missing",
+      "linkType": "external-https",
+      "rawPath": "https://t.me/livepeerorg",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {

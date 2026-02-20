@@ -3,11 +3,11 @@
 Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.
 
 ## Run Metadata
-- Timestamp: 2026-02-20T03:02:41.462Z
+- Timestamp: 2026-02-20T03:14:36.580Z
 - Mode: full
 - Strict: false
 - Files analyzed: 467
-- Total extracted references: 3101
+- Total extracted references: 3100
 
 ## Summary Counts
 
@@ -16,20 +16,20 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 |---|---:|
 | empty | 198 |
 | external-http | 8 |
-| external-https | 1078 |
+| external-https | 1081 |
 | import-path | 630 |
-| internal-relative | 495 |
-| internal-rooted | 690 |
+| internal-relative | 487 |
+| internal-rooted | 694 |
 | mailto | 2 |
 
 ### By Status
 | status | count |
 |---|---:|
-| 🟡 untested-external | 1086 |
-| missing | 78 |
-| ok | 1714 |
+| 🟡 untested-external | 1089 |
+| missing | 71 |
+| ok | 1729 |
 | ok-folder-route | 6 |
-| route-missing | 16 |
+| route-missing | 4 |
 | skipped | 200 |
 | skipped-style-guide-example | 1 |
 
@@ -2637,7 +2637,6 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 ### v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | ../../.gitbook/assets/image (1).png | v2/pages/.gitbook/assets/image (1).png | false | missing |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/pages/01_ABOUT/concepts/protocol.mdx | snippets/pages/01_ABOUT/concepts/protocol.mdx | true | ok |  |  |  |
 | import-path | /snippets/pages/01_ABOUT/concepts/network.mdx | snippets/pages/01_ABOUT/concepts/network.mdx | true | ok |  |  |  |
@@ -2669,12 +2668,12 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | empty | # |  | null | skipped |  |  |  |
-| internal-relative | livepeer-protocol/technical-architecture.mdx | v2/pages/01_about/livepeer-protocol/technical-architecture.mdx | true | route-missing |  |  |  |
-| internal-relative | livepeer-protocol/core-mechanisms.mdx | v2/pages/01_about/livepeer-protocol/core-mechanisms.mdx | true | route-missing |  |  |  |
-| internal-relative | resources/blockchain-contracts.mdx | v2/pages/01_about/resources/blockchain-contracts.mdx | true | route-missing |  |  |  |
-| internal-relative | livepeer-protocol/protocol-economics.mdx | v2/pages/01_about/livepeer-protocol/protocol-economics.mdx | true | route-missing |  |  |  |
-| internal-relative | livepeer-network/overview.mdx | v2/pages/01_about/livepeer-network/overview.mdx | true | route-missing |  |  |  |
-| internal-relative | livepeer-network/technical-architecture.mdx | v2/pages/01_about/livepeer-network/technical-architecture.mdx | true | route-missing |  |  |  |
+| internal-relative | livepeer-protocol/technical-architecture | v2/pages/01_about/livepeer-protocol/technical-architecture.mdx | true | ok |  |  |  |
+| internal-relative | livepeer-protocol/core-mechanisms | v2/pages/01_about/livepeer-protocol/core-mechanisms.mdx | true | ok |  |  |  |
+| internal-relative | resources/blockchain-contracts | v2/pages/01_about/resources/blockchain-contracts.mdx | true | ok |  |  |  |
+| internal-relative | livepeer-protocol/protocol-economics | v2/pages/01_about/livepeer-protocol/protocol-economics.mdx | true | ok |  |  |  |
+| internal-relative | livepeer-network/overview | v2/pages/01_about/livepeer-network/overview.mdx | true | ok |  |  |  |
+| internal-relative | livepeer-network/technical-architecture | v2/pages/01_about/livepeer-network/technical-architecture.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
 ### v2/pages/01_about/livepeer-network/actors.mdx
@@ -2840,7 +2839,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://eips.ethereum.org/EIPS/eip-1 |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ./treasury.mdx | v2/pages/01_about/livepeer-protocol/treasury.mdx | true | route-missing |  |  |  |
+| internal-relative | ./treasury | v2/pages/01_about/livepeer-protocol/treasury.mdx | true | ok |  |  |  |
 | external-https | https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0073.md |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0034.md |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0035.md |  | null | 🟡 untested-external |  |  |  |
@@ -2878,7 +2877,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0052.md |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://docs.openzeppelin.com/contracts/4.x/api/governance#governor |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://docs.openzeppelin.com/contracts/4.x/api/governance#governorsettings |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ./treasury.mdx | v2/pages/01_about/livepeer-protocol/treasury.mdx | true | route-missing |  |  |  |
+| internal-relative | ./treasury | v2/pages/01_about/livepeer-protocol/treasury.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/00_home/introduction/ecosystem#livepeer-foundation | v2/pages/00_home/introduction/ecosystem.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/00_home/introduction/ecosystem#special-purpose-entities | v2/pages/00_home/introduction/ecosystem.mdx | true | ok |  |  |  |
 | external-https | https://discord.com/channels/423160867534929930/686685097935503397 |  | null | 🟡 untested-external |  |  |  |
@@ -2889,7 +2888,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://github.com/livepeer/LIPs |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://forum.livepeer.org/c/lips/18 |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://explorer.livepeer.org/voting |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /delegators/livepeer-governance/governance-model | v2/pages/delegators/livepeer-governance/governance-model | false | missing | v2/pages/01_about/livepeer-protocol/governance-model.mdx | v2/about/livepeer-protocol/governance-model.mdx |  |
+| internal-rooted | /v2/pages/01_about/livepeer-protocol/governance-model | v2/pages/01_about/livepeer-protocol/governance-model.mdx | true | ok |  |  |  |
 | external-https | https://github.com/livepeer/LIPs |  | null | 🟡 untested-external |  |  |  |
 | import-path | /snippets/components/primitives/text.jsx | snippets/components/primitives/text.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/text.jsx | snippets/components/primitives/text.jsx | true | ok |  |  |  |
@@ -2929,7 +2928,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://wikipedia.com/wiki/Protocol |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://arbitrum.io/ |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../../../07_resources/references/contract-addresses | v2/07_resources/references/contract-addresses | false | missing | v2/pages/04_gateways/references/contract-addresses.mdx | v2/pages/07_resources/references/contract-addresses.mdx | v1/references/contract-addresses.mdx |
+| internal-rooted | /v2/pages/07_resources/references/contract-addresses | v2/pages/07_resources/references/contract-addresses.mdx | true | ok |  |  |  |
 | external-https | https://github.com/livepeer/protocol |  | null | 🟡 untested-external |  |  |  |
 | internal-relative | ./core-mechanisms | v2/pages/01_about/livepeer-protocol/core-mechanisms.mdx | true | ok |  |  |  |
 | internal-relative | ./livepeer-token | v2/pages/01_about/livepeer-protocol/livepeer-token.mdx | true | ok |  |  |  |
@@ -2939,7 +2938,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-relative | ./technical-architecture | v2/pages/01_about/livepeer-protocol/technical-architecture.mdx | true | ok |  |  |  |
 | internal-relative | ../resources/livepeer-whitepaper | v2/pages/01_about/resources/livepeer-whitepaper.mdx | true | ok |  |  |  |
 | internal-relative | ../resources/blockchain-contracts | v2/pages/01_about/resources/blockchain-contracts.mdx | true | ok |  |  |  |
-| internal-relative | ../../../07_resources/references/contract-addresses | v2/07_resources/references/contract-addresses | false | missing | v2/pages/04_gateways/references/contract-addresses.mdx | v2/pages/07_resources/references/contract-addresses.mdx | v1/references/contract-addresses.mdx |
+| internal-rooted | /v2/pages/07_resources/references/contract-addresses | v2/pages/07_resources/references/contract-addresses.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/text.jsx | snippets/components/primitives/text.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/text.jsx | snippets/components/primitives/text.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/display/quote.jsx | snippets/components/display/quote.jsx | true | ok |  |  |  |
@@ -2960,7 +2959,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://github.com/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | "https://www.notion.so/livepeer/Livepeer-Protocol-Reward-Calculation-2320a34856878026adb0e7bcb7521661 | v2/pages/01_about/livepeer-protocol/"https:/www.notion.so/livepeer/Livepeer-Protocol-Reward-Calculation-2320a34856878026adb0e7bcb7521661 | false | missing |  |  |  |
+| external-https | https://www.notion.so/livepeer/Livepeer-Protocol-Reward-Calculation-2320a34856878026adb0e7bcb7521661 |  | null | 🟡 untested-external |  |  |  |
 | external-https | "https://www.notion.so/livepeer/Livepeer-Rewards-Accumulation-Mechanism-23e0a348568780199f26f8cbc3c2d231" |  | null | 🟡 untested-external |  |  |  |
 | external-https | "https://www.notion.so/livepeer/Livepeer-L1-L2-Migration-Report-Complete-Technical-Overview-2b10a348568780a28b59df9d8710bff9" |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/protocol |  | null | 🟡 untested-external |  |  |  |
@@ -2978,27 +2977,27 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ./treasury.mdx | v2/pages/01_about/livepeer-protocol/treasury.mdx | true | route-missing |  |  |  |
+| internal-relative | ./treasury | v2/pages/01_about/livepeer-protocol/treasury.mdx | true | ok |  |  |  |
 | external-https | https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0090.md |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0073.md |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0077.md |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | governance-model.mdx | v2/pages/01_about/livepeer-protocol/governance-model.mdx | true | route-missing |  |  |  |
+| internal-relative | governance-model | v2/pages/01_about/livepeer-protocol/governance-model.mdx | true | ok |  |  |  |
 | external-https | https://explorer.livepeer.org/treasury |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://arbiscan.io/address/0x363cdB9BaE210Ef182c60b5a496139E980330127#code |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://arbiscan.io/address/0x363cdB9BaE210Ef182c60b5a496139E980330127#code |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://forum.livepeer.org/c/treasury/20 |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://forum.livepeer.org/c/treasury/20 |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | forum.livepeer.org/t/treasury-grant-process/3250 | v2/pages/01_about/livepeer-protocol/forum.livepeer.org/t/treasury-grant-process/3250 | false | missing |  |  |  |
+| external-https | https://forum.livepeer.org/t/treasury-grant-process/3250 |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://forum.livepeer.org/t/quadratic-funding/3251 |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../../06_lptoken/treasury/overview.mdx | v2/pages/06_lptoken/treasury/overview.mdx | true | route-missing |  |  |  |
+| internal-rooted | /v2/pages/06_lptoken/treasury/overview | v2/pages/06_lptoken/treasury/overview.mdx | true | ok |  |  |  |
 | external-https | https://explorer.livepeer.org/treasury |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://dune.com/dob/livepeer-treasury |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://explorer.livepeer.org/treasury |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://arbiscan.io/address/0x363cdB9BaE210Ef182c60b5a496139E980330127#code |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../../06_lptoken/treasury/overview.mdx | v2/pages/06_lptoken/treasury/overview.mdx | true | route-missing |  |  |  |
+| internal-rooted | /v2/pages/06_lptoken/treasury/overview | v2/pages/06_lptoken/treasury/overview.mdx | true | ok |  |  |  |
 | external-https | https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-89.md |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://forum.livepeer.org/t/lip-92-livepeer-treasury-contribution-percentage/3249 |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://explorer.livepeer.org/treasury |  | null | 🟡 untested-external |  |  |  |
@@ -3100,7 +3099,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://github.com/livepeer |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://explorer.livepeer.org/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://discord.com/events/423160867534929930/1394387788568203274 |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | @livepeerorg | v2/pages/02_community/@livepeerorg | false | missing |  |  |  |
+| external-https | https://t.me/livepeerorg |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://www.reddit.com/r/livepeer/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://www.youtube.com/@livepeer |  | null | 🟡 untested-external |  |  |  |
 | import-path | /snippets/components/domain/SHARED/Portals.jsx | snippets/components/domain/SHARED/Portals.jsx | true | ok |  |  |  |
