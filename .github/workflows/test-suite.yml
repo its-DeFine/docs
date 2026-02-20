@@ -67,7 +67,7 @@ jobs:
       - name: Start Mintlify dev server
         continue-on-error: false
         run: |
-          mint dev > /tmp/mint-dev.log 2>&1 &
+          npx mintlify dev > /tmp/mint-dev.log 2>&1 &
           echo $! > /tmp/mint-dev.pid
           echo "Mint dev server starting (PID: $(cat /tmp/mint-dev.pid))"
 
