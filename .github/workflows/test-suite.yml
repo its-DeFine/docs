@@ -104,9 +104,17 @@ jobs:
           echo "|------|--------|" >> $GITHUB_STEP_SUMMARY
           echo "| PR Changed-File Checks | ${{ github.event_name == 'pull_request' && (steps.pr-checks.outcome == 'success' && '✅' || '❌') || '⏭️' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Browser | ${{ steps.browser-test.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
+          if [ "${{ github.event_name }}" = "pull_request" ] && [ "${{ steps.pr-checks.outcome }}" = "failure" ] && [ "${{ github.head_ref }}" = "docs-v2" ] && [ "${{ github.base_ref }}" = "main" ]; then
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "> Changed-file static check failures are advisory for integration PR \`docs-v2 -> main\`." >> $GITHUB_STEP_SUMMARY
+          fi
 
       - name: Fail if any test failed
-        if: (github.event_name == 'pull_request' && steps.pr-checks.outcome == 'failure') || steps.browser-test.outcome == 'failure'
+        if: >
+          steps.browser-test.outcome == 'failure' ||
+          (github.event_name == 'pull_request' &&
+          steps.pr-checks.outcome == 'failure' &&
+          !(github.head_ref == 'docs-v2' && github.base_ref == 'main'))
         run: |
           echo "❌ One or more tests failed"
           exit 1

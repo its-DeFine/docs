@@ -58,7 +58,7 @@
 - GitHub Step Summary tables
 - No PR comment from this workflow
 
-**Blocks PR:** YES for changed-file checks and browser failures
+**Blocks PR:** YES for changed-file checks and browser failures, except integration PR `docs-v2 -> main` where changed-file static failures are advisory
 
 ### B) V2 Browser Sweep
 

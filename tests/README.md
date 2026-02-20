@@ -104,6 +104,7 @@ npm --prefix tests run test:domain:both
   - style guide, MDX, spelling, quality, links/imports
   - script docs enforcement on changed scripts (`tests/unit/script-docs.test.js --files ...`)
   - strict V2 link audit on changed docs pages (`tests/integration/v2-link-audit.js --files ... --strict`)
+- Integration PR exception: for `docs-v2 -> main`, changed-file static failures are advisory while browser failures remain blocking.
 - The same workflow also runs full browser tests from `docs.json`.
 - `.github/workflows/test-v2-pages.yml` is responsible for PR comments and artifact uploads for V2 browser sweep results.
 - `.github/workflows/broken-links.yml` is currently advisory (non-blocking) while legacy link cleanup is in progress.

@@ -408,6 +408,7 @@ Current CI mapping:
     - style guide, MDX, spelling, quality, links/imports
     - script docs enforcement on changed scripts
     - strict V2 link audit on changed docs pages
+  - Integration PR exception: `docs-v2 -> main` treats changed-file static failures as advisory
   - Also runs browser tests from `docs.json`
   - Reports via GitHub Step Summary (no PR comment)
 - `.github/workflows/test-v2-pages.yml` (`Docs CI - V2 Browser Sweep`)
