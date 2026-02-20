@@ -3,5 +3,25 @@ docs/ABOUT/CONTEXT DATA/
 docs/ORCHESTRATORS/CONTEXT DATA/
 docs/DEVELOPERS/CONTEXT DATA/
 v2/pages/01_about/_contextData_/
-/docs/*
-/tasks
+v2/pages/**/_contextData_/
+v2/pages/**/_context_data_/
+v2/pages/**/_tests-to-delete/
+tasks/
+
+# Legacy/duplicate V2 mirrors outside canonical v2/pages tree
+v2/about/
+v2/community/
+v2/deprecated/
+v2/developers/
+v2/experimental/
+v2/gateways/
+v2/home/
+v2/internal/
+v2/lpt/
+v2/notes/
+v2/orchestrators/
+v2/platforms/
+v2/resources/
+
+# Temporary local test files
+tmp_*

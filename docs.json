@@ -2894,7 +2894,7 @@
                         "icon": "comments-question-check",
                         "hidden": true,
                         "pages": [
-                          "v2/pages/02_community/livepeer-community/trending-test"
+                          "v2/pages/02_community/livepeer-community/trending-topics"
                         ]
                       },
                       {
@@ -2902,8 +2902,8 @@
                         "icon": "books",
                         "pages": [
                           "v2/pages/02_community/livepeer-community/media-kit",
-                          "v2/pages/02_community/livepeer-community/trending-test",
-                          "v2/pages/02_community/livepeer-community/latest-topics"
+                          "v2/pages/02_community/livepeer-community/trending-topics",
+                          "v2/pages/02_community/livepeer-community/livepeer-latest-topics"
                         ]
                       }
                     ]

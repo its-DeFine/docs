@@ -12,6 +12,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # Limit scanner input to docs content and config needed for link resolution.
+          sparse-checkout: |
+            docs.json
+            .mintignore
+            v2/pages
+            snippets
+          sparse-checkout-cone-mode: false
+          fetch-depth: 0
 
       - name: Set up Node.js
         uses: actions/setup-node@v4

@@ -27,8 +27,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "22"
-          cache: 'npm'
-          cache-dependency-path: 'tools/package-lock.json'
 
       - name: Install Mintlify globally
         run: npm install -g mintlify
@@ -116,9 +114,15 @@ jobs:
             const total = '${{ steps.test-results.outputs.total }}';
             const passed = '${{ steps.test-results.outputs.passed }}';
             const failed = '${{ steps.test-results.outputs.failed }}';
+            const testExitCode = '${{ steps.test-pages.outputs.test_exit_code }}';
             
             if (total === '0') {
-              comment += '❌ Test report not found. The test may have failed to run.\n';
+              comment += '❌ Test report not found. The test may have failed before report generation.\n';
+              if (testExitCode && testExitCode !== '0') {
+                comment += `- Test step exit code: ${testExitCode}\n`;
+              } else {
+                comment += '- Likely failed in setup/cache/server-start steps before `npm run test:v2-pages`.\n';
+              }
             } else {
               const passRate = ((parseInt(passed) / parseInt(total)) * 100).toFixed(1);
               comment += `- **Total pages tested:** ${total}\n`;
