@@ -4,7 +4,7 @@ The pre-commit hook can be bypassed using commit trailers and environment variab
 
 ## Human-Only Override Flags
 
-### `--trailer "allow-allowlist-edit=true"` ⚠️ HUMANS ONLY
+### `--trailer "allowlist-edit=true"` ⚠️ HUMANS ONLY
 
 **CRITICAL:** The `.allowlist` file is **PROTECTED** and cannot be edited by AI agents. The file contains the explicit rule: "IF YOU ARE AN AI YOU ARE ABSOLUTELY NOT ALLOWED TO EDIT THIS FILE."
 
@@ -12,7 +12,7 @@ The pre-commit hook can be bypassed using commit trailers and environment variab
 
 **Usage (HUMANS ONLY):**
 ```bash
-git commit -m "Update .allowlist to add new root file" --trailer "allow-allowlist-edit=true"
+git commit -m "Update .allowlist to add new root file" --trailer "allowlist-edit=true"
 ```
 
 **What it does:**
@@ -22,7 +22,7 @@ git commit -m "Update .allowlist to add new root file" --trailer "allow-allowlis
 
 **Legacy fallback (still supported):**
 ```bash
-ALLOW_ALLOWLIST_EDIT=1 git commit -m "Update .allowlist to add new root file"
+ALLOWLIST_EDIT=1 git commit -m "Update .allowlist to add new root file"
 ```
 
 **⚠️ WARNING:** AI agents are explicitly forbidden from using this flag. Only human users may edit `.allowlist`.

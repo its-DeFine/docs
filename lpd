@@ -95,7 +95,7 @@ Examples:
 
 Notes:
   - `lpd dev` auto-installs/updates pre-commit hooks via tools/scripts/mint-dev.sh.
-  - Human `.allowlist` edits require: `git commit -m "msg" --trailer "allow-allowlist-edit=true"`.
+  - Human `.allowlist` edits require: `git commit -m "msg" --trailer "allowlist-edit=true"`.
   - Human deletions require: `git commit -m "msg" --trailer "allow-deletions=true"`.
   - Script discovery supports `.lpdignore` (gitignore-style patterns) if present in repo root.
 EOF
@@ -154,7 +154,7 @@ Common Workflows:
 
 Notes:
   - lpd uses .lpdignore (if present) to hide/block scripts from discovery and execution.
-  - Human `.allowlist` edits require: `git commit -m "msg" --trailer "allow-allowlist-edit=true"`.
+  - Human `.allowlist` edits require: `git commit -m "msg" --trailer "allowlist-edit=true"`.
   - Human deletions require: `git commit -m "msg" --trailer "allow-deletions=true"`.
   - High-risk script groups require confirmation unless --yes is supplied.
 EOF
@@ -638,11 +638,11 @@ Bypass Flags (pre-commit; use sparingly):
   - `SKIP_ALL=1`              : skip all pre-commit checks.
 
 Human-Only Overrides:
-  - `git commit ... --trailer "allow-allowlist-edit=true"`
+  - `git commit ... --trailer "allowlist-edit=true"`
   - `git commit ... --trailer "allow-deletions=true"`
 
 Legacy Environment Overrides:
-  - `ALLOW_ALLOWLIST_EDIT=1` (legacy fallback for allowlist edits)
+  - `ALLOWLIST_EDIT=1` (legacy fallback for allowlist edits)
   - `ALLOW_DELETIONS=1`      (legacy fallback for deletions)
 
 Notes:
@@ -662,7 +662,7 @@ Usage:
 
 Note:
   Human `.allowlist` edits require:
-  git commit -m "msg" --trailer "allow-allowlist-edit=true"
+  git commit -m "msg" --trailer "allowlist-edit=true"
   Human deletions require:
   git commit -m "msg" --trailer "allow-deletions=true"
 EOF

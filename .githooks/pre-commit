@@ -39,8 +39,8 @@
 #   SKIP_ALL=1             - Skip all checks (use with extreme caution)
 #
 # Human-only override flags:
-#   --trailer "allow-allowlist-edit=true" - Allow editing .allowlist file (HUMANS ONLY - AIs must never use this)
-#   ALLOW_ALLOWLIST_EDIT=1                - Legacy fallback for automation contexts
+#   --trailer "allowlist-edit=true" - Allow editing .allowlist file (HUMANS ONLY - AIs must never use this)
+#   ALLOWLIST_EDIT=1                - Legacy fallback for automation contexts
 #   --trailer "allow-deletions=true"      - Allow file deletions (HUMANS ONLY - AIs must never use this)
 #   ALLOW_DELETIONS=1                      - Legacy fallback for automation contexts
 
@@ -161,15 +161,15 @@ fi
 # Check for .allowlist file changes (BLOCKED for AIs, requires human override)
 WHITELIST_CHANGES=$(git diff --cached --name-only | grep -E '^\.allowlist$|^\.allowlist ' || true)
 if [ -n "$WHITELIST_CHANGES" ]; then
-    ALLOW_ALLOWLIST_EDIT=${ALLOW_ALLOWLIST_EDIT:-0}
+    ALLOWLIST_EDIT=${ALLOWLIST_EDIT:-0}
 
-    if [ "$ALLOW_ALLOWLIST_EDIT" != "1" ]; then
-        if has_human_override_trailer "allow-allowlist-edit"; then
-            ALLOW_ALLOWLIST_EDIT=1
+    if [ "$ALLOWLIST_EDIT" != "1" ]; then
+        if has_human_override_trailer "allowlist-edit"; then
+            ALLOWLIST_EDIT=1
         fi
     fi
 
-    if [ "$ALLOW_ALLOWLIST_EDIT" != "1" ]; then
+    if [ "$ALLOWLIST_EDIT" != "1" ]; then
         VIOLATIONS=$((VIOLATIONS + 1))
         echo -e "${RED}╔═══════════════════════════════════════════════════════════════╗${NC}"
         echo -e "${RED}║  .allowlist FILE CHANGES BLOCKED                              ║${NC}"
@@ -183,8 +183,8 @@ if [ -n "$WHITELIST_CHANGES" ]; then
         echo -e "${YELLOW}   'IF YOU ARE AN AI YOU ARE ABSOLUTELY NOT ALLOWED TO EDIT THIS FILE.'${NC}"
         echo ""
         echo -e "${YELLOW}To allow editing .allowlist (HUMANS ONLY):${NC}"
-        echo -e "${YELLOW}  git commit -m \"your message\" --trailer \"allow-allowlist-edit=true\"${NC}"
-        echo -e "${YELLOW}  (legacy fallback: ALLOW_ALLOWLIST_EDIT=1 git commit -m \"your message\")${NC}"
+        echo -e "${YELLOW}  git commit -m \"your message\" --trailer \"allowlist-edit=true\"${NC}"
+        echo -e "${YELLOW}  (legacy fallback: ALLOWLIST_EDIT=1 git commit -m \"your message\")${NC}"
         echo ""
         echo -e "${RED}Commit blocked. Only humans may edit .allowlist with explicit override.${NC}"
         echo ""

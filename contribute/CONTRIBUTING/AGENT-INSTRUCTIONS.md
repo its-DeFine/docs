@@ -129,7 +129,7 @@ If you encounter a false positive:
 If a human explicitly needs to edit `.allowlist`, they must commit with:
 
 ```bash
-git commit -m "Update .allowlist" --trailer "allow-allowlist-edit=true"
+git commit -m "Update .allowlist" --trailer "allowlist-edit=true"
 ```
 
 If a human explicitly needs to allow file deletions, they must commit with:

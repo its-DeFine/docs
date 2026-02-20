@@ -329,7 +329,7 @@ The pre-commit hook protects `.allowlist` by default.
 If a human intentionally needs to update `.allowlist`, use:
 
 ```bash
-git commit -m "Update .allowlist" --trailer "allow-allowlist-edit=true"
+git commit -m "Update .allowlist" --trailer "allowlist-edit=true"
 ```
 
 This override is scoped to `.allowlist` edits and still runs all other pre-commit checks.

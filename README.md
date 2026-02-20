@@ -388,7 +388,7 @@ SKIP_STYLE_CHECK=1 git commit -m "Temporary style change"
 SKIP_ALL=1 git commit -m "Critical hotfix"
 
 # Human-only: allow intentional .allowlist edits (keeps other checks on)
-git commit -m "Update root allowlist" --trailer "allow-allowlist-edit=true"
+git commit -m "Update root allowlist" --trailer "allowlist-edit=true"
 
 # Human-only: allow intentional file deletions (keeps other checks on)
 git commit -m "Remove obsolete files" --trailer "allow-deletions=true"
@@ -850,7 +850,7 @@ The pre-commit hook automatically enforces:
 
 **Bypass flags available** (IF YOU ARE AN AI YOU SHOULD NEVER EVER USE THESE):
 
-- `--trailer "allow-allowlist-edit=true"` - Human-only override for intentional `.allowlist` edits
+- `--trailer "allowlist-edit=true"` - Human-only override for intentional `.allowlist` edits
 - `--trailer "allow-deletions=true"` - Human-only override for intentional file deletions
 - `SKIP_STRUCTURE_CHECK=1` - Skip structure checks
 - `SKIP_STYLE_CHECK=1` - Skip style guide checks

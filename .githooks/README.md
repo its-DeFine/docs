@@ -148,7 +148,7 @@ The `.allowlist` file is protected by the pre-commit hook.
 If a human needs to intentionally edit `.allowlist`, use:
 
 ```bash
-git commit -m "Update .allowlist" --trailer "allow-allowlist-edit=true"
+git commit -m "Update .allowlist" --trailer "allowlist-edit=true"
 ```
 
 This allows `.allowlist` edits while still running all other checks.
