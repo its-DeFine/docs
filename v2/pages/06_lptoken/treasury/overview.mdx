@@ -1,98 +1,159 @@
 ---
-title: 'Livepeer Treasury Overview'
+title: 'Treasury Overview'
 sidebarTitle: 'Overview'
-description: 'Overview of the Livepeer on-chain community treasury, governance-controlled funding, and ecosystem development.'
-keywords: ["livepeer", "treasury", "governance", "grants", "SPE", "funding", "inflation"]
+description: 'Formal model of the Livepeer Treasury as a governance-controlled protocol asset allocator.'
+keywords: ["livepeer", "lpt", "treasury", "governance", "grants", "funding", "ecosystem"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
 ## Executive Summary
 
-The Livepeer Treasury is a governance-controlled pool of LPT that funds ecosystem development, public goods, and protocol improvements. Treasury assets are controlled by on-chain governance on Arbitrum One.
+The Livepeer Treasury is the governance-controlled pool of protocol-managed assets used to fund ecosystem development, security research, infrastructure support, and other strategically aligned allocations.
 
-Treasury balance after allocation:
+Treasury control is enforced at the **protocol layer (on-chain)** through governance execution. The treasury is not controlled by off-chain committees in the enforcement sense; rather, governance proposals deterministically authorize transfers and actions.
+
+---
+
+## 1. Formal Definition
+
+Let:
+
+- \(T\) = treasury balance (in relevant asset units)
+- \(A_k\) = allocation amount executed by proposal \(k\)
+
+Treasury balance update after allocation \(k\):
 
 \[
-T' = T - A_i
+T' = T - A_k
 \]
 
-Where \(A_i\) represents the allocated amount for proposal \(i\).
+More generally, after a set of allocations \(\{A_1, A_2, \dots, A_n\}\):
+
+\[
+T_n = T_0 - \sum_{k=1}^{n} A_k
+\]
+
+Where each \(A_k\) is authorized via governance.
+
+---
+
+## 2. Architectural Context
+
+### 2.1 Protocol Layer
+
+At the protocol layer:
+
+- Governance contracts authorize allocations
+- Execution contracts (e.g., timelock/treasury execution logic) perform transfers
+- On-chain state is the source of truth
+
+Canonical contract registry: [Contract Addresses](https://docs.livepeer.org/references/contract-addresses)
+
+### 2.2 Network Layer
+
+At the network layer, treasury-funded initiatives may affect:
+
+- Orchestrator adoption
+- Developer tooling
+- Ecosystem applications
+
+But treasury enforcement remains on-chain.
+
+---
+
+## 3. Treasury Purpose and Economic Rationale
+
+A protocol treasury exists to:
+
+1. Fund public goods aligned with protocol growth
+2. Reduce underinvestment in shared infrastructure
+3. Support long-horizon research and development
+4. Provide mechanism for strategic ecosystem interventions
+
+From an economic standpoint, the treasury is a coordination instrument for funding non-excludable benefits that markets underprovide.
+
+---
+
+## 4. Treasury Governance Model
+
+Treasury decisions are executed through the governance lifecycle.
+
+Let:
+
+- \(B_T\) = total bonded stake
+- \(B_i\) = bonded stake attributed to voter \(i\)
+
+Voting power:
+
+\[
+V_i = \frac{B_i}{B_T}
+\]
+
+Thus, the treasury inherits governance security properties.
+
+---
+
+## 5. Security Model
+
+Treasury security depends on:
+
+1. Total bonded stake \(B_T\)
+2. Stake distribution (concentration)
+3. Quorum and timelock configuration
+
+Capital required to control outcomes:
+
+\[
+Capital_{control} \ge \theta B_T
+\]
+
+A treasury is therefore as secure as the governance system controlling it.
+
+---
+
+## 6. Risks and Failure Modes
+
+Key risks include:
+
+- **Governance capture** — stake concentration
+- **Low participation** — quorum risk
+- **Mis-specified calldata** — execution failure
+- **Misaligned incentives** — allocation inefficiency
+
+Treasury is not automatically "good"; its outcomes depend on governance process quality.
+
+---
+
+## 7. System Diagram
 
 ```mermaid
-flowchart LR
-    Governance --> Treasury --> Recipient
+flowchart TD
+    Proposal --> Vote
+    Vote --> Timelock
+    Timelock --> Execute
+    Execute --> Treasury
+    Treasury --> Recipient
 ```
 
 ---
 
-## Background
-
-In 2022, Livepeer launched the On-Chain Treasury to fund the long-term growth and sustainability of the network. This treasury accumulates a portion of protocol inflation and is controlled by token holder votes.
-
-By Q4 2022, [Messari reported](https://messari.io/asset/livepeer-protocol/whitepaper#on-chain-treasury) that Livepeer was allocating approximately $250k per quarter in grants to ecosystem projects via this governance mechanism.
-
-By 2025, the treasury has become a significant source of funding for Special Purpose Entities (SPEs) and other needed initiatives.
-
----
-
-## Community Treasury
-
-The protocol routes a share of inflation to an on-chain community treasury. In its first iteration, 10% of newly minted LPT flowed into a multisig controlled by the Livepeer Foundation and community stewards. The purpose of the treasury is to fund public goods, research, marketing initiatives, and tooling that benefit the entire ecosystem.
-
-Examples of funded initiatives include:
-
-- Grants for improving monitoring infrastructure
-- Research into verifiable transcoding
-- Support for ecosystem builders
-
-When the treasury balance reached a pre-defined cap, contributions paused; future LIPs can adjust the rate or resume funding.
-
----
-
-## Governance and Accountability
-
-Treasury funds do not accrue automatically to orchestrators or delegators. Spending proposals must be approved by governance, ensuring transparency and accountability.
-
-Special-purpose entities (SPEs) can request allocations to execute scoped projects and must report back on milestones. Examples include:
-
-- Building a verification framework
-- Developing new codecs
-- Infrastructure improvements
-
-This structure turns inflation into a community-directed investment in the protocol's long-term health rather than pure dilution.
-
----
-
-## Funding Frameworks
-
-To ensure that treasury spending aligns with protocol objectives, the Livepeer community has experimented with several frameworks for public-goods funding:
-
-| Framework | Description |
-|-----------|-------------|
-| **Milestone-based grants** | Proposers submit budgets and deliverables; funds are released in tranches upon completion; progress is publicly reported on the forum |
-| **Quadratic funding** | Community donations are matched from the treasury to signal strong grassroots support |
-| **Retroactive funding** | Contributions are rewarded after impact is demonstrated |
-
-These experiments reflect a wider movement in decentralized governance toward more inclusive and accountable resource allocation.
-
----
-
-## Protocol vs Network Separation
+## 8. Protocol vs Network Separation
 
 **Protocol (On-Chain):**
-- Treasury contract holds funds
-- Governance proposals allocate funds
-- On-chain voting determines outcomes
+- Treasury custody and execution
+- Governance authorization
+- Deterministic on-chain transfers
 
 **Network (Off-Chain):**
-- SPEs execute funded projects
-- Grantees deliver milestones
-- Community reports progress
+- Allocation recipients execute work (development, infra)
+- Ecosystem growth effects
+- Operational delivery
+
+Treasury is enforced by protocol logic; outcomes occur through off-chain delivery.
 
 ---
 
 ## References
 
-- [Livepeer Governance Forum](https://forum.livepeer.org)
-- [Treasury Proposals](./proposals)
-- [Messari Report on Livepeer Treasury](https://messari.io/asset/livepeer-protocol/whitepaper#on-chain-treasury)
+- [Livepeer Protocol Repository](https://github.com/livepeer/protocol)
+- [Contract Registry](https://docs.livepeer.org/references/contract-addresses)
