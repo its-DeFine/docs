@@ -31,6 +31,10 @@ jobs:
         working-directory: tools
         run: npm install
 
+      - name: Install dependencies (tests)
+        working-directory: tests
+        run: npm install
+
       - name: Run Style Guide Tests
         id: style-test
         continue-on-error: true
