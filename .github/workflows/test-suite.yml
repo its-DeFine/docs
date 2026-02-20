@@ -27,6 +27,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Fetch pull request base ref
+        if: github.event_name == 'pull_request'
+        run: git fetch --no-tags --depth=1 origin ${{ github.base_ref }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
@@ -37,35 +43,13 @@ jobs:
         working-directory: tools
         run: npm install
 
-      - name: Run Style Guide Tests
-        id: style-test
+      - name: Run PR Changed-File Checks
+        id: pr-checks
+        if: github.event_name == 'pull_request'
         continue-on-error: true
-        working-directory: tools
-        run: npm run test:style
-
-      - name: Run MDX Validation Tests
-        id: mdx-test
-        continue-on-error: true
-        working-directory: tools
-        run: npm run test:mdx
-
-      - name: Run Spelling Tests
-        id: spell-test
-        continue-on-error: true
-        working-directory: tools
-        run: npm run test:spell
-
-      - name: Run Quality Tests
-        id: quality-test
-        continue-on-error: true
-        working-directory: tools
-        run: npm run test:quality
-
-      - name: Run Links & Imports Tests
-        id: links-test
-        continue-on-error: true
-        working-directory: tools
-        run: npm run test:links
+        env:
+          GITHUB_BASE_REF: ${{ github.base_ref }}
+        run: npm --prefix tests run test:pr
 
       - name: Install Mintlify globally
         run: npm install -g mintlify
@@ -118,15 +102,11 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
           echo "| Test | Status |" >> $GITHUB_STEP_SUMMARY
           echo "|------|--------|" >> $GITHUB_STEP_SUMMARY
-          echo "| Style Guide | ${{ steps.style-test.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| MDX Validation | ${{ steps.mdx-test.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Spelling | ${{ steps.spell-test.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Quality | ${{ steps.quality-test.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
-          echo "| Links & Imports | ${{ steps.links-test.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| PR Changed-File Checks | ${{ github.event_name == 'pull_request' && (steps.pr-checks.outcome == 'success' && '✅' || '❌') || '⏭️' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Browser | ${{ steps.browser-test.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
 
       - name: Fail if any test failed
-        if: steps.style-test.outcome == 'failure' || steps.mdx-test.outcome == 'failure' || steps.spell-test.outcome == 'failure' || steps.quality-test.outcome == 'failure' || steps.links-test.outcome == 'failure' || steps.browser-test.outcome == 'failure'
+        if: (github.event_name == 'pull_request' && steps.pr-checks.outcome == 'failure') || steps.browser-test.outcome == 'failure'
         run: |
           echo "❌ One or more tests failed"
           exit 1

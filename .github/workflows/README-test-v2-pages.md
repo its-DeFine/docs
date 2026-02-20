@@ -18,6 +18,11 @@ This GitHub Actions workflow automatically tests all v2 pages from `docs.json` u
 - **On push** to `main`
 - **On pull requests** targeting `main` or `docs-v2` branches
 
+## Related workflows
+
+- `.github/workflows/test-suite.yml` runs changed-file blocking checks and writes GitHub Step Summary output.
+- This workflow (`test-v2-pages.yml`) owns PR comment updates and browser-sweep artifact uploads.
+
 ## Workflow steps
 
 1. Checkout repository
@@ -112,7 +117,7 @@ The JSON report (`v2-page-test-report.json`) contains:
 
 ### Tests timeout
 - Some pages may be slow to load
-- Consider increasing per-page timeout in `scripts/test-v2-pages.js`
+- Consider increasing per-page timeout in `tools/scripts/test-v2-pages.js`
 
 ### Puppeteer issues
 - The workflow uses the system Chrome/Chromium
@@ -127,13 +132,13 @@ To test locally before pushing:
 npx mintlify dev
 
 # In another terminal
-npm run test:v2-pages
+npm --prefix tools run test:v2-pages
 ```
 
 ## Customization
 
 ### Test specific pages only
-Modify `scripts/test-v2-pages.js` to filter pages:
+Modify `tools/scripts/test-v2-pages.js` to filter pages:
 
 ```javascript
 const pages = getV2Pages().filter(page => 
@@ -142,7 +147,7 @@ const pages = getV2Pages().filter(page =>
 ```
 
 ### Change timeout
-Update `TIMEOUT` constant in `scripts/test-v2-pages.js`
+Update `TIMEOUT` constant in `tools/scripts/test-v2-pages.js`
 
 ### Skip on certain branches
 Add conditions to workflow:

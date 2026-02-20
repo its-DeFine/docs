@@ -11,16 +11,20 @@
 - Broken links and imports validation
 - MDX syntax validation
 - JSON/JS/Shell syntax checks
-- **Test suite (fast mode)** - Only on staged files, browser tests skipped
+- **Test suite (fast mode)** on staged docs pages
   - Style guide tests
   - MDX validation
   - Spelling checks
   - Quality checks
   - Broken links & imports validation
+- Script docs enforcement (`tests/unit/script-docs.test.js --staged --write --stage --autofill`)
+- Pages index sync (`tools/scripts/generate-pages-index.js --staged --write --stage`)
+- Staged strict V2 link audit (`tests/integration/v2-link-audit.js --staged --strict ...`)
+- Staged domain audit (`tests/integration/domain-pages-audit.js --staged ...`)
 
-**Speed:** Fast (~10-30 seconds) - only tests staged files
+**Speed:** Fast (~10-30 seconds) for most commits, depends on staged scope
 
-**Blocks Commit:** YES - if violations found
+**Blocks Commit:** YES (except checks explicitly marked optional in hook output)
 
 **Installation Required:**
 ```bash
@@ -31,34 +35,59 @@
 
 ## 2. CI/CD Workflows (GitHub Actions - Automatic)
 
-**When:** 
+### A) Content Quality Suite
+
+**Location:** `.github/workflows/test-suite.yml`
+
+**When:**
 - On push to `main`
 - On pull requests to `main` or `docs-v2`
 
-**Locations:**
-- `.github/workflows/test-suite.yml` (Docs CI - Content Quality Suite)
-- `.github/workflows/test-v2-pages.yml` (Docs CI - V2 Browser Sweep)
+**What Runs:**
+- **On pull requests:** changed-file blocking checks
+  - Style guide (`tests/unit/style-guide.test.js`)
+  - MDX validation (`tests/unit/mdx.test.js`)
+  - Spelling (`tests/unit/spelling.test.js`)
+  - Quality (`tests/unit/quality.test.js`)
+  - Links/imports (`tests/unit/links-imports.test.js`)
+  - Script docs enforcement for changed scripts (`tests/unit/script-docs.test.js --files ...`)
+  - Strict link audit for changed docs pages (`tests/integration/v2-link-audit.js --files ... --strict`)
+- Browser tests (all pages from `docs.json`) via `tests/integration/browser.test.js`
+
+**Output:**
+- GitHub Step Summary tables
+- No PR comment from this workflow
+
+**Blocks PR:** YES for changed-file checks and browser failures
+
+### B) V2 Browser Sweep
+
+**Location:** `.github/workflows/test-v2-pages.yml`
+
+**When:**
+- On push to `main` or `docs-v2`
+- On pull requests to `main` or `docs-v2`
 
 **What Runs:**
-- **Content Quality Suite**
-  - Style guide tests (all files)
-  - MDX validation (all files)
-  - Spelling tests (all files)
-  - Quality checks (all files)
-  - Broken links & imports validation (all files)
-  - Browser tests (all pages)
-- **V2 Browser Sweep**
-  - V2 route/browser console sweep from `docs.json`
-  - PR comment summary and test artifact
+- Full V2 browser sweep from `docs.json` (`tools/scripts/test-v2-pages.js`)
 
-**Speed:** Slower (~5-10 minutes) - tests entire codebase
+**Output:**
+- PR comment summary
+- Artifact: `v2-page-test-report.json`
 
-**Blocks PR:** YES - if any required check fails
+**Blocks PR:** YES when the sweep fails
 
-**Requirements:**
-- Starts Mintlify dev server automatically
-- Tests pages in headless browser
-- Generates test summaries in CI output/PR comments
+### C) Broken Links Check (Advisory)
+
+**Location:** `.github/workflows/broken-links.yml`
+
+**When:**
+- On pull requests to `main`
+
+**What Runs:**
+- `npx mintlify broken-links`
+
+**Policy:** Advisory only while legacy cleanup is in progress (non-blocking)
 
 ---
 
@@ -66,79 +95,54 @@
 
 **When:** You run them manually
 
-**Commands:**
-
 ```bash
-# From root directory
-node tests/run-all.js                    # All tests
-node tests/unit/style-guide.test.js     # Style guide only
-node tests/unit/mdx.test.js             # MDX validation only
-node tests/unit/spelling.test.js        # Spelling only
-node tests/unit/quality.test.js         # Quality checks only
-node tests/unit/links-imports.test.js   # Broken links & imports only
-node tests/integration/browser.test.js  # Browser tests only
+# Full local suite
+node tests/run-all.js
 
-# Or from v2/ directory (if dependencies installed there)
-cd v2
-npm test                                # All tests
-npm run test:style                      # Style guide
-npm run test:mdx                        # MDX
-npm run test:spell                      # Spelling
-npm run test:browser                    # Browser
-npm run test:quality                    # Quality
-npm run test:links                      # Broken links & imports
-npm run test:all-pages                  # All pages browser test
-```
+# Single suites
+node tests/unit/style-guide.test.js
+node tests/unit/mdx.test.js
+node tests/unit/spelling.test.js
+node tests/unit/quality.test.js
+node tests/unit/links-imports.test.js
+node tests/integration/browser.test.js
 
-**Browser Tests (All Pages):**
-```bash
-# Make sure Mintlify dev is running on port 3333
-MINT_BASE_URL=http://localhost:3333 node scripts/test-all-pages-browser.js
+# Changed-file PR simulation (local)
+node tests/run-pr-checks.js --base-ref main
+
+# Strict link audit on explicit files
+node tests/integration/v2-link-audit.js --files v2/pages/02_community/livepeer-community/trending-topics.mdx --strict
 ```
 
 ---
 
-## Test Execution Flow
+## Execution Flow (PR)
 
-### Pre-Commit Flow
 ```
-git commit
+Pull request opened/updated
   ↓
-Pre-commit hook runs
+Content Quality Suite starts
   ↓
-Style guide checks (grep-based, fast)
+Compute changed files from merge-base (origin/<base_ref>..HEAD)
   ↓
-Verification scripts (syntax checks)
-  ↓
-Test suite (staged files only, --skip-browser)
-  ↓
-✅ Commit allowed OR ❌ Commit blocked
-```
-
-### CI/CD Flow
-```
-Push/PR created
-  ↓
-GitHub Actions triggered
-  ↓
-Install dependencies
-  ↓
-Run all test suites (all files)
+Run changed-file blocking checks
   ↓
 Start Mintlify dev server
   ↓
-Run browser tests (all 264 pages)
+Run browser tests
   ↓
-Generate summary
+Step summary updated
   ↓
-✅ PR approved OR ❌ PR blocked
+✅ PR can merge OR ❌ PR blocked
 ```
 
 ---
 
-## Current Status
+## Future Graduation to Full-Repo Blocking
 
-- CI workflow names are intentionally split by purpose:
-  - `Docs CI - Content Quality Suite`
-  - `Docs CI - V2 Browser Sweep`
-- Push-triggered checks run on `main` only to avoid duplicate `push` + `pull_request` checks on feature branches.
+Changed-file blocking is intentional while legacy violations are being cleaned up.
+
+Graduate to full-repo blocking only after agreed criteria are met, for example:
+- Baseline static violations reduced to near-zero for style/MDX/quality/links checks
+- The team agrees the remaining debt is not expected to cause widespread PR failures
+- CI timing and developer experience remain acceptable after widening scope

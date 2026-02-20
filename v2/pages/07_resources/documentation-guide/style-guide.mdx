@@ -720,16 +720,16 @@ export const MyComponent = () => {
 
 ### Branch Management
 
-**ALWAYS create a new branch from `docs-v2-preview`:**
+**ALWAYS create a new branch from `docs-v2`:**
 
 ```bash
-git checkout docs-v2-preview
+git checkout docs-v2
 git pull
 git checkout -b docs-plan/XX-task-name
 ```
 
 **Never work directly on:**
-- `docs-v2-preview` (default source of truth)
+- `docs-v2` (active docs branch)
 - `main` or `master`
 - Any branch another agent is using
 
@@ -1016,7 +1016,8 @@ npm run test:browser    # Browser rendering tests
 - Theme testing (light/dark)
 - Content validation (H1, content length)
 
-The test suite runs automatically in pre-commit hooks (fast mode) and in CI/CD (full suite).
+The test suite runs automatically in pre-commit hooks (staged/fast mode) and in CI/CD.
+In pull request CI, static checks are changed-file scoped for blocking, while browser sweeps keep full-route coverage.
 
 For full details on the hooks, see the [Git Hooks Documentation](/contribute/CONTRIBUTING/GIT-HOOKS.md).
 

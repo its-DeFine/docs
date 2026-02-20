@@ -15,7 +15,7 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
 This guide documents all automation scripts, GitHub Actions workflows, n8n automations, and pre-commit hooks used in the Livepeer documentation repository.
 
 <Info>
-For a detailed audit of all automations, see the [Automations & Workflows Audit Report](/docs/PLAN/reports/20-automations-workflows-audit-report.md).
+For a detailed audit of all automations, see the [Automations & Workflows Audit Report](/tasks/reports/20-automations-workflows-audit-report.md).
 </Info>
 
 ## Overview
@@ -49,11 +49,40 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 **What it does:**
 1. Installs Mintlify CLI
 2. Runs `mintlify broken-links` to check all links
-3. Fails the PR if broken links are found
+3. Posts advisory output in workflow summary (currently non-blocking)
 
 **Manual execution:** Not available (PR-only)
 
 **Required secrets:** None
+
+**Policy:** ⚠️ Advisory-only while legacy link cleanup is in progress (`continue-on-error: true`)
+
+---
+
+#### Docs CI - Content Quality Suite
+
+**File:** `.github/workflows/test-suite.yml`
+
+**Purpose:** Runs the primary PR-blocking content quality checks
+
+**Triggers:**
+- Push to `main`
+- Pull requests to `main` or `docs-v2`
+
+**What it does (PRs):**
+1. Computes changed files against PR base branch
+2. Runs changed-file scoped blocking checks:
+   - Style guide
+   - MDX validation
+   - Spelling
+   - Quality
+   - Links/imports
+   - Script docs enforcement on changed scripts
+   - Strict V2 link audit on changed docs pages
+3. Runs browser tests for route/runtime coverage
+4. Writes results to GitHub Step Summary
+
+**Output:** Workflow summary table (no PR comment from this workflow)
 
 ---
 
@@ -262,7 +291,7 @@ Most n8n workflows are currently **inactive** (`"active": false`). Only active w
 1. Fetches iCal data from Luma API
 2. Parses events (upcoming and past)
 3. Generates JSX data file
-4. Commits to GitHub on `docs-v2-preview` branch
+4. Commits to GitHub on `docs-v2` branch
 
 **Output:** `snippets/automations/luma/lumaEventsData.jsx`
 
@@ -365,7 +394,7 @@ The following n8n workflows provide alternative implementations to GitHub Action
 - **Discord-Issue-Intake.json** - Discord issue intake relay (paired with `.github/workflows/discord-issue-intake.yml`)
 
 <Warning>
-**Repository Configuration:** Some n8n workflows may be configured to write to `DeveloperAlly/livepeer-automations` instead of `livepeer/docs`. Before activating, verify the GitHub node is configured to write to the correct repository (`livepeer/docs`) and branch (`docs-v2-preview`).
+**Repository Configuration:** Some n8n workflows may be configured to write to `DeveloperAlly/livepeer-automations` instead of `livepeer/docs`. Before activating, verify the GitHub node is configured to write to the correct repository (`livepeer/docs`) and branch (`docs-v2`).
 </Warning>
 
 ---
@@ -900,7 +929,7 @@ npm run test:v2-pages
 - [Git Hooks Documentation](/contribute/CONTRIBUTING/GIT-HOOKS.md) - Complete pre-commit hook documentation
 - [Scripts README](/tools/scripts/snippets/README.mdx) - Detailed scripts documentation
 - [Automations README](/snippets/automations/README.mdx) - Automation overview
-- [Audit Report](/docs/PLAN/reports/20-automations-workflows-audit-report.md) - Comprehensive automation audit
+- [Audit Report](/tasks/reports/20-automations-workflows-audit-report.md) - Comprehensive automation audit
 
 ---
 

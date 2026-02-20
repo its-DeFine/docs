@@ -12,6 +12,7 @@
  * @inputs
  *   --staged Enforce only newly added staged scripts.
  *   --enforce-existing Enforce all scoped scripts.
+ *   --files <path[,path...]> Enforce explicit script file list (repeatable).
  *   --autofill Inject placeholder header for brand-new scripts missing the template.
  *   --backfill-existing Inject non-placeholder headers for existing scripts missing the template.
  *   --write Update script-index files and aggregate index.
@@ -255,6 +256,25 @@ function buildUsageDefault(repoPath) {
   return `node ${repoPath}`;
 }
 
+function collectFilesFromArgs(args) {
+  const files = [];
+  for (let i = 0; i < args.length; i += 1) {
+    const token = args[i];
+    if (token === '--files' || token === '--file') {
+      const raw = String(args[i + 1] || '').trim();
+      if (raw) {
+        raw
+          .split(',')
+          .map((part) => part.trim())
+          .filter(Boolean)
+          .forEach((part) => files.push(part));
+      }
+      i += 1;
+    }
+  }
+  return [...new Set(files.map(normalizeRepoPath))];
+}
+
 function buildTemplateValues(repoPath, placeholderMode) {
   const scriptName = path.basename(repoPath, path.extname(repoPath));
   const usageDefault = buildUsageDefault(repoPath);
@@ -495,6 +515,7 @@ function runTests(options = {}) {
   const backfillExisting = Boolean(options.backfillExisting);
   const enforceExisting = Boolean(options.enforceExisting);
   const rebuildIndexes = Boolean(options.rebuildIndexes);
+  const files = Array.isArray(options.files) ? options.files : [];
 
   const errors = [];
   const warnings = [];
@@ -504,6 +525,9 @@ function runTests(options = {}) {
 
   const scopedScripts = getAllScopedScripts();
   const stagedAddedScripts = getStagedAddedScripts();
+  const explicitTargets = [...new Set(files.map(normalizeRepoPath))]
+    .filter((file) => SCOPED_ROOTS.some((root) => file === root || file.startsWith(`${root}/`)))
+    .filter(isScriptFile);
 
   if (autofill) {
     for (const scriptPath of stagedAddedScripts) {
@@ -517,7 +541,13 @@ function runTests(options = {}) {
     }
   }
 
-  const enforceTargets = enforceExisting ? scopedScripts : stagedOnly ? stagedAddedScripts : [];
+  const enforceTargets = explicitTargets.length > 0
+    ? explicitTargets
+    : enforceExisting
+      ? scopedScripts
+      : stagedOnly
+        ? stagedAddedScripts
+        : [];
   for (const scriptPath of enforceTargets) {
     const result = validateTemplate(scriptPath);
     if (!result.valid) {
@@ -578,8 +608,9 @@ if (require.main === module) {
   const backfillExisting = args.includes('--backfill-existing');
   const enforceExisting = args.includes('--enforce-existing');
   const rebuildIndexes = args.includes('--rebuild-indexes');
+  const files = collectFilesFromArgs(args);
 
-  const result = runTests({ stagedOnly, write, stage, autofill, backfillExisting, enforceExisting, rebuildIndexes });
+  const result = runTests({ stagedOnly, write, stage, autofill, backfillExisting, enforceExisting, rebuildIndexes, files });
 
   if (result.errors.length > 0) {
     console.error('\n❌ Script documentation enforcement failed:\n');

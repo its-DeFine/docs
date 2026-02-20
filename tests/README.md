@@ -44,13 +44,14 @@ Generates `tasks/reports/LINK_TEST_REPORT.md` and domain link maps at `snippets/
 
 Flags:
 - `--staged` only checks staged docs pages
+- `--files <path[,path...]>` only checks explicit docs page files (repeatable)
 - `--base-url <url>` sets target domain (default: `https://docs.livepeer.org`)
 - `--version v1|v2|both` filters scope (default: `both`)
 - Link audit flags:
   - `--full` (default)
   - `--staged`
   - `--report <path>` (default: `tasks/reports/LINK_TEST_REPORT.md`)
-  - `--write-links` (default: true in full mode, false in staged mode)
+  - `--write-links` (default: true in full mode, false in staged/files mode)
   - `--strict` (exit non-zero on missing internal links/imports)
   - `--external-policy classify` (external URLs are classified-only, marked `🟡 untested-external`)
 
@@ -73,6 +74,8 @@ node tests/integration/domain-pages-audit.js --staged --version both
 node tests/integration/domain-pages-audit.js --base-url https://docs.livepeer.org --version both
 node tests/integration/v2-link-audit.js --full --write-links
 node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md
+node tests/integration/v2-link-audit.js --files v2/pages/02_community/livepeer-community/trending-topics.mdx --strict
+node tests/run-pr-checks.js --base-ref main
 ```
 
 ### npm Scripts (`tests/package.json`)
@@ -83,6 +86,7 @@ npm --prefix tests run test:mdx
 npm --prefix tests run test:spell
 npm --prefix tests run test:quality
 npm --prefix tests run test:links
+npm --prefix tests run test:pr
 npm --prefix tests run test:pages-index
 npm --prefix tests run test:pages-index:write
 npm --prefix tests run test:pages-index:rebuild
@@ -94,6 +98,15 @@ npm --prefix tests run test:domain:v1
 npm --prefix tests run test:domain:v2
 npm --prefix tests run test:domain:both
 ```
+
+## PR CI Behavior (Changed-File Blocking)
+- `.github/workflows/test-suite.yml` runs changed-file scoped blocking checks on pull requests:
+  - style guide, MDX, spelling, quality, links/imports
+  - script docs enforcement on changed scripts (`tests/unit/script-docs.test.js --files ...`)
+  - strict V2 link audit on changed docs pages (`tests/integration/v2-link-audit.js --files ... --strict`)
+- The same workflow also runs full browser tests from `docs.json`.
+- `.github/workflows/test-v2-pages.yml` is responsible for PR comments and artifact uploads for V2 browser sweep results.
+- `.github/workflows/broken-links.yml` is currently advisory (non-blocking) while legacy link cleanup is in progress.
 
 ## Pre-commit Interaction
 - Pre-commit runs `tests/run-all.js --staged --skip-browser` in fast mode.
@@ -165,6 +178,7 @@ node tools/scripts/new-script.js --path tasks/scripts/my-script.sh --owner docs 
 | Script | Summary | Usage |
 |---|---|---|
 | `tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. | `node tests/integration/domain-pages-audit.js --version both` |
+| `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. | `node tests/run-pr-checks.js --base-ref main` |
 | `tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit with report and domain link map outputs. | `node tests/integration/v2-link-audit.js --full --write-links --strict` |
 | `tests/unit/script-docs.test.js` | Enforce script header schema, keep group script indexes in sync, and build aggregate script index. | `node tests/unit/script-docs.test.js --staged --write --stage --autofill` |
 {/* SCRIPT-INDEX:END */}

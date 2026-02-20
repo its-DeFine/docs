@@ -37,4 +37,4 @@ jobs:
       - name: Broken-links note
         if: always()
         run: |
-          echo "Broken-links is currently informational while legacy link cleanup is in progress." >> $GITHUB_STEP_SUMMARY
+          echo "Broken-links is advisory only (non-blocking) while legacy link cleanup is in progress." >> $GITHUB_STEP_SUMMARY

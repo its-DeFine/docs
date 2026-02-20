@@ -47,6 +47,10 @@ function getRepoRoot(rootDir = process.cwd()) {
   }
 }
 
+function resolveRepoRoot(rootDir = null) {
+  return getRepoRoot(rootDir || process.cwd());
+}
+
 function normalizeDocsRouteKey(routePath) {
   let normalized = toPosix(routePath).trim();
   normalized = normalized.replace(/^\/+/, '');
@@ -82,8 +86,8 @@ function collectDocsPageEntries(node, out = []) {
   return out;
 }
 
-function getDocsJsonRouteKeys(rootDir = process.cwd()) {
-  const repoRoot = getRepoRoot(rootDir);
+function getDocsJsonRouteKeys(rootDir = null) {
+  const repoRoot = resolveRepoRoot(rootDir);
   const docsJsonPath = path.join(repoRoot, 'docs.json');
   if (!fs.existsSync(docsJsonPath)) {
     return new Set();
@@ -109,8 +113,8 @@ function getDocsJsonRouteKeys(rootDir = process.cwd()) {
   return keys;
 }
 
-function toDocsRouteKeyFromFile(filePath, rootDir = process.cwd()) {
-  const repoRoot = getRepoRoot(rootDir);
+function toDocsRouteKeyFromFile(filePath, rootDir = null) {
+  const repoRoot = resolveRepoRoot(rootDir);
   const absPath = path.isAbsolute(filePath) ? filePath : path.resolve(repoRoot, filePath);
   const relPath = toPosix(path.relative(repoRoot, absPath));
   if (!(relPath.startsWith('v1/') || relPath.startsWith('v2/pages/'))) {
@@ -145,8 +149,9 @@ function getFiles(dir, pattern, fileList = []) {
 /**
  * Get all MDX files in v2/pages
  */
-function getMdxFiles(rootDir = process.cwd()) {
-  const pagesDir = path.join(rootDir, 'v2', 'pages');
+function getMdxFiles(rootDir = null) {
+  const repoRoot = resolveRepoRoot(rootDir);
+  const pagesDir = path.join(repoRoot, 'v2', 'pages');
   if (!fs.existsSync(pagesDir)) {
     return [];
   }
@@ -156,8 +161,9 @@ function getMdxFiles(rootDir = process.cwd()) {
 /**
  * Get all JSX files in snippets/components
  */
-function getJsxFiles(rootDir = process.cwd()) {
-  const componentsDir = path.join(rootDir, 'snippets', 'components');
+function getJsxFiles(rootDir = null) {
+  const repoRoot = resolveRepoRoot(rootDir);
+  const componentsDir = path.join(repoRoot, 'snippets', 'components');
   if (!fs.existsSync(componentsDir)) {
     return [];
   }
@@ -168,12 +174,15 @@ function getJsxFiles(rootDir = process.cwd()) {
  * Get staged files from git
  * Returns absolute paths relative to repo root (not cwd)
  */
-function getStagedFiles() {
+function getStagedFiles(rootDir = null) {
   try {
     // Get repo root directory (where .git is)
-    const repoRoot = getRepoRoot();
+    const repoRoot = resolveRepoRoot(rootDir);
     
-    const output = execSync('git diff --cached --name-only --diff-filter=ACMR', { encoding: 'utf8' });
+    const output = execSync('git diff --cached --name-only --diff-filter=ACMR', {
+      encoding: 'utf8',
+      cwd: repoRoot
+    });
     return output
       .split('\n')
       .filter(line => line.trim())
@@ -183,15 +192,16 @@ function getStagedFiles() {
   }
 }
 
-function getStagedDocsPageFiles(rootDir = process.cwd()) {
-  const docsRouteKeys = getDocsJsonRouteKeys(rootDir);
+function getStagedDocsPageFiles(rootDir = null) {
+  const repoRoot = resolveRepoRoot(rootDir);
+  const docsRouteKeys = getDocsJsonRouteKeys(repoRoot);
   if (docsRouteKeys.size === 0) {
     return [];
   }
 
-  const stagedFiles = getStagedFiles();
+  const stagedFiles = getStagedFiles(repoRoot);
   return stagedFiles.filter((filePath) => {
-    const key = toDocsRouteKeyFromFile(filePath, rootDir);
+    const key = toDocsRouteKeyFromFile(filePath, repoRoot);
     return key && docsRouteKeys.has(key);
   });
 }

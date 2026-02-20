@@ -11,8 +11,9 @@
  * @inputs
  *   --full (default)
  *   --staged
+ *   --files <path[,path...]> (repeatable; explicit files mode)
  *   --report <path> (default: tasks/reports/LINK_TEST_REPORT.md)
- *   --write-links (default true for --full, false for --staged)
+ *   --write-links (default true for --full, false for --staged/--files)
  *   --strict (exit 1 if missing internal/import targets are found)
  *   --external-policy classify (only supported mode)
  *
@@ -69,13 +70,25 @@ function parseArgs(argv) {
     report: DEFAULT_REPORT,
     strict: false,
     writeLinks: undefined,
-    externalPolicy: 'classify'
+    externalPolicy: 'classify',
+    files: []
   };
 
   for (let i = 0; i < argv.length; i += 1) {
     const token = argv[i];
     if (token === '--full') args.mode = 'full';
     else if (token === '--staged') args.mode = 'staged';
+    else if (token === '--files' || token === '--file') {
+      const raw = String(argv[i + 1] || '').trim();
+      if (raw) {
+        raw
+          .split(',')
+          .map((part) => part.trim())
+          .filter(Boolean)
+          .forEach((part) => args.files.push(part));
+      }
+      i += 1;
+    }
     else if (token === '--strict') args.strict = true;
     else if (token === '--write-links') args.writeLinks = true;
     else if (token === '--report') {
@@ -89,6 +102,11 @@ function parseArgs(argv) {
 
   if (args.externalPolicy !== 'classify') {
     throw new Error('Only --external-policy classify is supported in this phase.');
+  }
+
+  args.files = [...new Set(args.files)];
+  if (args.files.length > 0) {
+    args.mode = 'files';
   }
 
   if (typeof args.writeLinks === 'undefined') {
@@ -216,8 +234,45 @@ function buildDomainMaps(structure) {
   return { folderToDomain, domainToTopTitle };
 }
 
-function getInitialTargets(mode) {
+function normalizeInputFilePath(filePath) {
+  const normalized = toPosix(String(filePath || '').trim());
+  if (!normalized) return '';
+  return normalized.replace(/^\.\//, '');
+}
+
+function getExplicitTargets(files) {
   const isIndexMdx = (abs) => path.basename(abs).toLowerCase() === 'index.mdx';
+  const out = [];
+  const seen = new Set();
+
+  for (const file of files) {
+    const normalized = normalizeInputFilePath(file);
+    if (!normalized) continue;
+
+    const candidate = path.isAbsolute(normalized)
+      ? normalized
+      : path.join(REPO_ROOT, normalized);
+
+    if (!fs.existsSync(candidate)) continue;
+    if (!candidate.endsWith('.mdx')) continue;
+    if (!candidate.startsWith(V2_PAGES_DIR)) continue;
+    if (isIndexMdx(candidate)) continue;
+
+    const rel = relFromRoot(candidate);
+    if (seen.has(rel)) continue;
+    seen.add(rel);
+    out.push(candidate);
+  }
+
+  return out;
+}
+
+function getInitialTargets(mode, explicitFiles = []) {
+  const isIndexMdx = (abs) => path.basename(abs).toLowerCase() === 'index.mdx';
+  if (mode === 'files') {
+    return getExplicitTargets(explicitFiles);
+  }
+
   if (mode === 'staged') {
     return getStagedFiles()
       .filter((abs) => abs.startsWith(V2_PAGES_DIR) && abs.endsWith('.mdx') && fs.existsSync(abs) && !isIndexMdx(abs));
@@ -949,7 +1004,7 @@ function main() {
   const structure = parseIndexStructure(indexContent);
   const { folderToDomain } = buildDomainMaps(structure);
 
-  const rootTargets = getInitialTargets(args.mode);
+  const rootTargets = getInitialTargets(args.mode, args.files);
   if (!rootTargets.length) {
     console.log('No target MDX files found for selected mode.');
     return;

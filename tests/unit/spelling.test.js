@@ -28,9 +28,9 @@
  * UK English spelling validation tests
  */
 
-const path = require('path');
-const { getMdxFiles, getStagedDocsPageFiles, readFile } = require('../utils/file-walker');
-const { checkSpelling, checkMultipleFiles } = require('../utils/spell-checker');
+const { execSync } = require('child_process');
+const { getMdxFiles, getStagedDocsPageFiles } = require('../utils/file-walker');
+const { checkMultipleFiles, resolveCspellBinary, resolveCspellConfig } = require('../utils/spell-checker');
 
 let errors = [];
 
@@ -71,14 +71,19 @@ async function runTests(options = {}) {
   }
   
   // Check if cspell is available
+  const cspell = resolveCspellBinary();
   try {
-    require('child_process').execSync('npx cspell --version', { stdio: 'ignore' });
+    if (cspell.viaNpx) {
+      execSync('npx cspell --version', { stdio: 'ignore' });
+    } else {
+      execSync(`"${cspell.bin}" --version`, { stdio: 'ignore' });
+    }
   } catch (error) {
     console.warn('⚠️  cspell not available. Install with: npm install');
     return { errors: [], warnings: ['cspell not available'], passed: true, total: testFiles.length };
   }
   
-  const cspellConfig = path.join(process.cwd(), 'cspell.json');
+  const cspellConfig = resolveCspellConfig();
   const results = checkMultipleFiles(testFiles, cspellConfig);
   
   results.forEach(result => {

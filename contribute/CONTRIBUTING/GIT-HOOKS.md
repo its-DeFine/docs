@@ -397,23 +397,24 @@ If the hook takes too long:
 
 These hooks are designed for local development. For CI/CD:
 
-1. **Use GitHub Actions** - Run similar checks in CI
-2. **Reuse hook logic** - Extract checks into CI scripts
-3. **Fail fast** - Block PRs if checks fail
+1. **Use GitHub Actions equivalents** rather than running pre-commit directly.
+2. **Scope static checks to changed files on PRs** to avoid blocking on legacy full-repo debt.
+3. **Keep browser sweeps full-site** for runtime/rendering safety.
 
-Example GitHub Actions workflow:
+Current CI mapping:
 
-```yaml
-name: Pre-commit Checks
-on: [pull_request]
-jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: Run style guide checks
-        run: ./.githooks/pre-commit
-```
+- `.github/workflows/test-suite.yml` (`Docs CI - Content Quality Suite`)
+  - Pull requests: changed-file blocking checks
+    - style guide, MDX, spelling, quality, links/imports
+    - script docs enforcement on changed scripts
+    - strict V2 link audit on changed docs pages
+  - Also runs browser tests from `docs.json`
+  - Reports via GitHub Step Summary (no PR comment)
+- `.github/workflows/test-v2-pages.yml` (`Docs CI - V2 Browser Sweep`)
+  - Full V2 browser sweep
+  - Posts/updates PR comments and uploads JSON artifact
+- `.github/workflows/broken-links.yml`
+  - Advisory only (non-blocking) while legacy link cleanup is in progress
 
 ## Style Guide Reference
 
