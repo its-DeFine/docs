@@ -1,257 +1,191 @@
 ---
 title: 'LPT Tokenomics'
 sidebarTitle: 'Tokenomics'
-description: 'Dynamic inflation model, reward distribution, and long-term economic sustainability of the Livepeer Protocol.'
+description: 'Formal economic model of LPT issuance, bonding dynamics, reward distribution, and security equilibrium.'
 keywords: ["livepeer", "lpt", "tokenomics", "inflation", "staking", "rewards", "bonding rate", "economics"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
 ## Executive Summary
 
-LPT tokenomics define how security is budgeted, how inflation adjusts, how rewards are distributed, and how long-term sustainability transitions from issuance-driven to fee-driven economics.
+LPT tokenomics defines how the Livepeer Protocol issues new supply, adjusts inflation relative to security participation, distributes rewards, and maintains a capital-backed security equilibrium.
 
-Livepeer uses a dynamic inflation model tied to staking participation (bonding rate). Inflation increases when participation falls below a target and decreases when participation exceeds it. This mechanism automatically adjusts the protocol security budget without centralized intervention.
+The tokenomics model is implemented at the **protocol layer (on-chain)** via staking, inflation adjustment logic, and deterministic reward allocation.
 
 ---
 
-## Formal Definition
+## 1. Formal Variables
 
 Let:
 
-- \(S\) = total token supply
-- \(B\) = total bonded (staked) LPT
-- \(r\) = bonding rate = \(B / S\)
-- \(r^*\) = target bonding rate
-- \(I_t\) = inflation rate at time \(t\)
-- \(\Delta\) = adjustment coefficient per round
-- \(R\) = protocol round duration
-
-The inflation rate evolves as a function of deviation from target bonding participation.
-
----
-
-## Architectural Context
-
-### Protocol Layer (On-Chain)
-
-Tokenomics are enforced by protocol smart contracts, primarily:
-
-- **Minter** — controls inflation rate and token minting
-- **BondingManager** — manages stake and reward distribution
-- **RoundsManager** — defines accounting periods ("rounds")
-- **Controller** — registry of protocol contracts
-
-All issuance, stake accounting, and reward allocation occur on-chain.
-
-### Network Layer (Off-Chain)
-
-The network performs:
-
-- Video transcoding
-- AI inference workloads
-- Real-time streaming compute
-
-Tokenomics do not influence job execution directly. They influence *who* is economically incentivized to provide infrastructure.
+- \(S_t\) = total LPT supply at round \(t\)
+- \(B_T\) = total bonded LPT
+- \(B_i\) = bonded stake attributed to participant \(i\)
+- \(\beta\) = bonding rate = \(\frac{B_T}{S_t}\)
+- \(\beta^*\) = target bonding rate
+- \(r_t\) = inflation rate applied in round \(t\)
+- \(\alpha\) = inflation adjustment coefficient
+- \(c_O\) = commission rate set by orchestrator \(O\)
 
 ---
 
-## Dynamic Inflation Model
+## 2. Inflation Issuance Model
 
-Livepeer adjusts inflation each round according to bonding participation.
-
-### Bonding Rate
+Per round \(t\), newly minted LPT:
 
 \[
-r = \frac{B}{S}
+R_t = S_t \cdot r_t
 \]
 
-Where:
-
-- \(B\) = total bonded stake
-- \(S\) = total token supply
-
-### Adjustment Rule
-
-If \(r < r^*\):
+Supply update:
 
 \[
-I_{t+1} = I_t + \Delta
+S_{t+1} = S_t + R_t
 \]
 
-If \(r > r^*\):
-
-\[
-I_{t+1} = I_t - \Delta
-\]
-
-If \(r = r^*\):
-
-\[
-I_{t+1} = I_t
-\]
-
-Where:
-
-- \(\Delta\) is a governance-defined adjustment coefficient
-- Updates occur once per protocol round
-
-This creates a negative feedback loop stabilizing participation around the target bonding rate.
+Inflation therefore compounds relative to current supply.
 
 ---
 
-## Stepwise Derivation
+## 3. Bonding-Rate Feedback Mechanism
 
-1. Security budget depends on total bonded stake \(B\).
-2. Low participation (\(r < r^*\)) reduces economic security.
-3. Inflation increases → staking yield increases → \(B\) rises.
-4. High participation (\(r > r^*\)) implies over-allocation of capital.
-5. Inflation decreases → staking yield decreases → \(B\) stabilizes.
+The protocol adjusts inflation according to the deviation between the current bonding rate and target bonding rate.
 
-Thus:
-
-Inflation becomes a control system stabilizing \(r\) around \(r^*\).
-
-This design avoids fixed-schedule dilution.
-
----
-
-## Reward Distribution
-
-Total inflation minted in a round:
+Current bonding rate:
 
 \[
-M = \frac{I_t \times S}{N}
+\beta = \frac{B_T}{S_t}
 \]
 
-Where:
+Adjustment rule:
 
-- \(N\) = number of rounds per year
-
-Orchestrator share:
+If \(\beta < \beta^*\):
 
 \[
-R_i = M \times \frac{B_i}{B}
+r_{t+1} = r_t + \alpha
 \]
 
-Where:
-
-- \(B_i\) = stake backing orchestrator \(i\)
-
-Delegator payout (after commission \(s\)):
+If \(\beta > \beta^*\):
 
 \[
-P_i = (R_i + F_i) \times (1 - s)
+r_{t+1} = r_t - \alpha
 \]
 
-Where:
+This creates a control loop:
 
-- \(F_i\) = fees earned by orchestrator \(i\)
-- \(s\) = orchestrator reward cut
+- Under-bonded system → higher inflation → stronger staking incentive
+- Over-bonded system → lower inflation → reduced dilution
 
-Protocol issuance and fee revenue are distinct economic streams.
+The system seeks equilibrium where \(\beta \approx \beta^*\).
 
 ---
 
-## Slashing Economics
+## 4. Reward Distribution
 
-If slashing is enabled for specific job types:
+Total issuance per round \(R_t\) is distributed proportionally to stake weight.
 
-Let:
-
-- \(L\) = slashed amount
-
-Then stake reduction:
+Define economic weight:
 
 \[
-B_i' = B_i - L
+W_i = \frac{B_i}{B_T}
 \]
 
-Delegators share proportional slashing impact.
+Allocation to orchestrator \(O\):
 
-Slashing increases expected cost of malicious behavior.
+\[
+R_O = R_t \cdot \frac{B_O}{B_T}
+\]
 
----
+Delegator \(D\) bonded to orchestrator \(O\):
 
-## Long-Term Transition Model
+\[
+R_{D,O} = R_O (1 - c_O) \cdot \frac{b_{D,O}}{B_O}
+\]
 
-In early phases:
-
-Total rewards ≈ inflation-dominated
-
-As usage grows:
-
-Total rewards ≈ fee-dominated
-
-Goal state:
-
-Security budget funded primarily by real demand.
-
-Inflation acts as a bootstrapping mechanism rather than a permanent subsidy.
+This separates gross issuance from commission-adjusted delegator returns.
 
 ---
 
-## Economic Implications
+## 5. Issuance vs Fee Revenue
 
-1. Security budget scales with participation.
-2. Capital efficiency emerges as inflation declines.
-3. Fee growth reduces reliance on issuance.
-4. Governance can tune \(\Delta\) and \(r^*\) to rebalance incentives.
+Returns to bonded participants may consist of:
 
-This model aligns decentralized infrastructure growth with economic sustainability.
+1. Inflation-based issuance (supply expansion)
+2. Fee revenue from video/AI workloads (demand-based)
+
+Total reward to participant \(i\):
+
+\[
+Reward_i = Issuance_i + Fees_i
+\]
+
+Inflation is protocol-determined; fees are market-driven.
+
+Tokenomics must therefore be evaluated in two components: issuance dynamics and network demand.
 
 ---
 
-## Operational Considerations
+## 6. Security Equilibrium
 
-- Inflation parameters are adjustable via governance.
-- Round duration determines adjustment frequency.
-- Staking yields vary with bonding participation.
-- Delegators must evaluate orchestrator commission rates and fee sharing.
+Security cost for adversarial control scales with bonded stake.
+
+Let \(\theta\) be the threshold fraction required to influence governance or allocation.
+
+Required capital:
+
+\[
+Capital_{attack} \geq \theta B_T
+\]
+
+Increasing \(B_T\) increases the cost of control.
+
+Inflation adjustment encourages equilibrium around a stable security participation rate.
 
 ---
 
-## Economic Flow Diagram
+## 7. Economic Tradeoffs
+
+| Mechanism | Tradeoff |
+|------------|-----------|
+| Dynamic inflation | Stability vs responsiveness |
+| Delegated staking | Accessibility vs centralization risk |
+| Capital-weighted rewards | Security strength vs wealth concentration |
+
+---
+
+## 8. System Diagram
 
 ```mermaid
 flowchart TD
-    Inflation --> Orchestrators
-    Orchestrators --> Delegators
-    Gateways -->|Pay Fees| Orchestrators
-    Orchestrators -->|Share Fees| Delegators
-    Governance -->|Adjust Parameters| Inflation
+    BondedStake["Total Bonded Stake B_T"]
+    Supply["Total Supply S_t"]
+    BondedStake --> BondingRate["Bonding Rate β"]
+    Supply --> BondingRate
+    BondingRate --> InflationAdjust["Adjust r_t"]
+    InflationAdjust --> Issuance["R_t"]
+    Issuance --> RewardDist["Proportional Distribution"]
 ```
 
 ---
 
-## Verified Contract References
+## 9. Protocol vs Network Separation
 
-**Deployment Network:** Arbitrum One
+**Protocol Layer (On-Chain):**
+- Inflation calculation
+- Bonding rate adjustment
+- Stake accounting
+- Reward minting
 
-Contract addresses and ABIs must be retrieved from the official Livepeer GitHub repository and verified via Arbiscan at time of review to prevent outdated references.
+**Network Layer (Off-Chain):**
+- Fee generation from workloads
+- Operational performance
+- Job routing
 
-Authoritative sources:
-
-- [Livepeer Protocol Repository](https://github.com/livepeer/protocol) (smart contracts)
-- [Arbiscan verified contracts](https://arbiscan.io) (Arbitrum)
-- [Livepeer Governance Forum](https://forum.livepeer.org) (parameter changes)
-
----
-
-## Design Tradeoffs
-
-| Mechanism | Tradeoff |
-| --- | --- |
-| Dynamic inflation | Stability vs governance complexity |
-| Delegated staking | Accessibility vs capital concentration |
-| Fee sharing optionality | Market flexibility vs variability |
-| Round-based updates | Determinism vs responsiveness |
+Tokenomics governs issuance; network activity governs fees.
 
 ---
 
-## Summary
+## References
 
-LPT tokenomics are governed by a dynamic control system tied to staking participation.
-
-Inflation is adjustable. Security is capital-backed. Rewards combine issuance and real fees.
-
-This design enables decentralized GPU infrastructure to bootstrap securely and transition toward demand-funded sustainability.
+- [Livepeer Protocol Repository](https://github.com/livepeer/protocol)
+- [Contract Registry](https://docs.livepeer.org/references/contract-addresses)
