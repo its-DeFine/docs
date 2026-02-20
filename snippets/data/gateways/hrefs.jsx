@@ -5130,15 +5130,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/references/api-reference/AI-API/ai.mdx",
-        "v2/pages/04_gateways/references/api-reference/AI-API/audio-to-text.mdx",
-        "v2/pages/04_gateways/references/api-reference/AI-API/hardware-info.mdx"
-      ]
+      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/ai",
+      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/ai.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     }
   ],
   "snippets/pages/04_GATEWAYS/run/quickstart/views/docker/dockerOnChainTab.mdx": [
@@ -5216,15 +5212,6 @@ export const LINK_MAP = {
     }
   ],
   "snippets/pages/04_GATEWAYS/run/quickstart/views/linux/linuxOffChainTab.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "`{latestVersionUrl}`",
-      "resolvedPath": "snippets/pages/04_GATEWAYS/run/quickstart/views/linux/`{latestVersionUrl}`",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",

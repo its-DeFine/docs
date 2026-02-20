@@ -251,10 +251,10 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/04_gateways/gateways-home",
-      "resolvedPath": "v2/pages/04_gateways/gateways-home",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/04_gateways/gateways-portal",
+      "resolvedPath": "v2/pages/04_gateways/gateways-portal.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -442,10 +442,10 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/04_gateways/gateways-home",
-      "resolvedPath": "v2/pages/04_gateways/gateways-home",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/pages/04_gateways/gateways-portal",
+      "resolvedPath": "v2/pages/04_gateways/gateways-portal.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -1987,24 +1987,20 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "access-control-webhooks",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/access-control-webhooks",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v1/developers/guides/access-control-webhooks.mdx"
-      ]
+      "rawPath": "webhooks",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "access-control-jwt",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/access-control-jwt",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v1/developers/guides/access-control-jwt.mdx"
-      ]
+      "rawPath": "jwt",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     }
   ],
   "v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks.mdx": [
@@ -2031,14 +2027,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "player-and-embed",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/analytics/player-and-embed",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx",
-        "v2/platforms/products/livepeer-studio/guides/player-and-embed.mdx"
-      ]
+      "rawPath": "../player-and-embed",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -2478,10 +2471,10 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "access-control-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/access-control-overview",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "access-control/overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/overview.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -2805,13 +2798,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "access-control-webhooks",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/access-control-webhooks",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v1/developers/guides/access-control-webhooks.mdx"
-      ]
+      "rawPath": "access-control/webhooks",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     }
   ],
   "v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx": [
@@ -3259,26 +3250,20 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/010_products/products/livepeer-studio/overview/sdks-overview",
-      "resolvedPath": "v2/pages/010_products/010_products/products/livepeer-studio/overview/sdks-overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx",
-        "v2/platforms/products/livepeer-studio/overview/sdks-overview.mdx"
-      ]
+      "rawPath": "/010_products/products/livepeer-studio/overview/sdks-overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/010_products/products/livepeer-studio/overview/api-overview",
-      "resolvedPath": "v2/pages/010_products/010_products/products/livepeer-studio/overview/api-overview",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx",
-        "v2/platforms/products/livepeer-studio/overview/api-overview.mdx"
-      ]
+      "rawPath": "/010_products/products/livepeer-studio/overview/api-overview",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     }
   ],
   "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx": [
@@ -3330,27 +3315,20 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "player-and-embed",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/player-and-embed",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx",
-        "v2/platforms/products/livepeer-studio/guides/player-and-embed.mdx"
-      ]
+      "rawPath": "../guides/player-and-embed",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "livestream-from-browser",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/livestream-from-browser",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx",
-        "v1/developers/guides/livestream-from-browser.mdx",
-        "v2/platforms/products/livepeer-studio/guides/livestream-from-browser.mdx"
-      ]
+      "rawPath": "../guides/livestream-from-browser",
+      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",

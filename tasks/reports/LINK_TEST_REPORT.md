@@ -3,33 +3,32 @@
 Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.
 
 ## Run Metadata
-- Timestamp: 2026-02-20T03:41:39.056Z
+- Timestamp: 2026-02-20T03:51:27.703Z
 - Mode: full
 - Strict: false
-- Files analyzed: 468
-- Total extracted references: 3100
+- Files analyzed: 469
+- Total extracted references: 3099
 
 ## Summary Counts
 
 ### By Link Type
 | linkType | count |
 |---|---:|
-| empty | 198 |
+| empty | 202 |
 | external-http | 8 |
-| external-https | 1088 |
+| external-https | 1089 |
 | import-path | 630 |
-| internal-relative | 477 |
-| internal-rooted | 697 |
+| internal-relative | 470 |
+| internal-rooted | 698 |
 | mailto | 2 |
 
 ### By Status
 | status | count |
 |---|---:|
-| 🟡 untested-external | 1096 |
-| missing | 20 |
-| ok | 1777 |
+| 🟡 untested-external | 1097 |
+| ok | 1791 |
 | ok-folder-route | 6 |
-| skipped | 200 |
+| skipped | 204 |
 | skipped-style-guide-example | 1 |
 
 ## Hierarchical Inventory
@@ -623,6 +622,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Resources
   - ⚠️ Videos (07_resources/resources/videos.mdx)
 - Unindexed Pages
+  - v2/pages/07_resources/documentation-guide/_contextData_/contributor-authoring-guide.mdx
   - v2/pages/07_resources/documentation-guide/authoring-standard.mdx
 
 ### Internal
@@ -684,7 +684,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://github.com/rickstaa/awesome-livepeer |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://awesome.re/badge.svg |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.org |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | assets/images/livepeer_dark_bg.svg | snippets/external/assets/images/livepeer_dark_bg.svg | false | missing |  |  |  |
+| internal-rooted | /snippets/assets/domain/00_HOME/Livepeer-Logo-Full-Dark.svg | snippets/assets/domain/00_HOME/Livepeer-Logo-Full-Dark.svg | true | ok |  |  |  |
 | empty | #apps-built-with-livepeer |  | null | skipped |  |  |  |
 | empty | #video-streaming-and-social-apps |  | null | skipped |  |  |  |
 | empty | #ai-powered-apps |  | null | skipped |  |  |  |
@@ -932,7 +932,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-rooted | /v2/pages/00_home/project-showcase/showcase | v2/pages/00_home/project-showcase/showcase.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/00_home/project-showcase/industry-verticals | v2/pages/00_home/project-showcase/industry-verticals.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/00_home/project-showcase/applications | v2/pages/00_home/project-showcase/applications.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/03_developers/building-on-livepeer/ | v2/pages/03_developers/building-on-livepeer | false | missing | v2/pages/03_developers/building-on-livepeer/quick-starts/README.mdx | v2/pages/03_developers/building-on-livepeer/developer-guide.mdx | v2/pages/03_developers/building-on-livepeer/developer-journey.mdx |
+| internal-rooted | /v2/pages/03_developers/building-on-livepeer/developer-guide | v2/pages/03_developers/building-on-livepeer/developer-guide.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/01_about/about-portal | v2/pages/01_about/about-portal.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/01_about/core-concepts/livepeer-overview | v2/pages/01_about/core-concepts/livepeer-overview.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/01_about/core-concepts/livepeer-core-concepts | v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx | true | ok |  |  |  |
@@ -1389,7 +1389,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 |---|---|---|---|---|---|---|---|
 | external-https | "https://hub.docker.com/r/livepeer/go-livepeer" |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /v2/pages/04_gateways/references/cli-commands | v2/pages/04_gateways/references/cli-commands.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/04_gateways/references/api-reference/AI-API | v2/pages/04_gateways/references/api-reference/AI-API | false | missing | v2/pages/04_gateways/references/api-reference/AI-API/ai.mdx | v2/pages/04_gateways/references/api-reference/AI-API/audio-to-text.mdx | v2/pages/04_gateways/references/api-reference/AI-API/hardware-info.mdx |
+| internal-rooted | /v2/pages/04_gateways/references/api-reference/AI-API/ai | v2/pages/04_gateways/references/api-reference/AI-API/ai.mdx | true | ok |  |  |  |
 
 ### snippets/pages/04_GATEWAYS/run/quickstart/views/docker/dockerOnChainTab.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
@@ -1406,7 +1406,6 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 ### snippets/pages/04_GATEWAYS/run/quickstart/views/linux/linuxOffChainTab.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | `{latestVersionUrl}` | snippets/pages/04_GATEWAYS/run/quickstart/views/linux/`{latestVersionUrl}` | false | missing |  |  |  |
 | external-https | https://github.com/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
 | import-path | /snippets/automations/globals/globals.mdx | snippets/automations/globals/globals.mdx | true | ok |  |  |  |
 | import-path | /snippets/data/gateways/linux/code.jsx | snippets/data/gateways/linux/code.jsx | true | ok |  |  |  |
@@ -1789,7 +1788,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://daydream.live |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /04_gateways/gateways-home | v2/pages/04_gateways/gateways-home | false | missing |  |  |  |
+| internal-rooted | /v2/pages/04_gateways/gateways-portal | v2/pages/04_gateways/gateways-portal.mdx | true | ok |  |  |  |
 | external-https | https://www.youtube.com/watch?v=uLXtpFVrtP4 |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://www.youtube.com/watch?v=yeoGzSWdNGM |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://blog.livepeer.org/introducing-daydream/ |  | null | 🟡 untested-external |  |  |  |
@@ -1814,7 +1813,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://docs.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://docs.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://docs.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /04_gateways/gateways-home | v2/pages/04_gateways/gateways-home | false | missing |  |  |  |
+| internal-rooted | /v2/pages/04_gateways/gateways-portal | v2/pages/04_gateways/gateways-portal.mdx | true | ok |  |  |  |
 | internal-rooted | /010_products/products/daydream/overview/overview | v2/pages/010_products/products/daydream/overview/overview.mdx | true | ok |  |  |  |
 | external-https | https://docs.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://discord.com/invite/mnfGR4Fjhp |  | null | 🟡 untested-external |  |  |  |
@@ -2269,8 +2268,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 ### v2/pages/010_products/products/livepeer-studio/guides/access-control/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | access-control-webhooks | v2/pages/010_products/products/livepeer-studio/guides/access-control/access-control-webhooks | false | missing | v1/developers/guides/access-control-webhooks.mdx |  |  |
-| internal-relative | access-control-jwt | v2/pages/010_products/products/livepeer-studio/guides/access-control/access-control-jwt | false | missing | v1/developers/guides/access-control-jwt.mdx |  |  |
+| internal-relative | webhooks | v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks.mdx | true | ok |  |  |  |
+| internal-relative | jwt | v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt.mdx | true | ok |  |  |  |
 
 ### v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
@@ -2281,7 +2280,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/docs/api-reference/viewership/get-viewership-metrics |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/analytics/player-and-embed | false | missing | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | v2/platforms/products/livepeer-studio/guides/player-and-embed.mdx |  |
+| internal-relative | ../player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/viewership/get-viewership-metrics |  | null | 🟡 untested-external |  |  |  |
@@ -2373,7 +2372,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://livepeer.studio/docs/api-reference/playback/get |  | null | 🟡 untested-external |  |  |  |
 | internal-relative | playback-livestream | v2/pages/010_products/products/livepeer-studio/guides/playback-livestream.mdx | true | ok |  |  |  |
 | internal-relative | playback-asset | v2/pages/010_products/products/livepeer-studio/guides/playback-asset.mdx | true | ok |  |  |  |
-| internal-relative | access-control-overview | v2/pages/010_products/products/livepeer-studio/guides/access-control-overview | false | missing |  |  |  |
+| internal-relative | access-control/overview | v2/pages/010_products/products/livepeer-studio/guides/access-control/overview.mdx | true | ok |  |  |  |
 | internal-relative | thumbnails-vod | v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod.mdx | true | ok |  |  |  |
 | internal-relative | analytics | /v2/pages/010_products/products/livepeer-studio/guides/analytics | true | ok-folder-route |  |  |  |
 
@@ -2432,7 +2431,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://ngrok.com |  | null | 🟡 untested-external |  |  |  |
 | internal-relative | listen-to-events | v2/pages/010_products/products/livepeer-studio/guides/listen-to-events.mdx | true | ok |  |  |  |
-| internal-relative | access-control-webhooks | v2/pages/010_products/products/livepeer-studio/guides/access-control-webhooks | false | missing | v1/developers/guides/access-control-webhooks.mdx |  |  |
+| internal-relative | access-control/webhooks | v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks.mdx | true | ok |  |  |  |
 
 ### v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
@@ -2506,8 +2505,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-rooted | /010_products/products/livepeer-studio/guides/create-livestream | v2/pages/010_products/products/livepeer-studio/guides/create-livestream.mdx | true | ok |  |  |  |
 | internal-rooted | /010_products/products/livepeer-studio/guides/upload-asset | v2/pages/010_products/products/livepeer-studio/guides/upload-asset.mdx | true | ok |  |  |  |
 | internal-rooted | /010_products/products/livepeer-studio/guides/listen-to-events | v2/pages/010_products/products/livepeer-studio/guides/listen-to-events.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/010_products/products/livepeer-studio/overview/sdks-overview | v2/pages/010_products/010_products/products/livepeer-studio/overview/sdks-overview | false | missing | v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx | v2/platforms/products/livepeer-studio/overview/sdks-overview.mdx |  |
-| internal-rooted | /010_products/010_products/products/livepeer-studio/overview/api-overview | v2/pages/010_products/010_products/products/livepeer-studio/overview/api-overview | false | missing | v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx | v2/platforms/products/livepeer-studio/overview/api-overview.mdx |  |
+| internal-rooted | /010_products/products/livepeer-studio/overview/sdks-overview | v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/products/livepeer-studio/overview/api-overview | v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx | true | ok |  |  |  |
 
 ### v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
@@ -2517,8 +2516,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://pkg.go.dev/github.com/livepeer/livepeer-go |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://pypi.org/project/livepeer |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://www.npmjs.com/package/@livepeer/react |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | player-and-embed | v2/pages/010_products/products/livepeer-studio/overview/player-and-embed | false | missing | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | v2/platforms/products/livepeer-studio/guides/player-and-embed.mdx |  |
-| internal-relative | livestream-from-browser | v2/pages/010_products/products/livepeer-studio/overview/livestream-from-browser | false | missing | v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx | v1/developers/guides/livestream-from-browser.mdx | v2/platforms/products/livepeer-studio/guides/livestream-from-browser.mdx |
+| internal-relative | ../guides/player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/livestream-from-browser | v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx | true | ok |  |  |  |
 | internal-relative | quickstart | v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx | true | ok |  |  |  |
 | internal-relative | api-overview | v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
@@ -5214,6 +5213,11 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 |---|---|---|---|---|---|---|---|
 | (none) |  |  |  |  |  |  |  |
 
+### v2/pages/07_resources/documentation-guide/_contextData_/contributor-authoring-guide.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| (none) |  |  |  |  |  |  |  |
+
 ### v2/pages/07_resources/documentation-guide/authoring-standard.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
@@ -5696,10 +5700,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 ### v2/pages/experimental/copy-trending-at-livepeer.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | trending-at-livepeer.md#latest-youtube-videos "mention" | v2/pages/experimental/trending-at-livepeer.md | false | missing | v2/pages/experimental/copy-trending-at-livepeer.mdx | v2/experimental/copy-trending-at-livepeer.mdx |  |
-| internal-relative | trending-at-livepeer.md#latest-on-twitter "mention" | v2/pages/experimental/trending-at-livepeer.md | false | missing | v2/pages/experimental/copy-trending-at-livepeer.mdx | v2/experimental/copy-trending-at-livepeer.mdx |  |
-| internal-relative | trending-at-livepeer.md#latest-blogs "mention" | v2/pages/experimental/trending-at-livepeer.md | false | missing | v2/pages/experimental/copy-trending-at-livepeer.mdx | v2/experimental/copy-trending-at-livepeer.mdx |  |
-| internal-relative | trending-at-livepeer.md#latest-forum-posts "mention" | v2/pages/experimental/trending-at-livepeer.md | false | missing | v2/pages/experimental/copy-trending-at-livepeer.mdx | v2/experimental/copy-trending-at-livepeer.mdx |  |
+| empty | #latest-youtube-videos |  | null | skipped |  |  |  |
+| empty | #latest-on-twitter |  | null | skipped |  |  |  |
+| empty | #latest-blogs |  | null | skipped |  |  |  |
+| empty | #latest-forum-posts |  | null | skipped |  |  |  |
 | external-https | https://download.com |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://download.com |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://download.com |  | null | 🟡 untested-external |  |  |  |
@@ -5722,7 +5726,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://forum.livepeer.org/t/3142 |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://forum.livepeer.org/t/1970 |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://forum.livepeer.org |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | https:/forum.livepeer.org | v2/pages/experimental/https:/forum.livepeer.org | false | missing |  |  |  |
+| external-https | https://forum.livepeer.org |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /snippets/automations/forum/Hero_Livepeer_Forum.png | snippets/automations/forum/Hero_Livepeer_Forum.png | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/content/data.jsx | snippets/components/content/data.jsx | true | ok |  |  |  |

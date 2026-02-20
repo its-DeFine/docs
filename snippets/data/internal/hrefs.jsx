@@ -531,15 +531,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/building-on-livepeer/",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/03_developers/building-on-livepeer/quick-starts/README.mdx",
-        "v2/pages/03_developers/building-on-livepeer/developer-guide.mdx",
-        "v2/pages/03_developers/building-on-livepeer/developer-journey.mdx"
-      ]
+      "rawPath": "/v2/pages/03_developers/building-on-livepeer/developer-guide",
+      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-guide.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",

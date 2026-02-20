@@ -12,7 +12,7 @@ import { LINUX_CODE } from '/snippets/data/gateways/linux/code.jsx';
     <Steps titleSize="h3">
         <Step title="Install Gateway Software">
         {/* <Badge color="green"><LatestVersion version={latestVersion} /></Badge> */}
-        <span style={{fontSize: '1.0rem'}}> *Latest [go-livepeer](`{latestVersionUrl}`) version:* <Badge color="green"><span>{version}</span></Badge> </span>
+        <span style={{fontSize: '1.0rem'}}> *Latest* <a href={latestVersionUrl}>go-livepeer</a> *version:* <Badge color="green"><span>{version}</span></Badge> </span>
          <br/>
          <CustomCodeBlock
           {...LINUX_CODE.downloadBinary}

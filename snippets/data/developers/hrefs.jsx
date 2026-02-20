@@ -1978,11 +1978,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-image",
-      "linkType": "internal-relative",
-      "rawPath": "assets/images/livepeer_dark_bg.svg",
-      "resolvedPath": "snippets/external/assets/images/livepeer_dark_bg.svg",
-      "exists": false,
-      "status": "missing",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/domain/00_HOME/Livepeer-Logo-Full-Dark.svg",
+      "resolvedPath": "snippets/assets/domain/00_HOME/Livepeer-Logo-Full-Dark.svg",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {

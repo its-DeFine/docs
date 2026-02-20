@@ -2,51 +2,39 @@ export const LINK_MAP = {
   "v2/pages/experimental/copy-trending-at-livepeer.mdx": [
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "trending-at-livepeer.md#latest-youtube-videos \"mention\"",
-      "resolvedPath": "v2/pages/experimental/trending-at-livepeer.md",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/experimental/copy-trending-at-livepeer.mdx",
-        "v2/experimental/copy-trending-at-livepeer.mdx"
-      ]
+      "linkType": "empty",
+      "rawPath": "#latest-youtube-videos",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "trending-at-livepeer.md#latest-on-twitter \"mention\"",
-      "resolvedPath": "v2/pages/experimental/trending-at-livepeer.md",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/experimental/copy-trending-at-livepeer.mdx",
-        "v2/experimental/copy-trending-at-livepeer.mdx"
-      ]
+      "linkType": "empty",
+      "rawPath": "#latest-on-twitter",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "trending-at-livepeer.md#latest-blogs \"mention\"",
-      "resolvedPath": "v2/pages/experimental/trending-at-livepeer.md",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/experimental/copy-trending-at-livepeer.mdx",
-        "v2/experimental/copy-trending-at-livepeer.mdx"
-      ]
+      "linkType": "empty",
+      "rawPath": "#latest-blogs",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "trending-at-livepeer.md#latest-forum-posts \"mention\"",
-      "resolvedPath": "v2/pages/experimental/trending-at-livepeer.md",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/experimental/copy-trending-at-livepeer.mdx",
-        "v2/experimental/copy-trending-at-livepeer.mdx"
-      ]
+      "linkType": "empty",
+      "rawPath": "#latest-forum-posts",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -180,11 +168,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "https:/forum.livepeer.org",
-      "resolvedPath": "v2/pages/experimental/https:/forum.livepeer.org",
-      "exists": false,
-      "status": "missing",
+      "linkType": "external-https",
+      "rawPath": "https://forum.livepeer.org",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {

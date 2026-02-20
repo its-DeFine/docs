@@ -123,6 +123,7 @@ export const LINK_MAP = {
     }
   ],
   "v2/pages/07_resources/concepts/livepeer-101.mdx": [],
+  "v2/pages/07_resources/documentation-guide/_contextData_/contributor-authoring-guide.mdx": [],
   "v2/pages/07_resources/documentation-guide/authoring-standard.mdx": [],
   "v2/pages/07_resources/documentation-guide/automations-workflows.mdx": [
     {
@@ -2639,15 +2640,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/references/api-reference/AI-API/ai.mdx",
-        "v2/pages/04_gateways/references/api-reference/AI-API/audio-to-text.mdx",
-        "v2/pages/04_gateways/references/api-reference/AI-API/hardware-info.mdx"
-      ]
+      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/ai",
+      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/ai.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     }
   ],
   "snippets/components/layout/api-base-urls-table.mdx": []
