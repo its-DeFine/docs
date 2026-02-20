@@ -39,15 +39,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/about/network/interfaces",
-      "resolvedPath": "v2/pages/about/network/interfaces",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/01_about/livepeer-network/interfaces.mdx",
-        "v2/about/livepeer-network/interfaces.mdx",
-        "tasks/context_data/ABOUT/CONTEXT DATA/Network/livepeer_interfaces.md"
-      ]
+      "rawPath": "/v2/pages/01_about/livepeer-network/interfaces",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/interfaces.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -144,15 +140,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/about/network/technical-architecture",
-      "resolvedPath": "v2/pages/about/network/technical-architecture",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/01_about/livepeer-network/technical-architecture.mdx",
-        "v2/pages/01_about/livepeer-protocol/technical-architecture.mdx",
-        "v2/pages/04_gateways/references/technical-architecture.mdx"
-      ]
+      "rawPath": "/v2/pages/01_about/livepeer-network/technical-architecture",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/technical-architecture.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -258,15 +250,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/about/network/technical-architecture",
-      "resolvedPath": "v2/pages/about/network/technical-architecture",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/01_about/livepeer-network/technical-architecture.mdx",
-        "v2/pages/01_about/livepeer-protocol/technical-architecture.mdx",
-        "v2/pages/04_gateways/references/technical-architecture.mdx"
-      ]
+      "rawPath": "/v2/pages/01_about/livepeer-network/technical-architecture",
+      "resolvedPath": "v2/pages/01_about/livepeer-network/technical-architecture.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -480,28 +468,20 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/wiki/livepeer/go-livepeer#1.1",
-      "resolvedPath": "v2/pages/wiki/livepeer/go-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
-        "v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx",
-        "v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx"
-      ]
+      "rawPath": "/v2/pages/04_gateways/references/go-livepeer/cli-reference",
+      "resolvedPath": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/wiki/livepeer/go-livepeer#2.6",
-      "resolvedPath": "v2/pages/wiki/livepeer/go-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
-        "v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx",
-        "v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx"
-      ]
+      "rawPath": "/v2/pages/04_gateways/references/go-livepeer/cli-reference",
+      "resolvedPath": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -579,16 +559,12 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../../assets/developers/comfystream.png",
-      "resolvedPath": "v2/assets/developers/comfystream.png",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
-        "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
-        "v2/developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx"
-      ]
+      "linkType": "external-https",
+      "rawPath": "https://deepwiki.com/livepeer/comfystream",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
@@ -648,25 +624,21 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../.gitbook/assets/Building the Decentralized Generative AI Tech Stack.png",
-      "resolvedPath": "v2/pages/03_developers/.gitbook/assets/Building the Decentralized Generative AI Tech Stack.png",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/assets/domain/00_HOME/Building the Decentralized Generative AI Tech Stack.png"
-      ]
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/domain/00_HOME/Building the Decentralized Generative AI Tech Stack.png",
+      "resolvedPath": "snippets/assets/domain/00_HOME/Building the Decentralized Generative AI Tech Stack.png",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../.gitbook/assets/Building the Decentralized Generative AI Tech Stack.png",
-      "resolvedPath": "v2/pages/03_developers/.gitbook/assets/Building the Decentralized Generative AI Tech Stack.png",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/assets/domain/00_HOME/Building the Decentralized Generative AI Tech Stack.png"
-      ]
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/domain/00_HOME/Building the Decentralized Generative AI Tech Stack.png",
+      "resolvedPath": "snippets/assets/domain/00_HOME/Building the Decentralized Generative AI Tech Stack.png",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -679,14 +651,12 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../.gitbook/assets/Introducing Livepeer Cascade - A Vision For Livepeer’s Future in the Age of Real-Time AI Video.png",
-      "resolvedPath": "v2/pages/03_developers/.gitbook/assets/Introducing Livepeer Cascade - A Vision For Livepeer’s Future in the Age of Real-Time AI Video.png",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/assets/domain/00_HOME/Introducing Livepeer Cascade - A Vision For Livepeer’s Future in the Age of Real-Time AI Video.png"
-      ]
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/domain/00_HOME/Introducing Livepeer Cascade - A Vision For Livepeer’s Future in the Age of Real-Time AI Video.png",
+      "resolvedPath": "snippets/assets/domain/00_HOME/Introducing Livepeer Cascade - A Vision For Livepeer’s Future in the Age of Real-Time AI Video.png",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     }
   ],
   "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer.mdx": [
@@ -701,14 +671,12 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../.gitbook/assets/Eric Shreck Gif.gif",
-      "resolvedPath": "v2/pages/03_developers/.gitbook/assets/Eric Shreck Gif.gif",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/assets/domain/00_HOME/Eric Shreck Gif.gif"
-      ]
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/domain/00_HOME/Eric Shreck Gif.gif",
+      "resolvedPath": "snippets/assets/domain/00_HOME/Eric Shreck Gif.gif",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
@@ -776,15 +744,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/livepeer-real-time-video/video-streaming-on-livepeer",
-      "resolvedPath": "v2/pages/livepeer-real-time-video/video-streaming-on-livepeer",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
-        "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/frameworks-spe.mdx",
-        "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/streamdiffusion.mdx"
-      ]
+      "rawPath": "/v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README",
+      "resolvedPath": "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -960,34 +924,30 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../../assets/products/daydream-logo-dark.svg",
-      "resolvedPath": "v2/assets/products/daydream-logo-dark.svg",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/assets/logos/products/daydream-logo-dark.svg"
-      ]
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "./livepeer-studio/livepeer-studio.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/logos/products/daydream-logo-dark.svg",
+      "resolvedPath": "snippets/assets/logos/products/daydream-logo-dark.svg",
       "exists": true,
-      "status": "route-missing",
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../../assets/products/livepeer-studio-logo.svg",
-      "resolvedPath": "v2/assets/products/livepeer-studio-logo.svg",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/assets/logos/products/livepeer-studio-logo.svg"
-      ]
+      "rawPath": "./livepeer-studio/livepeer-studio",
+      "resolvedPath": "v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/logos/products/livepeer-studio-logo.svg",
+      "resolvedPath": "snippets/assets/logos/products/livepeer-studio-logo.svg",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -1018,14 +978,12 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../../../assets/products/streamplace-logo.svg",
-      "resolvedPath": "v2/assets/products/streamplace-logo.svg",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/assets/logos/products/streamplace-logo.svg"
-      ]
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/logos/products/streamplace-logo.svg",
+      "resolvedPath": "snippets/assets/logos/products/streamplace-logo.svg",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -1804,15 +1762,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/technical-references/apis",
-      "resolvedPath": "v2/pages/developers/technical-references/apis",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/03_developers/technical-references/apis.mdx",
-        "v2/developers/technical-references/apis.mdx",
-        "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/README.mdx"
-      ]
+      "rawPath": "/v2/pages/03_developers/technical-references/apis",
+      "resolvedPath": "v2/pages/03_developers/technical-references/apis.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -1826,15 +1780,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/technical-references/apis",
-      "resolvedPath": "v2/pages/developers/technical-references/apis",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/03_developers/technical-references/apis.mdx",
-        "v2/developers/technical-references/apis.mdx",
-        "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/README.mdx"
-      ]
+      "rawPath": "/v2/pages/03_developers/technical-references/apis",
+      "resolvedPath": "v2/pages/03_developers/technical-references/apis.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
@@ -1926,15 +1876,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/technical-references/sdks",
-      "resolvedPath": "v2/pages/developers/technical-references/sdks",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/03_developers/technical-references/sdks.mdx",
-        "v2/developers/technical-references/sdks.mdx",
-        "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx"
-      ]
+      "rawPath": "/v2/pages/03_developers/technical-references/sdks",
+      "resolvedPath": "v2/pages/03_developers/technical-references/sdks.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -1948,15 +1894,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/technical-references/sdks",
-      "resolvedPath": "v2/pages/developers/technical-references/sdks",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/pages/03_developers/technical-references/sdks.mdx",
-        "v2/developers/technical-references/sdks.mdx",
-        "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx"
-      ]
+      "rawPath": "/v2/pages/03_developers/technical-references/sdks",
+      "resolvedPath": "v2/pages/03_developers/technical-references/sdks.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",

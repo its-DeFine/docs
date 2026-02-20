@@ -3,7 +3,7 @@
 Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.
 
 ## Run Metadata
-- Timestamp: 2026-02-20T03:14:36.580Z
+- Timestamp: 2026-02-20T03:17:18.989Z
 - Mode: full
 - Strict: false
 - Files analyzed: 467
@@ -16,20 +16,20 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 |---|---:|
 | empty | 198 |
 | external-http | 8 |
-| external-https | 1081 |
+| external-https | 1082 |
 | import-path | 630 |
-| internal-relative | 487 |
-| internal-rooted | 694 |
+| internal-relative | 479 |
+| internal-rooted | 701 |
 | mailto | 2 |
 
 ### By Status
 | status | count |
 |---|---:|
-| 🟡 untested-external | 1089 |
-| missing | 71 |
-| ok | 1729 |
+| 🟡 untested-external | 1090 |
+| missing | 53 |
+| ok | 1747 |
 | ok-folder-route | 6 |
-| route-missing | 4 |
+| route-missing | 3 |
 | skipped | 200 |
 | skipped-style-guide-example | 1 |
 
@@ -3224,7 +3224,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-relative | ./overview | v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx | true | ok |  |  |  |
 | internal-relative | ./comfystream | v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx | true | ok |  |  |  |
 | internal-relative | ../byoc | v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx | true | ok |  |  |  |
-| internal-rooted | /about/network/interfaces | v2/pages/about/network/interfaces | false | missing | v2/pages/01_about/livepeer-network/interfaces.mdx | v2/about/livepeer-network/interfaces.mdx | tasks/context_data/ABOUT/CONTEXT DATA/Network/livepeer_interfaces.md |
+| internal-rooted | /v2/pages/01_about/livepeer-network/interfaces | v2/pages/01_about/livepeer-network/interfaces.mdx | true | ok |  |  |  |
 | external-https | https://github.com/livepeer/comfystream |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://forum.livepeer.org/t/model-registry |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs/ai |  | null | 🟡 untested-external |  |  |  |
@@ -3239,7 +3239,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-relative | ./overview | v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx | true | ok |  |  |  |
 | internal-relative | ./byoc | v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx | true | ok |  |  |  |
 | internal-relative | ../comfystream | v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx | true | ok |  |  |  |
-| internal-rooted | /about/network/technical-architecture | v2/pages/about/network/technical-architecture | false | missing | v2/pages/01_about/livepeer-network/technical-architecture.mdx | v2/pages/01_about/livepeer-protocol/technical-architecture.mdx | v2/pages/04_gateways/references/technical-architecture.mdx |
+| internal-rooted | /v2/pages/01_about/livepeer-network/technical-architecture | v2/pages/01_about/livepeer-network/technical-architecture.mdx | true | ok |  |  |  |
 | external-https | https://github.com/livepeer/comfystream |  | null | 🟡 untested-external |  |  |  |
 | internal-relative | ./byoc | v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx | true | ok |  |  |  |
 | external-https | https://forum.livepeer.org/t/comfystream-nodes |  | null | 🟡 untested-external |  |  |  |
@@ -3255,7 +3255,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-relative | ./byoc | v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx | true | ok |  |  |  |
 | internal-relative | ./comfystream | v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx | true | ok |  |  |  |
 | internal-relative | ../livepeer-ai/overview-ai-on-livepeer | v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer.mdx | true | ok |  |  |  |
-| internal-rooted | /about/network/technical-architecture | v2/pages/about/network/technical-architecture | false | missing | v2/pages/01_about/livepeer-network/technical-architecture.mdx | v2/pages/01_about/livepeer-protocol/technical-architecture.mdx | v2/pages/04_gateways/references/technical-architecture.mdx |
+| internal-rooted | /v2/pages/01_about/livepeer-network/technical-architecture | v2/pages/01_about/livepeer-network/technical-architecture.mdx | true | ok |  |  |  |
 | external-https | https://github.com/livepeer/comfystream |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs/ai |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://forum.livepeer.org/t/example-pipelines |  | null | 🟡 untested-external |  |  |  |
@@ -3283,8 +3283,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | empty | #0-14 |  | null | skipped |  |  |  |
 | empty | #0-15 |  | null | skipped |  |  |  |
 | empty | #0-16 |  | null | skipped |  |  |  |
-| internal-rooted | /wiki/livepeer/go-livepeer#1.1 | v2/pages/wiki/livepeer/go-livepeer | false | missing | v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx | v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx | v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx |
-| internal-rooted | /wiki/livepeer/go-livepeer#2.6 | v2/pages/wiki/livepeer/go-livepeer | false | missing | v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx | v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx | v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx |
+| internal-rooted | /v2/pages/04_gateways/references/go-livepeer/cli-reference | v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/04_gateways/references/go-livepeer/cli-reference | v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx | true | ok |  |  |  |
 | external-https | https://github.com/livepeer/ai-runner |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
@@ -3297,7 +3297,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://deepwiki.com/livepeer/comfystream |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../../../assets/developers/comfystream.png | v2/assets/developers/comfystream.png | false | missing | v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx | v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx | v2/developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx |
+| external-https | https://deepwiki.com/livepeer/comfystream |  | null | 🟡 untested-external |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
 ### v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx
@@ -3340,16 +3340,16 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 |---|---|---|---|---|---|---|---|
 | external-https | https://mirror.xyz/livepeer.eth/7G0T99UIVXbFffvGoDqDnsMq4vJTpDSPtrBZj5xFKwo |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://mirror.xyz/livepeer.eth/7G0T99UIVXbFffvGoDqDnsMq4vJTpDSPtrBZj5xFKwo |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../../.gitbook/assets/Building the Decentralized Generative AI Tech Stack.png | v2/pages/03_developers/.gitbook/assets/Building the Decentralized Generative AI Tech Stack.png | false | missing | snippets/assets/domain/00_HOME/Building the Decentralized Generative AI Tech Stack.png |  |  |
-| internal-relative | ../../.gitbook/assets/Building the Decentralized Generative AI Tech Stack.png | v2/pages/03_developers/.gitbook/assets/Building the Decentralized Generative AI Tech Stack.png | false | missing | snippets/assets/domain/00_HOME/Building the Decentralized Generative AI Tech Stack.png |  |  |
+| internal-rooted | /snippets/assets/domain/00_HOME/Building the Decentralized Generative AI Tech Stack.png | snippets/assets/domain/00_HOME/Building the Decentralized Generative AI Tech Stack.png | true | ok |  |  |  |
+| internal-rooted | /snippets/assets/domain/00_HOME/Building the Decentralized Generative AI Tech Stack.png | snippets/assets/domain/00_HOME/Building the Decentralized Generative AI Tech Stack.png | true | ok |  |  |  |
 | external-https | https://mirror.xyz/livepeer.eth/bCruUtv0PJWWlFxfbCMATGM_h15hUncwvyFW1A3z7Ag |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../../.gitbook/assets/Introducing Livepeer Cascade - A Vision For Livepeer’s Future in the Age of Real-Time AI Video.png | v2/pages/03_developers/.gitbook/assets/Introducing Livepeer Cascade - A Vision For Livepeer’s Future in the Age of Real-Time AI Video.png | false | missing | snippets/assets/domain/00_HOME/Introducing Livepeer Cascade - A Vision For Livepeer’s Future in the Age of Real-Time AI Video.png |  |  |
+| internal-rooted | /snippets/assets/domain/00_HOME/Introducing Livepeer Cascade - A Vision For Livepeer’s Future in the Age of Real-Time AI Video.png | snippets/assets/domain/00_HOME/Introducing Livepeer Cascade - A Vision For Livepeer’s Future in the Age of Real-Time AI Video.png | true | ok |  |  |  |
 
 ### v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://mirror.xyz/livepeer.eth/bCruUtv0PJWWlFxfbCMATGM_h15hUncwvyFW1A3z7Ag |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../../.gitbook/assets/Eric Shreck Gif.gif | v2/pages/03_developers/.gitbook/assets/Eric Shreck Gif.gif | false | missing | snippets/assets/domain/00_HOME/Eric Shreck Gif.gif |  |  |
+| internal-rooted | /snippets/assets/domain/00_HOME/Eric Shreck Gif.gif | snippets/assets/domain/00_HOME/Eric Shreck Gif.gif | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
 ### v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/realtime-ai.mdx
@@ -3383,7 +3383,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 |---|---|---|---|---|---|---|---|
 | external-https | https://www.livepeer.org/dev-hub |  | null | 🟡 untested-external |  |  |  |
 | internal-relative | ./developer-journey | v2/pages/03_developers/building-on-livepeer/developer-journey.mdx | true | ok |  |  |  |
-| internal-rooted | /livepeer-real-time-video/video-streaming-on-livepeer | v2/pages/livepeer-real-time-video/video-streaming-on-livepeer | false | missing | v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx | v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/frameworks-spe.mdx | v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/streamdiffusion.mdx |
+| internal-rooted | /v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README | v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx | true | ok |  |  |  |
 | internal-rooted | /03_developers/ai-inference-on-livepeer/ai-pipelines/overview | v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx | true | ok |  |  |  |
 | internal-rooted | /03_developers/ai-inference-on-livepeer/ai-pipelines/overview | v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx | true | ok |  |  |  |
 | internal-rooted | /03_developers/ai-inference-on-livepeer/ai-pipelines/overview | v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx | true | ok |  |  |  |
@@ -3434,13 +3434,13 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | internal-relative | ./daydream/daydream | v2/pages/03_developers/developer-platforms/daydream/daydream.mdx | true | ok |  |  |  |
-| internal-relative | ../../../assets/products/daydream-logo-dark.svg | v2/assets/products/daydream-logo-dark.svg | false | missing | snippets/assets/logos/products/daydream-logo-dark.svg |  |  |
-| internal-relative | ./livepeer-studio/livepeer-studio.mdx | v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx | true | route-missing |  |  |  |
-| internal-relative | ../../../assets/products/livepeer-studio-logo.svg | v2/assets/products/livepeer-studio-logo.svg | false | missing | snippets/assets/logos/products/livepeer-studio-logo.svg |  |  |
+| internal-rooted | /snippets/assets/logos/products/daydream-logo-dark.svg | snippets/assets/logos/products/daydream-logo-dark.svg | true | ok |  |  |  |
+| internal-relative | ./livepeer-studio/livepeer-studio | v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx | true | ok |  |  |  |
+| internal-rooted | /snippets/assets/logos/products/livepeer-studio-logo.svg | snippets/assets/logos/products/livepeer-studio-logo.svg | true | ok |  |  |  |
 | internal-relative | ./frameworks/frameworks | v2/pages/03_developers/developer-platforms/frameworks/frameworks.mdx | true | ok |  |  |  |
 | external-https | https://frameworks.network/frameworks-dark-horizontal-lockup-transparent.svg |  | null | 🟡 untested-external |  |  |  |
 | internal-relative | ./streamplace/streamplace | v2/pages/03_developers/developer-platforms/streamplace/streamplace.mdx | true | ok |  |  |  |
-| internal-relative | ../../../assets/products/streamplace-logo.svg | v2/assets/products/streamplace-logo.svg | false | missing | snippets/assets/logos/products/streamplace-logo.svg |  |  |
+| internal-rooted | /snippets/assets/logos/products/streamplace-logo.svg | snippets/assets/logos/products/streamplace-logo.svg | true | ok |  |  |  |
 | internal-relative | ./all-ecosystem/ecosystem-products | v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/links.jsx | snippets/components/primitives/links.jsx | true | ok |  |  |  |
@@ -3689,9 +3689,9 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-rooted | /010_products/products/livepeer-studio/overview/api-overview | v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx | true | ok |  |  |  |
 | internal-rooted | /010_products/products/livepeer-studio/api-reference/overview | v2/pages/010_products/products/livepeer-studio/api-reference/overview.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /developers/technical-references/apis | v2/pages/developers/technical-references/apis | false | missing | v2/pages/03_developers/technical-references/apis.mdx | v2/developers/technical-references/apis.mdx | v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/README.mdx |
+| internal-rooted | /v2/pages/03_developers/technical-references/apis | v2/pages/03_developers/technical-references/apis.mdx | true | ok |  |  |  |
 | internal-rooted | /010_products/products/livepeer-studio/overview/api-overview | v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /developers/technical-references/apis | v2/pages/developers/technical-references/apis | false | missing | v2/pages/03_developers/technical-references/apis.mdx | v2/developers/technical-references/apis.mdx | v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/README.mdx |
+| internal-rooted | /v2/pages/03_developers/technical-references/apis | v2/pages/03_developers/technical-references/apis.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
 ### v2/pages/03_developers/technical-references/awesome-livepeer.mdx
@@ -3713,9 +3713,9 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | internal-rooted | /010_products/products/livepeer-studio/overview/sdks-overview | v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /developers/technical-references/sdks | v2/pages/developers/technical-references/sdks | false | missing | v2/pages/03_developers/technical-references/sdks.mdx | v2/developers/technical-references/sdks.mdx | v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx |
+| internal-rooted | /v2/pages/03_developers/technical-references/sdks | v2/pages/03_developers/technical-references/sdks.mdx | true | ok |  |  |  |
 | internal-rooted | /010_products/products/livepeer-studio/overview/sdks-overview | v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /developers/technical-references/sdks | v2/pages/developers/technical-references/sdks | false | missing | v2/pages/03_developers/technical-references/sdks.mdx | v2/developers/technical-references/sdks.mdx | v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx |
+| internal-rooted | /v2/pages/03_developers/technical-references/sdks | v2/pages/03_developers/technical-references/sdks.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
 ### v2/pages/03_developers/technical-references/wiki.mdx
