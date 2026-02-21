@@ -1718,24 +1718,24 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/treasury/overview",
-      "url": "http://127.0.0.1:3000/06_lptoken/treasury/overview",
+      "pagePath": "v2/lpt/treasury/overview",
+      "url": "http://127.0.0.1:3000/lpt/treasury/overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/treasury/proposals",
-      "url": "http://127.0.0.1:3000/06_lptoken/treasury/proposals",
+      "pagePath": "v2/lpt/treasury/proposals",
+      "url": "http://127.0.0.1:3000/lpt/treasury/proposals",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/treasury/allocations",
-      "url": "http://127.0.0.1:3000/06_lptoken/treasury/allocations",
+      "pagePath": "v2/lpt/treasury/allocations",
+      "url": "http://127.0.0.1:3000/lpt/treasury/allocations",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

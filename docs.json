@@ -2826,9 +2826,9 @@
                       {
                         "group": "Livepeer Treasury",
                         "pages": [
-                          "v2/pages/06_lptoken/treasury/overview",
-                          "v2/pages/06_lptoken/treasury/proposals",
-                          "v2/pages/06_lptoken/treasury/allocations"
+                          "v2/lpt/treasury/overview",
+                          "v2/lpt/treasury/proposals",
+                          "v2/lpt/treasury/allocations"
                         ]
                       },
                       {

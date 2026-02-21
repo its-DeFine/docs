@@ -3675,8 +3675,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/treasury/allocations.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/treasury/allocations.mdx",
+      "rawPath": "lpt/treasury/allocations.mdx",
+      "resolvedPath": "v2/lpt/treasury/allocations.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3684,8 +3684,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/treasury/overview.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/treasury/overview.mdx",
+      "rawPath": "lpt/treasury/overview.mdx",
+      "resolvedPath": "v2/lpt/treasury/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3693,8 +3693,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/treasury/proposals.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/treasury/proposals.mdx",
+      "rawPath": "lpt/treasury/proposals.mdx",
+      "resolvedPath": "v2/lpt/treasury/proposals.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
