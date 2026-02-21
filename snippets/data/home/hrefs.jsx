@@ -1809,8 +1809,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README",
-      "resolvedPath": "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
+      "rawPath": "../developers/livepeer-real-time-video/video-streaming-on-livepeer/README",
+      "resolvedPath": "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

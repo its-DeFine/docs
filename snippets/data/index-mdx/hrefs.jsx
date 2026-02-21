@@ -2127,8 +2127,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/livepeer-real-time-video/page-1.mdx",
-      "resolvedPath": "v2/pages/03_developers/livepeer-real-time-video/page-1.mdx",
+      "rawPath": "developers/livepeer-real-time-video/page-1.mdx",
+      "resolvedPath": "v2/developers/livepeer-real-time-video/page-1.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2136,8 +2136,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/livepeer-real-time-video/video-streaming-on-livepeer/frameworks-spe.mdx",
-      "resolvedPath": "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/frameworks-spe.mdx",
+      "rawPath": "developers/livepeer-real-time-video/video-streaming-on-livepeer/frameworks-spe.mdx",
+      "resolvedPath": "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/frameworks-spe.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2145,8 +2145,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
-      "resolvedPath": "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
+      "rawPath": "developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
+      "resolvedPath": "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2154,8 +2154,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/livepeer-real-time-video/video-streaming-on-livepeer/streamdiffusion.mdx",
-      "resolvedPath": "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/streamdiffusion.mdx",
+      "rawPath": "developers/livepeer-real-time-video/video-streaming-on-livepeer/streamdiffusion.mdx",
+      "resolvedPath": "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/streamdiffusion.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2163,8 +2163,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx",
-      "resolvedPath": "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx",
+      "rawPath": "developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx",
+      "resolvedPath": "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

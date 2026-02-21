@@ -678,8 +678,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README",
-      "url": "http://127.0.0.1:3000/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README",
+      "pagePath": "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README",
+      "url": "http://127.0.0.1:3000/developers/livepeer-real-time-video/video-streaming-on-livepeer/README",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

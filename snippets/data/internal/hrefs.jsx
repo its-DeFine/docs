@@ -1170,8 +1170,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
-      "resolvedPath": "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
+      "rawPath": "/v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
+      "resolvedPath": "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3368,8 +3368,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
-      "resolvedPath": "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
+      "rawPath": "/v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
+      "resolvedPath": "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
