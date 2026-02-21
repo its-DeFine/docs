@@ -504,8 +504,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/project-showcase/showcase",
+      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -513,8 +513,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/industry-verticals",
-      "resolvedPath": "v2/pages/00_home/project-showcase/industry-verticals.mdx",
+      "rawPath": "/v2/home/project-showcase/industry-verticals",
+      "resolvedPath": "v2/home/project-showcase/industry-verticals.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -522,8 +522,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/applications",
-      "resolvedPath": "v2/pages/00_home/project-showcase/applications.mdx",
+      "rawPath": "/v2/home/project-showcase/applications",
+      "resolvedPath": "v2/home/project-showcase/applications.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2711,8 +2711,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/project-showcase/showcase",
+      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2720,8 +2720,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/industry-verticals",
-      "resolvedPath": "v2/pages/00_home/project-showcase/industry-verticals.mdx",
+      "rawPath": "/v2/home/project-showcase/industry-verticals",
+      "resolvedPath": "v2/home/project-showcase/industry-verticals.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2729,8 +2729,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/applications",
-      "resolvedPath": "v2/pages/00_home/project-showcase/applications.mdx",
+      "rawPath": "/v2/home/project-showcase/applications",
+      "resolvedPath": "v2/home/project-showcase/applications.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

@@ -70,24 +70,24 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/00_home/project-showcase/showcase",
-      "url": "http://127.0.0.1:3000/00_home/project-showcase/showcase",
+      "pagePath": "v2/home/project-showcase/showcase",
+      "url": "http://127.0.0.1:3000/home/project-showcase/showcase",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/00_home/project-showcase/industry-verticals",
-      "url": "http://127.0.0.1:3000/00_home/project-showcase/industry-verticals",
+      "pagePath": "v2/home/project-showcase/industry-verticals",
+      "url": "http://127.0.0.1:3000/home/project-showcase/industry-verticals",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/00_home/project-showcase/applications",
-      "url": "http://127.0.0.1:3000/00_home/project-showcase/applications",
+      "pagePath": "v2/home/project-showcase/applications",
+      "url": "http://127.0.0.1:3000/home/project-showcase/applications",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

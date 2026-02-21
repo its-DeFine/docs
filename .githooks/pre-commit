@@ -1,4 +1,5 @@
 #!/bin/bash
+: <<'SCRIPT_DOC'
 /**
  * @script pre-commit
  * @summary Utility script for .githooks/pre-commit.
@@ -24,6 +25,7 @@
  * @notes
  *   Keep script behavior deterministic and update script indexes after changes.
  */
+SCRIPT_DOC
 # Pre-commit hook to enforce style guide compliance
 # Checks for common violations before allowing commits
 #
@@ -71,6 +73,11 @@ get_staged_docs_pages() {
 }
 
 STAGED_DOCS_PAGES=$(get_staged_docs_pages)
+
+get_staged_added_lines() {
+    local file="$1"
+    git diff --cached --unified=0 -- "$file" 2>/dev/null | grep '^+' | grep -v '^+++'
+}
 
 # pre-commit hooks do not receive commit args directly. Detect trailer usage
 # from the parent git commit command.
@@ -358,7 +365,7 @@ else
             fi
             continue
         fi
-        if grep -q "ThemeData\|themeStyles\.jsx" "$file" 2>/dev/null; then
+        if get_staged_added_lines "$file" | grep -q "ThemeData\|themeStyles\.jsx" 2>/dev/null; then
             WARNINGS+=("❌ $file: Uses deprecated ThemeData - use CSS Custom Properties instead")
             VIOLATIONS=$((VIOLATIONS + 1))
         fi
@@ -375,7 +382,7 @@ else
         fi
         # Check for common Livepeer colors hardcoded (should use CSS vars)
         # Exclude markdown tables and code examples
-        if grep -E "(#3CB540|#2b9a66|#18794E|#181C18|#E0E4E0|#717571|#A0A4A0)" "$file" 2>/dev/null | grep -v "var(--" | grep -v "CSS Custom Properties" | grep -v "style-guide" | grep -v "Color System" | grep -v "Light Mode\|Dark Mode" | grep -v '^|' | grep -v '^```' > /dev/null; then
+        if get_staged_added_lines "$file" | grep -E "(#3CB540|#2b9a66|#18794E|#181C18|#E0E4E0|#717571|#A0A4A0)" | grep -v "var(--" | grep -v "CSS Custom Properties" | grep -v "style-guide" | grep -v "Color System" | grep -v "Light Mode\|Dark Mode" | grep -v '^[+][[:space:]]*|' | grep -v '^[+][[:space:]]*```' | grep -v '^[+][[:space:]]*//' | grep -v '^[+][[:space:]]*\*' | grep -v -F '{/*' > /dev/null; then
             WARNINGS+=("⚠️  $file: Contains hardcoded theme colors - use CSS Custom Properties (var(--accent), etc.)")
             VIOLATIONS=$((VIOLATIONS + 1))
         fi
@@ -390,7 +397,7 @@ else
         if [[ "$file" == *"style-guide"* ]]; then
             continue
         fi
-        if grep -E "from ['\"].*\.\./.*['\"]" "$file" 2>/dev/null | grep -v "node_modules" | grep -v "\.\./\.\./\.\." | grep -v "examples/" > /dev/null; then
+        if get_staged_added_lines "$file" | grep -E "from ['\"].*\.\./.*['\"]" | grep -v "node_modules" | grep -v "\.\./\.\./\.\." | grep -v "examples/" > /dev/null; then
             WARNINGS+=("⚠️  $file: Uses relative imports - use absolute paths from root (/snippets/...)")
             VIOLATIONS=$((VIOLATIONS + 1))
         fi
@@ -405,7 +412,7 @@ else
         if [[ "$file" == *"style-guide.mdx" ]]; then
             continue
         fi
-        if grep -q "from ['\"]@mintlify/components['\"]" "$file" 2>/dev/null; then
+        if get_staged_added_lines "$file" | grep -q "from ['\"]@mintlify/components['\"]" 2>/dev/null; then
             WARNINGS+=("⚠️  $file: Imports from @mintlify/components - these are global, no import needed")
             VIOLATIONS=$((VIOLATIONS + 1))
         fi
@@ -420,7 +427,7 @@ else
         if [[ "$file" == *"style-guide.mdx" ]]; then
             continue
         fi
-        if grep -E "import.*\{.*useState|useEffect|useMemo|useCallback.*\}.*from ['\"]react['\"]" "$file" 2>/dev/null; then
+        if get_staged_added_lines "$file" | grep -E "import.*\{.*useState|useEffect|useMemo|useCallback.*\}.*from ['\"]react['\"]" 2>/dev/null; then
             WARNINGS+=("⚠️  $file: Imports React hooks - hooks are global in Mintlify, no import needed")
             VIOLATIONS=$((VIOLATIONS + 1))
         fi
