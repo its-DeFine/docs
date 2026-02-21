@@ -165,8 +165,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/faq-about.mdx",
-      "resolvedPath": "v2/pages/01_about/faq-about.mdx",
+      "rawPath": "about/faq-about.mdx",
+      "resolvedPath": "v2/about/faq-about.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

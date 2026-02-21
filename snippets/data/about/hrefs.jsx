@@ -296,7 +296,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/faq-about.mdx": [
+  "v2/about/faq-about.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "empty",
