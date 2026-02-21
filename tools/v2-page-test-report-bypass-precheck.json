@@ -246,40 +246,40 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/resources/livepeer-whitepaper",
-      "url": "http://127.0.0.1:3000/01_about/resources/livepeer-whitepaper",
+      "pagePath": "v2/about/resources/livepeer-whitepaper",
+      "url": "http://127.0.0.1:3000/about/resources/livepeer-whitepaper",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/resources/livepeer-glossary",
-      "url": "http://127.0.0.1:3000/01_about/resources/livepeer-glossary",
+      "pagePath": "v2/about/resources/livepeer-glossary",
+      "url": "http://127.0.0.1:3000/about/resources/livepeer-glossary",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/resources/blockchain-contracts",
-      "url": "http://127.0.0.1:3000/01_about/resources/blockchain-contracts",
+      "pagePath": "v2/about/resources/blockchain-contracts",
+      "url": "http://127.0.0.1:3000/about/resources/blockchain-contracts",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/resources/technical-roadmap",
-      "url": "http://127.0.0.1:3000/01_about/resources/technical-roadmap",
+      "pagePath": "v2/about/resources/technical-roadmap",
+      "url": "http://127.0.0.1:3000/about/resources/technical-roadmap",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/resources/gateways-vs-orchestrators",
-      "url": "http://127.0.0.1:3000/01_about/resources/gateways-vs-orchestrators",
+      "pagePath": "v2/about/resources/gateways-vs-orchestrators",
+      "url": "http://127.0.0.1:3000/about/resources/gateways-vs-orchestrators",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

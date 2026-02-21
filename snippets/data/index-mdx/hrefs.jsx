@@ -462,8 +462,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/resources/blockchain-contracts.mdx",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "rawPath": "about/resources/blockchain-contracts.mdx",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -471,8 +471,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/resources/gateways-vs-orchestrators.mdx",
-      "resolvedPath": "v2/pages/01_about/resources/gateways-vs-orchestrators.mdx",
+      "rawPath": "about/resources/gateways-vs-orchestrators.mdx",
+      "resolvedPath": "v2/about/resources/gateways-vs-orchestrators.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -480,8 +480,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/resources/livepeer-glossary.mdx",
-      "resolvedPath": "v2/pages/01_about/resources/livepeer-glossary.mdx",
+      "rawPath": "about/resources/livepeer-glossary.mdx",
+      "resolvedPath": "v2/about/resources/livepeer-glossary.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -489,8 +489,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/resources/livepeer-whitepaper.mdx",
-      "resolvedPath": "v2/pages/01_about/resources/livepeer-whitepaper.mdx",
+      "rawPath": "about/resources/livepeer-whitepaper.mdx",
+      "resolvedPath": "v2/about/resources/livepeer-whitepaper.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -498,8 +498,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/resources/technical-roadmap.mdx",
-      "resolvedPath": "v2/pages/01_about/resources/technical-roadmap.mdx",
+      "rawPath": "about/resources/technical-roadmap.mdx",
+      "resolvedPath": "v2/about/resources/technical-roadmap.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

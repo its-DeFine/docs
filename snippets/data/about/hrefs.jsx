@@ -328,7 +328,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "resources/blockchain-contracts",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -487,7 +487,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../resources/blockchain-contracts",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -523,7 +523,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../resources/blockchain-contracts",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -796,7 +796,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../resources/technical-roadmap",
-      "resolvedPath": "v2/pages/01_about/resources/technical-roadmap.mdx",
+      "resolvedPath": "v2/about/resources/technical-roadmap.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -832,7 +832,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../resources/blockchain-contracts",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1045,7 +1045,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../resources/blockchain-contracts",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2070,7 +2070,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../resources/livepeer-whitepaper",
-      "resolvedPath": "v2/pages/01_about/resources/livepeer-whitepaper.mdx",
+      "resolvedPath": "v2/about/resources/livepeer-whitepaper.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2079,7 +2079,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../resources/blockchain-contracts",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2631,7 +2631,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/resources/blockchain-contracts.mdx": [
+  "v2/about/resources/blockchain-contracts.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2849,7 +2849,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/resources/gateways-vs-orchestrators.mdx": [
+  "v2/about/resources/gateways-vs-orchestrators.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -2860,7 +2860,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/resources/livepeer-glossary.mdx": [
+  "v2/about/resources/livepeer-glossary.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2880,7 +2880,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/resources/livepeer-whitepaper.mdx": [
+  "v2/about/resources/livepeer-whitepaper.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2936,7 +2936,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/resources/technical-roadmap.mdx": [],
+  "v2/about/resources/technical-roadmap.mdx": [],
   "snippets/pages/01_ABOUT/concepts/protocol.mdx": [],
   "snippets/pages/01_ABOUT/concepts/network.mdx": [],
   "snippets/pages/01_ABOUT/concepts/actors.mdx": [],

@@ -693,8 +693,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/resources/livepeer-whitepaper",
-      "resolvedPath": "v2/pages/01_about/resources/livepeer-whitepaper.mdx",
+      "rawPath": "/v2/about/resources/livepeer-whitepaper",
+      "resolvedPath": "v2/about/resources/livepeer-whitepaper.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -702,8 +702,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/01_about/resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/about/resources/livepeer-glossary",
+      "resolvedPath": "v2/about/resources/livepeer-glossary.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -711,8 +711,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/resources/blockchain-contracts",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "rawPath": "/v2/about/resources/blockchain-contracts",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -720,8 +720,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/resources/technical-roadmap",
-      "resolvedPath": "v2/pages/01_about/resources/technical-roadmap.mdx",
+      "rawPath": "/v2/about/resources/technical-roadmap",
+      "resolvedPath": "v2/about/resources/technical-roadmap.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -729,8 +729,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/resources/gateways-vs-orchestrators",
-      "resolvedPath": "v2/pages/01_about/resources/gateways-vs-orchestrators.mdx",
+      "rawPath": "/v2/about/resources/gateways-vs-orchestrators",
+      "resolvedPath": "v2/about/resources/gateways-vs-orchestrators.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2891,8 +2891,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/resources/livepeer-whitepaper",
-      "resolvedPath": "v2/pages/01_about/resources/livepeer-whitepaper.mdx",
+      "rawPath": "/v2/about/resources/livepeer-whitepaper",
+      "resolvedPath": "v2/about/resources/livepeer-whitepaper.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2900,8 +2900,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/resources/livepeer-glossary",
-      "resolvedPath": "v2/pages/01_about/resources/livepeer-glossary.mdx",
+      "rawPath": "/v2/about/resources/livepeer-glossary",
+      "resolvedPath": "v2/about/resources/livepeer-glossary.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2909,8 +2909,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/resources/blockchain-contracts",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "rawPath": "/v2/about/resources/blockchain-contracts",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2918,8 +2918,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/resources/technical-roadmap",
-      "resolvedPath": "v2/pages/01_about/resources/technical-roadmap.mdx",
+      "rawPath": "/v2/about/resources/technical-roadmap",
+      "resolvedPath": "v2/about/resources/technical-roadmap.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2927,8 +2927,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/resources/gateways-vs-orchestrators",
-      "resolvedPath": "v2/pages/01_about/resources/gateways-vs-orchestrators.mdx",
+      "rawPath": "/v2/about/resources/gateways-vs-orchestrators",
+      "resolvedPath": "v2/about/resources/gateways-vs-orchestrators.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
