@@ -4740,7 +4740,7 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "https://www.videolan.org/vlc/../../using-../../../01_about/livepeer-network/livepeer-actors/gateways.mdx/gateway-providers.mdx.html",
+      "rawPath": "https://www.videolan.org/vlc/../../using-../../../about/livepeer-network/livepeer-actors/gateways.mdx/gateway-providers.mdx.html",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",

@@ -198,48 +198,48 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-network/overview",
-      "url": "http://127.0.0.1:3000/01_about/livepeer-network/overview",
+      "pagePath": "v2/about/livepeer-network/overview",
+      "url": "http://127.0.0.1:3000/about/livepeer-network/overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-network/actors",
-      "url": "http://127.0.0.1:3000/01_about/livepeer-network/actors",
+      "pagePath": "v2/about/livepeer-network/actors",
+      "url": "http://127.0.0.1:3000/about/livepeer-network/actors",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-network/job-lifecycle",
-      "url": "http://127.0.0.1:3000/01_about/livepeer-network/job-lifecycle",
+      "pagePath": "v2/about/livepeer-network/job-lifecycle",
+      "url": "http://127.0.0.1:3000/about/livepeer-network/job-lifecycle",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-network/marketplace",
-      "url": "http://127.0.0.1:3000/01_about/livepeer-network/marketplace",
+      "pagePath": "v2/about/livepeer-network/marketplace",
+      "url": "http://127.0.0.1:3000/about/livepeer-network/marketplace",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-network/technical-architecture",
-      "url": "http://127.0.0.1:3000/01_about/livepeer-network/technical-architecture",
+      "pagePath": "v2/about/livepeer-network/technical-architecture",
+      "url": "http://127.0.0.1:3000/about/livepeer-network/technical-architecture",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-network/interfaces",
-      "url": "http://127.0.0.1:3000/01_about/livepeer-network/interfaces",
+      "pagePath": "v2/about/livepeer-network/interfaces",
+      "url": "http://127.0.0.1:3000/about/livepeer-network/interfaces",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

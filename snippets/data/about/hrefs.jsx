@@ -22,7 +22,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -31,7 +31,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -40,7 +40,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -49,7 +49,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -58,7 +58,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -67,7 +67,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -346,7 +346,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "livepeer-network/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -355,7 +355,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "livepeer-network/technical-architecture",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/technical-architecture.mdx",
+      "resolvedPath": "v2/about/livepeer-network/technical-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -370,12 +370,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/actors.mdx": [
+  "v2/about/livepeer-network/actors.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-actors/gateways",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+      "resolvedPath": "v2/about/livepeer-network/livepeer-actors/gateways.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -393,7 +393,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-actors/delegators",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/livepeer-actors/delegators.mdx",
+      "resolvedPath": "v2/about/livepeer-network/livepeer-actors/delegators.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -402,7 +402,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-actors/end-users",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/livepeer-actors/end-users.mdx",
+      "resolvedPath": "v2/about/livepeer-network/livepeer-actors/end-users.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -411,7 +411,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./demand-side",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/demand-side.mdx",
+      "resolvedPath": "v2/about/livepeer-network/demand-side.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -420,7 +420,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./supply-side",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/supply-side.mdx",
+      "resolvedPath": "v2/about/livepeer-network/supply-side.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -429,7 +429,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./job-lifecycle",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/job-lifecycle.mdx",
+      "resolvedPath": "v2/about/livepeer-network/job-lifecycle.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -444,9 +444,9 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/demand-side.mdx": [],
-  "v2/pages/01_about/livepeer-network/fee-flow.mdx": [],
-  "v2/pages/01_about/livepeer-network/interfaces.mdx": [
+  "v2/about/livepeer-network/demand-side.mdx": [],
+  "v2/about/livepeer-network/fee-flow.mdx": [],
+  "v2/about/livepeer-network/interfaces.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -496,7 +496,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./technical-architecture",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/technical-architecture.mdx",
+      "resolvedPath": "v2/about/livepeer-network/technical-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -505,7 +505,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./marketplace",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/marketplace.mdx",
+      "resolvedPath": "v2/about/livepeer-network/marketplace.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -514,7 +514,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./job-lifecycle",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/job-lifecycle.mdx",
+      "resolvedPath": "v2/about/livepeer-network/job-lifecycle.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -610,7 +610,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/job-lifecycle.mdx": [
+  "v2/about/livepeer-network/job-lifecycle.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -621,7 +621,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/livepeer-actors/delegators.mdx": [
+  "v2/about/livepeer-network/livepeer-actors/delegators.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
@@ -659,12 +659,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/livepeer-actors/end-users.mdx": [
+  "v2/about/livepeer-network/livepeer-actors/end-users.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../demand-side",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/demand-side.mdx",
+      "resolvedPath": "v2/about/livepeer-network/demand-side.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -673,7 +673,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./gateways",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+      "resolvedPath": "v2/about/livepeer-network/livepeer-actors/gateways.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -682,7 +682,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -697,7 +697,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx": [
+  "v2/about/livepeer-network/livepeer-actors/gateways.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -711,7 +711,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../job-lifecycle",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/job-lifecycle.mdx",
+      "resolvedPath": "v2/about/livepeer-network/job-lifecycle.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -720,7 +720,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../demand-side",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/demand-side.mdx",
+      "resolvedPath": "v2/about/livepeer-network/demand-side.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -735,12 +735,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/livepeer-actors/orchestrators.mdx": [
+  "v2/about/livepeer-network/livepeer-actors/orchestrators.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./gateways",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+      "resolvedPath": "v2/about/livepeer-network/livepeer-actors/gateways.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -749,7 +749,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../supply-side",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/supply-side.mdx",
+      "resolvedPath": "v2/about/livepeer-network/supply-side.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -758,7 +758,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../fee-flow",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/fee-flow.mdx",
+      "resolvedPath": "v2/about/livepeer-network/fee-flow.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -773,7 +773,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/marketplace.mdx": [
+  "v2/about/livepeer-network/marketplace.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -805,7 +805,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./job-lifecycle",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/job-lifecycle.mdx",
+      "resolvedPath": "v2/about/livepeer-network/job-lifecycle.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -814,7 +814,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./actors",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/actors.mdx",
+      "resolvedPath": "v2/about/livepeer-network/actors.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -910,7 +910,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/overview.mdx": [
+  "v2/about/livepeer-network/overview.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -921,9 +921,9 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/scaling.mdx": [],
-  "v2/pages/01_about/livepeer-network/supply-side.mdx": [],
-  "v2/pages/01_about/livepeer-network/technical-architecture.mdx": [
+  "v2/about/livepeer-network/scaling.mdx": [],
+  "v2/about/livepeer-network/supply-side.mdx": [],
+  "v2/about/livepeer-network/technical-architecture.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -973,7 +973,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./job-lifecycle",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/job-lifecycle.mdx",
+      "resolvedPath": "v2/about/livepeer-network/job-lifecycle.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1009,7 +1009,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./interfaces",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/interfaces.mdx",
+      "resolvedPath": "v2/about/livepeer-network/interfaces.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1018,7 +1018,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./marketplace",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/marketplace.mdx",
+      "resolvedPath": "v2/about/livepeer-network/marketplace.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1027,7 +1027,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./job-lifecycle",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/job-lifecycle.mdx",
+      "resolvedPath": "v2/about/livepeer-network/job-lifecycle.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

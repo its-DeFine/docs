@@ -2158,12 +2158,12 @@
                         "group": "Livepeer Network",
                         "icon": "circle-nodes",
                         "pages": [
-                          "v2/pages/01_about/livepeer-network/overview",
-                          "v2/pages/01_about/livepeer-network/actors",
-                          "v2/pages/01_about/livepeer-network/job-lifecycle",
-                          "v2/pages/01_about/livepeer-network/marketplace",
-                          "v2/pages/01_about/livepeer-network/technical-architecture",
-                          "v2/pages/01_about/livepeer-network/interfaces"
+                          "v2/about/livepeer-network/overview",
+                          "v2/about/livepeer-network/actors",
+                          "v2/about/livepeer-network/job-lifecycle",
+                          "v2/about/livepeer-network/marketplace",
+                          "v2/about/livepeer-network/technical-architecture",
+                          "v2/about/livepeer-network/interfaces"
                         ]
                       },
                       {

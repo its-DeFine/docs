@@ -39,8 +39,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-network/interfaces",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/interfaces.mdx",
+      "rawPath": "/v2/about/livepeer-network/interfaces",
+      "resolvedPath": "v2/about/livepeer-network/interfaces.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -140,8 +140,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-network/technical-architecture",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/technical-architecture.mdx",
+      "rawPath": "/v2/about/livepeer-network/technical-architecture",
+      "resolvedPath": "v2/about/livepeer-network/technical-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -250,8 +250,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-network/technical-architecture",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/technical-architecture.mdx",
+      "rawPath": "/v2/about/livepeer-network/technical-architecture",
+      "resolvedPath": "v2/about/livepeer-network/technical-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
