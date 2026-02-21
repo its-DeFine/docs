@@ -237,8 +237,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/core-concepts/livepeer-core-concepts.mdx",
-      "resolvedPath": "v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx",
+      "rawPath": "about/core-concepts/livepeer-core-concepts.mdx",
+      "resolvedPath": "v2/about/core-concepts/livepeer-core-concepts.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -246,8 +246,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/core-concepts/livepeer-overview.mdx",
-      "resolvedPath": "v2/pages/01_about/core-concepts/livepeer-overview.mdx",
+      "rawPath": "about/core-concepts/livepeer-overview.mdx",
+      "resolvedPath": "v2/about/core-concepts/livepeer-overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -255,8 +255,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/core-concepts/mental-model.mdx",
-      "resolvedPath": "v2/pages/01_about/core-concepts/mental-model.mdx",
+      "rawPath": "about/core-concepts/mental-model.mdx",
+      "resolvedPath": "v2/about/core-concepts/mental-model.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -264,8 +264,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/core-concepts/concepts/actors.mdx",
-      "resolvedPath": "v2/pages/01_about/core-concepts/concepts/actors.mdx",
+      "rawPath": "about/core-concepts/concepts/actors.mdx",
+      "resolvedPath": "v2/about/core-concepts/concepts/actors.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

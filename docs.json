@@ -2136,9 +2136,9 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/about/about-portal",
-                          "v2/pages/01_about/core-concepts/livepeer-overview",
-                          "v2/pages/01_about/core-concepts/livepeer-core-concepts",
-                          "v2/pages/01_about/core-concepts/mental-model"
+                          "v2/about/core-concepts/livepeer-overview",
+                          "v2/about/core-concepts/livepeer-core-concepts",
+                          "v2/about/core-concepts/mental-model"
                         ]
                       },
                       {

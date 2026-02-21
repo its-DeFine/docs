@@ -549,8 +549,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/core-concepts/livepeer-overview",
-      "resolvedPath": "v2/pages/01_about/core-concepts/livepeer-overview.mdx",
+      "rawPath": "/v2/about/core-concepts/livepeer-overview",
+      "resolvedPath": "v2/about/core-concepts/livepeer-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -558,8 +558,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/core-concepts/livepeer-core-concepts",
-      "resolvedPath": "v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx",
+      "rawPath": "/v2/about/core-concepts/livepeer-core-concepts",
+      "resolvedPath": "v2/about/core-concepts/livepeer-core-concepts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -567,8 +567,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/core-concepts/mental-model",
-      "resolvedPath": "v2/pages/01_about/core-concepts/mental-model.mdx",
+      "rawPath": "/v2/about/core-concepts/mental-model",
+      "resolvedPath": "v2/about/core-concepts/mental-model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2747,8 +2747,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/core-concepts/livepeer-overview",
-      "resolvedPath": "v2/pages/01_about/core-concepts/livepeer-overview.mdx",
+      "rawPath": "/v2/about/core-concepts/livepeer-overview",
+      "resolvedPath": "v2/about/core-concepts/livepeer-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2756,8 +2756,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/core-concepts/livepeer-core-concepts",
-      "resolvedPath": "v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx",
+      "rawPath": "/v2/about/core-concepts/livepeer-core-concepts",
+      "resolvedPath": "v2/about/core-concepts/livepeer-core-concepts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2765,8 +2765,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/core-concepts/mental-model",
-      "resolvedPath": "v2/pages/01_about/core-concepts/mental-model.mdx",
+      "rawPath": "/v2/about/core-concepts/mental-model",
+      "resolvedPath": "v2/about/core-concepts/mental-model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

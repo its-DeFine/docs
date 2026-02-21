@@ -127,8 +127,8 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/core-concepts/concepts/actors.mdx": [],
-  "v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx": [
+  "v2/about/core-concepts/concepts/actors.mdx": [],
+  "v2/about/core-concepts/livepeer-core-concepts.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -166,12 +166,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/core-concepts/livepeer-overview.mdx": [
+  "v2/about/core-concepts/livepeer-overview.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/01_about/core-concepts/mental-model",
-      "resolvedPath": "v2/pages/01_about/core-concepts/mental-model.mdx",
+      "rawPath": "/about/core-concepts/mental-model",
+      "resolvedPath": "v2/about/core-concepts/mental-model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -240,7 +240,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/core-concepts/mental-model.mdx": [
+  "v2/about/core-concepts/mental-model.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",

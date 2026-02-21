@@ -1465,8 +1465,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/01_about/core-concepts/livepeer-core-concepts",
-      "resolvedPath": "v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx",
+      "rawPath": "/about/core-concepts/livepeer-core-concepts",
+      "resolvedPath": "v2/about/core-concepts/livepeer-core-concepts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

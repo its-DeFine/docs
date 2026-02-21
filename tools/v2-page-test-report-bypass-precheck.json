@@ -118,24 +118,24 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/core-concepts/livepeer-overview",
-      "url": "http://127.0.0.1:3000/01_about/core-concepts/livepeer-overview",
+      "pagePath": "v2/about/core-concepts/livepeer-overview",
+      "url": "http://127.0.0.1:3000/about/core-concepts/livepeer-overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/core-concepts/livepeer-core-concepts",
-      "url": "http://127.0.0.1:3000/01_about/core-concepts/livepeer-core-concepts",
+      "pagePath": "v2/about/core-concepts/livepeer-core-concepts",
+      "url": "http://127.0.0.1:3000/about/core-concepts/livepeer-core-concepts",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/core-concepts/mental-model",
-      "url": "http://127.0.0.1:3000/01_about/core-concepts/mental-model",
+      "pagePath": "v2/about/core-concepts/mental-model",
+      "url": "http://127.0.0.1:3000/about/core-concepts/mental-model",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
