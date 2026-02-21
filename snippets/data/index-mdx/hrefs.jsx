@@ -4018,7 +4018,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "experimental/copy-trending-at-livepeer.mdx",
-      "resolvedPath": "v2/pages/experimental/copy-trending-at-livepeer.mdx",
+      "resolvedPath": "v2/experimental/copy-trending-at-livepeer.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -4027,7 +4027,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "experimental/test.mdx",
-      "resolvedPath": "v2/pages/experimental/test.mdx",
+      "resolvedPath": "v2/experimental/test.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -4036,7 +4036,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "experimental/trending-layout-tests.mdx",
-      "resolvedPath": "v2/pages/experimental/trending-layout-tests.mdx",
+      "resolvedPath": "v2/experimental/trending-layout-tests.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
