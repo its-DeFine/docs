@@ -3113,8 +3113,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
-      "resolvedPath": "v2/pages/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx",
+      "rawPath": "/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
+      "resolvedPath": "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

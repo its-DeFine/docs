@@ -910,48 +910,48 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/using-gateways/choosing-a-gateway",
-      "url": "http://127.0.0.1:3000/04_gateways/using-gateways/choosing-a-gateway",
+      "pagePath": "v2/gateways/using-gateways/choosing-a-gateway",
+      "url": "http://127.0.0.1:3000/gateways/using-gateways/choosing-a-gateway",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/using-gateways/gateway-providers",
-      "url": "http://127.0.0.1:3000/04_gateways/using-gateways/gateway-providers",
+      "pagePath": "v2/gateways/using-gateways/gateway-providers",
+      "url": "http://127.0.0.1:3000/gateways/using-gateways/gateway-providers",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/using-gateways/gateway-providers/daydream-gateway",
-      "url": "http://127.0.0.1:3000/04_gateways/using-gateways/gateway-providers/daydream-gateway",
+      "pagePath": "v2/gateways/using-gateways/gateway-providers/daydream-gateway",
+      "url": "http://127.0.0.1:3000/gateways/using-gateways/gateway-providers/daydream-gateway",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
-      "url": "http://127.0.0.1:3000/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
+      "pagePath": "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
+      "url": "http://127.0.0.1:3000/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway",
-      "url": "http://127.0.0.1:3000/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway",
+      "pagePath": "v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway",
+      "url": "http://127.0.0.1:3000/gateways/using-gateways/gateway-providers/cloud-spe-gateway",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/using-gateways/gateway-providers/streamplace",
-      "url": "http://127.0.0.1:3000/04_gateways/using-gateways/gateway-providers/streamplace",
+      "pagePath": "v2/gateways/using-gateways/gateway-providers/streamplace",
+      "url": "http://127.0.0.1:3000/gateways/using-gateways/gateway-providers/streamplace",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

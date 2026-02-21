@@ -3207,8 +3207,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/using-gateways/choosing-a-gateway.mdx",
-      "resolvedPath": "v2/pages/04_gateways/using-gateways/choosing-a-gateway.mdx",
+      "rawPath": "gateways/using-gateways/choosing-a-gateway.mdx",
+      "resolvedPath": "v2/gateways/using-gateways/choosing-a-gateway.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3216,8 +3216,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/using-gateways/gateway-providers.mdx",
-      "resolvedPath": "v2/pages/04_gateways/using-gateways/gateway-providers.mdx",
+      "rawPath": "gateways/using-gateways/gateway-providers.mdx",
+      "resolvedPath": "v2/gateways/using-gateways/gateway-providers.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3225,8 +3225,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx",
-      "resolvedPath": "v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx",
+      "rawPath": "gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx",
+      "resolvedPath": "v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3234,8 +3234,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/using-gateways/gateway-providers/daydream-gateway.mdx",
-      "resolvedPath": "v2/pages/04_gateways/using-gateways/gateway-providers/daydream-gateway.mdx",
+      "rawPath": "gateways/using-gateways/gateway-providers/daydream-gateway.mdx",
+      "resolvedPath": "v2/gateways/using-gateways/gateway-providers/daydream-gateway.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3243,8 +3243,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx",
-      "resolvedPath": "v2/pages/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx",
+      "rawPath": "gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx",
+      "resolvedPath": "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
