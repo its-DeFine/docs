@@ -16,7 +16,7 @@ lpd
 .lpdignore
 .gitignore
 .mintignore
-.prettierrc.yaml
+.prettierrc
 .cursorrules
 .allowlist
 
