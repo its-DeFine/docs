@@ -2172,8 +2172,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/moved-to-about-livepeer-protocol/livepeer-governance.mdx",
-      "resolvedPath": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-governance.mdx",
+      "rawPath": "developers/moved-to-about-livepeer-protocol/livepeer-governance.mdx",
+      "resolvedPath": "v2/developers/moved-to-about-livepeer-protocol/livepeer-governance.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2181,8 +2181,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx",
-      "resolvedPath": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx",
+      "rawPath": "developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx",
+      "resolvedPath": "v2/developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2190,8 +2190,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/moved-to-about-livepeer-protocol/technical-roadmap.mdx",
-      "resolvedPath": "v2/pages/03_developers/moved-to-about-livepeer-protocol/technical-roadmap.mdx",
+      "rawPath": "developers/moved-to-about-livepeer-protocol/technical-roadmap.mdx",
+      "resolvedPath": "v2/developers/moved-to-about-livepeer-protocol/technical-roadmap.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2199,8 +2199,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/moved-to-about-livepeer-protocol/livepeer-actors/delegators.mdx",
-      "resolvedPath": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/delegators.mdx",
+      "rawPath": "developers/moved-to-about-livepeer-protocol/livepeer-actors/delegators.mdx",
+      "resolvedPath": "v2/developers/moved-to-about-livepeer-protocol/livepeer-actors/delegators.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2208,8 +2208,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/moved-to-about-livepeer-protocol/livepeer-actors/end-users.mdx",
-      "resolvedPath": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/end-users.mdx",
+      "rawPath": "developers/moved-to-about-livepeer-protocol/livepeer-actors/end-users.mdx",
+      "resolvedPath": "v2/developers/moved-to-about-livepeer-protocol/livepeer-actors/end-users.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2217,8 +2217,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/moved-to-about-livepeer-protocol/livepeer-actors/gateways.mdx",
-      "resolvedPath": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/gateways.mdx",
+      "rawPath": "developers/moved-to-about-livepeer-protocol/livepeer-actors/gateways.mdx",
+      "resolvedPath": "v2/developers/moved-to-about-livepeer-protocol/livepeer-actors/gateways.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2235,8 +2235,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/moved-to-about-livepeer-protocol/livepeer-actors/README.mdx",
-      "resolvedPath": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/README.mdx",
+      "rawPath": "developers/moved-to-about-livepeer-protocol/livepeer-actors/README.mdx",
+      "resolvedPath": "v2/developers/moved-to-about-livepeer-protocol/livepeer-actors/README.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2244,8 +2244,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/livepeer-whitepaper.mdx",
-      "resolvedPath": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/livepeer-whitepaper.mdx",
+      "rawPath": "developers/moved-to-about-livepeer-protocol/livepeer-protocol/livepeer-whitepaper.mdx",
+      "resolvedPath": "v2/developers/moved-to-about-livepeer-protocol/livepeer-protocol/livepeer-whitepaper.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2253,8 +2253,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/README.mdx",
-      "resolvedPath": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/README.mdx",
+      "rawPath": "developers/moved-to-about-livepeer-protocol/livepeer-protocol/README.mdx",
+      "resolvedPath": "v2/developers/moved-to-about-livepeer-protocol/livepeer-protocol/README.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2262,8 +2262,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/technical-overview.mdx",
-      "resolvedPath": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/technical-overview.mdx",
+      "rawPath": "developers/moved-to-about-livepeer-protocol/livepeer-protocol/technical-overview.mdx",
+      "resolvedPath": "v2/developers/moved-to-about-livepeer-protocol/livepeer-protocol/technical-overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

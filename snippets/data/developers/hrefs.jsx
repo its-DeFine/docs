@@ -1681,12 +1681,12 @@ export const LINK_MAP = {
   "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/frameworks-spe.mdx": [],
   "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/streamdiffusion.mdx": [],
   "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx": [],
-  "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/README.mdx": [],
-  "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/delegators.mdx": [],
-  "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/end-users.mdx": [],
-  "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/gateways.mdx": [],
-  "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/orchestrators.mdx": [],
-  "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-governance.mdx": [
+  "v2/developers/moved-to-about-livepeer-protocol/livepeer-actors/README.mdx": [],
+  "v2/developers/moved-to-about-livepeer-protocol/livepeer-actors/delegators.mdx": [],
+  "v2/developers/moved-to-about-livepeer-protocol/livepeer-actors/end-users.mdx": [],
+  "v2/developers/moved-to-about-livepeer-protocol/livepeer-actors/gateways.mdx": [],
+  "v2/developers/moved-to-about-livepeer-protocol/livepeer-actors/orchestrators.mdx": [],
+  "v2/developers/moved-to-about-livepeer-protocol/livepeer-governance.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1697,7 +1697,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/README.mdx": [
+  "v2/developers/moved-to-about-livepeer-protocol/livepeer-protocol/README.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -1708,9 +1708,9 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/livepeer-whitepaper.mdx": [],
-  "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-protocol/technical-overview.mdx": [],
-  "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx": [
+  "v2/developers/moved-to-about-livepeer-protocol/livepeer-protocol/livepeer-whitepaper.mdx": [],
+  "v2/developers/moved-to-about-livepeer-protocol/livepeer-protocol/technical-overview.mdx": [],
+  "v2/developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1730,7 +1730,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/moved-to-about-livepeer-protocol/technical-roadmap.mdx": [],
+  "v2/developers/moved-to-about-livepeer-protocol/technical-roadmap.mdx": [],
   "v2/developers/technical-references/apis.mdx": [
     {
       "sourceType": "markdown-link",
