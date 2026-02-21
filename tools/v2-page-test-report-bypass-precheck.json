@@ -14,7 +14,7 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/home/home/user-journey",
+      "pagePath": "v2/pages/00_home/home/user-journey",
       "url": "http://127.0.0.1:3000/00_home/home/user-journey",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
@@ -22,7 +22,7 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/home/home/primer",
+      "pagePath": "v2/pages/00_home/home/primer",
       "url": "http://127.0.0.1:3000/00_home/home/primer",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"

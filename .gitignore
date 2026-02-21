@@ -81,4 +81,3 @@ notion/
 # AI task planning & execution folder 
 # ------------------------------------
 tasks/plan/*
-!tasks/plan/home-home-reference-matrix.txt
