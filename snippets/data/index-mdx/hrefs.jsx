@@ -1884,8 +1884,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/building-on-livepeer/developer-guide.mdx",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-guide.mdx",
+      "rawPath": "developers/building-on-livepeer/developer-guide.mdx",
+      "resolvedPath": "v2/developers/building-on-livepeer/developer-guide.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1893,8 +1893,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/building-on-livepeer/developer-journey.mdx",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-journey.mdx",
+      "rawPath": "developers/building-on-livepeer/developer-journey.mdx",
+      "resolvedPath": "v2/developers/building-on-livepeer/developer-journey.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1902,8 +1902,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/building-on-livepeer/partners.mdx",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/partners.mdx",
+      "rawPath": "developers/building-on-livepeer/partners.mdx",
+      "resolvedPath": "v2/developers/building-on-livepeer/partners.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1911,8 +1911,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/building-on-livepeer/quick-starts/livepeer-ai.mdx",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai.mdx",
+      "rawPath": "developers/building-on-livepeer/quick-starts/livepeer-ai.mdx",
+      "resolvedPath": "v2/developers/building-on-livepeer/quick-starts/livepeer-ai.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1920,8 +1920,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/building-on-livepeer/quick-starts/README.mdx",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/quick-starts/README.mdx",
+      "rawPath": "developers/building-on-livepeer/quick-starts/README.mdx",
+      "resolvedPath": "v2/developers/building-on-livepeer/quick-starts/README.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1929,8 +1929,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/building-on-livepeer/quick-starts/video-streaming.mdx",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming.mdx",
+      "rawPath": "developers/building-on-livepeer/quick-starts/video-streaming.mdx",
+      "resolvedPath": "v2/developers/building-on-livepeer/quick-starts/video-streaming.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

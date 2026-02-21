@@ -2109,7 +2109,7 @@
                   {
                     "anchor": "Get Started!",
                     "icon": "play",
-                    "pages": ["v2/pages/03_developers/building-on-livepeer/"]
+                    "pages": ["v2/developers/building-on-livepeer/"]
                   },
                   {
                     "anchor": "Resource HUB",
@@ -2346,9 +2346,9 @@
                         "icon": "code",
                         "pages": [
                           "v2/pages/03_developers/developer-portal",
-                          "v2/pages/03_developers/building-on-livepeer/developer-guide",
-                          "v2/pages/03_developers/building-on-livepeer/partners",
-                          "v2/pages/03_developers/building-on-livepeer/developer-journey"
+                          "v2/developers/building-on-livepeer/developer-guide",
+                          "v2/developers/building-on-livepeer/partners",
+                          "v2/developers/building-on-livepeer/developer-journey"
                         ]
                       },
                       {
@@ -2358,15 +2358,15 @@
                           {
                             "group": "Real-time Video",
                             "pages": [
-                              "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai",
+                              "v2/developers/building-on-livepeer/quick-starts/livepeer-ai",
                               "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx"
                             ]
                           },
                           {
                             "group": "AI Pipelines",
                             "pages": [
-                              "v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming",
-                              "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai"
+                              "v2/developers/building-on-livepeer/quick-starts/video-streaming",
+                              "v2/developers/building-on-livepeer/quick-starts/livepeer-ai"
                             ]
                           }
                         ]

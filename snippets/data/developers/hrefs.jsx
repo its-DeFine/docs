@@ -722,7 +722,7 @@ export const LINK_MAP = {
     }
   ],
   "v2/developers/builder-opportunities/oss-contributions.mdx": [],
-  "v2/pages/03_developers/building-on-livepeer/developer-guide.mdx": [
+  "v2/developers/building-on-livepeer/developer-guide.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -736,7 +736,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./developer-journey",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-journey.mdx",
+      "resolvedPath": "v2/developers/building-on-livepeer/developer-journey.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -832,7 +832,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/building-on-livepeer/developer-journey.mdx": [
+  "v2/developers/building-on-livepeer/developer-journey.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -843,7 +843,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/building-on-livepeer/partners.mdx": [
+  "v2/developers/building-on-livepeer/partners.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
@@ -908,9 +908,9 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/building-on-livepeer/quick-starts/README.mdx": [],
-  "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai.mdx": [],
-  "v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming.mdx": [],
+  "v2/developers/building-on-livepeer/quick-starts/README.mdx": [],
+  "v2/developers/building-on-livepeer/quick-starts/livepeer-ai.mdx": [],
+  "v2/developers/building-on-livepeer/quick-starts/video-streaming.mdx": [],
   "v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products.mdx": [],
   "v2/pages/03_developers/developer-platforms/builder-hub.mdx": [
     {
@@ -1448,7 +1448,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./building-on-livepeer/developer-journey",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-journey.mdx",
+      "resolvedPath": "v2/developers/building-on-livepeer/developer-journey.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

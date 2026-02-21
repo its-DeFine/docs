@@ -1474,8 +1474,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/03_developers/building-on-livepeer/developer-guide",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-guide.mdx",
+      "rawPath": "/developers/building-on-livepeer/developer-guide",
+      "resolvedPath": "v2/developers/building-on-livepeer/developer-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1483,8 +1483,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/03_developers/building-on-livepeer/developer-guide",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-guide.mdx",
+      "rawPath": "/developers/building-on-livepeer/developer-guide",
+      "resolvedPath": "v2/developers/building-on-livepeer/developer-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1501,8 +1501,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/03_developers/building-on-livepeer/developer-guide",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-guide.mdx",
+      "rawPath": "/developers/building-on-livepeer/developer-guide",
+      "resolvedPath": "v2/developers/building-on-livepeer/developer-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
