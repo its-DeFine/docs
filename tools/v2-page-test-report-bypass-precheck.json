@@ -30,40 +30,40 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/00_home/introduction/vision",
-      "url": "http://127.0.0.1:3000/00_home/introduction/vision",
+      "pagePath": "v2/home/introduction/vision",
+      "url": "http://127.0.0.1:3000/home/introduction/vision",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/00_home/introduction/evolution",
-      "url": "http://127.0.0.1:3000/00_home/introduction/evolution",
+      "pagePath": "v2/home/introduction/evolution",
+      "url": "http://127.0.0.1:3000/home/introduction/evolution",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/00_home/introduction/why-livepeer",
-      "url": "http://127.0.0.1:3000/00_home/introduction/why-livepeer",
+      "pagePath": "v2/home/introduction/why-livepeer",
+      "url": "http://127.0.0.1:3000/home/introduction/why-livepeer",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/00_home/introduction/ecosystem",
-      "url": "http://127.0.0.1:3000/00_home/introduction/ecosystem",
+      "pagePath": "v2/home/introduction/ecosystem",
+      "url": "http://127.0.0.1:3000/home/introduction/ecosystem",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/00_home/introduction/roadmap",
-      "url": "http://127.0.0.1:3000/00_home/introduction/roadmap",
+      "pagePath": "v2/home/introduction/roadmap",
+      "url": "http://127.0.0.1:3000/home/introduction/roadmap",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

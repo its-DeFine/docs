@@ -459,8 +459,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/vision",
-      "resolvedPath": "v2/pages/00_home/introduction/vision.mdx",
+      "rawPath": "/v2/home/introduction/vision",
+      "resolvedPath": "v2/home/introduction/vision.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -468,8 +468,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/evolution",
-      "resolvedPath": "v2/pages/00_home/introduction/evolution.mdx",
+      "rawPath": "/v2/home/introduction/evolution",
+      "resolvedPath": "v2/home/introduction/evolution.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -477,8 +477,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/why-livepeer",
-      "resolvedPath": "v2/pages/00_home/introduction/why-livepeer.mdx",
+      "rawPath": "/v2/home/introduction/why-livepeer",
+      "resolvedPath": "v2/home/introduction/why-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -486,8 +486,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/ecosystem",
-      "resolvedPath": "v2/pages/00_home/introduction/ecosystem.mdx",
+      "rawPath": "/v2/home/introduction/ecosystem",
+      "resolvedPath": "v2/home/introduction/ecosystem.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -495,8 +495,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/roadmap",
-      "resolvedPath": "v2/pages/00_home/introduction/roadmap.mdx",
+      "rawPath": "/v2/home/introduction/roadmap",
+      "resolvedPath": "v2/home/introduction/roadmap.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2666,8 +2666,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/vision",
-      "resolvedPath": "v2/pages/00_home/introduction/vision.mdx",
+      "rawPath": "/v2/home/introduction/vision",
+      "resolvedPath": "v2/home/introduction/vision.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2675,8 +2675,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/evolution",
-      "resolvedPath": "v2/pages/00_home/introduction/evolution.mdx",
+      "rawPath": "/v2/home/introduction/evolution",
+      "resolvedPath": "v2/home/introduction/evolution.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2684,8 +2684,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/why-livepeer",
-      "resolvedPath": "v2/pages/00_home/introduction/why-livepeer.mdx",
+      "rawPath": "/v2/home/introduction/why-livepeer",
+      "resolvedPath": "v2/home/introduction/why-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2693,8 +2693,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/ecosystem",
-      "resolvedPath": "v2/pages/00_home/introduction/ecosystem.mdx",
+      "rawPath": "/v2/home/introduction/ecosystem",
+      "resolvedPath": "v2/home/introduction/ecosystem.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2702,8 +2702,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/roadmap",
-      "resolvedPath": "v2/pages/00_home/introduction/roadmap.mdx",
+      "rawPath": "/v2/home/introduction/roadmap",
+      "resolvedPath": "v2/home/introduction/roadmap.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

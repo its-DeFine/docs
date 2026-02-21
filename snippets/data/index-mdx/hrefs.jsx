@@ -75,8 +75,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "00_home/introduction/ecosystem.mdx",
-      "resolvedPath": "v2/pages/00_home/introduction/ecosystem.mdx",
+      "rawPath": "home/introduction/ecosystem.mdx",
+      "resolvedPath": "v2/home/introduction/ecosystem.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -84,8 +84,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "00_home/introduction/evolution.mdx",
-      "resolvedPath": "v2/pages/00_home/introduction/evolution.mdx",
+      "rawPath": "home/introduction/evolution.mdx",
+      "resolvedPath": "v2/home/introduction/evolution.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -93,8 +93,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "00_home/introduction/roadmap.mdx",
-      "resolvedPath": "v2/pages/00_home/introduction/roadmap.mdx",
+      "rawPath": "home/introduction/roadmap.mdx",
+      "resolvedPath": "v2/home/introduction/roadmap.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -102,8 +102,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "00_home/introduction/vision.mdx",
-      "resolvedPath": "v2/pages/00_home/introduction/vision.mdx",
+      "rawPath": "home/introduction/vision.mdx",
+      "resolvedPath": "v2/home/introduction/vision.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -111,8 +111,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "00_home/introduction/why-livepeer.mdx",
-      "resolvedPath": "v2/pages/00_home/introduction/why-livepeer.mdx",
+      "rawPath": "home/introduction/why-livepeer.mdx",
+      "resolvedPath": "v2/home/introduction/why-livepeer.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

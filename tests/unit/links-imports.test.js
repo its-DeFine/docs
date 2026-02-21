@@ -82,12 +82,14 @@ function fileExists(filePath) {
  */
 function linkToFilePath(linkPath, currentFile) {
   const rootDir = process.cwd();
+  const normalizedLinkPath = linkPath.split('#')[0].split('?')[0];
   
   // Skip external links
   if (linkPath.startsWith('http://') || 
       linkPath.startsWith('https://') || 
       linkPath.startsWith('mailto:') ||
-      linkPath.startsWith('#')) {
+      linkPath.startsWith('#') ||
+      normalizedLinkPath.length === 0) {
     return null;
   }
   
@@ -101,9 +103,9 @@ function linkToFilePath(linkPath, currentFile) {
   }
   
   // Absolute path from root (starts with /)
-  if (linkPath.startsWith('/')) {
+  if (normalizedLinkPath.startsWith('/')) {
     // Remove leading slash and convert to file path
-    let filePath = linkPath.replace(/^\//, '').replace(/\/$/, '');
+    let filePath = normalizedLinkPath.replace(/^\//, '').replace(/\/$/, '');
     
     // If it looks like a v2/pages path, use it directly
     if (filePath.startsWith('v2/pages/')) {
@@ -120,7 +122,7 @@ function linkToFilePath(linkPath, currentFile) {
   
   // Relative path
   const currentDir = path.dirname(currentFile);
-  const resolved = path.resolve(currentDir, linkPath);
+  const resolved = path.resolve(currentDir, normalizedLinkPath);
   
   // Normalize to relative from root
   const relativePath = path.relative(rootDir, resolved);

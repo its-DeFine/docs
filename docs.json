@@ -2088,11 +2088,11 @@
                         "group": "Livepeer",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
                         "pages": [
-                          "v2/pages/00_home/introduction/vision",
-                          "v2/pages/00_home/introduction/evolution",
-                          "v2/pages/00_home/introduction/why-livepeer",
-                          "v2/pages/00_home/introduction/ecosystem",
-                          "v2/pages/00_home/introduction/roadmap"
+                          "v2/home/introduction/vision",
+                          "v2/home/introduction/evolution",
+                          "v2/home/introduction/why-livepeer",
+                          "v2/home/introduction/ecosystem",
+                          "v2/home/introduction/roadmap"
                         ]
                       },
                       {

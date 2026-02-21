@@ -1615,8 +1615,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/ecosystem#livepeer-foundation",
-      "resolvedPath": "v2/pages/00_home/introduction/ecosystem.mdx",
+      "rawPath": "/v2/home/introduction/ecosystem#livepeer-foundation",
+      "resolvedPath": "v2/home/introduction/ecosystem.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1624,8 +1624,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/ecosystem#special-purpose-entities",
-      "resolvedPath": "v2/pages/00_home/introduction/ecosystem.mdx",
+      "rawPath": "/v2/home/introduction/ecosystem#special-purpose-entities",
+      "resolvedPath": "v2/home/introduction/ecosystem.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
