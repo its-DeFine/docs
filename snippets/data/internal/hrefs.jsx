@@ -747,8 +747,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/all-ecosystem/product-hub",
-      "resolvedPath": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+      "rawPath": "/v2/platforms/products/all-ecosystem/product-hub",
+      "resolvedPath": "v2/platforms/products/all-ecosystem/product-hub.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -756,8 +756,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/all-ecosystem/ecosystem-products",
-      "resolvedPath": "v2/pages/010_products/products/all-ecosystem/ecosystem-products.mdx",
+      "rawPath": "/v2/platforms/products/all-ecosystem/ecosystem-products",
+      "resolvedPath": "v2/platforms/products/all-ecosystem/ecosystem-products.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2945,8 +2945,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/all-ecosystem/product-hub",
-      "resolvedPath": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+      "rawPath": "/v2/platforms/products/all-ecosystem/product-hub",
+      "resolvedPath": "v2/platforms/products/all-ecosystem/product-hub.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2954,8 +2954,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/all-ecosystem/ecosystem-products",
-      "resolvedPath": "v2/pages/010_products/products/all-ecosystem/ecosystem-products.mdx",
+      "rawPath": "/v2/platforms/products/all-ecosystem/ecosystem-products",
+      "resolvedPath": "v2/platforms/products/all-ecosystem/ecosystem-products.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

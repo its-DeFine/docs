@@ -294,16 +294,16 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/all-ecosystem/product-hub",
-      "url": "http://127.0.0.1:3000/010_products/products/all-ecosystem/product-hub",
+      "pagePath": "v2/platforms/products/all-ecosystem/product-hub",
+      "url": "http://127.0.0.1:3000/platforms/products/all-ecosystem/product-hub",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/all-ecosystem/ecosystem-products",
-      "url": "http://127.0.0.1:3000/010_products/products/all-ecosystem/ecosystem-products",
+      "pagePath": "v2/platforms/products/all-ecosystem/ecosystem-products",
+      "url": "http://127.0.0.1:3000/platforms/products/all-ecosystem/ecosystem-products",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

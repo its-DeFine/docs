@@ -1,6 +1,6 @@
 export const LINK_MAP = {
-  "v2/pages/010_products/products/all-ecosystem/ecosystem-products.mdx": [],
-  "v2/pages/010_products/products/all-ecosystem/product-hub.mdx": [
+  "v2/platforms/products/all-ecosystem/ecosystem-products.mdx": [],
+  "v2/platforms/products/all-ecosystem/product-hub.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -86,7 +86,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./ecosystem-products",
-      "resolvedPath": "v2/pages/010_products/products/all-ecosystem/ecosystem-products.mdx",
+      "resolvedPath": "v2/platforms/products/all-ecosystem/ecosystem-products.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3962,7 +3962,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./products/all-ecosystem/product-hub",
-      "resolvedPath": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+      "resolvedPath": "v2/platforms/products/all-ecosystem/product-hub.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
