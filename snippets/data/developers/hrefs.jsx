@@ -1475,7 +1475,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./developer-tools/tooling-hub",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/tooling-hub.mdx",
+      "resolvedPath": "v2/developers/developer-tools/tooling-hub.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1544,7 +1544,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/developer-tools/dashboards.mdx": [
+  "v2/developers/developer-tools/dashboards.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -1555,9 +1555,9 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/developer-tools/external-tooling.mdx": [],
-  "v2/pages/03_developers/developer-tools/gateways.mdx": [],
-  "v2/pages/03_developers/developer-tools/livepeer-cloud.mdx": [
+  "v2/developers/developer-tools/external-tooling.mdx": [],
+  "v2/developers/developer-tools/gateways.mdx": [],
+  "v2/developers/developer-tools/livepeer-cloud.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1595,7 +1595,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/developer-tools/livepeer-explorer.mdx": [
+  "v2/developers/developer-tools/livepeer-explorer.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -1615,12 +1615,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/developer-tools/tooling-hub.mdx": [
+  "v2/developers/developer-tools/tooling-hub.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-explorer",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/livepeer-explorer.mdx",
+      "resolvedPath": "v2/developers/developer-tools/livepeer-explorer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

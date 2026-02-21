@@ -782,32 +782,32 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/developer-tools/tooling-hub",
-      "url": "http://127.0.0.1:3000/03_developers/developer-tools/tooling-hub",
+      "pagePath": "v2/developers/developer-tools/tooling-hub",
+      "url": "http://127.0.0.1:3000/developers/developer-tools/tooling-hub",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/developer-tools/livepeer-explorer",
-      "url": "http://127.0.0.1:3000/03_developers/developer-tools/livepeer-explorer",
+      "pagePath": "v2/developers/developer-tools/livepeer-explorer",
+      "url": "http://127.0.0.1:3000/developers/developer-tools/livepeer-explorer",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/developer-tools/livepeer-cloud",
-      "url": "http://127.0.0.1:3000/03_developers/developer-tools/livepeer-cloud",
+      "pagePath": "v2/developers/developer-tools/livepeer-cloud",
+      "url": "http://127.0.0.1:3000/developers/developer-tools/livepeer-cloud",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/developer-tools/dashboards",
-      "url": "http://127.0.0.1:3000/03_developers/developer-tools/dashboards",
+      "pagePath": "v2/developers/developer-tools/dashboards",
+      "url": "http://127.0.0.1:3000/developers/developer-tools/dashboards",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

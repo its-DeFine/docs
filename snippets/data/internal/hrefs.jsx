@@ -1278,8 +1278,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-tools/tooling-hub",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/tooling-hub.mdx",
+      "rawPath": "/v2/developers/developer-tools/tooling-hub",
+      "resolvedPath": "v2/developers/developer-tools/tooling-hub.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1287,8 +1287,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-tools/livepeer-explorer",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/livepeer-explorer.mdx",
+      "rawPath": "/v2/developers/developer-tools/livepeer-explorer",
+      "resolvedPath": "v2/developers/developer-tools/livepeer-explorer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1296,8 +1296,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-tools/livepeer-cloud",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/livepeer-cloud.mdx",
+      "rawPath": "/v2/developers/developer-tools/livepeer-cloud",
+      "resolvedPath": "v2/developers/developer-tools/livepeer-cloud.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1305,8 +1305,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/developer-tools/dashboards",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/dashboards.mdx",
+      "rawPath": "/v2/developers/developer-tools/dashboards",
+      "resolvedPath": "v2/developers/developer-tools/dashboards.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

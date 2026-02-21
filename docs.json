@@ -2413,10 +2413,10 @@
                         "group": "Developer Tools",
                         "icon": "tools",
                         "pages": [
-                          "v2/pages/03_developers/developer-tools/tooling-hub",
-                          "v2/pages/03_developers/developer-tools/livepeer-explorer",
-                          "v2/pages/03_developers/developer-tools/livepeer-cloud",
-                          "v2/pages/03_developers/developer-tools/dashboards"
+                          "v2/developers/developer-tools/tooling-hub",
+                          "v2/developers/developer-tools/livepeer-explorer",
+                          "v2/developers/developer-tools/livepeer-cloud",
+                          "v2/developers/developer-tools/dashboards"
                         ]
                       },
                       {

@@ -2037,8 +2037,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-tools/dashboards.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/dashboards.mdx",
+      "rawPath": "developers/developer-tools/dashboards.mdx",
+      "resolvedPath": "v2/developers/developer-tools/dashboards.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2046,8 +2046,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-tools/external-tooling.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/external-tooling.mdx",
+      "rawPath": "developers/developer-tools/external-tooling.mdx",
+      "resolvedPath": "v2/developers/developer-tools/external-tooling.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2055,8 +2055,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-tools/gateways.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/gateways.mdx",
+      "rawPath": "developers/developer-tools/gateways.mdx",
+      "resolvedPath": "v2/developers/developer-tools/gateways.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2064,8 +2064,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-tools/livepeer-cloud.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/livepeer-cloud.mdx",
+      "rawPath": "developers/developer-tools/livepeer-cloud.mdx",
+      "resolvedPath": "v2/developers/developer-tools/livepeer-cloud.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2073,8 +2073,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-tools/livepeer-explorer.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/livepeer-explorer.mdx",
+      "rawPath": "developers/developer-tools/livepeer-explorer.mdx",
+      "resolvedPath": "v2/developers/developer-tools/livepeer-explorer.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2082,8 +2082,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-tools/tooling-hub.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-tools/tooling-hub.mdx",
+      "rawPath": "developers/developer-tools/tooling-hub.mdx",
+      "resolvedPath": "v2/developers/developer-tools/tooling-hub.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
