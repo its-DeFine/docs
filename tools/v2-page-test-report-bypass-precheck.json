@@ -574,48 +574,48 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/streamplace/streamplace",
-      "url": "http://127.0.0.1:3000/010_products/products/streamplace/streamplace",
+      "pagePath": "v2/platforms/products/streamplace/streamplace",
+      "url": "http://127.0.0.1:3000/platforms/products/streamplace/streamplace",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/streamplace/streamplace-guide",
-      "url": "http://127.0.0.1:3000/010_products/products/streamplace/streamplace-guide",
+      "pagePath": "v2/platforms/products/streamplace/streamplace-guide",
+      "url": "http://127.0.0.1:3000/platforms/products/streamplace/streamplace-guide",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/streamplace/streamplace-architecture",
-      "url": "http://127.0.0.1:3000/010_products/products/streamplace/streamplace-architecture",
+      "pagePath": "v2/platforms/products/streamplace/streamplace-architecture",
+      "url": "http://127.0.0.1:3000/platforms/products/streamplace/streamplace-architecture",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/streamplace/streamplace-integration",
-      "url": "http://127.0.0.1:3000/010_products/products/streamplace/streamplace-integration",
+      "pagePath": "v2/platforms/products/streamplace/streamplace-integration",
+      "url": "http://127.0.0.1:3000/platforms/products/streamplace/streamplace-integration",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/streamplace/streamplace-provenance",
-      "url": "http://127.0.0.1:3000/010_products/products/streamplace/streamplace-provenance",
+      "pagePath": "v2/platforms/products/streamplace/streamplace-provenance",
+      "url": "http://127.0.0.1:3000/platforms/products/streamplace/streamplace-provenance",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/streamplace/streamplace-funding",
-      "url": "http://127.0.0.1:3000/010_products/products/streamplace/streamplace-funding",
+      "pagePath": "v2/platforms/products/streamplace/streamplace-funding",
+      "url": "http://127.0.0.1:3000/platforms/products/streamplace/streamplace-funding",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

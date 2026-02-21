@@ -2292,15 +2292,15 @@
                         "group": "Stream.place",
                         "icon": "projector",
                         "pages": [
-                          "v2/pages/010_products/products/streamplace/streamplace",
+                          "v2/platforms/products/streamplace/streamplace",
                           {
                             "group": "Stream.place",
                             "pages": [
-                              "v2/pages/010_products/products/streamplace/streamplace-guide",
-                              "v2/pages/010_products/products/streamplace/streamplace-architecture",
-                              "v2/pages/010_products/products/streamplace/streamplace-integration",
-                              "v2/pages/010_products/products/streamplace/streamplace-provenance",
-                              "v2/pages/010_products/products/streamplace/streamplace-funding"
+                              "v2/platforms/products/streamplace/streamplace-guide",
+                              "v2/platforms/products/streamplace/streamplace-architecture",
+                              "v2/platforms/products/streamplace/streamplace-integration",
+                              "v2/platforms/products/streamplace/streamplace-provenance",
+                              "v2/platforms/products/streamplace/streamplace-funding"
                             ]
                           }
                         ]

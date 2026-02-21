@@ -600,7 +600,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
           "occurrences": 4
         },
         {
@@ -1240,7 +1240,7 @@
       "pageCount": 27,
       "pages": [
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-funding-model.mdx",
           "occurrences": 8
         },
         {
@@ -1260,11 +1260,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace.mdx",
           "occurrences": 2
         },
         {
@@ -1297,7 +1297,7 @@
       "pageCount": 19,
       "pages": [
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-provenance.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-provenance.mdx",
           "occurrences": 7
         },
         {
@@ -1305,7 +1305,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
           "occurrences": 6
         },
         {
@@ -1313,7 +1313,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-integration.mdx",
           "occurrences": 4
         },
         {
@@ -1321,7 +1321,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-funding-model.mdx",
           "occurrences": 3
         },
         {
@@ -1998,7 +1998,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-integration.mdx",
           "occurrences": 2
         },
         {
@@ -2071,7 +2071,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-funding-model.mdx",
           "occurrences": 2
         },
         {
@@ -2324,7 +2324,7 @@
       "pageCount": 13,
       "pages": [
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-provenance.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-provenance.mdx",
           "occurrences": 5
         },
         {
@@ -2332,7 +2332,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
           "occurrences": 4
         },
         {
@@ -2340,11 +2340,11 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-guide.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-guide.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-integration.mdx",
           "occurrences": 2
         },
         {
@@ -2360,7 +2360,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-funding-model.mdx",
           "occurrences": 1
         }
       ],
@@ -2796,15 +2796,15 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-integration.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace.mdx",
           "occurrences": 1
         },
         {
@@ -2922,7 +2922,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
           "occurrences": 1
         }
       ],

@@ -1479,8 +1479,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/streamplace/streamplace-architecture.mdx",
-      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+      "rawPath": "platforms/products/streamplace/streamplace-architecture.mdx",
+      "resolvedPath": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1488,8 +1488,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/streamplace/streamplace-funding-model.mdx",
-      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx",
+      "rawPath": "platforms/products/streamplace/streamplace-funding-model.mdx",
+      "resolvedPath": "v2/platforms/products/streamplace/streamplace-funding-model.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1497,8 +1497,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/streamplace/streamplace-guide.mdx",
-      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace-guide.mdx",
+      "rawPath": "platforms/products/streamplace/streamplace-guide.mdx",
+      "resolvedPath": "v2/platforms/products/streamplace/streamplace-guide.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1506,8 +1506,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/streamplace/streamplace-integration.mdx",
-      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+      "rawPath": "platforms/products/streamplace/streamplace-integration.mdx",
+      "resolvedPath": "v2/platforms/products/streamplace/streamplace-integration.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1515,8 +1515,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/streamplace/streamplace-provenance.mdx",
-      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace-provenance.mdx",
+      "rawPath": "platforms/products/streamplace/streamplace-provenance.mdx",
+      "resolvedPath": "v2/platforms/products/streamplace/streamplace-provenance.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1524,8 +1524,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/streamplace/streamplace.mdx",
-      "resolvedPath": "v2/pages/010_products/products/streamplace/streamplace.mdx",
+      "rawPath": "platforms/products/streamplace/streamplace.mdx",
+      "resolvedPath": "v2/platforms/products/streamplace/streamplace.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
