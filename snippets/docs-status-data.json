@@ -1,15 +1,15 @@
 {
-  "v2/pages/00_home/Landing": {
+  "v2/home/Landing": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/00_home/home/livepeer-tl-dr": {
+  "v2/home/home/livepeer-tl-dr": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/00_home/home/trending-at-livepeer": {
+  "v2/home/home/trending-at-livepeer": {
     "status": "",
     "priority": "",
     "notes": ""
@@ -29,22 +29,22 @@
     "priority": "",
     "notes": ""
   },
-  "v2/pages/00_home/get-started/use-livepeer": {
+  "v2/home/get-started/use-livepeer": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/00_home/get-started/stream-video-quickstart": {
+  "v2/home/get-started/stream-video-quickstart": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/00_home/get-started/livepeer-ai-quickstart": {
+  "v2/home/get-started/livepeer-ai-quickstart": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/00_home/get-started/build-on-livepeer": {
+  "v2/home/get-started/build-on-livepeer": {
     "status": "",
     "priority": "",
     "notes": ""
@@ -849,12 +849,12 @@
     "priority": "",
     "notes": ""
   },
-  "v2/pages/00_home/changelog/changelog": {
+  "v2/pages/07_resources/changelog/changelog": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/00_home/changelog/migration-guide": {
+  "v2/pages/07_resources/changelog/migration-guides": {
     "status": "",
     "priority": "",
     "notes": ""

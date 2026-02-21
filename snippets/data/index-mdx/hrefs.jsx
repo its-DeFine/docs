@@ -3,8 +3,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "00_home/mission-control.mdx",
-      "resolvedPath": "v2/pages/00_home/mission-control.mdx",
+      "rawPath": "home/mission-control.mdx",
+      "resolvedPath": "v2/home/mission-control.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

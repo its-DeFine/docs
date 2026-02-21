@@ -104,20 +104,25 @@ function linkToFilePath(linkPath, currentFile) {
   
   // Absolute path from root (starts with /)
   if (normalizedLinkPath.startsWith('/')) {
-    // Remove leading slash and convert to file path
-    let filePath = normalizedLinkPath.replace(/^\//, '').replace(/\/$/, '');
-    
-    // If it looks like a v2/pages path, use it directly
-    if (filePath.startsWith('v2/pages/')) {
-      return path.join(repoRoot, filePath);
+    // Remove leading slash and normalize trailing slash
+    const repoRelativePath = normalizedLinkPath.replace(/^\//, '').replace(/\/$/, '');
+    if (!repoRelativePath) {
+      return null;
     }
-    
-    // Otherwise, assume it's a v2/pages path
-    if (!filePath.startsWith('v2/')) {
-      filePath = `v2/pages/${filePath}`;
+
+    // Prefer repository-root absolute links when they already exist.
+    const directRepoPath = path.join(repoRoot, repoRelativePath);
+    if (fileExists(directRepoPath).exists) {
+      return directRepoPath;
     }
-    
-    return path.join(repoRoot, filePath);
+
+    // If it already starts with v2/, treat it as a repo-relative docs path.
+    if (repoRelativePath.startsWith('v2/')) {
+      return path.join(repoRoot, repoRelativePath);
+    }
+
+    // Fallback: treat bare absolute docs links as v2/pages-relative.
+    return path.join(repoRoot, `v2/pages/${repoRelativePath}`);
   }
   
   // Relative path

@@ -6,8 +6,8 @@
   "failed": 264,
   "failedPages": [
     {
-      "pagePath": "v2/pages/00_home/mission-control",
-      "url": "http://127.0.0.1:3000/00_home/mission-control",
+      "pagePath": "v2/home/mission-control",
+      "url": "http://127.0.0.1:3000/home/mission-control",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
@@ -2014,16 +2014,16 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/00_home/changelog/changelog",
-      "url": "http://127.0.0.1:3000/00_home/changelog/changelog",
+      "pagePath": "v2/pages/07_resources/changelog/changelog",
+      "url": "http://127.0.0.1:3000/07_resources/changelog/changelog",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/00_home/changelog/migration-guide",
-      "url": "http://127.0.0.1:3000/00_home/changelog/migration-guide",
+      "pagePath": "v2/pages/07_resources/changelog/migration-guides",
+      "url": "http://127.0.0.1:3000/07_resources/changelog/migration-guides",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

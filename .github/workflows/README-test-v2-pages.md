@@ -82,8 +82,8 @@ The JSON report (`v2-page-test-report.json`) contains:
   "failed": 13,
   "results": [
     {
-      "pagePath": "v2/pages/00_home/mission-control",
-      "url": "http://localhost:3000/00_home/mission-control",
+      "pagePath": "v2/home/mission-control",
+      "url": "http://localhost:3000/home/mission-control",
       "success": true,
       "errors": [],
       "warnings": [],

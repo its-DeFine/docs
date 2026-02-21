@@ -2079,7 +2079,7 @@
                         "group": "Home",
                         "icon": "house-heart",
                         "pages": [
-                          "v2/pages/00_home/mission-control",
+                          "v2/home/mission-control",
                           "v2/home/home/get-started",
                           "v2/home/home/primer"
                         ]
@@ -3020,8 +3020,8 @@
                         "group": "Changelog",
                         "icon": "swap",
                         "pages": [
-                          "v2/pages/00_home/changelog/changelog",
-                          "v2/pages/00_home/changelog/migration-guide"
+                          "v2/pages/07_resources/changelog/changelog",
+                          "v2/pages/07_resources/changelog/migration-guides"
                         ]
                       }
                     ]

@@ -432,8 +432,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/mission-control",
-      "resolvedPath": "v2/pages/00_home/mission-control.mdx",
+      "rawPath": "/v2/home/mission-control",
+      "resolvedPath": "v2/home/mission-control.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2639,8 +2639,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/mission-control",
-      "resolvedPath": "v2/pages/00_home/mission-control.mdx",
+      "rawPath": "/v2/home/mission-control",
+      "resolvedPath": "v2/home/mission-control.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

@@ -77,6 +77,7 @@ function checkUnclosedTags(content) {
   const ignoreRanges = [];
   const ignoreRegexes = [
     /```[\s\S]*?```/g,      // markdown code blocks
+    /`[^`\n]*`/g,           // inline code spans
     /\{\/\*[\s\S]*?\*\/\}/g, // JSX comments
     /<!--[\s\S]*?-->/g      // HTML comments
   ];

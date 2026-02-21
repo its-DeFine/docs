@@ -1787,7 +1787,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/mission-control.mdx": [
+  "v2/home/mission-control.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
