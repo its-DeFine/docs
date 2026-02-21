@@ -490,8 +490,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../02_community/community-portal",
-      "resolvedPath": "v2/pages/02_community/community-portal.mdx",
+      "rawPath": "../../community/community-portal",
+      "resolvedPath": "v2/community/community-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -544,8 +544,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../02_community/community-portal",
-      "resolvedPath": "v2/pages/02_community/community-portal.mdx",
+      "rawPath": "../../community/community-portal",
+      "resolvedPath": "v2/community/community-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -607,8 +607,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../02_community/community-portal",
-      "resolvedPath": "v2/pages/02_community/community-portal.mdx",
+      "rawPath": "../../community/community-portal",
+      "resolvedPath": "v2/community/community-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1836,8 +1836,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../02_community/community-portal",
-      "resolvedPath": "v2/pages/02_community/community-portal.mdx",
+      "rawPath": "../community/community-portal",
+      "resolvedPath": "v2/community/community-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

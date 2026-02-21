@@ -2865,7 +2865,7 @@
                         "group": "Livepeer Community",
                         "icon": "people-group",
                         "pages": [
-                          "v2/pages/02_community/community-portal",
+                          "v2/community/community-portal",
                           "v2/pages/02_community/livepeer-community/trending-topics",
                           "v2/pages/02_community/livepeer-community/roadmap"
                         ]

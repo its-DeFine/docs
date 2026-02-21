@@ -1758,8 +1758,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/02_community/community-portal",
-      "url": "http://127.0.0.1:3000/02_community/community-portal",
+      "pagePath": "v2/community/community-portal",
+      "url": "http://127.0.0.1:3000/community/community-portal",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

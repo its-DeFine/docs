@@ -1533,8 +1533,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/community-portal",
-      "resolvedPath": "v2/pages/02_community/community-portal.mdx",
+      "rawPath": "/v2/community/community-portal",
+      "resolvedPath": "v2/community/community-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1542,8 +1542,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/faq.mdx",
-      "resolvedPath": "v2/pages/02_community/faq.mdx",
+      "rawPath": "community/faq.mdx",
+      "resolvedPath": "v2/community/faq.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

@@ -3,7 +3,7 @@ export const LINK_MAP = {
   "v2/pages/02_community/_move_me/livepeer-hubs/livepeer-partner-hub.mdx": [],
   "v2/pages/02_community/_move_me/livepeer-partners/livepeer-builder-hub.mdx": [],
   "v2/pages/02_community/_move_me/livepeer-partners/livepeer-partner-hub.mdx": [],
-  "v2/pages/02_community/community-portal.mdx": [
+  "v2/community/community-portal.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -185,7 +185,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/faq.mdx": [
+  "v2/community/faq.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
