@@ -2809,9 +2809,9 @@
                         "group": "Delegating LPT",
                         "icon": "money-bill-transfer",
                         "pages": [
-                          "v2/pages/06_lptoken/delegation/overview",
-                          "v2/pages/06_lptoken/delegation/about-delegators",
-                          "v2/pages/06_lptoken/delegation/delegation-guide"
+                          "v2/lpt/delegation/overview",
+                          "v2/lpt/delegation/about-delegators",
+                          "v2/lpt/delegation/delegation-guide"
                         ]
                       },
                       {

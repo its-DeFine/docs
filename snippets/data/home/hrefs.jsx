@@ -290,8 +290,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../06_lptoken/delegation/overview",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/overview.mdx",
+      "rawPath": "../../lpt/delegation/overview",
+      "resolvedPath": "v2/lpt/delegation/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1223,8 +1223,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/delegation/overview",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/overview.mdx",
+      "rawPath": "/v2/lpt/delegation/overview",
+      "resolvedPath": "v2/lpt/delegation/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

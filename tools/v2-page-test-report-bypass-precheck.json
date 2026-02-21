@@ -1670,24 +1670,24 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/delegation/overview",
-      "url": "http://127.0.0.1:3000/06_lptoken/delegation/overview",
+      "pagePath": "v2/lpt/delegation/overview",
+      "url": "http://127.0.0.1:3000/lpt/delegation/overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/delegation/about-delegators",
-      "url": "http://127.0.0.1:3000/06_lptoken/delegation/about-delegators",
+      "pagePath": "v2/lpt/delegation/about-delegators",
+      "url": "http://127.0.0.1:3000/lpt/delegation/about-delegators",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/delegation/delegation-guide",
-      "url": "http://127.0.0.1:3000/06_lptoken/delegation/delegation-guide",
+      "pagePath": "v2/lpt/delegation/delegation-guide",
+      "url": "http://127.0.0.1:3000/lpt/delegation/delegation-guide",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

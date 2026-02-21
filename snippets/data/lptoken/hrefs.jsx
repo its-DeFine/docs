@@ -22,10 +22,10 @@ export const LINK_MAP = {
   ],
   "v2/lpt/about/purpose.mdx": [],
   "v2/lpt/about/tokenomics.mdx": [],
-  "v2/pages/06_lptoken/delegation/about-delegators.mdx": [],
-  "v2/pages/06_lptoken/delegation/delegation-economics.mdx": [],
-  "v2/pages/06_lptoken/delegation/delegation-guide.mdx": [],
-  "v2/pages/06_lptoken/delegation/overview.mdx": [],
+  "v2/lpt/delegation/about-delegators.mdx": [],
+  "v2/lpt/delegation/delegation-economics.mdx": [],
+  "v2/lpt/delegation/delegation-guide.mdx": [],
+  "v2/lpt/delegation/overview.mdx": [],
   "v2/pages/06_lptoken/governance/model.mdx": [
     {
       "sourceType": "markdown-link",
@@ -1004,7 +1004,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./delegation/overview",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/overview.mdx",
+      "resolvedPath": "v2/lpt/delegation/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

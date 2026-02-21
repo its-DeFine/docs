@@ -3585,8 +3585,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/delegation/about-delegators.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/about-delegators.mdx",
+      "rawPath": "lpt/delegation/about-delegators.mdx",
+      "resolvedPath": "v2/lpt/delegation/about-delegators.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3594,8 +3594,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/delegation/delegation-economics.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/delegation-economics.mdx",
+      "rawPath": "lpt/delegation/delegation-economics.mdx",
+      "resolvedPath": "v2/lpt/delegation/delegation-economics.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3603,8 +3603,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/delegation/delegation-guide.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/delegation-guide.mdx",
+      "rawPath": "lpt/delegation/delegation-guide.mdx",
+      "resolvedPath": "v2/lpt/delegation/delegation-guide.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3612,8 +3612,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/delegation/overview.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/overview.mdx",
+      "rawPath": "lpt/delegation/overview.mdx",
+      "resolvedPath": "v2/lpt/delegation/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

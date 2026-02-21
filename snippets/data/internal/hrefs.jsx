@@ -2250,8 +2250,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/delegation/overview",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/overview.mdx",
+      "rawPath": "/v2/lpt/delegation/overview",
+      "resolvedPath": "v2/lpt/delegation/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2259,8 +2259,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/delegation/about-delegators",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/about-delegators.mdx",
+      "rawPath": "/v2/lpt/delegation/about-delegators",
+      "resolvedPath": "v2/lpt/delegation/about-delegators.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2268,8 +2268,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/delegation/delegation-guide",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/delegation-guide.mdx",
+      "rawPath": "/v2/lpt/delegation/delegation-guide",
+      "resolvedPath": "v2/lpt/delegation/delegation-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3944,8 +3944,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/delegation/overview",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/overview.mdx",
+      "rawPath": "/v2/lpt/delegation/overview",
+      "resolvedPath": "v2/lpt/delegation/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3953,8 +3953,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/delegation/about-delegators",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/about-delegators.mdx",
+      "rawPath": "/v2/lpt/delegation/about-delegators",
+      "resolvedPath": "v2/lpt/delegation/about-delegators.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3962,8 +3962,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/delegation/delegation-guide",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/delegation-guide.mdx",
+      "rawPath": "/v2/lpt/delegation/delegation-guide",
+      "resolvedPath": "v2/lpt/delegation/delegation-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
