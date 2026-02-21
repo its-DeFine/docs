@@ -1116,8 +1116,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/frameworks/frameworks",
-      "resolvedPath": "v2/pages/010_products/products/frameworks/frameworks.mdx",
+      "rawPath": "/v2/platforms/products/frameworks/frameworks",
+      "resolvedPath": "v2/platforms/products/frameworks/frameworks.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3314,8 +3314,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/frameworks/frameworks",
-      "resolvedPath": "v2/pages/010_products/products/frameworks/frameworks.mdx",
+      "rawPath": "/v2/platforms/products/frameworks/frameworks",
+      "resolvedPath": "v2/platforms/products/frameworks/frameworks.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

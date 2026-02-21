@@ -570,8 +570,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/frameworks/frameworks.mdx",
-      "resolvedPath": "v2/pages/010_products/products/frameworks/frameworks.mdx",
+      "rawPath": "platforms/products/frameworks/frameworks.mdx",
+      "resolvedPath": "v2/platforms/products/frameworks/frameworks.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -579,8 +579,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/frameworks/overview/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/frameworks/overview/overview.mdx",
+      "rawPath": "platforms/products/frameworks/overview/overview.mdx",
+      "resolvedPath": "v2/platforms/products/frameworks/overview/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -588,8 +588,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/frameworks/overview/quickstart.mdx",
-      "resolvedPath": "v2/pages/010_products/products/frameworks/overview/quickstart.mdx",
+      "rawPath": "platforms/products/frameworks/overview/quickstart.mdx",
+      "resolvedPath": "v2/platforms/products/frameworks/overview/quickstart.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

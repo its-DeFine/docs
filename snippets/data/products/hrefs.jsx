@@ -50,7 +50,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../frameworks/frameworks",
-      "resolvedPath": "v2/pages/010_products/products/frameworks/frameworks.mdx",
+      "resolvedPath": "v2/platforms/products/frameworks/frameworks.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -532,7 +532,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/frameworks/frameworks.mdx": [
+  "v2/platforms/products/frameworks/frameworks.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -581,8 +581,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/frameworks/overview/overview",
-      "resolvedPath": "v2/pages/010_products/products/frameworks/overview/overview.mdx",
+      "rawPath": "/platforms/products/frameworks/overview/overview",
+      "resolvedPath": "v2/platforms/products/frameworks/overview/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -590,8 +590,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/frameworks/overview/quickstart",
-      "resolvedPath": "v2/pages/010_products/products/frameworks/overview/quickstart.mdx",
+      "rawPath": "/platforms/products/frameworks/overview/quickstart",
+      "resolvedPath": "v2/platforms/products/frameworks/overview/quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -633,7 +633,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/frameworks/overview/overview.mdx": [
+  "v2/platforms/products/frameworks/overview/overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -709,8 +709,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/frameworks/overview/quickstart",
-      "resolvedPath": "v2/pages/010_products/products/frameworks/overview/quickstart.mdx",
+      "rawPath": "/platforms/products/frameworks/overview/quickstart",
+      "resolvedPath": "v2/platforms/products/frameworks/overview/quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -725,7 +725,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/frameworks/overview/quickstart.mdx": [
+  "v2/platforms/products/frameworks/overview/quickstart.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -783,8 +783,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/frameworks/overview/overview",
-      "resolvedPath": "v2/pages/010_products/products/frameworks/overview/overview.mdx",
+      "rawPath": "/platforms/products/frameworks/overview/overview",
+      "resolvedPath": "v2/platforms/products/frameworks/overview/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3935,7 +3935,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./products/frameworks/frameworks",
-      "resolvedPath": "v2/pages/010_products/products/frameworks/frameworks.mdx",
+      "resolvedPath": "v2/platforms/products/frameworks/frameworks.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

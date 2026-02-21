@@ -2316,7 +2316,7 @@
                         "group": "Frameworks",
                         "icon": "clapperboard-play",
                         "pages": [
-                          "v2/pages/010_products/products/frameworks/frameworks"
+                          "v2/platforms/products/frameworks/frameworks"
                         ]
                       }
                     ]

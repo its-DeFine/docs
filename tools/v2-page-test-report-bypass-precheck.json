@@ -630,8 +630,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/frameworks/frameworks",
-      "url": "http://127.0.0.1:3000/010_products/products/frameworks/frameworks",
+      "pagePath": "v2/platforms/products/frameworks/frameworks",
+      "url": "http://127.0.0.1:3000/platforms/products/frameworks/frameworks",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
