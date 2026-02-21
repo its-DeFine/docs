@@ -399,8 +399,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/livepeer-protocol/core-mechanisms.mdx",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/core-mechanisms.mdx",
+      "rawPath": "about/livepeer-protocol/core-mechanisms.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/core-mechanisms.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -408,8 +408,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/livepeer-protocol/governance-model.mdx",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/governance-model.mdx",
+      "rawPath": "about/livepeer-protocol/governance-model.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/governance-model.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -417,8 +417,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/livepeer-protocol/livepeer-token.mdx",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/livepeer-token.mdx",
+      "rawPath": "about/livepeer-protocol/livepeer-token.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/livepeer-token.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -426,8 +426,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/livepeer-protocol/overview.mdx",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/overview.mdx",
+      "rawPath": "about/livepeer-protocol/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -435,8 +435,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/livepeer-protocol/protocol-economics.mdx",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/protocol-economics.mdx",
+      "rawPath": "about/livepeer-protocol/protocol-economics.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/protocol-economics.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -444,8 +444,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/livepeer-protocol/technical-architecture.mdx",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/technical-architecture.mdx",
+      "rawPath": "about/livepeer-protocol/technical-architecture.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/technical-architecture.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -453,8 +453,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/livepeer-protocol/treasury.mdx",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/treasury.mdx",
+      "rawPath": "about/livepeer-protocol/treasury.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/treasury.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

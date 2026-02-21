@@ -142,56 +142,56 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-protocol/overview",
-      "url": "http://127.0.0.1:3000/01_about/livepeer-protocol/overview",
+      "pagePath": "v2/about/livepeer-protocol/overview",
+      "url": "http://127.0.0.1:3000/about/livepeer-protocol/overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-protocol/core-mechanisms",
-      "url": "http://127.0.0.1:3000/01_about/livepeer-protocol/core-mechanisms",
+      "pagePath": "v2/about/livepeer-protocol/core-mechanisms",
+      "url": "http://127.0.0.1:3000/about/livepeer-protocol/core-mechanisms",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-protocol/livepeer-token",
-      "url": "http://127.0.0.1:3000/01_about/livepeer-protocol/livepeer-token",
+      "pagePath": "v2/about/livepeer-protocol/livepeer-token",
+      "url": "http://127.0.0.1:3000/about/livepeer-protocol/livepeer-token",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-protocol/governance-model",
-      "url": "http://127.0.0.1:3000/01_about/livepeer-protocol/governance-model",
+      "pagePath": "v2/about/livepeer-protocol/governance-model",
+      "url": "http://127.0.0.1:3000/about/livepeer-protocol/governance-model",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-protocol/treasury",
-      "url": "http://127.0.0.1:3000/01_about/livepeer-protocol/treasury",
+      "pagePath": "v2/about/livepeer-protocol/treasury",
+      "url": "http://127.0.0.1:3000/about/livepeer-protocol/treasury",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-protocol/protocol-economics",
-      "url": "http://127.0.0.1:3000/01_about/livepeer-protocol/protocol-economics",
+      "pagePath": "v2/about/livepeer-protocol/protocol-economics",
+      "url": "http://127.0.0.1:3000/about/livepeer-protocol/protocol-economics",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-protocol/technical-architecture",
-      "url": "http://127.0.0.1:3000/01_about/livepeer-protocol/technical-architecture",
+      "pagePath": "v2/about/livepeer-protocol/technical-architecture",
+      "url": "http://127.0.0.1:3000/about/livepeer-protocol/technical-architecture",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
