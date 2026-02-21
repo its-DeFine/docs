@@ -1938,8 +1938,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-platforms/builder-hub.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/builder-hub.mdx",
+      "rawPath": "developers/developer-platforms/builder-hub.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/builder-hub.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1947,8 +1947,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-platforms/all-ecosystem/ecosystem-products.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products.mdx",
+      "rawPath": "developers/developer-platforms/all-ecosystem/ecosystem-products.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/all-ecosystem/ecosystem-products.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1956,8 +1956,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-platforms/daydream/daydream.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/daydream/daydream.mdx",
+      "rawPath": "developers/developer-platforms/daydream/daydream.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/daydream/daydream.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1965,8 +1965,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-platforms/frameworks/frameworks.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/frameworks/frameworks.mdx",
+      "rawPath": "developers/developer-platforms/frameworks/frameworks.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/frameworks/frameworks.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1974,8 +1974,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx",
+      "rawPath": "developers/developer-platforms/livepeer-studio/livepeer-studio.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/livepeer-studio/livepeer-studio.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1983,8 +1983,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-platforms/streamplace/streamplace-architecture.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-architecture.mdx",
+      "rawPath": "developers/developer-platforms/streamplace/streamplace-architecture.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/streamplace/streamplace-architecture.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1992,8 +1992,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-platforms/streamplace/streamplace-funding-model.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-funding-model.mdx",
+      "rawPath": "developers/developer-platforms/streamplace/streamplace-funding-model.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/streamplace/streamplace-funding-model.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2001,8 +2001,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-platforms/streamplace/streamplace-guide.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-guide.mdx",
+      "rawPath": "developers/developer-platforms/streamplace/streamplace-guide.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/streamplace/streamplace-guide.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2010,8 +2010,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-platforms/streamplace/streamplace-integration.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-integration.mdx",
+      "rawPath": "developers/developer-platforms/streamplace/streamplace-integration.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/streamplace/streamplace-integration.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2019,8 +2019,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-platforms/streamplace/streamplace-provenance.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-provenance.mdx",
+      "rawPath": "developers/developer-platforms/streamplace/streamplace-provenance.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/streamplace/streamplace-provenance.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2028,8 +2028,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-platforms/streamplace/streamplace.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/streamplace/streamplace.mdx",
+      "rawPath": "developers/developer-platforms/streamplace/streamplace.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/streamplace/streamplace.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

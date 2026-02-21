@@ -911,13 +911,13 @@ export const LINK_MAP = {
   "v2/developers/building-on-livepeer/quick-starts/README.mdx": [],
   "v2/developers/building-on-livepeer/quick-starts/livepeer-ai.mdx": [],
   "v2/developers/building-on-livepeer/quick-starts/video-streaming.mdx": [],
-  "v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products.mdx": [],
-  "v2/pages/03_developers/developer-platforms/builder-hub.mdx": [
+  "v2/developers/developer-platforms/all-ecosystem/ecosystem-products.mdx": [],
+  "v2/developers/developer-platforms/builder-hub.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./daydream/daydream",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/daydream/daydream.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/daydream/daydream.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -935,7 +935,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-studio/livepeer-studio",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/livepeer-studio/livepeer-studio.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -953,7 +953,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./frameworks/frameworks",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/frameworks/frameworks.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/frameworks/frameworks.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -971,7 +971,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./streamplace/streamplace",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/streamplace/streamplace.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/streamplace/streamplace.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -989,7 +989,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./all-ecosystem/ecosystem-products",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/all-ecosystem/ecosystem-products.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1013,7 +1013,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/developer-platforms/daydream/daydream.mdx": [
+  "v2/developers/developer-platforms/daydream/daydream.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -1024,9 +1024,9 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/developer-platforms/frameworks/frameworks.mdx": [],
-  "v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx": [],
-  "v2/pages/03_developers/developer-platforms/streamplace/streamplace-architecture.mdx": [
+  "v2/developers/developer-platforms/frameworks/frameworks.mdx": [],
+  "v2/developers/developer-platforms/livepeer-studio/livepeer-studio.mdx": [],
+  "v2/developers/developer-platforms/streamplace/streamplace-architecture.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -1082,7 +1082,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/developer-platforms/streamplace/streamplace-funding-model.mdx": [
+  "v2/developers/developer-platforms/streamplace/streamplace-funding-model.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -1129,7 +1129,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/developer-platforms/streamplace/streamplace-guide.mdx": [
+  "v2/developers/developer-platforms/streamplace/streamplace-guide.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -1176,7 +1176,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/developer-platforms/streamplace/streamplace-integration.mdx": [
+  "v2/developers/developer-platforms/streamplace/streamplace-integration.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -1232,7 +1232,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/developer-platforms/streamplace/streamplace-provenance.mdx": [
+  "v2/developers/developer-platforms/streamplace/streamplace-provenance.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1306,7 +1306,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/developer-platforms/streamplace/streamplace.mdx": [
+  "v2/developers/developer-platforms/streamplace/streamplace.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -1439,7 +1439,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./developer-platforms/builder-hub",
-      "resolvedPath": "v2/pages/03_developers/developer-platforms/builder-hub.mdx",
+      "resolvedPath": "v2/developers/developer-platforms/builder-hub.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
