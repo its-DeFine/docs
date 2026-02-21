@@ -18,22 +18,22 @@ Treasury control is enforced at the **protocol layer (on-chain)** through govern
 
 Let:
 
-- \(T\) = treasury balance (in relevant asset units)
-- \(A_k\) = allocation amount executed by proposal \(k\)
+- $T$ = treasury balance (in relevant asset units)
+- $A_k$ = allocation amount executed by proposal $k$
 
-Treasury balance update after allocation \(k\):
+Treasury balance update after allocation $k$:
 
-\[
+$$
 T' = T - A_k
-\]
+$$
 
-More generally, after a set of allocations \(\{A_1, A_2, \dots, A_n\}\):
+More generally, after a set of allocations $\{A_1, A_2, \dots, A_n\}$:
 
-\[
+$$
 T_n = T_0 - \sum_{k=1}^{n} A_k
-\]
+$$
 
-Where each \(A_k\) is authorized via governance.
+Where each $A_k$ is authorized via governance.
 
 ---
 
@@ -80,14 +80,14 @@ Treasury decisions are executed through the governance lifecycle.
 
 Let:
 
-- \(B_T\) = total bonded stake
-- \(B_i\) = bonded stake attributed to voter \(i\)
+- $B_T$ = total bonded stake
+- $B_i$ = bonded stake attributed to voter $i$
 
 Voting power:
 
-\[
+$$
 V_i = \frac{B_i}{B_T}
-\]
+$$
 
 Thus, the treasury inherits governance security properties.
 
@@ -97,15 +97,15 @@ Thus, the treasury inherits governance security properties.
 
 Treasury security depends on:
 
-1. Total bonded stake \(B_T\)
+1. Total bonded stake $B_T$
 2. Stake distribution (concentration)
 3. Quorum and timelock configuration
 
 Capital required to control outcomes:
 
-\[
+$$
 Capital_{control} \ge \theta B_T
-\]
+$$
 
 A treasury is therefore as secure as the governance system controlling it.
 

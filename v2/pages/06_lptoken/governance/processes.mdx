@@ -80,9 +80,9 @@ More than **50%** of participating votes must favour the proposal. Simple majori
 
 Voting power is proportional to bonded LPT:
 
-\[
+$$
 V_i = \frac{B_i}{B_T}
-\]
+$$
 
 Delegators exercise governance indirectly by delegating to orchestrators whose values align with their own; orchestrators must publicly declare their positions and can cast votes accordingly.
 
@@ -108,15 +108,15 @@ Voting occurs via an on-chain smart contract. When a LIP is ready, its hash and 
 
 Proposal must satisfy:
 
-\[
+$$
 V_{cast} \ge Q \cdot B_T
-\]
+$$
 
 And majority condition:
 
-\[
+$$
 V_{for} > V_{against}
-\]
+$$
 
 Conditions are enforced by governance contracts.
 
@@ -190,12 +190,12 @@ All votes and execution transactions are publicly verifiable on-chain. Governanc
 
 ### 7.3 Parameter Calibration
 
-Quorum \(Q\) and timelock duration \(T_{delay}\) are governance-level security parameters.
+Quorum $Q$ and timelock duration $T_{delay}$ are governance-level security parameters.
 
-If \(Q\) is too low:
+If $Q$ is too low:
 - Small coalitions may pass proposals
 
-If \(Q\) is too high:
+If $Q$ is too high:
 - Governance stagnation may occur
 
 ---

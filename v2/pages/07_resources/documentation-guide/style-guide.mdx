@@ -337,6 +337,70 @@ import { H1, H2, PageHeader } from "/snippets/components/display/frameMode.jsx";
 - Use `code` (backticks) for inline code
 - Use code blocks for multi-line code
 
+### Mathematical Expressions
+
+Mintlify supports LaTeX for rendering mathematical expressions. Use proper syntax to ensure equations render correctly.
+
+#### Inline Math
+
+Use single dollar signs `$...$` for inline mathematical expressions within text:
+
+```mdx
+The voting power is calculated as $V_i = \frac{B_i}{B_T}$ where $B_i$ is bonded stake.
+```
+
+**Result:** The voting power is calculated as $V_i = \frac{B_i}{B_T}$ where $B_i$ is bonded stake.
+
+#### Block Equations
+
+Use double dollar signs `$$...$$` for standalone equations on their own line:
+
+```mdx
+$$
+R_t = S_t \cdot r_t
+$$
+```
+
+**Result:**
+$$
+R_t = S_t \cdot r_t
+$$
+
+#### Common LaTeX Syntax
+
+| Expression | Syntax | Result |
+|------------|--------|--------|
+| Fractions | `$\frac{a}{b}$` | $\frac{a}{b}$ |
+| Subscripts | `$B_i$` | $B_i$ |
+| Superscripts | `$x^2$` | $x^2$ |
+| Greek letters | `$\alpha, \beta, \theta$` | $\alpha, \beta, \theta$ |
+| Summation | `$\sum_{i=1}^{n} x_i$` | $\sum_{i=1}^{n} x_i$ |
+| Square root | `$\sqrt{x}$` | $\sqrt{x}$ |
+| Proportional | `$\propto$` | $\propto$ |
+| Greater/less than or equal | `$\geq, \leq$` | $\geq, \leq$ |
+
+#### Critical: Do NOT Use Backslash Delimiters
+
+**WRONG - These will cause MDX errors:**
+
+```mdx
+{/* ❌ WRONG - backslash delimiters break MDX */}
+\(B_i\) for inline math
+\[R_t = S_t \cdot r_t\] for block math
+```
+
+**CORRECT - Use dollar sign delimiters:**
+
+```mdx
+{/* ✅ CORRECT - dollar sign delimiters */}
+$B_i$ for inline math
+$$R_t = S_t \cdot r_t$$ for block math
+```
+
+#### LaTeX Configuration
+
+You can configure LaTeX rendering in `docs.json` under `styles.latex` to override automated detection if needed. See [Mintlify LaTeX docs](https://mintlify.com/docs/text) for details.
+
 ## Spacing & Layout
 
 ### Consistent Spacing

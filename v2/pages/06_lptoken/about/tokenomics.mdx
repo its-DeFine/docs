@@ -18,30 +18,30 @@ The tokenomics model is implemented at the **protocol layer (on-chain)** via sta
 
 Let:
 
-- \(S_t\) = total LPT supply at round \(t\)
-- \(B_T\) = total bonded LPT
-- \(B_i\) = bonded stake attributed to participant \(i\)
-- \(\beta\) = bonding rate = \(\frac{B_T}{S_t}\)
-- \(\beta^*\) = target bonding rate
-- \(r_t\) = inflation rate applied in round \(t\)
-- \(\alpha\) = inflation adjustment coefficient
-- \(c_O\) = commission rate set by orchestrator \(O\)
+- $S_t$ = total LPT supply at round $t$
+- $B_T$ = total bonded LPT
+- $B_i$ = bonded stake attributed to participant $i$
+- $\beta$ = bonding rate = $\frac{B_T}{S_t}$
+- $\beta^*$ = target bonding rate
+- $r_t$ = inflation rate applied in round $t$
+- $\alpha$ = inflation adjustment coefficient
+- $c_O$ = commission rate set by orchestrator $O$
 
 ---
 
 ## 2. Inflation Issuance Model
 
-Per round \(t\), newly minted LPT:
+Per round $t$, newly minted LPT:
 
-\[
+$$
 R_t = S_t \cdot r_t
-\]
+$$
 
 Supply update:
 
-\[
+$$
 S_{t+1} = S_t + R_t
-\]
+$$
 
 Inflation therefore compounds relative to current supply.
 
@@ -53,54 +53,54 @@ The protocol adjusts inflation according to the deviation between the current bo
 
 Current bonding rate:
 
-\[
+$$
 \beta = \frac{B_T}{S_t}
-\]
+$$
 
 Adjustment rule:
 
-If \(\beta < \beta^*\):
+If $\beta < \beta^*$:
 
-\[
+$$
 r_{t+1} = r_t + \alpha
-\]
+$$
 
-If \(\beta > \beta^*\):
+If $\beta > \beta^*$:
 
-\[
+$$
 r_{t+1} = r_t - \alpha
-\]
+$$
 
 This creates a control loop:
 
 - Under-bonded system → higher inflation → stronger staking incentive
 - Over-bonded system → lower inflation → reduced dilution
 
-The system seeks equilibrium where \(\beta \approx \beta^*\).
+The system seeks equilibrium where $\beta \approx \beta^*$.
 
 ---
 
 ## 4. Reward Distribution
 
-Total issuance per round \(R_t\) is distributed proportionally to stake weight.
+Total issuance per round $R_t$ is distributed proportionally to stake weight.
 
 Define economic weight:
 
-\[
+$$
 W_i = \frac{B_i}{B_T}
-\]
+$$
 
-Allocation to orchestrator \(O\):
+Allocation to orchestrator $O$:
 
-\[
+$$
 R_O = R_t \cdot \frac{B_O}{B_T}
-\]
+$$
 
-Delegator \(D\) bonded to orchestrator \(O\):
+Delegator $D$ bonded to orchestrator $O$:
 
-\[
+$$
 R_{D,O} = R_O (1 - c_O) \cdot \frac{b_{D,O}}{B_O}
-\]
+$$
 
 This separates gross issuance from commission-adjusted delegator returns.
 
@@ -113,11 +113,11 @@ Returns to bonded participants may consist of:
 1. Inflation-based issuance (supply expansion)
 2. Fee revenue from video/AI workloads (demand-based)
 
-Total reward to participant \(i\):
+Total reward to participant $i$:
 
-\[
+$$
 Reward_i = Issuance_i + Fees_i
-\]
+$$
 
 Inflation is protocol-determined; fees are market-driven.
 
@@ -129,15 +129,15 @@ Tokenomics must therefore be evaluated in two components: issuance dynamics and 
 
 Security cost for adversarial control scales with bonded stake.
 
-Let \(\theta\) be the threshold fraction required to influence governance or allocation.
+Let $\theta$ be the threshold fraction required to influence governance or allocation.
 
 Required capital:
 
-\[
+$$
 Capital_{attack} \geq \theta B_T
-\]
+$$
 
-Increasing \(B_T\) increases the cost of control.
+Increasing $B_T$ increases the cost of control.
 
 Inflation adjustment encourages equilibrium around a stable security participation rate.
 

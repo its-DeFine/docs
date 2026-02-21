@@ -18,14 +18,14 @@ Governance authority derives exclusively from **bonded LPT**. It operates at the
 
 Let:
 
-- \(B_i\) = bonded stake attributed to participant \(i\)
-- \(B_T\) = total bonded stake
+- $B_i$ = bonded stake attributed to participant $i$
+- $B_T$ = total bonded stake
 
 Voting power:
 
-\[
+$$
 V_i = \frac{B_i}{B_T}
-\]
+$$
 
 Governance is therefore a capital-weighted decision system over bonded stake. Only bonded stake contributes to voting weight.
 
@@ -77,13 +77,13 @@ The lifecycle of a LIP follows a deliberate cadence:
 
 ## 4. Voting Mechanics
 
-Let a proposal \(P\) be active during a voting window.
+Let a proposal $P$ be active during a voting window.
 
 Total voting power cast:
 
-\[
+$$
 V_{cast} = \sum_{i \in voters} B_i
-\]
+$$
 
 A proposal passes if it satisfies quorum and majority thresholds as defined in governance contract logic. These thresholds are enforced on-chain.
 
@@ -93,19 +93,19 @@ A proposal passes if it satisfies quorum and majority thresholds as defined in g
 
 Governance security depends on bonded stake distribution.
 
-Let \(\theta\) be the fraction of stake required to influence an outcome.
+Let $\theta$ be the fraction of stake required to influence an outcome.
 
 Minimum capital required:
 
-\[
+$$
 Capital_{control} \geq \theta B_T
-\]
+$$
 
 Security increases with total bonded stake and decreases with stake concentration:
 
-\[
+$$
 Security \propto B_T
-\]
+$$
 
 ---
 

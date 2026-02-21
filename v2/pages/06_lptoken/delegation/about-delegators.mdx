@@ -18,22 +18,22 @@ Delegation is strictly a **protocol-layer (on-chain)** mechanism. Delegators do 
 
 Let:
 
-- \(D\): a delegator address
-- \(O\): an orchestrator address
-- \(b_{D,O}\): stake bonded by \(D\) toward \(O\)
-- \(B_{self,O}\): self-bonded stake of \(O\)
+- $D$: a delegator address
+- $O$: an orchestrator address
+- $b_{D,O}$: stake bonded by $D$ toward $O$
+- $B_{self,O}$: self-bonded stake of $O$
 
-Total stake attributed to \(O\):
+Total stake attributed to $O$:
 
-\[
+$$
 B_O = B_{self,O} + \sum_D b_{D,O}
-\]
+$$
 
 Total bonded stake:
 
-\[
+$$
 B_T = \sum_O B_O
-\]
+$$
 
 Delegator stake changes protocol accounting state (bonding attribution) and therefore stake-weighted reward and governance outcomes.
 
@@ -67,11 +67,11 @@ Delegators serve three protocol goals.
 
 Security cost scales with total bonded stake:
 
-\[
+$$
 \text{Security} \propto B_T
-\]
+$$
 
-Delegators increase \(B_T\), raising the economic cost required to capture stake-weighted outcomes.
+Delegators increase $B_T$, raising the economic cost required to capture stake-weighted outcomes.
 
 ### 3.2 Capital Allocation
 
@@ -79,19 +79,19 @@ Delegation redistributes stake across orchestrators, shaping operator market str
 
 Orchestrator weight:
 
-\[
+$$
 W_O = \frac{B_O}{B_T}
-\]
+$$
 
-Delegators selecting \(O\) increase \(W_O\), affecting issuance allocation and governance influence.
+Delegators selecting $O$ increase $W_O$, affecting issuance allocation and governance influence.
 
 ### 3.3 Governance Participation
 
-Voting power derives from bonded stake. For a participant \(i\):
+Voting power derives from bonded stake. For a participant $i$:
 
-\[
+$$
 V_i = \frac{B_i}{B_T}
-\]
+$$
 
 Delegators therefore influence protocol parameter changes, upgrades, and treasury decisions.
 
@@ -99,29 +99,29 @@ Delegators therefore influence protocol parameter changes, upgrades, and treasur
 
 ## 4. Reward Model (Issuance and Fees)
 
-Per round \(t\), protocol issuance:
+Per round $t$, protocol issuance:
 
-\[
+$$
 R_t = S_t \cdot r_t
-\]
+$$
 
 Orchestrator gross issuance allocation:
 
-\[
+$$
 R_O = R_t \cdot \frac{B_O}{B_T}
-\]
+$$
 
-Delegator net issuance allocation with commission \(c_O\):
+Delegator net issuance allocation with commission $c_O$:
 
-\[
+$$
 R_{D,O} = R_O \cdot (1 - c_O) \cdot \frac{b_{D,O}}{B_O}
-\]
+$$
 
 Delegator total return decomposes into:
 
-\[
+$$
 \text{Reward}_{D,O} = \text{Issuance}_{D,O} + \text{Fees}_{D,O}
-\]
+$$
 
 Issuance is protocol-determined; fees are market-driven (network demand).
 
@@ -153,7 +153,7 @@ Delegation is capital exposure without operational control.
 
 Delegators should monitor:
 
-- commission rate \(c_O\)
+- commission rate $c_O$
 - reward checkpoint consistency
 - stake concentration and decentralization
 - governance proposals affecting inflation/security parameters
@@ -168,16 +168,16 @@ Delegator selection is multi-objective.
 
 Define a delegator utility function:
 
-\[
+$$
 U(O) = f(\text{NetYield}_O, \text{Reliability}_O, \text{Concentration}_O, \text{GovernanceAlignment}_O)
-\]
+$$
 
 Where:
 
-- \(\text{NetYield}_O\) is reduced by commission \(c_O\)
-- \(\text{Reliability}_O\) captures checkpoint consistency and operational stability
-- \(\text{Concentration}_O\) penalizes already-dominant stake share
-- \(\text{GovernanceAlignment}_O\) reflects long-term stewardship preferences
+- $\text{NetYield}_O$ is reduced by commission $c_O$
+- $\text{Reliability}_O$ captures checkpoint consistency and operational stability
+- $\text{Concentration}_O$ penalizes already-dominant stake share
+- $\text{GovernanceAlignment}_O$ reflects long-term stewardship preferences
 
 ---
 
@@ -185,7 +185,7 @@ Where:
 
 Delegators face a layered risk profile.
 
-1. **Commission risk:** higher \(c_O\) reduces net returns.
+1. **Commission risk:** higher $c_O$ reduces net returns.
 2. **Checkpoint / realization risk:** realized issuance can diverge from theoretical allocation if checkpointing is not performed.
 3. **Liquidity risk:** unbonding delay restricts exit.
 4. **Concentration risk:** systemic exposure increases with stake centralization.
