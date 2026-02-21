@@ -156,8 +156,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "01_about/about-portal.mdx",
-      "resolvedPath": "v2/pages/01_about/about-portal.mdx",
+      "rawPath": "about/about-portal.mdx",
+      "resolvedPath": "v2/about/about-portal.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

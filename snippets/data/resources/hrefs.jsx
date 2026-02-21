@@ -1456,8 +1456,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/01_about/about-portal",
-      "resolvedPath": "v2/pages/01_about/about-portal.mdx",
+      "rawPath": "/about/about-portal",
+      "resolvedPath": "v2/about/about-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

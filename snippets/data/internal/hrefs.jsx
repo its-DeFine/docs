@@ -540,8 +540,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/about-portal",
-      "resolvedPath": "v2/pages/01_about/about-portal.mdx",
+      "rawPath": "/v2/about/about-portal",
+      "resolvedPath": "v2/about/about-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2738,8 +2738,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/about-portal",
-      "resolvedPath": "v2/pages/01_about/about-portal.mdx",
+      "rawPath": "/v2/about/about-portal",
+      "resolvedPath": "v2/about/about-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

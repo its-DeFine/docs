@@ -36,6 +36,21 @@ const { extractImports } = require('../utils/mdx-parser');
 
 let errors = [];
 let warnings = [];
+const V2_DOMAIN_DIRS = new Set([
+  'home',
+  'about',
+  'platforms',
+  'community',
+  'developers',
+  'gateways',
+  'orchestrators',
+  'lpt',
+  'resources',
+  'internal',
+  'deprecated',
+  'experimental',
+  'notes'
+]);
 
 /**
  * Resolve a file path relative to the repository root
@@ -119,6 +134,12 @@ function linkToFilePath(linkPath, currentFile) {
     // If it already starts with v2/, treat it as a repo-relative docs path.
     if (repoRelativePath.startsWith('v2/')) {
       return path.join(repoRoot, repoRelativePath);
+    }
+
+    // Support migrated v2 domain folders, e.g. /home/... or /about/...
+    const firstSegment = repoRelativePath.split('/')[0];
+    if (V2_DOMAIN_DIRS.has(firstSegment)) {
+      return path.join(repoRoot, 'v2', repoRelativePath);
     }
 
     // Fallback: treat bare absolute docs links as v2/pages-relative.

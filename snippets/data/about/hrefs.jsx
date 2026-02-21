@@ -1,5 +1,5 @@
 export const LINK_MAP = {
-  "v2/pages/01_about/about-portal.mdx": [
+  "v2/about/about-portal.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",

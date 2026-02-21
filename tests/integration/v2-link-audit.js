@@ -42,6 +42,21 @@ const EXCLUDED_ATTRS = new Set(['icon']);
 const FILE_EXT_CANDIDATES = ['.mdx', '.md', '.jsx', '.js', '.tsx', '.ts', '.json'];
 const INDEX_CANDIDATES = ['index.mdx', 'index.md', 'README.mdx', 'README.md'];
 const EXTERNAL_UNTESTED = '🟡 untested-external';
+const MIGRATED_V2_DOMAIN_DIRS = new Set([
+  'home',
+  'about',
+  'platforms',
+  'community',
+  'developers',
+  'gateways',
+  'orchestrators',
+  'lpt',
+  'resources',
+  'internal',
+  'deprecated',
+  'experimental',
+  'notes'
+]);
 
 function getRepoRoot() {
   try {
@@ -324,13 +339,25 @@ function resolveInternalPath(raw, currentFileAbs) {
     if (rooted.startsWith('v2/') || rooted.startsWith('v1/') || rooted.startsWith('snippets/') || rooted.startsWith('tests/') || rooted.startsWith('tasks/')) {
       return path.join(REPO_ROOT, rooted);
     }
+    const first = rooted.split('/')[0];
+    if (MIGRATED_V2_DOMAIN_DIRS.has(first)) {
+      return path.join(REPO_ROOT, 'v2', rooted);
+    }
     const asV2Page = path.join(REPO_ROOT, 'v2', 'pages', rooted);
     const asRoot = path.join(REPO_ROOT, rooted);
     if (fs.existsSync(asRoot) || fs.existsSync(`${asRoot}.mdx`) || fs.existsSync(`${asRoot}.md`)) return asRoot;
     return asV2Page;
   }
 
-  return path.resolve(path.dirname(currentFileAbs), normalized);
+  const resolved = path.resolve(path.dirname(currentFileAbs), normalized);
+  const relFromPagesRoot = toPosix(path.relative(V2_PAGES_DIR, resolved));
+  if (relFromPagesRoot && !relFromPagesRoot.startsWith('../')) {
+    const first = relFromPagesRoot.split('/')[0];
+    if (MIGRATED_V2_DOMAIN_DIRS.has(first)) {
+      return path.join(REPO_ROOT, 'v2', relFromPagesRoot);
+    }
+  }
+  return resolved;
 }
 
 function resolveExistingPath(baseAbsPath) {

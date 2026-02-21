@@ -110,8 +110,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/01_about/about-portal",
-      "url": "http://127.0.0.1:3000/01_about/about-portal",
+      "pagePath": "v2/about/about-portal",
+      "url": "http://127.0.0.1:3000/about/about-portal",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
