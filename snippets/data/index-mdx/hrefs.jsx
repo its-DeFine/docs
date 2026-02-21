@@ -534,8 +534,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/daydream/daydream.mdx",
-      "resolvedPath": "v2/pages/010_products/products/daydream/daydream.mdx",
+      "rawPath": "platforms/products/daydream/daydream.mdx",
+      "resolvedPath": "v2/platforms/products/daydream/daydream.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -543,8 +543,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/daydream/overview/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/daydream/overview/overview.mdx",
+      "rawPath": "platforms/products/daydream/overview/overview.mdx",
+      "resolvedPath": "v2/platforms/products/daydream/overview/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -552,8 +552,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/daydream/overview/quickstart.mdx",
-      "resolvedPath": "v2/pages/010_products/products/daydream/overview/quickstart.mdx",
+      "rawPath": "platforms/products/daydream/overview/quickstart.mdx",
+      "resolvedPath": "v2/platforms/products/daydream/overview/quickstart.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

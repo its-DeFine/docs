@@ -74,8 +74,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/daydream",
-      "resolvedPath": "/v2/pages/010_products/products/daydream",
+      "rawPath": "/v2/platforms/products/daydream",
+      "resolvedPath": "/v2/platforms/products/daydream",
       "exists": true,
       "status": "ok-folder-route",
       "movedCandidates": []
@@ -164,8 +164,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/daydream",
-      "resolvedPath": "/v2/pages/010_products/products/daydream",
+      "rawPath": "/v2/platforms/products/daydream",
+      "resolvedPath": "/v2/platforms/products/daydream",
       "exists": true,
       "status": "ok-folder-route",
       "movedCandidates": []
@@ -191,8 +191,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../010_products/products/daydream/daydream",
-      "resolvedPath": "v2/pages/010_products/products/daydream/daydream.mdx",
+      "rawPath": "../../platforms/products/daydream/daydream",
+      "resolvedPath": "v2/platforms/products/daydream/daydream.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -263,8 +263,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../010_products/products/daydream/daydream",
-      "resolvedPath": "v2/pages/010_products/products/daydream/daydream.mdx",
+      "rawPath": "../../platforms/products/daydream/daydream",
+      "resolvedPath": "v2/platforms/products/daydream/daydream.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

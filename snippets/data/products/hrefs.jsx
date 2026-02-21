@@ -14,7 +14,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../daydream/daydream",
-      "resolvedPath": "v2/pages/010_products/products/daydream/daydream.mdx",
+      "resolvedPath": "v2/platforms/products/daydream/daydream.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -110,7 +110,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/daydream/daydream.mdx": [
+  "v2/platforms/products/daydream/daydream.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -168,8 +168,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/daydream/overview/overview",
-      "resolvedPath": "v2/pages/010_products/products/daydream/overview/overview.mdx",
+      "rawPath": "/platforms/products/daydream/overview/overview",
+      "resolvedPath": "v2/platforms/products/daydream/overview/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -177,8 +177,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/daydream/overview/quickstart",
-      "resolvedPath": "v2/pages/010_products/products/daydream/overview/quickstart.mdx",
+      "rawPath": "/platforms/products/daydream/overview/quickstart",
+      "resolvedPath": "v2/platforms/products/daydream/overview/quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -238,7 +238,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/daydream/overview/overview.mdx": [
+  "v2/platforms/products/daydream/overview/overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -368,8 +368,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/daydream/overview/quickstart",
-      "resolvedPath": "v2/pages/010_products/products/daydream/overview/quickstart.mdx",
+      "rawPath": "/platforms/products/daydream/overview/quickstart",
+      "resolvedPath": "v2/platforms/products/daydream/overview/quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -393,7 +393,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/daydream/overview/quickstart.mdx": [
+  "v2/platforms/products/daydream/overview/quickstart.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -451,8 +451,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/daydream/overview/overview",
-      "resolvedPath": "v2/pages/010_products/products/daydream/overview/overview.mdx",
+      "rawPath": "/platforms/products/daydream/overview/overview",
+      "resolvedPath": "v2/platforms/products/daydream/overview/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3050,8 +3050,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/daydream/daydream",
-      "resolvedPath": "v2/pages/010_products/products/daydream/daydream.mdx",
+      "rawPath": "/platforms/products/daydream/daydream",
+      "resolvedPath": "v2/platforms/products/daydream/daydream.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3917,7 +3917,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./products/daydream/daydream",
-      "resolvedPath": "v2/pages/010_products/products/daydream/daydream.mdx",
+      "resolvedPath": "v2/platforms/products/daydream/daydream.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
