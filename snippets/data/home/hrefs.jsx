@@ -83,8 +83,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../../010_products/products-portal",
-      "resolvedPath": "v2/pages/010_products/products-portal.mdx",
+      "rawPath": "../../platforms/products-portal",
+      "resolvedPath": "v2/platforms/products-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -508,8 +508,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../010_products/products-portal",
-      "resolvedPath": "v2/pages/010_products/products-portal.mdx",
+      "rawPath": "../../platforms/products-portal",
+      "resolvedPath": "v2/platforms/products-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

@@ -2203,7 +2203,7 @@
                         "group": "Use Livepeer",
                         "icon": "play",
                         "pages": [
-                          "v2/pages/010_products/products-portal",
+                          "v2/platforms/products-portal",
                           "v2/pages/010_products/products/all-ecosystem/product-hub",
                           "v2/pages/010_products/products/all-ecosystem/ecosystem-products"
                         ]

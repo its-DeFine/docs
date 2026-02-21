@@ -738,8 +738,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products-portal",
-      "resolvedPath": "v2/pages/010_products/products-portal.mdx",
+      "rawPath": "/v2/platforms/products-portal",
+      "resolvedPath": "v2/platforms/products-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2936,8 +2936,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products-portal",
-      "resolvedPath": "v2/pages/010_products/products-portal.mdx",
+      "rawPath": "/v2/platforms/products-portal",
+      "resolvedPath": "v2/platforms/products-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

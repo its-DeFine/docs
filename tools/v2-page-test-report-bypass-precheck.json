@@ -286,8 +286,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products-portal",
-      "url": "http://127.0.0.1:3000/010_products/products-portal",
+      "pagePath": "v2/platforms/products-portal",
+      "url": "http://127.0.0.1:3000/platforms/products-portal",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

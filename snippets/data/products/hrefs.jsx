@@ -3903,7 +3903,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products-portal.mdx": [
+  "v2/platforms/products-portal.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
