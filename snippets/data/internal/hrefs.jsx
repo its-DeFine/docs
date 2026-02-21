@@ -1377,8 +1377,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/about-gateways/gateway-explainer",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+      "rawPath": "/v2/gateways/about-gateways/gateway-explainer",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-explainer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1386,8 +1386,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/about-gateways/gateway-functions",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+      "rawPath": "/v2/gateways/about-gateways/gateway-functions",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-functions.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1395,8 +1395,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/about-gateways/gateway-architecture",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-architecture.mdx",
+      "rawPath": "/v2/gateways/about-gateways/gateway-architecture",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1404,8 +1404,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/about-gateways/gateway-economics",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+      "rawPath": "/v2/gateways/about-gateways/gateway-economics",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3485,8 +3485,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/about-gateways/gateway-explainer",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+      "rawPath": "/v2/gateways/about-gateways/gateway-explainer",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-explainer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3494,8 +3494,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/about-gateways/gateway-functions",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+      "rawPath": "/v2/gateways/about-gateways/gateway-functions",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-functions.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3503,8 +3503,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/about-gateways/gateway-architecture",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-architecture.mdx",
+      "rawPath": "/v2/gateways/about-gateways/gateway-architecture",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3512,8 +3512,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/about-gateways/gateway-economics",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+      "rawPath": "/v2/gateways/about-gateways/gateway-economics",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

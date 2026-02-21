@@ -215,7 +215,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/04_gateways/about-gateways/gateway-architecture.mdx": [
+  "v2/gateways/about-gateways/gateway-architecture.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -253,7 +253,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/04_gateways/about-gateways/gateway-economics.mdx": [
+  "v2/gateways/about-gateways/gateway-economics.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "empty",
@@ -291,7 +291,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx": [
+  "v2/gateways/about-gateways/gateway-explainer.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -320,7 +320,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/04_gateways/about-gateways/gateway-functions.mdx": [
+  "v2/gateways/about-gateways/gateway-functions.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -331,7 +331,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/04_gateways/about-gateways/overview.mdx": [
+  "v2/gateways/about-gateways/overview.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
@@ -360,7 +360,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/04_gateways/about-gateways/quickstart-home.mdx": [
+  "v2/gateways/about-gateways/quickstart-home.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -481,7 +481,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./about-gateways/gateway-explainer",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-explainer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2450,7 +2450,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../../about-gateways/gateway-economics",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4667,7 +4667,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../about-gateways/gateway-economics",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4848,7 +4848,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../about-gateways/gateway-economics",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

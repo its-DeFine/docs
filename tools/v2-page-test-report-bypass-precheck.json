@@ -862,32 +862,32 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/about-gateways/gateway-explainer",
-      "url": "http://127.0.0.1:3000/04_gateways/about-gateways/gateway-explainer",
+      "pagePath": "v2/gateways/about-gateways/gateway-explainer",
+      "url": "http://127.0.0.1:3000/gateways/about-gateways/gateway-explainer",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/about-gateways/gateway-functions",
-      "url": "http://127.0.0.1:3000/04_gateways/about-gateways/gateway-functions",
+      "pagePath": "v2/gateways/about-gateways/gateway-functions",
+      "url": "http://127.0.0.1:3000/gateways/about-gateways/gateway-functions",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/about-gateways/gateway-architecture",
-      "url": "http://127.0.0.1:3000/04_gateways/about-gateways/gateway-architecture",
+      "pagePath": "v2/gateways/about-gateways/gateway-architecture",
+      "url": "http://127.0.0.1:3000/gateways/about-gateways/gateway-architecture",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/about-gateways/gateway-economics",
-      "url": "http://127.0.0.1:3000/04_gateways/about-gateways/gateway-economics",
+      "pagePath": "v2/gateways/about-gateways/gateway-economics",
+      "url": "http://127.0.0.1:3000/gateways/about-gateways/gateway-economics",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

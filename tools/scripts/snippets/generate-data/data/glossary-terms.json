@@ -107,7 +107,7 @@
           "occurrences": 15
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 15
         },
         {
@@ -299,7 +299,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 7
         },
         {
@@ -1007,11 +1007,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-architecture.mdx",
+          "path": "v2/gateways/about-gateways/gateway-architecture.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/overview.mdx",
+          "path": "v2/gateways/about-gateways/overview.mdx",
           "occurrences": 2
         },
         {
@@ -1223,7 +1223,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 1
         },
         {
@@ -1352,7 +1352,7 @@
           "occurrences": 15
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 14
         },
         {
@@ -1384,7 +1384,7 @@
           "occurrences": 11
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 11
         },
         {
@@ -1644,11 +1644,11 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-architecture.mdx",
+          "path": "v2/gateways/about-gateways/gateway-architecture.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/overview.mdx",
+          "path": "v2/gateways/about-gateways/overview.mdx",
           "occurrences": 3
         },
         {
@@ -1712,7 +1712,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 2
         },
         {
@@ -2113,7 +2113,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 2
         },
         {
@@ -2189,15 +2189,15 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-architecture.mdx",
+          "path": "v2/gateways/about-gateways/gateway-architecture.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 1
         },
         {
@@ -2578,7 +2578,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 2
         },
         {
@@ -2814,11 +2814,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 1
         },
         {
@@ -3243,7 +3243,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
@@ -3360,7 +3360,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 5
         },
         {
@@ -3516,7 +3516,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 2
         },
         {
@@ -3624,11 +3624,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-architecture.mdx",
+          "path": "v2/gateways/about-gateways/gateway-architecture.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
@@ -3713,7 +3713,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 8
         },
         {
@@ -3773,7 +3773,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 4
         },
         {
@@ -3837,7 +3837,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 3
         },
         {
@@ -4727,15 +4727,15 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 1
         },
         {
@@ -4816,7 +4816,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 7
         },
         {
@@ -4896,7 +4896,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 3
         },
         {
@@ -5105,7 +5105,7 @@
           "occurrences": 16
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 11
         },
         {
@@ -5177,7 +5177,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 4
         },
         {
@@ -5397,7 +5397,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-architecture.mdx",
+          "path": "v2/gateways/about-gateways/gateway-architecture.mdx",
           "occurrences": 1
         },
         {
@@ -5927,7 +5927,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
@@ -6040,7 +6040,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 4
         },
         {
@@ -6072,7 +6072,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 2
         },
         {
@@ -6337,7 +6337,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 3
         },
         {
@@ -6550,11 +6550,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 2
         },
         {
@@ -6687,7 +6687,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 6
         },
         {
@@ -6715,7 +6715,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 3
         },
         {
@@ -6940,7 +6940,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 4
         },
         {
@@ -8069,11 +8069,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 2
         },
         {
@@ -8177,11 +8177,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-architecture.mdx",
+          "path": "v2/gateways/about-gateways/gateway-architecture.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 1
         },
         {
@@ -8458,15 +8458,15 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-architecture.mdx",
+          "path": "v2/gateways/about-gateways/gateway-architecture.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
@@ -8631,7 +8631,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 1
         },
         {
@@ -8924,7 +8924,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 1
         }
       ],
@@ -9883,7 +9883,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 5
         },
         {
@@ -10012,11 +10012,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/overview.mdx",
+          "path": "v2/gateways/about-gateways/overview.mdx",
           "occurrences": 2
         },
         {
@@ -10538,11 +10538,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 1
         },
         {
@@ -10852,7 +10852,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 1
         },
         {
@@ -11138,7 +11138,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
@@ -11730,7 +11730,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 1
         },
         {
@@ -11935,7 +11935,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-architecture.mdx",
+          "path": "v2/gateways/about-gateways/gateway-architecture.mdx",
           "occurrences": 1
         },
         {
@@ -12032,7 +12032,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 1
         },
         {
@@ -12564,7 +12564,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
@@ -12859,7 +12859,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 3
         },
         {
@@ -13109,7 +13109,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 4
         },
         {
@@ -13121,7 +13121,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 3
         },
         {
@@ -13205,7 +13205,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-architecture.mdx",
+          "path": "v2/gateways/about-gateways/gateway-architecture.mdx",
           "occurrences": 1
         },
         {
@@ -13415,7 +13415,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 2
         },
         {
@@ -13492,7 +13492,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 5
         },
         {
@@ -13576,7 +13576,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 1
         },
         {
@@ -13641,7 +13641,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
@@ -13936,7 +13936,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 1
         },
         {
@@ -14045,7 +14045,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 1
         },
         {
@@ -14098,7 +14098,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 2
         },
         {
@@ -15986,7 +15986,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
@@ -16076,7 +16076,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-architecture.mdx",
+          "path": "v2/gateways/about-gateways/gateway-architecture.mdx",
           "occurrences": 1
         }
       ],
@@ -16531,7 +16531,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
@@ -16852,7 +16852,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
@@ -17251,7 +17251,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
@@ -17530,7 +17530,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
@@ -17597,7 +17597,7 @@
       "category": "Web3 / Blockchain",
       "pages": [
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
@@ -17651,7 +17651,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {

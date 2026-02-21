@@ -2388,8 +2388,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/about-gateways/gateway-architecture.mdx",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-architecture.mdx",
+      "rawPath": "gateways/about-gateways/gateway-architecture.mdx",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-architecture.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2397,8 +2397,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/about-gateways/gateway-economics.mdx",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+      "rawPath": "gateways/about-gateways/gateway-economics.mdx",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-economics.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2406,8 +2406,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/about-gateways/gateway-explainer.mdx",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+      "rawPath": "gateways/about-gateways/gateway-explainer.mdx",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-explainer.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2415,8 +2415,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/about-gateways/gateway-functions.mdx",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+      "rawPath": "gateways/about-gateways/gateway-functions.mdx",
+      "resolvedPath": "v2/gateways/about-gateways/gateway-functions.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2424,8 +2424,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/about-gateways/overview.mdx",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/overview.mdx",
+      "rawPath": "gateways/about-gateways/overview.mdx",
+      "resolvedPath": "v2/gateways/about-gateways/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2433,8 +2433,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/about-gateways/quickstart-home.mdx",
-      "resolvedPath": "v2/pages/04_gateways/about-gateways/quickstart-home.mdx",
+      "rawPath": "gateways/about-gateways/quickstart-home.mdx",
+      "resolvedPath": "v2/gateways/about-gateways/quickstart-home.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

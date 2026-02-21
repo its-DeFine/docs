@@ -2460,10 +2460,10 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/pages/04_gateways/gateways-portal",
-                          "v2/pages/04_gateways/about-gateways/gateway-explainer",
-                          "v2/pages/04_gateways/about-gateways/gateway-functions",
-                          "v2/pages/04_gateways/about-gateways/gateway-architecture",
-                          "v2/pages/04_gateways/about-gateways/gateway-economics"
+                          "v2/gateways/about-gateways/gateway-explainer",
+                          "v2/gateways/about-gateways/gateway-functions",
+                          "v2/gateways/about-gateways/gateway-architecture",
+                          "v2/gateways/about-gateways/gateway-economics"
                         ]
                       },
                       {
