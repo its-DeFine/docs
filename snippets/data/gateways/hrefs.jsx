@@ -517,7 +517,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./guides-and-resources/community-guides",
-      "resolvedPath": "v2/pages/04_gateways/guides-and-resources/community-guides.mdx",
+      "resolvedPath": "v2/gateways/guides-and-resources/community-guides.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -577,7 +577,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/04_gateways/guides-and-resources/community-guides.mdx": [
+  "v2/gateways/guides-and-resources/community-guides.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -588,7 +588,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/04_gateways/guides-and-resources/community-projects.mdx": [
+  "v2/gateways/guides-and-resources/community-projects.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -599,7 +599,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/04_gateways/guides-and-resources/faq.mdx": [
+  "v2/gateways/guides-and-resources/faq.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -745,7 +745,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/04_gateways/guides-and-resources/gateway-job-pipelines/byoc.mdx": [
+  "v2/gateways/guides-and-resources/gateway-job-pipelines/byoc.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -756,7 +756,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/04_gateways/guides-and-resources/page-2.mdx": [],
+  "v2/gateways/guides-and-resources/page-2.mdx": [],
   "v2/pages/04_gateways/references/api-reference/AI-API/ai.mdx": [
     {
       "sourceType": "jsx-attr",
@@ -4909,7 +4909,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../guides-and-resources/community-projects",
-      "resolvedPath": "v2/pages/04_gateways/guides-and-resources/community-projects.mdx",
+      "resolvedPath": "v2/gateways/guides-and-resources/community-projects.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

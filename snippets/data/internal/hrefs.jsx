@@ -1692,8 +1692,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/guides-and-resources/community-guides",
-      "resolvedPath": "v2/pages/04_gateways/guides-and-resources/community-guides.mdx",
+      "rawPath": "/v2/gateways/guides-and-resources/community-guides",
+      "resolvedPath": "v2/gateways/guides-and-resources/community-guides.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1701,8 +1701,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/guides-and-resources/community-projects",
-      "resolvedPath": "v2/pages/04_gateways/guides-and-resources/community-projects.mdx",
+      "rawPath": "/v2/gateways/guides-and-resources/community-projects",
+      "resolvedPath": "v2/gateways/guides-and-resources/community-projects.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1710,8 +1710,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/guides-and-resources/faq",
-      "resolvedPath": "v2/pages/04_gateways/guides-and-resources/faq.mdx",
+      "rawPath": "/v2/gateways/guides-and-resources/faq",
+      "resolvedPath": "v2/gateways/guides-and-resources/faq.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3620,8 +3620,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/guides-and-resources/community-guides",
-      "resolvedPath": "v2/pages/04_gateways/guides-and-resources/community-guides.mdx",
+      "rawPath": "/v2/gateways/guides-and-resources/community-guides",
+      "resolvedPath": "v2/gateways/guides-and-resources/community-guides.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3629,8 +3629,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/guides-and-resources/community-projects",
-      "resolvedPath": "v2/pages/04_gateways/guides-and-resources/community-projects.mdx",
+      "rawPath": "/v2/gateways/guides-and-resources/community-projects",
+      "resolvedPath": "v2/gateways/guides-and-resources/community-projects.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3638,8 +3638,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/guides-and-resources/faq",
-      "resolvedPath": "v2/pages/04_gateways/guides-and-resources/faq.mdx",
+      "rawPath": "/v2/gateways/guides-and-resources/faq",
+      "resolvedPath": "v2/gateways/guides-and-resources/faq.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

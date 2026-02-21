@@ -2469,8 +2469,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/guides-and-resources/community-guides.mdx",
-      "resolvedPath": "v2/pages/04_gateways/guides-and-resources/community-guides.mdx",
+      "rawPath": "gateways/guides-and-resources/community-guides.mdx",
+      "resolvedPath": "v2/gateways/guides-and-resources/community-guides.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2478,8 +2478,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/guides-and-resources/community-projects.mdx",
-      "resolvedPath": "v2/pages/04_gateways/guides-and-resources/community-projects.mdx",
+      "rawPath": "gateways/guides-and-resources/community-projects.mdx",
+      "resolvedPath": "v2/gateways/guides-and-resources/community-projects.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2487,8 +2487,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/guides-and-resources/faq.mdx",
-      "resolvedPath": "v2/pages/04_gateways/guides-and-resources/faq.mdx",
+      "rawPath": "gateways/guides-and-resources/faq.mdx",
+      "resolvedPath": "v2/gateways/guides-and-resources/faq.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2496,8 +2496,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/guides-and-resources/page-2.mdx",
-      "resolvedPath": "v2/pages/04_gateways/guides-and-resources/page-2.mdx",
+      "rawPath": "gateways/guides-and-resources/page-2.mdx",
+      "resolvedPath": "v2/gateways/guides-and-resources/page-2.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2505,8 +2505,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/guides-and-resources/gateway-job-pipelines/byoc.mdx",
-      "resolvedPath": "v2/pages/04_gateways/guides-and-resources/gateway-job-pipelines/byoc.mdx",
+      "rawPath": "gateways/guides-and-resources/gateway-job-pipelines/byoc.mdx",
+      "resolvedPath": "v2/gateways/guides-and-resources/gateway-job-pipelines/byoc.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

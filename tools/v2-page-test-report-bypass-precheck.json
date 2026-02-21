@@ -1166,24 +1166,24 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/guides-and-resources/community-guides",
-      "url": "http://127.0.0.1:3000/04_gateways/guides-and-resources/community-guides",
+      "pagePath": "v2/gateways/guides-and-resources/community-guides",
+      "url": "http://127.0.0.1:3000/gateways/guides-and-resources/community-guides",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/guides-and-resources/community-projects",
-      "url": "http://127.0.0.1:3000/04_gateways/guides-and-resources/community-projects",
+      "pagePath": "v2/gateways/guides-and-resources/community-projects",
+      "url": "http://127.0.0.1:3000/gateways/guides-and-resources/community-projects",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/guides-and-resources/faq",
-      "url": "http://127.0.0.1:3000/04_gateways/guides-and-resources/faq",
+      "pagePath": "v2/gateways/guides-and-resources/faq",
+      "url": "http://127.0.0.1:3000/gateways/guides-and-resources/faq",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
