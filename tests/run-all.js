@@ -30,9 +30,11 @@
 
 const styleGuideTests = require('./unit/style-guide.test');
 const mdxTests = require('./unit/mdx.test');
+const mdxGuardsTests = require('./unit/mdx-guards.test');
 const spellingTests = require('./unit/spelling.test');
 const qualityTests = require('./unit/quality.test');
 const linksImportsTests = require('./unit/links-imports.test');
+const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const pagesIndexGenerator = require('../tools/scripts/generate-pages-index');
 const browserTests = require('./integration/browser.test');
@@ -65,6 +67,13 @@ async function runAllTests() {
   totalErrors += mdxResult.errors.length;
   totalWarnings += mdxResult.warnings.length;
   console.log(`   ${mdxResult.errors.length} errors, ${mdxResult.warnings.length} warnings`);
+
+  // MDX Guardrails
+  console.log('\n🛡️  Running MDX Guardrail Tests...');
+  const mdxGuardsResult = mdxGuardsTests.runTests();
+  totalErrors += mdxGuardsResult.errors.length;
+  totalWarnings += mdxGuardsResult.warnings.length;
+  console.log(`   ${mdxGuardsResult.errors.length} errors, ${mdxGuardsResult.warnings.length} warnings`);
   
   // Spelling Tests
   console.log('\n🔤 Running Spelling Tests...');
@@ -86,6 +95,13 @@ async function runAllTests() {
   totalErrors += linksResult.errors.length;
   totalWarnings += linksResult.warnings.length;
   console.log(`   ${linksResult.errors.length} errors, ${linksResult.warnings.length} warnings`);
+
+  // Docs Navigation Validation
+  console.log('\n🧭 Running Docs Navigation Validation...');
+  const docsNavigationResult = docsNavigationTests.runTests();
+  totalErrors += docsNavigationResult.errors.length;
+  totalWarnings += docsNavigationResult.warnings.length;
+  console.log(`   ${docsNavigationResult.errors.length} errors, ${docsNavigationResult.warnings.length} warnings`);
 
   // Script Docs Enforcement
   console.log('\n🧾 Running Script Documentation Enforcement...');

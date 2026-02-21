@@ -526,7 +526,7 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["ai/contributors/coming-soon"]
+                            "pages": ["v1/ai/contributors/coming-soon"]
                           },
                           {
                             "group": "SDKs",
@@ -1011,7 +1011,7 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["ai/contributors/coming-soon"]
+                            "pages": ["v1/ai/contributors/coming-soon"]
                           },
                           {
                             "group": "SDKs",
@@ -1509,7 +1509,7 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["ai/contributors/coming-soon"]
+                            "pages": ["v1/ai/contributors/coming-soon"]
                           },
                           {
                             "group": "SDKs",
@@ -1999,7 +1999,7 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["ai/contributors/coming-soon"]
+                            "pages": ["v1/ai/contributors/coming-soon"]
                           },
                           {
                             "group": "SDKs",
@@ -2109,7 +2109,7 @@
                   {
                     "anchor": "Get Started!",
                     "icon": "play",
-                    "pages": ["v2/pages/03_developers/building-on-livepeer/"]
+                    "pages": ["v2/pages/03_developers/building-on-livepeer/index"]
                   },
                   {
                     "anchor": "Resource HUB",
@@ -2119,7 +2119,7 @@
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "href": " "
                   }
                 ]
               },
@@ -2187,7 +2187,7 @@
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "href": " "
                   }
                 ]
               },
@@ -2329,7 +2329,7 @@
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "href": " "
                   }
                 ]
               },
@@ -2359,7 +2359,7 @@
                             "group": "Real-time Video",
                             "pages": [
                               "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai",
-                              "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx"
+                              "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README"
                             ]
                           },
                           {
@@ -2500,7 +2500,7 @@
                             "icon": "fast-forward",
                             "pages": [
                               "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway",
-                              "v2/pages/04_gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway.mdx"
+                              "v2/pages/04_gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
                             ]
                           },
                           {
@@ -2646,7 +2646,7 @@
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "href": " "
                   }
                 ]
               },
@@ -2782,7 +2782,7 @@
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "href": " "
                   }
                 ]
               },
@@ -2849,7 +2849,7 @@
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "href": " "
                   }
                 ]
               },
@@ -2916,7 +2916,7 @@
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "href": " "
                   }
                 ]
               },
@@ -3012,7 +3012,7 @@
                         "pages": [
                           {
                             "group": "Protocol References",
-                            "pages": [" "]
+                            "href": " "
                           }
                         ]
                       },
@@ -3053,19 +3053,19 @@
                       },
                       {
                         "group": "Delegating LPT",
-                        "pages": [" "]
+                        "href": " "
                       },
                       {
                         "group": "Livepeer Governance",
-                        "pages": [" "]
+                        "href": " "
                       },
                       {
                         "group": "Livepeer Treasury",
-                        "pages": [" "]
+                        "href": " "
                       },
                       {
                         "group": "Token Resources",
-                        "pages": [" "]
+                        "href": " "
                       }
                     ]
                   },

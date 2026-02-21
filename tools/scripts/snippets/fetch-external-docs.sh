@@ -26,7 +26,7 @@
 # Run this before building the docs to ensure external content is up-to-date
 # Sanitizes markdown to be MDX-compatible
 
-set -e
+set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_FILE="$SCRIPT_DIR/paths.config.json"
@@ -81,27 +81,61 @@ sanitize_for_mdx() {
   '
 }
 
+fetch_external_doc() {
+  local label="$1"
+  local url="$2"
+  local output_file="$3"
+  local temp_file
+  temp_file="$(mktemp)"
+
+  echo "  → Fetching ${label}..."
+
+  if ! curl --fail --silent --show-error --location --retry 3 --retry-delay 2 --retry-connrefused "$url" \
+    | sanitize_for_mdx > "$temp_file"; then
+    echo "Error: failed to fetch ${label} from ${url}" >&2
+    rm -f "$temp_file"
+    exit 1
+  fi
+
+  if [ ! -s "$temp_file" ]; then
+    echo "Error: fetched content for ${label} is empty (${url})" >&2
+    rm -f "$temp_file"
+    exit 1
+  fi
+
+  mv "$temp_file" "$output_file"
+}
+
 echo "Fetching external documentation..."
 
 # Fetch Livepeer Wiki README
-echo "  → Fetching livepeer/wiki README.md..."
-curl -sL "https://raw.githubusercontent.com/livepeer/wiki/master/README.md" | sanitize_for_mdx > "$EXTERNAL_DIR/wiki-readme.mdx"
+fetch_external_doc \
+  "livepeer/wiki README.md" \
+  "https://raw.githubusercontent.com/livepeer/wiki/master/README.md" \
+  "$EXTERNAL_DIR/wiki-readme.mdx"
 
 # Fetch Awesome Livepeer README
-echo "  → Fetching livepeer/awesome-livepeer README.md..."
-curl -sL "https://raw.githubusercontent.com/livepeer/awesome-livepeer/master/README.md" | sanitize_for_mdx > "$EXTERNAL_DIR/awesome-livepeer-readme.mdx"
+fetch_external_doc \
+  "livepeer/awesome-livepeer README.md" \
+  "https://raw.githubusercontent.com/livepeer/awesome-livepeer/master/README.md" \
+  "$EXTERNAL_DIR/awesome-livepeer-readme.mdx"
 
 # Fetch Livepeer Whitepaper
-echo "  → Fetching livepeer/wiki WHITEPAPER.md..."
-curl -sL "https://raw.githubusercontent.com/livepeer/wiki/master/WHITEPAPER.md" | sanitize_for_mdx > "$EXTERNAL_DIR/whitepaper.mdx"
+fetch_external_doc \
+  "livepeer/wiki WHITEPAPER.md" \
+  "https://raw.githubusercontent.com/livepeer/wiki/master/WHITEPAPER.md" \
+  "$EXTERNAL_DIR/whitepaper.mdx"
 
 # Fetch GWID Gateway README
-echo "  → Fetching videoDAC/livepeer-gateway README.md..."
-curl -sL "https://raw.githubusercontent.com/videoDAC/livepeer-gateway/master/README.md" | sanitize_for_mdx > "$EXTERNAL_DIR/gwid-readme.mdx"
+fetch_external_doc \
+  "videoDAC/livepeer-gateway README.md" \
+  "https://raw.githubusercontent.com/videoDAC/livepeer-gateway/master/README.md" \
+  "$EXTERNAL_DIR/gwid-readme.mdx"
 
 # Fetch go-livepeer box.md (full file)
-echo "  → Fetching livepeer/go-livepeer box/box.md..."
-curl -sL "https://raw.githubusercontent.com/livepeer/go-livepeer/master/box/box.md" | sanitize_for_mdx > "$EXTERNAL_DIR/box-additional-config.mdx"
+fetch_external_doc \
+  "livepeer/go-livepeer box/box.md" \
+  "https://raw.githubusercontent.com/livepeer/go-livepeer/master/box/box.md" \
+  "$EXTERNAL_DIR/box-additional-config.mdx"
 
 echo "✓ External docs fetched successfully to $EXTERNAL_DIR"
-

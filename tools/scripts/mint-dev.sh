@@ -53,4 +53,7 @@ if ! command -v mint >/dev/null 2>&1; then
     exit 1
 fi
 
+echo "Fetching external snippets..."
+bash tools/scripts/snippets/fetch-external-docs.sh
+
 exec mint dev "$@"

@@ -389,7 +389,10 @@ discover_group_scripts() {
     fi
 
     while IFS= read -r abs; do
-        local rel="${abs#$REPO_ROOT/}"
+        local rel="$abs"
+        if [[ "$abs" == "$REPO_ROOT/"* ]]; then
+            rel="${abs:${#REPO_ROOT}+1}"
+        fi
         if is_builtin_excluded "$rel"; then
             continue
         fi

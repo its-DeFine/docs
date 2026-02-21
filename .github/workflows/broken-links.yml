@@ -19,6 +19,7 @@ jobs:
             .mintignore
             v2/pages
             snippets
+            tools/scripts/snippets
           sparse-checkout-cone-mode: false
           fetch-depth: 0
 
@@ -29,6 +30,9 @@ jobs:
 
       - name: Install Mintlify globally
         run: npm install -g mintlify
+
+      - name: Fetch external snippets
+        run: bash tools/scripts/snippets/fetch-external-docs.sh
 
       - name: Run broken-links check
         continue-on-error: true

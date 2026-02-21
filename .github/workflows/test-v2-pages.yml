@@ -41,6 +41,9 @@ jobs:
       - name: Install jq (for JSON parsing)
         run: sudo apt-get update && sudo apt-get install -y jq
 
+      - name: Fetch external snippets
+        run: bash tools/scripts/snippets/fetch-external-docs.sh
+
       - name: Start Mintlify dev server
         run: |
           npx mintlify dev > /tmp/mint-dev.log 2>&1 &

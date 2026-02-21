@@ -24,6 +24,13 @@
  * @exit-codes
  *   0 = success
  *   1 = validation failure in strict mode or runtime error
+ *
+ * @examples
+ *   node tests/integration/v2-link-audit.js --full --write-links --strict
+ *   node tests/integration/v2-link-audit.js --files v2/pages/04_gateways/index.mdx --strict
+ *
+ * @notes
+ *   External URLs are classified-only in this phase and not fetched; use --report to write output to a stable path.
  */
 
 const fs = require('fs');

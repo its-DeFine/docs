@@ -4,7 +4,7 @@ title: 'Linu/MacOS Off-Chain Gateway Quickstart TAB VIEW'
 {/* Needs to be further destructured */}
 {/* Imports only used in this file should be here */}
 {/* STRIKE THAT - THEY MUST BE IMPORTED IN THE ROOT PAGE - BLOODY MINTLIFY */}
-import { latestVersion as version, latestVersionUrl } from '/snippets/automations/globals/globals.mdx';
+import { latestVersion, latestVersionUrl } from '/snippets/automations/globals/globals.mdx';
 import { LINUX_CODE } from '/snippets/data/gateways/linux/code.jsx';
 
 <Tab title="Off-Chain Gateway" icon="floppy-disk">
@@ -12,11 +12,11 @@ import { LINUX_CODE } from '/snippets/data/gateways/linux/code.jsx';
     <Steps titleSize="h3">
         <Step title="Install Gateway Software">
         {/* <Badge color="green"><LatestVersion version={latestVersion} /></Badge> */}
-        <span style={{fontSize: '1.0rem'}}> *Latest* <a href={latestVersionUrl}>go-livepeer</a> *version:* <Badge color="green"><span>{version}</span></Badge> </span>
+        <span style={{fontSize: '1.0rem'}}> *Latest* <a href={latestVersionUrl}>go-livepeer</a> *version:* <Badge color="green"><span>{latestVersion}</span></Badge> </span>
          <br/>
          <CustomCodeBlock
           {...LINUX_CODE.downloadBinary}
-          placeholderValue={version}
+          placeholderValue={latestVersion}
         />
         <CustomCodeBlock
           {...LINUX_CODE.extractBinary}

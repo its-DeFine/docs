@@ -32,9 +32,11 @@ const { execSync, spawnSync } = require('child_process');
 
 const styleGuideTests = require('./unit/style-guide.test');
 const mdxTests = require('./unit/mdx.test');
+const mdxGuardsTests = require('./unit/mdx-guards.test');
 const spellingTests = require('./unit/spelling.test');
 const qualityTests = require('./unit/quality.test');
 const linksImportsTests = require('./unit/links-imports.test');
+const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 
 const REPO_ROOT = getRepoRoot();
@@ -191,6 +193,17 @@ function runLinkAuditCheck(files) {
   };
 }
 
+function runGlobalCheck(label, fn) {
+  const result = fn();
+  return {
+    label,
+    status: result.passed ? 'passed' : 'failed',
+    files: result.total || 1,
+    errors: Array.isArray(result.errors) ? result.errors.length : 0,
+    warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const changedFiles = getChangedFiles(args.baseRef);
@@ -209,6 +222,8 @@ async function main() {
   checks.push(await runUnitCheck('Spelling', groups.docsMdxAbs, spellingTests.runTests));
   checks.push(await runUnitCheck('Quality', groups.docsMdxAbs, qualityTests.runTests));
   checks.push(await runUnitCheck('Links & Imports', groups.docsMdxAbs, linksImportsTests.runTests));
+  checks.push(runGlobalCheck('MDX Guardrails', mdxGuardsTests.runTests));
+  checks.push(runGlobalCheck('Docs Navigation', docsNavigationTests.runTests));
   checks.push(runScriptDocsCheck(groups.scriptFiles));
   checks.push(runLinkAuditCheck(groups.docsMdx));
 

@@ -16,7 +16,7 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
 
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { CustomCodeBlock } from '/snippets/components/content/code.jsx'
-import { latestVersion as version} from '/snippets/automations/globals/globals.jsx'
+import { latestVersion } from '/snippets/automations/globals/globals.mdx'
 
 <Warning>
   This content is referenced from the [current docs windows install
@@ -27,7 +27,7 @@ import { latestVersion as version} from '/snippets/automations/globals/globals.j
 <Badge color="blue"> Video Only </Badge>
 <Icon icon="windows" />
 
-Latest go-livepeer version: <Badge color="green">{version}</Badge> (dynamically fetched)
+Latest go-livepeer version: <Badge color="green">{latestVersion}</Badge> (dynamically fetched)
 
 This guide covers installing the Livepeer Gateway from source binary on Windows.
 
@@ -57,7 +57,7 @@ This guide covers installing the Livepeer Gateway from source binary on Windows.
   ## Download and unzip the Livepeer binary
   <CustomCodeBlock
     codeString="https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-windows-amd64.zip"
-    placeholderValue={version}
+    placeholderValue={latestVersion}
     language="bash"
     icon="terminal"
   />

@@ -51,8 +51,16 @@ jobs:
           GITHUB_BASE_REF: ${{ github.base_ref }}
         run: npm --prefix tests run test:pr
 
+      - name: Run Docs-Guide SoT Check (Advisory)
+        id: docs-guide-sot
+        continue-on-error: true
+        run: npm --prefix tests run test:docs-guide
+
       - name: Install Mintlify globally
         run: npm install -g mintlify
+
+      - name: Fetch external snippets
+        run: bash tools/scripts/snippets/fetch-external-docs.sh
 
       - name: Start Mintlify dev server
         continue-on-error: false
@@ -103,6 +111,7 @@ jobs:
           echo "| Test | Status |" >> $GITHUB_STEP_SUMMARY
           echo "|------|--------|" >> $GITHUB_STEP_SUMMARY
           echo "| PR Changed-File Checks | ${{ github.event_name == 'pull_request' && (steps.pr-checks.outcome == 'success' && '✅' || '❌') || '⏭️' }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Docs-Guide SoT (Advisory) | ${{ steps.docs-guide-sot.outcome == 'success' && '✅' || '⚠️' }} |" >> $GITHUB_STEP_SUMMARY
           echo "| Browser | ${{ steps.browser-test.outcome == 'success' && '✅' || '❌' }} |" >> $GITHUB_STEP_SUMMARY
           if [ "${{ github.event_name }}" = "pull_request" ] && [ "${{ steps.pr-checks.outcome }}" = "failure" ] && [ "${{ github.head_ref }}" = "docs-v2" ] && [ "${{ github.base_ref }}" = "main" ]; then
             echo "" >> $GITHUB_STEP_SUMMARY
