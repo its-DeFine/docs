@@ -615,7 +615,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-contribute/build-livepeer.mdx": [
+  "v2/community/livepeer-contribute/build-livepeer.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -626,7 +626,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-contribute/contribute.mdx": [
+  "v2/community/livepeer-contribute/contribute.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -637,7 +637,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-contribute/opportunities.mdx": [
+  "v2/community/livepeer-contribute/opportunities.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",

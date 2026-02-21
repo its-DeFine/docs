@@ -1814,24 +1814,24 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/02_community/livepeer-contribute/contribute",
-      "url": "http://127.0.0.1:3000/02_community/livepeer-contribute/contribute",
+      "pagePath": "v2/community/livepeer-contribute/contribute",
+      "url": "http://127.0.0.1:3000/community/livepeer-contribute/contribute",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/02_community/livepeer-contribute/opportunities",
-      "url": "http://127.0.0.1:3000/02_community/livepeer-contribute/opportunities",
+      "pagePath": "v2/community/livepeer-contribute/opportunities",
+      "url": "http://127.0.0.1:3000/community/livepeer-contribute/opportunities",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/02_community/livepeer-contribute/build-livepeer",
-      "url": "http://127.0.0.1:3000/02_community/livepeer-contribute/build-livepeer",
+      "pagePath": "v2/community/livepeer-contribute/build-livepeer",
+      "url": "http://127.0.0.1:3000/community/livepeer-contribute/build-livepeer",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

@@ -1456,8 +1456,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/02_community/livepeer-contribute/contribute",
-      "resolvedPath": "v2/pages/02_community/livepeer-contribute/contribute.mdx",
+      "rawPath": "/community/livepeer-contribute/contribute",
+      "resolvedPath": "v2/community/livepeer-contribute/contribute.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

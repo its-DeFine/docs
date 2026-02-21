@@ -2884,9 +2884,9 @@
                         "group": "Livepeer Contribute",
                         "icon": "door-open",
                         "pages": [
-                          "v2/pages/02_community/livepeer-contribute/contribute",
-                          "v2/pages/02_community/livepeer-contribute/opportunities",
-                          "v2/pages/02_community/livepeer-contribute/build-livepeer"
+                          "v2/community/livepeer-contribute/contribute",
+                          "v2/community/livepeer-contribute/opportunities",
+                          "v2/community/livepeer-contribute/build-livepeer"
                         ]
                       },
                       {

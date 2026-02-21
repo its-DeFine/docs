@@ -2412,8 +2412,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-contribute/contribute",
-      "resolvedPath": "v2/pages/02_community/livepeer-contribute/contribute.mdx",
+      "rawPath": "/v2/community/livepeer-contribute/contribute",
+      "resolvedPath": "v2/community/livepeer-contribute/contribute.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2421,8 +2421,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-contribute/opportunities",
-      "resolvedPath": "v2/pages/02_community/livepeer-contribute/opportunities.mdx",
+      "rawPath": "/v2/community/livepeer-contribute/opportunities",
+      "resolvedPath": "v2/community/livepeer-contribute/opportunities.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2430,8 +2430,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-contribute/build-livepeer",
-      "resolvedPath": "v2/pages/02_community/livepeer-contribute/build-livepeer.mdx",
+      "rawPath": "/v2/community/livepeer-contribute/build-livepeer",
+      "resolvedPath": "v2/community/livepeer-contribute/build-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4106,8 +4106,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-contribute/contribute",
-      "resolvedPath": "v2/pages/02_community/livepeer-contribute/contribute.mdx",
+      "rawPath": "/v2/community/livepeer-contribute/contribute",
+      "resolvedPath": "v2/community/livepeer-contribute/contribute.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4115,8 +4115,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-contribute/opportunities",
-      "resolvedPath": "v2/pages/02_community/livepeer-contribute/opportunities.mdx",
+      "rawPath": "/v2/community/livepeer-contribute/opportunities",
+      "resolvedPath": "v2/community/livepeer-contribute/opportunities.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4124,8 +4124,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-contribute/build-livepeer",
-      "resolvedPath": "v2/pages/02_community/livepeer-contribute/build-livepeer.mdx",
+      "rawPath": "/v2/community/livepeer-contribute/build-livepeer",
+      "resolvedPath": "v2/community/livepeer-contribute/build-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

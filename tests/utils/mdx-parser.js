@@ -108,6 +108,23 @@ function checkUnclosedTags(content) {
       const ch = content[i];
       const prev = content[i - 1];
 
+      // Inside JSX expression braces, only track nested braces.
+      // This avoids treating apostrophes in JSX text (e.g. Livepeer's)
+      // as string delimiters, which can hide the real closing '>'.
+      if (braceDepth > 0) {
+        if (ch === '{') {
+          braceDepth += 1;
+          continue;
+        }
+
+        if (ch === '}') {
+          braceDepth -= 1;
+          continue;
+        }
+
+        continue;
+      }
+
       if (quote) {
         if (ch === quote && prev !== '\\') {
           quote = null;
@@ -122,11 +139,6 @@ function checkUnclosedTags(content) {
 
       if (ch === '{') {
         braceDepth += 1;
-        continue;
-      }
-
-      if (ch === '}' && braceDepth > 0) {
-        braceDepth -= 1;
         continue;
       }
 
