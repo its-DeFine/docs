@@ -299,8 +299,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../06_lptoken/governance/overview",
-      "resolvedPath": "v2/pages/06_lptoken/governance/overview.mdx",
+      "rawPath": "../../lpt/governance/overview",
+      "resolvedPath": "v2/lpt/governance/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

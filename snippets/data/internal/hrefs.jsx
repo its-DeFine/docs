@@ -2277,8 +2277,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/governance/overview",
-      "resolvedPath": "v2/pages/06_lptoken/governance/overview.mdx",
+      "rawPath": "/v2/lpt/governance/overview",
+      "resolvedPath": "v2/lpt/governance/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2286,8 +2286,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/governance/model",
-      "resolvedPath": "v2/pages/06_lptoken/governance/model.mdx",
+      "rawPath": "/v2/lpt/governance/model",
+      "resolvedPath": "v2/lpt/governance/model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2295,8 +2295,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/governance/processes",
-      "resolvedPath": "v2/pages/06_lptoken/governance/processes.mdx",
+      "rawPath": "/v2/lpt/governance/processes",
+      "resolvedPath": "v2/lpt/governance/processes.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3971,8 +3971,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/governance/overview",
-      "resolvedPath": "v2/pages/06_lptoken/governance/overview.mdx",
+      "rawPath": "/v2/lpt/governance/overview",
+      "resolvedPath": "v2/lpt/governance/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3980,8 +3980,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/governance/model",
-      "resolvedPath": "v2/pages/06_lptoken/governance/model.mdx",
+      "rawPath": "/v2/lpt/governance/model",
+      "resolvedPath": "v2/lpt/governance/model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3989,8 +3989,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/governance/processes",
-      "resolvedPath": "v2/pages/06_lptoken/governance/processes.mdx",
+      "rawPath": "/v2/lpt/governance/processes",
+      "resolvedPath": "v2/lpt/governance/processes.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

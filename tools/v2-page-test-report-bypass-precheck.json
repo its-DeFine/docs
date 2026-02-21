@@ -1694,24 +1694,24 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/governance/overview",
-      "url": "http://127.0.0.1:3000/06_lptoken/governance/overview",
+      "pagePath": "v2/lpt/governance/overview",
+      "url": "http://127.0.0.1:3000/lpt/governance/overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/governance/model",
-      "url": "http://127.0.0.1:3000/06_lptoken/governance/model",
+      "pagePath": "v2/lpt/governance/model",
+      "url": "http://127.0.0.1:3000/lpt/governance/model",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/governance/processes",
-      "url": "http://127.0.0.1:3000/06_lptoken/governance/processes",
+      "pagePath": "v2/lpt/governance/processes",
+      "url": "http://127.0.0.1:3000/lpt/governance/processes",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

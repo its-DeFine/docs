@@ -2818,9 +2818,9 @@
                         "group": "Livepeer Governance",
                         "icon": "box-ballot",
                         "pages": [
-                          "v2/pages/06_lptoken/governance/overview",
-                          "v2/pages/06_lptoken/governance/model",
-                          "v2/pages/06_lptoken/governance/processes"
+                          "v2/lpt/governance/overview",
+                          "v2/lpt/governance/model",
+                          "v2/lpt/governance/processes"
                         ]
                       },
                       {

@@ -26,7 +26,7 @@ export const LINK_MAP = {
   "v2/lpt/delegation/delegation-economics.mdx": [],
   "v2/lpt/delegation/delegation-guide.mdx": [],
   "v2/lpt/delegation/overview.mdx": [],
-  "v2/pages/06_lptoken/governance/model.mdx": [
+  "v2/lpt/governance/model.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -55,8 +55,8 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/06_lptoken/governance/overview.mdx": [],
-  "v2/pages/06_lptoken/governance/processes.mdx": [],
+  "v2/lpt/governance/overview.mdx": [],
+  "v2/lpt/governance/processes.mdx": [],
   "v2/pages/06_lptoken/resources/delegator-videos-and-blogs.mdx": [
     {
       "sourceType": "markdown-link",
@@ -1013,7 +1013,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./governance/overview",
-      "resolvedPath": "v2/pages/06_lptoken/governance/overview.mdx",
+      "resolvedPath": "v2/lpt/governance/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1031,7 +1031,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./governance/overview",
-      "resolvedPath": "v2/pages/06_lptoken/governance/overview.mdx",
+      "resolvedPath": "v2/lpt/governance/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
