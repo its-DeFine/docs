@@ -2331,8 +2331,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/resources/exchanges",
-      "resolvedPath": "v2/pages/06_lptoken/resources/exchanges.mdx",
+      "rawPath": "/v2/lpt/resources/exchanges",
+      "resolvedPath": "v2/lpt/resources/exchanges.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2340,8 +2340,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/resources/lpt-eth-usage",
-      "resolvedPath": "v2/pages/06_lptoken/resources/lpt-eth-usage.mdx",
+      "rawPath": "/v2/lpt/resources/lpt-eth-usage",
+      "resolvedPath": "v2/lpt/resources/lpt-eth-usage.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4025,8 +4025,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/resources/exchanges",
-      "resolvedPath": "v2/pages/06_lptoken/resources/exchanges.mdx",
+      "rawPath": "/v2/lpt/resources/exchanges",
+      "resolvedPath": "v2/lpt/resources/exchanges.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4034,8 +4034,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/resources/lpt-eth-usage",
-      "resolvedPath": "v2/pages/06_lptoken/resources/lpt-eth-usage.mdx",
+      "rawPath": "/v2/lpt/resources/lpt-eth-usage",
+      "resolvedPath": "v2/lpt/resources/lpt-eth-usage.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

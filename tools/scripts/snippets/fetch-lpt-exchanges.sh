@@ -48,7 +48,7 @@ else
   if [ -f "$REPO_ROOT/v2/lpt/resources/exchanges.mdx" ]; then
     OUTPUT_FILE="$REPO_ROOT/v2/lpt/resources/exchanges.mdx"
   else
-    OUTPUT_FILE="$REPO_ROOT/v2/pages/06_lptoken/resources/exchanges.mdx"
+    OUTPUT_FILE="$REPO_ROOT/v2/lpt/resources/exchanges.mdx"
   fi
 fi
 

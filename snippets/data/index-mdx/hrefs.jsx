@@ -3648,8 +3648,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/resources/delegator-videos-and-blogs.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/resources/delegator-videos-and-blogs.mdx",
+      "rawPath": "lpt/resources/delegator-videos-and-blogs.mdx",
+      "resolvedPath": "v2/lpt/resources/delegator-videos-and-blogs.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3657,8 +3657,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/resources/exchanges.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/resources/exchanges.mdx",
+      "rawPath": "lpt/resources/exchanges.mdx",
+      "resolvedPath": "v2/lpt/resources/exchanges.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3666,8 +3666,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/resources/lpt-eth-usage.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/resources/lpt-eth-usage.mdx",
+      "rawPath": "lpt/resources/lpt-eth-usage.mdx",
+      "resolvedPath": "v2/lpt/resources/lpt-eth-usage.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

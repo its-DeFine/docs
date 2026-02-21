@@ -1742,16 +1742,16 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/resources/exchanges",
-      "url": "http://127.0.0.1:3000/06_lptoken/resources/exchanges",
+      "pagePath": "v2/lpt/resources/exchanges",
+      "url": "http://127.0.0.1:3000/lpt/resources/exchanges",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/resources/lpt-eth-usage",
-      "url": "http://127.0.0.1:3000/06_lptoken/resources/lpt-eth-usage",
+      "pagePath": "v2/lpt/resources/lpt-eth-usage",
+      "url": "http://127.0.0.1:3000/lpt/resources/lpt-eth-usage",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

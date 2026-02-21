@@ -57,7 +57,7 @@ export const LINK_MAP = {
   ],
   "v2/lpt/governance/overview.mdx": [],
   "v2/lpt/governance/processes.mdx": [],
-  "v2/pages/06_lptoken/resources/delegator-videos-and-blogs.mdx": [
+  "v2/lpt/resources/delegator-videos-and-blogs.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -212,7 +212,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/06_lptoken/resources/exchanges.mdx": [
+  "v2/lpt/resources/exchanges.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -916,7 +916,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/06_lptoken/resources/lpt-eth-usage.mdx": [
+  "v2/lpt/resources/lpt-eth-usage.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",

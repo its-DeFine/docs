@@ -10,7 +10,7 @@
     "docsStatusData": "snippets/docs-status-data.json",
     "v2Pages": "v2/pages",
     "v2Docs": "v2",
-    "lptExchanges": "v2/pages/06_lptoken/resources/exchanges.mdx",
+    "lptExchanges": "v2/lpt/resources/exchanges.mdx",
     "aiWorkerApi": "ai/worker/api"
   }
 }
