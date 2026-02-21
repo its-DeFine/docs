@@ -173,8 +173,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/livepeer-studio",
-      "resolvedPath": "/v2/pages/010_products/products/livepeer-studio",
+      "rawPath": "/v2/platforms/products/livepeer-studio/overview/overview",
+      "resolvedPath": "/v2/platforms/products/livepeer-studio/overview/overview",
       "exists": true,
       "status": "ok-folder-route",
       "movedCandidates": []
@@ -236,8 +236,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../03_developers/builder-opportunities/dev-programs",
-      "resolvedPath": "v2/pages/03_developers/builder-opportunities/dev-programs.mdx",
+      "rawPath": "../../developers/builder-opportunities/dev-programs",
+      "resolvedPath": "v2/developers/builder-opportunities/dev-programs.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1872,8 +1872,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../03_developers/builder-opportunities/dev-programs",
-      "resolvedPath": "v2/pages/03_developers/builder-opportunities/dev-programs.mdx",
+      "rawPath": "../developers/builder-opportunities/dev-programs",
+      "resolvedPath": "v2/developers/builder-opportunities/dev-programs.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

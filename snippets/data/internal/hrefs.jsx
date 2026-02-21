@@ -1260,8 +1260,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/builder-opportunities/dev-programs",
-      "resolvedPath": "v2/pages/03_developers/builder-opportunities/dev-programs.mdx",
+      "rawPath": "/v2/developers/builder-opportunities/dev-programs",
+      "resolvedPath": "v2/developers/builder-opportunities/dev-programs.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1269,8 +1269,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/builder-opportunities/livepeer-rfps",
-      "resolvedPath": "v2/pages/03_developers/builder-opportunities/livepeer-rfps.mdx",
+      "rawPath": "/v2/developers/builder-opportunities/livepeer-rfps",
+      "resolvedPath": "v2/developers/builder-opportunities/livepeer-rfps.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3458,8 +3458,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/builder-opportunities/dev-programs",
-      "resolvedPath": "v2/pages/03_developers/builder-opportunities/dev-programs.mdx",
+      "rawPath": "/v2/developers/builder-opportunities/dev-programs",
+      "resolvedPath": "v2/developers/builder-opportunities/dev-programs.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3467,8 +3467,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/builder-opportunities/livepeer-rfps",
-      "resolvedPath": "v2/pages/03_developers/builder-opportunities/livepeer-rfps.mdx",
+      "rawPath": "/v2/developers/builder-opportunities/livepeer-rfps",
+      "resolvedPath": "v2/developers/builder-opportunities/livepeer-rfps.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

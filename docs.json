@@ -2394,8 +2394,8 @@
                         "group": "Builder Opportunities",
                         "icon": "lightbulb",
                         "pages": [
-                          "v2/pages/03_developers/builder-opportunities/dev-programs",
-                          "v2/pages/03_developers/builder-opportunities/livepeer-rfps"
+                          "v2/developers/builder-opportunities/dev-programs",
+                          "v2/developers/builder-opportunities/livepeer-rfps"
                         ]
                       }
                     ]

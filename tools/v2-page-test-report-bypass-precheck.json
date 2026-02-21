@@ -750,16 +750,16 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/builder-opportunities/dev-programs",
-      "url": "http://127.0.0.1:3000/03_developers/builder-opportunities/dev-programs",
+      "pagePath": "v2/developers/builder-opportunities/dev-programs",
+      "url": "http://127.0.0.1:3000/developers/builder-opportunities/dev-programs",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/builder-opportunities/livepeer-rfps",
-      "url": "http://127.0.0.1:3000/03_developers/builder-opportunities/livepeer-rfps",
+      "pagePath": "v2/developers/builder-opportunities/livepeer-rfps",
+      "url": "http://127.0.0.1:3000/developers/builder-opportunities/livepeer-rfps",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

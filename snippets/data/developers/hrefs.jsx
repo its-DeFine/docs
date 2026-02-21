@@ -690,7 +690,7 @@ export const LINK_MAP = {
   ],
   "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/realtime-ai.mdx": [],
   "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/using-ai-on-livepeer.mdx": [],
-  "v2/pages/03_developers/builder-opportunities/dev-programs.mdx": [
+  "v2/developers/builder-opportunities/dev-programs.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -710,7 +710,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/builder-opportunities/livepeer-rfps.mdx": [
+  "v2/developers/builder-opportunities/livepeer-rfps.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -721,7 +721,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/builder-opportunities/oss-contributions.mdx": [],
+  "v2/developers/builder-opportunities/oss-contributions.mdx": [],
   "v2/pages/03_developers/building-on-livepeer/developer-guide.mdx": [
     {
       "sourceType": "jsx-attr",
@@ -1466,7 +1466,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./builder-opportunities/livepeer-rfps",
-      "resolvedPath": "v2/pages/03_developers/builder-opportunities/livepeer-rfps.mdx",
+      "resolvedPath": "v2/developers/builder-opportunities/livepeer-rfps.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

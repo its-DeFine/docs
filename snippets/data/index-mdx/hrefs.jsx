@@ -1857,8 +1857,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/builder-opportunities/dev-programs.mdx",
-      "resolvedPath": "v2/pages/03_developers/builder-opportunities/dev-programs.mdx",
+      "rawPath": "developers/builder-opportunities/dev-programs.mdx",
+      "resolvedPath": "v2/developers/builder-opportunities/dev-programs.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1866,8 +1866,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/builder-opportunities/livepeer-rfps.mdx",
-      "resolvedPath": "v2/pages/03_developers/builder-opportunities/livepeer-rfps.mdx",
+      "rawPath": "developers/builder-opportunities/livepeer-rfps.mdx",
+      "resolvedPath": "v2/developers/builder-opportunities/livepeer-rfps.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1875,8 +1875,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/builder-opportunities/oss-contributions.mdx",
-      "resolvedPath": "v2/pages/03_developers/builder-opportunities/oss-contributions.mdx",
+      "rawPath": "developers/builder-opportunities/oss-contributions.mdx",
+      "resolvedPath": "v2/developers/builder-opportunities/oss-contributions.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
