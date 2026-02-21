@@ -2928,8 +2928,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/build-options.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/build-options.mdx",
+      "rawPath": "gateways/run-a-gateway/build-options.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/build-options.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2937,8 +2937,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/gateway-operator-opportunities.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/gateway-operator-opportunities.mdx",
+      "rawPath": "gateways/run-a-gateway/gateway-operator-opportunities.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/gateway-operator-opportunities.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2946,8 +2946,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/run-a-gateway.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/run-a-gateway.mdx",
+      "rawPath": "gateways/run-a-gateway/run-a-gateway.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/run-a-gateway.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2955,8 +2955,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/why-run-a-gateway.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/why-run-a-gateway.mdx",
+      "rawPath": "gateways/run-a-gateway/why-run-a-gateway.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/why-run-a-gateway.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2964,8 +2964,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/configure/ai-configuration.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx",
+      "rawPath": "gateways/run-a-gateway/configure/ai-configuration.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/configure/ai-configuration.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2973,8 +2973,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/configure/configuration-overview.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/configure/configuration-overview.mdx",
+      "rawPath": "gateways/run-a-gateway/configure/configuration-overview.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/configure/configuration-overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2982,8 +2982,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/configure/configuration-reference.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/configure/configuration-reference.mdx",
+      "rawPath": "gateways/run-a-gateway/configure/configuration-reference.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/configure/configuration-reference.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2991,8 +2991,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/configure/dual-configuration.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration.mdx",
+      "rawPath": "gateways/run-a-gateway/configure/dual-configuration.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/configure/dual-configuration.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3000,8 +3000,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/configure/dual-docker.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/configure/dual-docker.mdx",
+      "rawPath": "gateways/run-a-gateway/configure/dual-docker.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/configure/dual-docker.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3009,8 +3009,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/configure/pricing-configuration.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration.mdx",
+      "rawPath": "gateways/run-a-gateway/configure/pricing-configuration.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/configure/pricing-configuration.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3018,8 +3018,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/configure/video-configuration-view.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration-view.mdx",
+      "rawPath": "gateways/run-a-gateway/configure/video-configuration-view.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/configure/video-configuration-view.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3027,8 +3027,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/configure/video-configuration.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration.mdx",
+      "rawPath": "gateways/run-a-gateway/configure/video-configuration.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/configure/video-configuration.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3036,8 +3036,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/connect/connect-with-offerings.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/connect/connect-with-offerings.mdx",
+      "rawPath": "gateways/run-a-gateway/connect/connect-with-offerings.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/connect/connect-with-offerings.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3045,8 +3045,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/connect/discover-offerings.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/connect/discover-offerings.mdx",
+      "rawPath": "gateways/run-a-gateway/connect/discover-offerings.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/connect/discover-offerings.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3054,8 +3054,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/connect/lp-marketplace.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/connect/lp-marketplace.mdx",
+      "rawPath": "gateways/run-a-gateway/connect/lp-marketplace.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/connect/lp-marketplace.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3063,8 +3063,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/install/docker-install.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+      "rawPath": "gateways/run-a-gateway/install/docker-install.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/install/docker-install.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3072,8 +3072,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/install/install-overview.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/install/install-overview.mdx",
+      "rawPath": "gateways/run-a-gateway/install/install-overview.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/install/install-overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3081,8 +3081,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/install/linux-install.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/install/linux-install.mdx",
+      "rawPath": "gateways/run-a-gateway/install/linux-install.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/install/linux-install.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3090,8 +3090,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/install/windows-install.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/install/windows-install.mdx",
+      "rawPath": "gateways/run-a-gateway/install/windows-install.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/install/windows-install.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3099,8 +3099,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/monitor/monitor-and-optimise.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/monitor/monitor-and-optimise.mdx",
+      "rawPath": "gateways/run-a-gateway/monitor/monitor-and-optimise.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/monitor/monitor-and-optimise.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3108,8 +3108,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/publish/connect-with-offerings.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/publish/connect-with-offerings.mdx",
+      "rawPath": "gateways/run-a-gateway/publish/connect-with-offerings.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/publish/connect-with-offerings.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3117,8 +3117,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway.mdx",
+      "rawPath": "gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3126,8 +3126,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
+      "rawPath": "gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3135,8 +3135,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/requirements/setup.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+      "rawPath": "gateways/run-a-gateway/requirements/setup.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/requirements/setup.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3144,8 +3144,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/requirements/on-chain%20setup/bridge-lpt-to-arbitrum.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+      "rawPath": "gateways/run-a-gateway/requirements/on-chain%20setup/bridge-lpt-to-arbitrum.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3153,8 +3153,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+      "rawPath": "gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3162,8 +3162,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/requirements/on-chain%20setup/on-chain.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+      "rawPath": "gateways/run-a-gateway/requirements/on-chain%20setup/on-chain.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3171,8 +3171,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/test/playback-content.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/test/playback-content.mdx",
+      "rawPath": "gateways/run-a-gateway/test/playback-content.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/test/playback-content.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3180,8 +3180,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/test/publish-content.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/test/publish-content.mdx",
+      "rawPath": "gateways/run-a-gateway/test/publish-content.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/test/publish-content.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3189,8 +3189,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/test/test-gateway.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/test/test-gateway.mdx",
+      "rawPath": "gateways/run-a-gateway/test/test-gateway.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/test/test-gateway.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3198,8 +3198,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/run-a-gateway/v1/transcoding-options.mdx",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/v1/transcoding-options.mdx",
+      "rawPath": "gateways/run-a-gateway/v1/transcoding-options.mdx",
+      "resolvedPath": "v2/gateways/run-a-gateway/v1/transcoding-options.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

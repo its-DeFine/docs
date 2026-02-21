@@ -894,16 +894,16 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/quickstart-a-gateway",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/quickstart-a-gateway",
+      "pagePath": "v2/gateways/run-a-gateway/quickstart-a-gateway",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/quickstart-a-gateway",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/get-AI-to-setup-the-gateway",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/get-AI-to-setup-the-gateway",
+      "pagePath": "v2/gateways/run-a-gateway/get-AI-to-setup-the-gateway",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/get-AI-to-setup-the-gateway",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
@@ -958,192 +958,192 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/requirements/setup",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/requirements/setup",
+      "pagePath": "v2/gateways/run-a-gateway/requirements/setup",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/requirements/setup",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain",
+      "pagePath": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway",
+      "pagePath": "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/install/install-overview",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/install/install-overview",
+      "pagePath": "v2/gateways/run-a-gateway/install/install-overview",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/install/install-overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/install/docker-install",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/install/docker-install",
+      "pagePath": "v2/gateways/run-a-gateway/install/docker-install",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/install/docker-install",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/install/linux-install",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/install/linux-install",
+      "pagePath": "v2/gateways/run-a-gateway/install/linux-install",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/install/linux-install",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/install/windows-install",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/install/windows-install",
+      "pagePath": "v2/gateways/run-a-gateway/install/windows-install",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/install/windows-install",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/install/community-projects",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/install/community-projects",
+      "pagePath": "v2/gateways/run-a-gateway/install/community-projects",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/install/community-projects",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/configure/configuration-overview",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/configure/configuration-overview",
+      "pagePath": "v2/gateways/run-a-gateway/configure/configuration-overview",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/configure/configuration-overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/configure/video-configuration",
+      "pagePath": "v2/gateways/run-a-gateway/configure/video-configuration",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/configure/video-configuration",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/configure/ai-configuration",
+      "pagePath": "v2/gateways/run-a-gateway/configure/ai-configuration",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/configure/ai-configuration",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/configure/dual-configuration",
+      "pagePath": "v2/gateways/run-a-gateway/configure/dual-configuration",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/configure/dual-configuration",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/configure/pricing-configuration",
+      "pagePath": "v2/gateways/run-a-gateway/configure/pricing-configuration",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/configure/pricing-configuration",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/test/test-gateway",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/test/test-gateway",
+      "pagePath": "v2/gateways/run-a-gateway/test/test-gateway",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/test/test-gateway",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/test/publish-content",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/test/publish-content",
+      "pagePath": "v2/gateways/run-a-gateway/test/publish-content",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/test/publish-content",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/test/playback-content",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/test/playback-content",
+      "pagePath": "v2/gateways/run-a-gateway/test/playback-content",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/test/playback-content",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/connect/lp-marketplace",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/connect/lp-marketplace",
+      "pagePath": "v2/gateways/run-a-gateway/connect/lp-marketplace",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/connect/lp-marketplace",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/connect/discover-offerings",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/connect/discover-offerings",
+      "pagePath": "v2/gateways/run-a-gateway/connect/discover-offerings",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/connect/discover-offerings",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/connect/connect-with-offerings",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/connect/connect-with-offerings",
+      "pagePath": "v2/gateways/run-a-gateway/connect/connect-with-offerings",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/connect/connect-with-offerings",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/monitor/monitor-and-optimise",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/monitor/monitor-and-optimise",
+      "pagePath": "v2/gateways/run-a-gateway/monitor/monitor-and-optimise",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/monitor/monitor-and-optimise",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+      "pagePath": "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway",
+      "pagePath": "v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/why-run-a-gateway",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/why-run-a-gateway",
+      "pagePath": "v2/gateways/run-a-gateway/why-run-a-gateway",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/why-run-a-gateway",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
-      "url": "http://127.0.0.1:3000/04_gateways/run-a-gateway/run-a-gateway",
+      "pagePath": "v2/gateways/run-a-gateway/run-a-gateway",
+      "url": "http://127.0.0.1:3000/gateways/run-a-gateway/run-a-gateway",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

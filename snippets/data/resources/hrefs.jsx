@@ -755,8 +755,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/04_gateways/run-a-gateway/test/publish-content",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/test/publish-content.mdx",
+      "rawPath": "/gateways/run-a-gateway/test/publish-content",
+      "resolvedPath": "v2/gateways/run-a-gateway/test/publish-content.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1555,8 +1555,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/04_gateways/run-a-gateway/run-a-gateway",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/run-a-gateway.mdx",
+      "rawPath": "/gateways/run-a-gateway/run-a-gateway",
+      "resolvedPath": "v2/gateways/run-a-gateway/run-a-gateway.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

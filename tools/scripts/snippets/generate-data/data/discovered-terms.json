@@ -38,7 +38,7 @@
           "occurrences": 32
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "path": "v2/gateways/run-a-gateway/install/docker-install.mdx",
           "occurrences": 29
         },
         {
@@ -75,7 +75,7 @@
           "occurrences": 28
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
           "occurrences": 21
         },
         {
@@ -193,7 +193,7 @@
           "occurrences": 13
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/ai-configuration.mdx",
           "occurrences": 12
         },
         {
@@ -205,11 +205,11 @@
           "occurrences": 10
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
           "occurrences": 9
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
           "occurrences": 9
         },
         {
@@ -274,7 +274,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/test/test-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/test/test-gateway.mdx",
           "occurrences": 6
         }
       ],
@@ -323,7 +323,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 6
         },
         {
@@ -352,11 +352,11 @@
       "pageCount": 42,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
           "occurrences": 19
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
           "occurrences": 11
         },
         {
@@ -372,7 +372,7 @@
           "occurrences": 9
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "path": "v2/gateways/run-a-gateway/install/docker-install.mdx",
           "occurrences": 9
         },
         {
@@ -413,7 +413,7 @@
           "occurrences": 14
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 14
         },
         {
@@ -494,7 +494,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/pricing-configuration.mdx",
           "occurrences": 5
         },
         {
@@ -502,7 +502,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/connect/lp-marketplace.mdx",
+          "path": "v2/gateways/run-a-gateway/connect/lp-marketplace.mdx",
           "occurrences": 4
         }
       ],
@@ -547,15 +547,15 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/pricing-configuration.mdx",
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/video-configuration.mdx",
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 5
         },
         {
@@ -580,11 +580,11 @@
       "pageCount": 45,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
           "occurrences": 19
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
           "occurrences": 11
         },
         {
@@ -844,7 +844,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-docker.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/dual-docker.mdx",
           "occurrences": 3
         }
       ],
@@ -869,7 +869,7 @@
           "occurrences": 20
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
           "occurrences": 9
         },
         {
@@ -877,7 +877,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
           "occurrences": 8
         },
         {
@@ -889,7 +889,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 6
         },
         {
@@ -901,7 +901,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 3
         }
       ],
@@ -1056,7 +1056,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "path": "v2/gateways/run-a-gateway/install/docker-install.mdx",
           "occurrences": 3
         },
         {
@@ -1093,7 +1093,7 @@
       "pageCount": 28,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "path": "v2/gateways/run-a-gateway/install/docker-install.mdx",
           "occurrences": 8
         },
         {
@@ -1101,7 +1101,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 5
         },
         {
@@ -1125,7 +1125,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
           "occurrences": 4
         },
         {
@@ -1187,7 +1187,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/video-configuration.mdx",
           "occurrences": 5
         },
         {
@@ -1195,7 +1195,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration-view.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/video-configuration-view.mdx",
           "occurrences": 4
         },
         {
@@ -1387,11 +1387,11 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/ai-configuration.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/install/linux-install.mdx",
+          "path": "v2/gateways/run-a-gateway/install/linux-install.mdx",
           "occurrences": 3
         },
         {
@@ -1403,15 +1403,15 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/build-options.mdx",
+          "path": "v2/gateways/run-a-gateway/build-options.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-docker.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/dual-docker.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "path": "v2/gateways/run-a-gateway/install/docker-install.mdx",
           "occurrences": 2
         }
       ],
@@ -1603,11 +1603,11 @@
       "pageCount": 15,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
           "occurrences": 22
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 3
         },
         {
@@ -1774,7 +1774,7 @@
       "pageCount": 21,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/pricing-configuration.mdx",
           "occurrences": 6
         },
         {
@@ -1835,7 +1835,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/test/publish-content.mdx",
+          "path": "v2/gateways/run-a-gateway/test/publish-content.mdx",
           "occurrences": 5
         },
         {
@@ -1892,7 +1892,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 3
         },
         {
@@ -2104,7 +2104,7 @@
       "pageCount": 18,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/ai-configuration.mdx",
           "occurrences": 4
         },
         {
@@ -2140,7 +2140,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
           "occurrences": 2
         }
       ],
@@ -2442,7 +2442,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/test/publish-content.mdx",
+          "path": "v2/gateways/run-a-gateway/test/publish-content.mdx",
           "occurrences": 3
         },
         {
@@ -2454,15 +2454,15 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/install/windows-install.mdx",
+          "path": "v2/gateways/run-a-gateway/install/windows-install.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 2
         },
         {
@@ -2658,7 +2658,7 @@
       "pageCount": 11,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/video-configuration.mdx",
           "occurrences": 12
         },
         {
@@ -2666,11 +2666,11 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/v1/transcoding-options.mdx",
+          "path": "v2/gateways/run-a-gateway/v1/transcoding-options.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-docker.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/dual-docker.mdx",
           "occurrences": 2
         },
         {
@@ -2694,7 +2694,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/dual-configuration.mdx",
           "occurrences": 1
         }
       ],
@@ -2751,7 +2751,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/dual-configuration.mdx",
           "occurrences": 1
         }
       ],
@@ -3016,7 +3016,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/dual-configuration.mdx",
           "occurrences": 2
         },
         {
@@ -3273,7 +3273,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 3
         },
         {
@@ -3305,7 +3305,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/ai-configuration.mdx",
           "occurrences": 1
         }
       ],
@@ -3362,7 +3362,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-docker.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/dual-docker.mdx",
           "occurrences": 1
         }
       ],
