@@ -2,8 +2,16 @@
 title: 'Livepeer Overview'
 sidebarTitle: 'Livepeer Overview'
 description: 'An overview of the Livepeer protocol and network.'
-keywords: ["livepeer", "about", "livepeer protocol", "protocol overview", "protocol", "overview"]
-og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+keywords:
+  [
+    'livepeer',
+    'about',
+    'livepeer protocol',
+    'protocol overview',
+    'protocol',
+    'overview',
+  ]
+og:image: '/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg'
 ---
 
 import { QuadGrid } from '/snippets/components/layout/quadGrid.jsx'
@@ -12,7 +20,7 @@ import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 {/* Livepeer is a decentralized infrastructure protocol, nodes including Gateways (formerly broadcasters), Orchestrators, and Transcoders, run the Livepeer network.
 The protocol uses smart contracts deployed on Ethereum Mainnet and Arbitrum Mainnet, with the native token LPT (Livepeer Token). Since the Confluence upgrade, the protocol primarily runs on Arbitrum Mainnet. */}
 
-{/* Use: 
+{/* Use:
 
 ## 1. C4 Model (Structure & Scope Clarity)
 
@@ -20,33 +28,42 @@ Best for: **Making complexity legible**
 
 Created by Simon Brown, C4 forces you to explain a system at 4 zoom levels:
 
-* **Context** – What is the system? Who uses it?
-* **Containers** – Major deployable components (nodes, APIs, services)
-*     -> The Network: Orchestrators, Gateways, Worker Nodes
-* **Components** – Internal modules
-*     -> The Protocol: Pricing logic, job verification, reward distribution 
-* **Code** – (optional deep dive)
+- **Context** – What is the system? Who uses it?
+- **Containers** – Major deployable components (nodes, APIs, services)
+-     -> The Network: Orchestrators, Gateways, Worker Nodes
+- **Components** – Internal modules
+-     -> The Protocol: Pricing logic, job verification, reward distribution
+- **Code** – (optional deep dive)
 
 For something like Livepeer:
 
-* Context → The decentralized video compute protocol
-* Containers → Orchestrators, Broadcasters, Transcoders, Ethereum contracts
-* Components → Pricing logic, job verification, reward distribution */}
+- Context → The decentralized video compute protocol
+- Containers → Orchestrators, Broadcasters, Transcoders, Ethereum contracts
+- Components → Pricing logic, job verification, reward distribution */}
 
-# Overview
+{/* # Overview */}
+
 Livepeer is a full-stack decentralised infrastructure platform and marketplace for video streaming & AI. The video streaming software is underpinned by a network of actors that perform the work needed to compute, transcode & orchestrate video & AI jobs in the Livepeer network.
 
 Open-participation, distributed infrastructure systems like Livepeer aren’t just software systems - they're multi-layered digital ecosystems that require careful design of economic incentives, governance structures, and technical architecture.
 
-<Tip> Livepeer was one of the earliest DePIN (Decentralized Public Infrastructure Network) projects in the blockchain space, a blockchain use case that is only more relevant today as AI reshapes industries and the way we work, collaborate and communicate. </Tip>
+<Tip>
+  {' '}
+  Livepeer was one of the earliest DePIN (Decentralized Public Infrastructure
+  Network) projects in the blockchain space, a blockchain use case that is only
+  more relevant today as AI reshapes industries and the way we work, collaborate
+  and communicate.{' '}
+</Tip>
 
 From a marketplace perspective, Livepeer has:
-- A **demand-side** agent (an app, platform, or operator) which brings video or AI jobs; 
+
+- A **demand-side** agent (an app, platform, or operator) which brings video or AI jobs;
 - A **supply-side** agent (Orchestrators and their GPU capacity, optionally backed by separate worker processes) which performs compute and other work;
 - A **protocol** which provides the governance, payment primitives and reward system to coordinate open participation and make the market viable at scale.
-    {/* // - routing, measurement, and payment primitives to make that market viable at scale.  */}
+  {/* // - routing, measurement, and payment primitives to make that market viable at scale. */}
 
 From a systems engineering perspective, Livepeer has:
+
 - A **hardware layer** of GPU nodes (orchestrators) that perform the compute work
 - A **network layer** of `go-livepeer` nodes that handle job routing, verification and payment;
 - A **software layer** of services built on top of the network layer (e.g. Studio, Daydream, ComfyStream) that provide additional functionality and services to the network.
@@ -58,10 +75,11 @@ See more on the architectural layers in <LinkArrow href="/01_about/core-concepts
 ## Livepeer Protocol
 
 The **Livepeer Protocol** is the underlying on-chain logic that enforces the mechanisms, incentives and rules to ensure the security, reliability, cooperation and coordination of these decentralised actors for the desired network outcomes (video streaming & AI pipelines).
-{/* complemented by off-chain nodes and services.  */}
+{/* complemented by off-chain nodes and services. */}
 The protocol additionally defines the economic mechanisms and governance rules that enforce staking, bonding, slashing, and reward rules on-chain, while off-chain nodes and services handle the actual compute jobs and job routing.
 
-*Protocol Services:*
+_Protocol Services:_
+
 - staking
 - delegation
 - inflation & rewards
@@ -75,6 +93,7 @@ This makes up the economic and coordination layer that incenticises and enforces
 ## Livepeer Network
 
 The network is the actual running system and execution layer - the mesh of hardware and software nodes performing work:
+
 - Orchestrators (GPU nodes)
 - Transcoders / Workers
 - Gateways (aka Broadcasters)
@@ -84,12 +103,13 @@ The network is the actual running system and execution layer - the mesh of hardw
 
 These are the deployable, off-chain, operational actors in the network that are contributing to executing video + AI jobs. These nodes can be run and operated by anyone who wants to participate or contribute their resources to the network.
 
-*Network Services*
+_Network Services_
+
 - Job routing
 - Verification
 - Payment
-- AI inference 
-- Video Transcoding 
+- AI inference
+- Video Transcoding
 - Real-time AI Video Streaming
 
 ## Protocol vs Network
@@ -103,7 +123,11 @@ The network performs the work.
 | **Livepeer Network**  | Off-chain nodes performing real-time work (transcoding, inference, routing).  |
 | **Relationship**      | The network _runs_ the compute; the protocol _governs, secures, and pays_ it. |
 
-<Tip> The protocol determines the rules of the game while the network is the players & participants. </Tip>
+<Tip>
+  {' '}
+  The protocol determines the rules of the game while the network is the players
+  & participants.{' '}
+</Tip>
 
 #### On-chain vs Off-chain
 
@@ -133,6 +157,7 @@ Actors are fundamental to describing how the network functions end-to-end.
     LPT holders who stake to an orchestrator.
 
     **Roles**: Stake LPT, earn rewards, participate in governance and voting
+
   </Card>
   <Card title="Platforms? Workers?" icon="laptop-code" cta="Go to Platforms" href="/03_developers/developer-portal">
     Services built on top of the Livepeer network (not directly part of the network).
@@ -142,10 +167,10 @@ Actors are fundamental to describing how the network functions end-to-end.
 </QuadGrid>
 
 Additionally, actors can also be categorised by the role they play in the network.
+
 - Transcoders: Performs video transcoding operations.
 - AI Workers: Executes AI inference tasks (text-to-image, LLM, video-to-video, etc.)
-{/* - Verification Nodes  ??*/}
-
+  {/* - Verification Nodes  ?? */}
 
 <expandable title="Old notes">
   <Note>INSERT LIVEPEER ACTOR DIAGRAM HERE \[THIS ONE LOOKS OLD (whitpaper)</Note>
@@ -154,125 +179,122 @@ Additionally, actors can also be categorised by the role they play in the networ
     <figcaption></figcaption>
   </figure>
 
-  #### Orchestrators (GPU Nodes)
+#### Orchestrators (GPU Nodes)
 
-  aka: Transcoders / Workers
+aka: Transcoders / Workers
 
-  Who: GPU node that performs transcoding / AI jobs, earns fees + staking rewards.
+Who: GPU node that performs transcoding / AI jobs, earns fees + staking rewards.
 
-  What they do:
+What they do:
 
-  #### Gateways
+#### Gateways
 
-  aka: Broadcasters (deprecated -> Gateway)
+aka: Broadcasters (deprecated -> Gateway)
 
-  Who: Client submitting jobs (video or AI) into the network. The users and builders of the network.
+Who: Client submitting jobs (video or AI) into the network. The users and builders of the network.
 
-  What they do:
+What they do:
 
-  #### Delegators
+#### Delegators
 
-  Who: LPT holder who stakes to an orchestrator.
+Who: LPT holder who stakes to an orchestrator.
 
-  What they do:
+What they do:
 
+### Execution Roles
 
-  ### Execution Roles
     Not techincally "actors" in the network, execution functions are essential services performed by actors.
     These roles include:
     - Transcoders (Video Workers)
     - AI Workers
     - Verification Nodes
 
-  ### Protocol Ruleset (mechanisms)
+### Protocol Ruleset (mechanisms)
 
+### Other
 
-  ### Other
+2. Transcoder (Worker)
 
-  2. Transcoder (Worker)
+Child processes or machines managed by an orchestrator to perform compute.
 
-  Child processes or machines managed by an orchestrator to perform compute.
+4. Delegator
 
+LPT holder who stakes to an orchestrator.
 
-  4. Delegator
+3. Broadcaster (now a behavior, not an actor)
 
-  LPT holder who stakes to an orchestrator.
+In modern Livepeer, which has expanded beyond just video transcoding:
 
-  3. Broadcaster (now a behavior, not an actor)
+A gateway acts as a broadcaster when submitting video
+A service (e.g., Studio) can also be a broadcaster
+The term is no longer treated as a standalone actor
+Broadcaster is no longer considered its own actor - it’s now a function performed by a gateway or service, not a role a user operates.
 
-  In modern Livepeer, which has expanded beyond just video transcoding:
+“Broadcaster” is now just a function gateways perform, not a user-facing or protocol-facing actor
 
-  A gateway acts as a broadcaster when submitting video
-  A service (e.g., Studio) can also be a broadcaster
-  The term is no longer treated as a standalone actor
-  Broadcaster is no longer considered its own actor - it’s now a function performed by a gateway or service, not a role a user operates.
+4. Worker (legacy)
 
-  “Broadcaster” is now just a function gateways perform, not a user-facing or protocol-facing actor
+Workers are still used, but only inside GPU node setups.
 
-  4. Worker (legacy)
+Workers are not protocol actors
 
-  Workers are still used, but only inside GPU node setups.
+They do not appear on-chain
 
-  Workers are not protocol actors
+They are implementation detail for orchestrator/GPU Node setups
 
-  They do not appear on-chain
+5. Delegator (protocol-defined actor)
 
-  They are implementation detail for orchestrator/GPU Node setups
+They stake LPT
 
-  5. Delegator (protocol-defined actor)
+They help secure the network
 
-  They stake LPT
+They share in inflation + orchestrator rewards
 
-  They help secure the network
+Protocol Actors
 
-  They share in inflation + orchestrator rewards
+GPU Node (Orchestrator) — supply-side compute provider
 
-  Protocol Actors
+Delegator — stake from demand side
 
-  GPU Node (Orchestrator) — supply-side compute provider
+## Network / Execution Actors
 
-  Delegator — stake from demand side
+{/* 3. Actor / Role-Based Model (Economic & Governance Clarity)
+Define:
 
-  ## Network / Execution Actors
+Actors (Orchestrators, Delegators, Broadcasters, Token Holders)
 
-  {/* 
-  3. Actor / Role-Based Model (Economic & Governance Clarity)
-  Define:
+Capabilities
 
-  Actors (Orchestrators, Delegators, Broadcasters, Token Holders)
+Risks
 
-  Capabilities
+Revenue sources
 
-  Risks
+Governance rights
 
-  Revenue sources
+This explains:
 
-  Governance rights
+Why LPT exists
 
-  This explains:
+Why ETH is used for jobs
 
-  Why LPT exists
+Why inflation funds security
 
-  Why ETH is used for jobs
+This is critical in crypto systems. */}
 
-  Why inflation funds security
+{/* https://deepwiki.com/livepeer/protocol */}
 
-  This is critical in crypto systems. */}
+Gateway Node — submits and manages jobs (AI/video)
 
-  {/* https://deepwiki.com/livepeer/protocol */}
+Worker — internal compute role (not user-facing)
 
-  Gateway Node — submits and manages jobs (AI/video)
+Behaviors (not actors anymore)
 
-  Worker — internal compute role (not user-facing)
+Broadcaster — any gateway/service sending video or AI jobs
 
-  Behaviors (not actors anymore)
+Transcoder — a type of worker behavior
 
-  Broadcaster — any gateway/service sending video or AI jobs
+---
 
-  Transcoder — a type of worker behavior
-
-  ---
-  <br/>
+<br />
 
 </expandable>
-

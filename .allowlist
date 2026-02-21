@@ -24,6 +24,7 @@ lpd
 .github
 .githooks
 .gitattributes
+.mintlify
 .vscode
 .claude
 docs-guide
