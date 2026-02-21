@@ -537,7 +537,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-connect/events-and-community-streams.mdx": [
+  "v2/community/livepeer-connect/events-and-community-streams.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -593,7 +593,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-connect/forums-and-discussions.mdx": [
+  "v2/community/livepeer-connect/forums-and-discussions.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -604,7 +604,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-connect/news-and-socials.mdx": [
+  "v2/community/livepeer-connect/news-and-socials.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",

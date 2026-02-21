@@ -2875,9 +2875,9 @@
                         "icon": "hashtag",
                         "pages": [
                           "v2/community/livepeer-community/community-guidelines",
-                          "v2/pages/02_community/livepeer-connect/news-and-socials",
-                          "v2/pages/02_community/livepeer-connect/events-and-community-streams",
-                          "v2/pages/02_community/livepeer-connect/forums-and-discussions"
+                          "v2/community/livepeer-connect/news-and-socials",
+                          "v2/community/livepeer-connect/events-and-community-streams",
+                          "v2/community/livepeer-connect/forums-and-discussions"
                         ]
                       },
                       {

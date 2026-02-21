@@ -1790,24 +1790,24 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/02_community/livepeer-connect/news-and-socials",
-      "url": "http://127.0.0.1:3000/02_community/livepeer-connect/news-and-socials",
+      "pagePath": "v2/community/livepeer-connect/news-and-socials",
+      "url": "http://127.0.0.1:3000/community/livepeer-connect/news-and-socials",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/02_community/livepeer-connect/events-and-community-streams",
-      "url": "http://127.0.0.1:3000/02_community/livepeer-connect/events-and-community-streams",
+      "pagePath": "v2/community/livepeer-connect/events-and-community-streams",
+      "url": "http://127.0.0.1:3000/community/livepeer-connect/events-and-community-streams",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/02_community/livepeer-connect/forums-and-discussions",
-      "url": "http://127.0.0.1:3000/02_community/livepeer-connect/forums-and-discussions",
+      "pagePath": "v2/community/livepeer-connect/forums-and-discussions",
+      "url": "http://127.0.0.1:3000/community/livepeer-connect/forums-and-discussions",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

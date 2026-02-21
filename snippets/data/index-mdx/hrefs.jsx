@@ -1623,8 +1623,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/livepeer-connect/events-and-community-streams.mdx",
-      "resolvedPath": "v2/pages/02_community/livepeer-connect/events-and-community-streams.mdx",
+      "rawPath": "community/livepeer-connect/events-and-community-streams.mdx",
+      "resolvedPath": "v2/community/livepeer-connect/events-and-community-streams.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1632,8 +1632,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/livepeer-connect/forums-and-discussions.mdx",
-      "resolvedPath": "v2/pages/02_community/livepeer-connect/forums-and-discussions.mdx",
+      "rawPath": "community/livepeer-connect/forums-and-discussions.mdx",
+      "resolvedPath": "v2/community/livepeer-connect/forums-and-discussions.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1641,8 +1641,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/livepeer-connect/news-and-socials.mdx",
-      "resolvedPath": "v2/pages/02_community/livepeer-connect/news-and-socials.mdx",
+      "rawPath": "community/livepeer-connect/news-and-socials.mdx",
+      "resolvedPath": "v2/community/livepeer-connect/news-and-socials.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
