@@ -648,9 +648,9 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/resources/awesome-livepeer.mdx": [],
-  "v2/pages/02_community/resources/dashboards.mdx": [],
-  "v2/pages/02_community/resources/guides.mdx": []
+  "v2/community/resources/awesome-livepeer.mdx": [],
+  "v2/community/resources/dashboards.mdx": [],
+  "v2/community/resources/guides.mdx": []
 };
 
 export default LINK_MAP;

@@ -1677,8 +1677,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/resources/awesome-livepeer.mdx",
-      "resolvedPath": "v2/pages/02_community/resources/awesome-livepeer.mdx",
+      "rawPath": "community/resources/awesome-livepeer.mdx",
+      "resolvedPath": "v2/community/resources/awesome-livepeer.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1686,8 +1686,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/resources/dashboards.mdx",
-      "resolvedPath": "v2/pages/02_community/resources/dashboards.mdx",
+      "rawPath": "community/resources/dashboards.mdx",
+      "resolvedPath": "v2/community/resources/dashboards.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1695,8 +1695,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/resources/guides.mdx",
-      "resolvedPath": "v2/pages/02_community/resources/guides.mdx",
+      "rawPath": "community/resources/guides.mdx",
+      "resolvedPath": "v2/community/resources/guides.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
