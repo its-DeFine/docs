@@ -792,8 +792,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/livepeer-studio/getting-started/overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/overview.mdx",
+      "rawPath": "/v2/platforms/products/livepeer-studio/getting-started/overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/getting-started/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -810,8 +810,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/livepeer-studio/getting-started/authentication",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/authentication.mdx",
+      "rawPath": "/v2/platforms/products/livepeer-studio/getting-started/authentication",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/getting-started/authentication.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -819,8 +819,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli.mdx",
+      "rawPath": "/v2/platforms/products/livepeer-studio/getting-started/studio-cli",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/getting-started/studio-cli.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2990,8 +2990,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/livepeer-studio/getting-started/overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/overview.mdx",
+      "rawPath": "/v2/platforms/products/livepeer-studio/getting-started/overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/getting-started/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3008,8 +3008,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/livepeer-studio/getting-started/authentication",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/authentication.mdx",
+      "rawPath": "/v2/platforms/products/livepeer-studio/getting-started/authentication",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/getting-started/authentication.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3017,8 +3017,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli.mdx",
+      "rawPath": "/v2/platforms/products/livepeer-studio/getting-started/studio-cli",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/getting-started/studio-cli.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

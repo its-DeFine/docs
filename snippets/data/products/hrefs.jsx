@@ -1019,7 +1019,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../getting-started/authentication",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/authentication.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/getting-started/authentication.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1028,7 +1028,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../getting-started/authentication",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/authentication.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/getting-started/authentication.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1840,7 +1840,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/livepeer-studio/getting-started/authentication.mdx": [
+  "v2/platforms/products/livepeer-studio/getting-started/authentication.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -1851,7 +1851,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/livepeer-studio/getting-started/overview.mdx": [
+  "v2/platforms/products/livepeer-studio/getting-started/overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1901,7 +1901,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./authentication",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/authentication.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/getting-started/authentication.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1916,7 +1916,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli.mdx": [
+  "v2/platforms/products/livepeer-studio/getting-started/studio-cli.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -3158,8 +3158,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/getting-started/studio-cli",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/getting-started/studio-cli",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/getting-started/studio-cli.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

@@ -334,8 +334,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/getting-started/overview",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/getting-started/overview",
+      "pagePath": "v2/platforms/products/livepeer-studio/getting-started/overview",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/getting-started/overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
@@ -350,16 +350,16 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/getting-started/authentication",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/getting-started/authentication",
+      "pagePath": "v2/platforms/products/livepeer-studio/getting-started/authentication",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/getting-started/authentication",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/getting-started/studio-cli",
+      "pagePath": "v2/platforms/products/livepeer-studio/getting-started/studio-cli",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/getting-started/studio-cli",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

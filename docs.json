@@ -2224,10 +2224,10 @@
                           {
                             "group": "Get started",
                             "pages": [
-                              "v2/pages/010_products/products/livepeer-studio/getting-started/overview",
+                              "v2/platforms/products/livepeer-studio/getting-started/overview",
                               "v2/platforms/products/livepeer-studio/overview/quickstart",
-                              "v2/pages/010_products/products/livepeer-studio/getting-started/authentication",
-                              "v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli"
+                              "v2/platforms/products/livepeer-studio/getting-started/authentication",
+                              "v2/platforms/products/livepeer-studio/getting-started/studio-cli"
                             ]
                           },
                           {
