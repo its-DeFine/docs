@@ -1,10 +1,9 @@
 ---
-title: 'Treasury Allocations'
-sidebarTitle: 'Allocations'
-description: 'Allocation design, accounting model, evaluation framework, and verification/audit approach for governance-authorized treasury spending.'
-keywords: ["livepeer", "treasury", "allocations", "governance", "grants", "funding", "accountability"]
-og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+title: Treasury Allocations
+description: Allocation design, accounting model, evaluation framework, and verification/audit approach for governance-authorized treasury spending.
 ---
+
+# Treasury Allocations
 
 ## Executive Summary
 
@@ -195,13 +194,13 @@ flowchart TD
 
 ## 8. Protocol vs Network Separation
 
-**Protocol (On-Chain):**
+Protocol (On-Chain):
 
 - allocation authorization and execution
 - deterministic transfers
 - on-chain audit trail
 
-**Network/Off-Chain:**
+Network/Off-Chain:
 
 - recipient delivery
 - ecosystem impact
@@ -213,5 +212,10 @@ Treasury controls assets on-chain; results depend on off-chain execution.
 
 ## References
 
-- [Livepeer Protocol Repository](https://github.com/livepeer/protocol)
-- [Contract Registry](https://docs.livepeer.org/references/contract-addresses)
+- Livepeer protocol repository: https://github.com/livepeer/protocol
+- Contract registry: https://docs.livepeer.org/references/contract-addresses
+
+---
+
+**Status:** Allocation accounting, evaluation framework, and verification model documented to 2026 authoring standard.
+
