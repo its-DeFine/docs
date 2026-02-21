@@ -253,7 +253,7 @@ See [Component Library](v2/pages/07_resources/documentation-guide/component-libr
 - **Section owners:** Review PRs in their assigned sections (see [CODEOWNERS](.github/CODEOWNERS))
 - **Automated checks:** Broken links, formatting, build verification run automatically
 
-See [CONTRIBUTING.md](contribute/CONTRIBUTING.md) for detailed contribution guidelines and [Documentation Governance](v2/pages/09_internal/governance.mdx) for complete review process, ownership, and SLAs.
+See [CONTRIBUTING.md](contribute/CONTRIBUTING.md) for detailed contribution guidelines and [Documentation Governance](v2/internal/governance.mdx) for complete review process, ownership, and SLAs.
 
 ---
 
@@ -709,7 +709,7 @@ See [tests/WHEN-TESTS-RUN.md](tests/WHEN-TESTS-RUN.md) for complete test documen
 │   │   ├── 06_community/ # Community section
 │   │   ├── 07_resources/  # Resources section
 │   │   ├── 08_products/   # Products section
-│   │   └── 09_internal/   # Internal documentation
+│   │   └── internal/   # Internal documentation
 │   ├── assets/            # V2-specific assets
 │   ├── scripts/           # V2-specific scripts
 │   └── deprecated/        # Deprecated V2 content
@@ -860,7 +860,7 @@ See [`.githooks/BYPASS.md`](.githooks/BYPASS.md) for details.
 
 ### Related Documentation
 
-- **[Documentation Governance](v2/pages/09_internal/governance.mdx)** - Review process, ownership, SLAs, and ticketing system
+- **[Documentation Governance](v2/internal/governance.mdx)** - Review process, ownership, SLAs, and ticketing system
 - **[Migration Plan](tasks/plan/migration-plan.md)** - Detailed migration strategy and task list
 - **[Repository Structure Audit](tasks/PLAN/reports/repository-structure-audit.md)** - Full audit report
 - **[Structure Rules](contribute/STRUCTURE.md)** - Detailed structure rules (when created)

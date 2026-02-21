@@ -30,8 +30,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../../09_internal/governance",
-      "resolvedPath": "v2/pages/09_internal/governance.mdx",
+      "rawPath": "../../internal/governance",
+      "resolvedPath": "v2/internal/governance.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -66,8 +66,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../09_internal/governance",
-      "resolvedPath": "v2/pages/09_internal/governance.mdx",
+      "rawPath": "../../internal/governance",
+      "resolvedPath": "v2/internal/governance.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

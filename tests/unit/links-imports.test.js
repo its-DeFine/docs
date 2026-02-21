@@ -149,9 +149,23 @@ function linkToFilePath(linkPath, currentFile) {
   // Relative path
   const currentDir = path.dirname(currentFile);
   const resolved = path.resolve(currentDir, normalizedLinkPath);
-  
-  // Normalize to relative from root
+
+  // If this resolves into v2/pages/<domain>/..., remap to v2/<domain>/...
+  // for migrated section folders.
   const relativePath = path.relative(rootDir, resolved);
+  const normalizedRelative = relativePath.split(path.sep).join('/');
+  const pagesPrefix = 'v2/pages/';
+  if (normalizedRelative.startsWith(pagesPrefix)) {
+    const parts = normalizedRelative.split('/');
+    const maybeDomain = parts[2];
+    if (V2_DOMAIN_DIRS.has(maybeDomain)) {
+      const migratedPath = path.join(rootDir, 'v2', ...parts.slice(2));
+      if (fileExists(migratedPath).exists) {
+        return migratedPath;
+      }
+    }
+  }
+
   return path.join(rootDir, relativePath);
 }
 

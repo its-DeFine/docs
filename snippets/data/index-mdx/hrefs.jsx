@@ -3909,8 +3909,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "09_internal/ally-notes.mdx",
-      "resolvedPath": "v2/pages/09_internal/ally-notes.mdx",
+      "rawPath": "internal/ally-notes.mdx",
+      "resolvedPath": "v2/internal/ally-notes.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3918,8 +3918,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "09_internal/definitions.mdx",
-      "resolvedPath": "v2/pages/09_internal/definitions.mdx",
+      "rawPath": "internal/definitions.mdx",
+      "resolvedPath": "v2/internal/definitions.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3927,8 +3927,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "09_internal/docs-philosophy.mdx",
-      "resolvedPath": "v2/pages/09_internal/docs-philosophy.mdx",
+      "rawPath": "internal/docs-philosophy.mdx",
+      "resolvedPath": "v2/internal/docs-philosophy.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3936,8 +3936,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "09_internal/docs-status.mdx",
-      "resolvedPath": "v2/pages/09_internal/docs-status.mdx",
+      "rawPath": "internal/docs-status.mdx",
+      "resolvedPath": "v2/internal/docs-status.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3945,8 +3945,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "09_internal/ecosystem.mdx",
-      "resolvedPath": "v2/pages/09_internal/ecosystem.mdx",
+      "rawPath": "internal/ecosystem.mdx",
+      "resolvedPath": "v2/internal/ecosystem.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3954,8 +3954,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "09_internal/governance.mdx",
-      "resolvedPath": "v2/pages/09_internal/governance.mdx",
+      "rawPath": "internal/governance.mdx",
+      "resolvedPath": "v2/internal/governance.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3963,8 +3963,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "09_internal/internal-overview.mdx",
-      "resolvedPath": "v2/pages/09_internal/internal-overview.mdx",
+      "rawPath": "internal/internal-overview.mdx",
+      "resolvedPath": "v2/internal/internal-overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3972,8 +3972,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "09_internal/personas.mdx",
-      "resolvedPath": "v2/pages/09_internal/personas.mdx",
+      "rawPath": "internal/personas.mdx",
+      "resolvedPath": "v2/internal/personas.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3981,8 +3981,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "09_internal/references.mdx",
-      "resolvedPath": "v2/pages/09_internal/references.mdx",
+      "rawPath": "internal/references.mdx",
+      "resolvedPath": "v2/internal/references.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3990,8 +3990,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "09_internal/strategic-alignment.mdx",
-      "resolvedPath": "v2/pages/09_internal/strategic-alignment.mdx",
+      "rawPath": "internal/strategic-alignment.mdx",
+      "resolvedPath": "v2/internal/strategic-alignment.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3999,8 +3999,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "09_internal/layout-components-scripts-styling/components.mdx",
-      "resolvedPath": "v2/pages/09_internal/layout-components-scripts-styling/components.mdx",
+      "rawPath": "internal/layout-components-scripts-styling/components.mdx",
+      "resolvedPath": "v2/internal/layout-components-scripts-styling/components.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -4008,8 +4008,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "09_internal/layout-components-scripts-styling/pages.mdx",
-      "resolvedPath": "v2/pages/09_internal/layout-components-scripts-styling/pages.mdx",
+      "rawPath": "internal/layout-components-scripts-styling/pages.mdx",
+      "resolvedPath": "v2/internal/layout-components-scripts-styling/pages.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

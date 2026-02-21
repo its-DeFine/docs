@@ -2046,72 +2046,72 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/09_internal/internal-overview",
-      "url": "http://127.0.0.1:3000/09_internal/internal-overview",
+      "pagePath": "v2/internal/internal-overview",
+      "url": "http://127.0.0.1:3000/internal/internal-overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/09_internal/docs-status",
-      "url": "http://127.0.0.1:3000/09_internal/docs-status",
+      "pagePath": "v2/internal/docs-status",
+      "url": "http://127.0.0.1:3000/internal/docs-status",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/09_internal/governance",
-      "url": "http://127.0.0.1:3000/09_internal/governance",
+      "pagePath": "v2/internal/governance",
+      "url": "http://127.0.0.1:3000/internal/governance",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/09_internal/strategic-alignment",
-      "url": "http://127.0.0.1:3000/09_internal/strategic-alignment",
+      "pagePath": "v2/internal/strategic-alignment",
+      "url": "http://127.0.0.1:3000/internal/strategic-alignment",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/09_internal/docs-philosophy",
-      "url": "http://127.0.0.1:3000/09_internal/docs-philosophy",
+      "pagePath": "v2/internal/docs-philosophy",
+      "url": "http://127.0.0.1:3000/internal/docs-philosophy",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/09_internal/definitions",
-      "url": "http://127.0.0.1:3000/09_internal/definitions",
+      "pagePath": "v2/internal/definitions",
+      "url": "http://127.0.0.1:3000/internal/definitions",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/09_internal/personas",
-      "url": "http://127.0.0.1:3000/09_internal/personas",
+      "pagePath": "v2/internal/personas",
+      "url": "http://127.0.0.1:3000/internal/personas",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/09_internal/ecosystem",
-      "url": "http://127.0.0.1:3000/09_internal/ecosystem",
+      "pagePath": "v2/internal/ecosystem",
+      "url": "http://127.0.0.1:3000/internal/ecosystem",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/09_internal/references",
-      "url": "http://127.0.0.1:3000/09_internal/references",
+      "pagePath": "v2/internal/references",
+      "url": "http://127.0.0.1:3000/internal/references",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

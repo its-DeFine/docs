@@ -31,7 +31,7 @@
 
 | Task | Scope | Delegatable to | Notes |
 |------|--------|----------------|-------|
-| **Component library wiki (runnable)** | `09_internal/.../components.mdx` + snippets | Community or AI | Expand internal Components page into a full wiki: every custom component in `snippets/components` with (1) short description, (2) props/usage, (3) **runnable example** (copy-paste snippet that works in Mintlify). Optionally add to "about these docs". |
+| **Component library wiki (runnable)** | `internal/.../components.mdx` + snippets | Community or AI | Expand internal Components page into a full wiki: every custom component in `snippets/components` with (1) short description, (2) props/usage, (3) **runnable example** (copy-paste snippet that works in Mintlify). Optionally add to "about these docs". |
 | **Mintlify components cheat sheet** | One MDX page | Community | Single page: Note, Info, Warning, Tip, Card, Tabs, Accordion, Expandable, Tile, Columns — with one minimal runnable example each and link to Mintlify docs. |
 | **"HELP APPRECIATED" & "UNDER CONSTRUCTION" components** | New snippet components | Community | Implement two standard components (as per Braindump) so pages use same look and copy; optionally drive copy from strings file. |
 | **Show/hide sidebar component** | Mintlify / layout | Community | Stretch: add toggle to show/hide left sidebar if supported by stack. |

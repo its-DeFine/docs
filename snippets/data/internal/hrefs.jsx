@@ -1,5 +1,5 @@
 export const LINK_MAP = {
-  "v2/pages/09_internal/ally-notes.mdx": [
+  "v2/internal/ally-notes.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -28,7 +28,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/09_internal/definitions.mdx": [
+  "v2/internal/definitions.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -39,7 +39,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/09_internal/docs-philosophy.mdx": [
+  "v2/internal/docs-philosophy.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -50,7 +50,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/09_internal/docs-status.mdx": [
+  "v2/internal/docs-status.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -79,7 +79,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/09_internal/ecosystem.mdx": [
+  "v2/internal/ecosystem.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -90,7 +90,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/09_internal/governance.mdx": [
+  "v2/internal/governance.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -173,7 +173,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/09_internal/internal-overview.mdx": [
+  "v2/internal/internal-overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -196,7 +196,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./strategic-alignment",
-      "resolvedPath": "v2/pages/09_internal/strategic-alignment.mdx",
+      "resolvedPath": "v2/internal/strategic-alignment.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -205,7 +205,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./definitions",
-      "resolvedPath": "v2/pages/09_internal/definitions.mdx",
+      "resolvedPath": "v2/internal/definitions.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -214,7 +214,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./personas",
-      "resolvedPath": "v2/pages/09_internal/personas.mdx",
+      "resolvedPath": "v2/internal/personas.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -223,7 +223,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./docs-philosophy",
-      "resolvedPath": "v2/pages/09_internal/docs-philosophy.mdx",
+      "resolvedPath": "v2/internal/docs-philosophy.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -232,7 +232,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./ecosystem",
-      "resolvedPath": "v2/pages/09_internal/ecosystem.mdx",
+      "resolvedPath": "v2/internal/ecosystem.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -241,7 +241,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./references",
-      "resolvedPath": "v2/pages/09_internal/references.mdx",
+      "resolvedPath": "v2/internal/references.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -274,7 +274,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/09_internal/layout-components-scripts-styling/components.mdx": [
+  "v2/internal/layout-components-scripts-styling/components.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
@@ -375,7 +375,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/09_internal/layout-components-scripts-styling/pages.mdx": [
+  "v2/internal/layout-components-scripts-styling/pages.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -386,7 +386,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/09_internal/personas.mdx": [
+  "v2/internal/personas.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -406,7 +406,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/09_internal/references.mdx": [
+  "v2/internal/references.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -417,7 +417,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/09_internal/strategic-alignment.mdx": [
+  "v2/internal/strategic-alignment.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
