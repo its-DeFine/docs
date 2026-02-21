@@ -196,7 +196,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-community/community-guidelines.mdx": [
+  "v2/community/livepeer-community/community-guidelines.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -207,7 +207,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-community/livepeer-latest-topics.mdx": [
+  "v2/community/livepeer-community/livepeer-latest-topics.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -326,7 +326,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-community/roadmap.mdx": [
+  "v2/community/livepeer-community/roadmap.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -364,7 +364,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-community/trending-topics.mdx": [
+  "v2/community/livepeer-community/trending-topics.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",

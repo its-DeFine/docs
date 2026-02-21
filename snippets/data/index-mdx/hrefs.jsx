@@ -1587,8 +1587,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/livepeer-community/community-guidelines.mdx",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/community-guidelines.mdx",
+      "rawPath": "community/livepeer-community/community-guidelines.mdx",
+      "resolvedPath": "v2/community/livepeer-community/community-guidelines.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1596,8 +1596,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/livepeer-community/livepeer-latest-topics.mdx",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/livepeer-latest-topics.mdx",
+      "rawPath": "community/livepeer-community/livepeer-latest-topics.mdx",
+      "resolvedPath": "v2/community/livepeer-community/livepeer-latest-topics.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1605,8 +1605,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/livepeer-community/roadmap.mdx",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/roadmap.mdx",
+      "rawPath": "community/livepeer-community/roadmap.mdx",
+      "resolvedPath": "v2/community/livepeer-community/roadmap.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1614,8 +1614,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/livepeer-community/trending-topics.mdx",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/trending-topics.mdx",
+      "rawPath": "community/livepeer-community/trending-topics.mdx",
+      "resolvedPath": "v2/community/livepeer-community/trending-topics.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

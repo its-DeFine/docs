@@ -2358,8 +2358,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/trending-topics",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/trending-topics.mdx",
+      "rawPath": "/v2/community/livepeer-community/trending-topics",
+      "resolvedPath": "v2/community/livepeer-community/trending-topics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2367,8 +2367,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/roadmap",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/roadmap.mdx",
+      "rawPath": "/v2/community/livepeer-community/roadmap",
+      "resolvedPath": "v2/community/livepeer-community/roadmap.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2376,8 +2376,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/community-guidelines",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/community-guidelines.mdx",
+      "rawPath": "/v2/community/livepeer-community/community-guidelines",
+      "resolvedPath": "v2/community/livepeer-community/community-guidelines.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4052,8 +4052,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/trending-topics",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/trending-topics.mdx",
+      "rawPath": "/v2/community/livepeer-community/trending-topics",
+      "resolvedPath": "v2/community/livepeer-community/trending-topics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4061,8 +4061,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/roadmap",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/roadmap.mdx",
+      "rawPath": "/v2/community/livepeer-community/roadmap",
+      "resolvedPath": "v2/community/livepeer-community/roadmap.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4070,8 +4070,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/community-guidelines",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/community-guidelines.mdx",
+      "rawPath": "/v2/community/livepeer-community/community-guidelines",
+      "resolvedPath": "v2/community/livepeer-community/community-guidelines.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

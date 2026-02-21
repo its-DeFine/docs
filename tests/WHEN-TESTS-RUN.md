@@ -111,7 +111,7 @@ node tests/integration/browser.test.js
 node tests/run-pr-checks.js --base-ref main
 
 # Strict link audit on explicit files
-node tests/integration/v2-link-audit.js --files v2/pages/02_community/livepeer-community/trending-topics.mdx --strict
+node tests/integration/v2-link-audit.js --files v2/community/livepeer-community/trending-topics.mdx --strict
 ```
 
 ---

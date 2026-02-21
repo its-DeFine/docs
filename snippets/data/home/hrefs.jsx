@@ -146,8 +146,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/trending-topics",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/trending-topics.mdx",
+      "rawPath": "/v2/community/livepeer-community/trending-topics",
+      "resolvedPath": "v2/community/livepeer-community/trending-topics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

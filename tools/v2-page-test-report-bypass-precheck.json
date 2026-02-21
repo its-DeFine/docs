@@ -1766,24 +1766,24 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/02_community/livepeer-community/trending-topics",
-      "url": "http://127.0.0.1:3000/02_community/livepeer-community/trending-topics",
+      "pagePath": "v2/community/livepeer-community/trending-topics",
+      "url": "http://127.0.0.1:3000/community/livepeer-community/trending-topics",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/02_community/livepeer-community/roadmap",
-      "url": "http://127.0.0.1:3000/02_community/livepeer-community/roadmap",
+      "pagePath": "v2/community/livepeer-community/roadmap",
+      "url": "http://127.0.0.1:3000/community/livepeer-community/roadmap",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/02_community/livepeer-community/community-guidelines",
-      "url": "http://127.0.0.1:3000/02_community/livepeer-community/community-guidelines",
+      "pagePath": "v2/community/livepeer-community/community-guidelines",
+      "url": "http://127.0.0.1:3000/community/livepeer-community/community-guidelines",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
@@ -1838,24 +1838,24 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/02_community/livepeer-community/trending-test",
-      "url": "http://127.0.0.1:3000/02_community/livepeer-community/trending-test",
+      "pagePath": "v2/community/livepeer-community/trending-test",
+      "url": "http://127.0.0.1:3000/community/livepeer-community/trending-test",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/02_community/livepeer-community/media-kit",
-      "url": "http://127.0.0.1:3000/02_community/livepeer-community/media-kit",
+      "pagePath": "v2/community/livepeer-community/media-kit",
+      "url": "http://127.0.0.1:3000/community/livepeer-community/media-kit",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/02_community/livepeer-community/latest-topics",
-      "url": "http://127.0.0.1:3000/02_community/livepeer-community/latest-topics",
+      "pagePath": "v2/community/livepeer-community/latest-topics",
+      "url": "http://127.0.0.1:3000/community/livepeer-community/latest-topics",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
