@@ -28,6 +28,7 @@
  *
  * @notes
  *   Overwrites the same report file each run to avoid report sprawl.
+ *   In --staged mode with no matching pages, exits without rewriting reports to avoid timestamp churn.
  */
 
 const fs = require('fs');
@@ -218,6 +219,10 @@ async function run() {
 
   if (pages.length === 0) {
     console.log('ℹ️  No matching docs pages to audit.');
+    if (stagedOnly) {
+      console.log('ℹ️  Staged mode with no matching pages; leaving existing reports unchanged.');
+      return 0;
+    }
     const emptyReport = {
       timestamp: startedAt.toISOString(),
       baseUrl,
