@@ -63,8 +63,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/03_developers/ai-inference-on-livepeer/byoc",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+      "rawPath": "/developers/ai-inference-on-livepeer/byoc",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1497,8 +1497,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/03_developers/ai-inference-on-livepeer/byoc",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+      "rawPath": "/developers/ai-inference-on-livepeer/byoc",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

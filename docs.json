@@ -2375,9 +2375,9 @@
                         "group": "AI Pipelines",
                         "icon": "user-robot",
                         "pages": [
-                          "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview",
-                          "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc",
-                          "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream"
+                          "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview",
+                          "v2/developers/ai-inference-on-livepeer/ai-pipelines/byoc",
+                          "v2/developers/ai-inference-on-livepeer/ai-pipelines/comfystream"
                         ]
                       },
                       {

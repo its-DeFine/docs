@@ -15,7 +15,7 @@
           "occurrences": 41
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 39
         },
         {
@@ -211,7 +211,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory.mdx",
           "occurrences": 8
         },
         {
@@ -295,7 +295,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 7
         },
         {
@@ -599,7 +599,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer.mdx",
           "occurrences": 4
         },
         {
@@ -1175,15 +1175,15 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/README.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/livepeer-ai/README.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/custom-ai-pipelines.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/livepeer-ai/custom-ai-pipelines.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/using-ai-on-livepeer.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/livepeer-ai/using-ai-on-livepeer.mdx",
           "occurrences": 1
         },
         {
@@ -1376,7 +1376,7 @@
           "occurrences": 12
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 11
         },
         {
@@ -1869,7 +1869,7 @@
           "occurrences": 32
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 26
         },
         {
@@ -2334,7 +2334,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 8
         },
         {
@@ -2802,7 +2802,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/api-reference.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/api-reference.mdx",
           "occurrences": 1
         },
         {
@@ -3231,7 +3231,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 1
         },
         {
@@ -3608,7 +3608,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 1
         },
         {
@@ -3673,7 +3673,7 @@
       "category": "AI / Machine Learning",
       "pages": [
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 18
         },
         {
@@ -3697,7 +3697,7 @@
           "occurrences": 11
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 10
         },
         {
@@ -3969,7 +3969,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 1
         },
         {
@@ -4483,7 +4483,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 4
         },
         {
@@ -4860,7 +4860,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 4
         },
         {
@@ -5225,7 +5225,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 3
         },
         {
@@ -5293,7 +5293,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 2
         },
         {
@@ -5365,11 +5365,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer.mdx",
           "occurrences": 1
         },
         {
@@ -5703,7 +5703,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory.mdx",
           "occurrences": 3
         },
         {
@@ -5968,7 +5968,7 @@
           "occurrences": 12
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 11
         },
         {
@@ -6152,7 +6152,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 1
         },
         {
@@ -6333,7 +6333,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory.mdx",
           "occurrences": 3
         },
         {
@@ -6679,7 +6679,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 7
         },
         {
@@ -6747,7 +6747,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 2
         },
         {
@@ -7250,7 +7250,7 @@
           "occurrences": 14
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 9
         },
         {
@@ -7366,7 +7366,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 1
         },
         {
@@ -7804,11 +7804,11 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 3
         },
         {
@@ -8061,11 +8061,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 2
         },
         {
@@ -8157,7 +8157,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 1
         },
         {
@@ -8222,7 +8222,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 8
         },
         {
@@ -8539,7 +8539,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 4
         },
         {
@@ -8768,11 +8768,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 2
         },
         {
@@ -8896,7 +8896,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 1
         },
         {
@@ -9480,7 +9480,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 3
         },
         {
@@ -9758,7 +9758,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 4
         },
         {
@@ -9996,7 +9996,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 2
         },
         {
@@ -10265,7 +10265,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 2
         },
         {
@@ -10361,7 +10361,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 1
         },
         {
@@ -10414,7 +10414,7 @@
       "category": "Technical",
       "pages": [
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 28
         },
         {
@@ -10579,7 +10579,7 @@
           "occurrences": 9
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 7
         },
         {
@@ -10977,7 +10977,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 2
         },
         {
@@ -11167,7 +11167,7 @@
       "category": "AI / Machine Learning",
       "pages": [
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 23
         },
         {
@@ -11248,7 +11248,7 @@
       "category": "Technical",
       "pages": [
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 12
         },
         {
@@ -11931,7 +11931,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 1
         },
         {
@@ -12637,7 +12637,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 2
         },
         {
@@ -12810,7 +12810,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 2
         },
         {
@@ -13044,7 +13044,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 1
         },
         {
@@ -13137,7 +13137,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/daydream-generative-ai-video-platform.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/livepeer-ai/daydream-generative-ai-video-platform.mdx",
           "occurrences": 2
         },
         {
@@ -13540,7 +13540,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory.mdx",
           "occurrences": 2
         },
         {
@@ -13564,11 +13564,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 1
         },
         {
@@ -13775,7 +13775,7 @@
       "category": "Livepeer Protocol",
       "pages": [
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 8
         },
         {
@@ -13888,7 +13888,7 @@
           "occurrences": 11
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 8
         },
         {
@@ -14555,7 +14555,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 1
         },
         {
@@ -14853,7 +14853,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 1
         },
         {
@@ -15166,7 +15166,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 1
         },
         {
@@ -15342,7 +15342,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 2
         },
         {
@@ -15502,7 +15502,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 3
         },
         {
@@ -15917,7 +15917,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 1
         },
         {
@@ -15982,7 +15982,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 1
         },
         {
@@ -16056,11 +16056,11 @@
       "category": "AI / Machine Learning",
       "pages": [
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 5
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 4
         },
         {
@@ -16117,7 +16117,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 1
         },
         {
@@ -16138,7 +16138,7 @@
       "category": "AI / Machine Learning",
       "pages": [
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 7
         },
         {
@@ -16298,7 +16298,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 1
         },
         {
@@ -16568,11 +16568,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 1
         },
         {
@@ -16815,7 +16815,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 1
         },
         {
@@ -16848,7 +16848,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer.mdx",
           "occurrences": 1
         },
         {
@@ -16881,7 +16881,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 1
         }
       ],
@@ -17002,7 +17002,7 @@
       "category": "AI / Machine Learning",
       "pages": [
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 4
         },
         {
@@ -17023,7 +17023,7 @@
       "category": "AI / Machine Learning",
       "pages": [
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 2
         },
         {
@@ -17168,7 +17168,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 1
         },
         {
@@ -17388,7 +17388,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 1
         }
       ],
@@ -17442,7 +17442,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 1
         },
         {
@@ -17463,11 +17463,11 @@
       "category": "AI / Machine Learning",
       "pages": [
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
           "occurrences": 1
         }
       ],
@@ -17563,7 +17563,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 1
         }
       ],
@@ -17911,7 +17911,7 @@
       "category": "AI / Machine Learning",
       "pages": [
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 2
         }
       ],

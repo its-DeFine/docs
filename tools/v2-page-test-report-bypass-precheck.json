@@ -694,24 +694,24 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview",
-      "url": "http://127.0.0.1:3000/03_developers/ai-inference-on-livepeer/ai-pipelines/overview",
+      "pagePath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview",
+      "url": "http://127.0.0.1:3000/developers/ai-inference-on-livepeer/ai-pipelines/overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc",
-      "url": "http://127.0.0.1:3000/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc",
+      "pagePath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/byoc",
+      "url": "http://127.0.0.1:3000/developers/ai-inference-on-livepeer/ai-pipelines/byoc",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream",
-      "url": "http://127.0.0.1:3000/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream",
+      "pagePath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/comfystream",
+      "url": "http://127.0.0.1:3000/developers/ai-inference-on-livepeer/ai-pipelines/comfystream",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

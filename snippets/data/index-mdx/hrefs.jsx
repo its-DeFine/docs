@@ -1713,8 +1713,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/byoc.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/byoc.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1722,8 +1722,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/comfystream.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/comfystream.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/comfystream.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/comfystream.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1731,8 +1731,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/comfyui.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/comfyui.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1740,8 +1740,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1749,8 +1749,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1758,8 +1758,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1767,8 +1767,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/livepeer-ai/ai-101.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-101.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/livepeer-ai/ai-101.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/livepeer-ai/ai-101.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1776,8 +1776,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/livepeer-ai/custom-ai-pipelines.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/custom-ai-pipelines.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/livepeer-ai/custom-ai-pipelines.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/livepeer-ai/custom-ai-pipelines.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1785,8 +1785,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/livepeer-ai/daydream-generative-ai-video-platform.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/daydream-generative-ai-video-platform.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/livepeer-ai/daydream-generative-ai-video-platform.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/livepeer-ai/daydream-generative-ai-video-platform.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1794,8 +1794,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1803,8 +1803,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1812,8 +1812,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/livepeer-ai/README.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/README.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/livepeer-ai/README.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/livepeer-ai/README.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1821,8 +1821,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/livepeer-ai/realtime-ai.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/realtime-ai.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/livepeer-ai/realtime-ai.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/livepeer-ai/realtime-ai.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1830,8 +1830,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/livepeer-ai/using-ai-on-livepeer.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/using-ai-on-livepeer.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/livepeer-ai/using-ai-on-livepeer.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/livepeer-ai/using-ai-on-livepeer.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1839,8 +1839,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/api-reference.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/api-reference.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/api-reference.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/api-reference.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1848,8 +1848,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/README.mdx",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/README.mdx",
+      "rawPath": "developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/README.mdx",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/README.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
