@@ -30,11 +30,11 @@
           "occurrences": 37
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "path": "v2/gateways/references/configuration-flags-old.mdx",
           "occurrences": 32
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "path": "v2/gateways/references/configuration-flags.mdx",
           "occurrences": 32
         },
         {
@@ -185,7 +185,7 @@
           "occurrences": 55
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "path": "v2/gateways/references/go-livepeer/prometheus-metrics.mdx",
           "occurrences": 55
         },
         {
@@ -246,7 +246,7 @@
           "occurrences": 27
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "path": "v2/gateways/references/go-livepeer/prometheus-metrics.mdx",
           "occurrences": 27
         },
         {
@@ -360,11 +360,11 @@
           "occurrences": 11
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "path": "v2/gateways/references/configuration-flags-old.mdx",
           "occurrences": 10
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "path": "v2/gateways/references/configuration-flags.mdx",
           "occurrences": 10
         },
         {
@@ -669,7 +669,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/references/technical-architecture.mdx",
+          "path": "v2/gateways/references/technical-architecture.mdx",
           "occurrences": 4
         },
         {
@@ -840,7 +840,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+          "path": "v2/gateways/references/go-livepeer/cli-reference.mdx",
           "occurrences": 3
         },
         {
@@ -995,7 +995,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/references/technical-architecture.mdx",
+          "path": "v2/gateways/references/technical-architecture.mdx",
           "occurrences": 3
         },
         {
@@ -1040,11 +1040,11 @@
           "occurrences": 10
         },
         {
-          "path": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx",
+          "path": "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx",
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/references/cli-commands.mdx",
+          "path": "v2/gateways/references/cli-commands.mdx",
           "occurrences": 5
         },
         {
@@ -1207,15 +1207,15 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "path": "v2/gateways/references/configuration-flags-old.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "path": "v2/gateways/references/configuration-flags.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+          "path": "v2/gateways/references/go-livepeer/cli-reference.mdx",
           "occurrences": 3
         },
         {
@@ -1517,7 +1517,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/references/api-reference/_delete-all-api.mdx",
+          "path": "v2/gateways/references/api-reference/_delete-all-api.mdx",
           "occurrences": 3
         },
         {
@@ -1525,7 +1525,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/references/api-reference/AI-Worker/ai-worker-api.mdx",
+          "path": "v2/gateways/references/api-reference/AI-Worker/ai-worker-api.mdx",
           "occurrences": 2
         }
       ],
@@ -1635,11 +1635,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/references/arbitrum-rpc.mdx",
+          "path": "v2/gateways/references/arbitrum-rpc.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "path": "v2/gateways/references/configuration-flags-old.mdx",
           "occurrences": 1
         }
       ],
@@ -1778,11 +1778,11 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "path": "v2/gateways/references/configuration-flags-old.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "path": "v2/gateways/references/configuration-flags.mdx",
           "occurrences": 4
         },
         {
@@ -2242,11 +2242,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "path": "v2/gateways/references/configuration-flags-old.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "path": "v2/gateways/references/configuration-flags.mdx",
           "occurrences": 2
         },
         {
@@ -2254,7 +2254,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/references/cli-commands.mdx",
+          "path": "v2/gateways/references/cli-commands.mdx",
           "occurrences": 1
         }
       ],
@@ -2682,15 +2682,15 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "path": "v2/gateways/references/configuration-flags-old.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "path": "v2/gateways/references/configuration-flags.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+          "path": "v2/gateways/references/go-livepeer/cli-reference.mdx",
           "occurrences": 1
         },
         {
@@ -2719,7 +2719,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "path": "v2/gateways/references/go-livepeer/prometheus-metrics.mdx",
           "occurrences": 8
         },
         {
@@ -3008,11 +3008,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+          "path": "v2/gateways/references/go-livepeer/cli-reference.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "path": "v2/gateways/references/go-livepeer/prometheus-metrics.mdx",
           "occurrences": 2
         },
         {
@@ -3358,7 +3358,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/references/api-reference/_delete-all-api.mdx",
+          "path": "v2/gateways/references/api-reference/_delete-all-api.mdx",
           "occurrences": 1
         },
         {
@@ -3664,7 +3664,7 @@
           "occurrences": 11
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "path": "v2/gateways/references/go-livepeer/prometheus-metrics.mdx",
           "occurrences": 11
         }
       ],
@@ -3746,7 +3746,7 @@
           "occurrences": 10
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx",
+          "path": "v2/gateways/references/go-livepeer/gpu-support.mdx",
           "occurrences": 10
         }
       ],

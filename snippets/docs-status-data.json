@@ -514,152 +514,152 @@
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/technical-architecture": {
+  "v2/gateways/references/technical-architecture": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/configuration-flags": {
+  "v2/gateways/references/configuration-flags": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/video-flags": {
+  "v2/gateways/references/video-flags": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/cli-commands": {
+  "v2/gateways/references/cli-commands": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/AI-API/ai": {
+  "v2/gateways/references/api-reference/AI-API/ai": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/AI-API/text-to-image": {
+  "v2/gateways/references/api-reference/AI-API/text-to-image": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/AI-API/image-to-image": {
+  "v2/gateways/references/api-reference/AI-API/image-to-image": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/AI-API/image-to-video": {
+  "v2/gateways/references/api-reference/AI-API/image-to-video": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/AI-API/upscale": {
+  "v2/gateways/references/api-reference/AI-API/upscale": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/AI-API/audio-to-text": {
+  "v2/gateways/references/api-reference/AI-API/audio-to-text": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/AI-API/segment-anything-2": {
+  "v2/gateways/references/api-reference/AI-API/segment-anything-2": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/AI-API/llm": {
+  "v2/gateways/references/api-reference/AI-API/llm": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/AI-API/image-to-text": {
+  "v2/gateways/references/api-reference/AI-API/image-to-text": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/AI-API/live-video-to-video": {
+  "v2/gateways/references/api-reference/AI-API/live-video-to-video": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/AI-API/text-to-speech": {
+  "v2/gateways/references/api-reference/AI-API/text-to-speech": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/AI-API/health": {
+  "v2/gateways/references/api-reference/AI-API/health": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/AI-API/hardware-info": {
+  "v2/gateways/references/api-reference/AI-API/hardware-info": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/AI-API/hardware-stats": {
+  "v2/gateways/references/api-reference/AI-API/hardware-stats": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/cli-http-api": {
+  "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/unbond": {
+  "v2/gateways/references/api-reference/CLI-HTTP/unbond": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/rebond": {
+  "v2/gateways/references/api-reference/CLI-HTTP/rebond": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/activateorchestrator": {
+  "v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setbroadcastconfig": {
+  "v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability": {
+  "v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/reward": {
+  "v2/gateways/references/api-reference/CLI-HTTP/reward": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/transfertokens": {
+  "v2/gateways/references/api-reference/CLI-HTTP/transfertokens": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/api-reference/CLI-HTTP/signmessage": {
+  "v2/gateways/references/api-reference/CLI-HTTP/signmessage": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/livepeer-exchanges": {
+  "v2/gateways/references/livepeer-exchanges": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/artibtrum-exchanges": {
+  "v2/gateways/references/artibtrum-exchanges": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/references/arbitrum-rpc": {
+  "v2/gateways/references/arbitrum-rpc": {
     "status": "",
     "priority": "",
     "notes": ""

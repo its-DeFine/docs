@@ -1190,240 +1190,240 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/ai",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/ai",
+      "pagePath": "v2/gateways/references/api-reference/AI-API/ai",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/AI-API/ai",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/text-to-image",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/text-to-image",
+      "pagePath": "v2/gateways/references/api-reference/AI-API/text-to-image",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/AI-API/text-to-image",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/image-to-image",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/image-to-image",
+      "pagePath": "v2/gateways/references/api-reference/AI-API/image-to-image",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/AI-API/image-to-image",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/image-to-video",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/image-to-video",
+      "pagePath": "v2/gateways/references/api-reference/AI-API/image-to-video",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/AI-API/image-to-video",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/upscale",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/upscale",
+      "pagePath": "v2/gateways/references/api-reference/AI-API/upscale",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/AI-API/upscale",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/audio-to-text",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/audio-to-text",
+      "pagePath": "v2/gateways/references/api-reference/AI-API/audio-to-text",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/AI-API/audio-to-text",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/segment-anything-2",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/segment-anything-2",
+      "pagePath": "v2/gateways/references/api-reference/AI-API/segment-anything-2",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/AI-API/segment-anything-2",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/llm",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/llm",
+      "pagePath": "v2/gateways/references/api-reference/AI-API/llm",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/AI-API/llm",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/image-to-text",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/image-to-text",
+      "pagePath": "v2/gateways/references/api-reference/AI-API/image-to-text",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/AI-API/image-to-text",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/live-video-to-video",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/live-video-to-video",
+      "pagePath": "v2/gateways/references/api-reference/AI-API/live-video-to-video",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/AI-API/live-video-to-video",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/text-to-speech",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/text-to-speech",
+      "pagePath": "v2/gateways/references/api-reference/AI-API/text-to-speech",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/AI-API/text-to-speech",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/health",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/health",
+      "pagePath": "v2/gateways/references/api-reference/AI-API/health",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/AI-API/health",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/hardware-info",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/hardware-info",
+      "pagePath": "v2/gateways/references/api-reference/AI-API/hardware-info",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/AI-API/hardware-info",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/AI-API/hardware-stats",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/AI-API/hardware-stats",
+      "pagePath": "v2/gateways/references/api-reference/AI-API/hardware-stats",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/AI-API/hardware-stats",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/cli-http-api",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/cli-http-api",
+      "pagePath": "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/CLI-HTTP/cli-http-api",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/unbond",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/unbond",
+      "pagePath": "v2/gateways/references/api-reference/CLI-HTTP/unbond",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/CLI-HTTP/unbond",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/rebond",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/rebond",
+      "pagePath": "v2/gateways/references/api-reference/CLI-HTTP/rebond",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/CLI-HTTP/rebond",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/activateorchestrator",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/activateorchestrator",
+      "pagePath": "v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/CLI-HTTP/activateorchestrator",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
+      "pagePath": "v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
+      "pagePath": "v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/reward",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/reward",
+      "pagePath": "v2/gateways/references/api-reference/CLI-HTTP/reward",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/CLI-HTTP/reward",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/transfertokens",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/transfertokens",
+      "pagePath": "v2/gateways/references/api-reference/CLI-HTTP/transfertokens",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/CLI-HTTP/transfertokens",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/signmessage",
-      "url": "http://127.0.0.1:3000/04_gateways/references/api-reference/CLI-HTTP/signmessage",
+      "pagePath": "v2/gateways/references/api-reference/CLI-HTTP/signmessage",
+      "url": "http://127.0.0.1:3000/gateways/references/api-reference/CLI-HTTP/signmessage",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/technical-architecture",
-      "url": "http://127.0.0.1:3000/04_gateways/references/technical-architecture",
+      "pagePath": "v2/gateways/references/technical-architecture",
+      "url": "http://127.0.0.1:3000/gateways/references/technical-architecture",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/configuration-flags",
-      "url": "http://127.0.0.1:3000/04_gateways/references/configuration-flags",
+      "pagePath": "v2/gateways/references/configuration-flags",
+      "url": "http://127.0.0.1:3000/gateways/references/configuration-flags",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/video-flags",
-      "url": "http://127.0.0.1:3000/04_gateways/references/video-flags",
+      "pagePath": "v2/gateways/references/video-flags",
+      "url": "http://127.0.0.1:3000/gateways/references/video-flags",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/cli-commands",
-      "url": "http://127.0.0.1:3000/04_gateways/references/cli-commands",
+      "pagePath": "v2/gateways/references/cli-commands",
+      "url": "http://127.0.0.1:3000/gateways/references/cli-commands",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/livepeer-exchanges",
-      "url": "http://127.0.0.1:3000/04_gateways/references/livepeer-exchanges",
+      "pagePath": "v2/gateways/references/livepeer-exchanges",
+      "url": "http://127.0.0.1:3000/gateways/references/livepeer-exchanges",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/artibtrum-exchanges",
-      "url": "http://127.0.0.1:3000/04_gateways/references/artibtrum-exchanges",
+      "pagePath": "v2/gateways/references/artibtrum-exchanges",
+      "url": "http://127.0.0.1:3000/gateways/references/artibtrum-exchanges",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/references/arbitrum-rpc",
-      "url": "http://127.0.0.1:3000/04_gateways/references/arbitrum-rpc",
+      "pagePath": "v2/gateways/references/arbitrum-rpc",
+      "url": "http://127.0.0.1:3000/gateways/references/arbitrum-rpc",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

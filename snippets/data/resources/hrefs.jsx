@@ -2631,8 +2631,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/cli-commands",
-      "resolvedPath": "v2/pages/04_gateways/references/cli-commands.mdx",
+      "rawPath": "/v2/gateways/references/cli-commands",
+      "resolvedPath": "v2/gateways/references/cli-commands.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2640,8 +2640,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/ai",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/ai.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/ai",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/ai.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

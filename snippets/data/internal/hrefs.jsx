@@ -1719,8 +1719,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/technical-architecture",
-      "resolvedPath": "v2/pages/04_gateways/references/technical-architecture.mdx",
+      "rawPath": "/v2/gateways/references/technical-architecture",
+      "resolvedPath": "v2/gateways/references/technical-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1728,8 +1728,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/configuration-flags",
-      "resolvedPath": "v2/pages/04_gateways/references/configuration-flags.mdx",
+      "rawPath": "/v2/gateways/references/configuration-flags",
+      "resolvedPath": "v2/gateways/references/configuration-flags.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1737,8 +1737,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/cli-commands",
-      "resolvedPath": "v2/pages/04_gateways/references/cli-commands.mdx",
+      "rawPath": "/v2/gateways/references/cli-commands",
+      "resolvedPath": "v2/gateways/references/cli-commands.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1746,8 +1746,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/ai",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/ai.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/ai",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/ai.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1755,8 +1755,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/text-to-image",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/text-to-image.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/text-to-image",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/text-to-image.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1764,8 +1764,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/image-to-image",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/image-to-image.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/image-to-image",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/image-to-image.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1773,8 +1773,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/image-to-video",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/image-to-video.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/image-to-video",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/image-to-video.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1782,8 +1782,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/upscale",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/upscale.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/upscale",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/upscale.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1791,8 +1791,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/audio-to-text",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/audio-to-text.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/audio-to-text",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/audio-to-text.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1800,8 +1800,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/segment-anything-2",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/segment-anything-2.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/segment-anything-2",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/segment-anything-2.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1809,8 +1809,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/llm",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/llm.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/llm",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/llm.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1818,8 +1818,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/image-to-text",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/image-to-text.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/image-to-text",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/image-to-text.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1827,8 +1827,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/live-video-to-video",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/live-video-to-video.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/live-video-to-video",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/live-video-to-video.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1836,8 +1836,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/text-to-speech",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/text-to-speech.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/text-to-speech",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/text-to-speech.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1845,8 +1845,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/health",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/health.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/health",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/health.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1854,8 +1854,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/hardware-info",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/hardware-info.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/hardware-info",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/hardware-info.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1863,8 +1863,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/hardware-stats",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/hardware-stats.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/hardware-stats",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/hardware-stats.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1872,8 +1872,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/CLI-HTTP/cli-http-api",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/CLI-HTTP/cli-http-api",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1881,8 +1881,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/CLI-HTTP/unbond",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/unbond.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/CLI-HTTP/unbond",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/unbond.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1890,8 +1890,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/CLI-HTTP/rebond",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/rebond.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/CLI-HTTP/rebond",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/rebond.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1899,8 +1899,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/CLI-HTTP/activateorchestrator",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/activateorchestrator.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1908,8 +1908,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setbroadcastconfig.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1917,8 +1917,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1926,8 +1926,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/CLI-HTTP/reward",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/reward.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/CLI-HTTP/reward",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/reward.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1935,8 +1935,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/CLI-HTTP/transfertokens",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/transfertokens.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/CLI-HTTP/transfertokens",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/transfertokens.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1944,8 +1944,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/CLI-HTTP/signmessage",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/signmessage.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/CLI-HTTP/signmessage",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/signmessage.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1953,8 +1953,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/livepeer-exchanges",
-      "resolvedPath": "v2/pages/04_gateways/references/livepeer-exchanges.mdx",
+      "rawPath": "/v2/gateways/references/livepeer-exchanges",
+      "resolvedPath": "v2/gateways/references/livepeer-exchanges.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1962,8 +1962,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/artibtrum-exchanges",
-      "resolvedPath": "v2/pages/04_gateways/references/artibtrum-exchanges.mdx",
+      "rawPath": "/v2/gateways/references/artibtrum-exchanges",
+      "resolvedPath": "v2/gateways/references/artibtrum-exchanges.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1971,8 +1971,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/arbitrum-rpc",
-      "resolvedPath": "v2/pages/04_gateways/references/arbitrum-rpc.mdx",
+      "rawPath": "/v2/gateways/references/arbitrum-rpc",
+      "resolvedPath": "v2/gateways/references/arbitrum-rpc.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3647,8 +3647,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/technical-architecture",
-      "resolvedPath": "v2/pages/04_gateways/references/technical-architecture.mdx",
+      "rawPath": "/v2/gateways/references/technical-architecture",
+      "resolvedPath": "v2/gateways/references/technical-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3656,8 +3656,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/configuration-flags",
-      "resolvedPath": "v2/pages/04_gateways/references/configuration-flags.mdx",
+      "rawPath": "/v2/gateways/references/configuration-flags",
+      "resolvedPath": "v2/gateways/references/configuration-flags.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3665,8 +3665,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/cli-commands",
-      "resolvedPath": "v2/pages/04_gateways/references/cli-commands.mdx",
+      "rawPath": "/v2/gateways/references/cli-commands",
+      "resolvedPath": "v2/gateways/references/cli-commands.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3674,8 +3674,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/livepeer-exchanges",
-      "resolvedPath": "v2/pages/04_gateways/references/livepeer-exchanges.mdx",
+      "rawPath": "/v2/gateways/references/livepeer-exchanges",
+      "resolvedPath": "v2/gateways/references/livepeer-exchanges.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3683,8 +3683,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/artibtrum-exchanges",
-      "resolvedPath": "v2/pages/04_gateways/references/artibtrum-exchanges.mdx",
+      "rawPath": "/v2/gateways/references/artibtrum-exchanges",
+      "resolvedPath": "v2/gateways/references/artibtrum-exchanges.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3692,8 +3692,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/arbitrum-rpc",
-      "resolvedPath": "v2/pages/04_gateways/references/arbitrum-rpc.mdx",
+      "rawPath": "/v2/gateways/references/arbitrum-rpc",
+      "resolvedPath": "v2/gateways/references/arbitrum-rpc.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

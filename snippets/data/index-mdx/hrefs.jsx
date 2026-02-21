@@ -2514,8 +2514,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/arbitrum-rpc.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/arbitrum-rpc.mdx",
+      "rawPath": "gateways/references/arbitrum-rpc.mdx",
+      "resolvedPath": "v2/gateways/references/arbitrum-rpc.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2523,8 +2523,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/artibtrum-exchanges.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/artibtrum-exchanges.mdx",
+      "rawPath": "gateways/references/artibtrum-exchanges.mdx",
+      "resolvedPath": "v2/gateways/references/artibtrum-exchanges.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2532,8 +2532,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/cli-commands.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/cli-commands.mdx",
+      "rawPath": "gateways/references/cli-commands.mdx",
+      "resolvedPath": "v2/gateways/references/cli-commands.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2541,8 +2541,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/configuration-flags-old.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+      "rawPath": "gateways/references/configuration-flags-old.mdx",
+      "resolvedPath": "v2/gateways/references/configuration-flags-old.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2550,8 +2550,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/configuration-flags.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/configuration-flags.mdx",
+      "rawPath": "gateways/references/configuration-flags.mdx",
+      "resolvedPath": "v2/gateways/references/configuration-flags.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2559,8 +2559,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/contract-addresses.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/contract-addresses.mdx",
+      "rawPath": "gateways/references/contract-addresses.mdx",
+      "resolvedPath": "v2/gateways/references/contract-addresses.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2568,8 +2568,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/livepeer-exchanges.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/livepeer-exchanges.mdx",
+      "rawPath": "gateways/references/livepeer-exchanges.mdx",
+      "resolvedPath": "v2/gateways/references/livepeer-exchanges.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2577,8 +2577,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/orchestrator-offerings.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/orchestrator-offerings.mdx",
+      "rawPath": "gateways/references/orchestrator-offerings.mdx",
+      "resolvedPath": "v2/gateways/references/orchestrator-offerings.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2586,8 +2586,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/technical-architecture.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/technical-architecture.mdx",
+      "rawPath": "gateways/references/technical-architecture.mdx",
+      "resolvedPath": "v2/gateways/references/technical-architecture.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2595,8 +2595,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/_delete-all-api.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/_delete-all-api.mdx",
+      "rawPath": "gateways/references/api-reference/_delete-all-api.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/_delete-all-api.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2604,8 +2604,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/ai-worker-api.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/ai-worker-api.mdx",
+      "rawPath": "gateways/references/api-reference/ai-worker-api.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/ai-worker-api.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2613,8 +2613,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/hardware-info.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/hardware-info.mdx",
+      "rawPath": "gateways/references/api-reference/hardware-info.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/hardware-info.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2622,8 +2622,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/hardware-stats.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/hardware-stats.mdx",
+      "rawPath": "gateways/references/api-reference/hardware-stats.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/hardware-stats.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2631,8 +2631,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/health.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/health.mdx",
+      "rawPath": "gateways/references/api-reference/health.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/health.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2640,8 +2640,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-API/ai.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/ai.mdx",
+      "rawPath": "gateways/references/api-reference/AI-API/ai.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/ai.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2649,8 +2649,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-API/audio-to-text.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/audio-to-text.mdx",
+      "rawPath": "gateways/references/api-reference/AI-API/audio-to-text.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/audio-to-text.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2658,8 +2658,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-API/hardware-info.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/hardware-info.mdx",
+      "rawPath": "gateways/references/api-reference/AI-API/hardware-info.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/hardware-info.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2667,8 +2667,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-API/hardware-stats.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/hardware-stats.mdx",
+      "rawPath": "gateways/references/api-reference/AI-API/hardware-stats.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/hardware-stats.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2676,8 +2676,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-API/health.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/health.mdx",
+      "rawPath": "gateways/references/api-reference/AI-API/health.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/health.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2685,8 +2685,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-API/image-to-image.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/image-to-image.mdx",
+      "rawPath": "gateways/references/api-reference/AI-API/image-to-image.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/image-to-image.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2694,8 +2694,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-API/image-to-text.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/image-to-text.mdx",
+      "rawPath": "gateways/references/api-reference/AI-API/image-to-text.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/image-to-text.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2703,8 +2703,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-API/image-to-video.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/image-to-video.mdx",
+      "rawPath": "gateways/references/api-reference/AI-API/image-to-video.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/image-to-video.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2712,8 +2712,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-API/live-video-to-video.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/live-video-to-video.mdx",
+      "rawPath": "gateways/references/api-reference/AI-API/live-video-to-video.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/live-video-to-video.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2721,8 +2721,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-API/llm.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/llm.mdx",
+      "rawPath": "gateways/references/api-reference/AI-API/llm.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/llm.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2730,8 +2730,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-API/segment-anything-2.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/segment-anything-2.mdx",
+      "rawPath": "gateways/references/api-reference/AI-API/segment-anything-2.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/segment-anything-2.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2739,8 +2739,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-API/text-to-image.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/text-to-image.mdx",
+      "rawPath": "gateways/references/api-reference/AI-API/text-to-image.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/text-to-image.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2748,8 +2748,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-API/text-to-speech.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/text-to-speech.mdx",
+      "rawPath": "gateways/references/api-reference/AI-API/text-to-speech.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/text-to-speech.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2757,8 +2757,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-API/upscale.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/upscale.mdx",
+      "rawPath": "gateways/references/api-reference/AI-API/upscale.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/upscale.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2766,8 +2766,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/AI-Worker/ai-worker-api.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-Worker/ai-worker-api.mdx",
+      "rawPath": "gateways/references/api-reference/AI-Worker/ai-worker-api.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-Worker/ai-worker-api.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2775,8 +2775,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/CLI-HTTP/activateorchestrator.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/activateorchestrator.mdx",
+      "rawPath": "gateways/references/api-reference/CLI-HTTP/activateorchestrator.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2784,8 +2784,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/CLI-HTTP/bond.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/bond.mdx",
+      "rawPath": "gateways/references/api-reference/CLI-HTTP/bond.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/bond.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2793,8 +2793,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx",
+      "rawPath": "gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2802,8 +2802,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/CLI-HTTP/protocolparameters.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/protocolparameters.mdx",
+      "rawPath": "gateways/references/api-reference/CLI-HTTP/protocolparameters.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/protocolparameters.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2811,8 +2811,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/CLI-HTTP/rebond.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/rebond.mdx",
+      "rawPath": "gateways/references/api-reference/CLI-HTTP/rebond.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/rebond.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2820,8 +2820,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/CLI-HTTP/registeredorchestrators.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/registeredorchestrators.mdx",
+      "rawPath": "gateways/references/api-reference/CLI-HTTP/registeredorchestrators.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/registeredorchestrators.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2829,8 +2829,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/CLI-HTTP/reward.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/reward.mdx",
+      "rawPath": "gateways/references/api-reference/CLI-HTTP/reward.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/reward.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2838,8 +2838,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/CLI-HTTP/setbroadcastconfig.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setbroadcastconfig.mdx",
+      "rawPath": "gateways/references/api-reference/CLI-HTTP/setbroadcastconfig.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2847,8 +2847,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability.mdx",
+      "rawPath": "gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2856,8 +2856,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/CLI-HTTP/signmessage.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/signmessage.mdx",
+      "rawPath": "gateways/references/api-reference/CLI-HTTP/signmessage.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/signmessage.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2865,8 +2865,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/CLI-HTTP/status.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/status.mdx",
+      "rawPath": "gateways/references/api-reference/CLI-HTTP/status.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/status.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2874,8 +2874,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/CLI-HTTP/transfertokens.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/transfertokens.mdx",
+      "rawPath": "gateways/references/api-reference/CLI-HTTP/transfertokens.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/transfertokens.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2883,8 +2883,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/api-reference/CLI-HTTP/unbond.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/unbond.mdx",
+      "rawPath": "gateways/references/api-reference/CLI-HTTP/unbond.mdx",
+      "resolvedPath": "v2/gateways/references/api-reference/CLI-HTTP/unbond.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2892,8 +2892,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/go-livepeer/cli-reference.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+      "rawPath": "gateways/references/go-livepeer/cli-reference.mdx",
+      "resolvedPath": "v2/gateways/references/go-livepeer/cli-reference.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2901,8 +2901,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/go-livepeer/gpu-support.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx",
+      "rawPath": "gateways/references/go-livepeer/gpu-support.mdx",
+      "resolvedPath": "v2/gateways/references/go-livepeer/gpu-support.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2910,8 +2910,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/go-livepeer/hardware-requirements.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/go-livepeer/hardware-requirements.mdx",
+      "rawPath": "gateways/references/go-livepeer/hardware-requirements.mdx",
+      "resolvedPath": "v2/gateways/references/go-livepeer/hardware-requirements.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2919,8 +2919,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/references/go-livepeer/prometheus-metrics.mdx",
-      "resolvedPath": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+      "rawPath": "gateways/references/go-livepeer/prometheus-metrics.mdx",
+      "resolvedPath": "v2/gateways/references/go-livepeer/prometheus-metrics.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
