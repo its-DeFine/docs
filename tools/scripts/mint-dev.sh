@@ -28,8 +28,14 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 cd "$REPO_ROOT"
 
+# Support both regular repos and worktrees
+GIT_COMMON_DIR=$(git rev-parse --git-common-dir 2>/dev/null)
+if [ -z "$GIT_COMMON_DIR" ] || [ "$GIT_COMMON_DIR" = "--git-common-dir" ]; then
+    GIT_COMMON_DIR=".git"
+fi
+
 HOOK_SOURCE=".githooks/pre-commit"
-HOOK_TARGET=".git/hooks/pre-commit"
+HOOK_TARGET="$GIT_COMMON_DIR/hooks/pre-commit"
 
 if [ -f "$HOOK_SOURCE" ]; then
     if [ ! -x "$HOOK_TARGET" ] || ! cmp -s "$HOOK_SOURCE" "$HOOK_TARGET"; then

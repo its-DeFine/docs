@@ -24,11 +24,16 @@
 #   Keep script behavior deterministic and update script indexes after changes.
 # Install git hooks
 
-HOOKS_DIR=".git/hooks"
+# Support both regular repos and worktrees
+GIT_COMMON_DIR=$(git rev-parse --git-common-dir 2>/dev/null)
+if [ -z "$GIT_COMMON_DIR" ] || [ "$GIT_COMMON_DIR" = "--git-common-dir" ]; then
+    GIT_COMMON_DIR=".git"
+fi
+HOOKS_DIR="$GIT_COMMON_DIR/hooks"
 SOURCE_DIR=".githooks"
 
 if [ ! -d "$HOOKS_DIR" ]; then
-    echo "Error: .git/hooks directory not found. Are you in the repository root?"
+    echo "Error: hooks directory not found at $HOOKS_DIR"
     exit 1
 fi
 

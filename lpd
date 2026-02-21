@@ -535,7 +535,13 @@ run_step() {
 
 hook_status_check() {
     local source_hook="$REPO_ROOT/.githooks/pre-commit"
-    local target_hook="$REPO_ROOT/.git/hooks/pre-commit"
+    # Support both regular repos and worktrees
+    local git_common_dir
+    git_common_dir=$(cd "$REPO_ROOT" && git rev-parse --git-common-dir 2>/dev/null)
+    if [ -z "$git_common_dir" ] || [ "$git_common_dir" = "--git-common-dir" ]; then
+        git_common_dir="$REPO_ROOT/.git"
+    fi
+    local target_hook="$git_common_dir/hooks/pre-commit"
 
     if [ ! -f "$source_hook" ]; then
         echo "missing-source"
