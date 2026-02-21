@@ -2568,8 +2568,8 @@
                         "group": "Gateway Tools & Resources",
                         "icon": "tools",
                         "pages": [
-                          "v2/pages/04_gateways/gateway-tools/explorer",
-                          "v2/pages/04_gateways/gateway-tools/livepeer-tools",
+                          "v2/gateways/gateway-tools/explorer",
+                          "v2/gateways/gateway-tools/livepeer-tools",
                           "v2/pages/04_gateways/guides-and-resources/community-guides",
                           "v2/pages/04_gateways/guides-and-resources/community-projects",
                           "v2/pages/04_gateways/guides-and-resources/faq"

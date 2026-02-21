@@ -1674,8 +1674,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/gateway-tools/explorer",
-      "resolvedPath": "v2/pages/04_gateways/gateway-tools/explorer.mdx",
+      "rawPath": "/v2/gateways/gateway-tools/explorer",
+      "resolvedPath": "v2/gateways/gateway-tools/explorer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1683,8 +1683,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/gateway-tools/livepeer-tools",
-      "resolvedPath": "v2/pages/04_gateways/gateway-tools/livepeer-tools.mdx",
+      "rawPath": "/v2/gateways/gateway-tools/livepeer-tools",
+      "resolvedPath": "v2/gateways/gateway-tools/livepeer-tools.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3602,8 +3602,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/gateway-tools/explorer",
-      "resolvedPath": "v2/pages/04_gateways/gateway-tools/explorer.mdx",
+      "rawPath": "/v2/gateways/gateway-tools/explorer",
+      "resolvedPath": "v2/gateways/gateway-tools/explorer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3611,8 +3611,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/gateway-tools/livepeer-tools",
-      "resolvedPath": "v2/pages/04_gateways/gateway-tools/livepeer-tools.mdx",
+      "rawPath": "/v2/gateways/gateway-tools/livepeer-tools",
+      "resolvedPath": "v2/gateways/gateway-tools/livepeer-tools.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

@@ -489,12 +489,12 @@
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/gateway-tools/explorer": {
+  "v2/gateways/gateway-tools/explorer": {
     "status": "",
     "priority": "",
     "notes": ""
   },
-  "v2/pages/04_gateways/gateway-tools/livepeer-tools": {
+  "v2/gateways/gateway-tools/livepeer-tools": {
     "status": "",
     "priority": "",
     "notes": ""

@@ -380,7 +380,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/04_gateways/gateway-tools/explorer.mdx": [
+  "v2/gateways/gateway-tools/explorer.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -418,7 +418,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/04_gateways/gateway-tools/gateway-middleware.mdx": [
+  "v2/gateways/gateway-tools/gateway-middleware.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -429,7 +429,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/04_gateways/gateway-tools/livepeer-tools.mdx": [
+  "v2/gateways/gateway-tools/livepeer-tools.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -508,7 +508,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./gateway-tools/explorer",
-      "resolvedPath": "v2/pages/04_gateways/gateway-tools/explorer.mdx",
+      "resolvedPath": "v2/gateways/gateway-tools/explorer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

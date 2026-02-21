@@ -2442,8 +2442,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/gateway-tools/explorer.mdx",
-      "resolvedPath": "v2/pages/04_gateways/gateway-tools/explorer.mdx",
+      "rawPath": "gateways/gateway-tools/explorer.mdx",
+      "resolvedPath": "v2/gateways/gateway-tools/explorer.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2451,8 +2451,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/gateway-tools/gateway-middleware.mdx",
-      "resolvedPath": "v2/pages/04_gateways/gateway-tools/gateway-middleware.mdx",
+      "rawPath": "gateways/gateway-tools/gateway-middleware.mdx",
+      "resolvedPath": "v2/gateways/gateway-tools/gateway-middleware.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2460,8 +2460,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "04_gateways/gateway-tools/livepeer-tools.mdx",
-      "resolvedPath": "v2/pages/04_gateways/gateway-tools/livepeer-tools.mdx",
+      "rawPath": "gateways/gateway-tools/livepeer-tools.mdx",
+      "resolvedPath": "v2/gateways/gateway-tools/livepeer-tools.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
