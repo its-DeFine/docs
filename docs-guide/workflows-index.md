@@ -1,0 +1,23 @@
+# Workflows Index
+
+> Generated file. Do not edit manually. Run `node tools/scripts/generate-docs-guide-indexes.js --write`.
+
+| Workflow | File | Triggers | Purpose | Blocking Policy | Outputs | Owner |
+|---|---|---|---|---|---|---|
+| auto-assign-docs-reviewers.yml | `.github/workflows/auto-assign-docs-reviewers.yml` | unknown | auto-assign-docs-reviewers.yml | blocking by default (subject to branch protection) | workflow logs | docs |
+| Check Broken Links | `.github/workflows/broken-links.yml` | pull_request | Check Broken Links | advisory or partial-advisory | step summary | docs |
+| build-review-assets.yml | `.github/workflows/build-review-assets.yml` | unknown | build-review-assets.yml | blocking by default (subject to branch protection) | workflow logs | docs |
+| Discord Issue Intake | `.github/workflows/discord-issue-intake.yml` | repository_dispatch | Discord Issue Intake | blocking by default (subject to branch protection) | workflow logs | docs |
+| generate-review-table.yml | `.github/workflows/generate-review-table.yml` | unknown | generate-review-table.yml | blocking by default (subject to branch protection) | workflow logs | docs |
+| Issue Auto Label | `.github/workflows/issue-auto-label.yml` | pull_request | Issue Auto Label | blocking by default (subject to branch protection) | workflow logs | docs |
+| Project Showcase Sync | `.github/workflows/project-showcase-sync.yml` | repository_dispatch, schedule, workflow_dispatch | Project Showcase Sync | blocking by default (subject to branch protection) | workflow logs | docs |
+| Generate | `.github/workflows/sdk_generation.yaml` | schedule, workflow_dispatch | Generate | blocking by default (subject to branch protection) | PR comments/metadata | docs |
+| sync-large-assets.yml | `.github/workflows/sync-large-assets.yml` | push, workflow_dispatch | sync-large-assets.yml | blocking by default (subject to branch protection) | repository commits | docs |
+| Docs CI - Content Quality Suite | `.github/workflows/test-suite.yml` | pull_request, push | Docs CI - Content Quality Suite | advisory or partial-advisory | step summary, PR comments/metadata | docs |
+| Docs CI - V2 Browser Sweep | `.github/workflows/test-v2-pages.yml` | pull_request, push | Docs CI - V2 Browser Sweep | advisory or partial-advisory | artifact upload, PR comments/metadata | docs |
+| Update Blog and Forum Data | `.github/workflows/update-blog-data.yml` | schedule, workflow_dispatch | Update Blog and Forum Data | advisory or partial-advisory | repository commits | docs |
+| Update Forum Data | `.github/workflows/update-forum-data.yml` | schedule, workflow_dispatch | Update Forum Data | blocking by default (subject to branch protection) | repository commits | docs |
+| Update Ghost Blog Data | `.github/workflows/update-ghost-blog-data.yml` | schedule, workflow_dispatch | Update Ghost Blog Data | blocking by default (subject to branch protection) | repository commits | docs |
+| Update Livepeer Release Version | `.github/workflows/update-livepeer-release.yml` | schedule, workflow_dispatch | Update Livepeer Release Version | blocking by default (subject to branch protection) | repository commits | docs |
+| update-review-template.yml | `.github/workflows/update-review-template.yml` | unknown | update-review-template.yml | blocking by default (subject to branch protection) | workflow logs | docs |
+| Update YouTube Data | `.github/workflows/update-youtube-data.yml` | schedule, workflow_dispatch | Update YouTube Data | blocking by default (subject to branch protection) | repository commits | docs |

@@ -1,0 +1,62 @@
+# Data Integrations
+
+This document maps primary API/data integrations used by docs content and automation.
+
+## API Specifications
+
+Canonical API/spec files in `api/`:
+
+- `api/openapi.yaml`
+- `api/openapi.json`
+- `api/studio.yaml`
+- `api/gateway.openapi.yaml`
+- `api/ai-worker.yaml`
+- `api/cli-http.yaml`
+
+Related generation helpers:
+
+- `tools/scripts/snippets/fetch-openapi-specs.sh`
+- `tools/scripts/snippets/generate-api-docs.sh`
+
+## Automated External Data Feeds
+
+Core external feed outputs:
+
+- Forum -> `snippets/automations/forum/forumData.jsx`
+- Ghost blog -> `snippets/automations/blog/ghostBlogData.jsx`
+- YouTube -> `snippets/automations/youtube/youtubeData.jsx`
+- Release/global state -> `snippets/automations/globals/globals.mdx`
+- Showcase -> `snippets/automations/showcase/showcaseData.jsx`
+
+Pipeline definitions:
+
+- GitHub workflows under `.github/workflows/update-*.yml`
+- n8n assets under `snippets/automations/scripts/n8n/`
+
+## Internal Data Layers
+
+- Route/link maps: `snippets/data/*/hrefs.jsx`
+- Domain data modules: `snippets/data/**/*.jsx`
+- Variables/meta docs snippets: `snippets/data/variables*.mdx`
+
+## Integrations Mentioned in Product Docs
+
+The repository includes integration-oriented docs for:
+
+- LPT and related exchange/reference data surfaces
+- Explorer and protocol/resource integrations
+- GitHub and ecosystem summaries via automation outputs
+
+Use public docs pages for user-facing detail and this file for maintainer location mapping.
+
+## Operational Notes
+
+- Treat generated data artifacts as derived state.
+- Update pipeline scripts/workflows, then regenerate artifacts and indexes.
+- Prefer deterministic outputs and stable write paths for CI predictability.
+
+## Related
+
+- Workflow inventory: [workflows-index.md](./workflows-index.md)
+- Script inventory: [scripts-index.md](./scripts-index.md)
+- Pipeline map: [automation-pipelines.md](./automation-pipelines.md)

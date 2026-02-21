@@ -2,12 +2,14 @@
 
 Aggregate catalog generated from group script indexes.
 
+> Generated file. Do not edit manually. Run `node tests/unit/script-docs.test.js --write --rebuild-indexes`.
+
 ## .githooks
 
 | Script | Summary | Usage | Owner |
 |---|---|---|---|
 | `.githooks/install.sh` | Utility script for .githooks/install.sh. | `bash .githooks/install.sh` | docs |
-| `.githooks/pre-commit` | Utility script for .githooks/pre-commit. | `node .githooks/pre-commit` | docs |
+| `.githooks/pre-commit` | Pre-commit hook for repository validation | `./.githooks/pre-commit (or invoked automatically by git)` | docs |
 | `.githooks/pre-commit-no-deletions` | Utility script for .githooks/pre-commit-no-deletions. | `node .githooks/pre-commit-no-deletions` | docs |
 | `.githooks/server-manager.js` | Utility script for .githooks/server-manager.js. | `node .githooks/server-manager.js` | docs |
 | `.githooks/verify-browser.js` | Utility script for .githooks/verify-browser.js. | `node .githooks/verify-browser.js` | docs |
@@ -31,9 +33,13 @@ Aggregate catalog generated from group script indexes.
 |---|---|---|---|
 | `tests/integration/browser.test.js` | Utility script for tests/integration/browser.test.js. | `node tests/integration/browser.test.js` | docs |
 | `tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. | `node tests/integration/domain-pages-audit.js --version both` | docs |
-| `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. | `node tests/run-pr-checks.js --base-ref main` | docs |
+| `tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit with report and domain link map outputs. | `node tests/integration/v2-link-audit.js --full --write-links --strict` | docs |
 | `tests/run-all.js` | Utility script for tests/run-all.js. | `node tests/run-all.js` | docs |
+| `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. | `node tests/run-pr-checks.js --base-ref main` | docs |
+| `tests/unit/docs-guide-sot.test.js` | Validate docs-guide source-of-truth coverage, README pointers, and generated index freshness. | `node tests/unit/docs-guide-sot.test.js` | docs |
+| `tests/unit/docs-navigation.test.js` | Validate docs.json page-entry syntax, report missing routes, suggest remaps, and optionally apply approved remaps. | `./lpd tests unit docs-navigation.test` | docs |
 | `tests/unit/links-imports.test.js` | Utility script for tests/unit/links-imports.test.js. | `node tests/unit/links-imports.test.js` | docs |
+| `tests/unit/mdx-guards.test.js` | Enforce MDX guardrails for globals imports, math delimiters, and markdown table line breaks. | `node tests/unit/mdx-guards.test.js` | docs |
 | `tests/unit/mdx.test.js` | Utility script for tests/unit/mdx.test.js. | `node tests/unit/mdx.test.js` | docs |
 | `tests/unit/quality.test.js` | Utility script for tests/unit/quality.test.js. | `node tests/unit/quality.test.js` | docs |
 | `tests/unit/script-docs.test.js` | Enforce script header schema, keep group script indexes in sync, and build aggregate script index. | `node tests/unit/script-docs.test.js --staged --write --stage --autofill` | docs |
@@ -49,6 +55,7 @@ Aggregate catalog generated from group script indexes.
 |---|---|---|---|
 | `tools/scripts/audit-all-v2-pages.js` | Utility script for tools/scripts/audit-all-v2-pages.js. | `node tools/scripts/audit-all-v2-pages.js` | docs |
 | `tools/scripts/audit-component-usage.js` | Utility script for tools/scripts/audit-component-usage.js. | `node tools/scripts/audit-component-usage.js` | docs |
+| `tools/scripts/audit-scripts.js` | Audit full-repo executable scripts, categorize usage/overlap, and overwrite SCRIPT_AUDIT reports. | `node tools/scripts/audit-scripts.js` | docs |
 | `tools/scripts/check-component-errors.js` | Utility script for tools/scripts/check-component-errors.js. | `node tools/scripts/check-component-errors.js` | docs |
 | `tools/scripts/debug-mint-dev.js` | Utility script for tools/scripts/debug-mint-dev.js. | `node tools/scripts/debug-mint-dev.js` | docs |
 | `tools/scripts/dev/add-callouts.js` | Utility script for tools/scripts/dev/add-callouts.js. | `node tools/scripts/dev/add-callouts.js` | docs |
@@ -63,6 +70,7 @@ Aggregate catalog generated from group script indexes.
 | `tools/scripts/download-linkedin-with-cookies.sh` | Utility script for tools/scripts/download-linkedin-with-cookies.sh. | `bash tools/scripts/download-linkedin-with-cookies.sh` | docs |
 | `tools/scripts/final-verification.js` | Utility script for tools/scripts/final-verification.js. | `node tools/scripts/final-verification.js` | docs |
 | `tools/scripts/find-correct-url.js` | Utility script for tools/scripts/find-correct-url.js. | `node tools/scripts/find-correct-url.js` | docs |
+| `tools/scripts/generate-docs-guide-indexes.js` | Generate docs-guide workflow/template indexes and optionally verify they are up to date. | `node tools/scripts/generate-docs-guide-indexes.js --write` | docs |
 | `tools/scripts/generate-pages-index.js` | Generate and verify section-style index.mdx files for v2/pages folders, plus the root aggregate index. | `node tools/scripts/generate-pages-index.js --write` | docs |
 | `tools/scripts/inspect-page.js` | Utility script for tools/scripts/inspect-page.js. | `node tools/scripts/inspect-page.js` | docs |
 | `tools/scripts/inspect-video-page.js` | Utility script for tools/scripts/inspect-video-page.js. | `node tools/scripts/inspect-video-page.js` | docs |

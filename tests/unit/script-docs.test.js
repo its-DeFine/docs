@@ -475,7 +475,14 @@ function parseGroupIndexRows(indexPath) {
 }
 
 function buildAggregateMarkdown() {
-  const lines = ['# Script Index', '', 'Aggregate catalog generated from group script indexes.', ''];
+  const lines = [
+    '# Script Index',
+    '',
+    'Aggregate catalog generated from group script indexes.',
+    '',
+    '> Generated file. Do not edit manually. Run `node tests/unit/script-docs.test.js --write --rebuild-indexes`.',
+    ''
+  ];
   for (const group of GROUP_INDEX_MAP) {
     const rows = parseGroupIndexRows(group.index);
     lines.push(`## ${group.root}`);

@@ -7,6 +7,7 @@
 |---|---|---|---|
 | `tools/scripts/audit-all-v2-pages.js` | Utility script for tools/scripts/audit-all-v2-pages.js. | `node tools/scripts/audit-all-v2-pages.js` | docs |
 | `tools/scripts/audit-component-usage.js` | Utility script for tools/scripts/audit-component-usage.js. | `node tools/scripts/audit-component-usage.js` | docs |
+| `tools/scripts/audit-scripts.js` | Audit full-repo executable scripts, categorize usage/overlap, and overwrite SCRIPT_AUDIT reports. | `node tools/scripts/audit-scripts.js` | docs |
 | `tools/scripts/check-component-errors.js` | Utility script for tools/scripts/check-component-errors.js. | `node tools/scripts/check-component-errors.js` | docs |
 | `tools/scripts/debug-mint-dev.js` | Utility script for tools/scripts/debug-mint-dev.js. | `node tools/scripts/debug-mint-dev.js` | docs |
 | `tools/scripts/dev/add-callouts.js` | Utility script for tools/scripts/dev/add-callouts.js. | `node tools/scripts/dev/add-callouts.js` | docs |
@@ -21,6 +22,7 @@
 | `tools/scripts/download-linkedin-with-cookies.sh` | Utility script for tools/scripts/download-linkedin-with-cookies.sh. | `bash tools/scripts/download-linkedin-with-cookies.sh` | docs |
 | `tools/scripts/final-verification.js` | Utility script for tools/scripts/final-verification.js. | `node tools/scripts/final-verification.js` | docs |
 | `tools/scripts/find-correct-url.js` | Utility script for tools/scripts/find-correct-url.js. | `node tools/scripts/find-correct-url.js` | docs |
+| `tools/scripts/generate-docs-guide-indexes.js` | Generate docs-guide workflow/template indexes and optionally verify they are up to date. | `node tools/scripts/generate-docs-guide-indexes.js --write` | docs |
 | `tools/scripts/generate-pages-index.js` | Generate and verify section-style index.mdx files for v2/pages folders, plus the root aggregate index. | `node tools/scripts/generate-pages-index.js --write` | docs |
 | `tools/scripts/inspect-page.js` | Utility script for tools/scripts/inspect-page.js. | `node tools/scripts/inspect-page.js` | docs |
 | `tools/scripts/inspect-video-page.js` | Utility script for tools/scripts/inspect-video-page.js. | `node tools/scripts/inspect-video-page.js` | docs |

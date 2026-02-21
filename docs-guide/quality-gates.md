@@ -1,0 +1,84 @@
+# Quality Gates Map
+
+This document maps local and CI enforcement behavior and whether checks are blocking or advisory.
+
+## Gate Layers
+
+### 1) Pre-commit (local)
+
+Entry:
+
+- `.githooks/pre-commit`
+
+Key checks:
+
+- repository structure rules
+- style guide checks
+- syntax/verification checks (`.githooks/verify.sh`)
+- staged test suite (`tests/run-all.js --staged --skip-browser`)
+- staged link/domain audits
+- script docs enforcement
+- pages index synchronization
+
+Blocking policy:
+
+- blocking for structural/style/test failures
+- docs-guide SoT check currently advisory
+
+### 2) PR Changed-File Checks
+
+Entry:
+
+- `tests/run-pr-checks.js`
+- `.github/workflows/test-suite.yml` (PR mode)
+
+Key checks:
+
+- style, MDX, spelling, quality, links/imports (changed scope)
+- MDX guardrails + docs navigation checks
+- script docs checks on changed scripts
+- strict link audit on changed docs pages
+- docs-guide SoT check currently advisory
+
+Blocking policy:
+
+- blocking for failed required checks
+- advisory behavior for integration PR exceptions and docs-guide SoT check
+
+### 3) Browser Validation / Sweeps
+
+Entries:
+
+- `tests/integration/browser.test.js`
+- `tools/scripts/test-v2-pages.js`
+- `.github/workflows/test-v2-pages.yml`
+
+Blocking policy:
+
+- browser failures are treated as blocking in primary CI flows
+
+## Source Files
+
+- `.githooks/pre-commit`
+- `.githooks/verify.sh`
+- `tests/run-all.js`
+- `tests/run-pr-checks.js`
+- `.github/workflows/test-suite.yml`
+- `.github/workflows/test-v2-pages.yml`
+- `tests/WHEN-TESTS-RUN.md`
+- `tests/PR-CI-TESTS-AND-SCRIPT-RUN-MATRIX.md`
+
+## Guardrails for Docs SoT
+
+Guardrail checks are implemented in:
+
+- `tests/unit/docs-guide-sot.test.js`
+
+Generated-index freshness is checked through:
+
+- `tools/scripts/generate-docs-guide-indexes.js --check`
+
+Advisory rollout intent:
+
+1. advisory in pre-commit + CI summaries
+2. switch to blocking once docs-guide structure stabilizes and drift rate is low

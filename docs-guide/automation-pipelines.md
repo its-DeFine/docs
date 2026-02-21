@@ -1,0 +1,72 @@
+# Automation Pipelines Map
+
+This document tracks automation systems and where they write data.
+
+## Automation Surfaces
+
+- GitHub Actions workflows in `.github/workflows/`
+- Workflow helper scripts in `.github/scripts/`
+- n8n pipeline assets in `snippets/automations/scripts/n8n/`
+- Maintenance scripts in `tools/scripts/`
+
+See generated workflow inventory: [workflows-index.md](./workflows-index.md).
+
+## Core Pipelines
+
+### 1) Quality + CI
+
+- `test-suite.yml` - changed-file checks + browser test
+- `test-v2-pages.yml` - v2 browser sweep + artifacts/comments
+- `broken-links.yml` - advisory link checker
+
+### 2) Data Refresh Pipelines
+
+- `update-livepeer-release.yml` -> updates globals release data
+- `update-forum-data.yml` -> updates forum data snippets
+- `update-ghost-blog-data.yml` -> updates ghost blog data snippets
+- `update-youtube-data.yml` -> updates YouTube data snippets
+- `project-showcase-sync.yml` -> updates showcase pipeline data
+
+### 3) Governance + Intake Pipelines
+
+- `discord-issue-intake.yml` + `issue-auto-label.yml`
+- review automation workflows (`build-review-assets.yml`, `generate-review-table.yml`, `update-review-template.yml`)
+
+## Showcase + Trending Topics Pipeline Notes
+
+### Showcase
+
+Primary artifacts:
+
+- `snippets/automations/showcase/showcaseData.jsx`
+- workflow and n8n assets for showcase sync
+
+Operational intent:
+
+- searchable/sortable ecosystem entries
+- pipeline reusable for additional curation sources
+
+### Trending Topics / Aggregation
+
+Primary artifacts:
+
+- `snippets/automations/forum/forumData.jsx`
+- `snippets/automations/blog/ghostBlogData.jsx`
+- `snippets/automations/youtube/youtubeData.jsx`
+
+Operational intent:
+
+- aggregate recent community signal across forum/blog/YouTube
+- feed “latest” sections and maintain freshness automatically
+
+## Operational Controls
+
+- Generated catalogs for scripts/workflows/templates prevent blind spots.
+- CI and pre-commit checks reduce drift between pipeline outputs and docs expectations.
+- Where GitHub Actions and n8n overlap, both are retained for maintainer flexibility.
+
+## Related
+
+- Public workflow guide: `v2/pages/07_resources/documentation-guide/automations-workflows.mdx`
+- Internal quality map: [quality-gates.md](./quality-gates.md)
+- Script inventory: [scripts-index.md](./scripts-index.md)

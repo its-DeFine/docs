@@ -7,9 +7,13 @@
 |---|---|---|---|
 | `tests/integration/browser.test.js` | Utility script for tests/integration/browser.test.js. | `node tests/integration/browser.test.js` | docs |
 | `tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. | `node tests/integration/domain-pages-audit.js --version both` | docs |
-| `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. | `node tests/run-pr-checks.js --base-ref main` | docs |
+| `tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit with report and domain link map outputs. | `node tests/integration/v2-link-audit.js --full --write-links --strict` | docs |
 | `tests/run-all.js` | Utility script for tests/run-all.js. | `node tests/run-all.js` | docs |
+| `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. | `node tests/run-pr-checks.js --base-ref main` | docs |
+| `tests/unit/docs-guide-sot.test.js` | Validate docs-guide source-of-truth coverage, README pointers, and generated index freshness. | `node tests/unit/docs-guide-sot.test.js` | docs |
+| `tests/unit/docs-navigation.test.js` | Validate docs.json page-entry syntax, report missing routes, suggest remaps, and optionally apply approved remaps. | `./lpd tests unit docs-navigation.test` | docs |
 | `tests/unit/links-imports.test.js` | Utility script for tests/unit/links-imports.test.js. | `node tests/unit/links-imports.test.js` | docs |
+| `tests/unit/mdx-guards.test.js` | Enforce MDX guardrails for globals imports, math delimiters, and markdown table line breaks. | `node tests/unit/mdx-guards.test.js` | docs |
 | `tests/unit/mdx.test.js` | Utility script for tests/unit/mdx.test.js. | `node tests/unit/mdx.test.js` | docs |
 | `tests/unit/quality.test.js` | Utility script for tests/unit/quality.test.js. | `node tests/unit/quality.test.js` | docs |
 | `tests/unit/script-docs.test.js` | Enforce script header schema, keep group script indexes in sync, and build aggregate script index. | `node tests/unit/script-docs.test.js --staged --write --stage --autofill` | docs |

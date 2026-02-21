@@ -501,6 +501,17 @@ else
                 fi
             fi
 
+            # Docs-guide source-of-truth checks are advisory during stabilization
+            if [ -f "tests/unit/docs-guide-sot.test.js" ]; then
+                echo -e "${YELLOW}Running docs-guide SoT checks (advisory)...${NC}"
+                if node tests/unit/docs-guide-sot.test.js 2>&1; then
+                    echo -e "${GREEN}✓ Docs-guide SoT checks passed${NC}"
+                else
+                    WARNINGS+=("⚠️ Docs-guide SoT checks need updates - run node tests/unit/docs-guide-sot.test.js")
+                    echo -e "${YELLOW}⚠️  Docs-guide SoT checks reported advisory issues${NC}"
+                fi
+            fi
+
             # Staged link audit (internal links/imports strict, external links classify-only)
             if [ -f "tests/integration/v2-link-audit.js" ]; then
                 echo -e "${YELLOW}Running staged V2 link audit...${NC}"
@@ -568,6 +579,17 @@ else
                 if [ $TEST_EXIT -ne 0 ]; then
                     VIOLATIONS=$((VIOLATIONS + 1))
                     WARNINGS+=("❌ Test suite failed - see output above")
+                fi
+            fi
+
+            # Docs-guide source-of-truth checks are advisory during stabilization
+            if [ -f "tests/unit/docs-guide-sot.test.js" ]; then
+                echo -e "${YELLOW}Running docs-guide SoT checks (advisory)...${NC}"
+                if node tests/unit/docs-guide-sot.test.js 2>&1; then
+                    echo -e "${GREEN}✓ Docs-guide SoT checks passed${NC}"
+                else
+                    WARNINGS+=("⚠️ Docs-guide SoT checks need updates - run node tests/unit/docs-guide-sot.test.js")
+                    echo -e "${YELLOW}⚠️  Docs-guide SoT checks reported advisory issues${NC}"
                 fi
             fi
 

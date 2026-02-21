@@ -11,6 +11,8 @@
   },
   "scripts": {
     "format-mdx": "node convert-jsx-comments-to-markdown.js '**/*.mdx' && prettier --write '**/*.mdx'",
+    "audit:scripts": "node scripts/audit-scripts.js",
+    "docs-guide:indexes": "node scripts/generate-docs-guide-indexes.js --write",
     "test:v2-pages": "node scripts/test-v2-pages.js",
     "test": "node ../tests/run-all.js",
     "test:style": "node ../tests/unit/style-guide.test.js",

@@ -29,6 +29,7 @@ Runs unit + integration suite.
 - `node tests/unit/spelling.test.js`
 - `node tests/unit/quality.test.js`
 - `node tests/unit/links-imports.test.js`
+- `node tests/unit/docs-guide-sot.test.js`
 - `node tools/scripts/generate-pages-index.js`
 
 ### Integration Suites
@@ -87,6 +88,7 @@ npm --prefix tests run test:spell
 npm --prefix tests run test:quality
 npm --prefix tests run test:links
 npm --prefix tests run test:pr
+npm --prefix tests run test:docs-guide
 npm --prefix tests run test:pages-index
 npm --prefix tests run test:pages-index:write
 npm --prefix tests run test:pages-index:rebuild
