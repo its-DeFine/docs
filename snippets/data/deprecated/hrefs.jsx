@@ -1,5 +1,5 @@
 export const LINK_MAP = {
-  "v2/pages/deprecated/about-livepeer/moved/livepeer-ecosystem.mdx": [
+  "v2/deprecated/about-livepeer/moved/livepeer-ecosystem.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -19,7 +19,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/deprecated/about-livepeer/moved/livepeer-evolution.mdx": [
+  "v2/deprecated/about-livepeer/moved/livepeer-evolution.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -48,7 +48,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/deprecated/about-livepeer/moved/livepeer-overview.mdx": [
+  "v2/deprecated/about-livepeer/moved/livepeer-overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -122,7 +122,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/deprecated/about-livepeer/moved/why-livepeer.mdx": [
+  "v2/deprecated/about-livepeer/moved/why-livepeer.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",

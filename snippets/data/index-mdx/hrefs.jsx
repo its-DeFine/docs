@@ -202,7 +202,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "deprecated/about-livepeer/moved/livepeer-ecosystem.mdx",
-      "resolvedPath": "v2/pages/deprecated/about-livepeer/moved/livepeer-ecosystem.mdx",
+      "resolvedPath": "v2/deprecated/about-livepeer/moved/livepeer-ecosystem.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -211,7 +211,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "deprecated/about-livepeer/moved/livepeer-evolution.mdx",
-      "resolvedPath": "v2/pages/deprecated/about-livepeer/moved/livepeer-evolution.mdx",
+      "resolvedPath": "v2/deprecated/about-livepeer/moved/livepeer-evolution.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -220,7 +220,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "deprecated/about-livepeer/moved/livepeer-overview.mdx",
-      "resolvedPath": "v2/pages/deprecated/about-livepeer/moved/livepeer-overview.mdx",
+      "resolvedPath": "v2/deprecated/about-livepeer/moved/livepeer-overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -229,7 +229,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "deprecated/about-livepeer/moved/why-livepeer.mdx",
-      "resolvedPath": "v2/pages/deprecated/about-livepeer/moved/why-livepeer.mdx",
+      "resolvedPath": "v2/deprecated/about-livepeer/moved/why-livepeer.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
