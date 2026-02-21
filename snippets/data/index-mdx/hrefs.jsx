@@ -3540,8 +3540,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/token-portal.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/token-portal.mdx",
+      "rawPath": "lpt/token-portal.mdx",
+      "resolvedPath": "v2/lpt/token-portal.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

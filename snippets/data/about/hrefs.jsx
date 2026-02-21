@@ -197,8 +197,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/06_lptoken/token-portal",
-      "resolvedPath": "v2/pages/06_lptoken/token-portal.mdx",
+      "rawPath": "/lpt/token-portal",
+      "resolvedPath": "v2/lpt/token-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

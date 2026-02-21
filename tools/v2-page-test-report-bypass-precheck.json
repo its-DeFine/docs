@@ -1630,8 +1630,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/token-portal",
-      "url": "http://127.0.0.1:3000/06_lptoken/token-portal",
+      "pagePath": "v2/lpt/token-portal",
+      "url": "http://127.0.0.1:3000/lpt/token-portal",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

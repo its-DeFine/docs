@@ -2798,7 +2798,7 @@
                         "group": "About LPT",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/pages/06_lptoken/token-portal",
+                          "v2/lpt/token-portal",
                           "v2/pages/06_lptoken/about/overview",
                           "v2/pages/06_lptoken/about/purpose",
                           "v2/pages/06_lptoken/about/tokenomics",

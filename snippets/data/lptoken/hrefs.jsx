@@ -936,7 +936,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/06_lptoken/token-portal.mdx": [
+  "v2/lpt/token-portal.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "empty",
