@@ -1551,8 +1551,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/_move_me/livepeer-hubs/livepeer-builder-hub.mdx",
-      "resolvedPath": "v2/pages/02_community/_move_me/livepeer-hubs/livepeer-builder-hub.mdx",
+      "rawPath": "community/_move_me/livepeer-hubs/livepeer-builder-hub.mdx",
+      "resolvedPath": "v2/community/_move_me/livepeer-hubs/livepeer-builder-hub.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1560,8 +1560,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/_move_me/livepeer-hubs/livepeer-partner-hub.mdx",
-      "resolvedPath": "v2/pages/02_community/_move_me/livepeer-hubs/livepeer-partner-hub.mdx",
+      "rawPath": "community/_move_me/livepeer-hubs/livepeer-partner-hub.mdx",
+      "resolvedPath": "v2/community/_move_me/livepeer-hubs/livepeer-partner-hub.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1569,8 +1569,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/_move_me/livepeer-partners/livepeer-builder-hub.mdx",
-      "resolvedPath": "v2/pages/02_community/_move_me/livepeer-partners/livepeer-builder-hub.mdx",
+      "rawPath": "community/_move_me/livepeer-partners/livepeer-builder-hub.mdx",
+      "resolvedPath": "v2/community/_move_me/livepeer-partners/livepeer-builder-hub.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1578,8 +1578,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "02_community/_move_me/livepeer-partners/livepeer-partner-hub.mdx",
-      "resolvedPath": "v2/pages/02_community/_move_me/livepeer-partners/livepeer-partner-hub.mdx",
+      "rawPath": "community/_move_me/livepeer-partners/livepeer-partner-hub.mdx",
+      "resolvedPath": "v2/community/_move_me/livepeer-partners/livepeer-partner-hub.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
