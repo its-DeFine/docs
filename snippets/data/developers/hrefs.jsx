@@ -1744,8 +1744,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/api-reference/overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/overview.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/api-reference/overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

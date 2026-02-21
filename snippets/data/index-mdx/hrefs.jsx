@@ -597,8 +597,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/overview.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -606,8 +606,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/assets/delete.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/assets/delete.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/assets/delete.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/assets/delete.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -615,8 +615,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/assets/get-all.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/assets/get-all.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/assets/get-all.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/assets/get-all.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -624,8 +624,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/assets/get.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/assets/get.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/assets/get.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/assets/get.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -633,8 +633,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/assets/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/assets/overview.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/assets/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/assets/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -642,8 +642,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/assets/update.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/assets/update.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/assets/update.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/assets/update.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -651,8 +651,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/assets/upload-via-url.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/assets/upload-via-url.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/assets/upload-via-url.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/assets/upload-via-url.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -660,8 +660,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/assets/upload.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/assets/upload.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/assets/upload.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/assets/upload.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -669,8 +669,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/multistream/create.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/multistream/create.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/multistream/create.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/multistream/create.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -678,8 +678,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/multistream/delete.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/multistream/delete.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/multistream/delete.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/multistream/delete.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -687,8 +687,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/multistream/get-all.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/multistream/get-all.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/multistream/get-all.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/multistream/get-all.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -696,8 +696,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/multistream/get.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/multistream/get.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/multistream/get.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/multistream/get.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -705,8 +705,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/multistream/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/multistream/overview.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/multistream/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/multistream/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -714,8 +714,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/multistream/update.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/multistream/update.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/multistream/update.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/multistream/update.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -723,8 +723,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/playback/get.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/playback/get.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/playback/get.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/playback/get.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -732,8 +732,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/playback/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/playback/overview.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/playback/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/playback/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -741,8 +741,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/rooms/create-user.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/rooms/create-user.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/rooms/create-user.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/rooms/create-user.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -750,8 +750,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/rooms/create.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/rooms/create.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/rooms/create.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/rooms/create.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -759,8 +759,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/rooms/delete.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/rooms/delete.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/rooms/delete.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/rooms/delete.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -768,8 +768,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/rooms/get-user.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/rooms/get-user.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/rooms/get-user.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/rooms/get-user.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -777,8 +777,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/rooms/get.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/rooms/get.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/rooms/get.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/rooms/get.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -786,8 +786,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/rooms/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/rooms/overview.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/rooms/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/rooms/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -795,8 +795,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/rooms/remove-user.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/rooms/remove-user.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/rooms/remove-user.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/rooms/remove-user.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -804,8 +804,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/rooms/start-egress.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/rooms/start-egress.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/rooms/start-egress.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/rooms/start-egress.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -813,8 +813,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/rooms/stop-egress.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/rooms/stop-egress.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/rooms/stop-egress.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/rooms/stop-egress.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -822,8 +822,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/rooms/update-user.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/rooms/update-user.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/rooms/update-user.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/rooms/update-user.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -831,8 +831,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/rooms/update.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/rooms/update.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/rooms/update.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/rooms/update.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -840,8 +840,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/sessions/get-all.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/sessions/get-all.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/sessions/get-all.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/sessions/get-all.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -849,8 +849,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/sessions/get-clip.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/sessions/get-clip.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/sessions/get-clip.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/sessions/get-clip.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -858,8 +858,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/sessions/get-recording.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/sessions/get-recording.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/sessions/get-recording.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/sessions/get-recording.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -867,8 +867,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/sessions/get.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/sessions/get.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/sessions/get.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/sessions/get.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -876,8 +876,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/sessions/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/sessions/overview.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/sessions/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/sessions/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -885,8 +885,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/signing-keys/create.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/create.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/signing-keys/create.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/signing-keys/create.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -894,8 +894,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/signing-keys/delete.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/delete.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/signing-keys/delete.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/signing-keys/delete.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -903,8 +903,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/signing-keys/get-all.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/get-all.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/signing-keys/get-all.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/signing-keys/get-all.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -912,8 +912,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/signing-keys/get.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/get.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/signing-keys/get.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/signing-keys/get.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -921,8 +921,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/signing-keys/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/overview.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/signing-keys/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/signing-keys/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -930,8 +930,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/signing-keys/update.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/update.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/signing-keys/update.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/signing-keys/update.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -939,8 +939,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/streams/add-multistream-target.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/streams/add-multistream-target.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/streams/add-multistream-target.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/streams/add-multistream-target.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -948,8 +948,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/streams/create-clip.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/streams/create-clip.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/streams/create-clip.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/streams/create-clip.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -957,8 +957,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/streams/create.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/streams/create.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/streams/create.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/streams/create.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -966,8 +966,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/streams/delete-multistream-target.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/streams/delete-multistream-target.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/streams/delete-multistream-target.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/streams/delete-multistream-target.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -975,8 +975,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/streams/delete.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/streams/delete.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/streams/delete.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/streams/delete.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -984,8 +984,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/streams/get-all.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/streams/get-all.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/streams/get-all.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/streams/get-all.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -993,8 +993,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/streams/get-clip.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/streams/get-clip.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/streams/get-clip.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/streams/get-clip.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1002,8 +1002,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/streams/get.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/streams/get.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/streams/get.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/streams/get.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1011,8 +1011,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/streams/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/streams/overview.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/streams/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/streams/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1020,8 +1020,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/streams/terminate.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/streams/terminate.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/streams/terminate.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/streams/terminate.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1029,8 +1029,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/streams/update.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/streams/update.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/streams/update.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/streams/update.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1038,8 +1038,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/tasks/get-all.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/tasks/get-all.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/tasks/get-all.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/tasks/get-all.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1047,8 +1047,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/tasks/get.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/tasks/get.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/tasks/get.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/tasks/get.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1056,8 +1056,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/tasks/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/tasks/overview.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/tasks/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/tasks/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1065,8 +1065,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/transcode/create.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/transcode/create.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/transcode/create.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/transcode/create.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1074,8 +1074,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/transcode/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/transcode/overview.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/transcode/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/transcode/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1083,8 +1083,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/viewership/get-creators-metrics.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/viewership/get-creators-metrics.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/viewership/get-creators-metrics.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/viewership/get-creators-metrics.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1092,8 +1092,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/viewership/get-public-total-views.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/viewership/get-public-total-views.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/viewership/get-public-total-views.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/viewership/get-public-total-views.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1101,8 +1101,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/viewership/get-realtime-viewership.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/viewership/get-realtime-viewership.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/viewership/get-realtime-viewership.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/viewership/get-realtime-viewership.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1110,8 +1110,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/viewership/get-usage-metrics.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/viewership/get-usage-metrics.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/viewership/get-usage-metrics.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/viewership/get-usage-metrics.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1119,8 +1119,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/viewership/get-viewership-metrics.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/viewership/get-viewership-metrics.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/viewership/get-viewership-metrics.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/viewership/get-viewership-metrics.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1128,8 +1128,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/viewership/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/viewership/overview.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/viewership/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/viewership/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1137,8 +1137,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/webhooks/create.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/create.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/webhooks/create.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/webhooks/create.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1146,8 +1146,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/webhooks/delete.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/delete.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/webhooks/delete.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/webhooks/delete.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1155,8 +1155,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/webhooks/get-all.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/get-all.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/webhooks/get-all.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/webhooks/get-all.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1164,8 +1164,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/webhooks/get.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/get.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/webhooks/get.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/webhooks/get.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1173,8 +1173,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/webhooks/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/overview.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/webhooks/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/webhooks/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1182,8 +1182,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/livepeer-studio/api-reference/webhooks/update.mdx",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/update.mdx",
+      "rawPath": "platforms/products/livepeer-studio/api-reference/webhooks/update.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/webhooks/update.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
