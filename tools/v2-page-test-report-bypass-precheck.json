@@ -638,8 +638,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/developer-portal",
-      "url": "http://127.0.0.1:3000/03_developers/developer-portal",
+      "pagePath": "v2/developers/developer-portal",
+      "url": "http://127.0.0.1:3000/developers/developer-portal",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

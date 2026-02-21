@@ -1704,8 +1704,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/developer-portal.mdx",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
+      "rawPath": "developers/developer-portal.mdx",
+      "resolvedPath": "v2/developers/developer-portal.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

@@ -1362,7 +1362,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/developer-portal.mdx": [
+  "v2/developers/developer-portal.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "empty",

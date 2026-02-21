@@ -218,8 +218,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../03_developers/developer-portal",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
+      "rawPath": "../../developers/developer-portal",
+      "resolvedPath": "v2/developers/developer-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -364,8 +364,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/03_developers/developer-portal",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
+      "rawPath": "/developers/developer-portal",
+      "resolvedPath": "v2/developers/developer-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -436,8 +436,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/03_developers/developer-portal",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
+      "rawPath": "/developers/developer-portal",
+      "resolvedPath": "v2/developers/developer-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -517,8 +517,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../03_developers/developer-portal",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
+      "rawPath": "../../developers/developer-portal",
+      "resolvedPath": "v2/developers/developer-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

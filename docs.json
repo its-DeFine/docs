@@ -2345,7 +2345,7 @@
                         "group": "Building on Livepeer",
                         "icon": "code",
                         "pages": [
-                          "v2/pages/03_developers/developer-portal",
+                          "v2/developers/developer-portal",
                           "v2/developers/building-on-livepeer/developer-guide",
                           "v2/developers/building-on-livepeer/partners",
                           "v2/developers/building-on-livepeer/developer-journey"
