@@ -2091,8 +2091,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/guides-and-resources/contribution-guide.mdx",
-      "resolvedPath": "v2/pages/03_developers/guides-and-resources/contribution-guide.mdx",
+      "rawPath": "developers/guides-and-resources/contribution-guide.mdx",
+      "resolvedPath": "v2/developers/guides-and-resources/contribution-guide.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2100,8 +2100,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/guides-and-resources/developer-guides.mdx",
-      "resolvedPath": "v2/pages/03_developers/guides-and-resources/developer-guides.mdx",
+      "rawPath": "developers/guides-and-resources/developer-guides.mdx",
+      "resolvedPath": "v2/developers/guides-and-resources/developer-guides.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2109,8 +2109,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/guides-and-resources/developer-help.mdx",
-      "resolvedPath": "v2/pages/03_developers/guides-and-resources/developer-help.mdx",
+      "rawPath": "developers/guides-and-resources/developer-help.mdx",
+      "resolvedPath": "v2/developers/guides-and-resources/developer-help.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2118,8 +2118,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/guides-and-resources/resources.mdx",
-      "resolvedPath": "v2/pages/03_developers/guides-and-resources/resources.mdx",
+      "rawPath": "developers/guides-and-resources/resources.mdx",
+      "resolvedPath": "v2/developers/guides-and-resources/resources.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

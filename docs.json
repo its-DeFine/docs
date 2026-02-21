@@ -2384,10 +2384,10 @@
                         "group": "Guides & Tutorials",
                         "icon": "laptop-file",
                         "pages": [
-                          "v2/pages/03_developers/guides-and-resources/developer-guides",
-                          "v2/pages/03_developers/guides-and-resources/resources",
-                          "v2/pages/03_developers/guides-and-resources/developer-help",
-                          "v2/pages/03_developers/guides-and-resources/contribution-guide"
+                          "v2/developers/guides-and-resources/developer-guides",
+                          "v2/developers/guides-and-resources/resources",
+                          "v2/developers/guides-and-resources/developer-help",
+                          "v2/developers/guides-and-resources/contribution-guide"
                         ]
                       },
                       {

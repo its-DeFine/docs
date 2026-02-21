@@ -1484,7 +1484,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./guides-and-resources/developer-guides",
-      "resolvedPath": "v2/pages/03_developers/guides-and-resources/developer-guides.mdx",
+      "resolvedPath": "v2/developers/guides-and-resources/developer-guides.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1635,7 +1635,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/guides-and-resources/contribution-guide.mdx": [
+  "v2/developers/guides-and-resources/contribution-guide.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -1673,9 +1673,9 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/guides-and-resources/developer-guides.mdx": [],
-  "v2/pages/03_developers/guides-and-resources/developer-help.mdx": [],
-  "v2/pages/03_developers/guides-and-resources/resources.mdx": [],
+  "v2/developers/guides-and-resources/developer-guides.mdx": [],
+  "v2/developers/guides-and-resources/developer-help.mdx": [],
+  "v2/developers/guides-and-resources/resources.mdx": [],
   "v2/pages/03_developers/livepeer-real-time-video/page-1.mdx": [],
   "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx": [],
   "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/frameworks-spe.mdx": [],

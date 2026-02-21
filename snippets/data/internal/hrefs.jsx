@@ -1224,8 +1224,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/guides-and-resources/developer-guides",
-      "resolvedPath": "v2/pages/03_developers/guides-and-resources/developer-guides.mdx",
+      "rawPath": "/v2/developers/guides-and-resources/developer-guides",
+      "resolvedPath": "v2/developers/guides-and-resources/developer-guides.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1233,8 +1233,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/guides-and-resources/resources",
-      "resolvedPath": "v2/pages/03_developers/guides-and-resources/resources.mdx",
+      "rawPath": "/v2/developers/guides-and-resources/resources",
+      "resolvedPath": "v2/developers/guides-and-resources/resources.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1242,8 +1242,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/guides-and-resources/developer-help",
-      "resolvedPath": "v2/pages/03_developers/guides-and-resources/developer-help.mdx",
+      "rawPath": "/v2/developers/guides-and-resources/developer-help",
+      "resolvedPath": "v2/developers/guides-and-resources/developer-help.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1251,8 +1251,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/guides-and-resources/contribution-guide",
-      "resolvedPath": "v2/pages/03_developers/guides-and-resources/contribution-guide.mdx",
+      "rawPath": "/v2/developers/guides-and-resources/contribution-guide",
+      "resolvedPath": "v2/developers/guides-and-resources/contribution-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3422,8 +3422,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/guides-and-resources/developer-guides",
-      "resolvedPath": "v2/pages/03_developers/guides-and-resources/developer-guides.mdx",
+      "rawPath": "/v2/developers/guides-and-resources/developer-guides",
+      "resolvedPath": "v2/developers/guides-and-resources/developer-guides.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3431,8 +3431,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/guides-and-resources/resources",
-      "resolvedPath": "v2/pages/03_developers/guides-and-resources/resources.mdx",
+      "rawPath": "/v2/developers/guides-and-resources/resources",
+      "resolvedPath": "v2/developers/guides-and-resources/resources.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3440,8 +3440,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/guides-and-resources/developer-help",
-      "resolvedPath": "v2/pages/03_developers/guides-and-resources/developer-help.mdx",
+      "rawPath": "/v2/developers/guides-and-resources/developer-help",
+      "resolvedPath": "v2/developers/guides-and-resources/developer-help.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3449,8 +3449,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/guides-and-resources/contribution-guide",
-      "resolvedPath": "v2/pages/03_developers/guides-and-resources/contribution-guide.mdx",
+      "rawPath": "/v2/developers/guides-and-resources/contribution-guide",
+      "resolvedPath": "v2/developers/guides-and-resources/contribution-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
