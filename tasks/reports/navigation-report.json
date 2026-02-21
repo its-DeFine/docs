@@ -1,0 +1,1028 @@
+{
+  "generatedAt": "2026-02-21T07:55:18.916Z",
+  "totalEntries": 1060,
+  "syntaxErrors": [],
+  "missingRoutes": [
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/03_developers/building-on-livepeer/index",
+      "normalized": "v2/pages/03_developers/building-on-livepeer/index",
+      "pointer": "navigation.versions[1].languages[0].tabs[0].anchors[1].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/03_developers/developer-portal",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/03_developers/building-on-livepeer/developer-guide",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/03_developers/building-on-livepeer/developer-journey",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/03_developers/building-on-livepeer/partners",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/03_developers/building-on-livepeer/quick-starts",
+          "reason": "high path similarity",
+          "score": 0.8
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/07_resources/redirect",
+      "normalized": "v2/pages/07_resources/redirect",
+      "pointer": "navigation.versions[1].languages[0].tabs[0].anchors[2].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/resources-portal",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/07_resources/index",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/livepeer-glossary",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/media-kit",
+          "reason": "high path similarity",
+          "score": 0.75
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/07_resources/redirect",
+      "normalized": "v2/pages/07_resources/redirect",
+      "pointer": "navigation.versions[1].languages[0].tabs[1].anchors[1].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/resources-portal",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/07_resources/index",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/livepeer-glossary",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/media-kit",
+          "reason": "high path similarity",
+          "score": 0.75
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/010_products/products/streamplace/streamplace-funding",
+      "normalized": "v2/pages/010_products/products/streamplace/streamplace-funding",
+      "pointer": "navigation.versions[1].languages[0].tabs[2].anchors[0].groups[3].pages[1].pages[4]",
+      "suggestions": [
+        {
+          "route": "v2/pages/010_products/products/streamplace/streamplace-funding-model",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/010_products/products/streamplace/streamplace",
+          "reason": "high path similarity",
+          "score": 0.8833
+        },
+        {
+          "route": "v2/pages/010_products/products/streamplace/streamplace-architecture",
+          "reason": "high path similarity",
+          "score": 0.8333
+        },
+        {
+          "route": "v2/pages/010_products/products/streamplace/streamplace-guide",
+          "reason": "high path similarity",
+          "score": 0.8333
+        },
+        {
+          "route": "v2/pages/010_products/products/streamplace/streamplace-integration",
+          "reason": "high path similarity",
+          "score": 0.8333
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/07_resources/redirect",
+      "normalized": "v2/pages/07_resources/redirect",
+      "pointer": "navigation.versions[1].languages[0].tabs[2].anchors[1].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/resources-portal",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/07_resources/index",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/livepeer-glossary",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/media-kit",
+          "reason": "high path similarity",
+          "score": 0.75
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/07_resources/redirect",
+      "normalized": "v2/pages/07_resources/redirect",
+      "pointer": "navigation.versions[1].languages[0].tabs[3].anchors[1].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/resources-portal",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/07_resources/index",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/livepeer-glossary",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/media-kit",
+          "reason": "high path similarity",
+          "score": 0.75
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/07_resources/changelog/migration-guides",
+      "normalized": "v2/pages/07_resources/changelog/migration-guides",
+      "pointer": "navigation.versions[1].languages[0].tabs[3].anchors[2].pages[2].pages[1]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/changelog/migration-guide",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/07_resources/changelog/changelog",
+          "reason": "high path similarity",
+          "score": 0.86
+        },
+        {
+          "route": "v2/pages/07_resources/concepts/brief-history-of-video",
+          "reason": "high path similarity",
+          "score": 0.6
+        },
+        {
+          "route": "v2/pages/07_resources/concepts/livepeer-101",
+          "reason": "high path similarity",
+          "score": 0.6
+        },
+        {
+          "route": "v2/pages/07_resources/documentation-guide/authoring-standard",
+          "reason": "high path similarity",
+          "score": 0.6
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/04_gateways/run-a-gateway/quickstart-a-gateway",
+      "normalized": "v2/pages/04_gateways/run-a-gateway/quickstart-a-gateway",
+      "pointer": "navigation.versions[1].languages[0].tabs[4].anchors[0].groups[1].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
+          "reason": "high path similarity",
+          "score": 0.86
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/build-options",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/gateway-operator-opportunities",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/why-run-a-gateway",
+          "reason": "high path similarity",
+          "score": 0.8
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/04_gateways/run-a-gateway/get-AI-to-setup-the-gateway",
+      "normalized": "v2/pages/04_gateways/run-a-gateway/get-AI-to-setup-the-gateway",
+      "pointer": "navigation.versions[1].languages[0].tabs[4].anchors[0].groups[1].pages[1]",
+      "suggestions": [
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
+          "reason": "high path similarity",
+          "score": 0.86
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/build-options",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/gateway-operator-opportunities",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/why-run-a-gateway",
+          "reason": "high path similarity",
+          "score": 0.8
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/04_gateways/using-gateways/gateway-providers/streamplace",
+      "normalized": "v2/pages/04_gateways/using-gateways/gateway-providers/streamplace",
+      "pointer": "navigation.versions[1].languages[0].tabs[4].anchors[0].groups[2].pages[2].pages[3]",
+      "suggestions": [
+        {
+          "route": "v2/pages/010_products/products/streamplace/streamplace",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/03_developers/developer-platforms/streamplace/streamplace",
+          "reason": "same leaf segment match",
+          "score": 0.65
+        },
+        {
+          "route": "v2/pages/04_gateways/using-gateways/gateway-providers/cloud-spe-gateway",
+          "reason": "high path similarity",
+          "score": 0.8333
+        },
+        {
+          "route": "v2/pages/04_gateways/using-gateways/gateway-providers/daydream-gateway",
+          "reason": "high path similarity",
+          "score": 0.8333
+        },
+        {
+          "route": "v2/pages/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
+          "reason": "high path similarity",
+          "score": 0.8333
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/04_gateways/run-a-gateway/test/test-gateway",
+      "normalized": "v2/pages/04_gateways/run-a-gateway/test/test-gateway",
+      "pointer": "navigation.versions[1].languages[0].tabs[4].anchors[0].groups[3].pages[1].pages[5].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
+          "reason": "high path similarity",
+          "score": 0.7167
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/build-options",
+          "reason": "high path similarity",
+          "score": 0.6667
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration",
+          "reason": "high path similarity",
+          "score": 0.6667
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/configure/configuration-overview",
+          "reason": "high path similarity",
+          "score": 0.6667
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/04_gateways/run-a-gateway/test/publish-content",
+      "normalized": "v2/pages/04_gateways/run-a-gateway/test/publish-content",
+      "pointer": "navigation.versions[1].languages[0].tabs[4].anchors[0].groups[3].pages[1].pages[5].pages[1]",
+      "suggestions": [
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v1/gateways/guides/publish-content",
+          "reason": "same leaf segment match",
+          "score": 0.65
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
+          "reason": "high path similarity",
+          "score": 0.7167
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/build-options",
+          "reason": "high path similarity",
+          "score": 0.6667
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration",
+          "reason": "high path similarity",
+          "score": 0.6667
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/04_gateways/run-a-gateway/test/playback-content",
+      "normalized": "v2/pages/04_gateways/run-a-gateway/test/playback-content",
+      "pointer": "navigation.versions[1].languages[0].tabs[4].anchors[0].groups[3].pages[1].pages[5].pages[2]",
+      "suggestions": [
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v1/gateways/guides/playback-content",
+          "reason": "same leaf segment match",
+          "score": 0.65
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/run-a-gateway",
+          "reason": "high path similarity",
+          "score": 0.7167
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/build-options",
+          "reason": "high path similarity",
+          "score": 0.6667
+        },
+        {
+          "route": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration",
+          "reason": "high path similarity",
+          "score": 0.6667
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/04_gateways/references/video-flags",
+      "normalized": "v2/pages/04_gateways/references/video-flags",
+      "pointer": "navigation.versions[1].languages[0].tabs[4].anchors[0].groups[5].pages[0].pages[2]",
+      "suggestions": [
+        {
+          "route": "v2/pages/04_gateways/references/configuration-flags",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/04_gateways/references/arbitrum-rpc",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/04_gateways/references/artibtrum-exchanges",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/04_gateways/references/cli-commands",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/04_gateways/references/configuration-flags-old",
+          "reason": "high path similarity",
+          "score": 0.8
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/07_resources/redirect",
+      "normalized": "v2/pages/07_resources/redirect",
+      "pointer": "navigation.versions[1].languages[0].tabs[4].anchors[1].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/resources-portal",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/07_resources/index",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/livepeer-glossary",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/media-kit",
+          "reason": "high path similarity",
+          "score": 0.75
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
+      "normalized": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
+      "pointer": "navigation.versions[1].languages[0].tabs[5].anchors[0].groups[2].pages[0].pages[4].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
+          "reason": "high path similarity",
+          "score": 0.8333
+        },
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum",
+          "reason": "high path similarity",
+          "score": 0.6667
+        },
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centre-setup",
+          "reason": "high path similarity",
+          "score": 0.6667
+        },
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/enterprise-and-data-centres",
+          "reason": "high path similarity",
+          "score": 0.6667
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
+      "normalized": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
+      "pointer": "navigation.versions[1].languages[0].tabs[5].anchors[0].groups[2].pages[0].pages[5].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
+          "reason": "high path similarity",
+          "score": 0.8333
+        },
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum",
+          "reason": "high path similarity",
+          "score": 0.6667
+        },
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centre-setup",
+          "reason": "high path similarity",
+          "score": 0.6667
+        },
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/enterprise-and-data-centres",
+          "reason": "high path similarity",
+          "score": 0.6667
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
+      "normalized": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
+      "pointer": "navigation.versions[1].languages[0].tabs[5].anchors[0].groups[2].pages[0].pages[6].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
+          "reason": "high path similarity",
+          "score": 0.8333
+        },
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum",
+          "reason": "high path similarity",
+          "score": 0.6667
+        },
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centre-setup",
+          "reason": "high path similarity",
+          "score": 0.6667
+        },
+        {
+          "route": "v2/pages/05_orchestrators/setting-up-an-orchestrator/enterprise-and-data-centres",
+          "reason": "high path similarity",
+          "score": 0.6667
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/07_resources/redirect",
+      "normalized": "v2/pages/07_resources/redirect",
+      "pointer": "navigation.versions[1].languages[0].tabs[5].anchors[1].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/resources-portal",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/07_resources/index",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/livepeer-glossary",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/media-kit",
+          "reason": "high path similarity",
+          "score": 0.75
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/07_resources/redirect",
+      "normalized": "v2/pages/07_resources/redirect",
+      "pointer": "navigation.versions[1].languages[0].tabs[6].anchors[1].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/resources-portal",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/07_resources/index",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/livepeer-glossary",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/media-kit",
+          "reason": "high path similarity",
+          "score": 0.75
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/02_community/livepeer-community/media-kit",
+      "normalized": "v2/pages/02_community/livepeer-community/media-kit",
+      "pointer": "navigation.versions[1].languages[0].tabs[7].anchors[0].groups[4].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/media-kit",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/02_community/livepeer-community/community-guidelines",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/02_community/livepeer-community/livepeer-latest-topics",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/02_community/livepeer-community/roadmap",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/02_community/livepeer-community/trending-topics",
+          "reason": "high path similarity",
+          "score": 0.8
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/07_resources/redirect",
+      "normalized": "v2/pages/07_resources/redirect",
+      "pointer": "navigation.versions[1].languages[0].tabs[7].anchors[1].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/resources-portal",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/07_resources/index",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/livepeer-glossary",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/media-kit",
+          "reason": "high path similarity",
+          "score": 0.75
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/07_resources/concepts/livepeer-core-concepts",
+      "normalized": "v2/pages/07_resources/concepts/livepeer-core-concepts",
+      "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[2].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/01_about/core-concepts/livepeer-core-concepts",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/07_resources/concepts/brief-history-of-video",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/07_resources/concepts/livepeer-101",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/07_resources/changelog/changelog",
+          "reason": "high path similarity",
+          "score": 0.6
+        },
+        {
+          "route": "v2/pages/07_resources/changelog/migration-guide",
+          "reason": "high path similarity",
+          "score": 0.6
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/07_resources/concepts/livepeer-actors",
+      "normalized": "v2/pages/07_resources/concepts/livepeer-actors",
+      "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[2].pages[2]",
+      "suggestions": [
+        {
+          "route": "v2/pages/01_about/livepeer-network/actors",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors",
+          "reason": "same leaf segment match",
+          "score": 0.65
+        },
+        {
+          "route": "v2/pages/07_resources/concepts/brief-history-of-video",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/07_resources/concepts/livepeer-101",
+          "reason": "high path similarity",
+          "score": 0.8
+        },
+        {
+          "route": "v2/pages/07_resources/changelog/changelog",
+          "reason": "high path similarity",
+          "score": 0.6
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/07_resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory",
+      "normalized": "v2/pages/07_resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory",
+      "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[4].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/07_resources/changelog/changelog",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/07_resources/changelog/migration-guide",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/07_resources/concepts/brief-history-of-video",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/07_resources/concepts/livepeer-101",
+          "reason": "high path similarity",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/00_home/changelog/changelog",
+      "normalized": "v2/pages/00_home/changelog/changelog",
+      "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[11].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/changelog/changelog",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/00_home/get-started/build-on-livepeer",
+          "reason": "high path similarity",
+          "score": 0.6
+        },
+        {
+          "route": "v2/pages/00_home/get-started/livepeer-ai-quickstart",
+          "reason": "high path similarity",
+          "score": 0.6
+        },
+        {
+          "route": "v2/pages/00_home/get-started/stream-video-quickstart",
+          "reason": "high path similarity",
+          "score": 0.6
+        },
+        {
+          "route": "v2/pages/00_home/get-started/use-livepeer",
+          "reason": "high path similarity",
+          "score": 0.6
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/00_home/changelog/migration-guide",
+      "normalized": "v2/pages/00_home/changelog/migration-guide",
+      "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[11].pages[1]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/changelog/migration-guide",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/00_home/get-started/build-on-livepeer",
+          "reason": "high path similarity",
+          "score": 0.6
+        },
+        {
+          "route": "v2/pages/00_home/get-started/livepeer-ai-quickstart",
+          "reason": "high path similarity",
+          "score": 0.6
+        },
+        {
+          "route": "v2/pages/00_home/get-started/stream-video-quickstart",
+          "reason": "high path similarity",
+          "score": 0.6
+        },
+        {
+          "route": "v2/pages/00_home/get-started/use-livepeer",
+          "reason": "high path similarity",
+          "score": 0.6
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/08_help/redirect",
+      "normalized": "v2/pages/08_help/redirect",
+      "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[1].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/resources-portal",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/00_home/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/00_home",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/00_home/mission-control",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/010_products/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/08_help/README",
+      "normalized": "v2/pages/08_help/README",
+      "pointer": "navigation.versions[1].languages[0].tabs[9].anchors[0].groups[0].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/resources-portal",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/00_home/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/00_home",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/00_home/mission-control",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/010_products/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        }
+      ]
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/pages/07_resources/redirect",
+      "normalized": "v2/pages/07_resources/redirect",
+      "pointer": "navigation.versions[1].languages[0].tabs[9].anchors[1].pages[0]",
+      "suggestions": [
+        {
+          "route": "v2/pages/07_resources/resources-portal",
+          "reason": "canonical remap rule",
+          "score": 1
+        },
+        {
+          "route": "v2/pages/07_resources/index",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/livepeer-glossary",
+          "reason": "high path similarity",
+          "score": 0.75
+        },
+        {
+          "route": "v2/pages/07_resources/media-kit",
+          "reason": "high path similarity",
+          "score": 0.75
+        }
+      ]
+    }
+  ],
+  "missingWithSuggestions": 30
+}

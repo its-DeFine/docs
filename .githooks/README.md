@@ -78,7 +78,7 @@ Current script index targets:
 - `.github/scripts/*` -> `.github/script-index.md`
 - `tests/*` -> `tests/script-index.md`
 - `tools/scripts/*` -> `tools/script-index.md`
-- `tasks/scripts/*` -> `tasks/script-index.md`
+- `tasks/scripts/*` -> `tasks/scripts/script-index.md`
 - Aggregate -> `docs-guide/scripts-index.md`
 
 Example:

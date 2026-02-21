@@ -24,7 +24,7 @@
  *   - .github/script-index.md
  *   - tests/script-index.md
  *   - tools/script-index.md
- *   - tasks/script-index.md
+ *   - tasks/scripts/script-index.md
  *   - docs-guide/scripts-index.md
  *
  * @exit-codes
@@ -82,7 +82,7 @@ const GROUP_INDEX_MAP = [
   { root: '.github/scripts', index: '.github/script-index.md' },
   { root: 'tests', index: 'tests/script-index.md' },
   { root: 'tools/scripts', index: 'tools/script-index.md' },
-  { root: 'tasks/scripts', index: 'tasks/script-index.md' }
+  { root: 'tasks/scripts', index: 'tasks/scripts/script-index.md' }
 ];
 
 const AGGREGATE_INDEX_PATH = 'docs-guide/scripts-index.md';

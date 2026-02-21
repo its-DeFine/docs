@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * @script audit-tasks-folders
- * @summary Audit tasks folder structure, write per-folder root audit reports, and optionally normalize report file locations.
+ * @summary Audit tasks folders, optionally normalize report locations, and optionally apply audit recommendations with conflict-safe moves.
  * @owner docs
  * @scope tools/scripts, tasks
  *
@@ -9,16 +9,23 @@
  *   node tools/scripts/audit-tasks-folders.js
  *   node tools/scripts/audit-tasks-folders.js --dry-run
  *   node tools/scripts/audit-tasks-folders.js --apply
+ *   node tools/scripts/audit-tasks-folders.js --apply-recommendations --recommendation-scope full
  *   node tools/scripts/audit-tasks-folders.js --folders plan,reports,report
  *
  * @inputs
  *   --apply Perform report/report(s) normalization moves in addition to writing audits.
  *   --dry-run Write audits and planned move actions without mutating files.
+ *   --apply-recommendations Apply move/delete recommendations from existing audit reports.
+ *   --recommendation-scope full|targeted Recommendation application scope (default: full).
+ *   --conflict-policy pause Conflict handling policy for recommendation application (default: pause).
+ *   --audit-output-dir <path> Directory for audit markdown outputs (default: tasks/reports/ungenerated).
  *   --folders Comma-separated folder subset (for example: plan,reports,report,plan/reports).
  *
  * @outputs
- *   - tasks/*_audit.md (one report per audited folder, plus tasks_root_audit.md)
+ *   - tasks/reports/ungenerated/*_audit.md (one report per audited folder, plus tasks_root_audit.md)
  *   - File moves/deletes in tasks/reports + tasks/report when --apply is set
+ *   - tasks/reports/recommendation-apply-summary.json when --apply-recommendations is set (non dry-run)
+ *   - tasks/reports/ungenerated/recommendation-conflicts.md when conflicts exist (non dry-run)
  *
  * @exit-codes
  *   0 = audit/report generation succeeded
@@ -27,6 +34,7 @@
  * @examples
  *   node tools/scripts/audit-tasks-folders.js --dry-run
  *   node tools/scripts/audit-tasks-folders.js --apply
+ *   node tools/scripts/audit-tasks-folders.js --apply-recommendations --dry-run --recommendation-scope full
  *   node tools/scripts/audit-tasks-folders.js --folders tasks/plan/reports,tasks/report
  *
  * @notes
@@ -41,6 +49,9 @@ const REPO_ROOT = process.cwd();
 const TASKS_ROOT = path.join(REPO_ROOT, 'tasks');
 const TOOL_SCRIPTS_ROOT = path.join(REPO_ROOT, 'tools', 'scripts');
 const AUDIT_FILE_SUFFIX = '_audit.md';
+const DEFAULT_AUDIT_OUTPUT_DIR = 'tasks/reports/ungenerated';
+const RECOMMENDATION_SUMMARY_PATH = 'tasks/reports/recommendation-apply-summary.json';
+const RECOMMENDATION_CONFLICTS_PATH = 'tasks/reports/ungenerated/recommendation-conflicts.md';
 
 const PATH_EXCLUSIONS = ['/tasks/context_data/', '/_contextData_/'];
 const BINARY_EXTENSIONS = new Set([
@@ -109,12 +120,14 @@ function usage() {
   console.log(
     [
       'Usage:',
-      '  node tools/scripts/audit-tasks-folders.js [--dry-run] [--apply] [--folders <comma-separated>]',
+      '  node tools/scripts/audit-tasks-folders.js [--dry-run] [--apply] [--apply-recommendations] [--recommendation-scope full|targeted] [--conflict-policy pause] [--audit-output-dir <path>] [--folders <comma-separated>]',
       '',
       'Examples:',
       '  node tools/scripts/audit-tasks-folders.js',
       '  node tools/scripts/audit-tasks-folders.js --dry-run',
       '  node tools/scripts/audit-tasks-folders.js --apply',
+      '  node tools/scripts/audit-tasks-folders.js --apply-recommendations --recommendation-scope full',
+      '  node tools/scripts/audit-tasks-folders.js --apply-recommendations --dry-run --recommendation-scope full',
       '  node tools/scripts/audit-tasks-folders.js --folders plan,reports,report'
     ].join('\n')
   );
@@ -124,7 +137,11 @@ function parseArgs(argv) {
   const options = {
     apply: false,
     dryRun: false,
-    foldersArg: ''
+    applyRecommendations: false,
+    recommendationScope: 'full',
+    conflictPolicy: 'pause',
+    foldersArg: '',
+    auditOutputDir: DEFAULT_AUDIT_OUTPUT_DIR
   };
 
   for (let i = 0; i < argv.length; i += 1) {
@@ -135,6 +152,37 @@ function parseArgs(argv) {
     }
     if (token === '--dry-run') {
       options.dryRun = true;
+      continue;
+    }
+    if (token === '--apply-recommendations') {
+      options.applyRecommendations = true;
+      continue;
+    }
+    if (token === '--recommendation-scope') {
+      options.recommendationScope = String(argv[i + 1] || '').trim() || options.recommendationScope;
+      i += 1;
+      continue;
+    }
+    if (token.startsWith('--recommendation-scope=')) {
+      options.recommendationScope = token.slice('--recommendation-scope='.length).trim() || options.recommendationScope;
+      continue;
+    }
+    if (token === '--conflict-policy') {
+      options.conflictPolicy = String(argv[i + 1] || '').trim() || options.conflictPolicy;
+      i += 1;
+      continue;
+    }
+    if (token.startsWith('--conflict-policy=')) {
+      options.conflictPolicy = token.slice('--conflict-policy='.length).trim() || options.conflictPolicy;
+      continue;
+    }
+    if (token === '--audit-output-dir') {
+      options.auditOutputDir = String(argv[i + 1] || '').trim() || options.auditOutputDir;
+      i += 1;
+      continue;
+    }
+    if (token.startsWith('--audit-output-dir=')) {
+      options.auditOutputDir = token.slice('--audit-output-dir='.length).trim() || options.auditOutputDir;
       continue;
     }
     if (token === '--folders') {
@@ -152,8 +200,20 @@ function parseArgs(argv) {
     process.exit(1);
   }
 
-  if (options.apply && options.dryRun) {
+  if (options.apply && options.dryRun && !options.applyRecommendations) {
     console.error('Use either --apply or --dry-run, not both.');
+    process.exit(1);
+  }
+
+  if (!['full', 'targeted'].includes(options.recommendationScope)) {
+    console.error(`Invalid --recommendation-scope: ${options.recommendationScope}`);
+    usage();
+    process.exit(1);
+  }
+
+  if (options.conflictPolicy !== 'pause') {
+    console.error(`Invalid --conflict-policy: ${options.conflictPolicy}. Only "pause" is supported.`);
+    usage();
     process.exit(1);
   }
 
@@ -162,6 +222,35 @@ function parseArgs(argv) {
 
 function normalizeRepoPath(value) {
   return String(value || '').split(path.sep).join('/');
+}
+
+function trimLeadingDotSlash(value) {
+  return String(value || '').replace(/^[.][/\\]+/, '');
+}
+
+function normalizeCliRepoPath(inputPath) {
+  const raw = String(inputPath || '').trim();
+  if (!raw) return '';
+
+  let repoPath = raw;
+  if (path.isAbsolute(raw)) {
+    const rel = path.relative(REPO_ROOT, raw);
+    if (rel.startsWith('..')) {
+      throw new Error(`Path outside repository is not allowed: ${raw}`);
+    }
+    repoPath = rel;
+  }
+
+  return normalizeRepoPath(trimLeadingDotSlash(repoPath));
+}
+
+function normalizeAuditOutputDir(inputPath) {
+  const repoPath = normalizeCliRepoPath(inputPath || DEFAULT_AUDIT_OUTPUT_DIR);
+  if (!repoPath) return DEFAULT_AUDIT_OUTPUT_DIR;
+  if (!repoPath.startsWith('tasks')) {
+    throw new Error(`--audit-output-dir must resolve under tasks/: ${repoPath}`);
+  }
+  return repoPath;
 }
 
 function repoPathFromAbs(absPath) {
@@ -794,10 +883,58 @@ function renderMarkdownTable(headers, rows) {
   return [headerRow, divider, body].join('\n');
 }
 
-function folderAuditFilePath(folderRepoPath) {
+function buildAuditSummaryLines(headers, rows) {
+  const lines = [`- Rows: ${rows.length}`];
+  if (!rows.length) return lines;
+
+  const summaryColumns = ['Bucket', 'Recommendation', 'AutoGenerated', 'Still Useful', 'Should Live in errors'];
+  for (const columnName of summaryColumns) {
+    const idx = headers.findIndex((header) => header === columnName);
+    if (idx === -1) continue;
+
+    const counts = new Map();
+    for (const row of rows) {
+      const key = String(row[idx] || '').trim() || '(blank)';
+      counts.set(key, (counts.get(key) || 0) + 1);
+    }
+    const compact = [...counts.entries()]
+      .sort((a, b) => a[0].localeCompare(b[0]))
+      .map(([key, count]) => `${key}: ${count}`)
+      .join(', ');
+    lines.push(`- ${columnName}: ${compact}`);
+  }
+
+  return lines;
+}
+
+function folderAuditFilePath(folderRepoPath, auditOutputDirRepoPath) {
   const relative = normalizeRepoPath(folderRepoPath).replace(/^tasks\//, '');
   const filename = `${relative.replace(/\//g, '_')}${AUDIT_FILE_SUFFIX}`;
-  return path.join(TASKS_ROOT, filename);
+  return absPathFromRepo(path.join(auditOutputDirRepoPath, filename));
+}
+
+function rootAuditFilePath(auditOutputDirRepoPath) {
+  return absPathFromRepo(path.join(auditOutputDirRepoPath, 'tasks_root_audit.md'));
+}
+
+function listLegacyRootAuditRepoPaths() {
+  if (!fs.existsSync(TASKS_ROOT)) return [];
+  const entries = fs.readdirSync(TASKS_ROOT, { withFileTypes: true });
+  return entries
+    .filter((entry) => entry.isFile() && entry.name.endsWith(AUDIT_FILE_SUFFIX))
+    .map((entry) => normalizeRepoPath(path.join('tasks', entry.name)))
+    .sort();
+}
+
+function resolveExistingReportPath(reportRepoPath, auditOutputDirRepoPath) {
+  const rootAbs = absPathFromRepo(reportRepoPath);
+  if (fs.existsSync(rootAbs)) return rootAbs;
+
+  const fileName = path.basename(reportRepoPath);
+  const altRepoPath = normalizeRepoPath(path.join(auditOutputDirRepoPath, fileName));
+  const altAbs = absPathFromRepo(altRepoPath);
+  if (fs.existsSync(altAbs)) return altAbs;
+  return rootAbs;
 }
 
 function ensureDirectory(absDirPath, applyChanges, actions) {
@@ -987,6 +1124,625 @@ function applyReportsNormalization(actions, applyChanges) {
   return results;
 }
 
+function normalizeRecommendationRepoPath(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  return normalizeRepoPath(trimLeadingDotSlash(raw)).replace(/\/+$/, '');
+}
+
+function normalizeRecommendationDestination(sourceRepoPath, destinationRepoPath) {
+  const source = normalizeRecommendationRepoPath(sourceRepoPath);
+  let destination = normalizeRecommendationRepoPath(destinationRepoPath);
+  if (!source || !destination) return '';
+
+  const folderOnlyBuckets = new Set(['tasks/plan/complete', 'tasks/plan/rfp', 'tasks/plan/migration', 'tasks/plan/archived']);
+  if (destination.endsWith('/')) {
+    const targetDir = destination.replace(/\/+$/, '');
+    if (source === targetDir || source.startsWith(`${targetDir}/`)) {
+      return source;
+    }
+    destination = `${targetDir}/${path.basename(source)}`;
+  } else if (folderOnlyBuckets.has(destination)) {
+    if (source === destination || source.startsWith(`${destination}/`)) {
+      return source;
+    }
+    destination = `${destination}/${path.basename(source)}`;
+  }
+
+  return destination;
+}
+
+function splitMarkdownTableRow(line) {
+  const text = String(line || '').trim();
+  if (!text.startsWith('|')) return [];
+
+  const cells = [];
+  let current = '';
+  for (let i = 1; i < text.length; i += 1) {
+    const ch = text[i];
+    const prev = text[i - 1];
+    if (ch === '|' && prev !== '\\') {
+      cells.push(current.trim().replace(/\\\|/g, '|').replace(/<br>/g, '\n'));
+      current = '';
+      continue;
+    }
+    current += ch;
+  }
+
+  if (current.length > 0 || !text.endsWith('|')) {
+    cells.push(current.trim().replace(/\\\|/g, '|').replace(/<br>/g, '\n'));
+  }
+  return cells;
+}
+
+function isMarkdownDividerRow(cells) {
+  return cells.length > 0 && cells.every((cell) => /^:?-{3,}:?$/.test(cell.trim()));
+}
+
+function parseFileRecommendationTable(markdownText) {
+  const lines = String(markdownText || '').split('\n');
+  const sectionIndex = lines.findIndex((line) => line.trim() === '## File Recommendations');
+  let startSearch = sectionIndex >= 0 ? sectionIndex + 1 : 0;
+
+  while (startSearch < lines.length && !lines[startSearch].trim().startsWith('|')) {
+    startSearch += 1;
+  }
+
+  if (startSearch >= lines.length) {
+    return { headers: [], rows: [] };
+  }
+
+  const headerCells = splitMarkdownTableRow(lines[startSearch]);
+  const normalizedHeaders = headerCells.map((header) => String(header || '').trim().toLowerCase());
+  const rows = [];
+
+  for (let i = startSearch + 1; i < lines.length; i += 1) {
+    const raw = lines[i].trim();
+    if (!raw.startsWith('|')) break;
+    const cells = splitMarkdownTableRow(raw);
+    if (!cells.length || isMarkdownDividerRow(cells)) continue;
+
+    const row = {};
+    for (let j = 0; j < normalizedHeaders.length; j += 1) {
+      row[normalizedHeaders[j]] = String(cells[j] || '').trim();
+    }
+    rows.push(row);
+  }
+
+  return { headers: normalizedHeaders, rows };
+}
+
+function readRecommendationReport(reportRepoPath, auditOutputDirRepoPath) {
+  const resolvedAbsPath = resolveExistingReportPath(reportRepoPath, auditOutputDirRepoPath);
+  const exists = fs.existsSync(resolvedAbsPath);
+  if (!exists) {
+    return {
+      reportRepoPath,
+      resolvedRepoPath: reportRepoPath,
+      exists: false,
+      headers: [],
+      rows: []
+    };
+  }
+
+  const content = safeReadText(resolvedAbsPath);
+  const parsed = parseFileRecommendationTable(content);
+  return {
+    reportRepoPath,
+    resolvedRepoPath: repoPathFromAbs(resolvedAbsPath),
+    exists: true,
+    headers: parsed.headers,
+    rows: parsed.rows
+  };
+}
+
+function createRecommendationCandidate({
+  phaseId,
+  phaseLabel,
+  sourceRepoPath,
+  targetRepoPath,
+  recommendationSource,
+  note
+}) {
+  return {
+    phaseId,
+    phaseLabel,
+    source: normalizeRecommendationRepoPath(sourceRepoPath),
+    target: normalizeRecommendationRepoPath(targetRepoPath),
+    recommendationSource: normalizeRepoPath(recommendationSource),
+    note: String(note || '').trim()
+  };
+}
+
+function extractPathRecommendationCandidates(phaseId, phaseLabel, reportRepoPath, auditOutputDirRepoPath) {
+  const report = readRecommendationReport(reportRepoPath, auditOutputDirRepoPath);
+  const candidates = [];
+
+  if (!report.exists) {
+    return { report, candidates };
+  }
+
+  for (const row of report.rows) {
+    const source = normalizeRecommendationRepoPath(row.file);
+    const destinationRaw = normalizeRecommendationRepoPath(row['recommended destination']);
+    const destination = normalizeRecommendationDestination(source, destinationRaw);
+    if (!source || !destination || source === destination) continue;
+
+    candidates.push(
+      createRecommendationCandidate({
+        phaseId,
+        phaseLabel,
+        sourceRepoPath: source,
+        targetRepoPath: destination,
+        recommendationSource: report.resolvedRepoPath,
+        note: 'audit recommended destination'
+      })
+    );
+  }
+
+  return { report, candidates };
+}
+
+function extractScriptRecommendationCandidates(phaseId, phaseLabel, reportRepoPath, auditOutputDirRepoPath) {
+  const report = readRecommendationReport(reportRepoPath, auditOutputDirRepoPath);
+  const candidates = [];
+
+  if (!report.exists) {
+    return { report, candidates };
+  }
+
+  for (const row of report.rows) {
+    const source = normalizeRecommendationRepoPath(row.file);
+    const recommendation = String(row.recommendation || '').trim().toLowerCase();
+    if (!source || !recommendation) continue;
+
+    let destination = '';
+    if (recommendation.startsWith('move to tools/scripts')) {
+      destination = normalizeRecommendationRepoPath(`tools/scripts/${path.basename(source)}`);
+    } else if (recommendation.startsWith('archive')) {
+      destination = normalizeRecommendationRepoPath(`tasks/plan/archived/scripts/${path.basename(source)}`);
+    } else {
+      continue;
+    }
+
+    if (!destination || destination === source) continue;
+
+    candidates.push(
+      createRecommendationCandidate({
+        phaseId,
+        phaseLabel,
+        sourceRepoPath: source,
+        targetRepoPath: destination,
+        recommendationSource: report.resolvedRepoPath,
+        note: `script recommendation: ${recommendation}`
+      })
+    );
+  }
+
+  return { report, candidates };
+}
+
+function collectRecommendationCandidates(recommendationScope, auditOutputDirRepoPath) {
+  const phases = [
+    {
+      id: 'phase-1-root',
+      label: 'Root file recommendations',
+      report: 'tasks/tasks_root_audit.md',
+      extractor: extractPathRecommendationCandidates
+    },
+    {
+      id: 'phase-2-scripts',
+      label: 'Scripts recommendations',
+      report: 'tasks/scripts_audit.md',
+      extractor: extractScriptRecommendationCandidates
+    },
+    {
+      id: 'phase-3-plan-errors',
+      label: 'Plan/errors cleanup',
+      report: 'tasks/plan_errors_audit.md',
+      extractor: extractPathRecommendationCandidates
+    },
+    {
+      id: 'phase-4-plan-reports',
+      label: 'Plan/reports cleanup',
+      report: 'tasks/plan_reports_audit.md',
+      extractor: extractPathRecommendationCandidates
+    }
+  ];
+
+  if (recommendationScope === 'full') {
+    phases.push({
+      id: 'phase-5-plan-bucketing',
+      label: 'Full plan bucketing',
+      report: 'tasks/plan_audit.md',
+      extractor: extractPathRecommendationCandidates
+    });
+  }
+
+  const reportStates = [];
+  const candidates = [];
+
+  for (const phase of phases) {
+    const extracted = phase.extractor(phase.id, phase.label, phase.report, auditOutputDirRepoPath);
+    reportStates.push({
+      phaseId: phase.id,
+      phaseLabel: phase.label,
+      requestedReport: phase.report,
+      resolvedReport: extracted.report.resolvedRepoPath,
+      exists: extracted.report.exists,
+      rowCount: extracted.report.rows.length
+    });
+    const sortedPhaseCandidates = extracted.candidates.sort((a, b) => {
+      const sourceCompare = a.source.localeCompare(b.source);
+      if (sourceCompare !== 0) return sourceCompare;
+      return a.target.localeCompare(b.target);
+    });
+    candidates.push(...sortedPhaseCandidates);
+  }
+
+  const rootAuditFiles = listLegacyRootAuditRepoPaths();
+  const phase6Id = 'phase-6-audit-relocation';
+  const phase6Label = 'Audit file relocation';
+  for (const source of rootAuditFiles) {
+    const target = normalizeRecommendationRepoPath(path.join(auditOutputDirRepoPath, path.basename(source)));
+    if (!target || source === target) continue;
+    candidates.push(
+      createRecommendationCandidate({
+        phaseId: phase6Id,
+        phaseLabel: phase6Label,
+        sourceRepoPath: source,
+        targetRepoPath: target,
+        recommendationSource: 'filesystem',
+        note: 'relocate root-level audit markdown'
+      })
+    );
+  }
+
+  reportStates.push({
+    phaseId: phase6Id,
+    phaseLabel: phase6Label,
+    requestedReport: 'tasks/*_audit.md',
+    resolvedReport: 'tasks/*_audit.md',
+    exists: rootAuditFiles.length > 0,
+    rowCount: rootAuditFiles.length
+  });
+
+  return { candidates, reportStates };
+}
+
+function buildVirtualHashMap(repoPaths) {
+  const virtual = new Map();
+  for (const repoPath of repoPaths) {
+    const absPath = absPathFromRepo(repoPath);
+    if (!fs.existsSync(absPath) || !fs.statSync(absPath).isFile()) continue;
+    virtual.set(repoPath, sha256(safeReadFileBuffer(absPath)));
+  }
+  return virtual;
+}
+
+function preflightRecommendationCandidates(candidates) {
+  const pathSet = new Set();
+  for (const candidate of candidates) {
+    pathSet.add(candidate.source);
+    pathSet.add(candidate.target);
+  }
+
+  const virtual = buildVirtualHashMap(pathSet);
+  const evaluated = [];
+
+  for (const candidate of candidates) {
+    const sourceHash = virtual.get(candidate.source) || '';
+    const targetHash = virtual.get(candidate.target) || '';
+
+    if (!sourceHash) {
+      evaluated.push({
+        ...candidate,
+        sourceHash: '',
+        targetHash: targetHash || '',
+        decision: 'skipped',
+        decisionReason: 'source missing'
+      });
+      continue;
+    }
+
+    if (candidate.source === candidate.target) {
+      evaluated.push({
+        ...candidate,
+        sourceHash,
+        targetHash: sourceHash,
+        decision: 'skipped',
+        decisionReason: 'source already at destination'
+      });
+      continue;
+    }
+
+    if (!targetHash) {
+      evaluated.push({
+        ...candidate,
+        sourceHash,
+        targetHash: '',
+        decision: 'ready',
+        decisionReason: 'destination missing'
+      });
+      virtual.delete(candidate.source);
+      virtual.set(candidate.target, sourceHash);
+      continue;
+    }
+
+    if (targetHash === sourceHash) {
+      evaluated.push({
+        ...candidate,
+        sourceHash,
+        targetHash,
+        decision: 'duplicate',
+        decisionReason: 'destination has same hash'
+      });
+      virtual.delete(candidate.source);
+      continue;
+    }
+
+    evaluated.push({
+      ...candidate,
+      sourceHash,
+      targetHash,
+      decision: 'conflict',
+      decisionReason: 'destination has different hash'
+    });
+  }
+
+  return evaluated;
+}
+
+function applyRecommendationOperations(evaluatedCandidates, applyChanges) {
+  const results = [];
+
+  for (const item of evaluatedCandidates) {
+    if (!['ready', 'duplicate'].includes(item.decision)) {
+      results.push({
+        ...item,
+        action: 'none',
+        status: item.decision,
+        outcome: item.decisionReason
+      });
+      continue;
+    }
+
+    if (!applyChanges) {
+      results.push({
+        ...item,
+        action: item.decision === 'ready' ? 'move' : 'delete',
+        status: 'planned',
+        outcome: item.decisionReason
+      });
+      continue;
+    }
+
+    const sourceAbs = absPathFromRepo(item.source);
+    const targetAbs = absPathFromRepo(item.target);
+
+    if (!fs.existsSync(sourceAbs)) {
+      results.push({
+        ...item,
+        action: item.decision === 'ready' ? 'move' : 'delete',
+        status: 'skipped',
+        outcome: 'source missing at apply time'
+      });
+      continue;
+    }
+
+    if (item.decision === 'ready') {
+      fs.mkdirSync(path.dirname(targetAbs), { recursive: true });
+      fs.renameSync(sourceAbs, targetAbs);
+      results.push({
+        ...item,
+        action: 'move',
+        status: 'applied',
+        outcome: 'moved'
+      });
+      continue;
+    }
+
+    const destinationExists = fs.existsSync(targetAbs);
+    if (!destinationExists) {
+      fs.mkdirSync(path.dirname(targetAbs), { recursive: true });
+      fs.renameSync(sourceAbs, targetAbs);
+      results.push({
+        ...item,
+        action: 'move',
+        status: 'applied',
+        outcome: 'destination missing at apply time; moved instead of delete'
+      });
+      continue;
+    }
+
+    const sourceHash = sha256(safeReadFileBuffer(sourceAbs));
+    const targetHash = sha256(safeReadFileBuffer(targetAbs));
+    if (sourceHash === targetHash) {
+      fs.unlinkSync(sourceAbs);
+      results.push({
+        ...item,
+        action: 'delete',
+        status: 'applied',
+        outcome: 'deleted duplicate source'
+      });
+    } else {
+      results.push({
+        ...item,
+        action: 'delete',
+        status: 'conflict',
+        outcome: 'hash changed before apply; left untouched'
+      });
+    }
+  }
+
+  return results;
+}
+
+function summarizeRecommendationResults(results) {
+  const totals = {
+    candidates: results.length,
+    ready: 0,
+    duplicate: 0,
+    conflict: 0,
+    skipped: 0,
+    planned: 0,
+    applied: 0,
+    moved: 0,
+    deleted: 0
+  };
+
+  const phases = new Map();
+
+  for (const item of results) {
+    if (!phases.has(item.phaseId)) {
+      phases.set(item.phaseId, {
+        phaseId: item.phaseId,
+        phaseLabel: item.phaseLabel,
+        candidates: 0,
+        ready: 0,
+        duplicate: 0,
+        conflict: 0,
+        skipped: 0,
+        planned: 0,
+        applied: 0,
+        moved: 0,
+        deleted: 0
+      });
+    }
+    const phase = phases.get(item.phaseId);
+    phase.candidates += 1;
+
+    if (item.decision === 'ready') {
+      totals.ready += 1;
+      phase.ready += 1;
+    } else if (item.decision === 'duplicate') {
+      totals.duplicate += 1;
+      phase.duplicate += 1;
+    } else if (item.decision === 'conflict') {
+      totals.conflict += 1;
+      phase.conflict += 1;
+    } else if (item.decision === 'skipped') {
+      totals.skipped += 1;
+      phase.skipped += 1;
+    }
+
+    if (item.status === 'planned') {
+      totals.planned += 1;
+      phase.planned += 1;
+    }
+    if (item.status === 'applied') {
+      totals.applied += 1;
+      phase.applied += 1;
+    }
+    if (item.action === 'move' && item.status === 'applied') {
+      totals.moved += 1;
+      phase.moved += 1;
+    }
+    if (item.action === 'delete' && item.status === 'applied') {
+      totals.deleted += 1;
+      phase.deleted += 1;
+    }
+  }
+
+  return { totals, phases: [...phases.values()] };
+}
+
+function writeRecommendationConflictReport(conflicts, generatedAt) {
+  if (!conflicts.length) return;
+  const absPath = absPathFromRepo(RECOMMENDATION_CONFLICTS_PATH);
+  fs.mkdirSync(path.dirname(absPath), { recursive: true });
+
+  const lines = [];
+  lines.push('# Recommendation Apply Conflicts');
+  lines.push('');
+  lines.push(`Generated: ${generatedAt}`);
+  lines.push(`Policy: \`pause\``);
+  lines.push(`Total conflicts: ${conflicts.length}`);
+  lines.push('');
+  lines.push(
+    renderMarkdownTable(
+      ['Phase', 'Source', 'Destination', 'Source SHA256', 'Destination SHA256', 'Reason'],
+      conflicts.map((item) => [
+        item.phaseLabel,
+        item.source,
+        item.target,
+        item.sourceHash || '-',
+        item.targetHash || '-',
+        item.outcome || item.decisionReason || ''
+      ])
+    )
+  );
+
+  fs.writeFileSync(absPath, `${lines.join('\n')}\n`);
+}
+
+function writeRecommendationSummary(summary) {
+  const absPath = absPathFromRepo(RECOMMENDATION_SUMMARY_PATH);
+  fs.mkdirSync(path.dirname(absPath), { recursive: true });
+  fs.writeFileSync(absPath, `${JSON.stringify(summary, null, 2)}\n`);
+}
+
+function applyRecommendations(options, auditOutputDirRepoPath) {
+  const candidateBundle = collectRecommendationCandidates(options.recommendationScope, auditOutputDirRepoPath);
+  const preflight = preflightRecommendationCandidates(candidateBundle.candidates);
+  const applyChanges = !options.dryRun;
+  const operationResults = applyRecommendationOperations(preflight, applyChanges);
+  const operationSummary = summarizeRecommendationResults(operationResults);
+
+  let normalizationResults = [];
+  if (applyChanges) {
+    const postApplyContext = buildContext();
+    const normalizationActions = planReportsNormalizationActions(postApplyContext);
+    normalizationResults = applyReportsNormalization(normalizationActions, true);
+  }
+
+  const generatedAt = new Date().toISOString();
+  const conflicts = operationResults.filter((item) => item.status === 'conflict' || item.decision === 'conflict');
+
+  const summary = {
+    generatedAt,
+    dryRun: options.dryRun,
+    recommendationScope: options.recommendationScope,
+    conflictPolicy: options.conflictPolicy,
+    auditOutputDir: auditOutputDirRepoPath,
+    reportSources: candidateBundle.reportStates,
+    operationSummary,
+    normalizationSummary: {
+      total: normalizationResults.length,
+      applied: normalizationResults.filter((item) => item.status === 'applied').length,
+      planned: normalizationResults.filter((item) => item.status === 'planned').length,
+      skipped: normalizationResults.filter((item) => item.status === 'skipped').length
+    },
+    operations: operationResults.map((item) => ({
+      phaseId: item.phaseId,
+      phaseLabel: item.phaseLabel,
+      source: item.source,
+      destination: item.target,
+      recommendationSource: item.recommendationSource,
+      decision: item.decision,
+      status: item.status,
+      action: item.action,
+      sourceHash: item.sourceHash || '',
+      destinationHash: item.targetHash || '',
+      note: item.note || '',
+      outcome: item.outcome || item.decisionReason || ''
+    })),
+    normalizationOperations: normalizationResults
+  };
+
+  if (!options.dryRun) {
+    writeRecommendationSummary(summary);
+    writeRecommendationConflictReport(conflicts, generatedAt);
+  }
+
+  return {
+    summary,
+    conflicts,
+    operationResults,
+    normalizationResults
+  };
+}
+
 function buildFolderRows(folderRepoPath, context, toolDescriptors) {
   const filesInScope = context.files
     .filter((file) => file.repoPath.startsWith(`${folderRepoPath}/`) || file.repoPath === folderRepoPath)
@@ -1138,6 +1894,10 @@ function writeAuditReport(reportAbsPath, title, scopeRepoPath, context, tableHea
   report.push(`Scope: \`${scopeRepoPath}\``);
   report.push(`Total files in scope: ${tableRows.length}`);
   report.push('');
+  report.push('## Summary');
+  report.push('');
+  report.push(...buildAuditSummaryLines(tableHeaders, tableRows));
+  report.push('');
   report.push('## File Recommendations');
   report.push('');
   report.push(renderMarkdownTable(tableHeaders, tableRows));
@@ -1178,22 +1938,23 @@ function selectFolders(allFolders, foldersArg) {
   return { selected: selected.sort(), includeRootAudit };
 }
 
-function main() {
-  const options = parseArgs(process.argv.slice(2));
-  const applyChanges = options.apply;
-
+function runAuditReports(options, auditOutputDirRepoPath, skipApplyNormalization = false) {
+  const applyNormalization = options.apply && !options.dryRun && !skipApplyNormalization;
   const initialContext = buildContext();
   const { selected, includeRootAudit } = selectFolders(initialContext.folders, options.foldersArg);
   const plannedNormalizationActions = planReportsNormalizationActions(initialContext);
-  const normalizationResults = applyReportsNormalization(plannedNormalizationActions, applyChanges);
+  const normalizationResults = applyReportsNormalization(plannedNormalizationActions, applyNormalization);
 
-  const finalContext = applyChanges ? buildContext() : initialContext;
+  const finalContext = applyNormalization ? buildContext() : initialContext;
   const toolDescriptors = buildToolScriptDescriptors(finalContext);
+
+  const outputDirAbsPath = absPathFromRepo(auditOutputDirRepoPath);
+  fs.mkdirSync(outputDirAbsPath, { recursive: true });
 
   let reportsWritten = 0;
 
   for (const folderRepoPath of selected) {
-    const reportAbsPath = folderAuditFilePath(folderRepoPath);
+    const reportAbsPath = folderAuditFilePath(folderRepoPath, auditOutputDirRepoPath);
     const { headers, rows } = buildFolderRows(folderRepoPath, finalContext, toolDescriptors);
     const title = `${folderRepoPath.replace(/^tasks\//, 'tasks/')} Audit`;
 
@@ -1210,7 +1971,7 @@ function main() {
   }
 
   if (!options.foldersArg || includeRootAudit) {
-    const rootAuditAbsPath = path.join(TASKS_ROOT, 'tasks_root_audit.md');
+    const rootAuditAbsPath = rootAuditFilePath(auditOutputDirRepoPath);
     const rootRows = buildRootAuditRows(finalContext);
     writeAuditReport(
       rootAuditAbsPath,
@@ -1223,14 +1984,55 @@ function main() {
     reportsWritten += 1;
   }
 
-  const appliedCount = normalizationResults.filter((item) => item.status === 'applied').length;
-  const plannedCount = normalizationResults.filter((item) => item.status === 'planned').length;
-  const skippedCount = normalizationResults.filter((item) => item.status === 'skipped').length;
+  return {
+    reportsWritten,
+    plannedNormalizationActions,
+    normalizationResults,
+    applyNormalization
+  };
+}
 
-  console.log(`Audit reports written: ${reportsWritten}`);
-  console.log(`Normalization mode: ${applyChanges ? 'apply' : 'dry-run/default'}`);
-  console.log(`Normalization actions planned: ${plannedNormalizationActions.length}`);
-  console.log(`Normalization actions ${applyChanges ? 'applied' : 'simulated'}: ${applyChanges ? appliedCount : plannedCount}`);
+function main() {
+  const options = parseArgs(process.argv.slice(2));
+  const auditOutputDirRepoPath = normalizeAuditOutputDir(options.auditOutputDir);
+
+  let recommendationRun = null;
+  if (options.applyRecommendations) {
+    recommendationRun = applyRecommendations(options, auditOutputDirRepoPath);
+    console.log(`Recommendation candidates: ${recommendationRun.summary.operationSummary.totals.candidates}`);
+    console.log(`Recommendation ready: ${recommendationRun.summary.operationSummary.totals.ready}`);
+    console.log(`Recommendation duplicates: ${recommendationRun.summary.operationSummary.totals.duplicate}`);
+    console.log(`Recommendation conflicts: ${recommendationRun.summary.operationSummary.totals.conflict}`);
+    console.log(`Recommendation skipped: ${recommendationRun.summary.operationSummary.totals.skipped}`);
+    if (options.dryRun) {
+      console.log('Recommendation mode: dry-run (no files mutated, no summary/conflict files written).');
+    } else {
+      console.log(`Recommendation summary: ${RECOMMENDATION_SUMMARY_PATH}`);
+      if (recommendationRun.conflicts.length > 0) {
+        console.log(`Recommendation conflicts report: ${RECOMMENDATION_CONFLICTS_PATH}`);
+      }
+    }
+  }
+
+  const skipAuditWrites = options.applyRecommendations && options.dryRun;
+  if (skipAuditWrites) {
+    console.log('Audit report writing skipped for --apply-recommendations --dry-run.');
+    return;
+  }
+
+  const auditRun = runAuditReports(options, auditOutputDirRepoPath, options.applyRecommendations);
+
+  const appliedCount = auditRun.normalizationResults.filter((item) => item.status === 'applied').length;
+  const plannedCount = auditRun.normalizationResults.filter((item) => item.status === 'planned').length;
+  const skippedCount = auditRun.normalizationResults.filter((item) => item.status === 'skipped').length;
+
+  console.log(`Audit output dir: ${auditOutputDirRepoPath}`);
+  console.log(`Audit reports written: ${auditRun.reportsWritten}`);
+  console.log(`Normalization mode: ${auditRun.applyNormalization ? 'apply' : 'dry-run/default'}`);
+  console.log(`Normalization actions planned: ${auditRun.plannedNormalizationActions.length}`);
+  console.log(
+    `Normalization actions ${auditRun.applyNormalization ? 'applied' : 'simulated'}: ${auditRun.applyNormalization ? appliedCount : plannedCount}`
+  );
   console.log(`Normalization actions skipped: ${skippedCount}`);
 }
 

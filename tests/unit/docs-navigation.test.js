@@ -16,8 +16,8 @@
  *   --remap-threshold <0-1> Minimum score for non-canonical remap suggestions (default: 0.85).
  *
  * @outputs
- *   - tasks/plan/reports/navigation-report.md
- *   - tasks/plan/reports/navigation-report.json
+ *   - tasks/reports/ungenerated/navigation-report.md
+ *   - tasks/reports/navigation-report.json
  *   - docs.json (only when --write-remaps is used and user approves entries)
  *   - Console summary of syntax and route-resolution status.
  *
@@ -39,9 +39,8 @@ const path = require('path');
 const readline = require('readline');
 const { execSync } = require('child_process');
 
-const REPORT_DIR_REL = 'tasks/plan/reports';
-const REPORT_MD_REL = `${REPORT_DIR_REL}/navigation-report.md`;
-const REPORT_JSON_REL = `${REPORT_DIR_REL}/navigation-report.json`;
+const REPORT_MD_REL = 'tasks/reports/ungenerated/navigation-report.md';
+const REPORT_JSON_REL = 'tasks/reports/navigation-report.json';
 const DEFAULT_REMAP_THRESHOLD = 0.85;
 
 let errors = [];
@@ -467,11 +466,11 @@ async function applyApprovedRemaps(baseResult, options = {}) {
 }
 
 function writeReport(repoRoot, reportData) {
-  const reportDirAbs = path.join(repoRoot, REPORT_DIR_REL);
   const reportMdAbs = path.join(repoRoot, REPORT_MD_REL);
   const reportJsonAbs = path.join(repoRoot, REPORT_JSON_REL);
 
-  ensureDir(reportDirAbs);
+  ensureDir(path.dirname(reportMdAbs));
+  ensureDir(path.dirname(reportJsonAbs));
 
   fs.writeFileSync(reportJsonAbs, `${JSON.stringify(reportData, null, 2)}\n`, 'utf8');
 

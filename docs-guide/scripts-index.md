@@ -53,10 +53,12 @@ Aggregate catalog generated from group script indexes.
 
 | Script | Summary | Usage | Owner |
 |---|---|---|---|
+| `tools/scripts/audit-all-pages-simple.js` | Utility script for tasks/scripts/audit-all-pages-simple.js. | `node tasks/scripts/audit-all-pages-simple.js` | docs |
+| `tools/scripts/audit-all-pages.js` | Utility script for tasks/scripts/audit-all-pages.js. | `node tasks/scripts/audit-all-pages.js` | docs |
 | `tools/scripts/audit-all-v2-pages.js` | Utility script for tools/scripts/audit-all-v2-pages.js. | `node tools/scripts/audit-all-v2-pages.js` | docs |
 | `tools/scripts/audit-component-usage.js` | Utility script for tools/scripts/audit-component-usage.js. | `node tools/scripts/audit-component-usage.js` | docs |
 | `tools/scripts/audit-scripts.js` | Audit full-repo executable scripts, categorize usage/overlap, and overwrite SCRIPT_AUDIT reports. | `node tools/scripts/audit-scripts.js` | docs |
-| `tools/scripts/audit-tasks-folders.js` | Audit tasks folder structure, write per-folder root audit reports, and optionally normalize report file locations. | `node tools/scripts/audit-tasks-folders.js` | docs |
+| `tools/scripts/audit-tasks-folders.js` | Audit tasks folders, optionally normalize report locations, and optionally apply audit recommendations with conflict-safe moves. | `node tools/scripts/audit-tasks-folders.js` | docs |
 | `tools/scripts/check-component-errors.js` | Utility script for tools/scripts/check-component-errors.js. | `node tools/scripts/check-component-errors.js` | docs |
 | `tools/scripts/debug-mint-dev.js` | Utility script for tools/scripts/debug-mint-dev.js. | `node tools/scripts/debug-mint-dev.js` | docs |
 | `tools/scripts/dev/add-callouts.js` | Utility script for tools/scripts/dev/add-callouts.js. | `node tools/scripts/dev/add-callouts.js` | docs |
@@ -110,12 +112,7 @@ Aggregate catalog generated from group script indexes.
 
 | Script | Summary | Usage | Owner |
 |---|---|---|---|
-| `tasks/scripts/audit-all-pages-simple.js` | Utility script for tasks/scripts/audit-all-pages-simple.js. | `node tasks/scripts/audit-all-pages-simple.js` | docs |
-| `tasks/scripts/audit-all-pages.js` | Utility script for tasks/scripts/audit-all-pages.js. | `node tasks/scripts/audit-all-pages.js` | docs |
-| `tasks/scripts/audit-component-usage.js` | Utility script for tasks/scripts/audit-component-usage.js. | `node tasks/scripts/audit-component-usage.js` | docs |
 | `tasks/scripts/audit-minimal.js` | Utility script for tasks/scripts/audit-minimal.js. | `node tasks/scripts/audit-minimal.js` | docs |
 | `tasks/scripts/audit-python.py` | Utility script for tasks/scripts/audit-python.py. | `python3 tasks/scripts/audit-python.py` | docs |
-| `tasks/scripts/run-audit-direct.sh` | Utility script for tasks/scripts/run-audit-direct.sh. | `bash tasks/scripts/run-audit-direct.sh` | docs |
 | `tasks/scripts/run-audit-now.js` | Utility script for tasks/scripts/run-audit-now.js. | `node tasks/scripts/run-audit-now.js` | docs |
-| `tasks/scripts/run-audit.sh` | Utility script for tasks/scripts/run-audit.sh. | `bash tasks/scripts/run-audit.sh` | docs |
 | `tasks/scripts/test-audit.js` | Utility script for tasks/scripts/test-audit.js. | `node tasks/scripts/test-audit.js` | docs |
