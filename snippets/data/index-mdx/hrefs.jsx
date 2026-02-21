@@ -2271,8 +2271,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/technical-references/apis.mdx",
-      "resolvedPath": "v2/pages/03_developers/technical-references/apis.mdx",
+      "rawPath": "developers/technical-references/apis.mdx",
+      "resolvedPath": "v2/developers/technical-references/apis.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2280,8 +2280,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/technical-references/awesome-livepeer.mdx",
-      "resolvedPath": "v2/pages/03_developers/technical-references/awesome-livepeer.mdx",
+      "rawPath": "developers/technical-references/awesome-livepeer.mdx",
+      "resolvedPath": "v2/developers/technical-references/awesome-livepeer.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2289,8 +2289,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/technical-references/deepwiki.mdx",
-      "resolvedPath": "v2/pages/03_developers/technical-references/deepwiki.mdx",
+      "rawPath": "developers/technical-references/deepwiki.mdx",
+      "resolvedPath": "v2/developers/technical-references/deepwiki.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2298,8 +2298,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/technical-references/sdks.mdx",
-      "resolvedPath": "v2/pages/03_developers/technical-references/sdks.mdx",
+      "rawPath": "developers/technical-references/sdks.mdx",
+      "resolvedPath": "v2/developers/technical-references/sdks.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -2307,8 +2307,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "03_developers/technical-references/wiki.mdx",
-      "resolvedPath": "v2/pages/03_developers/technical-references/wiki.mdx",
+      "rawPath": "developers/technical-references/wiki.mdx",
+      "resolvedPath": "v2/developers/technical-references/wiki.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

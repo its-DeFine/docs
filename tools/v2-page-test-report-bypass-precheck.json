@@ -766,16 +766,16 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/technical-references/sdks",
-      "url": "http://127.0.0.1:3000/03_developers/technical-references/sdks",
+      "pagePath": "v2/developers/technical-references/sdks",
+      "url": "http://127.0.0.1:3000/developers/technical-references/sdks",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/technical-references/apis",
-      "url": "http://127.0.0.1:3000/03_developers/technical-references/apis",
+      "pagePath": "v2/developers/technical-references/apis",
+      "url": "http://127.0.0.1:3000/developers/technical-references/apis",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
@@ -814,24 +814,24 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/technical-references/awesome-livepeer",
-      "url": "http://127.0.0.1:3000/03_developers/technical-references/awesome-livepeer",
+      "pagePath": "v2/developers/technical-references/awesome-livepeer",
+      "url": "http://127.0.0.1:3000/developers/technical-references/awesome-livepeer",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/technical-references/wiki",
-      "url": "http://127.0.0.1:3000/03_developers/technical-references/wiki",
+      "pagePath": "v2/developers/technical-references/wiki",
+      "url": "http://127.0.0.1:3000/developers/technical-references/wiki",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/03_developers/technical-references/deepwiki",
-      "url": "http://127.0.0.1:3000/03_developers/technical-references/deepwiki",
+      "pagePath": "v2/developers/technical-references/deepwiki",
+      "url": "http://127.0.0.1:3000/developers/technical-references/deepwiki",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

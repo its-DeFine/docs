@@ -2426,13 +2426,13 @@
                           {
                             "group": "SDKs & APIs",
                             "pages": [
-                              "v2/pages/03_developers/technical-references/sdks",
-                              "v2/pages/03_developers/technical-references/apis"
+                              "v2/developers/technical-references/sdks",
+                              "v2/developers/technical-references/apis"
                             ]
                           },
-                          "v2/pages/03_developers/technical-references/awesome-livepeer",
-                          "v2/pages/03_developers/technical-references/wiki",
-                          "v2/pages/03_developers/technical-references/deepwiki"
+                          "v2/developers/technical-references/awesome-livepeer",
+                          "v2/developers/technical-references/wiki",
+                          "v2/developers/technical-references/deepwiki"
                         ]
                       },
                       {

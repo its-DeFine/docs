@@ -1314,8 +1314,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references/sdks",
-      "resolvedPath": "v2/pages/03_developers/technical-references/sdks.mdx",
+      "rawPath": "/v2/developers/technical-references/sdks",
+      "resolvedPath": "v2/developers/technical-references/sdks.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1323,8 +1323,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references/apis",
-      "resolvedPath": "v2/pages/03_developers/technical-references/apis.mdx",
+      "rawPath": "/v2/developers/technical-references/apis",
+      "resolvedPath": "v2/developers/technical-references/apis.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1332,8 +1332,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references/awesome-livepeer",
-      "resolvedPath": "v2/pages/03_developers/technical-references/awesome-livepeer.mdx",
+      "rawPath": "/v2/developers/technical-references/awesome-livepeer",
+      "resolvedPath": "v2/developers/technical-references/awesome-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1341,8 +1341,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references/wiki",
-      "resolvedPath": "v2/pages/03_developers/technical-references/wiki.mdx",
+      "rawPath": "/v2/developers/technical-references/wiki",
+      "resolvedPath": "v2/developers/technical-references/wiki.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1350,8 +1350,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references/deepwiki",
-      "resolvedPath": "v2/pages/03_developers/technical-references/deepwiki.mdx",
+      "rawPath": "/v2/developers/technical-references/deepwiki",
+      "resolvedPath": "v2/developers/technical-references/deepwiki.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

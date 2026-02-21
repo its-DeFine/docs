@@ -1731,7 +1731,7 @@ export const LINK_MAP = {
     }
   ],
   "v2/pages/03_developers/moved-to-about-livepeer-protocol/technical-roadmap.mdx": [],
-  "v2/pages/03_developers/technical-references/apis.mdx": [
+  "v2/developers/technical-references/apis.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -1762,8 +1762,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references/apis",
-      "resolvedPath": "v2/pages/03_developers/technical-references/apis.mdx",
+      "rawPath": "/v2/developers/technical-references/apis",
+      "resolvedPath": "v2/developers/technical-references/apis.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1780,8 +1780,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references/apis",
-      "resolvedPath": "v2/pages/03_developers/technical-references/apis.mdx",
+      "rawPath": "/v2/developers/technical-references/apis",
+      "resolvedPath": "v2/developers/technical-references/apis.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1796,7 +1796,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/technical-references/awesome-livepeer.mdx": [
+  "v2/developers/technical-references/awesome-livepeer.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -1834,7 +1834,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/technical-references/deepwiki.mdx": [
+  "v2/developers/technical-references/deepwiki.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -1863,7 +1863,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/technical-references/sdks.mdx": [
+  "v2/developers/technical-references/sdks.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -1876,8 +1876,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references/sdks",
-      "resolvedPath": "v2/pages/03_developers/technical-references/sdks.mdx",
+      "rawPath": "/v2/developers/technical-references/sdks",
+      "resolvedPath": "v2/developers/technical-references/sdks.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1894,8 +1894,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/technical-references/sdks",
-      "resolvedPath": "v2/pages/03_developers/technical-references/sdks.mdx",
+      "rawPath": "/v2/developers/technical-references/sdks",
+      "resolvedPath": "v2/developers/technical-references/sdks.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1910,7 +1910,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/03_developers/technical-references/wiki.mdx": [
+  "v2/developers/technical-references/wiki.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
