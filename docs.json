@@ -2234,47 +2234,47 @@
                             "group": "Livestream",
                             "pages": [
                               "v2/platforms/products/livepeer-studio/overview/livestream-overview",
-                              "v2/pages/010_products/products/livepeer-studio/guides/create-livestream",
-                              "v2/pages/010_products/products/livepeer-studio/guides/playback-livestream",
-                              "v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs",
-                              "v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser",
-                              "v2/pages/010_products/products/livepeer-studio/guides/multistream",
-                              "v2/pages/010_products/products/livepeer-studio/guides/clip-livestream",
-                              "v2/pages/010_products/products/livepeer-studio/guides/stream-health",
-                              "v2/pages/010_products/products/livepeer-studio/guides/optimize-latency"
+                              "v2/platforms/products/livepeer-studio/guides/create-livestream",
+                              "v2/platforms/products/livepeer-studio/guides/playback-livestream",
+                              "v2/platforms/products/livepeer-studio/guides/stream-via-obs",
+                              "v2/platforms/products/livepeer-studio/guides/livestream-from-browser",
+                              "v2/platforms/products/livepeer-studio/guides/multistream",
+                              "v2/platforms/products/livepeer-studio/guides/clip-livestream",
+                              "v2/platforms/products/livepeer-studio/guides/stream-health",
+                              "v2/platforms/products/livepeer-studio/guides/optimize-latency"
                             ]
                           },
                           {
                             "group": "Video on demand",
                             "pages": [
                               "v2/platforms/products/livepeer-studio/overview/vod-overview",
-                              "v2/pages/010_products/products/livepeer-studio/guides/upload-asset",
-                              "v2/pages/010_products/products/livepeer-studio/guides/playback-asset",
-                              "v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets",
-                              "v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod",
-                              "v2/pages/010_products/products/livepeer-studio/guides/transcode-video"
+                              "v2/platforms/products/livepeer-studio/guides/upload-asset",
+                              "v2/platforms/products/livepeer-studio/guides/playback-asset",
+                              "v2/platforms/products/livepeer-studio/guides/encrypted-assets",
+                              "v2/platforms/products/livepeer-studio/guides/thumbnails-vod",
+                              "v2/platforms/products/livepeer-studio/guides/transcode-video"
                             ]
                           },
                           {
                             "group": "Access control & security",
                             "pages": [
-                              "v2/pages/010_products/products/livepeer-studio/guides/access-control/overview",
-                              "v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks",
-                              "v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt"
+                              "v2/platforms/products/livepeer-studio/guides/access-control/overview",
+                              "v2/platforms/products/livepeer-studio/guides/access-control/webhooks",
+                              "v2/platforms/products/livepeer-studio/guides/access-control/jwt"
                             ]
                           },
                           {
                             "group": "Events & analytics",
                             "pages": [
-                              "v2/pages/010_products/products/livepeer-studio/guides/webhooks",
-                              "v2/pages/010_products/products/livepeer-studio/guides/listen-to-events",
-                              "v2/pages/010_products/products/livepeer-studio/guides/analytics/overview"
+                              "v2/platforms/products/livepeer-studio/guides/webhooks",
+                              "v2/platforms/products/livepeer-studio/guides/listen-to-events",
+                              "v2/platforms/products/livepeer-studio/guides/analytics/overview"
                             ]
                           },
                           {
                             "group": "Player & embed",
                             "pages": [
-                              "v2/pages/010_products/products/livepeer-studio/guides/player-and-embed"
+                              "v2/platforms/products/livepeer-studio/guides/player-and-embed"
                             ]
                           },
                           {
@@ -2283,7 +2283,7 @@
                               "v2/platforms/products/livepeer-studio/overview/api-overview",
                               "v2/pages/010_products/products/livepeer-studio/api-reference/overview",
                               "v2/platforms/products/livepeer-studio/overview/sdks-overview",
-                              "v2/pages/010_products/products/livepeer-studio/guides/managing-projects"
+                              "v2/platforms/products/livepeer-studio/guides/managing-projects"
                             ]
                           }
                         ]

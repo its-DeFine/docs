@@ -374,64 +374,64 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/create-livestream",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/create-livestream",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/create-livestream",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/create-livestream",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/playback-livestream",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/playback-livestream",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/playback-livestream",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/playback-livestream",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/stream-via-obs",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/stream-via-obs",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/stream-via-obs",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/livestream-from-browser",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/livestream-from-browser",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/livestream-from-browser",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/multistream",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/multistream",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/multistream",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/multistream",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/clip-livestream",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/clip-livestream",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/clip-livestream",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/clip-livestream",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/stream-health",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/stream-health",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/stream-health",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/stream-health",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/optimize-latency",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/optimize-latency",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/optimize-latency",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/optimize-latency",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
@@ -446,96 +446,96 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/upload-asset",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/upload-asset",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/upload-asset",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/upload-asset",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/playback-asset",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/playback-asset",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/playback-asset",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/playback-asset",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/encrypted-assets",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/encrypted-assets",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/encrypted-assets",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/thumbnails-vod",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/thumbnails-vod",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/thumbnails-vod",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/transcode-video",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/transcode-video",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/transcode-video",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/transcode-video",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/overview",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/access-control/overview",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/access-control/overview",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/access-control/overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/access-control/webhooks",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/access-control/webhooks",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/access-control/webhooks",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/access-control/jwt",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/access-control/jwt",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/access-control/jwt",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/webhooks",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/webhooks",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/webhooks",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/webhooks",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/listen-to-events",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/listen-to-events",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/listen-to-events",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/listen-to-events",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/analytics/overview",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/analytics/overview",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/analytics/overview",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/analytics/overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/player-and-embed",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/player-and-embed",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/player-and-embed",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/player-and-embed",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
@@ -566,8 +566,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/guides/managing-projects",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/guides/managing-projects",
+      "pagePath": "v2/platforms/products/livepeer-studio/guides/managing-projects",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/guides/managing-projects",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
