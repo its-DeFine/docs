@@ -1638,32 +1638,32 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/about/overview",
-      "url": "http://127.0.0.1:3000/06_lptoken/about/overview",
+      "pagePath": "v2/lpt/about/overview",
+      "url": "http://127.0.0.1:3000/lpt/about/overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/about/purpose",
-      "url": "http://127.0.0.1:3000/06_lptoken/about/purpose",
+      "pagePath": "v2/lpt/about/purpose",
+      "url": "http://127.0.0.1:3000/lpt/about/purpose",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/about/tokenomics",
-      "url": "http://127.0.0.1:3000/06_lptoken/about/tokenomics",
+      "pagePath": "v2/lpt/about/tokenomics",
+      "url": "http://127.0.0.1:3000/lpt/about/tokenomics",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/06_lptoken/about/mechanics",
-      "url": "http://127.0.0.1:3000/06_lptoken/about/mechanics",
+      "pagePath": "v2/lpt/about/mechanics",
+      "url": "http://127.0.0.1:3000/lpt/about/mechanics",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

@@ -1,6 +1,6 @@
 export const LINK_MAP = {
-  "v2/pages/06_lptoken/about/mechanics.mdx": [],
-  "v2/pages/06_lptoken/about/overview.mdx": [
+  "v2/lpt/about/mechanics.mdx": [],
+  "v2/lpt/about/overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -20,8 +20,8 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/06_lptoken/about/purpose.mdx": [],
-  "v2/pages/06_lptoken/about/tokenomics.mdx": [],
+  "v2/lpt/about/purpose.mdx": [],
+  "v2/lpt/about/tokenomics.mdx": [],
   "v2/pages/06_lptoken/delegation/about-delegators.mdx": [],
   "v2/pages/06_lptoken/delegation/delegation-economics.mdx": [],
   "v2/pages/06_lptoken/delegation/delegation-guide.mdx": [],
@@ -995,7 +995,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./about/overview",
-      "resolvedPath": "v2/pages/06_lptoken/about/overview.mdx",
+      "resolvedPath": "v2/lpt/about/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

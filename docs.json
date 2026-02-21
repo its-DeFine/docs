@@ -2799,10 +2799,10 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/lpt/token-portal",
-                          "v2/pages/06_lptoken/about/overview",
-                          "v2/pages/06_lptoken/about/purpose",
-                          "v2/pages/06_lptoken/about/tokenomics",
-                          "v2/pages/06_lptoken/about/mechanics"
+                          "v2/lpt/about/overview",
+                          "v2/lpt/about/purpose",
+                          "v2/lpt/about/tokenomics",
+                          "v2/lpt/about/mechanics"
                         ]
                       },
                       {

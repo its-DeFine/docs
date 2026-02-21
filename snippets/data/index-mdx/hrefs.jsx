@@ -3549,8 +3549,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/about/mechanics.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/about/mechanics.mdx",
+      "rawPath": "lpt/about/mechanics.mdx",
+      "resolvedPath": "v2/lpt/about/mechanics.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3558,8 +3558,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/about/overview.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/about/overview.mdx",
+      "rawPath": "lpt/about/overview.mdx",
+      "resolvedPath": "v2/lpt/about/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3567,8 +3567,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/about/purpose.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/about/purpose.mdx",
+      "rawPath": "lpt/about/purpose.mdx",
+      "resolvedPath": "v2/lpt/about/purpose.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -3576,8 +3576,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "06_lptoken/about/tokenomics.mdx",
-      "resolvedPath": "v2/pages/06_lptoken/about/tokenomics.mdx",
+      "rawPath": "lpt/about/tokenomics.mdx",
+      "resolvedPath": "v2/lpt/about/tokenomics.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
