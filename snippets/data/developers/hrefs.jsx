@@ -1735,8 +1735,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/overview/api-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/overview/api-overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/api-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1771,8 +1771,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/overview/api-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/overview/api-overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/api-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1867,8 +1867,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/overview/sdks-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/overview/sdks-overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/sdks-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1885,8 +1885,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/overview/sdks-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/overview/sdks-overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/sdks-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

@@ -185,7 +185,7 @@ Under the existing **Livepeer Studio** group, replace the single page with a str
   "group": "Livepeer Studio",
   "icon": "film-canister",
   "pages": [
-    "v2/pages/010_products/products/livepeer-studio/overview",
+    "v2/platforms/products/livepeer-studio/overview",
     "v2/pages/010_products/products/livepeer-studio/client-use-cases",
     {
       "group": "Get started",

@@ -318,16 +318,16 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/overview",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/overview/overview",
+      "pagePath": "v2/platforms/products/livepeer-studio/overview/overview",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/overview/overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/client-use-cases",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/overview/client-use-cases",
+      "pagePath": "v2/platforms/products/livepeer-studio/overview/client-use-cases",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/overview/client-use-cases",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
@@ -342,8 +342,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/quickstart",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/overview/quickstart",
+      "pagePath": "v2/platforms/products/livepeer-studio/overview/quickstart",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/overview/quickstart",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
@@ -366,8 +366,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/livestream-overview",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/overview/livestream-overview",
+      "pagePath": "v2/platforms/products/livepeer-studio/overview/livestream-overview",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/overview/livestream-overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
@@ -438,8 +438,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/vod-overview",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/overview/vod-overview",
+      "pagePath": "v2/platforms/products/livepeer-studio/overview/vod-overview",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/overview/vod-overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
@@ -542,8 +542,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/api-overview",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/overview/api-overview",
+      "pagePath": "v2/platforms/products/livepeer-studio/overview/api-overview",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/overview/api-overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
@@ -558,8 +558,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview",
-      "url": "http://127.0.0.1:3000/010_products/products/livepeer-studio/overview/sdks-overview",
+      "pagePath": "v2/platforms/products/livepeer-studio/overview/sdks-overview",
+      "url": "http://127.0.0.1:3000/platforms/products/livepeer-studio/overview/sdks-overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

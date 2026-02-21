@@ -32,7 +32,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../livepeer-studio/overview/overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1037,7 +1037,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../overview/quickstart",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1046,7 +1046,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../overview/sdks-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/sdks-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1055,7 +1055,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../overview/api-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/api-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1865,7 +1865,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../overview/quickstart",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1883,7 +1883,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../overview/overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1892,7 +1892,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../overview/quickstart",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1938,8 +1938,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/overview/livestream-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/livestream-overview.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/overview/livestream-overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/livestream-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1947,8 +1947,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/overview/vod-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/vod-overview.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/overview/vod-overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/vod-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1956,8 +1956,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/overview/sdks-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/overview/sdks-overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/sdks-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2651,7 +2651,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../overview/api-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/api-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2696,7 +2696,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../overview/vod-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/vod-overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/vod-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2805,7 +2805,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx": [
+  "v2/platforms/products/livepeer-studio/overview/api-overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2837,7 +2837,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./sdks-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/sdks-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2861,19 +2861,19 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/livepeer-studio/overview/client-use-cases.mdx": [],
-  "v2/pages/010_products/products/livepeer-studio/overview/livepeer-studio.mdx": [
+  "v2/platforms/products/livepeer-studio/overview/client-use-cases.mdx": [],
+  "v2/platforms/products/livepeer-studio/overview/livepeer-studio.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/livepeer-studio/overview/livestream-overview.mdx": [
+  "v2/platforms/products/livepeer-studio/overview/livestream-overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -3037,7 +3037,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/livepeer-studio/overview/overview.mdx": [
+  "v2/platforms/products/livepeer-studio/overview/overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -3095,8 +3095,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/overview/api-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/overview/api-overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/api-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3140,8 +3140,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/overview/client-use-cases",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/client-use-cases.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/overview/client-use-cases",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/client-use-cases.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3149,8 +3149,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/overview/quickstart",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/overview/quickstart",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3167,8 +3167,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/overview/livestream-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/livestream-overview.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/overview/livestream-overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/livestream-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3176,8 +3176,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/overview/vod-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/vod-overview.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/overview/vod-overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/vod-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3201,7 +3201,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx": [
+  "v2/platforms/products/livepeer-studio/overview/quickstart.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -3250,8 +3250,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/overview/sdks-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/overview/sdks-overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/sdks-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3259,14 +3259,14 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/010_products/products/livepeer-studio/overview/api-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx",
+      "rawPath": "/platforms/products/livepeer-studio/overview/api-overview",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/api-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx": [
+  "v2/platforms/products/livepeer-studio/overview/sdks-overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -3334,7 +3334,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "quickstart",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3343,7 +3343,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "api-overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/api-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3358,7 +3358,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/livepeer-studio/overview/vod-overview.mdx": [
+  "v2/platforms/products/livepeer-studio/overview/vod-overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -3926,7 +3926,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./products/livepeer-studio/overview/overview",
-      "resolvedPath": "v2/pages/010_products/products/livepeer-studio/overview/overview.mdx",
+      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
