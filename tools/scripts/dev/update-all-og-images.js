@@ -29,6 +29,22 @@ const path = require('path');
 const OLD_IMAGE = 'og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"';
 const NEW_IMAGE = 'og:image: "/snippets/assets/domain/SHARED/LivepeerDocsHero.svg"';
 const EXCLUDE_FILES = ['mission-control.mdx'];
+const V2_DOC_ROOTS = [
+  'v2/pages',
+  'v2/home',
+  'v2/platforms',
+  'v2/about',
+  'v2/community',
+  'v2/developers',
+  'v2/gateways',
+  'v2/orchestrators',
+  'v2/lpt',
+  'v2/resources',
+  'v2/internal',
+  'v2/deprecated',
+  'v2/experimental',
+  'v2/notes'
+].filter((root) => fs.existsSync(root));
 
 function getAllMdxFiles(dir, fileList = []) {
   const files = fs.readdirSync(dir);
@@ -47,7 +63,7 @@ function getAllMdxFiles(dir, fileList = []) {
   return fileList;
 }
 
-const allFiles = getAllMdxFiles('v2/pages');
+const allFiles = V2_DOC_ROOTS.flatMap((root) => getAllMdxFiles(root));
 let changed = 0;
 let skipped = 0;
 let errors = 0;
@@ -89,4 +105,3 @@ console.log(`=============================`);
 
 // Write summary to file
 fs.writeFileSync('og-image-update-summary.txt', `Changed: ${changed}\nSkipped: ${skipped}\nErrors: ${errors}\n`);
-

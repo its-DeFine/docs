@@ -1,22 +1,22 @@
 #!/usr/bin/env node
 /**
  * @script generate-pages-index
- * @summary Generate and verify section-style index.mdx files for v2/pages folders, plus the root aggregate index.
+ * @summary Generate and verify section-style index.mdx files for v2 docs folders, plus the root aggregate index.
  * @owner docs
- * @scope tools/scripts, v2/pages
+ * @scope tools/scripts, v2
  *
  * @usage
  *   node tools/scripts/generate-pages-index.js --write
  *
  * @inputs
- *   --staged Only run when staged files include v2/pages changes.
+ *   --staged Only run when staged files include v2 docs changes.
  *   --write Regenerate index files.
  *   --stage Stage generated index updates with git add.
  *   --rebuild-indexes Force full rebuild even when --staged has no matching files.
  *
  * @outputs
- *   - v2/pages/<top-level-folder>/index.mdx
- *   - v2/pages/index.mdx
+ *   - v2/pages/<top-level-folder>/index.mdx (while legacy root exists)
+ *   - v2/pages/index.mdx (while legacy root exists)
  *
  * @exit-codes
  *   0 = success
@@ -33,10 +33,31 @@ const fs = require('fs');
 const path = require('path');
 const { execSync, spawnSync } = require('child_process');
 
-const PAGES_ROOT = 'v2/pages';
+const LEGACY_PAGES_ROOT = 'v2/pages';
+const MODERN_PAGES_ROOT = 'v2';
 const INDEX_FILENAME = 'index.mdx';
 const LEGACY_INDEX_FILENAME = 'index.md';
 const DOCS_JSON_FILENAME = 'docs.json';
+
+const DOMAIN_RENAME_MAP = {
+  '00_home': 'home',
+  '010_products': 'platforms',
+  '01_about': 'about',
+  '02_community': 'community',
+  '03_developers': 'developers',
+  '04_gateways': 'gateways',
+  '05_orchestrators': 'orchestrators',
+  '06_lptoken': 'lpt',
+  '07_resources': 'resources',
+  '09_internal': 'internal',
+  deprecated: 'deprecated',
+  experimental: 'experimental',
+  notes: 'notes'
+};
+
+const DOMAIN_REVERSE_MAP = Object.fromEntries(
+  Object.entries(DOMAIN_RENAME_MAP).map(([legacy, modern]) => [modern, legacy])
+);
 
 function getRepoRoot() {
   try {
@@ -47,6 +68,9 @@ function getRepoRoot() {
 }
 
 const REPO_ROOT = getRepoRoot();
+const PAGES_ROOT = fileExists(path.join(REPO_ROOT, LEGACY_PAGES_ROOT))
+  ? LEGACY_PAGES_ROOT
+  : MODERN_PAGES_ROOT;
 const PAGES_ROOT_ABS = path.join(REPO_ROOT, PAGES_ROOT);
 
 function toPosix(value) {
@@ -55,6 +79,48 @@ function toPosix(value) {
 
 function normalizeRel(relPath) {
   return toPosix(relPath).replace(/^\.\//, '').replace(/^\//, '');
+}
+
+function normalizeHref(relPath) {
+  return normalizeRel(path.posix.normalize(String(relPath || '')));
+}
+
+function mapLegacyRepoPathToModern(repoRelPath) {
+  const normalized = normalizeRel(repoRelPath);
+  if (!normalized.startsWith('v2/pages/')) return normalized;
+  const rest = normalized.slice('v2/pages/'.length);
+  const [legacyDomain, ...tail] = rest.split('/').filter(Boolean);
+  const modernDomain = DOMAIN_RENAME_MAP[legacyDomain] || legacyDomain;
+  return normalizeRel(path.posix.join('v2', modernDomain, ...tail));
+}
+
+function mapModernRepoPathToLegacy(repoRelPath) {
+  const normalized = normalizeRel(repoRelPath);
+  if (!normalized.startsWith('v2/') || normalized.startsWith('v2/pages/')) return normalized;
+  const rest = normalized.slice('v2/'.length);
+  const [modernDomain, ...tail] = rest.split('/').filter(Boolean);
+  const legacyDomain = DOMAIN_REVERSE_MAP[modernDomain];
+  if (!legacyDomain) return normalized;
+  return normalizeRel(path.posix.join('v2/pages', legacyDomain, ...tail));
+}
+
+function resolvePreferredRepoPath(repoRelPath) {
+  const normalized = normalizeRel(repoRelPath);
+  const modernCandidate = mapLegacyRepoPathToModern(normalized);
+  const legacyCandidate = mapModernRepoPathToLegacy(normalized);
+  const candidates = [modernCandidate, normalized, legacyCandidate]
+    .map((candidate) => normalizeRel(candidate))
+    .filter(Boolean)
+    .filter((candidate, idx, arr) => arr.indexOf(candidate) === idx);
+
+  for (const candidate of candidates) {
+    const absPath = path.join(REPO_ROOT, candidate);
+    if (fileExists(absPath)) {
+      return candidate;
+    }
+  }
+
+  return normalized;
 }
 
 function isMarkdownFile(fileName) {
@@ -98,7 +164,7 @@ function normalizeDocsRouteKey(routePath) {
 function collectDocsPageEntries(node, out = []) {
   if (typeof node === 'string') {
     const value = node.trim();
-    if (value.startsWith('v1/') || value.startsWith('v2/pages/')) {
+    if (value.startsWith('v1/') || value.startsWith('v2/')) {
       out.push(value);
     }
     return out;
@@ -190,7 +256,7 @@ function prettifyName(rawName) {
 }
 
 function buildLinkHref(relPath) {
-  const normalized = normalizeRel(relPath);
+  const normalized = normalizeHref(relPath);
   const segments = normalized.split('/').filter(Boolean);
   return segments.map((segment) => encodeURIComponent(segment)).join('/');
 }
@@ -202,8 +268,8 @@ function isExternalHref(href) {
 function prefixHref(prefixSegment, href) {
   if (!href || isExternalHref(href)) return href;
   const cleaned = href.replace(/^\.\//, '');
-  const prefixed = normalizeRel(path.posix.join(prefixSegment, cleaned));
-  return prefixed;
+  const prefixed = normalizeHref(path.posix.join(prefixSegment, cleaned));
+  return prefixed.replace(/^(\.\.\/)+/, '');
 }
 
 function escapeLinkText(text) {
@@ -230,10 +296,13 @@ function isMissingFromDocsJson(repoFileRel, docsRouteKeys) {
 function buildFolderIndexData(dirRel, docsRouteKeys) {
   const dirAbs = path.join(REPO_ROOT, dirRel);
   const rootFiles = getDirectMarkdownFiles(dirAbs).map((fileName) => {
-    const repoFileRel = normalizeRel(path.join(dirRel, fileName));
+    const legacyRepoFileRel = normalizeRel(path.join(dirRel, fileName));
+    const repoFileRel = resolvePreferredRepoPath(legacyRepoFileRel);
+    const repoFileAbs = path.join(REPO_ROOT, repoFileRel);
+    const relFromCurrent = normalizeRel(path.relative(dirAbs, repoFileAbs));
     return {
-      title: getFileTitle(path.join(dirAbs, fileName), fileName),
-      href: buildLinkHref(fileName),
+      title: getFileTitle(repoFileAbs, fileName),
+      href: buildLinkHref(relFromCurrent),
       missingFromDocsJson: isMissingFromDocsJson(repoFileRel, docsRouteKeys)
     };
   });
@@ -248,10 +317,12 @@ function buildFolderIndexData(dirRel, docsRouteKeys) {
       const childRel = normalizeRel(path.join(localRel, subdirName));
       const childAbs = path.join(REPO_ROOT, childRel);
       const files = getDirectMarkdownFiles(childAbs).map((fileName) => {
-        const repoFileRel = normalizeRel(path.join(childRel, fileName));
-        const relFromCurrent = normalizeRel(path.relative(dirAbs, path.join(childAbs, fileName)));
+        const legacyRepoFileRel = normalizeRel(path.join(childRel, fileName));
+        const repoFileRel = resolvePreferredRepoPath(legacyRepoFileRel);
+        const repoFileAbs = path.join(REPO_ROOT, repoFileRel);
+        const relFromCurrent = normalizeRel(path.relative(dirAbs, repoFileAbs));
         return {
-          title: getFileTitle(path.join(childAbs, fileName), fileName),
+          title: getFileTitle(repoFileAbs, fileName),
           href: buildLinkHref(relFromCurrent),
           missingFromDocsJson: isMissingFromDocsJson(repoFileRel, docsRouteKeys)
         };
@@ -511,7 +582,7 @@ function run(options = {}) {
   }
 
   const stagedFiles = getStagedFiles();
-  const hasStagedPagesChange = stagedFiles.some((file) => file === PAGES_ROOT || file.startsWith(`${PAGES_ROOT}/`));
+  const hasStagedPagesChange = stagedFiles.some((file) => file === 'v2' || file.startsWith('v2/'));
 
   if (stagedOnly && !rebuildIndexes && !hasStagedPagesChange) {
     return { passed: true, skipped: true, errors, warnings, changed, removedLegacy, removedNested };
@@ -634,7 +705,7 @@ if (require.main === module) {
   const result = run({ stagedOnly, write, stage, rebuildIndexes });
 
   if (result.skipped) {
-    console.log('ℹ️  No staged v2/pages changes detected; pages index generation skipped.');
+    console.log('ℹ️  No staged v2 docs changes detected; pages index generation skipped.');
     process.exit(0);
   }
 

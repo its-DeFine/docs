@@ -441,8 +441,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/home/get-started",
-      "resolvedPath": "v2/pages/00_home/home/get-started.mdx",
+      "rawPath": "/v2/home/home/get-started",
+      "resolvedPath": "v2/home/home/get-started.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -450,8 +450,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/home/primer",
-      "resolvedPath": "v2/pages/00_home/home/primer.mdx",
+      "rawPath": "/v2/home/home/primer",
+      "resolvedPath": "v2/home/home/primer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2648,8 +2648,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/home/get-started",
-      "resolvedPath": "v2/pages/00_home/home/get-started.mdx",
+      "rawPath": "/v2/home/home/get-started",
+      "resolvedPath": "v2/home/home/get-started.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2657,8 +2657,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/home/primer",
-      "resolvedPath": "v2/pages/00_home/home/primer.mdx",
+      "rawPath": "/v2/home/home/primer",
+      "resolvedPath": "v2/home/home/primer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

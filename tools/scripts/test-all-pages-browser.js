@@ -42,7 +42,10 @@ const CONCURRENT = 5; // Test 5 pages at a time
  * Convert page path to URL
  */
 function pageToUrl(pagePath) {
-  let url = pagePath.replace(/^v2\/pages\//, '').replace(/\.mdx$/, '');
+  let url = pagePath
+    .replace(/^v2\/pages\//, '')
+    .replace(/^v2\//, '')
+    .replace(/\.mdx$/, '');
   if (url.endsWith('/index')) url = url.replace(/\/index$/, '');
   return `/${url}`;
 }

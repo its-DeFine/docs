@@ -29,9 +29,25 @@ const { execSync } = require('child_process');
 
 const NEW_OG_IMAGE = '/snippets/assets/domain/SHARED/LivepeerDocsHero.svg';
 const EXCLUDE_FILES = ['mission-control.mdx'];
+const V2_DOC_ROOTS = [
+  'v2/pages',
+  'v2/home',
+  'v2/platforms',
+  'v2/about',
+  'v2/community',
+  'v2/developers',
+  'v2/gateways',
+  'v2/orchestrators',
+  'v2/lpt',
+  'v2/resources',
+  'v2/internal',
+  'v2/deprecated',
+  'v2/experimental',
+  'v2/notes'
+].filter((root) => fs.existsSync(root));
 
 // Get all MDX files
-const files = execSync('find v2/pages -name "*.mdx" -type f', { encoding: 'utf8' })
+const files = execSync(`find ${V2_DOC_ROOTS.join(' ')} -name "*.mdx" -type f`, { encoding: 'utf8' })
   .trim()
   .split('\n');
 
@@ -86,4 +102,3 @@ console.log(`Changed: ${changed}`);
 console.log(`Skipped: ${skipped}`);
 console.log(`Errors: ${errors}`);
 console.log(`=============================`);
-

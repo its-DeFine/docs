@@ -27,6 +27,30 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 
+const V2_DOC_ROOTS = [
+  'v2/pages',
+  'v2/home',
+  'v2/platforms',
+  'v2/about',
+  'v2/community',
+  'v2/developers',
+  'v2/gateways',
+  'v2/orchestrators',
+  'v2/lpt',
+  'v2/resources',
+  'v2/internal',
+  'v2/deprecated',
+  'v2/experimental',
+  'v2/notes'
+].filter((root) => fs.existsSync(root));
+
+function resolveFirstExistingPath(candidates) {
+  for (const candidate of candidates) {
+    if (fs.existsSync(candidate)) return candidate;
+  }
+  return candidates[0];
+}
+
 // Get all exported components from snippets/components
 function getAllExportedComponents() {
   const components = new Map();
@@ -95,13 +119,34 @@ function getComponentLibraryComponents() {
   const commented = new Set();
   
   const libFiles = [
-    'v2/pages/07_resources/documentation-guide/component-library.mdx',
-    'v2/pages/07_resources/documentation-guide/component-library/primitives.mdx',
-    'v2/pages/07_resources/documentation-guide/component-library/display.mdx',
-    'v2/pages/07_resources/documentation-guide/component-library/content.mdx',
-    'v2/pages/07_resources/documentation-guide/component-library/layout.mdx',
-    'v2/pages/07_resources/documentation-guide/component-library/integrations.mdx',
-    'v2/pages/07_resources/documentation-guide/component-library/domain.mdx'
+    resolveFirstExistingPath([
+      'v2/resources/documentation-guide/component-library.mdx',
+      'v2/pages/07_resources/documentation-guide/component-library.mdx'
+    ]),
+    resolveFirstExistingPath([
+      'v2/resources/documentation-guide/component-library/primitives.mdx',
+      'v2/pages/07_resources/documentation-guide/component-library/primitives.mdx'
+    ]),
+    resolveFirstExistingPath([
+      'v2/resources/documentation-guide/component-library/display.mdx',
+      'v2/pages/07_resources/documentation-guide/component-library/display.mdx'
+    ]),
+    resolveFirstExistingPath([
+      'v2/resources/documentation-guide/component-library/content.mdx',
+      'v2/pages/07_resources/documentation-guide/component-library/content.mdx'
+    ]),
+    resolveFirstExistingPath([
+      'v2/resources/documentation-guide/component-library/layout.mdx',
+      'v2/pages/07_resources/documentation-guide/component-library/layout.mdx'
+    ]),
+    resolveFirstExistingPath([
+      'v2/resources/documentation-guide/component-library/integrations.mdx',
+      'v2/pages/07_resources/documentation-guide/component-library/integrations.mdx'
+    ]),
+    resolveFirstExistingPath([
+      'v2/resources/documentation-guide/component-library/domain.mdx',
+      'v2/pages/07_resources/documentation-guide/component-library/domain.mdx'
+    ])
   ];
   
   libFiles.forEach(file => {
@@ -153,11 +198,12 @@ function getComponentLibraryComponents() {
 // Get components used in v2 pages
 function getV2PageComponents() {
   const used = new Map(); // component -> [files]
-  
-  const v2Files = execSync('find v2/pages -name "*.mdx" -type f', { encoding: 'utf8' })
+  const searchRoots = V2_DOC_ROOTS.length > 0 ? V2_DOC_ROOTS : ['v2/pages'];
+  const findCommand = `find ${searchRoots.join(' ')} -name "*.mdx" -type f`;
+  const v2Files = execSync(findCommand, { encoding: 'utf8' })
     .trim()
     .split('\n')
-    .filter(f => f && !f.includes('component-library'));
+    .filter((f) => f && !f.includes('component-library'));
   
   v2Files.forEach(file => {
     try {

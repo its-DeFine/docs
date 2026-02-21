@@ -1,8 +1,8 @@
 # Pages in this section (from index.mdx)
 
 ## Home
-- [Get Started with Livepeer](home/get-started.mdx)
-- [Livepeer Primer](home/primer.mdx)
+- [Get Started with Livepeer](../../home/home/get-started.mdx)
+- [Livepeer Primer](../../home/home/primer.mdx)
 
 ## Introduction
 - [Livepeer Organisational Structure](introduction/ecosystem.mdx)
@@ -20,8 +20,8 @@
 # TODO:
 
 ## Upgrade:
-- [Get Started](home/get-started.mdx)
-- [Livepeer Primer](home/primer.mdx)
+- [Get Started](../../home/home/get-started.mdx)
+- [Livepeer Primer](../../home/home/primer.mdx)
 - [Livepeer Applications](/v2/pages/00_home/project-showcase/showcase)
 - SEO & AEO (see scripts)
 - OG image

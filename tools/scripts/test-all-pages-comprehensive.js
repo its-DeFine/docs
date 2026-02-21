@@ -38,10 +38,10 @@ const fs = require('fs');
 const path = require('path');
 const puppeteer = require('puppeteer');
 
-const DOCS_JSON_PATH = path.join(__dirname, '..', 'docs.json');
+const DOCS_JSON_PATH = path.join(__dirname, '..', '..', 'docs.json');
 const BASE_URL = process.env.MINT_BASE_URL || 'http://localhost:3000';
 const TIMEOUT = 30000; // 30 seconds per page
-const REPORT_DIR = path.join(__dirname, '..', 'docs', 'PLAN', 'report');
+const REPORT_DIR = path.join(__dirname, '..', '..', 'tasks', 'reports');
 
 /**
  * Recursively extract all page paths from navigation structure
@@ -90,7 +90,10 @@ function getV2Pages() {
  * Convert page path to URL
  */
 function pageToUrl(pagePath) {
-  let url = pagePath.replace(/^v2\/pages\//, '');
+  let url = pagePath
+    .replace(/^v2\/pages\//, '')
+    .replace(/^v2\//, '')
+    .replace(/\.mdx?$/, '');
   if (url.endsWith('/')) {
     url = url.slice(0, -1);
   }

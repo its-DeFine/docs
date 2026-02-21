@@ -43,7 +43,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/home/get-started.mdx": [
+  "v2/home/home/get-started.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -360,7 +360,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/home/primer.mdx": [
+  "v2/home/home/primer.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -650,7 +650,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/home/trending-topics.mdx": [
+  "v2/home/home/trending-topics.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",

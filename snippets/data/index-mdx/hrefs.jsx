@@ -48,8 +48,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "00_home/home/get-started.mdx",
-      "resolvedPath": "v2/pages/00_home/home/get-started.mdx",
+      "rawPath": "home/home/get-started.mdx",
+      "resolvedPath": "v2/home/home/get-started.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -57,8 +57,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "00_home/home/primer.mdx",
-      "resolvedPath": "v2/pages/00_home/home/primer.mdx",
+      "rawPath": "home/home/primer.mdx",
+      "resolvedPath": "v2/home/home/primer.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -66,8 +66,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "00_home/home/trending-topics.mdx",
-      "resolvedPath": "v2/pages/00_home/home/trending-topics.mdx",
+      "rawPath": "home/home/trending-topics.mdx",
+      "resolvedPath": "v2/home/home/trending-topics.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
