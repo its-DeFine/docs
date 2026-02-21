@@ -2309,7 +2309,7 @@
                         "group": "Embody Avatars",
                         "icon": "user-robot",
                         "pages": [
-                          "v2/pages/010_products/products/embody/overview"
+                          "v2/platforms/products/embody/overview"
                         ]
                       },
                       {

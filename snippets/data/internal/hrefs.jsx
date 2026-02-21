@@ -1107,8 +1107,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/embody/overview",
-      "resolvedPath": "v2/pages/010_products/products/embody/overview.mdx",
+      "rawPath": "/v2/platforms/products/embody/overview",
+      "resolvedPath": "v2/platforms/products/embody/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3305,8 +3305,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/embody/overview",
-      "resolvedPath": "v2/pages/010_products/products/embody/overview.mdx",
+      "rawPath": "/v2/platforms/products/embody/overview",
+      "resolvedPath": "v2/platforms/products/embody/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

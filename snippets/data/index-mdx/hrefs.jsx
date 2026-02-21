@@ -561,8 +561,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "010_products/products/embody/overview.mdx",
-      "resolvedPath": "v2/pages/010_products/products/embody/overview.mdx",
+      "rawPath": "platforms/products/embody/overview.mdx",
+      "resolvedPath": "v2/platforms/products/embody/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []

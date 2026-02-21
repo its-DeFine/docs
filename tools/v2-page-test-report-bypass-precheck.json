@@ -622,8 +622,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/010_products/products/embody/overview",
-      "url": "http://127.0.0.1:3000/010_products/products/embody/overview",
+      "pagePath": "v2/platforms/products/embody/overview",
+      "url": "http://127.0.0.1:3000/platforms/products/embody/overview",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],

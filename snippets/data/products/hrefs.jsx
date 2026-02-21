@@ -485,7 +485,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/010_products/products/embody/overview.mdx": [
+  "v2/platforms/products/embody/overview.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
@@ -3953,7 +3953,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./products/embody/overview",
-      "resolvedPath": "v2/pages/010_products/products/embody/overview.mdx",
+      "resolvedPath": "v2/platforms/products/embody/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
