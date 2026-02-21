@@ -1368,8 +1368,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/gateways-portal",
-      "resolvedPath": "v2/pages/04_gateways/gateways-portal.mdx",
+      "rawPath": "/v2/gateways/gateways-portal",
+      "resolvedPath": "v2/gateways/gateways-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3476,8 +3476,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/gateways-portal",
-      "resolvedPath": "v2/pages/04_gateways/gateways-portal.mdx",
+      "rawPath": "/v2/gateways/gateways-portal",
+      "resolvedPath": "v2/gateways/gateways-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

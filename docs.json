@@ -2459,7 +2459,7 @@
                         "group": "Gateway Knowledge Hub",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/pages/04_gateways/gateways-portal",
+                          "v2/gateways/gateways-portal",
                           "v2/gateways/about-gateways/gateway-explainer",
                           "v2/gateways/about-gateways/gateway-functions",
                           "v2/gateways/about-gateways/gateway-architecture",

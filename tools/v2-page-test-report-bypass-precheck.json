@@ -854,8 +854,8 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/pages/04_gateways/gateways-portal",
-      "url": "http://127.0.0.1:3000/04_gateways/gateways-portal",
+      "pagePath": "v2/gateways/gateways-portal",
+      "url": "http://127.0.0.1:3000/gateways/gateways-portal",
       "errors": [
         "Navigation Error: page.waitForTimeout is not a function"
       ],
