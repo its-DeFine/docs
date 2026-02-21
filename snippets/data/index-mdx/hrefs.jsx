@@ -12,8 +12,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "00_home/get-started/build-on-livepeer.mdx",
-      "resolvedPath": "v2/pages/00_home/get-started/build-on-livepeer.mdx",
+      "rawPath": "home/get-started/build-on-livepeer.mdx",
+      "resolvedPath": "v2/home/get-started/build-on-livepeer.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -21,8 +21,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "00_home/get-started/livepeer-ai-quickstart.mdx",
-      "resolvedPath": "v2/pages/00_home/get-started/livepeer-ai-quickstart.mdx",
+      "rawPath": "home/get-started/livepeer-ai-quickstart.mdx",
+      "resolvedPath": "v2/home/get-started/livepeer-ai-quickstart.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -30,8 +30,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "00_home/get-started/stream-video-quickstart.mdx",
-      "resolvedPath": "v2/pages/00_home/get-started/stream-video-quickstart.mdx",
+      "rawPath": "home/get-started/stream-video-quickstart.mdx",
+      "resolvedPath": "v2/home/get-started/stream-video-quickstart.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -39,8 +39,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "00_home/get-started/use-livepeer.mdx",
-      "resolvedPath": "v2/pages/00_home/get-started/use-livepeer.mdx",
+      "rawPath": "home/get-started/use-livepeer.mdx",
+      "resolvedPath": "v2/home/get-started/use-livepeer.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
