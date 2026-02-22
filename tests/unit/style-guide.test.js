@@ -30,37 +30,97 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 const { getMdxFiles, getJsxFiles, getStagedDocsPageFiles, readFile } = require('../utils/file-walker');
 
 const REPO_ROOT = process.cwd();
 let errors = [];
 let warnings = [];
+let stagedLineMap = null;
+
+function toPosix(filePath) {
+  return String(filePath || '').split(path.sep).join('/');
+}
+
+function getStagedChangedLineSet(filePath) {
+  const relPath = toPosix(path.relative(REPO_ROOT, filePath));
+  if (!relPath) {
+    return null;
+  }
+
+  try {
+    const diff = execSync(`git diff --cached --unified=0 -- "${relPath}"`, {
+      encoding: 'utf8',
+      cwd: REPO_ROOT
+    });
+    const changedLines = new Set();
+    const hunkRegex = /^@@ -\d+(?:,\d+)? \+(\d+)(?:,(\d+))? @@/;
+
+    diff.split('\n').forEach((line) => {
+      const match = line.match(hunkRegex);
+      if (!match) return;
+
+      const start = Number(match[1]);
+      const count = match[2] ? Number(match[2]) : 1;
+      if (!Number.isFinite(start) || !Number.isFinite(count) || count <= 0) return;
+
+      for (let i = 0; i < count; i++) {
+        changedLines.add(start + i);
+      }
+    });
+
+    return changedLines;
+  } catch (_error) {
+    return null;
+  }
+}
+
+function shouldCheckLine(file, line, stagedOnly) {
+  if (!stagedOnly || !stagedLineMap) {
+    return true;
+  }
+
+  const changedLines = stagedLineMap.get(file);
+  if (!changedLines || changedLines.size === 0) {
+    return false;
+  }
+
+  return changedLines.has(line);
+}
 
 /**
  * Check for ThemeData usage (deprecated)
  */
-function checkThemeData(files) {
+function checkThemeData(files, stagedOnly = false) {
   files.forEach(file => {
     if (file.includes('style-guide.mdx')) return; // Skip style guide itself
     
     const content = readFile(file);
     if (!content) return;
-    
-    if (content.includes('ThemeData') || content.includes('themeStyles.jsx')) {
+
+    const lines = content.split('\n');
+    lines.forEach((line, index) => {
+      if (!line.includes('ThemeData') && !line.includes('themeStyles.jsx')) {
+        return;
+      }
+      const lineNumber = index + 1;
+      if (!shouldCheckLine(file, lineNumber, stagedOnly)) {
+        return;
+      }
       errors.push({
         file,
         rule: 'ThemeData usage',
         message: 'Uses deprecated ThemeData - use CSS Custom Properties instead',
-        line: findLineNumber(content, 'ThemeData')
+        line: lineNumber
       });
-    }
+    });
   });
 }
 
 /**
  * Check for hardcoded colors
  */
-function checkHardcodedColors(files) {
+function checkHardcodedColors(files, stagedOnly = false) {
   const livepeerColors = ['#3CB540', '#2b9a66', '#18794E', '#181C18', '#E0E4E0', '#717571', '#A0A4A0'];
   
   files.forEach(file => {
@@ -80,13 +140,17 @@ function checkHardcodedColors(files) {
       if (line.trim() === '') inTable = false;
       
       if (!inCodeBlock && !inTable) {
+        const lineNumber = index + 1;
+        if (!shouldCheckLine(file, lineNumber, stagedOnly)) {
+          return;
+        }
         livepeerColors.forEach(color => {
           if (line.includes(color) && !line.includes('var(--') && !line.includes('CSS Custom Properties')) {
             errors.push({
               file,
               rule: 'Hardcoded colors',
               message: `Contains hardcoded theme color ${color} - use CSS Custom Properties (var(--accent), etc.)`,
-              line: index + 1
+              line: lineNumber
             });
           }
         });
@@ -98,7 +162,7 @@ function checkHardcodedColors(files) {
 /**
  * Check for inline styles in MDX
  */
-function checkInlineStylesInMdx(files) {
+function checkInlineStylesInMdx(files, stagedOnly = false) {
   files.filter(f => f.endsWith('.mdx')).forEach(file => {
     if (file.includes('style-guide.mdx') || file.includes('component-library')) return;
     
@@ -110,12 +174,16 @@ function checkInlineStylesInMdx(files) {
     const lines = content.split('\n');
     
     lines.forEach((line, index) => {
+      const lineNumber = index + 1;
+      if (!shouldCheckLine(file, lineNumber, stagedOnly)) {
+        return;
+      }
       if (styleRegex.test(line) && !line.includes('//') && !line.includes('{/*')) {
         errors.push({
           file,
           rule: 'No inline styles in MDX',
           message: 'Inline styles in MDX files - use component primitives instead',
-          line: index + 1
+          line: lineNumber
         });
       }
     });
@@ -125,7 +193,7 @@ function checkInlineStylesInMdx(files) {
 /**
  * Check for Tailwind classes
  */
-function checkTailwindClasses(files) {
+function checkTailwindClasses(files, stagedOnly = false) {
   files.filter(f => f.endsWith('.mdx')).forEach(file => {
     const content = readFile(file);
     if (!content) return;
@@ -137,6 +205,10 @@ function checkTailwindClasses(files) {
     
     const lines = content.split('\n');
     lines.forEach((line, index) => {
+      const lineNumber = index + 1;
+      if (!shouldCheckLine(file, lineNumber, stagedOnly)) {
+        return;
+      }
       if (line.includes('className=')) {
         tailwindPatterns.forEach(pattern => {
           if (pattern.test(line)) {
@@ -144,7 +216,7 @@ function checkTailwindClasses(files) {
               file,
               rule: 'No Tailwind classes',
               message: 'Tailwind classes detected - use component primitives instead',
-              line: index + 1
+              line: lineNumber
             });
           }
         });
@@ -156,7 +228,7 @@ function checkTailwindClasses(files) {
 /**
  * Check import paths
  */
-function checkImportPaths(files) {
+function checkImportPaths(files, stagedOnly = false) {
   files.forEach(file => {
     if (file.includes('style-guide.mdx')) return; // Skip style guide (it documents relative imports as examples of what NOT to do)
     
@@ -168,6 +240,10 @@ function checkImportPaths(files) {
     
     while ((match = importRegex.exec(content)) !== null) {
       const importPath = match[1];
+      const lineNumber = content.substring(0, match.index).split('\n').length;
+      if (!shouldCheckLine(file, lineNumber, stagedOnly)) {
+        continue;
+      }
       
       // Check for relative imports to snippets
       if (importPath.includes('snippets') && !importPath.startsWith('/snippets')) {
@@ -175,7 +251,7 @@ function checkImportPaths(files) {
           file,
           rule: 'Absolute import paths',
           message: `Relative import path for snippets: ${importPath}. Use absolute path: /snippets/...`,
-          line: findLineNumber(content, match[0])
+          line: lineNumber
         });
       }
       
@@ -185,7 +261,7 @@ function checkImportPaths(files) {
           file,
           rule: 'Unnecessary imports',
           message: 'Imports from @mintlify/components - these are global, no import needed',
-          line: findLineNumber(content, match[0])
+          line: lineNumber
         });
       }
       
@@ -195,7 +271,7 @@ function checkImportPaths(files) {
           file,
           rule: 'Unnecessary React imports',
           message: 'Imports React hooks - hooks are global in Mintlify, no import needed',
-          line: findLineNumber(content, match[0])
+          line: lineNumber
         });
       }
     }
@@ -238,6 +314,7 @@ function findLineNumber(content, search) {
 function runTests(options = {}) {
   errors = [];
   warnings = [];
+  stagedLineMap = null;
   
   const { files = null, stagedOnly = false } = options;
   
@@ -252,12 +329,19 @@ function runTests(options = {}) {
     // Filter out style-guide.mdx even if files are explicitly provided
     testFiles = testFiles.filter(f => !f.includes('style-guide.mdx'));
   }
-  
-  checkThemeData(testFiles);
-  checkHardcodedColors(testFiles);
-  checkInlineStylesInMdx(testFiles);
-  checkTailwindClasses(testFiles);
-  checkImportPaths(testFiles);
+
+  if (stagedOnly) {
+    stagedLineMap = new Map();
+    testFiles.forEach((file) => {
+      stagedLineMap.set(file, getStagedChangedLineSet(file));
+    });
+  }
+
+  checkThemeData(testFiles, stagedOnly);
+  checkHardcodedColors(testFiles, stagedOnly);
+  checkInlineStylesInMdx(testFiles, stagedOnly);
+  checkTailwindClasses(testFiles, stagedOnly);
+  checkImportPaths(testFiles, stagedOnly);
   checkFileNaming(testFiles);
   
   return {

@@ -1,5 +1,5 @@
 export const LINK_MAP = {
-  "v2/pages/00_home/get-started/build-on-livepeer.mdx": [
+  "v2/home/get-started/build-on-livepeer.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -10,7 +10,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/get-started/livepeer-ai-quickstart.mdx": [
+  "v2/home/get-started/livepeer-ai-quickstart.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -21,7 +21,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/get-started/stream-video-quickstart.mdx": [
+  "v2/home/get-started/stream-video-quickstart.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -32,7 +32,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/get-started/use-livepeer.mdx": [
+  "v2/home/get-started/use-livepeer.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -43,12 +43,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/home/get-started.mdx": [
+  "v2/home/home/get-started.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/project-showcase/showcase",
+      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -56,8 +56,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../../01_about/about-portal",
-      "resolvedPath": "v2/pages/01_about/about-portal.mdx",
+      "rawPath": "../../about/about-portal",
+      "resolvedPath": "v2/about/about-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -65,8 +65,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai.mdx",
+      "rawPath": "/v2/developers/building-on-livepeer/quick-starts/livepeer-ai",
+      "resolvedPath": "v2/developers/building-on-livepeer/quick-starts/livepeer-ai.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -74,8 +74,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/daydream",
-      "resolvedPath": "/v2/pages/010_products/products/daydream",
+      "rawPath": "/v2/platforms/products/daydream",
+      "resolvedPath": "/v2/platforms/products/daydream",
       "exists": true,
       "status": "ok-folder-route",
       "movedCandidates": []
@@ -83,8 +83,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../../010_products/products-portal",
-      "resolvedPath": "v2/pages/010_products/products-portal.mdx",
+      "rawPath": "../../platforms/products-portal",
+      "resolvedPath": "v2/platforms/products-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -92,8 +92,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming.mdx",
+      "rawPath": "/v2/developers/building-on-livepeer/quick-starts/video-streaming",
+      "resolvedPath": "v2/developers/building-on-livepeer/quick-starts/video-streaming.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -128,8 +128,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/project-showcase/showcase",
+      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -137,8 +137,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/",
-      "resolvedPath": "/v2/pages/00_home/introduction",
+      "rawPath": "/v2/home/introduction/",
+      "resolvedPath": "/v2/home/introduction",
       "exists": true,
       "status": "ok-folder-route",
       "movedCandidates": []
@@ -146,8 +146,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/02_community/livepeer-community/trending-topics",
-      "resolvedPath": "v2/pages/02_community/livepeer-community/trending-topics.mdx",
+      "rawPath": "/v2/community/livepeer-community/trending-topics",
+      "resolvedPath": "v2/community/livepeer-community/trending-topics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -156,7 +156,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../get-started/stream-video-quickstart",
-      "resolvedPath": "v2/pages/00_home/get-started/stream-video-quickstart.mdx",
+      "resolvedPath": "v2/home/get-started/stream-video-quickstart.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -164,8 +164,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/daydream",
-      "resolvedPath": "/v2/pages/010_products/products/daydream",
+      "rawPath": "/v2/platforms/products/daydream",
+      "resolvedPath": "/v2/platforms/products/daydream",
       "exists": true,
       "status": "ok-folder-route",
       "movedCandidates": []
@@ -173,8 +173,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/010_products/products/livepeer-studio",
-      "resolvedPath": "/v2/pages/010_products/products/livepeer-studio",
+      "rawPath": "/v2/platforms/products/livepeer-studio/overview/overview",
+      "resolvedPath": "/v2/platforms/products/livepeer-studio/overview/overview",
       "exists": true,
       "status": "ok-folder-route",
       "movedCandidates": []
@@ -182,8 +182,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai.mdx",
+      "rawPath": "/v2/developers/building-on-livepeer/quick-starts/livepeer-ai",
+      "resolvedPath": "v2/developers/building-on-livepeer/quick-starts/livepeer-ai.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -191,8 +191,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../010_products/products/daydream/daydream",
-      "resolvedPath": "v2/pages/010_products/products/daydream/daydream.mdx",
+      "rawPath": "../../platforms/products/daydream/daydream",
+      "resolvedPath": "v2/platforms/products/daydream/daydream.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -200,8 +200,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
+      "rawPath": "../../developers/ai-inference-on-livepeer/ai-pipelines/comfystream",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -209,8 +209,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../03_developers/ai-inference-on-livepeer/ai-pipelines/byoc",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
+      "rawPath": "../../developers/ai-inference-on-livepeer/ai-pipelines/byoc",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -218,8 +218,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../03_developers/developer-portal",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
+      "rawPath": "../../developers/developer-portal",
+      "resolvedPath": "v2/developers/developer-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -227,8 +227,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../04_gateways/gateways-portal",
-      "resolvedPath": "v2/pages/04_gateways/gateways-portal.mdx",
+      "rawPath": "../../gateways/gateways-portal",
+      "resolvedPath": "v2/gateways/gateways-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -236,8 +236,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../03_developers/builder-opportunities/dev-programs",
-      "resolvedPath": "v2/pages/03_developers/builder-opportunities/dev-programs.mdx",
+      "rawPath": "../../developers/builder-opportunities/dev-programs",
+      "resolvedPath": "v2/developers/builder-opportunities/dev-programs.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -263,8 +263,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../010_products/products/daydream/daydream",
-      "resolvedPath": "v2/pages/010_products/products/daydream/daydream.mdx",
+      "rawPath": "../../platforms/products/daydream/daydream",
+      "resolvedPath": "v2/platforms/products/daydream/daydream.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -272,8 +272,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming.mdx",
+      "rawPath": "/v2/developers/building-on-livepeer/quick-starts/video-streaming",
+      "resolvedPath": "v2/developers/building-on-livepeer/quick-starts/video-streaming.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -290,8 +290,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../06_lptoken/delegation/overview",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/overview.mdx",
+      "rawPath": "../../lpt/delegation/overview",
+      "resolvedPath": "v2/lpt/delegation/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -299,8 +299,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../06_lptoken/governance/overview",
-      "resolvedPath": "v2/pages/06_lptoken/governance/overview.mdx",
+      "rawPath": "../../lpt/governance/overview",
+      "resolvedPath": "v2/lpt/governance/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -308,8 +308,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../03_developers/building-on-livepeer/partners",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/partners.mdx",
+      "rawPath": "../../developers/building-on-livepeer/partners",
+      "resolvedPath": "v2/developers/building-on-livepeer/partners.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -360,12 +360,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/home/primer.mdx": [
+  "v2/home/home/primer.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/03_developers/developer-portal",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
+      "rawPath": "/developers/developer-portal",
+      "resolvedPath": "v2/developers/developer-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -436,8 +436,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/03_developers/developer-portal",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
+      "rawPath": "/developers/developer-portal",
+      "resolvedPath": "v2/developers/developer-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -490,8 +490,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../02_community/community-portal",
-      "resolvedPath": "v2/pages/02_community/community-portal.mdx",
+      "rawPath": "../../community/community-portal",
+      "resolvedPath": "v2/community/community-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -499,8 +499,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/project-showcase/showcase",
+      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -508,8 +508,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../010_products/products-portal",
-      "resolvedPath": "v2/pages/010_products/products-portal.mdx",
+      "rawPath": "../../platforms/products-portal",
+      "resolvedPath": "v2/platforms/products-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -517,8 +517,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../03_developers/developer-portal",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
+      "rawPath": "../../developers/developer-portal",
+      "resolvedPath": "v2/developers/developer-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -526,8 +526,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../04_gateways/gateways-portal",
-      "resolvedPath": "v2/pages/04_gateways/gateways-portal.mdx",
+      "rawPath": "../../gateways/gateways-portal",
+      "resolvedPath": "v2/gateways/gateways-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -544,8 +544,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../02_community/community-portal",
-      "resolvedPath": "v2/pages/02_community/community-portal.mdx",
+      "rawPath": "../../community/community-portal",
+      "resolvedPath": "v2/community/community-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -607,8 +607,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../02_community/community-portal",
-      "resolvedPath": "v2/pages/02_community/community-portal.mdx",
+      "rawPath": "../../community/community-portal",
+      "resolvedPath": "v2/community/community-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -650,7 +650,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/home/trending-topics.mdx": [
+  "v2/home/home/trending-topics.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -823,7 +823,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/introduction/ecosystem.mdx": [
+  "v2/home/introduction/ecosystem.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -989,8 +989,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/treasury/overview",
-      "resolvedPath": "v2/pages/06_lptoken/treasury/overview.mdx",
+      "rawPath": "/v2/lpt/treasury/overview",
+      "resolvedPath": "v2/lpt/treasury/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1223,8 +1223,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/delegation/overview",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/overview.mdx",
+      "rawPath": "/v2/lpt/delegation/overview",
+      "resolvedPath": "v2/lpt/delegation/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1311,7 +1311,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/introduction/evolution.mdx": [
+  "v2/home/introduction/evolution.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1468,8 +1468,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/roadmap",
-      "resolvedPath": "v2/pages/00_home/introduction/roadmap.mdx",
+      "rawPath": "/v2/home/introduction/roadmap",
+      "resolvedPath": "v2/home/introduction/roadmap.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1502,7 +1502,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/introduction/roadmap.mdx": [
+  "v2/home/introduction/roadmap.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1540,7 +1540,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/introduction/vision.mdx": [
+  "v2/home/introduction/vision.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1598,8 +1598,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/roadmap",
-      "resolvedPath": "v2/pages/00_home/introduction/roadmap.mdx",
+      "rawPath": "/v2/home/introduction/roadmap",
+      "resolvedPath": "v2/home/introduction/roadmap.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1668,7 +1668,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/introduction/why-livepeer.mdx": [
+  "v2/home/introduction/why-livepeer.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1690,8 +1690,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/project-showcase/showcase",
+      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1787,7 +1787,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/mission-control.mdx": [
+  "v2/home/mission-control.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -1800,8 +1800,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../01_about/about-portal",
-      "resolvedPath": "v2/pages/01_about/about-portal.mdx",
+      "rawPath": "../about/about-portal",
+      "resolvedPath": "v2/about/about-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1809,8 +1809,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README",
-      "resolvedPath": "v2/pages/03_developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
+      "rawPath": "../developers/livepeer-real-time-video/video-streaming-on-livepeer/README",
+      "resolvedPath": "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1818,8 +1818,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../03_developers/ai-inference-on-livepeer/ai-pipelines/overview",
-      "resolvedPath": "v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "rawPath": "../developers/ai-inference-on-livepeer/ai-pipelines/overview",
+      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1836,8 +1836,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../02_community/community-portal",
-      "resolvedPath": "v2/pages/02_community/community-portal.mdx",
+      "rawPath": "../community/community-portal",
+      "resolvedPath": "v2/community/community-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1845,8 +1845,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/project-showcase/showcase",
+      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1854,8 +1854,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../04_gateways/gateways-portal",
-      "resolvedPath": "v2/pages/04_gateways/gateways-portal.mdx",
+      "rawPath": "../gateways/gateways-portal",
+      "resolvedPath": "v2/gateways/gateways-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1863,8 +1863,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../06_lptoken/token-portal",
-      "resolvedPath": "v2/pages/06_lptoken/token-portal.mdx",
+      "rawPath": "../lpt/token-portal",
+      "resolvedPath": "v2/lpt/token-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1872,8 +1872,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../03_developers/builder-opportunities/dev-programs",
-      "resolvedPath": "v2/pages/03_developers/builder-opportunities/dev-programs.mdx",
+      "rawPath": "../developers/builder-opportunities/dev-programs",
+      "resolvedPath": "v2/developers/builder-opportunities/dev-programs.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1933,7 +1933,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/project-showcase/applications.mdx": [
+  "v2/home/project-showcase/applications.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -1944,7 +1944,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/project-showcase/industry-verticals.mdx": [
+  "v2/home/project-showcase/industry-verticals.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -1964,7 +1964,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/project-showcase/landscape.mdx": [
+  "v2/home/project-showcase/landscape.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -1993,7 +1993,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/00_home/project-showcase/showcase.mdx": [
+  "v2/home/project-showcase/showcase.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",

@@ -75,7 +75,7 @@ node tests/integration/domain-pages-audit.js --staged --version both
 node tests/integration/domain-pages-audit.js --base-url https://docs.livepeer.org --version both
 node tests/integration/v2-link-audit.js --full --write-links
 node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md
-node tests/integration/v2-link-audit.js --files v2/pages/02_community/livepeer-community/trending-topics.mdx --strict
+node tests/integration/v2-link-audit.js --files v2/community/livepeer-community/trending-topics.mdx --strict
 node tests/run-pr-checks.js --base-ref main
 ```
 

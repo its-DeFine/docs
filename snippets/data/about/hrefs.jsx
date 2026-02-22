@@ -1,5 +1,5 @@
 export const LINK_MAP = {
-  "v2/pages/01_about/about-portal.mdx": [
+  "v2/about/about-portal.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -22,7 +22,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -31,7 +31,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -40,7 +40,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -49,7 +49,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -58,7 +58,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -67,7 +67,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -127,8 +127,8 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/core-concepts/concepts/actors.mdx": [],
-  "v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx": [
+  "v2/about/core-concepts/concepts/actors.mdx": [],
+  "v2/about/core-concepts/livepeer-core-concepts.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -166,12 +166,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/core-concepts/livepeer-overview.mdx": [
+  "v2/about/core-concepts/livepeer-overview.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/01_about/core-concepts/mental-model",
-      "resolvedPath": "v2/pages/01_about/core-concepts/mental-model.mdx",
+      "rawPath": "/about/core-concepts/mental-model",
+      "resolvedPath": "v2/about/core-concepts/mental-model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -188,8 +188,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/04_gateways/gateways-portal",
-      "resolvedPath": "v2/pages/04_gateways/gateways-portal.mdx",
+      "rawPath": "/gateways/gateways-portal",
+      "resolvedPath": "v2/gateways/gateways-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -197,8 +197,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/06_lptoken/token-portal",
-      "resolvedPath": "v2/pages/06_lptoken/token-portal.mdx",
+      "rawPath": "/lpt/token-portal",
+      "resolvedPath": "v2/lpt/token-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -206,8 +206,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/03_developers/developer-portal",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
+      "rawPath": "/developers/developer-portal",
+      "resolvedPath": "v2/developers/developer-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -240,7 +240,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/core-concepts/mental-model.mdx": [
+  "v2/about/core-concepts/mental-model.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -253,8 +253,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../../010_products/products-portal",
-      "resolvedPath": "v2/pages/010_products/products-portal.mdx",
+      "rawPath": "../../platforms/products-portal",
+      "resolvedPath": "v2/platforms/products-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -262,8 +262,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/project-showcase/showcase",
+      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -271,8 +271,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/project-showcase/showcase",
-      "resolvedPath": "v2/pages/00_home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/project-showcase/showcase",
+      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -296,7 +296,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/faq-about.mdx": [
+  "v2/about/faq-about.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "empty",
@@ -310,7 +310,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "livepeer-protocol/technical-architecture",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/technical-architecture.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/technical-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -319,7 +319,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "livepeer-protocol/core-mechanisms",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/core-mechanisms.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/core-mechanisms.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -328,7 +328,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "resources/blockchain-contracts",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -337,7 +337,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "livepeer-protocol/protocol-economics",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/protocol-economics.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/protocol-economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -346,7 +346,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "livepeer-network/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -355,7 +355,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "livepeer-network/technical-architecture",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/technical-architecture.mdx",
+      "resolvedPath": "v2/about/livepeer-network/technical-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -370,12 +370,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/actors.mdx": [
+  "v2/about/livepeer-network/actors.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-actors/gateways",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+      "resolvedPath": "v2/about/livepeer-network/livepeer-actors/gateways.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -393,7 +393,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-actors/delegators",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/livepeer-actors/delegators.mdx",
+      "resolvedPath": "v2/about/livepeer-network/livepeer-actors/delegators.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -402,7 +402,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-actors/end-users",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/livepeer-actors/end-users.mdx",
+      "resolvedPath": "v2/about/livepeer-network/livepeer-actors/end-users.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -411,7 +411,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./demand-side",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/demand-side.mdx",
+      "resolvedPath": "v2/about/livepeer-network/demand-side.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -420,7 +420,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./supply-side",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/supply-side.mdx",
+      "resolvedPath": "v2/about/livepeer-network/supply-side.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -429,7 +429,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./job-lifecycle",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/job-lifecycle.mdx",
+      "resolvedPath": "v2/about/livepeer-network/job-lifecycle.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -444,9 +444,9 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/demand-side.mdx": [],
-  "v2/pages/01_about/livepeer-network/fee-flow.mdx": [],
-  "v2/pages/01_about/livepeer-network/interfaces.mdx": [
+  "v2/about/livepeer-network/demand-side.mdx": [],
+  "v2/about/livepeer-network/fee-flow.mdx": [],
+  "v2/about/livepeer-network/interfaces.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -487,7 +487,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../resources/blockchain-contracts",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -496,7 +496,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./technical-architecture",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/technical-architecture.mdx",
+      "resolvedPath": "v2/about/livepeer-network/technical-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -505,7 +505,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./marketplace",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/marketplace.mdx",
+      "resolvedPath": "v2/about/livepeer-network/marketplace.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -514,7 +514,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./job-lifecycle",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/job-lifecycle.mdx",
+      "resolvedPath": "v2/about/livepeer-network/job-lifecycle.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -523,7 +523,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../resources/blockchain-contracts",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -610,7 +610,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/job-lifecycle.mdx": [
+  "v2/about/livepeer-network/job-lifecycle.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -621,12 +621,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/livepeer-actors/delegators.mdx": [
+  "v2/about/livepeer-network/livepeer-actors/delegators.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../../livepeer-protocol/livepeer-token",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/livepeer-token.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/livepeer-token.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -635,7 +635,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../../livepeer-protocol/protocol-economics",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/protocol-economics.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/protocol-economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -659,12 +659,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/livepeer-actors/end-users.mdx": [
+  "v2/about/livepeer-network/livepeer-actors/end-users.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../demand-side",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/demand-side.mdx",
+      "resolvedPath": "v2/about/livepeer-network/demand-side.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -673,7 +673,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./gateways",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+      "resolvedPath": "v2/about/livepeer-network/livepeer-actors/gateways.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -682,7 +682,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -697,7 +697,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx": [
+  "v2/about/livepeer-network/livepeer-actors/gateways.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -711,7 +711,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../job-lifecycle",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/job-lifecycle.mdx",
+      "resolvedPath": "v2/about/livepeer-network/job-lifecycle.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -720,7 +720,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../demand-side",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/demand-side.mdx",
+      "resolvedPath": "v2/about/livepeer-network/demand-side.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -735,12 +735,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/livepeer-actors/orchestrators.mdx": [
+  "v2/about/livepeer-network/livepeer-actors/orchestrators.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./gateways",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+      "resolvedPath": "v2/about/livepeer-network/livepeer-actors/gateways.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -749,7 +749,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../supply-side",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/supply-side.mdx",
+      "resolvedPath": "v2/about/livepeer-network/supply-side.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -758,7 +758,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../fee-flow",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/fee-flow.mdx",
+      "resolvedPath": "v2/about/livepeer-network/fee-flow.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -773,7 +773,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/marketplace.mdx": [
+  "v2/about/livepeer-network/marketplace.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -796,7 +796,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../resources/technical-roadmap",
-      "resolvedPath": "v2/pages/01_about/resources/technical-roadmap.mdx",
+      "resolvedPath": "v2/about/resources/technical-roadmap.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -805,7 +805,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./job-lifecycle",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/job-lifecycle.mdx",
+      "resolvedPath": "v2/about/livepeer-network/job-lifecycle.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -814,7 +814,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./actors",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/actors.mdx",
+      "resolvedPath": "v2/about/livepeer-network/actors.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -823,7 +823,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../livepeer-protocol/overview",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/overview.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -832,7 +832,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../resources/blockchain-contracts",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -910,7 +910,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/overview.mdx": [
+  "v2/about/livepeer-network/overview.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -921,9 +921,9 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-network/scaling.mdx": [],
-  "v2/pages/01_about/livepeer-network/supply-side.mdx": [],
-  "v2/pages/01_about/livepeer-network/technical-architecture.mdx": [
+  "v2/about/livepeer-network/scaling.mdx": [],
+  "v2/about/livepeer-network/supply-side.mdx": [],
+  "v2/about/livepeer-network/technical-architecture.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -973,7 +973,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./job-lifecycle",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/job-lifecycle.mdx",
+      "resolvedPath": "v2/about/livepeer-network/job-lifecycle.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1009,7 +1009,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./interfaces",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/interfaces.mdx",
+      "resolvedPath": "v2/about/livepeer-network/interfaces.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1018,7 +1018,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./marketplace",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/marketplace.mdx",
+      "resolvedPath": "v2/about/livepeer-network/marketplace.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1027,7 +1027,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./job-lifecycle",
-      "resolvedPath": "v2/pages/01_about/livepeer-network/job-lifecycle.mdx",
+      "resolvedPath": "v2/about/livepeer-network/job-lifecycle.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1036,7 +1036,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../livepeer-protocol/technical-architecture",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/technical-architecture.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/technical-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1045,7 +1045,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../resources/blockchain-contracts",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1114,7 +1114,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-protocol/core-mechanisms.mdx": [
+  "v2/about/livepeer-protocol/core-mechanisms.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1215,7 +1215,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-protocol/governance-model.mdx": [
+  "v2/about/livepeer-protocol/governance-model.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1265,7 +1265,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./treasury",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/treasury.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/treasury.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1607,7 +1607,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./treasury",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/treasury.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/treasury.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1615,8 +1615,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/ecosystem#livepeer-foundation",
-      "resolvedPath": "v2/pages/00_home/introduction/ecosystem.mdx",
+      "rawPath": "/v2/home/introduction/ecosystem#livepeer-foundation",
+      "resolvedPath": "v2/home/introduction/ecosystem.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1624,8 +1624,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/introduction/ecosystem#special-purpose-entities",
-      "resolvedPath": "v2/pages/00_home/introduction/ecosystem.mdx",
+      "rawPath": "/v2/home/introduction/ecosystem#special-purpose-entities",
+      "resolvedPath": "v2/home/introduction/ecosystem.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1705,8 +1705,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/01_about/livepeer-protocol/governance-model",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/governance-model.mdx",
+      "rawPath": "/v2/about/livepeer-protocol/governance-model",
+      "resolvedPath": "v2/about/livepeer-protocol/governance-model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1766,7 +1766,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-protocol/livepeer-token.mdx": [
+  "v2/about/livepeer-protocol/livepeer-token.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1921,7 +1921,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-protocol/overview.mdx": [
+  "v2/about/livepeer-protocol/overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2016,7 +2016,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./core-mechanisms",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/core-mechanisms.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/core-mechanisms.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2025,7 +2025,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./livepeer-token",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/livepeer-token.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/livepeer-token.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2034,7 +2034,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./governance-model",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/governance-model.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/governance-model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2043,7 +2043,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./treasury",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/treasury.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/treasury.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2052,7 +2052,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./protocol-economics",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/protocol-economics.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/protocol-economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2061,7 +2061,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./technical-architecture",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/technical-architecture.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/technical-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2070,7 +2070,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../resources/livepeer-whitepaper",
-      "resolvedPath": "v2/pages/01_about/resources/livepeer-whitepaper.mdx",
+      "resolvedPath": "v2/about/resources/livepeer-whitepaper.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2079,7 +2079,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../resources/blockchain-contracts",
-      "resolvedPath": "v2/pages/01_about/resources/blockchain-contracts.mdx",
+      "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2148,7 +2148,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-protocol/protocol-economics.mdx": [
+  "v2/about/livepeer-protocol/protocol-economics.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "empty",
@@ -2195,7 +2195,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-protocol/technical-architecture.mdx": [
+  "v2/about/livepeer-protocol/technical-architecture.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2323,7 +2323,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/livepeer-protocol/treasury.mdx": [
+  "v2/about/livepeer-protocol/treasury.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2337,7 +2337,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./treasury",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/treasury.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/treasury.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2400,7 +2400,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "governance-model",
-      "resolvedPath": "v2/pages/01_about/livepeer-protocol/governance-model.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/governance-model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2471,8 +2471,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/treasury/overview",
-      "resolvedPath": "v2/pages/06_lptoken/treasury/overview.mdx",
+      "rawPath": "/v2/lpt/treasury/overview",
+      "resolvedPath": "v2/lpt/treasury/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2516,8 +2516,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/treasury/overview",
-      "resolvedPath": "v2/pages/06_lptoken/treasury/overview.mdx",
+      "rawPath": "/v2/lpt/treasury/overview",
+      "resolvedPath": "v2/lpt/treasury/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2631,7 +2631,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/resources/blockchain-contracts.mdx": [
+  "v2/about/resources/blockchain-contracts.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2849,7 +2849,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/resources/gateways-vs-orchestrators.mdx": [
+  "v2/about/resources/gateways-vs-orchestrators.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -2860,7 +2860,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/resources/livepeer-glossary.mdx": [
+  "v2/about/resources/livepeer-glossary.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2880,7 +2880,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/resources/livepeer-whitepaper.mdx": [
+  "v2/about/resources/livepeer-whitepaper.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2936,7 +2936,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/01_about/resources/technical-roadmap.mdx": [],
+  "v2/about/resources/technical-roadmap.mdx": [],
   "snippets/pages/01_ABOUT/concepts/protocol.mdx": [],
   "snippets/pages/01_ABOUT/concepts/network.mdx": [],
   "snippets/pages/01_ABOUT/concepts/actors.mdx": [],

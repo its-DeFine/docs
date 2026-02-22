@@ -1,6 +1,6 @@
 export const LINK_MAP = {
-  "v2/pages/06_lptoken/about/mechanics.mdx": [],
-  "v2/pages/06_lptoken/about/overview.mdx": [
+  "v2/lpt/about/mechanics.mdx": [],
+  "v2/lpt/about/overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -20,13 +20,13 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/06_lptoken/about/purpose.mdx": [],
-  "v2/pages/06_lptoken/about/tokenomics.mdx": [],
-  "v2/pages/06_lptoken/delegation/about-delegators.mdx": [],
-  "v2/pages/06_lptoken/delegation/delegation-economics.mdx": [],
-  "v2/pages/06_lptoken/delegation/delegation-guide.mdx": [],
-  "v2/pages/06_lptoken/delegation/overview.mdx": [],
-  "v2/pages/06_lptoken/governance/model.mdx": [
+  "v2/lpt/about/purpose.mdx": [],
+  "v2/lpt/about/tokenomics.mdx": [],
+  "v2/lpt/delegation/about-delegators.mdx": [],
+  "v2/lpt/delegation/delegation-economics.mdx": [],
+  "v2/lpt/delegation/delegation-guide.mdx": [],
+  "v2/lpt/delegation/overview.mdx": [],
+  "v2/lpt/governance/model.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -55,9 +55,9 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/06_lptoken/governance/overview.mdx": [],
-  "v2/pages/06_lptoken/governance/processes.mdx": [],
-  "v2/pages/06_lptoken/resources/delegator-videos-and-blogs.mdx": [
+  "v2/lpt/governance/overview.mdx": [],
+  "v2/lpt/governance/processes.mdx": [],
+  "v2/lpt/resources/delegator-videos-and-blogs.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -212,7 +212,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/06_lptoken/resources/exchanges.mdx": [
+  "v2/lpt/resources/exchanges.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -916,7 +916,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/06_lptoken/resources/lpt-eth-usage.mdx": [
+  "v2/lpt/resources/lpt-eth-usage.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -936,7 +936,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/06_lptoken/token-portal.mdx": [
+  "v2/lpt/token-portal.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "empty",
@@ -995,7 +995,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./about/overview",
-      "resolvedPath": "v2/pages/06_lptoken/about/overview.mdx",
+      "resolvedPath": "v2/lpt/about/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1004,7 +1004,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./delegation/overview",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/overview.mdx",
+      "resolvedPath": "v2/lpt/delegation/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1013,7 +1013,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./governance/overview",
-      "resolvedPath": "v2/pages/06_lptoken/governance/overview.mdx",
+      "resolvedPath": "v2/lpt/governance/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1022,7 +1022,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./treasury/overview",
-      "resolvedPath": "v2/pages/06_lptoken/treasury/overview.mdx",
+      "resolvedPath": "v2/lpt/treasury/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1031,7 +1031,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./governance/overview",
-      "resolvedPath": "v2/pages/06_lptoken/governance/overview.mdx",
+      "resolvedPath": "v2/lpt/governance/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1091,13 +1091,13 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/06_lptoken/treasury/allocations.mdx": [],
-  "v2/pages/06_lptoken/treasury/overview.mdx": [
+  "v2/lpt/treasury/allocations.mdx": [],
+  "v2/lpt/treasury/overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/06_lptoken/treasury/overview",
-      "resolvedPath": "v2/pages/06_lptoken/treasury/overview.mdx",
+      "rawPath": "/v2/lpt/treasury/overview",
+      "resolvedPath": "v2/lpt/treasury/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1130,7 +1130,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/06_lptoken/treasury/proposals.mdx": []
+  "v2/lpt/treasury/proposals.mdx": []
 };
 
 export default LINK_MAP;

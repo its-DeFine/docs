@@ -16,7 +16,7 @@ Generated: 2026-02-16
 
 1. ✅ Mission Control (`/`) - Portal components + Starfield + BlinkingIcon
 2. ✅ Gateways Portal (`/04_gateways/gateways-portal`) - Portal components + Starfield
-3. ✅ Products Portal (`/010_products/products-portal`) - Portal components + Starfield + ComingSoonCallout
+3. ✅ Products Portal (`/platforms/products-portal`) - Portal components + Starfield + ComingSoonCallout
 4. ✅ Studio API Overview (`/010_products/products/livepeer-studio/api-reference/overview`) - PreviewCallout
 5. ✅ Gateway Quickstart (`/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway`) - PreviewCallout + DoubleIconLink + Gateway components
 6. ✅ Gateway Video Config (`/04_gateways/run-a-gateway/configure/video-configuration`) - DoubleIconLink

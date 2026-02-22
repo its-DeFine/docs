@@ -26,19 +26,19 @@
           "occurrences": 39
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 37
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "path": "v2/gateways/references/configuration-flags-old.mdx",
           "occurrences": 32
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "path": "v2/gateways/references/configuration-flags.mdx",
           "occurrences": 32
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "path": "v2/gateways/run-a-gateway/install/docker-install.mdx",
           "occurrences": 29
         },
         {
@@ -67,7 +67,7 @@
       "pageCount": 245,
       "pages": [
         {
-          "path": "v2/pages/00_home/introduction/organisation.mdx",
+          "path": "v2/home/introduction/organisation.mdx",
           "occurrences": 40
         },
         {
@@ -75,11 +75,11 @@
           "occurrences": 28
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
           "occurrences": 21
         },
         {
-          "path": "v2/pages/00_home/introduction/why-livepeer.mdx",
+          "path": "v2/home/introduction/why-livepeer.mdx",
           "occurrences": 19
         },
         {
@@ -87,7 +87,7 @@
           "occurrences": 18
         },
         {
-          "path": "v2/pages/00_home/introduction/vision.mdx",
+          "path": "v2/home/introduction/vision.mdx",
           "occurrences": 18
         },
         {
@@ -99,11 +99,11 @@
           "occurrences": 16
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 15
         },
         {
-          "path": "v2/pages/00_home/introduction/evolution.mdx",
+          "path": "v2/home/introduction/evolution.mdx",
           "occurrences": 14
         }
       ],
@@ -185,7 +185,7 @@
           "occurrences": 55
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "path": "v2/gateways/references/go-livepeer/prometheus-metrics.mdx",
           "occurrences": 55
         },
         {
@@ -193,7 +193,7 @@
           "occurrences": 13
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/ai-configuration.mdx",
           "occurrences": 12
         },
         {
@@ -205,11 +205,11 @@
           "occurrences": 10
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
           "occurrences": 9
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
           "occurrences": 9
         },
         {
@@ -217,7 +217,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 7
         }
       ],
@@ -246,7 +246,7 @@
           "occurrences": 27
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "path": "v2/gateways/references/go-livepeer/prometheus-metrics.mdx",
           "occurrences": 27
         },
         {
@@ -258,7 +258,7 @@
           "occurrences": 14
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 14
         },
         {
@@ -270,11 +270,11 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "path": "v2/about/livepeer-protocol/blockchain-contracts.mdx",
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/test/test-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/test/test-gateway.mdx",
           "occurrences": 6
         }
       ],
@@ -295,7 +295,7 @@
       "pageCount": 84,
       "pages": [
         {
-          "path": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+          "path": "v2/about/livepeer-network/livepeer-actors/gateways.mdx",
           "occurrences": 17
         },
         {
@@ -303,7 +303,7 @@
           "occurrences": 16
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 11
         },
         {
@@ -315,7 +315,7 @@
           "occurrences": 10
         },
         {
-          "path": "v2/pages/01_about/livepeer-protocol/protocol-overview.mdx",
+          "path": "v2/about/livepeer-protocol/protocol-overview.mdx",
           "occurrences": 8
         },
         {
@@ -323,7 +323,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 6
         },
         {
@@ -352,19 +352,19 @@
       "pageCount": 42,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
           "occurrences": 19
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
           "occurrences": 11
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "path": "v2/gateways/references/configuration-flags-old.mdx",
           "occurrences": 10
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "path": "v2/gateways/references/configuration-flags.mdx",
           "occurrences": 10
         },
         {
@@ -372,7 +372,7 @@
           "occurrences": 9
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "path": "v2/gateways/run-a-gateway/install/docker-install.mdx",
           "occurrences": 9
         },
         {
@@ -413,11 +413,11 @@
           "occurrences": 14
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 14
         },
         {
-          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "path": "v2/about/livepeer-protocol/blockchain-contracts.mdx",
           "occurrences": 12
         },
         {
@@ -425,7 +425,7 @@
           "occurrences": 9
         },
         {
-          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "path": "v2/about/core-concepts/livepeer-glossary.mdx",
           "occurrences": 8
         },
         {
@@ -445,7 +445,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/livepeer-token-economics.mdx",
+          "path": "v2/about/livepeer-network/livepeer-token-economics.mdx",
           "occurrences": 5
         }
       ],
@@ -470,23 +470,23 @@
           "occurrences": 22
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+          "path": "v2/about/livepeer-network/livepeer-actors/gateways.mdx",
           "occurrences": 12
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 11
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/actor-overview.mdx",
+          "path": "v2/about/livepeer-network/actor-overview.mdx",
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/gateways-portal.mdx",
+          "path": "v2/gateways/gateways-portal.mdx",
           "occurrences": 6
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 5
         },
         {
@@ -494,15 +494,15 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/pricing-configuration.mdx",
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/connect/lp-marketplace.mdx",
+          "path": "v2/gateways/run-a-gateway/connect/lp-marketplace.mdx",
           "occurrences": 4
         }
       ],
@@ -523,11 +523,11 @@
       "pageCount": 68,
       "pages": [
         {
-          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "path": "v2/about/livepeer-protocol/blockchain-contracts.mdx",
           "occurrences": 9
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 8
         },
         {
@@ -535,7 +535,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 6
         },
         {
@@ -543,19 +543,19 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+          "path": "v2/about/livepeer-network/livepeer-actors/gateways.mdx",
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/pricing-configuration.mdx",
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/video-configuration.mdx",
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 5
         },
         {
@@ -580,11 +580,11 @@
       "pageCount": 45,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
           "occurrences": 19
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
           "occurrences": 11
         },
         {
@@ -600,11 +600,11 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-architecture.mdx",
+          "path": "v2/developers/developer-platforms/streamplace/streamplace-architecture.mdx",
           "occurrences": 4
         },
         {
@@ -669,7 +669,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/references/technical-architecture.mdx",
+          "path": "v2/gateways/references/technical-architecture.mdx",
           "occurrences": 4
         },
         {
@@ -808,11 +808,11 @@
       "pageCount": 40,
       "pages": [
         {
-          "path": "v2/pages/00_home/introduction/organisation.mdx",
+          "path": "v2/home/introduction/organisation.mdx",
           "occurrences": 11
         },
         {
-          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "path": "v2/about/livepeer-protocol/blockchain-contracts.mdx",
           "occurrences": 9
         },
         {
@@ -820,7 +820,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 4
         },
         {
@@ -836,15 +836,15 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "path": "v2/about/core-concepts/livepeer-glossary.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+          "path": "v2/gateways/references/go-livepeer/cli-reference.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-docker.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/dual-docker.mdx",
           "occurrences": 3
         }
       ],
@@ -869,7 +869,7 @@
           "occurrences": 20
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
           "occurrences": 9
         },
         {
@@ -877,7 +877,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
           "occurrences": 8
         },
         {
@@ -889,7 +889,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/bridge-lpt-to-arbitrum.mdx",
           "occurrences": 6
         },
         {
@@ -901,7 +901,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 3
         }
       ],
@@ -979,35 +979,35 @@
       "pageCount": 21,
       "pages": [
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 41
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+          "path": "v2/about/livepeer-network/livepeer-actors/gateways.mdx",
           "occurrences": 8
         },
         {
-          "path": "v2/pages/04_gateways/guides-and-resources/gateway-job-pipelines/byoc.mdx",
+          "path": "v2/gateways/guides-and-resources/gateway-job-pipelines/byoc.mdx",
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/references/technical-architecture.mdx",
+          "path": "v2/gateways/references/technical-architecture.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/actor-overview.mdx",
+          "path": "v2/about/livepeer-network/actor-overview.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/gateways-vs-orchestrators.mdx",
+          "path": "v2/about/livepeer-network/gateways-vs-orchestrators.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/developer-portal.mdx",
+          "path": "v2/developers/developer-portal.mdx",
           "occurrences": 2
         },
         {
@@ -1015,7 +1015,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-functions.mdx",
+          "path": "v2/gateways/about-gateways/gateway-functions.mdx",
           "occurrences": 2
         }
       ],
@@ -1040,11 +1040,11 @@
           "occurrences": 10
         },
         {
-          "path": "v2/pages/04_gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx",
+          "path": "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx",
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/references/cli-commands.mdx",
+          "path": "v2/gateways/references/cli-commands.mdx",
           "occurrences": 5
         },
         {
@@ -1056,7 +1056,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "path": "v2/gateways/run-a-gateway/install/docker-install.mdx",
           "occurrences": 3
         },
         {
@@ -1093,15 +1093,15 @@
       "pageCount": 28,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "path": "v2/gateways/run-a-gateway/install/docker-install.mdx",
           "occurrences": 8
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 5
         },
         {
@@ -1125,7 +1125,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
           "occurrences": 4
         },
         {
@@ -1187,7 +1187,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/video-configuration.mdx",
           "occurrences": 5
         },
         {
@@ -1195,7 +1195,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration-view.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/video-configuration-view.mdx",
           "occurrences": 4
         },
         {
@@ -1203,19 +1203,19 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "path": "v2/about/core-concepts/livepeer-glossary.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "path": "v2/gateways/references/configuration-flags-old.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "path": "v2/gateways/references/configuration-flags.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+          "path": "v2/gateways/references/go-livepeer/cli-reference.mdx",
           "occurrences": 3
         },
         {
@@ -1240,11 +1240,11 @@
       "pageCount": 27,
       "pages": [
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-funding-model.mdx",
           "occurrences": 8
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-funding-model.mdx",
+          "path": "v2/developers/developer-platforms/streamplace/streamplace-funding-model.mdx",
           "occurrences": 8
         },
         {
@@ -1252,19 +1252,19 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/00_home/introduction/organisation.mdx",
+          "path": "v2/home/introduction/organisation.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/00_home/introduction/evolution.mdx",
+          "path": "v2/home/introduction/evolution.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace.mdx",
           "occurrences": 2
         },
         {
@@ -1272,11 +1272,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/SUMMARY.mdx",
+          "path": "v2/developers/index.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-architecture.mdx",
+          "path": "v2/developers/developer-platforms/streamplace/streamplace-architecture.mdx",
           "occurrences": 2
         }
       ],
@@ -1297,43 +1297,43 @@
       "pageCount": 19,
       "pages": [
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-provenance.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-provenance.mdx",
           "occurrences": 7
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-provenance.mdx",
+          "path": "v2/developers/developer-platforms/streamplace/streamplace-provenance.mdx",
           "occurrences": 7
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
           "occurrences": 6
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-architecture.mdx",
+          "path": "v2/developers/developer-platforms/streamplace/streamplace-architecture.mdx",
           "occurrences": 6
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-integration.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-integration.mdx",
+          "path": "v2/developers/developer-platforms/streamplace/streamplace-integration.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-funding-model.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-funding-model.mdx",
+          "path": "v2/developers/developer-platforms/streamplace/streamplace-funding-model.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+          "path": "v2/platforms/products/all-ecosystem/product-hub.mdx",
           "occurrences": 2
         }
       ],
@@ -1375,7 +1375,7 @@
       "pageCount": 24,
       "pages": [
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 8
         },
         {
@@ -1387,11 +1387,11 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/ai-configuration.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/install/linux-install.mdx",
+          "path": "v2/gateways/run-a-gateway/install/linux-install.mdx",
           "occurrences": 3
         },
         {
@@ -1403,15 +1403,15 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/build-options.mdx",
+          "path": "v2/gateways/run-a-gateway/build-options.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-docker.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/dual-docker.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/install/docker-install.mdx",
+          "path": "v2/gateways/run-a-gateway/install/docker-install.mdx",
           "occurrences": 2
         }
       ],
@@ -1432,7 +1432,7 @@
       "pageCount": 33,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 4
         },
         {
@@ -1440,11 +1440,11 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "path": "v2/about/core-concepts/livepeer-glossary.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 3
         },
         {
@@ -1452,23 +1452,23 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/00_home/introduction/organisation.mdx",
+          "path": "v2/home/introduction/organisation.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+          "path": "v2/platforms/products/all-ecosystem/product-hub.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+          "path": "v2/about/livepeer-network/livepeer-actors/gateways.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/SUMMARY.mdx",
+          "path": "v2/developers/index.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/builder-hub.mdx",
+          "path": "v2/developers/developer-platforms/builder-hub.mdx",
           "occurrences": 2
         }
       ],
@@ -1493,7 +1493,7 @@
           "occurrences": 7
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 7
         },
         {
@@ -1513,11 +1513,11 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/01_about/livepeer-protocol/protocol-overview.mdx",
+          "path": "v2/about/livepeer-protocol/protocol-overview.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/references/api-reference/_delete-all-api.mdx",
+          "path": "v2/gateways/references/api-reference/_delete-all-api.mdx",
           "occurrences": 3
         },
         {
@@ -1525,7 +1525,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/references/api-reference/AI-Worker/ai-worker-api.mdx",
+          "path": "v2/gateways/references/api-reference/AI-Worker/ai-worker-api.mdx",
           "occurrences": 2
         }
       ],
@@ -1603,11 +1603,11 @@
       "pageCount": 15,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
           "occurrences": 22
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 3
         },
         {
@@ -1635,11 +1635,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/references/arbitrum-rpc.mdx",
+          "path": "v2/gateways/references/arbitrum-rpc.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "path": "v2/gateways/references/configuration-flags-old.mdx",
           "occurrences": 1
         }
       ],
@@ -1774,15 +1774,15 @@
       "pageCount": 21,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/pricing-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/pricing-configuration.mdx",
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "path": "v2/gateways/references/configuration-flags-old.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "path": "v2/gateways/references/configuration-flags.mdx",
           "occurrences": 4
         },
         {
@@ -1794,11 +1794,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+          "path": "v2/platforms/products/all-ecosystem/product-hub.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/builder-hub.mdx",
+          "path": "v2/developers/developer-platforms/builder-hub.mdx",
           "occurrences": 2
         },
         {
@@ -1835,7 +1835,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/test/publish-content.mdx",
+          "path": "v2/gateways/run-a-gateway/test/publish-content.mdx",
           "occurrences": 5
         },
         {
@@ -1851,7 +1851,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "path": "v2/about/core-concepts/livepeer-glossary.mdx",
           "occurrences": 2
         },
         {
@@ -1892,7 +1892,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 3
         },
         {
@@ -1990,7 +1990,7 @@
       "pageCount": 24,
       "pages": [
         {
-          "path": "v2/pages/00_home/introduction/organisation.mdx",
+          "path": "v2/home/introduction/organisation.mdx",
           "occurrences": 4
         },
         {
@@ -1998,7 +1998,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-integration.mdx",
           "occurrences": 2
         },
         {
@@ -2006,11 +2006,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-integration.mdx",
+          "path": "v2/developers/developer-platforms/streamplace/streamplace-integration.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/overview.mdx",
+          "path": "v2/gateways/about-gateways/overview.mdx",
           "occurrences": 2
         },
         {
@@ -2026,7 +2026,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/00_home/introduction/ecosystem.mdx",
+          "path": "v2/home/introduction/ecosystem.mdx",
           "occurrences": 1
         }
       ],
@@ -2063,23 +2063,23 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/00_home/introduction/ecosystem.mdx",
+          "path": "v2/home/introduction/ecosystem.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+          "path": "v2/platforms/products/all-ecosystem/product-hub.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-funding-model.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/builder-hub.mdx",
+          "path": "v2/developers/developer-platforms/builder-hub.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-funding-model.mdx",
+          "path": "v2/developers/developer-platforms/streamplace/streamplace-funding-model.mdx",
           "occurrences": 2
         },
         {
@@ -2104,7 +2104,7 @@
       "pageCount": 18,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/ai-configuration.mdx",
           "occurrences": 4
         },
         {
@@ -2116,7 +2116,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "path": "v2/about/livepeer-protocol/blockchain-contracts.mdx",
           "occurrences": 3
         },
         {
@@ -2132,15 +2132,15 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+          "path": "v2/about/livepeer-network/livepeer-actors/gateways.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/guides-and-resources/faq.mdx",
+          "path": "v2/gateways/guides-and-resources/faq.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
           "occurrences": 2
         }
       ],
@@ -2226,7 +2226,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/guides-and-resources/faq.mdx",
+          "path": "v2/gateways/guides-and-resources/faq.mdx",
           "occurrences": 3
         },
         {
@@ -2234,19 +2234,19 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "path": "v2/about/livepeer-protocol/blockchain-contracts.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "path": "v2/gateways/references/configuration-flags-old.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "path": "v2/gateways/references/configuration-flags.mdx",
           "occurrences": 2
         },
         {
@@ -2254,7 +2254,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/references/cli-commands.mdx",
+          "path": "v2/gateways/references/cli-commands.mdx",
           "occurrences": 1
         }
       ],
@@ -2303,7 +2303,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/guides-and-resources/faq.mdx",
+          "path": "v2/gateways/guides-and-resources/faq.mdx",
           "occurrences": 1
         }
       ],
@@ -2324,35 +2324,35 @@
       "pageCount": 13,
       "pages": [
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-provenance.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-provenance.mdx",
           "occurrences": 5
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-provenance.mdx",
+          "path": "v2/developers/developer-platforms/streamplace/streamplace-provenance.mdx",
           "occurrences": 5
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-architecture.mdx",
+          "path": "v2/developers/developer-platforms/streamplace/streamplace-architecture.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-guide.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-guide.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-integration.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-guide.mdx",
+          "path": "v2/developers/developer-platforms/streamplace/streamplace-guide.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/streamplace/streamplace-integration.mdx",
+          "path": "v2/developers/developer-platforms/streamplace/streamplace-integration.mdx",
           "occurrences": 2
         },
         {
@@ -2360,7 +2360,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-funding-model.mdx",
           "occurrences": 1
         }
       ],
@@ -2442,27 +2442,27 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/test/publish-content.mdx",
+          "path": "v2/gateways/run-a-gateway/test/publish-content.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/04_gateways/gateways-portal.mdx",
+          "path": "v2/gateways/gateways-portal.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/guides-and-resources/faq.mdx",
+          "path": "v2/gateways/guides-and-resources/faq.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/install/windows-install.mdx",
+          "path": "v2/gateways/run-a-gateway/install/windows-install.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
+          "path": "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 2
         },
         {
@@ -2658,7 +2658,7 @@
       "pageCount": 11,
       "pages": [
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/video-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/video-configuration.mdx",
           "occurrences": 12
         },
         {
@@ -2666,11 +2666,11 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/v1/transcoding-options.mdx",
+          "path": "v2/gateways/run-a-gateway/v1/transcoding-options.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-docker.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/dual-docker.mdx",
           "occurrences": 2
         },
         {
@@ -2682,19 +2682,19 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags-old.mdx",
+          "path": "v2/gateways/references/configuration-flags-old.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/references/configuration-flags.mdx",
+          "path": "v2/gateways/references/configuration-flags.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+          "path": "v2/gateways/references/go-livepeer/cli-reference.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/dual-configuration.mdx",
           "occurrences": 1
         }
       ],
@@ -2719,7 +2719,7 @@
           "occurrences": 8
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "path": "v2/gateways/references/go-livepeer/prometheus-metrics.mdx",
           "occurrences": 8
         },
         {
@@ -2727,15 +2727,15 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/livepeer-token-economics.mdx",
+          "path": "v2/about/livepeer-network/livepeer-token-economics.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/01_about/livepeer-protocol/protocol-overview.mdx",
+          "path": "v2/about/livepeer-protocol/protocol-overview.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx",
+          "path": "v2/developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx",
           "occurrences": 2
         },
         {
@@ -2743,15 +2743,15 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/00_home/introduction/evolution.mdx",
+          "path": "v2/home/introduction/evolution.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "path": "v2/about/core-concepts/livepeer-glossary.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/dual-configuration.mdx",
           "occurrences": 1
         }
       ],
@@ -2772,15 +2772,15 @@
       "pageCount": 24,
       "pages": [
         {
-          "path": "v2/pages/00_home/introduction/organisation.mdx",
+          "path": "v2/home/introduction/organisation.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/010_products/products/all-ecosystem/product-hub.mdx",
+          "path": "v2/platforms/products/all-ecosystem/product-hub.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/developer-platforms/builder-hub.mdx",
+          "path": "v2/developers/developer-platforms/builder-hub.mdx",
           "occurrences": 2
         },
         {
@@ -2788,7 +2788,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/09_internal/ally-notes.mdx",
+          "path": "v2/internal/ally-notes.mdx",
           "occurrences": 2
         },
         {
@@ -2796,19 +2796,19 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-integration.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-integration.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/01_about/about-portal.mdx",
+          "path": "v2/about/about-portal.mdx",
           "occurrences": 1
         }
       ],
@@ -2829,7 +2829,7 @@
       "pageCount": 14,
       "pages": [
         {
-          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "path": "v2/about/livepeer-protocol/blockchain-contracts.mdx",
           "occurrences": 10
         },
         {
@@ -2837,11 +2837,11 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/livepeer-token-economics.mdx",
+          "path": "v2/about/livepeer-network/livepeer-token-economics.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx",
+          "path": "v2/developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx",
           "occurrences": 2
         },
         {
@@ -2849,7 +2849,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/00_home/introduction/ecosystem.mdx",
+          "path": "v2/home/introduction/ecosystem.mdx",
           "occurrences": 1
         },
         {
@@ -2857,15 +2857,15 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/SUMMARY.mdx",
+          "path": "v2/developers/index.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-actors/delegators.mdx",
+          "path": "v2/developers/moved-to-about-livepeer-protocol/livepeer-actors/delegators.mdx",
           "occurrences": 1
         }
       ],
@@ -2922,7 +2922,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/010_products/products/streamplace/streamplace-architecture.mdx",
+          "path": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
           "occurrences": 1
         }
       ],
@@ -2947,11 +2947,11 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/01_about/livepeer-protocol/protocol-overview.mdx",
+          "path": "v2/about/livepeer-protocol/protocol-overview.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/09_internal/ally-notes.mdx",
+          "path": "v2/internal/ally-notes.mdx",
           "occurrences": 2
         },
         {
@@ -3008,15 +3008,15 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/cli-reference.mdx",
+          "path": "v2/gateways/references/go-livepeer/cli-reference.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "path": "v2/gateways/references/go-livepeer/prometheus-metrics.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/dual-configuration.mdx",
           "occurrences": 2
         },
         {
@@ -3212,7 +3212,7 @@
       "pageCount": 16,
       "pages": [
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/comfyui.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/comfyui.mdx",
           "occurrences": 7
         },
         {
@@ -3273,7 +3273,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/requirements/setup.mdx",
+          "path": "v2/gateways/run-a-gateway/requirements/setup.mdx",
           "occurrences": 3
         },
         {
@@ -3281,15 +3281,15 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx",
+          "path": "v2/about/core-concepts/livepeer-core-concepts.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "path": "v2/about/core-concepts/livepeer-glossary.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/01_about/livepeer-protocol/protocol-overview.mdx",
+          "path": "v2/about/livepeer-protocol/protocol-overview.mdx",
           "occurrences": 2
         },
         {
@@ -3301,11 +3301,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "path": "v2/about/livepeer-protocol/blockchain-contracts.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/ai-configuration.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/ai-configuration.mdx",
           "occurrences": 1
         }
       ],
@@ -3330,7 +3330,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/03_developers/ai-inference-on-livepeer/byoc.mdx",
+          "path": "v2/developers/ai-inference-on-livepeer/byoc.mdx",
           "occurrences": 4
         },
         {
@@ -3338,31 +3338,31 @@
           "occurrences": 3
         },
         {
-          "path": "v2/pages/01_about/livepeer-protocol/protocol-overview.mdx",
+          "path": "v2/about/livepeer-protocol/protocol-overview.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx",
+          "path": "v2/about/core-concepts/livepeer-core-concepts.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "path": "v2/about/core-concepts/livepeer-glossary.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-economics.mdx",
+          "path": "v2/gateways/about-gateways/gateway-economics.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/references/api-reference/_delete-all-api.mdx",
+          "path": "v2/gateways/references/api-reference/_delete-all-api.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/run-a-gateway/configure/dual-docker.mdx",
+          "path": "v2/gateways/run-a-gateway/configure/dual-docker.mdx",
           "occurrences": 1
         }
       ],
@@ -3444,7 +3444,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/pages/00_home/introduction/organisation.mdx",
+          "path": "v2/home/introduction/organisation.mdx",
           "occurrences": 5
         },
         {
@@ -3525,7 +3525,7 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/00_home/introduction/why-livepeer.mdx",
+          "path": "v2/home/introduction/why-livepeer.mdx",
           "occurrences": 1
         }
       ],
@@ -3554,11 +3554,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "path": "v2/about/core-concepts/livepeer-glossary.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/livepeer-actors/gateways.mdx",
+          "path": "v2/about/livepeer-network/livepeer-actors/gateways.mdx",
           "occurrences": 2
         },
         {
@@ -3570,11 +3570,11 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/actor-overview.mdx",
+          "path": "v2/about/livepeer-network/actor-overview.mdx",
           "occurrences": 1
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/gateways-vs-orchestrators.mdx",
+          "path": "v2/about/livepeer-network/gateways-vs-orchestrators.mdx",
           "occurrences": 1
         },
         {
@@ -3582,7 +3582,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/04_gateways/about-gateways/gateway-explainer.mdx",
+          "path": "v2/gateways/about-gateways/gateway-explainer.mdx",
           "occurrences": 1
         }
       ],
@@ -3603,19 +3603,19 @@
       "pageCount": 14,
       "pages": [
         {
-          "path": "v2/pages/01_about/livepeer-protocol/protocol-overview.mdx",
+          "path": "v2/about/livepeer-protocol/protocol-overview.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/pages/01_about/livepeer-network/livepeer-token-economics.mdx",
+          "path": "v2/about/livepeer-network/livepeer-token-economics.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/03_developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx",
+          "path": "v2/developers/moved-to-about-livepeer-protocol/livepeer-token-economics.mdx",
           "occurrences": 3
         },
         {
-          "path": "v2/pages/01_about/livepeer-protocol/blockchain-contracts.mdx",
+          "path": "v2/about/livepeer-protocol/blockchain-contracts.mdx",
           "occurrences": 2
         },
         {
@@ -3639,7 +3639,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/pages/01_about/core-concepts/livepeer-glossary.mdx",
+          "path": "v2/about/core-concepts/livepeer-glossary.mdx",
           "occurrences": 1
         }
       ],
@@ -3664,7 +3664,7 @@
           "occurrences": 11
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/prometheus-metrics.mdx",
+          "path": "v2/gateways/references/go-livepeer/prometheus-metrics.mdx",
           "occurrences": 11
         }
       ],
@@ -3746,7 +3746,7 @@
           "occurrences": 10
         },
         {
-          "path": "v2/pages/04_gateways/references/go-livepeer/gpu-support.mdx",
+          "path": "v2/gateways/references/go-livepeer/gpu-support.mdx",
           "occurrences": 10
         }
       ],

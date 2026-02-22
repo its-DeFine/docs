@@ -25,7 +25,7 @@ This page describes:
 ---BUT ONLY BRIEFLY -> POINTS TO OTHER SECTIONS
 */}
 
-<div style={{ display: "flex", justifyContent: "center", width: "fit-content", margin: "0 auto" }}>
+<div className="mx-auto flex w-fit justify-center">
    <CardTitleTextWithArrow icon="github" href="https://github.com/livepeer/lips" horizontal> livepeer-lips </CardTitleTextWithArrow>
    {/* <Card title="On-Chain Voting Explorer" icon="check-to-slot" href="https://explorer.livepeer.org/voting" horizontal arrow /> */}
 </div>
@@ -33,15 +33,17 @@ This page describes:
 Livepeer is a community-driven protocol, where token holders have the ability to vote on proposals to upgrade protocol mechanisms or to spend from the treasury.
 Voting is conducted on-chain via the Livepeer Governor contract, with the protocol contracts enforcing the outcome.
 </Quote>
-<CustomDivider style={{margin: 0, marginBottom: "-2rem" }} />
+<div className="-mb-8">
+  <CustomDivider />
+</div>
 
 ## Governance 
 Livepeer is committed to open-source, transparent, community governance.
 It uses a hybrid on‑chain/off‑chain governance model that combines open community discussion with binding on‑chain votes.
 This model ensures that the community (token holders) collectively controls upgrades and spending, with the protocol enforcing the outcome.
 
-<div style={{ display: "flex", justifyContent: "center", width: "fit-content", margin: "0 auto" }}>
-<Accordion title={<div style={{color: "var(--accent)"}}>ELI5: Governance Model</div>} icon="user-crown">
+<div className="mx-auto flex w-fit justify-center">
+<Accordion title="ELI5: Governance Model" icon="user-crown">
    Imagine a community garden run by people who own shares (tokens).
 
    - **Proposing a Change:** If someone has 100 share tokens, they can suggest a new rule (like “we should plant carrots”). They put 100 tokens in a safe place while the idea is considered.
@@ -157,8 +159,8 @@ The key rules enforced are:
 This treasury exists to fund ecosystem-wide projects (public goods) for the benefit of the entire network. 
 Livepeer’s social consensus is that treasury funds should primarily go to **SPEs**, which then deploy them to specific initiatives.
 
-**[Livepeer Foundation](/v2/pages/00_home/introduction/ecosystem#livepeer-foundation)**: The Foundation fosters long-term strategy and ecosystem coordination. 
-It establishes advisory boards, publishes roadmaps, and coordinates the work of **[Special Purpose Entities (SPEs)](/v2/pages/00_home/introduction/ecosystem#special-purpose-entities)** to execute core development, research, on-chain proposals and long‑term vision.
+**[Livepeer Foundation](/v2/home/introduction/ecosystem#livepeer-foundation)**: The Foundation fosters long-term strategy and ecosystem coordination. 
+It establishes advisory boards, publishes roadmaps, and coordinates the work of **[Special Purpose Entities (SPEs)](/v2/home/introduction/ecosystem#special-purpose-entities)** to execute core development, research, on-chain proposals and long‑term vision.
 
 The foundation may also manage treasury disbursements, support grant programmes and maintain the network’s public goods. 
 However, while the Foundation facilitates community participation, ultimate authority rests with the community via on-chain votes by LPT holders.

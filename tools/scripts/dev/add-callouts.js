@@ -28,7 +28,7 @@
 /**
  * Script to add callouts to MDX pages
  * 
- * This script processes all MDX files in v2/pages and adds appropriate callouts:
+ * This script processes all MDX files in v2 docs folders and adds appropriate callouts:
  * - ComingSoonCallout for pages with no content (only metadata/title)
  * - PreviewCallout for pages with content
  * 
@@ -157,11 +157,26 @@ function findMdxFiles(dir) {
 
 // Main execution
 const dryRun = process.argv.includes('--dry-run');
-const pagesDir = path.join(__dirname, '../pages');
+const pagesDirs = [
+  path.join(__dirname, '../../../v2/pages'),
+  path.join(__dirname, '../../../v2/home'),
+  path.join(__dirname, '../../../v2/platforms'),
+  path.join(__dirname, '../../../v2/about'),
+  path.join(__dirname, '../../../v2/community'),
+  path.join(__dirname, '../../../v2/developers'),
+  path.join(__dirname, '../../../v2/gateways'),
+  path.join(__dirname, '../../../v2/orchestrators'),
+  path.join(__dirname, '../../../v2/lpt'),
+  path.join(__dirname, '../../../v2/resources'),
+  path.join(__dirname, '../../../v2/internal'),
+  path.join(__dirname, '../../../v2/deprecated'),
+  path.join(__dirname, '../../../v2/experimental'),
+  path.join(__dirname, '../../../v2/notes'),
+].filter((dirPath) => fs.existsSync(dirPath));
 
 console.log(`🚀 Starting callout addition ${dryRun ? '(DRY RUN)' : ''}...\n`);
 
-const mdxFiles = findMdxFiles(pagesDir);
+const mdxFiles = pagesDirs.flatMap((dirPath) => findMdxFiles(dirPath));
 console.log(`📄 Found ${mdxFiles.length} MDX files\n`);
 
 for (const file of mdxFiles) {
@@ -169,4 +184,3 @@ for (const file of mdxFiles) {
 }
 
 console.log(`\n✨ Done!`);
-

@@ -62,7 +62,7 @@ This GitHub Actions workflow automatically tests all v2 pages from `docs.json` u
 
 ### Failed Pages
 
-- `v2/pages/01_about/livepeer-protocol/technical-architecture`
+- `v2/about/livepeer-protocol/technical-architecture`
 - `v2/pages/04_gateways/run-a-gateway/configure/ai-configuration`
 ...
 
@@ -82,16 +82,16 @@ The JSON report (`v2-page-test-report.json`) contains:
   "failed": 13,
   "results": [
     {
-      "pagePath": "v2/pages/00_home/mission-control",
-      "url": "http://localhost:3000/00_home/mission-control",
+      "pagePath": "v2/home/mission-control",
+      "url": "http://localhost:3000/home/mission-control",
       "success": true,
       "errors": [],
       "warnings": [],
       "logs": []
     },
     {
-      "pagePath": "v2/pages/01_about/livepeer-protocol/technical-architecture",
-      "url": "http://localhost:3000/01_about/livepeer-protocol/technical-architecture",
+      "pagePath": "v2/about/livepeer-protocol/technical-architecture",
+      "url": "http://localhost:3000/about/livepeer-protocol/technical-architecture",
       "success": false,
       "errors": [
         "Uncaught TypeError: Cannot read property 'map' of undefined"

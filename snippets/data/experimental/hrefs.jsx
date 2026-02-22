@@ -1,5 +1,5 @@
 export const LINK_MAP = {
-  "v2/pages/experimental/copy-trending-at-livepeer.mdx": [
+  "v2/experimental/copy-trending-at-livepeer.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "empty",
@@ -109,7 +109,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/experimental/test.mdx": [
+  "v2/experimental/test.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -120,7 +120,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/experimental/trending-layout-tests.mdx": [
+  "v2/experimental/trending-layout-tests.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",

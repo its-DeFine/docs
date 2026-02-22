@@ -90,30 +90,29 @@ function getStagedMdxFiles() {
 }
 
 /**
- * Convert file path to URL
- * Example: v2/pages/07_resources/documentation-guide/style-guide.mdx
- *          -> /v2/pages/07_resources/documentation-guide/style-guide
+ * Build candidate URLs for a staged MDX file path.
+ * Try legacy and current route patterns because local Mint dev routing
+ * can differ from production path handling during migrations.
  */
-function filePathToUrl(filePath) {
-  // Remove v2/pages prefix and .mdx extension
-  let url = filePath
-    .replace(/^v2\/pages\//, '')
-    .replace(/\.mdx$/, '');
-  
-  // Handle index files
-  if (url.endsWith('/index')) {
-    url = url.replace(/\/index$/, '');
-  }
-  
-  return `/${url}`;
+function filePathToUrls(filePath) {
+  const withoutExt = filePath.replace(/\.mdx$/, '');
+  const routeWithoutPrefix = withoutExt.replace(/^v2\/pages\//, '');
+  const normalizedRoute = routeWithoutPrefix.replace(/\/index$/, '');
+
+  const candidates = [
+    `/${normalizedRoute}`,
+    `/${withoutExt.replace(/\/index$/, '')}`,
+    `/v2/pages/${normalizedRoute}`
+  ];
+
+  return [...new Set(candidates)];
 }
 
 /**
  * Test a single page in headless browser
  */
 async function testPage(browser, filePath, baseUrl) {
-  const url = filePathToUrl(filePath);
-  const fullUrl = `${baseUrl}${url}`;
+  const candidateUrls = filePathToUrls(filePath);
   const page = await browser.newPage();
   
   const errors = [];
@@ -197,47 +196,57 @@ async function testPage(browser, filePath, baseUrl) {
     }
   });
   
+  const attempted = [];
+
   try {
-    // Navigate to page
-    await page.goto(fullUrl, { 
-      waitUntil: 'networkidle2', 
-      timeout: TIMEOUT 
-    });
-    
-    // Wait for content to render (using Promise instead of deprecated waitForTimeout)
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    // Check if page actually rendered content
-    const bodyText = await page.evaluate(() => document.body.innerText);
-    if (!bodyText || bodyText.trim().length < 50) {
-      errors.push('Page appears to be empty or failed to render');
+    for (const candidateUrl of candidateUrls) {
+      const fullUrl = `${baseUrl}${candidateUrl}`;
+      attempted.push(fullUrl);
+      errors.length = 0;
+      warnings.length = 0;
+
+      try {
+        await page.goto(fullUrl, {
+          waitUntil: 'networkidle2',
+          timeout: TIMEOUT
+        });
+
+        await new Promise(resolve => setTimeout(resolve, 1000));
+
+        const bodyText = await page.evaluate(() => document.body.innerText);
+        if (!bodyText || bodyText.trim().length < 50) {
+          errors.push('Page appears to be empty or failed to render');
+        }
+
+        const hasError = await page.evaluate(() => {
+          return document.querySelector('[data-error-boundary]') !== null ||
+                 document.body.innerText.includes('Error:') ||
+                 document.body.innerText.includes('Failed to render');
+        });
+
+        if (hasError) {
+          errors.push('Page contains render errors');
+        }
+
+        if (errors.length === 0) {
+          return {
+            filePath,
+            url: fullUrl,
+            success: true,
+            errors: [],
+            warnings
+          };
+        }
+      } catch (error) {
+        errors.push(`Navigation Error: ${error.message}`);
+      }
     }
-    
-    // Check for common render errors
-    const hasError = await page.evaluate(() => {
-      // Check for React error boundaries
-      return document.querySelector('[data-error-boundary]') !== null ||
-             document.body.innerText.includes('Error:') ||
-             document.body.innerText.includes('Failed to render');
-    });
-    
-    if (hasError) {
-      errors.push('Page contains render errors');
-    }
-    
+
     return {
       filePath,
-      url: fullUrl,
-      success: errors.length === 0,
-      errors,
-      warnings
-    };
-  } catch (error) {
-    return {
-      filePath,
-      url: fullUrl,
+      url: attempted[attempted.length - 1] || `${baseUrl}/`,
       success: false,
-      errors: [`Navigation Error: ${error.message}`],
+      errors: [`All URL candidates failed: ${attempted.join(', ')}`, ...errors],
       warnings
     };
   } finally {
@@ -369,4 +378,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { testPage, getStagedMdxFiles, filePathToUrl };
+module.exports = { testPage, getStagedMdxFiles, filePathToUrls };

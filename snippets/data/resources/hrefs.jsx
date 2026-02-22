@@ -30,8 +30,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../../09_internal/governance",
-      "resolvedPath": "v2/pages/09_internal/governance.mdx",
+      "rawPath": "../../internal/governance",
+      "resolvedPath": "v2/internal/governance.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -66,8 +66,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../09_internal/governance",
-      "resolvedPath": "v2/pages/09_internal/governance.mdx",
+      "rawPath": "../../internal/governance",
+      "resolvedPath": "v2/internal/governance.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -627,8 +627,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/mission-control",
-      "resolvedPath": "v2/pages/00_home/mission-control.mdx",
+      "rawPath": "/v2/home/mission-control",
+      "resolvedPath": "v2/home/mission-control.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -755,8 +755,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/04_gateways/run-a-gateway/test/publish-content",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/test/publish-content.mdx",
+      "rawPath": "/gateways/run-a-gateway/test/publish-content",
+      "resolvedPath": "v2/gateways/run-a-gateway/test/publish-content.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1254,8 +1254,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/mission-control",
-      "resolvedPath": "v2/pages/00_home/mission-control.mdx",
+      "rawPath": "/v2/home/mission-control",
+      "resolvedPath": "v2/home/mission-control.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1263,8 +1263,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/00_home/mission-control",
-      "resolvedPath": "v2/pages/00_home/mission-control.mdx",
+      "rawPath": "/v2/home/mission-control",
+      "resolvedPath": "v2/home/mission-control.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1456,8 +1456,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/01_about/about-portal",
-      "resolvedPath": "v2/pages/01_about/about-portal.mdx",
+      "rawPath": "/about/about-portal",
+      "resolvedPath": "v2/about/about-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1465,8 +1465,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/01_about/core-concepts/livepeer-core-concepts",
-      "resolvedPath": "v2/pages/01_about/core-concepts/livepeer-core-concepts.mdx",
+      "rawPath": "/about/core-concepts/livepeer-core-concepts",
+      "resolvedPath": "v2/about/core-concepts/livepeer-core-concepts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1474,8 +1474,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/03_developers/building-on-livepeer/developer-guide",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-guide.mdx",
+      "rawPath": "/developers/building-on-livepeer/developer-guide",
+      "resolvedPath": "v2/developers/building-on-livepeer/developer-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1483,8 +1483,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/03_developers/building-on-livepeer/developer-guide",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-guide.mdx",
+      "rawPath": "/developers/building-on-livepeer/developer-guide",
+      "resolvedPath": "v2/developers/building-on-livepeer/developer-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1492,8 +1492,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/03_developers/developer-portal",
-      "resolvedPath": "v2/pages/03_developers/developer-portal.mdx",
+      "rawPath": "/developers/developer-portal",
+      "resolvedPath": "v2/developers/developer-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1501,8 +1501,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/03_developers/building-on-livepeer/developer-guide",
-      "resolvedPath": "v2/pages/03_developers/building-on-livepeer/developer-guide.mdx",
+      "rawPath": "/developers/building-on-livepeer/developer-guide",
+      "resolvedPath": "v2/developers/building-on-livepeer/developer-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1528,8 +1528,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/06_lptoken/token-portal",
-      "resolvedPath": "v2/pages/06_lptoken/token-portal.mdx",
+      "rawPath": "/lpt/token-portal",
+      "resolvedPath": "v2/lpt/token-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1537,8 +1537,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/06_lptoken/delegation/overview",
-      "resolvedPath": "v2/pages/06_lptoken/delegation/overview.mdx",
+      "rawPath": "/lpt/delegation/overview",
+      "resolvedPath": "v2/lpt/delegation/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1546,8 +1546,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/04_gateways/gateways-portal",
-      "resolvedPath": "v2/pages/04_gateways/gateways-portal.mdx",
+      "rawPath": "/gateways/gateways-portal",
+      "resolvedPath": "v2/gateways/gateways-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1555,8 +1555,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/04_gateways/run-a-gateway/run-a-gateway",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/run-a-gateway.mdx",
+      "rawPath": "/gateways/run-a-gateway/run-a-gateway",
+      "resolvedPath": "v2/gateways/run-a-gateway/run-a-gateway.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2631,8 +2631,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/cli-commands",
-      "resolvedPath": "v2/pages/04_gateways/references/cli-commands.mdx",
+      "rawPath": "/v2/gateways/references/cli-commands",
+      "resolvedPath": "v2/gateways/references/cli-commands.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2640,8 +2640,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/04_gateways/references/api-reference/AI-API/ai",
-      "resolvedPath": "v2/pages/04_gateways/references/api-reference/AI-API/ai.mdx",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/ai",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/ai.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

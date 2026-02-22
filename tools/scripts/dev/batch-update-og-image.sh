@@ -27,7 +27,15 @@ OLD_IMAGE='og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"'
 NEW_IMAGE='og:image: "/snippets/assets/domain/SHARED/LivepeerDocsHero.svg"'
 
 echo "Finding files with old og:image..."
-files=$(grep -rl "$OLD_IMAGE" v2/pages --include="*.mdx" | grep -v "mission-control.mdx")
+roots=(v2/pages v2/home v2/platforms v2/about v2/community v2/developers v2/gateways v2/orchestrators v2/lpt v2/resources v2/internal v2/deprecated v2/experimental v2/notes)
+existing_roots=()
+for root in "${roots[@]}"; do
+  if [ -d "$root" ]; then
+    existing_roots+=("$root")
+  fi
+done
+
+files=$(grep -rl "$OLD_IMAGE" "${existing_roots[@]}" --include="*.mdx" 2>/dev/null | grep -v "mission-control.mdx" || true)
 
 count=0
 for file in $files; do
@@ -41,4 +49,3 @@ echo ""
 echo "========== SUMMARY =========="
 echo "Updated: $count files"
 echo "============================="
-

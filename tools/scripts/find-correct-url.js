@@ -31,7 +31,7 @@ const puppeteer = require('puppeteer');
   
   // Try different URL patterns based on docs.json structure
   const urls = [
-    '/00_home/introduction/vision',
+    '/home/introduction/vision',
     '/introduction/vision', 
     '/home/introduction/vision',
   ];

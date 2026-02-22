@@ -45,7 +45,11 @@ fi
 if [ -f "$CONFIG_FILE" ] && command -v node &>/dev/null; then
   OUTPUT_FILE="$REPO_ROOT/$(node -pe "require('$CONFIG_FILE').paths.lptExchanges")"
 else
-  OUTPUT_FILE="$REPO_ROOT/v2/pages/06_delegators/token-resources/lpt-exchanges.mdx"
+  if [ -f "$REPO_ROOT/v2/lpt/resources/exchanges.mdx" ]; then
+    OUTPUT_FILE="$REPO_ROOT/v2/lpt/resources/exchanges.mdx"
+  else
+    OUTPUT_FILE="$REPO_ROOT/v2/lpt/resources/exchanges.mdx"
+  fi
 fi
 
 # Fetch data from CoinGecko
@@ -230,4 +234,3 @@ console.log(`✅ Updated ${outputFile} with ${sortedExchanges.length} exchanges`
 NODEJS_SCRIPT
 
 echo "Done!"
-

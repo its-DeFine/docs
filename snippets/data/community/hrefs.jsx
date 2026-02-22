@@ -1,9 +1,9 @@
 export const LINK_MAP = {
-  "v2/pages/02_community/_move_me/livepeer-hubs/livepeer-builder-hub.mdx": [],
-  "v2/pages/02_community/_move_me/livepeer-hubs/livepeer-partner-hub.mdx": [],
-  "v2/pages/02_community/_move_me/livepeer-partners/livepeer-builder-hub.mdx": [],
-  "v2/pages/02_community/_move_me/livepeer-partners/livepeer-partner-hub.mdx": [],
-  "v2/pages/02_community/community-portal.mdx": [
+  "v2/community/_move_me/livepeer-hubs/livepeer-builder-hub.mdx": [],
+  "v2/community/_move_me/livepeer-hubs/livepeer-partner-hub.mdx": [],
+  "v2/community/_move_me/livepeer-partners/livepeer-builder-hub.mdx": [],
+  "v2/community/_move_me/livepeer-partners/livepeer-partner-hub.mdx": [],
+  "v2/community/community-portal.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -185,7 +185,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/faq.mdx": [
+  "v2/community/faq.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -196,7 +196,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-community/community-guidelines.mdx": [
+  "v2/community/livepeer-community/community-guidelines.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -207,7 +207,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-community/livepeer-latest-topics.mdx": [
+  "v2/community/livepeer-community/livepeer-latest-topics.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -326,7 +326,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-community/roadmap.mdx": [
+  "v2/community/livepeer-community/roadmap.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -364,7 +364,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-community/trending-topics.mdx": [
+  "v2/community/livepeer-community/trending-topics.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -537,7 +537,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-connect/events-and-community-streams.mdx": [
+  "v2/community/livepeer-connect/events-and-community-streams.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -593,7 +593,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-connect/forums-and-discussions.mdx": [
+  "v2/community/livepeer-connect/forums-and-discussions.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -604,7 +604,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-connect/news-and-socials.mdx": [
+  "v2/community/livepeer-connect/news-and-socials.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -615,7 +615,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-contribute/build-livepeer.mdx": [
+  "v2/community/livepeer-contribute/build-livepeer.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -626,7 +626,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-contribute/contribute.mdx": [
+  "v2/community/livepeer-contribute/contribute.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -637,7 +637,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/livepeer-contribute/opportunities.mdx": [
+  "v2/community/livepeer-contribute/opportunities.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -648,9 +648,9 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/02_community/resources/awesome-livepeer.mdx": [],
-  "v2/pages/02_community/resources/dashboards.mdx": [],
-  "v2/pages/02_community/resources/guides.mdx": []
+  "v2/community/resources/awesome-livepeer.mdx": [],
+  "v2/community/resources/dashboards.mdx": [],
+  "v2/community/resources/guides.mdx": []
 };
 
 export default LINK_MAP;

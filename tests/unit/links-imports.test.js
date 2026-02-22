@@ -36,6 +36,21 @@ const { extractImports } = require('../utils/mdx-parser');
 
 let errors = [];
 let warnings = [];
+const V2_DOMAIN_DIRS = new Set([
+  'home',
+  'about',
+  'platforms',
+  'community',
+  'developers',
+  'gateways',
+  'orchestrators',
+  'lpt',
+  'resources',
+  'internal',
+  'deprecated',
+  'experimental',
+  'notes'
+]);
 
 /**
  * Resolve a file path relative to the repository root
@@ -82,12 +97,14 @@ function fileExists(filePath) {
  */
 function linkToFilePath(linkPath, currentFile) {
   const rootDir = process.cwd();
+  const normalizedLinkPath = linkPath.split('#')[0].split('?')[0];
   
   // Skip external links
   if (linkPath.startsWith('http://') || 
       linkPath.startsWith('https://') || 
       linkPath.startsWith('mailto:') ||
-      linkPath.startsWith('#')) {
+      linkPath.startsWith('#') ||
+      normalizedLinkPath.length === 0) {
     return null;
   }
   
@@ -101,29 +118,54 @@ function linkToFilePath(linkPath, currentFile) {
   }
   
   // Absolute path from root (starts with /)
-  if (linkPath.startsWith('/')) {
-    // Remove leading slash and convert to file path
-    let filePath = linkPath.replace(/^\//, '').replace(/\/$/, '');
-    
-    // If it looks like a v2/pages path, use it directly
-    if (filePath.startsWith('v2/pages/')) {
-      return path.join(repoRoot, filePath);
+  if (normalizedLinkPath.startsWith('/')) {
+    // Remove leading slash and normalize trailing slash
+    const repoRelativePath = normalizedLinkPath.replace(/^\//, '').replace(/\/$/, '');
+    if (!repoRelativePath) {
+      return null;
     }
-    
-    // Otherwise, assume it's a v2/pages path
-    if (!filePath.startsWith('v2/')) {
-      filePath = `v2/pages/${filePath}`;
+
+    // Prefer repository-root absolute links when they already exist.
+    const directRepoPath = path.join(repoRoot, repoRelativePath);
+    if (fileExists(directRepoPath).exists) {
+      return directRepoPath;
     }
-    
-    return path.join(repoRoot, filePath);
+
+    // If it already starts with v2/, treat it as a repo-relative docs path.
+    if (repoRelativePath.startsWith('v2/')) {
+      return path.join(repoRoot, repoRelativePath);
+    }
+
+    // Support migrated v2 domain folders, e.g. /home/... or /about/...
+    const firstSegment = repoRelativePath.split('/')[0];
+    if (V2_DOMAIN_DIRS.has(firstSegment)) {
+      return path.join(repoRoot, 'v2', repoRelativePath);
+    }
+
+    // Fallback: treat bare absolute docs links as v2/pages-relative.
+    return path.join(repoRoot, `v2/pages/${repoRelativePath}`);
   }
   
   // Relative path
   const currentDir = path.dirname(currentFile);
-  const resolved = path.resolve(currentDir, linkPath);
-  
-  // Normalize to relative from root
+  const resolved = path.resolve(currentDir, normalizedLinkPath);
+
+  // If this resolves into v2/pages/<domain>/..., remap to v2/<domain>/...
+  // for migrated section folders.
   const relativePath = path.relative(rootDir, resolved);
+  const normalizedRelative = relativePath.split(path.sep).join('/');
+  const pagesPrefix = 'v2/pages/';
+  if (normalizedRelative.startsWith(pagesPrefix)) {
+    const parts = normalizedRelative.split('/');
+    const maybeDomain = parts[2];
+    if (V2_DOMAIN_DIRS.has(maybeDomain)) {
+      const migratedPath = path.join(rootDir, 'v2', ...parts.slice(2));
+      if (fileExists(migratedPath).exists) {
+        return migratedPath;
+      }
+    }
+  }
+
   return path.join(rootDir, relativePath);
 }
 

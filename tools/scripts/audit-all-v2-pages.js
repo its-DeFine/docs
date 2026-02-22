@@ -46,7 +46,7 @@ function getAllV2Pages() {
   function extractPages(obj) {
     if (Array.isArray(obj)) {
       obj.forEach(item => {
-        if (typeof item === 'string' && item.startsWith('v2/pages/')) {
+        if (typeof item === 'string' && item.startsWith('v2/')) {
           pages.add(item);
         } else if (typeof item === 'object' && item !== null) {
           extractPages(item);
@@ -65,6 +65,7 @@ function getAllV2Pages() {
 function pagePathToUrl(pagePath) {
   let url = pagePath
     .replace(/^v2\/pages\//, '')
+    .replace(/^v2\//, '')
     .replace(/\.mdx$/, '');
   
   if (url.endsWith('/index')) {

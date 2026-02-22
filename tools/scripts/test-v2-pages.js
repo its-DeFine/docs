@@ -93,8 +93,11 @@ function getV2Pages() {
  * Convert page path to URL
  */
 function pageToUrl(pagePath) {
-  // Remove v2/pages/ prefix and convert to URL
-  let url = pagePath.replace(/^v2\/pages\//, '');
+  // Support both legacy `v2/pages/...` and migrated `v2/<domain>/...` paths.
+  let url = pagePath
+    .replace(/^v2\/pages\//, '')
+    .replace(/^v2\//, '')
+    .replace(/\.mdx?$/, '');
   
   // Handle index pages (ending with /)
   if (url.endsWith('/')) {
