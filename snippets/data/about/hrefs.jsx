@@ -1,5 +1,5 @@
 export const LINK_MAP = {
-  "v2/about/about-portal.mdx": [
+  "v2/about/portal.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -128,7 +128,7 @@ export const LINK_MAP = {
     }
   ],
   "v2/about/core-concepts/concepts/actors.mdx": [],
-  "v2/about/core-concepts/livepeer-core-concepts.mdx": [
+  "v2/about/core-concepts.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -166,12 +166,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/about/core-concepts/livepeer-overview.mdx": [
+  "v2/about/livepeer-overview.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/about/core-concepts/mental-model",
-      "resolvedPath": "v2/about/core-concepts/mental-model.mdx",
+      "rawPath": "/about/mental-model",
+      "resolvedPath": "v2/about/mental-model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -240,7 +240,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/about/core-concepts/mental-model.mdx": [
+  "v2/about/mental-model.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -253,8 +253,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../../platforms/products-portal",
-      "resolvedPath": "v2/platforms/products-portal.mdx",
+      "rawPath": "../../platforms/portal",
+      "resolvedPath": "v2/platforms/portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -337,7 +337,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "livepeer-protocol/protocol-economics",
-      "resolvedPath": "v2/about/livepeer-protocol/protocol-economics.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -635,7 +635,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../../livepeer-protocol/protocol-economics",
-      "resolvedPath": "v2/about/livepeer-protocol/protocol-economics.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2052,7 +2052,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./protocol-economics",
-      "resolvedPath": "v2/about/livepeer-protocol/protocol-economics.mdx",
+      "resolvedPath": "v2/about/livepeer-protocol/economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2148,7 +2148,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/about/livepeer-protocol/protocol-economics.mdx": [
+  "v2/about/livepeer-protocol/economics.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "empty",

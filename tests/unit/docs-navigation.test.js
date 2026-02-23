@@ -217,8 +217,8 @@ function getCanonicalMap(normalizedRoute) {
     'v2/pages/07_resources/redirect': ['v2/pages/07_resources/resources-portal'],
     'v2/pages/08_help/redirect': ['v2/pages/08_help/README', 'v2/pages/07_resources/resources-portal'],
     'v2/pages/08_help/README': ['v2/pages/07_resources/resources-portal'],
-    'v2/pages/010_products/products/streamplace/streamplace-funding': [
-      'v2/pages/010_products/products/streamplace/streamplace-funding-model'
+    'v2/pages/010_streamplace/introduction/streamplace-funding-model': [
+      'v2/pages/010_streamplace/introduction/streamplace-funding-model'
     ],
     'v2/pages/07_resources/changelog/migration-guides': ['v2/pages/07_resources/changelog/migration-guide'],
     'v2/pages/04_gateways/run-a-gateway/quickstart-a-gateway': [
@@ -228,7 +228,7 @@ function getCanonicalMap(normalizedRoute) {
       'v2/pages/04_gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway'
     ],
     'v2/pages/04_gateways/using-gateways/gateway-providers/streamplace': [
-      'v2/pages/010_products/products/streamplace/streamplace'
+      'v2/pages/010_streamplace/overview'
     ],
     'v2/pages/04_gateways/run-a-gateway/test/test-gateway': [
       'v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway'
@@ -244,7 +244,7 @@ function getCanonicalMap(normalizedRoute) {
       'v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers'
     ],
     'v2/pages/02_community/livepeer-community/media-kit': ['v2/pages/07_resources/media-kit'],
-    'v2/pages/07_resources/concepts/livepeer-core-concepts': ['v2/pages/01_about/core-concepts/livepeer-core-concepts'],
+    'v2/pages/07_resources/concepts/livepeer-core-concepts': ['v2/about/core-concepts'],
     'v2/pages/07_resources/concepts/livepeer-actors': ['v2/pages/01_about/livepeer-network/actors'],
     'v2/pages/07_resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory': [
       'v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory'

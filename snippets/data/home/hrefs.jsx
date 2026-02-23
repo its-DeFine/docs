@@ -56,8 +56,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../../about/about-portal",
-      "resolvedPath": "v2/about/about-portal.mdx",
+      "rawPath": "../../about/portal",
+      "resolvedPath": "v2/about/portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -74,8 +74,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/platforms/products/daydream",
-      "resolvedPath": "/v2/platforms/products/daydream",
+      "rawPath": "/v2/platforms/daydream",
+      "resolvedPath": "/v2/platforms/daydream",
       "exists": true,
       "status": "ok-folder-route",
       "movedCandidates": []
@@ -83,8 +83,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../../platforms/products-portal",
-      "resolvedPath": "v2/platforms/products-portal.mdx",
+      "rawPath": "../../platforms/portal",
+      "resolvedPath": "v2/platforms/portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -164,8 +164,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/platforms/products/daydream",
-      "resolvedPath": "/v2/platforms/products/daydream",
+      "rawPath": "/v2/platforms/daydream",
+      "resolvedPath": "/v2/platforms/daydream",
       "exists": true,
       "status": "ok-folder-route",
       "movedCandidates": []
@@ -173,8 +173,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/platforms/products/livepeer-studio/overview/overview",
-      "resolvedPath": "/v2/platforms/products/livepeer-studio/overview/overview",
+      "rawPath": "/v2/platforms/livepeer-studio/overview",
+      "resolvedPath": "/v2/platforms/livepeer-studio/overview",
       "exists": true,
       "status": "ok-folder-route",
       "movedCandidates": []
@@ -191,8 +191,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../platforms/products/daydream/daydream",
-      "resolvedPath": "v2/platforms/products/daydream/daydream.mdx",
+      "rawPath": "../../platforms/daydream/overview",
+      "resolvedPath": "v2/platforms/daydream/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -263,8 +263,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../platforms/products/daydream/daydream",
-      "resolvedPath": "v2/platforms/products/daydream/daydream.mdx",
+      "rawPath": "../../platforms/daydream/overview",
+      "resolvedPath": "v2/platforms/daydream/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -508,8 +508,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../platforms/products-portal",
-      "resolvedPath": "v2/platforms/products-portal.mdx",
+      "rawPath": "../../platforms/portal",
+      "resolvedPath": "v2/platforms/portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1800,8 +1800,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../about/about-portal",
-      "resolvedPath": "v2/about/about-portal.mdx",
+      "rawPath": "../about/portal",
+      "resolvedPath": "v2/about/portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

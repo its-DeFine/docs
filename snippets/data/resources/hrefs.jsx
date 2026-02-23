@@ -1456,8 +1456,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/about/about-portal",
-      "resolvedPath": "v2/about/about-portal.mdx",
+      "rawPath": "/about/portal",
+      "resolvedPath": "v2/about/portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1465,8 +1465,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/about/core-concepts/livepeer-core-concepts",
-      "resolvedPath": "v2/about/core-concepts/livepeer-core-concepts.mdx",
+      "rawPath": "/about/core-concepts",
+      "resolvedPath": "v2/about/core-concepts.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
