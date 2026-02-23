@@ -3,7 +3,6 @@
 ## Top-level
 - [General Livepeer Definitions](definitions.mdx)
 - [Docs Philosophy](docs-philosophy.mdx)
-- [Docs Status](docs-status.mdx)
 - [Ecosystem](ecosystem.mdx)
 - [Documentation Governance](governance.mdx)
 - [Overview](internal-overview.mdx)

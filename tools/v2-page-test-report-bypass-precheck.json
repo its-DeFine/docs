@@ -2054,14 +2054,6 @@
       "warnings": []
     },
     {
-      "pagePath": "v2/internal/docs-status",
-      "url": "http://127.0.0.1:3000/internal/docs-status",
-      "errors": [
-        "Navigation Error: page.waitForTimeout is not a function"
-      ],
-      "warnings": []
-    },
-    {
       "pagePath": "v2/internal/governance",
       "url": "http://127.0.0.1:3000/internal/governance",
       "errors": [

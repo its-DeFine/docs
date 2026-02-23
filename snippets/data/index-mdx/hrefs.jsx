@@ -3936,15 +3936,6 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "internal/docs-status.mdx",
-      "resolvedPath": "v2/internal/docs-status.mdx",
-      "exists": true,
-      "status": "route-missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
       "rawPath": "internal/ecosystem.mdx",
       "resolvedPath": "v2/internal/ecosystem.mdx",
       "exists": true,

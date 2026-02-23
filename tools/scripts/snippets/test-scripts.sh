@@ -158,15 +158,11 @@ else
   fail "update-component-library.sh failed: $OUTPUT"
 fi
 
-# Test 7: Dry run generate-docs-status.js
+# Test 7: Deprecated generate-docs-status.js (moved out of snippets scope)
 echo ""
-echo "--- Test: generate-docs-status.js dry run ---"
-OUTPUT=$(node "$SCRIPT_DIR/generate-docs-status.js" 2>&1)
-if echo "$OUTPUT" | grep -q "Generated"; then
-  pass "generate-docs-status.js runs successfully"
-else
-  fail "generate-docs-status.js failed: $OUTPUT"
-fi
+echo "--- Test: generate-docs-status.js dry run (deprecated) ---"
+skip "generate-docs-status.js deprecated and moved to tools/scripts/deprecated/project-management-output-script.js"
+
 
 # Summary
 echo ""

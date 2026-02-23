@@ -10709,10 +10709,6 @@
         {
           "path": "v2/gateways/run-a-gateway/monitor/monitor-and-optimise.mdx",
           "occurrences": 1
-        },
-        {
-          "path": "v2/internal/docs-status.mdx",
-          "occurrences": 1
         }
       ],
       "totalOccurrences": 102,

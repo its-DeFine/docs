@@ -474,33 +474,6 @@ node tools/scripts/snippets/generate-seo.js --file=v2/home/mission-control.mdx
 
 ---
 
-#### Generate Documentation Status
-
-**File:** `tools/scripts/snippets/generate-docs-status.js`
-
-**Purpose:** Generates documentation status tables and structure diagrams from `docs.json`
-
-**Usage:**
-```bash
-node tools/scripts/snippets/generate-docs-status.js
-```
-
-**What it does:**
-1. Reads `docs.json` navigation structure
-2. Merges with `snippets/docs-status-data.json` for status/priority/notes
-3. Outputs a status table MDX file
-4. Outputs a Mermaid structure diagram MDX file
-
-**Output:**
-- `snippets/generated/docs-status-table.mdx` - Table of all pages with status
-- `snippets/generated/docs-structure-diagram.mdx` - Mermaid diagram of docs structure
-
-**When to run:**
-- After modifying `docs.json` navigation
-- After updating page status in `snippets/docs-status-data.json`
-
----
-
 #### Generate API Documentation
 
 **File:** `tools/scripts/snippets/generate-api-docs.sh`

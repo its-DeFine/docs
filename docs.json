@@ -3094,7 +3094,6 @@
                         "group": "Internal Hub",
                         "pages": [
                           "v2/internal/internal-overview",
-                          "v2/internal/docs-status",
                           "v2/internal/governance",
                           "v2/internal/strategic-alignment",
                           "v2/internal/docs-philosophy",
