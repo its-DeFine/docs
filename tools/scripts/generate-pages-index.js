@@ -357,8 +357,20 @@ function renderLinkTitle(link) {
   return link.missingFromDocsJson ? `⚠️ ${safeTitle}` : safeTitle;
 }
 
+function buildGeneratedIndexBannerLines() {
+  return [
+    '{/*',
+    'This file is generated from script(s): tools/scripts/generate-pages-index.js.',
+    'Purpose: Table-of-contents index for v2 docs folders.',
+    'Run when: v2 docs pages are added, removed, or renamed.',
+    'Do not manually edit this file; run its generator instead.',
+    '*/}',
+    ''
+  ];
+}
+
 function renderIndexContent(data) {
-  const lines = ['# Table of contents', ''];
+  const lines = [...buildGeneratedIndexBannerLines(), '# Table of contents', ''];
 
   if (data.rootLinks.length > 0) {
     for (const link of data.rootLinks) {
@@ -442,7 +454,7 @@ function buildAggregateData(topLevelDirs, sourceByDirRel) {
 }
 
 function renderAggregateContent(groups) {
-  const lines = ['# Table of contents', ''];
+  const lines = [...buildGeneratedIndexBannerLines(), '# Table of contents', ''];
 
   for (const group of groups) {
     lines.push(`## ${group.title}`);

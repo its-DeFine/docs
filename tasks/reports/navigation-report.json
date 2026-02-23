@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-02-23T09:52:59.343Z",
-  "totalEntries": 1071,
+  "generatedAt": "2026-02-23T13:32:03.274Z",
+  "totalEntries": 1070,
   "syntaxErrors": [],
   "missingRoutes": [
     {
@@ -8,7 +8,7 @@
       "rule": "Missing route",
       "value": "v2/pages/07_resources/resources-portal",
       "normalized": "v2/pages/07_resources/resources-portal",
-      "pointer": "navigation.versions[1].languages[0].tabs[0].anchors[2].pages[0]",
+      "pointer": "navigation.versions[1].languages[0].tabs[0].anchors[1].pages[0]",
       "suggestions": []
     },
     {

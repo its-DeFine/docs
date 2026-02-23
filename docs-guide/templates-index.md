@@ -1,6 +1,11 @@
-# Templates Index
+{/*
+This file is generated from script(s): tools/scripts/generate-docs-guide-indexes.js.
+Purpose: Issue and PR template inventory for docs-guide maintenance.
+Run when: Issue templates or PR templates are added, removed, or changed.
+Do not manually edit this file; run its generator instead.
+*/}
 
-> Generated file. Do not edit manually. Run `node tools/scripts/generate-docs-guide-indexes.js --write`.
+# Templates Index
 
 | Template | Type | File | Purpose | When To Use | Labels/Automation | Owner |
 |---|---|---|---|---|---|---|

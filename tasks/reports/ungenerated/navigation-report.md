@@ -1,7 +1,7 @@
 # Docs Navigation Route Report
 
-- Generated at (UTC): 2026-02-23T09:52:59.343Z
-- Entries scanned: 1071
+- Generated at (UTC): 2026-02-23T13:32:03.274Z
+- Entries scanned: 1070
 - Syntax errors: 0
 - Missing routes: 69
 - Missing routes with suggestions: 4
@@ -13,7 +13,7 @@
 ## Missing Routes
 
 - `v2/pages/07_resources/resources-portal` (normalized: `v2/pages/07_resources/resources-portal`)
-  - Pointer: `navigation.versions[1].languages[0].tabs[0].anchors[2].pages[0]`
+  - Pointer: `navigation.versions[1].languages[0].tabs[0].anchors[1].pages[0]`
   - Suggested remaps: none
 
 - `v2/pages/07_resources/resources-portal` (normalized: `v2/pages/07_resources/resources-portal`)

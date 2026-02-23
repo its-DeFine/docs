@@ -89,6 +89,17 @@ function mdEscape(value) {
   return String(value || '').replace(/\|/g, '\\|').replace(/\n/g, ' ');
 }
 
+function buildGeneratedMarkdownBannerLines({ script, purpose, runWhen }) {
+  return [
+    '{/*',
+    `This file is generated from script(s): ${script}.`,
+    `Purpose: ${purpose}`,
+    `Run when: ${runWhen}`,
+    'Do not manually edit this file; run its generator instead.',
+    '*/}'
+  ];
+}
+
 function inferWorkflowTriggers(doc, content) {
   const tags = [];
   const triggerMap = {
@@ -182,9 +193,13 @@ function buildWorkflowsIndex() {
   });
 
   const lines = [];
-  lines.push('# Workflows Index');
+  buildGeneratedMarkdownBannerLines({
+    script: 'tools/scripts/generate-docs-guide-indexes.js',
+    purpose: 'Workflow inventory for docs-guide maintenance.',
+    runWhen: 'GitHub workflows are added, removed, or changed.'
+  }).forEach((line) => lines.push(line));
   lines.push('');
-  lines.push('> Generated file. Do not edit manually. Run `node tools/scripts/generate-docs-guide-indexes.js --write`.');
+  lines.push('# Workflows Index');
   lines.push('');
   lines.push('| Workflow | File | Triggers | Purpose | Blocking Policy | Outputs | Owner |');
   lines.push('|---|---|---|---|---|---|---|');
@@ -272,9 +287,13 @@ function buildTemplatesIndex() {
     .sort((a, b) => a.file.localeCompare(b.file));
 
   const lines = [];
-  lines.push('# Templates Index');
+  buildGeneratedMarkdownBannerLines({
+    script: 'tools/scripts/generate-docs-guide-indexes.js',
+    purpose: 'Issue and PR template inventory for docs-guide maintenance.',
+    runWhen: 'Issue templates or PR templates are added, removed, or changed.'
+  }).forEach((line) => lines.push(line));
   lines.push('');
-  lines.push('> Generated file. Do not edit manually. Run `node tools/scripts/generate-docs-guide-indexes.js --write`.');
+  lines.push('# Templates Index');
   lines.push('');
   lines.push('| Template | Type | File | Purpose | When To Use | Labels/Automation | Owner |');
   lines.push('|---|---|---|---|---|---|---|');

@@ -1,6 +1,11 @@
-# Workflows Index
+{/*
+This file is generated from script(s): tools/scripts/generate-docs-guide-indexes.js.
+Purpose: Workflow inventory for docs-guide maintenance.
+Run when: GitHub workflows are added, removed, or changed.
+Do not manually edit this file; run its generator instead.
+*/}
 
-> Generated file. Do not edit manually. Run `node tools/scripts/generate-docs-guide-indexes.js --write`.
+# Workflows Index
 
 | Workflow | File | Triggers | Purpose | Blocking Policy | Outputs | Owner |
 |---|---|---|---|---|---|---|
