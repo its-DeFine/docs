@@ -49,19 +49,19 @@
 //   };
 //   const productTagHrefKeys = {
 //     Daydream: [
-//       "../../../10_products/products/daydream/overview.mdx",
+//       "../../../10_products/daydream/overview.mdx",
 //       "https://daydream.live/",
 //     ],
 //     "Stream.place": [
-//       "../../../10_products/products/streamplace/streamplace.mdx",
+//       "../../../10_products/streamplace/overview.mdx",
 //       "https://stream.place/",
 //     ],
 //     "Livepeer Studio": [
-//       "../../../10_products/products/livepeer-studio/livepeer-studio.mdx",
+//       "../../../10_products/livepeer-studio/livepeer-studio.mdx",
 //       "https://livepeer.studio/",
 //     ],
 //     Frameworks: [
-//       "../../../10_products/products/frameworks/frameworks.mdx",
+//       "../../../10_products/frameworks/overview.mdx",
 //       "https://frameworks.network/",
 //     ],
 //     Livepeer: [
@@ -558,19 +558,19 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
     };
     const productTagHrefKeys = {
       Daydream: [
-        "../../../10_products/products/daydream/overview.mdx",
+        "../../../10_products/daydream/overview.mdx",
         "https://daydream.live/",
       ],
       "Stream.place": [
-        "../../../10_products/products/streamplace/streamplace.mdx",
+        "../../../10_products/streamplace/overview.mdx",
         "https://stream.place/",
       ],
       "Livepeer Studio": [
-        "../../../10_products/products/livepeer-studio/livepeer-studio.mdx",
+        "../../../10_products/livepeer-studio/livepeer-studio.mdx",
         "https://livepeer.studio/",
       ],
       Frameworks: [
-        "../../../10_products/products/frameworks/frameworks.mdx",
+        "../../../10_products/frameworks/overview.mdx",
         "https://frameworks.network/",
       ],
       "Livepeer Network": [
