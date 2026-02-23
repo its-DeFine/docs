@@ -62,7 +62,9 @@ jobs:
             requireObject('checks', checks);
 
             if (!schemaVersion) throw new Error('Missing schema_version');
-            if (schemaVersion !== '1.0.0') {
+            // Keep older schema versions accepted during sender rollouts (n8n/dispatch clients).
+            const supportedSchemaVersions = new Set(['1.0.0', '1.1.0']);
+            if (!supportedSchemaVersions.has(schemaVersion)) {
               throw new Error(`Unsupported schema_version: ${schemaVersion}`);
             }
             if (templateKey !== 'docs_page_issue') {
@@ -72,6 +74,9 @@ jobs:
             if (!issueTitleRaw) throw new Error('Missing issue_title');
 
             const field = (id) => normalize(fields[id]);
+            const classificationValue = field('classification');
+            // Classification became required in schema 1.1.0 but remains optional for 1.0.0 compatibility.
+            const requiresClassification = schemaVersion === '1.1.0';
 
             const requiredFieldIds = [
               'area',
@@ -86,6 +91,9 @@ jobs:
               'done_criteria',
               'priority',
             ];
+            if (requiresClassification) {
+              requiredFieldIds.push('classification');
+            }
 
             const missingFields = requiredFieldIds.filter((id) => isPlaceholder(field(id)));
             if (missingFields.length > 0) {
@@ -215,6 +223,9 @@ jobs:
               '### Done criteria / acceptance check',
               field('done_criteria'),
               '',
+              ...(!isPlaceholder(classificationValue)
+                ? ['### Classification', classificationValue, '']
+                : []),
               '### Priority',
               field('priority'),
               '',

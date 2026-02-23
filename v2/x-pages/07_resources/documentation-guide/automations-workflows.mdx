@@ -15,7 +15,7 @@ import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallou
 This guide documents all automation scripts, GitHub Actions workflows, n8n automations, and pre-commit hooks used in the Livepeer documentation repository.
 
 <Info>
-For a detailed audit of all automations, see the [Automations & Workflows Audit Report](/tasks/reports/20-automations-workflows-audit-report.md).
+For a detailed audit of all automations, see the [Automations & Workflows Audit Report](/tasks/reports/ungenerated/20-automations-workflows-audit-report.md).
 </Info>
 
 ## Overview
@@ -179,7 +179,22 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 2. Rejects placeholder-only or security-sensitive content
 3. Enforces idempotency using `correlation_id` marker in issue body
 4. Creates issue with template-aligned headings and base labels
-5. Leaves dynamic label mapping (`area:*`, `priority:*`, `kind:*`) to `issue-auto-label.yml`
+5. Leaves dynamic label mapping (`area:*`, `classification:*`, `priority:*`, `kind:*`) to `issue-auto-label.yml`
+
+**Maintainer notes (schema + compatibility):**
+- Supports `schema_version` `1.0.0` and `1.1.0`
+- `1.1.0` adds required `fields.classification` for `docs_page_issue`
+- `1.0.0` payloads remain valid for backward compatibility and will produce issues without a `Classification` section (the indexer will surface these as unclassified until triaged)
+- If you change field names or section headings in the issue forms, update both:
+  - `.github/workflows/discord-issue-intake.yml` (payload validation + generated body headings)
+  - `.github/workflows/issue-auto-label.yml` (section parsing / label mapping)
+- Keep issue body headings exact (for example `### Classification`, `### Priority`) because auto-label parsing is heading-based
+
+**How to roll out future schema changes safely:**
+1. Add support for the new schema version in `.github/workflows/discord-issue-intake.yml`
+2. Keep the previous schema version accepted until all dispatch senders are upgraded
+3. Update `snippets/automations/scripts/n8n/Discord-Issue-Intake.json` to emit the new version and fields
+4. Verify a test dispatch creates the expected headings and labels
 
 **Required secrets:**
 - None (uses repository-dispatch caller token and GitHub Actions `GITHUB_TOKEN`)
@@ -188,6 +203,76 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 - `snippets/automations/scripts/n8n/Discord-Issue-Intake.json`
 - `snippets/assets/scripts/n8n/README-discord-issue-intake-workflow.md`
 - `.github/workflows/issue-auto-label.yml`
+
+---
+
+#### Issue Auto Label
+
+**File:** `.github/workflows/issue-auto-label.yml`
+
+**Purpose:** Parses issue form bodies and applies/removes managed labels for docs triage.
+
+**Managed label families:**
+- `area:*`
+- `classification:*` (severity/impact)
+- `priority:*` (maintainer scheduling)
+- `kind:*` (docs page issue subtype)
+- `scope:*`
+
+**Maintainer notes (important):**
+- Parsing is based on exact markdown headings in issue bodies (for example `### Area`, `### Classification`, `### Priority`)
+- If a heading is renamed in any issue template, update `getSection(...)` usage and required-section lists in this workflow
+- Legacy issue compatibility is intentional:
+  - `Classification` is only treated as required when the issue body already contains a `### Classification` section
+  - This prevents older issues from being auto-labeled `status: needs-info` during re-triage edits
+- The workflow skips the docs-v2 top-level issue index by checking for the hidden marker:
+  - `<!-- docs-v2-issue-indexer -->`
+  - Do not remove or rename this marker without updating both this workflow and the indexer workflow
+
+**Manual validation checklist after edits:**
+1. Open a test issue from each affected template (or edit an existing test issue body)
+2. Confirm `classification:*` and `priority:*` labels are both applied
+3. Change classification in the issue body and confirm the old `classification:*` label is removed
+4. Confirm the docs-v2 index issue is not auto-labeled with `status: needs-triage`
+
+---
+
+#### Docs v2 Issue Indexer
+
+**File:** `.github/workflows/docs-v2-issue-indexer.yml`
+
+**Purpose:** Maintains one rolling top-level GitHub issue indexing `docs-v2` issues (open + recently closed).
+
+**Triggers:**
+- `issues` events: open/edit/label/unlabel/reopen/close
+- scheduled every 6 hours
+- manual dispatch
+
+**What it does:**
+1. Finds the index issue by hidden marker in the issue body (`<!-- docs-v2-issue-indexer -->`)
+2. Creates the index issue if it does not exist
+3. Queries all open `docs-v2` issues and recently closed `docs-v2` issues (default 30-day window)
+4. Generates summary counts + breakdown tables + issue tables
+5. Updates the same issue body in place only if content changed
+
+**Maintainer notes (safe operation):**
+- The hidden marker is the source of truth for locating the index issue. Keep it stable unless you update both:
+  - `.github/workflows/docs-v2-issue-indexer.yml`
+  - `.github/workflows/issue-auto-label.yml`
+- The recently closed window is controlled by `RECENTLY_CLOSED_DAYS` in the workflow script
+- The workflow intentionally excludes the index issue itself from counts/tables even if it has the `docs-v2` label
+- The workflow skips self-trigger loops by exiting early if the triggering issue body already contains the index marker
+- If the generated issue body seems stale, use **Actions → Docs v2 Issue Indexer → Run workflow**
+
+**Operational troubleshooting:**
+- Duplicate index issues:
+  - Ensure only one issue contains the marker `<!-- docs-v2-issue-indexer -->`
+  - Remove the marker from duplicates, then run the workflow manually
+- Missing labels in breakdowns:
+  - Check `.github/workflows/issue-auto-label.yml` managed prefixes and label parsing
+  - Verify issue body headings still match the parser expectations
+- Unexpected "unclassified" open issues:
+  - These are usually legacy issues (pre-classification) or issues created from older Discord intake schema `1.0.0`
 
 ---
 
@@ -904,7 +989,7 @@ npm run test:v2-pages
 - [Git Hooks Documentation](/contribute/CONTRIBUTING/GIT-HOOKS.md) - Complete pre-commit hook documentation
 - [Scripts README](/tools/scripts/snippets/README.mdx) - Detailed scripts documentation
 - [Automations README](/snippets/automations/README.mdx) - Automation overview
-- [Audit Report](/tasks/reports/20-automations-workflows-audit-report.md) - Comprehensive automation audit
+- [Audit Report](/tasks/reports/ungenerated/20-automations-workflows-audit-report.md) - Comprehensive automation audit
 
 ---
 

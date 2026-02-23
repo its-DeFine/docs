@@ -22,8 +22,15 @@ jobs:
             const repo = context.repo.repo;
             const issue_number = issue.number;
             const body = issue.body || '';
+            // The docs-v2 index issue is bot-managed and intentionally excluded from triage labeling.
+            const indexMarker = '<!-- docs-v2-issue-indexer -->';
 
-            const managedPrefixes = ['area:', 'priority:', 'kind:', 'scope:'];
+            if (body.includes(indexMarker)) {
+              console.log(`Skipping auto-label for docs-v2 issue indexer (#${issue_number})`);
+              return;
+            }
+
+            const managedPrefixes = ['area:', 'priority:', 'classification:', 'kind:', 'scope:'];
 
             const labelMeta = {
               'docs-v2': { color: '1d76db', description: 'Livepeer docs v2 issue scope' },
@@ -47,6 +54,10 @@ jobs:
               'priority: high': { color: 'd93f0b', description: 'High priority' },
               'priority: medium': { color: 'fbca04', description: 'Medium priority' },
               'priority: low': { color: '0e8a16', description: 'Low priority' },
+              'classification: urgent': { color: 'b60205', description: 'Urgent severity/impact classification' },
+              'classification: high': { color: 'd93f0b', description: 'High severity/impact classification' },
+              'classification: moderate': { color: 'fbca04', description: 'Moderate severity/impact classification' },
+              'classification: minor': { color: '0e8a16', description: 'Minor severity/impact classification' },
               'kind: factual-error': { color: '5319e7', description: 'Docs page issue subtype: factual error' },
               'kind: unclear-instructions': { color: '5319e7', description: 'Docs page issue subtype: unclear instructions' },
               'kind: missing-context': { color: '5319e7', description: 'Docs page issue subtype: missing prerequisite or context' },
@@ -111,6 +122,9 @@ jobs:
 
             const hasSection = (heading) => new RegExp(`###\\s+${escapeRegex(heading)}\\s*\\n`, 'i').test(body);
 
+            // Legacy issues may not have a Classification section; we only enforce it when present.
+            const hasClassificationSection = hasSection('Classification');
+
             let templateType = 'unknown';
             if (hasSection('Issue subtype')) {
               templateType = 'docs_page_issue';
@@ -124,6 +138,8 @@ jobs:
               templateType = 'tooling_ci_issue';
             } else if (hasSection('Question')) {
               templateType = 'question_clarification';
+            } else if (hasSection('Description') && hasClassificationSection && hasSection('Priority')) {
+              templateType = 'feature_internal';
             }
 
             const commonBase = ['docs-v2', 'help wanted', 'status: needs-triage'];
@@ -131,6 +147,7 @@ jobs:
               bug_report: [...commonBase, 'type: bug'],
               docs_page_issue: [...commonBase, 'type: documentation', 'scope: page'],
               feature_request: [...commonBase, 'type: enhancement'],
+              feature_internal: [...commonBase, 'type: enhancement'],
               content_request: [...commonBase, 'type: documentation'],
               tooling_ci_issue: [...commonBase, 'type: bug', 'area: ci-cd'],
               question_clarification: [...commonBase, 'type: question'],
@@ -147,10 +164,12 @@ jobs:
             }
 
             const area = normalize(getSection('Area'));
+            const classification = normalize(getSection('Classification'));
             const priority = normalize(getSection('Priority'));
             const issueSubtype = normalize(getSection('Issue subtype'));
 
             if (area.startsWith('area:')) desiredManagedLabels.add(area);
+            if (classification.startsWith('classification:')) desiredManagedLabels.add(classification);
             if (priority.startsWith('priority:')) desiredManagedLabels.add(priority);
 
             if (templateType === 'docs_page_issue') {
@@ -254,6 +273,20 @@ jobs:
                 'Blocking impact',
                 'Priority',
               ];
+            } else if (templateType === 'feature_internal') {
+              requiredSections = [
+                'Description',
+                'Priority',
+              ];
+            }
+
+            if (hasClassificationSection && requiredSections.length > 0 && !requiredSections.includes('Classification')) {
+              const priorityIndex = requiredSections.indexOf('Priority');
+              if (priorityIndex >= 0) {
+                requiredSections.splice(priorityIndex, 0, 'Classification');
+              } else {
+                requiredSections.push('Classification');
+              }
             }
 
             const missingSections = requiredSections.filter((section) => isPlaceholder(getSection(section)));

@@ -134,7 +134,21 @@ Use GitHub Issues to report problems, suggest improvements, or ask questions:
 
 ### Issue Labels
 
-We use labels to categorize and prioritize issues:
+We use labels to categorize issues, classify severity/impact, and set maintainer scheduling priority:
+
+**Classification (severity/impact):**
+- `classification: urgent` — Immediate triage needed (release-blocking, unsafe guidance, or widespread breakage)
+- `classification: high` — Significant blocker or major user impact
+- `classification: moderate` — Meaningful friction/confusion with limited scope or workaround
+- `classification: minor` — Cosmetic or low-risk localized issue (links, style, small wording fixes)
+
+Classification is separate from priority:
+- `classification:*` = severity/impact of the issue as reported
+- `priority:*` = maintainer scheduling/sequence decision (may differ due to roadmap, staffing, or deadlines)
+
+Examples:
+- Docs/page issue: broken link or styling inconsistency on one page -> `classification: minor`
+- Tooling/CI issue: default-branch required CI workflow failing -> `classification: urgent`
 
 **Priority:**
 - `priority: critical` — Security issues, broken critical paths
@@ -166,10 +180,10 @@ We use labels to categorize and prioritize issues:
 
 | Issue Type | Target Response | Target Resolution |
 |------------|----------------|-------------------|
-| **Critical bugs** | 24 hours | 1 week |
-| **High priority** | 48 hours | 2 weeks |
-| **Medium priority** | 1 week | 1 month |
-| **Low priority** | 2 weeks | As capacity allows |
+| **Priority: critical** | 24 hours | 1 week |
+| **Priority: high** | 48 hours | 2 weeks |
+| **Priority: medium** | 1 week | 1 month |
+| **Priority: low** | 2 weeks | As capacity allows |
 
 ### Triage Process
 
