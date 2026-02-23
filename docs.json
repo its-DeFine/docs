@@ -2340,10 +2340,10 @@
                         "group": "Building on Livepeer",
                         "icon": "code",
                         "pages": [
-                          "v2/developers/developer-portal",
-                          "v2/developers/building-on-livepeer/developer-guide",
-                          "v2/developers/building-on-livepeer/partners",
-                          "v2/developers/building-on-livepeer/developer-journey"
+                          "v2/developers/portal",
+                          "v2/developers/developer-guide",
+                          "v2/developers/guides/partner-integrations",
+                          "v2/developers/developer-journey"
                         ]
                       },
                       {
@@ -2353,15 +2353,14 @@
                           {
                             "group": "Real-time Video",
                             "pages": [
-                              "v2/developers/building-on-livepeer/quick-starts/livepeer-ai",
+                              "v2/developers/quickstart/video/video-streaming",
                               "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README"
                             ]
                           },
                           {
                             "group": "AI Pipelines",
                             "pages": [
-                              "v2/developers/building-on-livepeer/quick-starts/video-streaming",
-                              "v2/developers/building-on-livepeer/quick-starts/livepeer-ai"
+                              "v2/developers/quickstart/ai/ai-pipelines"
                             ]
                           }
                         ]
@@ -2370,9 +2369,9 @@
                         "group": "AI Pipelines",
                         "icon": "user-robot",
                         "pages": [
-                          "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview",
-                          "v2/developers/ai-inference-on-livepeer/ai-pipelines/byoc",
-                          "v2/developers/ai-inference-on-livepeer/ai-pipelines/comfystream"
+                          "v2/developers/ai-pipelines/overview",
+                          "v2/developers/ai-pipelines/byoc",
+                          "v2/developers/ai-pipelines/comfystream"
                         ]
                       },
                       {

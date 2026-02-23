@@ -65,8 +65,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/developers/building-on-livepeer/quick-starts/livepeer-ai",
-      "resolvedPath": "v2/developers/building-on-livepeer/quick-starts/livepeer-ai.mdx",
+      "rawPath": "/v2/developers/quickstart/ai/ai-pipelines",
+      "resolvedPath": "v2/developers/quickstart/ai/ai-pipelines.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -92,8 +92,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/developers/building-on-livepeer/quick-starts/video-streaming",
-      "resolvedPath": "v2/developers/building-on-livepeer/quick-starts/video-streaming.mdx",
+      "rawPath": "/v2/developers/quickstart/video/video-streaming",
+      "resolvedPath": "v2/developers/quickstart/video/video-streaming.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -182,8 +182,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/developers/building-on-livepeer/quick-starts/livepeer-ai",
-      "resolvedPath": "v2/developers/building-on-livepeer/quick-starts/livepeer-ai.mdx",
+      "rawPath": "/v2/developers/quickstart/ai/ai-pipelines",
+      "resolvedPath": "v2/developers/quickstart/ai/ai-pipelines.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -200,8 +200,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../developers/ai-inference-on-livepeer/ai-pipelines/comfystream",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
+      "rawPath": "../../developers/ai-pipelines/comfystream",
+      "resolvedPath": "v2/developers/ai-pipelines/comfystream.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -209,8 +209,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../developers/ai-inference-on-livepeer/ai-pipelines/byoc",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
+      "rawPath": "../../developers/ai-pipelines/byoc",
+      "resolvedPath": "v2/developers/ai-pipelines/byoc.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -218,8 +218,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../developers/developer-portal",
-      "resolvedPath": "v2/developers/developer-portal.mdx",
+      "rawPath": "../../developers/portal",
+      "resolvedPath": "v2/developers/portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -272,8 +272,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/developers/building-on-livepeer/quick-starts/video-streaming",
-      "resolvedPath": "v2/developers/building-on-livepeer/quick-starts/video-streaming.mdx",
+      "rawPath": "/v2/developers/quickstart/video/video-streaming",
+      "resolvedPath": "v2/developers/quickstart/video/video-streaming.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -308,8 +308,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../developers/building-on-livepeer/partners",
-      "resolvedPath": "v2/developers/building-on-livepeer/partners.mdx",
+      "rawPath": "../../developers/guides/partner-integrations",
+      "resolvedPath": "v2/developers/guides/partner-integrations.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -364,8 +364,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/developer-portal",
-      "resolvedPath": "v2/developers/developer-portal.mdx",
+      "rawPath": "/developers/portal",
+      "resolvedPath": "v2/developers/portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -436,8 +436,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/developer-portal",
-      "resolvedPath": "v2/developers/developer-portal.mdx",
+      "rawPath": "/developers/portal",
+      "resolvedPath": "v2/developers/portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -517,8 +517,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../developers/developer-portal",
-      "resolvedPath": "v2/developers/developer-portal.mdx",
+      "rawPath": "../../developers/portal",
+      "resolvedPath": "v2/developers/portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1818,8 +1818,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../developers/ai-inference-on-livepeer/ai-pipelines/overview",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "rawPath": "../developers/ai-pipelines/overview",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

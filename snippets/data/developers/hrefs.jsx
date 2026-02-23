@@ -1,5 +1,5 @@
 export const LINK_MAP = {
-  "v2/developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx": [
+  "v2/developers/ai-pipelines/byoc.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
@@ -13,7 +13,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./overview",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -22,7 +22,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./comfystream",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
+      "resolvedPath": "v2/developers/ai-pipelines/comfystream.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -91,7 +91,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx": [
+  "v2/developers/ai-pipelines/comfystream.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -114,7 +114,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./overview",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -123,7 +123,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./byoc",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
+      "resolvedPath": "v2/developers/ai-pipelines/byoc.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -159,7 +159,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./byoc",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
+      "resolvedPath": "v2/developers/ai-pipelines/byoc.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -201,7 +201,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx": [
+  "v2/developers/ai-pipelines/overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -215,7 +215,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./byoc",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
+      "resolvedPath": "v2/developers/ai-pipelines/byoc.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -224,7 +224,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./byoc",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
+      "resolvedPath": "v2/developers/ai-pipelines/byoc.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -233,7 +233,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./comfystream",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
+      "resolvedPath": "v2/developers/ai-pipelines/comfystream.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -722,7 +722,7 @@ export const LINK_MAP = {
     }
   ],
   "v2/developers/builder-opportunities/oss-contributions.mdx": [],
-  "v2/developers/building-on-livepeer/developer-guide.mdx": [
+  "v2/developers/developer-guide.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -736,7 +736,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./developer-journey",
-      "resolvedPath": "v2/developers/building-on-livepeer/developer-journey.mdx",
+      "resolvedPath": "v2/developers/developer-journey.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -753,8 +753,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/ai-inference-on-livepeer/ai-pipelines/overview",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "rawPath": "/developers/ai-pipelines/overview",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -762,8 +762,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/ai-inference-on-livepeer/ai-pipelines/overview",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "rawPath": "/developers/ai-pipelines/overview",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -771,8 +771,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/ai-inference-on-livepeer/ai-pipelines/overview",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "rawPath": "/developers/ai-pipelines/overview",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -780,8 +780,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/ai-inference-on-livepeer/ai-pipelines/overview",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "rawPath": "/developers/ai-pipelines/overview",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -789,8 +789,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/ai-inference-on-livepeer/ai-pipelines/overview",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "rawPath": "/developers/ai-pipelines/overview",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -798,8 +798,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/ai-inference-on-livepeer/ai-pipelines/overview",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "rawPath": "/developers/ai-pipelines/overview",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -807,8 +807,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/ai-inference-on-livepeer/ai-pipelines/overview",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "rawPath": "/developers/ai-pipelines/overview",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -816,8 +816,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/ai-inference-on-livepeer/ai-pipelines/overview",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "rawPath": "/developers/ai-pipelines/overview",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -832,7 +832,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/developers/building-on-livepeer/developer-journey.mdx": [
+  "v2/developers/developer-journey.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -843,7 +843,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/developers/building-on-livepeer/partners.mdx": [
+  "v2/developers/guides/partner-integrations.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
@@ -856,8 +856,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../platforms/products-portal",
-      "resolvedPath": "v2/platforms/products-portal.mdx",
+      "rawPath": "../../platforms/portal",
+      "resolvedPath": "v2/platforms/portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -909,8 +909,8 @@ export const LINK_MAP = {
     }
   ],
   "v2/developers/building-on-livepeer/quick-starts/README.mdx": [],
-  "v2/developers/building-on-livepeer/quick-starts/livepeer-ai.mdx": [],
-  "v2/developers/building-on-livepeer/quick-starts/video-streaming.mdx": [],
+  "v2/developers/quickstart/ai/ai-pipelines.mdx": [],
+  "v2/developers/quickstart/video/video-streaming.mdx": [],
   "v2/developers/developer-platforms/all-ecosystem/ecosystem-products.mdx": [],
   "v2/developers/developer-platforms/builder-hub.mdx": [
     {
@@ -1030,8 +1030,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace.mdx",
+      "rawPath": "/platforms/streamplace/overview",
+      "resolvedPath": "v2/platforms/streamplace/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1039,8 +1039,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-guide",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-guide.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-guide",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1048,8 +1048,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-provenance",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-provenance.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-provenance",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-provenance.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1057,8 +1057,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-funding-model",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-funding-model.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-funding-model",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-funding-model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1066,8 +1066,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-integration",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-integration.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-integration",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-integration.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1086,8 +1086,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace.mdx",
+      "rawPath": "/platforms/streamplace/overview",
+      "resolvedPath": "v2/platforms/streamplace/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1095,8 +1095,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-architecture",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-architecture",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1104,8 +1104,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-provenance",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-provenance.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-provenance",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-provenance.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1113,8 +1113,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-integration",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-integration.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-integration",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-integration.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1133,8 +1133,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace.mdx",
+      "rawPath": "/platforms/streamplace/overview",
+      "resolvedPath": "v2/platforms/streamplace/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1142,8 +1142,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-architecture",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-architecture",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1151,8 +1151,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-provenance",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-provenance.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-provenance",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-provenance.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1160,8 +1160,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-integration",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-integration.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-integration",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-integration.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1180,8 +1180,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace.mdx",
+      "rawPath": "/platforms/streamplace/overview",
+      "resolvedPath": "v2/platforms/streamplace/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1189,8 +1189,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-guide",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-guide.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-guide",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1198,8 +1198,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-architecture",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-architecture",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1207,8 +1207,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-provenance",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-provenance.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-provenance",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-provenance.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1216,8 +1216,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-funding-model",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-funding-model.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-funding-model",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-funding-model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1254,8 +1254,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace.mdx",
+      "rawPath": "/platforms/streamplace/overview",
+      "resolvedPath": "v2/platforms/streamplace/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1263,8 +1263,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-guide",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-guide.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-guide",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1272,8 +1272,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-architecture",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-architecture",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1281,8 +1281,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-funding-model",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-funding-model.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-funding-model",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-funding-model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1290,8 +1290,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-integration",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-integration.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-integration",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-integration.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1310,8 +1310,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-guide",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-guide.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-guide",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1319,8 +1319,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-architecture",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-architecture.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-architecture",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-architecture.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1328,8 +1328,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-provenance",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-provenance.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-provenance",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-provenance.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1337,8 +1337,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-funding-model",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-funding-model.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-funding-model",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-funding-model.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1346,8 +1346,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/streamplace/streamplace-integration",
-      "resolvedPath": "v2/platforms/products/streamplace/streamplace-integration.mdx",
+      "rawPath": "/platforms/streamplace/introduction/streamplace-integration",
+      "resolvedPath": "v2/platforms/streamplace/introduction/streamplace-integration.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1362,7 +1362,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/developers/developer-portal.mdx": [
+  "v2/developers/portal.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "empty",
@@ -1430,7 +1430,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./ai-inference-on-livepeer/ai-pipelines/overview",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1448,7 +1448,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./building-on-livepeer/developer-journey",
-      "resolvedPath": "v2/developers/building-on-livepeer/developer-journey.mdx",
+      "resolvedPath": "v2/developers/developer-journey.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1735,8 +1735,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/livepeer-studio/overview/api-overview",
-      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/api-overview.mdx",
+      "rawPath": "/platforms/livepeer-studio/reference/api",
+      "resolvedPath": "v2/platforms/livepeer-studio/reference/api.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1744,8 +1744,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/livepeer-studio/api-reference/overview",
-      "resolvedPath": "v2/platforms/products/livepeer-studio/api-reference/overview.mdx",
+      "rawPath": "/platforms/livepeer-studio/reference/overview",
+      "resolvedPath": "v2/platforms/livepeer-studio/reference/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1771,8 +1771,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/livepeer-studio/overview/api-overview",
-      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/api-overview.mdx",
+      "rawPath": "/platforms/livepeer-studio/reference/api",
+      "resolvedPath": "v2/platforms/livepeer-studio/reference/api.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1867,8 +1867,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/livepeer-studio/overview/sdks-overview",
-      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/sdks-overview.mdx",
+      "rawPath": "/platforms/livepeer-studio/reference/sdks",
+      "resolvedPath": "v2/platforms/livepeer-studio/reference/sdks.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1885,8 +1885,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/platforms/products/livepeer-studio/overview/sdks-overview",
-      "resolvedPath": "v2/platforms/products/livepeer-studio/overview/sdks-overview.mdx",
+      "rawPath": "/platforms/livepeer-studio/reference/sdks",
+      "resolvedPath": "v2/platforms/livepeer-studio/reference/sdks.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

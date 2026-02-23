@@ -206,8 +206,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/developer-portal",
-      "resolvedPath": "v2/developers/developer-portal.mdx",
+      "rawPath": "/developers/portal",
+      "resolvedPath": "v2/developers/portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

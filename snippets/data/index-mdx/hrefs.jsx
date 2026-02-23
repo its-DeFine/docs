@@ -1705,7 +1705,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "developers/developer-portal.mdx",
-      "resolvedPath": "v2/developers/developer-portal.mdx",
+      "resolvedPath": "v2/developers/portal.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1741,7 +1741,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx",
+      "resolvedPath": "v2/developers/ai-pipelines/byoc.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1750,7 +1750,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx",
+      "resolvedPath": "v2/developers/ai-pipelines/comfystream.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1759,7 +1759,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
-      "resolvedPath": "v2/developers/ai-inference-on-livepeer/ai-pipelines/overview.mdx",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1885,7 +1885,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "developers/building-on-livepeer/developer-guide.mdx",
-      "resolvedPath": "v2/developers/building-on-livepeer/developer-guide.mdx",
+      "resolvedPath": "v2/developers/developer-guide.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1894,7 +1894,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "developers/building-on-livepeer/developer-journey.mdx",
-      "resolvedPath": "v2/developers/building-on-livepeer/developer-journey.mdx",
+      "resolvedPath": "v2/developers/developer-journey.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1903,7 +1903,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "developers/building-on-livepeer/partners.mdx",
-      "resolvedPath": "v2/developers/building-on-livepeer/partners.mdx",
+      "resolvedPath": "v2/developers/guides/partner-integrations.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1912,7 +1912,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "developers/building-on-livepeer/quick-starts/livepeer-ai.mdx",
-      "resolvedPath": "v2/developers/building-on-livepeer/quick-starts/livepeer-ai.mdx",
+      "resolvedPath": "v2/developers/quickstart/ai/ai-pipelines.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -1930,7 +1930,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "developers/building-on-livepeer/quick-starts/video-streaming.mdx",
-      "resolvedPath": "v2/developers/building-on-livepeer/quick-starts/video-streaming.mdx",
+      "resolvedPath": "v2/developers/quickstart/video/video-streaming.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
