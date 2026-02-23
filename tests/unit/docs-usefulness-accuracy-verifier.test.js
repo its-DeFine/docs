@@ -32,11 +32,16 @@ const path = require('path');
 
 const {
   aggregatePageAccuracy,
+  createLiveQueryClaimEvidence,
   createTier2Provider,
   createVerificationCache,
   evaluateClaimAccuracy,
   verifyPageAccuracy
 } = require('../../tools/lib/docs-usefulness/accuracy-verifier');
+const {
+  analyzeMdxPage,
+  buildUsefulnessMatrixFields
+} = require('../../tools/lib/docs-usefulness/scoring');
 
 async function runCase(name, fn) {
   try {
@@ -171,6 +176,88 @@ async function main() {
     } finally {
       fs.rmSync(tmpDir, { recursive: true, force: true });
     }
+  }));
+
+  results.push(await runCase('Live query adapter combines GitHub, official docs, and DeepWiki evidence via injected clients', async () => {
+    const query = createLiveQueryClaimEvidence({
+      ghApi: () => ({
+        items: [
+          {
+            path: 'README.md',
+            html_url: 'https://github.com/livepeer/go-livepeer/blob/master/README.md',
+            repository: { full_name: 'livepeer/go-livepeer', updated_at: '2026-02-10T00:00:00Z' },
+            text_matches: [{ fragment: 'Livepeer orchestrators run the go-livepeer node software.' }]
+          }
+        ]
+      }),
+      fetchText: async (url) => ({
+        ok: true,
+        status: 200,
+        url,
+        text: url.includes('deepwiki')
+          ? '<html><body>DeepWiki entry for livepeer/go-livepeer orchestrators and gateways (2026-02-11)</body></html>'
+          : '<html><body>Official Livepeer docs: orchestrators run node software and serve workloads (2026-02-12)</body></html>'
+      })
+    });
+
+    const out = await query(claim('c7', 'Livepeer orchestrators run node software.'), {
+      verifySources: ['github', 'deepwiki', 'official'],
+      githubRepos: ['livepeer/go-livepeer'],
+      deepwikiEnabled: true,
+      pagePath: 'v2/about/livepeer-network/actors.mdx',
+      routePath: '/v2/about/livepeer-network/actors'
+    });
+
+    const sourceTypes = new Set(out.evidence.map((e) => e.source_type));
+    assert.ok(sourceTypes.has('github_readme') || sourceTypes.has('github_docs'));
+    assert.ok(sourceTypes.has('official_docs'));
+    assert.ok(sourceTypes.has('deepwiki'));
+  }));
+
+  results.push(await runCase('Rules-only usefulness scoring emits human/agent matrix fields', async () => {
+    const sampleContent = `---
+title: "Actors Overview"
+description: "Who participates in the network"
+---
+
+# Actors Overview
+
+Applications submit work to gateways and orchestrators.
+
+## Flow
+
+1. Submit a job
+2. Route to compute
+
+\`\`\`bash
+curl https://example.com
+\`\`\`
+
+[Reference](https://github.com/livepeer/go-livepeer)
+`;
+    const accuracy = {
+      accuracy_2026_status: 'provisional',
+      accuracy_2026_confidence: 0.62,
+      verification_sources: [evidence('github_docs', true, '2026-02-20')],
+      source_conflicts: [],
+      flags: [],
+      claims: [claim('c8', 'Applications submit work to gateways.', false)],
+      claim_results: []
+    };
+    const analysis = analyzeMdxPage({
+      content: sampleContent,
+      filePath: 'v2/about/livepeer-network/actors.mdx',
+      routePath: '/v2/about/livepeer-network/actors',
+      accuracy
+    });
+    const matrix = buildUsefulnessMatrixFields({ analysis, accuracy });
+    assert.ok(Number.isFinite(matrix.human_usefulness_score));
+    assert.ok(Number.isFinite(matrix.agent_usefulness_score));
+    assert.ok(matrix.human_usefulness_score > 0);
+    assert.ok(matrix.agent_usefulness_score > 0);
+    assert.ok(typeof matrix.human_band === 'string');
+    assert.ok(typeof matrix.agent_band === 'string');
+    assert.ok(typeof matrix.notes_short === 'string');
   }));
 
   const passed = results.filter(Boolean).length;

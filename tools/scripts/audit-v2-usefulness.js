@@ -17,9 +17,13 @@
  *   --verify-sources <csv> Source families to use (default: github,deepwiki,official)
  *   --github-repos <csv> GitHub repos considered canonical for claim verification context
  *   --deepwiki-enabled <true|false> Enable DeepWiki corroboration (default: true in tiered/live)
+ *   --deepwiki-base-url <url> DeepWiki base URL for fetch/query strategy (default: https://deepwiki.com)
+ *   --official-docs-base-url <url> Official docs base URL for verification fetches (default: https://docs.livepeer.org)
+ *   --github-results-per-repo <n> Max GitHub code search hits per repo/claim (default: 2)
  *   --verification-cache-dir <path> Cache directory for Tier 2 verification results
  *   --verification-max-requests <n> Max Tier 2 source queries per run (default: 200)
  *   --verification-timeout-ms <n> Source query timeout hint (default: 10000)
+ *   --scoring-engine <rules-only|hybrid|llm-only> (default: rules-only)
  *   --out-dir <path> Output directory (default: tasks/reports/docs-usefulness/<run-id>)
  *   --format <jsonl,csv,json> Output formats (default: jsonl,csv,json)
  *   --max-pages <n> Limit processed pages (debug)
@@ -27,7 +31,7 @@
  *
  * @outputs
  *   - page-matrix.jsonl (canonical rows with accuracy verification fields)
- *   - page-matrix.csv (flattened matrix)
+ *   - page-matrix.csv (flattened matrix with human/agent usefulness scores and flags)
  *   - run-metadata.json (run config, counts, and source policy)
  *
  * @exit-codes
@@ -39,7 +43,7 @@
  *   node tools/scripts/audit-v2-usefulness.js --files v2/about/livepeer-network/actors.mdx --verify-sources github,deepwiki,official
  *
  * @notes
- *   This implementation focuses on Stage 6 accuracy verification outputs and source policy fields; broader usefulness scoring can layer on top of these rows.
+ *   Emits a deterministic usefulness matrix now (rules-only scoring) and supports live Tier 2 verification via GitHub + DeepWiki/official fetch strategies.
  */
 
 const fs = require('fs');
@@ -48,6 +52,7 @@ const { execSync } = require('child_process');
 
 const {
   DEFAULT_AS_OF_DATE,
+  createLiveTier2Provider,
   createTier2Provider,
   createVerificationCache,
   extractTier1Claims,
@@ -59,6 +64,10 @@ const {
   toPosix,
   verifyPageAccuracy
 } = require('../lib/docs-usefulness/accuracy-verifier');
+const {
+  analyzeMdxPage,
+  buildUsefulnessMatrixFields
+} = require('../lib/docs-usefulness/scoring');
 
 const DEFAULT_VERIFY_TIMEOUT_MS = 10000;
 const DEFAULT_VERIFY_MAX_REQUESTS = 200;
@@ -90,9 +99,13 @@ function parseArgs(argv) {
       'livepeer/livepeer-protocol'
     ],
     deepwikiEnabled: true,
+    deepwikiBaseUrl: 'https://deepwiki.com',
+    officialDocsBaseUrl: 'https://docs.livepeer.org',
+    githubResultsPerRepo: 2,
     verificationCacheDir: null,
     verificationMaxRequests: DEFAULT_VERIFY_MAX_REQUESTS,
     verificationTimeoutMs: DEFAULT_VERIFY_TIMEOUT_MS,
+    scoringEngine: 'rules-only',
     outDir: null,
     format: ['jsonl', 'csv', 'json'],
     maxPages: null,
@@ -137,6 +150,22 @@ function parseArgs(argv) {
       i += 1;
       continue;
     }
+    if (token === '--deepwiki-base-url') {
+      args.deepwikiBaseUrl = String(argv[i + 1] || args.deepwikiBaseUrl).trim() || args.deepwikiBaseUrl;
+      i += 1;
+      continue;
+    }
+    if (token === '--official-docs-base-url') {
+      args.officialDocsBaseUrl = String(argv[i + 1] || args.officialDocsBaseUrl).trim() || args.officialDocsBaseUrl;
+      i += 1;
+      continue;
+    }
+    if (token === '--github-results-per-repo') {
+      const parsed = Number(argv[i + 1]);
+      if (Number.isFinite(parsed) && parsed > 0) args.githubResultsPerRepo = parsed;
+      i += 1;
+      continue;
+    }
     if (token === '--verification-cache-dir') {
       args.verificationCacheDir = String(argv[i + 1] || '').trim() || null;
       i += 1;
@@ -151,6 +180,11 @@ function parseArgs(argv) {
     if (token === '--verification-timeout-ms') {
       const parsed = Number(argv[i + 1]);
       if (Number.isFinite(parsed) && parsed > 0) args.verificationTimeoutMs = parsed;
+      i += 1;
+      continue;
+    }
+    if (token === '--scoring-engine') {
+      args.scoringEngine = String(argv[i + 1] || args.scoringEngine).trim() || args.scoringEngine;
       i += 1;
       continue;
     }
@@ -295,8 +329,25 @@ function writeCsv(filePath, rows) {
     'as_of_date',
     'file_path',
     'route_path',
+    'cohort',
+    'page_kind',
+    'doc_type_primary',
     'accuracy_2026_status',
     'accuracy_2026_confidence',
+    'accuracy_2026_score',
+    'clarity_score',
+    'verifiability_score',
+    'docs_framework_fit_score',
+    'rfp_page_compliance_score',
+    'completeness_score',
+    'actionability_score',
+    'audience_fit_score',
+    'machine_readability_score',
+    'maintenance_quality_score',
+    'human_usefulness_score',
+    'agent_usefulness_score',
+    'human_band',
+    'agent_band',
     'claims_extracted_count',
     'verification_sources_count',
     'source_types_used',
@@ -337,11 +388,20 @@ async function main() {
 
   const fixtureMap = loadFixtureMap(args.verificationFixture, repoRoot);
   const cache = createVerificationCache(args.verificationCacheDir);
-  const tier2Provider = createTier2Provider({
-    cache,
-    fixturesByClaimId: fixtureMap,
-    maxRequests: args.verificationMaxRequests
-  });
+  const useLiveTier2 = !args.verificationFixture && (args.accuracyMode === 'tiered' || args.accuracyMode === 'live');
+  const tier2Provider = useLiveTier2
+    ? createLiveTier2Provider({
+        cache,
+        maxRequests: args.verificationMaxRequests,
+        githubResultsPerRepo: args.githubResultsPerRepo,
+        deepwikiBaseUrl: args.deepwikiBaseUrl,
+        officialDocsBaseUrl: args.officialDocsBaseUrl
+      })
+    : createTier2Provider({
+        cache,
+        fixturesByClaimId: fixtureMap,
+        maxRequests: args.verificationMaxRequests
+      });
 
   let files = discoverTargetFiles(repoRoot, args);
   if (Number.isFinite(args.maxPages)) {
@@ -352,12 +412,14 @@ async function main() {
   for (const absPath of files) {
     const content = fs.readFileSync(absPath, 'utf8');
     const relPath = toPosix(path.relative(repoRoot, absPath));
+    const routePath = fileToRoutePath(repoRoot, absPath);
     const claims = extractTier1Claims({ content, pagePath: relPath });
 
     const accuracy = await verifyPageAccuracy({
       content,
       claims,
       pagePath: relPath,
+      routePath,
       asOfDate: args.asOf,
       accuracyMode: args.accuracyMode,
       verifySources: args.verifySources,
@@ -371,13 +433,24 @@ async function main() {
       weights
     });
 
-    const flags = [...(accuracy.flags || [])];
+    const analysis = analyzeMdxPage({
+      content,
+      filePath: relPath,
+      routePath,
+      accuracy
+    });
+    const matrix = buildUsefulnessMatrixFields({ analysis, accuracy });
+
+    const flags = [...new Set([...(accuracy.flags || []), ...(analysis.flags || [])])];
     maybeAddEmptyFlag(content, flags);
+    if (matrix.manual_review_required) flags.push('manual_review_required');
+    if (matrix.verification_required) flags.push('verification_required');
+    if ((args.scoringEngine === 'hybrid' || args.scoringEngine === 'llm-only')) flags.push('llm_unavailable');
     const row = {
       schema_version: 'docs-usefulness-matrix.v1',
       as_of_date: args.asOf,
       file_path: relPath,
-      route_path: fileToRoutePath(repoRoot, absPath),
+      route_path: routePath,
       accuracy_2026_status: accuracy.accuracy_2026_status,
       accuracy_2026_confidence: accuracy.accuracy_2026_confidence,
       verification_sources: accuracy.verification_sources,
@@ -390,7 +463,8 @@ async function main() {
       claims: accuracy.claims || claims,
       claim_results: accuracy.claim_results || [],
       provider_errors: accuracy.provider_errors || [],
-      flags,
+      ...matrix,
+      flags: [...new Set(flags)],
       flags_human: buildFlagsHuman(flags)
     };
     rows.push(row);
@@ -411,9 +485,13 @@ async function main() {
       files_processed: rows.length,
       mode: args.mode,
       accuracy_mode: args.accuracyMode,
+      scoring_engine: args.scoringEngine,
       verify_sources: args.verifySources,
       github_repos: args.githubRepos,
       deepwiki_enabled: args.deepwikiEnabled,
+      deepwiki_base_url: args.deepwikiBaseUrl,
+      official_docs_base_url: args.officialDocsBaseUrl,
+      github_results_per_repo: args.githubResultsPerRepo,
       verification_cache_dir: toPosix(path.relative(repoRoot, args.verificationCacheDir)),
       verification_max_requests: args.verificationMaxRequests,
       verification_timeout_ms: args.verificationTimeoutMs,
@@ -432,12 +510,15 @@ async function main() {
       acc[row.accuracy_2026_status] = (acc[row.accuracy_2026_status] || 0) + 1;
       return acc;
     }, {}),
+    avg_human_usefulness: rows.length ? Number((rows.reduce((sum, row) => sum + (row.human_usefulness_score || 0), 0) / rows.length).toFixed(1)) : 0,
+    avg_agent_usefulness: rows.length ? Number((rows.reduce((sum, row) => sum + (row.agent_usefulness_score || 0), 0) / rows.length).toFixed(1)) : 0,
     flagged_source_conflict: rows.filter((row) => row.flags.includes('source_conflict')).length,
     flagged_accuracy_needs_review: rows.filter((row) => row.flags.includes('accuracy_needs_review')).length
   };
 
   console.log(`Audited ${summary.total} page(s) into ${args.outDir}`);
   console.log(`Status counts: ${JSON.stringify(summary.status_counts)}`);
+  console.log(`avg_human=${summary.avg_human_usefulness} avg_agent=${summary.avg_agent_usefulness}`);
   console.log(`source_conflict=${summary.flagged_source_conflict} accuracy_needs_review=${summary.flagged_accuracy_needs_review}`);
 }
 

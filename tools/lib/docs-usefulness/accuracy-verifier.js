@@ -209,7 +209,8 @@ function defaultGhApi(args, options = {}) {
   const output = execFileSync('gh', ['api', ...args], {
     encoding: 'utf8',
     timeout: Number.isFinite(Number(options.timeoutMs)) ? Number(options.timeoutMs) : DEFAULT_HTTP_TIMEOUT_MS * 2,
-    maxBuffer: 5 * 1024 * 1024
+    maxBuffer: 5 * 1024 * 1024,
+    stdio: ['ignore', 'pipe', 'pipe']
   });
   return safeJsonParse(output, null);
 }
@@ -277,6 +278,7 @@ async function collectGithubEvidence(claim, context = {}, options = {}) {
       payload = ghApi(
         [
           'search/code',
+          '-X', 'GET',
           '-H', 'Accept: application/vnd.github.text-match+json',
           '-f', `q=${q}`,
           '-f', `per_page=${perRepo}`
