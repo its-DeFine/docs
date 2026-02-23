@@ -60,7 +60,7 @@ MINT_BASE_URL=http://localhost:3001 npm run test:v2-pages
 🚀 Starting browser tests...
 
 [1/263] Testing v2/home/mission-control... ✅
-[2/263] Testing v2/home/home/user-journey... ✅
+[2/263] Testing v2/home/user-journey... ✅
 ...
 
 ============================================================

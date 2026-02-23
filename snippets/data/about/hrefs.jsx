@@ -262,8 +262,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/project-showcase/showcase",
-      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/case-studies/showcase",
+      "resolvedPath": "v2/home/case-studies/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -271,8 +271,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/project-showcase/showcase",
-      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/case-studies/showcase",
+      "resolvedPath": "v2/home/case-studies/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1615,8 +1615,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/introduction/ecosystem#livepeer-foundation",
-      "resolvedPath": "v2/home/introduction/ecosystem.mdx",
+      "rawPath": "/v2/home/about-livepeer/ecosystem#livepeer-foundation",
+      "resolvedPath": "v2/home/about-livepeer/ecosystem.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1624,8 +1624,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/introduction/ecosystem#special-purpose-entities",
-      "resolvedPath": "v2/home/introduction/ecosystem.mdx",
+      "rawPath": "/v2/home/about-livepeer/ecosystem#special-purpose-entities",
+      "resolvedPath": "v2/home/about-livepeer/ecosystem.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

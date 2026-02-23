@@ -2080,36 +2080,31 @@
                         "icon": "house-heart",
                         "pages": [
                           "v2/home/mission-control",
-                          "v2/home/home/get-started",
-                          "v2/home/home/primer"
+                          "v2/home/get-started",
+                          "v2/home/primer"
                         ]
                       },
                       {
                         "group": "Livepeer",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
                         "pages": [
-                          "v2/home/introduction/vision",
-                          "v2/home/introduction/evolution",
-                          "v2/home/introduction/why-livepeer",
-                          "v2/home/introduction/ecosystem",
-                          "v2/home/introduction/roadmap"
+                          "v2/home/about-livepeer/vision",
+                          "v2/home/about-livepeer/evolution",
+                          "v2/home/about-livepeer/benefits",
+                          "v2/home/about-livepeer/ecosystem",
+                          "v2/home/about-livepeer/roadmap"
                         ]
                       },
                       {
                         "group": "Showcase",
                         "icon": "clapperboard-play",
                         "pages": [
-                          "v2/home/project-showcase/showcase",
-                          "v2/home/project-showcase/industry-verticals",
-                          "v2/home/project-showcase/applications"
+                          "v2/home/case-studies/showcase",
+                          "v2/home/case-studies/verticals",
+                          "v2/home/case-studies/applications"
                         ]
                       }
                     ]
-                  },
-                  {
-                    "anchor": "Get Started!",
-                    "icon": "play",
-                    "pages": ["v2/developers/developer-portal"]
                   },
                   {
                     "anchor": "Resource HUB",

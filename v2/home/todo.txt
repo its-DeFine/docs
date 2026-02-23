@@ -1,8 +1,8 @@
 # Pages in this section (from index.mdx)
 
 ## Home
-- [Get Started with Livepeer](../../home/home/get-started.mdx)
-- [Livepeer Primer](../../home/home/primer.mdx)
+- [Get Started with Livepeer](../../home/get-started.mdx)
+- [Livepeer Primer](../../home/primer.mdx)
 
 ## Introduction
 - [Livepeer Organisational Structure](introduction/ecosystem.mdx)
@@ -12,17 +12,17 @@
 - [The Livepeer Advantage](introduction/why-livepeer.mdx)
 
 ## Project Showcase
-- [Key Applications for Livepeer](/v2/home/project-showcase/showcase)
-- [Industry Verticals](/v2/home/project-showcase/showcase)
-- [Creative Projects Built with Livepeer](/v2/home/project-showcase/showcase)
+- [Key Applications for Livepeer](/v2/home/case-studies/showcase)
+- [Industry Verticals](/v2/home/case-studies/showcase)
+- [Creative Projects Built with Livepeer](/v2/home/case-studies/showcase)
 
 
 # TODO:
 
 ## Upgrade:
-- [Get Started](../../home/home/get-started.mdx)
-- [Livepeer Primer](../../home/home/primer.mdx)
-- [Livepeer Applications](/v2/home/project-showcase/showcase)
+- [Get Started](../../home/get-started.mdx)
+- [Livepeer Primer](../../home/primer.mdx)
+- [Livepeer Applications](/v2/home/case-studies/showcase)
 - SEO & AEO (see scripts)
 - OG image
 - Seed more showcase projects

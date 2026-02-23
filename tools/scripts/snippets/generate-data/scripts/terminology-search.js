@@ -51,12 +51,17 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
-// Load .env file from the scripts directory
-require('dotenv').config({ path: path.join(__dirname, '.env') });
+// Load .env file from the scripts directory (optional in local dry-run use)
+try {
+  require('dotenv').config({ path: path.join(__dirname, '.env') });
+} catch (_error) {
+  // Optional dependency for local dry-run usage.
+}
 
 // Configuration
-const REPO_ROOT = path.resolve(__dirname, '../../../..');
+const REPO_ROOT = getRepoRoot();
 const V1_PAGES_DIR = path.join(REPO_ROOT, 'v1');
 const V2_PAGES_DIRS = [
   'v2/pages',
@@ -84,6 +89,14 @@ const isDryRun = args.includes('--dry-run');
 const withLLM = args.includes('--with-llm');
 const minOccurrencesArg = args.find(a => a.startsWith('--min-occurrences='));
 const MIN_OCCURRENCES = minOccurrencesArg ? parseInt(minOccurrencesArg.split('=')[1]) : 3;
+
+function getRepoRoot() {
+  try {
+    return execSync('git rev-parse --show-toplevel', { encoding: 'utf8' }).trim();
+  } catch (_error) {
+    return process.cwd();
+  }
+}
 
 // OpenRouter model selection - can be overridden with --model flag
 const modelArg = args.find(a => a.startsWith('--model='));

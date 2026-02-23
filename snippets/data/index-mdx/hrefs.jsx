@@ -21,8 +21,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "home/get-started/livepeer-ai-quickstart.mdx",
-      "resolvedPath": "v2/home/get-started/livepeer-ai-quickstart.mdx",
+      "rawPath": "home/get-started/ai-pipelines.mdx",
+      "resolvedPath": "v2/home/get-started/ai-pipelines.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -30,8 +30,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "home/get-started/stream-video-quickstart.mdx",
-      "resolvedPath": "v2/home/get-started/stream-video-quickstart.mdx",
+      "rawPath": "home/get-started/stream-video.mdx",
+      "resolvedPath": "v2/home/get-started/stream-video.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -48,8 +48,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "home/home/get-started.mdx",
-      "resolvedPath": "v2/home/home/get-started.mdx",
+      "rawPath": "home/get-started.mdx",
+      "resolvedPath": "v2/home/get-started.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -57,8 +57,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "home/home/primer.mdx",
-      "resolvedPath": "v2/home/home/primer.mdx",
+      "rawPath": "home/primer.mdx",
+      "resolvedPath": "v2/home/primer.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -66,8 +66,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "home/home/trending-topics.mdx",
-      "resolvedPath": "v2/home/home/trending-topics.mdx",
+      "rawPath": "home/trending.mdx",
+      "resolvedPath": "v2/home/trending.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -75,8 +75,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "home/introduction/ecosystem.mdx",
-      "resolvedPath": "v2/home/introduction/ecosystem.mdx",
+      "rawPath": "home/about-livepeer/ecosystem.mdx",
+      "resolvedPath": "v2/home/about-livepeer/ecosystem.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -84,8 +84,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "home/introduction/evolution.mdx",
-      "resolvedPath": "v2/home/introduction/evolution.mdx",
+      "rawPath": "home/about-livepeer/evolution.mdx",
+      "resolvedPath": "v2/home/about-livepeer/evolution.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -93,8 +93,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "home/introduction/roadmap.mdx",
-      "resolvedPath": "v2/home/introduction/roadmap.mdx",
+      "rawPath": "home/about-livepeer/roadmap.mdx",
+      "resolvedPath": "v2/home/about-livepeer/roadmap.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -102,8 +102,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "home/introduction/vision.mdx",
-      "resolvedPath": "v2/home/introduction/vision.mdx",
+      "rawPath": "home/about-livepeer/vision.mdx",
+      "resolvedPath": "v2/home/about-livepeer/vision.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -111,8 +111,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "home/introduction/why-livepeer.mdx",
-      "resolvedPath": "v2/home/introduction/why-livepeer.mdx",
+      "rawPath": "home/about-livepeer/benefits.mdx",
+      "resolvedPath": "v2/home/about-livepeer/benefits.mdx",
       "exists": true,
       "status": "route-missing",
       "movedCandidates": []
@@ -120,8 +120,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/project-showcase/showcase",
-      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/case-studies/showcase",
+      "resolvedPath": "v2/home/case-studies/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -129,8 +129,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/project-showcase/showcase",
-      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/case-studies/showcase",
+      "resolvedPath": "v2/home/case-studies/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -138,8 +138,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/project-showcase/showcase",
-      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/case-studies/showcase",
+      "resolvedPath": "v2/home/case-studies/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -147,8 +147,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/project-showcase/showcase",
-      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/case-studies/showcase",
+      "resolvedPath": "v2/home/case-studies/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

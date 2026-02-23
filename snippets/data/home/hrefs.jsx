@@ -10,7 +10,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/get-started/livepeer-ai-quickstart.mdx": [
+  "v2/home/get-started/ai-pipelines.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -21,7 +21,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/get-started/stream-video-quickstart.mdx": [
+  "v2/home/get-started/stream-video.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -43,12 +43,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/home/get-started.mdx": [
+  "v2/home/get-started.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/project-showcase/showcase",
-      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/case-studies/showcase",
+      "resolvedPath": "v2/home/case-studies/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -128,8 +128,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/project-showcase/showcase",
-      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/case-studies/showcase",
+      "resolvedPath": "v2/home/case-studies/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -137,7 +137,7 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/introduction/",
+      "rawPath": "/v2/home/about-livepeer/",
       "resolvedPath": "/v2/home/introduction",
       "exists": true,
       "status": "ok-folder-route",
@@ -155,8 +155,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../get-started/stream-video-quickstart",
-      "resolvedPath": "v2/home/get-started/stream-video-quickstart.mdx",
+      "rawPath": "../get-started/stream-video",
+      "resolvedPath": "v2/home/get-started/stream-video.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -360,7 +360,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/home/primer.mdx": [
+  "v2/home/primer.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -499,8 +499,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/project-showcase/showcase",
-      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/case-studies/showcase",
+      "resolvedPath": "v2/home/case-studies/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -650,7 +650,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/home/trending-topics.mdx": [
+  "v2/home/trending.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -823,7 +823,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/introduction/ecosystem.mdx": [
+  "v2/home/about-livepeer/ecosystem.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1311,7 +1311,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/introduction/evolution.mdx": [
+  "v2/home/about-livepeer/evolution.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1468,8 +1468,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/introduction/roadmap",
-      "resolvedPath": "v2/home/introduction/roadmap.mdx",
+      "rawPath": "/v2/home/about-livepeer/roadmap",
+      "resolvedPath": "v2/home/about-livepeer/roadmap.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1502,7 +1502,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/introduction/roadmap.mdx": [
+  "v2/home/about-livepeer/roadmap.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1540,7 +1540,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/introduction/vision.mdx": [
+  "v2/home/about-livepeer/vision.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1598,8 +1598,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/introduction/roadmap",
-      "resolvedPath": "v2/home/introduction/roadmap.mdx",
+      "rawPath": "/v2/home/about-livepeer/roadmap",
+      "resolvedPath": "v2/home/about-livepeer/roadmap.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1668,7 +1668,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/introduction/why-livepeer.mdx": [
+  "v2/home/about-livepeer/benefits.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1690,8 +1690,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/project-showcase/showcase",
-      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/case-studies/showcase",
+      "resolvedPath": "v2/home/case-studies/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1845,8 +1845,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/project-showcase/showcase",
-      "resolvedPath": "v2/home/project-showcase/showcase.mdx",
+      "rawPath": "/v2/home/case-studies/showcase",
+      "resolvedPath": "v2/home/case-studies/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1933,7 +1933,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/project-showcase/applications.mdx": [
+  "v2/home/case-studies/applications.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -1944,7 +1944,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/project-showcase/industry-verticals.mdx": [
+  "v2/home/case-studies/verticals.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -1964,7 +1964,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/project-showcase/landscape.mdx": [
+  "v2/home/case-studies/landscape.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -1993,7 +1993,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/project-showcase/showcase.mdx": [
+  "v2/home/case-studies/showcase.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",

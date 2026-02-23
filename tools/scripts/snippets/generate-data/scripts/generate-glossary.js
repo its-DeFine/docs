@@ -48,9 +48,10 @@
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
 // Configuration
-const REPO_ROOT = path.resolve(__dirname, '../../..');
+const REPO_ROOT = getRepoRoot();
 const V1_PAGES_DIR = path.join(REPO_ROOT, 'v1');
 const V2_PAGES_DIRS = [
   'v2/pages',
@@ -70,10 +71,18 @@ const V2_PAGES_DIRS = [
 ]
   .map((dir) => path.join(REPO_ROOT, dir))
   .filter((dir) => fs.existsSync(dir));
-const OUTPUT_DIR = path.join(__dirname, 'data');
+const OUTPUT_DIR = path.join(__dirname, '..', 'data');
 const OUTPUT_FILE = path.join(OUTPUT_DIR, 'glossary-terms.json');
 
 const isDryRun = process.argv.includes('--dry-run');
+
+function getRepoRoot() {
+  try {
+    return execSync('git rev-parse --show-toplevel', { encoding: 'utf8' }).trim();
+  } catch (_error) {
+    return process.cwd();
+  }
+}
 
 // Known terminology patterns and categories
 const TERM_PATTERNS = {

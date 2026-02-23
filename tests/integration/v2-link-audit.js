@@ -40,7 +40,9 @@ const { extractImports } = require('../utils/mdx-parser');
 const { getStagedFiles } = require('../utils/file-walker');
 
 const REPO_ROOT = getRepoRoot();
-const V2_PAGES_DIR = path.join(REPO_ROOT, 'v2', 'pages');
+const LEGACY_V2_PAGES_DIR = path.join(REPO_ROOT, 'v2', 'pages');
+const MODERN_V2_PAGES_DIR = path.join(REPO_ROOT, 'v2');
+const V2_PAGES_DIR = fs.existsSync(LEGACY_V2_PAGES_DIR) ? LEGACY_V2_PAGES_DIR : MODERN_V2_PAGES_DIR;
 const INDEX_PATH = path.join(V2_PAGES_DIR, 'index.mdx');
 const DOCS_CONFIG_PATH = path.join(REPO_ROOT, 'docs.json');
 const DEFAULT_REPORT = path.join(REPO_ROOT, 'tasks', 'reports', 'LINK_TEST_REPORT.md');
@@ -84,6 +86,21 @@ function relFromRoot(absPath) {
 function relNoExt(absPath) {
   const rel = relFromRoot(absPath);
   return toPosix(rel.replace(/\.(mdx|md)$/i, ''));
+}
+
+function isActiveV2DocRel(relPath) {
+  const rel = toPosix(String(relPath || ''));
+  if (rel.startsWith('v2/pages/')) return true;
+  if (!rel.startsWith('v2/')) return false;
+  const first = rel.slice('v2/'.length).split('/')[0];
+  return MIGRATED_V2_DOMAIN_DIRS.has(first);
+}
+
+function stripV2DocsRoot(relPath) {
+  const rel = toPosix(String(relPath || ''));
+  if (rel.startsWith('v2/pages/')) return rel.slice('v2/pages/'.length);
+  if (rel.startsWith('v2/')) return rel.slice('v2/'.length);
+  return rel;
 }
 
 function parseArgs(argv) {
@@ -145,6 +162,7 @@ function walkFiles(dir, matcher, out = []) {
     const abs = path.join(dir, entry.name);
     if (entry.isDirectory()) {
       if (entry.name === '.git' || entry.name === 'node_modules') continue;
+      if (path.resolve(dir) === path.resolve(V2_PAGES_DIR) && entry.name.startsWith('x-')) continue;
       walkFiles(abs, matcher, out);
     } else if (matcher(abs)) {
       out.push(abs);
@@ -247,7 +265,7 @@ function buildDomainMaps(structure) {
     const domain = top.slug || 'unknown';
     domainToTopTitle.set(domain, top.title);
     for (const p of top.pathSet) {
-      const rel = p.replace(/^v2\/pages\//, '');
+      const rel = stripV2DocsRoot(p);
       const seg = rel.split('/')[0];
       if (seg) folderToDomain.set(seg, domain);
     }
@@ -388,6 +406,23 @@ function resolveExistingPath(baseAbsPath) {
     add(path.join(baseAbsPath, idx));
   }
 
+  function toBackupXPagedPath(candidatePath) {
+    const rel = toPosix(path.relative(REPO_ROOT, candidatePath));
+    if (rel.startsWith('v2/pages/')) {
+      return path.join(REPO_ROOT, 'v2', 'x-pages', rel.slice('v2/pages/'.length));
+    }
+    const numericDomainMatch = rel.match(/^v2\/(\d+_[^/]+\/.*)$/);
+    if (numericDomainMatch) {
+      return path.join(REPO_ROOT, 'v2', 'x-pages', numericDomainMatch[1]);
+    }
+    return null;
+  }
+
+  for (const candidate of [...candidates]) {
+    const backupCandidate = toBackupXPagedPath(candidate);
+    if (backupCandidate) add(backupCandidate);
+  }
+
   for (const candidate of candidates) {
     if (!fs.existsSync(candidate)) continue;
     try {
@@ -463,7 +498,7 @@ function asPageRouteForBrowser(rawPath, currentFileAbs) {
   if (!normalizedRaw || normalizedRaw.startsWith('#')) return null;
 
   const currentRelNoExt = relNoExt(currentFileAbs);
-  if (!currentRelNoExt.startsWith('v2/pages/')) return null;
+  if (!isActiveV2DocRel(currentRelNoExt)) return null;
 
   if (normalizedRaw.startsWith('/')) {
     return normalizeRoute(normalizedRaw);
@@ -526,7 +561,7 @@ function findMovedCandidates(missingAbs, repoFiles) {
       file: f,
       score: suffixScore(missingAbs, f)
         + (path.extname(f).toLowerCase() === ext ? 1 : 0)
-        + (relFromRoot(f).startsWith('v2/pages/') ? 1 : 0)
+        + (isActiveV2DocRel(relFromRoot(f)) ? 1 : 0)
     }))
     .sort((a, b) => b.score - a.score)
     .map((x) => relFromRoot(x.file));
@@ -544,7 +579,7 @@ function findMovedCandidates(missingAbs, repoFiles) {
       file: f,
       score: suffixScore(missingAbs, f)
         + (path.extname(f).toLowerCase() === ext ? 1 : 0)
-        + (relFromRoot(f).startsWith('v2/pages/') ? 1 : 0)
+        + (isActiveV2DocRel(relFromRoot(f)) ? 1 : 0)
     }))
     .sort((a, b) => b.score - a.score)
     .map((x) => relFromRoot(x.file));
@@ -703,7 +738,7 @@ function analyzeRef(ref, currentFileAbs, repoFiles, routeSet) {
   if (existing) {
     if (isRoutableLinkRef(ref)) {
       const existingRelNoExt = relNoExt(existing);
-      const isV2DocTarget = existingRelNoExt.startsWith('v2/pages/');
+      const isV2DocTarget = isActiveV2DocRel(existingRelNoExt);
       if (isV2DocTarget) {
         const browserRoute = asPageRouteForBrowser(normalizedRaw, currentFileAbs);
         if (hasDocFileExtension(browserRoute)) {
@@ -806,8 +841,8 @@ function discoverMdxImports(startTargets) {
 }
 
 function domainFromPath(relPath, folderToDomain) {
-  if (!relPath.startsWith('v2/pages/')) return null;
-  const rest = relPath.replace(/^v2\/pages\//, '');
+  if (!isActiveV2DocRel(relPath)) return null;
+  const rest = stripV2DocsRoot(relPath);
   const folder = rest.split('/')[0];
   return folderToDomain.get(folder) || readableFromFolder(folder) || 'unknown';
 }
@@ -820,7 +855,7 @@ function analyzeFiles({ allFiles, rootTargets, importGraph, importedByRoot, stru
   for (const f of allFiles) {
     if (path.basename(f).toLowerCase() === 'index.mdx') continue;
     const rel = relFromRoot(f);
-    const isRootPage = rel.startsWith('v2/pages/');
+    const isRootPage = isActiveV2DocRel(rel);
 
     let domains = new Set();
     if (isRootPage) {
@@ -873,7 +908,7 @@ function analyzeFiles({ allFiles, rootTargets, importGraph, importedByRoot, stru
 
   const unindexedByDomain = new Map();
   for (const rel of fileResults.keys()) {
-    if (!rel.startsWith('v2/pages/')) continue;
+    if (!isActiveV2DocRel(rel)) continue;
     if (topPathSet.has(rel)) continue;
     const domain = domainFromPath(rel, folderToDomain) || 'unknown';
     if (!unindexedByDomain.has(domain)) unindexedByDomain.set(domain, []);

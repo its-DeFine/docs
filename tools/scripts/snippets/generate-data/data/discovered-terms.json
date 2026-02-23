@@ -67,7 +67,7 @@
       "pageCount": 245,
       "pages": [
         {
-          "path": "v2/home/introduction/organisation.mdx",
+          "path": "v2/home/about-livepeer/organisation.mdx",
           "occurrences": 40
         },
         {
@@ -79,15 +79,15 @@
           "occurrences": 21
         },
         {
-          "path": "v2/home/introduction/why-livepeer.mdx",
+          "path": "v2/home/about-livepeer/benefits.mdx",
           "occurrences": 19
         },
         {
-          "path": "v2/home/home/primer.mdx",
+          "path": "v2/home/primer.mdx",
           "occurrences": 18
         },
         {
-          "path": "v2/home/introduction/vision.mdx",
+          "path": "v2/home/about-livepeer/vision.mdx",
           "occurrences": 18
         },
         {
@@ -103,7 +103,7 @@
           "occurrences": 15
         },
         {
-          "path": "v2/home/introduction/evolution.mdx",
+          "path": "v2/home/about-livepeer/evolution.mdx",
           "occurrences": 14
         }
       ],
@@ -331,7 +331,7 @@
           "occurrences": 5
         },
         {
-          "path": "v2/home/home/primer.mdx",
+          "path": "v2/home/primer.mdx",
           "occurrences": 5
         }
       ],
@@ -808,7 +808,7 @@
       "pageCount": 40,
       "pages": [
         {
-          "path": "v2/home/introduction/organisation.mdx",
+          "path": "v2/home/about-livepeer/organisation.mdx",
           "occurrences": 11
         },
         {
@@ -1248,15 +1248,15 @@
           "occurrences": 8
         },
         {
-          "path": "v2/home/home/trending-layout-tests.mdx",
+          "path": "v2/home/trending-layout-tests.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/home/introduction/organisation.mdx",
+          "path": "v2/home/about-livepeer/organisation.mdx",
           "occurrences": 4
         },
         {
-          "path": "v2/home/introduction/evolution.mdx",
+          "path": "v2/home/about-livepeer/evolution.mdx",
           "occurrences": 2
         },
         {
@@ -1436,7 +1436,7 @@
           "occurrences": 4
         },
         {
-          "path": "v2/home/home/primer.mdx",
+          "path": "v2/home/primer.mdx",
           "occurrences": 3
         },
         {
@@ -1452,7 +1452,7 @@
           "occurrences": 3
         },
         {
-          "path": "v2/home/introduction/organisation.mdx",
+          "path": "v2/home/about-livepeer/organisation.mdx",
           "occurrences": 2
         },
         {
@@ -1810,7 +1810,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/home/home/copy-trending-at-livepeer.mdx",
+          "path": "v2/home/copy-trending-at-livepeer.mdx",
           "occurrences": 1
         }
       ],
@@ -1990,7 +1990,7 @@
       "pageCount": 24,
       "pages": [
         {
-          "path": "v2/home/introduction/organisation.mdx",
+          "path": "v2/home/about-livepeer/organisation.mdx",
           "occurrences": 4
         },
         {
@@ -2026,7 +2026,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/home/introduction/ecosystem.mdx",
+          "path": "v2/home/about-livepeer/ecosystem.mdx",
           "occurrences": 1
         }
       ],
@@ -2059,11 +2059,11 @@
           "occurrences": 2
         },
         {
-          "path": "v2/home/home/primer.mdx",
+          "path": "v2/home/primer.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/home/introduction/ecosystem.mdx",
+          "path": "v2/home/about-livepeer/ecosystem.mdx",
           "occurrences": 2
         },
         {
@@ -2743,7 +2743,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/home/introduction/evolution.mdx",
+          "path": "v2/home/about-livepeer/evolution.mdx",
           "occurrences": 1
         },
         {
@@ -2772,7 +2772,7 @@
       "pageCount": 24,
       "pages": [
         {
-          "path": "v2/home/introduction/organisation.mdx",
+          "path": "v2/home/about-livepeer/organisation.mdx",
           "occurrences": 2
         },
         {
@@ -2849,7 +2849,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/home/introduction/ecosystem.mdx",
+          "path": "v2/home/about-livepeer/ecosystem.mdx",
           "occurrences": 1
         },
         {
@@ -2979,7 +2979,7 @@
           "occurrences": 1
         },
         {
-          "path": "v2/home/home/trending-layout-tests.mdx",
+          "path": "v2/home/trending-layout-tests.mdx",
           "occurrences": 1
         }
       ],
@@ -3444,7 +3444,7 @@
           "occurrences": 6
         },
         {
-          "path": "v2/home/introduction/organisation.mdx",
+          "path": "v2/home/about-livepeer/organisation.mdx",
           "occurrences": 5
         },
         {
@@ -3521,11 +3521,11 @@
           "occurrences": 3
         },
         {
-          "path": "v2/home/home/primer.mdx",
+          "path": "v2/home/primer.mdx",
           "occurrences": 2
         },
         {
-          "path": "v2/home/introduction/why-livepeer.mdx",
+          "path": "v2/home/about-livepeer/benefits.mdx",
           "occurrences": 1
         }
       ],

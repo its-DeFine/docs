@@ -39,7 +39,7 @@ const testPages = [
   '/introduction/vision',
   '/community-portal',
   '/introduction/evolution',
-  '/home/trending-topics',
+  '/home/trending',
   '/home/copy-trending-at-livepeer',
   '/about-livepeer/moved/livepeer-overview',
   '/products-portal',
