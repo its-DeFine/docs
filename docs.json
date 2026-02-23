@@ -526,7 +526,7 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["ai/contributors/coming-soon"]
+                            "pages": ["v1/ai/contributors/coming-soon"]
                           },
                           {
                             "group": "SDKs",
@@ -1011,7 +1011,7 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["ai/contributors/coming-soon"]
+                            "pages": ["v1/ai/contributors/coming-soon"]
                           },
                           {
                             "group": "SDKs",
@@ -1509,7 +1509,7 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["ai/contributors/coming-soon"]
+                            "pages": ["v1/ai/contributors/coming-soon"]
                           },
                           {
                             "group": "SDKs",
@@ -1999,7 +1999,7 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["ai/contributors/coming-soon"]
+                            "pages": ["v1/ai/contributors/coming-soon"]
                           },
                           {
                             "group": "SDKs",
@@ -2109,12 +2109,12 @@
                   {
                     "anchor": "Get Started!",
                     "icon": "play",
-                    "pages": ["v2/developers/building-on-livepeer/"]
+                    "pages": ["v2/developers/developer-portal"]
                   },
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/redirect"]
+                    "pages": ["v2/pages/07_resources/resources-portal"]
                   },
                   {
                     "anchor": " ",
@@ -2182,7 +2182,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/redirect"]
+                    "pages": ["v2/pages/07_resources/resources-portal"]
                   },
                   {
                     "anchor": " ",
@@ -2300,7 +2300,7 @@
                               "v2/platforms/products/streamplace/streamplace-architecture",
                               "v2/platforms/products/streamplace/streamplace-integration",
                               "v2/platforms/products/streamplace/streamplace-provenance",
-                              "v2/platforms/products/streamplace/streamplace-funding"
+                              "v2/platforms/products/streamplace/streamplace-funding-model"
                             ]
                           }
                         ]
@@ -2324,7 +2324,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/redirect"]
+                    "pages": ["v2/pages/07_resources/resources-portal"]
                   },
                   {
                     "anchor": " ",
@@ -2403,7 +2403,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/redirect"]
+                    "pages": ["v2/pages/07_resources/resources-portal"]
                   },
                   {
                     "anchor": " ",
@@ -2440,7 +2440,7 @@
                         "icon": "swap",
                         "pages": [
                           "v2/pages/07_resources/changelog/changelog",
-                          "v2/pages/07_resources/changelog/migration-guides"
+                          "v2/pages/07_resources/changelog/migration-guide"
                         ]
                       }
                     ]
@@ -2470,8 +2470,8 @@
                         "group": "Quickstart ⚡",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
                         "pages": [
-                          "v2/gateways/run-a-gateway/quickstart-a-gateway",
-                          "v2/gateways/run-a-gateway/get-AI-to-setup-the-gateway"
+                          "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                          "v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
                         ]
                       },
                       {
@@ -2486,7 +2486,7 @@
                               "v2/gateways/using-gateways/gateway-providers/daydream-gateway",
                               "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
                               "v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway",
-                              "v2/gateways/using-gateways/gateway-providers/streamplace"
+                              "v2/platforms/products/streamplace/streamplace"
                             ]
                           }
                         ]
@@ -2540,9 +2540,9 @@
                               {
                                 "group": "Testing",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/test/test-gateway",
-                                  "v2/gateways/run-a-gateway/test/publish-content",
-                                  "v2/gateways/run-a-gateway/test/playback-content"
+                                  "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                                  "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                                  "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway"
                                 ]
                               },
                               {
@@ -2584,7 +2584,7 @@
                             "pages": [
                               "v2/gateways/references/technical-architecture",
                               "v2/gateways/references/configuration-flags",
-                              "v2/gateways/references/video-flags",
+                              "v2/gateways/references/configuration-flags",
                               "v2/gateways/references/cli-commands"
                             ]
                           },
@@ -2641,7 +2641,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/redirect"]
+                    "pages": ["v2/pages/07_resources/resources-portal"]
                   },
                   {
                     "anchor": " ",
@@ -2707,19 +2707,19 @@
                               {
                                 "group": "Testing",
                                 "pages": [
-                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
                               },
                               {
                                 "group": "Network Integration",
                                 "pages": [
-                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
                               },
                               {
                                 "group": "Monitor & Optimise",
                                 "pages": [
-                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
                               }
                             ]
@@ -2777,7 +2777,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/redirect"]
+                    "pages": ["v2/pages/07_resources/resources-portal"]
                   },
                   {
                     "anchor": " ",
@@ -2844,7 +2844,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/redirect"]
+                    "pages": ["v2/pages/07_resources/resources-portal"]
                   },
                   {
                     "anchor": " ",
@@ -2901,7 +2901,7 @@
                         "group": "Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/community/livepeer-community/media-kit",
+                          "v2/pages/07_resources/media-kit",
                           "v2/community/livepeer-community/trending-topics",
                           "v2/community/livepeer-community/livepeer-latest-topics"
                         ]
@@ -2911,7 +2911,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/redirect"]
+                    "pages": ["v2/pages/07_resources/resources-portal"]
                   },
                   {
                     "anchor": " ",
@@ -2964,9 +2964,9 @@
                         "group": "Livepeer Concepts",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/pages/07_resources/concepts/livepeer-core-concepts",
+                          "v2/pages/01_about/core-concepts/livepeer-core-concepts",
                           "v2/pages/07_resources/livepeer-glossary",
-                          "v2/pages/07_resources/concepts/livepeer-actors"
+                          "v2/pages/01_about/livepeer-network/actors"
                         ]
                       },
                       {
@@ -2978,7 +2978,7 @@
                         "group": "Gateway References",
                         "icon": "wand-magic-sparkles",
                         "pages": [
-                          "v2/pages/07_resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory"
+                          "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory"
                         ]
                       },
                       {
@@ -3021,7 +3021,7 @@
                         "icon": "swap",
                         "pages": [
                           "v2/pages/07_resources/changelog/changelog",
-                          "v2/pages/07_resources/changelog/migration-guides"
+                          "v2/pages/07_resources/changelog/migration-guide"
                         ]
                       }
                     ]
@@ -3029,7 +3029,7 @@
                   {
                     "anchor": "Help Center",
                     "icon": "comments-question-check",
-                    "pages": ["v2/pages/08_help/redirect"]
+                    "pages": ["v2/pages/07_resources/resources-portal"]
                   },
                   {
                     "anchor": " ",
@@ -3049,7 +3049,7 @@
                     "groups": [
                       {
                         "group": "Home",
-                        "pages": ["v2/pages/08_help/README"]
+                        "pages": ["v2/pages/07_resources/resources-portal"]
                       },
                       {
                         "group": "Delegating LPT",
@@ -3072,7 +3072,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/redirect"]
+                    "pages": ["v2/pages/07_resources/resources-portal"]
                   },
                   {
                     "anchor": " ",

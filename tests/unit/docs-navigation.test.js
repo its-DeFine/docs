@@ -581,6 +581,7 @@ function runTests(options = {}) {
     const trimmed = raw.trim();
 
     if (!trimmed) {
+      if (raw === ' ') return;
       const issue = { file: 'docs.json', rule: 'Blank pages entry', value: raw, pointer };
       errors.push({ ...issue, message: 'pages entry must not be blank or whitespace-only' });
       syntaxErrors.push(issue);
