@@ -56,18 +56,18 @@ livepeer-studio/
 ### Files That Serve Different Purposes (Correctly Kept)
 1. **overview/overview.mdx** - Main Studio overview
 2. **getting-started/overview.mdx** - Getting started section overview
-3. **api-reference/overview.mdx** - API reference landing page
-4. **overview/api-overview.mdx** - High-level API introduction
+3. **reference/overview.mdx** - API reference landing page
+4. **reference/api.mdx** - High-level API introduction
 5. **guides/access-control/overview.mdx** - Access control overview
-6. **guides/analytics/overview.mdx** - Analytics overview
+6. **analytics/overview.mdx** - Analytics overview
 
 ## ✅ Link Fixes Completed
 
 ### Fixed Broken Links
 - ✅ `overview/overview.mdx` - Updated all links to point to correct paths
 - ✅ `getting-started/overview.mdx` - Fixed quickstart and overview links
-- ✅ `api-reference/overview.mdx` - Fixed quickstart and SDK links
-- ✅ `overview/api-overview.mdx` - Fixed SDKs and access control links
+- ✅ `reference/overview.mdx` - Fixed quickstart and SDK links
+- ✅ `reference/api.mdx` - Fixed SDKs and access control links
 - ✅ `guides/transcode-video.mdx` - Fixed api-overview and vod-overview links
 - ✅ `guides/encrypted-assets.mdx` - Fixed access-control link
 

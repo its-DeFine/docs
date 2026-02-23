@@ -96,7 +96,7 @@ References in `docs.json` that point to non-existent files. Fix by creating the 
 
 ### Products (010_products)
 
-- `v2/platforms/products/streamplace/streamplace-funding`
+- `v2/platforms/streamplace/introduction/streamplace-funding-model`
 
 ### Help (08_help)
 

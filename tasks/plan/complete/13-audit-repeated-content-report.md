@@ -237,7 +237,7 @@ Available at: `https://livepeer.studio/api`
 **Locations:**
 - `v2/pages/01_about/livepeer-network/interfaces.mdx` (lines 31-42)
 - `v2/pages/01_about/livepeer-network/technical-architecture.mdx` (lines 90-104)
-- `v2/pages/010_products/products/livepeer-studio/api-reference/overview.mdx` (similar)
+- `v2/pages/010_products/livepeer-studio/reference/overview.mdx` (similar)
 - `v2/pages/03_developers/technical-references/apis.mdx` (similar)
 
 **Explorer API:**

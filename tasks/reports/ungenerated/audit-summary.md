@@ -58,8 +58,8 @@ The following broken links were automatically fixed:
 
 1. **v2/pages/00_home/home/user-journey.mdx**
    - Fixed: `../01_about/about-home.mdx` → `../../01_about/about-portal`
-   - Fixed: `../03_developers/developer-platforms/daydream/daydream.mdx` → `../../010_products/products/daydream/daydream`
-   - Fixed: `../03_developers/developer-platforms/builder-hub.mdx` → `../../010_products/products-portal`
+   - Fixed: `../03_developers/developer-platforms/daydream/overview.mdx` → `../../010_products/daydream/overview`
+   - Fixed: `../03_developers/developer-platforms/builder-hub.mdx` → `../../010_products/portal`
    - Fixed: `../07_resources/documentation-guide/documentation-guide.mdx` → `../../07_resources/documentation-guide/style-guide`
    - Fixed: `../07_resources/documentation-guide/contribute-to-the-docs.mdx` → `../../07_resources/documentation-guide/contribute-to-the-docs`
    - Fixed: `../03_developers/ai-inference-on-livepeer/byoc.mdx` → `../../03_developers/ai-inference-on-livepeer/ai-pipelines/byoc`

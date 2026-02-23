@@ -22,7 +22,7 @@ These components are actively used in production pages but are NOT documented (o
 ### Portal Components (8 components) - Used in 8 portal pages
 
 1. **HeroContentContainer** (domain)
-   - Used in: `mission-control.mdx`, `about-portal.mdx`, `developer-portal.mdx`, `community-portal.mdx`, `products-portal.mdx`, `gateways-portal.mdx`, `orchestrators-portal.mdx`, `token-portal.mdx`
+   - Used in: `mission-control.mdx`, `about-portal.mdx`, `developer-portal.mdx`, `community-portal.mdx`, `portal.mdx`, `gateways-portal.mdx`, `orchestrators-portal.mdx`, `token-portal.mdx`
    - **Status:** NOT in component library
    - **File:** `snippets/components/domain/SHARED/Portals.jsx`
 

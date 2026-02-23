@@ -236,7 +236,7 @@
  v2/pages/00_home/home/primer.mdx                   |      1 -
  v2/pages/00_home/home/trending-layout-tests.mdx    |      2 +-
  v2/pages/00_home/introduction/vision.mdx           |      1 -
- .../products/all-ecosystem/product-hub.mdx         |      1 -
+ .../product-hub.mdx         |      1 -
  .../api-reference/assets/delete.mdx                |     15 +
  .../api-reference/assets/get-all.mdx               |     15 +
  .../livepeer-studio/api-reference/assets/get.mdx   |     15 +
@@ -250,7 +250,7 @@
  .../api-reference/multistream/get.mdx              |     15 +
  .../api-reference/multistream/overview.mdx         |     14 +
  .../api-reference/multistream/update.mdx           |     15 +
- .../livepeer-studio/api-reference/overview.mdx     |     84 +
+ .../livepeer-studio/reference/overview.mdx     |     84 +
  .../livepeer-studio/api-reference/playback/get.mdx |     15 +
  .../api-reference/playback/overview.mdx            |     40 +
  .../api-reference/rooms/create-user.mdx            |     15 +
@@ -304,38 +304,38 @@
  .../api-reference/webhooks/overview.mdx            |     14 +
  .../api-reference/webhooks/update.mdx              |     15 +
  .../getting-started/authentication.mdx             |     44 +
- .../livepeer-studio/getting-started/overview.mdx   |     41 +
- .../livepeer-studio/getting-started/studio-cli.mdx |     34 +
- .../livepeer-studio/guides/access-control/jwt.mdx  |     33 +
+ .../livepeer-studio/get-started/overview.mdx   |     41 +
+ .../livepeer-studio/get-started/studio-cli.mdx |     34 +
+ .../livepeer-studio/access-control/jwt.mdx  |     33 +
  .../guides/access-control/overview.mdx             |     16 +
  .../guides/access-control/webhooks.mdx             |     43 +
- .../livepeer-studio/guides/analytics/overview.mdx  |     27 +
- .../livepeer-studio/guides/clip-livestream.mdx     |     55 +
- .../livepeer-studio/guides/create-livestream.mdx   |     74 +
- .../livepeer-studio/guides/encrypted-assets.mdx    |     19 +
- .../livepeer-studio/guides/listen-to-events.mdx    |     41 +
+ .../livepeer-studio/analytics/overview.mdx  |     27 +
+ .../livepeer-studio/livestream/clip-livestream.mdx     |     55 +
+ .../livepeer-studio/livestream/create-livestream.mdx   |     74 +
+ .../livepeer-studio/video-on-demand/encrypted-assets.mdx    |     19 +
+ .../livepeer-studio/analytics/listen-to-events.mdx    |     41 +
  .../guides/livestream-from-browser.mdx             |     62 +
- .../livepeer-studio/guides/managing-projects.mdx   |     29 +
- .../livepeer-studio/guides/multistream.mdx         |     29 +
- .../livepeer-studio/guides/optimize-latency.mdx    |     45 +
- .../livepeer-studio/guides/playback-asset.mdx      |     47 +
- .../livepeer-studio/guides/playback-livestream.mdx |     69 +
- .../livepeer-studio/guides/player-and-embed.mdx    |     37 +
- .../livepeer-studio/guides/stream-health.mdx       |     37 +
- .../livepeer-studio/guides/stream-via-obs.mdx      |     34 +
- .../livepeer-studio/guides/thumbnails-vod.mdx      |     45 +
- .../livepeer-studio/guides/transcode-video.mdx     |     32 +
- .../livepeer-studio/guides/upload-asset.mdx        |     28 +
- .../products/livepeer-studio/guides/webhooks.mdx   |     31 +
- .../products/livepeer-studio/livepeer-studio.mdx   |      1 -
- .../livepeer-studio/overview/api-overview.mdx      |     31 +
+ .../livepeer-studio/reference/managing-projects.mdx   |     29 +
+ .../livepeer-studio/livestream/multistream.mdx         |     29 +
+ .../livepeer-studio/livestream/optimize-latency.mdx    |     45 +
+ .../livepeer-studio/video-on-demand/playback-asset.mdx      |     47 +
+ .../livepeer-studio/livestream/playback-livestream.mdx |     69 +
+ .../livepeer-studio/player.mdx    |     37 +
+ .../livepeer-studio/livestream/stream-health.mdx       |     37 +
+ .../livepeer-studio/livestream/stream-via-obs.mdx      |     34 +
+ .../livepeer-studio/video-on-demand/thumbnails-vod.mdx      |     45 +
+ .../livepeer-studio/video-on-demand/transcode-video.mdx     |     32 +
+ .../livepeer-studio/video-on-demand/upload-asset.mdx        |     28 +
+ .../livepeer-studio/analytics/webhooks.mdx   |     31 +
+ .../livepeer-studio/livepeer-studio.mdx   |      1 -
+ .../livepeer-studio/reference/api.mdx      |     31 +
  .../{ => overview}/client-use-cases.mdx            |      0
- .../livepeer-studio/overview/livepeer-studio.mdx   |      8 +
- .../overview/livestream-overview.mdx               |     58 +
- .../products/livepeer-studio/overview/overview.mdx |     61 +
- .../livepeer-studio/overview/quickstart.mdx        |     93 +
- .../livepeer-studio/overview/sdks-overview.mdx     |     38 +
- .../livepeer-studio/overview/vod-overview.mdx      |     31 +
+ .../livepeer-studio/livepeer-studio.mdx   |      8 +
+ .../livestream/overview.mdx               |     58 +
+ .../livepeer-studio/overview.mdx |     61 +
+ .../livepeer-studio/quickstart.mdx        |     93 +
+ .../livepeer-studio/reference/sdks.mdx     |     38 +
+ .../livepeer-studio/video-on-demand/overview.mdx      |     31 +
  .../about-livepeer/moved/livepeer-overview.mdx     |      1 -
  v2/pages/01_about/livepeer-protocol/overview.mdx   |      2 +-
  .../livepeer-protocol/technical-architecture.mdx   |    112 +-

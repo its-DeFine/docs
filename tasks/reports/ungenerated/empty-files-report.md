@@ -29,7 +29,7 @@ This report documents all empty (0-byte) files found in the repository, includin
 
 ## Empty Files in v2/ (9 files)
 
-1. `v2/pages/010_products/products/all-ecosystem/ecosystem-products.mdx`
+1. `v2/pages/010_products/ecosystem-products.mdx`
 2. `v2/pages/02_community/resources/awesome-livepeer.mdx`
 3. `v2/pages/02_community/resources/guides.mdx`
 4. `v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products.mdx`

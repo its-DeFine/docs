@@ -18,7 +18,7 @@ These pages are referenced in docs.json but the files do not exist:
 |-----------|-------|-----------------|
 | `v2/pages/00_home/changelog/changelog` | File not found | File may exist in 07_resources/changelog - verify and update docs.json path |
 | `v2/pages/00_home/changelog/migration-guide` | File not found | File may exist in 07_resources/changelog - verify and update docs.json path |
-| `v2/pages/010_products/products/streamplace/streamplace-funding` | File not found | Create file or remove from docs.json |
+| `v2/pages/010_products/streamplace/introduction/streamplace-funding-model` | File not found | Create file or remove from docs.json |
 | `v2/pages/02_community/livepeer-community/latest-topics` | File not found | Create file or remove from docs.json |
 | `v2/pages/02_community/livepeer-community/media-kit` | File not found | Create file or remove from docs.json |
 | `v2/pages/02_community/livepeer-community/trending-test` | File not found | Create file or remove from docs.json |
@@ -48,7 +48,7 @@ These pages contain placeholder text (Coming soon, TODO, TBD, etc.):
 | Page Path | Placeholder Text | Suggested Action |
 |-----------|------------------|------------------|
 | `v2/pages/00_home/introduction/evolution` | TBD | Replace placeholder with actual content |
-| `v2/pages/010_products/products-portal` | tbd | Replace placeholder with actual content |
+| `v2/pages/010_products/portal` | tbd | Replace placeholder with actual content |
 | `v2/pages/01_about/livepeer-protocol/livepeer-token` | TODO | Replace placeholder with actual content |
 | `v2/pages/03_developers/builder-opportunities/dev-programs` | coming soon | Replace placeholder with actual content |
 | `v2/pages/03_developers/building-on-livepeer/developer-guide` | Placeholder | Replace placeholder with actual content |
@@ -86,45 +86,45 @@ These pages exist but have minimal content, empty sections, or appear incomplete
 | `v2/pages/00_home/introduction/why-livepeer` | Contains empty sections (heading with no content) | Add content to complete the page |
 | `v2/pages/00_home/project-showcase/applications` | Minimal content (6 words) | Add content to complete the page |
 | `v2/pages/00_home/project-showcase/industry-verticals` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/all-ecosystem/ecosystem-products` | Very short content (0 chars after frontmatter) | Add content to complete the page |
-| `v2/pages/010_products/products/all-ecosystem/product-hub` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/frameworks/frameworks` | Minimal content (4 words) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/api-reference/overview` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/getting-started/authentication` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/getting-started/overview` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/access-control/overview` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/analytics/overview` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/clip-livestream` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/create-livestream` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/listen-to-events` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/managing-projects` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/multistream` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/optimize-latency` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/playback-asset` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/playback-livestream` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/player-and-embed` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/stream-health` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/transcode-video` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/upload-asset` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/guides/webhooks` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/overview/api-overview` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/overview/client-use-cases` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/overview/livestream-overview` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/overview/overview` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/overview/quickstart` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/overview/sdks-overview` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/livepeer-studio/overview/vod-overview` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/streamplace/streamplace` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/streamplace/streamplace-architecture` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/streamplace/streamplace-guide` | Contains empty sections (heading with no content) | Add content to complete the page |
-| `v2/pages/010_products/products/streamplace/streamplace-integration` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/ecosystem-products` | Very short content (0 chars after frontmatter) | Add content to complete the page |
+| `v2/pages/010_products/product-hub` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/frameworks/overview` | Minimal content (4 words) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/reference/overview` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/get-started/authentication` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/get-started/overview` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/get-started/studio-cli` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/access-control/jwt` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/access-control/overview` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/access-control/webhooks` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/analytics/overview` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/livestream/clip-livestream` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/livestream/create-livestream` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/video-on-demand/encrypted-assets` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/analytics/listen-to-events` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/livestream/livestream-from-browser` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/reference/managing-projects` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/livestream/multistream` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/livestream/optimize-latency` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/video-on-demand/playback-asset` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/livestream/playback-livestream` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/player` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/livestream/stream-health` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/livestream/stream-via-obs` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/video-on-demand/thumbnails-vod` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/video-on-demand/transcode-video` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/video-on-demand/upload-asset` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/analytics/webhooks` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/reference/api` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/client-use-cases` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/livestream/overview` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/overview` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/quickstart` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/reference/sdks` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/livepeer-studio/video-on-demand/overview` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/streamplace/overview` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/streamplace/introduction/streamplace-architecture` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/streamplace/introduction/streamplace-guide` | Contains empty sections (heading with no content) | Add content to complete the page |
+| `v2/pages/010_products/streamplace/introduction/streamplace-integration` | Contains empty sections (heading with no content) | Add content to complete the page |
 | `v2/pages/01_about/core-concepts/livepeer-core-concepts` | Contains empty sections (heading with no content) | Add content to complete the page |
 | `v2/pages/01_about/core-concepts/livepeer-overview` | Contains empty sections (heading with no content) | Add content to complete the page |
 | `v2/pages/01_about/core-concepts/mental-model` | Contains empty sections (heading with no content) | Add content to complete the page |

@@ -40,7 +40,7 @@ This report assesses the current state of the Livepeer documentation against the
 |------|--------|----------|-----------------|
 | **Implement redesigned IA and content in Mintlify/Docusaurus** | ✅ **Met** | New IA implemented in Mintlify with tabs, anchors, and groups | **Evidence:** `docs.json` shows complete navigation structure |
 | **Set up redirects, SEO and AEO optimization, accessibility compliance (WCAG)** | ⚠️ **Partial** | Redirects exist in `docs.json`; SEO scripts exist; WCAG compliance not verified | **Evidence:** Redirects in `docs.json` (lines 3156+); SEO scripts (`tools/scripts/snippets/generate-seo.js`); **Gap:** No WCAG audit or compliance verification documented |
-| **Integrate multilingual readiness and analytics tracking** | ❌ **Not Met** | No i18n implementation found; analytics content exists but tracking not verified | **Gap:** No i18n plugin/configuration; **Evidence:** Analytics pages exist (`v2/pages/010_products/products/livepeer-studio/guides/analytics/overview.mdx`) but instrumentation not confirmed |
+| **Integrate multilingual readiness and analytics tracking** | ❌ **Not Met** | No i18n implementation found; analytics content exists but tracking not verified | **Gap:** No i18n plugin/configuration; **Evidence:** Analytics pages exist (`v2/pages/010_products/livepeer-studio/analytics/overview.mdx`) but instrumentation not confirmed |
 | **Integrate the documentation into the website** | ⚠️ **Unknown** | Cannot verify from codebase | **Gap:** Need to verify website integration status |
 
 **Outcome Status:** ⚠️ **Partially Met** — IA and redirects in place, but accessibility, i18n, and analytics tracking need verification/completion.
@@ -163,7 +163,7 @@ This report assesses the current state of the Livepeer documentation against the
    - **Issue:** No user-facing migration guide for Studio users
    - **Impact:** Studio users cannot migrate to new APIs
    - **Recommendation:**
-     - Create `v2/pages/010_products/products/livepeer-studio/migration-guide.mdx`
+     - Create `v2/pages/010_products/livepeer-studio/migration-guide.mdx`
      - Include before/after tables, redirects, and step-by-step migration
      - Target: Complete within 3 weeks
 

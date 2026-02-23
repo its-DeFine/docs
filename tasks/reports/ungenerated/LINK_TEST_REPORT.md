@@ -108,146 +108,146 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
   - (none)
 
 ### Products
-- Livepeer Products & Developer Platforms (010_products/products-portal.mdx)
+- Livepeer Products & Developer Platforms (010_products/portal.mdx)
 - ### Products
   - #### All Ecosystem
-    - Ecosystem Products (010_products/products/all-ecosystem/ecosystem-products.mdx)
-    - Product HUB (010_products/products/all-ecosystem/product-hub.mdx)
+    - Ecosystem Products (010_products/ecosystem-products.mdx)
+    - Product HUB (010_products/product-hub.mdx)
   - #### Daydream
-    - Daydream (010_products/products/daydream/daydream.mdx)
+    - Daydream (010_products/daydream/overview.mdx)
     - ##### Overview
-      - ⚠️ Daydream overview (010_products/products/daydream/overview/overview.mdx)
-      - ⚠️ Daydream quickstart (010_products/products/daydream/overview/quickstart.mdx)
+      - ⚠️ Daydream overview (010_products/daydream/overview/overview.mdx)
+      - ⚠️ Daydream quickstart (010_products/daydream/overview/quickstart.mdx)
   - #### Embody
-    - Embody Avatars (010_products/products/embody/overview.mdx)
+    - Embody Avatars (010_products/embody/overview.mdx)
   - #### Frameworks
-    - Frameworks (010_products/products/frameworks/frameworks.mdx)
+    - Frameworks (010_products/frameworks/overview.mdx)
     - ##### Overview
-      - ⚠️ Frameworks overview (010_products/products/frameworks/overview/overview.mdx)
-      - ⚠️ Frameworks quickstart (010_products/products/frameworks/overview/quickstart.mdx)
+      - ⚠️ Frameworks overview (010_products/frameworks/overview/overview.mdx)
+      - ⚠️ Frameworks quickstart (010_products/frameworks/overview/quickstart.mdx)
   - #### Livepeer Studio
     - ##### Api Reference
-      - API Reference (010_products/products/livepeer-studio/api-reference/overview.mdx)
+      - API Reference (010_products/livepeer-studio/reference/overview.mdx)
       - ###### Assets
-        - ⚠️ Delete Asset (010_products/products/livepeer-studio/api-reference/assets/delete.mdx)
-        - ⚠️ Get All Assets (010_products/products/livepeer-studio/api-reference/assets/get-all.mdx)
-        - ⚠️ Retrieve an asset (010_products/products/livepeer-studio/api-reference/assets/get.mdx)
-        - ⚠️ Assets API (010_products/products/livepeer-studio/api-reference/assets/overview.mdx)
-        - ⚠️ Update Asset (010_products/products/livepeer-studio/api-reference/assets/update.mdx)
-        - ⚠️ Upload Asset via URL (010_products/products/livepeer-studio/api-reference/assets/upload-via-url.mdx)
-        - ⚠️ Upload an asset (010_products/products/livepeer-studio/api-reference/assets/upload.mdx)
+        - ⚠️ Delete Asset (010_products/livepeer-studio/api-reference/assets/delete.mdx)
+        - ⚠️ Get All Assets (010_products/livepeer-studio/api-reference/assets/get-all.mdx)
+        - ⚠️ Retrieve an asset (010_products/livepeer-studio/api-reference/assets/get.mdx)
+        - ⚠️ Assets API (010_products/livepeer-studio/api-reference/assets/overview.mdx)
+        - ⚠️ Update Asset (010_products/livepeer-studio/api-reference/assets/update.mdx)
+        - ⚠️ Upload Asset via URL (010_products/livepeer-studio/api-reference/assets/upload-via-url.mdx)
+        - ⚠️ Upload an asset (010_products/livepeer-studio/api-reference/assets/upload.mdx)
       - ###### Multistream
-        - ⚠️ Create Multistream Target (010_products/products/livepeer-studio/api-reference/multistream/create.mdx)
-        - ⚠️ Delete Multistream Target (010_products/products/livepeer-studio/api-reference/multistream/delete.mdx)
-        - ⚠️ Get All Multistream Targets (010_products/products/livepeer-studio/api-reference/multistream/get-all.mdx)
-        - ⚠️ Get Multistream Target (010_products/products/livepeer-studio/api-reference/multistream/get.mdx)
-        - ⚠️ Multistream API (010_products/products/livepeer-studio/api-reference/multistream/overview.mdx)
-        - ⚠️ Update Multistream Target (010_products/products/livepeer-studio/api-reference/multistream/update.mdx)
+        - ⚠️ Create Multistream Target (010_products/livepeer-studio/api-reference/multistream/create.mdx)
+        - ⚠️ Delete Multistream Target (010_products/livepeer-studio/api-reference/multistream/delete.mdx)
+        - ⚠️ Get All Multistream Targets (010_products/livepeer-studio/api-reference/multistream/get-all.mdx)
+        - ⚠️ Get Multistream Target (010_products/livepeer-studio/api-reference/multistream/get.mdx)
+        - ⚠️ Multistream API (010_products/livepeer-studio/api-reference/multistream/overview.mdx)
+        - ⚠️ Update Multistream Target (010_products/livepeer-studio/api-reference/multistream/update.mdx)
       - ###### Playback
-        - ⚠️ Retrieve Playback Info (010_products/products/livepeer-studio/api-reference/playback/get.mdx)
-        - ⚠️ Playback API (010_products/products/livepeer-studio/api-reference/playback/overview.mdx)
+        - ⚠️ Retrieve Playback Info (010_products/livepeer-studio/api-reference/playback/get.mdx)
+        - ⚠️ Playback API (010_products/livepeer-studio/api-reference/playback/overview.mdx)
       - ###### Rooms
-        - ⚠️ Create Room User (010_products/products/livepeer-studio/api-reference/rooms/create-user.mdx)
-        - ⚠️ Create Room (010_products/products/livepeer-studio/api-reference/rooms/create.mdx)
-        - ⚠️ Delete Room (010_products/products/livepeer-studio/api-reference/rooms/delete.mdx)
-        - ⚠️ Get Room User (010_products/products/livepeer-studio/api-reference/rooms/get-user.mdx)
-        - ⚠️ Get Room (010_products/products/livepeer-studio/api-reference/rooms/get.mdx)
-        - ⚠️ Rooms API (010_products/products/livepeer-studio/api-reference/rooms/overview.mdx)
-        - ⚠️ Remove Room User (010_products/products/livepeer-studio/api-reference/rooms/remove-user.mdx)
-        - ⚠️ Start Room Egress (010_products/products/livepeer-studio/api-reference/rooms/start-egress.mdx)
-        - ⚠️ Stop Room Egress (010_products/products/livepeer-studio/api-reference/rooms/stop-egress.mdx)
-        - ⚠️ Update Room User (010_products/products/livepeer-studio/api-reference/rooms/update-user.mdx)
-        - ⚠️ Update Room (010_products/products/livepeer-studio/api-reference/rooms/update.mdx)
+        - ⚠️ Create Room User (010_products/livepeer-studio/api-reference/rooms/create-user.mdx)
+        - ⚠️ Create Room (010_products/livepeer-studio/api-reference/rooms/create.mdx)
+        - ⚠️ Delete Room (010_products/livepeer-studio/api-reference/rooms/delete.mdx)
+        - ⚠️ Get Room User (010_products/livepeer-studio/api-reference/rooms/get-user.mdx)
+        - ⚠️ Get Room (010_products/livepeer-studio/api-reference/rooms/get.mdx)
+        - ⚠️ Rooms API (010_products/livepeer-studio/api-reference/rooms/overview.mdx)
+        - ⚠️ Remove Room User (010_products/livepeer-studio/api-reference/rooms/remove-user.mdx)
+        - ⚠️ Start Room Egress (010_products/livepeer-studio/api-reference/rooms/start-egress.mdx)
+        - ⚠️ Stop Room Egress (010_products/livepeer-studio/api-reference/rooms/stop-egress.mdx)
+        - ⚠️ Update Room User (010_products/livepeer-studio/api-reference/rooms/update-user.mdx)
+        - ⚠️ Update Room (010_products/livepeer-studio/api-reference/rooms/update.mdx)
       - ###### Sessions
-        - ⚠️ Get All Sessions (010_products/products/livepeer-studio/api-reference/sessions/get-all.mdx)
-        - ⚠️ Get Session Clip (010_products/products/livepeer-studio/api-reference/sessions/get-clip.mdx)
-        - ⚠️ Get Session Recording (010_products/products/livepeer-studio/api-reference/sessions/get-recording.mdx)
-        - ⚠️ Get Session (010_products/products/livepeer-studio/api-reference/sessions/get.mdx)
-        - ⚠️ Sessions API (010_products/products/livepeer-studio/api-reference/sessions/overview.mdx)
+        - ⚠️ Get All Sessions (010_products/livepeer-studio/api-reference/sessions/get-all.mdx)
+        - ⚠️ Get Session Clip (010_products/livepeer-studio/api-reference/sessions/get-clip.mdx)
+        - ⚠️ Get Session Recording (010_products/livepeer-studio/api-reference/sessions/get-recording.mdx)
+        - ⚠️ Get Session (010_products/livepeer-studio/api-reference/sessions/get.mdx)
+        - ⚠️ Sessions API (010_products/livepeer-studio/api-reference/sessions/overview.mdx)
       - ###### Signing Keys
-        - ⚠️ Create Signing Key (010_products/products/livepeer-studio/api-reference/signing-keys/create.mdx)
-        - ⚠️ Delete Signing Key (010_products/products/livepeer-studio/api-reference/signing-keys/delete.mdx)
-        - ⚠️ Get All Signing Keys (010_products/products/livepeer-studio/api-reference/signing-keys/get-all.mdx)
-        - ⚠️ Get Signing Key (010_products/products/livepeer-studio/api-reference/signing-keys/get.mdx)
-        - ⚠️ Signing Keys API (010_products/products/livepeer-studio/api-reference/signing-keys/overview.mdx)
-        - ⚠️ Update Signing Key (010_products/products/livepeer-studio/api-reference/signing-keys/update.mdx)
+        - ⚠️ Create Signing Key (010_products/livepeer-studio/api-reference/signing-keys/create.mdx)
+        - ⚠️ Delete Signing Key (010_products/livepeer-studio/api-reference/signing-keys/delete.mdx)
+        - ⚠️ Get All Signing Keys (010_products/livepeer-studio/api-reference/signing-keys/get-all.mdx)
+        - ⚠️ Get Signing Key (010_products/livepeer-studio/api-reference/signing-keys/get.mdx)
+        - ⚠️ Signing Keys API (010_products/livepeer-studio/api-reference/signing-keys/overview.mdx)
+        - ⚠️ Update Signing Key (010_products/livepeer-studio/api-reference/signing-keys/update.mdx)
       - ###### Streams
-        - ⚠️ Add Multistream Target (010_products/products/livepeer-studio/api-reference/streams/add-multistream-target.mdx)
-        - ⚠️ Create Clip (010_products/products/livepeer-studio/api-reference/streams/create-clip.mdx)
-        - ⚠️ Create a livestream (010_products/products/livepeer-studio/api-reference/streams/create.mdx)
-        - ⚠️ Delete Multistream Target (010_products/products/livepeer-studio/api-reference/streams/delete-multistream-target.mdx)
-        - ⚠️ Delete Stream (010_products/products/livepeer-studio/api-reference/streams/delete.mdx)
-        - ⚠️ Get All Streams (010_products/products/livepeer-studio/api-reference/streams/get-all.mdx)
-        - ⚠️ Get Clip (010_products/products/livepeer-studio/api-reference/streams/get-clip.mdx)
-        - ⚠️ Retrieve a livestream (010_products/products/livepeer-studio/api-reference/streams/get.mdx)
-        - ⚠️ Streams API (010_products/products/livepeer-studio/api-reference/streams/overview.mdx)
-        - ⚠️ Terminate Stream (010_products/products/livepeer-studio/api-reference/streams/terminate.mdx)
-        - ⚠️ Update Stream (010_products/products/livepeer-studio/api-reference/streams/update.mdx)
+        - ⚠️ Add Multistream Target (010_products/livepeer-studio/api-reference/streams/add-multistream-target.mdx)
+        - ⚠️ Create Clip (010_products/livepeer-studio/api-reference/streams/create-clip.mdx)
+        - ⚠️ Create a livestream (010_products/livepeer-studio/api-reference/streams/create.mdx)
+        - ⚠️ Delete Multistream Target (010_products/livepeer-studio/api-reference/streams/delete-multistream-target.mdx)
+        - ⚠️ Delete Stream (010_products/livepeer-studio/api-reference/streams/delete.mdx)
+        - ⚠️ Get All Streams (010_products/livepeer-studio/api-reference/streams/get-all.mdx)
+        - ⚠️ Get Clip (010_products/livepeer-studio/api-reference/streams/get-clip.mdx)
+        - ⚠️ Retrieve a livestream (010_products/livepeer-studio/api-reference/streams/get.mdx)
+        - ⚠️ Streams API (010_products/livepeer-studio/api-reference/streams/overview.mdx)
+        - ⚠️ Terminate Stream (010_products/livepeer-studio/api-reference/streams/terminate.mdx)
+        - ⚠️ Update Stream (010_products/livepeer-studio/api-reference/streams/update.mdx)
       - ###### Tasks
-        - ⚠️ Get All Tasks (010_products/products/livepeer-studio/api-reference/tasks/get-all.mdx)
-        - ⚠️ Get Task (010_products/products/livepeer-studio/api-reference/tasks/get.mdx)
-        - ⚠️ Tasks API (010_products/products/livepeer-studio/api-reference/tasks/overview.mdx)
+        - ⚠️ Get All Tasks (010_products/livepeer-studio/api-reference/tasks/get-all.mdx)
+        - ⚠️ Get Task (010_products/livepeer-studio/api-reference/tasks/get.mdx)
+        - ⚠️ Tasks API (010_products/livepeer-studio/api-reference/tasks/overview.mdx)
       - ###### Transcode
-        - ⚠️ Create Transcode Job (010_products/products/livepeer-studio/api-reference/transcode/create.mdx)
-        - ⚠️ Transcode API (010_products/products/livepeer-studio/api-reference/transcode/overview.mdx)
+        - ⚠️ Create Transcode Job (010_products/livepeer-studio/api-reference/transcode/create.mdx)
+        - ⚠️ Transcode API (010_products/livepeer-studio/api-reference/transcode/overview.mdx)
       - ###### Viewership
-        - ⚠️ Get Creators Metrics (010_products/products/livepeer-studio/api-reference/viewership/get-creators-metrics.mdx)
-        - ⚠️ Get Public Total Views (010_products/products/livepeer-studio/api-reference/viewership/get-public-total-views.mdx)
-        - ⚠️ Get Realtime Viewership (010_products/products/livepeer-studio/api-reference/viewership/get-realtime-viewership.mdx)
-        - ⚠️ Get Usage Metrics (010_products/products/livepeer-studio/api-reference/viewership/get-usage-metrics.mdx)
-        - ⚠️ Get Viewership Metrics (010_products/products/livepeer-studio/api-reference/viewership/get-viewership-metrics.mdx)
-        - ⚠️ Viewership API (010_products/products/livepeer-studio/api-reference/viewership/overview.mdx)
+        - ⚠️ Get Creators Metrics (010_products/livepeer-studio/api-reference/viewership/get-creators-metrics.mdx)
+        - ⚠️ Get Public Total Views (010_products/livepeer-studio/api-reference/viewership/get-public-total-views.mdx)
+        - ⚠️ Get Realtime Viewership (010_products/livepeer-studio/api-reference/viewership/get-realtime-viewership.mdx)
+        - ⚠️ Get Usage Metrics (010_products/livepeer-studio/api-reference/viewership/get-usage-metrics.mdx)
+        - ⚠️ Get Viewership Metrics (010_products/livepeer-studio/api-reference/viewership/get-viewership-metrics.mdx)
+        - ⚠️ Viewership API (010_products/livepeer-studio/api-reference/viewership/overview.mdx)
       - ###### Webhooks
-        - ⚠️ Create Webhook (010_products/products/livepeer-studio/api-reference/webhooks/create.mdx)
-        - ⚠️ Delete Webhook (010_products/products/livepeer-studio/api-reference/webhooks/delete.mdx)
-        - ⚠️ Get All Webhooks (010_products/products/livepeer-studio/api-reference/webhooks/get-all.mdx)
-        - ⚠️ Get Webhook (010_products/products/livepeer-studio/api-reference/webhooks/get.mdx)
-        - ⚠️ Webhooks API (010_products/products/livepeer-studio/api-reference/webhooks/overview.mdx)
-        - ⚠️ Update Webhook (010_products/products/livepeer-studio/api-reference/webhooks/update.mdx)
+        - ⚠️ Create Webhook (010_products/livepeer-studio/api-reference/webhooks/create.mdx)
+        - ⚠️ Delete Webhook (010_products/livepeer-studio/api-reference/webhooks/delete.mdx)
+        - ⚠️ Get All Webhooks (010_products/livepeer-studio/api-reference/webhooks/get-all.mdx)
+        - ⚠️ Get Webhook (010_products/livepeer-studio/api-reference/webhooks/get.mdx)
+        - ⚠️ Webhooks API (010_products/livepeer-studio/api-reference/webhooks/overview.mdx)
+        - ⚠️ Update Webhook (010_products/livepeer-studio/api-reference/webhooks/update.mdx)
     - ##### Getting Started
-      - Authentication (010_products/products/livepeer-studio/getting-started/authentication.mdx)
-      - Getting Started with Livepeer Studio (010_products/products/livepeer-studio/getting-started/overview.mdx)
-      - Studio CLI (010_products/products/livepeer-studio/getting-started/studio-cli.mdx)
+      - Authentication (010_products/livepeer-studio/get-started/authentication.mdx)
+      - Getting Started with Livepeer Studio (010_products/livepeer-studio/get-started/overview.mdx)
+      - Studio CLI (010_products/livepeer-studio/get-started/studio-cli.mdx)
     - ##### Guides
-      - Clip a livestream (010_products/products/livepeer-studio/guides/clip-livestream.mdx)
-      - Create a livestream (010_products/products/livepeer-studio/guides/create-livestream.mdx)
-      - Encrypted assets (010_products/products/livepeer-studio/guides/encrypted-assets.mdx)
-      - Listen to events (010_products/products/livepeer-studio/guides/listen-to-events.mdx)
-      - Livestream from browser (010_products/products/livepeer-studio/guides/livestream-from-browser.mdx)
-      - Managing projects (010_products/products/livepeer-studio/guides/managing-projects.mdx)
-      - Multistream (010_products/products/livepeer-studio/guides/multistream.mdx)
-      - Optimize latency (010_products/products/livepeer-studio/guides/optimize-latency.mdx)
-      - Play an asset (010_products/products/livepeer-studio/guides/playback-asset.mdx)
-      - Play a livestream (010_products/products/livepeer-studio/guides/playback-livestream.mdx)
-      - Player and embed (010_products/products/livepeer-studio/guides/player-and-embed.mdx)
-      - Stream health (010_products/products/livepeer-studio/guides/stream-health.mdx)
-      - Stream via OBS (010_products/products/livepeer-studio/guides/stream-via-obs.mdx)
-      - Thumbnails (VOD) (010_products/products/livepeer-studio/guides/thumbnails-vod.mdx)
-      - Transcode video (010_products/products/livepeer-studio/guides/transcode-video.mdx)
-      - Upload an asset (010_products/products/livepeer-studio/guides/upload-asset.mdx)
-      - Webhooks (010_products/products/livepeer-studio/guides/webhooks.mdx)
+      - Clip a livestream (010_products/livepeer-studio/livestream/clip-livestream.mdx)
+      - Create a livestream (010_products/livepeer-studio/livestream/create-livestream.mdx)
+      - Encrypted assets (010_products/livepeer-studio/video-on-demand/encrypted-assets.mdx)
+      - Listen to events (010_products/livepeer-studio/analytics/listen-to-events.mdx)
+      - Livestream from browser (010_products/livepeer-studio/livestream/livestream-from-browser.mdx)
+      - Managing projects (010_products/livepeer-studio/reference/managing-projects.mdx)
+      - Multistream (010_products/livepeer-studio/livestream/multistream.mdx)
+      - Optimize latency (010_products/livepeer-studio/livestream/optimize-latency.mdx)
+      - Play an asset (010_products/livepeer-studio/video-on-demand/playback-asset.mdx)
+      - Play a livestream (010_products/livepeer-studio/livestream/playback-livestream.mdx)
+      - Player and embed (010_products/livepeer-studio/player.mdx)
+      - Stream health (010_products/livepeer-studio/livestream/stream-health.mdx)
+      - Stream via OBS (010_products/livepeer-studio/livestream/stream-via-obs.mdx)
+      - Thumbnails (VOD) (010_products/livepeer-studio/video-on-demand/thumbnails-vod.mdx)
+      - Transcode video (010_products/livepeer-studio/video-on-demand/transcode-video.mdx)
+      - Upload an asset (010_products/livepeer-studio/video-on-demand/upload-asset.mdx)
+      - Webhooks (010_products/livepeer-studio/analytics/webhooks.mdx)
       - ###### Access Control
-        - Access control with JWTs (010_products/products/livepeer-studio/guides/access-control/jwt.mdx)
-        - Access control overview (010_products/products/livepeer-studio/guides/access-control/overview.mdx)
-        - Access control with webhooks (010_products/products/livepeer-studio/guides/access-control/webhooks.mdx)
+        - Access control with JWTs (010_products/livepeer-studio/access-control/jwt.mdx)
+        - Access control overview (010_products/livepeer-studio/access-control/overview.mdx)
+        - Access control with webhooks (010_products/livepeer-studio/access-control/webhooks.mdx)
       - ###### Analytics
-        - Analytics (010_products/products/livepeer-studio/guides/analytics/overview.mdx)
+        - Analytics (010_products/livepeer-studio/analytics/overview.mdx)
     - ##### Overview
-      - API overview (010_products/products/livepeer-studio/overview/api-overview.mdx)
-      - Livepeer Studio Client Use Cases (010_products/products/livepeer-studio/overview/client-use-cases.mdx)
-      - ⚠️ Livepeer Studio (redirect) (010_products/products/livepeer-studio/overview/livepeer-studio.mdx)
-      - Livestream overview (010_products/products/livepeer-studio/overview/livestream-overview.mdx)
-      - Livepeer Studio overview (010_products/products/livepeer-studio/overview/overview.mdx)
-      - Quickstart (010_products/products/livepeer-studio/overview/quickstart.mdx)
-      - SDKs overview (010_products/products/livepeer-studio/overview/sdks-overview.mdx)
-      - Video on demand overview (010_products/products/livepeer-studio/overview/vod-overview.mdx)
+      - API overview (010_products/livepeer-studio/reference/api.mdx)
+      - Livepeer Studio Client Use Cases (010_products/livepeer-studio/client-use-cases.mdx)
+      - ⚠️ Livepeer Studio (redirect) (010_products/livepeer-studio/livepeer-studio.mdx)
+      - Livestream overview (010_products/livepeer-studio/livestream/overview.mdx)
+      - Livepeer Studio overview (010_products/livepeer-studio/overview.mdx)
+      - Quickstart (010_products/livepeer-studio/quickstart.mdx)
+      - SDKs overview (010_products/livepeer-studio/reference/sdks.mdx)
+      - Video on demand overview (010_products/livepeer-studio/video-on-demand/overview.mdx)
   - #### Streamplace
-    - Streamplace Architecture (010_products/products/streamplace/streamplace-architecture.mdx)
-    - ⚠️ SPE Funding Model (010_products/products/streamplace/streamplace-funding-model.mdx)
-    - How Streamplace Works (010_products/products/streamplace/streamplace-guide.mdx)
-    - Developer Integration Guide (010_products/products/streamplace/streamplace-integration.mdx)
-    - Provenance & Metadata (010_products/products/streamplace/streamplace-provenance.mdx)
-    - Streamplace Overview (010_products/products/streamplace/streamplace.mdx)
+    - Streamplace Architecture (010_products/streamplace/introduction/streamplace-architecture.mdx)
+    - ⚠️ SPE Funding Model (010_products/streamplace/introduction/streamplace-funding-model.mdx)
+    - How Streamplace Works (010_products/streamplace/introduction/streamplace-guide.mdx)
+    - Developer Integration Guide (010_products/streamplace/introduction/streamplace-integration.mdx)
+    - Provenance & Metadata (010_products/streamplace/introduction/streamplace-provenance.mdx)
+    - Streamplace Overview (010_products/streamplace/overview.mdx)
 - Unindexed Pages
   - (none)
 
@@ -318,20 +318,20 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 - ### Developer Platforms
   - ⚠️ Builders HUB (03_developers/developer-platforms/builder-hub.mdx)
   - #### All Ecosystem
-    - ⚠️ Ecosystem Products (03_developers/developer-platforms/all-ecosystem/ecosystem-products.mdx)
+    - ⚠️ Ecosystem Products (03_developers/developer-platforms/ecosystem-products.mdx)
   - #### Daydream
-    - ⚠️ Daydream (03_developers/developer-platforms/daydream/daydream.mdx)
+    - ⚠️ Daydream (03_developers/developer-platforms/daydream/overview.mdx)
   - #### Frameworks
-    - ⚠️ Frameworks (03_developers/developer-platforms/frameworks/frameworks.mdx)
+    - ⚠️ Frameworks (03_developers/developer-platforms/frameworks/overview.mdx)
   - #### Livepeer Studio
     - ⚠️ Livepeer Studio (03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx)
   - #### Streamplace
-    - ⚠️ Streamplace Architecture (03_developers/developer-platforms/streamplace/streamplace-architecture.mdx)
-    - ⚠️ SPE Funding Model (03_developers/developer-platforms/streamplace/streamplace-funding-model.mdx)
-    - ⚠️ How Streamplace Works (03_developers/developer-platforms/streamplace/streamplace-guide.mdx)
-    - ⚠️ Developer Integration Guide (03_developers/developer-platforms/streamplace/streamplace-integration.mdx)
-    - ⚠️ Provenance & Metadata (03_developers/developer-platforms/streamplace/streamplace-provenance.mdx)
-    - ⚠️ Streamplace Overview (03_developers/developer-platforms/streamplace/streamplace.mdx)
+    - ⚠️ Streamplace Architecture (03_developers/developer-platforms/streamplace/introduction/streamplace-architecture.mdx)
+    - ⚠️ SPE Funding Model (03_developers/developer-platforms/streamplace/introduction/streamplace-funding-model.mdx)
+    - ⚠️ How Streamplace Works (03_developers/developer-platforms/streamplace/introduction/streamplace-guide.mdx)
+    - ⚠️ Developer Integration Guide (03_developers/developer-platforms/streamplace/introduction/streamplace-integration.mdx)
+    - ⚠️ Provenance & Metadata (03_developers/developer-platforms/streamplace/introduction/streamplace-provenance.mdx)
+    - ⚠️ Streamplace Overview (03_developers/developer-platforms/streamplace/overview.mdx)
 - ### Developer Tools
   - Community & Network Dashboards (03_developers/developer-tools/dashboards.mdx)
   - ⚠️ External Tooling (03_developers/developer-tools/external-tooling.mdx)
@@ -955,49 +955,49 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-rooted | /v2/pages/01_about/resources/blockchain-contracts | v2/pages/01_about/resources/blockchain-contracts.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/01_about/resources/technical-roadmap | v2/pages/01_about/resources/technical-roadmap.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/01_about/resources/gateways-vs-orchestrators | v2/pages/01_about/resources/gateways-vs-orchestrators.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products-portal | v2/pages/010_products/products-portal.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/all-ecosystem/product-hub | v2/pages/010_products/products/all-ecosystem/product-hub.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/all-ecosystem/ecosystem-products | v2/pages/010_products/products/all-ecosystem/ecosystem-products.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/daydream/daydream | v2/pages/010_products/products/daydream/daydream.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/overview/overview | v2/pages/010_products/products/livepeer-studio/overview/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/overview/client-use-cases | v2/pages/010_products/products/livepeer-studio/overview/client-use-cases.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/getting-started/overview | v2/pages/010_products/products/livepeer-studio/getting-started/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/overview/quickstart | v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/getting-started/authentication | v2/pages/010_products/products/livepeer-studio/getting-started/authentication.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli | v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/overview/livestream-overview | v2/pages/010_products/products/livepeer-studio/overview/livestream-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/create-livestream | v2/pages/010_products/products/livepeer-studio/guides/create-livestream.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/playback-livestream | v2/pages/010_products/products/livepeer-studio/guides/playback-livestream.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs | v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser | v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/multistream | v2/pages/010_products/products/livepeer-studio/guides/multistream.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/clip-livestream | v2/pages/010_products/products/livepeer-studio/guides/clip-livestream.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/stream-health | v2/pages/010_products/products/livepeer-studio/guides/stream-health.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/optimize-latency | v2/pages/010_products/products/livepeer-studio/guides/optimize-latency.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/overview/vod-overview | v2/pages/010_products/products/livepeer-studio/overview/vod-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/upload-asset | v2/pages/010_products/products/livepeer-studio/guides/upload-asset.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/playback-asset | v2/pages/010_products/products/livepeer-studio/guides/playback-asset.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets | v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod | v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/transcode-video | v2/pages/010_products/products/livepeer-studio/guides/transcode-video.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/access-control/overview | v2/pages/010_products/products/livepeer-studio/guides/access-control/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks | v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt | v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/webhooks | v2/pages/010_products/products/livepeer-studio/guides/webhooks.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/listen-to-events | v2/pages/010_products/products/livepeer-studio/guides/listen-to-events.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/analytics/overview | v2/pages/010_products/products/livepeer-studio/guides/analytics/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/overview/api-overview | v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/api-reference/overview | v2/pages/010_products/products/livepeer-studio/api-reference/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/overview/sdks-overview | v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/managing-projects | v2/pages/010_products/products/livepeer-studio/guides/managing-projects.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/streamplace/streamplace | v2/pages/010_products/products/streamplace/streamplace.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/streamplace/streamplace-guide | v2/pages/010_products/products/streamplace/streamplace-guide.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/streamplace/streamplace-architecture | v2/pages/010_products/products/streamplace/streamplace-architecture.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/streamplace/streamplace-integration | v2/pages/010_products/products/streamplace/streamplace-integration.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/streamplace/streamplace-provenance | v2/pages/010_products/products/streamplace/streamplace-provenance.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/embody/overview | v2/pages/010_products/products/embody/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/frameworks/frameworks | v2/pages/010_products/products/frameworks/frameworks.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/portal | v2/pages/010_products/portal.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/product-hub | v2/pages/010_products/product-hub.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/ecosystem-products | v2/pages/010_products/ecosystem-products.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/daydream/overview | v2/pages/010_products/daydream/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/overview | v2/pages/010_products/livepeer-studio/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/client-use-cases | v2/pages/010_products/livepeer-studio/client-use-cases.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/get-started/overview | v2/pages/010_products/livepeer-studio/get-started/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/quickstart | v2/pages/010_products/livepeer-studio/quickstart.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/get-started/authentication | v2/pages/010_products/livepeer-studio/get-started/authentication.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/get-started/studio-cli | v2/pages/010_products/livepeer-studio/get-started/studio-cli.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/overview | v2/pages/010_products/livepeer-studio/livestream/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/create-livestream | v2/pages/010_products/livepeer-studio/livestream/create-livestream.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/playback-livestream | v2/pages/010_products/livepeer-studio/livestream/playback-livestream.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/stream-via-obs | v2/pages/010_products/livepeer-studio/livestream/stream-via-obs.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/livestream-from-browser | v2/pages/010_products/livepeer-studio/livestream/livestream-from-browser.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/multistream | v2/pages/010_products/livepeer-studio/livestream/multistream.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/clip-livestream | v2/pages/010_products/livepeer-studio/livestream/clip-livestream.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/stream-health | v2/pages/010_products/livepeer-studio/livestream/stream-health.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/optimize-latency | v2/pages/010_products/livepeer-studio/livestream/optimize-latency.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/video-on-demand/overview | v2/pages/010_products/livepeer-studio/video-on-demand/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/video-on-demand/upload-asset | v2/pages/010_products/livepeer-studio/video-on-demand/upload-asset.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/video-on-demand/playback-asset | v2/pages/010_products/livepeer-studio/video-on-demand/playback-asset.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/video-on-demand/encrypted-assets | v2/pages/010_products/livepeer-studio/video-on-demand/encrypted-assets.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/video-on-demand/thumbnails-vod | v2/pages/010_products/livepeer-studio/video-on-demand/thumbnails-vod.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/video-on-demand/transcode-video | v2/pages/010_products/livepeer-studio/video-on-demand/transcode-video.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/access-control/overview | v2/pages/010_products/livepeer-studio/access-control/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/access-control/webhooks | v2/pages/010_products/livepeer-studio/access-control/webhooks.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/access-control/jwt | v2/pages/010_products/livepeer-studio/access-control/jwt.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/analytics/webhooks | v2/pages/010_products/livepeer-studio/analytics/webhooks.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/analytics/listen-to-events | v2/pages/010_products/livepeer-studio/analytics/listen-to-events.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/analytics/overview | v2/pages/010_products/livepeer-studio/analytics/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/player | v2/pages/010_products/livepeer-studio/player.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/reference/api | v2/pages/010_products/livepeer-studio/reference/api.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/reference/overview | v2/pages/010_products/livepeer-studio/reference/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/reference/sdks | v2/pages/010_products/livepeer-studio/reference/sdks.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/reference/managing-projects | v2/pages/010_products/livepeer-studio/reference/managing-projects.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/streamplace/overview | v2/pages/010_products/streamplace/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/streamplace/introduction/streamplace-guide | v2/pages/010_products/streamplace/introduction/streamplace-guide.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/streamplace/introduction/streamplace-architecture | v2/pages/010_products/streamplace/introduction/streamplace-architecture.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/streamplace/introduction/streamplace-integration | v2/pages/010_products/streamplace/introduction/streamplace-integration.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/streamplace/introduction/streamplace-provenance | v2/pages/010_products/streamplace/introduction/streamplace-provenance.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/embody/overview | v2/pages/010_products/embody/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/frameworks/overview | v2/pages/010_products/frameworks/overview.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/03_developers/developer-portal | v2/pages/03_developers/developer-portal.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/03_developers/building-on-livepeer/developer-guide | v2/pages/03_developers/building-on-livepeer/developer-guide.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/03_developers/building-on-livepeer/partners | v2/pages/03_developers/building-on-livepeer/partners.mdx | true | ok |  |  |  |
@@ -1203,49 +1203,49 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-rooted | /v2/pages/01_about/resources/blockchain-contracts | v2/pages/01_about/resources/blockchain-contracts.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/01_about/resources/technical-roadmap | v2/pages/01_about/resources/technical-roadmap.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/01_about/resources/gateways-vs-orchestrators | v2/pages/01_about/resources/gateways-vs-orchestrators.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products-portal | v2/pages/010_products/products-portal.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/all-ecosystem/product-hub | v2/pages/010_products/products/all-ecosystem/product-hub.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/all-ecosystem/ecosystem-products | v2/pages/010_products/products/all-ecosystem/ecosystem-products.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/daydream/daydream | v2/pages/010_products/products/daydream/daydream.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/overview/overview | v2/pages/010_products/products/livepeer-studio/overview/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/overview/client-use-cases | v2/pages/010_products/products/livepeer-studio/overview/client-use-cases.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/getting-started/overview | v2/pages/010_products/products/livepeer-studio/getting-started/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/overview/quickstart | v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/getting-started/authentication | v2/pages/010_products/products/livepeer-studio/getting-started/authentication.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli | v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/overview/livestream-overview | v2/pages/010_products/products/livepeer-studio/overview/livestream-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/create-livestream | v2/pages/010_products/products/livepeer-studio/guides/create-livestream.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/playback-livestream | v2/pages/010_products/products/livepeer-studio/guides/playback-livestream.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs | v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser | v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/multistream | v2/pages/010_products/products/livepeer-studio/guides/multistream.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/clip-livestream | v2/pages/010_products/products/livepeer-studio/guides/clip-livestream.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/stream-health | v2/pages/010_products/products/livepeer-studio/guides/stream-health.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/optimize-latency | v2/pages/010_products/products/livepeer-studio/guides/optimize-latency.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/overview/vod-overview | v2/pages/010_products/products/livepeer-studio/overview/vod-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/upload-asset | v2/pages/010_products/products/livepeer-studio/guides/upload-asset.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/playback-asset | v2/pages/010_products/products/livepeer-studio/guides/playback-asset.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets | v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod | v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/transcode-video | v2/pages/010_products/products/livepeer-studio/guides/transcode-video.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/access-control/overview | v2/pages/010_products/products/livepeer-studio/guides/access-control/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks | v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt | v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/webhooks | v2/pages/010_products/products/livepeer-studio/guides/webhooks.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/listen-to-events | v2/pages/010_products/products/livepeer-studio/guides/listen-to-events.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/analytics/overview | v2/pages/010_products/products/livepeer-studio/guides/analytics/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/overview/api-overview | v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/api-reference/overview | v2/pages/010_products/products/livepeer-studio/api-reference/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/overview/sdks-overview | v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio/guides/managing-projects | v2/pages/010_products/products/livepeer-studio/guides/managing-projects.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/streamplace/streamplace | v2/pages/010_products/products/streamplace/streamplace.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/streamplace/streamplace-guide | v2/pages/010_products/products/streamplace/streamplace-guide.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/streamplace/streamplace-architecture | v2/pages/010_products/products/streamplace/streamplace-architecture.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/streamplace/streamplace-integration | v2/pages/010_products/products/streamplace/streamplace-integration.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/streamplace/streamplace-provenance | v2/pages/010_products/products/streamplace/streamplace-provenance.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/embody/overview | v2/pages/010_products/products/embody/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/frameworks/frameworks | v2/pages/010_products/products/frameworks/frameworks.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/portal | v2/pages/010_products/portal.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/product-hub | v2/pages/010_products/product-hub.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/ecosystem-products | v2/pages/010_products/ecosystem-products.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/daydream/overview | v2/pages/010_products/daydream/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/overview | v2/pages/010_products/livepeer-studio/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/client-use-cases | v2/pages/010_products/livepeer-studio/client-use-cases.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/get-started/overview | v2/pages/010_products/livepeer-studio/get-started/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/quickstart | v2/pages/010_products/livepeer-studio/quickstart.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/get-started/authentication | v2/pages/010_products/livepeer-studio/get-started/authentication.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/get-started/studio-cli | v2/pages/010_products/livepeer-studio/get-started/studio-cli.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/overview | v2/pages/010_products/livepeer-studio/livestream/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/create-livestream | v2/pages/010_products/livepeer-studio/livestream/create-livestream.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/playback-livestream | v2/pages/010_products/livepeer-studio/livestream/playback-livestream.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/stream-via-obs | v2/pages/010_products/livepeer-studio/livestream/stream-via-obs.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/livestream-from-browser | v2/pages/010_products/livepeer-studio/livestream/livestream-from-browser.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/multistream | v2/pages/010_products/livepeer-studio/livestream/multistream.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/clip-livestream | v2/pages/010_products/livepeer-studio/livestream/clip-livestream.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/stream-health | v2/pages/010_products/livepeer-studio/livestream/stream-health.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/livestream/optimize-latency | v2/pages/010_products/livepeer-studio/livestream/optimize-latency.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/video-on-demand/overview | v2/pages/010_products/livepeer-studio/video-on-demand/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/video-on-demand/upload-asset | v2/pages/010_products/livepeer-studio/video-on-demand/upload-asset.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/video-on-demand/playback-asset | v2/pages/010_products/livepeer-studio/video-on-demand/playback-asset.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/video-on-demand/encrypted-assets | v2/pages/010_products/livepeer-studio/video-on-demand/encrypted-assets.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/video-on-demand/thumbnails-vod | v2/pages/010_products/livepeer-studio/video-on-demand/thumbnails-vod.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/video-on-demand/transcode-video | v2/pages/010_products/livepeer-studio/video-on-demand/transcode-video.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/access-control/overview | v2/pages/010_products/livepeer-studio/access-control/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/access-control/webhooks | v2/pages/010_products/livepeer-studio/access-control/webhooks.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/access-control/jwt | v2/pages/010_products/livepeer-studio/access-control/jwt.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/analytics/webhooks | v2/pages/010_products/livepeer-studio/analytics/webhooks.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/analytics/listen-to-events | v2/pages/010_products/livepeer-studio/analytics/listen-to-events.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/analytics/overview | v2/pages/010_products/livepeer-studio/analytics/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/player | v2/pages/010_products/livepeer-studio/player.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/reference/api | v2/pages/010_products/livepeer-studio/reference/api.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/reference/overview | v2/pages/010_products/livepeer-studio/reference/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/reference/sdks | v2/pages/010_products/livepeer-studio/reference/sdks.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio/reference/managing-projects | v2/pages/010_products/livepeer-studio/reference/managing-projects.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/streamplace/overview | v2/pages/010_products/streamplace/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/streamplace/introduction/streamplace-guide | v2/pages/010_products/streamplace/introduction/streamplace-guide.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/streamplace/introduction/streamplace-architecture | v2/pages/010_products/streamplace/introduction/streamplace-architecture.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/streamplace/introduction/streamplace-integration | v2/pages/010_products/streamplace/introduction/streamplace-integration.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/streamplace/introduction/streamplace-provenance | v2/pages/010_products/streamplace/introduction/streamplace-provenance.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/embody/overview | v2/pages/010_products/embody/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/frameworks/overview | v2/pages/010_products/frameworks/overview.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/03_developers/developer-portal | v2/pages/03_developers/developer-portal.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/03_developers/building-on-livepeer/developer-guide | v2/pages/03_developers/building-on-livepeer/developer-guide.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/03_developers/building-on-livepeer/partners | v2/pages/03_developers/building-on-livepeer/partners.mdx | true | ok |  |  |  |
@@ -1458,8 +1458,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-rooted | /v2/pages/00_home/project-showcase/showcase | v2/pages/00_home/project-showcase/showcase.mdx | true | ok |  |  |  |
 | internal-relative | ../../01_about/about-portal | v2/pages/01_about/about-portal.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai | v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/daydream | /v2/pages/010_products/products/daydream | true | ok-folder-route |  |  |  |
-| internal-relative | ../../010_products/products-portal | v2/pages/010_products/products-portal.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/pages/010_products/daydream | /v2/pages/010_products/daydream | true | ok-folder-route |  |  |  |
+| internal-relative | ../../010_products/portal | v2/pages/010_products/portal.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming | v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio |  | null | 🟡 untested-external |  |  |  |
 | internal-relative | ../../07_resources/documentation-guide/style-guide | v2/pages/07_resources/documentation-guide/style-guide.mdx | true | ok |  |  |  |
@@ -1468,10 +1468,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-rooted | /v2/pages/00_home/introduction/ | /v2/pages/00_home/introduction | true | ok-folder-route |  |  |  |
 | internal-rooted | /v2/pages/02_community/livepeer-community/trending-topics | v2/pages/02_community/livepeer-community/trending-topics.mdx | true | ok |  |  |  |
 | internal-relative | ../get-started/stream-video-quickstart | v2/pages/00_home/get-started/stream-video-quickstart.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/daydream | /v2/pages/010_products/products/daydream | true | ok-folder-route |  |  |  |
-| internal-rooted | /v2/pages/010_products/products/livepeer-studio | /v2/pages/010_products/products/livepeer-studio | true | ok-folder-route |  |  |  |
+| internal-rooted | /v2/pages/010_products/daydream | /v2/pages/010_products/daydream | true | ok-folder-route |  |  |  |
+| internal-rooted | /v2/pages/010_products/livepeer-studio | /v2/pages/010_products/livepeer-studio | true | ok-folder-route |  |  |  |
 | internal-rooted | /v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai | v2/pages/03_developers/building-on-livepeer/quick-starts/livepeer-ai.mdx | true | ok |  |  |  |
-| internal-relative | ../../010_products/products/daydream/daydream | v2/pages/010_products/products/daydream/daydream.mdx | true | ok |  |  |  |
+| internal-relative | ../../010_products/daydream/overview | v2/pages/010_products/daydream/overview.mdx | true | ok |  |  |  |
 | internal-relative | ../../03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream | v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/comfystream.mdx | true | ok |  |  |  |
 | internal-relative | ../../03_developers/ai-inference-on-livepeer/ai-pipelines/byoc | v2/pages/03_developers/ai-inference-on-livepeer/ai-pipelines/byoc.mdx | true | ok |  |  |  |
 | internal-relative | ../../03_developers/developer-portal | v2/pages/03_developers/developer-portal.mdx | true | ok |  |  |  |
@@ -1479,7 +1479,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-relative | ../../03_developers/builder-opportunities/dev-programs | v2/pages/03_developers/builder-opportunities/dev-programs.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/05_orchestrators/quickstart/overview | v2/pages/05_orchestrators/quickstart/overview.mdx | true | ok |  |  |  |
 | mailto | mailto:hello@livepeer.org |  | null | skipped |  |  |  |
-| internal-relative | ../../010_products/products/daydream/daydream | v2/pages/010_products/products/daydream/daydream.mdx | true | ok |  |  |  |
+| internal-relative | ../../010_products/daydream/overview | v2/pages/010_products/daydream/overview.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming | v2/pages/03_developers/building-on-livepeer/quick-starts/video-streaming.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio |  | null | 🟡 untested-external |  |  |  |
 | internal-relative | ../../06_lptoken/delegation/overview | v2/pages/06_lptoken/delegation/overview.mdx | true | ok |  |  |  |
@@ -1510,7 +1510,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNjgxanlyczB0NW05M2xlYWEwdDg1N20zanowNGxmdzNnbWZ2bHQwdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ae7SI3LoPYj8Q/giphy.gif |  | null | 🟡 untested-external |  |  |  |
 | internal-relative | ../../02_community/community-portal | v2/pages/02_community/community-portal.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/00_home/project-showcase/showcase | v2/pages/00_home/project-showcase/showcase.mdx | true | ok |  |  |  |
-| internal-relative | ../../010_products/products-portal | v2/pages/010_products/products-portal.mdx | true | ok |  |  |  |
+| internal-relative | ../../010_products/portal | v2/pages/010_products/portal.mdx | true | ok |  |  |  |
 | internal-relative | ../../03_developers/developer-portal | v2/pages/03_developers/developer-portal.mdx | true | ok |  |  |  |
 | internal-relative | ../../04_gateways/gateways-portal | v2/pages/04_gateways/gateways-portal.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/05_orchestrators/orchestrators-portal | v2/pages/05_orchestrators/orchestrators-portal.mdx | true | ok |  |  |  |
@@ -1727,16 +1727,16 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | import-path | /snippets/components/display/showcaseCards.jsx | snippets/components/display/showcaseCards.jsx | true | ok |  |  |  |
 | import-path | /snippets/automations/showcase/showcaseData.jsx | snippets/automations/showcase/showcaseData.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products-portal.mdx
+### v2/pages/010_products/portal.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://github.com/livepeer/ |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ./products/daydream/daydream | v2/pages/010_products/products/daydream/daydream.mdx | true | ok |  |  |  |
-| internal-relative | ./products/livepeer-studio/overview/overview | v2/pages/010_products/products/livepeer-studio/overview/overview.mdx | true | ok |  |  |  |
-| internal-relative | ./products/frameworks/frameworks | v2/pages/010_products/products/frameworks/frameworks.mdx | true | ok |  |  |  |
-| internal-relative | ./products/streamplace/streamplace | v2/pages/010_products/products/streamplace/streamplace.mdx | true | ok |  |  |  |
-| internal-relative | ./products/embody/overview | v2/pages/010_products/products/embody/overview.mdx | true | ok |  |  |  |
-| internal-relative | ./products/all-ecosystem/product-hub | v2/pages/010_products/products/all-ecosystem/product-hub.mdx | true | ok |  |  |  |
+| internal-relative | ./daydream/overview | v2/pages/010_products/daydream/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./livepeer-studio/overview | v2/pages/010_products/livepeer-studio/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./frameworks/overview | v2/pages/010_products/frameworks/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./streamplace/overview | v2/pages/010_products/streamplace/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./embody/overview | v2/pages/010_products/embody/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./product-hub | v2/pages/010_products/product-hub.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/Portals.jsx | snippets/components/domain/SHARED/Portals.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/display/frameMode.jsx | snippets/components/display/frameMode.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/divider.jsx | snippets/components/primitives/divider.jsx | true | ok |  |  |  |
@@ -1745,28 +1745,28 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | import-path | /snippets/components/display/video.jsx | snippets/components/display/video.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/all-ecosystem/ecosystem-products.mdx
+### v2/pages/010_products/ecosystem-products.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | (none) |  |  |  |  |  |  |  |
 
-### v2/pages/010_products/products/all-ecosystem/product-hub.mdx
+### v2/pages/010_products/product-hub.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://github.com/livepeer/docs |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../daydream/daydream | v2/pages/010_products/products/daydream/daydream.mdx | true | ok |  |  |  |
+| internal-relative | ../daydream/overview | v2/pages/010_products/daydream/overview.mdx | true | ok |  |  |  |
 | internal-rooted | /snippets/assets/logos/products/daydream-logo-dark.svg | snippets/assets/logos/products/daydream-logo-dark.svg | true | ok |  |  |  |
-| internal-relative | ../livepeer-studio/overview/overview | v2/pages/010_products/products/livepeer-studio/overview/overview.mdx | true | ok |  |  |  |
+| internal-relative | ../livepeer-studio/overview | v2/pages/010_products/livepeer-studio/overview.mdx | true | ok |  |  |  |
 | internal-rooted | /snippets/assets/logos/products/livepeer-studio-logo.svg | snippets/assets/logos/products/livepeer-studio-logo.svg | true | ok |  |  |  |
-| internal-relative | ../frameworks/frameworks | v2/pages/010_products/products/frameworks/frameworks.mdx | true | ok |  |  |  |
+| internal-relative | ../frameworks/overview | v2/pages/010_products/frameworks/overview.mdx | true | ok |  |  |  |
 | external-https | https://frameworks.network/frameworks-dark-horizontal-lockup-transparent.svg |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../streamplace/streamplace | v2/pages/010_products/products/streamplace/streamplace.mdx | true | ok |  |  |  |
+| internal-relative | ../streamplace/overview | v2/pages/010_products/streamplace/overview.mdx | true | ok |  |  |  |
 | internal-rooted | /snippets/assets/logos/products/streamplace-logo.svg | snippets/assets/logos/products/streamplace-logo.svg | true | ok |  |  |  |
-| internal-relative | ./ecosystem-products | v2/pages/010_products/products/all-ecosystem/ecosystem-products.mdx | true | ok |  |  |  |
+| internal-relative | ./ecosystem-products | v2/pages/010_products/ecosystem-products.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/links.jsx | snippets/components/primitives/links.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/daydream/daydream.mdx
+### v2/pages/010_products/daydream/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://discord.com/invite/mnfGR4Fjhp |  | null | 🟡 untested-external |  |  |  |
@@ -1775,8 +1775,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://app.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://daydream.live/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://docs.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /010_products/products/daydream/overview/overview | v2/pages/010_products/products/daydream/overview/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/daydream/overview/quickstart | v2/pages/010_products/products/daydream/overview/quickstart.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/daydream/overview/overview | v2/pages/010_products/daydream/overview/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/daydream/overview/quickstart | v2/pages/010_products/daydream/overview/quickstart.mdx | true | ok |  |  |  |
 | external-https | https://docs.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://blog.livepeer.org/introducing-daydream/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://blog.livepeer.org/daydream-live-a-glimpse-into-the-future-of-realtime-ai-video-on-livepeer/ |  | null | 🟡 untested-external |  |  |  |
@@ -1784,7 +1784,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://blog.livepeer.org/ |  | null | 🟡 untested-external |  |  |  |
 | import-path | /snippets/components/display/video.jsx | snippets/components/display/video.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/daydream/overview/overview.mdx
+### v2/pages/010_products/daydream/overview/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://daydream.live |  | null | 🟡 untested-external |  |  |  |
@@ -1801,11 +1801,11 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://app.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://daydream.live/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://docs.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /010_products/products/daydream/overview/quickstart | v2/pages/010_products/products/daydream/overview/quickstart.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/daydream/overview/quickstart | v2/pages/010_products/daydream/overview/quickstart.mdx | true | ok |  |  |  |
 | external-https | https://docs.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
 | import-path | /snippets/components/display/video.jsx | snippets/components/display/video.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/daydream/overview/quickstart.mdx
+### v2/pages/010_products/daydream/overview/quickstart.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://docs.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
@@ -1814,12 +1814,12 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://docs.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://docs.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /v2/pages/04_gateways/gateways-portal | v2/pages/04_gateways/gateways-portal.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/daydream/overview/overview | v2/pages/010_products/products/daydream/overview/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/daydream/overview/overview | v2/pages/010_products/daydream/overview/overview.mdx | true | ok |  |  |  |
 | external-https | https://docs.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://discord.com/invite/mnfGR4Fjhp |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://blog.daydream.live/ |  | null | 🟡 untested-external |  |  |  |
 
-### v2/pages/010_products/products/embody/overview.mdx
+### v2/pages/010_products/embody/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | internal-rooted | /snippets/assets/domain/10_PRODUCTS/Embody/Videos/arealiensreal.mp4 | snippets/assets/domain/10_PRODUCTS/Embody/Videos/arealiensreal.mp4 | true | ok |  |  |  |
@@ -1828,7 +1828,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://forum.livepeer.org/t/embody-unreal-engine-updates/3186 |  | null | 🟡 untested-external |  |  |  |
 | import-path | /snippets/components/display/video.jsx | snippets/components/display/video.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/frameworks/frameworks.mdx
+### v2/pages/010_products/frameworks/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://frameworks.network/ |  | null | 🟡 untested-external |  |  |  |
@@ -1836,14 +1836,14 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://app.frameworks.network/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer-frameworks/monorepo |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://frameworks.network/contact |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /010_products/products/frameworks/overview/overview | v2/pages/010_products/products/frameworks/overview/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/frameworks/overview/quickstart | v2/pages/010_products/products/frameworks/overview/quickstart.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/frameworks/overview/overview | v2/pages/010_products/frameworks/overview/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/frameworks/overview/quickstart | v2/pages/010_products/frameworks/overview/quickstart.mdx | true | ok |  |  |  |
 | external-https | https://docs.frameworks.network/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://forum.livepeer.org/t/pre-proposal-livepeer-frameworks-spe-pilot-phase/2773 |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://blog.livepeer.org/ |  | null | 🟡 untested-external |  |  |  |
 | import-path | /snippets/components/display/video.jsx | snippets/components/display/video.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/frameworks/overview/overview.mdx
+### v2/pages/010_products/frameworks/overview/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://www.youtube.com/watch?v=DKBRp0U-RKw |  | null | 🟡 untested-external |  |  |  |
@@ -1854,10 +1854,10 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://app.frameworks.network/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer-frameworks/monorepo |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://frameworks.network/contact |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /010_products/products/frameworks/overview/quickstart | v2/pages/010_products/products/frameworks/overview/quickstart.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/frameworks/overview/quickstart | v2/pages/010_products/frameworks/overview/quickstart.mdx | true | ok |  |  |  |
 | external-https | https://docs.frameworks.network/ |  | null | 🟡 untested-external |  |  |  |
 
-### v2/pages/010_products/products/frameworks/overview/quickstart.mdx
+### v2/pages/010_products/frameworks/overview/quickstart.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://docs.frameworks.network/ |  | null | 🟡 untested-external |  |  |  |
@@ -1866,473 +1866,473 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://docs.frameworks.network/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://docs.frameworks.network/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://frameworks.network/SKILL.md |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /010_products/products/frameworks/overview/overview | v2/pages/010_products/products/frameworks/overview/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/frameworks/overview/overview | v2/pages/010_products/frameworks/overview/overview.mdx | true | ok |  |  |  |
 | external-https | https://docs.frameworks.network/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://app.frameworks.network/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer-frameworks/monorepo |  | null | 🟡 untested-external |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/assets/delete.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/assets/delete.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/assets/get-all.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/assets/get-all.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/assets/get.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/assets/get.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/assets/overview.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/assets/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | ./upload | v2/pages/010_products/products/livepeer-studio/api-reference/assets/upload.mdx | true | ok |  |  |  |
-| internal-relative | ./upload-via-url | v2/pages/010_products/products/livepeer-studio/api-reference/assets/upload-via-url.mdx | true | ok |  |  |  |
-| internal-relative | ./get | v2/pages/010_products/products/livepeer-studio/api-reference/assets/get.mdx | true | ok |  |  |  |
-| internal-relative | ./get-all | v2/pages/010_products/products/livepeer-studio/api-reference/assets/get-all.mdx | true | ok |  |  |  |
-| internal-relative | ./update | v2/pages/010_products/products/livepeer-studio/api-reference/assets/update.mdx | true | ok |  |  |  |
-| internal-relative | ./delete | v2/pages/010_products/products/livepeer-studio/api-reference/assets/delete.mdx | true | ok |  |  |  |
+| internal-relative | ./upload | v2/pages/010_products/livepeer-studio/api-reference/assets/upload.mdx | true | ok |  |  |  |
+| internal-relative | ./upload-via-url | v2/pages/010_products/livepeer-studio/api-reference/assets/upload-via-url.mdx | true | ok |  |  |  |
+| internal-relative | ./get | v2/pages/010_products/livepeer-studio/api-reference/assets/get.mdx | true | ok |  |  |  |
+| internal-relative | ./get-all | v2/pages/010_products/livepeer-studio/api-reference/assets/get-all.mdx | true | ok |  |  |  |
+| internal-relative | ./update | v2/pages/010_products/livepeer-studio/api-reference/assets/update.mdx | true | ok |  |  |  |
+| internal-relative | ./delete | v2/pages/010_products/livepeer-studio/api-reference/assets/delete.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/assets/update.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/assets/update.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/assets/upload-via-url.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/assets/upload-via-url.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/assets/upload.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/assets/upload.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/multistream/create.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/multistream/create.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/multistream/delete.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/multistream/delete.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/multistream/get-all.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/multistream/get-all.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/multistream/get.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/multistream/get.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/multistream/overview.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/multistream/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/multistream/update.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/multistream/update.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/overview.mdx
+### v2/pages/010_products/livepeer-studio/reference/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | ../getting-started/authentication | v2/pages/010_products/products/livepeer-studio/getting-started/authentication.mdx | true | ok |  |  |  |
-| internal-relative | ../getting-started/authentication | v2/pages/010_products/products/livepeer-studio/getting-started/authentication.mdx | true | ok |  |  |  |
-| internal-relative | ../overview/quickstart | v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx | true | ok |  |  |  |
-| internal-relative | ../overview/sdks-overview | v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx | true | ok |  |  |  |
-| internal-relative | ../overview/api-overview | v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx | true | ok |  |  |  |
-| internal-relative | ./streams/overview | v2/pages/010_products/products/livepeer-studio/api-reference/streams/overview.mdx | true | ok |  |  |  |
-| internal-relative | ./assets/overview | v2/pages/010_products/products/livepeer-studio/api-reference/assets/overview.mdx | true | ok |  |  |  |
-| internal-relative | ./playback/overview | v2/pages/010_products/products/livepeer-studio/api-reference/playback/overview.mdx | true | ok |  |  |  |
-| internal-relative | ./sessions/overview | v2/pages/010_products/products/livepeer-studio/api-reference/sessions/overview.mdx | true | ok |  |  |  |
-| internal-relative | ./multistream/overview | v2/pages/010_products/products/livepeer-studio/api-reference/multistream/overview.mdx | true | ok |  |  |  |
-| internal-relative | ./transcode/overview | v2/pages/010_products/products/livepeer-studio/api-reference/transcode/overview.mdx | true | ok |  |  |  |
-| internal-relative | ./webhooks/overview | v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/overview.mdx | true | ok |  |  |  |
-| internal-relative | ./signing-keys/overview | v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/overview.mdx | true | ok |  |  |  |
-| internal-relative | ./rooms/overview | v2/pages/010_products/products/livepeer-studio/api-reference/rooms/overview.mdx | true | ok |  |  |  |
-| internal-relative | ./tasks/overview | v2/pages/010_products/products/livepeer-studio/api-reference/tasks/overview.mdx | true | ok |  |  |  |
-| internal-relative | ./viewership/overview | v2/pages/010_products/products/livepeer-studio/api-reference/viewership/overview.mdx | true | ok |  |  |  |
+| internal-relative | ../getting-started/authentication | v2/pages/010_products/livepeer-studio/get-started/authentication.mdx | true | ok |  |  |  |
+| internal-relative | ../getting-started/authentication | v2/pages/010_products/livepeer-studio/get-started/authentication.mdx | true | ok |  |  |  |
+| internal-relative | ../overview/quickstart | v2/pages/010_products/livepeer-studio/quickstart.mdx | true | ok |  |  |  |
+| internal-relative | ../reference/sdks | v2/pages/010_products/livepeer-studio/reference/sdks.mdx | true | ok |  |  |  |
+| internal-relative | ../reference/api | v2/pages/010_products/livepeer-studio/reference/api.mdx | true | ok |  |  |  |
+| internal-relative | ./streams/overview | v2/pages/010_products/livepeer-studio/api-reference/streams/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./assets/overview | v2/pages/010_products/livepeer-studio/api-reference/assets/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./playback/overview | v2/pages/010_products/livepeer-studio/api-reference/playback/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./sessions/overview | v2/pages/010_products/livepeer-studio/api-reference/sessions/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./multistream/overview | v2/pages/010_products/livepeer-studio/api-reference/multistream/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./transcode/overview | v2/pages/010_products/livepeer-studio/api-reference/transcode/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./webhooks/overview | v2/pages/010_products/livepeer-studio/api-reference/webhooks/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./signing-keys/overview | v2/pages/010_products/livepeer-studio/api-reference/signing-keys/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./rooms/overview | v2/pages/010_products/livepeer-studio/api-reference/rooms/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./tasks/overview | v2/pages/010_products/livepeer-studio/api-reference/tasks/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./viewership/overview | v2/pages/010_products/livepeer-studio/api-reference/viewership/overview.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/playback/get.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/playback/get.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/playback/overview.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/playback/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | ./get | v2/pages/010_products/products/livepeer-studio/api-reference/playback/get.mdx | true | ok |  |  |  |
+| internal-relative | ./get | v2/pages/010_products/livepeer-studio/api-reference/playback/get.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/rooms/create-user.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/rooms/create-user.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/rooms/create.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/rooms/create.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/rooms/delete.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/rooms/delete.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/rooms/get-user.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/rooms/get-user.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/rooms/get.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/rooms/get.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/rooms/overview.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/rooms/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/rooms/remove-user.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/rooms/remove-user.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/rooms/start-egress.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/rooms/start-egress.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/rooms/stop-egress.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/rooms/stop-egress.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/rooms/update-user.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/rooms/update-user.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/rooms/update.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/rooms/update.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/sessions/get-all.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/sessions/get-all.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/sessions/get-clip.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/sessions/get-clip.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/sessions/get-recording.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/sessions/get-recording.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/sessions/get.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/sessions/get.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/sessions/overview.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/sessions/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/create.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/signing-keys/create.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/delete.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/signing-keys/delete.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/get-all.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/signing-keys/get-all.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/get.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/signing-keys/get.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/overview.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/signing-keys/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/signing-keys/update.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/signing-keys/update.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/streams/add-multistream-target.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/streams/add-multistream-target.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/streams/create-clip.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/streams/create-clip.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/streams/create.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/streams/create.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/streams/delete-multistream-target.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/streams/delete-multistream-target.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/streams/delete.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/streams/delete.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/streams/get-all.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/streams/get-all.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/streams/get-clip.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/streams/get-clip.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/streams/get.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/streams/get.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/streams/overview.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/streams/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | ./create | v2/pages/010_products/products/livepeer-studio/api-reference/streams/create.mdx | true | ok |  |  |  |
-| internal-relative | ./get | v2/pages/010_products/products/livepeer-studio/api-reference/streams/get.mdx | true | ok |  |  |  |
-| internal-relative | ./get-all | v2/pages/010_products/products/livepeer-studio/api-reference/streams/get-all.mdx | true | ok |  |  |  |
-| internal-relative | ./update | v2/pages/010_products/products/livepeer-studio/api-reference/streams/update.mdx | true | ok |  |  |  |
-| internal-relative | ./delete | v2/pages/010_products/products/livepeer-studio/api-reference/streams/delete.mdx | true | ok |  |  |  |
-| internal-relative | ./terminate | v2/pages/010_products/products/livepeer-studio/api-reference/streams/terminate.mdx | true | ok |  |  |  |
-| internal-relative | ./create-clip | v2/pages/010_products/products/livepeer-studio/api-reference/streams/create-clip.mdx | true | ok |  |  |  |
-| internal-relative | ./get-clip | v2/pages/010_products/products/livepeer-studio/api-reference/streams/get-clip.mdx | true | ok |  |  |  |
-| internal-relative | ./add-multistream-target | v2/pages/010_products/products/livepeer-studio/api-reference/streams/add-multistream-target.mdx | true | ok |  |  |  |
-| internal-relative | ./delete-multistream-target | v2/pages/010_products/products/livepeer-studio/api-reference/streams/delete-multistream-target.mdx | true | ok |  |  |  |
+| internal-relative | ./create | v2/pages/010_products/livepeer-studio/api-reference/streams/create.mdx | true | ok |  |  |  |
+| internal-relative | ./get | v2/pages/010_products/livepeer-studio/api-reference/streams/get.mdx | true | ok |  |  |  |
+| internal-relative | ./get-all | v2/pages/010_products/livepeer-studio/api-reference/streams/get-all.mdx | true | ok |  |  |  |
+| internal-relative | ./update | v2/pages/010_products/livepeer-studio/api-reference/streams/update.mdx | true | ok |  |  |  |
+| internal-relative | ./delete | v2/pages/010_products/livepeer-studio/api-reference/streams/delete.mdx | true | ok |  |  |  |
+| internal-relative | ./terminate | v2/pages/010_products/livepeer-studio/api-reference/streams/terminate.mdx | true | ok |  |  |  |
+| internal-relative | ./create-clip | v2/pages/010_products/livepeer-studio/api-reference/streams/create-clip.mdx | true | ok |  |  |  |
+| internal-relative | ./get-clip | v2/pages/010_products/livepeer-studio/api-reference/streams/get-clip.mdx | true | ok |  |  |  |
+| internal-relative | ./add-multistream-target | v2/pages/010_products/livepeer-studio/api-reference/streams/add-multistream-target.mdx | true | ok |  |  |  |
+| internal-relative | ./delete-multistream-target | v2/pages/010_products/livepeer-studio/api-reference/streams/delete-multistream-target.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/streams/terminate.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/streams/terminate.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/streams/update.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/streams/update.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/tasks/get-all.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/tasks/get-all.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/tasks/get.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/tasks/get.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/tasks/overview.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/tasks/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/transcode/create.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/transcode/create.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/transcode/overview.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/transcode/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/viewership/get-creators-metrics.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/viewership/get-creators-metrics.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/viewership/get-public-total-views.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/viewership/get-public-total-views.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/viewership/get-realtime-viewership.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/viewership/get-realtime-viewership.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/viewership/get-usage-metrics.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/viewership/get-usage-metrics.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/viewership/get-viewership-metrics.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/viewership/get-viewership-metrics.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/viewership/overview.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/viewership/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/create.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/webhooks/create.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/delete.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/webhooks/delete.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/get-all.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/webhooks/get-all.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/get.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/webhooks/get.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/overview.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/webhooks/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/api-reference/webhooks/update.mdx
+### v2/pages/010_products/livepeer-studio/api-reference/webhooks/update.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/getting-started/authentication.mdx
+### v2/pages/010_products/livepeer-studio/get-started/authentication.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/getting-started/overview.mdx
+### v2/pages/010_products/livepeer-studio/get-started/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../overview/quickstart | v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx | true | ok |  |  |  |
-| internal-relative | ../api-reference/overview | v2/pages/010_products/products/livepeer-studio/api-reference/overview.mdx | true | ok |  |  |  |
-| internal-relative | ../overview/overview | v2/pages/010_products/products/livepeer-studio/overview/overview.mdx | true | ok |  |  |  |
-| internal-relative | ../overview/quickstart | v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx | true | ok |  |  |  |
-| internal-relative | ./authentication | v2/pages/010_products/products/livepeer-studio/getting-started/authentication.mdx | true | ok |  |  |  |
+| internal-relative | ../overview/quickstart | v2/pages/010_products/livepeer-studio/quickstart.mdx | true | ok |  |  |  |
+| internal-relative | ../reference/overview | v2/pages/010_products/livepeer-studio/reference/overview.mdx | true | ok |  |  |  |
+| internal-relative | ../overview/overview | v2/pages/010_products/livepeer-studio/overview.mdx | true | ok |  |  |  |
+| internal-relative | ../overview/quickstart | v2/pages/010_products/livepeer-studio/quickstart.mdx | true | ok |  |  |  |
+| internal-relative | ./authentication | v2/pages/010_products/livepeer-studio/get-started/authentication.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli.mdx
+### v2/pages/010_products/livepeer-studio/get-started/studio-cli.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/dashboard/developers/api-keys |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/dashboard |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/overview/livestream-overview | v2/pages/010_products/products/livepeer-studio/overview/livestream-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/overview/vod-overview | v2/pages/010_products/products/livepeer-studio/overview/vod-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/overview/sdks-overview | v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/livestream/overview | v2/pages/010_products/livepeer-studio/livestream/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/video-on-demand/overview | v2/pages/010_products/livepeer-studio/video-on-demand/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/reference/sdks | v2/pages/010_products/livepeer-studio/reference/sdks.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt.mdx
+### v2/pages/010_products/livepeer-studio/access-control/jwt.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/docs/api-reference/signing-key/create |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/access-control/overview.mdx
+### v2/pages/010_products/livepeer-studio/access-control/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | webhooks | v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks.mdx | true | ok |  |  |  |
-| internal-relative | jwt | v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt.mdx | true | ok |  |  |  |
+| internal-relative | webhooks | v2/pages/010_products/livepeer-studio/access-control/webhooks.mdx | true | ok |  |  |  |
+| internal-relative | jwt | v2/pages/010_products/livepeer-studio/access-control/jwt.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks.mdx
+### v2/pages/010_products/livepeer-studio/access-control/webhooks.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/dashboard/developers/webhooks |  | null | 🟡 untested-external |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/analytics/overview.mdx
+### v2/pages/010_products/livepeer-studio/analytics/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/docs/api-reference/viewership/get-viewership-metrics |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
+| internal-relative | ../player-and-embed | v2/pages/010_products/livepeer-studio/player.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/viewership/get-viewership-metrics |  | null | 🟡 untested-external |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/clip-livestream.mdx
+### v2/pages/010_products/livepeer-studio/livestream/clip-livestream.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/docs/api-reference/stream/create-clip |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://www.npmjs.com/package/@livepeer/react#player |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/playback/get |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
+| internal-relative | player-and-embed | v2/pages/010_products/livepeer-studio/player.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/stream/get-clip |  | null | 🟡 untested-external |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/create-livestream.mdx
+### v2/pages/010_products/livepeer-studio/livestream/create-livestream.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/docs/api-reference/stream/create |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | livestream-from-browser | v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx | true | ok |  |  |  |
-| internal-relative | player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
+| internal-relative | livestream-from-browser | v2/pages/010_products/livepeer-studio/livestream/livestream-from-browser.mdx | true | ok |  |  |  |
+| internal-relative | player-and-embed | v2/pages/010_products/livepeer-studio/player.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/playback/get |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | playback-livestream | v2/pages/010_products/products/livepeer-studio/guides/playback-livestream.mdx | true | ok |  |  |  |
-| internal-relative | stream-via-obs | v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs.mdx | true | ok |  |  |  |
-| internal-relative | livestream-from-browser | v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx | true | ok |  |  |  |
-| internal-relative | multistream | v2/pages/010_products/products/livepeer-studio/guides/multistream.mdx | true | ok |  |  |  |
+| internal-relative | playback-livestream | v2/pages/010_products/livepeer-studio/livestream/playback-livestream.mdx | true | ok |  |  |  |
+| internal-relative | stream-via-obs | v2/pages/010_products/livepeer-studio/livestream/stream-via-obs.mdx | true | ok |  |  |  |
+| internal-relative | livestream-from-browser | v2/pages/010_products/livepeer-studio/livestream/livestream-from-browser.mdx | true | ok |  |  |  |
+| internal-relative | multistream | v2/pages/010_products/livepeer-studio/livestream/multistream.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets.mdx
+### v2/pages/010_products/livepeer-studio/video-on-demand/encrypted-assets.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | ./access-control/overview | v2/pages/010_products/products/livepeer-studio/guides/access-control/overview.mdx | true | ok |  |  |  |
+| internal-relative | ./access-control/overview | v2/pages/010_products/livepeer-studio/access-control/overview.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/listen-to-events.mdx
+### v2/pages/010_products/livepeer-studio/analytics/listen-to-events.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/dashboard/developers/webhooks |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | webhooks | v2/pages/010_products/products/livepeer-studio/guides/webhooks.mdx | true | ok |  |  |  |
-| internal-relative | webhooks | v2/pages/010_products/products/livepeer-studio/guides/webhooks.mdx | true | ok |  |  |  |
+| internal-relative | webhooks | v2/pages/010_products/livepeer-studio/analytics/webhooks.mdx | true | ok |  |  |  |
+| internal-relative | webhooks | v2/pages/010_products/livepeer-studio/analytics/webhooks.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx
+### v2/pages/010_products/livepeer-studio/livestream/livestream-from-browser.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
-| internal-relative | playback-livestream | v2/pages/010_products/products/livepeer-studio/guides/playback-livestream.mdx | true | ok |  |  |  |
-| internal-relative | optimize-latency | v2/pages/010_products/products/livepeer-studio/guides/optimize-latency.mdx | true | ok |  |  |  |
+| internal-relative | player-and-embed | v2/pages/010_products/livepeer-studio/player.mdx | true | ok |  |  |  |
+| internal-relative | playback-livestream | v2/pages/010_products/livepeer-studio/livestream/playback-livestream.mdx | true | ok |  |  |  |
+| internal-relative | optimize-latency | v2/pages/010_products/livepeer-studio/livestream/optimize-latency.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/managing-projects.mdx
+### v2/pages/010_products/livepeer-studio/reference/managing-projects.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | (none) |  |  |  |  |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/multistream.mdx
+### v2/pages/010_products/livepeer-studio/livestream/multistream.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/docs/api-reference/multistream/create |  | null | 🟡 untested-external |  |  |  |
@@ -2341,174 +2341,174 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://livepeer.studio/dashboard/streams |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/stream/add-multistream-target |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/stream/delete-multistream-target |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | listen-to-events | v2/pages/010_products/products/livepeer-studio/guides/listen-to-events.mdx | true | ok |  |  |  |
+| internal-relative | listen-to-events | v2/pages/010_products/livepeer-studio/analytics/listen-to-events.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/optimize-latency.mdx
+### v2/pages/010_products/livepeer-studio/livestream/optimize-latency.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
-| internal-relative | stream-via-obs | v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs.mdx | true | ok |  |  |  |
-| internal-relative | stream-via-obs | v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs.mdx | true | ok |  |  |  |
-| internal-relative | livestream-from-browser | v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx | true | ok |  |  |  |
+| internal-relative | player-and-embed | v2/pages/010_products/livepeer-studio/player.mdx | true | ok |  |  |  |
+| internal-relative | stream-via-obs | v2/pages/010_products/livepeer-studio/livestream/stream-via-obs.mdx | true | ok |  |  |  |
+| internal-relative | stream-via-obs | v2/pages/010_products/livepeer-studio/livestream/stream-via-obs.mdx | true | ok |  |  |  |
+| internal-relative | livestream-from-browser | v2/pages/010_products/livepeer-studio/livestream/livestream-from-browser.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio |  | null | 🟡 untested-external |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/playback-asset.mdx
+### v2/pages/010_products/livepeer-studio/video-on-demand/playback-asset.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
+| internal-relative | player-and-embed | v2/pages/010_products/livepeer-studio/player.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/playback/get |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | playback-livestream | v2/pages/010_products/products/livepeer-studio/guides/playback-livestream.mdx | true | ok |  |  |  |
+| internal-relative | playback-livestream | v2/pages/010_products/livepeer-studio/livestream/playback-livestream.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/playback-livestream.mdx
-| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
-|---|---|---|---|---|---|---|---|
-| external-https | https://livepeer.studio/docs/api-reference/playback/get |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | stream-via-obs | v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs.mdx | true | ok |  |  |  |
-| internal-relative | player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
-
-### v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx
+### v2/pages/010_products/livepeer-studio/livestream/playback-livestream.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/docs/api-reference/playback/get |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | playback-livestream | v2/pages/010_products/products/livepeer-studio/guides/playback-livestream.mdx | true | ok |  |  |  |
-| internal-relative | playback-asset | v2/pages/010_products/products/livepeer-studio/guides/playback-asset.mdx | true | ok |  |  |  |
-| internal-relative | access-control/overview | v2/pages/010_products/products/livepeer-studio/guides/access-control/overview.mdx | true | ok |  |  |  |
-| internal-relative | thumbnails-vod | v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod.mdx | true | ok |  |  |  |
-| internal-relative | analytics | /v2/pages/010_products/products/livepeer-studio/guides/analytics | true | ok-folder-route |  |  |  |
+| internal-relative | stream-via-obs | v2/pages/010_products/livepeer-studio/livestream/stream-via-obs.mdx | true | ok |  |  |  |
+| internal-relative | player-and-embed | v2/pages/010_products/livepeer-studio/player.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/stream-health.mdx
+### v2/pages/010_products/livepeer-studio/player.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| external-https | https://livepeer.studio/docs/api-reference/playback/get |  | null | 🟡 untested-external |  |  |  |
+| internal-relative | playback-livestream | v2/pages/010_products/livepeer-studio/livestream/playback-livestream.mdx | true | ok |  |  |  |
+| internal-relative | playback-asset | v2/pages/010_products/livepeer-studio/video-on-demand/playback-asset.mdx | true | ok |  |  |  |
+| internal-relative | access-control/overview | v2/pages/010_products/livepeer-studio/access-control/overview.mdx | true | ok |  |  |  |
+| internal-relative | thumbnails-vod | v2/pages/010_products/livepeer-studio/video-on-demand/thumbnails-vod.mdx | true | ok |  |  |  |
+| internal-relative | analytics | /v2/pages/010_products/livepeer-studio/guides/analytics | true | ok-folder-route |  |  |  |
+
+### v2/pages/010_products/livepeer-studio/livestream/stream-health.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/dashboard/streams |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/stream/get |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/session/get |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | stream-via-obs | v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs.mdx | true | ok |  |  |  |
-| internal-relative | optimize-latency | v2/pages/010_products/products/livepeer-studio/guides/optimize-latency.mdx | true | ok |  |  |  |
+| internal-relative | stream-via-obs | v2/pages/010_products/livepeer-studio/livestream/stream-via-obs.mdx | true | ok |  |  |  |
+| internal-relative | optimize-latency | v2/pages/010_products/livepeer-studio/livestream/optimize-latency.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs.mdx
+### v2/pages/010_products/livepeer-studio/livestream/stream-via-obs.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://obsproject.com/ |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | create-livestream | v2/pages/010_products/products/livepeer-studio/guides/create-livestream.mdx | true | ok |  |  |  |
-| internal-relative | create-livestream | v2/pages/010_products/products/livepeer-studio/guides/create-livestream.mdx | true | ok |  |  |  |
-| internal-relative | optimize-latency | v2/pages/010_products/products/livepeer-studio/guides/optimize-latency.mdx | true | ok |  |  |  |
-| internal-relative | playback-livestream | v2/pages/010_products/products/livepeer-studio/guides/playback-livestream.mdx | true | ok |  |  |  |
-| internal-relative | optimize-latency | v2/pages/010_products/products/livepeer-studio/guides/optimize-latency.mdx | true | ok |  |  |  |
+| internal-relative | create-livestream | v2/pages/010_products/livepeer-studio/livestream/create-livestream.mdx | true | ok |  |  |  |
+| internal-relative | create-livestream | v2/pages/010_products/livepeer-studio/livestream/create-livestream.mdx | true | ok |  |  |  |
+| internal-relative | optimize-latency | v2/pages/010_products/livepeer-studio/livestream/optimize-latency.mdx | true | ok |  |  |  |
+| internal-relative | playback-livestream | v2/pages/010_products/livepeer-studio/livestream/playback-livestream.mdx | true | ok |  |  |  |
+| internal-relative | optimize-latency | v2/pages/010_products/livepeer-studio/livestream/optimize-latency.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod.mdx
+### v2/pages/010_products/livepeer-studio/video-on-demand/thumbnails-vod.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | upload-asset | v2/pages/010_products/products/livepeer-studio/guides/upload-asset.mdx | true | ok |  |  |  |
+| internal-relative | upload-asset | v2/pages/010_products/livepeer-studio/video-on-demand/upload-asset.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/playback/get |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
+| internal-relative | player-and-embed | v2/pages/010_products/livepeer-studio/player.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/transcode-video.mdx
+### v2/pages/010_products/livepeer-studio/video-on-demand/transcode-video.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../overview/api-overview | v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx | true | ok |  |  |  |
+| internal-relative | ../reference/api | v2/pages/010_products/livepeer-studio/reference/api.mdx | true | ok |  |  |  |
 | external-https | https://docs.storj.io/dcs/api-reference/s3-compatible-gateway |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/transcode/create |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ./upload-asset | v2/pages/010_products/products/livepeer-studio/guides/upload-asset.mdx | true | ok |  |  |  |
-| internal-relative | ../overview/vod-overview | v2/pages/010_products/products/livepeer-studio/overview/vod-overview.mdx | true | ok |  |  |  |
+| internal-relative | ./upload-asset | v2/pages/010_products/livepeer-studio/video-on-demand/upload-asset.mdx | true | ok |  |  |  |
+| internal-relative | ../video-on-demand/overview | v2/pages/010_products/livepeer-studio/video-on-demand/overview.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/upload-asset.mdx
+### v2/pages/010_products/livepeer-studio/video-on-demand/upload-asset.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://github.com/TUS/TUS-js-client |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | playback-asset | v2/pages/010_products/products/livepeer-studio/guides/playback-asset.mdx | true | ok |  |  |  |
-| internal-relative | listen-to-events | v2/pages/010_products/products/livepeer-studio/guides/listen-to-events.mdx | true | ok |  |  |  |
-| internal-relative | playback-asset | v2/pages/010_products/products/livepeer-studio/guides/playback-asset.mdx | true | ok |  |  |  |
-| internal-relative | encrypted-assets | v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets.mdx | true | ok |  |  |  |
-| internal-relative | thumbnails-vod | v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod.mdx | true | ok |  |  |  |
+| internal-relative | playback-asset | v2/pages/010_products/livepeer-studio/video-on-demand/playback-asset.mdx | true | ok |  |  |  |
+| internal-relative | listen-to-events | v2/pages/010_products/livepeer-studio/analytics/listen-to-events.mdx | true | ok |  |  |  |
+| internal-relative | playback-asset | v2/pages/010_products/livepeer-studio/video-on-demand/playback-asset.mdx | true | ok |  |  |  |
+| internal-relative | encrypted-assets | v2/pages/010_products/livepeer-studio/video-on-demand/encrypted-assets.mdx | true | ok |  |  |  |
+| internal-relative | thumbnails-vod | v2/pages/010_products/livepeer-studio/video-on-demand/thumbnails-vod.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/guides/webhooks.mdx
+### v2/pages/010_products/livepeer-studio/analytics/webhooks.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/dashboard/developers/webhooks |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://ngrok.com |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | listen-to-events | v2/pages/010_products/products/livepeer-studio/guides/listen-to-events.mdx | true | ok |  |  |  |
-| internal-relative | access-control/webhooks | v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks.mdx | true | ok |  |  |  |
+| internal-relative | listen-to-events | v2/pages/010_products/livepeer-studio/analytics/listen-to-events.mdx | true | ok |  |  |  |
+| internal-relative | access-control/webhooks | v2/pages/010_products/livepeer-studio/access-control/webhooks.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx
+### v2/pages/010_products/livepeer-studio/reference/api.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/dashboard/developers/api-keys |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ./sdks-overview | v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx | true | ok |  |  |  |
+| internal-relative | ./sdks-overview | v2/pages/010_products/livepeer-studio/reference/sdks.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../guides/access-control/overview | v2/pages/010_products/products/livepeer-studio/guides/access-control/overview.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/access-control/overview | v2/pages/010_products/livepeer-studio/access-control/overview.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/overview/client-use-cases.mdx
+### v2/pages/010_products/livepeer-studio/client-use-cases.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | (none) |  |  |  |  |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/overview/livepeer-studio.mdx
+### v2/pages/010_products/livepeer-studio/livepeer-studio.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | overview | v2/pages/010_products/products/livepeer-studio/overview/overview.mdx | true | ok |  |  |  |
+| internal-relative | overview | v2/pages/010_products/livepeer-studio/overview.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/overview/livestream-overview.mdx
+### v2/pages/010_products/livepeer-studio/livestream/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/docs/api-reference/session/get-all |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../guides/stream-via-obs | v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/livestream-from-browser | v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/stream-health | v2/pages/010_products/products/livepeer-studio/guides/stream-health.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/multistream | v2/pages/010_products/products/livepeer-studio/guides/multistream.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/guides/player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/stream-via-obs | v2/pages/010_products/livepeer-studio/livestream/stream-via-obs.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/livestream-from-browser | v2/pages/010_products/livepeer-studio/livestream/livestream-from-browser.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/stream-health | v2/pages/010_products/livepeer-studio/livestream/stream-health.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/multistream | v2/pages/010_products/livepeer-studio/livestream/multistream.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/player | v2/pages/010_products/livepeer-studio/player.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/playback/get |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../guides/stream-via-obs | v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/webhooks | v2/pages/010_products/products/livepeer-studio/guides/webhooks.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/listen-to-events | v2/pages/010_products/products/livepeer-studio/guides/listen-to-events.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/create-livestream | v2/pages/010_products/products/livepeer-studio/guides/create-livestream.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/playback-livestream | v2/pages/010_products/products/livepeer-studio/guides/playback-livestream.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/stream-via-obs | v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/livestream-from-browser | v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/multistream | v2/pages/010_products/products/livepeer-studio/guides/multistream.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/clip-livestream | v2/pages/010_products/products/livepeer-studio/guides/clip-livestream.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/stream-health | v2/pages/010_products/products/livepeer-studio/guides/stream-health.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/optimize-latency | v2/pages/010_products/products/livepeer-studio/guides/optimize-latency.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/stream-via-obs | v2/pages/010_products/livepeer-studio/livestream/stream-via-obs.mdx | true | ok |  |  |  |
+| internal-relative | ../analytics/webhooks | v2/pages/010_products/livepeer-studio/analytics/webhooks.mdx | true | ok |  |  |  |
+| internal-relative | ../analytics/listen-to-events | v2/pages/010_products/livepeer-studio/analytics/listen-to-events.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/create-livestream | v2/pages/010_products/livepeer-studio/livestream/create-livestream.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/playback-livestream | v2/pages/010_products/livepeer-studio/livestream/playback-livestream.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/stream-via-obs | v2/pages/010_products/livepeer-studio/livestream/stream-via-obs.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/livestream-from-browser | v2/pages/010_products/livepeer-studio/livestream/livestream-from-browser.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/multistream | v2/pages/010_products/livepeer-studio/livestream/multistream.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/clip-livestream | v2/pages/010_products/livepeer-studio/livestream/clip-livestream.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/stream-health | v2/pages/010_products/livepeer-studio/livestream/stream-health.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/optimize-latency | v2/pages/010_products/livepeer-studio/livestream/optimize-latency.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/overview/overview.mdx
+### v2/pages/010_products/livepeer-studio/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://pipelines.livepeer.org/docs |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /010_products/products/daydream/daydream | v2/pages/010_products/products/daydream/daydream.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/daydream/overview | v2/pages/010_products/daydream/overview.mdx | true | ok |  |  |  |
 | external-https | https://www.npmjs.com/package/livepeer |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://pkg.go.dev/github.com/livepeer/livepeer-go |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://pypi.org/project/livepeer/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://www.npmjs.com/package/@livepeer/react |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/overview/api-overview | v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/reference/api | v2/pages/010_products/livepeer-studio/reference/api.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway | v2/pages/04_gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/overview/client-use-cases | v2/pages/010_products/products/livepeer-studio/overview/client-use-cases.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/overview/quickstart | v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/getting-started/studio-cli | v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/overview/livestream-overview | v2/pages/010_products/products/livepeer-studio/overview/livestream-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/overview/vod-overview | v2/pages/010_products/products/livepeer-studio/overview/vod-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/guides/access-control/overview | v2/pages/010_products/products/livepeer-studio/guides/access-control/overview.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/guides/webhooks | v2/pages/010_products/products/livepeer-studio/guides/webhooks.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/client-use-cases | v2/pages/010_products/livepeer-studio/client-use-cases.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/quickstart | v2/pages/010_products/livepeer-studio/quickstart.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/get-started/studio-cli | v2/pages/010_products/livepeer-studio/get-started/studio-cli.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/livestream/overview | v2/pages/010_products/livepeer-studio/livestream/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/video-on-demand/overview | v2/pages/010_products/livepeer-studio/video-on-demand/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/access-control/overview | v2/pages/010_products/livepeer-studio/access-control/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/analytics/webhooks | v2/pages/010_products/livepeer-studio/analytics/webhooks.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx
+### v2/pages/010_products/livepeer-studio/quickstart.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/guides/managing-projects | v2/pages/010_products/products/livepeer-studio/guides/managing-projects.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/guides/create-livestream | v2/pages/010_products/products/livepeer-studio/guides/create-livestream.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/guides/upload-asset | v2/pages/010_products/products/livepeer-studio/guides/upload-asset.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/guides/listen-to-events | v2/pages/010_products/products/livepeer-studio/guides/listen-to-events.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/overview/sdks-overview | v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/overview/api-overview | v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/reference/managing-projects | v2/pages/010_products/livepeer-studio/reference/managing-projects.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/livestream/create-livestream | v2/pages/010_products/livepeer-studio/livestream/create-livestream.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/video-on-demand/upload-asset | v2/pages/010_products/livepeer-studio/video-on-demand/upload-asset.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/analytics/listen-to-events | v2/pages/010_products/livepeer-studio/analytics/listen-to-events.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/reference/sdks | v2/pages/010_products/livepeer-studio/reference/sdks.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/reference/api | v2/pages/010_products/livepeer-studio/reference/api.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx
+### v2/pages/010_products/livepeer-studio/reference/sdks.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://www.npmjs.com/package/livepeer |  | null | 🟡 untested-external |  |  |  |
@@ -2516,81 +2516,81 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://pkg.go.dev/github.com/livepeer/livepeer-go |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://pypi.org/project/livepeer |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://www.npmjs.com/package/@livepeer/react |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../guides/player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/livestream-from-browser | v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser.mdx | true | ok |  |  |  |
-| internal-relative | quickstart | v2/pages/010_products/products/livepeer-studio/overview/quickstart.mdx | true | ok |  |  |  |
-| internal-relative | api-overview | v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx | true | ok |  |  |  |
+| internal-relative | ../player | v2/pages/010_products/livepeer-studio/player.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/livestream-from-browser | v2/pages/010_products/livepeer-studio/livestream/livestream-from-browser.mdx | true | ok |  |  |  |
+| internal-relative | quickstart | v2/pages/010_products/livepeer-studio/quickstart.mdx | true | ok |  |  |  |
+| internal-relative | api-overview | v2/pages/010_products/livepeer-studio/reference/api.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
 
-### v2/pages/010_products/products/livepeer-studio/overview/vod-overview.mdx
+### v2/pages/010_products/livepeer-studio/video-on-demand/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://livepeer.studio/docs/api-reference/asset/upload |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/asset/upload-via-url |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../guides/upload-asset | v2/pages/010_products/products/livepeer-studio/guides/upload-asset.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/clip-livestream | v2/pages/010_products/products/livepeer-studio/guides/clip-livestream.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/player-and-embed | v2/pages/010_products/products/livepeer-studio/guides/player-and-embed.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/upload-asset | v2/pages/010_products/livepeer-studio/video-on-demand/upload-asset.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/clip-livestream | v2/pages/010_products/livepeer-studio/livestream/clip-livestream.mdx | true | ok |  |  |  |
+| internal-relative | ../player | v2/pages/010_products/livepeer-studio/player.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/playback/get |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.studio/docs/api-reference/viewership/get-viewership-metrics |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../guides/access-control/overview | v2/pages/010_products/products/livepeer-studio/guides/access-control/overview.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/encrypted-assets | v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/upload-asset | v2/pages/010_products/products/livepeer-studio/guides/upload-asset.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/playback-asset | v2/pages/010_products/products/livepeer-studio/guides/playback-asset.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/encrypted-assets | v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/thumbnails-vod | v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod.mdx | true | ok |  |  |  |
-| internal-relative | ../guides/transcode-video | v2/pages/010_products/products/livepeer-studio/guides/transcode-video.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/access-control/overview | v2/pages/010_products/livepeer-studio/access-control/overview.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/encrypted-assets | v2/pages/010_products/livepeer-studio/video-on-demand/encrypted-assets.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/upload-asset | v2/pages/010_products/livepeer-studio/video-on-demand/upload-asset.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/playback-asset | v2/pages/010_products/livepeer-studio/video-on-demand/playback-asset.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/encrypted-assets | v2/pages/010_products/livepeer-studio/video-on-demand/encrypted-assets.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/thumbnails-vod | v2/pages/010_products/livepeer-studio/video-on-demand/thumbnails-vod.mdx | true | ok |  |  |  |
+| internal-relative | ../guides/transcode-video | v2/pages/010_products/livepeer-studio/video-on-demand/transcode-video.mdx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/streamplace/streamplace-architecture.mdx
+### v2/pages/010_products/streamplace/introduction/streamplace-architecture.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-rooted | /010_products/products/streamplace/streamplace | v2/pages/010_products/products/streamplace/streamplace.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-guide | v2/pages/010_products/products/streamplace/streamplace-guide.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-provenance | v2/pages/010_products/products/streamplace/streamplace-provenance.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-funding-model | v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-integration | v2/pages/010_products/products/streamplace/streamplace-integration.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/overview | v2/pages/010_products/streamplace/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-guide | v2/pages/010_products/streamplace/introduction/streamplace-guide.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-provenance | v2/pages/010_products/streamplace/introduction/streamplace-provenance.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-funding-model | v2/pages/010_products/streamplace/introduction/streamplace-funding-model.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-integration | v2/pages/010_products/streamplace/introduction/streamplace-integration.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx
+### v2/pages/010_products/streamplace/introduction/streamplace-funding-model.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-rooted | /010_products/products/streamplace/streamplace | v2/pages/010_products/products/streamplace/streamplace.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-architecture | v2/pages/010_products/products/streamplace/streamplace-architecture.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-provenance | v2/pages/010_products/products/streamplace/streamplace-provenance.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-integration | v2/pages/010_products/products/streamplace/streamplace-integration.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/overview | v2/pages/010_products/streamplace/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-architecture | v2/pages/010_products/streamplace/introduction/streamplace-architecture.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-provenance | v2/pages/010_products/streamplace/introduction/streamplace-provenance.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-integration | v2/pages/010_products/streamplace/introduction/streamplace-integration.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/streamplace/streamplace-guide.mdx
+### v2/pages/010_products/streamplace/introduction/streamplace-guide.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-rooted | /010_products/products/streamplace/streamplace | v2/pages/010_products/products/streamplace/streamplace.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-architecture | v2/pages/010_products/products/streamplace/streamplace-architecture.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-provenance | v2/pages/010_products/products/streamplace/streamplace-provenance.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-integration | v2/pages/010_products/products/streamplace/streamplace-integration.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/overview | v2/pages/010_products/streamplace/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-architecture | v2/pages/010_products/streamplace/introduction/streamplace-architecture.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-provenance | v2/pages/010_products/streamplace/introduction/streamplace-provenance.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-integration | v2/pages/010_products/streamplace/introduction/streamplace-integration.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/streamplace/streamplace-integration.mdx
+### v2/pages/010_products/streamplace/introduction/streamplace-integration.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-rooted | /010_products/products/streamplace/streamplace | v2/pages/010_products/products/streamplace/streamplace.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-guide | v2/pages/010_products/products/streamplace/streamplace-guide.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-architecture | v2/pages/010_products/products/streamplace/streamplace-architecture.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-provenance | v2/pages/010_products/products/streamplace/streamplace-provenance.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-funding-model | v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/overview | v2/pages/010_products/streamplace/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-guide | v2/pages/010_products/streamplace/introduction/streamplace-guide.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-architecture | v2/pages/010_products/streamplace/introduction/streamplace-architecture.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-provenance | v2/pages/010_products/streamplace/introduction/streamplace-provenance.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-funding-model | v2/pages/010_products/streamplace/introduction/streamplace-funding-model.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/streamplace/streamplace-provenance.mdx
+### v2/pages/010_products/streamplace/introduction/streamplace-provenance.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://spec.c2pa.org/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://stream.place/docs/video-metadata/metadata-record/ |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace | v2/pages/010_products/products/streamplace/streamplace.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-guide | v2/pages/010_products/products/streamplace/streamplace-guide.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-architecture | v2/pages/010_products/products/streamplace/streamplace-architecture.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-funding-model | v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-integration | v2/pages/010_products/products/streamplace/streamplace-integration.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/overview | v2/pages/010_products/streamplace/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-guide | v2/pages/010_products/streamplace/introduction/streamplace-guide.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-architecture | v2/pages/010_products/streamplace/introduction/streamplace-architecture.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-funding-model | v2/pages/010_products/streamplace/introduction/streamplace-funding-model.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-integration | v2/pages/010_products/streamplace/introduction/streamplace-integration.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/010_products/products/streamplace/streamplace.mdx
+### v2/pages/010_products/streamplace/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://www.youtube.com/@livepeer |  | null | 🟡 untested-external |  |  |  |
@@ -2599,12 +2599,12 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://stream.place/docs/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://stream.place/download |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://stream.place/live |  | null | 🟡 untested-external |  |  |  |
-| external-https | https://github.com/streamplace/streamplace |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-guide | v2/pages/010_products/products/streamplace/streamplace-guide.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-architecture | v2/pages/010_products/products/streamplace/streamplace-architecture.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-provenance | v2/pages/010_products/products/streamplace/streamplace-provenance.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-funding-model | v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-integration | v2/pages/010_products/products/streamplace/streamplace-integration.mdx | true | ok |  |  |  |
+| external-https | https://github.com/streamplace/overview |  | null | 🟡 untested-external |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-guide | v2/pages/010_products/streamplace/introduction/streamplace-guide.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-architecture | v2/pages/010_products/streamplace/introduction/streamplace-architecture.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-provenance | v2/pages/010_products/streamplace/introduction/streamplace-provenance.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-funding-model | v2/pages/010_products/streamplace/introduction/streamplace-funding-model.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-integration | v2/pages/010_products/streamplace/introduction/streamplace-integration.mdx | true | ok |  |  |  |
 | external-https | https://blog.livepeer.org/livepeer-onchain-builders-streamplace-building-the-video-backbone-of-decentralized-social/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://blog.livepeer.org/ |  | null | 🟡 untested-external |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
@@ -2656,7 +2656,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://en.wikipedia.org/wiki/OSI_model |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../../010_products/products-portal | v2/pages/010_products/products-portal.mdx | true | ok |  |  |  |
+| internal-relative | ../../010_products/portal | v2/pages/010_products/portal.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/00_home/project-showcase/showcase | v2/pages/00_home/project-showcase/showcase.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/00_home/project-showcase/showcase | v2/pages/00_home/project-showcase/showcase.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/text.jsx | snippets/components/primitives/text.jsx | true | ok |  |  |  |
@@ -3401,7 +3401,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | internal-rooted | /v2/pages/00_home/project-showcase/showcase | v2/pages/00_home/project-showcase/showcase.mdx | true | ok |  |  |  |
-| internal-relative | ../../010_products/products-portal | v2/pages/010_products/products-portal.mdx | true | ok |  |  |  |
+| internal-relative | ../../010_products/portal | v2/pages/010_products/portal.mdx | true | ok |  |  |  |
 | empty | #livepeer-network |  | null | skipped |  |  |  |
 | empty | #livepeer-partners |  | null | skipped |  |  |  |
 | empty | #livepeer-ecosystem-projects |  | null | skipped |  |  |  |
@@ -3423,7 +3423,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 |---|---|---|---|---|---|---|---|
 | (none) |  |  |  |  |  |  |  |
 
-### v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products.mdx
+### v2/pages/03_developers/developer-platforms/ecosystem-products.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | (none) |  |  |  |  |  |  |  |
@@ -3431,24 +3431,24 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 ### v2/pages/03_developers/developer-platforms/builder-hub.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | ./daydream/daydream | v2/pages/03_developers/developer-platforms/daydream/daydream.mdx | true | ok |  |  |  |
+| internal-relative | ./daydream/overview | v2/pages/03_developers/developer-platforms/daydream/overview.mdx | true | ok |  |  |  |
 | internal-rooted | /snippets/assets/logos/products/daydream-logo-dark.svg | snippets/assets/logos/products/daydream-logo-dark.svg | true | ok |  |  |  |
 | internal-relative | ./livepeer-studio/livepeer-studio | v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx | true | ok |  |  |  |
 | internal-rooted | /snippets/assets/logos/products/livepeer-studio-logo.svg | snippets/assets/logos/products/livepeer-studio-logo.svg | true | ok |  |  |  |
-| internal-relative | ./frameworks/frameworks | v2/pages/03_developers/developer-platforms/frameworks/frameworks.mdx | true | ok |  |  |  |
+| internal-relative | ./frameworks/overview | v2/pages/03_developers/developer-platforms/frameworks/overview.mdx | true | ok |  |  |  |
 | external-https | https://frameworks.network/frameworks-dark-horizontal-lockup-transparent.svg |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ./streamplace/streamplace | v2/pages/03_developers/developer-platforms/streamplace/streamplace.mdx | true | ok |  |  |  |
+| internal-relative | ./streamplace/overview | v2/pages/03_developers/developer-platforms/streamplace/overview.mdx | true | ok |  |  |  |
 | internal-rooted | /snippets/assets/logos/products/streamplace-logo.svg | snippets/assets/logos/products/streamplace-logo.svg | true | ok |  |  |  |
-| internal-relative | ./all-ecosystem/ecosystem-products | v2/pages/03_developers/developer-platforms/all-ecosystem/ecosystem-products.mdx | true | ok |  |  |  |
+| internal-relative | ./ecosystem-products | v2/pages/03_developers/developer-platforms/ecosystem-products.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/links.jsx | snippets/components/primitives/links.jsx | true | ok |  |  |  |
 
-### v2/pages/03_developers/developer-platforms/daydream/daydream.mdx
+### v2/pages/03_developers/developer-platforms/daydream/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/03_developers/developer-platforms/frameworks/frameworks.mdx
+### v2/pages/03_developers/developer-platforms/frameworks/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | (none) |  |  |  |  |  |  |  |
@@ -3458,64 +3458,64 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 |---|---|---|---|---|---|---|---|
 | (none) |  |  |  |  |  |  |  |
 
-### v2/pages/03_developers/developer-platforms/streamplace/streamplace-architecture.mdx
+### v2/pages/03_developers/developer-platforms/streamplace/introduction/streamplace-architecture.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-rooted | /010_products/products/streamplace/streamplace | v2/pages/010_products/products/streamplace/streamplace.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-guide | v2/pages/010_products/products/streamplace/streamplace-guide.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-provenance | v2/pages/010_products/products/streamplace/streamplace-provenance.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-funding-model | v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-integration | v2/pages/010_products/products/streamplace/streamplace-integration.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/overview | v2/pages/010_products/streamplace/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-guide | v2/pages/010_products/streamplace/introduction/streamplace-guide.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-provenance | v2/pages/010_products/streamplace/introduction/streamplace-provenance.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-funding-model | v2/pages/010_products/streamplace/introduction/streamplace-funding-model.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-integration | v2/pages/010_products/streamplace/introduction/streamplace-integration.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/03_developers/developer-platforms/streamplace/streamplace-funding-model.mdx
+### v2/pages/03_developers/developer-platforms/streamplace/introduction/streamplace-funding-model.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-rooted | /010_products/products/streamplace/streamplace | v2/pages/010_products/products/streamplace/streamplace.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-architecture | v2/pages/010_products/products/streamplace/streamplace-architecture.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-provenance | v2/pages/010_products/products/streamplace/streamplace-provenance.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-integration | v2/pages/010_products/products/streamplace/streamplace-integration.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/overview | v2/pages/010_products/streamplace/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-architecture | v2/pages/010_products/streamplace/introduction/streamplace-architecture.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-provenance | v2/pages/010_products/streamplace/introduction/streamplace-provenance.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-integration | v2/pages/010_products/streamplace/introduction/streamplace-integration.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/03_developers/developer-platforms/streamplace/streamplace-guide.mdx
+### v2/pages/03_developers/developer-platforms/streamplace/introduction/streamplace-guide.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-rooted | /010_products/products/streamplace/streamplace | v2/pages/010_products/products/streamplace/streamplace.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-architecture | v2/pages/010_products/products/streamplace/streamplace-architecture.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-provenance | v2/pages/010_products/products/streamplace/streamplace-provenance.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-integration | v2/pages/010_products/products/streamplace/streamplace-integration.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/overview | v2/pages/010_products/streamplace/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-architecture | v2/pages/010_products/streamplace/introduction/streamplace-architecture.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-provenance | v2/pages/010_products/streamplace/introduction/streamplace-provenance.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-integration | v2/pages/010_products/streamplace/introduction/streamplace-integration.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/03_developers/developer-platforms/streamplace/streamplace-integration.mdx
+### v2/pages/03_developers/developer-platforms/streamplace/introduction/streamplace-integration.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-rooted | /010_products/products/streamplace/streamplace | v2/pages/010_products/products/streamplace/streamplace.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-guide | v2/pages/010_products/products/streamplace/streamplace-guide.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-architecture | v2/pages/010_products/products/streamplace/streamplace-architecture.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-provenance | v2/pages/010_products/products/streamplace/streamplace-provenance.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-funding-model | v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/overview | v2/pages/010_products/streamplace/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-guide | v2/pages/010_products/streamplace/introduction/streamplace-guide.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-architecture | v2/pages/010_products/streamplace/introduction/streamplace-architecture.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-provenance | v2/pages/010_products/streamplace/introduction/streamplace-provenance.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-funding-model | v2/pages/010_products/streamplace/introduction/streamplace-funding-model.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/03_developers/developer-platforms/streamplace/streamplace-provenance.mdx
+### v2/pages/03_developers/developer-platforms/streamplace/introduction/streamplace-provenance.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://spec.c2pa.org/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://stream.place/docs/video-metadata/metadata-record/ |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace | v2/pages/010_products/products/streamplace/streamplace.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-guide | v2/pages/010_products/products/streamplace/streamplace-guide.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-architecture | v2/pages/010_products/products/streamplace/streamplace-architecture.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-funding-model | v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-integration | v2/pages/010_products/products/streamplace/streamplace-integration.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/overview | v2/pages/010_products/streamplace/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-guide | v2/pages/010_products/streamplace/introduction/streamplace-guide.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-architecture | v2/pages/010_products/streamplace/introduction/streamplace-architecture.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-funding-model | v2/pages/010_products/streamplace/introduction/streamplace-funding-model.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-integration | v2/pages/010_products/streamplace/introduction/streamplace-integration.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
-### v2/pages/03_developers/developer-platforms/streamplace/streamplace.mdx
+### v2/pages/03_developers/developer-platforms/streamplace/overview.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-rooted | /010_products/products/streamplace/streamplace-guide | v2/pages/010_products/products/streamplace/streamplace-guide.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-architecture | v2/pages/010_products/products/streamplace/streamplace-architecture.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-provenance | v2/pages/010_products/products/streamplace/streamplace-provenance.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-funding-model | v2/pages/010_products/products/streamplace/streamplace-funding-model.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/streamplace/streamplace-integration | v2/pages/010_products/products/streamplace/streamplace-integration.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-guide | v2/pages/010_products/streamplace/introduction/streamplace-guide.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-architecture | v2/pages/010_products/streamplace/introduction/streamplace-architecture.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-provenance | v2/pages/010_products/streamplace/introduction/streamplace-provenance.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-funding-model | v2/pages/010_products/streamplace/introduction/streamplace-funding-model.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/streamplace/introduction/streamplace-integration | v2/pages/010_products/streamplace/introduction/streamplace-integration.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
 ### v2/pages/03_developers/developer-portal.mdx
@@ -3684,11 +3684,11 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 ### v2/pages/03_developers/technical-references/apis.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-rooted | /010_products/products/livepeer-studio/overview/api-overview | v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/api-reference/overview | v2/pages/010_products/products/livepeer-studio/api-reference/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/reference/api | v2/pages/010_products/livepeer-studio/reference/api.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/reference/overview | v2/pages/010_products/livepeer-studio/reference/overview.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio/docs |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /v2/pages/03_developers/technical-references/apis | v2/pages/03_developers/technical-references/apis.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/overview/api-overview | v2/pages/010_products/products/livepeer-studio/overview/api-overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/reference/api | v2/pages/010_products/livepeer-studio/reference/api.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/03_developers/technical-references/apis | v2/pages/03_developers/technical-references/apis.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 
@@ -3710,9 +3710,9 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 ### v2/pages/03_developers/technical-references/sdks.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-rooted | /010_products/products/livepeer-studio/overview/sdks-overview | v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/reference/sdks | v2/pages/010_products/livepeer-studio/reference/sdks.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/03_developers/technical-references/sdks | v2/pages/03_developers/technical-references/sdks.mdx | true | ok |  |  |  |
-| internal-rooted | /010_products/products/livepeer-studio/overview/sdks-overview | v2/pages/010_products/products/livepeer-studio/overview/sdks-overview.mdx | true | ok |  |  |  |
+| internal-rooted | /010_products/livepeer-studio/reference/sdks | v2/pages/010_products/livepeer-studio/reference/sdks.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/pages/03_developers/technical-references/sdks | v2/pages/03_developers/technical-references/sdks.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
 

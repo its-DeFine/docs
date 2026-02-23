@@ -25,13 +25,13 @@
 - ✅ **Developer Platforms redirect**: Already correct (points to overview)
 - ✅ **API overview files**: Both serve different purposes:
   - `api-overview.mdx` = High-level intro (points to external docs)
-  - `api-reference/overview.mdx` = Detailed reference landing page
+  - `reference/overview.mdx` = Detailed reference landing page
 
 ## Current File Count
 
 | Location | Files | Status |
 |----------|-------|--------|
-| `products/livepeer-studio/` | 98 | ✅ Well organized |
+| `livepeer-studio/` | 98 | ✅ Well organized |
 | `api-reference/` | 66 | ✅ Complete structure |
 | `getting-started/` | 2 | ✅ Complete |
 | `sdks/` | 0 | ⚠️ Structure exists, needs content |
@@ -41,7 +41,7 @@
 
 1. **API Overview Files**:
    - `api-overview.mdx` - Simple intro, points to external docs
-   - `api-reference/overview.mdx` - Detailed reference with endpoint cards
+   - `reference/overview.mdx` - Detailed reference with endpoint cards
    - **Action**: Keep both, they serve different audiences
 
 2. **Overview Files**:

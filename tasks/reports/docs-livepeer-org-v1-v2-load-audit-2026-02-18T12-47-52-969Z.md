@@ -3087,8 +3087,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products-portal
-  - URL: https://docs.livepeer.org/010_products/products-portal
+- [v2] v2/pages/010_products/portal
+  - URL: https://docs.livepeer.org/010_products/portal
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3098,8 +3098,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/all-ecosystem/product-hub
-  - URL: https://docs.livepeer.org/010_products/products/all-ecosystem/product-hub
+- [v2] v2/pages/010_products/product-hub
+  - URL: https://docs.livepeer.org/010_products/product-hub
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 225
@@ -3109,8 +3109,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/all-ecosystem/ecosystem-products
-  - URL: https://docs.livepeer.org/010_products/products/all-ecosystem/ecosystem-products
+- [v2] v2/pages/010_products/ecosystem-products
+  - URL: https://docs.livepeer.org/010_products/ecosystem-products
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 225
@@ -3120,8 +3120,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/daydream/daydream
-  - URL: https://docs.livepeer.org/010_products/products/daydream/daydream
+- [v2] v2/pages/010_products/daydream/overview
+  - URL: https://docs.livepeer.org/010_products/daydream/overview
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3131,8 +3131,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/overview/overview
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/overview/overview
+- [v2] v2/pages/010_products/livepeer-studio/overview
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/overview
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3142,8 +3142,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/overview/client-use-cases
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/overview/client-use-cases
+- [v2] v2/pages/010_products/livepeer-studio/client-use-cases
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/client-use-cases
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3153,8 +3153,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/getting-started/overview
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/getting-started/overview
+- [v2] v2/pages/010_products/livepeer-studio/get-started/overview
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/get-started/overview
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3164,8 +3164,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/overview/quickstart
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/overview/quickstart
+- [v2] v2/pages/010_products/livepeer-studio/quickstart
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/quickstart
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3175,8 +3175,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/getting-started/authentication
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/getting-started/authentication
+- [v2] v2/pages/010_products/livepeer-studio/get-started/authentication
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/get-started/authentication
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3186,8 +3186,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/getting-started/studio-cli
+- [v2] v2/pages/010_products/livepeer-studio/get-started/studio-cli
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/get-started/studio-cli
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3197,8 +3197,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/overview/livestream-overview
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/overview/livestream-overview
+- [v2] v2/pages/010_products/livepeer-studio/livestream/overview
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/livestream/overview
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3208,8 +3208,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/create-livestream
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/create-livestream
+- [v2] v2/pages/010_products/livepeer-studio/livestream/create-livestream
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/livestream/create-livestream
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3219,8 +3219,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/playback-livestream
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/playback-livestream
+- [v2] v2/pages/010_products/livepeer-studio/livestream/playback-livestream
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/livestream/playback-livestream
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3230,8 +3230,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/stream-via-obs
+- [v2] v2/pages/010_products/livepeer-studio/livestream/stream-via-obs
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/livestream/stream-via-obs
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3241,8 +3241,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/livestream-from-browser
+- [v2] v2/pages/010_products/livepeer-studio/livestream/livestream-from-browser
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/livestream/livestream-from-browser
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3252,8 +3252,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/multistream
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/multistream
+- [v2] v2/pages/010_products/livepeer-studio/livestream/multistream
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/livestream/multistream
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3263,8 +3263,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/clip-livestream
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/clip-livestream
+- [v2] v2/pages/010_products/livepeer-studio/livestream/clip-livestream
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/livestream/clip-livestream
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3274,8 +3274,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/stream-health
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/stream-health
+- [v2] v2/pages/010_products/livepeer-studio/livestream/stream-health
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/livestream/stream-health
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3285,8 +3285,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/optimize-latency
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/optimize-latency
+- [v2] v2/pages/010_products/livepeer-studio/livestream/optimize-latency
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/livestream/optimize-latency
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3296,8 +3296,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/overview/vod-overview
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/overview/vod-overview
+- [v2] v2/pages/010_products/livepeer-studio/video-on-demand/overview
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/video-on-demand/overview
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3307,8 +3307,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/upload-asset
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/upload-asset
+- [v2] v2/pages/010_products/livepeer-studio/video-on-demand/upload-asset
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/video-on-demand/upload-asset
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3318,8 +3318,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/playback-asset
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/playback-asset
+- [v2] v2/pages/010_products/livepeer-studio/video-on-demand/playback-asset
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/video-on-demand/playback-asset
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3329,8 +3329,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/encrypted-assets
+- [v2] v2/pages/010_products/livepeer-studio/video-on-demand/encrypted-assets
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/video-on-demand/encrypted-assets
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3340,8 +3340,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/thumbnails-vod
+- [v2] v2/pages/010_products/livepeer-studio/video-on-demand/thumbnails-vod
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/video-on-demand/thumbnails-vod
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3351,8 +3351,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/transcode-video
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/transcode-video
+- [v2] v2/pages/010_products/livepeer-studio/video-on-demand/transcode-video
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/video-on-demand/transcode-video
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3362,8 +3362,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/access-control/overview
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/access-control/overview
+- [v2] v2/pages/010_products/livepeer-studio/access-control/overview
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/access-control/overview
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3373,8 +3373,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/access-control/webhooks
+- [v2] v2/pages/010_products/livepeer-studio/access-control/webhooks
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/access-control/webhooks
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3384,8 +3384,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/access-control/jwt
+- [v2] v2/pages/010_products/livepeer-studio/access-control/jwt
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/access-control/jwt
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3395,8 +3395,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/webhooks
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/webhooks
+- [v2] v2/pages/010_products/livepeer-studio/analytics/webhooks
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/analytics/webhooks
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3406,8 +3406,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/listen-to-events
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/listen-to-events
+- [v2] v2/pages/010_products/livepeer-studio/analytics/listen-to-events
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/analytics/listen-to-events
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3417,8 +3417,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/analytics/overview
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/analytics/overview
+- [v2] v2/pages/010_products/livepeer-studio/analytics/overview
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/analytics/overview
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3428,8 +3428,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/player-and-embed
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/player-and-embed
+- [v2] v2/pages/010_products/livepeer-studio/player
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/player
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3439,8 +3439,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/overview/api-overview
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/overview/api-overview
+- [v2] v2/pages/010_products/livepeer-studio/reference/api
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/reference/api
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3450,8 +3450,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/api-reference/overview
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/api-reference/overview
+- [v2] v2/pages/010_products/livepeer-studio/reference/overview
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/reference/overview
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3461,8 +3461,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/overview/sdks-overview
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/overview/sdks-overview
+- [v2] v2/pages/010_products/livepeer-studio/reference/sdks
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/reference/sdks
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3472,8 +3472,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/livepeer-studio/guides/managing-projects
-  - URL: https://docs.livepeer.org/010_products/products/livepeer-studio/guides/managing-projects
+- [v2] v2/pages/010_products/livepeer-studio/reference/managing-projects
+  - URL: https://docs.livepeer.org/010_products/livepeer-studio/reference/managing-projects
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3483,8 +3483,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/streamplace/streamplace
-  - URL: https://docs.livepeer.org/010_products/products/streamplace/streamplace
+- [v2] v2/pages/010_products/streamplace/overview
+  - URL: https://docs.livepeer.org/010_products/streamplace/overview
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3494,8 +3494,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/streamplace/streamplace-guide
-  - URL: https://docs.livepeer.org/010_products/products/streamplace/streamplace-guide
+- [v2] v2/pages/010_products/streamplace/introduction/streamplace-guide
+  - URL: https://docs.livepeer.org/010_products/streamplace/introduction/streamplace-guide
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3505,8 +3505,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/streamplace/streamplace-architecture
-  - URL: https://docs.livepeer.org/010_products/products/streamplace/streamplace-architecture
+- [v2] v2/pages/010_products/streamplace/introduction/streamplace-architecture
+  - URL: https://docs.livepeer.org/010_products/streamplace/introduction/streamplace-architecture
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3516,8 +3516,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/streamplace/streamplace-integration
-  - URL: https://docs.livepeer.org/010_products/products/streamplace/streamplace-integration
+- [v2] v2/pages/010_products/streamplace/introduction/streamplace-integration
+  - URL: https://docs.livepeer.org/010_products/streamplace/introduction/streamplace-integration
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3527,8 +3527,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/streamplace/streamplace-provenance
-  - URL: https://docs.livepeer.org/010_products/products/streamplace/streamplace-provenance
+- [v2] v2/pages/010_products/streamplace/introduction/streamplace-provenance
+  - URL: https://docs.livepeer.org/010_products/streamplace/introduction/streamplace-provenance
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3538,8 +3538,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/streamplace/streamplace-funding
-  - URL: https://docs.livepeer.org/010_products/products/streamplace/streamplace-funding
+- [v2] v2/pages/010_products/streamplace/introduction/streamplace-funding-model
+  - URL: https://docs.livepeer.org/010_products/streamplace/introduction/streamplace-funding-model
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261
@@ -3549,8 +3549,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/embody/overview
-  - URL: https://docs.livepeer.org/010_products/products/embody/overview
+- [v2] v2/pages/010_products/embody/overview
+  - URL: https://docs.livepeer.org/010_products/embody/overview
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 225
@@ -3560,8 +3560,8 @@
   - Error: PageError: Unexpected token 'export'
   - Error: PageError: Identifier 'fs' has already been declared
   - Error: PageError: Identifier 'fs' has already been declared
-- [v2] v2/pages/010_products/products/frameworks/frameworks
-  - URL: https://docs.livepeer.org/010_products/products/frameworks/frameworks
+- [v2] v2/pages/010_products/frameworks/overview
+  - URL: https://docs.livepeer.org/010_products/frameworks/overview
   - Status: 200
   - H1: Ruh oh. This page doesn't exist.
   - Content length: 261

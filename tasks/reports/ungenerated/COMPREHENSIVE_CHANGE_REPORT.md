@@ -15,7 +15,7 @@
 
 The following portal pages have been changed and import components that have also changed:
 
-1. **`v2/pages/010_products/products-portal.mdx`** - Products Portal
+1. **`v2/pages/010_products/portal.mdx`** - Products Portal
    - Imports: `Portals.jsx`, `frameMode.jsx`, `links.jsx` (all changed)
    
 2. **`v2/pages/05_orchestrators/orchestrators-portal.mdx`** - Orchestrators Portal  
@@ -141,7 +141,7 @@ These components have been modified and may break pages that import them:
 
 ### Portal Pages (9 files) - HIGH PRIORITY
 
-1. `v2/pages/010_products/products-portal.mdx`
+1. `v2/pages/010_products/portal.mdx`
 2. `v2/pages/05_orchestrators/orchestrators-portal.mdx` ⚠️
 3. `v2/pages/06_lptoken/token-portal.mdx`
 4. `v2/pages/00_home/mission-control.mdx`

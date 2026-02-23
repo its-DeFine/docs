@@ -1,9 +1,9 @@
 # Docs Navigation Route Report
 
-- Generated at (UTC): 2026-02-23T13:32:03.274Z
-- Entries scanned: 1070
+- Generated at (UTC): 2026-02-23T16:13:36.402Z
+- Entries scanned: 1069
 - Syntax errors: 0
-- Missing routes: 69
+- Missing routes: 68
 - Missing routes with suggestions: 4
 
 ## Syntax Errors
@@ -242,10 +242,6 @@
 
 - `v2/pages/07_resources/documentation-guide/component-library/domain` (normalized: `v2/pages/07_resources/documentation-guide/component-library/domain`)
   - Pointer: `navigation.versions[1].languages[0].tabs[8].anchors[0].groups[1].pages[7].pages[6]`
-  - Suggested remaps: none
-
-- `v2/pages/01_about/core-concepts/livepeer-core-concepts` (normalized: `v2/pages/01_about/core-concepts/livepeer-core-concepts`)
-  - Pointer: `navigation.versions[1].languages[0].tabs[8].anchors[0].groups[2].pages[0]`
   - Suggested remaps: none
 
 - `v2/pages/07_resources/livepeer-glossary` (normalized: `v2/pages/07_resources/livepeer-glossary`)

@@ -171,8 +171,8 @@
   - Content length: 0
   - Reason: navigation error: Navigation timeout of 25000 ms exceeded
 
-- [v2] v2/pages/010_products/products/streamplace/streamplace-funding
-  - URL: https://docs.livepeer.org/v2/pages/010_products/products/streamplace/streamplace-funding
+- [v2] v2/pages/010_products/streamplace/introduction/streamplace-funding-model
+  - URL: https://docs.livepeer.org/v2/pages/010_products/streamplace/introduction/streamplace-funding-model
   - Status: 200
   - Title: Page Not Found
   - Content length: 290

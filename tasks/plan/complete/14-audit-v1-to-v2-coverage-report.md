@@ -18,7 +18,7 @@ The V2 documentation has significantly restructured content from V1, with a shif
 - **V1 focus**: Livepeer Studio-centric (APIs, SDKs, React components, developer guides)
 - **V2 focus**: Livepeer Network-centric (Gateways, Orchestrators, AI inference, protocol)
 
-**Key Finding**: V2 is network-focused. All Studio content should live in `v2/pages/010_products/products/livepeer-studio/` or `v2/pages/03_developers/developer-platforms/livepeer-studio/`.
+**Key Finding**: V2 is network-focused. All Studio content should live in `v2/pages/010_products/livepeer-studio/` or `v2/pages/03_developers/developer-platforms/livepeer-studio/`.
 
 ---
 
@@ -27,8 +27,8 @@ The V2 documentation has significantly restructured content from V1, with a shif
 ### Current State
 
 **Existing Livepeer Studio pages in V2:**
-- `v2/pages/010_products/products/livepeer-studio/livepeer-studio.mdx` (empty placeholder)
-- `v2/pages/010_products/products/livepeer-studio/client-use-cases.mdx` (✅ has content)
+- `v2/pages/010_products/livepeer-studio/livepeer-studio.mdx` (empty placeholder)
+- `v2/pages/010_products/livepeer-studio/client-use-cases.mdx` (✅ has content)
 - `v2/pages/03_developers/developer-platforms/livepeer-studio/livepeer-studio.mdx` (empty placeholder)
 
 **Existing placeholder pages that reference Studio content:**
@@ -38,7 +38,7 @@ The V2 documentation has significantly restructured content from V1, with a shif
 - `v2/pages/01_about/livepeer-network/interfaces.mdx` (has brief Studio API mention pointing to livepeer.studio/docs)
 
 **Recommendation for placeholders:**
-- **Option A**: Fill placeholders with content pointing to Studio section (e.g., "For Livepeer Studio SDKs, see [Studio SDKs](/products/livepeer-studio/sdks)")
+- **Option A**: Fill placeholders with content pointing to Studio section (e.g., "For Livepeer Studio SDKs, see [Studio SDKs](/livepeer-studio/sdks)")
 - **Option B**: Move/redirect placeholders to Studio section
 - **Option C**: Delete placeholders if Studio section will be comprehensive
 
@@ -49,7 +49,7 @@ The V2 documentation has significantly restructured content from V1, with a shif
 Based on v1 content analysis, the following should be added to the Livepeer Studio section:
 
 ```
-v2/pages/010_products/products/livepeer-studio/
+v2/pages/010_products/livepeer-studio/
 ├── livepeer-studio.mdx (overview - needs content)
 ├── client-use-cases.mdx (✅ exists)
 ├── getting-started/
@@ -376,7 +376,7 @@ v2/pages/010_products/products/livepeer-studio/
 ### 1. Structure Decision
 
 **Option A: Single Location (Recommended)**
-- Place all Studio content in `v2/pages/010_products/products/livepeer-studio/`
+- Place all Studio content in `v2/pages/010_products/livepeer-studio/`
 - Keep `v2/pages/03_developers/developer-platforms/livepeer-studio/` as a redirect or summary page pointing to products section
 
 **Option B: Split by Audience**
@@ -399,11 +399,11 @@ Update `docs.json` to include:
 {
   "group": "Livepeer Studio",
   "pages": [
-    "products/livepeer-studio/livepeer-studio",
-    "products/livepeer-studio/getting-started/overview",
-    "products/livepeer-studio/api-reference/overview",
-    "products/livepeer-studio/sdks/overview",
-    "products/livepeer-studio/guides/overview"
+    "livepeer-studio/livepeer-studio",
+    "livepeer-studio/get-started/overview",
+    "livepeer-studio/reference/overview",
+    "livepeer-studio/sdks/overview",
+    "livepeer-studio/guides/overview"
   ]
 }
 ```
@@ -423,7 +423,7 @@ Update `docs.json` to include:
 Livepeer SDKs are available for different platforms:
 
 <CardGroup cols={2}>
-  <Card title="Livepeer Studio SDKs" href="/products/livepeer-studio/sdks">
+  <Card title="Livepeer Studio SDKs" href="/livepeer-studio/sdks">
     JavaScript, Python, Go, and React SDKs for Livepeer Studio
   </Card>
   <Card title="Network SDKs" href="/developers/technical-references/sdks">
@@ -437,7 +437,7 @@ Livepeer SDKs are available for different platforms:
 Start with these high-impact pages:
 1. `livepeer-studio.mdx` - Overview page (currently empty)
 2. `getting-started/quick-start.mdx` - 5-minute quickstart
-3. `api-reference/overview.mdx` - API reference landing
+3. `reference/overview.mdx` - API reference landing
 4. `api-reference/streams/create.mdx` - Most common API call
 5. `sdks/react/getting-started.mdx` - React SDK quickstart
 
@@ -452,19 +452,19 @@ Start with these high-impact pages:
 
 | V1 Path | Recommended V2 Location | Priority |
 |---------|------------------------|----------|
-| `v1/api-reference/overview/introduction.mdx` | `products/livepeer-studio/api-reference/overview.mdx` | P1 |
-| `v1/api-reference/overview/authentication.mdx` | `products/livepeer-studio/getting-started/authentication.mdx` | P1 |
-| `v1/api-reference/stream/*.mdx` (11 files) | `products/livepeer-studio/api-reference/streams/` | P1 |
-| `v1/api-reference/asset/*.mdx` (7 files) | `products/livepeer-studio/api-reference/assets/` | P1 |
-| `v1/api-reference/playback/*.mdx` (2 files) | `products/livepeer-studio/api-reference/playback/` | P1 |
-| `v1/api-reference/session/*.mdx` (5 files) | `products/livepeer-studio/api-reference/sessions/` | P2 |
-| `v1/api-reference/multistream/*.mdx` (6 files) | `products/livepeer-studio/api-reference/multistream/` | P2 |
-| `v1/api-reference/transcode/*.mdx` (2 files) | `products/livepeer-studio/api-reference/transcode/` | P2 |
-| `v1/api-reference/webhook/*.mdx` (6 files) | `products/livepeer-studio/api-reference/webhooks/` | P2 |
-| `v1/api-reference/signing-key/*.mdx` (6 files) | `products/livepeer-studio/api-reference/signing-keys/` | P2 |
-| `v1/api-reference/room/*.mdx` (10 files) | `products/livepeer-studio/api-reference/rooms/` | P2 |
-| `v1/api-reference/task/*.mdx` (3 files) | `products/livepeer-studio/api-reference/tasks/` | P2 |
-| `v1/api-reference/viewership/*.mdx` (5 files) | `products/livepeer-studio/api-reference/viewership/` | P2 |
+| `v1/api-reference/overview/introduction.mdx` | `livepeer-studio/reference/overview.mdx` | P1 |
+| `v1/api-reference/overview/authentication.mdx` | `livepeer-studio/get-started/authentication.mdx` | P1 |
+| `v1/api-reference/stream/*.mdx` (11 files) | `livepeer-studio/api-reference/streams/` | P1 |
+| `v1/api-reference/asset/*.mdx` (7 files) | `livepeer-studio/api-reference/assets/` | P1 |
+| `v1/api-reference/playback/*.mdx` (2 files) | `livepeer-studio/api-reference/playback/` | P1 |
+| `v1/api-reference/session/*.mdx` (5 files) | `livepeer-studio/api-reference/sessions/` | P2 |
+| `v1/api-reference/multistream/*.mdx` (6 files) | `livepeer-studio/api-reference/multistream/` | P2 |
+| `v1/api-reference/transcode/*.mdx` (2 files) | `livepeer-studio/api-reference/transcode/` | P2 |
+| `v1/api-reference/webhook/*.mdx` (6 files) | `livepeer-studio/api-reference/webhooks/` | P2 |
+| `v1/api-reference/signing-key/*.mdx` (6 files) | `livepeer-studio/api-reference/signing-keys/` | P2 |
+| `v1/api-reference/room/*.mdx` (10 files) | `livepeer-studio/api-reference/rooms/` | P2 |
+| `v1/api-reference/task/*.mdx` (3 files) | `livepeer-studio/api-reference/tasks/` | P2 |
+| `v1/api-reference/viewership/*.mdx` (5 files) | `livepeer-studio/api-reference/viewership/` | P2 |
 | `v1/api-reference/generate/*.mdx` (10 files) | ✅ Already in Gateway section | N/A |
 
 ---
@@ -476,16 +476,16 @@ Start with these high-impact pages:
 
 | V1 Path | Recommended V2 Location | Priority |
 |---------|------------------------|----------|
-| `v1/sdks/introduction.mdx` | `products/livepeer-studio/sdks/overview.mdx` | P1 |
-| `v1/sdks/javascript.mdx` | `products/livepeer-studio/sdks/javascript.mdx` | P1 |
-| `v1/sdks/python.mdx` | `products/livepeer-studio/sdks/python.mdx` | P1 |
-| `v1/sdks/go.mdx` | `products/livepeer-studio/sdks/go.mdx` | P1 |
-| `v1/sdks/react/getting-started.mdx` | `products/livepeer-studio/sdks/react/getting-started.mdx` | P1 |
-| `v1/sdks/react/Player.mdx` | `products/livepeer-studio/sdks/react/player/Player.mdx` | P2 |
-| `v1/sdks/react/Broadcast.mdx` | `products/livepeer-studio/sdks/react/broadcast/Broadcast.mdx` | P2 |
-| `v1/sdks/react/player/*.mdx` (20 files) | `products/livepeer-studio/sdks/react/player/` | P2 |
-| `v1/sdks/react/broadcast/*.mdx` (17 files) | `products/livepeer-studio/sdks/react/broadcast/` | P2 |
-| `v1/sdks/react/migration/*.mdx` (17 files) | `products/livepeer-studio/sdks/react/migration/` | P2 |
+| `v1/sdks/introduction.mdx` | `livepeer-studio/sdks/overview.mdx` | P1 |
+| `v1/sdks/javascript.mdx` | `livepeer-studio/sdks/javascript.mdx` | P1 |
+| `v1/sdks/python.mdx` | `livepeer-studio/sdks/python.mdx` | P1 |
+| `v1/sdks/go.mdx` | `livepeer-studio/sdks/go.mdx` | P1 |
+| `v1/sdks/react/getting-started.mdx` | `livepeer-studio/sdks/react/getting-started.mdx` | P1 |
+| `v1/sdks/react/Player.mdx` | `livepeer-studio/sdks/react/player/Player.mdx` | P2 |
+| `v1/sdks/react/Broadcast.mdx` | `livepeer-studio/sdks/react/broadcast/Broadcast.mdx` | P2 |
+| `v1/sdks/react/player/*.mdx` (20 files) | `livepeer-studio/sdks/react/player/` | P2 |
+| `v1/sdks/react/broadcast/*.mdx` (17 files) | `livepeer-studio/sdks/react/broadcast/` | P2 |
+| `v1/sdks/react/migration/*.mdx` (17 files) | `livepeer-studio/sdks/react/migration/` | P2 |
 
 ---
 
@@ -496,12 +496,12 @@ Start with these high-impact pages:
 
 | V1 Path | Recommended V2 Location | Priority |
 |---------|------------------------|----------|
-| `v1/developers/introduction.mdx` | `products/livepeer-studio/livepeer-studio.mdx` | P1 |
-| `v1/developers/quick-start.mdx` | `products/livepeer-studio/getting-started/quick-start.mdx` | P1 |
-| `v1/developers/core-concepts/core-api/*.mdx` | `products/livepeer-studio/core-concepts/` | P3 |
-| `v1/developers/core-concepts/studio/*.mdx` | `products/livepeer-studio/core-concepts/studio/` | P3 |
-| `v1/developers/guides/*.mdx` (24 files) | `products/livepeer-studio/guides/` | P2 |
-| `v1/developers/tutorials/*.mdx` (5 files) | `products/livepeer-studio/tutorials/` | P3 |
+| `v1/developers/introduction.mdx` | `livepeer-studio/livepeer-studio.mdx` | P1 |
+| `v1/developers/quick-start.mdx` | `livepeer-studio/get-started/quick-start.mdx` | P1 |
+| `v1/developers/core-concepts/core-api/*.mdx` | `livepeer-studio/core-concepts/` | P3 |
+| `v1/developers/core-concepts/studio/*.mdx` | `livepeer-studio/core-concepts/studio/` | P3 |
+| `v1/developers/guides/*.mdx` (24 files) | `livepeer-studio/guides/` | P2 |
+| `v1/developers/tutorials/*.mdx` (5 files) | `livepeer-studio/tutorials/` | P3 |
 
 ---
 
@@ -512,10 +512,10 @@ Start with these high-impact pages:
 
 | V1 Path | Recommended V2 Location | Priority |
 |---------|------------------------|----------|
-| `v1/self-hosting/overview.mdx` | `products/livepeer-studio/self-hosting/overview.mdx` | P4 |
-| `v1/self-hosting/deploying.mdx` | `products/livepeer-studio/self-hosting/deploying.mdx` | P4 |
-| `v1/self-hosting/self-hosting-with-docker.mdx` | `products/livepeer-studio/self-hosting/self-hosting-with-docker.mdx` | P4 |
-| `v1/self-hosting/how-to-contribute.mdx` | `products/livepeer-studio/self-hosting/how-to-contribute.mdx` | P4 |
+| `v1/self-hosting/overview.mdx` | `livepeer-studio/self-hosting/overview.mdx` | P4 |
+| `v1/self-hosting/deploying.mdx` | `livepeer-studio/self-hosting/deploying.mdx` | P4 |
+| `v1/self-hosting/self-hosting-with-docker.mdx` | `livepeer-studio/self-hosting/self-hosting-with-docker.mdx` | P4 |
+| `v1/self-hosting/how-to-contribute.mdx` | `livepeer-studio/self-hosting/how-to-contribute.mdx` | P4 |
 
 **Note**: Mark as alpha feature with appropriate warnings.
 
@@ -534,7 +534,7 @@ Start with these high-impact pages:
 
 ## Follow-up Tasks
 
-1. [ ] Create Livepeer Studio section structure in `v2/pages/010_products/products/livepeer-studio/`
+1. [ ] Create Livepeer Studio section structure in `v2/pages/010_products/livepeer-studio/`
 2. [ ] Migrate Priority 1 content (Getting Started, Core API, Core SDKs)
 3. [ ] Migrate Priority 2 content (Guides, Extended API, React SDK)
 4. [ ] Migrate Priority 3 content (Advanced features, tutorials, concepts)

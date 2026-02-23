@@ -140,180 +140,180 @@
     "url": "http://localhost:3000/01_about/resources/gateways-vs-orchestrators"
   },
   {
-    "path": "v2/pages/010_products/products-portal",
-    "url": "http://localhost:3000/010_products/products-portal"
+    "path": "v2/pages/010_products/portal",
+    "url": "http://localhost:3000/010_products/portal"
   },
   {
-    "path": "v2/pages/010_products/products/all-ecosystem/product-hub",
-    "url": "http://localhost:3000/010_products/products/all-ecosystem/product-hub"
+    "path": "v2/pages/010_products/product-hub",
+    "url": "http://localhost:3000/010_products/product-hub"
   },
   {
-    "path": "v2/pages/010_products/products/all-ecosystem/ecosystem-products",
-    "url": "http://localhost:3000/010_products/products/all-ecosystem/ecosystem-products"
+    "path": "v2/pages/010_products/ecosystem-products",
+    "url": "http://localhost:3000/010_products/ecosystem-products"
   },
   {
-    "path": "v2/pages/010_products/products/daydream/daydream",
-    "url": "http://localhost:3000/010_products/products/daydream/daydream"
+    "path": "v2/pages/010_products/daydream/overview",
+    "url": "http://localhost:3000/010_products/daydream/overview"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/overview/overview",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/overview/overview"
+    "path": "v2/pages/010_products/livepeer-studio/overview",
+    "url": "http://localhost:3000/010_products/livepeer-studio/overview"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/overview/client-use-cases",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/overview/client-use-cases"
+    "path": "v2/pages/010_products/livepeer-studio/client-use-cases",
+    "url": "http://localhost:3000/010_products/livepeer-studio/client-use-cases"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/getting-started/overview",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/getting-started/overview"
+    "path": "v2/pages/010_products/livepeer-studio/get-started/overview",
+    "url": "http://localhost:3000/010_products/livepeer-studio/get-started/overview"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/overview/quickstart",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/overview/quickstart"
+    "path": "v2/pages/010_products/livepeer-studio/quickstart",
+    "url": "http://localhost:3000/010_products/livepeer-studio/quickstart"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/getting-started/authentication",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/getting-started/authentication"
+    "path": "v2/pages/010_products/livepeer-studio/get-started/authentication",
+    "url": "http://localhost:3000/010_products/livepeer-studio/get-started/authentication"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/getting-started/studio-cli",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/getting-started/studio-cli"
+    "path": "v2/pages/010_products/livepeer-studio/get-started/studio-cli",
+    "url": "http://localhost:3000/010_products/livepeer-studio/get-started/studio-cli"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/overview/livestream-overview",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/overview/livestream-overview"
+    "path": "v2/pages/010_products/livepeer-studio/livestream/overview",
+    "url": "http://localhost:3000/010_products/livepeer-studio/livestream/overview"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/create-livestream",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/create-livestream"
+    "path": "v2/pages/010_products/livepeer-studio/livestream/create-livestream",
+    "url": "http://localhost:3000/010_products/livepeer-studio/livestream/create-livestream"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/playback-livestream",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/playback-livestream"
+    "path": "v2/pages/010_products/livepeer-studio/livestream/playback-livestream",
+    "url": "http://localhost:3000/010_products/livepeer-studio/livestream/playback-livestream"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/stream-via-obs",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/stream-via-obs"
+    "path": "v2/pages/010_products/livepeer-studio/livestream/stream-via-obs",
+    "url": "http://localhost:3000/010_products/livepeer-studio/livestream/stream-via-obs"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/livestream-from-browser",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/livestream-from-browser"
+    "path": "v2/pages/010_products/livepeer-studio/livestream/livestream-from-browser",
+    "url": "http://localhost:3000/010_products/livepeer-studio/livestream/livestream-from-browser"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/multistream",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/multistream"
+    "path": "v2/pages/010_products/livepeer-studio/livestream/multistream",
+    "url": "http://localhost:3000/010_products/livepeer-studio/livestream/multistream"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/clip-livestream",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/clip-livestream"
+    "path": "v2/pages/010_products/livepeer-studio/livestream/clip-livestream",
+    "url": "http://localhost:3000/010_products/livepeer-studio/livestream/clip-livestream"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/stream-health",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/stream-health"
+    "path": "v2/pages/010_products/livepeer-studio/livestream/stream-health",
+    "url": "http://localhost:3000/010_products/livepeer-studio/livestream/stream-health"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/optimize-latency",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/optimize-latency"
+    "path": "v2/pages/010_products/livepeer-studio/livestream/optimize-latency",
+    "url": "http://localhost:3000/010_products/livepeer-studio/livestream/optimize-latency"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/overview/vod-overview",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/overview/vod-overview"
+    "path": "v2/pages/010_products/livepeer-studio/video-on-demand/overview",
+    "url": "http://localhost:3000/010_products/livepeer-studio/video-on-demand/overview"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/upload-asset",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/upload-asset"
+    "path": "v2/pages/010_products/livepeer-studio/video-on-demand/upload-asset",
+    "url": "http://localhost:3000/010_products/livepeer-studio/video-on-demand/upload-asset"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/playback-asset",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/playback-asset"
+    "path": "v2/pages/010_products/livepeer-studio/video-on-demand/playback-asset",
+    "url": "http://localhost:3000/010_products/livepeer-studio/video-on-demand/playback-asset"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/encrypted-assets",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/encrypted-assets"
+    "path": "v2/pages/010_products/livepeer-studio/video-on-demand/encrypted-assets",
+    "url": "http://localhost:3000/010_products/livepeer-studio/video-on-demand/encrypted-assets"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/thumbnails-vod"
+    "path": "v2/pages/010_products/livepeer-studio/video-on-demand/thumbnails-vod",
+    "url": "http://localhost:3000/010_products/livepeer-studio/video-on-demand/thumbnails-vod"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/transcode-video",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/transcode-video"
+    "path": "v2/pages/010_products/livepeer-studio/video-on-demand/transcode-video",
+    "url": "http://localhost:3000/010_products/livepeer-studio/video-on-demand/transcode-video"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/access-control/overview",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/access-control/overview"
+    "path": "v2/pages/010_products/livepeer-studio/access-control/overview",
+    "url": "http://localhost:3000/010_products/livepeer-studio/access-control/overview"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/access-control/webhooks",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/access-control/webhooks"
+    "path": "v2/pages/010_products/livepeer-studio/access-control/webhooks",
+    "url": "http://localhost:3000/010_products/livepeer-studio/access-control/webhooks"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/access-control/jwt",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/access-control/jwt"
+    "path": "v2/pages/010_products/livepeer-studio/access-control/jwt",
+    "url": "http://localhost:3000/010_products/livepeer-studio/access-control/jwt"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/webhooks",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/webhooks"
+    "path": "v2/pages/010_products/livepeer-studio/analytics/webhooks",
+    "url": "http://localhost:3000/010_products/livepeer-studio/analytics/webhooks"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/listen-to-events",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/listen-to-events"
+    "path": "v2/pages/010_products/livepeer-studio/analytics/listen-to-events",
+    "url": "http://localhost:3000/010_products/livepeer-studio/analytics/listen-to-events"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/analytics/overview",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/analytics/overview"
+    "path": "v2/pages/010_products/livepeer-studio/analytics/overview",
+    "url": "http://localhost:3000/010_products/livepeer-studio/analytics/overview"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/player-and-embed",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/player-and-embed"
+    "path": "v2/pages/010_products/livepeer-studio/player",
+    "url": "http://localhost:3000/010_products/livepeer-studio/player"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/overview/api-overview",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/overview/api-overview"
+    "path": "v2/pages/010_products/livepeer-studio/reference/api",
+    "url": "http://localhost:3000/010_products/livepeer-studio/reference/api"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/api-reference/overview",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/api-reference/overview"
+    "path": "v2/pages/010_products/livepeer-studio/reference/overview",
+    "url": "http://localhost:3000/010_products/livepeer-studio/reference/overview"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/overview/sdks-overview",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/overview/sdks-overview"
+    "path": "v2/pages/010_products/livepeer-studio/reference/sdks",
+    "url": "http://localhost:3000/010_products/livepeer-studio/reference/sdks"
   },
   {
-    "path": "v2/pages/010_products/products/livepeer-studio/guides/managing-projects",
-    "url": "http://localhost:3000/010_products/products/livepeer-studio/guides/managing-projects"
+    "path": "v2/pages/010_products/livepeer-studio/reference/managing-projects",
+    "url": "http://localhost:3000/010_products/livepeer-studio/reference/managing-projects"
   },
   {
-    "path": "v2/pages/010_products/products/streamplace/streamplace",
-    "url": "http://localhost:3000/010_products/products/streamplace/streamplace"
+    "path": "v2/pages/010_products/streamplace/overview",
+    "url": "http://localhost:3000/010_products/streamplace/overview"
   },
   {
-    "path": "v2/pages/010_products/products/streamplace/streamplace-guide",
-    "url": "http://localhost:3000/010_products/products/streamplace/streamplace-guide"
+    "path": "v2/pages/010_products/streamplace/introduction/streamplace-guide",
+    "url": "http://localhost:3000/010_products/streamplace/introduction/streamplace-guide"
   },
   {
-    "path": "v2/pages/010_products/products/streamplace/streamplace-architecture",
-    "url": "http://localhost:3000/010_products/products/streamplace/streamplace-architecture"
+    "path": "v2/pages/010_products/streamplace/introduction/streamplace-architecture",
+    "url": "http://localhost:3000/010_products/streamplace/introduction/streamplace-architecture"
   },
   {
-    "path": "v2/pages/010_products/products/streamplace/streamplace-integration",
-    "url": "http://localhost:3000/010_products/products/streamplace/streamplace-integration"
+    "path": "v2/pages/010_products/streamplace/introduction/streamplace-integration",
+    "url": "http://localhost:3000/010_products/streamplace/introduction/streamplace-integration"
   },
   {
-    "path": "v2/pages/010_products/products/streamplace/streamplace-provenance",
-    "url": "http://localhost:3000/010_products/products/streamplace/streamplace-provenance"
+    "path": "v2/pages/010_products/streamplace/introduction/streamplace-provenance",
+    "url": "http://localhost:3000/010_products/streamplace/introduction/streamplace-provenance"
   },
   {
-    "path": "v2/pages/010_products/products/streamplace/streamplace-funding",
-    "url": "http://localhost:3000/010_products/products/streamplace/streamplace-funding"
+    "path": "v2/pages/010_products/streamplace/introduction/streamplace-funding-model",
+    "url": "http://localhost:3000/010_products/streamplace/introduction/streamplace-funding-model"
   },
   {
-    "path": "v2/pages/010_products/products/embody/overview",
-    "url": "http://localhost:3000/010_products/products/embody/overview"
+    "path": "v2/pages/010_products/embody/overview",
+    "url": "http://localhost:3000/010_products/embody/overview"
   },
   {
-    "path": "v2/pages/010_products/products/frameworks/frameworks",
-    "url": "http://localhost:3000/010_products/products/frameworks/frameworks"
+    "path": "v2/pages/010_products/frameworks/overview",
+    "url": "http://localhost:3000/010_products/frameworks/overview"
   },
   {
     "path": "v2/pages/03_developers/developer-portal",

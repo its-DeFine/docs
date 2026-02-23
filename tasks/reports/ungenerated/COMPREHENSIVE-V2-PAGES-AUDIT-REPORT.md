@@ -39,7 +39,7 @@
 5. `v2/pages/04_gateways/gateways-portal.mdx`
 6. `v2/pages/05_orchestrators/orchestrators-portal.mdx`
 7. `v2/pages/06_lptoken/token-portal.mdx`
-8. `v2/pages/010_products/products-portal.mdx`
+8. `v2/pages/010_products/portal.mdx`
 9. `v2/pages/07_resources/documentation-guide/component-library/content.mdx`
 10. `v2/pages/07_resources/documentation-guide/component-library/display.mdx`
 
@@ -119,16 +119,16 @@ After filtering out test script artifacts, the following real errors were found:
 
 These pages failed to load (navigation timeout):
 
-1. `v2/pages/010_products/products/livepeer-studio/guides/thumbnails-vod`
-2. `v2/pages/010_products/products/livepeer-studio/guides/transcode-video`
-3. `v2/pages/010_products/products/livepeer-studio/guides/upload-asset`
-4. `v2/pages/010_products/products/livepeer-studio/guides/webhooks`
-5. `v2/pages/010_products/products/livepeer-studio/overview/api-overview`
-6. `v2/pages/010_products/products/livepeer-studio/overview/client-use-cases`
-7. `v2/pages/010_products/products/livepeer-studio/overview/livestream-overview`
-8. `v2/pages/010_products/products/livepeer-studio/overview/overview`
-9. `v2/pages/010_products/products/livepeer-studio/overview/quickstart`
-10. `v2/pages/010_products/products/livepeer-studio/overview/sdks-overview`
+1. `v2/pages/010_products/livepeer-studio/video-on-demand/thumbnails-vod`
+2. `v2/pages/010_products/livepeer-studio/video-on-demand/transcode-video`
+3. `v2/pages/010_products/livepeer-studio/video-on-demand/upload-asset`
+4. `v2/pages/010_products/livepeer-studio/analytics/webhooks`
+5. `v2/pages/010_products/livepeer-studio/reference/api`
+6. `v2/pages/010_products/livepeer-studio/client-use-cases`
+7. `v2/pages/010_products/livepeer-studio/livestream/overview`
+8. `v2/pages/010_products/livepeer-studio/overview`
+9. `v2/pages/010_products/livepeer-studio/quickstart`
+10. `v2/pages/010_products/livepeer-studio/reference/sdks`
 
 **All failed pages are in the Livepeer Studio section** - suggests a systematic issue with that section.
 
