@@ -2351,16 +2351,18 @@
                         "icon": "fast-forward",
                         "pages": [
                           {
-                            "group": "Real-time Video",
+                            "group": "Video & Transcoding",
                             "pages": [
                               "v2/developers/quickstart/video/video-streaming",
+                              "v2/developers/quickstart/video/transcoding-jobs",
                               "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README"
                             ]
                           },
                           {
-                            "group": "AI Pipelines",
+                            "group": "AI Jobs & Pipelines",
                             "pages": [
-                              "v2/developers/quickstart/ai/ai-pipelines"
+                              "v2/developers/quickstart/ai/ai-pipelines",
+                              "v2/developers/quickstart/ai/ai-jobs"
                             ]
                           }
                         ]
