@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-02-21T03:54:26.409Z",
+  "generatedAt": "2026-02-24T13:08:14.862Z",
   "repoRoot": "/Users/alisonhaire/Documents/Livepeer/livepeer-docs-v2 [docs-v2-branch]",
   "options": {
     "format": "both",
-    "outputDir": "tasks/reports",
+    "outputDir": "tasks/reports/repo-ops",
     "strict": false
   },
   "rulesSource": [
@@ -11,50 +11,52 @@
     "tests/README.md"
   ],
   "summary": {
-    "totalScripts": 87,
-    "templateCompliant": 84,
-    "templateNonCompliant": 3,
+    "totalScripts": 100,
+    "templateCompliant": 95,
+    "templateNonCompliant": 5,
     "categoryCounts": {
-      "hook": 12,
-      "manual": 79,
-      "enforcement": 20,
-      "pre-commit": 8,
-      "helper": 19,
+      "hook": 14,
+      "manual": 92,
+      "enforcement": 26,
+      "pre-commit": 10,
+      "helper": 21,
       "ci": 7,
-      "sync": 13,
+      "sync": 14,
       "scheduled": 4,
       "workflow-dispatch": 4,
-      "generator": 11,
-      "runner": 6,
-      "audit": 13,
-      "test": 14,
-      "npm-script": 14,
+      "generator": 12,
+      "runner": 4,
+      "audit": 20,
+      "test": 21,
+      "npm-script": 22,
       "pr": 3,
       "push": 3,
-      "fixture": 11
+      "deprecated": 1,
+      "fixture": 12
     },
     "roleTagCounts": {
-      "hook": 12,
-      "enforcement": 20,
-      "helper": 19,
+      "hook": 14,
+      "enforcement": 26,
+      "helper": 21,
       "ci": 7,
-      "sync": 13,
-      "generator": 11,
-      "runner": 6,
-      "audit": 13,
-      "test": 14,
-      "fixture": 11
+      "sync": 14,
+      "generator": 12,
+      "runner": 4,
+      "audit": 20,
+      "test": 21,
+      "deprecated": 1,
+      "fixture": 12
     },
     "runContextTagCounts": {
-      "manual": 79,
-      "pre-commit": 8,
+      "manual": 92,
+      "pre-commit": 10,
       "scheduled": 4,
       "workflow-dispatch": 4,
-      "npm-script": 14,
+      "npm-script": 22,
       "pr": 3,
       "push": 3
     },
-    "exactOverlapClusters": 10,
+    "exactOverlapClusters": 9,
     "nearOverlapClusters": 0
   },
   "scripts": [
@@ -648,102 +650,6 @@
       "usedBy": []
     },
     {
-      "path": "tasks/scripts/audit-all-pages-simple.js",
-      "purpose": "Utility script for tasks/scripts/audit-all-pages-simple.js.",
-      "templateCompliance": {
-        "valid": true,
-        "missingTags": [],
-        "emptyTags": [],
-        "rulesSource": [
-          "tests/unit/script-docs.test.js",
-          "tests/README.md"
-        ]
-      },
-      "metadata": {
-        "scriptTag": "audit-all-pages-simple",
-        "ownerTag": "docs",
-        "scopeTag": "tasks/scripts",
-        "usageTag": "node tasks/scripts/audit-all-pages-simple.js"
-      },
-      "categories": {
-        "roleTags": [
-          "audit"
-        ],
-        "runContextTags": [
-          "manual"
-        ],
-        "evidence": [
-          "role:audit via name/summary keyword",
-          "run-context:manual due to no direct invocation mapping"
-        ]
-      },
-      "usedBy": []
-    },
-    {
-      "path": "tasks/scripts/audit-all-pages.js",
-      "purpose": "Utility script for tasks/scripts/audit-all-pages.js.",
-      "templateCompliance": {
-        "valid": true,
-        "missingTags": [],
-        "emptyTags": [],
-        "rulesSource": [
-          "tests/unit/script-docs.test.js",
-          "tests/README.md"
-        ]
-      },
-      "metadata": {
-        "scriptTag": "audit-all-pages",
-        "ownerTag": "docs",
-        "scopeTag": "tasks/scripts",
-        "usageTag": "node tasks/scripts/audit-all-pages.js"
-      },
-      "categories": {
-        "roleTags": [
-          "audit"
-        ],
-        "runContextTags": [
-          "manual"
-        ],
-        "evidence": [
-          "role:audit via name/summary keyword",
-          "run-context:manual due to no direct invocation mapping"
-        ]
-      },
-      "usedBy": []
-    },
-    {
-      "path": "tasks/scripts/audit-component-usage.js",
-      "purpose": "Utility script for tasks/scripts/audit-component-usage.js.",
-      "templateCompliance": {
-        "valid": true,
-        "missingTags": [],
-        "emptyTags": [],
-        "rulesSource": [
-          "tests/unit/script-docs.test.js",
-          "tests/README.md"
-        ]
-      },
-      "metadata": {
-        "scriptTag": "audit-component-usage",
-        "ownerTag": "docs",
-        "scopeTag": "tasks/scripts",
-        "usageTag": "node tasks/scripts/audit-component-usage.js"
-      },
-      "categories": {
-        "roleTags": [
-          "audit"
-        ],
-        "runContextTags": [
-          "manual"
-        ],
-        "evidence": [
-          "role:audit via name/summary keyword",
-          "run-context:manual due to no direct invocation mapping"
-        ]
-      },
-      "usedBy": []
-    },
-    {
       "path": "tasks/scripts/audit-minimal.js",
       "purpose": "Utility script for tasks/scripts/audit-minimal.js.",
       "templateCompliance": {
@@ -808,40 +714,6 @@
       "usedBy": []
     },
     {
-      "path": "tasks/scripts/run-audit-direct.sh",
-      "purpose": "Utility script for tasks/scripts/run-audit-direct.sh.",
-      "templateCompliance": {
-        "valid": true,
-        "missingTags": [],
-        "emptyTags": [],
-        "rulesSource": [
-          "tests/unit/script-docs.test.js",
-          "tests/README.md"
-        ]
-      },
-      "metadata": {
-        "scriptTag": "run-audit-direct",
-        "ownerTag": "docs",
-        "scopeTag": "tasks/scripts",
-        "usageTag": "bash tasks/scripts/run-audit-direct.sh"
-      },
-      "categories": {
-        "roleTags": [
-          "audit",
-          "runner"
-        ],
-        "runContextTags": [
-          "manual"
-        ],
-        "evidence": [
-          "role:audit via name/summary keyword",
-          "role:runner via orchestrator naming pattern",
-          "run-context:manual due to no direct invocation mapping"
-        ]
-      },
-      "usedBy": []
-    },
-    {
       "path": "tasks/scripts/run-audit-now.js",
       "purpose": "Utility script for tasks/scripts/run-audit-now.js.",
       "templateCompliance": {
@@ -858,40 +730,6 @@
         "ownerTag": "docs",
         "scopeTag": "tasks/scripts",
         "usageTag": "node tasks/scripts/run-audit-now.js"
-      },
-      "categories": {
-        "roleTags": [
-          "audit",
-          "runner"
-        ],
-        "runContextTags": [
-          "manual"
-        ],
-        "evidence": [
-          "role:audit via name/summary keyword",
-          "role:runner via orchestrator naming pattern",
-          "run-context:manual due to no direct invocation mapping"
-        ]
-      },
-      "usedBy": []
-    },
-    {
-      "path": "tasks/scripts/run-audit.sh",
-      "purpose": "Utility script for tasks/scripts/run-audit.sh.",
-      "templateCompliance": {
-        "valid": true,
-        "missingTags": [],
-        "emptyTags": [],
-        "rulesSource": [
-          "tests/unit/script-docs.test.js",
-          "tests/README.md"
-        ]
-      },
-      "metadata": {
-        "scriptTag": "run-audit",
-        "ownerTag": "docs",
-        "scopeTag": "tasks/scripts",
-        "usageTag": "bash tasks/scripts/run-audit.sh"
       },
       "categories": {
         "roleTags": [
@@ -1078,7 +916,7 @@
         {
           "sourceType": "hook",
           "sourcePath": ".githooks/pre-commit",
-          "location": "line 522",
+          "location": "line 547",
           "whenTags": [
             "pre-commit"
           ],
@@ -1091,7 +929,7 @@
         {
           "sourceType": "hook",
           "sourcePath": ".githooks/pre-commit",
-          "location": "line 592",
+          "location": "line 642",
           "whenTags": [
             "pre-commit"
           ],
@@ -1163,11 +1001,8 @@
       "path": "tests/integration/v2-link-audit.js",
       "purpose": "Comprehensive V2 MDX link audit with report and domain link map outputs.",
       "templateCompliance": {
-        "valid": false,
-        "missingTags": [
-          "@examples",
-          "@notes"
-        ],
+        "valid": true,
+        "missingTags": [],
         "emptyTags": [],
         "rulesSource": [
           "tests/unit/script-docs.test.js",
@@ -1203,7 +1038,7 @@
         {
           "sourceType": "hook",
           "sourcePath": ".githooks/pre-commit",
-          "location": "line 507",
+          "location": "line 532",
           "whenTags": [
             "pre-commit"
           ],
@@ -1216,7 +1051,7 @@
         {
           "sourceType": "hook",
           "sourcePath": ".githooks/pre-commit",
-          "location": "line 577",
+          "location": "line 627",
           "whenTags": [
             "pre-commit"
           ],
@@ -1252,6 +1087,163 @@
           "evidence": [
             "command: node integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md",
             "node integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "tests/integration/v2-wcag-audit.js",
+      "purpose": "Audit v2 docs accessibility (WCAG 2.2 AA) with deterministic reports and conservative source autofixes.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "v2-wcag-audit",
+        "ownerTag": "docs",
+        "scopeTag": "tests/integration, tests/utils, tasks/reports, v2",
+        "usageTag": "node tests/integration/v2-wcag-audit.js --full"
+      },
+      "categories": {
+        "roleTags": [
+          "audit",
+          "enforcement",
+          "hook",
+          "test"
+        ],
+        "runContextTags": [
+          "manual",
+          "npm-script",
+          "pre-commit"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword",
+          "role:enforcement via keyword or gating context",
+          "role:hook via .githooks path or hook invocation context",
+          "role:test via tests path or .test filename"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "hook",
+          "sourcePath": ".githooks/pre-commit",
+          "location": "line 497",
+          "whenTags": [
+            "pre-commit"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "if node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer...",
+            "line: if node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json 2>&1; then"
+          ]
+        },
+        {
+          "sourceType": "hook",
+          "sourcePath": ".githooks/pre-commit",
+          "location": "line 592",
+          "whenTags": [
+            "pre-commit"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "if node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer...",
+            "line: if node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json 2>&1; then"
+          ]
+        },
+        {
+          "sourceType": "package-script",
+          "sourcePath": "tests/package.json",
+          "location": "scripts.test:wcag",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "command: node integration/v2-wcag-audit.js --full",
+            "node integration/v2-wcag-audit.js --full"
+          ]
+        },
+        {
+          "sourceType": "package-script",
+          "sourcePath": "tests/package.json",
+          "location": "scripts.test:wcag:nofix",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "command: node integration/v2-wcag-audit.js --full --no-fix",
+            "node integration/v2-wcag-audit.js --full --no-fix"
+          ]
+        },
+        {
+          "sourceType": "package-script",
+          "sourcePath": "tests/package.json",
+          "location": "scripts.test:wcag:staged",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "command: node integration/v2-wcag-audit.js --staged --fix --max-pages 10 --report /tmp/livepeer-wcag-audit-staged.md --report-json /tmp/livepeer-wcag-audit-staged.json",
+            "node integration/v2-wcag-audit.js --staged --fix --max-pages 10 --report /tmp/livepeer-wcag-audit-staged.md --report-json /tmp/livepeer-wcag-audit-staged.json"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "tests/integration/v2-wcag-audit.selftest.js",
+      "purpose": "Script-level self-tests for the v2 WCAG audit (local HTTP + Puppeteer axe run, and temp-file fix/stage behavior without Mintlify).",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "v2-wcag-audit.selftest",
+        "ownerTag": "docs",
+        "scopeTag": "tests/integration, v2, git index",
+        "usageTag": "node tests/integration/v2-wcag-audit.selftest.js"
+      },
+      "categories": {
+        "roleTags": [
+          "audit",
+          "test"
+        ],
+        "runContextTags": [
+          "manual",
+          "npm-script"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword",
+          "role:test via tests path or .test filename"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "package-script",
+          "sourcePath": "tests/package.json",
+          "location": "scripts.test:wcag:selftest",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "command: node integration/v2-wcag-audit.selftest.js",
+            "node integration/v2-wcag-audit.selftest.js"
           ]
         }
       ]
@@ -1310,7 +1302,7 @@
         {
           "sourceType": "hook",
           "sourcePath": ".githooks/pre-commit",
-          "location": "line 494",
+          "location": "line 508",
           "whenTags": [
             "pre-commit"
           ],
@@ -1323,7 +1315,7 @@
         {
           "sourceType": "hook",
           "sourcePath": ".githooks/pre-commit",
-          "location": "line 564",
+          "location": "line 603",
           "whenTags": [
             "pre-commit"
           ],
@@ -1436,6 +1428,181 @@
       ]
     },
     {
+      "path": "tests/unit/docs-guide-sot.test.js",
+      "purpose": "Validate docs-guide source-of-truth coverage, README pointers, and generated index freshness.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "docs-guide-sot.test",
+        "ownerTag": "docs",
+        "scopeTag": "tests, docs-guide, README.md, tools/scripts/generate-docs-guide-indexes.js",
+        "usageTag": "node tests/unit/docs-guide-sot.test.js"
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement",
+          "generator",
+          "hook",
+          "test"
+        ],
+        "runContextTags": [
+          "pre-commit"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "role:generator via name/summary keyword",
+          "role:hook via .githooks path or hook invocation context",
+          "role:test via tests path or .test filename"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "hook",
+          "sourcePath": ".githooks/pre-commit",
+          "location": "line 521",
+          "whenTags": [
+            "pre-commit"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "if node tests/unit/docs-guide-sot.test.js 2>&1",
+            "line: if node tests/unit/docs-guide-sot.test.js 2>&1; then"
+          ]
+        },
+        {
+          "sourceType": "hook",
+          "sourcePath": ".githooks/pre-commit",
+          "location": "line 524",
+          "whenTags": [
+            "pre-commit"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "WARNINGS+=(\"⚠️ Docs-guide SoT checks need updates - run node tests/unit/docs-guide-sot.test.js\")",
+            "line: WARNINGS+=(\"⚠️ Docs-guide SoT checks need updates - run node tests/unit/docs-guide-sot.test.js\")"
+          ]
+        },
+        {
+          "sourceType": "hook",
+          "sourcePath": ".githooks/pre-commit",
+          "location": "line 616",
+          "whenTags": [
+            "pre-commit"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "if node tests/unit/docs-guide-sot.test.js 2>&1",
+            "line: if node tests/unit/docs-guide-sot.test.js 2>&1; then"
+          ]
+        },
+        {
+          "sourceType": "hook",
+          "sourcePath": ".githooks/pre-commit",
+          "location": "line 619",
+          "whenTags": [
+            "pre-commit"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "WARNINGS+=(\"⚠️ Docs-guide SoT checks need updates - run node tests/unit/docs-guide-sot.test.js\")",
+            "line: WARNINGS+=(\"⚠️ Docs-guide SoT checks need updates - run node tests/unit/docs-guide-sot.test.js\")"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "tests/unit/docs-navigation.test.js",
+      "purpose": "Validate docs.json page-entry syntax, report missing routes, suggest remaps, and optionally apply approved remaps.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "docs-navigation.test",
+        "ownerTag": "docs",
+        "scopeTag": "tests, docs.json",
+        "usageTag": "./lpd tests unit docs-navigation.test"
+      },
+      "categories": {
+        "roleTags": [
+          "audit",
+          "enforcement",
+          "test"
+        ],
+        "runContextTags": [
+          "manual",
+          "npm-script"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword",
+          "role:enforcement via keyword or gating context",
+          "role:test via tests path or .test filename"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "package-script",
+          "sourcePath": "tests/package.json",
+          "location": "scripts.test:docs-nav",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "command: node unit/docs-navigation.test.js",
+            "node unit/docs-navigation.test.js"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "tests/unit/docs-usefulness-accuracy-verifier.test.js",
+      "purpose": "Validate source-weighted 2026 accuracy verification rules (GitHub vs DeepWiki precedence, freshness, fallback, and cache reuse).",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "docs-usefulness-accuracy-verifier.test",
+        "ownerTag": "docs",
+        "scopeTag": "tests, tools/lib/docs-usefulness, tools/config",
+        "usageTag": "node tests/unit/docs-usefulness-accuracy-verifier.test.js"
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement",
+          "test"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "role:test via tests path or .test filename",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
       "path": "tests/unit/links-imports.test.js",
       "purpose": "Utility script for tests/unit/links-imports.test.js.",
       "templateCompliance": {
@@ -1492,6 +1659,55 @@
           "evidence": [
             "command: node ../tests/unit/links-imports.test.js",
             "node ../tests/unit/links-imports.test.js"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "tests/unit/mdx-guards.test.js",
+      "purpose": "Enforce MDX guardrails for globals imports, math delimiters, and markdown table line breaks.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "mdx-guards.test",
+        "ownerTag": "docs",
+        "scopeTag": "tests, v2/pages, snippets/pages, snippets/snippetsWiki",
+        "usageTag": "node tests/unit/mdx-guards.test.js"
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement",
+          "test"
+        ],
+        "runContextTags": [
+          "manual",
+          "npm-script"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "role:test via tests path or .test filename"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "package-script",
+          "sourcePath": "tests/package.json",
+          "location": "scripts.test:mdx:guards",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "command: node unit/mdx-guards.test.js",
+            "node unit/mdx-guards.test.js"
           ]
         }
       ]
@@ -1674,7 +1890,7 @@
         {
           "sourceType": "hook",
           "sourcePath": ".githooks/pre-commit",
-          "location": "line 539",
+          "location": "line 564",
           "whenTags": [
             "pre-commit"
           ],
@@ -1823,6 +2039,55 @@
       ]
     },
     {
+      "path": "tests/unit/v2-wcag-audit.test.js",
+      "purpose": "Unit tests for v2 WCAG audit helper logic (args, thresholds, route mapping, report sorting, and conservative autofixes).",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "v2-wcag-audit.test",
+        "ownerTag": "docs",
+        "scopeTag": "tests/unit, tests/integration",
+        "usageTag": "node tests/unit/v2-wcag-audit.test.js"
+      },
+      "categories": {
+        "roleTags": [
+          "audit",
+          "test"
+        ],
+        "runContextTags": [
+          "manual",
+          "npm-script"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword",
+          "role:test via tests path or .test filename"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "package-script",
+          "sourcePath": "tests/package.json",
+          "location": "scripts.test:wcag:unit",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "command: node unit/v2-wcag-audit.test.js",
+            "node unit/v2-wcag-audit.test.js"
+          ]
+        }
+      ]
+    },
+    {
       "path": "tests/utils/file-walker.js",
       "purpose": "Utility script for tests/utils/file-walker.js.",
       "templateCompliance": {
@@ -1949,6 +2214,199 @@
       "usedBy": []
     },
     {
+      "path": "tools/config/v2-internal-report-pages.js",
+      "purpose": "Utility script for v2 internal report pages.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "v2-internal-report-pages.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "audit"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/lib/docs-usefulness/accuracy-verifier.js",
+      "purpose": "Utility script for accuracy verifier.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "accuracy-verifier.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/lib/docs-usefulness/scoring.js",
+      "purpose": "Utility script for scoring.",
+      "templateCompliance": {
+        "valid": false,
+        "missingTags": [
+          "@script",
+          "@summary",
+          "@owner",
+          "@scope",
+          "@usage",
+          "@inputs",
+          "@outputs",
+          "@exit-codes",
+          "@examples",
+          "@notes"
+        ],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "scoring.js",
+        "ownerTag": "",
+        "scopeTag": "",
+        "usageTag": ""
+      },
+      "categories": {
+        "roleTags": [
+          "helper"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/scripts/audit-all-pages-simple.js",
+      "purpose": "Utility script for tasks/scripts/audit-all-pages-simple.js.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "audit-all-pages-simple",
+        "ownerTag": "docs",
+        "scopeTag": "tasks/scripts",
+        "usageTag": "node tasks/scripts/audit-all-pages-simple.js"
+      },
+      "categories": {
+        "roleTags": [
+          "audit"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/scripts/audit-all-pages.js",
+      "purpose": "Utility script for tasks/scripts/audit-all-pages.js.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "audit-all-pages",
+        "ownerTag": "docs",
+        "scopeTag": "tasks/scripts",
+        "usageTag": "node tasks/scripts/audit-all-pages.js"
+      },
+      "categories": {
+        "roleTags": [
+          "audit"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
       "path": "tools/scripts/audit-all-v2-pages.js",
       "purpose": "Utility script for tools/scripts/audit-all-v2-pages.js.",
       "templateCompliance": {
@@ -1997,6 +2455,117 @@
         "ownerTag": "docs",
         "scopeTag": "tools/scripts",
         "usageTag": "node tools/scripts/audit-component-usage.js"
+      },
+      "categories": {
+        "roleTags": [
+          "audit"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/scripts/audit-scripts.js",
+      "purpose": "Audit full-repo executable scripts, categorize usage/overlap, and overwrite SCRIPT_AUDIT reports.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "audit-scripts",
+        "ownerTag": "docs",
+        "scopeTag": "tools/scripts, tasks/reports, tests/unit/script-docs.test.js, tests/README.md",
+        "usageTag": "node tools/scripts/audit-scripts.js"
+      },
+      "categories": {
+        "roleTags": [
+          "audit"
+        ],
+        "runContextTags": [
+          "manual",
+          "npm-script"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "package-script",
+          "sourcePath": "tools/package.json",
+          "location": "scripts.audit:scripts",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "command: node scripts/audit-scripts.js",
+            "node scripts/audit-scripts.js"
+          ]
+        }
+      ]
+    },
+    {
+      "path": "tools/scripts/audit-tasks-folders.js",
+      "purpose": "Audit tasks folders, optionally normalize report locations, and optionally apply audit recommendations with conflict-safe moves.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "audit-tasks-folders",
+        "ownerTag": "docs",
+        "scopeTag": "tools/scripts, tasks",
+        "usageTag": "node tools/scripts/audit-tasks-folders.js"
+      },
+      "categories": {
+        "roleTags": [
+          "audit"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/scripts/audit-v2-usefulness.js",
+      "purpose": "Audit v2 MDX pages (excluding x-* directories) and emit page-level usefulness matrix rows with source-weighted 2026 accuracy verification fields.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "audit-v2-usefulness",
+        "ownerTag": "docs",
+        "scopeTag": "tools/scripts, v2, tasks/reports, tools/config",
+        "usageTag": "node tools/scripts/audit-v2-usefulness.js --mode full --accuracy-mode tiered"
       },
       "categories": {
         "roleTags": [
@@ -2071,6 +2640,40 @@
         ],
         "evidence": [
           "role:helper fallback because no stronger primary role was matched",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/scripts/deprecated/project-management-output-script.js",
+      "purpose": "Deprecated legacy project-management output script retained as a reference stub.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "project-management-output-script",
+        "ownerTag": "docs",
+        "scopeTag": "tools/scripts/deprecated",
+        "usageTag": "node tools/scripts/deprecated/project-management-output-script.js"
+      },
+      "categories": {
+        "roleTags": [
+          "deprecated",
+          "fixture"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:deprecated via backup/legacy marker",
+          "role:fixture via fixture/test-helper path or naming",
           "run-context:manual due to no direct invocation mapping"
         ]
       },
@@ -2461,8 +3064,57 @@
       "usedBy": []
     },
     {
+      "path": "tools/scripts/generate-docs-guide-indexes.js",
+      "purpose": "Generate docs-guide workflow/template indexes and optionally verify they are up to date.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "generate-docs-guide-indexes",
+        "ownerTag": "docs",
+        "scopeTag": "tools/scripts, docs-guide, .github/workflows, .github/ISSUE_TEMPLATE",
+        "usageTag": "node tools/scripts/generate-docs-guide-indexes.js --write"
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement",
+          "generator"
+        ],
+        "runContextTags": [
+          "manual",
+          "npm-script"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "role:generator via name/summary keyword"
+        ]
+      },
+      "usedBy": [
+        {
+          "sourceType": "package-script",
+          "sourcePath": "tools/package.json",
+          "location": "scripts.docs-guide:indexes",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "command: node scripts/generate-docs-guide-indexes.js --write",
+            "node scripts/generate-docs-guide-indexes.js --write"
+          ]
+        }
+      ]
+    },
+    {
       "path": "tools/scripts/generate-pages-index.js",
-      "purpose": "Generate and verify section-style index.mdx files for v2/pages folders, plus the root aggregate index.",
+      "purpose": "Generate and verify section-style index.mdx files for v2 docs folders, plus the root aggregate index.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -2475,7 +3127,7 @@
       "metadata": {
         "scriptTag": "generate-pages-index",
         "ownerTag": "docs",
-        "scopeTag": "tools/scripts, v2/pages",
+        "scopeTag": "tools/scripts, v2",
         "usageTag": "node tools/scripts/generate-pages-index.js --write"
       },
       "categories": {
@@ -2512,7 +3164,7 @@
         {
           "sourceType": "hook",
           "sourcePath": ".githooks/pre-commit",
-          "location": "line 553",
+          "location": "line 578",
           "whenTags": [
             "pre-commit"
           ],
@@ -2695,6 +3347,40 @@
       "usedBy": []
     },
     {
+      "path": "tools/scripts/publish-v2-internal-reports.js",
+      "purpose": "Duplicate approved markdown reports into v2/internal/reports pages with metadata and update docs.json.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "publish-v2-internal-reports",
+        "ownerTag": "docs",
+        "scopeTag": "tools/scripts, tools/config, v2/internal, docs.json, tasks/reports, tests/reports",
+        "usageTag": "node tools/scripts/publish-v2-internal-reports.js --check"
+      },
+      "categories": {
+        "roleTags": [
+          "audit",
+          "sync"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword",
+          "role:sync via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
       "path": "tools/scripts/snippets/fetch-external-docs.sh",
       "purpose": "Utility script for tools/scripts/snippets/fetch-external-docs.sh.",
       "templateCompliance": {
@@ -2719,6 +3405,8 @@
           "sync"
         ],
         "runContextTags": [
+          "manual",
+          "npm-script",
           "pr",
           "push"
         ],
@@ -2729,6 +3417,34 @@
         ]
       },
       "usedBy": [
+        {
+          "sourceType": "package-script",
+          "sourcePath": "tools/package.json",
+          "location": "scripts.fetch-docs",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "bash scripts/snippets/fetch-external-docs.sh",
+            "command: bash scripts/snippets/fetch-external-docs.sh"
+          ]
+        },
+        {
+          "sourceType": "package-script",
+          "sourcePath": "tools/package.json",
+          "location": "scripts.prebuild",
+          "whenTags": [
+            "manual",
+            "npm-script"
+          ],
+          "viaNpm": false,
+          "evidence": [
+            "bash scripts/snippets/fetch-external-docs.sh",
+            "command: bash scripts/snippets/fetch-external-docs.sh"
+          ]
+        },
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/broken-links.yml",
@@ -2933,38 +3649,6 @@
       "usedBy": []
     },
     {
-      "path": "tools/scripts/snippets/generate-docs-status.js",
-      "purpose": "Utility script for tools/scripts/snippets/generate-docs-status.js.",
-      "templateCompliance": {
-        "valid": true,
-        "missingTags": [],
-        "emptyTags": [],
-        "rulesSource": [
-          "tests/unit/script-docs.test.js",
-          "tests/README.md"
-        ]
-      },
-      "metadata": {
-        "scriptTag": "generate-docs-status",
-        "ownerTag": "docs",
-        "scopeTag": "tools/scripts",
-        "usageTag": "node tools/scripts/snippets/generate-docs-status.js"
-      },
-      "categories": {
-        "roleTags": [
-          "generator"
-        ],
-        "runContextTags": [
-          "manual"
-        ],
-        "evidence": [
-          "role:generator via name/summary keyword",
-          "run-context:manual due to no direct invocation mapping"
-        ]
-      },
-      "usedBy": []
-    },
-    {
       "path": "tools/scripts/snippets/generate-seo.js",
       "purpose": "Utility script for tools/scripts/snippets/generate-seo.js.",
       "templateCompliance": {
@@ -2997,7 +3681,7 @@
       "usedBy": [
         {
           "sourceType": "package-script",
-          "sourcePath": "v2/package.json",
+          "sourcePath": "tools/package.json",
           "location": "scripts.generate-seo",
           "whenTags": [
             "manual",
@@ -3005,13 +3689,13 @@
           ],
           "viaNpm": false,
           "evidence": [
-            "command: node ../tools/scripts/snippets/generate-seo.js",
-            "node ../tools/scripts/snippets/generate-seo.js"
+            "command: node scripts/snippets/generate-seo.js",
+            "node scripts/snippets/generate-seo.js"
           ]
         },
         {
           "sourceType": "package-script",
-          "sourcePath": "v2/package.json",
+          "sourcePath": "tools/package.json",
           "location": "scripts.generate-seo:dry-run",
           "whenTags": [
             "manual",
@@ -3019,8 +3703,8 @@
           ],
           "viaNpm": false,
           "evidence": [
-            "command: node ../tools/scripts/snippets/generate-seo.js --dry-run",
-            "node ../tools/scripts/snippets/generate-seo.js --dry-run"
+            "command: node scripts/snippets/generate-seo.js --dry-run",
+            "node scripts/snippets/generate-seo.js --dry-run"
           ]
         }
       ]
@@ -3538,7 +4222,7 @@
     },
     {
       "path": "tools/scripts/test/verify-all-pages.js",
-      "purpose": "Utility script for tools/scripts/test/verify-all-pages.js.",
+      "purpose": "Utility script for tools/scripts/verify-all-pages.js.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3552,7 +4236,7 @@
         "scriptTag": "verify-all-pages",
         "ownerTag": "docs",
         "scopeTag": "tools/scripts",
-        "usageTag": "node tools/scripts/test/verify-all-pages.js"
+        "usageTag": "node tools/scripts/verify-all-pages.js"
       },
       "categories": {
         "roleTags": [
@@ -3572,7 +4256,7 @@
     },
     {
       "path": "tools/scripts/test/verify-pages.js",
-      "purpose": "Utility script for tools/scripts/test/verify-pages.js.",
+      "purpose": "Utility script for tools/scripts/verify-pages.js.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3586,7 +4270,7 @@
         "scriptTag": "verify-pages",
         "ownerTag": "docs",
         "scopeTag": "tools/scripts",
-        "usageTag": "node tools/scripts/test/verify-pages.js"
+        "usageTag": "node tools/scripts/verify-pages.js"
       },
       "categories": {
         "roleTags": [
@@ -3699,6 +4383,38 @@
         ]
       },
       "usedBy": []
+    },
+    {
+      "path": "tools/scripts/wcag-repair-common.js",
+      "purpose": "Apply conservative WCAG-related source autofixes across v2 docs (common raw-tag issues) and write deterministic repair reports.",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "wcag-repair-common",
+        "ownerTag": "docs",
+        "scopeTag": "tools/scripts, tests/integration, tasks/reports, v2",
+        "usageTag": "node tools/scripts/wcag-repair-common.js --full"
+      },
+      "categories": {
+        "roleTags": [
+          "audit"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:audit via name/summary keyword",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
     }
   ],
   "overlap": {
@@ -3715,18 +4431,6 @@
           "fixture"
         ],
         "recommendation": "Consolidate to `tools/scripts/test/allowed.js`; replace duplicates with wrappers or remove after migrating references."
-      },
-      {
-        "type": "exact",
-        "scripts": [
-          "tasks/scripts/audit-component-usage.js",
-          "tools/scripts/audit-component-usage.js"
-        ],
-        "canonical": "tools/scripts/audit-component-usage.js",
-        "sharedRoleTags": [
-          "audit"
-        ],
-        "recommendation": "Consolidate to `tools/scripts/audit-component-usage.js`; replace duplicates with wrappers or remove after migrating references."
       },
       {
         "type": "exact",
@@ -3817,7 +4521,6 @@
     ],
     "recommendations": [
       "Consolidate to `tools/scripts/test/allowed.js`; replace duplicates with wrappers or remove after migrating references.",
-      "Consolidate to `tools/scripts/audit-component-usage.js`; replace duplicates with wrappers or remove after migrating references.",
       "Consolidate to `tools/scripts/check-component-errors.js`; replace duplicates with wrappers or remove after migrating references.",
       "Consolidate to `tools/scripts/final-verification.js`; replace duplicates with wrappers or remove after migrating references.",
       "Consolidate to `tools/scripts/find-correct-url.js`; replace duplicates with wrappers or remove after migrating references.",

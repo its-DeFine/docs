@@ -1,0 +1,566 @@
+---
+title: 'V2 WCAG Audit Report'
+sidebarTitle: 'WCAG Audit'
+description: 'Generated WCAG audit report from tests/integration/v2-wcag-audit.js.'
+keywords: ["livepeer","internal","reports","quality-accessibility","v2-wcag-audit"]
+og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+---
+# V2 WCAG Accessibility Audit Report
+
+- Timestamp: 2026-02-24T13:01:32.969Z
+- Mode: full
+- WCAG Profile: WCAG 2.2 AA
+- Fail Threshold: serious
+- Base URL: http://localhost:3000
+- Fix Enabled (default): no
+- Max Browser Pages: unlimited
+
+## Summary
+
+- Files scanned: 421
+- Browser target pages: 227
+- Browser-audited pages: 227
+- Static-only files: 194
+- WCAG violations: 629
+- Best-practice violations (advisory): 457
+- Incomplete/manual-review results: 197
+- Static findings still open: 0
+- Static findings auto-fixed: 0
+- Autofix edits applied: 0
+- Runtime/navigation failures: 25
+- Blocking issues (>= serious) + runtime failures: 452
+
+## Blocking Issues
+
+- `v2/about/core-concepts.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/core-concepts.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/livepeer-network/actors.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/livepeer-network/actors.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/livepeer-network/interfaces.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/livepeer-network/interfaces.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/livepeer-network/job-lifecycle.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/livepeer-network/job-lifecycle.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/livepeer-network/job-lifecycle.mdx` [serious] scrollable-region-focusable: Scrollable region must have keyboard access
+- `v2/about/livepeer-network/marketplace.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/livepeer-network/marketplace.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/livepeer-network/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/livepeer-network/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/livepeer-network/technical-architecture.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/livepeer-network/technical-architecture.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/livepeer-overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/livepeer-overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/livepeer-protocol/core-mechanisms.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/livepeer-protocol/core-mechanisms.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/livepeer-protocol/core-mechanisms.mdx` [serious] nested-interactive: Interactive controls must not be nested
+- `v2/about/livepeer-protocol/economics.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/livepeer-protocol/economics.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/livepeer-protocol/governance-model.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/livepeer-protocol/governance-model.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/livepeer-protocol/livepeer-token.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/livepeer-protocol/livepeer-token.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/livepeer-protocol/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/livepeer-protocol/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/livepeer-protocol/overview.mdx` [serious] nested-interactive: Interactive controls must not be nested
+- `v2/about/livepeer-protocol/overview.mdx` [serious] target-size: All touch targets must be 24px large, or leave sufficient space
+- `v2/about/livepeer-protocol/technical-architecture.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/livepeer-protocol/technical-architecture.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/livepeer-protocol/treasury.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/livepeer-protocol/treasury.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/mental-model.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/mental-model.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/portal.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/portal.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/resources/blockchain-contracts.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/resources/blockchain-contracts.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/resources/gateways-vs-orchestrators.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/resources/gateways-vs-orchestrators.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/resources/livepeer-glossary.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/resources/livepeer-glossary.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/resources/livepeer-whitepaper.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/resources/livepeer-whitepaper.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/about/resources/technical-roadmap.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/about/resources/technical-roadmap.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/community/community-portal.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/community/community-portal.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/community/livepeer-community/community-guidelines.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/community/livepeer-community/community-guidelines.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/community/livepeer-community/livepeer-latest-topics.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/community/livepeer-community/livepeer-latest-topics.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/community/livepeer-community/livepeer-latest-topics.mdx` [serious] frame-title: Frames must have an accessible name
+- `v2/community/livepeer-community/livepeer-latest-topics.mdx` [serious] scrollable-region-focusable: Scrollable region must have keyboard access
+- `v2/community/livepeer-community/roadmap.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/community/livepeer-community/roadmap.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/community/livepeer-community/trending-topics.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/community/livepeer-community/trending-topics.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/community/livepeer-community/trending-topics.mdx` [serious] frame-title: Frames must have an accessible name
+- `v2/community/livepeer-community/trending-topics.mdx` [serious] scrollable-region-focusable: Scrollable region must have keyboard access
+- `v2/community/livepeer-connect/events-and-community-streams.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/community/livepeer-connect/events-and-community-streams.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/community/livepeer-connect/forums-and-discussions.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/community/livepeer-connect/forums-and-discussions.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/community/livepeer-connect/news-and-socials.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/community/livepeer-connect/news-and-socials.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/community/livepeer-contribute/build-livepeer.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/community/livepeer-contribute/build-livepeer.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/community/livepeer-contribute/contribute.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/community/livepeer-contribute/contribute.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/community/livepeer-contribute/opportunities.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/community/livepeer-contribute/opportunities.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/ai-pipelines/byoc.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/ai-pipelines/byoc.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/ai-pipelines/comfystream.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/ai-pipelines/comfystream.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/ai-pipelines/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/ai-pipelines/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/builder-opportunities/dev-programs.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/builder-opportunities/dev-programs.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/builder-opportunities/dev-programs.mdx` [serious] frame-title: Frames must have an accessible name
+- `v2/developers/builder-opportunities/livepeer-rfps.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/builder-opportunities/livepeer-rfps.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/developer-guide.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/developer-guide.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/developer-guide.mdx` [serious] frame-title: Frames must have an accessible name
+- `v2/developers/developer-journey.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/developer-journey.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/developer-tools/dashboards.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/developer-tools/dashboards.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/developer-tools/livepeer-cloud.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/developer-tools/livepeer-cloud.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/developer-tools/livepeer-explorer.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/developer-tools/livepeer-explorer.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/developer-tools/tooling-hub.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/developer-tools/tooling-hub.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/guides-and-resources/contribution-guide.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/guides-and-resources/contribution-guide.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/guides-and-resources/developer-guides.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/guides-and-resources/developer-guides.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/guides-and-resources/developer-help.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/guides-and-resources/developer-help.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/guides-and-resources/resources.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/guides-and-resources/resources.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/guides/partner-integrations.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/guides/partner-integrations.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/portal.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/portal.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/quickstart/ai/ai-pipelines.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/quickstart/ai/ai-pipelines.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/quickstart/video/video-streaming.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/quickstart/video/video-streaming.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/technical-references/apis.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/technical-references/apis.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/technical-references/awesome-livepeer.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/technical-references/awesome-livepeer.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/technical-references/deepwiki.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/technical-references/deepwiki.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/technical-references/deepwiki.mdx` [serious] frame-title: Frames must have an accessible name
+- `v2/developers/technical-references/sdks.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/technical-references/sdks.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/developers/technical-references/wiki.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/developers/technical-references/wiki.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/about-gateways/gateway-architecture.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/about-gateways/gateway-architecture.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/about-gateways/gateway-economics.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/about-gateways/gateway-economics.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/about-gateways/gateway-explainer.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/about-gateways/gateway-explainer.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/about-gateways/gateway-explainer.mdx` [serious] frame-title: Frames must have an accessible name
+- `v2/gateways/about-gateways/gateway-functions.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/about-gateways/gateway-functions.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/gateway-tools/explorer.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/gateway-tools/explorer.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/gateway-tools/livepeer-tools.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/gateway-tools/livepeer-tools.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/gateways-portal.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/gateways-portal.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/guides-and-resources/community-guides.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/guides-and-resources/community-guides.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/guides-and-resources/community-projects.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/guides-and-resources/community-projects.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/guides-and-resources/faq.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/guides-and-resources/faq.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/AI-API/ai.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/AI-API/ai.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/AI-API/audio-to-text.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/AI-API/audio-to-text.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/AI-API/hardware-info.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/AI-API/hardware-info.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/AI-API/hardware-stats.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/AI-API/hardware-stats.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/AI-API/health.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/AI-API/health.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/AI-API/image-to-image.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/AI-API/image-to-image.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/AI-API/image-to-text.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/AI-API/image-to-text.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/AI-API/image-to-video.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/AI-API/image-to-video.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/AI-API/live-video-to-video.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/AI-API/live-video-to-video.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/AI-API/llm.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/AI-API/llm.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/AI-API/segment-anything-2.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/AI-API/segment-anything-2.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/AI-API/text-to-image.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/AI-API/text-to-image.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/AI-API/text-to-speech.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/AI-API/text-to-speech.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/AI-API/upscale.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/AI-API/upscale.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/CLI-HTTP/rebond.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/CLI-HTTP/rebond.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/CLI-HTTP/reward.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/CLI-HTTP/reward.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/CLI-HTTP/signmessage.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/CLI-HTTP/signmessage.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/CLI-HTTP/transfertokens.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/CLI-HTTP/transfertokens.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/api-reference/CLI-HTTP/unbond.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/api-reference/CLI-HTTP/unbond.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/arbitrum-rpc.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/arbitrum-rpc.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/arbitrum-rpc.mdx` [serious] scrollable-region-focusable: Scrollable region must have keyboard access
+- `v2/gateways/references/artibtrum-exchanges.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/artibtrum-exchanges.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/cli-commands.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/cli-commands.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/configuration-flags.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/configuration-flags.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/livepeer-exchanges.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/livepeer-exchanges.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/references/technical-architecture.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/references/technical-architecture.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/configure/ai-configuration.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/configure/ai-configuration.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/configure/configuration-overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/configure/configuration-overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/configure/dual-configuration.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/configure/dual-configuration.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/configure/pricing-configuration.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/configure/pricing-configuration.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/configure/video-configuration.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/configure/video-configuration.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/connect/connect-with-offerings.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/connect/connect-with-offerings.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/connect/discover-offerings.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/connect/discover-offerings.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/connect/lp-marketplace.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/connect/lp-marketplace.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/install/community-projects.mdx` [critical] label: Form elements must have labels
+- `v2/gateways/run-a-gateway/install/community-projects.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/install/community-projects.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/install/docker-install.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/install/docker-install.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/install/install-overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/install/install-overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/install/linux-install.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/install/linux-install.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/install/windows-install.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/install/windows-install.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/monitor/monitor-and-optimise.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/monitor/monitor-and-optimise.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway.mdx` [critical] aria-valid-attr-value: ARIA attributes must conform to valid values
+- `v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx` [serious] frame-title: Frames must have an accessible name
+- `v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/requirements/setup.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/requirements/setup.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/run-a-gateway.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/run-a-gateway.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/run-a-gateway/why-run-a-gateway.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/run-a-gateway/why-run-a-gateway.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/using-gateways/choosing-a-gateway.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/using-gateways/choosing-a-gateway.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/using-gateways/gateway-providers.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/using-gateways/gateway-providers.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/using-gateways/gateway-providers/daydream-gateway.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/using-gateways/gateway-providers/daydream-gateway.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/home/about-livepeer/benefits.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/home/about-livepeer/benefits.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/home/about-livepeer/ecosystem.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/home/about-livepeer/ecosystem.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/home/about-livepeer/ecosystem.mdx` [serious] frame-title: Frames must have an accessible name
+- `v2/home/about-livepeer/evolution.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/home/about-livepeer/evolution.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/home/about-livepeer/roadmap.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/home/about-livepeer/roadmap.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/home/about-livepeer/vision.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/home/about-livepeer/vision.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/home/case-studies/applications.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/home/case-studies/applications.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/home/case-studies/showcase.mdx` [critical] select-name: Select element must have an accessible name
+- `v2/home/case-studies/showcase.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/home/case-studies/showcase.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/home/case-studies/verticals.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/home/case-studies/verticals.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/home/case-studies/verticals.mdx` [serious] scrollable-region-focusable: Scrollable region must have keyboard access
+- `v2/home/get-started.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/home/get-started.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/home/mission-control.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/home/mission-control.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/home/primer.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/home/primer.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/internal/definitions.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/internal/definitions.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/internal/docs-philosophy.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/internal/docs-philosophy.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/internal/ecosystem.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/internal/ecosystem.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/internal/governance.mdx` [critical] label: Form elements must have labels
+- `v2/internal/governance.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/internal/governance.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/internal/internal-overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/internal/internal-overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/internal/internal-overview.mdx` [serious] target-size: All touch targets must be 24px large, or leave sufficient space
+- `v2/internal/personas.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/internal/personas.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/internal/references.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/internal/references.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/internal/strategic-alignment.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/internal/strategic-alignment.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/about/mechanics.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/about/mechanics.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/about/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/about/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/about/purpose.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/about/purpose.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/about/tokenomics.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/about/tokenomics.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/delegation/about-delegators.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/delegation/about-delegators.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/delegation/delegation-guide.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/delegation/delegation-guide.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/delegation/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/delegation/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/governance/model.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/governance/model.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/governance/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/governance/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/governance/processes.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/governance/processes.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/resources/exchanges.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/resources/exchanges.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/resources/lpt-eth-usage.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/resources/lpt-eth-usage.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/token-portal.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/token-portal.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/treasury/allocations.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/treasury/allocations.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/treasury/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/treasury/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/lpt/treasury/proposals.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/lpt/treasury/proposals.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/pages/05_orchestrators/about-orchestrators/architecture.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/about-orchestrators/economics.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/about-orchestrators/overview.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/advanced-setup/ai-pipelines.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/advanced-setup/delegation.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/advanced-setup/run-a-pool.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/advanced-setup/staking-LPT.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/orchestrator-tools-and-resources/community-pools.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-resources.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-tools.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/orchestrators-portal.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/quickstart/join-a-pool.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/quickstart/orchestrator-setup.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/quickstart/overview.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/references/cli-flags.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/references/faq.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/setting-up-an-orchestrator/overview.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx` [critical] runtime-error: Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+- `v2/platforms/daydream/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/daydream/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/ecosystem-products.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/ecosystem-products.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/embody/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/embody/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/embody/overview.mdx` [serious] frame-title: Frames must have an accessible name
+- `v2/platforms/frameworks/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/frameworks/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/access-control/jwt.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/access-control/jwt.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/access-control/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/access-control/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/access-control/webhooks.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/access-control/webhooks.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/analytics/listen-to-events.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/analytics/listen-to-events.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/analytics/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/analytics/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/analytics/webhooks.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/analytics/webhooks.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/client-use-cases.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/client-use-cases.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/get-started/authentication.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/get-started/authentication.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/get-started/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/get-started/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/get-started/studio-cli.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/get-started/studio-cli.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/livestream/clip-livestream.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/livestream/clip-livestream.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/livestream/create-livestream.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/livestream/create-livestream.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/livestream/livestream-from-browser.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/livestream/livestream-from-browser.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/livestream/multistream.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/livestream/multistream.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/livestream/optimize-latency.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/livestream/optimize-latency.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/livestream/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/livestream/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/livestream/playback-livestream.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/livestream/playback-livestream.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/livestream/stream-health.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/livestream/stream-health.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/livestream/stream-via-obs.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/livestream/stream-via-obs.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/player.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/player.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/quickstart.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/quickstart.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/reference/api.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/reference/api.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/reference/managing-projects.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/reference/managing-projects.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/reference/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/reference/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/reference/sdks.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/reference/sdks.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/video-on-demand/encrypted-assets.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/video-on-demand/encrypted-assets.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/video-on-demand/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/video-on-demand/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/video-on-demand/playback-asset.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/video-on-demand/playback-asset.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/video-on-demand/thumbnails-vod.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/video-on-demand/thumbnails-vod.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/video-on-demand/transcode-video.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/video-on-demand/transcode-video.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/livepeer-studio/video-on-demand/upload-asset.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/livepeer-studio/video-on-demand/upload-asset.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/portal.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/portal.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/product-hub.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/product-hub.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/product-hub.mdx` [serious] target-size: All touch targets must be 24px large, or leave sufficient space
+- `v2/platforms/streamplace/introduction/streamplace-architecture.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/streamplace/introduction/streamplace-architecture.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/streamplace/introduction/streamplace-funding-model.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/streamplace/introduction/streamplace-funding-model.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/streamplace/introduction/streamplace-guide.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/streamplace/introduction/streamplace-guide.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/streamplace/introduction/streamplace-integration.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/streamplace/introduction/streamplace-integration.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/streamplace/introduction/streamplace-provenance.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/streamplace/introduction/streamplace-provenance.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+- `v2/platforms/streamplace/overview.mdx` [serious] aria-hidden-focus: ARIA hidden element must not be focusable or contain focusable elements
+- `v2/platforms/streamplace/overview.mdx` [serious] color-contrast: Elements must meet minimum color contrast ratio thresholds
+
+## Top Rules And Suggestions
+
+- **aria-hidden-focus** (202) - Review the axe rule guidance and update the source/component markup to provide semantic structure and accessible labels.
+- **color-contrast** (202) - Adjust foreground/background colors to meet WCAG contrast minimums; avoid relying on color alone.
+- **meta-viewport** (202) - Review the axe rule guidance and update the source/component markup to provide semantic structure and accessible labels.
+- **frame-title** (9) - Add a descriptive `title` to each iframe so screen-reader users can identify embedded content.
+- **scrollable-region-focusable** (5) - Review the axe rule guidance and update the source/component markup to provide semantic structure and accessible labels.
+- **target-size** (3) - Review the axe rule guidance and update the source/component markup to provide semantic structure and accessible labels.
+- **label** (2) - Review the axe rule guidance and update the source/component markup to provide semantic structure and accessible labels.
+- **nested-interactive** (2) - Review the axe rule guidance and update the source/component markup to provide semantic structure and accessible labels.
+- **aria-valid-attr-value** (1) - Review the axe rule guidance and update the source/component markup to provide semantic structure and accessible labels.
+- **select-name** (1) - Review the axe rule guidance and update the source/component markup to provide semantic structure and accessible labels.
+
+## Autofixes Applied
+
+_No autofixes applied._
+
+## Static-Only Findings
+
+_No open static-only findings._
+
+## Runtime / Navigation Failures
+
+- `v2/pages/05_orchestrators/about-orchestrators/architecture.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/about-orchestrators/architecture
+- `v2/pages/05_orchestrators/about-orchestrators/economics.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/about-orchestrators/economics
+- `v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/about-orchestrators/orchestrator-functions
+- `v2/pages/05_orchestrators/about-orchestrators/overview.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/about-orchestrators/overview
+- `v2/pages/05_orchestrators/advanced-setup/ai-pipelines.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/advanced-setup/ai-pipelines
+- `v2/pages/05_orchestrators/advanced-setup/delegation.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/advanced-setup/delegation
+- `v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/advanced-setup/rewards-and-fees
+- `v2/pages/05_orchestrators/advanced-setup/run-a-pool.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/advanced-setup/run-a-pool
+- `v2/pages/05_orchestrators/advanced-setup/staking-LPT.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/advanced-setup/staking-LPT
+- `v2/pages/05_orchestrators/orchestrator-tools-and-resources/community-pools.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/orchestrator-tools-and-resources/community-pools
+- `v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help
+- `v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides
+- `v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-resources.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/orchestrator-tools-and-resources/orchestrator-resources
+- `v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-tools.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/orchestrator-tools-and-resources/orchestrator-tools
+- `v2/pages/05_orchestrators/orchestrators-portal.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/orchestrators-portal
+- `v2/pages/05_orchestrators/quickstart/join-a-pool.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/quickstart/join-a-pool
+- `v2/pages/05_orchestrators/quickstart/orchestrator-setup.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/quickstart/orchestrator-setup
+- `v2/pages/05_orchestrators/quickstart/overview.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/quickstart/overview
+- `v2/pages/05_orchestrators/references/cli-flags.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/references/cli-flags
+- `v2/pages/05_orchestrators/references/faq.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/references/faq
+- `v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers
+- `v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/setting-up-an-orchestrator/hardware-requirements
+- `v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats
+- `v2/pages/05_orchestrators/setting-up-an-orchestrator/overview.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/setting-up-an-orchestrator/overview
+- `v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx` - Mint not-found shell detected (likely URL/path mapping mismatch for this page).
+  - URL: http://localhost:3000/v2/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer
+
+## Notes
+
+- Automated WCAG checks are partial coverage and do not replace manual accessibility review (keyboard, screen-reader UX, content meaning, and task flows).
+- Best-practice findings are reported separately as advisory and are not blocking by default.
+- Default autofix only applies conservative raw-tag attribute insertions (iframe title, img alt, empty/icon-only anchor aria-label).

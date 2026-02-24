@@ -1,7 +1,14 @@
+---
+title: 'Docs Navigation Route Report'
+sidebarTitle: 'Docs Navigation'
+description: 'Generated docs.json route validation report from tests/unit/docs-navigation.test.js.'
+keywords: ["livepeer","internal","reports","navigation-links","docs-navigation.test"]
+og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+---
 # Docs Navigation Route Report
 
-- Generated at (UTC): 2026-02-24T13:08:40.809Z
-- Entries scanned: 1075
+- Generated at (UTC): 2026-02-24T13:07:03.427Z
+- Entries scanned: 1069
 - Syntax errors: 0
 - Missing routes: 40
 - Missing routes with suggestions: 20

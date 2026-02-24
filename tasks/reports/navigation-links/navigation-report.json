@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-02-24T13:05:48.684Z",
-  "totalEntries": 1069,
+  "generatedAt": "2026-02-24T13:08:40.809Z",
+  "totalEntries": 1075,
   "syntaxErrors": [],
   "missingRoutes": [
     {
@@ -11,7 +11,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[0].anchors[1].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -25,7 +45,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[1].anchors[1].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -39,7 +79,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[2].anchors[1].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -53,7 +113,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[3].anchors[1].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -83,7 +163,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[4].anchors[1].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -97,7 +197,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[5].anchors[1].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -111,7 +231,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[6].anchors[1].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -125,7 +265,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[7].anchors[0].groups[4].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -139,7 +299,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[7].anchors[1].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -153,7 +333,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[0].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -279,7 +479,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[2].pages[1]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -301,7 +521,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[3].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -323,7 +563,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[5].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -337,7 +597,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[6].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -351,7 +631,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[7].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -365,7 +665,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[8].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -379,7 +699,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[9].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -409,7 +749,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[1].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -423,7 +783,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[9].anchors[0].groups[0].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }
@@ -437,7 +817,27 @@
       "pointer": "navigation.versions[1].languages[0].tabs[9].anchors[1].pages[0]",
       "suggestions": [
         {
+          "route": "v2/pages/05_orchestrators/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/05_orchestrators",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
           "route": "v2/pages/05_orchestrators/orchestrators-portal",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages/index",
+          "reason": "high path similarity",
+          "score": 0.5
+        },
+        {
+          "route": "v2/pages",
           "reason": "high path similarity",
           "score": 0.5
         }

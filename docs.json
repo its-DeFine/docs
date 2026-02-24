@@ -102,7 +102,9 @@
                           {
                             "group": "Projects",
                             "icon": "folder-open",
-                            "pages": ["v1/developers/guides/managing-projects"]
+                            "pages": [
+                              "v1/developers/guides/managing-projects"
+                            ]
                           },
                           {
                             "group": "Integrations",
@@ -304,7 +306,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -526,7 +530,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -564,17 +570,17 @@
                     "href": " "
                   },
                   {
-                    "anchor": "Livepeer Studio\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
+                    "anchor": "Livepeer Studio            ➚",
                     "href": "https://livepeer.studio",
                     "icon": "clapperboard-play"
                   },
                   {
-                    "anchor": "What's New\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
+                    "anchor": "What's New                  ➚",
                     "href": "https://livepeer.canny.io/changelog",
                     "icon": "rocket"
                   },
                   {
-                    "anchor": "Community\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
+                    "anchor": "Community                   ➚",
                     "href": "https://discord.gg/livepeer",
                     "icon": {
                       "name": "discord",
@@ -789,7 +795,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -1011,7 +1019,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -1049,17 +1059,17 @@
                     "href": " "
                   },
                   {
-                    "anchor": "Livepeer Studio\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
+                    "anchor": "Livepeer Studio            ➚",
                     "href": "https://livepeer.studio",
                     "icon": "clapperboard-play"
                   },
                   {
-                    "anchor": "What's New\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
+                    "anchor": "What's New                  ➚",
                     "href": "https://livepeer.canny.io/changelog",
                     "icon": "rocket"
                   },
                   {
-                    "anchor": "Community\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
+                    "anchor": "Community                   ➚",
                     "href": "https://discord.gg/livepeer",
                     "icon": {
                       "name": "discord",
@@ -1287,7 +1297,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -1509,7 +1521,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -1547,17 +1561,17 @@
                     "href": " "
                   },
                   {
-                    "anchor": "Livepeer Studio\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
+                    "anchor": "Livepeer Studio            ➚",
                     "href": "https://livepeer.studio",
                     "icon": "clapperboard-play"
                   },
                   {
-                    "anchor": "What's New\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
+                    "anchor": "What's New                  ➚",
                     "href": "https://livepeer.canny.io/changelog",
                     "icon": "rocket"
                   },
                   {
-                    "anchor": "Community\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
+                    "anchor": "Community                   ➚",
                     "href": "https://discord.gg/livepeer",
                     "icon": {
                       "name": "discord",
@@ -1777,7 +1791,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -1999,7 +2015,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -2037,17 +2055,17 @@
                     "href": " "
                   },
                   {
-                    "anchor": "Livepeer Studio\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
+                    "anchor": "Livepeer Studio            ➚",
                     "href": "https://livepeer.studio",
                     "icon": "clapperboard-play"
                   },
                   {
-                    "anchor": "What's New\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
+                    "anchor": "What's New                  ➚",
                     "href": "https://livepeer.canny.io/changelog",
                     "icon": "rocket"
                   },
                   {
-                    "anchor": "Community\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u00a0\u279a",
+                    "anchor": "Community                   ➚",
                     "href": "https://discord.gg/livepeer",
                     "icon": {
                       "name": "discord",
@@ -2109,12 +2127,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources-portal"]
+                    "pages": [
+                      "v2/pages/07_resources/resources-portal"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2177,12 +2199,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources-portal"]
+                    "pages": [
+                      "v2/pages/07_resources/resources-portal"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2319,12 +2345,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources-portal"]
+                    "pages": [
+                      "v2/pages/07_resources/resources-portal"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2397,7 +2427,9 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources-portal"]
+                    "pages": [
+                      "v2/pages/07_resources/resources-portal"
+                    ]
                   },
                   {
                     "anchor": " ",
@@ -2635,12 +2667,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources-portal"]
+                    "pages": [
+                      "v2/pages/07_resources/resources-portal"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2771,12 +2807,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources-portal"]
+                    "pages": [
+                      "v2/pages/07_resources/resources-portal"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2838,12 +2878,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources-portal"]
+                    "pages": [
+                      "v2/pages/07_resources/resources-portal"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2905,12 +2949,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources-portal"]
+                    "pages": [
+                      "v2/pages/07_resources/resources-portal"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2926,7 +2974,9 @@
                       {
                         "group": "Home",
                         "icon": "house",
-                        "pages": ["v2/pages/07_resources/resources-portal"]
+                        "pages": [
+                          "v2/pages/07_resources/resources-portal"
+                        ]
                       },
                       {
                         "group": "Documentation Guide",
@@ -2966,7 +3016,9 @@
                       {
                         "group": "Developer References",
                         "icon": "book",
-                        "pages": ["v2/pages/07_resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/pages/07_resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Gateway References",
@@ -2978,27 +3030,37 @@
                       {
                         "group": "Orchestrator References",
                         "icon": "microchip",
-                        "pages": ["v2/pages/07_resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/pages/07_resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "LPT & Delegator References",
                         "icon": "hand-holding-dollar",
-                        "pages": ["v2/pages/07_resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/pages/07_resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Community Resources",
                         "icon": "",
-                        "pages": ["v2/pages/07_resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/pages/07_resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Partner Resources",
                         "icon": "handshake",
-                        "pages": ["v2/pages/07_resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/pages/07_resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Help Center",
                         "icon": "comments-question-check",
-                        "pages": ["v2/pages/07_resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/pages/07_resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Technical References",
@@ -3006,7 +3068,9 @@
                         "pages": [
                           {
                             "group": "Protocol References",
-                            "pages": [" "]
+                            "pages": [
+                              " "
+                            ]
                           }
                         ]
                       },
@@ -3023,7 +3087,9 @@
                   {
                     "anchor": "Help Center",
                     "icon": "comments-question-check",
-                    "pages": ["v2/pages/07_resources/resources-portal"]
+                    "pages": [
+                      "v2/pages/07_resources/resources-portal"
+                    ]
                   },
                   {
                     "anchor": " ",
@@ -3043,30 +3109,42 @@
                     "groups": [
                       {
                         "group": "Home",
-                        "pages": ["v2/pages/07_resources/resources-portal"]
+                        "pages": [
+                          "v2/pages/07_resources/resources-portal"
+                        ]
                       },
                       {
                         "group": "Delegating LPT",
-                        "pages": [" "]
+                        "pages": [
+                          " "
+                        ]
                       },
                       {
                         "group": "Livepeer Governance",
-                        "pages": [" "]
+                        "pages": [
+                          " "
+                        ]
                       },
                       {
                         "group": "Livepeer Treasury",
-                        "pages": [" "]
+                        "pages": [
+                          " "
+                        ]
                       },
                       {
                         "group": "Token Resources",
-                        "pages": [" "]
+                        "pages": [
+                          " "
+                        ]
                       }
                     ]
                   },
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/pages/07_resources/resources-portal"]
+                    "pages": [
+                      "v2/pages/07_resources/resources-portal"
+                    ]
                   },
                   {
                     "anchor": " ",
@@ -3095,6 +3173,32 @@
                           "v2/internal/personas",
                           "v2/internal/ecosystem",
                           "v2/internal/references"
+                        ]
+                      },
+                      {
+                        "group": "Reports: Navigation & Links",
+                        "pages": [
+                          "v2/internal/reports/navigation-links/docs-navigation",
+                          "v2/internal/reports/navigation-links/v2-link-audit"
+                        ]
+                      },
+                      {
+                        "group": "Reports: Quality & Accessibility",
+                        "pages": [
+                          "v2/internal/reports/quality-accessibility/v2-wcag-audit",
+                          "v2/internal/reports/quality-accessibility/wcag-repair-common"
+                        ]
+                      },
+                      {
+                        "group": "Reports: Page Audits",
+                        "pages": [
+                          "v2/internal/reports/page-audits/domain-pages-audit"
+                        ]
+                      },
+                      {
+                        "group": "Reports: Repo Ops",
+                        "pages": [
+                          "v2/internal/reports/repo-ops/audit-scripts"
                         ]
                       }
                     ]
