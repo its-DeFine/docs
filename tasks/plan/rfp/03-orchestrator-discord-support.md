@@ -18,7 +18,7 @@ Create a documented **plan** for ongoing Discord support for orchestrators (not 
 ## Deliverables
 
 - A “Discord support plan” section or doc: how orchestrators get help in Discord (channel(s), roles, escalation, any SLAs)
-- Link from orchestrator docs (e.g. `v2/pages/05_orchestrators/`) to this plan
+- Link from orchestrator docs (e.g. `v2/orchestrators/`) to this plan
 - Optional: Notion/Forum update so this is tracked as an RFP deliverable
 
 ## Acceptance criteria
@@ -31,4 +31,4 @@ Create a documented **plan** for ongoing Discord support for orchestrators (not 
 
 - [16-rfp-notion-gaps-and-incomplete.md](../reports/16-rfp-notion-gaps-and-incomplete.md) — M3
 - [Forum RFP 3071](https://forum.livepeer.org/t/rfp-documentation-restructure/3071)
-- Orchestrator section: `v2/pages/05_orchestrators/`
+- Orchestrator section: `v2/orchestrators/`

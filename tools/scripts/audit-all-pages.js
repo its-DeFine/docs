@@ -12,7 +12,8 @@
  *   No required CLI flags; optional flags are documented inline.
  *
  * @outputs
- *   - Console output and/or file updates based on script purpose.
+ *   - tasks/reports/page-audits/page-audit-latest.json
+ *   - tasks/reports/page-audits/page-audit-latest.md
  *
  * @exit-codes
  *   0 = success
@@ -44,10 +45,10 @@ const path = require('path');
 const puppeteer = require('puppeteer');
 const { execSync } = require('child_process');
 
-const DOCS_JSON_PATH = path.join(__dirname, '..', '..', '..', 'docs.json');
+const DOCS_JSON_PATH = path.join(__dirname, '..', '..', 'docs.json');
 const BASE_URL = process.env.MINT_BASE_URL || 'http://localhost:3000';
 const TIMEOUT = 30000; // 30 seconds per page
-const REPORT_DIR = path.join(__dirname, '..', 'reports');
+const REPORT_DIR = path.join(__dirname, '..', '..', 'tasks', 'reports', 'page-audits');
 
 // Ensure report directory exists
 if (!fs.existsSync(REPORT_DIR)) {
@@ -606,12 +607,12 @@ async function main() {
   }
   
   // Generate report
-  const reportPath = path.join(REPORT_DIR, `page-audit-${Date.now()}.json`);
+  const reportPath = path.join(REPORT_DIR, 'page-audit-latest.json');
   fs.writeFileSync(reportPath, JSON.stringify(auditResults, null, 2));
   
   // Generate markdown report
   const markdownReport = generateMarkdownReport(auditResults);
-  const markdownPath = path.join(REPORT_DIR, `page-audit-${Date.now()}.md`);
+  const markdownPath = path.join(REPORT_DIR, 'page-audit-latest.md');
   fs.writeFileSync(markdownPath, markdownReport);
   
   // Print summary

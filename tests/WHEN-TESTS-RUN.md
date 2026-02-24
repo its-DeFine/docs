@@ -19,6 +19,7 @@
   - Broken links & imports validation
 - Script docs enforcement (`tests/unit/script-docs.test.js --staged --write --stage --autofill`)
 - Pages index sync (`tools/scripts/generate-pages-index.js --staged --write --stage`)
+- Staged WCAG accessibility audit with conservative autofix (`tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious ...`)
 - Staged strict V2 link audit (`tests/integration/v2-link-audit.js --staged --strict ...`)
 - Staged domain audit (`tests/integration/domain-pages-audit.js --staged ...`)
 
@@ -106,6 +107,12 @@ node tests/unit/spelling.test.js
 node tests/unit/quality.test.js
 node tests/unit/links-imports.test.js
 node tests/integration/browser.test.js
+node tests/integration/v2-wcag-audit.js --full
+node tests/integration/v2-wcag-audit.js --full --no-fix
+node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json
+bash lpd test --staged --wcag
+bash lpd test --full --wcag
+bash lpd test --full --wcag --wcag-no-fix
 
 # Changed-file PR simulation (local)
 node tests/run-pr-checks.js --base-ref main

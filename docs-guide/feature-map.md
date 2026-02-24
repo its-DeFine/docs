@@ -19,6 +19,7 @@ Primary references:
 
 - Unified CLI entrypoint: `lpd`.
 - Validation and enforcement scripts across `tests/`, `.githooks/`, and `tools/scripts/`.
+- Staged and full WCAG accessibility audits for `v2/` docs with conservative autofix support for common raw-tag issues.
 - Intake and governance artifacts:
   - issue templates in `.github/ISSUE_TEMPLATE/`
   - PR templates in `.github/pull-request-template-v2.md` and `.github/pull_request_template.md`
@@ -62,7 +63,7 @@ Primary references:
 Primary references:
 
 - `v2/pages/04_gateways/`
-- `v2/pages/05_orchestrators/`
+- `v2/orchestrators/`
 - `v2/pages/06_delegators/`
 - `v2/pages/03_developers/`
 

@@ -30,7 +30,7 @@ These pages are referenced in docs.json but the files do not exist:
 | `v2/pages/04_gateways/run-a-gateway/test/test-gateway` | File not found | Create file or remove from docs.json |
 | `v2/pages/04_gateways/using-gateways/gateway-providers` | File not found | Create file or remove from docs.json |
 | `v2/pages/04_gateways/using-gateways/gateway-providers/streamplace` | File not found | Create file or remove from docs.json |
-| `v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers` | File not found | Create file or remove from docs.json |
+| `v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers` | File not found | Create file or remove from docs.json |
 | `v2/pages/07_resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory` | File not found | Create file or remove from docs.json |
 | `v2/pages/07_resources/changelog/migration-guides` | File not found | Create file or remove from docs.json |
 | `v2/pages/07_resources/concepts/livepeer-actors` | File not found | Create file or remove from docs.json |

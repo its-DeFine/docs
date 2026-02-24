@@ -43,6 +43,8 @@ const args = process.argv.slice(2);
 const stagedOnly = args.includes('--staged');
 const skipBrowser = args.includes('--skip-browser');
 const watch = args.includes('--watch');
+const runWcag = args.includes('--wcag');
+const wcagNoFix = args.includes('--wcag-no-fix');
 
 let totalErrors = 0;
 let totalWarnings = 0;
@@ -130,6 +132,29 @@ async function runAllTests() {
       console.log(`   ${browserResult.failed || 0} failed, ${browserResult.passed || 0} passed`);
     } catch (error) {
       console.warn(`   ⚠️  Browser tests skipped: ${error.message}`);
+    }
+  }
+
+  // WCAG Accessibility Audit (optional, explicit)
+  if (runWcag) {
+    console.log('\n♿ Running WCAG Accessibility Audit...');
+    try {
+      // Lazy require so default test runs do not depend on optional wcag dependencies until invoked.
+      const wcagAudit = require('./integration/v2-wcag-audit');
+      const wcagArgs = stagedOnly
+        ? ['--staged', '--max-pages', '10']
+        : ['--full'];
+      if (wcagNoFix) wcagArgs.push('--no-fix');
+      const wcagResult = await wcagAudit.runAudit({ argv: wcagArgs });
+      const blocking = wcagResult?.summary?.totals?.blockingTotal || 0;
+      const filesScanned = wcagResult?.jsonReport?.scope?.totalFilesScanned || 0;
+      if (wcagResult && wcagResult.exitCode !== 0) {
+        totalErrors += 1;
+      }
+      console.log(`   ${blocking} blocking issue(s), ${filesScanned} file(s) scanned`);
+    } catch (error) {
+      totalErrors += 1;
+      console.warn(`   ⚠️  WCAG audit failed: ${error.message}`);
     }
   }
   

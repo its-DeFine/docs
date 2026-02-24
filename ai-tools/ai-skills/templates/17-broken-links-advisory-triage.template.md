@@ -9,11 +9,11 @@ triggers:
 primary_paths:
   - ".github/workflows/broken-links.yml"
   - "tasks/reports/LINK_FIX_QUEUE.md"
-  - "tasks/reports/LINK_TEST_REPORT.md"
+  - "tasks/reports/navigation-links/LINK_TEST_REPORT.md"
   - "tests/integration/v2-link-audit.js"
 primary_commands:
   - "npx mintlify broken-links"
-  - "node tests/integration/v2-link-audit.js --full --strict --report tasks/reports/LINK_TEST_REPORT.md"
+  - "node tests/integration/v2-link-audit.js --full --strict --report tasks/reports/navigation-links/LINK_TEST_REPORT.md"
 ---
 
 SKILL: Broken Links Advisory Triage
@@ -35,7 +35,7 @@ Workflow
 Command examples
 ```bash
 npx mintlify broken-links
-node tests/integration/v2-link-audit.js --full --strict --report tasks/reports/LINK_TEST_REPORT.md
+node tests/integration/v2-link-audit.js --full --strict --report tasks/reports/navigation-links/LINK_TEST_REPORT.md
 ```
 
 Deliverable Format

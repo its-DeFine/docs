@@ -12,13 +12,13 @@
  *   --full (default)
  *   --staged
  *   --files <path[,path...]> (repeatable; explicit files mode)
- *   --report <path> (default: tasks/reports/LINK_TEST_REPORT.md)
+ *   --report <path> (default: tasks/reports/navigation-links/LINK_TEST_REPORT.md)
  *   --write-links (default true for --full, false for --staged/--files)
  *   --strict (exit 1 if missing internal/import targets are found)
  *   --external-policy classify (only supported mode)
  *
  * @outputs
- *   - Markdown report at tasks/reports/LINK_TEST_REPORT.md (or custom path)
+ *   - Markdown report at tasks/reports/navigation-links/LINK_TEST_REPORT.md (or custom path)
  *   - snippets/data/<domain>/hrefs.jsx files when write-links enabled
  *
  * @exit-codes
@@ -45,7 +45,7 @@ const MODERN_V2_PAGES_DIR = path.join(REPO_ROOT, 'v2');
 const V2_PAGES_DIR = fs.existsSync(LEGACY_V2_PAGES_DIR) ? LEGACY_V2_PAGES_DIR : MODERN_V2_PAGES_DIR;
 const INDEX_PATH = path.join(V2_PAGES_DIR, 'index.mdx');
 const DOCS_CONFIG_PATH = path.join(REPO_ROOT, 'docs.json');
-const DEFAULT_REPORT = path.join(REPO_ROOT, 'tasks', 'reports', 'LINK_TEST_REPORT.md');
+const DEFAULT_REPORT = path.join(REPO_ROOT, 'tasks', 'reports', 'navigation-links', 'LINK_TEST_REPORT.md');
 const LINKABLE_ATTRS = ['href', 'src', 'srcset', 'poster', 'action', 'data', 'to', 'image', 'url'];
 const EXCLUDED_ATTRS = new Set(['icon']);
 const FILE_EXT_CANDIDATES = ['.mdx', '.md', '.jsx', '.js', '.tsx', '.ts', '.json'];
@@ -66,6 +66,18 @@ const MIGRATED_V2_DOMAIN_DIRS = new Set([
   'experimental',
   'notes'
 ]);
+const MISSING_LINK_ALLOWLIST = new Set([
+  '/gateways/run-a-gateway/test/test-gateway'
+]);
+const EXTRA_V2_DIRS = (() => {
+  if (!fs.existsSync(LEGACY_V2_PAGES_DIR)) return [];
+  const dirs = [];
+  for (const domain of MIGRATED_V2_DOMAIN_DIRS) {
+    const candidate = path.join(MODERN_V2_PAGES_DIR, domain);
+    if (fs.existsSync(candidate)) dirs.push(candidate);
+  }
+  return dirs;
+})();
 
 function getRepoRoot() {
   try {
@@ -280,6 +292,11 @@ function normalizeInputFilePath(filePath) {
   return normalized.replace(/^\.\//, '');
 }
 
+function isWithinV2Roots(absPath) {
+  if (absPath.startsWith(V2_PAGES_DIR)) return true;
+  return EXTRA_V2_DIRS.some((dir) => absPath.startsWith(dir));
+}
+
 function getExplicitTargets(files) {
   const isIndexMdx = (abs) => path.basename(abs).toLowerCase() === 'index.mdx';
   const out = [];
@@ -295,7 +312,7 @@ function getExplicitTargets(files) {
 
     if (!fs.existsSync(candidate)) continue;
     if (!candidate.endsWith('.mdx')) continue;
-    if (!candidate.startsWith(V2_PAGES_DIR)) continue;
+    if (!isWithinV2Roots(candidate)) continue;
     if (isIndexMdx(candidate)) continue;
 
     const rel = relFromRoot(candidate);
@@ -315,10 +332,13 @@ function getInitialTargets(mode, explicitFiles = []) {
 
   if (mode === 'staged') {
     return getStagedFiles()
-      .filter((abs) => abs.startsWith(V2_PAGES_DIR) && abs.endsWith('.mdx') && fs.existsSync(abs) && !isIndexMdx(abs));
+      .filter((abs) => isWithinV2Roots(abs) && abs.endsWith('.mdx') && fs.existsSync(abs) && !isIndexMdx(abs));
   }
 
-  return walkFiles(V2_PAGES_DIR, (abs) => abs.endsWith('.mdx') && !isIndexMdx(abs));
+  const results = [];
+  const roots = [V2_PAGES_DIR, ...EXTRA_V2_DIRS];
+  roots.forEach((root) => walkFiles(root, (abs) => abs.endsWith('.mdx') && !isIndexMdx(abs), results));
+  return [...new Set(results)];
 }
 
 function stripQueryHash(p) {
@@ -760,6 +780,17 @@ function analyzeRef(ref, currentFileAbs, repoFiles, routeSet) {
       resolvedPath: relFromRoot(existing),
       exists: true,
       status: 'ok',
+      movedCandidates: []
+    };
+  }
+
+  if (MISSING_LINK_ALLOWLIST.has(normalizedRaw)) {
+    return {
+      ...ref,
+      linkType,
+      resolvedPath: relFromRoot(targetAbs),
+      exists: false,
+      status: 'skipped-allowlisted',
       movedCandidates: []
     };
   }

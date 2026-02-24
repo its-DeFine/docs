@@ -22,9 +22,15 @@
     "test:domain": "node integration/domain-pages-audit.js",
     "test:domain:v1": "node integration/domain-pages-audit.js --version v1",
     "test:domain:v2": "node integration/domain-pages-audit.js --version v2",
-    "test:domain:both": "node integration/domain-pages-audit.js --version both"
+    "test:domain:both": "node integration/domain-pages-audit.js --version both",
+    "test:wcag": "node integration/v2-wcag-audit.js --full",
+    "test:wcag:staged": "node integration/v2-wcag-audit.js --staged --fix --max-pages 10 --report /tmp/livepeer-wcag-audit-staged.md --report-json /tmp/livepeer-wcag-audit-staged.json",
+    "test:wcag:nofix": "node integration/v2-wcag-audit.js --full --no-fix",
+    "test:wcag:unit": "node unit/v2-wcag-audit.test.js",
+    "test:wcag:selftest": "node integration/v2-wcag-audit.selftest.js"
   },
   "dependencies": {
+    "axe-core": "^4.11.1",
     "js-yaml": "^4.1.0",
     "puppeteer": "^21.0.0"
   }

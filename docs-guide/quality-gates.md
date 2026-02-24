@@ -16,13 +16,15 @@ Key checks:
 - style guide checks
 - syntax/verification checks (`.githooks/verify.sh`)
 - staged test suite (`tests/run-all.js --staged --skip-browser`)
-- staged link/domain audits
+- staged link/domain/WCAG audits
+- staged WCAG audit runs `tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious ...`
 - script docs enforcement
 - pages index synchronization
 
 Blocking policy:
 
 - blocking for structural/style/test failures
+- blocking for staged WCAG runtime failures and remaining `serious`/`critical` accessibility findings after conservative autofix
 - docs-guide SoT check currently advisory
 
 ### 2) PR Changed-File Checks
@@ -63,6 +65,7 @@ Blocking policy:
 - `.githooks/verify.sh`
 - `tests/run-all.js`
 - `tests/run-pr-checks.js`
+- `tests/integration/v2-wcag-audit.js`
 - `.github/workflows/test-suite.yml`
 - `.github/workflows/test-v2-pages.yml`
 - `tests/WHEN-TESTS-RUN.md`

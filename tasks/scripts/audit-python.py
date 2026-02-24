@@ -11,7 +11,8 @@
 #   No required CLI flags; optional flags are documented inline.
 #
 # @outputs
-#   - Console output and/or file updates based on script purpose.
+#   - tasks/PLAN/reports/page-audit-python-latest.json
+#   - tasks/PLAN/reports/page-audit-python-latest.md
 #
 # @exit-codes
 #   0 = success
@@ -35,7 +36,7 @@ import re
 
 # Get absolute path to script, then go up 3 levels
 SCRIPT_DIR = Path(__file__).resolve().parent
-BASE_DIR = SCRIPT_DIR.parent.parent.parent
+BASE_DIR = SCRIPT_DIR.parent.parent
 DOCS_JSON_PATH = BASE_DIR / 'docs.json'
 REPORT_DIR = BASE_DIR / 'tasks' / 'PLAN' / 'reports'
 V2_PAGES_DIR = BASE_DIR / 'v2' / 'pages'
@@ -315,8 +316,7 @@ for i, page_path in enumerate(pages, 1):
             audit_results['summary']['brokenLinks'] += len(broken_links)
 
 # Generate report
-timestamp = int(datetime.now().timestamp() * 1000)
-report_path = REPORT_DIR / f'page-audit-python-{timestamp}.json'
+report_path = REPORT_DIR / 'page-audit-python-latest.json'
 with open(report_path, 'w') as f:
     json.dump(audit_results, f, indent=2)
 
@@ -369,7 +369,7 @@ if audit_results['summary']['brokenLinks'] > 0:
                 md += f"  - Expected: `{l['expected']}`\n"
         md += "\n"
 
-markdown_path = REPORT_DIR / f'page-audit-python-{timestamp}.md'
+markdown_path = REPORT_DIR / 'page-audit-python-latest.md'
 with open(markdown_path, 'w') as f:
     f.write(md)
 

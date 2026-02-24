@@ -16,8 +16,8 @@
  *   --remap-threshold <0-1> Minimum score for non-canonical remap suggestions (default: 0.85).
  *
  * @outputs
- *   - tasks/reports/ungenerated/navigation-report.md
- *   - tasks/reports/navigation-report.json
+ *   - tasks/reports/navigation-links/navigation-report.md
+ *   - tasks/reports/navigation-links/navigation-report.json
  *   - docs.json (only when --write-remaps is used and user approves entries)
  *   - Console summary of syntax and route-resolution status.
  *
@@ -39,8 +39,8 @@ const path = require('path');
 const readline = require('readline');
 const { execSync } = require('child_process');
 
-const REPORT_MD_REL = 'tasks/reports/ungenerated/navigation-report.md';
-const REPORT_JSON_REL = 'tasks/reports/navigation-report.json';
+const REPORT_MD_REL = 'tasks/reports/navigation-links/navigation-report.md';
+const REPORT_JSON_REL = 'tasks/reports/navigation-links/navigation-report.json';
 const DEFAULT_REMAP_THRESHOLD = 0.85;
 
 let errors = [];
