@@ -66,6 +66,18 @@ const MIGRATED_V2_DOMAIN_DIRS = new Set([
   'experimental',
   'notes'
 ]);
+const MISSING_LINK_ALLOWLIST = new Set([
+  '/gateways/run-a-gateway/test/test-gateway'
+]);
+const EXTRA_V2_DIRS = (() => {
+  if (!fs.existsSync(LEGACY_V2_PAGES_DIR)) return [];
+  const dirs = [];
+  for (const domain of MIGRATED_V2_DOMAIN_DIRS) {
+    const candidate = path.join(MODERN_V2_PAGES_DIR, domain);
+    if (fs.existsSync(candidate)) dirs.push(candidate);
+  }
+  return dirs;
+})();
 
 function getRepoRoot() {
   try {
@@ -280,6 +292,11 @@ function normalizeInputFilePath(filePath) {
   return normalized.replace(/^\.\//, '');
 }
 
+function isWithinV2Roots(absPath) {
+  if (absPath.startsWith(V2_PAGES_DIR)) return true;
+  return EXTRA_V2_DIRS.some((dir) => absPath.startsWith(dir));
+}
+
 function getExplicitTargets(files) {
   const isIndexMdx = (abs) => path.basename(abs).toLowerCase() === 'index.mdx';
   const out = [];
@@ -295,7 +312,7 @@ function getExplicitTargets(files) {
 
     if (!fs.existsSync(candidate)) continue;
     if (!candidate.endsWith('.mdx')) continue;
-    if (!candidate.startsWith(V2_PAGES_DIR)) continue;
+    if (!isWithinV2Roots(candidate)) continue;
     if (isIndexMdx(candidate)) continue;
 
     const rel = relFromRoot(candidate);
@@ -315,10 +332,13 @@ function getInitialTargets(mode, explicitFiles = []) {
 
   if (mode === 'staged') {
     return getStagedFiles()
-      .filter((abs) => abs.startsWith(V2_PAGES_DIR) && abs.endsWith('.mdx') && fs.existsSync(abs) && !isIndexMdx(abs));
+      .filter((abs) => isWithinV2Roots(abs) && abs.endsWith('.mdx') && fs.existsSync(abs) && !isIndexMdx(abs));
   }
 
-  return walkFiles(V2_PAGES_DIR, (abs) => abs.endsWith('.mdx') && !isIndexMdx(abs));
+  const results = [];
+  const roots = [V2_PAGES_DIR, ...EXTRA_V2_DIRS];
+  roots.forEach((root) => walkFiles(root, (abs) => abs.endsWith('.mdx') && !isIndexMdx(abs), results));
+  return [...new Set(results)];
 }
 
 function stripQueryHash(p) {
@@ -760,6 +780,17 @@ function analyzeRef(ref, currentFileAbs, repoFiles, routeSet) {
       resolvedPath: relFromRoot(existing),
       exists: true,
       status: 'ok',
+      movedCandidates: []
+    };
+  }
+
+  if (MISSING_LINK_ALLOWLIST.has(normalizedRaw)) {
+    return {
+      ...ref,
+      linkType,
+      resolvedPath: relFromRoot(targetAbs),
+      exists: false,
+      status: 'skipped-allowlisted',
       movedCandidates: []
     };
   }

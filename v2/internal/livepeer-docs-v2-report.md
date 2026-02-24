@@ -451,7 +451,7 @@ The depth of technical content in the v2 documentation significantly exceeds wha
 
 **Gateway operational documentation.** Full operational runbooks for running a Livepeer Gateway application — this requires deep understanding of the gateway software architecture and operational requirements. Repo: `v2/pages/04_gateways/`.
 
-**Orchestrator / GPU Node documentation.** Full documentation for GPU operators earning from the network, including node setup, configuration, and operational management. Repo: `v2/pages/05_orchestrators/`.
+**Orchestrator / GPU Node documentation.** Full documentation for GPU operators earning from the network, including node setup, configuration, and operational management. Repo: `v2/orchestrators/`.
 
 **Developer technical guides.** Comprehensive developer documentation covering real-time video streaming on Livepeer, AI inference and AI pipeline integration, SDK references, and API documentation. Repo: `v2/pages/03_developers/`.
 

@@ -2692,20 +2692,20 @@
                         "group": "Orchestrator Knowledge Hub",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/pages/05_orchestrators/orchestrators-portal",
-                          "v2/pages/05_orchestrators/about-orchestrators/overview",
-                          "v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions",
-                          "v2/pages/05_orchestrators/about-orchestrators/architecture",
-                          "v2/pages/05_orchestrators/about-orchestrators/economics"
+                          "v2/orchestrators/orchestrators-portal",
+                          "v2/orchestrators/about-orchestrators/overview",
+                          "v2/orchestrators/about-orchestrators/orchestrator-functions",
+                          "v2/orchestrators/about-orchestrators/architecture",
+                          "v2/orchestrators/about-orchestrators/economics"
                         ]
                       },
                       {
                         "group": "Quickstart ⚡",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
                         "pages": [
-                          "v2/pages/05_orchestrators/quickstart/overview",
-                          "v2/pages/05_orchestrators/quickstart/join-a-pool",
-                          "v2/pages/05_orchestrators/quickstart/orchestrator-setup"
+                          "v2/orchestrators/quickstart/overview",
+                          "v2/orchestrators/quickstart/join-a-pool",
+                          "v2/orchestrators/quickstart/orchestrator-setup"
                         ]
                       },
                       {
@@ -2715,41 +2715,41 @@
                           {
                             "group": "Orchestrator Setup Guide",
                             "pages": [
-                              "v2/pages/05_orchestrators/setting-up-an-orchestrator/overview",
+                              "v2/orchestrators/setting-up-an-orchestrator/overview",
                               {
                                 "group": "Setup Checklist",
                                 "pages": [
-                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements"
+                                  "v2/orchestrators/setting-up-an-orchestrator/hardware-requirements"
                                 ]
                               },
                               {
                                 "group": "Installation",
                                 "pages": [
-                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats"
+                                  "v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats"
                                 ]
                               },
                               {
                                 "group": "Configuration",
                                 "pages": [
-                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer"
+                                  "v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer"
                                 ]
                               },
                               {
                                 "group": "Testing",
                                 "pages": [
-                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                  "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
                               },
                               {
                                 "group": "Network Integration",
                                 "pages": [
-                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                  "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
                               },
                               {
                                 "group": "Monitor & Optimise",
                                 "pages": [
-                                  "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                  "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
                               }
                             ]
@@ -2760,22 +2760,22 @@
                         "group": "Advanced Orchestrator Information",
                         "icon": "gamepad",
                         "pages": [
-                          "v2/pages/05_orchestrators/advanced-setup/staking-LPT",
-                          "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees",
-                          "v2/pages/05_orchestrators/advanced-setup/delegation",
-                          "v2/pages/05_orchestrators/advanced-setup/ai-pipelines",
-                          "v2/pages/05_orchestrators/advanced-setup/run-a-pool"
+                          "v2/orchestrators/advanced-setup/staking-LPT",
+                          "v2/orchestrators/advanced-setup/rewards-and-fees",
+                          "v2/orchestrators/advanced-setup/delegation",
+                          "v2/orchestrators/advanced-setup/ai-pipelines",
+                          "v2/orchestrators/advanced-setup/run-a-pool"
                         ]
                       },
                       {
                         "group": "Orchestrator Tools & Resources",
                         "icon": "laptop-file",
                         "pages": [
-                          "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
-                          "v2/pages/05_orchestrators/orchestrator-tools-and-resources/community-pools",
-                          "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides",
-                          "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-resources",
-                          "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help"
+                          "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
+                          "v2/orchestrators/orchestrator-tools-and-resources/community-pools",
+                          "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-guides",
+                          "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-resources",
+                          "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help"
                         ]
                       },
                       {
@@ -2785,19 +2785,19 @@
                           {
                             "group": "Orchestrators",
                             "pages": [
-                              "v2/pages/05_orchestrators/references/faq"
+                              "v2/orchestrators/references/faq"
                             ]
                           },
                           {
                             "group": "API & CLI Reference",
                             "pages": [
-                              "v2/pages/05_orchestrators/references/cli-flags"
+                              "v2/orchestrators/references/cli-flags"
                             ]
                           },
                           {
                             "group": "On-Chain Reference",
                             "pages": [
-                              "v2/pages/05_orchestrators/references/faq"
+                              "v2/orchestrators/references/faq"
                             ]
                           }
                         ]

@@ -123,6 +123,18 @@ function resolvePreferredRepoPath(repoRelPath) {
   return normalized;
 }
 
+function resolveSourceDirRel(outputDirRel) {
+  const normalized = normalizeRel(outputDirRel);
+  if (!normalized.startsWith('v2/pages/')) return normalized;
+  const rest = normalized.slice('v2/pages/'.length);
+  const [legacyDomain] = rest.split('/').filter(Boolean);
+  const modernDomain = DOMAIN_RENAME_MAP[legacyDomain];
+  if (!modernDomain) return normalized;
+  const modernDirRel = normalizeRel(path.posix.join('v2', modernDomain));
+  if (!fileExists(path.join(REPO_ROOT, modernDirRel))) return normalized;
+  return modernDirRel;
+}
+
 function isMarkdownFile(fileName) {
   return /\.(md|mdx)$/i.test(fileName);
 }
@@ -293,13 +305,14 @@ function isMissingFromDocsJson(repoFileRel, docsRouteKeys) {
   return !docsRouteKeys.has(routeKey);
 }
 
-function buildFolderIndexData(dirRel, docsRouteKeys) {
-  const dirAbs = path.join(REPO_ROOT, dirRel);
-  const rootFiles = getDirectMarkdownFiles(dirAbs).map((fileName) => {
-    const legacyRepoFileRel = normalizeRel(path.join(dirRel, fileName));
+function buildFolderIndexData(outputDirRel, sourceDirRel, docsRouteKeys) {
+  const outputDirAbs = path.join(REPO_ROOT, outputDirRel);
+  const sourceDirAbs = path.join(REPO_ROOT, sourceDirRel);
+  const rootFiles = getDirectMarkdownFiles(sourceDirAbs).map((fileName) => {
+    const legacyRepoFileRel = normalizeRel(path.join(sourceDirRel, fileName));
     const repoFileRel = resolvePreferredRepoPath(legacyRepoFileRel);
     const repoFileAbs = path.join(REPO_ROOT, repoFileRel);
-    const relFromCurrent = normalizeRel(path.relative(dirAbs, repoFileAbs));
+    const relFromCurrent = normalizeRel(path.relative(outputDirAbs, repoFileAbs));
     return {
       title: getFileTitle(repoFileAbs, fileName),
       href: buildLinkHref(relFromCurrent),
@@ -320,7 +333,7 @@ function buildFolderIndexData(dirRel, docsRouteKeys) {
         const legacyRepoFileRel = normalizeRel(path.join(childRel, fileName));
         const repoFileRel = resolvePreferredRepoPath(legacyRepoFileRel);
         const repoFileAbs = path.join(REPO_ROOT, repoFileRel);
-        const relFromCurrent = normalizeRel(path.relative(dirAbs, repoFileAbs));
+        const relFromCurrent = normalizeRel(path.relative(outputDirAbs, repoFileAbs));
         return {
           title: getFileTitle(repoFileAbs, fileName),
           href: buildLinkHref(relFromCurrent),
@@ -344,7 +357,7 @@ function buildFolderIndexData(dirRel, docsRouteKeys) {
     }
   }
 
-  walk(dirRel, 1);
+  walk(sourceDirRel, 1);
 
   return {
     rootLinks: rootFiles,
@@ -434,19 +447,38 @@ function parseIndexContent(content) {
   return { rootLinks, sections };
 }
 
-function buildAggregateData(topLevelDirs, sourceByDirRel) {
+function resolveAggregateHref(rootIndexAbs, topLevelDirRel, href) {
+  if (!href || isExternalHref(href)) return href;
+  const topLevelAbs = path.join(REPO_ROOT, topLevelDirRel);
+  const targetAbs = path.resolve(topLevelAbs, href);
+  const rootDirAbs = path.dirname(rootIndexAbs);
+  const relFromRoot = normalizeRel(path.relative(rootDirAbs, targetAbs));
+  return buildLinkHref(relFromRoot);
+}
+
+function buildAggregateData(topLevelDirs, sourceByDirRel, rootIndexAbs) {
   const groups = [];
 
   for (const dirRel of topLevelDirs) {
     const folderName = path.basename(dirRel);
     const source = sourceByDirRel.get(dirRel) || '';
     const parsed = parseIndexContent(source);
+    const rootLinks = parsed.rootLinks.map((link) => ({
+      ...link,
+      href: resolveAggregateHref(rootIndexAbs, dirRel, link.href)
+    }));
+    const sections = parsed.sections.map((section) => ({
+      ...section,
+      links: section.links.map((link) => ({
+        ...link,
+        href: resolveAggregateHref(rootIndexAbs, dirRel, link.href)
+      }))
+    }));
 
     groups.push({
       title: prettifyName(folderName),
-      prefix: folderName,
-      rootLinks: parsed.rootLinks,
-      sections: parsed.sections
+      rootLinks,
+      sections
     });
   }
 
@@ -461,8 +493,7 @@ function renderAggregateContent(groups) {
 
     if (group.rootLinks.length > 0) {
       for (const link of group.rootLinks) {
-        const prefixedHref = prefixHref(group.prefix, link.href);
-        lines.push(`- [${escapeLinkText(link.title)}](${prefixedHref})`);
+        lines.push(`- [${escapeLinkText(link.title)}](${link.href})`);
       }
       if (group.sections.length > 0) {
         lines.push('');
@@ -473,8 +504,7 @@ function renderAggregateContent(groups) {
       const level = Math.min(section.level + 1, 6);
       lines.push(`${'#'.repeat(level)} ${section.title}`);
       for (const link of section.links) {
-        const prefixedHref = prefixHref(group.prefix, link.href);
-        lines.push(`- [${escapeLinkText(link.title)}](${prefixedHref})`);
+        lines.push(`- [${escapeLinkText(link.title)}](${link.href})`);
       }
       lines.push('');
     }
@@ -612,7 +642,8 @@ function run(options = {}) {
   }
 
   for (const dirRel of topLevelDirs) {
-    const data = buildFolderIndexData(dirRel, docsRouteKeys);
+    const sourceDirRel = resolveSourceDirRel(dirRel);
+    const data = buildFolderIndexData(dirRel, sourceDirRel, docsRouteKeys);
     const content = renderIndexContent(data);
     expectedByTopDir.set(dirRel, content);
 
@@ -657,11 +688,11 @@ function run(options = {}) {
     }
   }
 
-  const sourceByTopDir = new Map();
-  topLevelDirs.forEach((dirRel) => sourceByTopDir.set(dirRel, expectedByTopDir.get(dirRel) || ''));
+  const contentByTopDir = new Map();
+  topLevelDirs.forEach((dirRel) => contentByTopDir.set(dirRel, expectedByTopDir.get(dirRel) || ''));
 
-  const aggregate = renderAggregateContent(buildAggregateData(topLevelDirs, sourceByTopDir));
   const rootIndexAbs = path.join(PAGES_ROOT_ABS, INDEX_FILENAME);
+  const aggregate = renderAggregateContent(buildAggregateData(topLevelDirs, contentByTopDir, rootIndexAbs));
   const rootLegacyAbs = path.join(PAGES_ROOT_ABS, LEGACY_INDEX_FILENAME);
 
   if (write) {

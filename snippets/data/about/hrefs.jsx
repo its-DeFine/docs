@@ -1,143 +1,6 @@
 export const LINK_MAP = {
-  "v2/about/portal.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://en.wikipedia.org/wiki/OSI_model",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/protocol",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "./livepeer-network/overview",
-      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/Portals.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/Portals.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/frameMode.jsx",
-      "resolvedPath": "snippets/components/display/frameMode.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/divider.jsx",
-      "resolvedPath": "snippets/components/primitives/divider.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/links.jsx",
-      "resolvedPath": "snippets/components/primitives/links.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/HeroGif.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/HeroGif.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
   "v2/about/core-concepts/concepts/actors.mdx": [],
   "v2/about/core-concepts.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -161,136 +24,6 @@ export const LINK_MAP = {
       "linkType": "import-path",
       "rawPath": "/snippets/pages/01_ABOUT/concepts/actors.mdx",
       "resolvedPath": "snippets/pages/01_ABOUT/concepts/actors.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/about/livepeer-overview.mdx": [
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/about/mental-model",
-      "resolvedPath": "v2/about/mental-model.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/gateways/gateways-portal",
-      "resolvedPath": "v2/gateways/gateways-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/lpt/token-portal",
-      "resolvedPath": "v2/lpt/token-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/developers/portal",
-      "resolvedPath": "v2/developers/portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/media/images/Livepeer%20Stats.png",
-      "resolvedPath": "snippets/assets/media/images/Livepeer Stats.png",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/quadGrid.jsx",
-      "resolvedPath": "snippets/components/layout/quadGrid.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/links.jsx",
-      "resolvedPath": "snippets/components/primitives/links.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/about/mental-model.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://en.wikipedia.org/wiki/OSI_model",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../../platforms/portal",
-      "resolvedPath": "v2/platforms/portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/home/case-studies/showcase",
-      "resolvedPath": "v2/home/case-studies/showcase.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/home/case-studies/showcase",
-      "resolvedPath": "v2/home/case-studies/showcase.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/text.jsx",
-      "resolvedPath": "snippets/components/primitives/text.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/text.jsx",
-      "resolvedPath": "snippets/components/layout/text.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -337,10 +70,12 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "livepeer-protocol/protocol-economics",
-      "resolvedPath": "v2/about/livepeer-protocol/economics.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
+      "resolvedPath": "v2/about/livepeer-protocol/protocol-economics",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/x-pages/01_about/livepeer-protocol/protocol-economics.mdx"
+      ]
     },
     {
       "sourceType": "markdown-link",
@@ -359,15 +94,6 @@ export const LINK_MAP = {
       "exists": true,
       "status": "ok",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
   "v2/about/livepeer-network/actors.mdx": [
@@ -383,8 +109,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -430,15 +156,6 @@ export const LINK_MAP = {
       "linkType": "internal-relative",
       "rawPath": "./job-lifecycle",
       "resolvedPath": "v2/about/livepeer-network/job-lifecycle.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -585,15 +302,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/layout/table.jsx",
       "resolvedPath": "snippets/components/layout/table.jsx",
       "exists": true,
@@ -635,25 +343,18 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../../livepeer-protocol/protocol-economics",
-      "resolvedPath": "v2/about/livepeer-protocol/economics.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
+      "resolvedPath": "v2/about/livepeer-protocol/protocol-economics",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/x-pages/01_about/livepeer-protocol/protocol-economics.mdx"
+      ]
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -686,23 +387,14 @@ export const LINK_MAP = {
       "exists": true,
       "status": "ok",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
   "v2/about/livepeer-network/livepeer-actors/gateways.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -721,15 +413,6 @@ export const LINK_MAP = {
       "linkType": "internal-relative",
       "rawPath": "../demand-side",
       "resolvedPath": "v2/about/livepeer-network/demand-side.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -759,15 +442,6 @@ export const LINK_MAP = {
       "linkType": "internal-relative",
       "rawPath": "../fee-flow",
       "resolvedPath": "v2/about/livepeer-network/fee-flow.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -858,8 +532,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -885,15 +559,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/layout/table.jsx",
       "resolvedPath": "snippets/components/layout/table.jsx",
       "exists": true,
@@ -910,17 +575,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/about/livepeer-network/overview.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/about/livepeer-network/overview.mdx": [],
   "v2/about/livepeer-network/scaling.mdx": [],
   "v2/about/livepeer-network/supply-side.mdx": [],
   "v2/about/livepeer-network/technical-architecture.mdx": [
@@ -1062,8 +717,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1089,8 +744,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "/snippets/components/layout/table.jsx",
+      "resolvedPath": "snippets/components/layout/table.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1098,8 +753,73 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/table.jsx",
-      "resolvedPath": "snippets/components/layout/table.jsx",
+      "rawPath": "/snippets/components/primitives/links.jsx",
+      "resolvedPath": "snippets/components/primitives/links.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/about/livepeer-overview.mdx": [
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/about/mental-model",
+      "resolvedPath": "v2/about/mental-model.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/gateways/gateways-portal",
+      "resolvedPath": "v2/gateways/gateways-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/lpt/token-portal",
+      "resolvedPath": "v2/lpt/token-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/developers/portal",
+      "resolvedPath": "v2/developers/portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/media/images/Livepeer%20Stats.png",
+      "resolvedPath": "snippets/assets/media/images/Livepeer Stats.png",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/layout/quadGrid.jsx",
+      "resolvedPath": "snippets/components/layout/quadGrid.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1154,15 +874,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/text.jsx",
       "resolvedPath": "snippets/components/primitives/text.jsx",
       "exists": true,
@@ -1212,6 +923,53 @@ export const LINK_MAP = {
       "resolvedPath": "snippets/components/layout/table.jsx",
       "exists": true,
       "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/about/livepeer-protocol/economics.mdx": [
+    {
+      "sourceType": "markdown-link",
+      "linkType": "empty",
+      "rawPath": "#0-13",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "empty",
+      "rawPath": "#0-14",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "empty",
+      "rawPath": "#0-15",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "empty",
+      "rawPath": "#0-16",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "empty",
+      "rawPath": "#0-17",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
       "movedCandidates": []
     }
   ],
@@ -1998,7 +1756,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
       "rawPath": "/v2/pages/07_resources/references/contract-addresses",
-      "resolvedPath": "v2/pages/07_resources/references/contract-addresses.mdx",
+      "resolvedPath": "v2/x-pages/07_resources/references/contract-addresses.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2052,10 +1810,12 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./protocol-economics",
-      "resolvedPath": "v2/about/livepeer-protocol/economics.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
+      "resolvedPath": "v2/about/livepeer-protocol/protocol-economics",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/x-pages/01_about/livepeer-protocol/protocol-economics.mdx"
+      ]
     },
     {
       "sourceType": "jsx-attr",
@@ -2088,7 +1848,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
       "rawPath": "/v2/pages/07_resources/references/contract-addresses",
-      "resolvedPath": "v2/pages/07_resources/references/contract-addresses.mdx",
+      "resolvedPath": "v2/x-pages/07_resources/references/contract-addresses.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2148,53 +1908,6 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/about/livepeer-protocol/economics.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-13",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-14",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-15",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-16",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-17",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    }
-  ],
   "v2/about/livepeer-protocol/technical-architecture.mdx": [
     {
       "sourceType": "markdown-link",
@@ -2246,15 +1959,6 @@ export const LINK_MAP = {
       "linkType": "internal-rooted",
       "rawPath": "/snippets/assets/domain/01_ABOUT/ProtocolNodeDiagram.png",
       "resolvedPath": "snippets/assets/domain/01_ABOUT/ProtocolNodeDiagram.png",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2631,6 +2335,181 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
+  "v2/about/mental-model.mdx": [
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://en.wikipedia.org/wiki/OSI_model",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-relative",
+      "rawPath": "../platforms/portal",
+      "resolvedPath": "v2/platforms/portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/home/case-studies/showcase",
+      "resolvedPath": "v2/home/case-studies/showcase.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/home/case-studies/showcase",
+      "resolvedPath": "v2/home/case-studies/showcase.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/text.jsx",
+      "resolvedPath": "snippets/components/primitives/text.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/layout/text.jsx",
+      "resolvedPath": "snippets/components/layout/text.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/about/portal.mdx": [
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://en.wikipedia.org/wiki/OSI_model",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/protocol",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "./livepeer-network/overview",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "./livepeer-network/overview",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "./livepeer-network/overview",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "./livepeer-network/overview",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "./livepeer-network/overview",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "./livepeer-network/overview",
+      "resolvedPath": "v2/about/livepeer-network/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/domain/SHARED/Portals.jsx",
+      "resolvedPath": "snippets/components/domain/SHARED/Portals.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/frameMode.jsx",
+      "resolvedPath": "snippets/components/display/frameMode.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/divider.jsx",
+      "resolvedPath": "snippets/components/primitives/divider.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/links.jsx",
+      "resolvedPath": "snippets/components/primitives/links.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/domain/SHARED/HeroGif.jsx",
+      "resolvedPath": "snippets/components/domain/SHARED/HeroGif.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
   "v2/about/resources/blockchain-contracts.mdx": [
     {
       "sourceType": "markdown-link",
@@ -2806,15 +2685,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/display/image.jsx",
       "resolvedPath": "snippets/components/display/image.jsx",
       "exists": true,
@@ -2849,17 +2719,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/about/resources/gateways-vs-orchestrators.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/about/resources/gateways-vs-orchestrators.mdx": [],
   "v2/about/resources/livepeer-glossary.mdx": [
     {
       "sourceType": "markdown-link",
@@ -2868,15 +2728,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     }
   ],
@@ -2922,9 +2773,13 @@ export const LINK_MAP = {
       "linkType": "import-path",
       "rawPath": "/snippets/external/whitepaper.mdx",
       "resolvedPath": "snippets/external/whitepaper.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/about/resources/livepeer-whitepaper.mdx",
+        "v2/developers/moved-to-about-livepeer-protocol/livepeer-protocol/livepeer-whitepaper.mdx",
+        "v2/x-pages/01_about/resources/livepeer-whitepaper.mdx"
+      ]
     },
     {
       "sourceType": "import-path",
@@ -2939,639 +2794,7 @@ export const LINK_MAP = {
   "v2/about/resources/technical-roadmap.mdx": [],
   "snippets/pages/01_ABOUT/concepts/protocol.mdx": [],
   "snippets/pages/01_ABOUT/concepts/network.mdx": [],
-  "snippets/pages/01_ABOUT/concepts/actors.mdx": [],
-  "snippets/external/whitepaper.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#introduction-and-background",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#the-live-video-stack",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#livepeer-protocol",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#video-segments",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#livepeer-token",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#protocol-roles",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#consensus",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#bonding--delegation",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#transcoder-transaction",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#broadcast--transcoding-job",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#preprocessing",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#the-job",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#end-job",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#verification-of-work",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#a-note-on-truebit",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#token-generation",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#slashing",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#token-distribution",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#governance",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#attacks",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#consensus-attacks",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#ddos",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#useless-or-self-dealing-transcoder",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#transcoder-griefing",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#chain-reorg",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#live-video-distribution",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#use-cases",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#pay-as-you-go-content-consumption",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#auto-scaling-social-video-services",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#uncensorable-live-journalism",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#video-enabled-dapps",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#summary",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#appendix",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#livepeer-protocol-parameter-reference",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#livepeer-protocol-transaction-types",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/wiki/blob/master/STREAMFLOW.md",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-http",
-      "rawPath": "http://ethereum.org",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://www.ethswarm.org/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-http",
-      "rawPath": "http://ipfs.io",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-http",
-      "rawPath": "http://blockstack.org",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-http",
-      "rawPath": "http://ens.readthedocs.io/en/latest/introduction.html",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/wiki/wiki/Project-Overview",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-image",
-      "linkType": "external-https",
-      "rawPath": "https://s3.amazonaws.com/livepeerorg/LPExample.png",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://developer.apple.com/library/content/documentation/General/Reference/HLSAuthoringSpec/Requirements.html#//apple_ref/doc/uid/TP40016596-CH2-SW1",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/wiki/wiki/Livepeer-Media-Server",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/wiki/wiki/Livepeer-Media-Server",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#token-distribution",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-image",
-      "linkType": "external-https",
-      "rawPath": "https://livepeer-dev.s3.amazonaws.com/docs/lpprotocol.png",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#video-segments",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-http",
-      "rawPath": "http://truebit.io",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#token-distribution",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/wiki/wiki/Governance",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#references",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/go-livepeer",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    }
-  ]
+  "snippets/pages/01_ABOUT/concepts/actors.mdx": []
 };
 
 export default LINK_MAP;
