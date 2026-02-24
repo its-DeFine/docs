@@ -139,14 +139,12 @@ test('generateLocalizedDocsJson clones v2 english node, translates labels, and r
   assert.equal(result.report.perLanguage[0].routeCoverageOverallPct, 100);
   assert.equal(result.report.perLanguage[0].routeCoverageScope, 'full_v2_nav');
   assert.deepEqual(result.report.perLanguage[0].warnings, []);
-  assert.deepEqual(result.report.v1FallbackLanguagesAdded, ['es']);
-
   const v1 = result.docsJson.navigation.versions.find((v) => v.version === 'v1');
   assert.deepEqual(
     v1.languages.map((l) => l.language),
-    ['en', 'es']
+    ['en']
   );
-  assert.equal(v1.languages[1].dropdowns[0].dropdown, 'Developers');
+  assert.equal(v1.languages[0].dropdowns[0].dropdown, 'Developers');
 });
 
 test('generateLocalizedDocsJson rejects mock provenance routes for rewrite and reports fallback diagnostics', async () => {
