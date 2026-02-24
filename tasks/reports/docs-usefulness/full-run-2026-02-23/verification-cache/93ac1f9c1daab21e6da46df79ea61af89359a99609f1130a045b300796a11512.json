@@ -1,0 +1,46 @@
+{
+  "evidence": [
+    {
+      "source_type": "official_docs",
+      "source_url": "https://docs.livepeer.org/v2/about/livepeer-protocol/technical-architecture",
+      "source_title": "Livepeer Docs",
+      "source_date": null,
+      "supports_claim": true,
+      "evidence_excerpt": "Technical Overview - Livepeer Docs Skip to main content Livepeer Docs home page v2 Need help? Ask our AI ⌘ K Ask AI Search... Navigation Livepeer Protocol Technical Overview Home About Platforms Developers Gateways GPU Nodes LP Token Community Resource HUB About Livepeer Resource HUB About Livepeer About Portal Start Here Livepeer Overview Livepeer Core Concepts Livepeer Mental Model Livepeer Pro…",
+      "claim_id": "ddde841ff04ac291"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/search?q=on-chain%20contracts%20verify%20work%20handle%20payments%20but%20don",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "search | DeepWiki",
+      "claim_id": "ddde841ff04ac291"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/livepeer/go-livepeer",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "livepeer/go-livepeer | DeepWiki Loading... Index your code with Devin DeepWiki DeepWiki livepeer/go-livepeer Index your code with Devin Edit Wiki Share Loading... Last indexed: 27 January 2026 ( ab55f8 ) Overview Architecture Node Types Version History Core Components Livepeer Node Media Server Broadcast Sessions Manager Orchestrator Transcoder AI Gateway AI Workers Technical Systems Video Pipeli…",
+      "claim_id": "ddde841ff04ac291"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/livepeer/livepeerjs",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "livepeer/livepeerjs | DeepWiki Loading... Index your code with Devin DeepWiki DeepWiki livepeer/livepeerjs Index your code with Devin Share Loading...",
+      "claim_id": "ddde841ff04ac291"
+    }
+  ],
+  "errors": [
+    "github livepeer/go-livepeer: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/go-livepeer on-chain contracts verify work handle payments -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05CA:62B2:276EDC:319F3B:699C855C and timestamp 2026-02-23 16:50:36 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n",
+    "github livepeer/livepeerjs: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/livepeerjs on-chain contracts verify work handle payments -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05CE:223CAF:28FE85:333107:699C855C and timestamp 2026-02-23 16:50:37 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n",
+    "github livepeer/docs: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/docs on-chain contracts verify work handle payments -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05D5:31C13B:241B63:2E4AF2:699C855D and timestamp 2026-02-23 16:50:37 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n",
+    "github livepeer/livepeer-protocol: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/livepeer-protocol on-chain contracts verify work handle payments -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05D8:2C7770:23583B:2D8581:699C855E and timestamp 2026-02-23 16:50:38 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "evidence": [
+    {
+      "source_type": "official_docs",
+      "source_url": "https://docs.livepeer.org/v2/about/livepeer-network/marketplace",
+      "source_title": "Livepeer Docs",
+      "source_date": null,
+      "supports_claim": true,
+      "evidence_excerpt": "Livepeer Marketplace - Livepeer Docs Skip to main content Livepeer Docs home page v2 Need help? Ask our AI ⌘ K Ask AI Search... Navigation Livepeer Network Livepeer Marketplace Home About Platforms Developers Gateways GPU Nodes LP Token Community Resource HUB About Livepeer Resource HUB About Livepeer About Portal Start Here Livepeer Overview Livepeer Core Concepts Livepeer Mental Model Livepeer …",
+      "claim_id": "544fd2fc2d782428"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/search?q=observability%20each%20session%20logged%20latency%20first%20response%20retry",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "search | DeepWiki",
+      "claim_id": "544fd2fc2d782428"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/livepeer/go-livepeer",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "livepeer/go-livepeer | DeepWiki Loading... Index your code with Devin DeepWiki DeepWiki livepeer/go-livepeer Index your code with Devin Edit Wiki Share Loading... Last indexed: 27 January 2026 ( ab55f8 ) Overview Architecture Node Types Version History Core Components Livepeer Node Media Server Broadcast Sessions Manager Orchestrator Transcoder AI Gateway AI Workers Technical Systems Video Pipeli…",
+      "claim_id": "544fd2fc2d782428"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/livepeer/livepeerjs",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "livepeer/livepeerjs | DeepWiki Loading... Index your code with Devin DeepWiki DeepWiki livepeer/livepeerjs Index your code with Devin Share Loading...",
+      "claim_id": "544fd2fc2d782428"
+    }
+  ],
+  "errors": [
+    "github livepeer/go-livepeer: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/go-livepeer observability each session logged latency first -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05EE:940A:25C6AC:2FDDED:699C847F and timestamp 2026-02-23 16:46:55 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n",
+    "github livepeer/livepeerjs: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/livepeerjs observability each session logged latency first -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05F5:26F7A7:26040D:301EF6:699C847F and timestamp 2026-02-23 16:46:56 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n",
+    "github livepeer/docs: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/docs observability each session logged latency first -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05F8:345D43:2528DC:2F3E07:699C8480 and timestamp 2026-02-23 16:46:56 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n",
+    "github livepeer/livepeer-protocol: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/livepeer-protocol observability each session logged latency first -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05FF:32EEBA:25E531:2FFA81:699C8480 and timestamp 2026-02-23 16:46:57 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "evidence": [
+    {
+      "source_type": "official_docs",
+      "source_url": "https://docs.livepeer.org/v2/about/portal",
+      "source_title": "Livepeer Docs",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "Page Not Found Skip to main content Developers Documentation API Reference SDKs AI Video (Beta) Livepeer Studio ➚ What&#x27;s New ➚ Community ➚ Getting Started Introduction Quickstart CLI Guides Overview Assets Livestream Access control Webhooks Transcode API Viewership Metrics Projects Integrations References API Support Matrix Livepeer Node Software Contract Addresses Example Applications Aweso…",
+      "claim_id": "696decd63dd951db"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/search?q=protocol%20uses%20smart%20contracts%20deployed%20ethereum%20mainnet%20arbitrum",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "search | DeepWiki",
+      "claim_id": "696decd63dd951db"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/livepeer/go-livepeer",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": true,
+      "evidence_excerpt": "livepeer/go-livepeer | DeepWiki Loading... Index your code with Devin DeepWiki DeepWiki livepeer/go-livepeer Index your code with Devin Edit Wiki Share Loading... Last indexed: 27 January 2026 ( ab55f8 ) Overview Architecture Node Types Version History Core Components Livepeer Node Media Server Broadcast Sessions Manager Orchestrator Transcoder AI Gateway AI Workers Technical Systems Video Pipeli…",
+      "claim_id": "696decd63dd951db"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/livepeer/livepeerjs",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "livepeer/livepeerjs | DeepWiki Loading... Index your code with Devin DeepWiki DeepWiki livepeer/livepeerjs Index your code with Devin Share Loading...",
+      "claim_id": "696decd63dd951db"
+    }
+  ],
+  "errors": [
+    "github livepeer/go-livepeer: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/go-livepeer protocol uses smart contracts deployed ethereum -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05ED:258447:2B2FE5:36AC57:699C85A4 and timestamp 2026-02-23 16:51:49 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n",
+    "github livepeer/livepeerjs: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/livepeerjs protocol uses smart contracts deployed ethereum -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05F5:26F7A7:2658F1:3094E8:699C85A5 and timestamp 2026-02-23 16:51:49 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n",
+    "github livepeer/docs: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/docs protocol uses smart contracts deployed ethereum -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05F8:345D43:258983:2FBF93:699C85A6 and timestamp 2026-02-23 16:51:50 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n",
+    "github livepeer/livepeer-protocol: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/livepeer-protocol protocol uses smart contracts deployed ethereum -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05FF:32EEBA:2645D0:307BF0:699C85A6 and timestamp 2026-02-23 16:51:51 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n"
+  ]
+}

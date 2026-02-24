@@ -1,0 +1,46 @@
+{
+  "evidence": [
+    {
+      "source_type": "official_docs",
+      "source_url": "https://docs.livepeer.org/v2/about/livepeer-network/actors",
+      "source_title": "Livepeer Docs",
+      "source_date": null,
+      "supports_claim": true,
+      "evidence_excerpt": "Actors Overview - Livepeer Docs Skip to main content Livepeer Docs home page v2 Need help? Ask our AI ⌘ K Ask AI Search... Navigation Livepeer Network Actors Overview Home About Platforms Developers Gateways GPU Nodes LP Token Community Resource HUB About Livepeer Resource HUB About Livepeer About Portal Start Here Livepeer Overview Livepeer Core Concepts Livepeer Mental Model Livepeer Protocol O…",
+      "claim_id": "f0e2315dac796fb3"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/search?q=gateways%20network%20demand%20side%20not%20earn%20stake%20rewards",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "search | DeepWiki",
+      "claim_id": "f0e2315dac796fb3"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/livepeer/go-livepeer",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "livepeer/go-livepeer | DeepWiki Loading... Index your code with Devin DeepWiki DeepWiki livepeer/go-livepeer Index your code with Devin Edit Wiki Share Loading... Last indexed: 27 January 2026 ( ab55f8 ) Overview Architecture Node Types Version History Core Components Livepeer Node Media Server Broadcast Sessions Manager Orchestrator Transcoder AI Gateway AI Workers Technical Systems Video Pipeli…",
+      "claim_id": "f0e2315dac796fb3"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/livepeer/livepeerjs",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "livepeer/livepeerjs | DeepWiki Loading... Index your code with Devin DeepWiki DeepWiki livepeer/livepeerjs Index your code with Devin Share Loading...",
+      "claim_id": "f0e2315dac796fb3"
+    }
+  ],
+  "errors": [
+    "github livepeer/go-livepeer: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/go-livepeer gateways network demand side not earn -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05D5:31C13B:2397A5:2DA2D4:699C8418 and timestamp 2026-02-23 16:45:13 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n",
+    "github livepeer/livepeerjs: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/livepeerjs gateways network demand side not earn -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05D8:2C7770:22F671:2CFF8F:699C8419 and timestamp 2026-02-23 16:45:13 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n",
+    "github livepeer/docs: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/docs gateways network demand side not earn -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05E0:243AB8:23B57C:2DC059:699C8419 and timestamp 2026-02-23 16:45:13 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n",
+    "github livepeer/livepeer-protocol: Command failed: gh api search/code -X GET -H Accept: application/vnd.github.text-match+json -f q=repo:livepeer/livepeer-protocol gateways network demand side not earn -f per_page=1\ngh: API rate limit exceeded for user ID 12529822. If you reach out to GitHub Support for help, please include the request ID 05E3:16B51A:23FB8E:2E06CF:699C841A and timestamp 2026-02-23 16:45:14 UTC. For more on scraping GitHub and how it may affect your rights, please review our Terms of Service (https://docs.github.com/en/site-policy/github-terms/github-terms-of-service) (HTTP 403)\n"
+  ]
+}

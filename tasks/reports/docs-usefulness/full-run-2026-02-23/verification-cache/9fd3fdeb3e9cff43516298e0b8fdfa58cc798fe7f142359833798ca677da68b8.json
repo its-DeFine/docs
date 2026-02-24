@@ -1,0 +1,45 @@
+{
+  "evidence": [
+    {
+      "source_type": "github_docs",
+      "source_url": "https://github.com/livepeer/docs/blob/0ea9685c40602ba40a2c198740fc1a2714fd6a6b/v2/README.mdx",
+      "source_title": "livepeer/docs:v2/README.mdx",
+      "source_date": null,
+      "supports_claim": true,
+      "evidence_excerpt": "# Docs IA, Organisation, Structure & Styling ## Site Layout - Header: - Search Bar / AI Assistant - Version Selector: all information from the original docs is in this repo. Simply switch to v1 at the top of the page. - Socials Icons",
+      "claim_id": "5cad01212a5ae725"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/search?q=docs%20organisation%20structure%20styling%20site%20layout%20header%20search",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "search | DeepWiki",
+      "claim_id": "5cad01212a5ae725"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/livepeer/go-livepeer",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "livepeer/go-livepeer | DeepWiki Loading... Index your code with Devin DeepWiki DeepWiki livepeer/go-livepeer Index your code with Devin Edit Wiki Share Loading... Last indexed: 27 January 2026 ( ab55f8 ) Overview Architecture Node Types Version History Core Components Livepeer Node Media Server Broadcast Sessions Manager Orchestrator Transcoder AI Gateway AI Workers Technical Systems Video Pipeli…",
+      "claim_id": "5cad01212a5ae725"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/livepeer/livepeerjs",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "livepeer/livepeerjs | DeepWiki Loading... Index your code with Devin DeepWiki DeepWiki livepeer/livepeerjs Index your code with Devin Share Loading...",
+      "claim_id": "5cad01212a5ae725"
+    }
+  ],
+  "errors": [
+    "github livepeer/go-livepeer: spawnSync gh ETIMEDOUT",
+    "github livepeer/livepeerjs: spawnSync gh ETIMEDOUT",
+    "official https://docs.livepeer.org/v2/README: This operation was aborted"
+  ]
+}

@@ -63,7 +63,7 @@ function normalizeDocsRouteKey(routePath) {
 function collectDocsPageEntries(node, out = []) {
   if (typeof node === 'string') {
     const value = node.trim();
-    if (value.startsWith('v1/') || value.startsWith('v2/pages/')) {
+    if (value.startsWith('v1/') || value.startsWith('v2/')) {
       out.push(value);
     }
     return out;
@@ -117,7 +117,7 @@ function toDocsRouteKeyFromFile(filePath, rootDir = null) {
   const repoRoot = resolveRepoRoot(rootDir);
   const absPath = path.isAbsolute(filePath) ? filePath : path.resolve(repoRoot, filePath);
   const relPath = toPosix(path.relative(repoRoot, absPath));
-  if (!(relPath.startsWith('v1/') || relPath.startsWith('v2/pages/'))) {
+  if (!(relPath.startsWith('v1/') || relPath.startsWith('v2/'))) {
     return '';
   }
   return normalizeDocsRouteKey(relPath);

@@ -1,0 +1,50 @@
+{
+  "evidence": [
+    {
+      "source_type": "github_docs",
+      "source_url": "https://github.com/livepeer/docs/blob/0ea9685c40602ba40a2c198740fc1a2714fd6a6b/tasks/context_data/ABOUT/CONTEXT%20DATA/Network/livepeer_marketplace.md",
+      "source_title": "livepeer/docs:tasks/context_data/ABOUT/CONTEXT DATA/Network/livepeer_marketplace.md",
+      "source_date": null,
+      "supports_claim": true,
+      "evidence_excerpt": "## Price Discovery The current Livepeer implementation uses **posted pricing** (orchestrator-set), not auction-based. A few notes: - Clients can be matched to the lowest available compatible provider. - Bids may vary by:",
+      "claim_id": "e29e5f4e9f5dd852"
+    },
+    {
+      "source_type": "official_docs",
+      "source_url": "https://docs.livepeer.org/v2/about/livepeer-network/marketplace",
+      "source_title": "Livepeer Docs",
+      "source_date": null,
+      "supports_claim": true,
+      "evidence_excerpt": "Livepeer Marketplace - Livepeer Docs Skip to main content Livepeer Docs home page v2 Need help? Ask our AI ⌘ K Ask AI Search... Navigation Livepeer Network Livepeer Marketplace Home About Platforms Developers Gateways GPU Nodes LP Token Community Resource HUB About Livepeer Resource HUB About Livepeer About Portal Start Here Livepeer Overview Livepeer Core Concepts Livepeer Mental Model Livepeer …",
+      "claim_id": "e29e5f4e9f5dd852"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/search?q=few%20notes%20clients%20matched%20lowest%20available%20compatible%20provider",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "search | DeepWiki",
+      "claim_id": "e29e5f4e9f5dd852"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/livepeer/go-livepeer",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "livepeer/go-livepeer | DeepWiki Loading... Index your code with Devin DeepWiki DeepWiki livepeer/go-livepeer Index your code with Devin Edit Wiki Share Loading... Last indexed: 27 January 2026 ( ab55f8 ) Overview Architecture Node Types Version History Core Components Livepeer Node Media Server Broadcast Sessions Manager Orchestrator Transcoder AI Gateway AI Workers Technical Systems Video Pipeli…",
+      "claim_id": "e29e5f4e9f5dd852"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/livepeer/livepeerjs",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "livepeer/livepeerjs | DeepWiki Loading... Index your code with Devin DeepWiki DeepWiki livepeer/livepeerjs Index your code with Devin Share Loading...",
+      "claim_id": "e29e5f4e9f5dd852"
+    }
+  ],
+  "errors": []
+}

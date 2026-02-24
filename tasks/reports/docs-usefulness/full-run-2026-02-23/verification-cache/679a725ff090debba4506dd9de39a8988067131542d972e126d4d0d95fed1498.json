@@ -1,0 +1,50 @@
+{
+  "evidence": [
+    {
+      "source_type": "github_docs",
+      "source_url": "https://github.com/livepeer/docs/blob/0ea9685c40602ba40a2c198740fc1a2714fd6a6b/v2/pages/01_about/livepeer-protocol/treasury.mdx",
+      "source_title": "livepeer/docs:v2/pages/01_about/livepeer-protocol/treasury.mdx",
+      "source_date": null,
+      "supports_claim": true,
+      "evidence_excerpt": "1. **Protocol Inflation**: 25% of newly minted LPT (inflationary rewards LPT) goes directly to the on-chain community treasury each round. (into a multisig controlled by the Livepeer Foundation and community stewards.) 2. **Slashing Penalties**: when orchestrators are slashed, 50% of the slashed LPT is burned and 50% is transferred to the treasury. 3. **Fee Pool Remainders**: if gateways/broadcas…",
+      "claim_id": "b14706646fb2384f"
+    },
+    {
+      "source_type": "official_docs",
+      "source_url": "https://docs.livepeer.org/v2/about/livepeer-protocol/treasury",
+      "source_title": "Livepeer Docs",
+      "source_date": null,
+      "supports_claim": true,
+      "evidence_excerpt": "Livepeer Treasury - Livepeer Docs Skip to main content Livepeer Docs home page v2 Need help? Ask our AI ⌘ K Ask AI Search... Navigation Livepeer Protocol Livepeer Treasury Home About Platforms Developers Gateways GPU Nodes LP Token Community Resource HUB About Livepeer Resource HUB About Livepeer About Portal Start Here Livepeer Overview Livepeer Core Concepts Livepeer Mental Model Livepeer Proto…",
+      "claim_id": "b14706646fb2384f"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/search?q=fee%20pool%20remainders%20gateways%2Fbroadcasters%20deposit%20more%20eth%20ultimately",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "search | DeepWiki",
+      "claim_id": "b14706646fb2384f"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/livepeer/go-livepeer",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "livepeer/go-livepeer | DeepWiki Loading... Index your code with Devin DeepWiki DeepWiki livepeer/go-livepeer Index your code with Devin Edit Wiki Share Loading... Last indexed: 27 January 2026 ( ab55f8 ) Overview Architecture Node Types Version History Core Components Livepeer Node Media Server Broadcast Sessions Manager Orchestrator Transcoder AI Gateway AI Workers Technical Systems Video Pipeli…",
+      "claim_id": "b14706646fb2384f"
+    },
+    {
+      "source_type": "deepwiki",
+      "source_url": "https://deepwiki.com/livepeer/livepeerjs",
+      "source_title": "DeepWiki",
+      "source_date": null,
+      "supports_claim": "partial",
+      "evidence_excerpt": "livepeer/livepeerjs | DeepWiki Loading... Index your code with Devin DeepWiki DeepWiki livepeer/livepeerjs Index your code with Devin Share Loading...",
+      "claim_id": "b14706646fb2384f"
+    }
+  ],
+  "errors": []
+}
