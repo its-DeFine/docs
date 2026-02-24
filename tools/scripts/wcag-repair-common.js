@@ -15,12 +15,12 @@
  *   --fix | --no-fix (default: --fix)
  *   --stage (git add only content files changed by autofix)
  *   --fail-impact <critical|serious|moderate|minor|none> (default: serious)
- *   --report <path> (default: tasks/reports/wcag/v2-wcag-repair-common-report.md)
- *   --report-json <path> (default: tasks/reports/v2-wcag-repair-common-report.json)
+ *   --report <path> (default: tasks/reports/quality-accessibility/v2-wcag-repair-common-report.md)
+ *   --report-json <path> (default: tasks/reports/quality-accessibility/v2-wcag-repair-common-report.json)
  *
  * @outputs
- *   - tasks/reports/wcag/v2-wcag-repair-common-report.md (default)
- *   - tasks/reports/wcag/v2-wcag-repair-common-report.json (default)
+ *   - tasks/reports/quality-accessibility/v2-wcag-repair-common-report.md (default)
+ *   - tasks/reports/quality-accessibility/v2-wcag-repair-common-report.json (default)
  *   - v2/*.mdx or v2/*.md changes when --fix (default) applies conservative autofixes
  *
  * @exit-codes
@@ -39,8 +39,8 @@
 const path = require('path');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
-const DEFAULT_REPORT_MD = path.join(REPO_ROOT, 'tasks', 'reports', 'wcag', 'v2-wcag-repair-common-report.md');
-const DEFAULT_REPORT_JSON = path.join(REPO_ROOT, 'tasks', 'reports', 'wcag', 'v2-wcag-repair-common-report.json');
+const DEFAULT_REPORT_MD = path.join(REPO_ROOT, 'tasks', 'reports', 'quality-accessibility', 'v2-wcag-repair-common-report.md');
+const DEFAULT_REPORT_JSON = path.join(REPO_ROOT, 'tasks', 'reports', 'quality-accessibility', 'v2-wcag-repair-common-report.json');
 
 function parseWrapperArgs(argv) {
   const passThrough = [];

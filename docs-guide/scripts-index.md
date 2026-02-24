@@ -85,6 +85,7 @@ Aggregate catalog generated from group script indexes.
 | `tools/scripts/inspect-video-page.js` | Utility script for tools/scripts/inspect-video-page.js. | `node tools/scripts/inspect-video-page.js` | docs |
 | `tools/scripts/mint-dev.sh` | Utility script for tools/scripts/mint-dev.sh. | `bash tools/scripts/mint-dev.sh` | docs |
 | `tools/scripts/new-script.js` | Create a new script file prefilled with the required docs header template. | `node tools/scripts/new-script.js --path tests/integration/my-script.js` | docs |
+| `tools/scripts/publish-v2-internal-reports.js` | Duplicate approved markdown reports into v2/internal/reports pages with metadata and update docs.json. | `node tools/scripts/publish-v2-internal-reports.js --check` | docs |
 | `tools/scripts/snippets/fetch-external-docs.sh` | Utility script for tools/scripts/snippets/fetch-external-docs.sh. | `bash tools/scripts/snippets/fetch-external-docs.sh` | docs |
 | `tools/scripts/snippets/fetch-lpt-exchanges.sh` | Utility script for tools/scripts/snippets/fetch-lpt-exchanges.sh. | `bash tools/scripts/snippets/fetch-lpt-exchanges.sh` | docs |
 | `tools/scripts/snippets/fetch-openapi-specs.sh` | Utility script for tools/scripts/snippets/fetch-openapi-specs.sh. | `bash tools/scripts/snippets/fetch-openapi-specs.sh` | docs |

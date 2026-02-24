@@ -12,7 +12,8 @@
  *   No required CLI flags; optional flags are documented inline.
  *
  * @outputs
- *   - Console output and/or file updates based on script purpose.
+ *   - tasks/reports/page-audits/browser-test-report.json
+ *   - tasks/reports/page-audits/browser-test-report.md
  *
  * @exit-codes
  *   0 = success
@@ -41,7 +42,7 @@ const puppeteer = require('puppeteer');
 const DOCS_JSON_PATH = path.join(__dirname, '..', '..', 'docs.json');
 const BASE_URL = process.env.MINT_BASE_URL || 'http://localhost:3000';
 const TIMEOUT = 30000; // 30 seconds per page
-const REPORT_DIR = path.join(__dirname, '..', '..', 'tasks', 'reports');
+const REPORT_DIR = path.join(__dirname, '..', '..', 'tasks', 'reports', 'page-audits');
 
 /**
  * Recursively extract all page paths from navigation structure

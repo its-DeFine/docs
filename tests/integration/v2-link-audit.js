@@ -12,13 +12,13 @@
  *   --full (default)
  *   --staged
  *   --files <path[,path...]> (repeatable; explicit files mode)
- *   --report <path> (default: tasks/reports/LINK_TEST_REPORT.md)
+ *   --report <path> (default: tasks/reports/navigation-links/LINK_TEST_REPORT.md)
  *   --write-links (default true for --full, false for --staged/--files)
  *   --strict (exit 1 if missing internal/import targets are found)
  *   --external-policy classify (only supported mode)
  *
  * @outputs
- *   - Markdown report at tasks/reports/LINK_TEST_REPORT.md (or custom path)
+ *   - Markdown report at tasks/reports/navigation-links/LINK_TEST_REPORT.md (or custom path)
  *   - snippets/data/<domain>/hrefs.jsx files when write-links enabled
  *
  * @exit-codes
@@ -45,7 +45,7 @@ const MODERN_V2_PAGES_DIR = path.join(REPO_ROOT, 'v2');
 const V2_PAGES_DIR = fs.existsSync(LEGACY_V2_PAGES_DIR) ? LEGACY_V2_PAGES_DIR : MODERN_V2_PAGES_DIR;
 const INDEX_PATH = path.join(V2_PAGES_DIR, 'index.mdx');
 const DOCS_CONFIG_PATH = path.join(REPO_ROOT, 'docs.json');
-const DEFAULT_REPORT = path.join(REPO_ROOT, 'tasks', 'reports', 'LINK_TEST_REPORT.md');
+const DEFAULT_REPORT = path.join(REPO_ROOT, 'tasks', 'reports', 'navigation-links', 'LINK_TEST_REPORT.md');
 const LINKABLE_ATTRS = ['href', 'src', 'srcset', 'poster', 'action', 'data', 'to', 'image', 'url'];
 const EXCLUDED_ATTRS = new Set(['icon']);
 const FILE_EXT_CANDIDATES = ['.mdx', '.md', '.jsx', '.js', '.tsx', '.ts', '.json'];

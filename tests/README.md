@@ -41,14 +41,14 @@ Domain load audit against deployed docs URLs.
 
 - `node tests/integration/v2-link-audit.js`
 Comprehensive static link/import audit for all `v2/pages` MDX files and recursively imported MDX dependencies.
-Generates `tasks/reports/LINK_TEST_REPORT.md` and domain link maps at `snippets/data/<domain>/hrefs.jsx` in full mode.
+Generates `tasks/reports/navigation-links/LINK_TEST_REPORT.md` and domain link maps at `snippets/data/<domain>/hrefs.jsx` in full mode.
 
 - `node tests/integration/v2-wcag-audit.js`
 Hybrid v2 accessibility audit for filesystem docs pages under `v2/` (excluding any `x-*` directories).
 Runs conservative static checks/autofix on all selected files and browser-rendered WCAG checks (axe-core) on routable pages.
 Generates deterministic reports (overwritten each run) at:
-  - `tasks/reports/wcag/v2-wcag-audit-report.md`
-  - `tasks/reports/wcag/v2-wcag-audit-report.json`
+  - `tasks/reports/quality-accessibility/v2-wcag-audit-report.md`
+  - `tasks/reports/quality-accessibility/v2-wcag-audit-report.json`
 
 Flags:
 - `--staged` only checks staged docs pages
@@ -58,7 +58,7 @@ Flags:
 - Link audit flags:
   - `--full` (default)
   - `--staged`
-  - `--report <path>` (default: `tasks/reports/LINK_TEST_REPORT.md`)
+  - `--report <path>` (default: `tasks/reports/navigation-links/LINK_TEST_REPORT.md`)
   - `--write-links` (default: true in full mode, false in staged/files mode)
   - `--strict` (exit non-zero on missing internal links/imports)
   - `--external-policy classify` (external URLs are classified-only, marked `🟡 untested-external`)
@@ -75,8 +75,8 @@ Flags:
 
 Report output (same file each run, overwritten):
 - `tests/reports/domain-page-load-report.json`
-- `tasks/reports/wcag/v2-wcag-audit-report.md`
-- `tasks/reports/wcag/v2-wcag-audit-report.json`
+- `tasks/reports/quality-accessibility/v2-wcag-audit-report.md`
+- `tasks/reports/quality-accessibility/v2-wcag-audit-report.json`
 
 WCAG coverage note:
 - Automated WCAG checks are partial coverage and do not replace manual accessibility review (keyboard UX, screen-reader flows, content meaning, and task-based testing).
