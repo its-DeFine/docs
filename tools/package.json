@@ -9,6 +9,13 @@
     "cspell": "^8.0.0",
     "js-yaml": "^4.1.0"
   },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "remark-gfm": "^4.0.1",
+    "remark-mdx": "^3.1.1",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5"
+  },
   "scripts": {
     "format-mdx": "node convert-jsx-comments-to-markdown.js '**/*.mdx' && prettier --write '**/*.mdx'",
     "audit:scripts": "node scripts/audit-scripts.js",
@@ -26,6 +33,10 @@
     "test:browser": "node ../tests/integration/browser.test.js",
     "test:browser:all": "node ../tests/integration/browser.test.js",
     "test:quality": "node ../tests/unit/quality.test.js",
-    "test:all-pages": "node scripts/test-v2-pages.js"
+    "test:all-pages": "node scripts/test-v2-pages.js",
+    "i18n:translate": "node scripts/i18n/translate-docs.js",
+    "i18n:docs-json": "node scripts/i18n/generate-localized-docs-json.js",
+    "i18n:validate": "node scripts/i18n/validate-generated.js",
+    "test:i18n": "node --test scripts/i18n/test/*.test.js"
   }
 }

@@ -70,6 +70,29 @@ lpd scripts run tools generate-docs-guide-indexes -- --check
 lpd tools dev test-add-callouts -- --help
 ```
 
+### 6) I18n translation pipeline (OpenRouter free-only default)
+
+The translation tooling is available through the same managed script interface:
+
+```bash
+./lpd tools i18n translate-docs -- --help
+./lpd tools i18n generate-localized-docs-json -- --help
+./lpd tools i18n validate-generated -- --help
+```
+
+Typical local smoke run (real OpenRouter translation, single page):
+
+```bash
+./lpd tools i18n translate-docs -- \
+  --provider openrouter \
+  --languages es \
+  --scope-mode prefixes \
+  --prefixes v2/about/livepeer-network \
+  --max-pages 1 \
+  --route-map /tmp/i18n-route-map.json \
+  --report-json /tmp/i18n-translate-report.json
+```
+
 ## Script Discovery Constraints
 
 - script discovery supports root `.lpdignore` patterns

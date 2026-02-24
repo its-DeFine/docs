@@ -106,7 +106,7 @@ function walkDocsFiles(dirPath, out = []) {
 }
 
 function collectExistingRoutes(repoRoot) {
-  const roots = [path.join(repoRoot, 'v1'), path.join(repoRoot, 'v2', 'pages')];
+  const roots = [path.join(repoRoot, 'v1'), path.join(repoRoot, 'v2', 'pages'), path.join(repoRoot, 'v2')];
   const routeSet = new Set();
 
   roots.forEach((rootPath) => {

@@ -1,0 +1,71 @@
+const fs = require('fs');
+const path = require('path');
+const { normalizeRepoRel, toPosix, isExternalHref } = require('./common');
+
+function normalizeRouteKey(value) {
+  let normalized = String(value || '').trim();
+  normalized = normalized.replace(/^\/+/, '');
+  normalized = normalized.replace(/\.(md|mdx)$/i, '');
+  normalized = normalized.replace(/\/index$/i, '');
+  normalized = normalized.replace(/\/+$/, '');
+  return normalized;
+}
+
+function routeToFileCandidates(routeValue) {
+  const route = normalizeRouteKey(routeValue);
+  if (!route) return [];
+  return [
+    `${route}.mdx`,
+    `${route}.md`,
+    `${route}/index.mdx`,
+    `${route}/index.md`,
+    `${route}/README.mdx`,
+    `${route}/README.md`
+  ];
+}
+
+function resolveRouteToFile(repoRoot, routeValue) {
+  for (const candidate of routeToFileCandidates(routeValue)) {
+    const abs = path.join(repoRoot, candidate);
+    if (fs.existsSync(abs)) return normalizeRepoRel(candidate);
+  }
+  return '';
+}
+
+function fileToRouteKey(repoRoot, filePath) {
+  const rel = normalizeRepoRel(path.relative(repoRoot, filePath));
+  return normalizeRouteKey(rel);
+}
+
+function repoFileRelToLocalizedFileRel(sourceRepoFileRel, language, generatedRoot = 'v2/i18n') {
+  const normalized = normalizeRepoRel(sourceRepoFileRel);
+  if (!normalized.startsWith('v2/')) {
+    throw new Error(`Expected v2 source file path, received: ${sourceRepoFileRel}`);
+  }
+  const suffix = normalized.slice('v2/'.length);
+  return normalizeRepoRel(path.posix.join(generatedRoot, language, suffix));
+}
+
+function repoRouteToLocalizedRoute(sourceRoute, language, generatedRoot = 'v2/i18n') {
+  const route = normalizeRouteKey(sourceRoute);
+  if (!route.startsWith('v2/')) return route;
+  const suffix = route.slice('v2/'.length);
+  return normalizeRepoRel(path.posix.join(generatedRoot, language, suffix));
+}
+
+function routeStringLooksInternalDocs(routeValue) {
+  const trimmed = String(routeValue || '').trim();
+  if (!trimmed) return false;
+  if (trimmed === ' ') return false;
+  if (isExternalHref(trimmed)) return false;
+  return /^v\d+\//i.test(trimmed) || trimmed.startsWith('/');
+}
+
+module.exports = {
+  fileToRouteKey,
+  normalizeRouteKey,
+  repoFileRelToLocalizedFileRel,
+  repoRouteToLocalizedRoute,
+  resolveRouteToFile,
+  routeStringLooksInternalDocs
+};
