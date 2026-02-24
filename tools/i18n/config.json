@@ -19,7 +19,7 @@
     "requestTimeoutMs": 60000
   },
   "translationRules": {
-    "translateFrontmatterKeys": ["title", "sidebarTitle", "description", "tag"],
+    "translateFrontmatterKeys": ["title", "sidebarTitle", "description"],
     "translateDocsJsonLabelKeys": ["tab", "anchor", "group"],
     "translateKeywords": false,
     "preserveBrandTerms": ["Livepeer", "LPT", "ETH", "Arbitrum", "Mintlify", "OpenRouter"],
