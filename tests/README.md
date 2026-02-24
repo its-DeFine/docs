@@ -43,6 +43,13 @@ Domain load audit against deployed docs URLs.
 Comprehensive static link/import audit for all `v2/pages` MDX files and recursively imported MDX dependencies.
 Generates `tasks/reports/LINK_TEST_REPORT.md` and domain link maps at `snippets/data/<domain>/hrefs.jsx` in full mode.
 
+- `node tests/integration/v2-wcag-audit.js`
+Hybrid v2 accessibility audit for filesystem docs pages under `v2/` (excluding any `x-*` directories).
+Runs conservative static checks/autofix on all selected files and browser-rendered WCAG checks (axe-core) on routable pages.
+Generates deterministic reports (overwritten each run) at:
+  - `tasks/reports/wcag/v2-wcag-audit-report.md`
+  - `tasks/reports/wcag/v2-wcag-audit-report.json`
+
 Flags:
 - `--staged` only checks staged docs pages
 - `--files <path[,path...]>` only checks explicit docs page files (repeatable)
@@ -55,15 +62,31 @@ Flags:
   - `--write-links` (default: true in full mode, false in staged/files mode)
   - `--strict` (exit non-zero on missing internal links/imports)
   - `--external-policy classify` (external URLs are classified-only, marked `🟡 untested-external`)
+- WCAG audit flags:
+  - `--full` (default)
+  - `--staged`
+  - `--files <path[,path...]>` (repeatable)
+  - `--fix` / `--no-fix` (default: `--fix`)
+  - `--stage` (stage autofixed content files)
+  - `--max-pages <n>` (cap browser-audited pages)
+  - `--base-url <url>` (otherwise local server manager is used)
+  - `--fail-impact <critical|serious|moderate|minor|none>` (default: `serious`)
+  - `--report <path>` / `--report-json <path>`
 
 Report output (same file each run, overwritten):
 - `tests/reports/domain-page-load-report.json`
+- `tasks/reports/wcag/v2-wcag-audit-report.md`
+- `tasks/reports/wcag/v2-wcag-audit-report.json`
+
+WCAG coverage note:
+- Automated WCAG checks are partial coverage and do not replace manual accessibility review (keyboard UX, screen-reader flows, content meaning, and task-based testing).
 
 ## Running Tests
 
 ### All Tests
 ```bash
 node tests/run-all.js
+node tests/run-all.js --wcag
 ```
 
 ### Domain Audit Examples
@@ -76,6 +99,13 @@ node tests/integration/domain-pages-audit.js --base-url https://docs.livepeer.or
 node tests/integration/v2-link-audit.js --full --write-links
 node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md
 node tests/integration/v2-link-audit.js --files v2/community/livepeer-community/trending-topics.mdx --strict
+node tests/integration/v2-wcag-audit.js --full
+node tests/integration/v2-wcag-audit.js --full --no-fix
+node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json
+bash lpd test --staged --wcag
+bash lpd test --full --wcag
+bash lpd test --full --wcag --wcag-no-fix
+bash lpd tools wcag-repair-common -- --staged --stage
 node tests/run-pr-checks.js --base-ref main
 ```
 
@@ -99,6 +129,11 @@ npm --prefix tests run test:domain
 npm --prefix tests run test:domain:v1
 npm --prefix tests run test:domain:v2
 npm --prefix tests run test:domain:both
+npm --prefix tests run test:wcag
+npm --prefix tests run test:wcag:staged
+npm --prefix tests run test:wcag:nofix
+npm --prefix tests run test:wcag:unit
+npm --prefix tests run test:wcag:selftest
 ```
 
 ## PR CI Behavior (Changed-File Blocking)
@@ -116,6 +151,8 @@ npm --prefix tests run test:domain:both
 - Pre-commit runs `tests/run-all.js --staged --skip-browser` in fast mode.
 - Pre-commit also runs domain audit on staged docs pages:
   `node tests/integration/domain-pages-audit.js --staged --base-url https://docs.livepeer.org --version "$DOMAIN_AUDIT_VERSION"`
+- Pre-commit runs staged WCAG accessibility audit (conservative autofix enabled by default, blocks on remaining `serious`/`critical` issues):
+  `node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json`
 - Pre-commit runs staged V2 link audit (strict internal validation, external classify-only):
   `node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-precommit.md`
 - Set `DOMAIN_AUDIT_VERSION=v1|v2|both` to control scope in pre-commit.

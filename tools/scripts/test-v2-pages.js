@@ -93,10 +93,9 @@ function getV2Pages() {
  * Convert page path to URL
  */
 function pageToUrl(pagePath) {
-  // Support both legacy `v2/pages/...` and migrated `v2/<domain>/...` paths.
+  // Preserve docs.json route paths exactly; only normalize legacy `v2/pages/...` to `v2/...`.
   let url = pagePath
-    .replace(/^v2\/pages\//, '')
-    .replace(/^v2\//, '')
+    .replace(/^v2\/pages\//, 'v2/')
     .replace(/\.mdx?$/, '');
   
   // Handle index pages (ending with /)

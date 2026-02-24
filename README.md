@@ -48,6 +48,7 @@ bash lpd dev
 
 ```bash
 lpd test --staged
+lpd test --staged --wcag
 ```
 
 ## Core Capabilities (At a Glance)
@@ -120,6 +121,7 @@ Contributor deep docs:
 
 - `.githooks/pre-commit` runs structure/style verification and staged checks
 - includes script docs enforcement and pages index synchronization
+- includes staged WCAG accessibility audit with conservative autofix for common raw-tag issues
 - docs-guide source-of-truth checks currently run in advisory mode
 
 ### CI (GitHub Actions)

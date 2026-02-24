@@ -48,10 +48,21 @@ lpd dev -- --port 3333
 
 ```bash
 lpd test --staged
+lpd test --staged --wcag
 lpd test --full
+lpd test --full --wcag
+lpd test --full --wcag --wcag-no-fix
 lpd test --browser
 lpd ci --skip-browser
 ```
+
+WCAG audit notes:
+
+- `--wcag` runs the v2 accessibility audit after the normal `lpd test` flow.
+- In default/fast and `--staged` modes, `lpd` maps WCAG to a staged, capped run (`--staged --max-pages 10`).
+- In `--full` mode, `lpd` runs the full v2 WCAG sweep.
+- WCAG autofix is enabled by default for the WCAG script; use `--wcag-no-fix` to switch to suggestions-only mode.
+- Automated WCAG checks are partial coverage and do not replace manual accessibility review.
 
 ### 4) Hook management
 
@@ -68,6 +79,7 @@ lpd hooks info
 lpd scripts list --group tools
 lpd scripts run tools generate-docs-guide-indexes -- --check
 lpd tools dev test-add-callouts -- --help
+lpd tools wcag-repair-common -- --staged --stage
 ```
 
 ## Script Discovery Constraints
