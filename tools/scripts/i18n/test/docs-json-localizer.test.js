@@ -10,6 +10,20 @@ function fixtureDocsJson() {
     navigation: {
       versions: [
         {
+          version: 'v1',
+          languages: [
+            {
+              language: 'en',
+              dropdowns: [
+                {
+                  dropdown: 'Developers',
+                  anchors: [{ anchor: 'Docs', groups: [{ group: 'Start', pages: ['v1/developers/introduction'] }] }]
+                }
+              ]
+            }
+          ]
+        },
+        {
           version: 'v2',
           languages: [
             {
@@ -125,6 +139,14 @@ test('generateLocalizedDocsJson clones v2 english node, translates labels, and r
   assert.equal(result.report.perLanguage[0].routeCoverageOverallPct, 100);
   assert.equal(result.report.perLanguage[0].routeCoverageScope, 'full_v2_nav');
   assert.deepEqual(result.report.perLanguage[0].warnings, []);
+  assert.deepEqual(result.report.v1FallbackLanguagesAdded, ['es']);
+
+  const v1 = result.docsJson.navigation.versions.find((v) => v.version === 'v1');
+  assert.deepEqual(
+    v1.languages.map((l) => l.language),
+    ['en', 'es']
+  );
+  assert.equal(v1.languages[1].dropdowns[0].dropdown, 'Developers');
 });
 
 test('generateLocalizedDocsJson rejects mock provenance routes for rewrite and reports fallback diagnostics', async () => {

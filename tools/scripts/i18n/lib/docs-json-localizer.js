@@ -274,6 +274,37 @@ function routeCoverageScopeLabel(scopeMode) {
   return 'unknown';
 }
 
+function ensureVersionFallbackLanguages({ docsJson, version, targetLanguages }) {
+  const versions = docsJson?.navigation?.versions || [];
+  const versionNode = versions.find((node) => node?.version === version);
+  if (!versionNode || !Array.isArray(versionNode.languages)) {
+    return { added: [] };
+  }
+
+  const englishNode = versionNode.languages.find((langNode) => langNode?.language === 'en');
+  if (!englishNode) {
+    return { added: [] };
+  }
+
+  const existingByCode = new Map(
+    versionNode.languages
+      .filter((langNode) => langNode?.language)
+      .map((langNode) => [langNode.language, langNode])
+  );
+
+  const added = [];
+  for (const language of targetLanguages) {
+    if (language === 'en') continue;
+    if (existingByCode.has(language)) continue;
+    const fallbackNode = deepClone(englishNode);
+    fallbackNode.language = language;
+    versionNode.languages.push(fallbackNode);
+    added.push(language);
+  }
+
+  return { added };
+}
+
 function collectWarningsForLanguage({
   language,
   routeCoverageScope,
@@ -328,6 +359,11 @@ async function generateLocalizedDocsJson({
 }) {
   const nextDocsJson = deepClone(docsJson);
   const versions = nextDocsJson?.navigation?.versions || [];
+  const v1Fallback = ensureVersionFallbackLanguages({
+    docsJson: nextDocsJson,
+    version: 'v1',
+    targetLanguages
+  });
   const v2Version = versions.find((versionNode) => versionNode?.version === 'v2');
   if (!v2Version) throw new Error('v2 version not found in docs.json');
   const englishNode = (v2Version.languages || []).find((langNode) => langNode?.language === 'en');
@@ -416,7 +452,8 @@ async function generateLocalizedDocsJson({
     docsJson: nextDocsJson,
     report: {
       warnings: resultWarnings,
-      perLanguage
+      perLanguage,
+      v1FallbackLanguagesAdded: v1Fallback.added
     }
   };
 }
@@ -426,5 +463,6 @@ module.exports = {
   collectLabelFields,
   detectMockPrefixedLabels,
   generateLocalizedDocsJson,
+  ensureVersionFallbackLanguages,
   topFallbackDiagnostics
 };
