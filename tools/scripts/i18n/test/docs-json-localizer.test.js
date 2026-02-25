@@ -58,9 +58,9 @@ function fixtureDocsJson() {
 
 test('generateLocalizedDocsJson clones v2 english node, translates labels, and rewrites localized routes', async () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'i18n-docs-json-'));
-  fs.mkdirSync(path.join(tmp, 'v2', 'i18n', 'es', 'about', 'livepeer-network'), { recursive: true });
-  fs.writeFileSync(path.join(tmp, 'v2', 'i18n', 'es', 'about', 'livepeer-network', 'actors.mdx'), '# actors');
-  fs.writeFileSync(path.join(tmp, 'v2', 'i18n', 'es', 'about', 'livepeer-network', 'job-lifecycle.mdx'), '# job');
+  fs.mkdirSync(path.join(tmp, 'v2', 'es', 'about', 'livepeer-network'), { recursive: true });
+  fs.writeFileSync(path.join(tmp, 'v2', 'es', 'about', 'livepeer-network', 'actors.mdx'), '# actors');
+  fs.writeFileSync(path.join(tmp, 'v2', 'es', 'about', 'livepeer-network', 'job-lifecycle.mdx'), '# job');
 
   const translator = {
     name: 'openrouter',
@@ -72,8 +72,8 @@ test('generateLocalizedDocsJson clones v2 english node, translates labels, and r
   const routeMapEntries = [
     {
       sourceRoute: 'v2/about/livepeer-network/actors',
-      localizedRoute: 'v2/i18n/es/about/livepeer-network/actors',
-      localizedFile: 'v2/i18n/es/about/livepeer-network/actors.mdx',
+      localizedRoute: 'v2/es/about/livepeer-network/actors',
+      localizedFile: 'v2/es/about/livepeer-network/actors.mdx',
       language: 'es',
       status: 'translated',
       provider: 'openrouter',
@@ -81,8 +81,8 @@ test('generateLocalizedDocsJson clones v2 english node, translates labels, and r
     },
     {
       sourceRoute: 'v2/about/livepeer-network/job-lifecycle',
-      localizedRoute: 'v2/i18n/es/about/livepeer-network/job-lifecycle',
-      localizedFile: 'v2/i18n/es/about/livepeer-network/job-lifecycle.mdx',
+      localizedRoute: 'v2/es/about/livepeer-network/job-lifecycle',
+      localizedFile: 'v2/es/about/livepeer-network/job-lifecycle.mdx',
       language: 'es',
       status: 'translated',
       provider: 'openrouter',
@@ -131,8 +131,8 @@ test('generateLocalizedDocsJson clones v2 english node, translates labels, and r
   const es = v2.languages.find((l) => l.language === 'es');
   assert.match(es.tabs[0].tab, /^ES:/);
   assert.doesNotMatch(es.tabs[0].tab, /^\[es\]/);
-  assert.equal(es.tabs[0].anchors[0].groups[0].pages[0], 'v2/i18n/es/about/livepeer-network/actors');
-  assert.equal(es.tabs[0].anchors[0].groups[0].pages[1], 'v2/i18n/es/about/livepeer-network/job-lifecycle');
+  assert.equal(es.tabs[0].anchors[0].groups[0].pages[0], 'v2/es/about/livepeer-network/actors');
+  assert.equal(es.tabs[0].anchors[0].groups[0].pages[1], 'v2/es/about/livepeer-network/job-lifecycle');
   assert.equal(es.tabs[0].anchors[0].groups[0].pages[2], ' ');
   assert.equal(result.report.perLanguage[0].rewrittenRoutes, 2);
   assert.equal(result.report.perLanguage[0].fallbackRoutes, 0);
@@ -158,8 +158,8 @@ test('generateLocalizedDocsJson rejects mock provenance routes for rewrite and r
   const routeMapEntries = [
     {
       sourceRoute: 'v2/about/livepeer-network/actors',
-      localizedRoute: 'v2/i18n/es/about/livepeer-network/actors',
-      localizedFile: 'v2/i18n/es/about/livepeer-network/actors.mdx',
+      localizedRoute: 'v2/es/about/livepeer-network/actors',
+      localizedFile: 'v2/es/about/livepeer-network/actors.mdx',
       language: 'es',
       status: 'existing',
       provider: 'mock',

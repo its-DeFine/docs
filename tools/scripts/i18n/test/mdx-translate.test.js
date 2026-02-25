@@ -52,8 +52,8 @@ test('translateMdxBody rewrites internal markdown links when localized targets e
   };
 
   const routeMap = new Map([
-    ['v2/about/livepeer-network/actors', new Map([['es', 'v2/i18n/es/about/livepeer-network/actors']])],
-    ['v2/about/livepeer-network/job-lifecycle', new Map([['es', 'v2/i18n/es/about/livepeer-network/job-lifecycle']])]
+    ['v2/about/livepeer-network/actors', new Map([['es', 'v2/es/about/livepeer-network/actors']])],
+    ['v2/about/livepeer-network/job-lifecycle', new Map([['es', 'v2/es/about/livepeer-network/job-lifecycle']])]
   ]);
 
   const body = 'See [Job Lifecycle](./job-lifecycle) and [External](https://example.com).';
@@ -65,7 +65,7 @@ test('translateMdxBody rewrites internal markdown links when localized targets e
     routeContext: {
       sourceRoute: 'v2/about/livepeer-network/actors',
       language: 'es',
-      sourceLocalizedRoute: 'v2/i18n/es/about/livepeer-network/actors',
+      sourceLocalizedRoute: 'v2/es/about/livepeer-network/actors',
       routeMapBySourceRoute: routeMap
     }
   });

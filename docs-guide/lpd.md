@@ -80,6 +80,12 @@ The translation tooling is available through the same managed script interface:
 ./lpd tools i18n validate-generated -- --help
 ```
 
+Notes:
+
+- `v2` localized pages are generated under `v2/<lang>/...` (for example `v2/es/...`, `v2/fr/...`, `v2/cn/...`)
+- Chinese Simplified uses Mintlify code `cn`; the CLI accepts `zh-CN` and normalizes it to `cn`
+- `v1` is intentionally left English-only in the current rollout
+
 Typical local smoke run (real OpenRouter translation, single page):
 
 ```bash

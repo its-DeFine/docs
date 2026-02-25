@@ -44,7 +44,7 @@ function assertMockWriteAllowed({ translator, runtime, config, cliArgs }) {
   );
 }
 
-function loadRouteMapEntries(repoRoot, routeMapPath, generatedRoot) {
+function loadRouteMapEntries(repoRoot, routeMapPath, config, runtime) {
   if (routeMapPath) {
     const abs = path.resolve(repoRoot, routeMapPath);
     const parsed = readJson(abs);
@@ -61,7 +61,11 @@ function loadRouteMapEntries(repoRoot, routeMapPath, generatedRoot) {
   }
   return {
     path: '',
-    entries: collectExistingLocalizedRouteMapEntries(repoRoot, generatedRoot),
+    entries: collectExistingLocalizedRouteMapEntries(repoRoot, config.generatedRoot, {
+      generatedPathStyle: config.generatedPathStyle,
+      sourceRoot: config.sourceRoot,
+      knownLanguages: runtime.languages
+    }),
     metadata: {
       provider: null,
       runtime: null,
@@ -86,7 +90,7 @@ async function run(argv = process.argv.slice(2)) {
   assertMockWriteAllowed({ translator, runtime, config, cliArgs });
   const docsJsonPath = path.join(repoRoot, 'docs.json');
   const docsJson = readJson(docsJsonPath);
-  const routeMap = loadRouteMapEntries(repoRoot, cliArgs.routeMapPath, config.generatedRoot);
+  const routeMap = loadRouteMapEntries(repoRoot, cliArgs.routeMapPath, config, runtime);
   const result = await generateLocalizedDocsJson({
     docsJson,
     repoRoot,
@@ -98,6 +102,7 @@ async function run(argv = process.argv.slice(2)) {
     qualityGates: config.qualityGates || {},
     reporting: config.reporting || {},
     runtime,
+    languageCodeMap: config.languageCodeMap || {},
     writeMode: Boolean(cliArgs.write && !runtime.dryRun),
     allowMockWrite: runtime.allowMockWrite
   });

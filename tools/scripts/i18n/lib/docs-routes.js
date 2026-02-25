@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const { normalizeRepoRel, readJson, toPosix } = require('./common');
-const { normalizeRouteKey, resolveRouteToFile } = require('./path-utils');
+const { normalizeRouteKey, resolveLocalizedPathStyle, resolveRouteToFile } = require('./path-utils');
 const { parseProvenanceComment, classifyLocalizedArtifactProvenance } = require('./provenance');
 
 function collectPageStrings(node, out = []) {
@@ -141,10 +141,11 @@ function selectScopeItems(options) {
   };
 }
 
-function collectExistingLocalizedRouteMapEntries(repoRoot, generatedRoot = 'v2/i18n') {
+function collectExistingLocalizedRouteMapEntries(repoRoot, generatedRoot = 'v2/i18n', options = {}) {
   const out = [];
-  const rootAbs = path.join(repoRoot, generatedRoot);
-  if (!fs.existsSync(rootAbs)) return out;
+  const pathStyle = resolveLocalizedPathStyle(generatedRoot, options.generatedPathStyle || options.pathStyle || '');
+  const sourceRoot = normalizeRepoRel(options.sourceRoot || 'v2');
+  const knownLanguages = new Set((options.knownLanguages || []).map((lang) => String(lang || '').trim()).filter(Boolean));
 
   function walk(dirAbs) {
     const entries = fs.readdirSync(dirAbs, { withFileTypes: true });
@@ -157,11 +158,21 @@ function collectExistingLocalizedRouteMapEntries(repoRoot, generatedRoot = 'v2/i
       if (!/\.(md|mdx)$/i.test(entry.name)) continue;
       const rel = normalizeRepoRel(path.relative(repoRoot, childAbs));
       const parts = rel.split('/');
-      if (parts.length < 4 || parts[0] !== 'v2' || parts[1] !== 'i18n') continue;
-      const language = parts[2];
-      const suffix = parts.slice(3).join('/');
+      let language = '';
+      let suffix = '';
+      if (pathStyle === 'v2_language_prefix') {
+        if (parts.length < 3 || parts[0] !== sourceRoot) continue;
+        if (knownLanguages.size > 0 && !knownLanguages.has(parts[1])) continue;
+        language = parts[1];
+        suffix = parts.slice(2).join('/');
+      } else {
+        if (parts.length < 4 || parts[0] !== sourceRoot || parts[1] !== 'i18n') continue;
+        language = parts[2];
+        if (knownLanguages.size > 0 && !knownLanguages.has(language)) continue;
+        suffix = parts.slice(3).join('/');
+      }
       const localizedRoute = normalizeRouteKey(rel);
-      const sourceRoute = normalizeRouteKey(path.posix.join('v2', suffix));
+      const sourceRoute = normalizeRouteKey(path.posix.join(sourceRoot, suffix));
       let provenance = null;
       try {
         provenance = parseProvenanceComment(fs.readFileSync(childAbs, 'utf8'));
@@ -175,12 +186,28 @@ function collectExistingLocalizedRouteMapEntries(repoRoot, generatedRoot = 'v2/i
         language,
         localizedFile: rel,
         status: 'existing',
+        localizedRouteStyle: pathStyle,
         ...provenanceMeta,
         updatedAt: provenance?.generatedAt || ''
       });
     }
   }
 
+  if (pathStyle === 'v2_language_prefix') {
+    const rootAbs = path.join(repoRoot, sourceRoot);
+    if (!fs.existsSync(rootAbs)) return out;
+    const dirs = knownLanguages.size > 0 ? [...knownLanguages] : fs.readdirSync(rootAbs);
+    for (const language of dirs) {
+      const dirAbs = path.join(rootAbs, language);
+      if (!fs.existsSync(dirAbs)) continue;
+      if (!fs.statSync(dirAbs).isDirectory()) continue;
+      walk(dirAbs);
+    }
+    return out;
+  }
+
+  const rootAbs = path.join(repoRoot, generatedRoot);
+  if (!fs.existsSync(rootAbs)) return out;
   walk(rootAbs);
   return out;
 }

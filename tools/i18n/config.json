@@ -1,8 +1,12 @@
 {
   "sourceLanguage": "en",
-  "targetLanguages": ["es", "fr", "zh-CN"],
+  "targetLanguages": ["es", "fr", "cn"],
+  "languageCodeMap": {
+    "zh-CN": "cn"
+  },
   "sourceRoot": "v2",
-  "generatedRoot": "v2/i18n",
+  "generatedRoot": "v2",
+  "generatedPathStyle": "v2_language_prefix",
   "provider": {
     "name": "openrouter",
     "baseUrl": "https://openrouter.ai/api/v1",

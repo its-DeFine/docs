@@ -3,7 +3,7 @@
  * @script validate-generated
  * @summary Validate generated localized MDX files parse cleanly and exist for successful route-map entries.
  * @owner docs
- * @scope tools/scripts/i18n, v2/i18n
+ * @scope tools/scripts/i18n, v2
  */
 
 const fs = require('fs');
@@ -32,13 +32,20 @@ function printHelp() {
   );
 }
 
-function loadEntries(repoRoot, routeMapPath, generatedRoot) {
+function loadEntries(repoRoot, routeMapPath, config, runtime) {
   if (routeMapPath) {
     const abs = path.resolve(repoRoot, routeMapPath);
     const parsed = readJson(abs);
     return { path: abs, entries: Array.isArray(parsed.entries) ? parsed.entries : [] };
   }
-  return { path: '', entries: collectExistingLocalizedRouteMapEntries(repoRoot, generatedRoot) };
+  return {
+    path: '',
+    entries: collectExistingLocalizedRouteMapEntries(repoRoot, config.generatedRoot, {
+      generatedPathStyle: config.generatedPathStyle,
+      sourceRoot: config.sourceRoot,
+      knownLanguages: runtime.languages
+    })
+  };
 }
 
 async function run(argv = process.argv.slice(2)) {
@@ -52,7 +59,7 @@ async function run(argv = process.argv.slice(2)) {
     configPath: cliArgs.configPath || undefined
   });
   const runtime = buildRuntimeOptions(cliArgs, config);
-  const routeMap = loadEntries(repoRoot, cliArgs.routeMapPath, config.generatedRoot);
+  const routeMap = loadEntries(repoRoot, cliArgs.routeMapPath, config, runtime);
   const languageSet = new Set(runtime.languages.length ? runtime.languages : config.targetLanguages);
 
   const entries = routeMap.entries.filter(

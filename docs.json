@@ -3196,9 +3196,9 @@
                         "group": "Inicio",
                         "icon": "house-heart",
                         "pages": [
-                          "v2/i18n/es/home/mission-control",
-                          "v2/i18n/es/home/get-started",
-                          "v2/i18n/es/home/primer"
+                          "v2/es/home/mission-control",
+                          "v2/es/home/get-started",
+                          "v2/es/home/primer"
                         ]
                       },
                       {
@@ -3274,7 +3274,7 @@
                         "group": "Livepeer Red",
                         "icon": "circle-nodes",
                         "pages": [
-                          "v2/i18n/es/about/livepeer-network/overview",
+                          "v2/es/about/livepeer-network/overview",
                           "v2/about/livepeer-network/actors",
                           "v2/about/livepeer-network/job-lifecycle",
                           "v2/about/livepeer-network/marketplace",
@@ -4295,9 +4295,9 @@
                         "group": "Accueil",
                         "icon": "house-heart",
                         "pages": [
-                          "v2/i18n/fr/home/mission-control",
-                          "v2/i18n/fr/home/get-started",
-                          "v2/i18n/fr/home/primer"
+                          "v2/fr/home/mission-control",
+                          "v2/fr/home/get-started",
+                          "v2/fr/home/primer"
                         ]
                       },
                       {
@@ -5380,7 +5380,7 @@
             ]
           },
           {
-            "language": "zh-CN",
+            "language": "cn",
             "tabs": [
               {
                 "tab": "首页",
@@ -5394,9 +5394,9 @@
                         "group": "首页",
                         "icon": "house-heart",
                         "pages": [
-                          "v2/i18n/zh-CN/home/mission-control",
-                          "v2/i18n/zh-CN/home/get-started",
-                          "v2/i18n/zh-CN/home/primer"
+                          "v2/cn/home/mission-control",
+                          "v2/cn/home/get-started",
+                          "v2/cn/home/primer"
                         ]
                       },
                       {

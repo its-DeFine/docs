@@ -37,19 +37,33 @@ function fileToRouteKey(repoRoot, filePath) {
   return normalizeRouteKey(rel);
 }
 
-function repoFileRelToLocalizedFileRel(sourceRepoFileRel, language, generatedRoot = 'v2/i18n') {
+function resolveLocalizedPathStyle(generatedRoot, generatedPathStyle) {
+  const explicit = String(generatedPathStyle || '').trim();
+  if (explicit) return explicit;
+  return normalizeRepoRel(generatedRoot) === 'v2' ? 'v2_language_prefix' : 'v2_i18n_legacy';
+}
+
+function repoFileRelToLocalizedFileRel(sourceRepoFileRel, language, generatedRoot = 'v2/i18n', generatedPathStyle = '') {
   const normalized = normalizeRepoRel(sourceRepoFileRel);
   if (!normalized.startsWith('v2/')) {
     throw new Error(`Expected v2 source file path, received: ${sourceRepoFileRel}`);
   }
   const suffix = normalized.slice('v2/'.length);
+  const style = resolveLocalizedPathStyle(generatedRoot, generatedPathStyle);
+  if (style === 'v2_language_prefix') {
+    return normalizeRepoRel(path.posix.join('v2', language, suffix));
+  }
   return normalizeRepoRel(path.posix.join(generatedRoot, language, suffix));
 }
 
-function repoRouteToLocalizedRoute(sourceRoute, language, generatedRoot = 'v2/i18n') {
+function repoRouteToLocalizedRoute(sourceRoute, language, generatedRoot = 'v2/i18n', generatedPathStyle = '') {
   const route = normalizeRouteKey(sourceRoute);
   if (!route.startsWith('v2/')) return route;
   const suffix = route.slice('v2/'.length);
+  const style = resolveLocalizedPathStyle(generatedRoot, generatedPathStyle);
+  if (style === 'v2_language_prefix') {
+    return normalizeRepoRel(path.posix.join('v2', language, suffix));
+  }
   return normalizeRepoRel(path.posix.join(generatedRoot, language, suffix));
 }
 
@@ -66,6 +80,7 @@ module.exports = {
   normalizeRouteKey,
   repoFileRelToLocalizedFileRel,
   repoRouteToLocalizedRoute,
+  resolveLocalizedPathStyle,
   resolveRouteToFile,
   routeStringLooksInternalDocs
 };

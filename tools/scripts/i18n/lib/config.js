@@ -36,6 +36,19 @@ function validateI18nConfig(config, context = {}) {
     throw new Error(`Invalid i18n config at ${configPath}: targetLanguages must be a non-empty array`);
   }
 
+  if (config.languageCodeMap != null && (typeof config.languageCodeMap !== 'object' || Array.isArray(config.languageCodeMap))) {
+    throw new Error(`Invalid i18n config at ${configPath}: languageCodeMap must be an object when provided`);
+  }
+
+  if (config.generatedPathStyle != null) {
+    const style = String(config.generatedPathStyle || '').trim();
+    if (!['v2_i18n_legacy', 'v2_language_prefix'].includes(style)) {
+      throw new Error(
+        `Invalid i18n config at ${configPath}: generatedPathStyle must be "v2_i18n_legacy" or "v2_language_prefix"`
+      );
+    }
+  }
+
   if (!config.provider || typeof config.provider !== 'object') {
     throw new Error(`Invalid i18n config at ${configPath}: missing provider`);
   }
@@ -46,10 +59,43 @@ function validateI18nConfig(config, context = {}) {
   }
 }
 
+function normalizeLanguageCode(language, config = {}) {
+  const raw = String(language || '').trim();
+  if (!raw) return '';
+  const map = config.languageCodeMap || {};
+  if (typeof map[raw] === 'string' && map[raw].trim()) return map[raw].trim();
+  const lowerMap = new Map(Object.entries(map).map(([k, v]) => [String(k).toLowerCase(), String(v).trim()]));
+  return lowerMap.get(raw.toLowerCase()) || raw;
+}
+
+function normalizeLanguageList(languages, config = {}) {
+  const out = [];
+  const seen = new Set();
+  const aliasesApplied = [];
+  for (const value of languages || []) {
+    const requestedLanguage = String(value || '').trim();
+    if (!requestedLanguage) continue;
+    const effectiveLanguage = normalizeLanguageCode(requestedLanguage, config);
+    if (!effectiveLanguage) continue;
+    if (requestedLanguage !== effectiveLanguage) {
+      aliasesApplied.push({ requestedLanguage, effectiveLanguage });
+    }
+    if (seen.has(effectiveLanguage)) continue;
+    seen.add(effectiveLanguage);
+    out.push(effectiveLanguage);
+  }
+  return { languages: out, aliasesApplied };
+}
+
 function buildRuntimeOptions(cliArgs = {}, config = {}) {
   const defaults = config.scopeDefaults || {};
+  const requestedLanguages =
+    cliArgs.languages && cliArgs.languages.length ? [...cliArgs.languages] : [...(config.targetLanguages || [])];
+  const normalizedLanguages = normalizeLanguageList(requestedLanguages, config);
   const runtime = {
-    languages: cliArgs.languages && cliArgs.languages.length ? cliArgs.languages : [...(config.targetLanguages || [])],
+    requestedLanguages,
+    languages: normalizedLanguages.languages,
+    languageAliasesApplied: normalizedLanguages.aliasesApplied,
     scopeMode: cliArgs.scopeMode || defaults.defaultMode || 'changed_since_ref',
     baseRef: cliArgs.baseRef || defaults.defaultBaseRef || 'docs-v2',
     prefixes: cliArgs.prefixes || [],
@@ -66,7 +112,6 @@ function buildRuntimeOptions(cliArgs = {}, config = {}) {
     failOnMissingProvenance: Boolean(cliArgs.failOnMissingProvenance),
     help: Boolean(cliArgs.help)
   };
-  runtime.languages = runtime.languages.filter((lang) => String(lang || '').trim());
   return runtime;
 }
 
@@ -172,6 +217,8 @@ module.exports = {
   DEFAULT_CONFIG_REPO_REL,
   buildRuntimeOptions,
   loadI18nConfig,
+  normalizeLanguageCode,
+  normalizeLanguageList,
   parseCommonCliArgs,
   validateI18nConfig
 };

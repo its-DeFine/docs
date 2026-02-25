@@ -13,7 +13,7 @@ The workflow also fails non-dry runs if the checked-in provider is accidentally 
 4. Updates `docs.json` (`generate-localized-docs-json.js`) when not dry-run
 5. Validates generated localized MDX (`validate-generated.js`) when not dry-run
 6. Validates docs navigation (`tests/unit/docs-navigation.test.js`) when not dry-run
-7. Uploads JSON artifacts and optionally opens a PR for `docs.json` + `v2/i18n`
+7. Uploads JSON artifacts and optionally opens a PR for `docs.json` + localized `v2/<lang>` pages
 8. Writes workflow summary details including coverage/fallback counts and mixed-language warnings for partial runs
 
 ## Required Secrets / Vars
@@ -42,11 +42,13 @@ If these are not enabled, OpenRouter can return policy/eligibility errors for fr
 ### Example workflow inputs (v1 rollout)
 
 - Smoke: `languages=es`, `scope_mode=prefixes`, `prefixes=v2/about/livepeer-network`, `max_pages=1`
-- Pilot: `languages=es,fr,zh-CN`, `scope_mode=prefixes`, `prefixes=v2/about/livepeer-network`
-- Full: `languages=es,fr,zh-CN`, `scope_mode=full_v2_nav`
+- Pilot: `languages=es,fr,zh-CN` (CLI alias supported; emitted code is `cn`), `scope_mode=prefixes`, `prefixes=v2/about/livepeer-network`
+- Full: `languages=es,fr,zh-CN` (or `es,fr,cn`), `scope_mode=full_v2_nav`
 
 ## Notes
 
 - `mock` provider is for dry-run smoke tests only unless an explicit local override flag is used
 - Partial-scope runs will often show translated section headers but English page titles for fallback routes
 - Local Mintlify preview may need a restart after `docs.json` changes to reflect updated nav labels
+- Mintlify-compatible localized route shape for `v2` is `v2/<lang>/...` (not `v2/i18n/<lang>/...`)
+- `v1` remains English-only in this rollout; `generate-localized-docs-json` intentionally mutates only `v2.languages[]`

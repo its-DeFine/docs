@@ -3,7 +3,7 @@
  * @script translate-docs
  * @summary Translate selected v2 docs pages into configured languages and emit localized MDX files plus route-map/report artifacts.
  * @owner docs
- * @scope tools/scripts/i18n, docs.json, v2/i18n
+ * @scope tools/scripts/i18n, docs.json, v2
  *
  * @usage
  *   node tools/scripts/i18n/translate-docs.js --languages es,fr,de --scope-mode prefixes --prefixes v2/about/livepeer-network --max-pages 10
@@ -74,11 +74,16 @@ function artifactClassForProvider(providerName) {
   return String(providerName || '').trim().toLowerCase() === 'mock' ? 'translated_mock' : 'translated_real';
 }
 
+function requestedLanguageForEffective(runtime, effectiveLanguage) {
+  const hit = (runtime.languageAliasesApplied || []).find((entry) => entry.effectiveLanguage === effectiveLanguage);
+  return hit?.requestedLanguage || effectiveLanguage;
+}
+
 function buildRouteMapIndex(entries) {
   const index = new Map();
   for (const entry of entries) {
     const sourceRoute = normalizeRouteKey(entry.sourceRoute);
-    const language = String(entry.language || '').trim();
+    const language = String(entry.effectiveLanguage || entry.language || '').trim();
     const localizedRoute = normalizeRouteKey(entry.localizedRoute);
     if (!sourceRoute || !language || !localizedRoute) continue;
     if (!index.has(sourceRoute)) index.set(sourceRoute, new Map());
@@ -87,17 +92,20 @@ function buildRouteMapIndex(entries) {
   return index;
 }
 
-function createPlannedEntries(selectedItems, languages, generatedRoot) {
+function createPlannedEntries(selectedItems, languages, generatedRoot, generatedPathStyle, runtime) {
   const entries = [];
   for (const item of selectedItems) {
     for (const language of languages) {
-      const localizedFile = repoFileRelToLocalizedFileRel(item.fileRel, language, generatedRoot);
+      const localizedFile = repoFileRelToLocalizedFileRel(item.fileRel, language, generatedRoot, generatedPathStyle);
       entries.push({
         sourceRoute: item.route,
         sourceFile: item.fileRel,
         language,
+        requestedLanguage: requestedLanguageForEffective(runtime || {}, language),
+        effectiveLanguage: language,
         localizedRoute: normalizeRouteKey(localizedFile),
         localizedFile,
+        localizedRouteStyle: generatedPathStyle || '',
         status: 'planned'
       });
     }
@@ -137,7 +145,13 @@ async function processOneTranslation({
 }) {
   const sourceContent = fs.readFileSync(item.fileAbs, 'utf8');
   const sourceHash = sha256(sourceContent);
-  const localizedFileRel = repoFileRelToLocalizedFileRel(item.fileRel, language, config.generatedRoot);
+  const requestedLanguage = requestedLanguageForEffective(runtime, language);
+  const localizedFileRel = repoFileRelToLocalizedFileRel(
+    item.fileRel,
+    language,
+    config.generatedRoot,
+    config.generatedPathStyle
+  );
   const localizedRoute = normalizeRouteKey(localizedFileRel);
   const localizedAbs = path.join(repoRoot, localizedFileRel);
 
@@ -151,8 +165,11 @@ async function processOneTranslation({
           sourceRoute: item.route,
           sourceFile: item.fileRel,
           language,
+          requestedLanguage,
+          effectiveLanguage: language,
           localizedRoute,
           localizedFile: localizedFileRel,
+          localizedRouteStyle: config.generatedPathStyle || '',
           status: 'skipped_up_to_date',
           sourceHash,
           provider: provenanceMeta.provider || translator.name,
@@ -217,8 +234,11 @@ async function processOneTranslation({
       sourceRoute: item.route,
       sourceFile: item.fileRel,
       language,
+      requestedLanguage,
+      effectiveLanguage: language,
       localizedRoute,
       localizedFile: localizedFileRel,
+      localizedRouteStyle: config.generatedPathStyle || '',
       status: runtime.dryRun ? 'translated_dry_run' : changed ? 'translated' : 'unchanged_write',
       sourceHash,
       provider: translator.name,
@@ -270,8 +290,18 @@ async function run(argv = process.argv.slice(2)) {
     maxPages: runtime.maxPages
   });
 
-  const existingLocalized = collectExistingLocalizedRouteMapEntries(repoRoot, config.generatedRoot);
-  const plannedEntries = createPlannedEntries(scope.selected, runtime.languages, config.generatedRoot);
+  const existingLocalized = collectExistingLocalizedRouteMapEntries(repoRoot, config.generatedRoot, {
+    generatedPathStyle: config.generatedPathStyle,
+    sourceRoot: config.sourceRoot,
+    knownLanguages: runtime.languages
+  });
+  const plannedEntries = createPlannedEntries(
+    scope.selected,
+    runtime.languages,
+    config.generatedRoot,
+    config.generatedPathStyle,
+    runtime
+  );
   const routeMapEntries = mergeRouteMapEntries(existingLocalized, plannedEntries);
   const routeMapIndex = buildRouteMapIndex(routeMapEntries);
 
@@ -336,6 +366,8 @@ async function run(argv = process.argv.slice(2)) {
           sourceRoute: item.route,
           sourceFile: item.fileRel,
           language,
+          requestedLanguage: requestedLanguageForEffective(runtime, language),
+          effectiveLanguage: language,
           localizedRoute: result.routeMapEntry.localizedRoute,
           localizedFile: result.routeMapEntry.localizedFile,
           status,
@@ -358,8 +390,13 @@ async function run(argv = process.argv.slice(2)) {
           sourceRoute: item.route,
           sourceFile: item.fileRel,
           language,
-          localizedRoute: normalizeRouteKey(repoFileRelToLocalizedFileRel(item.fileRel, language, config.generatedRoot)),
-          localizedFile: repoFileRelToLocalizedFileRel(item.fileRel, language, config.generatedRoot),
+          requestedLanguage: requestedLanguageForEffective(runtime, language),
+          effectiveLanguage: language,
+          localizedRoute: normalizeRouteKey(
+            repoFileRelToLocalizedFileRel(item.fileRel, language, config.generatedRoot, config.generatedPathStyle)
+          ),
+          localizedFile: repoFileRelToLocalizedFileRel(item.fileRel, language, config.generatedRoot, config.generatedPathStyle),
+          localizedRouteStyle: config.generatedPathStyle || '',
           status: 'failed',
           provider: translator.name,
           provenanceKind: '',
@@ -377,6 +414,10 @@ async function run(argv = process.argv.slice(2)) {
       provider: report.provider,
       runtime: {
         languages: runtime.languages,
+        requestedLanguages: runtime.requestedLanguages,
+        languageAliasesApplied: runtime.languageAliasesApplied,
+        generatedPathStyle: config.generatedPathStyle || '',
+        generatedRoot: config.generatedRoot,
         scopeMode: runtime.scopeMode,
         baseRef: runtime.baseRef,
         prefixes: runtime.prefixes,

@@ -10,6 +10,17 @@ function deepClone(value) {
   return JSON.parse(JSON.stringify(value));
 }
 
+function normalizeLanguageAlias(language, languageCodeMap = {}) {
+  const raw = String(language || '').trim();
+  if (!raw) return '';
+  if (typeof languageCodeMap[raw] === 'string' && languageCodeMap[raw].trim()) return languageCodeMap[raw].trim();
+  const lower = raw.toLowerCase();
+  for (const [key, value] of Object.entries(languageCodeMap || {})) {
+    if (String(key).toLowerCase() === lower && String(value || '').trim()) return String(value).trim();
+  }
+  return raw;
+}
+
 function collectLabelFields(node, labelKeys, out = []) {
   if (Array.isArray(node)) {
     node.forEach((item) => collectLabelFields(item, labelKeys, out));
@@ -58,7 +69,7 @@ function buildRouteMapIndex(routeMapEntries) {
       continue;
     }
     const sourceRoute = normalizeRouteKey(rawEntry.sourceRoute);
-    const language = String(rawEntry.language || '').trim();
+    const language = String(rawEntry.effectiveLanguage || rawEntry.language || '').trim();
     const localizedRoute = normalizeRouteKey(rawEntry.localizedRoute);
     if (!sourceRoute || !language || !localizedRoute) continue;
     const entry = {
@@ -66,6 +77,9 @@ function buildRouteMapIndex(routeMapEntries) {
       sourceRoute,
       language,
       localizedRoute,
+      effectiveLanguage: String(rawEntry.effectiveLanguage || rawEntry.language || '').trim(),
+      requestedLanguage: String(rawEntry.requestedLanguage || ''),
+      localizedRouteStyle: String(rawEntry.localizedRouteStyle || ''),
       provider: String(rawEntry.provider || '').trim().toLowerCase(),
       modelUsed: String(rawEntry.modelUsed || ''),
       provenanceKind: String(rawEntry.provenanceKind || ''),
@@ -323,6 +337,7 @@ async function generateLocalizedDocsJson({
   qualityGates,
   reporting,
   runtime,
+  languageCodeMap,
   writeMode,
   allowMockWrite
 }) {
@@ -335,9 +350,12 @@ async function generateLocalizedDocsJson({
 
   const routeMapIndex = buildRouteMapIndex(routeMapEntries);
   const perLanguage = [];
-  const existingNonTargets = (v2Version.languages || []).filter(
-    (langNode) => langNode?.language && langNode.language !== 'en' && !targetLanguages.includes(langNode.language)
-  );
+  const targetLanguageSet = new Set(targetLanguages.map((lang) => normalizeLanguageAlias(lang, languageCodeMap)));
+  const existingNonTargets = (v2Version.languages || []).filter((langNode) => {
+    const language = String(langNode?.language || '').trim();
+    if (!language || language === 'en') return false;
+    return !targetLanguageSet.has(normalizeLanguageAlias(language, languageCodeMap));
+  });
   const nextLanguages = [deepClone(englishNode), ...existingNonTargets.map((n) => deepClone(n))];
 
   const inferredScopeMode =
@@ -347,6 +365,14 @@ async function generateLocalizedDocsJson({
   );
   const routeCoverageScope = routeCoverageScopeLabel(inferredScopeMode);
   const resultWarnings = Array.isArray(routeMapMetadata?.warnings) ? [...routeMapMetadata.warnings] : [];
+  const legacyRouteMapEntryCount = (routeMapEntries || []).filter((entry) =>
+    /^v2\/i18n\//.test(normalizeRouteKey(entry?.localizedRoute))
+  ).length;
+  if (legacyRouteMapEntryCount > 0) {
+    resultWarnings.push(
+      `Detected ${legacyRouteMapEntryCount} legacy localized route-map entr${legacyRouteMapEntryCount === 1 ? 'y' : 'ies'} using v2/i18n/* routes. Mintlify version/language UI may break until routes use v2/<lang>/* style.`
+    );
+  }
 
   for (const language of targetLanguages) {
     const localizedNode = deepClone(englishNode);
