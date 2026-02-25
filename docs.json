@@ -3213,7 +3213,7 @@
                         ]
                       },
                       {
-                        "group": "Muestra",
+                        "group": "Vitrina",
                         "icon": "clapperboard-play",
                         "pages": [
                           "v2/home/case-studies/showcase",
@@ -3329,14 +3329,14 @@
                         ]
                       },
                       {
-                        "group": "Sueño Diurno",
+                        "group": "Daydream",
                         "icon": "camera-movie",
                         "pages": [
                           "v2/platforms/daydream/overview"
                         ]
                       },
                       {
-                        "group": "Livepeer Estudio",
+                        "group": "Livepeer Studio",
                         "icon": "film-canister",
                         "pages": [
                           "v2/platforms/livepeer-studio/overview",
@@ -3392,7 +3392,7 @@
                             ]
                           },
                           {
-                            "group": "Reproductor e incrustación",
+                            "group": "Reproductor e incrustar",
                             "pages": [
                               "v2/platforms/livepeer-studio/player"
                             ]
@@ -3426,7 +3426,7 @@
                         ]
                       },
                       {
-                        "group": "Personificar Avatares",
+                        "group": "Encarnar Avatares",
                         "icon": "user-robot",
                         "pages": [
                           "v2/platforms/embody/overview"
@@ -3466,7 +3466,7 @@
                     "icon": "display-code",
                     "groups": [
                       {
-                        "group": "Construir sobre Livepeer",
+                        "group": "Construyendo sobre Livepeer",
                         "icon": "code",
                         "pages": [
                           "v2/developers/portal",
@@ -3487,7 +3487,7 @@
                             ]
                           },
                           {
-                            "group": "Canales de IA",
+                            "group": "AI Pipelines",
                             "pages": [
                               "v2/developers/quickstart/ai/ai-pipelines"
                             ]
@@ -3495,7 +3495,7 @@
                         ]
                       },
                       {
-                        "group": "Canales de IA",
+                        "group": "AI Pipelines",
                         "icon": "user-robot",
                         "pages": [
                           "v2/developers/ai-pipelines/overview",
@@ -3621,7 +3621,7 @@
                         "icon": "sign-posts-wrench",
                         "pages": [
                           {
-                            "group": "Inicio rápido",
+                            "group": "Guía rápida",
                             "icon": "fast-forward",
                             "pages": [
                               "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
@@ -3736,7 +3736,7 @@
                                 ]
                               },
                               {
-                                "group": "CLI HTTP API",
+                                "group": "API HTTP de CLI",
                                 "pages": [
                                   "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api",
                                   "v2/gateways/references/api-reference/CLI-HTTP/unbond",
@@ -3799,7 +3799,7 @@
                         ]
                       },
                       {
-                        "group": "Inicio rápido ⚡",
+                        "group": "Guía rápida ⚡",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
                         "pages": [
                           "v2/pages/05_orchestrators/quickstart/overview",
@@ -3894,7 +3894,7 @@
                             ]
                           },
                           {
-                            "group": "Referencia On-Chain",
+                            "group": "Referencia on-chain",
                             "pages": [
                               "v2/pages/05_orchestrators/references/faq"
                             ]
@@ -3948,7 +3948,7 @@
                         ]
                       },
                       {
-                        "group": "Livepeer Gobernanza",
+                        "group": "Gobernanza de Livepeer",
                         "icon": "box-ballot",
                         "pages": [
                           "v2/lpt/governance/overview",
@@ -3957,7 +3957,7 @@
                         ]
                       },
                       {
-                        "group": "Livepeer Tesorería",
+                        "group": "Tesoro de Livepeer",
                         "pages": [
                           "v2/lpt/treasury/overview",
                           "v2/lpt/treasury/proposals",
@@ -3999,7 +3999,7 @@
                     "icon": "people-group",
                     "groups": [
                       {
-                        "group": "Livepeer Comunidad",
+                        "group": "Comunidad de Livepeer",
                         "icon": "people-group",
                         "pages": [
                           "v2/community/community-portal",
@@ -4008,7 +4008,7 @@
                         ]
                       },
                       {
-                        "group": "Livepeer Conectar",
+                        "group": "Conectar Livepeer",
                         "icon": "hashtag",
                         "pages": [
                           "v2/community/livepeer-community/community-guidelines",
@@ -4027,7 +4027,7 @@
                         ]
                       },
                       {
-                        "group": "[MOVER AQUÍ] Centro de ayuda",
+                        "group": "[MOVE HERE] Centro de ayuda",
                         "icon": "comments-question-check",
                         "hidden": true,
                         "pages": [
@@ -4046,7 +4046,7 @@
                     ]
                   },
                   {
-                    "anchor": "Hub de Recursos",
+                    "anchor": "HUB de Recursos",
                     "icon": "books",
                     "pages": [
                       "v2/pages/07_resources/resources-portal"
@@ -4062,12 +4062,12 @@
                 ]
               },
               {
-                "tab": "Hub de Recursos",
+                "tab": "HUB de Recursos",
                 "hidden": false,
                 "icon": "books",
                 "anchors": [
                   {
-                    "anchor": "Hub de Referencia y Ayuda",
+                    "anchor": "HUB de Referencia y Ayuda",
                     "icon": "books",
                     "groups": [
                       {
@@ -4225,7 +4225,7 @@
                         ]
                       },
                       {
-                        "group": "Livepeer Tesorería",
+                        "group": "Livepeer Tesoro",
                         "pages": [
                           " "
                         ]
@@ -4239,7 +4239,7 @@
                     ]
                   },
                   {
-                    "anchor": "Hub de Recursos",
+                    "anchor": "HUB de Recursos",
                     "icon": "books",
                     "pages": [
                       "v2/pages/07_resources/resources-portal"
@@ -4253,16 +4253,16 @@
                 ]
               },
               {
-                "tab": "Hub Interno",
+                "tab": "HUB Interno",
                 "hidden": true,
                 "icon": "info-circle",
                 "anchors": [
                   {
-                    "anchor": "Hub Interno",
+                    "anchor": "HUB Interno",
                     "icon": "info-circle",
                     "groups": [
                       {
-                        "group": "Hub Interno",
+                        "group": "HUB Interno",
                         "pages": [
                           "v2/internal/internal-overview",
                           "v2/internal/governance",
@@ -4323,7 +4323,7 @@
                     ]
                   },
                   {
-                    "anchor": "HUB de ressources",
+                    "anchor": "Hub de ressources",
                     "icon": "books",
                     "pages": [
                       "v2/pages/07_resources/resources-portal"
@@ -4395,7 +4395,7 @@
                     ]
                   },
                   {
-                    "anchor": "HUB de ressources",
+                    "anchor": "Hub de ressources",
                     "icon": "books",
                     "pages": [
                       "v2/pages/07_resources/resources-portal"
@@ -4428,7 +4428,7 @@
                         ]
                       },
                       {
-                        "group": "Rêve",
+                        "group": "Daydream",
                         "icon": "camera-movie",
                         "pages": [
                           "v2/platforms/daydream/overview"
@@ -4525,7 +4525,7 @@
                         ]
                       },
                       {
-                        "group": "Avatars incarnés",
+                        "group": "Incarner les avatars",
                         "icon": "user-robot",
                         "pages": [
                           "v2/platforms/embody/overview"
@@ -4541,7 +4541,7 @@
                     ]
                   },
                   {
-                    "anchor": "HUB de ressources",
+                    "anchor": "Hub de ressources",
                     "icon": "books",
                     "pages": [
                       "v2/pages/07_resources/resources-portal"
@@ -4603,7 +4603,7 @@
                         ]
                       },
                       {
-                        "group": "Guides & Tutoriels",
+                        "group": "Guides & tutoriels",
                         "icon": "laptop-file",
                         "pages": [
                           "v2/developers/guides-and-resources/developer-guides",
@@ -4613,7 +4613,7 @@
                         ]
                       },
                       {
-                        "group": "Opportunités de création",
+                        "group": "Opportunités pour les constructeurs",
                         "icon": "lightbulb",
                         "pages": [
                           "v2/developers/builder-opportunities/dev-programs",
@@ -4623,7 +4623,7 @@
                     ]
                   },
                   {
-                    "anchor": "HUB de ressources",
+                    "anchor": "Hub de ressources",
                     "icon": "books",
                     "pages": [
                       "v2/pages/07_resources/resources-portal"
@@ -4680,7 +4680,7 @@
                     "icon": "torii-gate",
                     "groups": [
                       {
-                        "group": "Centre de connaissances des passerelles",
+                        "group": "Hub de connaissances des passerelles",
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/gateways/gateways-portal",
@@ -4835,7 +4835,7 @@
                                 ]
                               },
                               {
-                                "group": "API CLI HTTP",
+                                "group": "API HTTP CLI",
                                 "pages": [
                                   "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api",
                                   "v2/gateways/references/api-reference/CLI-HTTP/unbond",
@@ -4863,7 +4863,7 @@
                     ]
                   },
                   {
-                    "anchor": "Hub de ressources",
+                    "anchor": "Centre de ressources",
                     "icon": "books",
                     "pages": [
                       "v2/pages/07_resources/resources-portal"
@@ -4887,7 +4887,7 @@
                     "icon": "microchip",
                     "groups": [
                       {
-                        "group": "Hub de connaissances de l'orchestrateur",
+                        "group": "Centre de connaissances de l'orchestrateur",
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/pages/05_orchestrators/orchestrators-portal",
@@ -5003,7 +5003,7 @@
                     ]
                   },
                   {
-                    "anchor": "Hub de ressources",
+                    "anchor": "Centre de ressources",
                     "icon": "books",
                     "pages": [
                       "v2/pages/07_resources/resources-portal"
@@ -5019,7 +5019,7 @@
                 ]
               },
               {
-                "tab": "LP Token",
+                "tab": "Jeton LP",
                 "icon": "hand-holding-dollar",
                 "anchors": [
                   {
@@ -5074,7 +5074,7 @@
                     ]
                   },
                   {
-                    "anchor": "Hub de ressources",
+                    "anchor": "Centre de ressources",
                     "icon": "books",
                     "pages": [
                       "v2/pages/07_resources/resources-portal"
@@ -5107,7 +5107,7 @@
                         ]
                       },
                       {
-                        "group": "Connecter Livepeer",
+                        "group": "Livepeer Connexion",
                         "icon": "hashtag",
                         "pages": [
                           "v2/community/livepeer-community/community-guidelines",
@@ -5117,7 +5117,7 @@
                         ]
                       },
                       {
-                        "group": "Contribuer Livepeer",
+                        "group": "Livepeer Contribuer",
                         "icon": "door-open",
                         "pages": [
                           "v2/community/livepeer-contribute/contribute",
@@ -5145,7 +5145,7 @@
                     ]
                   },
                   {
-                    "anchor": "Hub de ressources",
+                    "anchor": "HUB de ressources",
                     "icon": "books",
                     "pages": [
                       "v2/pages/07_resources/resources-portal"
@@ -5161,12 +5161,12 @@
                 ]
               },
               {
-                "tab": "Hub de ressources",
+                "tab": "HUB de ressources",
                 "hidden": false,
                 "icon": "books",
                 "anchors": [
                   {
-                    "anchor": "Hub de référence et d'aide",
+                    "anchor": "HUB de référence & d'aide",
                     "icon": "books",
                     "groups": [
                       {
@@ -5324,13 +5324,13 @@
                         ]
                       },
                       {
-                        "group": "Livepeer Trésor",
+                        "group": "Livepeer Trésorerie",
                         "pages": [
                           " "
                         ]
                       },
                       {
-                        "group": "Ressources du jeton",
+                        "group": "Ressources du token",
                         "pages": [
                           " "
                         ]
@@ -5338,7 +5338,7 @@
                     ]
                   },
                   {
-                    "anchor": "Hub de ressources",
+                    "anchor": "HUB de ressources",
                     "icon": "books",
                     "pages": [
                       "v2/pages/07_resources/resources-portal"
@@ -5352,16 +5352,16 @@
                 ]
               },
               {
-                "tab": "Hub interne",
+                "tab": "HUB interne",
                 "hidden": true,
                 "icon": "info-circle",
                 "anchors": [
                   {
-                    "anchor": "Hub interne",
+                    "anchor": "HUB interne",
                     "icon": "info-circle",
                     "groups": [
                       {
-                        "group": "Hub interne",
+                        "group": "HUB interne",
                         "pages": [
                           "v2/internal/internal-overview",
                           "v2/internal/governance",
@@ -5685,7 +5685,7 @@
                             ]
                           },
                           {
-                            "group": "AI 流水线",
+                            "group": "AI 管道",
                             "pages": [
                               "v2/developers/quickstart/ai/ai-pipelines"
                             ]
@@ -5693,7 +5693,7 @@
                         ]
                       },
                       {
-                        "group": "AI 流水线",
+                        "group": "AI 管道",
                         "icon": "user-robot",
                         "pages": [
                           "v2/developers/ai-pipelines/overview",
@@ -6332,7 +6332,7 @@
                         ]
                       },
                       {
-                        "group": "LPT 与委托者参考",
+                        "group": "LPT & 委托者参考",
                         "icon": "hand-holding-dollar",
                         "pages": [
                           "v2/pages/07_resources/livepeer-glossary"
@@ -6423,7 +6423,7 @@
                         ]
                       },
                       {
-                        "group": "Livepeer 金库",
+                        "group": "Livepeer 国库",
                         "pages": [
                           " "
                         ]
