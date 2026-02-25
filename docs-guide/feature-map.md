@@ -11,8 +11,8 @@ This map captures repository capabilities as an internal maintainer index.
 
 Primary references:
 
-- `v2/pages/07_resources/documentation-guide/style-guide.mdx`
-- `v2/pages/07_resources/documentation-guide/component-library.mdx`
+- `v2/resources/documentation-guide/style-guide.mdx`
+- `v2/resources/documentation-guide/component-library.mdx`
 - `tools/scripts/generate-pages-index.js`
 
 ## 2) Backend-Like Operational Layer (Docs Ops)
@@ -40,7 +40,7 @@ Primary references:
 Primary references:
 
 - [`automation-pipelines.md`](./automation-pipelines.md)
-- `v2/pages/07_resources/documentation-guide/automations-workflows.mdx`
+- `v2/resources/documentation-guide/automations-workflows.mdx`
 - `snippets/automations/`
 
 ## 4) Product + Content System
@@ -52,7 +52,7 @@ Primary references:
 Primary references:
 
 - [`content-system.md`](./content-system.md)
-- `v2/pages/07_resources/documentation-guide/documentation-guide.mdx`
+- `v2/resources/documentation-guide/documentation-guide.mdx`
 - `contribute/CONTRIBUTING/README.md`
 
 ## 5) Technical Guides + Domain Coverage

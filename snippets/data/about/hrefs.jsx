@@ -1755,8 +1755,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/references/contract-addresses",
-      "resolvedPath": "v2/x-pages/07_resources/references/contract-addresses.mdx",
+      "rawPath": "/v2/resources/references/contract-addresses",
+      "resolvedPath": "v2/resources/references/contract-addresses.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1847,8 +1847,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/07_resources/references/contract-addresses",
-      "resolvedPath": "v2/x-pages/07_resources/references/contract-addresses.mdx",
+      "rawPath": "/v2/resources/references/contract-addresses",
+      "resolvedPath": "v2/resources/references/contract-addresses.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

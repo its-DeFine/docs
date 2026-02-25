@@ -100,8 +100,8 @@ lpd test --staged --wcag
 ## Contributing (Quick Path)
 
 1. Read style and component standards:
-   - [`v2/pages/07_resources/documentation-guide/style-guide.mdx`](v2/pages/07_resources/documentation-guide/style-guide.mdx)
-   - [`v2/pages/07_resources/documentation-guide/component-library.mdx`](v2/pages/07_resources/documentation-guide/component-library.mdx)
+   - [`v2/resources/documentation-guide/style-guide.mdx`](v2/resources/documentation-guide/style-guide.mdx)
+   - [`v2/resources/documentation-guide/component-library.mdx`](v2/resources/documentation-guide/component-library.mdx)
 2. Install/update hooks:
 
 ```bash
@@ -161,7 +161,7 @@ Key automation categories:
 Automation deep docs:
 
 - [`docs-guide/automation-pipelines.md`](docs-guide/automation-pipelines.md)
-- [`v2/pages/07_resources/documentation-guide/automations-workflows.mdx`](v2/pages/07_resources/documentation-guide/automations-workflows.mdx)
+- [`v2/resources/documentation-guide/automations-workflows.mdx`](v2/resources/documentation-guide/automations-workflows.mdx)
 
 ## AI and Maintainer Guidance
 

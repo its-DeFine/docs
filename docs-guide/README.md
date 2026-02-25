@@ -39,6 +39,6 @@ See [source-of-truth-policy.md](./source-of-truth-policy.md) for full boundaries
 ## Related Areas
 
 - Root orientation: [`README.md`](../README.md)
-- Public docs guide: [`v2/pages/07_resources/documentation-guide/`](../v2/pages/07_resources/documentation-guide/)
+- Public docs guide: [`v2/resources/documentation-guide/`](../v2/resources/documentation-guide/)
 - Contributor procedures: [`contribute/CONTRIBUTING/`](../contribute/CONTRIBUTING/)
 - Test matrices and CI behavior: [`tests/`](../tests/)

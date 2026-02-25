@@ -11,6 +11,10 @@
     "dark": "#3CB540"
   },
   "favicon": "/snippets/assets/favicon.png",
+  "staticFiles": [
+    ".well-known/ai-plugin.json",
+    "api/openapi.json"
+  ],
   "navigation": {
     "versions": [
       {
@@ -2128,7 +2132,7 @@
                     "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": [
-                      "v2/pages/07_resources/resources-portal"
+                      "v2/resources/resources-portal"
                     ]
                   },
                   {
@@ -2200,7 +2204,7 @@
                     "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": [
-                      "v2/pages/07_resources/resources-portal"
+                      "v2/resources/resources-portal"
                     ]
                   },
                   {
@@ -2346,7 +2350,7 @@
                     "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": [
-                      "v2/pages/07_resources/resources-portal"
+                      "v2/resources/resources-portal"
                     ]
                   },
                   {
@@ -2430,7 +2434,7 @@
                     "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": [
-                      "v2/pages/07_resources/resources-portal"
+                      "v2/resources/resources-portal"
                     ]
                   },
                   {
@@ -2467,8 +2471,8 @@
                         "group": "Changelog & Migrations",
                         "icon": "swap",
                         "pages": [
-                          "v2/pages/07_resources/changelog/changelog",
-                          "v2/pages/07_resources/changelog/migration-guide"
+                          "v2/resources/changelog/changelog",
+                          "v2/resources/changelog/migration-guide"
                         ]
                       }
                     ]
@@ -2670,7 +2674,7 @@
                     "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": [
-                      "v2/pages/07_resources/resources-portal"
+                      "v2/resources/resources-portal"
                     ]
                   },
                   {
@@ -2810,7 +2814,7 @@
                     "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": [
-                      "v2/pages/07_resources/resources-portal"
+                      "v2/resources/resources-portal"
                     ]
                   },
                   {
@@ -2881,7 +2885,7 @@
                     "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": [
-                      "v2/pages/07_resources/resources-portal"
+                      "v2/resources/resources-portal"
                     ]
                   },
                   {
@@ -2941,7 +2945,7 @@
                         "group": "Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/pages/07_resources/media-kit",
+                          "v2/resources/media-kit",
                           "v2/community/livepeer-community/trending-topics",
                           "v2/community/livepeer-community/livepeer-latest-topics"
                         ]
@@ -2952,7 +2956,7 @@
                     "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": [
-                      "v2/pages/07_resources/resources-portal"
+                      "v2/resources/resources-portal"
                     ]
                   },
                   {
@@ -2977,31 +2981,31 @@
                         "group": "Home",
                         "icon": "house",
                         "pages": [
-                          "v2/pages/07_resources/resources-portal"
+                          "v2/resources/resources-portal"
                         ]
                       },
                       {
                         "group": "Documentation Guide",
                         "icon": "book-open",
                         "pages": [
-                          "v2/pages/07_resources/documentation-guide/documentation-overview",
-                          "v2/pages/07_resources/documentation-guide/documentation-guide",
-                          "v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations",
-                          "v2/pages/07_resources/documentation-guide/style-guide",
-                          "v2/pages/07_resources/documentation-guide/snippets-inventory",
-                          "v2/pages/07_resources/documentation-guide/contribute-to-the-docs",
-                          "v2/pages/07_resources/documentation-guide/automations-workflows",
+                          "v2/resources/documentation-guide/documentation-overview",
+                          "v2/resources/documentation-guide/documentation-guide",
+                          "v2/resources/documentation-guide/docs-features-and-ai-integrations",
+                          "v2/resources/documentation-guide/style-guide",
+                          "v2/resources/documentation-guide/snippets-inventory",
+                          "v2/resources/documentation-guide/contribute-to-the-docs",
+                          "v2/resources/documentation-guide/automations-workflows",
                           {
                             "group": "Component Library",
                             "icon": "puzzle-piece",
                             "pages": [
-                              "v2/pages/07_resources/documentation-guide/component-library",
-                              "v2/pages/07_resources/documentation-guide/component-library/primitives",
-                              "v2/pages/07_resources/documentation-guide/component-library/display",
-                              "v2/pages/07_resources/documentation-guide/component-library/content",
-                              "v2/pages/07_resources/documentation-guide/component-library/layout",
-                              "v2/pages/07_resources/documentation-guide/component-library/integrations",
-                              "v2/pages/07_resources/documentation-guide/component-library/domain"
+                              "v2/resources/documentation-guide/component-library",
+                              "v2/resources/documentation-guide/component-library/primitives",
+                              "v2/resources/documentation-guide/component-library/display",
+                              "v2/resources/documentation-guide/component-library/content",
+                              "v2/resources/documentation-guide/component-library/layout",
+                              "v2/resources/documentation-guide/component-library/integrations",
+                              "v2/resources/documentation-guide/component-library/domain"
                             ]
                           }
                         ]
@@ -3011,7 +3015,7 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/about/core-concepts",
-                          "v2/pages/07_resources/livepeer-glossary",
+                          "v2/resources/livepeer-glossary",
                           "v2/pages/01_about/livepeer-network/actors"
                         ]
                       },
@@ -3019,7 +3023,7 @@
                         "group": "Developer References",
                         "icon": "book",
                         "pages": [
-                          "v2/pages/07_resources/livepeer-glossary"
+                          "v2/resources/livepeer-glossary"
                         ]
                       },
                       {
@@ -3033,35 +3037,35 @@
                         "group": "Orchestrator References",
                         "icon": "microchip",
                         "pages": [
-                          "v2/pages/07_resources/livepeer-glossary"
+                          "v2/resources/livepeer-glossary"
                         ]
                       },
                       {
                         "group": "LPT & Delegator References",
                         "icon": "hand-holding-dollar",
                         "pages": [
-                          "v2/pages/07_resources/livepeer-glossary"
+                          "v2/resources/livepeer-glossary"
                         ]
                       },
                       {
                         "group": "Community Resources",
                         "icon": "",
                         "pages": [
-                          "v2/pages/07_resources/livepeer-glossary"
+                          "v2/resources/livepeer-glossary"
                         ]
                       },
                       {
                         "group": "Partner Resources",
                         "icon": "handshake",
                         "pages": [
-                          "v2/pages/07_resources/livepeer-glossary"
+                          "v2/resources/livepeer-glossary"
                         ]
                       },
                       {
                         "group": "Help Center",
                         "icon": "comments-question-check",
                         "pages": [
-                          "v2/pages/07_resources/livepeer-glossary"
+                          "v2/resources/livepeer-glossary"
                         ]
                       },
                       {
@@ -3080,8 +3084,8 @@
                         "group": "Changelog",
                         "icon": "swap",
                         "pages": [
-                          "v2/pages/07_resources/changelog/changelog",
-                          "v2/pages/07_resources/changelog/migration-guide"
+                          "v2/resources/changelog/changelog",
+                          "v2/resources/changelog/migration-guide"
                         ]
                       }
                     ]
@@ -3090,7 +3094,7 @@
                     "anchor": "Help Center",
                     "icon": "comments-question-check",
                     "pages": [
-                      "v2/pages/07_resources/resources-portal"
+                      "v2/resources/resources-portal"
                     ]
                   },
                   {
@@ -3112,7 +3116,7 @@
                       {
                         "group": "Home",
                         "pages": [
-                          "v2/pages/07_resources/resources-portal"
+                          "v2/resources/resources-portal"
                         ]
                       },
                       {
@@ -3145,7 +3149,7 @@
                     "anchor": "Resource HUB",
                     "icon": "books",
                     "pages": [
-                      "v2/pages/07_resources/resources-portal"
+                      "v2/resources/resources-portal"
                     ]
                   },
                   {
@@ -3270,10 +3274,6 @@
     }
   },
   "redirects": [
-    {
-      "source": "/v2/pages/07_resources/redirect",
-      "destination": "/v2/pages/07_resources/resources-portal"
-    },
     {
       "source": "/v2/pages/08_help/redirect",
       "destination": "/v2/pages/08_help/README"

@@ -3,33 +3,34 @@
 Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.
 
 ## Run Metadata
-- Timestamp: 2026-02-24T18:28:30.959Z
+- Timestamp: 2026-02-25T06:56:23.567Z
 - Mode: full
 - Strict: false
-- Files analyzed: 419
-- Total extracted references: 1869
+- Files analyzed: 444
+- Total extracted references: 2156
 
 ## Summary Counts
 
 ### By Link Type
 | linkType | count |
 |---|---:|
-| empty | 99 |
-| external-https | 848 |
-| import-path | 287 |
-| internal-relative | 419 |
-| internal-rooted | 214 |
+| empty | 105 |
+| external-https | 962 |
+| import-path | 364 |
+| internal-relative | 472 |
+| internal-rooted | 251 |
 | mailto | 2 |
 
 ### By Status
 | status | count |
 |---|---:|
-| 🟡 untested-external | 848 |
-| missing | 8 |
-| ok | 908 |
+| 🟡 untested-external | 962 |
+| missing | 17 |
+| ok | 1065 |
 | ok-folder-route | 2 |
-| skipped | 101 |
+| skipped | 107 |
 | skipped-allowlisted | 2 |
+| skipped-style-guide-example | 1 |
 
 ## Hierarchical Inventory
 
@@ -80,6 +81,11 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 ## Per-Page Full Link Lists
 
 ### snippets/automations/globals/globals.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| (none) |  |  |  |  |  |  |  |
+
+### snippets/components/layout/api-base-urls-table.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | (none) |  |  |  |  |  |  |  |
@@ -444,7 +450,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://wikipedia.com/wiki/Protocol |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://arbitrum.io/ |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /v2/pages/07_resources/references/contract-addresses | v2/x-pages/07_resources/references/contract-addresses.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/resources/references/contract-addresses | v2/resources/references/contract-addresses.mdx | true | ok |  |  |  |
 | external-https | https://github.com/livepeer/protocol |  | null | 🟡 untested-external |  |  |  |
 | internal-relative | ./core-mechanisms | v2/about/livepeer-protocol/core-mechanisms.mdx | true | ok |  |  |  |
 | internal-relative | ./livepeer-token | v2/about/livepeer-protocol/livepeer-token.mdx | true | ok |  |  |  |
@@ -454,7 +460,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-relative | ./technical-architecture | v2/about/livepeer-protocol/technical-architecture.mdx | true | ok |  |  |  |
 | internal-relative | ../resources/livepeer-whitepaper | v2/about/resources/livepeer-whitepaper.mdx | true | ok |  |  |  |
 | internal-relative | ../resources/blockchain-contracts | v2/about/resources/blockchain-contracts.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/07_resources/references/contract-addresses | v2/x-pages/07_resources/references/contract-addresses.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/resources/references/contract-addresses | v2/resources/references/contract-addresses.mdx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/text.jsx | snippets/components/primitives/text.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/primitives/text.jsx | snippets/components/primitives/text.jsx | true | ok |  |  |  |
 | import-path | /snippets/components/display/quote.jsx | snippets/components/display/quote.jsx | true | ok |  |  |  |
@@ -1954,7 +1960,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-rooted | /v2/gateways/run-a-gateway/install/install-overview | v2/gateways/run-a-gateway/install/install-overview.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/gateways/references/arbitrum-rpc | v2/gateways/references/arbitrum-rpc.mdx | true | ok |  |  |  |
 | external-https | https://docs.arbitrum.io/build-decentralized-apps/public-chains#arbitrum-one |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../../../../07_resources/references/contract-addresses | v2/x-pages/07_resources/references/contract-addresses.mdx | true | ok |  |  |  |
+| internal-relative | ../../../../resources/references/contract-addresses | v2/resources/references/contract-addresses.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/gateways/run-a-gateway/install/install-overview | v2/gateways/run-a-gateway/install/install-overview.mdx | true | ok |  |  |  |
 | empty | #rpc-url |  | null | skipped |  |  |  |
 | external-https | https://en.wikipedia.org/wiki/Remote_procedure_call |  | null | 🟡 untested-external |  |  |  |
@@ -2224,8 +2230,8 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-relative | ../platforms/portal | v2/platforms/portal.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/developers/quickstart/video/video-streaming | v2/developers/quickstart/video/video-streaming.mdx | true | ok |  |  |  |
 | external-https | https://livepeer.studio |  | null | 🟡 untested-external |  |  |  |
-| internal-rooted | /v2/pages/07_resources/documentation-guide/style-guide | v2/x-pages/07_resources/documentation-guide/style-guide.mdx | true | ok |  |  |  |
-| internal-rooted | /v2/pages/07_resources/documentation-guide/contribute-to-the-docs | v2/x-pages/07_resources/documentation-guide/contribute-to-the-docs.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/resources/documentation-guide/style-guide | v2/resources/documentation-guide/style-guide.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/resources/documentation-guide/contribute-to-the-docs | v2/resources/documentation-guide/contribute-to-the-docs.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/home/case-studies/showcase | v2/home/case-studies/showcase.mdx | true | ok |  |  |  |
 | internal-rooted | /v2/home/about-livepeer/ | /v2/home/about-livepeer | true | ok-folder-route |  |  |  |
 | internal-rooted | /v2/community/livepeer-community/trending-topics | v2/community/livepeer-community/trending-topics.mdx | true | ok |  |  |  |
@@ -2379,7 +2385,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | external-https | https://github.com/livepeer/docs/issues/new?template=bug_report.md |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/docs/issues/new?template=feature_request.md |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://github.com/livepeer/docs/issues/new?template=question.md |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../07_resources/changelog/changelog | v2/x-pages/07_resources/changelog/changelog.mdx | true | ok |  |  |  |
+| internal-relative | ../resources/changelog/changelog | v2/resources/changelog/changelog.mdx | true | ok |  |  |  |
 | empty | #quarterly-review-checklist |  | null | skipped |  |  |  |
 | external-https | https://github.com/livepeer/docs/issues |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://livepeer.org/discord |  | null | 🟡 untested-external |  |  |  |
@@ -2388,7 +2394,7 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
 | external-https | https://www.notion.so/livepeer/Documentation-Reviews-2c50a3485687800e98e8f3e1f1a802a9 |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../07_resources/documentation-guide/documentation-overview | v2/x-pages/07_resources/documentation-guide/documentation-overview.mdx | true | ok |  |  |  |
+| internal-relative | ../resources/documentation-guide/documentation-overview | v2/resources/documentation-guide/documentation-overview.mdx | true | ok |  |  |  |
 | internal-relative | ./strategic-alignment | v2/internal/strategic-alignment.mdx | true | ok |  |  |  |
 | internal-relative | ./definitions | v2/internal/definitions.mdx | true | ok |  |  |  |
 | internal-relative | ./personas | v2/internal/personas.mdx | true | ok |  |  |  |
@@ -2396,12 +2402,12 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-relative | ./ecosystem | v2/internal/ecosystem.mdx | true | ok |  |  |  |
 | internal-relative | ./references | v2/internal/references.mdx | true | ok |  |  |  |
 | external-https | https://www.notion.so/livepeer/Documentation-Reviews-2c50a3485687800e98e8f3e1f1a802a9 |  | null | 🟡 untested-external |  |  |  |
-| internal-relative | ../07_resources/documentation-guide/documentation-overview | v2/x-pages/07_resources/documentation-guide/documentation-overview.mdx | true | ok |  |  |  |
+| internal-relative | ../resources/documentation-guide/documentation-overview | v2/resources/documentation-guide/documentation-overview.mdx | true | ok |  |  |  |
 
 ### v2/internal/layout-components-scripts-styling/components.mdx
 | linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
 |---|---|---|---|---|---|---|---|
-| internal-relative | ../../07_resources/documentation-guide/component-library | v2/x-pages/07_resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| internal-relative | ../../resources/documentation-guide/component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
 | external-https | https://www.mintlify.com/docs/components/tiles |  | null | 🟡 untested-external |  |  |  |
 | internal-rooted | /snippets/assets/domain/00_HOME/Hero_Images/hero_community.png | snippets/assets/domain/00_HOME/Hero_Images/hero_community.png | true | ok |  |  |  |
 | internal-rooted | /snippets/assets/domain/00_HOME/Hero_Images/hero_about.png | snippets/assets/domain/00_HOME/Hero_Images/hero_about.png | true | ok |  |  |  |
@@ -3823,3 +3829,390 @@ Operator note: external HTTP/HTTPS links are classified only and marked as `🟡
 | internal-rooted | /platforms/streamplace/introduction/streamplace-integration | v2/platforms/streamplace/introduction/streamplace-integration.mdx | true | ok |  |  |  |
 | external-https | https://blog.livepeer.org/livepeer-onchain-builders-streamplace-building-the-video-backbone-of-decentralized-social/ |  | null | 🟡 untested-external |  |  |  |
 | external-https | https://blog.livepeer.org/ |  | null | 🟡 untested-external |  |  |  |
+
+### v2/resources/changelog/changelog.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| external-https | https://github.com/livepeer/LIPs |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://forum.livepeer.org |  | null | 🟡 untested-external |  |  |  |
+| internal-relative | ../documentation-guide/contribute-to-the-docs | v2/resources/documentation-guide/contribute-to-the-docs.mdx | true | ok |  |  |  |
+| internal-relative | ../../internal/governance | v2/internal/governance.mdx | true | ok |  |  |  |
+| external-https | https://roadmap.livepeer.org/roadmap |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://github.com/livepeer/go-livepeer/releases |  | null | 🟡 untested-external |  |  |  |
+| internal-relative | ../documentation-guide/contribute-to-the-docs | v2/resources/documentation-guide/contribute-to-the-docs.mdx | true | ok |  |  |  |
+| internal-relative | ../../internal/governance | v2/internal/governance.mdx | true | ok |  |  |  |
+| external-https | https://github.com/livepeer/LIPs |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://forum.livepeer.org |  | null | 🟡 untested-external |  |  |  |
+| import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
+
+### v2/resources/changelog/migration-guide.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
+
+### v2/resources/concepts/brief-history-of-video.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
+
+### v2/resources/concepts/livepeer-101.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| (none) |  |  |  |  |  |  |  |
+
+### v2/resources/documentation-guide/authoring-standard.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| (none) |  |  |  |  |  |  |  |
+
+### v2/resources/documentation-guide/automations-workflows.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| internal-rooted | /tasks/reports/_legacy-unmanaged/20-automations-workflows-audit-report.md | tasks/reports/_legacy-unmanaged/20-automations-workflows-audit-report.md | false | missing | tasks/reports/_legacy-unmanaged/ungenerated/20-automations-workflows-audit-report.md |  |  |
+| internal-rooted | /contribute/CONTRIBUTING/GIT-HOOKS.md | contribute/CONTRIBUTING/GIT-HOOKS.md | true | ok |  |  |  |
+| internal-relative | ./style-guide | v2/resources/documentation-guide/style-guide.mdx | true | ok |  |  |  |
+| internal-relative | ./component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| internal-rooted | /contribute/CONTRIBUTING/GIT-HOOKS.md | contribute/CONTRIBUTING/GIT-HOOKS.md | true | ok |  |  |  |
+| internal-rooted | /tools/scripts/snippets/README.mdx | tools/scripts/snippets/README.mdx | true | ok |  |  |  |
+| internal-rooted | /snippets/automations/README.mdx | snippets/automations/README.mdx | true | ok |  |  |  |
+| internal-rooted | /tasks/reports/_legacy-unmanaged/20-automations-workflows-audit-report.md | tasks/reports/_legacy-unmanaged/20-automations-workflows-audit-report.md | false | missing | tasks/reports/_legacy-unmanaged/ungenerated/20-automations-workflows-audit-report.md |  |  |
+| import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
+
+### v2/resources/documentation-guide/component-library.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| empty | #mintlify-built-ins-cheat-sheet |  | null | skipped |  |  |  |
+| external-https | https://github.com/livepeer/go-livepeer |  | null | 🟡 untested-external |  |  |  |
+| internal-rooted | /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg | snippets/assets/domain/SHARED/LivepeerDocsLogo.svg | true | ok |  |  |  |
+| external-https | https://livepeer.org/blog |  | null | 🟡 untested-external |  |  |  |
+| internal-rooted | /04_gateways/run-a-gateway/test/publish-content | v2/pages/04_gateways/run-a-gateway/test/publish-content | false | missing | v1/gateways/guides/publish-content.mdx |  |  |
+| empty | # |  | null | skipped |  |  |  |
+| empty | # |  | null | skipped |  |  |  |
+| empty | # |  | null | skipped |  |  |  |
+| external-https | https://github.com/livepeer/docs/tree/main/snippets/components |  | null | 🟡 untested-external |  |  |  |
+| import-path | /snippets/components/primitives/divider.jsx | snippets/components/primitives/divider.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/icons.jsx | snippets/components/primitives/icons.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/links.jsx | snippets/components/primitives/links.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/buttons.jsx | snippets/components/primitives/buttons.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/text.jsx | snippets/components/primitives/text.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/video.jsx | snippets/components/display/video.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/image.jsx | snippets/components/display/image.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/zoomable-diagram.jsx | snippets/components/display/zoomable-diagram.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/embed.jsx | snippets/components/display/embed.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/frameMode.jsx | snippets/components/display/frameMode.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/quote.jsx | snippets/components/display/quote.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/socialLinks.jsx | snippets/components/display/socialLinks.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/CardCarousel.jsx | snippets/components/display/CardCarousel.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/showcaseCards.jsx | snippets/components/display/showcaseCards.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/content/code.jsx | snippets/components/content/code.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/content/external-content.jsx | snippets/components/content/external-content.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/content/release.jsx | snippets/components/content/release.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/content/responseField.jsx | snippets/components/content/responseField.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/content/data.jsx | snippets/components/content/data.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/layout/cards.jsx | snippets/components/layout/cards.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/layout/lists.jsx | snippets/components/layout/lists.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/layout/ListSteps.jsx | snippets/components/layout/ListSteps.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/layout/quadGrid.jsx | snippets/components/layout/quadGrid.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/layout/steps.jsx | snippets/components/layout/steps.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/layout/table.jsx | snippets/components/layout/table.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/layout/text.jsx | snippets/components/layout/text.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/integrations/coingecko.jsx | snippets/components/integrations/coingecko.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/domain/04_GATEWAYS/callouts.jsx | snippets/components/domain/04_GATEWAYS/callouts.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/domain/04_GATEWAYS/quickstartTabs.jsx | snippets/components/domain/04_GATEWAYS/quickstartTabs.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/domain/SHARED/HeroGif.jsx | snippets/components/domain/SHARED/HeroGif.jsx | true | ok |  |  |  |
+
+### v2/resources/documentation-guide/component-library/content.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| internal-relative | ../component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| internal-relative | ../component-library/layout | v2/resources/documentation-guide/component-library/layout.mdx | true | ok |  |  |  |
+| import-path | /snippets/components/content/code.jsx | snippets/components/content/code.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/content/external-content.jsx | snippets/components/content/external-content.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/content/responseField.jsx | snippets/components/content/responseField.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/content/release.jsx | snippets/components/content/release.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/content/data.jsx | snippets/components/content/data.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/divider.jsx | snippets/components/primitives/divider.jsx | true | ok |  |  |  |
+
+### v2/resources/documentation-guide/component-library/display.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| internal-relative | ../component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| internal-rooted | /snippets/assets/media/videos/HeroBackground.mp4 | snippets/assets/media/videos/HeroBackground.mp4 | true | ok |  |  |  |
+| internal-rooted | /snippets/assets/media/videos/HeroBackground.mp4 | snippets/assets/media/videos/HeroBackground.mp4 | true | ok |  |  |  |
+| internal-rooted | /snippets/assets/media/videos/livepeer-founders-post.mp4 | snippets/assets/media/videos/livepeer-founders-post.mp4 | true | ok |  |  |  |
+| internal-rooted | /snippets/assets/media/videos/daydream.mp4 | snippets/assets/media/videos/daydream.mp4 | true | ok |  |  |  |
+| internal-rooted | /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg | snippets/assets/domain/SHARED/LivepeerDocsLogo.svg | true | ok |  |  |  |
+| internal-rooted | /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg | snippets/assets/domain/SHARED/LivepeerDocsLogo.svg | true | ok |  |  |  |
+| internal-rooted | /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg | snippets/assets/domain/SHARED/LivepeerDocsLogo.svg | true | ok |  |  |  |
+| internal-rooted | /snippets/assets/media/images/nytv-logo.png | snippets/assets/media/images/nytv-logo.png | true | ok |  |  |  |
+| internal-relative | ../component-library/content | v2/resources/documentation-guide/component-library/content.mdx | true | ok |  |  |  |
+| import-path | /snippets/components/display/video.jsx | snippets/components/display/video.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/image.jsx | snippets/components/display/image.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/zoomable-diagram.jsx | snippets/components/display/zoomable-diagram.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/embed.jsx | snippets/components/display/embed.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/quote.jsx | snippets/components/display/quote.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/CardCarousel.jsx | snippets/components/display/CardCarousel.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/showcaseCards.jsx | snippets/components/display/showcaseCards.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/display/socialLinks.jsx | snippets/components/display/socialLinks.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/divider.jsx | snippets/components/primitives/divider.jsx | true | ok |  |  |  |
+
+### v2/resources/documentation-guide/component-library/domain.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| internal-relative | ../component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| internal-relative | ../component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| import-path | /snippets/components/domain/04_GATEWAYS/callouts.jsx | snippets/components/domain/04_GATEWAYS/callouts.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/divider.jsx | snippets/components/primitives/divider.jsx | true | ok |  |  |  |
+
+### v2/resources/documentation-guide/component-library/integrations.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| internal-relative | ../component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| internal-relative | ../component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| import-path | /snippets/components/integrations/coingecko.jsx | snippets/components/integrations/coingecko.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/divider.jsx | snippets/components/primitives/divider.jsx | true | ok |  |  |  |
+
+### v2/resources/documentation-guide/component-library/layout.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| internal-relative | ../component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| internal-relative | ../component-library/integrations | v2/resources/documentation-guide/component-library/integrations.mdx | true | ok |  |  |  |
+| import-path | /snippets/components/layout/cards.jsx | snippets/components/layout/cards.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/layout/lists.jsx | snippets/components/layout/lists.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/layout/steps.jsx | snippets/components/layout/steps.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/layout/table.jsx | snippets/components/layout/table.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/layout/quadGrid.jsx | snippets/components/layout/quadGrid.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/divider.jsx | snippets/components/primitives/divider.jsx | true | ok |  |  |  |
+
+### v2/resources/documentation-guide/component-library/primitives.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| internal-relative | ../component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| external-https | https://livepeer.org |  | null | 🟡 untested-external |  |  |  |
+| internal-rooted | /v2/home/mission-control | v2/home/mission-control.mdx | true | ok |  |  |  |
+| internal-relative | ../component-library/display | v2/resources/documentation-guide/component-library/display.mdx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/divider.jsx | snippets/components/primitives/divider.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/icons.jsx | snippets/components/primitives/icons.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/links.jsx | snippets/components/primitives/links.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/buttons.jsx | snippets/components/primitives/buttons.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/text.jsx | snippets/components/primitives/text.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/layout.jsx | snippets/components/primitives/layout.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/tables.jsx | snippets/components/primitives/tables.jsx | true | ok |  |  |  |
+| import-path | /snippets/components/primitives/containers.jsx | snippets/components/primitives/containers.jsx | true | ok |  |  |  |
+
+### v2/resources/documentation-guide/contribute-to-the-docs.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| external-https | https://github.com/livepeer/docs |  | null | 🟡 untested-external |  |  |  |
+| empty | #non-technical-contribution-proposal |  | null | skipped |  |  |  |
+| external-https | https://github.com/livepeer/docs |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://github.com/livepeer/docs |  | null | 🟡 untested-external |  |  |  |
+| empty | #review-process |  | null | skipped |  |  |  |
+| internal-relative | ./style-guide | v2/resources/documentation-guide/style-guide.mdx | true | ok |  |  |  |
+| internal-relative | ./component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| external-https | https://github.com/livepeer/docs/blob/docs-v2-preview/.github/CODEOWNERS |  | null | 🟡 untested-external |  |  |  |
+| internal-relative | ./documentation-guide | v2/resources/documentation-guide/documentation-guide.mdx | true | ok |  |  |  |
+| internal-relative | ./style-guide | v2/resources/documentation-guide/style-guide.mdx | true | ok |  |  |  |
+| internal-relative | ./component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| external-https | https://github.com/livepeer/docs/blob/docs-v2-preview/.github/CODEOWNERS |  | null | 🟡 untested-external |  |  |  |
+| internal-relative | ./style-guide | v2/resources/documentation-guide/style-guide.mdx | true | ok |  |  |  |
+| internal-relative | ./component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| external-https | https://mintlify.com/docs |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://github.com/livepeer/docs |  | null | 🟡 untested-external |  |  |  |
+| internal-relative | ./documentation-guide | v2/resources/documentation-guide/documentation-guide.mdx | true | ok |  |  |  |
+| external-https | https://github.com/livepeer/docs/blob/docs-v2-preview/.github/CODEOWNERS |  | null | 🟡 untested-external |  |  |  |
+| import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
+
+### v2/resources/documentation-guide/docs-features-and-ai-integrations.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| internal-rooted | /v2/home/mission-control | v2/home/mission-control.mdx | true | ok |  |  |  |
+| internal-rooted | /v2/home/mission-control | v2/home/mission-control.mdx | true | ok |  |  |  |
+| internal-relative | ./documentation-guide | v2/resources/documentation-guide/documentation-guide.mdx | true | ok |  |  |  |
+| internal-relative | ./contribute-to-the-docs | v2/resources/documentation-guide/contribute-to-the-docs.mdx | true | ok |  |  |  |
+| internal-relative | ./component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
+
+### v2/resources/documentation-guide/documentation-guide.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| internal-relative | ./contribute-to-the-docs | v2/resources/documentation-guide/contribute-to-the-docs.mdx | true | ok |  |  |  |
+| internal-relative | ./docs-features-and-ai-integrations | v2/resources/documentation-guide/docs-features-and-ai-integrations.mdx | true | ok |  |  |  |
+| internal-relative | ./style-guide | v2/resources/documentation-guide/style-guide.mdx | true | ok |  |  |  |
+| internal-relative | ./snippets-inventory | v2/resources/documentation-guide/snippets-inventory.mdx | true | ok |  |  |  |
+| internal-relative | ./docs-features-and-ai-integrations#automatic-page-index-generation | v2/resources/documentation-guide/docs-features-and-ai-integrations.mdx | true | ok |  |  |  |
+| internal-relative | ./contribute-to-the-docs | v2/resources/documentation-guide/contribute-to-the-docs.mdx | true | ok |  |  |  |
+| internal-relative | ./component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| internal-relative | ./automations-workflows | v2/resources/documentation-guide/automations-workflows.mdx | true | ok |  |  |  |
+| internal-relative | ./component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| internal-relative | ./style-guide | v2/resources/documentation-guide/style-guide.mdx | true | ok |  |  |  |
+| internal-relative | ./snippets-inventory | v2/resources/documentation-guide/snippets-inventory.mdx | true | ok |  |  |  |
+| internal-relative | ./docs-features-and-ai-integrations#automatic-page-index-generation | v2/resources/documentation-guide/docs-features-and-ai-integrations.mdx | true | ok |  |  |  |
+| internal-relative | ./automations-workflows | v2/resources/documentation-guide/automations-workflows.mdx | true | ok |  |  |  |
+| external-https | https://mintlify.com/docs |  | null | 🟡 untested-external |  |  |  |
+| import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
+
+### v2/resources/documentation-guide/documentation-overview.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| internal-relative | ./contribute-to-the-docs | v2/resources/documentation-guide/contribute-to-the-docs.mdx | true | ok |  |  |  |
+| internal-rooted | /about/about-portal | v2/about/about-portal | false | missing | v2/x-pages/01_about/about-portal.mdx |  |  |
+| internal-rooted | /about/core-concepts/livepeer-core-concepts | v2/about/core-concepts/livepeer-core-concepts | false | missing | v2/x-pages/01_about/core-concepts/livepeer-core-concepts.mdx |  |  |
+| internal-rooted | /developers/building-on-livepeer/developer-guide | v2/developers/building-on-livepeer/developer-guide | false | missing | v2/developers/developer-guide.mdx | v2/x-pages/03_developers/building-on-livepeer/developer-guide.mdx | v2/developers/guides-and-resources/developer-guides.mdx |
+| internal-rooted | /developers/building-on-livepeer/developer-guide | v2/developers/building-on-livepeer/developer-guide | false | missing | v2/developers/developer-guide.mdx | v2/x-pages/03_developers/building-on-livepeer/developer-guide.mdx | v2/developers/guides-and-resources/developer-guides.mdx |
+| internal-rooted | /developers/developer-portal | v2/developers/developer-portal | false | missing | v2/x-pages/03_developers/developer-portal.mdx |  |  |
+| internal-rooted | /developers/building-on-livepeer/developer-guide | v2/developers/building-on-livepeer/developer-guide | false | missing | v2/developers/developer-guide.mdx | v2/x-pages/03_developers/building-on-livepeer/developer-guide.mdx | v2/developers/guides-and-resources/developer-guides.mdx |
+| internal-rooted | /v2/orchestrators/orchestrators-portal | v2/orchestrators/orchestrators-portal.mdx | true | ok |  |  |  |
+| internal-rooted | /orchestrators/setting-up-an-orchestrator/overview | v2/orchestrators/setting-up-an-orchestrator/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /lpt/token-portal | v2/lpt/token-portal.mdx | true | ok |  |  |  |
+| internal-rooted | /lpt/delegation/overview | v2/lpt/delegation/overview.mdx | true | ok |  |  |  |
+| internal-rooted | /gateways/gateways-portal | v2/gateways/gateways-portal.mdx | true | ok |  |  |  |
+| internal-rooted | /gateways/run-a-gateway/run-a-gateway | v2/gateways/run-a-gateway/run-a-gateway.mdx | true | ok |  |  |  |
+| internal-relative | ./documentation-guide | v2/resources/documentation-guide/documentation-guide.mdx | true | ok |  |  |  |
+| internal-relative | ./docs-features-and-ai-integrations | v2/resources/documentation-guide/docs-features-and-ai-integrations.mdx | true | ok |  |  |  |
+| import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
+
+### v2/resources/documentation-guide/snippets-inventory.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| internal-relative | ./component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| internal-relative | ./style-guide | v2/resources/documentation-guide/style-guide.mdx | true | ok |  |  |  |
+| internal-rooted | /snippets/snippetsWiki/index | snippets/snippetsWiki/index.mdx | true | ok |  |  |  |
+| internal-rooted | /snippets/snippetsWiki/mintlify-behaviour | snippets/snippetsWiki/mintlify-behaviour.mdx | true | ok |  |  |  |
+| import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
+
+### v2/resources/documentation-guide/style-guide.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| internal-relative | ./component-library/primitives | v2/resources/documentation-guide/component-library/primitives.mdx | true | ok |  |  |  |
+| external-https | https://mintlify.com/docs/text |  | null | 🟡 untested-external |  |  |  |
+| internal-relative | ./component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| internal-rooted | /contribute/CONTRIBUTING/GIT-HOOKS.md | contribute/CONTRIBUTING/GIT-HOOKS.md | true | ok |  |  |  |
+| internal-relative | ./component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| external-https | https://mintlify.com/docs |  | null | 🟡 untested-external |  |  |  |
+| internal-rooted | /snippets/snippetsWiki/mintlify-behaviour | snippets/snippetsWiki/mintlify-behaviour.mdx | true | ok |  |  |  |
+| internal-rooted | /contribute/CONTRIBUTING/GIT-HOOKS.md | contribute/CONTRIBUTING/GIT-HOOKS.md | true | ok |  |  |  |
+| internal-relative | ./component-library | v2/resources/documentation-guide/component-library.mdx | true | ok |  |  |  |
+| internal-relative | ./snippets-inventory | v2/resources/documentation-guide/snippets-inventory.mdx | true | ok |  |  |  |
+| internal-rooted | /snippets/snippetsWiki/mintlify-behaviour | snippets/snippetsWiki/mintlify-behaviour.mdx | true | ok |  |  |  |
+| internal-relative | ./contribute-to-the-docs | v2/resources/documentation-guide/contribute-to-the-docs.mdx | true | ok |  |  |  |
+| import-path | /snippets/components/domain/SHARED/previewCallouts.jsx |  | null | skipped-style-guide-example |  |  |  |
+
+### v2/resources/livepeer-glossary.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| external-https | https://en.wikipedia.org/wiki/Decentralized_autonomous_organization |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol |  | null | 🟡 untested-external |  |  |  |
+| import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
+
+### v2/resources/media-kit.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| (none) |  |  |  |  |  |  |  |
+
+### v2/resources/references/contract-addresses.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| external-https | https://arbiscan.io/address/0xD9dEd6f9959176F0A04dcf88a0d2306178A736a6 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xD8E8328501E9645d16Cf49539efC04f734606ee4 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x289ba1701C2F088cf0faf8B3705246331cB8A839 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xc20DE37170B45774e6CD3d2304017fc962f27252 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x35Bcf3c30594191d53231E4FF333E8A770453e40 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xF62C30242fccd3a46721f155d4d367De3fD5B3b3 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xa8bB618B1520E284046F3dFc448851A1Ff26e41B |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xea1b0F6c8D158328a6e3D3F924B86A759F41465c |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xdd6f56DcC28D3F5f27084381fE8Df634985cc39f |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x92d804Ed49D92438aEA6fe552BD9163aacb7E841 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x0B9C254837E72Ebe9Fe04960C43B69782E68169A |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x68AF80376Bc1CA0C25a83b28e5570E8c7bdD3119 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xf82C1FF415F1fCf582554fDba790E27019c8E8C4 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xcFE4E2879B786C3aa075813F0E364bb5acCb6aa0 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xd2Ce37BCB287CaDc40647f567C2D3C4220901634 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xC92d3A360b8f9e083bA64DE15d95Cf8180897431 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x38093CDca43aeCd7bb474983519A246e93A3b0a7 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x04C0b249740175999E5BF5c9ac1dA92431EF34C5 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xC45f6918F7Bcac7aBc8fe05302b3cDF39776cdeb |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x8bb50806D60c492c0004DAD5D9627DAA2d9732E6 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x10736ffaCe687658F88a46D042631d182C7757f7 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xfdb06109032AD3671a8f14f5f2E78f4B9E81b567 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xd78b6bD09cd28A83cFb21aFa0DA95c685A6bb0B1 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x6D2457a4ad276000A615295f7A80F79E48CcD318 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x148D5b6B4df9530c7C76A810bd1Cdf69EC4c2085 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x93BB030735747708b4D33093A98d4c804Cd6B58C |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xFC3CBed6A3476F7616CC70f078397700136eEBFd |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xf96d54e490317c557a967abfa5d6e33006be69b3 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x58b6a8a3302369daec383334672404ee733ab239 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x505F8c2ee81f1C6fa0D88e918eF0491222E05818 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x511bc4556d823ae99630ae8de28b9b80df90ea2e |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x5FE3565dB7F1Dd8d6A9E968D45BD2Aee3836a1D4 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x5b1ce829384eebfa30286f12d1e7a695ca45f5d2 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x6F582E2bB19ac31D4B1e6eDD0c2eFEabD700f808 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x3984fc4ceeef1739135476f625d36d6c35c40dc3 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xC89fE48382F8fda6992dC590786A84275bCD1C57 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x406a112f3218b988c66778fd72fc8467f2601366 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x72d9dfa25f75a5f2c27b7336e643a559ae6aeb8e |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x3a9543d4767b2c914ea22fd0b07e17b0901aaebf |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x8e306b005773bee6ba6a6e8972bc79d766cc15c8 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x182ebf4c80b28efc45ad992ecbb9f730e31e8c7f |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x1a0b2ca69ca2c7f96e2529faa6d63f881655d81a |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x780c98cbb0cc21d6617c05332bd5cf6f847c71c2 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xBf824EDb6b94D9B52d972d5B25bCc19b4e6E3F3C |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x24ebEd82c681f435E944BEEbFAEEAaE443D08438 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x6A23F4940BD5BA117Da261f98aae51A8BFfa210A |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x1d24838b35A9c138Ac157A852e19e948aD6323D7 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x6142f1C8bBF02E6A6bd074E8d564c9A5420a0676 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x21146B872D3A95d2cF9afeD03eE5a783DaE9A89A |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x8dDDB96CF36AC8860f1DE5C7c4698fd499FAB405 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xe479B9fbA2Cd65f822f451fC8C145c663B995CE6 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xC40df4db2f99e7e235780A93B192F1a934f0c45b |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x3757DB506ECd9CBE643660C0F5b70db5b321202C |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x0f9C425E7374602C20370d3fd263155B4c3bDc91 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x3a941e1094B9E33efABB26a9047a8ABb4b257907 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x9c9209c9ff6996513b3673d69ee7b36a6c58a8cf |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x363cdB9BaE210Ef182c60b5a496139E980330127 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x557093B1Ab53412166beAd939f34244170b6525B |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x6b397f20DC227B4E23fEc20BBDBe166d0DFFC452 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xd1C1F5d44D8F83ca2A05Baf40461e550cFDDecA2 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x1561fC5F7Efc049476224005DFf38256dccfc509 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x7Beb84c52ce96DFd90431FAA97378994a8baa6df |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0xD906D192e2503Aafd1BC5F5fc4163E842D5B1d6e |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x4969dcCF5186e1c49411638fc8A2a020Fdab752E |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://arbiscan.io/address/0x4F59b39e2ea628fe8371BDfd51B063319339c7EE |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xf623811b08b45792d0223d77d9c922dae29712ec |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xe4be2a35dec0063f9dfccb9b740b1acb7eefefec |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x8573f2f5a3bd960eee3d998473e50c75cdbe6828 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x81eb0b10ff8703905904e4d91cf6aa575d59736f |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x5A9512826EAAF1FE4190f89443314E95A515fE24 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x633101b3f15f93c5f415830d48e56b9b1f7ba584 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x05C03EA0039f2e828A725A82939fc1e90de38B44 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xCBAa6eA4886b535FC7ABACe3F3985Ed03b3b80a0 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xDC6eE74A18994caD3876a078B6fa4920FD9C507d |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x1a6007d1D0583452Bd6f45a4e1a9190B15Fbd7E3 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xef5E170b679ddaF5e22ADC10fD23DDdB79E3C0c5 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xc8a695155648F18B0cfd6989498B6f8b2c4cc56A |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x35F99F326681FE4F38719491be48Ab4950795013 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xAC0153a8C5227e43506901a4f3f83FD000c8178f |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x246edEBae14b186a67e3d466A485321169a8bcD5 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x223398d0BF9cc24960b3886CC481dBf5276EdeD2 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x0da7c263eCF5cD3ddba275b9A2D63320E28fD287 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xbf07ff45f14c9ff0571b9fbdc7e2b62d29931224 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x68b463bca7d561118636e9f028ff0f2e8398dd6a |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xB620c762dd4bC350602936d7401BB8393Ee6687c |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x8eade5eec609572bf53deadb88d36f862ddec517 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xa3aa52ce79e85a21d9ccda705c57e426b160112c |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x857d4bf18a80f03d3d11f438825cd3d0aa0d9d68 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x289ba1701c2f088cf0faf8b3705246331cb8a839 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0xd8e8328501e9645d16cf49539efc04f734606ee4 |  | null | 🟡 untested-external |  |  |  |
+| external-https | https://etherscan.io/address/0x4969dccf5186e1c49411638fc8a2a020fdab752e |  | null | 🟡 untested-external |  |  |  |
+| import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
+
+### v2/resources/resources-portal.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| import-path | /snippets/components/domain/SHARED/previewCallouts.jsx | snippets/components/domain/SHARED/previewCallouts.jsx | true | ok |  |  |  |
+
+### v2/resources/resources/videos.mdx
+| linkType | rawPath | resolvedPath | exists | status | movedCandidate1 | movedCandidate2 | movedCandidate3 |
+|---|---|---|---|---|---|---|---|
+| (none) |  |  |  |  |  |  |  |

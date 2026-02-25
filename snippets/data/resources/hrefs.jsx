@@ -1,5 +1,5 @@
 export const LINK_MAP = {
-  "v2/pages/07_resources/changelog/changelog.mdx": [
+  "v2/resources/changelog/changelog.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -22,7 +22,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../documentation-guide/contribute-to-the-docs",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/contribute-to-the-docs.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -58,7 +58,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../documentation-guide/contribute-to-the-docs",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/contribute-to-the-docs.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -100,7 +100,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/changelog/migration-guide.mdx": [
+  "v2/resources/changelog/migration-guide.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -111,7 +111,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/concepts/brief-history-of-video.mdx": [
+  "v2/resources/concepts/brief-history-of-video.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -122,18 +122,19 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/concepts/livepeer-101.mdx": [],
-  "v2/pages/07_resources/documentation-guide/_contextData_/contributor-authoring-guide.mdx": [],
-  "v2/pages/07_resources/documentation-guide/authoring-standard.mdx": [],
-  "v2/pages/07_resources/documentation-guide/automations-workflows.mdx": [
+  "v2/resources/concepts/livepeer-101.mdx": [],
+  "v2/resources/documentation-guide/authoring-standard.mdx": [],
+  "v2/resources/documentation-guide/automations-workflows.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/tasks/reports/20-automations-workflows-audit-report.md",
-      "resolvedPath": "tasks/reports/20-automations-workflows-audit-report.md",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
+      "rawPath": "/tasks/reports/_legacy-unmanaged/20-automations-workflows-audit-report.md",
+      "resolvedPath": "tasks/reports/_legacy-unmanaged/20-automations-workflows-audit-report.md",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "tasks/reports/_legacy-unmanaged/ungenerated/20-automations-workflows-audit-report.md"
+      ]
     },
     {
       "sourceType": "markdown-link",
@@ -148,7 +149,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./style-guide",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/style-guide.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/style-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -157,7 +158,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -192,11 +193,13 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/tasks/reports/20-automations-workflows-audit-report.md",
-      "resolvedPath": "tasks/reports/20-automations-workflows-audit-report.md",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
+      "rawPath": "/tasks/reports/_legacy-unmanaged/20-automations-workflows-audit-report.md",
+      "resolvedPath": "tasks/reports/_legacy-unmanaged/20-automations-workflows-audit-report.md",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "tasks/reports/_legacy-unmanaged/ungenerated/20-automations-workflows-audit-report.md"
+      ]
     },
     {
       "sourceType": "import-path",
@@ -208,12 +211,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/documentation-guide/component-library/content.mdx": [
+  "v2/resources/documentation-guide/component-library/content.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -222,7 +225,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../component-library/layout",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/layout.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library/layout.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -282,12 +285,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/documentation-guide/component-library/display.mdx": [
+  "v2/resources/documentation-guide/component-library/display.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -368,7 +371,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../component-library/content",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/content.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library/content.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -455,12 +458,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/documentation-guide/component-library/domain.mdx": [
+  "v2/resources/documentation-guide/component-library/domain.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -469,7 +472,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -493,12 +496,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/documentation-guide/component-library/integrations.mdx": [
+  "v2/resources/documentation-guide/component-library/integrations.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -507,7 +510,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -531,12 +534,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/documentation-guide/component-library/layout.mdx": [
+  "v2/resources/documentation-guide/component-library/layout.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -545,7 +548,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../component-library/integrations",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/integrations.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library/integrations.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -605,12 +608,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/documentation-guide/component-library/primitives.mdx": [
+  "v2/resources/documentation-guide/component-library/primitives.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -637,7 +640,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../component-library/display",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/display.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library/display.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -715,7 +718,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/documentation-guide/component-library.mdx": [
+  "v2/resources/documentation-guide/component-library.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "empty",
@@ -755,11 +758,13 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/gateways/run-a-gateway/test/publish-content",
-      "resolvedPath": "v2/gateways/run-a-gateway/test/publish-content.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
+      "rawPath": "/04_gateways/run-a-gateway/test/publish-content",
+      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/test/publish-content",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v1/gateways/guides/publish-content.mdx"
+      ]
     },
     {
       "sourceType": "jsx-attr",
@@ -1077,7 +1082,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx": [
+  "v2/resources/documentation-guide/contribute-to-the-docs.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1127,7 +1132,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./style-guide",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/style-guide.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/style-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1136,7 +1141,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1154,7 +1159,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./documentation-guide",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/documentation-guide.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/documentation-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1163,7 +1168,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./style-guide",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/style-guide.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/style-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1172,7 +1177,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1190,7 +1195,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./style-guide",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/style-guide.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/style-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1199,7 +1204,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1226,7 +1231,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./documentation-guide",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/documentation-guide.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/documentation-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1250,7 +1255,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations.mdx": [
+  "v2/resources/documentation-guide/docs-features-and-ai-integrations.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -1273,7 +1278,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./documentation-guide",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/documentation-guide.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/documentation-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1282,7 +1287,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./contribute-to-the-docs",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/contribute-to-the-docs.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1291,7 +1296,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1306,12 +1311,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/documentation-guide/documentation-guide.mdx": [
+  "v2/resources/documentation-guide/documentation-guide.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./contribute-to-the-docs",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/contribute-to-the-docs.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1320,7 +1325,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./docs-features-and-ai-integrations",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/docs-features-and-ai-integrations.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1329,7 +1334,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./style-guide",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/style-guide.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/style-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1338,7 +1343,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./snippets-inventory",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/snippets-inventory.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/snippets-inventory.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1347,7 +1352,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./docs-features-and-ai-integrations#automatic-page-index-generation",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/docs-features-and-ai-integrations.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1356,7 +1361,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./contribute-to-the-docs",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/contribute-to-the-docs.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1365,7 +1370,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1374,7 +1379,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./automations-workflows",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/automations-workflows.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/automations-workflows.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1383,7 +1388,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1392,7 +1397,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./style-guide",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/style-guide.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/style-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1401,7 +1406,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./snippets-inventory",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/snippets-inventory.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/snippets-inventory.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1410,7 +1415,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./docs-features-and-ai-integrations#automatic-page-index-generation",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/docs-features-and-ai-integrations.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1419,7 +1424,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./automations-workflows",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/automations-workflows.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/automations-workflows.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1443,12 +1448,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/documentation-guide/documentation-overview.mdx": [
+  "v2/resources/documentation-guide/documentation-overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./contribute-to-the-docs",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/contribute-to-the-docs.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1456,8 +1461,80 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/about/portal",
-      "resolvedPath": "v2/about/portal.mdx",
+      "rawPath": "/about/about-portal",
+      "resolvedPath": "v2/about/about-portal",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/x-pages/01_about/about-portal.mdx"
+      ]
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/about/core-concepts/livepeer-core-concepts",
+      "resolvedPath": "v2/about/core-concepts/livepeer-core-concepts",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/x-pages/01_about/core-concepts/livepeer-core-concepts.mdx"
+      ]
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/developers/building-on-livepeer/developer-guide",
+      "resolvedPath": "v2/developers/building-on-livepeer/developer-guide",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/developers/developer-guide.mdx",
+        "v2/x-pages/03_developers/building-on-livepeer/developer-guide.mdx",
+        "v2/developers/guides-and-resources/developer-guides.mdx"
+      ]
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/developers/building-on-livepeer/developer-guide",
+      "resolvedPath": "v2/developers/building-on-livepeer/developer-guide",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/developers/developer-guide.mdx",
+        "v2/x-pages/03_developers/building-on-livepeer/developer-guide.mdx",
+        "v2/developers/guides-and-resources/developer-guides.mdx"
+      ]
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/developers/developer-portal",
+      "resolvedPath": "v2/developers/developer-portal",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/x-pages/03_developers/developer-portal.mdx"
+      ]
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/developers/building-on-livepeer/developer-guide",
+      "resolvedPath": "v2/developers/building-on-livepeer/developer-guide",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/developers/developer-guide.mdx",
+        "v2/x-pages/03_developers/building-on-livepeer/developer-guide.mdx",
+        "v2/developers/guides-and-resources/developer-guides.mdx"
+      ]
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1465,62 +1542,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/about/core-concepts",
-      "resolvedPath": "v2/about/core-concepts.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/developers/developer-guide",
-      "resolvedPath": "v2/developers/developer-guide.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/developers/developer-guide",
-      "resolvedPath": "v2/developers/developer-guide.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/developers/portal",
-      "resolvedPath": "v2/developers/portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/developers/developer-guide",
-      "resolvedPath": "v2/developers/developer-guide.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/05_orchestrators/setting-up-an-orchestrator/overview",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/overview.mdx",
+      "rawPath": "/orchestrators/setting-up-an-orchestrator/overview",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1565,7 +1588,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./documentation-guide",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/documentation-guide.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/documentation-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1574,7 +1597,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./docs-features-and-ai-integrations",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/docs-features-and-ai-integrations.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1589,12 +1612,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/documentation-guide/snippets-inventory.mdx": [
+  "v2/resources/documentation-guide/snippets-inventory.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1603,7 +1626,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./style-guide",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/style-guide.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/style-guide.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1636,21 +1659,30 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/documentation-guide/style-guide.mdx": [
+  "v2/resources/documentation-guide/style-guide.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library/primitives",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library/primitives.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library/primitives.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://mintlify.com/docs/text",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1668,7 +1700,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1704,7 +1736,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1713,7 +1745,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./snippets-inventory",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/snippets-inventory.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/snippets-inventory.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1731,7 +1763,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./contribute-to-the-docs",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/contribute-to-the-docs.mdx",
+      "resolvedPath": "v2/resources/documentation-guide/contribute-to-the-docs.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1746,7 +1778,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/livepeer-glossary.mdx": [
+  "v2/resources/livepeer-glossary.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1775,8 +1807,8 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/media-kit.mdx": [],
-  "v2/pages/07_resources/references/contract-addresses.mdx": [
+  "v2/resources/media-kit.mdx": [],
+  "v2/resources/references/contract-addresses.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -2606,8 +2638,8 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/07_resources/resources/videos.mdx": [],
-  "v2/pages/07_resources/resources-portal.mdx": [
+  "v2/resources/resources/videos.mdx": [],
+  "v2/resources/resources-portal.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",

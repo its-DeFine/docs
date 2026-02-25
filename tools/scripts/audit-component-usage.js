@@ -123,31 +123,31 @@ function getComponentLibraryComponents() {
   const libFiles = [
     resolveFirstExistingPath([
       'v2/resources/documentation-guide/component-library.mdx',
-      'v2/pages/07_resources/documentation-guide/component-library.mdx'
+      'v2/resources/documentation-guide/component-library.mdx'
     ]),
     resolveFirstExistingPath([
       'v2/resources/documentation-guide/component-library/primitives.mdx',
-      'v2/pages/07_resources/documentation-guide/component-library/primitives.mdx'
+      'v2/resources/documentation-guide/component-library/primitives.mdx'
     ]),
     resolveFirstExistingPath([
       'v2/resources/documentation-guide/component-library/display.mdx',
-      'v2/pages/07_resources/documentation-guide/component-library/display.mdx'
+      'v2/resources/documentation-guide/component-library/display.mdx'
     ]),
     resolveFirstExistingPath([
       'v2/resources/documentation-guide/component-library/content.mdx',
-      'v2/pages/07_resources/documentation-guide/component-library/content.mdx'
+      'v2/resources/documentation-guide/component-library/content.mdx'
     ]),
     resolveFirstExistingPath([
       'v2/resources/documentation-guide/component-library/layout.mdx',
-      'v2/pages/07_resources/documentation-guide/component-library/layout.mdx'
+      'v2/resources/documentation-guide/component-library/layout.mdx'
     ]),
     resolveFirstExistingPath([
       'v2/resources/documentation-guide/component-library/integrations.mdx',
-      'v2/pages/07_resources/documentation-guide/component-library/integrations.mdx'
+      'v2/resources/documentation-guide/component-library/integrations.mdx'
     ]),
     resolveFirstExistingPath([
       'v2/resources/documentation-guide/component-library/domain.mdx',
-      'v2/pages/07_resources/documentation-guide/component-library/domain.mdx'
+      'v2/resources/documentation-guide/component-library/domain.mdx'
     ])
   ];
   

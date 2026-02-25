@@ -10,7 +10,7 @@ primary_paths:
   - ".github/workflows/update-livepeer-release.yml"
   - "snippets/automations/globals/globals.mdx"
   - "snippets/automations/globals/globals.jsx"
-  - "v2/pages/07_resources/documentation-guide/automations-workflows.mdx"
+  - "v2/resources/documentation-guide/automations-workflows.mdx"
 primary_commands:
   - "sed -n \"1,220p\" .github/workflows/update-livepeer-release.yml"
   - "rg -n \"latestVersion|LatestRelease\" snippets/automations/globals"

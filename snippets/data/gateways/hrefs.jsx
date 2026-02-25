@@ -3211,8 +3211,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../../../../07_resources/references/contract-addresses",
-      "resolvedPath": "v2/x-pages/07_resources/references/contract-addresses.mdx",
+      "rawPath": "../../../../resources/references/contract-addresses",
+      "resolvedPath": "v2/resources/references/contract-addresses.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

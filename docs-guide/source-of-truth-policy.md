@@ -41,6 +41,29 @@ node tools/scripts/generate-docs-guide-indexes.js --write
 node tests/unit/script-docs.test.js --write --rebuild-indexes
 ```
 
+## Generated File Banners
+
+Generated and mixed generated files should include a standardized banner at the top that documents:
+
+- generator script(s)
+- purpose
+- when to rerun the generator
+- a do-not-edit warning
+
+Guidelines:
+
+- Use a full-file banner for files that are entirely generated.
+- Use a mixed-file banner for files that contain generated sections only.
+- Use `unknown/external` when the generator cannot be confirmed in-repo.
+- Do not edit generated JSON files directly; JSON artifacts should be inventoried/reported instead of commented.
+
+If your branch includes the generated banner enforcer utility, use:
+
+```bash
+node tools/scripts/enforce-generated-file-banners.js --write
+node tools/scripts/enforce-generated-file-banners.js --check
+```
+
 ## README Contract
 
 `README.md` is an orientation document, not a full operations manual.
@@ -57,7 +80,7 @@ It should not duplicate deep procedures that already exist in:
 - `docs-guide/`
 - `tests/*.md`
 - `contribute/CONTRIBUTING/*.md`
-- `v2/pages/07_resources/documentation-guide/*.mdx`
+- `v2/resources/documentation-guide/*.mdx`
 
 ## Change Management Rules
 

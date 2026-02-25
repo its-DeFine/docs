@@ -50,9 +50,9 @@ Navigation source files:
 ## Canonical Supporting Docs
 
 - Public docs guide pages:
-  - `v2/pages/07_resources/documentation-guide/documentation-guide.mdx`
-  - `v2/pages/07_resources/documentation-guide/style-guide.mdx`
-  - `v2/pages/07_resources/documentation-guide/component-library.mdx`
+  - `v2/resources/documentation-guide/documentation-guide.mdx`
+  - `v2/resources/documentation-guide/style-guide.mdx`
+  - `v2/resources/documentation-guide/component-library.mdx`
 - Internal navigation/governance:
   - `docs-guide/README.md`
   - `docs-guide/source-of-truth-policy.md`

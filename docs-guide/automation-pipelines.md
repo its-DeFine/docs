@@ -67,6 +67,6 @@ Operational intent:
 
 ## Related
 
-- Public workflow guide: `v2/pages/07_resources/documentation-guide/automations-workflows.mdx`
+- Public workflow guide: `v2/resources/documentation-guide/automations-workflows.mdx`
 - Internal quality map: [quality-gates.md](./quality-gates.md)
 - Script inventory: [scripts-index.md](./scripts-index.md)

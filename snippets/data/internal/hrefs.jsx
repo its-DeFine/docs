@@ -62,8 +62,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../07_resources/changelog/changelog",
-      "resolvedPath": "v2/x-pages/07_resources/changelog/changelog.mdx",
+      "rawPath": "../resources/changelog/changelog",
+      "resolvedPath": "v2/resources/changelog/changelog.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -109,8 +109,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../07_resources/documentation-guide/documentation-overview",
-      "resolvedPath": "v2/x-pages/07_resources/documentation-guide/documentation-overview.mdx",
+      "rawPath": "../resources/documentation-guide/documentation-overview",
+      "resolvedPath": "v2/resources/documentation-guide/documentation-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -181,8 +181,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../07_resources/documentation-guide/documentation-overview",
-      "resolvedPath": "v2/x-pages/07_resources/documentation-guide/documentation-overview.mdx",
+      "rawPath": "../resources/documentation-guide/documentation-overview",
+      "resolvedPath": "v2/resources/documentation-guide/documentation-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -192,8 +192,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../07_resources/documentation-guide/component-library",
-      "resolvedPath": "v2/x-pages/07_resources/documentation-guide/component-library.mdx",
+      "rawPath": "../../resources/documentation-guide/component-library",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

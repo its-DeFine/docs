@@ -81,13 +81,13 @@ References in `docs.json` that point to non-existent files. Fix by creating the 
 - `v2/pages/02_community/livepeer-community/media-kit`
 - `v2/pages/02_community/livepeer-community/latest-topics`
 
-### Resources (07_resources)
+### Resources (resources)
 
-- `v2/pages/07_resources/redirect` (multiple)
-- `v2/pages/07_resources/concepts/livepeer-core-concepts`
-- `v2/pages/07_resources/concepts/livepeer-actors`
-- `v2/pages/07_resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory`
-- `v2/pages/07_resources/changelog/migration-guides`
+- `v2/resources/redirect` (multiple)
+- `v2/resources/concepts/livepeer-core-concepts`
+- `v2/resources/concepts/livepeer-actors`
+- `v2/resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory`
+- `v2/resources/changelog/migration-guides`
 
 ### Home (00_home)
 

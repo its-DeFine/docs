@@ -8,7 +8,7 @@ triggers:
   - "audit active vs inactive n8n flows"
 primary_paths:
   - "snippets/automations/scripts/n8n"
-  - "v2/pages/07_resources/documentation-guide/automations-workflows.mdx"
+  - "v2/resources/documentation-guide/automations-workflows.mdx"
   - "snippets/automations"
   - "tasks/reports/_legacy-unmanaged/20-automations-workflows-audit-report.md"
 primary_commands:

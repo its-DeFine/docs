@@ -214,13 +214,13 @@ function getCanonicalMap(normalizedRoute) {
   const route = normalizeRoute(normalizedRoute);
   const map = {
     'v2/pages/03_developers/building-on-livepeer/index': ['v2/pages/03_developers/developer-portal'],
-    'v2/pages/07_resources/redirect': ['v2/pages/07_resources/resources-portal'],
-    'v2/pages/08_help/redirect': ['v2/pages/08_help/README', 'v2/pages/07_resources/resources-portal'],
-    'v2/pages/08_help/README': ['v2/pages/07_resources/resources-portal'],
+    'v2/resources/redirect': ['v2/resources/resources-portal'],
+    'v2/pages/08_help/redirect': ['v2/pages/08_help/README', 'v2/resources/resources-portal'],
+    'v2/pages/08_help/README': ['v2/resources/resources-portal'],
     'v2/pages/010_streamplace/introduction/streamplace-funding-model': [
       'v2/pages/010_streamplace/introduction/streamplace-funding-model'
     ],
-    'v2/pages/07_resources/changelog/migration-guides': ['v2/pages/07_resources/changelog/migration-guide'],
+    'v2/resources/changelog/migration-guides': ['v2/resources/changelog/migration-guide'],
     'v2/pages/04_gateways/run-a-gateway/quickstart-a-gateway': [
       'v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway'
     ],
@@ -240,17 +240,17 @@ function getCanonicalMap(normalizedRoute) {
       'v2/pages/04_gateways/run-a-gateway/quickstart/quickstart-a-gateway'
     ],
     'v2/pages/04_gateways/references/video-flags': ['v2/pages/04_gateways/references/configuration-flags'],
-    'v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers': [
-      'v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers'
+    'v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers': [
+      'v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers'
     ],
-    'v2/pages/02_community/livepeer-community/media-kit': ['v2/pages/07_resources/media-kit'],
-    'v2/pages/07_resources/concepts/livepeer-core-concepts': ['v2/about/core-concepts'],
-    'v2/pages/07_resources/concepts/livepeer-actors': ['v2/pages/01_about/livepeer-network/actors'],
-    'v2/pages/07_resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory': [
+    'v2/pages/02_community/livepeer-community/media-kit': ['v2/resources/media-kit'],
+    'v2/resources/concepts/livepeer-core-concepts': ['v2/about/core-concepts'],
+    'v2/resources/concepts/livepeer-actors': ['v2/pages/01_about/livepeer-network/actors'],
+    'v2/resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory': [
       'v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory'
     ],
-    'v2/pages/00_home/changelog/changelog': ['v2/pages/07_resources/changelog/changelog'],
-    'v2/pages/00_home/changelog/migration-guide': ['v2/pages/07_resources/changelog/migration-guide']
+    'v2/pages/00_home/changelog/changelog': ['v2/resources/changelog/changelog'],
+    'v2/pages/00_home/changelog/migration-guide': ['v2/resources/changelog/migration-guide']
   };
 
   return map[route] || [];

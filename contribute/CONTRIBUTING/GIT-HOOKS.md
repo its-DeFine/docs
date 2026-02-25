@@ -172,7 +172,7 @@ Found 1 violation(s):
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 📖 MANDATORY: Read the Style Guide before committing:
-   v2/pages/07_resources/documentation-guide/style-guide.mdx
+   v2/resources/documentation-guide/style-guide.mdx
 
 Key Rules:
   • Use CSS Custom Properties: var(--accent), var(--text), etc.
@@ -235,15 +235,15 @@ If the server isn't running, the check is **skipped** (doesn't block commit).
 🌐 Browser validation: Testing 3 staged MDX file(s)...
 ✅ Server accessible at http://localhost:3000
 
-  Testing v2/pages/07_resources/documentation-guide/style-guide.mdx... ✅
-  Testing v2/pages/07_resources/documentation-guide/snippets-inventory.mdx... ✅
-  Testing v2/pages/07_resources/documentation-guide/component-library.mdx... ❌
+  Testing v2/resources/documentation-guide/style-guide.mdx... ✅
+  Testing v2/resources/documentation-guide/snippets-inventory.mdx... ✅
+  Testing v2/resources/documentation-guide/component-library.mdx... ❌
      Error: Failed to resolve import: /snippets/components/Component.jsx
 
 ✅ All 2 page(s) rendered successfully in browser
 ❌ 1 of 3 page(s) failed browser validation:
 
-  v2/pages/07_resources/documentation-guide/component-library.mdx:
+  v2/resources/documentation-guide/component-library.mdx:
     - Failed to resolve import: /snippets/components/Component.jsx
 
 💡 Fix errors and try committing again.
@@ -421,14 +421,14 @@ Current CI mapping:
 
 The hooks enforce rules from:
 
-- **Style Guide:** `v2/pages/07_resources/documentation-guide/style-guide.mdx`
-- **Component Library:** `v2/pages/07_resources/documentation-guide/component-library.mdx`
+- **Style Guide:** `v2/resources/documentation-guide/style-guide.mdx`
+- **Component Library:** `v2/resources/documentation-guide/component-library.mdx`
 - **Mintlify Behavior:** `snippets/snippetsWiki/mintlify-behaviour.mdx`
 
 ## Related Documentation
 
-- [Style Guide](../v2/pages/07_resources/documentation-guide/style-guide.mdx)
-- [Component Library](../v2/pages/07_resources/documentation-guide/component-library.mdx)
+- [Style Guide](../v2/resources/documentation-guide/style-guide.mdx)
+- [Component Library](../v2/resources/documentation-guide/component-library.mdx)
 - [Contribution Guide](./CONTRIBUTING.md) (if exists)
 - [Agent Prerequisites](../PLAN/AGENT-PREREQUISITES.md)
 

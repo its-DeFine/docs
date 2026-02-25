@@ -7,7 +7,7 @@ triggers:
   - "author mdx page for livepeer docs"
   - "replace ThemeData usage"
 primary_paths:
-  - "v2/pages/07_resources/documentation-guide/style-guide.mdx"
+  - "v2/resources/documentation-guide/style-guide.mdx"
   - "style.css"
   - "tests/unit/style-guide.test.js"
   - "tests/unit/mdx.test.js"

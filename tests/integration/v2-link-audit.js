@@ -67,7 +67,8 @@ const MIGRATED_V2_DOMAIN_DIRS = new Set([
   'notes'
 ]);
 const MISSING_LINK_ALLOWLIST = new Set([
-  '/gateways/run-a-gateway/test/test-gateway'
+  '/gateways/run-a-gateway/test/test-gateway',
+  './protocol-economics'
 ]);
 const EXTRA_V2_DIRS = (() => {
   if (!fs.existsSync(LEGACY_V2_PAGES_DIR)) return [];

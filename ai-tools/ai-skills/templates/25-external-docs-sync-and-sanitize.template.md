@@ -10,7 +10,7 @@ primary_paths:
   - "tools/scripts/snippets/fetch-external-docs.sh"
   - "snippets/external"
   - "tools/scripts/snippets/paths.config.json"
-  - "v2/pages/07_resources/documentation-guide/docs-features-and-ai-integrations.mdx"
+  - "v2/resources/documentation-guide/docs-features-and-ai-integrations.mdx"
 primary_commands:
   - "bash tools/scripts/snippets/fetch-external-docs.sh"
   - "rg --files snippets/external"

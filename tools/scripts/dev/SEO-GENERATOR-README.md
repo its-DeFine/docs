@@ -94,7 +94,7 @@ Images are assigned based on directory structure:
 - `04_gateways` → `/snippets/assets/domain/04_GATEWAYS/social-preview-gateways.jpg`
 - `05_orchestrators` → `/snippets/assets/domain/05_ORCHESTRATORS/social-preview-orchestrators.jpg`
 - `06_delegators` → `/snippets/assets/domain/06_DELEGATORS/social-preview-delegators.jpg`
-- `07_resources` → `/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg`
+- `resources` → `/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg`
 - Default → `/snippets/assets/domain/social-preview-default.jpg`
 
 ## Example Output
