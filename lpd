@@ -58,6 +58,10 @@ Usage:
     - flags: choose test scope and optional browser/domain/WCAG checks.
     - info: Run test suite with optional integration checks.
 
+  lpd ai-sitemap [--write|--check] [--json]
+    - flags: write or verify the AI sitemap artifact.
+    - info: Generate or validate sitemap-ai.xml.
+
   lpd ci [--skip-browser] [--base-url URL]
     - flags: optionally skip browser checks and set domain audit base URL.
     - info: Run CI-like validation flow locally.
@@ -86,6 +90,9 @@ Examples:
 
   lpd test --staged --wcag
     - Runs staged tests and a staged/capped WCAG audit (autofix enabled by default).
+
+  lpd ai-sitemap --write
+    - Generates sitemap-ai.xml at repo root.
 
   lpd scripts list --group tools
     - Lists available scripts in the tools group.
@@ -132,6 +139,7 @@ Command Groups:
     lpd doctor [--strict] [--json]
     lpd dev [--test] [--test-mode fast|staged|full] [-- ...mint args]
     lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--wcag] [--wcag-no-fix] [--base-url URL]
+    lpd ai-sitemap [--write|--check] [--json]
     lpd ci [--skip-browser] [--base-url URL]
 
   hooks
@@ -154,6 +162,8 @@ Common Workflows:
     lpd test --staged
   run a managed script
     lpd tools dev test-add-callouts -- --help
+  regenerate AI sitemap
+    lpd ai-sitemap --write
 
 Notes:
   - lpd uses .lpdignore (if present) to hide/block scripts from discovery and execution.
@@ -1164,6 +1174,53 @@ EOF
     finish 0 "ci" "CI simulation completed successfully."
 }
 
+cmd_ai_sitemap() {
+    local mode="check"
+
+    while [ "$#" -gt 0 ]; do
+        case "$1" in
+            --write)
+                mode="write"
+                ;;
+            --check)
+                mode="check"
+                ;;
+            --json)
+                GLOBAL_JSON=1
+                ;;
+            --help|-h)
+                cat <<'EOF'
+Usage: lpd ai-sitemap [--write|--check] [--json]
+EOF
+                return 0
+                ;;
+            *)
+                finish 1 "ai-sitemap" "Unknown option: $1"
+                return 1
+                ;;
+        esac
+        shift
+    done
+
+    local -a cmd
+    cmd=(node tools/scripts/generate-ai-sitemap.js)
+    case "$mode" in
+        write)
+            cmd+=(--write)
+            ;;
+        check)
+            cmd+=(--check)
+            ;;
+    esac
+
+    if ! "${cmd[@]}"; then
+        finish 1 "ai-sitemap" "AI sitemap command failed."
+        return 1
+    fi
+
+    finish 0 "ai-sitemap" "AI sitemap command completed successfully."
+}
+
 cmd_scripts_list() {
     local group_filter=""
     local show_ignored=0
@@ -1379,6 +1436,9 @@ case "$COMMAND" in
         ;;
     test)
         cmd_test "$@"
+        ;;
+    ai-sitemap)
+        cmd_ai_sitemap "$@"
         ;;
     ci)
         cmd_ci "$@"
