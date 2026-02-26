@@ -5,6 +5,8 @@ description: 'Formal model of the Livepeer Treasury as a governance-controlled p
 keywords: ["livepeer", "lpt", "treasury", "governance", "grants", "funding", "ecosystem"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
+import { MathInline, MathBlock } from '/snippets/components/content/math.jsx'
+
 
 ## Executive Summary
 
@@ -18,22 +20,18 @@ Treasury control is enforced at the **protocol layer (on-chain)** through govern
 
 Let:
 
-- \(T\) = treasury balance (in relevant asset units)
-- \(A_k\) = allocation amount executed by proposal \(k\)
+- <MathInline latex={String.raw`T`} /> = treasury balance (in relevant asset units)
+- <MathInline latex={String.raw`A_k`} /> = allocation amount executed by proposal <MathInline latex={String.raw`k`} />
 
-Treasury balance update after allocation \(k\):
+Treasury balance update after allocation <MathInline latex={String.raw`k`} />:
 
-\[
-T' = T - A_k
-\]
+<MathBlock latex={String.raw`T' = T - A_k`} />
 
-More generally, after a set of allocations \(\{A_1, A_2, \dots, A_n\}\):
+More generally, after a set of allocations <MathInline latex={String.raw`\{A_1, A_2, \dots, A_n\}`} />:
 
-\[
-T_n = T_0 - \sum_{k=1}^{n} A_k
-\]
+<MathBlock latex={String.raw`T_n = T_0 - \sum_{k=1}^{n} A_k`} />
 
-Where each \(A_k\) is authorized via governance.
+Where each <MathInline latex={String.raw`A_k`} /> is authorized via governance.
 
 ---
 
@@ -80,14 +78,12 @@ Treasury decisions are executed through the governance lifecycle.
 
 Let:
 
-- \(B_T\) = total bonded stake
-- \(B_i\) = bonded stake attributed to voter \(i\)
+- <MathInline latex={String.raw`B_T`} /> = total bonded stake
+- <MathInline latex={String.raw`B_i`} /> = bonded stake attributed to voter <MathInline latex={String.raw`i`} />
 
 Voting power:
 
-\[
-V_i = \frac{B_i}{B_T}
-\]
+<MathBlock latex={String.raw`V_i = \frac{B_i}{B_T}`} />
 
 Thus, the treasury inherits governance security properties.
 
@@ -97,15 +93,13 @@ Thus, the treasury inherits governance security properties.
 
 Treasury security depends on:
 
-1. Total bonded stake \(B_T\)
+1. Total bonded stake <MathInline latex={String.raw`B_T`} />
 2. Stake distribution (concentration)
 3. Quorum and timelock configuration
 
 Capital required to control outcomes:
 
-\[
-Capital_{control} \ge \theta B_T
-\]
+<MathBlock latex={String.raw`Capital_{control} \ge \theta B_T`} />
 
 A treasury is therefore as secure as the governance system controlling it.
 

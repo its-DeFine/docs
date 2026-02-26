@@ -5,6 +5,8 @@ description: 'Detailed protocol-level mechanics governing bonding, unbonding, re
 keywords: ["livepeer", "lpt", "mechanics", "bonding", "unbonding", "staking", "rewards", "rounds"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
+import { MathInline, MathBlock } from '/snippets/components/content/math.jsx'
+
 
 ## Executive Summary
 
@@ -18,10 +20,10 @@ All mechanisms described here operate strictly at the **protocol layer (on-chain
 
 Let:
 
-- \(S_t\) = total LPT supply at round \(t\)
-- \(B_T\) = total bonded stake
-- \(B_i\) = bonded stake attributed to participant \(i\)
-- Round \(t\) = discrete accounting epoch managed by the protocol
+- <MathInline latex={String.raw`S_t`} /> = total LPT supply at round <MathInline latex={String.raw`t`} />
+- <MathInline latex={String.raw`B_T`} /> = total bonded stake
+- <MathInline latex={String.raw`B_i`} /> = bonded stake attributed to participant <MathInline latex={String.raw`i`} />
+- Round <MathInline latex={String.raw`t`} /> = discrete accounting epoch managed by the protocol
 
 Rounds form the atomic accounting unit for issuance and reward distribution.
 
@@ -31,15 +33,11 @@ Rounds form the atomic accounting unit for issuance and reward distribution.
 
 Bonding is the act of locking LPT into the staking contract to participate in protocol rewards and governance.
 
-When participant \(i\) bonds amount \(x\):
+When participant <MathInline latex={String.raw`i`} /> bonds amount <MathInline latex={String.raw`x`} />:
 
-\[
-B_i^{new} = B_i^{old} + x
-\]
+<MathBlock latex={String.raw`B_i^{new} = B_i^{old} + x`} />
 
-\[
-B_T^{new} = B_T^{old} + x
-\]
+<MathBlock latex={String.raw`B_T^{new} = B_T^{old} + x`} />
 
 Bonded stake contributes to:
 
@@ -53,11 +51,9 @@ Bonding is recorded in the BondingManager contract.
 
 ## 3. Delegation Attribution
 
-If delegator \(D\) bonds to orchestrator \(O\):
+If delegator <MathInline latex={String.raw`D`} /> bonds to orchestrator <MathInline latex={String.raw`O`} />:
 
-\[
-B_O = B_{self,O} + \sum_D b_{D,O}
-\]
+<MathBlock latex={String.raw`B_O = B_{self,O} + \sum_D b_{D,O}`} />
 
 Delegators retain ownership but delegate reward rights and voting weight attribution.
 
@@ -67,15 +63,11 @@ Delegators retain ownership but delegate reward rights and voting weight attribu
 
 Unbonding initiates a withdrawal period.
 
-When participant \(i\) unbonds amount \(x\):
+When participant <MathInline latex={String.raw`i`} /> unbonds amount <MathInline latex={String.raw`x`} />:
 
-\[
-B_i^{new} = B_i^{old} - x
-\]
+<MathBlock latex={String.raw`B_i^{new} = B_i^{old} - x`} />
 
-\[
-B_T^{new} = B_T^{old} - x
-\]
+<MathBlock latex={String.raw`B_T^{new} = B_T^{old} - x`} />
 
 The stake enters a pending withdrawal state subject to an unbonding period measured in rounds.
 
@@ -100,15 +92,11 @@ Round transition is triggered by protocol timing logic.
 
 Issuance per round:
 
-\[
-R_t = S_t \cdot r_t
-\]
+<MathBlock latex={String.raw`R_t = S_t \cdot r_t`} />
 
 Supply update:
 
-\[
-S_{t+1} = S_t + R_t
-\]
+<MathBlock latex={String.raw`S_{t+1} = S_t + R_t`} />
 
 ---
 
@@ -118,17 +106,13 @@ Rewards are not automatically transferred; they must be checkpointed.
 
 Checkpointing updates participant reward balances according to stake weight.
 
-Allocation to orchestrator \(O\):
+Allocation to orchestrator <MathInline latex={String.raw`O`} />:
 
-\[
-R_O = R_t \cdot \frac{B_O}{B_T}
-\]
+<MathBlock latex={String.raw`R_O = R_t \cdot \frac{B_O}{B_T}`} />
 
 Delegator share:
 
-\[
-R_{D,O} = R_O (1 - c_O) \cdot \frac{b_{D,O}}{B_O}
-\]
+<MathBlock latex={String.raw`R_{D,O} = R_O (1 - c_O) \cdot \frac{b_{D,O}}{B_O}`} />
 
 Checkpointing updates internal accounting state before withdrawal or rebonding.
 
@@ -141,7 +125,7 @@ Participants may:
 - Claim rewards to liquid balance
 - Rebond rewards (compound stake)
 
-Rebonding increases \(B_i\) and thus future economic weight.
+Rebonding increases <MathInline latex={String.raw`B_i`} /> and thus future economic weight.
 
 ---
 

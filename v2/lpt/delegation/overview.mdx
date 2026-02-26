@@ -5,6 +5,8 @@ description: 'Protocol-level overview of LPT delegation, including stake attribu
 keywords: ["livepeer", "lpt", "delegation", "staking", "bonding", "orchestrators", "rewards", "economics"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
+import { MathInline, MathBlock } from '/snippets/components/content/math.jsx'
+
 
 ## Executive Summary
 
@@ -18,22 +20,18 @@ Delegation is strictly a **protocol-layer (on-chain)** action. It does not execu
 
 Let:
 
-- \(D\) be a delegator
-- \(O\) be an orchestrator
-- \(b_{D,O}\) be LPT bonded by \(D\) toward \(O\)
-- \(B_{self,O}\) be orchestrator self-bonded stake
+- <MathInline latex={String.raw`D`} /> be a delegator
+- <MathInline latex={String.raw`O`} /> be an orchestrator
+- <MathInline latex={String.raw`b_{D,O}`} /> be LPT bonded by <MathInline latex={String.raw`D`} /> toward <MathInline latex={String.raw`O`} />
+- <MathInline latex={String.raw`B_{self,O}`} /> be orchestrator self-bonded stake
 
-Total stake attributed to orchestrator \(O\):
+Total stake attributed to orchestrator <MathInline latex={String.raw`O`} />:
 
-\[
-B_O = B_{self,O} + \sum_D b_{D,O}
-\]
+<MathBlock latex={String.raw`B_O = B_{self,O} + \sum_D b_{D,O}`} />
 
 Total bonded stake:
 
-\[
-B_T = \sum_O B_O
-\]
+<MathBlock latex={String.raw`B_T = \sum_O B_O`} />
 
 Delegation is an attribution rule over bonded stake recorded in protocol contract state.
 
@@ -67,45 +65,35 @@ Delegation influences which operators have greater economic weight, but network 
 
 ## 3. Economic Weight and Security
 
-Delegation increases \(B_O\), increasing the orchestrator's stake-weighted share.
+Delegation increases <MathInline latex={String.raw`B_O`} />, increasing the orchestrator's stake-weighted share.
 
 Define orchestrator weight:
 
-\[
-W_O = \frac{B_O}{B_T}
-\]
+<MathBlock latex={String.raw`W_O = \frac{B_O}{B_T}`} />
 
 Security implication:
 
-- Increasing \(B_T\) increases the capital cost required to capture stake-weighted outcomes.
+- Increasing <MathInline latex={String.raw`B_T`} /> increases the capital cost required to capture stake-weighted outcomes.
 
 Thus:
 
-\[
-\text{Security} \propto B_T
-\]
+<MathBlock latex={String.raw`\text{Security} \propto B_T`} />
 
 ---
 
 ## 4. Reward Allocation (Issuance)
 
-Per round \(t\), protocol issuance is minted:
+Per round <MathInline latex={String.raw`t`} />, protocol issuance is minted:
 
-\[
-R_t = S_t \cdot r_t
-\]
+<MathBlock latex={String.raw`R_t = S_t \cdot r_t`} />
 
 Orchestrator gross issuance allocation:
 
-\[
-R_O = R_t \cdot \frac{B_O}{B_T}
-\]
+<MathBlock latex={String.raw`R_O = R_t \cdot \frac{B_O}{B_T}`} />
 
-Delegator net issuance allocation with commission \(c_O\):
+Delegator net issuance allocation with commission <MathInline latex={String.raw`c_O`} />:
 
-\[
-R_{D,O} = R_O (1 - c_O) \cdot \frac{b_{D,O}}{B_O}
-\]
+<MathBlock latex={String.raw`R_{D,O} = R_O (1 - c_O) \cdot \frac{b_{D,O}}{B_O}`} />
 
 This formula separates:
 
@@ -121,9 +109,7 @@ Fees are demand-driven and may accrue to stakeholders according to protocol acco
 
 Total delegator return decomposes into:
 
-\[
-Reward_{D,O} = Issuance_{D,O} + Fees_{D,O}
-\]
+<MathBlock latex={String.raw`Reward_{D,O} = Issuance_{D,O} + Fees_{D,O}`} />
 
 Issuance is protocol-determined; fees depend on network usage.
 
@@ -168,10 +154,10 @@ stateDiagram-v2
 
 Delegators face protocol- and operator-level risks:
 
-1. **Commission risk:** \(c_O\) reduces net share
+1. **Commission risk:** <MathInline latex={String.raw`c_O`} /> reduces net share
 2. **Checkpoint risk:** missed checkpointing reduces realized issuance
 3. **Slashing exposure:** where enabled, stake may be reduced under defined conditions
-4. **Concentration risk:** large \(B_O\) increases systemic exposure
+4. **Concentration risk:** large <MathInline latex={String.raw`B_O`} /> increases systemic exposure
 5. **Liquidity risk:** unbonding delay restricts exit
 
 These are economic risks inherent to a capital-weighted protocol.

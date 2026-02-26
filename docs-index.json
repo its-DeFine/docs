@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-02-25T08:57:26.417Z",
+  "generated": "2026-02-26T05:07:43.480Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -374,7 +374,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/home/case-studies/showcase",
+      "url": "https://docs.livepeer.org/v2/home/solutions/showcase",
       "title": "Creative Projects Built with Livepeer",
       "description": "Be inspired by this collection of creative ecosystem use cases re-inventing their industries with Livepeer.",
       "section": "home",
@@ -396,7 +396,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 14,
-      "lastVerified": "2026-02-23T22:08:49+11:00",
+      "lastVerified": "2026-02-26T05:05:48.855Z",
       "headings": [
         {
           "level": 3,
@@ -414,7 +414,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/home/case-studies/verticals",
+      "url": "https://docs.livepeer.org/v2/home/solutions/verticals",
       "title": "Industry Verticals",
       "description": "",
       "section": "home",
@@ -425,19 +425,19 @@
         "industry-verticals",
         "industry",
         "applications",
-        "case-studies",
+        "solutions",
         "verticals"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1343,
-      "lastVerified": "2026-02-23T22:08:49+11:00",
+      "lastVerified": "2026-02-26T05:05:48.855Z",
       "headings": [],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/home/case-studies/applications",
+      "url": "https://docs.livepeer.org/v2/home/solutions/applications",
       "title": "Key Applications for Livepeer",
       "description": "Key Applications of Livepeer from the hobby developer to the Fortune 500.",
       "section": "home",
@@ -459,7 +459,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 148,
-      "lastVerified": "2026-02-23T22:08:49+11:00",
+      "lastVerified": "2026-02-26T05:05:48.855Z",
       "headings": [
         {
           "level": 3,
@@ -8803,7 +8803,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 35,
+      "wordCount": 22,
       "lastVerified": "2026-02-24T23:28:18+11:00",
       "headings": [],
       "codeLanguages": []
@@ -8827,7 +8827,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 46,
+      "wordCount": 32,
       "lastVerified": "2026-02-24T23:28:18+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9084,7 +9084,7 @@
         "POST /text-to-image"
       ],
       "difficulty": "advanced",
-      "wordCount": 33,
+      "wordCount": 18,
       "lastVerified": "2026-02-24T23:28:19+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9111,7 +9111,7 @@
         "POST /image-to-image"
       ],
       "difficulty": "advanced",
-      "wordCount": 33,
+      "wordCount": 18,
       "lastVerified": "2026-02-24T23:28:19+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9139,7 +9139,7 @@
         "POST /image-to-video"
       ],
       "difficulty": "advanced",
-      "wordCount": 34,
+      "wordCount": 18,
       "lastVerified": "2026-02-24T23:28:19+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9166,7 +9166,7 @@
         "POST /upscale"
       ],
       "difficulty": "advanced",
-      "wordCount": 31,
+      "wordCount": 16,
       "lastVerified": "2026-02-24T23:28:19+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9193,7 +9193,7 @@
         "POST /audio-to-text"
       ],
       "difficulty": "advanced",
-      "wordCount": 33,
+      "wordCount": 18,
       "lastVerified": "2026-02-24T23:28:18+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9220,7 +9220,7 @@
         "POST /segment-anything-2"
       ],
       "difficulty": "advanced",
-      "wordCount": 33,
+      "wordCount": 18,
       "lastVerified": "2026-02-24T23:28:19+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9247,7 +9247,7 @@
         "POST /llm"
       ],
       "difficulty": "advanced",
-      "wordCount": 31,
+      "wordCount": 16,
       "lastVerified": "2026-02-24T23:28:19+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9274,7 +9274,7 @@
         "POST /image-to-text"
       ],
       "difficulty": "advanced",
-      "wordCount": 33,
+      "wordCount": 18,
       "lastVerified": "2026-02-24T23:28:19+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9302,7 +9302,7 @@
         "POST /live-video-to-video"
       ],
       "difficulty": "advanced",
-      "wordCount": 35,
+      "wordCount": 19,
       "lastVerified": "2026-02-24T23:28:19+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9329,7 +9329,7 @@
         "POST /text-to-speech"
       ],
       "difficulty": "advanced",
-      "wordCount": 33,
+      "wordCount": 18,
       "lastVerified": "2026-02-24T23:28:19+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9356,7 +9356,7 @@
         "GET /health"
       ],
       "difficulty": "advanced",
-      "wordCount": 31,
+      "wordCount": 16,
       "lastVerified": "2026-02-24T23:28:18+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9383,7 +9383,7 @@
         "GET /hardware/info"
       ],
       "difficulty": "advanced",
-      "wordCount": 32,
+      "wordCount": 17,
       "lastVerified": "2026-02-24T23:28:18+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9410,7 +9410,7 @@
         "GET /hardware/stats"
       ],
       "difficulty": "advanced",
-      "wordCount": 32,
+      "wordCount": 17,
       "lastVerified": "2026-02-24T23:28:18+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9505,7 +9505,7 @@
         "POST /unbond"
       ],
       "difficulty": "advanced",
-      "wordCount": 30,
+      "wordCount": 16,
       "lastVerified": "2026-02-24T23:28:20+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9531,7 +9531,7 @@
         "POST /rebond"
       ],
       "difficulty": "advanced",
-      "wordCount": 30,
+      "wordCount": 16,
       "lastVerified": "2026-02-24T23:28:19+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9558,7 +9558,7 @@
         "POST /activateOrchestrator"
       ],
       "difficulty": "advanced",
-      "wordCount": 31,
+      "wordCount": 16,
       "lastVerified": "2026-02-24T23:28:19+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9584,7 +9584,7 @@
         "POST /setBroadcastConfig"
       ],
       "difficulty": "advanced",
-      "wordCount": 30,
+      "wordCount": 16,
       "lastVerified": "2026-02-24T23:28:20+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9610,7 +9610,7 @@
         "POST /setMaxPriceForCapability"
       ],
       "difficulty": "advanced",
-      "wordCount": 30,
+      "wordCount": 16,
       "lastVerified": "2026-02-24T23:28:20+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9636,7 +9636,7 @@
         "POST /reward"
       ],
       "difficulty": "advanced",
-      "wordCount": 30,
+      "wordCount": 16,
       "lastVerified": "2026-02-24T23:28:20+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9662,7 +9662,7 @@
         "POST /transferTokens"
       ],
       "difficulty": "advanced",
-      "wordCount": 30,
+      "wordCount": 16,
       "lastVerified": "2026-02-24T23:28:20+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9688,7 +9688,7 @@
         "POST /signMessage"
       ],
       "difficulty": "advanced",
-      "wordCount": 30,
+      "wordCount": 16,
       "lastVerified": "2026-02-24T23:28:20+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10757,8 +10757,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 508,
-      "lastVerified": "2026-02-21T22:50:55+11:00",
+      "wordCount": 472,
+      "lastVerified": "2026-02-26T15:58:23+11:00",
       "headings": [
         {
           "level": 2,
@@ -10883,8 +10883,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 482,
-      "lastVerified": "2026-02-21T22:50:55+11:00",
+      "wordCount": 403,
+      "lastVerified": "2026-02-26T15:58:23+11:00",
       "headings": [
         {
           "level": 2,
@@ -10956,8 +10956,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 459,
-      "lastVerified": "2026-02-21T22:50:55+11:00",
+      "wordCount": 382,
+      "lastVerified": "2026-02-26T15:58:23+11:00",
       "headings": [
         {
           "level": 2,
@@ -11033,8 +11033,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 573,
-      "lastVerified": "2026-02-21T22:52:18+11:00",
+      "wordCount": 509,
+      "lastVerified": "2026-02-26T15:58:23+11:00",
       "headings": [
         {
           "level": 2,
@@ -11118,8 +11118,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 688,
-      "lastVerified": "2026-02-21T22:52:18+11:00",
+      "wordCount": 608,
+      "lastVerified": "2026-02-26T15:58:23+11:00",
       "headings": [
         {
           "level": 2,
@@ -11231,8 +11231,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 567,
-      "lastVerified": "2026-02-21T22:52:18+11:00",
+      "wordCount": 484,
+      "lastVerified": "2026-02-26T15:58:23+11:00",
       "headings": [
         {
           "level": 2,
@@ -11315,8 +11315,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 664,
-      "lastVerified": "2026-02-21T22:54:39+11:00",
+      "wordCount": 635,
+      "lastVerified": "2026-02-26T15:58:23+11:00",
       "headings": [
         {
           "level": 2,
@@ -11395,8 +11395,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 739,
-      "lastVerified": "2026-02-21T22:54:39+11:00",
+      "wordCount": 703,
+      "lastVerified": "2026-02-26T15:58:23+11:00",
       "headings": [
         {
           "level": 2,
@@ -11495,8 +11495,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 873,
-      "lastVerified": "2026-02-21T22:54:39+11:00",
+      "wordCount": 852,
+      "lastVerified": "2026-02-26T15:58:23+11:00",
       "headings": [
         {
           "level": 2,
@@ -11627,8 +11627,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 437,
-      "lastVerified": "2026-02-21T22:57:15+11:00",
+      "wordCount": 400,
+      "lastVerified": "2026-02-26T15:58:23+11:00",
       "headings": [
         {
           "level": 2,
@@ -11702,8 +11702,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 559,
-      "lastVerified": "2026-02-21T22:57:15+11:00",
+      "wordCount": 510,
+      "lastVerified": "2026-02-26T15:58:23+11:00",
       "headings": [
         {
           "level": 2,
@@ -11794,8 +11794,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 558,
-      "lastVerified": "2026-02-21T22:57:15+11:00",
+      "wordCount": 503,
+      "lastVerified": "2026-02-26T15:58:23+11:00",
       "headings": [
         {
           "level": 2,
@@ -15235,7 +15235,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 36,
+      "wordCount": 23,
       "lastVerified": "2026-02-24T23:28:21+11:00",
       "headings": [],
       "codeLanguages": []
@@ -15316,7 +15316,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 29,
+      "wordCount": 18,
       "lastVerified": "2026-02-24T23:28:21+11:00",
       "headings": [],
       "codeLanguages": []

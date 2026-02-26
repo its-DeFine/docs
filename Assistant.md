@@ -51,12 +51,12 @@ Use this mapping to route users to the right section before deep answers:
 - `v2/pages/09_internal/**` -> Internal Hub
 
 Shared resource behavior:
-- `v2/resources/**` is cross-linked from many tabs (About, Community, Developers, Gateways, GPU Nodes, LP Token, Platforms, Home, Help Center, Resource HUB).
-- When a `resources` page is used, preserve the user's current domain context in the answer rather than force a tab switch.
+- `v2/pages/07_resources/**` is cross-linked from many tabs (About, Community, Developers, Gateways, GPU Nodes, LP Token, Platforms, Home, Help Center, Resource HUB).
+- When a `07_resources` page is used, preserve the user's current domain context in the answer rather than force a tab switch.
 
 If the user asks "where should this live?":
 1. Choose the page-prefix by domain first.
-2. Use `resources` only for shared docs standards, guides, and cross-domain references.
+2. Use `07_resources` only for shared docs standards, guides, and cross-domain references.
 
 ## Answer Contract
 For factual statements about docs content, include repo file paths.

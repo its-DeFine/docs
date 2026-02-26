@@ -5,6 +5,8 @@ description: 'Contract-level, step-by-step guide to bonding, delegating, unbondi
 keywords: ["livepeer", "lpt", "delegation", "staking", "bonding", "unbonding", "rewards", "guide"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
+import { MathInline, MathBlock } from '/snippets/components/content/math.jsx'
+
 
 ## Executive Summary
 
@@ -32,7 +34,7 @@ Delegation interacts primarily with the BondingManager contract.
 
 If interacting directly with contracts, the LPT token contract must be approved to transfer the desired bonding amount.
 
-Let \(x\) be the amount to delegate.
+Let <MathInline latex={String.raw`x`} /> be the amount to delegate.
 
 Approval does not change bonding state; it only authorizes the staking contract to transfer tokens.
 
@@ -44,22 +46,16 @@ State impact: none (allowance update only).
 
 Call `bond(x, O)` where:
 
-- \(x\) = LPT amount
-- \(O\) = chosen orchestrator address
+- <MathInline latex={String.raw`x`} /> = LPT amount
+- <MathInline latex={String.raw`O`} /> = chosen orchestrator address
 
 State transition:
 
-\[
-B_i^{new} = B_i^{old} + x
-\]
+<MathBlock latex={String.raw`B_i^{new} = B_i^{old} + x`} />
 
-\[
-B_O^{new} = B_O^{old} + x
-\]
+<MathBlock latex={String.raw`B_O^{new} = B_O^{old} + x`} />
 
-\[
-B_T^{new} = B_T^{old} + x
-\]
+<MathBlock latex={String.raw`B_T^{new} = B_T^{old} + x`} />
 
 Delegation immediately affects stake attribution for subsequent rounds (subject to protocol timing rules).
 
@@ -84,23 +80,17 @@ Delegation must be verifiable via on-chain state, not UI display alone.
 
 ## 5. Reward Accrual and Checkpointing
 
-Per round \(t\):
+Per round <MathInline latex={String.raw`t`} />:
 
-\[
-R_t = S_t \cdot r_t
-\]
+<MathBlock latex={String.raw`R_t = S_t \cdot r_t`} />
 
 Orchestrator allocation:
 
-\[
-R_O = R_t \cdot \frac{B_O}{B_T}
-\]
+<MathBlock latex={String.raw`R_O = R_t \cdot \frac{B_O}{B_T}`} />
 
-Delegator net allocation with commission \(c_O\):
+Delegator net allocation with commission <MathInline latex={String.raw`c_O`} />:
 
-\[
-R_{D,O} = R_O \cdot (1 - c_O) \cdot \frac{b_{D,O}}{B_O}
-\]
+<MathBlock latex={String.raw`R_{D,O} = R_O \cdot (1 - c_O) \cdot \frac{b_{D,O}}{B_O}`} />
 
 Rewards may require checkpointing before they are claimable or rebondable.
 
@@ -112,17 +102,13 @@ Checkpointing updates internal accounting but does not automatically transfer to
 
 Instead of withdrawing rewards, a delegator may rebond.
 
-If reward amount = \(y\):
+If reward amount = <MathInline latex={String.raw`y`} />:
 
-\[
-B_i^{new} = B_i^{old} + y
-\]
+<MathBlock latex={String.raw`B_i^{new} = B_i^{old} + y`} />
 
 Compounding increases future weight:
 
-\[
-W_i = \frac{B_i}{B_T}
-\]
+<MathBlock latex={String.raw`W_i = \frac{B_i}{B_T}`} />
 
 ---
 
@@ -132,17 +118,11 @@ To exit delegation, call `unbond(x)`.
 
 State transition:
 
-\[
-B_i^{new} = B_i^{old} - x
-\]
+<MathBlock latex={String.raw`B_i^{new} = B_i^{old} - x`} />
 
-\[
-B_O^{new} = B_O^{old} - x
-\]
+<MathBlock latex={String.raw`B_O^{new} = B_O^{old} - x`} />
 
-\[
-B_T^{new} = B_T^{old} - x
-\]
+<MathBlock latex={String.raw`B_T^{new} = B_T^{old} - x`} />
 
 Stake enters an unbonding state.
 
@@ -192,7 +172,7 @@ Withdrawal finalizes the exit.
 
 Before delegating, evaluate:
 
-1. Commission rate \(c_O\)
+1. Commission rate <MathInline latex={String.raw`c_O`} />
 2. Orchestrator stake concentration
 3. Historical checkpoint consistency
 4. Governance alignment

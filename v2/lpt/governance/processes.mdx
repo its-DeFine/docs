@@ -5,6 +5,8 @@ description: 'End-to-end governance process lifecycle including off-chain signal
 keywords: ["livepeer", "lpt", "governance", "processes", "voting", "LIPs", "treasury", "proposals"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
+import { MathInline, MathBlock } from '/snippets/components/content/math.jsx'
+
 
 ## Executive Summary
 
@@ -80,9 +82,7 @@ More than **50%** of participating votes must favour the proposal. Simple majori
 
 Voting power is proportional to bonded LPT:
 
-\[
-V_i = \frac{B_i}{B_T}
-\]
+<MathBlock latex={String.raw`V_i = \frac{B_i}{B_T}`} />
 
 Delegators exercise governance indirectly by delegating to orchestrators whose values align with their own; orchestrators must publicly declare their positions and can cast votes accordingly.
 
@@ -108,15 +108,11 @@ Voting occurs via an on-chain smart contract. When a LIP is ready, its hash and 
 
 Proposal must satisfy:
 
-\[
-V_{cast} \ge Q \cdot B_T
-\]
+<MathBlock latex={String.raw`V_{cast} \ge Q \cdot B_T`} />
 
 And majority condition:
 
-\[
-V_{for} > V_{against}
-\]
+<MathBlock latex={String.raw`V_{for} > V_{against}`} />
 
 Conditions are enforced by governance contracts.
 
@@ -190,12 +186,12 @@ All votes and execution transactions are publicly verifiable on-chain. Governanc
 
 ### 7.3 Parameter Calibration
 
-Quorum \(Q\) and timelock duration \(T_{delay}\) are governance-level security parameters.
+Quorum <MathInline latex={String.raw`Q`} /> and timelock duration <MathInline latex={String.raw`T_{delay}`} /> are governance-level security parameters.
 
-If \(Q\) is too low:
+If <MathInline latex={String.raw`Q`} /> is too low:
 - Small coalitions may pass proposals
 
-If \(Q\) is too high:
+If <MathInline latex={String.raw`Q`} /> is too high:
 - Governance stagnation may occur
 
 ---
