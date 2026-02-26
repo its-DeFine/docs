@@ -3373,18 +3373,18 @@
                         ]
                       },
                       {
-                        "group": "Muestra",
+                        "group": "Vitrina",
                         "icon": "clapperboard-play",
                         "pages": [
-                          "v2/es/home/case-studies/showcase",
-                          "v2/es/home/case-studies/verticals",
-                          "v2/es/home/case-studies/applications"
+                          "v2/es/home/solutions/showcase",
+                          "v2/es/home/solutions/verticals",
+                          "v2/es/home/solutions/applications"
                         ]
                       }
                     ]
                   },
                   {
-                    "anchor": "HUB de Recursos",
+                    "anchor": "Centro de recursos",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -3456,7 +3456,7 @@
                     ]
                   },
                   {
-                    "anchor": "HUB de Recursos",
+                    "anchor": "Centro de recursos",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -3489,7 +3489,7 @@
                         ]
                       },
                       {
-                        "group": "Daydream",
+                        "group": "Ensueño",
                         "icon": "camera-movie",
                         "pages": [
                           "v2/platforms/daydream/overview"
@@ -3565,6 +3565,131 @@
                               "v2/platforms/livepeer-studio/reference/sdks",
                               "v2/platforms/livepeer-studio/reference/managing-projects"
                             ]
+                          },
+                          {
+                            "group": "Referencia de API",
+                            "pages": [
+                              {
+                                "group": "Recursos",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/assets/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/upload",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/upload-via-url",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/get",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/update",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/delete",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/get-all"
+                                ]
+                              },
+                              {
+                                "group": "Flujos",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/streams/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/create",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/get",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/update",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/terminate",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/create-clip",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/get-clip",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/add-multistream-target",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/delete-multistream-target",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/delete"
+                                ]
+                              },
+                              {
+                                "group": "Multiflujo",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/create",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/get",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/update",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/delete"
+                                ]
+                              },
+                              {
+                                "group": "Reproducción",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/playback/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/playback/get"
+                                ]
+                              },
+                              {
+                                "group": "Sesiones",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-clip",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-recording"
+                                ]
+                              },
+                              {
+                                "group": "Tareas",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/tasks/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/tasks/get",
+                                  "v2/platforms/livepeer-studio/api-reference/tasks/get-all"
+                                ]
+                              },
+                              {
+                                "group": "Transcodificar",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/transcode/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/transcode/create"
+                                ]
+                              },
+                              {
+                                "group": "Claves de firma",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/create",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/get",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/update",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/delete"
+                                ]
+                              },
+                              {
+                                "group": "Webhooks",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/create",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/get",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/update",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/delete"
+                                ]
+                              },
+                              {
+                                "group": "Salas",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/create",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/get",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/update",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/delete",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/create-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/get-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/update-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/remove-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/start-egress",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/stop-egress"
+                                ]
+                              },
+                              {
+                                "group": "Audiencia",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-viewership-metrics",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-creators-metrics",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-public-total-views",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-realtime-viewership"
+                                ]
+                              }
+                            ]
                           }
                         ]
                       },
@@ -3586,7 +3711,7 @@
                         ]
                       },
                       {
-                        "group": "Avatares Embodied",
+                        "group": "Avatares Embody",
                         "icon": "user-robot",
                         "pages": [
                           "v2/platforms/embody/overview"
@@ -3602,7 +3727,7 @@
                     ]
                   },
                   {
-                    "anchor": "HUB de Recursos",
+                    "anchor": "Centro de recursos",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -3640,7 +3765,7 @@
                         "icon": "fast-forward",
                         "pages": [
                           {
-                            "group": "Video y Transcodificación",
+                            "group": "Video y transcodificación",
                             "pages": [
                               "v2/developers/quickstart/video/video-streaming",
                               "v2/developers/quickstart/video/transcoding-jobs",
@@ -3648,7 +3773,7 @@
                             ]
                           },
                           {
-                            "group": "Trabajos de IA y Pipelines",
+                            "group": "Trabajos de IA y canalizaciones",
                             "pages": [
                               "v2/developers/quickstart/ai/ai-pipelines",
                               "v2/developers/quickstart/ai/ai-jobs"
@@ -3657,7 +3782,7 @@
                         ]
                       },
                       {
-                        "group": "Pipelines de IA",
+                        "group": "Canalizaciones de IA",
                         "icon": "user-robot",
                         "pages": [
                           "v2/developers/ai-pipelines/overview",
@@ -3666,7 +3791,7 @@
                         ]
                       },
                       {
-                        "group": "Guías y Tutoriales",
+                        "group": "Guías y tutoriales",
                         "icon": "laptop-file",
                         "pages": [
                           "v2/developers/guides-and-resources/developer-guides",
@@ -3676,7 +3801,7 @@
                         ]
                       },
                       {
-                        "group": "Oportunidades para Constructores",
+                        "group": "Oportunidades para Desarrolladores",
                         "icon": "lightbulb",
                         "pages": [
                           "v2/developers/builder-opportunities/dev-programs",
@@ -3686,7 +3811,7 @@
                     ]
                   },
                   {
-                    "anchor": "HUB de Recursos",
+                    "anchor": "Centro de Recursos",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -3711,7 +3836,7 @@
                         "icon": "books",
                         "pages": [
                           {
-                            "group": "SDKs y APIs",
+                            "group": "SDKs & APIs",
                             "pages": [
                               "v2/developers/technical-references/sdks",
                               "v2/developers/technical-references/apis"
@@ -3723,7 +3848,7 @@
                         ]
                       },
                       {
-                        "group": "Registro de cambios y migraciones",
+                        "group": "Registro de Cambios y Migraciones",
                         "icon": "swap",
                         "pages": [
                           "v2/resources/changelog/changelog",
@@ -3735,15 +3860,15 @@
                 ]
               },
               {
-                "tab": "Puertas de Enlace",
+                "tab": "Pasarelas",
                 "icon": "torii-gate",
                 "anchors": [
                   {
-                    "anchor": "Puertas de Enlace",
+                    "anchor": "Pasarelas",
                     "icon": "torii-gate",
                     "groups": [
                       {
-                        "group": "Centro de Conocimiento de Puertas de Enlace",
+                        "group": "Centro de Conocimiento de Pasarelas",
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/gateways/gateways-portal",
@@ -3754,7 +3879,7 @@
                         ]
                       },
                       {
-                        "group": "Inicio rápido ⚡",
+                        "group": "Inicio Rápido ⚡",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
                         "pages": [
                           "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
@@ -3762,13 +3887,13 @@
                         ]
                       },
                       {
-                        "group": "Servicios y Proveedores de Puertas de Enlace",
+                        "group": "Servicios y Proveedores de Pasarelas",
                         "icon": "wand-magic-sparkles",
                         "pages": [
                           "v2/gateways/using-gateways/choosing-a-gateway",
                           "v2/gateways/using-gateways/gateway-providers",
                           {
-                            "group": "Documentación del Proveedor",
+                            "group": "Documentación de Proveedores",
                             "pages": [
                               "v2/gateways/using-gateways/gateway-providers/daydream-gateway",
                               "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
@@ -3779,11 +3904,11 @@
                         ]
                       },
                       {
-                        "group": "Ejecutar un Gateway",
+                        "group": "Ejecutar una Pasarela",
                         "icon": "sign-posts-wrench",
                         "pages": [
                           {
-                            "group": "Inicio rápido",
+                            "group": "Inicio Rápido",
                             "icon": "fast-forward",
                             "pages": [
                               "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
@@ -3791,13 +3916,13 @@
                             ]
                           },
                           {
-                            "group": "Guía de configuración del Gateway",
+                            "group": "Guía de Configuración de Pasarelas",
                             "expanded": true,
                             "pages": [
                               "v2/gateways/run-a-gateway/why-run-a-gateway",
                               "v2/gateways/run-a-gateway/run-a-gateway",
                               {
-                                "group": "Lista de verificación de configuración",
+                                "group": "Lista de Verificación de Configuración",
                                 "pages": [
                                   "v2/gateways/run-a-gateway/requirements/setup",
                                   "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
@@ -3833,7 +3958,7 @@
                                 ]
                               },
                               {
-                                "group": "Conexión de red",
+                                "group": "Conectar a la Red",
                                 "tag": "Go Live!",
                                 "pages": [
                                   "v2/gateways/run-a-gateway/connect/lp-marketplace",
@@ -3842,7 +3967,7 @@
                                 ]
                               },
                               {
-                                "group": "Monitorear y optimizar",
+                                "group": "Monitorear y Optimizar",
                                 "pages": [
                                   "v2/gateways/run-a-gateway/monitor/monitor-and-optimise"
                                 ]
@@ -3852,7 +3977,7 @@
                         ]
                       },
                       {
-                        "group": "Herramientas y recursos del Gateway",
+                        "group": "Herramientas y Recursos de Pasarelas",
                         "icon": "tools",
                         "pages": [
                           "v2/gateways/gateway-tools/explorer",
@@ -3863,11 +3988,11 @@
                         ]
                       },
                       {
-                        "group": "Referencias técnicas",
+                        "group": "Referencias Técnicas",
                         "icon": "code",
                         "pages": [
                           {
-                            "group": "Gateways",
+                            "group": "Pasarelas",
                             "pages": [
                               "v2/gateways/references/technical-architecture",
                               "v2/gateways/references/configuration-flags",
@@ -3898,7 +4023,7 @@
                                 ]
                               },
                               {
-                                "group": "API HTTP CLI",
+                                "group": "API HTTP de CLI",
                                 "pages": [
                                   "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api",
                                   "v2/gateways/references/api-reference/CLI-HTTP/unbond",
@@ -3926,7 +4051,7 @@
                     ]
                   },
                   {
-                    "anchor": "Centro de recursos",
+                    "anchor": "Centro de Recursos",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -3950,7 +4075,7 @@
                     "icon": "microchip",
                     "groups": [
                       {
-                        "group": "Centro de conocimiento del Orquestador",
+                        "group": "Centro de Conocimiento de Orchestradores",
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/orchestrators/orchestrators-portal",
@@ -3961,7 +4086,7 @@
                         ]
                       },
                       {
-                        "group": "Inicio rápido ⚡",
+                        "group": "Inicio Rápido ⚡",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
                         "pages": [
                           "v2/orchestrators/quickstart/overview",
@@ -3970,15 +4095,15 @@
                         ]
                       },
                       {
-                        "group": "Ejecutar un Orquestador",
+                        "group": "Ejecutar un Orchestrador",
                         "icon": "gear-code",
                         "pages": [
                           {
-                            "group": "Guía de configuración del Orquestador",
+                            "group": "Guía de Configuración de Orchestradores",
                             "pages": [
                               "v2/orchestrators/setting-up-an-orchestrator/overview",
                               {
-                                "group": "Lista de verificación de configuración",
+                                "group": "Lista de Verificación de Configuración",
                                 "pages": [
                                   "v2/orchestrators/setting-up-an-orchestrator/hardware-requirements"
                                 ]
@@ -4002,13 +4127,13 @@
                                 ]
                               },
                               {
-                                "group": "Integración de red",
+                                "group": "Integración de Red",
                                 "pages": [
                                   "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
                               },
                               {
-                                "group": "Monitorear y optimizar",
+                                "group": "Monitorear y Optimizar",
                                 "pages": [
                                   "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
@@ -4018,7 +4143,7 @@
                         ]
                       },
                       {
-                        "group": "Información avanzada del Orquestador",
+                        "group": "Información Avanzada de Orchestradores",
                         "icon": "gamepad",
                         "pages": [
                           "v2/orchestrators/advanced-setup/staking-LPT",
@@ -4029,7 +4154,7 @@
                         ]
                       },
                       {
-                        "group": "Herramientas y recursos del Orquestador",
+                        "group": "Herramientas y Recursos de Orchestradores",
                         "icon": "laptop-file",
                         "pages": [
                           "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
@@ -4040,23 +4165,23 @@
                         ]
                       },
                       {
-                        "group": "Referencias técnicas",
+                        "group": "Referencias Técnicas",
                         "icon": "code",
                         "pages": [
                           {
-                            "group": "Orquestadores",
+                            "group": "Orchestradores",
                             "pages": [
                               "v2/orchestrators/references/faq"
                             ]
                           },
                           {
-                            "group": "Referencia de API y CLI",
+                            "group": "Referencia de API & CLI",
                             "pages": [
                               "v2/orchestrators/references/cli-flags"
                             ]
                           },
                           {
-                            "group": "Referencia On-Chain",
+                            "group": "Referencia en Cadena",
                             "pages": [
                               "v2/orchestrators/references/faq"
                             ]
@@ -4066,7 +4191,7 @@
                     ]
                   },
                   {
-                    "anchor": "Centro de recursos",
+                    "anchor": "Centro de Recursos",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -4101,7 +4226,7 @@
                         ]
                       },
                       {
-                        "group": "Delegar LPT",
+                        "group": "Delegando LPT",
                         "icon": "money-bill-transfer",
                         "pages": [
                           "v2/lpt/delegation/overview",
@@ -4127,7 +4252,7 @@
                         ]
                       },
                       {
-                        "group": "Guías y recursos",
+                        "group": "Guías y Recursos",
                         "icon": "books",
                         "pages": [
                           "v2/lpt/resources/exchanges",
@@ -4137,7 +4262,7 @@
                     ]
                   },
                   {
-                    "anchor": "Centro de recursos",
+                    "anchor": "Centro de Recursos",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -4189,7 +4314,7 @@
                         ]
                       },
                       {
-                        "group": "[MOVER AQUÍ] Centro de ayuda",
+                        "group": "[MOVER AQUÍ] Centro de Ayuda",
                         "icon": "comments-question-check",
                         "hidden": true,
                         "pages": [
@@ -4208,7 +4333,7 @@
                     ]
                   },
                   {
-                    "anchor": "HUB de Recursos",
+                    "anchor": "Centro de Recursos",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -4224,12 +4349,12 @@
                 ]
               },
               {
-                "tab": "HUB de Recursos",
+                "tab": "Centro de Recursos",
                 "hidden": false,
                 "icon": "books",
                 "anchors": [
                   {
-                    "anchor": "HUB de Referencia y Ayuda",
+                    "anchor": "Referencia y Centro de Ayuda",
                     "icon": "books",
                     "groups": [
                       {
@@ -4282,7 +4407,7 @@
                         ]
                       },
                       {
-                        "group": "Referencias de Gateway",
+                        "group": "Referencias de Puerta de Enlace",
                         "icon": "wand-magic-sparkles",
                         "pages": [
                           "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory"
@@ -4401,7 +4526,7 @@
                     ]
                   },
                   {
-                    "anchor": "HUB de Recursos",
+                    "anchor": "Centro de Recursos",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -4415,16 +4540,16 @@
                 ]
               },
               {
-                "tab": "HUB Interno",
+                "tab": "Centro Interno",
                 "hidden": true,
                 "icon": "info-circle",
                 "anchors": [
                   {
-                    "anchor": "HUB Interno",
+                    "anchor": "Centro Interno",
                     "icon": "info-circle",
                     "groups": [
                       {
-                        "group": "HUB Interno",
+                        "group": "Centro Interno",
                         "pages": [
                           "v2/internal/internal-overview",
                           "v2/internal/governance",
@@ -4457,7 +4582,7 @@
                         ]
                       },
                       {
-                        "group": "Informes: Operaciones de Repositorio",
+                        "group": "Informes: Operaciones de Repositorios",
                         "pages": [
                           "v2/internal/reports/repo-ops/audit-scripts"
                         ]
@@ -4503,9 +4628,9 @@
                         "group": "Vitrine",
                         "icon": "clapperboard-play",
                         "pages": [
-                          "v2/fr/home/case-studies/showcase",
-                          "v2/fr/home/case-studies/verticals",
-                          "v2/fr/home/case-studies/applications"
+                          "v2/fr/home/solutions/showcase",
+                          "v2/fr/home/solutions/verticals",
+                          "v2/fr/home/solutions/applications"
                         ]
                       }
                     ]
@@ -4692,6 +4817,131 @@
                               "v2/platforms/livepeer-studio/reference/sdks",
                               "v2/platforms/livepeer-studio/reference/managing-projects"
                             ]
+                          },
+                          {
+                            "group": "Référence API",
+                            "pages": [
+                              {
+                                "group": "Actifs",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/assets/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/upload",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/upload-via-url",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/get",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/update",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/delete",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/get-all"
+                                ]
+                              },
+                              {
+                                "group": "Flux",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/streams/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/create",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/get",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/update",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/terminate",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/create-clip",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/get-clip",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/add-multistream-target",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/delete-multistream-target",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/delete"
+                                ]
+                              },
+                              {
+                                "group": "Multistream",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/create",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/get",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/update",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/delete"
+                                ]
+                              },
+                              {
+                                "group": "Lecture",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/playback/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/playback/get"
+                                ]
+                              },
+                              {
+                                "group": "Sessions",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-clip",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-recording"
+                                ]
+                              },
+                              {
+                                "group": "Tâches",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/tasks/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/tasks/get",
+                                  "v2/platforms/livepeer-studio/api-reference/tasks/get-all"
+                                ]
+                              },
+                              {
+                                "group": "Transcoder",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/transcode/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/transcode/create"
+                                ]
+                              },
+                              {
+                                "group": "Clés de signature",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/create",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/get",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/update",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/delete"
+                                ]
+                              },
+                              {
+                                "group": "Webhooks",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/create",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/get",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/update",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/delete"
+                                ]
+                              },
+                              {
+                                "group": "Salles",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/create",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/get",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/update",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/delete",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/create-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/get-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/update-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/remove-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/start-egress",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/stop-egress"
+                                ]
+                              },
+                              {
+                                "group": "Audience",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-viewership-metrics",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-creators-metrics",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-public-total-views",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-realtime-viewership"
+                                ]
+                              }
+                            ]
                           }
                         ]
                       },
@@ -4803,7 +5053,7 @@
                         ]
                       },
                       {
-                        "group": "Opportunités de construction",
+                        "group": "Opportunités pour les constructeurs",
                         "icon": "lightbulb",
                         "pages": [
                           "v2/developers/builder-opportunities/dev-programs",
@@ -4824,7 +5074,7 @@
                     "icon": "horizontal-rule",
                     "pages": [
                       {
-                        "group": "Outils développeur",
+                        "group": "Outils pour développeurs",
                         "icon": "tools",
                         "pages": [
                           "v2/developers/developer-tools/tooling-hub",
@@ -4895,7 +5145,7 @@
                           "v2/gateways/using-gateways/choosing-a-gateway",
                           "v2/gateways/using-gateways/gateway-providers",
                           {
-                            "group": "Docs du fournisseur",
+                            "group": "Documentation des fournisseurs",
                             "pages": [
                               "v2/gateways/using-gateways/gateway-providers/daydream-gateway",
                               "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
@@ -4906,7 +5156,7 @@
                         ]
                       },
                       {
-                        "group": "Exécuter un Gateway",
+                        "group": "Exécuter une passerelle",
                         "icon": "sign-posts-wrench",
                         "pages": [
                           {
@@ -4918,7 +5168,7 @@
                             ]
                           },
                           {
-                            "group": "Guide de configuration du Gateway",
+                            "group": "Guide de configuration de passerelle",
                             "expanded": true,
                             "pages": [
                               "v2/gateways/run-a-gateway/why-run-a-gateway",
@@ -4969,7 +5219,7 @@
                                 ]
                               },
                               {
-                                "group": "Surveiller & Optimiser",
+                                "group": "Surveiller & optimiser",
                                 "pages": [
                                   "v2/gateways/run-a-gateway/monitor/monitor-and-optimise"
                                 ]
@@ -4979,7 +5229,7 @@
                         ]
                       },
                       {
-                        "group": "Outils & Ressources du Gateway",
+                        "group": "Outils & ressources pour passerelles",
                         "icon": "tools",
                         "pages": [
                           "v2/gateways/gateway-tools/explorer",
@@ -4994,7 +5244,7 @@
                         "icon": "code",
                         "pages": [
                           {
-                            "group": "Gateways",
+                            "group": "Passerelles",
                             "pages": [
                               "v2/gateways/references/technical-architecture",
                               "v2/gateways/references/configuration-flags",
@@ -5053,7 +5303,7 @@
                     ]
                   },
                   {
-                    "anchor": "HUB des Ressources",
+                    "anchor": "Hub de ressources",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -5077,7 +5327,7 @@
                     "icon": "microchip",
                     "groups": [
                       {
-                        "group": "HUB de Connaissances de l'Orchestrateur",
+                        "group": "Hub de connaissances sur l'orchestrateur",
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/orchestrators/orchestrators-portal",
@@ -5097,11 +5347,11 @@
                         ]
                       },
                       {
-                        "group": "Exécuter un Orchestrateur",
+                        "group": "Exécuter un orchestrateur",
                         "icon": "gear-code",
                         "pages": [
                           {
-                            "group": "Guide de configuration de l'Orchestrateur",
+                            "group": "Guide de configuration de l'orchestrateur",
                             "pages": [
                               "v2/orchestrators/setting-up-an-orchestrator/overview",
                               {
@@ -5135,7 +5385,7 @@
                                 ]
                               },
                               {
-                                "group": "Surveiller & Optimiser",
+                                "group": "Surveiller & optimiser",
                                 "pages": [
                                   "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
@@ -5145,7 +5395,7 @@
                         ]
                       },
                       {
-                        "group": "Informations avancées sur l'Orchestrateur",
+                        "group": "Informations avancées sur l'orchestrateur",
                         "icon": "gamepad",
                         "pages": [
                           "v2/orchestrators/advanced-setup/staking-LPT",
@@ -5156,7 +5406,7 @@
                         ]
                       },
                       {
-                        "group": "Outils & Ressources de l'Orchestrateur",
+                        "group": "Outils & ressources pour l'orchestrateur",
                         "icon": "laptop-file",
                         "pages": [
                           "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
@@ -5193,7 +5443,7 @@
                     ]
                   },
                   {
-                    "anchor": "HUB des Ressources",
+                    "anchor": "Hub de ressources",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -5264,7 +5514,7 @@
                     ]
                   },
                   {
-                    "anchor": "HUB des Ressources",
+                    "anchor": "Hub de Ressources",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -5335,7 +5585,7 @@
                     ]
                   },
                   {
-                    "anchor": "Hub des Ressources",
+                    "anchor": "Hub de Ressources",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -5351,12 +5601,12 @@
                 ]
               },
               {
-                "tab": "Hub des Ressources",
+                "tab": "Hub de Ressources",
                 "hidden": false,
                 "icon": "books",
                 "anchors": [
                   {
-                    "anchor": "Hub Référence & Aide",
+                    "anchor": "Références & Hub d'Aide",
                     "icon": "books",
                     "groups": [
                       {
@@ -5402,7 +5652,7 @@
                         ]
                       },
                       {
-                        "group": "Références Développeur",
+                        "group": "Références pour Développeurs",
                         "icon": "book",
                         "pages": [
                           "v2/resources/livepeer-glossary"
@@ -5416,14 +5666,14 @@
                         ]
                       },
                       {
-                        "group": "Références de l'Orchestrateur",
+                        "group": "Références d'Orchestrateur",
                         "icon": "microchip",
                         "pages": [
                           "v2/resources/livepeer-glossary"
                         ]
                       },
                       {
-                        "group": "LPT & Références du Délégateur",
+                        "group": "LPT & Références de Délégateur",
                         "icon": "hand-holding-dollar",
                         "pages": [
                           "v2/resources/livepeer-glossary"
@@ -5528,7 +5778,7 @@
                     ]
                   },
                   {
-                    "anchor": "Hub des Ressources",
+                    "anchor": "Hub de Ressources",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -5584,7 +5834,7 @@
                         ]
                       },
                       {
-                        "group": "Rapports : Opérations Repo",
+                        "group": "Rapports : Opérations de Repo",
                         "pages": [
                           "v2/internal/reports/repo-ops/audit-scripts"
                         ]
@@ -5599,15 +5849,15 @@
             "language": "cn",
             "tabs": [
               {
-                "tab": "首页",
+                "tab": "主页",
                 "icon": "house-heart",
                 "anchors": [
                   {
-                    "anchor": "首页",
+                    "anchor": "主页",
                     "icon": "house-heart",
                     "groups": [
                       {
-                        "group": "首页",
+                        "group": "主页",
                         "icon": "house-heart",
                         "pages": [
                           "v2/cn/home/mission-control",
@@ -5630,9 +5880,9 @@
                         "group": "展示",
                         "icon": "clapperboard-play",
                         "pages": [
-                          "v2/cn/home/case-studies/showcase",
-                          "v2/cn/home/case-studies/verticals",
-                          "v2/cn/home/case-studies/applications"
+                          "v2/cn/home/solutions/showcase",
+                          "v2/cn/home/solutions/verticals",
+                          "v2/cn/home/solutions/applications"
                         ]
                       }
                     ]
@@ -5819,6 +6069,131 @@
                               "v2/platforms/livepeer-studio/reference/sdks",
                               "v2/platforms/livepeer-studio/reference/managing-projects"
                             ]
+                          },
+                          {
+                            "group": "API 参考",
+                            "pages": [
+                              {
+                                "group": "资产",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/assets/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/upload",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/upload-via-url",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/get",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/update",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/delete",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/get-all"
+                                ]
+                              },
+                              {
+                                "group": "流",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/streams/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/create",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/get",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/update",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/terminate",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/create-clip",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/get-clip",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/add-multistream-target",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/delete-multistream-target",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/delete"
+                                ]
+                              },
+                              {
+                                "group": "多流",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/create",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/get",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/update",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/delete"
+                                ]
+                              },
+                              {
+                                "group": "回放",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/playback/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/playback/get"
+                                ]
+                              },
+                              {
+                                "group": "会话",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-clip",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-recording"
+                                ]
+                              },
+                              {
+                                "group": "任务",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/tasks/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/tasks/get",
+                                  "v2/platforms/livepeer-studio/api-reference/tasks/get-all"
+                                ]
+                              },
+                              {
+                                "group": "转码",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/transcode/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/transcode/create"
+                                ]
+                              },
+                              {
+                                "group": "签名密钥",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/create",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/get",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/update",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/delete"
+                                ]
+                              },
+                              {
+                                "group": "Webhook",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/create",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/get",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/update",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/delete"
+                                ]
+                              },
+                              {
+                                "group": "房间",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/create",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/get",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/update",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/delete",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/create-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/get-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/update-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/remove-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/start-egress",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/stop-egress"
+                                ]
+                              },
+                              {
+                                "group": "观众",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-viewership-metrics",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-creators-metrics",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-public-total-views",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-realtime-viewership"
+                                ]
+                              }
+                            ]
                           }
                         ]
                       },
@@ -5840,7 +6215,7 @@
                         ]
                       },
                       {
-                        "group": "Embody Avatars",
+                        "group": "Embody 头像",
                         "icon": "user-robot",
                         "pages": [
                           "v2/platforms/embody/overview"
@@ -5930,7 +6305,7 @@
                         ]
                       },
                       {
-                        "group": "构建者机会",
+                        "group": "建设者机会",
                         "icon": "lightbulb",
                         "pages": [
                           "v2/developers/builder-opportunities/dev-programs",
@@ -5951,7 +6326,7 @@
                     "icon": "horizontal-rule",
                     "pages": [
                       {
-                        "group": "开发工具",
+                        "group": "开发者工具",
                         "icon": "tools",
                         "pages": [
                           "v2/developers/developer-tools/tooling-hub",
@@ -5965,7 +6340,7 @@
                         "icon": "books",
                         "pages": [
                           {
-                            "group": "SDK 与 API",
+                            "group": "SDKs & APIs",
                             "pages": [
                               "v2/developers/technical-references/sdks",
                               "v2/developers/technical-references/apis"
@@ -5977,7 +6352,7 @@
                         ]
                       },
                       {
-                        "group": "变更日志与迁移",
+                        "group": "更改日志 & 迁移",
                         "icon": "swap",
                         "pages": [
                           "v2/resources/changelog/changelog",
@@ -6016,13 +6391,13 @@
                         ]
                       },
                       {
-                        "group": "网关服务与提供商",
+                        "group": "网关服务 & 提供者",
                         "icon": "wand-magic-sparkles",
                         "pages": [
                           "v2/gateways/using-gateways/choosing-a-gateway",
                           "v2/gateways/using-gateways/gateway-providers",
                           {
-                            "group": "提供商文档",
+                            "group": "提供者文档",
                             "pages": [
                               "v2/gateways/using-gateways/gateway-providers/daydream-gateway",
                               "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
@@ -6096,7 +6471,7 @@
                                 ]
                               },
                               {
-                                "group": "监控与优化",
+                                "group": "监控 & 优化",
                                 "pages": [
                                   "v2/gateways/run-a-gateway/monitor/monitor-and-optimise"
                                 ]
@@ -6106,7 +6481,7 @@
                         ]
                       },
                       {
-                        "group": "网关工具与资源",
+                        "group": "网关工具 & 资源",
                         "icon": "tools",
                         "pages": [
                           "v2/gateways/gateway-tools/explorer",
@@ -6168,7 +6543,7 @@
                             ]
                           },
                           {
-                            "group": "交易所与 RPC",
+                            "group": "交易所 & RPCs",
                             "pages": [
                               "v2/gateways/references/livepeer-exchanges",
                               "v2/gateways/references/artibtrum-exchanges",
@@ -6204,7 +6579,7 @@
                     "icon": "microchip",
                     "groups": [
                       {
-                        "group": "Orchestrator 知识中心",
+                        "group": "编排器知识中心",
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/orchestrators/orchestrators-portal",
@@ -6224,11 +6599,11 @@
                         ]
                       },
                       {
-                        "group": "运行 Orchestrator",
+                        "group": "运行编排器",
                         "icon": "gear-code",
                         "pages": [
                           {
-                            "group": "Orchestrator 设置指南",
+                            "group": "编排器设置指南",
                             "pages": [
                               "v2/orchestrators/setting-up-an-orchestrator/overview",
                               {
@@ -6262,7 +6637,7 @@
                                 ]
                               },
                               {
-                                "group": "监控与优化",
+                                "group": "监控 & 优化",
                                 "pages": [
                                   "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
@@ -6272,7 +6647,7 @@
                         ]
                       },
                       {
-                        "group": "高级 Orchestrator 信息",
+                        "group": "高级编排器信息",
                         "icon": "gamepad",
                         "pages": [
                           "v2/orchestrators/advanced-setup/staking-LPT",
@@ -6283,7 +6658,7 @@
                         ]
                       },
                       {
-                        "group": "Orchestrator 工具与资源",
+                        "group": "编排器工具 & 资源",
                         "icon": "laptop-file",
                         "pages": [
                           "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
@@ -6298,7 +6673,7 @@
                         "icon": "code",
                         "pages": [
                           {
-                            "group": "Orchestrators",
+                            "group": "编排器",
                             "pages": [
                               "v2/orchestrators/references/faq"
                             ]
@@ -6336,11 +6711,11 @@
                 ]
               },
               {
-                "tab": "LP 代币",
+                "tab": "LPT 代币",
                 "icon": "hand-holding-dollar",
                 "anchors": [
                   {
-                    "anchor": "委托者 & LPT",
+                    "anchor": "委托人 & LPT",
                     "icon": "hand-holding-dollar",
                     "groups": [
                       {
@@ -6550,7 +6925,7 @@
                         ]
                       },
                       {
-                        "group": "LPT & Delegator 参考",
+                        "group": "LPT 与委托者参考",
                         "icon": "hand-holding-dollar",
                         "pages": [
                           "v2/resources/livepeer-glossary"
