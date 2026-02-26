@@ -10,6 +10,7 @@ Primary command groups:
 - `lpd doctor` - environment readiness checks
 - `lpd dev` - launch local docs development flow
 - `lpd test` - run test suites by scope
+- `lpd ai-sitemap` - generate or validate sitemap-ai.xml
 - `lpd ci` - local CI-like checks
 - `lpd hooks` - install/status/verify hooks and hook script execution
 - `lpd scripts` - discover and run managed scripts by group
@@ -63,6 +64,13 @@ WCAG audit notes:
 - In `--full` mode, `lpd` runs the full v2 WCAG sweep.
 - WCAG autofix is enabled by default for the WCAG script; use `--wcag-no-fix` to switch to suggestions-only mode.
 - Automated WCAG checks are partial coverage and do not replace manual accessibility review.
+
+### 3.5) AI sitemap generation
+
+```bash
+lpd ai-sitemap --check
+lpd ai-sitemap --write
+```
 
 ### 4) Hook management
 

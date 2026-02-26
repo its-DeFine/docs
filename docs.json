@@ -13,7 +13,10 @@
   "favicon": "/snippets/assets/favicon.png",
   "staticFiles": [
     ".well-known/ai-plugin.json",
-    "api/openapi.json"
+    "api/openapi.json",
+    "docs-index.json",
+    "llms.txt",
+    "llms-full.txt"
   ],
   "navigation": {
     "versions": [
@@ -2309,6 +2312,131 @@
                               "v2/platforms/livepeer-studio/reference/overview",
                               "v2/platforms/livepeer-studio/reference/sdks",
                               "v2/platforms/livepeer-studio/reference/managing-projects"
+                            ]
+                          },
+                          {
+                            "group": "API Reference",
+                            "pages": [
+                              {
+                                "group": "Assets",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/assets/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/upload",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/upload-via-url",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/get",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/update",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/delete",
+                                  "v2/platforms/livepeer-studio/api-reference/assets/get-all"
+                                ]
+                              },
+                              {
+                                "group": "Streams",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/streams/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/create",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/get",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/update",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/terminate",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/create-clip",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/get-clip",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/add-multistream-target",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/delete-multistream-target",
+                                  "v2/platforms/livepeer-studio/api-reference/streams/delete"
+                                ]
+                              },
+                              {
+                                "group": "Multistream",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/create",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/get",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/update",
+                                  "v2/platforms/livepeer-studio/api-reference/multistream/delete"
+                                ]
+                              },
+                              {
+                                "group": "Playback",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/playback/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/playback/get"
+                                ]
+                              },
+                              {
+                                "group": "Sessions",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-clip",
+                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-recording"
+                                ]
+                              },
+                              {
+                                "group": "Tasks",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/tasks/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/tasks/get",
+                                  "v2/platforms/livepeer-studio/api-reference/tasks/get-all"
+                                ]
+                              },
+                              {
+                                "group": "Transcode",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/transcode/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/transcode/create"
+                                ]
+                              },
+                              {
+                                "group": "Signing Keys",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/create",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/get",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/update",
+                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/delete"
+                                ]
+                              },
+                              {
+                                "group": "Webhooks",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/create",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/get",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/get-all",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/update",
+                                  "v2/platforms/livepeer-studio/api-reference/webhooks/delete"
+                                ]
+                              },
+                              {
+                                "group": "Rooms",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/create",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/get",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/update",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/delete",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/create-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/get-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/update-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/remove-user",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/start-egress",
+                                  "v2/platforms/livepeer-studio/api-reference/rooms/stop-egress"
+                                ]
+                              },
+                              {
+                                "group": "Viewership",
+                                "pages": [
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/overview",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-viewership-metrics",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-creators-metrics",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-public-total-views",
+                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-realtime-viewership"
+                                ]
+                              }
                             ]
                           }
                         ]

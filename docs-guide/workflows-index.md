@@ -15,6 +15,7 @@ Do not manually edit this file; run its generator instead.
 | Discord Issue Intake | `.github/workflows/discord-issue-intake.yml` | repository_dispatch | Discord Issue Intake | blocking by default (subject to branch protection) | workflow logs | docs |
 | Docs v2 Issue Indexer | `.github/workflows/docs-v2-issue-indexer.yml` | schedule, workflow_dispatch | Docs v2 Issue Indexer | blocking by default (subject to branch protection) | workflow logs | docs |
 | Generate AI Sitemap | `.github/workflows/generate-ai-sitemap.yml` | push, workflow_dispatch | Generate AI Sitemap | blocking by default (subject to branch protection) | repository commits | docs |
+| Generate Docs Index | `.github/workflows/generate-docs-index.yml` | push, workflow_dispatch | Generate Docs Index | blocking by default (subject to branch protection) | repository commits | docs |
 | generate-review-table.yml | `.github/workflows/generate-review-table.yml` | unknown | generate-review-table.yml | blocking by default (subject to branch protection) | workflow logs | docs |
 | Issue Auto Label | `.github/workflows/issue-auto-label.yml` | pull_request, push | Issue Auto Label | blocking by default (subject to branch protection) | workflow logs | docs |
 | Project Showcase Sync | `.github/workflows/project-showcase-sync.yml` | repository_dispatch, schedule, workflow_dispatch | Project Showcase Sync | blocking by default (subject to branch protection) | workflow logs | docs |
@@ -28,3 +29,5 @@ Do not manually edit this file; run its generator instead.
 | Update Livepeer Release Version | `.github/workflows/update-livepeer-release.yml` | schedule, workflow_dispatch | Update Livepeer Release Version | blocking by default (subject to branch protection) | repository commits | docs |
 | update-review-template.yml | `.github/workflows/update-review-template.yml` | unknown | update-review-template.yml | blocking by default (subject to branch protection) | workflow logs | docs |
 | Update YouTube Data | `.github/workflows/update-youtube-data.yml` | schedule, workflow_dispatch | Update YouTube Data | blocking by default (subject to branch protection) | repository commits | docs |
+| Verify AI Sitemap | `.github/workflows/verify-ai-sitemap.yml` | pull_request, push | Verify AI Sitemap | blocking by default (subject to branch protection) | workflow logs | docs |
+| Verify llms.txt Files | `.github/workflows/verify-llms-files.yml` | pull_request, push | Verify llms.txt Files | blocking by default (subject to branch protection) | workflow logs | docs |

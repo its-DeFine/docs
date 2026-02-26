@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Development tooling for Livepeer documentation",
   "devDependencies": {
+    "remark-mdx": "^3.1.1",
+    "remark-parse": "^11.0.0",
+    "remark-stringify": "^11.0.0",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.0.0",
     "prettier": "^3.7.4",
     "puppeteer": "^24.37.3",
     "@cspell/dict-en-gb": "^5.0.0",

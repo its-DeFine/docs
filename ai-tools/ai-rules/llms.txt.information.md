@@ -28,3 +28,10 @@ Example
 This structured approach allows LLMs to efficiently process your documentation
 at a high level and locate relevant content for user queries, improving the
 accuracy and speed of AI-assisted documentation searches.
+
+Project usage
+
+- Generated via `node tools/scripts/generate-llms-files.js --write`.
+- Outputs live in repo root: `llms.txt` and `llms-full.txt`.
+- CI verifies freshness with `node tools/scripts/generate-llms-files.js --check`.
+- Excludes `v2/internal` and any `v2/x-*` directories from navigation output.
