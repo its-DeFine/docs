@@ -570,7 +570,7 @@ Affordable. Performant. Dynamically Scalable.
 ---
 
 # Creative Projects Built with Livepeer
-URL: https://docs.livepeer.org/v2/home/case-studies/showcase
+URL: https://docs.livepeer.org/v2/home/solutions/showcase
 
 *Explore and be insprired by these Livepeer powered projects!*
 
@@ -579,7 +579,7 @@ URL: https://docs.livepeer.org/v2/home/case-studies/showcase
 ---
 
 # Industry Verticals
-URL: https://docs.livepeer.org/v2/home/case-studies/verticals
+URL: https://docs.livepeer.org/v2/home/solutions/verticals
 
 Livepeer’s real-time open infrastructure is versatile enough to power use cases across multiple industry verticals.
 
@@ -688,7 +688,7 @@ Livepeer provides the “eyes” (and the brains) for the real-time, AI-monitore
 ---
 
 # Key Applications for Livepeer
-URL: https://docs.livepeer.org/v2/home/case-studies/applications
+URL: https://docs.livepeer.org/v2/home/solutions/applications
 
 Video is integral to the success of many of the applications we use daily.
 
@@ -1317,7 +1317,7 @@ Livepeer does not own infrastructure. It indexes and incentivizes it.
 
 &#x20;Key Idea:  This layer collapses network/protocol complexity into stable developer primitives.&#x20;
 
-[See the Showcase](/v2/home/case-studies/showcase)
+[See the Showcase](/v2/home/solutions/showcase)
 
 > *"What builders ship"*
 
@@ -1337,7 +1337,7 @@ Decentralized Twitch alternatives, AI video apps, surveillance/vision pipelines,
 
 &#x20;Key Idea:  This is where the end-user applications and services are built. Applications are plural and replaceable; the network remains the substrate.
 
-[See the Showcase](/v2/home/case-studies/showcase)
+[See the Showcase](/v2/home/solutions/showcase)
 
 > “Humans and (increasingly) AI Agents”
 

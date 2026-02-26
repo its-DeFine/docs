@@ -21,8 +21,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/case-studies/showcase",
-      "resolvedPath": "v2/home/case-studies/showcase.mdx",
+      "rawPath": "/v2/home/solutions/showcase",
+      "resolvedPath": "v2/home/solutions/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -963,140 +963,6 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/home/case-studies/applications.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/home/case-studies/landscape.mdx": [
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://forum.livepeer.org/t/livepeer-inc-in-the-age-of-the-livepeer-foundation/2850",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/links.jsx",
-      "resolvedPath": "snippets/components/primitives/links.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/home/case-studies/showcase.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://www.instagram.com/reel/DPd6RUsErGF/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://docs.google.com/forms/d/e/1FAIpQLSeJ4uoxQ9LUSg89RDWcGiTsbePXsSkRXzGzrdyJ8RVrM1171Q/viewform?usp=sharing&ouid=103197690869380433914",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/links.jsx",
-      "resolvedPath": "snippets/components/primitives/links.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/cards.jsx",
-      "resolvedPath": "snippets/components/layout/cards.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/text.jsx",
-      "resolvedPath": "snippets/components/primitives/text.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/divider.jsx",
-      "resolvedPath": "snippets/components/primitives/divider.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/video.jsx",
-      "resolvedPath": "snippets/components/display/video.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/showcaseCards.jsx",
-      "resolvedPath": "snippets/components/display/showcaseCards.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/automations/showcase/showcaseData.jsx",
-      "resolvedPath": "snippets/automations/showcase/showcaseData.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/home/case-studies/verticals.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/cards.jsx",
-      "resolvedPath": "snippets/components/layout/cards.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/text.jsx",
-      "resolvedPath": "snippets/components/primitives/text.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
   "v2/home/get-started/ai-pipelines.mdx": [],
   "v2/home/get-started/build-on-livepeer.mdx": [],
   "v2/home/get-started/stream-video.mdx": [],
@@ -1105,8 +971,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/case-studies/showcase",
-      "resolvedPath": "v2/home/case-studies/showcase.mdx",
+      "rawPath": "/v2/home/solutions/showcase",
+      "resolvedPath": "v2/home/solutions/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1186,8 +1052,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/case-studies/showcase",
-      "resolvedPath": "v2/home/case-studies/showcase.mdx",
+      "rawPath": "/v2/home/solutions/showcase",
+      "resolvedPath": "v2/home/solutions/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1458,8 +1324,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/x-pages/05_orchestrators/orchestrators-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1476,8 +1342,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/case-studies/showcase",
-      "resolvedPath": "v2/home/case-studies/showcase.mdx",
+      "rawPath": "/v2/home/solutions/showcase",
+      "resolvedPath": "v2/home/solutions/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1703,8 +1569,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/home/case-studies/showcase",
-      "resolvedPath": "v2/home/case-studies/showcase.mdx",
+      "rawPath": "/v2/home/solutions/showcase",
+      "resolvedPath": "v2/home/solutions/showcase.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1840,6 +1706,140 @@ export const LINK_MAP = {
       "linkType": "import-path",
       "rawPath": "/snippets/components/display/customCards.jsx",
       "resolvedPath": "snippets/components/display/customCards.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/home/solutions/applications.mdx": [
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/customCards.jsx",
+      "resolvedPath": "snippets/components/display/customCards.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/home/solutions/landscape.mdx": [
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://forum.livepeer.org/t/livepeer-inc-in-the-age-of-the-livepeer-foundation/2850",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/links.jsx",
+      "resolvedPath": "snippets/components/primitives/links.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/home/solutions/showcase.mdx": [
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://www.instagram.com/reel/DPd6RUsErGF/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://docs.google.com/forms/d/e/1FAIpQLSeJ4uoxQ9LUSg89RDWcGiTsbePXsSkRXzGzrdyJ8RVrM1171Q/viewform?usp=sharing&ouid=103197690869380433914",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/links.jsx",
+      "resolvedPath": "snippets/components/primitives/links.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/layout/cards.jsx",
+      "resolvedPath": "snippets/components/layout/cards.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/text.jsx",
+      "resolvedPath": "snippets/components/primitives/text.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/divider.jsx",
+      "resolvedPath": "snippets/components/primitives/divider.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/video.jsx",
+      "resolvedPath": "snippets/components/display/video.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/showcaseCards.jsx",
+      "resolvedPath": "snippets/components/display/showcaseCards.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/automations/showcase/showcaseData.jsx",
+      "resolvedPath": "snippets/automations/showcase/showcaseData.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/home/solutions/verticals.mdx": [
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/layout/cards.jsx",
+      "resolvedPath": "snippets/components/layout/cards.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/text.jsx",
+      "resolvedPath": "snippets/components/primitives/text.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

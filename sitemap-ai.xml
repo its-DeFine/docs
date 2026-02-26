@@ -6,8 +6,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>595</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, core-concepts, livepeer-core-concepts, introduction, key, architecture, core concepts, livepeer core concepts</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, about, core concepts, livepeer core concepts, introduction, key, architecture</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-network/actors</loc>
@@ -15,8 +14,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>639</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, actors, gateway, orchestrator, delegator, developers, livepeer-network</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, about, actors, gateway, orchestrator, delegator, developers</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-network/interfaces</loc>
@@ -24,8 +22,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>282</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-network, interfaces, api, sdk, cli, graphql, rest, grpc, livepeer network, API, SDK, CLI, GraphQL, REST, gRPC</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, about, livepeer network, interfaces, API, SDK, CLI, GraphQL, REST, gRPC</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-network/job-lifecycle</loc>
@@ -33,8 +30,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>725</ai:wordCount>
     <ai:lastVerified>2026-02-21T22:11:44+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-network, job-lifecycle, job, lifecycle, learn, livepeer network, job lifecycle</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, about, livepeer network, job lifecycle, job, lifecycle, learn</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-network/marketplace</loc>
@@ -42,8 +38,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>448</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-network, marketplace, routing, orchestrators, gateways, pricing, livepeer network</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, about, livepeer network, marketplace, routing, orchestrators, gateways, pricing</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-network/overview</loc>
@@ -51,8 +46,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>238</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-network, network-overview, network, overview, livepeer network, network overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
+    <ai:tags>livepeer, about, livepeer network, network overview, network, overview</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-network/technical-architecture</loc>
@@ -60,8 +54,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>390</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-network, technical-architecture, stack, orchestrator, gateway, go-livepeer, livepeer network, technical architecture</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
+    <ai:tags>livepeer, about, livepeer network, technical architecture, stack, orchestrator, gateway, go-livepeer</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-overview</loc>
@@ -69,8 +62,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>1092</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:36:09+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-protocol, protocol-overview, protocol, overview, livepeer-overview, livepeer protocol, protocol overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
+    <ai:tags>livepeer, about, livepeer protocol, protocol overview, protocol, overview</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/core-mechanisms</loc>
@@ -78,8 +70,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>1864</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-protocol, protocol, core-mechanisms, livepeer protocol</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, about, livepeer protocol, protocol</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/economics</loc>
@@ -87,8 +78,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>781</ai:wordCount>
     <ai:lastVerified>2026-02-24T01:56:23+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-protocol, livepeer-protocol-economics, protocol, economics, livepeer protocol, livepeer protocol economics</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, about, livepeer protocol, livepeer protocol economics, protocol, economics</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/governance-model</loc>
@@ -96,8 +86,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>1070</ai:wordCount>
     <ai:lastVerified>2026-02-23T22:08:49+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-network, livepeer-governance, governance, learn, livepeer-protocol, governance-model, livepeer network, livepeer governance</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, about, livepeer network, livepeer governance, governance, learn</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/livepeer-token</loc>
@@ -105,8 +94,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>995</ai:wordCount>
     <ai:lastVerified>2026-02-21T22:16:16+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-network, livepeer-token-economics, token, learn, livepeer-protocol, livepeer-token, livepeer network, livepeer token economics</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, about, livepeer network, livepeer token economics, token, learn</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/overview</loc>
@@ -114,8 +102,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>911</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-protocol, protocol-overview, protocol, overview, livepeer protocol, protocol overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
+    <ai:tags>livepeer, about, livepeer protocol, protocol overview, protocol, overview</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/technical-architecture</loc>
@@ -123,8 +110,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>117</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-protocol, technical-overview, technical, overview, technical-architecture, livepeer protocol, technical overview</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
+    <ai:tags>livepeer, about, livepeer protocol, technical overview, technical, overview</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/treasury</loc>
@@ -132,8 +118,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>762</ai:wordCount>
     <ai:lastVerified>2026-02-21T22:57:15+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-network, livepeer-treasury, treasury, learn, livepeer-protocol, livepeer network, livepeer treasury</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, about, livepeer network, livepeer treasury, treasury, learn</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/mental-model</loc>
@@ -141,8 +126,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>1432</ai:wordCount>
     <ai:lastVerified>2026-02-24T01:56:23+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, core-concepts, mental-model, introduction, key, architecture, core concepts, mental model</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, about, core concepts, mental model, introduction, key, architecture</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/portal</loc>
@@ -150,8 +134,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>171</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>start-here, livepeer, about, about-livepeer, about-portal, about-livepeer-portal, about-livepeer-network, about-livepeer-protocol, about-livepeer-token, about-livepeer-governance, about-livepeer-actors, about-livepeer-economics, Start Here, about livepeer, about portal, about livepeer portal, about livepeer network, about livepeer protocol, about livepeer token, about livepeer governance, about livepeer actors, about livepeer economics, about livepeer whitepaper, about livepeer faq</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>Start Here, livepeer, about, about livepeer, about portal, about livepeer portal, about livepeer network, about livepeer protocol, about livepeer token, about livepeer governance, about livepeer actors, about livepeer economics, about livepeer whitepaper, about livepeer faq</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/resources/blockchain-contracts</loc>
@@ -159,9 +142,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>173</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-protocol, blockchain-contracts, blockchain, contracts, overview, protocol, resources, livepeer protocol, blockchain contracts</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>ai</ai:entities>
+    <ai:tags>livepeer, about, livepeer protocol, blockchain contracts, blockchain, contracts, overview, protocol</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/resources/gateways-vs-orchestrators</loc>
@@ -169,9 +150,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>184</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-network, gateways-vs-orchestrators, gateways, orchestrators, what, difference, types, resources, livepeer network, gateways vs orchestrators</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway, orchestrator</ai:entities>
+    <ai:tags>livepeer, about, livepeer network, gateways vs orchestrators, gateways, orchestrators, what, difference, types</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/resources/livepeer-glossary</loc>
@@ -179,8 +158,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>1535</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, resources, livepeer-glossary, glossary, comprehensive, terms, about, livepeer glossary</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, resources, livepeer glossary, glossary, comprehensive, terms</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/resources/livepeer-whitepaper</loc>
@@ -188,8 +166,7 @@
     <ai:section>about</ai:section>
     <ai:wordCount>415</ai:wordCount>
     <ai:lastVerified>2026-02-21T22:19:40+11:00</ai:lastVerified>
-    <ai:tags>livepeer, about, livepeer-protocol, livepeer-whitepaper, whitepaper, resources, livepeer protocol, livepeer whitepaper</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, about, livepeer protocol, livepeer whitepaper, whitepaper</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/resources/technical-roadmap</loc>
@@ -204,8 +181,7 @@
     <ai:section>community</ai:section>
     <ai:wordCount>209</ai:wordCount>
     <ai:lastVerified>2026-02-21T22:22:37+11:00</ai:lastVerified>
-    <ai:tags>start-here, community, connect, contribute, livepeer, home, help, index, landing, community-portal, Start Here</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>Start Here, community, connect, contribute, livepeer, home, help, index, landing</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/community/livepeer-community/community-guidelines</loc>
@@ -213,8 +189,7 @@
     <ai:section>community</ai:section>
     <ai:wordCount>17</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, community, livepeer-community, community-guidelines, guidelines, livepeer community, community guidelines</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, community, livepeer community, community guidelines, guidelines</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/community/livepeer-community/livepeer-latest-topics</loc>
@@ -222,8 +197,7 @@
     <ai:section>community</ai:section>
     <ai:wordCount>75</ai:wordCount>
     <ai:lastVerified>2026-02-21T22:24:13+11:00</ai:lastVerified>
-    <ai:tags>livepeer, community, livepeer-community, livepeer-latest-topics, topics, updates, livepeer community, livepeer latest topics</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, community, livepeer community, livepeer latest topics, topics, updates</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/community/livepeer-community/roadmap</loc>
@@ -231,8 +205,7 @@
     <ai:section>community</ai:section>
     <ai:wordCount>74</ai:wordCount>
     <ai:lastVerified>2026-02-21T22:24:13+11:00</ai:lastVerified>
-    <ai:tags>livepeer, livepeer-roadmap, livepeer-timeline, livepeer-future, livepeer-plans, livepeer-vision, livepeer-goals, livepeer-objectives, livepeer-targets, livepeer-aspirations, livepeer-ambitions, community, livepeer roadmap, livepeer timeline, livepeer future, livepeer plans, livepeer vision, livepeer goals, livepeer objectives, livepeer targets, livepeer aspirations, livepeer ambitions</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, livepeer roadmap, livepeer timeline, livepeer future, livepeer plans, livepeer vision, livepeer goals, livepeer objectives, livepeer targets, livepeer aspirations, livepeer ambitions</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/community/livepeer-community/trending-topics</loc>
@@ -240,8 +213,7 @@
     <ai:section>community</ai:section>
     <ai:wordCount>62</ai:wordCount>
     <ai:lastVerified>2026-02-21T22:24:13+11:00</ai:lastVerified>
-    <ai:tags>trending, topics, livepeer, real-time-ai, daydream, community, livepeer-community, trending-topics, real-time AI, Daydream</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>trending, topics, livepeer, real-time AI, Daydream</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/community/livepeer-connect/events-and-community-streams</loc>
@@ -249,8 +221,7 @@
     <ai:section>community</ai:section>
     <ai:wordCount>27</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, community, livepeer-connect, events-and-community-streams, events, live, streams, livepeer connect, events and community streams</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, community, livepeer connect, events and community streams, events, live, streams</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/community/livepeer-connect/forums-and-discussions</loc>
@@ -258,8 +229,7 @@
     <ai:section>community</ai:section>
     <ai:wordCount>14</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, community, livepeer-connect, forums-and-discussions, forums, discussions, livepeer connect, forums and discussions</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, community, livepeer connect, forums and discussions, forums, discussions</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/community/livepeer-connect/news-and-socials</loc>
@@ -267,8 +237,7 @@
     <ai:section>community</ai:section>
     <ai:wordCount>6</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, community, livepeer-connect, news-and-socials, news, socials, latest, livepeer connect, news and socials</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, community, livepeer connect, news and socials, news, socials, latest</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/community/livepeer-contribute/build-livepeer</loc>
@@ -276,8 +245,7 @@
     <ai:section>community</ai:section>
     <ai:wordCount>21</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, community, livepeer-contribute, build-livepeer, build, livepeer contribute, build livepeer</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, community, livepeer contribute, build livepeer, build</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/community/livepeer-contribute/contribute</loc>
@@ -285,8 +253,7 @@
     <ai:section>community</ai:section>
     <ai:wordCount>20</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, community, livepeer-contribute, contribute, build, future, realtime, livepeer contribute</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, community, livepeer contribute, contribute, build, future, realtime</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/community/livepeer-contribute/opportunities</loc>
@@ -294,8 +261,7 @@
     <ai:section>community</ai:section>
     <ai:wordCount>21</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, community, livepeer-contribute, opportunities, livepeer contribute</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, community, livepeer contribute, opportunities</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory</loc>
@@ -310,9 +276,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>272</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:10:57+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, ai-pipelines, byoc, bring-your-own-compute, comfystream, workers, ai pipelines, bring your own compute</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>developer, ai</ai:entities>
+    <ai:tags>livepeer, developers, ai pipelines, byoc, bring your own compute, comfystream, workers</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/ai-pipelines/comfystream</loc>
@@ -320,9 +284,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>207</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:10:57+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, ai-pipelines, comfystream, comfyui, inference, workers, ai pipelines</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>developer, ai</ai:entities>
+    <ai:tags>livepeer, developers, ai pipelines, comfystream, comfyui, inference, workers</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/ai-pipelines/overview</loc>
@@ -330,9 +292,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>365</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:10:57+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, ai-pipelines, inference, comfystream, byoc, gateway, workers, overview, ai pipelines</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>developer, ai</ai:entities>
+    <ai:tags>livepeer, developers, ai pipelines, inference, comfystream, byoc, gateway, workers</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/builder-opportunities/dev-programs</loc>
@@ -340,9 +300,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>49</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, builder-opportunities, dev-programs, programs, builder opportunities, dev programs</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>livepeer, developers, builder opportunities, dev programs, programs</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/builder-opportunities/livepeer-rfps</loc>
@@ -350,9 +308,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>13</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, builder-opportunities, livepeer-rfps, rfps, builder opportunities, livepeer rfps</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>livepeer, developers, builder opportunities, livepeer rfps, rfps</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/developer-guide</loc>
@@ -360,9 +316,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>189</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:10:57+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, building-on-livepeer, developer-guide, developer, guide, building, building on livepeer, developer guide</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>livepeer, developers, building on livepeer, developer guide, developer, guide, building</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/developer-journey</loc>
@@ -370,9 +324,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>130</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:10:57+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, building-on-livepeer, developer-journey, developer, journey, guide, building, building on livepeer, developer journey</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>livepeer, developers, building on livepeer, developer journey, developer, journey, guide, building</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/developer-tools/dashboards</loc>
@@ -380,9 +332,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>214</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, developer-tools, dashboards, community, network, monitoring, analytics, tools, developer tools</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>livepeer, developers, developer tools, dashboards, community, network, monitoring, analytics, tools</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/developer-tools/livepeer-cloud</loc>
@@ -390,9 +340,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>213</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, developer-tools, livepeer-cloud, tools, dashboard, cloud, developer tools, livepeer cloud</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>livepeer, developers, developer tools, livepeer cloud, tools, dashboard, cloud</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/developer-tools/livepeer-explorer</loc>
@@ -400,9 +348,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>248</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, developer-tools, livepeer-explorer, explorer, monitor, manage, developer tools, livepeer explorer</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>livepeer, developers, developer tools, livepeer explorer, explorer, monitor, manage</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/developer-tools/tooling-hub</loc>
@@ -410,9 +356,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>45</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>bookmark-me, livepeer, developers, developer-tools, tooling-hub, tooling, tools, building, Bookmark Me, developer tools, tooling hub</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>Bookmark Me, livepeer, developers, developer tools, tooling hub, tooling, tools, building</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/guides-and-resources/contribution-guide</loc>
@@ -420,9 +364,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>4</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, guides-and-resources, contribution-guide, contribution, guides and resources, contribution guide</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>livepeer, developers, guides and resources, contribution guide, contribution</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/guides-and-resources/developer-guides</loc>
@@ -454,9 +396,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>432</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:10:57+11:00</ai:lastVerified>
-    <ai:tags>livepeer, livepeer-ecosystem, livepeer-network, livepeer-protocol, livepeer-community, developers, guides, partner-integrations, livepeer ecosystem, livepeer network, livepeer protocol, livepeer community</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>livepeer, livepeer ecosystem, livepeer network, livepeer protocol, livepeer community</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README</loc>
@@ -471,9 +411,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>112</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:18+11:00</ai:lastVerified>
-    <ai:tags>start-here, home, index, landing, developer, developers, dev, development, build, build-on-livepeer, livepeer-developer, livepeer-developers, Start Here, build on livepeer, livepeer developer, livepeer developers, livepeer dev, livepeer devs, livepeer development, livepeer dev portal, livepeer developer portal, livepeer dev home, livepeer developer home, livepeer dev hub, livepeer developer hub, livepeer dev center, livepeer developer center</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>Start Here, home, index, landing, developer, developers, dev, development, build, build on livepeer, livepeer developer, livepeer developers, livepeer dev, livepeer devs, livepeer development, livepeer dev portal, livepeer developer portal, livepeer dev home, livepeer developer home, livepeer dev hub, livepeer developer hub, livepeer dev center, livepeer developer center</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/quickstart/ai/ai-jobs</loc>
@@ -481,9 +419,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>435</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:32:39+11:00</ai:lastVerified>
-    <ai:tags>livepeer, ai-jobs, quickstart, ai-api, gateway, text-to-image, developers, ai, ai jobs, ai api</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>developer, ai</ai:entities>
+    <ai:tags>livepeer, ai jobs, quickstart, ai api, gateway, text-to-image</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/quickstart/ai/ai-pipelines</loc>
@@ -491,9 +427,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>142</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:32:39+11:00</ai:lastVerified>
-    <ai:tags>livepeer, ai-jobs, ai-pipelines, quickstart, gateway-api, developers, ai, ai jobs, ai pipelines, gateway api</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>developer, ai</ai:entities>
+    <ai:tags>livepeer, ai jobs, ai pipelines, quickstart, gateway api</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/quickstart/video/transcoding-jobs</loc>
@@ -501,9 +435,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>416</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:32:39+11:00</ai:lastVerified>
-    <ai:tags>livepeer, transcoding-jobs, quickstart, studio-api, transcode, tasks-api, developers, video, transcoding jobs, studio api, tasks api</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>developer, video</ai:entities>
+    <ai:tags>livepeer, transcoding jobs, quickstart, studio api, transcode, tasks api</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/quickstart/video/video-streaming</loc>
@@ -511,9 +443,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>102</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:32:39+11:00</ai:lastVerified>
-    <ai:tags>livepeer, video-quickstart, realtime-video, transcoding-jobs, studio-api, developers, quickstart, video, video-streaming, video quickstart, realtime video, transcoding jobs, studio api</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>developer, video</ai:entities>
+    <ai:tags>livepeer, video quickstart, realtime video, transcoding jobs, studio api</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/technical-references/apis</loc>
@@ -521,9 +451,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>84</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, api, studio, network, developers, technical-references, apis</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>livepeer, api, studio, network</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/technical-references/awesome-livepeer</loc>
@@ -531,9 +459,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>21</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, technical-references, awesome-livepeer, awesome, technical references, awesome livepeer</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>livepeer, developers, technical references, awesome livepeer, awesome</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/technical-references/deepwiki</loc>
@@ -541,9 +467,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>86</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, technical-references, deepwiki, technical references</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>livepeer, developers, technical references, deepwiki</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/technical-references/sdks</loc>
@@ -551,9 +475,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>77</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, sdk, studio, network, developers, technical-references, sdks</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>livepeer, sdk, studio, network</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/technical-references/wiki</loc>
@@ -561,9 +483,7 @@
     <ai:section>developers</ai:section>
     <ai:wordCount>18</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, technical-references, wiki, technical references</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>developer</ai:entities>
+    <ai:tags>livepeer, developers, technical references, wiki</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/about-gateways/gateway-architecture</loc>
@@ -571,9 +491,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>39</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, about-gateways, gateway-architecture, gateway, architecture, about gateways, gateway architecture</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, about gateways, gateway architecture, gateway, architecture</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/about-gateways/gateway-economics</loc>
@@ -581,9 +499,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>619</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, about-gateways, gateway-economics, gateway, economics, learn, running, about gateways, gateway economics</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, about gateways, gateway economics, gateway, economics, learn, running</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/about-gateways/gateway-explainer</loc>
@@ -591,9 +507,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>870</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, about-gateways, gateway-explainer, gateway, explainer, about gateways, gateway explainer</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway, ai</ai:entities>
+    <ai:tags>livepeer, gateways, about gateways, gateway explainer, gateway, explainer</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/about-gateways/gateway-functions</loc>
@@ -601,9 +515,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>306</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, about-gateways, gateway-functions, gateway, functions, services, learn, about gateways, gateway functions</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, about gateways, gateway functions, gateway, functions, services, learn</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/gateway-tools/explorer</loc>
@@ -611,9 +523,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>75</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, gateway-tools, explorer, gateway, gateway tools</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, gateway tools, explorer, gateway</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/gateway-tools/livepeer-tools</loc>
@@ -621,9 +531,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>90</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, gateway-tools, livepeer-tools, tools, dashboard, gateway tools, livepeer tools</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, gateway tools, livepeer tools, tools, dashboard</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/gateways-portal</loc>
@@ -631,29 +539,23 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>127</ai:wordCount>
     <ai:lastVerified>2026-02-22T01:46:33+11:00</ai:lastVerified>
-    <ai:tags>start-here, home, index, landing, gateway, gateways, applications, production-builds, broadcaster, livepeer-gateway, livepeer-gateways, livepeer-broadcaster, Start Here, production builds, livepeer gateway, livepeer gateways, livepeer broadcaster, livepeer broadcasters, livepeer broadcasting, livepeer broadcast, livepeer broadcasts, livepeer broadcast portal, livepeer gateways portal, livepeer broadcaster portal, livepeer broadcasters portal, livepeer broadcasting portal</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>Start Here, home, index, landing, gateway, gateways, applications, production builds, broadcaster, livepeer gateway, livepeer gateways, livepeer broadcaster, livepeer broadcasters, livepeer broadcasting, livepeer broadcast, livepeer broadcasts, livepeer broadcast portal, livepeer gateways portal, livepeer broadcaster portal, livepeer broadcasters portal, livepeer broadcasting portal</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/guides-and-resources/community-guides</loc>
     <lastmod>2026-02-24T23:28:18+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>35</ai:wordCount>
+    <ai:wordCount>22</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:18+11:00</ai:lastVerified>
-    <ai:tags>community, guides, gateway, gateways, guides-and-resources, community-guides</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>community, guides, gateway</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/guides-and-resources/community-projects</loc>
     <lastmod>2026-02-24T23:28:18+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>46</ai:wordCount>
+    <ai:wordCount>32</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:18+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, guides-and-resources, community-projects, community, projects, making, guides and resources, community projects</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, guides and resources, community projects, community, projects, making</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/guides-and-resources/faq</loc>
@@ -661,9 +563,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>764</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, guides-and-resources, faq, gateway, frequently, asked, guides and resources</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, guides and resources, faq, gateway, frequently, asked</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/AI-API/ai</loc>
@@ -671,149 +571,119 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>102</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>api-index, livepeer, gateways, references, api-reference, ai-api, portal, reference, endpoints, ai, API Index, api reference, ai api</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, ai</ai:entities>
+    <ai:tags>API Index, livepeer, gateways, references, api reference, ai api, portal, reference, endpoints</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/AI-API/audio-to-text</loc>
     <lastmod>2026-02-24T23:28:18+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>33</ai:wordCount>
+    <ai:wordCount>18</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:18+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, ai-api, audio-to-text, api reference, ai api, audio to text</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, ai, audio-to-text</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, ai api, audio to text</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/AI-API/hardware-info</loc>
     <lastmod>2026-02-24T23:28:18+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>32</ai:wordCount>
+    <ai:wordCount>17</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:18+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, ai-api, hardware-info, api reference, ai api, hardware info</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, ai, hardware</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, ai api, hardware info</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/AI-API/hardware-stats</loc>
     <lastmod>2026-02-24T23:28:18+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>32</ai:wordCount>
+    <ai:wordCount>17</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:18+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, ai-api, hardware-stats, api reference, ai api, hardware stats</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, ai, hardware</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, ai api, hardware stats</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/AI-API/health</loc>
     <lastmod>2026-02-24T23:28:18+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>31</ai:wordCount>
+    <ai:wordCount>16</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:18+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, ai-api, health, api reference, ai api</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, ai, health</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, ai api, health</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/AI-API/image-to-image</loc>
     <lastmod>2026-02-24T23:28:19+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>33</ai:wordCount>
+    <ai:wordCount>18</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:19+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, ai-api, image-to-image, api reference, ai api, image to image</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, ai, image-to-image</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, ai api, image to image</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/AI-API/image-to-text</loc>
     <lastmod>2026-02-24T23:28:19+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>33</ai:wordCount>
+    <ai:wordCount>18</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:19+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, ai-api, image-to-text, api reference, ai api, image to text</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, ai, image-to-text</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, ai api, image to text</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/AI-API/image-to-video</loc>
     <lastmod>2026-02-24T23:28:19+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>34</ai:wordCount>
+    <ai:wordCount>18</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:19+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, ai-api, image-to-video, api reference, ai api, image to video</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, ai, video, image-to-video</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, ai api, image to video</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/AI-API/live-video-to-video</loc>
     <lastmod>2026-02-24T23:28:19+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>35</ai:wordCount>
+    <ai:wordCount>19</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:19+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, ai-api, live-video-to-video, api reference, ai api, live video to video</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, ai, video, live-video-to-video</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, ai api, live video to video</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/AI-API/llm</loc>
     <lastmod>2026-02-24T23:28:19+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>31</ai:wordCount>
+    <ai:wordCount>16</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:19+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, ai-api, llm, api reference, ai api</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, ai, llm</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, ai api, llm</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/AI-API/segment-anything-2</loc>
     <lastmod>2026-02-24T23:28:19+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>33</ai:wordCount>
+    <ai:wordCount>18</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:19+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, ai-api, segment-anything-2, api reference, ai api, segment anything 2</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, ai, segment-anything-2</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, ai api, segment anything 2</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/AI-API/text-to-image</loc>
     <lastmod>2026-02-24T23:28:19+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>33</ai:wordCount>
+    <ai:wordCount>18</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:19+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, ai-api, text-to-image, api reference, ai api, text to image</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, ai, text-to-image</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, ai api, text to image</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/AI-API/text-to-speech</loc>
     <lastmod>2026-02-24T23:28:19+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>33</ai:wordCount>
+    <ai:wordCount>18</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:19+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, ai-api, text-to-speech, api reference, ai api, text to speech</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, ai, text-to-speech</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, ai api, text to speech</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/AI-API/upscale</loc>
     <lastmod>2026-02-24T23:28:19+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>31</ai:wordCount>
+    <ai:wordCount>16</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:19+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, ai-api, upscale, api reference, ai api</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, ai, upscale</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, ai api, upscale</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator</loc>
     <lastmod>2026-02-24T23:28:19+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>31</ai:wordCount>
+    <ai:wordCount>16</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:19+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, cli-http, activateorchestrator, api reference, cli http</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, orchestrator, activateorchestrator</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, cli http, activateorchestrator</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/CLI-HTTP/cli-http-api</loc>
@@ -821,79 +691,63 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>236</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>index, livepeer, gateways, references, api-reference, cli-http, cli-http-api, http, portal, reference, endpoints, Index, api reference, cli http, cli http api</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>Index, livepeer, gateways, references, api reference, cli http, cli http api, http, portal, reference, endpoints</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/CLI-HTTP/rebond</loc>
     <lastmod>2026-02-24T23:28:19+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>30</ai:wordCount>
+    <ai:wordCount>16</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:19+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, cli-http, rebond, api reference, cli http</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, rebond</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, cli http, rebond</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/CLI-HTTP/reward</loc>
     <lastmod>2026-02-24T23:28:20+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>30</ai:wordCount>
+    <ai:wordCount>16</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:20+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, cli-http, reward, api reference, cli http</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, reward</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, cli http, reward</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig</loc>
     <lastmod>2026-02-24T23:28:20+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>30</ai:wordCount>
+    <ai:wordCount>16</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:20+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, cli-http, setbroadcastconfig, api reference, cli http</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, setbroadcastconfig</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, cli http, setbroadcastconfig</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability</loc>
     <lastmod>2026-02-24T23:28:20+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>30</ai:wordCount>
+    <ai:wordCount>16</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:20+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, cli-http, setmaxpriceforcapability, api reference, cli http</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, setmaxpriceforcapability</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, cli http, setmaxpriceforcapability</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/CLI-HTTP/signmessage</loc>
     <lastmod>2026-02-24T23:28:20+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>30</ai:wordCount>
+    <ai:wordCount>16</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:20+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, cli-http, signmessage, api reference, cli http</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, signmessage</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, cli http, signmessage</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/CLI-HTTP/transfertokens</loc>
     <lastmod>2026-02-24T23:28:20+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>30</ai:wordCount>
+    <ai:wordCount>16</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:20+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, cli-http, transfertokens, api reference, cli http</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, transfertokens</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, cli http, transfertokens</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/api-reference/CLI-HTTP/unbond</loc>
     <lastmod>2026-02-24T23:28:20+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>30</ai:wordCount>
+    <ai:wordCount>16</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:20+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, api-reference, cli-http, unbond, api reference, cli http</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway, unbond</ai:entities>
+    <ai:tags>livepeer, gateways, references, api reference, cli http, unbond</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/arbitrum-rpc</loc>
@@ -901,9 +755,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>6</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, arbitrum-rpc, arbitrum, rpcs, public, arbitrum rpc</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, references, arbitrum rpc, arbitrum, rpcs, public</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/artibtrum-exchanges</loc>
@@ -911,9 +763,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>53</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, artibtrum-exchanges, arbitrum, exchange, reference, exchanges, support, artibtrum exchanges</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, references, artibtrum exchanges, arbitrum, exchange, reference, exchanges, support</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/cli-commands</loc>
@@ -921,9 +771,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>518</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, cli-commands, gateway, commands, reference, cli commands</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, references, cli commands, gateway, commands, reference</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/configuration-flags</loc>
@@ -931,9 +779,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>764</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, configuration-flags, gateway, configuration, flags, reference, configuration flags</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, references, configuration flags, gateway, configuration, flags, reference</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/livepeer-exchanges</loc>
@@ -941,9 +787,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>52</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, livepeer-exchanges, exchanges, support, livepeer exchanges</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, references, livepeer exchanges, exchanges, support</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/references/technical-architecture</loc>
@@ -951,9 +795,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>0</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, references, technical-architecture, technical, architecture, diagrams, technical architecture</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, references, technical architecture, technical, architecture, diagrams</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/configure/ai-configuration</loc>
@@ -961,9 +803,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>502</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, configure, ai-configuration, configuration, inference, services, run a gateway, ai configuration</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway, ai</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, configure, ai configuration, configuration, inference, services</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/configure/configuration-overview</loc>
@@ -971,9 +811,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>226</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, configure, configuration-overview, configuration, overview, configuring, run a gateway, configuration overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, configure, configuration overview, configuration, overview, configuring</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/configure/dual-configuration</loc>
@@ -981,9 +819,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>439</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>ai--video, livepeer, gateways, run-a-gateway, configure, dual-configuration, video, dual, gateway, services, AI &amp; Video, run a gateway, dual configuration</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>AI &amp; Video, livepeer, gateways, run a gateway, configure, dual configuration, video, dual, gateway, services</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/configure/pricing-configuration</loc>
@@ -991,9 +827,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>672</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, configure, pricing-configuration, pricing, configuration, run a gateway, pricing configuration</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, configure, pricing configuration, pricing, configuration</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/configure/video-configuration</loc>
@@ -1001,9 +835,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>530</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, configure, video-configuration, video, configuration, services, run a gateway, video configuration</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway, video</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, configure, video configuration, video, configuration, services</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/connect/connect-with-offerings</loc>
@@ -1011,9 +843,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>241</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, connect, connect-with-offerings, discover, marketplace, compute, services, explains, run a gateway, connect with offerings</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, connect, connect with offerings, discover, marketplace, compute, services, explains</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/connect/discover-offerings</loc>
@@ -1021,9 +851,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>131</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, connect, discover-offerings, discover, marketplace, offerings, explains, video, run a gateway, discover offerings</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, connect, discover offerings, discover, marketplace, offerings, explains, video</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/connect/lp-marketplace</loc>
@@ -1031,9 +859,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>127</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, connect, lp-marketplace, marketplace, overview, provides, run a gateway, lp marketplace</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, connect, lp marketplace, marketplace, overview, provides</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/install/community-projects</loc>
@@ -1041,9 +867,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>160</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>beta, livepeer, gateways, run-a-gateway, install, community-projects, easy, devops, community, projects, pipelines, run a gateway, community projects</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>beta, livepeer, gateways, run a gateway, install, community projects, easy, devops, community, projects, pipelines</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/install/docker-install</loc>
@@ -1051,9 +875,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>682</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, install, docker-install, docker, gateway, run a gateway, docker install</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, install, docker install, docker, gateway</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/install/install-overview</loc>
@@ -1061,9 +883,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>207</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, install, install-overview, installation, overview, process, run a gateway, install overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, install, install overview, installation, overview, process</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/install/linux-install</loc>
@@ -1071,9 +891,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>300</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, install, linux-install, linux, gateway, run a gateway, linux install</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, install, linux install, linux, gateway</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/install/windows-install</loc>
@@ -1081,9 +899,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>306</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, install, windows-install, windows, gateway, run a gateway, windows install</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, install, windows install, windows, gateway</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/monitor/monitor-and-optimise</loc>
@@ -1091,9 +907,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>313</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, monitor, monitor-and-optimise, optimise, gateway, services, run a gateway, monitor and optimise</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, monitor, monitor and optimise, optimise, gateway, services</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway</loc>
@@ -1101,9 +915,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>96</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, quickstart, get-ai-to-setup-the-gateway, setup, gateway, run a gateway, get ai to setup the gateway</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>gateway, ai</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, quickstart, get ai to setup the gateway, setup, gateway</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway</loc>
@@ -1111,9 +923,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>226</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, quickstart, quickstart-a-gateway, gateway, guide, video, run a gateway, quickstart a gateway</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, quickstart, quickstart a gateway, gateway, guide, video</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway</loc>
@@ -1121,9 +931,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>867</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, requirements, on-chain-setup, fund-gateway, fund, gateway, run a gateway, on chain setup, fund gateway</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway, ai</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, requirements, on chain setup, fund gateway, fund, gateway</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain</loc>
@@ -1131,9 +939,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>1789</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, requirements, on-chain-setup, on-chain, chain, setup, through, setting, run a gateway, on chain setup, on chain</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway, ai</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, requirements, on chain setup, on chain, chain, setup, through, setting</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/requirements/setup</loc>
@@ -1141,9 +947,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>468</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, requirements, setup, gateway, node, learn, hardware, network, run a gateway</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, requirements, setup, gateway, node, learn, hardware, network</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/run-a-gateway</loc>
@@ -1151,9 +955,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>183</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, gateway, connect, applications, video, run a gateway</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, gateway, connect, applications, video</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/why-run-a-gateway</loc>
@@ -1161,9 +963,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>623</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, run-a-gateway, why-run-a-gateway, should, gateway, reasons, run a gateway, why run a gateway</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, run a gateway, why run a gateway, should, gateway, reasons</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/using-gateways/choosing-a-gateway</loc>
@@ -1171,9 +971,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>129</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, using-gateways, choosing-a-gateway, gateway, services, learn, choose, right, using gateways, choosing a gateway</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, using gateways, choosing a gateway, gateway, services, learn, choose, right</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/using-gateways/gateway-providers</loc>
@@ -1181,9 +979,7 @@
     <ai:section>gateways</ai:section>
     <ai:wordCount>60</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, gateways, using-gateways, gateway-providers, gateway, providers, applications, using gateways, gateway providers</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>gateway</ai:entities>
+    <ai:tags>livepeer, gateways, using gateways, gateway providers, gateway, providers, applications</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway</loc>
@@ -1212,8 +1008,7 @@
     <ai:section>home</ai:section>
     <ai:wordCount>525</ai:wordCount>
     <ai:lastVerified>2026-02-23T22:08:49+11:00</ai:lastVerified>
-    <ai:tags>livepeer, home, project-showcase, why-livepeer, best-choice, next-project, about-livepeer, benefits, project showcase, why livepeer, best choice, next project</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, home, project showcase, why livepeer, best choice, next project</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/about-livepeer/ecosystem</loc>
@@ -1221,8 +1016,7 @@
     <ai:section>home</ai:section>
     <ai:wordCount>1886</ai:wordCount>
     <ai:lastVerified>2026-02-23T22:08:49+11:00</ai:lastVerified>
-    <ai:tags>livepeer, home, introduction, livepeer-ecosystem, ecosystem, grown, robust, about-livepeer, livepeer ecosystem</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, home, introduction, livepeer ecosystem, ecosystem, grown, robust</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/about-livepeer/evolution</loc>
@@ -1230,8 +1024,7 @@
     <ai:section>home</ai:section>
     <ai:wordCount>510</ai:wordCount>
     <ai:lastVerified>2026-02-23T22:08:49+11:00</ai:lastVerified>
-    <ai:tags>livepeer, livepeer-vision, livepeer-mission, livepeer-goals, livepeer-objectives, livepeer-targets, livepeer-aspirations, livepeer-ambitions, home, about-livepeer, evolution, livepeer vision, livepeer mission, livepeer goals, livepeer objectives, livepeer targets, livepeer aspirations, livepeer ambitions</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, livepeer vision, livepeer mission, livepeer goals, livepeer objectives, livepeer targets, livepeer aspirations, livepeer ambitions</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/about-livepeer/roadmap</loc>
@@ -1239,8 +1032,7 @@
     <ai:section>home</ai:section>
     <ai:wordCount>71</ai:wordCount>
     <ai:lastVerified>2026-02-23T22:08:49+11:00</ai:lastVerified>
-    <ai:tags>livepeer, livepeer-roadmap, livepeer-timeline, livepeer-future, livepeer-plans, livepeer-vision, livepeer-goals, livepeer-objectives, livepeer-targets, livepeer-aspirations, livepeer-ambitions, home, livepeer roadmap, livepeer timeline, livepeer future, livepeer plans, livepeer vision, livepeer goals, livepeer objectives, livepeer targets, livepeer aspirations, livepeer ambitions</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, livepeer roadmap, livepeer timeline, livepeer future, livepeer plans, livepeer vision, livepeer goals, livepeer objectives, livepeer targets, livepeer aspirations, livepeer ambitions</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/about-livepeer/vision</loc>
@@ -1248,35 +1040,7 @@
     <ai:section>home</ai:section>
     <ai:wordCount>385</ai:wordCount>
     <ai:lastVerified>2026-02-23T22:08:49+11:00</ai:lastVerified>
-    <ai:tags>livepeer, livepeer-overview, livepeer-introduction, livepeer-primer, livepeer-mission, livepeer-vision, livepeer-goals, livepeer-objectives, livepeer-targets, livepeer-aspirations, livepeer-ambitions, home, livepeer overview, livepeer introduction, livepeer primer, livepeer mission, livepeer vision, livepeer goals, livepeer objectives, livepeer targets, livepeer aspirations, livepeer ambitions</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/home/case-studies/applications</loc>
-    <lastmod>2026-02-23T22:08:49+11:00</lastmod>
-    <ai:section>home</ai:section>
-    <ai:wordCount>148</ai:wordCount>
-    <ai:lastVerified>2026-02-23T22:08:49+11:00</ai:lastVerified>
-    <ai:tags>livepeer, livepeer-applications, livepeer-use-cases, livepeer-apps, livepeer-projects, livepeer-ecosystem, livepeer-built-on, livepeer-built-on-livepeer, livepeer-apps-built-on-livepeer, livepeer-applications-built-on-livepeer, livepeer-use-cases-built-on-livepeer, home, livepeer applications, livepeer use cases, livepeer apps, livepeer projects, livepeer ecosystem, livepeer built on, livepeer built on livepeer, livepeer apps built on livepeer, livepeer applications built on livepeer, livepeer use cases built on livepeer</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/home/case-studies/showcase</loc>
-    <lastmod>2026-02-23T22:08:49+11:00</lastmod>
-    <ai:section>home</ai:section>
-    <ai:wordCount>14</ai:wordCount>
-    <ai:lastVerified>2026-02-23T22:08:49+11:00</ai:lastVerified>
-    <ai:tags>livepeer, built-on-livepeer, livepeer-projects, livepeer-ecosystem, livepeer-apps, livepeer-applications, livepeer-use-cases, livepeer-projects-built-on-livepeer, livepeer-apps-built-on-livepeer, livepeer-applications-built-on-livepeer, livepeer-use-cases-built-on-livepeer, home, built on livepeer, livepeer projects, livepeer ecosystem, livepeer apps, livepeer applications, livepeer use cases, livepeer projects built on livepeer, livepeer apps built on livepeer, livepeer applications built on livepeer, livepeer use cases built on livepeer</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/home/case-studies/verticals</loc>
-    <lastmod>2026-02-23T22:08:49+11:00</lastmod>
-    <ai:section>home</ai:section>
-    <ai:wordCount>1343</ai:wordCount>
-    <ai:lastVerified>2026-02-23T22:08:49+11:00</ai:lastVerified>
-    <ai:tags>livepeer, home, project-showcase, industry-verticals, industry, applications, case-studies, verticals, project showcase, industry verticals</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, livepeer overview, livepeer introduction, livepeer primer, livepeer mission, livepeer vision, livepeer goals, livepeer objectives, livepeer targets, livepeer aspirations, livepeer ambitions</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/get-started</loc>
@@ -1284,8 +1048,7 @@
     <ai:section>home</ai:section>
     <ai:wordCount>54</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, home, user-journey, user, journey, guide, get-started, user journey</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, home, user journey, user, journey, guide</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/mission-control</loc>
@@ -1293,8 +1056,7 @@
     <ai:section>home</ai:section>
     <ai:wordCount>21</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:36:09+11:00</ai:lastVerified>
-    <ai:tags>start-here, home, index, landing, livepeer, real-time-ai, daydream, mission-control, Start Here, real-time AI, Daydream</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>Start Here, home, index, landing, livepeer, real-time AI, Daydream</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/primer</loc>
@@ -1302,28 +1064,47 @@
     <ai:section>home</ai:section>
     <ai:wordCount>595</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer-intro, livepeer-introduction, livepeer-overview, livepeer-primer, home, primer, livepeer intro, livepeer introduction, livepeer overview, livepeer primer</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
+    <ai:tags>livepeer intro, livepeer introduction, livepeer overview, livepeer primer</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/home/solutions/applications</loc>
+    <lastmod>2026-02-26T05:05:48.855Z</lastmod>
+    <ai:section>home</ai:section>
+    <ai:wordCount>148</ai:wordCount>
+    <ai:lastVerified>2026-02-26T05:05:48.855Z</ai:lastVerified>
+    <ai:tags>livepeer, livepeer applications, livepeer use cases, livepeer apps, livepeer projects, livepeer ecosystem, livepeer built on, livepeer built on livepeer, livepeer apps built on livepeer, livepeer applications built on livepeer, livepeer use cases built on livepeer</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/home/solutions/showcase</loc>
+    <lastmod>2026-02-26T05:05:48.855Z</lastmod>
+    <ai:section>home</ai:section>
+    <ai:wordCount>14</ai:wordCount>
+    <ai:lastVerified>2026-02-26T05:05:48.855Z</ai:lastVerified>
+    <ai:tags>livepeer, built on livepeer, livepeer projects, livepeer ecosystem, livepeer apps, livepeer applications, livepeer use cases, livepeer projects built on livepeer, livepeer apps built on livepeer, livepeer applications built on livepeer, livepeer use cases built on livepeer</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/home/solutions/verticals</loc>
+    <lastmod>2026-02-26T05:05:48.855Z</lastmod>
+    <ai:section>home</ai:section>
+    <ai:wordCount>1343</ai:wordCount>
+    <ai:lastVerified>2026-02-26T05:05:48.855Z</ai:lastVerified>
+    <ai:tags>livepeer, home, project showcase, industry verticals, industry, applications</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/about/mechanics</loc>
-    <lastmod>2026-02-21T22:50:55+11:00</lastmod>
+    <lastmod>2026-02-26T15:58:23+11:00</lastmod>
     <ai:section>lpt</ai:section>
-    <ai:wordCount>459</ai:wordCount>
-    <ai:lastVerified>2026-02-21T22:50:55+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, mechanics, bonding, unbonding, staking, rewards, rounds, about</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
+    <ai:wordCount>382</ai:wordCount>
+    <ai:lastVerified>2026-02-26T15:58:23+11:00</ai:lastVerified>
+    <ai:tags>livepeer, lpt, mechanics, bonding, unbonding, staking, rewards, rounds</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/about/overview</loc>
-    <lastmod>2026-02-21T22:50:55+11:00</lastmod>
+    <lastmod>2026-02-26T15:58:23+11:00</lastmod>
     <ai:section>lpt</ai:section>
-    <ai:wordCount>508</ai:wordCount>
-    <ai:lastVerified>2026-02-21T22:50:55+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, overview, token, staking, governance, economics, arbitrum, about</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
+    <ai:wordCount>472</ai:wordCount>
+    <ai:lastVerified>2026-02-26T15:58:23+11:00</ai:lastVerified>
+    <ai:tags>livepeer, lpt, overview, token, staking, governance, economics, arbitrum</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/about/purpose</loc>
@@ -1331,79 +1112,63 @@
     <ai:section>lpt</ai:section>
     <ai:wordCount>1302</ai:wordCount>
     <ai:lastVerified>2026-02-21T22:50:55+11:00</ai:lastVerified>
-    <ai:tags>livepeer, delegators, about-lpt-livepeer-token, purpose, delegation, lpt, about, about lpt livepeer token</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
+    <ai:tags>livepeer, delegators, about lpt livepeer token, purpose, delegation</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/about/tokenomics</loc>
-    <lastmod>2026-02-21T22:50:55+11:00</lastmod>
+    <lastmod>2026-02-26T15:58:23+11:00</lastmod>
     <ai:section>lpt</ai:section>
-    <ai:wordCount>482</ai:wordCount>
-    <ai:lastVerified>2026-02-21T22:50:55+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, tokenomics, inflation, staking, rewards, bonding-rate, economics, about, bonding rate</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
+    <ai:wordCount>403</ai:wordCount>
+    <ai:lastVerified>2026-02-26T15:58:23+11:00</ai:lastVerified>
+    <ai:tags>livepeer, lpt, tokenomics, inflation, staking, rewards, bonding rate, economics</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/delegation/about-delegators</loc>
-    <lastmod>2026-02-21T22:52:18+11:00</lastmod>
+    <lastmod>2026-02-26T15:58:23+11:00</lastmod>
     <ai:section>lpt</ai:section>
-    <ai:wordCount>688</ai:wordCount>
-    <ai:lastVerified>2026-02-21T22:52:18+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, delegators, staking, delegation, rewards, governance, risk, about-delegators</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
+    <ai:wordCount>608</ai:wordCount>
+    <ai:lastVerified>2026-02-26T15:58:23+11:00</ai:lastVerified>
+    <ai:tags>livepeer, lpt, delegators, staking, delegation, rewards, governance, risk</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/delegation/delegation-guide</loc>
-    <lastmod>2026-02-21T22:52:18+11:00</lastmod>
+    <lastmod>2026-02-26T15:58:23+11:00</lastmod>
     <ai:section>lpt</ai:section>
-    <ai:wordCount>567</ai:wordCount>
-    <ai:lastVerified>2026-02-21T22:52:18+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, delegation, staking, bonding, unbonding, rewards, guide, delegation-guide</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
+    <ai:wordCount>484</ai:wordCount>
+    <ai:lastVerified>2026-02-26T15:58:23+11:00</ai:lastVerified>
+    <ai:tags>livepeer, lpt, delegation, staking, bonding, unbonding, rewards, guide</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/delegation/overview</loc>
-    <lastmod>2026-02-21T22:52:18+11:00</lastmod>
+    <lastmod>2026-02-26T15:58:23+11:00</lastmod>
     <ai:section>lpt</ai:section>
-    <ai:wordCount>573</ai:wordCount>
-    <ai:lastVerified>2026-02-21T22:52:18+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, delegation, staking, bonding, orchestrators, rewards, economics, overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
+    <ai:wordCount>509</ai:wordCount>
+    <ai:lastVerified>2026-02-26T15:58:23+11:00</ai:lastVerified>
+    <ai:tags>livepeer, lpt, delegation, staking, bonding, orchestrators, rewards, economics</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/governance/model</loc>
-    <lastmod>2026-02-21T22:54:39+11:00</lastmod>
+    <lastmod>2026-02-26T15:58:23+11:00</lastmod>
     <ai:section>lpt</ai:section>
-    <ai:wordCount>739</ai:wordCount>
-    <ai:lastVerified>2026-02-21T22:54:39+11:00</ai:lastVerified>
+    <ai:wordCount>703</ai:wordCount>
+    <ai:lastVerified>2026-02-26T15:58:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, governance, model, quorum, voting, timelock, security</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/governance/overview</loc>
-    <lastmod>2026-02-21T22:54:39+11:00</lastmod>
+    <lastmod>2026-02-26T15:58:23+11:00</lastmod>
     <ai:section>lpt</ai:section>
-    <ai:wordCount>664</ai:wordCount>
-    <ai:lastVerified>2026-02-21T22:54:39+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, governance, voting, lips, spe, proposals, overview, LIPs, SPE</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
+    <ai:wordCount>635</ai:wordCount>
+    <ai:lastVerified>2026-02-26T15:58:23+11:00</ai:lastVerified>
+    <ai:tags>livepeer, lpt, governance, voting, LIPs, SPE, proposals</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/governance/processes</loc>
-    <lastmod>2026-02-21T22:54:39+11:00</lastmod>
+    <lastmod>2026-02-26T15:58:23+11:00</lastmod>
     <ai:section>lpt</ai:section>
-    <ai:wordCount>873</ai:wordCount>
-    <ai:lastVerified>2026-02-21T22:54:39+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, governance, processes, voting, lips, treasury, proposals, LIPs</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
+    <ai:wordCount>852</ai:wordCount>
+    <ai:lastVerified>2026-02-26T15:58:23+11:00</ai:lastVerified>
+    <ai:tags>livepeer, lpt, governance, processes, voting, LIPs, treasury, proposals</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/resources/exchanges</loc>
@@ -1411,9 +1176,7 @@
     <ai:section>lpt</ai:section>
     <ai:wordCount>434</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, delegators, token-resources, lpt-exchanges, exchanges, listed, where, lpt, resources, token resources, lpt exchanges</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
+    <ai:tags>livepeer, delegators, token resources, lpt exchanges, exchanges, listed, where</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/resources/lpt-eth-usage</loc>
@@ -1421,9 +1184,7 @@
     <ai:section>lpt</ai:section>
     <ai:wordCount>146</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, delegators, token-resources, lpt-eth-usage, token, functions, tokens, protocol, lpt, resources, token resources, lpt eth usage</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
+    <ai:tags>livepeer, delegators, token resources, lpt eth usage, token, functions, tokens, protocol</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/token-portal</loc>
@@ -1431,39 +1192,31 @@
     <ai:section>lpt</ai:section>
     <ai:wordCount>133</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:21+11:00</ai:lastVerified>
-    <ai:tags>start-here, livepeer, delegators, token-portal, token, home, portal, welcome, lpt, Start Here, token portal</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
+    <ai:tags>Start Here, livepeer, delegators, token portal, token, home, portal, welcome</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/treasury/allocations</loc>
-    <lastmod>2026-02-21T22:57:15+11:00</lastmod>
+    <lastmod>2026-02-26T15:58:23+11:00</lastmod>
     <ai:section>lpt</ai:section>
-    <ai:wordCount>558</ai:wordCount>
-    <ai:lastVerified>2026-02-21T22:57:15+11:00</ai:lastVerified>
-    <ai:tags>livepeer, treasury, allocations, governance, grants, funding, accountability, lpt</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
+    <ai:wordCount>503</ai:wordCount>
+    <ai:lastVerified>2026-02-26T15:58:23+11:00</ai:lastVerified>
+    <ai:tags>livepeer, treasury, allocations, governance, grants, funding, accountability</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/treasury/overview</loc>
-    <lastmod>2026-02-21T22:57:15+11:00</lastmod>
+    <lastmod>2026-02-26T15:58:23+11:00</lastmod>
     <ai:section>lpt</ai:section>
-    <ai:wordCount>437</ai:wordCount>
-    <ai:lastVerified>2026-02-21T22:57:15+11:00</ai:lastVerified>
-    <ai:tags>livepeer, lpt, treasury, governance, grants, funding, ecosystem, overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
+    <ai:wordCount>400</ai:wordCount>
+    <ai:lastVerified>2026-02-26T15:58:23+11:00</ai:lastVerified>
+    <ai:tags>livepeer, lpt, treasury, governance, grants, funding, ecosystem</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/lpt/treasury/proposals</loc>
-    <lastmod>2026-02-21T22:57:15+11:00</lastmod>
+    <lastmod>2026-02-26T15:58:23+11:00</lastmod>
     <ai:section>lpt</ai:section>
-    <ai:wordCount>559</ai:wordCount>
-    <ai:lastVerified>2026-02-21T22:57:15+11:00</ai:lastVerified>
+    <ai:wordCount>510</ai:wordCount>
+    <ai:lastVerified>2026-02-26T15:58:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, lpt, treasury, proposals, governance, grants, execution</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>lpt</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/about-orchestrators/architecture</loc>
@@ -1471,9 +1224,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>44</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, about-orchestrators, orchestrator-architecture, orchestrator, architecture, about orchestrators, orchestrator architecture</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, about orchestrators, orchestrator architecture, orchestrator, architecture</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/about-orchestrators/economics</loc>
@@ -1481,9 +1232,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>289</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, about-orchestrators, orchestrator-economics, orchestrator, economics, about orchestrators, orchestrator economics</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, about orchestrators, orchestrator economics, orchestrator, economics</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/about-orchestrators/orchestrator-functions</loc>
@@ -1491,9 +1240,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>304</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, about-orchestrators, orchestrator-functions, orchestrator, functions, about orchestrators, orchestrator functions</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, about orchestrators, orchestrator functions, orchestrator, functions</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/about-orchestrators/overview</loc>
@@ -1501,9 +1248,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>350</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, about-orchestrators, overview, orchestrator, explainer, about orchestrators</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, about orchestrators, overview, orchestrator, explainer</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/advanced-setup/ai-pipelines</loc>
@@ -1511,9 +1256,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>128</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, ai, inference, byoc, advanced-setup, ai-pipelines, AI, BYOC</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>orchestrator, ai</ai:entities>
+    <ai:tags>livepeer, orchestrators, AI, inference, BYOC</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/advanced-setup/delegation</loc>
@@ -1521,9 +1264,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>145</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, delegation, delegators, reward-cut, fee-share, advanced-setup, reward cut, fee share</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, delegation, delegators, reward cut, fee share</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/advanced-setup/rewards-and-fees</loc>
@@ -1531,9 +1272,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>187</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, rewards, fees, inflation, lpt, eth, advanced-setup, rewards-and-fees, LPT, ETH</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, rewards, fees, inflation, LPT, ETH</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/advanced-setup/run-a-pool</loc>
@@ -1541,9 +1280,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>192</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, pool, operator, gpu-pool, advanced-setup, run-a-pool, GPU pool</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, pool, operator, GPU pool</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/advanced-setup/staking-LPT</loc>
@@ -1551,9 +1288,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>184</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, staking, lpt, bonding, active-set, advanced-setup, staking-lpt, LPT, active set</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>orchestrator, lpt</ai:entities>
+    <ai:tags>livepeer, orchestrators, staking, LPT, bonding, active set</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/orchestrator-tools-and-resources/community-pools</loc>
@@ -1561,9 +1296,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>67</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, orchestrator-guides-and-references, orchestrator-pools, pools, orchestrator-tools-and-resources, community-pools, orchestrator guides and references, orchestrator pools</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, orchestrator guides and references, orchestrator pools, pools</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help</loc>
@@ -1592,9 +1325,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>33</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, orchestrator-guides-and-references, orchestrator-tools, tools, orchestrator-tools-and-resources, orchestrator guides and references, orchestrator tools</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, orchestrator guides and references, orchestrator tools, tools</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/orchestrators-portal</loc>
@@ -1602,9 +1333,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>174</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>start-here, home, index, landing, gpu, earn, rewards, orchestrator, orchestrators, livepeer-orchestrator, livepeer-orchestrators, livepeer-orchestrator-portal, Start Here, livepeer orchestrator, livepeer orchestrators, livepeer orchestrator portal, livepeer orchestrators portal</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>Start Here, home, index, landing, gpu, earn, rewards, orchestrator, orchestrators, livepeer orchestrator, livepeer orchestrators, livepeer orchestrator portal, livepeer orchestrators portal</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/quickstart/join-a-pool</loc>
@@ -1612,9 +1341,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>1073</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, setting-up-an-orchestrator, join-a-pool, join, pool, quickstart, setting up an orchestrator, join a pool</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, setting up an orchestrator, join a pool, join, pool</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/quickstart/orchestrator-setup</loc>
@@ -1622,9 +1349,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>385</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, quickstart, add-your-gpu, orchestrator-setup, go-livepeer, add your gpu, orchestrator setup</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, quickstart, add your gpu, orchestrator setup, go-livepeer</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/quickstart/overview</loc>
@@ -1632,9 +1357,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>237</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, quickstart, orchestrator, overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, quickstart, orchestrator</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/references/cli-flags</loc>
@@ -1642,9 +1365,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>225</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, references, cli-flags, flags, reference, straight, chatgpt, cli flags</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, references, cli flags, flags, reference, straight, chatgpt</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/references/faq</loc>
@@ -1652,9 +1373,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>398</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, faq, troubleshooting, references, FAQ</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, FAQ, troubleshooting</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers</loc>
@@ -1669,9 +1388,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>170</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, hardware, gpu, requirements, setting-up-an-orchestrator, hardware-requirements, GPU</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, hardware, GPU, requirements</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats</loc>
@@ -1679,9 +1396,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>199</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, monitoring, stats, prometheus, metrics, setting-up-an-orchestrator, orchestrator-stats</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, monitoring, stats, prometheus, metrics</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/overview</loc>
@@ -1689,9 +1404,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>60</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, setup, checklist, setting-up-an-orchestrator, overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, setup, checklist</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer</loc>
@@ -1699,9 +1412,7 @@
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>229</ai:wordCount>
     <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, configuration, priceperunit, serviceaddr, transcoding, ai, setting-up-an-orchestrator, quickstart-add-your-gpu-to-livepeer, pricePerUnit, serviceAddr, AI</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>orchestrator</ai:entities>
+    <ai:tags>livepeer, orchestrators, configuration, pricePerUnit, serviceAddr, transcoding, AI</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/daydream/overview</loc>
@@ -1709,9 +1420,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>180</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, daydream, overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>daydream</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/ecosystem-products</loc>
@@ -1726,8 +1434,7 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>11</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, developer-platforms, embody, embody-avatars, overview, exists, platforms, developer platforms, embody avatars</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
+    <ai:tags>livepeer, developers, developer platforms, embody, embody avatars, overview, exists</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/frameworks/overview</loc>
@@ -1735,8 +1442,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>127</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, frameworks, overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/access-control/jwt</loc>
@@ -1744,9 +1449,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>159</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, access-control, jwt</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/access-control/overview</loc>
@@ -1754,9 +1456,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>89</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, access-control, overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/access-control/webhooks</loc>
@@ -1764,9 +1463,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>154</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, access-control, webhooks</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/analytics/listen-to-events</loc>
@@ -1774,9 +1470,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>245</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, analytics, listen-to-events</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/analytics/overview</loc>
@@ -1784,9 +1477,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>171</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, analytics, overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/analytics/webhooks</loc>
@@ -1794,9 +1484,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>210</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, analytics, webhooks</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/delete</loc>
@@ -2324,9 +2011,7 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>184</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>livepeer, products, livepeer-studio, client-use-cases, clients, use-cases, platforms, livepeer studio, client use cases, use cases</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
+    <ai:tags>livepeer, products, livepeer studio, client use cases, clients, use cases</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/get-started/authentication</loc>
@@ -2334,9 +2019,7 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>365</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>livepeer, studio, authentication, api-key, cors, platforms, livepeer-studio, get-started, api key</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
+    <ai:tags>livepeer, studio, authentication, api key, cors</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/get-started/overview</loc>
@@ -2344,9 +2027,7 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>114</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>livepeer, studio, getting-started, quickstart, setup, platforms, livepeer-studio, get-started, overview, getting started</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
+    <ai:tags>livepeer, studio, getting started, quickstart, setup</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/get-started/studio-cli</loc>
@@ -2354,9 +2035,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>100</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, get-started, studio-cli</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/clip-livestream</loc>
@@ -2364,9 +2042,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>316</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, livestream, clip-livestream</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/create-livestream</loc>
@@ -2374,9 +2049,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>140</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, livestream, create-livestream</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/livestream-from-browser</loc>
@@ -2384,9 +2056,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>176</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, livestream, livestream-from-browser</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/multistream</loc>
@@ -2394,9 +2063,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>154</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, livestream, multistream</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/optimize-latency</loc>
@@ -2404,9 +2070,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>347</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, livestream, optimize-latency</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/overview</loc>
@@ -2414,9 +2077,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>355</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, livestream, overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/playback-livestream</loc>
@@ -2424,9 +2084,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>216</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, livestream, playback-livestream</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/stream-health</loc>
@@ -2434,9 +2091,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>345</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, livestream, stream-health</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/stream-via-obs</loc>
@@ -2444,9 +2098,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>158</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, livestream, stream-via-obs</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/overview</loc>
@@ -2454,9 +2105,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>287</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/player</loc>
@@ -2464,9 +2112,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>199</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, player</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/quickstart</loc>
@@ -2474,9 +2119,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>271</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, quickstart</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/reference/api</loc>
@@ -2484,9 +2126,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>133</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, reference, api</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/reference/managing-projects</loc>
@@ -2494,9 +2133,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>159</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, reference, managing-projects</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/reference/overview</loc>
@@ -2504,9 +2140,7 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>198</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>livepeer, studio, api, reference, endpoints, platforms, livepeer-studio, overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
+    <ai:tags>livepeer, studio, api, reference, endpoints</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/reference/sdks</loc>
@@ -2514,9 +2148,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>140</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, reference, sdks</ai:tags>
-    <ai:difficulty>advanced</ai:difficulty>
-    <ai:entities>livepeer-studio</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/encrypted-assets</loc>
@@ -2524,9 +2155,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>121</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, video-on-demand, encrypted-assets</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio, video</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/overview</loc>
@@ -2534,9 +2162,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>162</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, video-on-demand, overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>livepeer-studio, video</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/playback-asset</loc>
@@ -2544,9 +2169,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>75</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, video-on-demand, playback-asset</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio, video</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/thumbnails-vod</loc>
@@ -2554,9 +2176,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>200</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, video-on-demand, thumbnails-vod</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio, ai, video</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/transcode-video</loc>
@@ -2564,9 +2183,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>220</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, video-on-demand, transcode-video</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio, video</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/upload-asset</loc>
@@ -2574,9 +2190,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>83</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>platforms, livepeer-studio, video-on-demand, upload-asset</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>livepeer-studio, video</ai:entities>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/portal</loc>
@@ -2584,8 +2197,7 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>153</ai:wordCount>
     <ai:lastVerified>2026-02-24T23:28:21+11:00</ai:lastVerified>
-    <ai:tags>start-here, livepeer, about, about-livepeer, about-portal, about-livepeer-portal, about-livepeer-network, about-livepeer-protocol, about-livepeer-token, about-livepeer-governance, about-livepeer-actors, about-livepeer-economics, Start Here, about livepeer, about portal, about livepeer portal, about livepeer network, about livepeer protocol, about livepeer token, about livepeer governance, about livepeer actors, about livepeer economics, about livepeer whitepaper, about livepeer faq</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>Start Here, livepeer, about, about livepeer, about portal, about livepeer portal, about livepeer network, about livepeer protocol, about livepeer token, about livepeer governance, about livepeer actors, about livepeer economics, about livepeer whitepaper, about livepeer faq</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/product-hub</loc>
@@ -2593,8 +2205,7 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>564</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>bookmark-me, livepeer, developers, developer-platforms, builder-hub, builders, platforms, products, using, product-hub, Bookmark Me, developer platforms, builder hub</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>Bookmark Me, livepeer, developers, developer platforms, builder hub, builders, platforms, products, using</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-architecture</loc>
@@ -2602,9 +2213,7 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>399</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, developer-platforms, streamplace, streamplace-architecture, architecture, detailed, showing, platforms, introduction, developer platforms, streamplace architecture</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>streamplace</ai:entities>
+    <ai:tags>livepeer, developers, developer platforms, streamplace, streamplace architecture, architecture, detailed, showing</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-funding-model</loc>
@@ -2612,9 +2221,7 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>283</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, developer-platforms, streamplace, streamplace-funding-model, funding, model, understanding, responsibilities, platforms, introduction, developer platforms, streamplace funding model</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>streamplace</ai:entities>
+    <ai:tags>livepeer, developers, developer platforms, streamplace, streamplace funding model, funding, model, understanding, responsibilities</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-guide</loc>
@@ -2622,9 +2229,7 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>229</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, developer-platforms, streamplace, streamplace-guide, works, explanation, ingest, segmentation, platforms, introduction, developer platforms, streamplace guide</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>streamplace</ai:entities>
+    <ai:tags>livepeer, developers, developer platforms, streamplace, streamplace guide, works, explanation, ingest, segmentation</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-integration</loc>
@@ -2632,9 +2237,7 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>270</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, developer-platforms, streamplace, streamplace-integration, developer, integration, guide, integrate, decentralized, platforms, introduction, developer platforms, streamplace integration</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>streamplace</ai:entities>
+    <ai:tags>livepeer, developers, developer platforms, streamplace, streamplace integration, developer, integration, guide, integrate, decentralized</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-provenance</loc>
@@ -2642,9 +2245,7 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>385</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, developer-platforms, streamplace, streamplace-provenance, provenance, metadata, manifests, ethereum, signatures, platforms, introduction, developer platforms, streamplace provenance</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>streamplace</ai:entities>
+    <ai:tags>livepeer, developers, developer platforms, streamplace, streamplace provenance, provenance, metadata, manifests, ethereum, signatures</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/streamplace/overview</loc>
@@ -2652,9 +2253,7 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>215</ai:wordCount>
     <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, developer-platforms, streamplace, overview, exists, platforms, developer platforms</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
-    <ai:entities>streamplace</ai:entities>
+    <ai:tags>livepeer, developers, developer platforms, streamplace, overview, exists</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/changelog/changelog</loc>
@@ -2663,7 +2262,6 @@
     <ai:wordCount>393</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
     <ai:tags>livepeer, resources, changelog, updates, documentation</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/changelog/migration-guide</loc>
@@ -2671,8 +2269,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>0</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, resources, changelog, migration-guide, migration guide</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, resources, changelog, migration guide</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/automations-workflows</loc>
@@ -2680,8 +2277,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>3751</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, resources, documentation-guide, automations, workflows, scripts, github-actions, n8n, pre-commit, hooks, automations-workflows, documentation guide, github actions</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, resources, documentation guide, automations, workflows, scripts, github actions, n8n, pre-commit, hooks</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library</loc>
@@ -2689,8 +2285,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>3527</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, documentation, components, library, reference, resources, documentation-guide, component-library</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, documentation, components, library, reference</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/content</loc>
@@ -2698,8 +2293,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>1364</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, components, content, code, api, data, resources, documentation-guide, component-library</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, components, content, code, api, data</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/display</loc>
@@ -2707,8 +2301,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>1999</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, components, display, video, image, embed, resources, documentation-guide, component-library</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, components, display, video, image, embed</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/domain</loc>
@@ -2716,9 +2309,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>48</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, components, domain, gateway, portal, shared, resources, documentation-guide, component-library</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>ai</ai:entities>
+    <ai:tags>livepeer, components, domain, gateway, portal, shared</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/integrations</loc>
@@ -2726,8 +2317,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>145</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, components, integrations, coingecko, external, resources, documentation-guide, component-library</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, components, integrations, coingecko, external</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/layout</loc>
@@ -2735,8 +2325,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>790</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, components, layout, cards, lists, steps, tables, resources, documentation-guide, component-library</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, components, layout, cards, lists, steps, tables</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/primitives</loc>
@@ -2744,8 +2333,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>1935</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, components, primitives, buttons, icons, links, resources, documentation-guide, component-library</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, components, primitives, buttons, icons, links</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/contribute-to-the-docs</loc>
@@ -2753,8 +2341,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>1993</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, resources, documentation-guide, contribute-to-the-docs, contribute, docs, documentation guide, contribute to the docs</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, resources, documentation guide, contribute to the docs, contribute, docs</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/docs-features-and-ai-integrations</loc>
@@ -2762,9 +2349,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>1098</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, resources, documentation-guide, docs-features-and-ai-integrations, features, integrations, documentation guide, docs features and ai integrations</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
-    <ai:entities>ai</ai:entities>
+    <ai:tags>livepeer, resources, documentation guide, docs features and ai integrations, features, integrations</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/documentation-guide</loc>
@@ -2772,8 +2357,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>827</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, resources, documentation-guide, guide, using, documentation, documentation guide</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, resources, documentation guide, guide, using, documentation</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/documentation-overview</loc>
@@ -2781,8 +2365,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>462</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, resources, documentation-guide, documentation-overview, documentation, overview, outlines, ethos, objectives, documentation guide, documentation overview</ai:tags>
-    <ai:difficulty>beginner</ai:difficulty>
+    <ai:tags>livepeer, resources, documentation guide, documentation overview, documentation, overview, outlines, ethos, objectives</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/snippets-inventory</loc>
@@ -2790,8 +2373,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>812</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, resources, documentation-guide, snippets, inventory, components, data, scripts, automations, snippets-inventory, documentation guide</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, resources, documentation guide, snippets, inventory, components, data, scripts, automations</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/style-guide</loc>
@@ -2799,8 +2381,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>3340</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, resources, documentation-guide, style-guide, styling, mintlify, gotchas, best-practices, documentation guide, style guide, best practices</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, resources, documentation guide, style guide, styling, mintlify, gotchas, best practices</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/livepeer-glossary</loc>
@@ -2808,8 +2389,7 @@
     <ai:section>resources</ai:section>
     <ai:wordCount>1923</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, resources, livepeer-glossary, glossary, comprehensive, terms, livepeer glossary</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
+    <ai:tags>livepeer, resources, livepeer glossary, glossary, comprehensive, terms</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/media-kit</loc>
@@ -2825,6 +2405,5 @@
     <ai:wordCount>10</ai:wordCount>
     <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
     <ai:tags>home, index, landing, help, support, contact, faq, resource, resources, reference, references, compendium, livepeer resource, livepeer resources, livepeer reference, livepeer references, livepeer compendium, livepeer resource portal, livepeer resources portal, livepeer reference portal, livepeer references portal, livepeer compendium portal</ai:tags>
-    <ai:difficulty>intermediate</ai:difficulty>
   </url>
 </urlset>

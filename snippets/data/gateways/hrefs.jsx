@@ -1437,8 +1437,8 @@ export const LINK_MAP = {
       "linkType": "import-path",
       "rawPath": "/snippets/external/box-additional-config.mdx",
       "resolvedPath": "snippets/external/box-additional-config.mdx",
-      "exists": false,
-      "status": "missing",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     }
   ],
@@ -2057,8 +2057,8 @@ export const LINK_MAP = {
       "linkType": "import-path",
       "rawPath": "/snippets/external/gwid-readme.mdx",
       "resolvedPath": "snippets/external/gwid-readme.mdx",
-      "exists": false,
-      "status": "missing",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     }
   ],
@@ -2665,8 +2665,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
+      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/x-pages/05_orchestrators/orchestrators-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3609,7 +3609,7 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
-      "rawPath": "https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator",
+      "rawPath": "https://docs.livepeer.org/v2/pages/05_orchestrators/setting-up-an-orchestrator",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -3777,6 +3777,185 @@ export const LINK_MAP = {
       "resolvedPath": "snippets/components/primitives/links.jsx",
       "exists": true,
       "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "snippets/external/box-additional-config.mdx": [
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://ffmpeg.org/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/bluenviron/mediamtx",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    }
+  ],
+  "snippets/external/gwid-readme.mdx": [
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://livepeer.org",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://livepeer.org/primer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-image",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/user-attachments/assets/86f03ea8-2f3c-49c7-bc99-32bd01f4159f",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://obsproject.com/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://manycam.com/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://www.ffmpeg.org/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://www.videolan.org/vlc/index.html",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://exoplayer.dev/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/go-livepeer/releases",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-image",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/user-attachments/assets/f7871bd8-d8d8-42b1-bf62-8047c7c15554",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-relative",
+      "rawPath": "./publish-and-consume-content.md",
+      "resolvedPath": "snippets/external/publish-and-consume-content.md",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-relative",
+      "rawPath": "./transcoding.md",
+      "resolvedPath": "snippets/external/transcoding.md",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/developers/quickstart/video/transcoding-jobs.mdx",
+        "v2/gateways/run-a-gateway/v1/transcoding-options.mdx",
+        "v1/gateways/guides/transcoding-options.mdx"
+      ]
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-relative",
+      "rawPath": "./hosted-setup.md",
+      "resolvedPath": "snippets/external/hosted-setup.md",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-relative",
+      "rawPath": "./start-on-system-boot.md",
+      "resolvedPath": "snippets/external/start-on-system-boot.md",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-relative",
+      "rawPath": "./architecture-summary.md",
+      "resolvedPath": "snippets/external/architecture-summary.md",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://docs.livepeer.org/orchestrators/guides/install-go-livepeer#build-from-source",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     }
   ],

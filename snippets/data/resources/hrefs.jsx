@@ -128,13 +128,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/tasks/reports/_legacy-unmanaged/20-automations-workflows-audit-report.md",
-      "resolvedPath": "tasks/reports/_legacy-unmanaged/20-automations-workflows-audit-report.md",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "tasks/reports/_legacy-unmanaged/ungenerated/20-automations-workflows-audit-report.md"
-      ]
+      "rawPath": "/tasks/reports/_legacy-unmanaged/ungenerated/20-automations-workflows-audit-report.md",
+      "resolvedPath": "tasks/reports/_legacy-unmanaged/ungenerated/20-automations-workflows-audit-report.md",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -193,13 +191,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/tasks/reports/_legacy-unmanaged/20-automations-workflows-audit-report.md",
-      "resolvedPath": "tasks/reports/_legacy-unmanaged/20-automations-workflows-audit-report.md",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "tasks/reports/_legacy-unmanaged/ungenerated/20-automations-workflows-audit-report.md"
-      ]
+      "rawPath": "/tasks/reports/_legacy-unmanaged/ungenerated/20-automations-workflows-audit-report.md",
+      "resolvedPath": "tasks/reports/_legacy-unmanaged/ungenerated/20-automations-workflows-audit-report.md",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
@@ -758,13 +754,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/04_gateways/run-a-gateway/test/publish-content",
-      "resolvedPath": "v2/pages/04_gateways/run-a-gateway/test/publish-content",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v1/gateways/guides/publish-content.mdx"
-      ]
+      "rawPath": "/v1/gateways/guides/publish-content",
+      "resolvedPath": "v1/gateways/guides/publish-content.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -1461,74 +1455,56 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/about/about-portal",
-      "resolvedPath": "v2/about/about-portal",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/x-pages/01_about/about-portal.mdx"
-      ]
+      "rawPath": "/about/portal",
+      "resolvedPath": "v2/about/portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/about/core-concepts/livepeer-core-concepts",
-      "resolvedPath": "v2/about/core-concepts/livepeer-core-concepts",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/x-pages/01_about/core-concepts/livepeer-core-concepts.mdx"
-      ]
+      "rawPath": "/about/core-concepts",
+      "resolvedPath": "v2/about/core-concepts.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/building-on-livepeer/developer-guide",
-      "resolvedPath": "v2/developers/building-on-livepeer/developer-guide",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/developers/developer-guide.mdx",
-        "v2/x-pages/03_developers/building-on-livepeer/developer-guide.mdx",
-        "v2/developers/guides-and-resources/developer-guides.mdx"
-      ]
+      "rawPath": "/developers/developer-guide",
+      "resolvedPath": "v2/developers/developer-guide.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/building-on-livepeer/developer-guide",
-      "resolvedPath": "v2/developers/building-on-livepeer/developer-guide",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/developers/developer-guide.mdx",
-        "v2/x-pages/03_developers/building-on-livepeer/developer-guide.mdx",
-        "v2/developers/guides-and-resources/developer-guides.mdx"
-      ]
+      "rawPath": "/developers/developer-guide",
+      "resolvedPath": "v2/developers/developer-guide.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/developer-portal",
-      "resolvedPath": "v2/developers/developer-portal",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/x-pages/03_developers/developer-portal.mdx"
-      ]
+      "rawPath": "/developers/portal",
+      "resolvedPath": "v2/developers/portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/developers/building-on-livepeer/developer-guide",
-      "resolvedPath": "v2/developers/building-on-livepeer/developer-guide",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/developers/developer-guide.mdx",
-        "v2/x-pages/03_developers/building-on-livepeer/developer-guide.mdx",
-        "v2/developers/guides-and-resources/developer-guides.mdx"
-      ]
+      "rawPath": "/developers/developer-guide",
+      "resolvedPath": "v2/developers/developer-guide.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",

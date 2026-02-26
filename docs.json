@@ -2124,9 +2124,9 @@
                         "group": "Showcase",
                         "icon": "clapperboard-play",
                         "pages": [
-                          "v2/home/case-studies/showcase",
-                          "v2/home/case-studies/verticals",
-                          "v2/home/case-studies/applications"
+                          "v2/home/solutions/showcase",
+                          "v2/home/solutions/verticals",
+                          "v2/home/solutions/applications"
                         ]
                       }
                     ]
