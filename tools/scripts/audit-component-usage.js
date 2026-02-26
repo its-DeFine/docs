@@ -11,7 +11,7 @@
  *   No required CLI flags; optional flags are documented inline.
  *
  * @outputs
- *   - Console output and/or file updates based on script purpose.
+ *   - tasks/reports/repo-ops/component-usage-audit.json
  *
  * @exit-codes
  *   0 = success
@@ -26,6 +26,8 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
+
+const REPORT_PATH = path.join(__dirname, '..', '..', 'tasks', 'reports', 'repo-ops', 'component-usage-audit.json');
 
 const V2_DOC_ROOTS = [
   'v2/pages',
@@ -121,31 +123,31 @@ function getComponentLibraryComponents() {
   const libFiles = [
     resolveFirstExistingPath([
       'v2/resources/documentation-guide/component-library.mdx',
-      'v2/pages/07_resources/documentation-guide/component-library.mdx'
+      'v2/resources/documentation-guide/component-library.mdx'
     ]),
     resolveFirstExistingPath([
       'v2/resources/documentation-guide/component-library/primitives.mdx',
-      'v2/pages/07_resources/documentation-guide/component-library/primitives.mdx'
+      'v2/resources/documentation-guide/component-library/primitives.mdx'
     ]),
     resolveFirstExistingPath([
       'v2/resources/documentation-guide/component-library/display.mdx',
-      'v2/pages/07_resources/documentation-guide/component-library/display.mdx'
+      'v2/resources/documentation-guide/component-library/display.mdx'
     ]),
     resolveFirstExistingPath([
       'v2/resources/documentation-guide/component-library/content.mdx',
-      'v2/pages/07_resources/documentation-guide/component-library/content.mdx'
+      'v2/resources/documentation-guide/component-library/content.mdx'
     ]),
     resolveFirstExistingPath([
       'v2/resources/documentation-guide/component-library/layout.mdx',
-      'v2/pages/07_resources/documentation-guide/component-library/layout.mdx'
+      'v2/resources/documentation-guide/component-library/layout.mdx'
     ]),
     resolveFirstExistingPath([
       'v2/resources/documentation-guide/component-library/integrations.mdx',
-      'v2/pages/07_resources/documentation-guide/component-library/integrations.mdx'
+      'v2/resources/documentation-guide/component-library/integrations.mdx'
     ]),
     resolveFirstExistingPath([
       'v2/resources/documentation-guide/component-library/domain.mdx',
-      'v2/pages/07_resources/documentation-guide/component-library/domain.mdx'
+      'v2/resources/documentation-guide/component-library/domain.mdx'
     ])
   ];
   
@@ -316,4 +318,5 @@ const report = {
 console.log(JSON.stringify(report, null, 2));
 
 // Also write to file
-fs.writeFileSync('component-usage-audit.json', JSON.stringify(report, null, 2));
+fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true });
+fs.writeFileSync(REPORT_PATH, JSON.stringify(report, null, 2));

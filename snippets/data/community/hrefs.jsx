@@ -185,28 +185,8 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/community/faq.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/community/livepeer-community/community-guidelines.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/community/faq.mdx": [],
+  "v2/community/livepeer-community/community-guidelines.mdx": [],
   "v2/community/livepeer-community/livepeer-latest-topics.mdx": [
     {
       "sourceType": "jsx-attr",
@@ -559,15 +539,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/automations/luma/lumaEventsData.jsx",
       "resolvedPath": "snippets/automations/luma/lumaEventsData.jsx",
       "exists": true,
@@ -593,61 +564,11 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/community/livepeer-connect/forums-and-discussions.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/community/livepeer-connect/news-and-socials.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/community/livepeer-contribute/build-livepeer.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/community/livepeer-contribute/contribute.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/community/livepeer-contribute/opportunities.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/community/livepeer-connect/forums-and-discussions.mdx": [],
+  "v2/community/livepeer-connect/news-and-socials.mdx": [],
+  "v2/community/livepeer-contribute/build-livepeer.mdx": [],
+  "v2/community/livepeer-contribute/contribute.mdx": [],
+  "v2/community/livepeer-contribute/opportunities.mdx": [],
   "v2/community/resources/awesome-livepeer.mdx": [],
   "v2/community/resources/dashboards.mdx": [],
   "v2/community/resources/guides.mdx": []

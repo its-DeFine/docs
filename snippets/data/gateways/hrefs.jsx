@@ -1,220 +1,4 @@
 export const LINK_MAP = {
-  "v2/pages/04_gateways/_context_data_/random.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-0",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-1",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-2",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-3",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-4",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-5",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-6",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-7",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-8",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-9",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-10",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-11",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-12",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#0-13",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/wiki",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    }
-  ],
-  "v2/pages/04_gateways/_tests-to-delete/codemap.mdx": [],
-  "v2/pages/04_gateways/_tests-to-delete/layouts.mdx": [
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "empty",
-      "rawPath": "#requirements-check",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "empty",
-      "rawPath": "#1-deploy-the-gateway-service",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "empty",
-      "rawPath": "#2-connect-to-orchestrators",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "empty",
-      "rawPath": "#3-configure-capabilities",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "empty",
-      "rawPath": "#4-set-pricing",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "empty",
-      "rawPath": "#5-register-in-the-marketplace",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "empty",
-      "rawPath": "#6-monitor--optimize",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    }
-  ],
-  "v2/pages/04_gateways/_tests-to-delete/random-copy.mdx": [],
-  "v2/pages/04_gateways/_tests-to-delete/response.mdx": [],
-  "v2/pages/04_gateways/_tests-to-delete/why.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
   "v2/gateways/about-gateways/gateway-architecture.mdx": [
     {
       "sourceType": "jsx-attr",
@@ -223,15 +7,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -280,15 +55,6 @@ export const LINK_MAP = {
       "exists": null,
       "status": "🟡 untested-external",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
   "v2/gateways/about-gateways/gateway-explainer.mdx": [
@@ -304,15 +70,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/links.jsx",
       "resolvedPath": "snippets/components/primitives/links.jsx",
       "exists": true,
@@ -320,17 +77,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/gateways/about-gateways/gateway-functions.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/gateways/about-gateways/gateway-functions.mdx": [],
   "v2/gateways/about-gateways/overview.mdx": [
     {
       "sourceType": "jsx-attr",
@@ -349,27 +96,9 @@ export const LINK_MAP = {
       "exists": true,
       "status": "ok",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
   "v2/gateways/about-gateways/quickstart-home.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -402,15 +131,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/links.jsx",
       "resolvedPath": "snippets/components/primitives/links.jsx",
       "exists": true,
@@ -418,17 +138,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/gateways/gateway-tools/gateway-middleware.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/gateways/gateway-tools/gateway-middleware.mdx": [],
   "v2/gateways/gateway-tools/livepeer-tools.mdx": [
     {
       "sourceType": "jsx-attr",
@@ -446,15 +156,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -577,33 +278,13 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/gateways/guides-and-resources/community-guides.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/guides-and-resources/community-projects.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/gateways/guides-and-resources/community-guides.mdx": [],
+  "v2/gateways/guides-and-resources/community-projects.mdx": [],
   "v2/gateways/guides-and-resources/faq.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "https://docs.livepeer.org/05_orchestrators/orchestrators-portal/guides/set-pricing",
+      "rawPath": "https://docs.livepeer.org/orchestrators/orchestrators-portal/guides/set-pricing",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -666,7 +347,7 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "https://na-36.mintlify.app/ai/05_orchestrators/orchestrators-portal/onchain",
+      "rawPath": "https://na-36.mintlify.app/ai/orchestrators/orchestrators-portal/onchain",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -734,28 +415,9 @@ export const LINK_MAP = {
       "exists": null,
       "status": "🟡 untested-external",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
-  "v2/gateways/guides-and-resources/gateway-job-pipelines/byoc.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/gateways/guides-and-resources/gateway-job-pipelines/byoc.mdx": [],
   "v2/gateways/guides-and-resources/page-2.mdx": [],
   "v2/gateways/references/api-reference/AI-API/ai.mdx": [
     {
@@ -883,193 +545,24 @@ export const LINK_MAP = {
       "exists": true,
       "status": "ok",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
-  "v2/gateways/references/api-reference/AI-API/audio-to-text.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/AI-API/hardware-info.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/AI-API/hardware-stats.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/AI-API/health.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/AI-API/image-to-image.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/AI-API/image-to-text.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/AI-API/image-to-video.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/AI-API/live-video-to-video.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/AI-API/llm.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/AI-API/segment-anything-2.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/AI-API/text-to-image.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/AI-API/text-to-speech.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/AI-API/upscale.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/AI-Worker/ai-worker-api.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/CLI-HTTP/bond.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/gateways/references/api-reference/AI-API/audio-to-text.mdx": [],
+  "v2/gateways/references/api-reference/AI-API/hardware-info.mdx": [],
+  "v2/gateways/references/api-reference/AI-API/hardware-stats.mdx": [],
+  "v2/gateways/references/api-reference/AI-API/health.mdx": [],
+  "v2/gateways/references/api-reference/AI-API/image-to-image.mdx": [],
+  "v2/gateways/references/api-reference/AI-API/image-to-text.mdx": [],
+  "v2/gateways/references/api-reference/AI-API/image-to-video.mdx": [],
+  "v2/gateways/references/api-reference/AI-API/live-video-to-video.mdx": [],
+  "v2/gateways/references/api-reference/AI-API/llm.mdx": [],
+  "v2/gateways/references/api-reference/AI-API/segment-anything-2.mdx": [],
+  "v2/gateways/references/api-reference/AI-API/text-to-image.mdx": [],
+  "v2/gateways/references/api-reference/AI-API/text-to-speech.mdx": [],
+  "v2/gateways/references/api-reference/AI-API/upscale.mdx": [],
+  "v2/gateways/references/api-reference/AI-Worker/ai-worker-api.mdx": [],
+  "v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator.mdx": [],
+  "v2/gateways/references/api-reference/CLI-HTTP/bond.mdx": [],
   "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api.mdx": [
     {
       "sourceType": "markdown-link",
@@ -1196,127 +689,18 @@ export const LINK_MAP = {
       "exists": true,
       "status": "ok",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
-  "v2/gateways/references/api-reference/CLI-HTTP/protocolparameters.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/CLI-HTTP/rebond.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/CLI-HTTP/registeredorchestrators.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/CLI-HTTP/reward.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/CLI-HTTP/signmessage.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/CLI-HTTP/status.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/CLI-HTTP/transfertokens.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/CLI-HTTP/unbond.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/gateways/references/api-reference/CLI-HTTP/protocolparameters.mdx": [],
+  "v2/gateways/references/api-reference/CLI-HTTP/rebond.mdx": [],
+  "v2/gateways/references/api-reference/CLI-HTTP/registeredorchestrators.mdx": [],
+  "v2/gateways/references/api-reference/CLI-HTTP/reward.mdx": [],
+  "v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig.mdx": [],
+  "v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability.mdx": [],
+  "v2/gateways/references/api-reference/CLI-HTTP/signmessage.mdx": [],
+  "v2/gateways/references/api-reference/CLI-HTTP/status.mdx": [],
+  "v2/gateways/references/api-reference/CLI-HTTP/transfertokens.mdx": [],
+  "v2/gateways/references/api-reference/CLI-HTTP/unbond.mdx": [],
   "v2/gateways/references/api-reference/_delete-all-api.mdx": [
     {
       "sourceType": "jsx-attr",
@@ -1434,61 +818,12 @@ export const LINK_MAP = {
       "exists": null,
       "status": "skipped",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
-  "v2/gateways/references/api-reference/ai-worker-api.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/hardware-info.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/hardware-stats.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/references/api-reference/health.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/gateways/references/api-reference/ai-worker-api.mdx": [],
+  "v2/gateways/references/api-reference/hardware-info.mdx": [],
+  "v2/gateways/references/api-reference/hardware-stats.mdx": [],
+  "v2/gateways/references/api-reference/health.mdx": [],
   "v2/gateways/references/arbitrum-rpc.mdx": [
     {
       "sourceType": "markdown-link",
@@ -1497,15 +832,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -1540,15 +866,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/integrations/coingecko.jsx",
       "resolvedPath": "snippets/components/integrations/coingecko.jsx",
       "exists": true,
@@ -1564,15 +881,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     }
   ],
@@ -1593,15 +901,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -1636,15 +935,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/links.jsx",
       "resolvedPath": "snippets/components/primitives/links.jsx",
       "exists": true,
@@ -1652,17 +942,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/gateways/references/contract-addresses.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/gateways/references/contract-addresses.mdx": [],
   "v2/gateways/references/go-livepeer/cli-reference.mdx": [
     {
       "sourceType": "markdown-link",
@@ -1680,15 +960,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     }
   ],
@@ -1746,15 +1017,6 @@ export const LINK_MAP = {
       "exists": null,
       "status": "🟡 untested-external",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
   "v2/gateways/references/go-livepeer/hardware-requirements.mdx": [
@@ -1775,15 +1037,6 @@ export const LINK_MAP = {
       "exists": true,
       "status": "ok",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
   "v2/gateways/references/go-livepeer/prometheus-metrics.mdx": [
@@ -1792,15 +1045,6 @@ export const LINK_MAP = {
       "linkType": "internal-rooted",
       "rawPath": "/v2/gateways/run-a-gateway/monitor/monitor-and-optimise",
       "resolvedPath": "v2/gateways/run-a-gateway/monitor/monitor-and-optimise.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1828,15 +1072,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/integrations/coingecko.jsx",
       "resolvedPath": "snippets/components/integrations/coingecko.jsx",
       "exists": true,
@@ -1844,27 +1079,8 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/gateways/references/orchestrator-offerings.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/gateways/references/orchestrator-offerings.mdx": [],
   "v2/gateways/references/technical-architecture.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -1962,7 +1178,7 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "'https://discord.gg/livepeer'",
+      "rawPath": "https://discord.gg/livepeer",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -1971,7 +1187,7 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "'https://forum.livepeer.org'",
+      "rawPath": "https://forum.livepeer.org",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -1989,8 +1205,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer#install-using-a-binary-release",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "/orchestrators/setting-up-an-orchestrator/install-go-livepeer#install-using-a-binary-release",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2025,8 +1241,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer#install-using-a-binary-release",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "/orchestrators/setting-up-an-orchestrator/install-go-livepeer#install-using-a-binary-release",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2053,18 +1269,18 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
       "rawPath": "/gateways/run-a-gateway/test/test-gateway",
-      "resolvedPath": "v2/gateways/run-a-gateway/test/test-gateway.mdx",
-      "exists": true,
-      "status": "ok",
+      "resolvedPath": "v2/gateways/run-a-gateway/test/test-gateway",
+      "exists": false,
+      "status": "skipped-allowlisted",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
       "rawPath": "/gateways/run-a-gateway/test/test-gateway",
-      "resolvedPath": "v2/gateways/run-a-gateway/test/test-gateway.mdx",
-      "exists": true,
-      "status": "ok",
+      "resolvedPath": "v2/gateways/run-a-gateway/test/test-gateway",
+      "exists": false,
+      "status": "skipped-allowlisted",
       "movedCandidates": []
     },
     {
@@ -2092,15 +1308,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -2167,28 +1374,9 @@ export const LINK_MAP = {
       "exists": true,
       "status": "ok",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
-  "v2/gateways/run-a-gateway/configure/configuration-reference.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/gateways/run-a-gateway/configure/configuration-reference.mdx": [],
   "v2/gateways/run-a-gateway/configure/dual-configuration.mdx": [
     {
       "sourceType": "jsx-attr",
@@ -2215,15 +1403,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -2258,8 +1437,8 @@ export const LINK_MAP = {
       "linkType": "import-path",
       "rawPath": "/snippets/external/box-additional-config.mdx",
       "resolvedPath": "snippets/external/box-additional-config.mdx",
-      "exists": true,
-      "status": "ok",
+      "exists": false,
+      "status": "missing",
       "movedCandidates": []
     }
   ],
@@ -2343,15 +1522,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     }
   ],
@@ -2467,15 +1637,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/layout/table.jsx",
       "resolvedPath": "snippets/components/layout/table.jsx",
       "exists": true,
@@ -2536,15 +1697,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -2660,15 +1812,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/links.jsx",
       "resolvedPath": "snippets/components/primitives/links.jsx",
       "exists": true,
@@ -2743,15 +1886,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/links.jsx",
       "resolvedPath": "snippets/components/primitives/links.jsx",
       "exists": true,
@@ -2799,15 +1933,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/layout/steps.jsx",
       "resolvedPath": "snippets/components/layout/steps.jsx",
       "exists": true,
@@ -2823,15 +1948,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -2912,15 +2028,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/display/video.jsx",
       "resolvedPath": "snippets/components/display/video.jsx",
       "exists": true,
@@ -2950,8 +2057,8 @@ export const LINK_MAP = {
       "linkType": "import-path",
       "rawPath": "/snippets/external/gwid-readme.mdx",
       "resolvedPath": "snippets/external/gwid-readme.mdx",
-      "exists": true,
-      "status": "ok",
+      "exists": false,
+      "status": "missing",
       "movedCandidates": []
     }
   ],
@@ -3033,15 +2140,6 @@ export const LINK_MAP = {
       "linkType": "internal-rooted",
       "rawPath": "/v2/gateways/run-a-gateway/configure/configuration-overview",
       "resolvedPath": "v2/gateways/run-a-gateway/configure/configuration-overview.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3132,15 +2230,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/links.jsx",
       "resolvedPath": "snippets/components/primitives/links.jsx",
       "exists": true,
@@ -3208,15 +2297,6 @@ export const LINK_MAP = {
       "linkType": "internal-rooted",
       "rawPath": "/v2/gateways/run-a-gateway/configure/configuration-overview",
       "resolvedPath": "v2/gateways/run-a-gateway/configure/configuration-overview.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3307,15 +2387,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/layout/steps.jsx",
       "resolvedPath": "snippets/components/layout/steps.jsx",
       "exists": true,
@@ -3349,15 +2420,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -3410,15 +2472,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/links.jsx",
       "resolvedPath": "snippets/components/primitives/links.jsx",
       "exists": true,
@@ -3443,15 +2496,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     }
   ],
@@ -3621,17 +2665,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3916,15 +2951,6 @@ export const LINK_MAP = {
       "exists": null,
       "status": "🟡 untested-external",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
   "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx": [
@@ -4057,15 +3083,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/layout/steps.jsx",
       "resolvedPath": "snippets/components/layout/steps.jsx",
       "exists": true,
@@ -4157,8 +3174,8 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway",
+      "linkType": "internal-relative",
+      "rawPath": "./fund-gateway",
       "resolvedPath": "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
       "exists": true,
       "status": "ok",
@@ -4194,8 +3211,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../../../../07_resources/references/contract-addresses",
-      "resolvedPath": "v2/pages/07_resources/references/contract-addresses.mdx",
+      "rawPath": "../../../../resources/references/contract-addresses",
+      "resolvedPath": "v2/resources/references/contract-addresses.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4355,8 +3372,8 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway",
+      "linkType": "internal-relative",
+      "rawPath": "./fund-gateway",
       "resolvedPath": "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
       "exists": true,
       "status": "ok",
@@ -4445,8 +3462,8 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway",
+      "linkType": "internal-relative",
+      "rawPath": "./fund-gateway",
       "resolvedPath": "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
       "exists": true,
       "status": "ok",
@@ -4454,18 +3471,9 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/run-a-gateway/requirements/on-chain%20setup/fund-gateway",
+      "linkType": "internal-relative",
+      "rawPath": "./fund-gateway",
       "resolvedPath": "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4601,7 +3609,7 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
-      "rawPath": "https://docs.livepeer.org/v2/pages/05_orchestrators/setting-up-an-orchestrator",
+      "rawPath": "https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -4612,15 +3620,6 @@ export const LINK_MAP = {
       "linkType": "internal-rooted",
       "rawPath": "/v2/gateways/run-a-gateway/requirements/on-chain%20setup/on-chain",
       "resolvedPath": "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4684,15 +3683,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/links.jsx",
       "resolvedPath": "snippets/components/primitives/links.jsx",
       "exists": true,
@@ -4727,122 +3717,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/gateways/run-a-gateway/test/playback-content.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://videolan.org/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://www.videolan.org/vlc/../../using-../../../about/livepeer-network/livepeer-actors/gateways.mdx/gateway-providers.mdx.html",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/run-a-gateway/test/publish-content.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://ffmpeg.org/download.html",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://obsproject.com/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/run-a-gateway/test/test-gateway.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/gateways/references/api-reference/AI-API/text-to-image",
-      "resolvedPath": "v2/gateways/references/api-reference/AI-API/text-to-image.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/gateways/references/api-reference/AI-API/text-to-image",
-      "resolvedPath": "v2/gateways/references/api-reference/AI-API/text-to-image.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/run-a-gateway/v1/transcoding-options.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/gateways/run-a-gateway/v1/transcoding-options.mdx": [],
   "v2/gateways/run-a-gateway/why-run-a-gateway.mdx": [
     {
       "sourceType": "jsx-attr",
@@ -4852,28 +3727,9 @@ export const LINK_MAP = {
       "exists": true,
       "status": "ok",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
-  "v2/gateways/using-gateways/choosing-a-gateway.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/gateways/using-gateways/choosing-a-gateway.mdx": [],
   "v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx": [],
   "v2/gateways/using-gateways/gateway-providers/daydream-gateway.mdx": [],
   "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx": [],
@@ -4917,194 +3773,10 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/links.jsx",
       "resolvedPath": "snippets/components/primitives/links.jsx",
       "exists": true,
       "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "snippets/external/box-additional-config.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://ffmpeg.org/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/bluenviron/mediamtx",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    }
-  ],
-  "snippets/external/gwid-readme.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://livepeer.org",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://livepeer.org/primer",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-image",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/user-attachments/assets/86f03ea8-2f3c-49c7-bc99-32bd01f4159f",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://obsproject.com/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://manycam.com/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://www.ffmpeg.org/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://www.videolan.org/vlc/index.html",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://exoplayer.dev/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/go-livepeer/releases",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-image",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/user-attachments/assets/f7871bd8-d8d8-42b1-bf62-8047c7c15554",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/gateways/run-a-gateway/test/publish-content",
-      "resolvedPath": "v2/gateways/run-a-gateway/test/publish-content.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/gateways/run-a-gateway/configure/video-configuration",
-      "resolvedPath": "v2/gateways/run-a-gateway/configure/video-configuration.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/gateways/run-a-gateway/install/docker-install",
-      "resolvedPath": "v2/gateways/run-a-gateway/install/docker-install.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/gateways/run-a-gateway/install/linux-install",
-      "resolvedPath": "v2/gateways/run-a-gateway/install/linux-install.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/gateways/references/technical-architecture",
-      "resolvedPath": "v2/gateways/references/technical-architecture.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://docs.livepeer.org/orchestrators/guides/install-go-livepeer#build-from-source",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
       "movedCandidates": []
     }
   ],

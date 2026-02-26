@@ -1,5 +1,5 @@
 export const LINK_MAP = {
-  "v2/pages/05_orchestrators/about-orchestrators/architecture.mdx": [
+  "v2/orchestrators/about-orchestrators/architecture.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -10,7 +10,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/about-orchestrators/economics.mdx": [
+  "v2/orchestrators/about-orchestrators/economics.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -39,7 +39,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/about-orchestrators/orchestrator-functions.mdx": [
+  "v2/orchestrators/about-orchestrators/orchestrator-functions.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -59,7 +59,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/about-orchestrators/overview.mdx": [
+  "v2/orchestrators/about-orchestrators/overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -82,7 +82,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../quickstart/join-a-pool",
-      "resolvedPath": "v2/pages/05_orchestrators/quickstart/join-a-pool.mdx",
+      "resolvedPath": "v2/orchestrators/quickstart/join-a-pool.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -91,7 +91,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/data-centre-setup",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centre-setup.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/data-centre-setup.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -115,13 +115,13 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/about-orchestrators/random.mdx": [],
-  "v2/pages/05_orchestrators/advanced-setup/ai-pipelines.mdx": [
+  "v2/orchestrators/about-orchestrators/random.mdx": [],
+  "v2/orchestrators/advanced-setup/ai-pipelines.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -130,7 +130,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -139,7 +139,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./rewards-and-fees",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/rewards-and-fees.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -148,13 +148,13 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../orchestrator-tools-and-resources/orchestrator-guides",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides.mdx",
+      "resolvedPath": "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-guides.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/advanced-setup/delegation.mdx": [
+  "v2/orchestrators/advanced-setup/delegation.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -168,7 +168,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./staking-LPT",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/staking-LPT.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/staking-LPT.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -177,7 +177,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./rewards-and-fees",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/rewards-and-fees.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -192,12 +192,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx": [
+  "v2/orchestrators/advanced-setup/rewards-and-fees.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./staking-LPT",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/staking-LPT.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/staking-LPT.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -206,7 +206,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./delegation",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/delegation.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/delegation.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -215,7 +215,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../about-orchestrators/economics",
-      "resolvedPath": "v2/pages/05_orchestrators/about-orchestrators/economics.mdx",
+      "resolvedPath": "v2/orchestrators/about-orchestrators/economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -224,18 +224,18 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../references/cli-flags",
-      "resolvedPath": "v2/pages/05_orchestrators/references/cli-flags.mdx",
+      "resolvedPath": "v2/orchestrators/references/cli-flags.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/advanced-setup/run-a-pool.mdx": [
+  "v2/orchestrators/advanced-setup/run-a-pool.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../orchestrator-tools-and-resources/community-pools",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/community-pools.mdx",
+      "resolvedPath": "v2/orchestrators/orchestrator-tools-and-resources/community-pools.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -262,7 +262,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../quickstart/join-a-pool",
-      "resolvedPath": "v2/pages/05_orchestrators/quickstart/join-a-pool.mdx",
+      "resolvedPath": "v2/orchestrators/quickstart/join-a-pool.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -271,7 +271,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../orchestrator-tools-and-resources/community-pools",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/community-pools.mdx",
+      "resolvedPath": "v2/orchestrators/orchestrator-tools-and-resources/community-pools.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -280,7 +280,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./staking-LPT",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/staking-LPT.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/staking-LPT.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -289,13 +289,13 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./rewards-and-fees",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/rewards-and-fees.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/advanced-setup/staking-LPT.mdx": [
+  "v2/orchestrators/advanced-setup/staking-LPT.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -318,7 +318,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./rewards-and-fees",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/rewards-and-fees.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -327,7 +327,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./delegation",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/delegation.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/delegation.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -336,7 +336,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./rewards-and-fees",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/rewards-and-fees.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -345,7 +345,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./delegation",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/delegation.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/delegation.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -354,7 +354,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/install-go-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -369,12 +369,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/orchestrator-tools-and-resources/community-pools.mdx": [
+  "v2/orchestrators/orchestrator-tools-and-resources/community-pools.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../quickstart/join-a-pool",
-      "resolvedPath": "v2/pages/05_orchestrators/quickstart/join-a-pool.mdx",
+      "resolvedPath": "v2/orchestrators/quickstart/join-a-pool.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -398,11 +398,11 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help.mdx": [],
-  "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides.mdx": [],
-  "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-resources.mdx": [],
-  "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-tools.mdx": [],
-  "v2/pages/05_orchestrators/orchestrators-portal.mdx": [
+  "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help.mdx": [],
+  "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-guides.mdx": [],
+  "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-resources.mdx": [],
+  "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-tools.mdx": [],
+  "v2/orchestrators/orchestrators-portal.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "empty",
@@ -461,7 +461,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./about-orchestrators/overview",
-      "resolvedPath": "v2/pages/05_orchestrators/about-orchestrators/overview.mdx",
+      "resolvedPath": "v2/orchestrators/about-orchestrators/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -470,7 +470,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./setting-up-an-orchestrator/hardware-requirements",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -479,7 +479,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./advanced-setup/ai-pipelines",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/ai-pipelines.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/ai-pipelines.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -488,7 +488,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./advanced-setup/ai-pipelines",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/ai-pipelines.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/ai-pipelines.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -497,7 +497,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./orchestrator-tools-and-resources/orchestrator-guides",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrator-tools-and-resources/orchestrator-guides.mdx",
+      "resolvedPath": "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-guides.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -506,7 +506,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./references/faq",
-      "resolvedPath": "v2/pages/05_orchestrators/references/faq.mdx",
+      "resolvedPath": "v2/orchestrators/references/faq.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -566,7 +566,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/quickstart/join-a-pool.mdx": [
+  "v2/orchestrators/quickstart/join-a-pool.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -631,12 +631,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/quickstart/orchestrator-setup.mdx": [
+  "v2/orchestrators/quickstart/orchestrator-setup.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/install-go-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -645,7 +645,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/connect-to-arbitrum",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -672,7 +672,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/connect-to-arbitrum",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -681,7 +681,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/install-go-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -690,7 +690,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/connect-to-arbitrum",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -717,7 +717,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../advanced-setup/staking-LPT",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/staking-LPT.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/staking-LPT.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -726,7 +726,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../advanced-setup/rewards-and-fees",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/rewards-and-fees.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -735,7 +735,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/install-go-livepeer#activate",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -744,7 +744,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/install-go-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -753,7 +753,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/connect-to-arbitrum",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -762,7 +762,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../references/cli-flags",
-      "resolvedPath": "v2/pages/05_orchestrators/references/cli-flags.mdx",
+      "resolvedPath": "v2/orchestrators/references/cli-flags.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -771,7 +771,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../references/faq",
-      "resolvedPath": "v2/pages/05_orchestrators/references/faq.mdx",
+      "resolvedPath": "v2/orchestrators/references/faq.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -804,12 +804,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/quickstart/overview.mdx": [
+  "v2/orchestrators/quickstart/overview.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./join-a-pool",
-      "resolvedPath": "v2/pages/05_orchestrators/quickstart/join-a-pool.mdx",
+      "resolvedPath": "v2/orchestrators/quickstart/join-a-pool.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -818,7 +818,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/data-centre-setup",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centre-setup.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/data-centre-setup.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -833,7 +833,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/references/cli-flags.mdx": [
+  "v2/orchestrators/references/cli-flags.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -844,12 +844,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/references/faq.mdx": [
+  "v2/orchestrators/references/faq.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/install-go-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -858,7 +858,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../quickstart/orchestrator-setup",
-      "resolvedPath": "v2/pages/05_orchestrators/quickstart/orchestrator-setup.mdx",
+      "resolvedPath": "v2/orchestrators/quickstart/orchestrator-setup.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -867,7 +867,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../advanced-setup/rewards-and-fees",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/rewards-and-fees.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -876,7 +876,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../quickstart/join-a-pool",
-      "resolvedPath": "v2/pages/05_orchestrators/quickstart/join-a-pool.mdx",
+      "resolvedPath": "v2/orchestrators/quickstart/join-a-pool.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -885,7 +885,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../advanced-setup/run-a-pool",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/run-a-pool.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/run-a-pool.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -903,7 +903,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/orchestrator-stats",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -912,7 +912,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/install-go-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -921,7 +921,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/connect-to-arbitrum",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -930,7 +930,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./cli-flags",
-      "resolvedPath": "v2/pages/05_orchestrators/references/cli-flags.mdx",
+      "resolvedPath": "v2/orchestrators/references/cli-flags.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -939,7 +939,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./cli-flags",
-      "resolvedPath": "v2/pages/05_orchestrators/references/cli-flags.mdx",
+      "resolvedPath": "v2/orchestrators/references/cli-flags.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -948,7 +948,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../advanced-setup/rewards-and-fees",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/rewards-and-fees.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -957,7 +957,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../advanced-setup/staking-LPT",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/staking-LPT.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/staking-LPT.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -966,13 +966,13 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../setting-up-an-orchestrator/orchestrator-stats",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx": [
+  "v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1013,7 +1013,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../references/cli-flags",
-      "resolvedPath": "v2/pages/05_orchestrators/references/cli-flags.mdx",
+      "resolvedPath": "v2/orchestrators/references/cli-flags.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1022,7 +1022,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./install-go-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1031,7 +1031,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../quickstart/orchestrator-setup",
-      "resolvedPath": "v2/pages/05_orchestrators/quickstart/orchestrator-setup.mdx",
+      "resolvedPath": "v2/orchestrators/quickstart/orchestrator-setup.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1040,7 +1040,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../references/cli-flags",
-      "resolvedPath": "v2/pages/05_orchestrators/references/cli-flags.mdx",
+      "resolvedPath": "v2/orchestrators/references/cli-flags.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1055,15 +1055,15 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centre-setup.mdx": [],
-  "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers.mdx": [],
-  "v2/pages/05_orchestrators/setting-up-an-orchestrator/enterprise-and-data-centres.mdx": [],
-  "v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx": [
+  "v2/orchestrators/setting-up-an-orchestrator/data-centre-setup.mdx": [],
+  "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers.mdx": [],
+  "v2/orchestrators/setting-up-an-orchestrator/enterprise-and-data-centres.mdx": [],
+  "v2/orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./install-go-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1072,7 +1072,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./orchestrator-stats",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1081,7 +1081,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./data-centre-setup",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/data-centre-setup.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/data-centre-setup.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1096,7 +1096,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx": [
+  "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1164,7 +1164,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../quickstart/orchestrator-setup",
-      "resolvedPath": "v2/pages/05_orchestrators/quickstart/orchestrator-setup.mdx",
+      "resolvedPath": "v2/orchestrators/quickstart/orchestrator-setup.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1173,7 +1173,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../advanced-setup/staking-LPT",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/staking-LPT.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/staking-LPT.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1182,7 +1182,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../advanced-setup/rewards-and-fees",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/rewards-and-fees.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1200,7 +1200,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../quickstart/orchestrator-setup",
-      "resolvedPath": "v2/pages/05_orchestrators/quickstart/orchestrator-setup.mdx",
+      "resolvedPath": "v2/orchestrators/quickstart/orchestrator-setup.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1209,7 +1209,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./connect-to-arbitrum",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1218,7 +1218,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../references/cli-flags",
-      "resolvedPath": "v2/pages/05_orchestrators/references/cli-flags.mdx",
+      "resolvedPath": "v2/orchestrators/references/cli-flags.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1227,7 +1227,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../references/faq",
-      "resolvedPath": "v2/pages/05_orchestrators/references/faq.mdx",
+      "resolvedPath": "v2/orchestrators/references/faq.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1242,12 +1242,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/setting-up-an-orchestrator/orch-config.mdx": [
+  "v2/orchestrators/setting-up-an-orchestrator/orch-config.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1262,7 +1262,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx": [
+  "v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1276,7 +1276,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./install-go-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1285,7 +1285,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../advanced-setup/rewards-and-fees",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/rewards-and-fees.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1294,7 +1294,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../references/faq",
-      "resolvedPath": "v2/pages/05_orchestrators/references/faq.mdx",
+      "resolvedPath": "v2/orchestrators/references/faq.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1309,12 +1309,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/setting-up-an-orchestrator/overview.mdx": [
+  "v2/orchestrators/setting-up-an-orchestrator/overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./hardware-requirements",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1323,7 +1323,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./install-go-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1332,7 +1332,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./connect-to-arbitrum",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1341,7 +1341,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1350,7 +1350,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../quickstart/orchestrator-setup",
-      "resolvedPath": "v2/pages/05_orchestrators/quickstart/orchestrator-setup.mdx",
+      "resolvedPath": "v2/orchestrators/quickstart/orchestrator-setup.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1359,7 +1359,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./orchestrator-stats",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1368,7 +1368,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../about-orchestrators/overview",
-      "resolvedPath": "v2/pages/05_orchestrators/about-orchestrators/overview.mdx",
+      "resolvedPath": "v2/orchestrators/about-orchestrators/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1377,7 +1377,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../quickstart/join-a-pool",
-      "resolvedPath": "v2/pages/05_orchestrators/quickstart/join-a-pool.mdx",
+      "resolvedPath": "v2/orchestrators/quickstart/join-a-pool.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1386,7 +1386,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../advanced-setup/staking-LPT",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/staking-LPT.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/staking-LPT.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1395,7 +1395,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../advanced-setup/rewards-and-fees",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/rewards-and-fees.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1404,7 +1404,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./hardware-requirements",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1413,7 +1413,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./install-go-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1422,7 +1422,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./connect-to-arbitrum",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1431,7 +1431,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1440,7 +1440,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./orchestrator-stats",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1449,13 +1449,13 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../quickstart/orchestrator-setup",
-      "resolvedPath": "v2/pages/05_orchestrators/quickstart/orchestrator-setup.mdx",
+      "resolvedPath": "v2/orchestrators/quickstart/orchestrator-setup.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/setting-up-an-orchestrator/publish-offerings.mdx": [
+  "v2/orchestrators/setting-up-an-orchestrator/publish-offerings.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -1466,12 +1466,12 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/pages/05_orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx": [
+  "v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../install-go-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1480,7 +1480,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../connect-to-arbitrum",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1489,7 +1489,7 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../../advanced-setup/ai-pipelines",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/ai-pipelines.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/ai-pipelines.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1516,7 +1516,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../install-go-livepeer",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1525,7 +1525,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../connect-to-arbitrum",
-      "resolvedPath": "v2/pages/05_orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1534,7 +1534,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../../references/cli-flags",
-      "resolvedPath": "v2/pages/05_orchestrators/references/cli-flags.mdx",
+      "resolvedPath": "v2/orchestrators/references/cli-flags.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1543,7 +1543,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../../advanced-setup/rewards-and-fees",
-      "resolvedPath": "v2/pages/05_orchestrators/advanced-setup/rewards-and-fees.mdx",
+      "resolvedPath": "v2/orchestrators/advanced-setup/rewards-and-fees.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

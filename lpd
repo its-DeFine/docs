@@ -54,8 +54,8 @@ Usage:
     - flags: pass-through Mintlify args.
     - info: Compatibility alias to `lpd dev`.
 
-  lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--base-url URL]
-    - flags: choose test scope and optional browser/domain checks.
+  lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--wcag] [--wcag-no-fix] [--base-url URL]
+    - flags: choose test scope and optional browser/domain/WCAG checks.
     - info: Run test suite with optional integration checks.
 
   lpd ci [--skip-browser] [--base-url URL]
@@ -83,6 +83,9 @@ Examples:
 
   lpd test --browser
     - Runs tests plus browser integration checks.
+
+  lpd test --staged --wcag
+    - Runs staged tests and a staged/capped WCAG audit (autofix enabled by default).
 
   lpd scripts list --group tools
     - Lists available scripts in the tools group.
@@ -128,7 +131,7 @@ Command Groups:
     lpd setup [--yes] [--no-tools] [--no-tests] [--no-hooks] [--with-mintlify] [--no-cli]
     lpd doctor [--strict] [--json]
     lpd dev [--test] [--test-mode fast|staged|full] [-- ...mint args]
-    lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--base-url URL]
+    lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--wcag] [--wcag-no-fix] [--base-url URL]
     lpd ci [--skip-browser] [--base-url URL]
 
   hooks
@@ -992,6 +995,8 @@ cmd_test() {
     local mode="fast"
     local run_browser=0
     local domain_scope=""
+    local run_wcag=0
+    local wcag_no_fix=0
     local base_url=""
 
     while [ "$#" -gt 0 ]; do
@@ -1013,6 +1018,13 @@ cmd_test() {
                 domain_scope="$2"
                 shift
                 ;;
+            --wcag)
+                run_wcag=1
+                ;;
+            --wcag-no-fix)
+                run_wcag=1
+                wcag_no_fix=1
+                ;;
             --base-url)
                 if [ "$#" -lt 2 ]; then
                     finish 1 "test" "--base-url requires a URL."
@@ -1026,7 +1038,7 @@ cmd_test() {
                 ;;
             --help|-h)
                 cat <<'EOF'
-Usage: lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--base-url URL] [--json]
+Usage: lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--wcag] [--wcag-no-fix] [--base-url URL] [--json]
 EOF
                 return 0
                 ;;
@@ -1057,6 +1069,28 @@ EOF
             domain_cmd+=(--base-url "$base_url")
         fi
         if ! "${domain_cmd[@]}"; then
+            failures=$((failures + 1))
+        fi
+    fi
+
+    if [ "$run_wcag" = "1" ]; then
+        local -a wcag_cmd
+        wcag_cmd=(node tests/integration/v2-wcag-audit.js)
+        case "$mode" in
+            full)
+                wcag_cmd+=(--full)
+                ;;
+            *)
+                wcag_cmd+=(--staged --max-pages 10)
+                ;;
+        esac
+        if [ "$wcag_no_fix" = "1" ]; then
+            wcag_cmd+=(--no-fix)
+        fi
+        if [ -n "$base_url" ]; then
+            wcag_cmd+=(--base-url "$base_url")
+        fi
+        if ! "${wcag_cmd[@]}"; then
             failures=$((failures + 1))
         fi
     fi

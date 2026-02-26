@@ -8,7 +8,7 @@ triggers:
   - "audit mdx imports and hrefs"
 primary_paths:
   - "tests/integration/v2-link-audit.js"
-  - "tasks/reports/LINK_TEST_REPORT.md"
+  - "tasks/reports/navigation-links/LINK_TEST_REPORT.md"
   - "snippets/data"
   - "docs.json"
 primary_commands:

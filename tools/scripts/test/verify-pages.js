@@ -30,7 +30,7 @@ async function main() {
   const page = await browser.newPage();
   const pathCandidates = [
     'http://localhost:3333/v2/resources/documentation-guide/component-library/domain',
-    'http://localhost:3333/v2/pages/07_resources/documentation-guide/component-library/domain'
+    'http://localhost:3333/v2/resources/documentation-guide/component-library/domain'
   ];
 
   try {

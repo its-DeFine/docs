@@ -13,7 +13,7 @@ primary_paths:
   - "snippets/assets/domain"
 primary_commands:
   - "node tools/scripts/snippets/generate-seo.js --dry-run"
-  - "node tools/scripts/snippets/generate-seo.js --file=v2/pages/07_resources/documentation-guide/style-guide.mdx"
+  - "node tools/scripts/snippets/generate-seo.js --file=v2/resources/documentation-guide/style-guide.mdx"
 ---
 
 SKILL: SEO Frontmatter Generation
@@ -35,7 +35,7 @@ Workflow
 Command examples
 ```bash
 node tools/scripts/snippets/generate-seo.js --dry-run
-node tools/scripts/snippets/generate-seo.js --file=v2/pages/07_resources/documentation-guide/style-guide.mdx
+node tools/scripts/snippets/generate-seo.js --file=v2/resources/documentation-guide/style-guide.mdx
 ```
 
 Deliverable Format

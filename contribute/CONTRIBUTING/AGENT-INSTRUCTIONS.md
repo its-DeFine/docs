@@ -229,6 +229,6 @@ When working on a fork:
 ## Related Documentation
 
 - [Full Git Hooks Documentation](./GIT-HOOKS.md)
-- [Style Guide](../../v2/pages/07_resources/documentation-guide/style-guide.mdx)
+- [Style Guide](../../v2/resources/documentation-guide/style-guide.mdx)
 - [Agent Prerequisites](../../PLAN/AGENT-PREREQUISITES.md)
 - [Augment Instructions](../../.github/augment-instructions.md)

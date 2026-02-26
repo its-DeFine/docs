@@ -30,42 +30,42 @@ const PAGES = [
   {
     paths: [
       '/v2/resources/documentation-guide/component-library/display',
-      '/v2/pages/07_resources/documentation-guide/component-library/display'
+      '/v2/resources/documentation-guide/component-library/display'
     ],
     name: 'Display'
   },
   {
     paths: [
       '/v2/resources/documentation-guide/component-library/primitives',
-      '/v2/pages/07_resources/documentation-guide/component-library/primitives'
+      '/v2/resources/documentation-guide/component-library/primitives'
     ],
     name: 'Primitives'
   },
   {
     paths: [
       '/v2/resources/documentation-guide/component-library/content',
-      '/v2/pages/07_resources/documentation-guide/component-library/content'
+      '/v2/resources/documentation-guide/component-library/content'
     ],
     name: 'Content'
   },
   {
     paths: [
       '/v2/resources/documentation-guide/component-library/layout',
-      '/v2/pages/07_resources/documentation-guide/component-library/layout'
+      '/v2/resources/documentation-guide/component-library/layout'
     ],
     name: 'Layout'
   },
   {
     paths: [
       '/v2/resources/documentation-guide/component-library/domain',
-      '/v2/pages/07_resources/documentation-guide/component-library/domain'
+      '/v2/resources/documentation-guide/component-library/domain'
     ],
     name: 'Domain'
   },
   {
     paths: [
       '/v2/resources/documentation-guide/component-library/integrations',
-      '/v2/pages/07_resources/documentation-guide/component-library/integrations'
+      '/v2/resources/documentation-guide/component-library/integrations'
     ],
     name: 'Integrations'
   },

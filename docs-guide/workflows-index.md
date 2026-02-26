@@ -14,6 +14,7 @@ Do not manually edit this file; run its generator instead.
 | build-review-assets.yml | `.github/workflows/build-review-assets.yml` | unknown | build-review-assets.yml | blocking by default (subject to branch protection) | workflow logs | docs |
 | Discord Issue Intake | `.github/workflows/discord-issue-intake.yml` | repository_dispatch | Discord Issue Intake | blocking by default (subject to branch protection) | workflow logs | docs |
 | Docs v2 Issue Indexer | `.github/workflows/docs-v2-issue-indexer.yml` | schedule, workflow_dispatch | Docs v2 Issue Indexer | blocking by default (subject to branch protection) | workflow logs | docs |
+| Generate AI Sitemap | `.github/workflows/generate-ai-sitemap.yml` | push, workflow_dispatch | Generate AI Sitemap | blocking by default (subject to branch protection) | repository commits | docs |
 | generate-review-table.yml | `.github/workflows/generate-review-table.yml` | unknown | generate-review-table.yml | blocking by default (subject to branch protection) | workflow logs | docs |
 | Issue Auto Label | `.github/workflows/issue-auto-label.yml` | pull_request, push | Issue Auto Label | blocking by default (subject to branch protection) | workflow logs | docs |
 | Project Showcase Sync | `.github/workflows/project-showcase-sync.yml` | repository_dispatch, schedule, workflow_dispatch | Project Showcase Sync | blocking by default (subject to branch protection) | workflow logs | docs |

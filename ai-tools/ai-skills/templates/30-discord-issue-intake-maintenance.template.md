@@ -10,7 +10,7 @@ primary_paths:
   - ".github/workflows/discord-issue-intake.yml"
   - ".github/workflows/issue-auto-label.yml"
   - "snippets/automations/scripts/n8n/Discord-Issue-Intake.json"
-  - "v2/pages/07_resources/documentation-guide/automations-workflows.mdx"
+  - "v2/resources/documentation-guide/automations-workflows.mdx"
 primary_commands:
   - "sed -n \"1,260p\" .github/workflows/discord-issue-intake.yml"
   - "rg -n \"discord-issue-intake|correlation_id|docs_page_issue\" .github/workflows/discord-issue-intake.yml"

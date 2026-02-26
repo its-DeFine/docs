@@ -60,6 +60,14 @@ function normalizeDocsRouteKey(routePath) {
   return normalized;
 }
 
+function isExcludedV2ExperimentalPath(relPath) {
+  const rel = toPosix(relPath).replace(/^\/+/, '');
+  if (!rel.startsWith('v2/')) return false;
+  return rel
+    .split('/')
+    .some((segment) => segment.toLowerCase().startsWith('x-'));
+}
+
 function collectDocsPageEntries(node, out = []) {
   if (typeof node === 'string') {
     const value = node.trim();
@@ -118,6 +126,19 @@ function toDocsRouteKeyFromFile(filePath, rootDir = null) {
   const absPath = path.isAbsolute(filePath) ? filePath : path.resolve(repoRoot, filePath);
   const relPath = toPosix(path.relative(repoRoot, absPath));
   if (!(relPath.startsWith('v1/') || relPath.startsWith('v2/'))) {
+    return '';
+  }
+  return normalizeDocsRouteKey(relPath);
+}
+
+function toDocsRouteKeyFromFileV2Aware(filePath, rootDir = null) {
+  const repoRoot = resolveRepoRoot(rootDir);
+  const absPath = path.isAbsolute(filePath) ? filePath : path.resolve(repoRoot, filePath);
+  const relPath = toPosix(path.relative(repoRoot, absPath));
+  if (!(relPath.startsWith('v1/') || relPath.startsWith('v2/'))) {
+    return '';
+  }
+  if (relPath.startsWith('v2/') && isExcludedV2ExperimentalPath(relPath)) {
     return '';
   }
   return normalizeDocsRouteKey(relPath);
@@ -206,6 +227,38 @@ function getStagedDocsPageFiles(rootDir = null) {
   });
 }
 
+function walkDocsContentFiles(dir, out = []) {
+  if (!fs.existsSync(dir)) return out;
+  const entries = fs.readdirSync(dir, { withFileTypes: true });
+  for (const entry of entries) {
+    const fullPath = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      if (entry.name === '.git' || entry.name === 'node_modules') continue;
+      walkDocsContentFiles(fullPath, out);
+    } else if (/\.(md|mdx)$/i.test(entry.name)) {
+      out.push(fullPath);
+    }
+  }
+  return out;
+}
+
+function getV2DocsFiles(options = {}) {
+  const { rootDir = null, stagedOnly = false } = options;
+  const repoRoot = resolveRepoRoot(rootDir);
+
+  const files = stagedOnly
+    ? getStagedFiles(repoRoot)
+    : walkDocsContentFiles(path.join(repoRoot, 'v2'));
+
+  return files
+    .filter((filePath) => /\.(md|mdx)$/i.test(filePath))
+    .filter((filePath) => {
+      const rel = toPosix(path.relative(repoRoot, filePath));
+      return rel.startsWith('v2/') && !isExcludedV2ExperimentalPath(rel);
+    })
+    .sort((a, b) => toPosix(a).localeCompare(toPosix(b)));
+}
+
 /**
  * Read file content
  */
@@ -223,7 +276,10 @@ module.exports = {
   getJsxFiles,
   getStagedFiles,
   getStagedDocsPageFiles,
+  getV2DocsFiles,
   getDocsJsonRouteKeys,
   toDocsRouteKeyFromFile,
+  toDocsRouteKeyFromFileV2Aware,
+  isExcludedV2ExperimentalPath,
   readFile
 };

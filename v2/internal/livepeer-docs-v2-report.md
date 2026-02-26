@@ -282,9 +282,9 @@ Content was rewritten to be zero-to-hero accessible for each persona, product-fo
 - Contribution pathways documented in `contribute/CONTRIBUTING/README.md`
 - Review workflows and SLAs documented
 - Ticketing and triage model defined with 8 GitHub issue templates
-- Documentation Guide integrated at `v2/pages/07_resources/documentation-guide/`
-- Style Guide at `v2/pages/07_resources/documentation-guide/style-guide.mdx`
-- Component Library at `v2/pages/07_resources/documentation-guide/component-library.mdx`
+- Documentation Guide integrated at `v2/resources/documentation-guide/`
+- Style Guide at `v2/resources/documentation-guide/style-guide.mdx`
+- Component Library at `v2/resources/documentation-guide/component-library.mdx`
 
 **Repo evidence:** `v2/pages/09_internal/governance.mdx:20`, `v2/pages/09_internal/governance.mdx:82`, `v2/pages/09_internal/governance.mdx:121`, `v2/pages/09_internal/governance.mdx:166`, `.github/CODEOWNERS`, `README.md:92`, `README.md:93`
 
@@ -451,7 +451,7 @@ The depth of technical content in the v2 documentation significantly exceeds wha
 
 **Gateway operational documentation.** Full operational runbooks for running a Livepeer Gateway application — this requires deep understanding of the gateway software architecture and operational requirements. Repo: `v2/pages/04_gateways/`.
 
-**Orchestrator / GPU Node documentation.** Full documentation for GPU operators earning from the network, including node setup, configuration, and operational management. Repo: `v2/pages/05_orchestrators/`.
+**Orchestrator / GPU Node documentation.** Full documentation for GPU operators earning from the network, including node setup, configuration, and operational management. Repo: `v2/orchestrators/`.
 
 **Developer technical guides.** Comprehensive developer documentation covering real-time video streaming on Livepeer, AI inference and AI pipeline integration, SDK references, and API documentation. Repo: `v2/pages/03_developers/`.
 
@@ -950,7 +950,7 @@ The following table applies standard market rates for the type of work delivered
 | WCAG accessibility                   | ⚠️ Partial — needs Alison input | Mintlify platform has accessibility defaults; no explicit WCAG audit evidence in repo                        | Alison to confirm if WCAG audit was conducted                                                       |
 | Analytics                            | ⚠️ Partial — needs Alison input | Mintlify analytics available; no evidence of custom analytics integration or reporting setup                 | Alison to confirm analytics configuration                                                           |
 | i18n foundations                     | ⚠️ Partial — needs Alison input | Language switcher present in live nav (English / US flag visible); full i18n implementation not evidenced    | Language switcher is live; Alison to confirm translation pipeline status                            |
-| Style guide                          | ✅ Complete                     | `v2/pages/07_resources/documentation-guide/style-guide.mdx`; enforced via pre-commit and CI                  | Live, public, and enforced                                                                          |
+| Style guide                          | ✅ Complete                     | `v2/resources/documentation-guide/style-guide.mdx`; enforced via pre-commit and CI                  | Live, public, and enforced                                                                          |
 | Contribution workflow                | ✅ Complete                     | `contribute/CONTRIBUTING/README.md`; `contribute/CONTRIBUTING/GIT-HOOKS.md`; PR templates                    | Full contributor pathway documented                                                                 |
 | Ownership handoff model              | ✅ Complete                     | `.github/CODEOWNERS`; `v2/pages/09_internal/governance.mdx`; docs-guide SoT policy                           | Codified in repo and documentation                                                                  |
 | Ticketing / triage model             | ✅ Complete                     | 8 GitHub issue templates with labels and automation; `issue-auto-label.yml`                                  | Fully operational                                                                                   |
@@ -965,7 +965,7 @@ The following table applies standard market rates for the type of work delivered
 | Pre-commit hook system                | Back-end ops        | Structure, style, MDX, links, spelling, script docs, pages index — all enforced pre-commit    | `.githooks/pre-commit`, `.githooks/verify.sh`                                                | Medium (10–15 hrs)          |
 | CI test suite (17 workflows)          | Back-end ops / CI   | Full GitHub Actions workflow suite for PR validation, browser testing, link checking          | `.github/workflows/*.yml`; `docs-guide/workflows-index.md`                                   | Large (20–30 hrs)           |
 | 58-script test and ops infrastructure | Back-end ops        | Unit, integration, and browser tests; run-all and run-pr-checks orchestrators                 | `docs-guide/scripts-index.md`; `tests/`                                                      | Very large (30–45 hrs)      |
-| Componentised UI system               | Front-end           | Reusable MDX component library; structural style enforcement                                  | `snippets/components/`; `v2/pages/07_resources/documentation-guide/component-library.mdx`    | Medium (20–30 hrs)          |
+| Componentised UI system               | Front-end           | Reusable MDX component library; structural style enforcement                                  | `snippets/components/`; `v2/resources/documentation-guide/component-library.mdx`    | Medium (20–30 hrs)          |
 | Forum data ingestion pipeline         | Automation          | Automated scheduled fetch and normalisation of Livepeer forum data                            | `.github/scripts/fetch-forum-data.js`; `update-forum-data.yml`                               | Medium                      |
 | Ghost blog data ingestion pipeline    | Automation          | Automated scheduled fetch of Livepeer blog content                                            | `.github/scripts/fetch-ghost-blog-data.js`; `update-ghost-blog-data.yml`                     | Medium                      |
 | YouTube data ingestion pipeline       | Automation          | Automated scheduled fetch of YouTube data (Shorts filtered)                                   | `.github/scripts/fetch-youtube-data.js`; `update-youtube-data.yml`                           | Medium                      |

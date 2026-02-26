@@ -10,7 +10,7 @@ primary_paths:
   - "v2/pages"
   - "docs.json"
   - "README.md"
-  - "v2/pages/07_resources/documentation-guide/documentation-guide.mdx"
+  - "v2/resources/documentation-guide/documentation-guide.mdx"
 primary_commands:
   - "rg --files v2/pages"
   - "node tools/scripts/generate-pages-index.js --staged"

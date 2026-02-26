@@ -49,6 +49,7 @@ The pre-commit hook also runs:
 
 - `node tests/unit/script-docs.test.js --staged --write --stage --autofill`
 - `node tools/scripts/generate-pages-index.js --staged --write --stage`
+- `node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json`
 - `node tests/run-all.js --staged --skip-browser`
 - `node tests/integration/domain-pages-audit.js --staged --base-url https://docs.livepeer.org --version "$DOMAIN_AUDIT_VERSION"`
 
@@ -59,6 +60,15 @@ Domain audit scope:
 
 Domain audit report path (stable, overwritten each run):
 - `tests/reports/domain-page-load-report.json`
+
+WCAG audit report paths (hook run, overwritten each run):
+- `/tmp/livepeer-wcag-audit-precommit.md`
+- `/tmp/livepeer-wcag-audit-precommit.json`
+
+WCAG audit behavior:
+- Conservative autofix is enabled by default for common raw-tag issues (`<iframe title>`, `<img alt>`, icon-only/empty `<a aria-label>`).
+- Commits are blocked on remaining `serious`/`critical` findings and runtime failures.
+- Automated WCAG checks are partial coverage and do not replace manual accessibility review.
 
 Script documentation enforcement:
 - Newly added scripts must include required header tags.

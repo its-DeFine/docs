@@ -7,9 +7,9 @@ triggers:
   - "add docs UI using existing snippets components"
   - "avoid creating new component if possible"
 primary_paths:
-  - "v2/pages/07_resources/documentation-guide/component-library.mdx"
+  - "v2/resources/documentation-guide/component-library.mdx"
   - "snippets/components"
-  - "v2/pages/07_resources/documentation-guide/snippets-inventory.mdx"
+  - "v2/resources/documentation-guide/snippets-inventory.mdx"
   - "tools/scripts/snippets/update-component-library.sh"
 primary_commands:
   - "rg --files snippets/components"

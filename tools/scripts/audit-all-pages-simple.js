@@ -12,7 +12,8 @@
  *   No required CLI flags; optional flags are documented inline.
  *
  * @outputs
- *   - Console output and/or file updates based on script purpose.
+ *   - tasks/reports/page-audits/page-audit-simple-latest.json
+ *   - tasks/reports/page-audits/page-audit-simple-latest.md
  *
  * @exit-codes
  *   0 = success
@@ -33,8 +34,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const DOCS_JSON_PATH = path.join(__dirname, '..', '..', '..', 'docs.json');
-const REPORT_DIR = path.join(__dirname, '..', 'reports');
+const DOCS_JSON_PATH = path.join(__dirname, '..', '..', 'docs.json');
+const REPORT_DIR = path.join(__dirname, '..', '..', 'tasks', 'reports', 'page-audits');
 
 // Ensure report directory exists
 if (!fs.existsSync(REPORT_DIR)) {
@@ -357,8 +358,7 @@ for (let i = 0; i < pages.length; i++) {
 }
 
 // Generate report
-const timestamp = Date.now();
-const reportPath = path.join(REPORT_DIR, `page-audit-simple-${timestamp}.json`);
+const reportPath = path.join(REPORT_DIR, 'page-audit-simple-latest.json');
 fs.writeFileSync(reportPath, JSON.stringify(auditResults, null, 2));
 
 // Generate markdown report
@@ -418,7 +418,7 @@ if (auditResults.summary.brokenLinks > 0) {
   });
 }
 
-const markdownPath = path.join(REPORT_DIR, `page-audit-simple-${timestamp}.md`);
+const markdownPath = path.join(REPORT_DIR, 'page-audit-simple-latest.md');
 fs.writeFileSync(markdownPath, md);
 
 // Print summary

@@ -48,6 +48,7 @@ bash lpd dev
 
 ```bash
 lpd test --staged
+lpd test --staged --wcag
 ```
 
 ## Core Capabilities (At a Glance)
@@ -99,8 +100,8 @@ lpd test --staged
 ## Contributing (Quick Path)
 
 1. Read style and component standards:
-   - [`v2/pages/07_resources/documentation-guide/style-guide.mdx`](v2/pages/07_resources/documentation-guide/style-guide.mdx)
-   - [`v2/pages/07_resources/documentation-guide/component-library.mdx`](v2/pages/07_resources/documentation-guide/component-library.mdx)
+   - [`v2/resources/documentation-guide/style-guide.mdx`](v2/resources/documentation-guide/style-guide.mdx)
+   - [`v2/resources/documentation-guide/component-library.mdx`](v2/resources/documentation-guide/component-library.mdx)
 2. Install/update hooks:
 
 ```bash
@@ -120,6 +121,7 @@ Contributor deep docs:
 
 - `.githooks/pre-commit` runs structure/style verification and staged checks
 - includes script docs enforcement and pages index synchronization
+- includes staged WCAG accessibility audit with conservative autofix for common raw-tag issues
 - docs-guide source-of-truth checks currently run in advisory mode
 
 ### CI (GitHub Actions)
@@ -159,7 +161,7 @@ Key automation categories:
 Automation deep docs:
 
 - [`docs-guide/automation-pipelines.md`](docs-guide/automation-pipelines.md)
-- [`v2/pages/07_resources/documentation-guide/automations-workflows.mdx`](v2/pages/07_resources/documentation-guide/automations-workflows.mdx)
+- [`v2/resources/documentation-guide/automations-workflows.mdx`](v2/resources/documentation-guide/automations-workflows.mdx)
 
 ## AI and Maintainer Guidance
 

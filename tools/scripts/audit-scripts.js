@@ -10,12 +10,12 @@
  *
  * @inputs
  *   --format both|md|json (default: both)
- *   --output-dir <repo-relative-or-absolute-dir> (default: tasks/reports)
+ *   --output-dir <repo-relative-or-absolute-dir> (default: tasks/reports/repo-ops)
  *   --strict Exit non-zero when any script fails template compliance.
  *
  * @outputs
- *   - tasks/reports/SCRIPT_AUDIT.md
- *   - tasks/reports/SCRIPT_AUDIT.json
+ *   - tasks/reports/repo-ops/SCRIPT_AUDIT.md
+ *   - tasks/reports/repo-ops/SCRIPT_AUDIT.json
  *
  * @exit-codes
  *   0 = audit generated successfully
@@ -24,7 +24,7 @@
  * @examples
  *   node tools/scripts/audit-scripts.js
  *   node tools/scripts/audit-scripts.js --format json --strict
- *   node tools/scripts/audit-scripts.js --output-dir tasks/reports --format both
+ *   node tools/scripts/audit-scripts.js --output-dir tasks/reports/repo-ops --format both
  *
  * @notes
  *   Overwrites the same report files on every run.
@@ -45,7 +45,7 @@ try {
 
 const REPO_ROOT = process.cwd()
 const DEFAULT_FORMAT = 'both'
-const DEFAULT_OUTPUT_DIR = 'tasks/reports'
+const DEFAULT_OUTPUT_DIR = 'tasks/reports/repo-ops'
 
 const RULES_SOURCE = ['tests/unit/script-docs.test.js', 'tests/README.md']
 

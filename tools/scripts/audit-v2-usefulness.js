@@ -7,7 +7,7 @@
  *
  * @usage
  *   node tools/scripts/audit-v2-usefulness.js --mode full --accuracy-mode tiered
- *   node tools/scripts/audit-v2-usefulness.js --files v2/about/livepeer-network/actors.mdx --verification-fixture tasks/reports/docs-usefulness/fixtures.json
+ *   node tools/scripts/audit-v2-usefulness.js --files v2/about/livepeer-network/actors.mdx --verification-fixture tasks/reports/quality-accessibility/docs-usefulness/fixtures.json
  *
  * @inputs
  *   --mode <full|changed|files> (default: full)
@@ -24,7 +24,7 @@
  *   --verification-max-requests <n> Max Tier 2 source queries per run (default: 200)
  *   --verification-timeout-ms <n> Source query timeout hint (default: 10000)
  *   --scoring-engine <rules-only|hybrid|llm-only> (default: rules-only)
- *   --out-dir <path> Output directory (default: tasks/reports/docs-usefulness/<run-id>)
+ *   --out-dir <path> Output directory (default: tasks/reports/quality-accessibility/docs-usefulness/latest)
  *   --format <jsonl,csv,json,md> Output formats (default: jsonl,csv,json,md)
  *   --max-pages <n> Limit processed pages (debug)
  *   --verification-fixture <path> Optional fixture JSON for deterministic Tier 2 evidence in offline runs
@@ -218,8 +218,7 @@ function parseArgs(argv) {
     args.deepwikiEnabled = false;
   }
   if (args.outDir === null) {
-    const runId = `run-${new Date().toISOString().replace(/[:.]/g, '-')}`;
-    args.outDir = path.join(getRepoRoot(), 'tasks', 'reports', 'docs-usefulness', runId);
+    args.outDir = path.join(getRepoRoot(), 'tasks', 'reports', 'quality-accessibility', 'docs-usefulness', 'latest');
   } else {
     args.outDir = path.resolve(getRepoRoot(), args.outDir);
   }

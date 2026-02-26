@@ -95,7 +95,7 @@ This report assesses the current state of the Livepeer documentation against the
 | Output | Status | Evidence | Gap |
 |--------|--------|----------|-----|
 | **Quickstarts: AI Job and Transcoding Job** | ❌ Not Met | Pages exist but marked "Coming Soon" | Complete quickstart content |
-| **Orchestrator Setup** | ✅ Met | `v2/pages/05_orchestrators/` has setup guides | — |
+| **Orchestrator Setup** | ✅ Met | `v2/orchestrators/` has setup guides | — |
 | **Delegator** | ✅ Met | `v2/pages/06_delegators/` exists | — |
 | **Gateways** | ✅ Met | `v2/pages/04_gateways/` exists | — |
 | **Migration: Studio → new APIs** | ⚠️ Partial | Content exists but not as dedicated migration guide | Create dedicated migration guide page |

@@ -17,50 +17,11 @@ export const LINK_MAP = {
       "exists": null,
       "status": "🟡 untested-external",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
-  "v2/internal/definitions.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/internal/docs-philosophy.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/internal/ecosystem.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/internal/definitions.mdx": [],
+  "v2/internal/docs-philosophy.mdx": [],
+  "v2/internal/ecosystem.mdx": [],
   "v2/internal/governance.mdx": [
     {
       "sourceType": "markdown-link",
@@ -101,8 +62,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../07_resources/changelog/changelog",
-      "resolvedPath": "v2/pages/07_resources/changelog/changelog.mdx",
+      "rawPath": "../resources/changelog/changelog",
+      "resolvedPath": "v2/resources/changelog/changelog.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -133,15 +94,6 @@ export const LINK_MAP = {
       "exists": null,
       "status": "🟡 untested-external",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
   "v2/internal/internal-overview.mdx": [
@@ -157,8 +109,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../07_resources/documentation-guide/documentation-overview",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/documentation-overview.mdx",
+      "rawPath": "../resources/documentation-guide/documentation-overview",
+      "resolvedPath": "v2/resources/documentation-guide/documentation-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -229,17 +181,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../07_resources/documentation-guide/documentation-overview",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/documentation-overview.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "../resources/documentation-guide/documentation-overview",
+      "resolvedPath": "v2/resources/documentation-guide/documentation-overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -249,8 +192,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../07_resources/documentation-guide/component-library",
-      "resolvedPath": "v2/pages/07_resources/documentation-guide/component-library.mdx",
+      "rawPath": "../../resources/documentation-guide/component-library",
+      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -335,28 +278,9 @@ export const LINK_MAP = {
       "exists": true,
       "status": "ok",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
-  "v2/internal/layout-components-scripts-styling/pages.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
+  "v2/internal/layout-components-scripts-styling/pages.mdx": [],
   "v2/internal/personas.mdx": [
     {
       "sourceType": "markdown-link",
@@ -366,39 +290,10 @@ export const LINK_MAP = {
       "exists": null,
       "status": "🟡 untested-external",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
-  "v2/internal/references.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/internal/strategic-alignment.mdx": [
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ]
+  "v2/internal/references.mdx": [],
+  "v2/internal/strategic-alignment.mdx": []
 };
 
 export default LINK_MAP;

@@ -119,7 +119,8 @@ async function isServerRunningOnPort(port) {
   const url = `http://localhost:${port}`;
   return new Promise((resolve) => {
     const req = http.get(url, { timeout: 2000 }, (res) => {
-      resolve(res.statusCode === 200 || res.statusCode === 404); // 404 means server is up but page doesn't exist
+      // Any HTTP response means the server is up (Mint may return redirects during startup).
+      resolve(Number.isInteger(res.statusCode) && res.statusCode > 0);
     });
     
     req.on('error', () => resolve(false));
