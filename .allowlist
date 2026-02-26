@@ -13,6 +13,9 @@ Makefile
 style.css
 Assistant.md
 sitemap-ai.xml
+llms-full.txt
+llms.txt
+docs-index.json
 lpd
 .lpdignore
 .gitignore
