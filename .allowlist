@@ -12,6 +12,7 @@ Dockerfile
 Makefile
 style.css
 Assistant.md
+sitemap-ai.xml
 lpd
 .lpdignore
 .gitignore
