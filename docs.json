@@ -3421,13 +3421,13 @@
                         "group": "Livepeer Protocolo",
                         "icon": "cube",
                         "pages": [
-                          "v2/about/livepeer-protocol/overview",
-                          "v2/about/livepeer-protocol/core-mechanisms",
-                          "v2/about/livepeer-protocol/livepeer-token",
-                          "v2/about/livepeer-protocol/governance-model",
-                          "v2/about/livepeer-protocol/treasury",
-                          "v2/about/livepeer-protocol/economics",
-                          "v2/about/livepeer-protocol/technical-architecture"
+                          "v2/es/about/livepeer-protocol/overview",
+                          "v2/es/about/livepeer-protocol/core-mechanisms",
+                          "v2/es/about/livepeer-protocol/livepeer-token",
+                          "v2/es/about/livepeer-protocol/governance-model",
+                          "v2/es/about/livepeer-protocol/treasury",
+                          "v2/es/about/livepeer-protocol/economics",
+                          "v2/es/about/livepeer-protocol/technical-architecture"
                         ]
                       },
                       {
@@ -3552,7 +3552,7 @@
                             ]
                           },
                           {
-                            "group": "Reproductor e incrustar",
+                            "group": "Reproductor e incrustación",
                             "pages": [
                               "v2/platforms/livepeer-studio/player"
                             ]
@@ -3582,7 +3582,7 @@
                                 ]
                               },
                               {
-                                "group": "Flujos",
+                                "group": "Transmisiones",
                                 "pages": [
                                   "v2/platforms/livepeer-studio/api-reference/streams/overview",
                                   "v2/platforms/livepeer-studio/api-reference/streams/create",
@@ -3598,7 +3598,7 @@
                                 ]
                               },
                               {
-                                "group": "Multiflujo",
+                                "group": "Multitransmisión",
                                 "pages": [
                                   "v2/platforms/livepeer-studio/api-reference/multistream/overview",
                                   "v2/platforms/livepeer-studio/api-reference/multistream/create",
@@ -3711,14 +3711,14 @@
                         ]
                       },
                       {
-                        "group": "Encarnar Avatares",
+                        "group": "Avatares Embodied",
                         "icon": "user-robot",
                         "pages": [
                           "v2/platforms/embody/overview"
                         ]
                       },
                       {
-                        "group": "Marcos",
+                        "group": "Frameworks",
                         "icon": "clapperboard-play",
                         "pages": [
                           "v2/platforms/frameworks/overview"
@@ -3765,7 +3765,7 @@
                         "icon": "fast-forward",
                         "pages": [
                           {
-                            "group": "Video y transcodificación",
+                            "group": "Video y Transcodificación",
                             "pages": [
                               "v2/developers/quickstart/video/video-streaming",
                               "v2/developers/quickstart/video/transcoding-jobs",
@@ -3773,7 +3773,7 @@
                             ]
                           },
                           {
-                            "group": "Trabajos de IA y pipelines",
+                            "group": "Trabajos de IA y Pipelines",
                             "pages": [
                               "v2/developers/quickstart/ai/ai-pipelines",
                               "v2/developers/quickstart/ai/ai-jobs"
@@ -3791,7 +3791,7 @@
                         ]
                       },
                       {
-                        "group": "Guías y tutoriales",
+                        "group": "Guías y Tutoriales",
                         "icon": "laptop-file",
                         "pages": [
                           "v2/developers/guides-and-resources/developer-guides",
@@ -3860,15 +3860,15 @@
                 ]
               },
               {
-                "tab": "Puertas de Enlace",
+                "tab": "Puertas de enlace",
                 "icon": "torii-gate",
                 "anchors": [
                   {
-                    "anchor": "Puertas de Enlace",
+                    "anchor": "Puertas de enlace",
                     "icon": "torii-gate",
                     "groups": [
                       {
-                        "group": "Centro de Conocimiento de Gateways",
+                        "group": "Centro de conocimiento de Puerta de enlace",
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/gateways/gateways-portal",
@@ -3879,7 +3879,7 @@
                         ]
                       },
                       {
-                        "group": "Inicio Rápido ⚡",
+                        "group": "Inicio rápido ⚡",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
                         "pages": [
                           "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
@@ -3887,7 +3887,7 @@
                         ]
                       },
                       {
-                        "group": "Servicios y Proveedores de Gateways",
+                        "group": "Servicios y Proveedores de Puerta de enlace",
                         "icon": "wand-magic-sparkles",
                         "pages": [
                           "v2/gateways/using-gateways/choosing-a-gateway",
@@ -3904,11 +3904,11 @@
                         ]
                       },
                       {
-                        "group": "Ejecutar un Gateway",
+                        "group": "Ejecutar una Puerta de enlace",
                         "icon": "sign-posts-wrench",
                         "pages": [
                           {
-                            "group": "Inicio Rápido",
+                            "group": "Inicio rápido",
                             "icon": "fast-forward",
                             "pages": [
                               "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
@@ -3916,13 +3916,13 @@
                             ]
                           },
                           {
-                            "group": "Guía de Configuración de Gateways",
+                            "group": "Guía de configuración de Puerta de enlace",
                             "expanded": true,
                             "pages": [
                               "v2/gateways/run-a-gateway/why-run-a-gateway",
                               "v2/gateways/run-a-gateway/run-a-gateway",
                               {
-                                "group": "Lista de Verificación de Configuración",
+                                "group": "Lista de verificación de configuración",
                                 "pages": [
                                   "v2/gateways/run-a-gateway/requirements/setup",
                                   "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
@@ -3958,7 +3958,7 @@
                                 ]
                               },
                               {
-                                "group": "Conexión de Red",
+                                "group": "Conexión de red",
                                 "tag": "Go Live!",
                                 "pages": [
                                   "v2/gateways/run-a-gateway/connect/lp-marketplace",
@@ -3967,7 +3967,7 @@
                                 ]
                               },
                               {
-                                "group": "Monitorear y Optimizar",
+                                "group": "Monitorear y optimizar",
                                 "pages": [
                                   "v2/gateways/run-a-gateway/monitor/monitor-and-optimise"
                                 ]
@@ -3977,7 +3977,7 @@
                         ]
                       },
                       {
-                        "group": "Herramientas y Recursos de Gateways",
+                        "group": "Herramientas y recursos de Puerta de enlace",
                         "icon": "tools",
                         "pages": [
                           "v2/gateways/gateway-tools/explorer",
@@ -3992,7 +3992,7 @@
                         "icon": "code",
                         "pages": [
                           {
-                            "group": "Puertas de Enlace",
+                            "group": "Puertas de enlace",
                             "pages": [
                               "v2/gateways/references/technical-architecture",
                               "v2/gateways/references/configuration-flags",
@@ -4075,7 +4075,7 @@
                     "icon": "microchip",
                     "groups": [
                       {
-                        "group": "Centro de Conocimiento del Orquestador",
+                        "group": "Centro de conocimiento del Orquestador",
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/orchestrators/orchestrators-portal",
@@ -4086,7 +4086,7 @@
                         ]
                       },
                       {
-                        "group": "Inicio Rápido ⚡",
+                        "group": "Inicio rápido ⚡",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
                         "pages": [
                           "v2/orchestrators/quickstart/overview",
@@ -4099,11 +4099,11 @@
                         "icon": "gear-code",
                         "pages": [
                           {
-                            "group": "Guía de Configuración del Orquestador",
+                            "group": "Guía de configuración del Orquestador",
                             "pages": [
                               "v2/orchestrators/setting-up-an-orchestrator/overview",
                               {
-                                "group": "Lista de Verificación de Configuración",
+                                "group": "Lista de verificación de configuración",
                                 "pages": [
                                   "v2/orchestrators/setting-up-an-orchestrator/hardware-requirements"
                                 ]
@@ -4127,13 +4127,13 @@
                                 ]
                               },
                               {
-                                "group": "Integración de Red",
+                                "group": "Integración de red",
                                 "pages": [
                                   "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
                               },
                               {
-                                "group": "Monitorear y Optimizar",
+                                "group": "Monitorear y optimizar",
                                 "pages": [
                                   "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
@@ -4143,7 +4143,7 @@
                         ]
                       },
                       {
-                        "group": "Información Avanzada del Orquestador",
+                        "group": "Información avanzada del Orquestador",
                         "icon": "gamepad",
                         "pages": [
                           "v2/orchestrators/advanced-setup/staking-LPT",
@@ -4154,7 +4154,7 @@
                         ]
                       },
                       {
-                        "group": "Herramientas y Recursos del Orquestador",
+                        "group": "Herramientas y recursos del Orquestador",
                         "icon": "laptop-file",
                         "pages": [
                           "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
@@ -4207,11 +4207,11 @@
                 ]
               },
               {
-                "tab": "Token LP",
+                "tab": "LP Token",
                 "icon": "hand-holding-dollar",
                 "anchors": [
                   {
-                    "anchor": "Delegadores y LPT",
+                    "anchor": "Delegadores & LPT",
                     "icon": "hand-holding-dollar",
                     "groups": [
                       {
@@ -4314,7 +4314,7 @@
                         ]
                       },
                       {
-                        "group": "[MOVE HERE] Help Center",
+                        "group": "[MOVER AQUÍ] Centro de Ayuda",
                         "icon": "comments-question-check",
                         "hidden": true,
                         "pages": [
@@ -4400,14 +4400,14 @@
                         ]
                       },
                       {
-                        "group": "Referencias para Desarrolladores",
+                        "group": "Referencias de Desarrolladores",
                         "icon": "book",
                         "pages": [
                           "v2/resources/livepeer-glossary"
                         ]
                       },
                       {
-                        "group": "Referencias de Gateway",
+                        "group": "Referencias de Puerta de Enlace",
                         "icon": "wand-magic-sparkles",
                         "pages": [
                           "v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory"
@@ -4540,16 +4540,16 @@
                 ]
               },
               {
-                "tab": "Hub Interno",
+                "tab": "Centro Interno",
                 "hidden": true,
                 "icon": "info-circle",
                 "anchors": [
                   {
-                    "anchor": "Hub Interno",
+                    "anchor": "Centro Interno",
                     "icon": "info-circle",
                     "groups": [
                       {
-                        "group": "Hub Interno",
+                        "group": "Centro Interno",
                         "pages": [
                           "v2/internal/internal-overview",
                           "v2/internal/governance",
@@ -4636,7 +4636,7 @@
                     ]
                   },
                   {
-                    "anchor": "Hub de ressources",
+                    "anchor": "Centre de ressources HUB",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -4656,7 +4656,7 @@
                 "icon": "camera-movie",
                 "anchors": [
                   {
-                    "anchor": "À propos de Livepeer",
+                    "anchor": "À propos Livepeer",
                     "icon": "play",
                     "groups": [
                       {
@@ -4673,13 +4673,13 @@
                         "group": "Livepeer Protocole",
                         "icon": "cube",
                         "pages": [
-                          "v2/about/livepeer-protocol/overview",
-                          "v2/about/livepeer-protocol/core-mechanisms",
-                          "v2/about/livepeer-protocol/livepeer-token",
-                          "v2/about/livepeer-protocol/governance-model",
-                          "v2/about/livepeer-protocol/treasury",
-                          "v2/about/livepeer-protocol/economics",
-                          "v2/about/livepeer-protocol/technical-architecture"
+                          "v2/fr/about/livepeer-protocol/overview",
+                          "v2/fr/about/livepeer-protocol/core-mechanisms",
+                          "v2/fr/about/livepeer-protocol/livepeer-token",
+                          "v2/fr/about/livepeer-protocol/governance-model",
+                          "v2/fr/about/livepeer-protocol/treasury",
+                          "v2/fr/about/livepeer-protocol/economics",
+                          "v2/fr/about/livepeer-protocol/technical-architecture"
                         ]
                       },
                       {
@@ -4732,7 +4732,7 @@
                     "icon": "display-code",
                     "groups": [
                       {
-                        "group": "Utiliser Livepeer",
+                        "group": "Utilisez Livepeer",
                         "icon": "play",
                         "pages": [
                           "v2/platforms/portal",
@@ -4741,7 +4741,7 @@
                         ]
                       },
                       {
-                        "group": "Rêve éveillé",
+                        "group": "Rêverie",
                         "icon": "camera-movie",
                         "pages": [
                           "v2/platforms/daydream/overview"
@@ -4788,7 +4788,7 @@
                             ]
                           },
                           {
-                            "group": "Contrôle d'accès & sécurité",
+                            "group": "Contrôle d'accès et sécurité",
                             "pages": [
                               "v2/platforms/livepeer-studio/access-control/overview",
                               "v2/platforms/livepeer-studio/access-control/webhooks",
@@ -4796,7 +4796,7 @@
                             ]
                           },
                           {
-                            "group": "Événements & analyses",
+                            "group": "Événements et analyses",
                             "pages": [
                               "v2/platforms/livepeer-studio/analytics/webhooks",
                               "v2/platforms/livepeer-studio/analytics/listen-to-events",
@@ -4804,7 +4804,7 @@
                             ]
                           },
                           {
-                            "group": "Lecteur & intégration",
+                            "group": "Lecteur et intégration",
                             "pages": [
                               "v2/platforms/livepeer-studio/player"
                             ]
@@ -4850,7 +4850,7 @@
                                 ]
                               },
                               {
-                                "group": "Multistream",
+                                "group": "Multidiffusion",
                                 "pages": [
                                   "v2/platforms/livepeer-studio/api-reference/multistream/overview",
                                   "v2/platforms/livepeer-studio/api-reference/multistream/create",
@@ -4886,7 +4886,7 @@
                                 ]
                               },
                               {
-                                "group": "Transcoder",
+                                "group": "Transcodage",
                                 "pages": [
                                   "v2/platforms/livepeer-studio/api-reference/transcode/overview",
                                   "v2/platforms/livepeer-studio/api-reference/transcode/create"
@@ -4963,7 +4963,7 @@
                         ]
                       },
                       {
-                        "group": "Avatars incarnés",
+                        "group": "Avatars Embody",
                         "icon": "user-robot",
                         "pages": [
                           "v2/platforms/embody/overview"
@@ -5025,7 +5025,7 @@
                             ]
                           },
                           {
-                            "group": "Emplois IA & Pipelines",
+                            "group": "Jobs IA & Pipelines",
                             "pages": [
                               "v2/developers/quickstart/ai/ai-pipelines",
                               "v2/developers/quickstart/ai/ai-jobs"
@@ -5034,7 +5034,7 @@
                         ]
                       },
                       {
-                        "group": "Pipelines IA",
+                        "group": "Pipelines d'IA",
                         "icon": "user-robot",
                         "pages": [
                           "v2/developers/ai-pipelines/overview",
@@ -5043,7 +5043,7 @@
                         ]
                       },
                       {
-                        "group": "Guides & Tutoriels",
+                        "group": "Guides et tutoriels",
                         "icon": "laptop-file",
                         "pages": [
                           "v2/developers/guides-and-resources/developer-guides",
@@ -5074,7 +5074,7 @@
                     "icon": "horizontal-rule",
                     "pages": [
                       {
-                        "group": "Outils pour développeurs",
+                        "group": "Outils développeur",
                         "icon": "tools",
                         "pages": [
                           "v2/developers/developer-tools/tooling-hub",
@@ -5088,7 +5088,7 @@
                         "icon": "books",
                         "pages": [
                           {
-                            "group": "SDKs et API",
+                            "group": "SDK et API",
                             "pages": [
                               "v2/developers/technical-references/sdks",
                               "v2/developers/technical-references/apis"
@@ -5120,7 +5120,7 @@
                     "icon": "torii-gate",
                     "groups": [
                       {
-                        "group": "Hub de connaissances sur les passerelles",
+                        "group": "Hub de connaissances Gateway",
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/gateways/gateways-portal",
@@ -5139,13 +5139,13 @@
                         ]
                       },
                       {
-                        "group": "Services et fournisseurs de passerelles",
+                        "group": "Services et fournisseurs Gateway",
                         "icon": "wand-magic-sparkles",
                         "pages": [
                           "v2/gateways/using-gateways/choosing-a-gateway",
                           "v2/gateways/using-gateways/gateway-providers",
                           {
-                            "group": "Documentation des fournisseurs",
+                            "group": "Docs du fournisseur",
                             "pages": [
                               "v2/gateways/using-gateways/gateway-providers/daydream-gateway",
                               "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
@@ -5156,7 +5156,7 @@
                         ]
                       },
                       {
-                        "group": "Exécuter une passerelle",
+                        "group": "Exécuter un Gateway",
                         "icon": "sign-posts-wrench",
                         "pages": [
                           {
@@ -5168,13 +5168,13 @@
                             ]
                           },
                           {
-                            "group": "Guide de configuration de la passerelle",
+                            "group": "Guide d'installation du Gateway",
                             "expanded": true,
                             "pages": [
                               "v2/gateways/run-a-gateway/why-run-a-gateway",
                               "v2/gateways/run-a-gateway/run-a-gateway",
                               {
-                                "group": "Liste de vérification de configuration",
+                                "group": "Liste de contrôle d'installation",
                                 "pages": [
                                   "v2/gateways/run-a-gateway/requirements/setup",
                                   "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
@@ -5219,7 +5219,7 @@
                                 ]
                               },
                               {
-                                "group": "Surveiller et optimiser",
+                                "group": "Surveiller & Optimiser",
                                 "pages": [
                                   "v2/gateways/run-a-gateway/monitor/monitor-and-optimise"
                                 ]
@@ -5229,7 +5229,7 @@
                         ]
                       },
                       {
-                        "group": "Outils et ressources pour passerelles",
+                        "group": "Outils et ressources de passerelle",
                         "icon": "tools",
                         "pages": [
                           "v2/gateways/gateway-tools/explorer",
@@ -5275,7 +5275,7 @@
                                 ]
                               },
                               {
-                                "group": "CLI HTTP API",
+                                "group": "API HTTP CLI",
                                 "pages": [
                                   "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api",
                                   "v2/gateways/references/api-reference/CLI-HTTP/unbond",
@@ -5303,7 +5303,7 @@
                     ]
                   },
                   {
-                    "anchor": "Hub de ressources",
+                    "anchor": "HUB de ressources",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -5327,7 +5327,7 @@
                     "icon": "microchip",
                     "groups": [
                       {
-                        "group": "Hub de connaissances sur l'orchestrateur",
+                        "group": "Hub de connaissances de l'Orchestrateur",
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/orchestrators/orchestrators-portal",
@@ -5347,15 +5347,15 @@
                         ]
                       },
                       {
-                        "group": "Exécuter un orchestrateur",
+                        "group": "Exécuter un Orchestrateur",
                         "icon": "gear-code",
                         "pages": [
                           {
-                            "group": "Guide de configuration de l'orchestrateur",
+                            "group": "Guide d'installation de l'Orchestrateur",
                             "pages": [
                               "v2/orchestrators/setting-up-an-orchestrator/overview",
                               {
-                                "group": "Liste de vérification de configuration",
+                                "group": "Liste de contrôle d'installation",
                                 "pages": [
                                   "v2/orchestrators/setting-up-an-orchestrator/hardware-requirements"
                                 ]
@@ -5385,7 +5385,7 @@
                                 ]
                               },
                               {
-                                "group": "Surveiller et optimiser",
+                                "group": "Surveiller & optimiser",
                                 "pages": [
                                   "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
@@ -5406,7 +5406,7 @@
                         ]
                       },
                       {
-                        "group": "Outils et ressources pour l'orchestrateur",
+                        "group": "Outils et ressources de l'orchestrateur",
                         "icon": "laptop-file",
                         "pages": [
                           "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
@@ -5427,13 +5427,13 @@
                             ]
                           },
                           {
-                            "group": "Référence API et CLI",
+                            "group": "Référence API & CLI",
                             "pages": [
                               "v2/orchestrators/references/cli-flags"
                             ]
                           },
                           {
-                            "group": "Référence On-Chain",
+                            "group": "Référence on-chain",
                             "pages": [
                               "v2/orchestrators/references/faq"
                             ]
@@ -5463,7 +5463,7 @@
                 "icon": "hand-holding-dollar",
                 "anchors": [
                   {
-                    "anchor": "Délégateurs et LPT",
+                    "anchor": "Délégateurs & LPT",
                     "icon": "hand-holding-dollar",
                     "groups": [
                       {
@@ -5496,7 +5496,7 @@
                         ]
                       },
                       {
-                        "group": "Livepeer Trésorerie",
+                        "group": "Livepeer Trésor",
                         "pages": [
                           "v2/lpt/treasury/overview",
                           "v2/lpt/treasury/proposals",
@@ -5504,7 +5504,7 @@
                         ]
                       },
                       {
-                        "group": "Guides & Ressources",
+                        "group": "Guides et ressources",
                         "icon": "books",
                         "pages": [
                           "v2/lpt/resources/exchanges",
@@ -5514,7 +5514,7 @@
                     ]
                   },
                   {
-                    "anchor": "Hub de ressources",
+                    "anchor": "Centre de ressources",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -5547,7 +5547,7 @@
                         ]
                       },
                       {
-                        "group": "Livepeer Connexion",
+                        "group": "Livepeer Connecter",
                         "icon": "hashtag",
                         "pages": [
                           "v2/community/livepeer-community/community-guidelines",
@@ -5585,7 +5585,7 @@
                     ]
                   },
                   {
-                    "anchor": "Hub de ressources",
+                    "anchor": "Ressource HUB",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -5601,12 +5601,12 @@
                 ]
               },
               {
-                "tab": "Hub de ressources",
+                "tab": "Ressource HUB",
                 "hidden": false,
                 "icon": "books",
                 "anchors": [
                   {
-                    "anchor": "Référentiel & Hub d'aide",
+                    "anchor": "Référence & Aide HUB",
                     "icon": "books",
                     "groups": [
                       {
@@ -5673,7 +5673,7 @@
                         ]
                       },
                       {
-                        "group": "LPT & Références délégateur",
+                        "group": "LPT & Références délégataire",
                         "icon": "hand-holding-dollar",
                         "pages": [
                           "v2/resources/livepeer-glossary"
@@ -5705,7 +5705,7 @@
                         "icon": "code",
                         "pages": [
                           {
-                            "group": "Références protocole",
+                            "group": "Références du protocole",
                             "pages": [
                               " "
                             ]
@@ -5770,7 +5770,7 @@
                         ]
                       },
                       {
-                        "group": "Ressources de jetons",
+                        "group": "Ressources du jeton",
                         "pages": [
                           " "
                         ]
@@ -5814,14 +5814,14 @@
                         ]
                       },
                       {
-                        "group": "Rapports : Navigation & Liens",
+                        "group": "Rapports : Navigation et liens",
                         "pages": [
                           "v2/internal/reports/navigation-links/docs-navigation",
                           "v2/internal/reports/navigation-links/v2-link-audit"
                         ]
                       },
                       {
-                        "group": "Rapports : Qualité & Accessibilité",
+                        "group": "Rapports : Qualité et accessibilité",
                         "pages": [
                           "v2/internal/reports/quality-accessibility/v2-wcag-audit",
                           "v2/internal/reports/quality-accessibility/wcag-repair-common"
@@ -5834,7 +5834,7 @@
                         ]
                       },
                       {
-                        "group": "Rapports : Opérations de dépôt",
+                        "group": "Rapports : Ops du dépôt",
                         "pages": [
                           "v2/internal/reports/repo-ops/audit-scripts"
                         ]
@@ -5925,13 +5925,13 @@
                         "group": "Livepeer 协议",
                         "icon": "cube",
                         "pages": [
-                          "v2/about/livepeer-protocol/overview",
-                          "v2/about/livepeer-protocol/core-mechanisms",
-                          "v2/about/livepeer-protocol/livepeer-token",
-                          "v2/about/livepeer-protocol/governance-model",
-                          "v2/about/livepeer-protocol/treasury",
-                          "v2/about/livepeer-protocol/economics",
-                          "v2/about/livepeer-protocol/technical-architecture"
+                          "v2/cn/about/livepeer-protocol/overview",
+                          "v2/cn/about/livepeer-protocol/core-mechanisms",
+                          "v2/cn/about/livepeer-protocol/livepeer-token",
+                          "v2/cn/about/livepeer-protocol/governance-model",
+                          "v2/cn/about/livepeer-protocol/treasury",
+                          "v2/cn/about/livepeer-protocol/economics",
+                          "v2/cn/about/livepeer-protocol/technical-architecture"
                         ]
                       },
                       {
@@ -5993,7 +5993,7 @@
                         ]
                       },
                       {
-                        "group": "Daydream",
+                        "group": "白日梦",
                         "icon": "camera-movie",
                         "pages": [
                           "v2/platforms/daydream/overview"
@@ -6029,7 +6029,7 @@
                             ]
                           },
                           {
-                            "group": "点播",
+                            "group": "点播视频",
                             "pages": [
                               "v2/platforms/livepeer-studio/video-on-demand/overview",
                               "v2/platforms/livepeer-studio/video-on-demand/upload-asset",
@@ -6113,7 +6113,7 @@
                                 ]
                               },
                               {
-                                "group": "回放",
+                                "group": "播放",
                                 "pages": [
                                   "v2/platforms/livepeer-studio/api-reference/playback/overview",
                                   "v2/platforms/livepeer-studio/api-reference/playback/get"
@@ -6156,7 +6156,7 @@
                                 ]
                               },
                               {
-                                "group": "Webhook",
+                                "group": "网络钩子",
                                 "pages": [
                                   "v2/platforms/livepeer-studio/api-reference/webhooks/overview",
                                   "v2/platforms/livepeer-studio/api-reference/webhooks/create",
@@ -6183,7 +6183,7 @@
                                 ]
                               },
                               {
-                                "group": "观众",
+                                "group": "观看人数",
                                 "pages": [
                                   "v2/platforms/livepeer-studio/api-reference/viewership/overview",
                                   "v2/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics",
@@ -6277,7 +6277,7 @@
                             ]
                           },
                           {
-                            "group": "AI 作业与管道",
+                            "group": "AI 作业与流水线",
                             "pages": [
                               "v2/developers/quickstart/ai/ai-pipelines",
                               "v2/developers/quickstart/ai/ai-jobs"
@@ -6352,7 +6352,7 @@
                         ]
                       },
                       {
-                        "group": "变更日志与迁移",
+                        "group": "更新日志与迁移",
                         "icon": "swap",
                         "pages": [
                           "v2/resources/changelog/changelog",
@@ -6555,7 +6555,7 @@
                     ]
                   },
                   {
-                    "anchor": "资源中心",
+                    "anchor": "资源 HUB",
                     "icon": "books",
                     "pages": [
                       "v2/resources/resources-portal"
@@ -6599,11 +6599,11 @@
                         ]
                       },
                       {
-                        "group": "运行编排器",
+                        "group": "运行 Orchestrator",
                         "icon": "gear-code",
                         "pages": [
                           {
-                            "group": "编排器设置指南",
+                            "group": "Orchestrator 设置指南",
                             "pages": [
                               "v2/orchestrators/setting-up-an-orchestrator/overview",
                               {
@@ -6715,7 +6715,7 @@
                 "icon": "hand-holding-dollar",
                 "anchors": [
                   {
-                    "anchor": "委托者 & LPT",
+                    "anchor": "委托人 & LPT",
                     "icon": "hand-holding-dollar",
                     "groups": [
                       {
@@ -6925,7 +6925,7 @@
                         ]
                       },
                       {
-                        "group": "LPT 与委托者参考",
+                        "group": "LPT & 委托者参考",
                         "icon": "hand-holding-dollar",
                         "pages": [
                           "v2/resources/livepeer-glossary"
@@ -6965,7 +6965,7 @@
                         ]
                       },
                       {
-                        "group": "变更日志",
+                        "group": "更新日志",
                         "icon": "swap",
                         "pages": [
                           "v2/resources/changelog/changelog",
@@ -7080,13 +7080,13 @@
                         ]
                       },
                       {
-                        "group": "报告：页面审核",
+                        "group": "报告：页面审计",
                         "pages": [
                           "v2/internal/reports/page-audits/domain-pages-audit"
                         ]
                       },
                       {
-                        "group": "报告：仓库运维",
+                        "group": "报告：仓库操作",
                         "pages": [
                           "v2/internal/reports/repo-ops/audit-scripts"
                         ]
