@@ -33,13 +33,13 @@ jobs:
       - name: Check for changes
         id: git-check
         run: |
-          git diff --exit-code snippets/assets/site/sitemap-ai.xml || echo "changed=true" >> $GITHUB_OUTPUT
+          git diff --exit-code sitemap-ai.xml || echo "changed=true" >> $GITHUB_OUTPUT
 
       - name: Commit and push if changed
         if: steps.git-check.outputs.changed == 'true'
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "actions@github.com"
-          git add snippets/assets/site/sitemap-ai.xml
+          git add sitemap-ai.xml
           git commit -m "Update AI sitemap - $(date -u +"%Y-%m-%dT%H:%M:%SZ")"
           git push
