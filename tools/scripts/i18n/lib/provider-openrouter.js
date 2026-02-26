@@ -68,6 +68,11 @@ function parseJsonFromModelContent(content) {
     if (fenced) {
       return JSON.parse(fenced[1]);
     }
+    const objectStart = raw.indexOf('{');
+    const objectEnd = raw.lastIndexOf('}');
+    if (objectStart >= 0 && objectEnd > objectStart) {
+      return JSON.parse(raw.slice(objectStart, objectEnd + 1));
+    }
     throw new Error('OpenRouter response was not valid JSON');
   }
 }
@@ -170,6 +175,10 @@ function isRetryableError(error) {
   if (!error) return false;
   if (error.name === 'AbortError') return true;
   const status = Number(error.status);
+  const message = String(error.message || '');
+  if (/OpenRouter response (content was empty|was not valid JSON)/i.test(message)) {
+    return true;
+  }
   return status === 429 || (status >= 500 && status < 600);
 }
 
@@ -177,6 +186,9 @@ function isModelFailoverError(error) {
   if (!error) return false;
   const status = Number(error.status);
   const message = String(error.message || '');
+  if (/OpenRouter response (content was empty|was not valid JSON)/i.test(message)) {
+    return true;
+  }
   if (
     status === 400 &&
     /(Developer instruction is not enabled|INVALID_ARGUMENT|response_format)/i.test(message)
@@ -196,7 +208,14 @@ function createOpenRouterTranslator(providerConfig, translationRules = {}) {
       if (!Array.isArray(strings) || strings.length === 0) return { strings: [], modelUsed: '', attempts: 0 };
 
       const segments = strings.map((text, index) => ({ id: index, text: String(text ?? '') }));
-      const chunked = chunkArray(segments, 50, 12000, (segment) => segment.text.length + 16);
+      const maxSegmentsPerRequest = Math.max(1, Number(providerConfig.maxSegmentsPerRequest) || 50);
+      const maxCharsPerRequest = Math.max(500, Number(providerConfig.maxCharsPerRequest) || 12000);
+      const chunked = chunkArray(
+        segments,
+        maxSegmentsPerRequest,
+        maxCharsPerRequest,
+        (segment) => segment.text.length + 16
+      );
       const translated = [];
       let modelUsed = '';
       let attempts = 0;
