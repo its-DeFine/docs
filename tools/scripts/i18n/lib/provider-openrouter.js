@@ -179,6 +179,9 @@ function isRetryableError(error) {
   if (/OpenRouter response (content was empty|was not valid JSON)/i.test(message)) {
     return true;
   }
+  if (/Segment count mismatch|Missing translated segment id/i.test(message)) {
+    return true;
+  }
   return status === 429 || (status >= 500 && status < 600);
 }
 
@@ -187,6 +190,9 @@ function isModelFailoverError(error) {
   const status = Number(error.status);
   const message = String(error.message || '');
   if (/OpenRouter response (content was empty|was not valid JSON)/i.test(message)) {
+    return true;
+  }
+  if (/Segment count mismatch|Missing translated segment id/i.test(message)) {
     return true;
   }
   if (
