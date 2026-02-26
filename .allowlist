@@ -23,6 +23,7 @@ lpd
 .prettierrc
 .cursorrules
 .allowlist
+todo.txt
 
 # Allowed root directories
 .github

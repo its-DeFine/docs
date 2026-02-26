@@ -131,6 +131,104 @@
 - [SDKs overview](https://docs.livepeer.org/v2/platforms/livepeer-studio/reference/sdks): Server and client SDKs for the Livepeer Studio API: TypeScript, Go, Python, and React.
 - [Managing projects](https://docs.livepeer.org/v2/platforms/livepeer-studio/reference/managing-projects): Organize streams, assets, and API keys with Livepeer Studio projects (staging, production, multiple apps).
 
+### Products / Livepeer Studio / API Reference / Assets
+
+- [Assets API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/overview): The Assets API is used to create, retrieve, update, delete assets object from pipeline
+- [Upload an asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/upload): Upload a video or audio asset
+- [Upload Asset via URL](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/upload-via-url): Upload an asset by providing a URL
+- [Retrieve an asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/get): Get details about a specific asset
+- [Update Asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/update): Update an asset
+- [Delete Asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/delete): Delete an asset
+- [Get All Assets](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/get-all): Retrieve all assets
+
+### Products / Livepeer Studio / API Reference / Streams
+
+- [Streams API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/overview): The Livestream API is used to create, retrieve, update, delete stream object from pipeline
+- [Create a livestream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/create): Create a new livestream
+- [Retrieve a livestream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/get): Get details about a specific livestream
+- [Get All Streams](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/get-all): Retrieve all livestreams
+- [Update Stream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/update): Update a livestream
+- [Terminate Stream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/terminate): Terminate an active livestream
+- [Create Clip](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/create-clip): Create a clip from a livestream
+- [Get Clip](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/get-clip): Retrieve a clip from a livestream
+- [Add Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/add-multistream-target): Add a multistreaming target to a livestream
+- [Delete Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/delete-multistream-target): Remove a multistreaming target from a livestream
+- [Delete Stream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/delete): Delete a livestream
+
+### Products / Livepeer Studio / API Reference / Multistream
+
+- [Multistream API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/overview): The Multistream API is used to manage multistreaming targets
+- [Create Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/create): Livepeer Studio API endpoint
+- [Get Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/get): Livepeer Studio API endpoint
+- [Get All Multistream Targets](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/get-all): Livepeer Studio API endpoint
+- [Update Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/update): Livepeer Studio API endpoint
+- [Delete Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/delete): Livepeer Studio API endpoint
+
+### Products / Livepeer Studio / API Reference / Playback
+
+- [Playback API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/playback/overview): The Playback API is used to retrieve playback object from pipeline
+- [Retrieve Playback Info](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/playback/get): Get playback information for a stream or asset
+
+### Products / Livepeer Studio / API Reference / Sessions
+
+- [Sessions API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/overview): The Sessions API is used to retrieve session information
+- [Get Session](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get): Livepeer Studio API endpoint
+- [Get All Sessions](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get-all): Livepeer Studio API endpoint
+- [Get Session Clip](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get-clip): Livepeer Studio API endpoint
+- [Get Session Recording](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get-recording): Livepeer Studio API endpoint
+
+### Products / Livepeer Studio / API Reference / Tasks
+
+- [Tasks API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/tasks/overview): The Tasks API is used to monitor task status
+- [Get Task](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/tasks/get): Livepeer Studio API endpoint
+- [Get All Tasks](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/tasks/get-all): Livepeer Studio API endpoint
+
+### Products / Livepeer Studio / API Reference / Transcode
+
+- [Transcode API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/transcode/overview): The Transcode API is used for on-demand video transcoding
+- [Create Transcode Job](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/transcode/create): Livepeer Studio API endpoint
+
+### Products / Livepeer Studio / API Reference / Signing Keys
+
+- [Signing Keys API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/overview): The Signing Keys API is used to manage signing keys for secure playback
+- [Create Signing Key](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/create): Livepeer Studio API endpoint
+- [Get Signing Key](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/get): Livepeer Studio API endpoint
+- [Get All Signing Keys](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/get-all): Livepeer Studio API endpoint
+- [Update Signing Key](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/update): Livepeer Studio API endpoint
+- [Delete Signing Key](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/delete): Livepeer Studio API endpoint
+
+### Products / Livepeer Studio / API Reference / Webhooks
+
+- [Webhooks API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/overview): The Webhooks API is used to manage webhook configurations
+- [Create Webhook](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/create): Livepeer Studio API endpoint
+- [Get Webhook](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/get): Livepeer Studio API endpoint
+- [Get All Webhooks](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/get-all): Livepeer Studio API endpoint
+- [Update Webhook](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/update): Livepeer Studio API endpoint
+- [Delete Webhook](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/delete): Livepeer Studio API endpoint
+
+### Products / Livepeer Studio / API Reference / Rooms
+
+- [Rooms API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/overview): The Rooms API is used to manage WebRTC rooms
+- [Create Room](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/create): Livepeer Studio API endpoint
+- [Get Room](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/get): Livepeer Studio API endpoint
+- [Update Room](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/update): Livepeer Studio API endpoint
+- [Delete Room](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/delete): Livepeer Studio API endpoint
+- [Create Room User](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/create-user): Livepeer Studio API endpoint
+- [Get Room User](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/get-user): Livepeer Studio API endpoint
+- [Update Room User](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/update-user): Livepeer Studio API endpoint
+- [Remove Room User](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/remove-user): Livepeer Studio API endpoint
+- [Start Room Egress](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/start-egress): Livepeer Studio API endpoint
+- [Stop Room Egress](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/stop-egress): Livepeer Studio API endpoint
+
+### Products / Livepeer Studio / API Reference / Viewership
+
+- [Viewership API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/overview): The Viewership API provides analytics and metrics
+- [Get Usage Metrics](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics): Livepeer Studio API endpoint
+- [Get Viewership Metrics](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-viewership-metrics): Livepeer Studio API endpoint
+- [Get Creators Metrics](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-creators-metrics): Livepeer Studio API endpoint
+- [Get Public Total Views](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-public-total-views): Livepeer Studio API endpoint
+- [Get Realtime Viewership](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-realtime-viewership): Livepeer Studio API endpoint
+
 ### Products / Livepeer Studio
 
 - [Livepeer Studio overview](https://docs.livepeer.org/v2/platforms/livepeer-studio/overview): Add live and on-demand video to your app with Livepeer Studio—APIs, dashboard, SDKs, and billing in one place.
@@ -191,7 +289,7 @@
 
 - [Developer Guides](https://docs.livepeer.org/v2/developers/guides-and-resources/developer-guides)
 - [Resources](https://docs.livepeer.org/v2/developers/guides-and-resources/resources)
-- [Developer Help](https://docs.livepeer.org/v2/developers/guides-and-resources/developer-help): A pipeline to office hours, guide to discord & forum channels
+- [Developer Help](https://docs.livepeer.org/v2/developers/guides-and-resources/developer-help): A pipeline to office hours, guide to discord & forum channels.
 - [Contribution Guide](https://docs.livepeer.org/v2/developers/guides-and-resources/contribution-guide)
 
 ### Developers / Builder Opportunities
@@ -364,7 +462,7 @@
 - [Orchestrator Home Portal](https://docs.livepeer.org/v2/orchestrators/orchestrators-portal): Welcome To The Orchestrator Portal: Explore, Earn, Operate
 - [Orchestrator Explainer](https://docs.livepeer.org/v2/orchestrators/about-orchestrators/overview): An orchestrator is a supply-side operator that contributes compute resources (predominately GPU resources) to the network. They receive jobs, perform transcoding or AI inference, and get compensate...
 - [Orchestrator Functions](https://docs.livepeer.org/v2/orchestrators/about-orchestrators/orchestrator-functions): Livepeer Orchestrators are both general purpose GPU compute providers, as well as economic actors that stake LPT, earn rewards, and vote in governance.
-- [Orchestrator Architecture](https://docs.livepeer.org/v2/orchestrators/about-orchestrators/architecture): Diagram: Orchestrator Architecture – the gateway assigns jobs to an orchestrator, which splits work to either a video transcoder process or an AI inference process running on its GPUs, then returns...
+- [Architecture](https://docs.livepeer.org/v2/orchestrators/about-orchestrators/architecture): Diagram: Orchestrator Architecture – the gateway assigns jobs to an orchestrator, which splits work to either a video transcoder process or an AI inference process running on its GPUs, then returns...
 - [Orchestrator Economics](https://docs.livepeer.org/v2/orchestrators/about-orchestrators/economics): The Livepeer Token (LPT) operates under a Stake-for-Access (SFA) model - common in DePIN networks, which requires node operators to stake LPT in order to participate, earn rewards and perform work...
 
 ### GPU Nodes / Quickstart ⚡

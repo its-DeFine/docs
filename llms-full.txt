@@ -5266,6 +5266,611 @@ Use projects to keep staging/production and multiple apps organized. Create a pr
 
 ---
 
+# Assets API
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/overview
+
+# Assets API
+
+The Assets API is used to create, retrieve, update, delete assets object from the pipeline.
+
+## Asset Object
+
+This is a unique identifier for the asset.
+
+Type of the asset. This can be either 'video' or 'audio'.
+
+Used to form playback URL and storage folder.
+
+Whether to generate MP4s for the asset.
+
+Attach Livepeer Studio C2PA Attestation in the output mp4 video.
+
+URL for HLS playback.
+
+URL to manually download the asset if desired.
+
+Reference to the playback-policy schema.
+
+Source of the asset, which can be URL, recording, directUpload, or clip.
+
+Reference to the creator-id schema.
+
+Information about the storage of the asset, particularly on IPFS.
+
+Status of the asset, including its phase, update time, and any error message.
+
+Name of the asset. This is not necessarily the filename, can be a custom name or title.
+
+Timestamp (in milliseconds) at which asset was created.
+
+Size of the asset in bytes.
+
+Hash of the asset.
+
+Video metadata including format, duration, bitrate, and tracks information.
+
+## Endpoints
+
+* [Upload Asset](./upload) - `POST /asset/request-upload`
+* [Upload Asset via URL](./upload-via-url) - `POST /asset/request-upload/url`
+* [Get Asset](./get) - `GET /asset/{assetId}`
+* [Get All Assets](./get-all) - `GET /asset`
+* [Update Asset](./update) - `PATCH /asset/{assetId}`
+* [Delete Asset](./delete) - `DELETE /asset/{assetId}`
+
+---
+
+# Upload an asset
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/upload
+
+# Upload an Asset
+
+---
+
+# Upload Asset via URL
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/upload-via-url
+
+# Upload Asset via URL
+
+---
+
+# Retrieve an asset
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/get
+
+# Retrieve an Asset
+
+---
+
+# Update Asset
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/update
+
+# Update Asset
+
+---
+
+# Delete Asset
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/delete
+
+# Delete Asset
+
+---
+
+# Get All Assets
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/get-all
+
+# Get All Assets
+
+---
+
+# Streams API
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/overview
+
+# Streams API
+
+The Livestream API is used to create, retrieve, update, delete stream objects from the pipeline.
+
+## Stream Object
+
+Unique identifier for the stream.
+
+Name of the stream.
+
+Reference to the creator-id schema.
+
+Timestamp of the last activity on the stream.
+
+Number of source segments.
+
+Number of transcoded segments.
+
+Duration of all the source segments in seconds.
+
+Duration of all the transcoded segments in seconds.
+
+Total bytes of source segments.
+
+Total bytes of transcoded segments.
+
+Rate at which sourceBytes increases (bytes/second).
+
+Rate at which transcodedBytes increases (bytes/second).
+
+Indicates if the stream is currently active.
+
+Reference to the stream-health-payload schema for health status.
+
+Reference to the stream-health-payload schema for human-readable issues.
+
+Name of the token used to create this stream.
+
+Timestamp (in milliseconds) of when the stream object was created.
+
+Identifier for the parent stream object.
+
+Key used to form the RTMP ingest URL.
+
+Identifier used to form the playback URL.
+
+Reference to the playback-policy schema.
+
+Array of profiles detailing various streaming qualities.
+
+Indicates if the stream should be recorded.
+
+Details about multistreaming targets and their configurations.
+
+Indicates if the stream is currently suspended.
+
+## Endpoints
+
+* [Create Stream](./create) - `POST /stream`
+* [Get Stream](./get) - `GET /stream/{id}`
+* [Get All Streams](./get-all) - `GET /stream`
+* [Update Stream](./update) - `PATCH /stream/{id}`
+* [Delete Stream](./delete) - `DELETE /stream/{id}`
+* [Terminate Stream](./terminate) - `POST /stream/{id}/terminate`
+* [Create Clip](./create-clip) - `POST /stream/{id}/clip`
+* [Get Clip](./get-clip) - `GET /stream/{id}/clip/{clipId}`
+* [Add Multistream Target](./add-multistream-target) - `POST /stream/{id}/multistream/target`
+* [Delete Multistream Target](./delete-multistream-target) - `DELETE /stream/{id}/multistream/target/{targetId}`
+
+---
+
+# Create a livestream
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/create
+
+# Create a Livestream
+
+---
+
+# Retrieve a livestream
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/get
+
+# Retrieve a Livestream
+
+---
+
+# Get All Streams
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/get-all
+
+# Get All Streams
+
+---
+
+# Update Stream
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/update
+
+# Update Stream
+
+---
+
+# Terminate Stream
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/terminate
+
+# Terminate Stream
+
+---
+
+# Create Clip
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/create-clip
+
+# Create Clip
+
+---
+
+# Get Clip
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/get-clip
+
+# Get Clip
+
+---
+
+# Add Multistream Target
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/add-multistream-target
+
+# Add Multistream Target
+
+---
+
+# Delete Multistream Target
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/delete-multistream-target
+
+# Delete Multistream Target
+
+---
+
+# Delete Stream
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/delete
+
+# Delete Stream
+
+---
+
+# Multistream API
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/overview
+
+# Multistream API
+
+The Multistream API is used to manage multistreaming targets
+
+---
+
+# Create Multistream Target
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/create
+
+# Create Multistream Target
+
+---
+
+# Get Multistream Target
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/get
+
+# Get Multistream Target
+
+---
+
+# Get All Multistream Targets
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/get-all
+
+# Get All Multistream Targets
+
+---
+
+# Update Multistream Target
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/update
+
+# Update Multistream Target
+
+---
+
+# Delete Multistream Target
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/delete
+
+# Delete Multistream Target
+
+---
+
+# Playback API
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/playback/overview
+
+# Playback API
+
+The Playback API is used to retrieve playback object from pipeline.
+
+## Playback Object
+
+Type of playback, such as live, vod, or recording.
+
+Metadata for the playback information. This includes details about the source, playback policy, and attestation.
+
+Indicates if the playback is live (1) or not (0).
+
+Reference to the playback-policy schema.
+
+Array of source objects detailing the playback sources. Each source includes HRN, type, URL, size, width, height, and bitrate.
+
+Reference to the attestation schema.
+
+## Endpoints
+
+* [Get Playback Info](./get) - `GET /playback/{id}`
+
+---
+
+# Retrieve Playback Info
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/playback/get
+
+# Retrieve Playback Info
+
+---
+
+# Sessions API
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/overview
+
+# Sessions API
+
+The Sessions API is used to retrieve session information
+
+---
+
+# Get Session
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get
+
+# Get Session
+
+---
+
+# Get All Sessions
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get-all
+
+# Get All Sessions
+
+---
+
+# Get Session Clip
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get-clip
+
+# Get Session Clip
+
+---
+
+# Get Session Recording
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get-recording
+
+# Get Session Recording
+
+---
+
+# Tasks API
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/tasks/overview
+
+# Tasks API
+
+The Tasks API is used to monitor task status
+
+---
+
+# Get Task
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/tasks/get
+
+# Get Task
+
+---
+
+# Get All Tasks
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/tasks/get-all
+
+# Get All Tasks
+
+---
+
+# Transcode API
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/transcode/overview
+
+# Transcode API
+
+The Transcode API is used for on-demand video transcoding
+
+---
+
+# Create Transcode Job
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/transcode/create
+
+# Create Transcode Job
+
+---
+
+# Signing Keys API
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/overview
+
+# Signing Keys API
+
+The Signing Keys API is used to manage signing keys for secure playback
+
+---
+
+# Create Signing Key
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/create
+
+# Create Signing Key
+
+---
+
+# Get Signing Key
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/get
+
+# Get Signing Key
+
+---
+
+# Get All Signing Keys
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/get-all
+
+# Get All Signing Keys
+
+---
+
+# Update Signing Key
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/update
+
+# Update Signing Key
+
+---
+
+# Delete Signing Key
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/delete
+
+# Delete Signing Key
+
+---
+
+# Webhooks API
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/overview
+
+# Webhooks API
+
+The Webhooks API is used to manage webhook configurations
+
+---
+
+# Create Webhook
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/create
+
+# Create Webhook
+
+---
+
+# Get Webhook
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/get
+
+# Get Webhook
+
+---
+
+# Get All Webhooks
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/get-all
+
+# Get All Webhooks
+
+---
+
+# Update Webhook
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/update
+
+# Update Webhook
+
+---
+
+# Delete Webhook
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/delete
+
+# Delete Webhook
+
+---
+
+# Rooms API
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/overview
+
+# Rooms API
+
+The Rooms API is used to manage WebRTC rooms
+
+---
+
+# Create Room
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/create
+
+# Create Room
+
+---
+
+# Get Room
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/get
+
+# Get Room
+
+---
+
+# Update Room
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/update
+
+# Update Room
+
+---
+
+# Delete Room
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/delete
+
+# Delete Room
+
+---
+
+# Create Room User
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/create-user
+
+# Create Room User
+
+---
+
+# Get Room User
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/get-user
+
+# Get Room User
+
+---
+
+# Update Room User
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/update-user
+
+# Update Room User
+
+---
+
+# Remove Room User
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/remove-user
+
+# Remove Room User
+
+---
+
+# Start Room Egress
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/start-egress
+
+# Start Room Egress
+
+---
+
+# Stop Room Egress
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/stop-egress
+
+# Stop Room Egress
+
+---
+
+# Viewership API
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/overview
+
+# Viewership API
+
+The Viewership API provides analytics and metrics
+
+---
+
+# Get Usage Metrics
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics
+
+# Get Usage Metrics
+
+---
+
+# Get Viewership Metrics
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-viewership-metrics
+
+# Get Viewership Metrics
+
+---
+
+# Get Creators Metrics
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-creators-metrics
+
+# Get Creators Metrics
+
+---
+
+# Get Public Total Views
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-public-total-views
+
+# Get Public Total Views
+
+---
+
+# Get Realtime Viewership
+URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-realtime-viewership
+
+# Get Realtime Viewership
+
+---
+
 # Livepeer Studio overview
 URL: https://docs.livepeer.org/v2/platforms/livepeer-studio/overview
 
@@ -13584,8 +14189,16 @@ Livepeer’s pivot to real-time AI video means orchestrators find themselves run
 
 ---
 
-# Orchestrator Architecture
+# Architecture
 URL: https://docs.livepeer.org/v2/orchestrators/about-orchestrators/architecture
+
+***
+
+title: 'Orchestrator Architecture'
+sidebarTitle: 'Architecture'
+keywords: \["livepeer", "orchestrators", "about orchestrators", "orchestrator architecture", "orchestrator", "architecture"]
+og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
+---------------------------------------------------------------
 
 Diagram: Orchestrator Architecture – the gateway assigns jobs to an orchestrator, which splits work to either a video transcoder process or an AI inference process running on its GPUs, then returns the result. Verification (for transcoding) and other coordination happen inside the orchestrator’s controller.
 
@@ -14646,16 +15259,12 @@ LPT does not execute work. It economically secures actors who perform work.
 
 Let:
 
-* (B\_i) = bonded stake of participant (i)
-* (B\_T) = total bonded stake
+* &#x20;\= bonded stake of participant&#x20;
+* &#x20;\= total bonded stake
 
 Economic weight:
 
-\[
-W\_i = \frac
-]
-
-Work allocation and inflation rewards are proportional to (W\_i).
+Work allocation and inflation rewards are proportional to .
 
 This creates a capital-backed Sybil resistance model.
 
@@ -14663,16 +15272,12 @@ This creates a capital-backed Sybil resistance model.
 
 ## 4. Inflation Mechanism Overview
 
-Per round (t):
-
-\[
-R\_t = S\_t \times r\_t
-]
+Per round :
 
 Where:
 
-* (S\_t) = token supply at round (t)
-* (r\_t) = protocol-defined inflation rate
+* &#x20;\= token supply at round&#x20;
+* &#x20;\= protocol-defined inflation rate
 
 Inflation adjusts dynamically based on bonding rate relative to target bonding rate (see [Tokenomics](./tokenomics) section for full derivation).
 
@@ -14684,10 +15289,6 @@ Delegators bond stake to orchestrators, increasing their economic weight without
 
 Total orchestrator stake:
 
-\[
-B\_O = B\_ + \sum\_D b\_
-]
-
 Delegation enables capital efficiency and competitive operator markets.
 
 ***
@@ -14695,10 +15296,6 @@ Delegation enables capital efficiency and competitive operator markets.
 ## 6. Governance Authority
 
 Voting power derives from bonded stake:
-
-\[
-V\_i = \frac
-]
 
 Governance may modify:
 
@@ -14713,10 +15310,6 @@ Governance authority is capital-weighted and on-chain enforced.
 ## 7. Security Model
 
 Protocol security is proportional to total bonded stake:
-
-\[
-\text \propto B\_T
-]
 
 An attacker must acquire a threshold fraction of bonded LPT to influence work allocation or governance.
 
@@ -14846,30 +15439,22 @@ The tokenomics model is implemented at the **protocol layer (on-chain)** via sta
 
 Let:
 
-* (S\_t) = total LPT supply at round (t)
-* (B\_T) = total bonded LPT
-* (B\_i) = bonded stake attributed to participant (i)
-* (\beta) = bonding rate = (\frac{B\_T}{S\_t})
-* (\beta^\*) = target bonding rate
-* (r\_t) = inflation rate applied in round (t)
-* (\alpha) = inflation adjustment coefficient
-* (c\_O) = commission rate set by orchestrator (O)
+* &#x20;\= total LPT supply at round&#x20;
+* &#x20;\= total bonded LPT
+* &#x20;\= bonded stake attributed to participant&#x20;
+* &#x20;\= bonding rate =&#x20;
+* &#x20;\= target bonding rate
+* &#x20;\= inflation rate applied in round&#x20;
+* &#x20;\= inflation adjustment coefficient
+* &#x20;\= commission rate set by orchestrator&#x20;
 
 ***
 
 ## 2. Inflation Issuance Model
 
-Per round (t), newly minted LPT:
-
-\[
-R\_t = S\_t \cdot r\_t
-]
+Per round , newly minted LPT:
 
 Supply update:
-
-\[
-S\_{t+1} = S\_t + R\_t
-]
 
 Inflation therefore compounds relative to current supply.
 
@@ -14881,54 +15466,30 @@ The protocol adjusts inflation according to the deviation between the current bo
 
 Current bonding rate:
 
-\[
-\beta = \frac{B\_T}{S\_t}
-]
-
 Adjustment rule:
 
-If (\beta < \beta^\*):
+If :
 
-\[
-r\_{t+1} = r\_t + \alpha
-]
-
-If (\beta > \beta^\*):
-
-\[
-r\_{t+1} = r\_t - \alpha
-]
+If :
 
 This creates a control loop:
 
 * Under-bonded system → higher inflation → stronger staking incentive
 * Over-bonded system → lower inflation → reduced dilution
 
-The system seeks equilibrium where (\beta \approx \beta^\*).
+The system seeks equilibrium where .
 
 ***
 
 ## 4. Reward Distribution
 
-Total issuance per round (R\_t) is distributed proportionally to stake weight.
+Total issuance per round  is distributed proportionally to stake weight.
 
 Define economic weight:
 
-\[
-W\_i = \frac{B\_i}{B\_T}
-]
+Allocation to orchestrator :
 
-Allocation to orchestrator (O):
-
-\[
-R\_O = R\_t \cdot \frac{B\_O}{B\_T}
-]
-
-Delegator (D) bonded to orchestrator (O):
-
-\[
-R\_{D,O} = R\_O (1 - c\_O) \cdot \frac{b\_{D,O}}{B\_O}
-]
+Delegator  bonded to orchestrator :
 
 This separates gross issuance from commission-adjusted delegator returns.
 
@@ -14941,11 +15502,7 @@ Returns to bonded participants may consist of:
 1. Inflation-based issuance (supply expansion)
 2. Fee revenue from video/AI workloads (demand-based)
 
-Total reward to participant (i):
-
-\[
-Reward\_i = Issuance\_i + Fees\_i
-]
+Total reward to participant :
 
 Inflation is protocol-determined; fees are market-driven.
 
@@ -14957,15 +15514,11 @@ Tokenomics must therefore be evaluated in two components: issuance dynamics and 
 
 Security cost for adversarial control scales with bonded stake.
 
-Let (\theta) be the threshold fraction required to influence governance or allocation.
+Let  be the threshold fraction required to influence governance or allocation.
 
 Required capital:
 
-\[
-Capital\_{attack} \geq \theta B\_T
-]
-
-Increasing (B\_T) increases the cost of control.
+Increasing  increases the cost of control.
 
 Inflation adjustment encourages equilibrium around a stable security participation rate.
 
@@ -15037,10 +15590,10 @@ All mechanisms described here operate strictly at the **protocol layer (on-chain
 
 Let:
 
-* (S\_t) = total LPT supply at round (t)
-* (B\_T) = total bonded stake
-* (B\_i) = bonded stake attributed to participant (i)
-* Round (t) = discrete accounting epoch managed by the protocol
+* &#x20;\= total LPT supply at round&#x20;
+* &#x20;\= total bonded stake
+* &#x20;\= bonded stake attributed to participant&#x20;
+* Round  = discrete accounting epoch managed by the protocol
 
 Rounds form the atomic accounting unit for issuance and reward distribution.
 
@@ -15050,15 +15603,7 @@ Rounds form the atomic accounting unit for issuance and reward distribution.
 
 Bonding is the act of locking LPT into the staking contract to participate in protocol rewards and governance.
 
-When participant (i) bonds amount (x):
-
-\[
-B\_i^{new} = B\_i^{old} + x
-]
-
-\[
-B\_T^{new} = B\_T^{old} + x
-]
+When participant  bonds amount :
 
 Bonded stake contributes to:
 
@@ -15072,11 +15617,7 @@ Bonding is recorded in the BondingManager contract.
 
 ## 3. Delegation Attribution
 
-If delegator (D) bonds to orchestrator (O):
-
-\[
-B\_O = B\_{self,O} + \sum\_D b\_{D,O}
-]
+If delegator  bonds to orchestrator :
 
 Delegators retain ownership but delegate reward rights and voting weight attribution.
 
@@ -15086,15 +15627,7 @@ Delegators retain ownership but delegate reward rights and voting weight attribu
 
 Unbonding initiates a withdrawal period.
 
-When participant (i) unbonds amount (x):
-
-\[
-B\_i^{new} = B\_i^{old} - x
-]
-
-\[
-B\_T^{new} = B\_T^{old} - x
-]
+When participant  unbonds amount :
 
 The stake enters a pending withdrawal state subject to an unbonding period measured in rounds.
 
@@ -15119,15 +15652,7 @@ Round transition is triggered by protocol timing logic.
 
 Issuance per round:
 
-\[
-R\_t = S\_t \cdot r\_t
-]
-
 Supply update:
-
-\[
-S\_{t+1} = S\_t + R\_t
-]
 
 ***
 
@@ -15137,17 +15662,9 @@ Rewards are not automatically transferred; they must be checkpointed.
 
 Checkpointing updates participant reward balances according to stake weight.
 
-Allocation to orchestrator (O):
-
-\[
-R\_O = R\_t \cdot \frac{B\_O}{B\_T}
-]
+Allocation to orchestrator :
 
 Delegator share:
-
-\[
-R\_{D,O} = R\_O (1 - c\_O) \cdot \frac{b\_{D,O}}{B\_O}
-]
 
 Checkpointing updates internal accounting state before withdrawal or rebonding.
 
@@ -15160,7 +15677,7 @@ Participants may:
 * Claim rewards to liquid balance
 * Rebond rewards (compound stake)
 
-Rebonding increases (B\_i) and thus future economic weight.
+Rebonding increases  and thus future economic weight.
 
 ***
 
@@ -15228,22 +15745,14 @@ Delegation is strictly a **protocol-layer (on-chain)** action. It does not execu
 
 Let:
 
-* (D) be a delegator
-* (O) be an orchestrator
-* (b\_{D,O}) be LPT bonded by (D) toward (O)
-* (B\_{self,O}) be orchestrator self-bonded stake
+* &#x20;be a delegator
+* &#x20;be an orchestrator
+* &#x20;be LPT bonded by  toward&#x20;
+* &#x20;be orchestrator self-bonded stake
 
-Total stake attributed to orchestrator (O):
-
-\[
-B\_O = B\_{self,O} + \sum\_D b\_{D,O}
-]
+Total stake attributed to orchestrator :
 
 Total bonded stake:
-
-\[
-B\_T = \sum\_O B\_O
-]
 
 Delegation is an attribution rule over bonded stake recorded in protocol contract state.
 
@@ -15277,45 +15786,25 @@ Delegation influences which operators have greater economic weight, but network 
 
 ## 3. Economic Weight and Security
 
-Delegation increases (B\_O), increasing the orchestrator's stake-weighted share.
+Delegation increases , increasing the orchestrator's stake-weighted share.
 
 Define orchestrator weight:
 
-\[
-W\_O = \frac{B\_O}{B\_T}
-]
-
 Security implication:
 
-* Increasing (B\_T) increases the capital cost required to capture stake-weighted outcomes.
+* Increasing  increases the capital cost required to capture stake-weighted outcomes.
 
 Thus:
-
-\[
-\text{Security} \propto B\_T
-]
 
 ***
 
 ## 4. Reward Allocation (Issuance)
 
-Per round (t), protocol issuance is minted:
-
-\[
-R\_t = S\_t \cdot r\_t
-]
+Per round , protocol issuance is minted:
 
 Orchestrator gross issuance allocation:
 
-\[
-R\_O = R\_t \cdot \frac{B\_O}{B\_T}
-]
-
-Delegator net issuance allocation with commission (c\_O):
-
-\[
-R\_{D,O} = R\_O (1 - c\_O) \cdot \frac{b\_{D,O}}{B\_O}
-]
+Delegator net issuance allocation with commission :
 
 This formula separates:
 
@@ -15330,10 +15819,6 @@ This formula separates:
 Fees are demand-driven and may accrue to stakeholders according to protocol accounting rules.
 
 Total delegator return decomposes into:
-
-\[
-Reward\_{D,O} = Issuance\_{D,O} + Fees\_{D,O}
-]
 
 Issuance is protocol-determined; fees depend on network usage.
 
@@ -15378,10 +15863,10 @@ stateDiagram-v2
 
 Delegators face protocol- and operator-level risks:
 
-1. **Commission risk:** (c\_O) reduces net share
+1. **Commission risk:**  reduces net share
 2. **Checkpoint risk:** missed checkpointing reduces realized issuance
 3. **Slashing exposure:** where enabled, stake may be reduced under defined conditions
-4. **Concentration risk:** large (B\_O) increases systemic exposure
+4. **Concentration risk:** large  increases systemic exposure
 5. **Liquidity risk:** unbonding delay restricts exit
 
 These are economic risks inherent to a capital-weighted protocol.
@@ -15445,22 +15930,14 @@ Delegation is strictly a **protocol-layer (on-chain)** mechanism. Delegators do 
 
 Let:
 
-* (D): a delegator address
-* (O): an orchestrator address
-* (b\_{D,O}): stake bonded by (D) toward (O)
-* (B\_{self,O}): self-bonded stake of (O)
+* : a delegator address
+* : an orchestrator address
+* : stake bonded by  toward&#x20;
+* : self-bonded stake of&#x20;
 
-Total stake attributed to (O):
-
-\[
-B\_O = B\_{self,O} + \sum\_D b\_{D,O}
-]
+Total stake attributed to :
 
 Total bonded stake:
-
-\[
-B\_T = \sum\_O B\_O
-]
 
 Delegator stake changes protocol accounting state (bonding attribution) and therefore stake-weighted reward and governance outcomes.
 
@@ -15494,11 +15971,7 @@ Delegators serve three protocol goals.
 
 Security cost scales with total bonded stake:
 
-\[
-\text{Security} \propto B\_T
-]
-
-Delegators increase (B\_T), raising the economic cost required to capture stake-weighted outcomes.
+Delegators increase , raising the economic cost required to capture stake-weighted outcomes.
 
 ### 3.2 Capital Allocation
 
@@ -15506,19 +15979,11 @@ Delegation redistributes stake across orchestrators, shaping operator market str
 
 Orchestrator weight:
 
-\[
-W\_O = \frac{B\_O}{B\_T}
-]
-
-Delegators selecting (O) increase (W\_O), affecting issuance allocation and governance influence.
+Delegators selecting  increase , affecting issuance allocation and governance influence.
 
 ### 3.3 Governance Participation
 
-Voting power derives from bonded stake. For a participant (i):
-
-\[
-V\_i = \frac{B\_i}{B\_T}
-]
+Voting power derives from bonded stake. For a participant :
 
 Delegators therefore influence protocol parameter changes, upgrades, and treasury decisions.
 
@@ -15526,29 +15991,13 @@ Delegators therefore influence protocol parameter changes, upgrades, and treasur
 
 ## 4. Reward Model (Issuance and Fees)
 
-Per round (t), protocol issuance:
-
-\[
-R\_t = S\_t \cdot r\_t
-]
+Per round , protocol issuance:
 
 Orchestrator gross issuance allocation:
 
-\[
-R\_O = R\_t \cdot \frac{B\_O}{B\_T}
-]
-
-Delegator net issuance allocation with commission (c\_O):
-
-\[
-R\_{D,O} = R\_O \cdot (1 - c\_O) \cdot \frac{b\_{D,O}}{B\_O}
-]
+Delegator net issuance allocation with commission :
 
 Delegator total return decomposes into:
-
-\[
-\text{Reward}*{D,O} = \text{Issuance}*{D,O} + \text{Fees}\_{D,O}
-]
 
 Issuance is protocol-determined; fees are market-driven (network demand).
 
@@ -15580,7 +16029,7 @@ Delegation is capital exposure without operational control.
 
 Delegators should monitor:
 
-* commission rate (c\_O)
+* commission rate&#x20;
 * reward checkpoint consistency
 * stake concentration and decentralization
 * governance proposals affecting inflation/security parameters
@@ -15595,16 +16044,12 @@ Delegator selection is multi-objective.
 
 Define a delegator utility function:
 
-\[
-U(O) = f(\text{NetYield}\_O, \text{Reliability}\_O, \text{Concentration}\_O, \text{GovernanceAlignment}\_O)
-]
-
 Where:
 
-* (\text{NetYield}\_O) is reduced by commission (c\_O)
-* (\text{Reliability}\_O) captures checkpoint consistency and operational stability
-* (\text{Concentration}\_O) penalizes already-dominant stake share
-* (\text{GovernanceAlignment}\_O) reflects long-term stewardship preferences
+* &#x20;is reduced by commission&#x20;
+* &#x20;captures checkpoint consistency and operational stability
+* &#x20;penalizes already-dominant stake share
+* &#x20;reflects long-term stewardship preferences
 
 ***
 
@@ -15612,7 +16057,7 @@ Where:
 
 Delegators face a layered risk profile.
 
-1. **Commission risk:** higher (c\_O) reduces net returns.
+1. **Commission risk:** higher  reduces net returns.
 2. **Checkpoint / realization risk:** realized issuance can diverge from theoretical allocation if checkpointing is not performed.
 3. **Liquidity risk:** unbonding delay restricts exit.
 4. **Concentration risk:** systemic exposure increases with stake centralization.
@@ -15695,7 +16140,7 @@ Delegation interacts primarily with the BondingManager contract.
 
 If interacting directly with contracts, the LPT token contract must be approved to transfer the desired bonding amount.
 
-Let (x) be the amount to delegate.
+Let  be the amount to delegate.
 
 Approval does not change bonding state; it only authorizes the staking contract to transfer tokens.
 
@@ -15707,22 +16152,10 @@ State impact: none (allowance update only).
 
 Call `bond(x, O)` where:
 
-* (x) = LPT amount
-* (O) = chosen orchestrator address
+* &#x20;\= LPT amount
+* &#x20;\= chosen orchestrator address
 
 State transition:
-
-\[
-B\_i^{new} = B\_i^{old} + x
-]
-
-\[
-B\_O^{new} = B\_O^{old} + x
-]
-
-\[
-B\_T^{new} = B\_T^{old} + x
-]
 
 Delegation immediately affects stake attribution for subsequent rounds (subject to protocol timing rules).
 
@@ -15747,23 +16180,11 @@ Delegation must be verifiable via on-chain state, not UI display alone.
 
 ## 5. Reward Accrual and Checkpointing
 
-Per round (t):
-
-\[
-R\_t = S\_t \cdot r\_t
-]
+Per round :
 
 Orchestrator allocation:
 
-\[
-R\_O = R\_t \cdot \frac{B\_O}{B\_T}
-]
-
-Delegator net allocation with commission (c\_O):
-
-\[
-R\_{D,O} = R\_O \cdot (1 - c\_O) \cdot \frac{b\_{D,O}}{B\_O}
-]
+Delegator net allocation with commission :
 
 Rewards may require checkpointing before they are claimable or rebondable.
 
@@ -15775,17 +16196,9 @@ Checkpointing updates internal accounting but does not automatically transfer to
 
 Instead of withdrawing rewards, a delegator may rebond.
 
-If reward amount = (y):
-
-\[
-B\_i^{new} = B\_i^{old} + y
-]
+If reward amount = :
 
 Compounding increases future weight:
-
-\[
-W\_i = \frac{B\_i}{B\_T}
-]
 
 ***
 
@@ -15794,18 +16207,6 @@ W\_i = \frac{B\_i}{B\_T}
 To exit delegation, call `unbond(x)`.
 
 State transition:
-
-\[
-B\_i^{new} = B\_i^{old} - x
-]
-
-\[
-B\_O^{new} = B\_O^{old} - x
-]
-
-\[
-B\_T^{new} = B\_T^{old} - x
-]
 
 Stake enters an unbonding state.
 
@@ -15855,7 +16256,7 @@ Withdrawal finalizes the exit.
 
 Before delegating, evaluate:
 
-1. Commission rate (c\_O)
+1. Commission rate&#x20;
 2. Orchestrator stake concentration
 3. Historical checkpoint consistency
 4. Governance alignment
@@ -15926,14 +16327,10 @@ Governance authority derives exclusively from **bonded LPT**. It operates at the
 
 Let:
 
-* (B\_i) = bonded stake attributed to participant (i)
-* (B\_T) = total bonded stake
+* &#x20;\= bonded stake attributed to participant&#x20;
+* &#x20;\= total bonded stake
 
 Voting power:
-
-\[
-V\_i = \frac{B\_i}{B\_T}
-]
 
 Governance is therefore a capital-weighted decision system over bonded stake. Only bonded stake contributes to voting weight.
 
@@ -15985,13 +16382,9 @@ The lifecycle of a LIP follows a deliberate cadence:
 
 ## 4. Voting Mechanics
 
-Let a proposal (P) be active during a voting window.
+Let a proposal  be active during a voting window.
 
 Total voting power cast:
-
-\[
-V\_{cast} = \sum\_{i \in voters} B\_i
-]
 
 A proposal passes if it satisfies quorum and majority thresholds as defined in governance contract logic. These thresholds are enforced on-chain.
 
@@ -16001,19 +16394,11 @@ A proposal passes if it satisfies quorum and majority thresholds as defined in g
 
 Governance security depends on bonded stake distribution.
 
-Let (\theta) be the fraction of stake required to influence an outcome.
+Let  be the fraction of stake required to influence an outcome.
 
 Minimum capital required:
 
-\[
-Capital\_{control} \geq \theta B\_T
-]
-
 Security increases with total bonded stake and decreases with stake concentration:
-
-\[
-Security \propto B\_T
-]
 
 ***
 
@@ -16099,15 +16484,11 @@ This page formalizes the governance decision process, including quorum mechanics
 
 Let:
 
-* (B\_i) = bonded stake attributed to participant (i)
-* (B\_T) = total bonded stake
-* (V\_i) = voting power of participant (i)
+* &#x20;\= bonded stake attributed to participant&#x20;
+* &#x20;\= total bonded stake
+* &#x20;\= voting power of participant&#x20;
 
 Voting power:
-
-\[
-V\_i = \frac{B\_i}{B\_T}
-]
 
 All governance weight is derived from bonded stake.
 
@@ -16133,14 +16514,10 @@ These transitions are enforced by governance contracts.
 
 Let:
 
-* (Q) = quorum fraction
-* (V\_{cast}) = total voting power cast
+* &#x20;\= quorum fraction
+* &#x20;\= total voting power cast
 
 Quorum condition:
-
-\[
-V\_{cast} \ge Q \cdot B\_T
-]
 
 At least 33% of all staked LPT must participate in the vote for it to be valid. This requirement ensures that a small cabal cannot push through radical changes without broad community involvement.
 
@@ -16150,14 +16527,10 @@ At least 33% of all staked LPT must participate in the vote for it to be valid. 
 
 Let:
 
-* (V\_{for}) = stake-weighted votes in favor
-* (V\_{against}) = stake-weighted votes against
+* &#x20;\= stake-weighted votes in favor
+* &#x20;\= stake-weighted votes against
 
 Majority condition (simple majority):
-
-\[
-V\_{for} > V\_{against}
-]
 
 More than 50% of participating votes must favour the proposal. Simple majority approval balances inclusivity with decisiveness: proposals that split the community evenly cannot pass.
 
@@ -16173,7 +16546,7 @@ Timelock properties:
 * Provides opportunity for stakeholder reaction
 * Reduces sudden-parameter-change risk
 
-Timelock delay (T\_{delay}) is defined at the protocol level.
+Timelock delay  is defined at the protocol level.
 
 ***
 
@@ -16222,27 +16595,23 @@ Treasury governance discussions identify two parameters as especially important:
 
 ### 9.1 Capital Requirement for Control
 
-Let (\theta) represent the minimum fraction required to control outcomes.
+Let  represent the minimum fraction required to control outcomes.
 
 Minimum capital required:
-
-\[
-Capital\_{control} \ge \theta B\_T
-]
 
 Higher bonded stake increases governance capture cost.
 
 ### 9.2 Stake Concentration Risk
 
-If a small number of addresses control a large fraction of (B\_T), governance capture risk increases. Security is inversely proportional to concentration.
+If a small number of addresses control a large fraction of , governance capture risk increases. Security is inversely proportional to concentration.
 
 ### 9.3 Voter Apathy Risk
 
-If quorum fraction (Q) is high relative to typical participation:
+If quorum fraction  is high relative to typical participation:
 
 * Proposals may fail due to insufficient turnout
 
-If (Q) is low:
+If  is low:
 
 * Small coordinated groups may pass proposals
 
@@ -16386,10 +16755,6 @@ More than **50%** of participating votes must favour the proposal. Simple majori
 
 Voting power is proportional to bonded LPT:
 
-\[
-V\_i = \frac{B\_i}{B\_T}
-]
-
 Delegators exercise governance indirectly by delegating to orchestrators whose values align with their own; orchestrators must publicly declare their positions and can cast votes accordingly.
 
 ***
@@ -16414,15 +16779,7 @@ Voting occurs via an on-chain smart contract. When a LIP is ready, its hash and 
 
 Proposal must satisfy:
 
-\[
-V\_{cast} \ge Q \cdot B\_T
-]
-
 And majority condition:
-
-\[
-V\_{for} > V\_{against}
-]
 
 Conditions are enforced by governance contracts.
 
@@ -16496,13 +16853,13 @@ All votes and execution transactions are publicly verifiable on-chain. Governanc
 
 ### 7.3 Parameter Calibration
 
-Quorum (Q) and timelock duration (T\_{delay}) are governance-level security parameters.
+Quorum  and timelock duration  are governance-level security parameters.
 
-If (Q) is too low:
+If  is too low:
 
 * Small coalitions may pass proposals
 
-If (Q) is too high:
+If  is too high:
 
 * Governance stagnation may occur
 
@@ -16581,22 +16938,14 @@ Treasury control is enforced at the **protocol layer (on-chain)** through govern
 
 Let:
 
-* (T) = treasury balance (in relevant asset units)
-* (A\_k) = allocation amount executed by proposal (k)
+* &#x20;\= treasury balance (in relevant asset units)
+* &#x20;\= allocation amount executed by proposal&#x20;
 
-Treasury balance update after allocation (k):
+Treasury balance update after allocation :
 
-\[
-T' = T - A\_k
-]
+More generally, after a set of allocations :
 
-More generally, after a set of allocations ({A\_1, A\_2, \dots, A\_n}):
-
-\[
-T\_n = T\_0 - \sum\_^ A\_k
-]
-
-Where each (A\_k) is authorized via governance.
+Where each  is authorized via governance.
 
 ***
 
@@ -16643,14 +16992,10 @@ Treasury decisions are executed through the governance lifecycle.
 
 Let:
 
-* (B\_T) = total bonded stake
-* (B\_i) = bonded stake attributed to voter (i)
+* &#x20;\= total bonded stake
+* &#x20;\= bonded stake attributed to voter&#x20;
 
 Voting power:
-
-\[
-V\_i = \frac
-]
 
 Thus, the treasury inherits governance security properties.
 
@@ -16660,15 +17005,11 @@ Thus, the treasury inherits governance security properties.
 
 Treasury security depends on:
 
-1. Total bonded stake (B\_T)
+1. Total bonded stake&#x20;
 2. Stake distribution (concentration)
 3. Quorum and timelock configuration
 
 Capital required to control outcomes:
-
-\[
-Capital\_ \ge \theta B\_T
-]
 
 A treasury is therefore as secure as the governance system controlling it.
 
@@ -16738,17 +17079,9 @@ This page defines the structure of treasury proposal payloads, their execution s
 
 ## 1. Formal Definition
 
-A treasury proposal (P) is a tuple of executable actions:
+A treasury proposal  is a tuple of executable actions:
 
-\[
-P = { a\_1, a\_2, \dots, a\_n }
-]
-
-Each action (a\_k) is defined as:
-
-\[
-a\_k = (Target\_k, Value\_k, Data\_k)
-]
+Each action  is defined as:
 
 Where:
 
@@ -16764,26 +17097,14 @@ The proposal passes through governance and executes after timelock.
 
 Let bonded stake variables:
 
-* (B\_i) = bonded stake of voter (i)
-* (B\_T) = total bonded stake
+* &#x20;\= bonded stake of voter&#x20;
+* &#x20;\= total bonded stake
 
 Voting power:
 
-\[
-V\_i = \frac{B\_i}{B\_T}
-]
-
 Quorum condition:
 
-\[
-V\_{cast} \ge Q \cdot B\_T
-]
-
 Threshold condition (example):
-
-\[
-V\_{for} > V\_{against}
-]
 
 Only proposals meeting governance conditions enter the timelock queue.
 
@@ -16791,7 +17112,7 @@ Only proposals meeting governance conditions enter the timelock queue.
 
 ## 3. Timelock Queue Semantics
 
-Once approved, the proposal is queued in a timelock for a delay (T\_{delay}).
+Once approved, the proposal is queued in a timelock for a delay .
 
 Timelock provides:
 
@@ -16805,7 +17126,7 @@ Execution is only possible after the delay elapses.
 
 ## 4. Execution Semantics
 
-After timelock expiry, execution attempts to apply each action (a\_k) atomically within the execution transaction.
+After timelock expiry, execution attempts to apply each action  atomically within the execution transaction.
 
 Two important properties:
 
@@ -16820,13 +17141,9 @@ Treasury proposals must therefore be authored with calldata correctness and fail
 
 A common action is a treasury transfer.
 
-If treasury balance is (T) and allocation amount is (A):
+If treasury balance is  and allocation amount is :
 
-\[
-T' = T - A
-]
-
-Recipient balance increases by (A) under the asset's transfer semantics.
+Recipient balance increases by  under the asset's transfer semantics.
 
 ***
 
@@ -16936,23 +17253,15 @@ This page defines:
 
 Let:
 
-* (T) = treasury balance before allocation
-* (A\_k) = allocation amount of proposal (k)
-* (T') = treasury balance after allocation
+* &#x20;\= treasury balance before allocation
+* &#x20;\= allocation amount of proposal&#x20;
+* &#x20;\= treasury balance after allocation
 
 Single allocation update:
 
-\[
-T' = T - A\_k
-]
+Over  allocations:
 
-Over (n) allocations:
-
-\[
-T\_n = T\_0 - \sum\_^ A\_k
-]
-
-Where each (A\_k) is executed by a governance proposal payload.
+Where each  is executed by a governance proposal payload.
 
 ***
 
@@ -16974,19 +17283,11 @@ These categories are conceptual; on-chain execution is simply calldata.
 
 Treasury allocation is a decision under uncertainty.
 
-Define an allocation proposal (k) with expected outcome function:
-
-\[
-Outcome\_k = g(Impact\_k, Feasibility\_k, Risk\_k, Alignment\_k)
-]
+Define an allocation proposal  with expected outcome function:
 
 A practical decision function is:
 
-\[
-Score\_k = w\_1 Impact\_k + w\_2 Feasibility\_k - w\_3 Risk\_k + w\_4 Alignment\_k
-]
-
-Where (w\_i) are governance-chosen weights.
+Where  are governance-chosen weights.
 
 ### 3.1 Impact
 
@@ -17024,14 +17325,10 @@ Allocations inherit governance security.
 
 Let:
 
-* (B\_T) = total bonded stake
-* (\theta) = fraction required to control governance outcome
+* &#x20;\= total bonded stake
+* &#x20;\= fraction required to control governance outcome
 
 Capital required for control:
-
-\[
-Capital\_ \ge \theta B\_T
-]
 
 Treasury safety therefore depends on stake distribution and participation.
 
@@ -17074,7 +17371,7 @@ Confirm that:
 * proposal executed successfully
 * transfers occurred
 * recipient address matches intended target
-* treasury balance decreased by (A\_k)
+* treasury balance decreased by&#x20;
 
 This is verifiable via transaction logs and state reads.
 
