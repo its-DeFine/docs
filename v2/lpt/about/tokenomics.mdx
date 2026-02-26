@@ -5,6 +5,8 @@ description: 'Formal economic model of LPT issuance, bonding dynamics, reward di
 keywords: ["livepeer", "lpt", "tokenomics", "inflation", "staking", "rewards", "bonding rate", "economics"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
+import { MathInline, MathBlock } from '/snippets/components/content/math.jsx'
+
 
 ## Executive Summary
 
@@ -18,30 +20,26 @@ The tokenomics model is implemented at the **protocol layer (on-chain)** via sta
 
 Let:
 
-- \(S_t\) = total LPT supply at round \(t\)
-- \(B_T\) = total bonded LPT
-- \(B_i\) = bonded stake attributed to participant \(i\)
-- \(\beta\) = bonding rate = \(\frac{B_T}{S_t}\)
-- \(\beta^*\) = target bonding rate
-- \(r_t\) = inflation rate applied in round \(t\)
-- \(\alpha\) = inflation adjustment coefficient
-- \(c_O\) = commission rate set by orchestrator \(O\)
+- <MathInline latex={String.raw`S_t`} /> = total LPT supply at round <MathInline latex={String.raw`t`} />
+- <MathInline latex={String.raw`B_T`} /> = total bonded LPT
+- <MathInline latex={String.raw`B_i`} /> = bonded stake attributed to participant <MathInline latex={String.raw`i`} />
+- <MathInline latex={String.raw`\beta`} /> = bonding rate = <MathInline latex={String.raw`\frac{B_T}{S_t}`} />
+- <MathInline latex={String.raw`\beta^*`} /> = target bonding rate
+- <MathInline latex={String.raw`r_t`} /> = inflation rate applied in round <MathInline latex={String.raw`t`} />
+- <MathInline latex={String.raw`\alpha`} /> = inflation adjustment coefficient
+- <MathInline latex={String.raw`c_O`} /> = commission rate set by orchestrator <MathInline latex={String.raw`O`} />
 
 ---
 
 ## 2. Inflation Issuance Model
 
-Per round \(t\), newly minted LPT:
+Per round <MathInline latex={String.raw`t`} />, newly minted LPT:
 
-\[
-R_t = S_t \cdot r_t
-\]
+<MathBlock latex={String.raw`R_t = S_t \cdot r_t`} />
 
 Supply update:
 
-\[
-S_{t+1} = S_t + R_t
-\]
+<MathBlock latex={String.raw`S_{t+1} = S_t + R_t`} />
 
 Inflation therefore compounds relative to current supply.
 
@@ -53,54 +51,42 @@ The protocol adjusts inflation according to the deviation between the current bo
 
 Current bonding rate:
 
-\[
-\beta = \frac{B_T}{S_t}
-\]
+<MathBlock latex={String.raw`\beta = \frac{B_T}{S_t}`} />
 
 Adjustment rule:
 
-If \(\beta < \beta^*\):
+If <MathInline latex={String.raw`\beta < \beta^*`} />:
 
-\[
-r_{t+1} = r_t + \alpha
-\]
+<MathBlock latex={String.raw`r_{t+1} = r_t + \alpha`} />
 
-If \(\beta > \beta^*\):
+If <MathInline latex={String.raw`\beta > \beta^*`} />:
 
-\[
-r_{t+1} = r_t - \alpha
-\]
+<MathBlock latex={String.raw`r_{t+1} = r_t - \alpha`} />
 
 This creates a control loop:
 
 - Under-bonded system → higher inflation → stronger staking incentive
 - Over-bonded system → lower inflation → reduced dilution
 
-The system seeks equilibrium where \(\beta \approx \beta^*\).
+The system seeks equilibrium where <MathInline latex={String.raw`\beta \approx \beta^*`} />.
 
 ---
 
 ## 4. Reward Distribution
 
-Total issuance per round \(R_t\) is distributed proportionally to stake weight.
+Total issuance per round <MathInline latex={String.raw`R_t`} /> is distributed proportionally to stake weight.
 
 Define economic weight:
 
-\[
-W_i = \frac{B_i}{B_T}
-\]
+<MathBlock latex={String.raw`W_i = \frac{B_i}{B_T}`} />
 
-Allocation to orchestrator \(O\):
+Allocation to orchestrator <MathInline latex={String.raw`O`} />:
 
-\[
-R_O = R_t \cdot \frac{B_O}{B_T}
-\]
+<MathBlock latex={String.raw`R_O = R_t \cdot \frac{B_O}{B_T}`} />
 
-Delegator \(D\) bonded to orchestrator \(O\):
+Delegator <MathInline latex={String.raw`D`} /> bonded to orchestrator <MathInline latex={String.raw`O`} />:
 
-\[
-R_{D,O} = R_O (1 - c_O) \cdot \frac{b_{D,O}}{B_O}
-\]
+<MathBlock latex={String.raw`R_{D,O} = R_O (1 - c_O) \cdot \frac{b_{D,O}}{B_O}`} />
 
 This separates gross issuance from commission-adjusted delegator returns.
 
@@ -113,11 +99,9 @@ Returns to bonded participants may consist of:
 1. Inflation-based issuance (supply expansion)
 2. Fee revenue from video/AI workloads (demand-based)
 
-Total reward to participant \(i\):
+Total reward to participant <MathInline latex={String.raw`i`} />:
 
-\[
-Reward_i = Issuance_i + Fees_i
-\]
+<MathBlock latex={String.raw`Reward_i = Issuance_i + Fees_i`} />
 
 Inflation is protocol-determined; fees are market-driven.
 
@@ -129,15 +113,13 @@ Tokenomics must therefore be evaluated in two components: issuance dynamics and 
 
 Security cost for adversarial control scales with bonded stake.
 
-Let \(\theta\) be the threshold fraction required to influence governance or allocation.
+Let <MathInline latex={String.raw`\theta`} /> be the threshold fraction required to influence governance or allocation.
 
 Required capital:
 
-\[
-Capital_{attack} \geq \theta B_T
-\]
+<MathBlock latex={String.raw`Capital_{attack} \geq \theta B_T`} />
 
-Increasing \(B_T\) increases the cost of control.
+Increasing <MathInline latex={String.raw`B_T`} /> increases the cost of control.
 
 Inflation adjustment encourages equilibrium around a stable security participation rate.
 

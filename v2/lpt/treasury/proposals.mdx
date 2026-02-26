@@ -5,6 +5,8 @@ description: 'Formal structure and execution semantics of treasury proposals as 
 keywords: ["livepeer", "lpt", "treasury", "proposals", "governance", "grants", "execution"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
+import { MathInline, MathBlock } from '/snippets/components/content/math.jsx'
+
 
 ## Executive Summary
 
@@ -16,17 +18,13 @@ This page defines the structure of treasury proposal payloads, their execution s
 
 ## 1. Formal Definition
 
-A treasury proposal \(P\) is a tuple of executable actions:
+A treasury proposal <MathInline latex={String.raw`P`} /> is a tuple of executable actions:
 
-\[
-P = \{ a_1, a_2, \dots, a_n \}
-\]
+<MathBlock latex={String.raw`P = \{ a_1, a_2, \dots, a_n \}`} />
 
-Each action \(a_k\) is defined as:
+Each action <MathInline latex={String.raw`a_k`} /> is defined as:
 
-\[
-a_k = (Target_k, Value_k, Data_k)
-\]
+<MathBlock latex={String.raw`a_k = (Target_k, Value_k, Data_k)`} />
 
 Where:
 
@@ -42,26 +40,20 @@ The proposal passes through governance and executes after timelock.
 
 Let bonded stake variables:
 
-- \(B_i\) = bonded stake of voter \(i\)
-- \(B_T\) = total bonded stake
+- <MathInline latex={String.raw`B_i`} /> = bonded stake of voter <MathInline latex={String.raw`i`} />
+- <MathInline latex={String.raw`B_T`} /> = total bonded stake
 
 Voting power:
 
-\[
-V_i = \frac{B_i}{B_T}
-\]
+<MathBlock latex={String.raw`V_i = \frac{B_i}{B_T}`} />
 
 Quorum condition:
 
-\[
-V_{cast} \ge Q \cdot B_T
-\]
+<MathBlock latex={String.raw`V_{cast} \ge Q \cdot B_T`} />
 
 Threshold condition (example):
 
-\[
-V_{for} > V_{against}
-\]
+<MathBlock latex={String.raw`V_{for} > V_{against}`} />
 
 Only proposals meeting governance conditions enter the timelock queue.
 
@@ -69,7 +61,7 @@ Only proposals meeting governance conditions enter the timelock queue.
 
 ## 3. Timelock Queue Semantics
 
-Once approved, the proposal is queued in a timelock for a delay \(T_{delay}\).
+Once approved, the proposal is queued in a timelock for a delay <MathInline latex={String.raw`T_{delay}`} />.
 
 Timelock provides:
 
@@ -83,7 +75,7 @@ Execution is only possible after the delay elapses.
 
 ## 4. Execution Semantics
 
-After timelock expiry, execution attempts to apply each action \(a_k\) atomically within the execution transaction.
+After timelock expiry, execution attempts to apply each action <MathInline latex={String.raw`a_k`} /> atomically within the execution transaction.
 
 Two important properties:
 
@@ -98,13 +90,11 @@ Treasury proposals must therefore be authored with calldata correctness and fail
 
 A common action is a treasury transfer.
 
-If treasury balance is \(T\) and allocation amount is \(A\):
+If treasury balance is <MathInline latex={String.raw`T`} /> and allocation amount is <MathInline latex={String.raw`A`} />:
 
-\[
-T' = T - A
-\]
+<MathBlock latex={String.raw`T' = T - A`} />
 
-Recipient balance increases by \(A\) under the asset's transfer semantics.
+Recipient balance increases by <MathInline latex={String.raw`A`} /> under the asset's transfer semantics.
 
 ---
 

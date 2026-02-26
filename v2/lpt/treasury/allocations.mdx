@@ -5,6 +5,8 @@ description: 'Allocation design, accounting model, evaluation framework, and ver
 keywords: ["livepeer", "treasury", "allocations", "governance", "grants", "funding", "accountability"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
+import { MathInline, MathBlock } from '/snippets/components/content/math.jsx'
+
 
 ## Executive Summary
 
@@ -23,23 +25,19 @@ This page defines:
 
 Let:
 
-- \(T\) = treasury balance before allocation
-- \(A_k\) = allocation amount of proposal \(k\)
-- \(T'\) = treasury balance after allocation
+- <MathInline latex={String.raw`T`} /> = treasury balance before allocation
+- <MathInline latex={String.raw`A_k`} /> = allocation amount of proposal <MathInline latex={String.raw`k`} />
+- <MathInline latex={String.raw`T'`} /> = treasury balance after allocation
 
 Single allocation update:
 
-\[
-T' = T - A_k
-\]
+<MathBlock latex={String.raw`T' = T - A_k`} />
 
-Over \(n\) allocations:
+Over <MathInline latex={String.raw`n`} /> allocations:
 
-\[
-T_n = T_0 - \sum_{k=1}^{n} A_k
-\]
+<MathBlock latex={String.raw`T_n = T_0 - \sum_{k=1}^{n} A_k`} />
 
-Where each \(A_k\) is executed by a governance proposal payload.
+Where each <MathInline latex={String.raw`A_k`} /> is executed by a governance proposal payload.
 
 ---
 
@@ -61,19 +59,15 @@ These categories are conceptual; on-chain execution is simply calldata.
 
 Treasury allocation is a decision under uncertainty.
 
-Define an allocation proposal \(k\) with expected outcome function:
+Define an allocation proposal <MathInline latex={String.raw`k`} /> with expected outcome function:
 
-\[
-Outcome_k = g(Impact_k, Feasibility_k, Risk_k, Alignment_k)
-\]
+<MathBlock latex={String.raw`Outcome_k = g(Impact_k, Feasibility_k, Risk_k, Alignment_k)`} />
 
 A practical decision function is:
 
-\[
-Score_k = w_1 Impact_k + w_2 Feasibility_k - w_3 Risk_k + w_4 Alignment_k
-\]
+<MathBlock latex={String.raw`Score_k = w_1 Impact_k + w_2 Feasibility_k - w_3 Risk_k + w_4 Alignment_k`} />
 
-Where \(w_i\) are governance-chosen weights.
+Where <MathInline latex={String.raw`w_i`} /> are governance-chosen weights.
 
 ### 3.1 Impact
 
@@ -111,14 +105,12 @@ Allocations inherit governance security.
 
 Let:
 
-- \(B_T\) = total bonded stake
-- \(\theta\) = fraction required to control governance outcome
+- <MathInline latex={String.raw`B_T`} /> = total bonded stake
+- <MathInline latex={String.raw`\theta`} /> = fraction required to control governance outcome
 
 Capital required for control:
 
-\[
-Capital_{control} \ge \theta B_T
-\]
+<MathBlock latex={String.raw`Capital_{control} \ge \theta B_T`} />
 
 Treasury safety therefore depends on stake distribution and participation.
 
@@ -161,7 +153,7 @@ Confirm that:
 - proposal executed successfully
 - transfers occurred
 - recipient address matches intended target
-- treasury balance decreased by \(A_k\)
+- treasury balance decreased by <MathInline latex={String.raw`A_k`} />
 
 This is verifiable via transaction logs and state reads.
 

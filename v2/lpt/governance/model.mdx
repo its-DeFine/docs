@@ -5,6 +5,8 @@ description: 'Formal model of stake-weighted governance, quorum mechanics, votin
 keywords: ["livepeer", "lpt", "governance", "model", "quorum", "voting", "timelock", "security"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
+import { MathInline, MathBlock } from '/snippets/components/content/math.jsx'
+
 
 ## Executive Summary
 
@@ -18,15 +20,13 @@ This page formalizes the governance decision process, including quorum mechanics
 
 Let:
 
-- \(B_i\) = bonded stake attributed to participant \(i\)
-- \(B_T\) = total bonded stake
-- \(V_i\) = voting power of participant \(i\)
+- <MathInline latex={String.raw`B_i`} /> = bonded stake attributed to participant <MathInline latex={String.raw`i`} />
+- <MathInline latex={String.raw`B_T`} /> = total bonded stake
+- <MathInline latex={String.raw`V_i`} /> = voting power of participant <MathInline latex={String.raw`i`} />
 
 Voting power:
 
-\[
-V_i = \frac{B_i}{B_T}
-\]
+<MathBlock latex={String.raw`V_i = \frac{B_i}{B_T}`} />
 
 All governance weight is derived from bonded stake.
 
@@ -52,14 +52,12 @@ These transitions are enforced by governance contracts.
 
 Let:
 
-- \(Q\) = quorum fraction
-- \(V_{cast}\) = total voting power cast
+- <MathInline latex={String.raw`Q`} /> = quorum fraction
+- <MathInline latex={String.raw`V_{cast}`} /> = total voting power cast
 
 Quorum condition:
 
-\[
-V_{cast} \ge Q \cdot B_T
-\]
+<MathBlock latex={String.raw`V_{cast} \ge Q \cdot B_T`} />
 
 At least 33% of all staked LPT must participate in the vote for it to be valid. This requirement ensures that a small cabal cannot push through radical changes without broad community involvement.
 
@@ -69,14 +67,12 @@ At least 33% of all staked LPT must participate in the vote for it to be valid. 
 
 Let:
 
-- \(V_{for}\) = stake-weighted votes in favor
-- \(V_{against}\) = stake-weighted votes against
+- <MathInline latex={String.raw`V_{for}`} /> = stake-weighted votes in favor
+- <MathInline latex={String.raw`V_{against}`} /> = stake-weighted votes against
 
 Majority condition (simple majority):
 
-\[
-V_{for} > V_{against}
-\]
+<MathBlock latex={String.raw`V_{for} > V_{against}`} />
 
 More than 50% of participating votes must favour the proposal. Simple majority approval balances inclusivity with decisiveness: proposals that split the community evenly cannot pass.
 
@@ -92,7 +88,7 @@ Timelock properties:
 - Provides opportunity for stakeholder reaction
 - Reduces sudden-parameter-change risk
 
-Timelock delay \(T_{delay}\) is defined at the protocol level.
+Timelock delay <MathInline latex={String.raw`T_{delay}`} /> is defined at the protocol level.
 
 ---
 
@@ -141,26 +137,24 @@ Treasury governance discussions identify two parameters as especially important:
 
 ### 9.1 Capital Requirement for Control
 
-Let \(\theta\) represent the minimum fraction required to control outcomes.
+Let <MathInline latex={String.raw`\theta`} /> represent the minimum fraction required to control outcomes.
 
 Minimum capital required:
 
-\[
-Capital_{control} \ge \theta B_T
-\]
+<MathBlock latex={String.raw`Capital_{control} \ge \theta B_T`} />
 
 Higher bonded stake increases governance capture cost.
 
 ### 9.2 Stake Concentration Risk
 
-If a small number of addresses control a large fraction of \(B_T\), governance capture risk increases. Security is inversely proportional to concentration.
+If a small number of addresses control a large fraction of <MathInline latex={String.raw`B_T`} />, governance capture risk increases. Security is inversely proportional to concentration.
 
 ### 9.3 Voter Apathy Risk
 
-If quorum fraction \(Q\) is high relative to typical participation:
+If quorum fraction <MathInline latex={String.raw`Q`} /> is high relative to typical participation:
 - Proposals may fail due to insufficient turnout
 
-If \(Q\) is low:
+If <MathInline latex={String.raw`Q`} /> is low:
 - Small coordinated groups may pass proposals
 
 Quorum calibration is therefore a security parameter.

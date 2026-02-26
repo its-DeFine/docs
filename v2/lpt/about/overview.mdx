@@ -5,6 +5,8 @@ description: 'Comprehensive architectural and economic overview of the Livepeer 
 keywords: ["livepeer", "lpt", "overview", "token", "staking", "governance", "economics", "arbitrum"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
+import { MathInline, MathBlock } from '/snippets/components/content/math.jsx'
+
 
 ## Executive Summary
 
@@ -63,16 +65,14 @@ LPT does not execute work. It economically secures actors who perform work.
 
 Let:
 
-- \(B_i\) = bonded stake of participant \(i\)
-- \(B_T\) = total bonded stake
+- <MathInline latex={String.raw`B_i`} /> = bonded stake of participant <MathInline latex={String.raw`i`} />
+- <MathInline latex={String.raw`B_T`} /> = total bonded stake
 
 Economic weight:
 
-\[
-W_i = \frac{B_i}{B_T}
-\]
+<MathBlock latex={String.raw`W_i = \frac{B_i}{B_T}`} />
 
-Work allocation and inflation rewards are proportional to \(W_i\).
+Work allocation and inflation rewards are proportional to <MathInline latex={String.raw`W_i`} />.
 
 This creates a capital-backed Sybil resistance model.
 
@@ -80,16 +80,14 @@ This creates a capital-backed Sybil resistance model.
 
 ## 4. Inflation Mechanism Overview
 
-Per round \(t\):
+Per round <MathInline latex={String.raw`t`} />:
 
-\[
-R_t = S_t \times r_t
-\]
+<MathBlock latex={String.raw`R_t = S_t \times r_t`} />
 
 Where:
 
-- \(S_t\) = token supply at round \(t\)
-- \(r_t\) = protocol-defined inflation rate
+- <MathInline latex={String.raw`S_t`} /> = token supply at round <MathInline latex={String.raw`t`} />
+- <MathInline latex={String.raw`r_t`} /> = protocol-defined inflation rate
 
 Inflation adjusts dynamically based on bonding rate relative to target bonding rate (see [Tokenomics](./tokenomics) section for full derivation).
 
@@ -101,9 +99,7 @@ Delegators bond stake to orchestrators, increasing their economic weight without
 
 Total orchestrator stake:
 
-\[
-B_O = B_{self,O} + \sum_D b_{D,O}
-\]
+<MathBlock latex={String.raw`B_O = B_{self,O} + \sum_D b_{D,O}`} />
 
 Delegation enables capital efficiency and competitive operator markets.
 
@@ -113,9 +109,7 @@ Delegation enables capital efficiency and competitive operator markets.
 
 Voting power derives from bonded stake:
 
-\[
-V_i = \frac{B_i}{B_T}
-\]
+<MathBlock latex={String.raw`V_i = \frac{B_i}{B_T}`} />
 
 Governance may modify:
 
@@ -131,9 +125,7 @@ Governance authority is capital-weighted and on-chain enforced.
 
 Protocol security is proportional to total bonded stake:
 
-\[
-\text{Security} \propto B_T
-\]
+<MathBlock latex={String.raw`\text{Security} \propto B_T`} />
 
 An attacker must acquire a threshold fraction of bonded LPT to influence work allocation or governance.
 

@@ -5,6 +5,8 @@ description: 'Architectural and economic overview of stake-weighted governance i
 keywords: ["livepeer", "lpt", "governance", "voting", "LIPs", "SPE", "proposals"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
+import { MathInline, MathBlock } from '/snippets/components/content/math.jsx'
+
 
 ## Executive Summary
 
@@ -18,14 +20,12 @@ Governance authority derives exclusively from **bonded LPT**. It operates at the
 
 Let:
 
-- \(B_i\) = bonded stake attributed to participant \(i\)
-- \(B_T\) = total bonded stake
+- <MathInline latex={String.raw`B_i`} /> = bonded stake attributed to participant <MathInline latex={String.raw`i`} />
+- <MathInline latex={String.raw`B_T`} /> = total bonded stake
 
 Voting power:
 
-\[
-V_i = \frac{B_i}{B_T}
-\]
+<MathBlock latex={String.raw`V_i = \frac{B_i}{B_T}`} />
 
 Governance is therefore a capital-weighted decision system over bonded stake. Only bonded stake contributes to voting weight.
 
@@ -77,13 +77,11 @@ The lifecycle of a LIP follows a deliberate cadence:
 
 ## 4. Voting Mechanics
 
-Let a proposal \(P\) be active during a voting window.
+Let a proposal <MathInline latex={String.raw`P`} /> be active during a voting window.
 
 Total voting power cast:
 
-\[
-V_{cast} = \sum_{i \in voters} B_i
-\]
+<MathBlock latex={String.raw`V_{cast} = \sum_{i \in voters} B_i`} />
 
 A proposal passes if it satisfies quorum and majority thresholds as defined in governance contract logic. These thresholds are enforced on-chain.
 
@@ -93,19 +91,15 @@ A proposal passes if it satisfies quorum and majority thresholds as defined in g
 
 Governance security depends on bonded stake distribution.
 
-Let \(\theta\) be the fraction of stake required to influence an outcome.
+Let <MathInline latex={String.raw`\theta`} /> be the fraction of stake required to influence an outcome.
 
 Minimum capital required:
 
-\[
-Capital_{control} \geq \theta B_T
-\]
+<MathBlock latex={String.raw`Capital_{control} \geq \theta B_T`} />
 
 Security increases with total bonded stake and decreases with stake concentration:
 
-\[
-Security \propto B_T
-\]
+<MathBlock latex={String.raw`Security \propto B_T`} />
 
 ---
 
