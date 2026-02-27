@@ -3516,15 +3516,15 @@
                         "group": "Livepeer Studio",
                         "icon": "film-canister",
                         "pages": [
-                          "v2/platforms/livepeer-studio/overview",
-                          "v2/platforms/livepeer-studio/client-use-cases",
+                          "v2/es/platforms/livepeer-studio/overview",
+                          "v2/es/platforms/livepeer-studio/client-use-cases",
                           {
                             "group": "Get started",
                             "pages": [
-                              "v2/platforms/livepeer-studio/get-started/overview",
-                              "v2/platforms/livepeer-studio/quickstart",
+                              "v2/es/platforms/livepeer-studio/get-started/overview",
+                              "v2/es/platforms/livepeer-studio/quickstart",
                               "v2/platforms/livepeer-studio/get-started/authentication",
-                              "v2/platforms/livepeer-studio/get-started/studio-cli"
+                              "v2/es/platforms/livepeer-studio/get-started/studio-cli"
                             ]
                           },
                           {
@@ -3555,23 +3555,23 @@
                           {
                             "group": "Access control & security",
                             "pages": [
-                              "v2/platforms/livepeer-studio/access-control/overview",
-                              "v2/platforms/livepeer-studio/access-control/webhooks",
+                              "v2/es/platforms/livepeer-studio/access-control/overview",
+                              "v2/es/platforms/livepeer-studio/access-control/webhooks",
                               "v2/platforms/livepeer-studio/access-control/jwt"
                             ]
                           },
                           {
                             "group": "Events & analytics",
                             "pages": [
-                              "v2/platforms/livepeer-studio/analytics/webhooks",
-                              "v2/platforms/livepeer-studio/analytics/listen-to-events",
-                              "v2/platforms/livepeer-studio/analytics/overview"
+                              "v2/es/platforms/livepeer-studio/analytics/webhooks",
+                              "v2/es/platforms/livepeer-studio/analytics/listen-to-events",
+                              "v2/es/platforms/livepeer-studio/analytics/overview"
                             ]
                           },
                           {
                             "group": "Player & embed",
                             "pages": [
-                              "v2/platforms/livepeer-studio/player"
+                              "v2/es/platforms/livepeer-studio/player"
                             ]
                           },
                           {
@@ -4790,15 +4790,15 @@
                         "group": "Livepeer Studio",
                         "icon": "film-canister",
                         "pages": [
-                          "v2/platforms/livepeer-studio/overview",
-                          "v2/platforms/livepeer-studio/client-use-cases",
+                          "v2/fr/platforms/livepeer-studio/overview",
+                          "v2/fr/platforms/livepeer-studio/client-use-cases",
                           {
                             "group": "Get started",
                             "pages": [
-                              "v2/platforms/livepeer-studio/get-started/overview",
-                              "v2/platforms/livepeer-studio/quickstart",
+                              "v2/fr/platforms/livepeer-studio/get-started/overview",
+                              "v2/fr/platforms/livepeer-studio/quickstart",
                               "v2/platforms/livepeer-studio/get-started/authentication",
-                              "v2/platforms/livepeer-studio/get-started/studio-cli"
+                              "v2/fr/platforms/livepeer-studio/get-started/studio-cli"
                             ]
                           },
                           {
@@ -4829,23 +4829,23 @@
                           {
                             "group": "Access control & security",
                             "pages": [
-                              "v2/platforms/livepeer-studio/access-control/overview",
+                              "v2/fr/platforms/livepeer-studio/access-control/overview",
                               "v2/platforms/livepeer-studio/access-control/webhooks",
-                              "v2/platforms/livepeer-studio/access-control/jwt"
+                              "v2/fr/platforms/livepeer-studio/access-control/jwt"
                             ]
                           },
                           {
                             "group": "Events & analytics",
                             "pages": [
-                              "v2/platforms/livepeer-studio/analytics/webhooks",
-                              "v2/platforms/livepeer-studio/analytics/listen-to-events",
-                              "v2/platforms/livepeer-studio/analytics/overview"
+                              "v2/fr/platforms/livepeer-studio/analytics/webhooks",
+                              "v2/fr/platforms/livepeer-studio/analytics/listen-to-events",
+                              "v2/fr/platforms/livepeer-studio/analytics/overview"
                             ]
                           },
                           {
                             "group": "Player & embed",
                             "pages": [
-                              "v2/platforms/livepeer-studio/player"
+                              "v2/fr/platforms/livepeer-studio/player"
                             ]
                           },
                           {
@@ -6064,14 +6064,14 @@
                         "group": "Livepeer Studio",
                         "icon": "film-canister",
                         "pages": [
-                          "v2/platforms/livepeer-studio/overview",
-                          "v2/platforms/livepeer-studio/client-use-cases",
+                          "v2/cn/platforms/livepeer-studio/overview",
+                          "v2/cn/platforms/livepeer-studio/client-use-cases",
                           {
                             "group": "Get started",
                             "pages": [
-                              "v2/platforms/livepeer-studio/get-started/overview",
-                              "v2/platforms/livepeer-studio/quickstart",
-                              "v2/platforms/livepeer-studio/get-started/authentication",
+                              "v2/cn/platforms/livepeer-studio/get-started/overview",
+                              "v2/cn/platforms/livepeer-studio/quickstart",
+                              "v2/cn/platforms/livepeer-studio/get-started/authentication",
                               "v2/platforms/livepeer-studio/get-started/studio-cli"
                             ]
                           },
@@ -6103,23 +6103,23 @@
                           {
                             "group": "Access control & security",
                             "pages": [
-                              "v2/platforms/livepeer-studio/access-control/overview",
-                              "v2/platforms/livepeer-studio/access-control/webhooks",
-                              "v2/platforms/livepeer-studio/access-control/jwt"
+                              "v2/cn/platforms/livepeer-studio/access-control/overview",
+                              "v2/cn/platforms/livepeer-studio/access-control/webhooks",
+                              "v2/cn/platforms/livepeer-studio/access-control/jwt"
                             ]
                           },
                           {
                             "group": "Events & analytics",
                             "pages": [
-                              "v2/platforms/livepeer-studio/analytics/webhooks",
-                              "v2/platforms/livepeer-studio/analytics/listen-to-events",
-                              "v2/platforms/livepeer-studio/analytics/overview"
+                              "v2/cn/platforms/livepeer-studio/analytics/webhooks",
+                              "v2/cn/platforms/livepeer-studio/analytics/listen-to-events",
+                              "v2/cn/platforms/livepeer-studio/analytics/overview"
                             ]
                           },
                           {
                             "group": "Player & embed",
                             "pages": [
-                              "v2/platforms/livepeer-studio/player"
+                              "v2/cn/platforms/livepeer-studio/player"
                             ]
                           },
                           {
