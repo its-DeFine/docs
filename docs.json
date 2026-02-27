@@ -3671,12 +3671,12 @@
                               {
                                 "group": "Webhooks",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/create",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/get",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/update",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/delete"
+                                  "v2/es/platforms/livepeer-studio/api-reference/webhooks/overview",
+                                  "v2/es/platforms/livepeer-studio/api-reference/webhooks/create",
+                                  "v2/es/platforms/livepeer-studio/api-reference/webhooks/get",
+                                  "v2/es/platforms/livepeer-studio/api-reference/webhooks/get-all",
+                                  "v2/es/platforms/livepeer-studio/api-reference/webhooks/update",
+                                  "v2/es/platforms/livepeer-studio/api-reference/webhooks/delete"
                                 ]
                               },
                               {
@@ -4945,12 +4945,12 @@
                               {
                                 "group": "Webhooks",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/create",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/get",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/update",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/delete"
+                                  "v2/fr/platforms/livepeer-studio/api-reference/webhooks/overview",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/webhooks/create",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/webhooks/get",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/webhooks/get-all",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/webhooks/update",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/webhooks/delete"
                                 ]
                               },
                               {
@@ -6219,12 +6219,12 @@
                               {
                                 "group": "Webhooks",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/create",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/get",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/update",
-                                  "v2/platforms/livepeer-studio/api-reference/webhooks/delete"
+                                  "v2/cn/platforms/livepeer-studio/api-reference/webhooks/overview",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/webhooks/create",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/webhooks/get",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/webhooks/get-all",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/webhooks/update",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/webhooks/delete"
                                 ]
                               },
                               {
