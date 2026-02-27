@@ -3037,6 +3037,11 @@
                     "icon": "books",
                     "groups": [
                       {
+                        "group": "Home",
+                        "icon": "house",
+                        "pages": ["v2/resources/resources-portal"]
+                      },
+                      {
                         "group": "Documentation Guide",
                         "icon": "book-open",
                         "pages": [
