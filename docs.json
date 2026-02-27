@@ -3714,15 +3714,15 @@
                         "group": "Stream.place",
                         "icon": "projector",
                         "pages": [
-                          "v2/platforms/streamplace/overview",
+                          "v2/es/platforms/streamplace/overview",
                           {
                             "group": "Stream.place",
                             "pages": [
-                              "v2/platforms/streamplace/introduction/streamplace-guide",
-                              "v2/platforms/streamplace/introduction/streamplace-architecture",
-                              "v2/platforms/streamplace/introduction/streamplace-integration",
-                              "v2/platforms/streamplace/introduction/streamplace-provenance",
-                              "v2/platforms/streamplace/introduction/streamplace-funding-model"
+                              "v2/es/platforms/streamplace/introduction/streamplace-guide",
+                              "v2/es/platforms/streamplace/introduction/streamplace-architecture",
+                              "v2/es/platforms/streamplace/introduction/streamplace-integration",
+                              "v2/es/platforms/streamplace/introduction/streamplace-provenance",
+                              "v2/es/platforms/streamplace/introduction/streamplace-funding-model"
                             ]
                           }
                         ]
@@ -3915,7 +3915,7 @@
                               "v2/es/gateways/using-gateways/gateway-providers/daydream-gateway",
                               "v2/es/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
                               "v2/es/gateways/using-gateways/gateway-providers/cloud-spe-gateway",
-                              "v2/platforms/streamplace/overview"
+                              "v2/es/platforms/streamplace/overview"
                             ]
                           }
                         ]
@@ -4988,15 +4988,15 @@
                         "group": "Stream.place",
                         "icon": "projector",
                         "pages": [
-                          "v2/platforms/streamplace/overview",
+                          "v2/fr/platforms/streamplace/overview",
                           {
                             "group": "Stream.place",
                             "pages": [
-                              "v2/platforms/streamplace/introduction/streamplace-guide",
+                              "v2/fr/platforms/streamplace/introduction/streamplace-guide",
                               "v2/platforms/streamplace/introduction/streamplace-architecture",
-                              "v2/platforms/streamplace/introduction/streamplace-integration",
+                              "v2/fr/platforms/streamplace/introduction/streamplace-integration",
                               "v2/platforms/streamplace/introduction/streamplace-provenance",
-                              "v2/platforms/streamplace/introduction/streamplace-funding-model"
+                              "v2/fr/platforms/streamplace/introduction/streamplace-funding-model"
                             ]
                           }
                         ]
@@ -5189,7 +5189,7 @@
                               "v2/fr/gateways/using-gateways/gateway-providers/daydream-gateway",
                               "v2/fr/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
                               "v2/fr/gateways/using-gateways/gateway-providers/cloud-spe-gateway",
-                              "v2/platforms/streamplace/overview"
+                              "v2/fr/platforms/streamplace/overview"
                             ]
                           }
                         ]
@@ -6262,15 +6262,15 @@
                         "group": "Stream.place",
                         "icon": "projector",
                         "pages": [
-                          "v2/platforms/streamplace/overview",
+                          "v2/cn/platforms/streamplace/overview",
                           {
                             "group": "Stream.place",
                             "pages": [
-                              "v2/platforms/streamplace/introduction/streamplace-guide",
-                              "v2/platforms/streamplace/introduction/streamplace-architecture",
-                              "v2/platforms/streamplace/introduction/streamplace-integration",
-                              "v2/platforms/streamplace/introduction/streamplace-provenance",
-                              "v2/platforms/streamplace/introduction/streamplace-funding-model"
+                              "v2/cn/platforms/streamplace/introduction/streamplace-guide",
+                              "v2/cn/platforms/streamplace/introduction/streamplace-architecture",
+                              "v2/cn/platforms/streamplace/introduction/streamplace-integration",
+                              "v2/cn/platforms/streamplace/introduction/streamplace-provenance",
+                              "v2/cn/platforms/streamplace/introduction/streamplace-funding-model"
                             ]
                           }
                         ]
@@ -6463,7 +6463,7 @@
                               "v2/cn/gateways/using-gateways/gateway-providers/daydream-gateway",
                               "v2/cn/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
                               "v2/cn/gateways/using-gateways/gateway-providers/cloud-spe-gateway",
-                              "v2/platforms/streamplace/overview"
+                              "v2/cn/platforms/streamplace/overview"
                             ]
                           }
                         ]
