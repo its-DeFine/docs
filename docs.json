@@ -3754,10 +3754,10 @@
                         "group": "Construyendo sobre Livepeer",
                         "icon": "code",
                         "pages": [
-                          "v2/developers/portal",
-                          "v2/developers/developer-guide",
+                          "v2/es/developers/portal",
+                          "v2/es/developers/developer-guide",
                           "v2/developers/guides/partner-integrations",
-                          "v2/developers/developer-journey"
+                          "v2/es/developers/developer-journey"
                         ]
                       },
                       {
@@ -5006,10 +5006,10 @@
                         "group": "Construire sur Livepeer",
                         "icon": "code",
                         "pages": [
-                          "v2/developers/portal",
-                          "v2/developers/developer-guide",
+                          "v2/fr/developers/portal",
+                          "v2/fr/developers/developer-guide",
                           "v2/developers/guides/partner-integrations",
-                          "v2/developers/developer-journey"
+                          "v2/fr/developers/developer-journey"
                         ]
                       },
                       {
@@ -6258,10 +6258,10 @@
                         "group": "在 Livepeer 上构建",
                         "icon": "code",
                         "pages": [
-                          "v2/developers/portal",
-                          "v2/developers/developer-guide",
+                          "v2/cn/developers/portal",
+                          "v2/cn/developers/developer-guide",
                           "v2/developers/guides/partner-integrations",
-                          "v2/developers/developer-journey"
+                          "v2/cn/developers/developer-journey"
                         ]
                       },
                       {
