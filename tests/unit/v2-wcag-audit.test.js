@@ -93,6 +93,17 @@ function runTests() {
     assert.strictEqual(wcag.severityMeetsThreshold('minor', 'none'), false);
   });
 
+  runCase('Color contrast is normalized to advisory-only (non-blocking)', () => {
+    const normalized = wcag.normalizeAxeViolation({
+      id: 'color-contrast',
+      impact: 'serious',
+      tags: ['wcag2aa']
+    });
+    assert.strictEqual(normalized.impact, 'none');
+    assert.strictEqual(normalized.advisory, true);
+    assert.strictEqual(wcag.severityMeetsThreshold(normalized.impact, 'serious'), false);
+  });
+
   runCase('Conservative autofix inserts iframe title, img alt, and icon-link aria-label with line numbers', () => {
     const content = [
       '# Demo',
@@ -199,7 +210,7 @@ function runTests() {
     errors,
     warnings,
     passed: errors.length === 0,
-    total: 10
+    total: 11
   };
 }
 

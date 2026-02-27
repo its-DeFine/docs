@@ -25,7 +25,12 @@ export const DynamicTable = ({
           <strong>{tableTitle}</strong>
         </div>
       )}
-      <div style={{ overflowX: "auto", ...(margin != null && { margin }) }}>
+      <div
+        style={{ overflowX: "auto", ...(margin != null && { margin }) }}
+        role="region"
+        tabIndex={0}
+        aria-label={tableTitle ? `Scrollable table: ${tableTitle}` : "Scrollable table"}
+      >
         <table
           style={{
             width: "100%",

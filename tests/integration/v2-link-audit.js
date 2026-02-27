@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * @script v2-link-audit
- * @summary Comprehensive V2 MDX link audit with report and domain link map outputs.
+ * @summary Comprehensive V2 MDX link audit with internal strict checks and optional external URL validation.
  * @owner docs
  * @scope tests
  *
@@ -13,31 +13,39 @@
  *   --staged
  *   --files <path[,path...]> (repeatable; explicit files mode)
  *   --report <path> (default: tasks/reports/navigation-links/LINK_TEST_REPORT.md)
- *   --write-links (default true for --full, false for --staged/--files)
+ *   --report-json <path> (default: tasks/reports/navigation-links/LINK_TEST_REPORT.json)
+ *   --write-links | --no-write-links (default true for --full, false for --staged/--files)
  *   --strict (exit 1 if missing internal/import targets are found)
- *   --external-policy classify (only supported mode)
+ *   --external-policy classify|validate (default: classify)
+ *   --external-link-types navigational|media|all (default: navigational)
+ *   --external-timeout-ms <int> (default: 10000)
+ *   --external-concurrency <int> (default: 12)
+ *   --external-per-host-concurrency <int> (default: 2)
+ *   --external-retries <int> (default: 1)
  *
  * @outputs
  *   - Markdown report at tasks/reports/navigation-links/LINK_TEST_REPORT.md (or custom path)
+ *   - JSON report at tasks/reports/navigation-links/LINK_TEST_REPORT.json (or custom path)
  *   - snippets/data/<domain>/hrefs.jsx files when write-links enabled
  *
  * @exit-codes
  *   0 = success
- *   1 = validation failure in strict mode or runtime error
+ *   1 = validation failure in strict mode (internal only) or runtime error
  *
  * @examples
  *   node tests/integration/v2-link-audit.js --full --write-links --strict
  *   node tests/integration/v2-link-audit.js --files v2/pages/04_gateways/index.mdx --strict
+ *   node tests/integration/v2-link-audit.js --full --external-policy validate --external-link-types navigational --no-write-links
  *
  * @notes
- *   External URLs are classified-only in this phase and not fetched; use --report to write output to a stable path.
+ *   External URL validation is advisory-only: --strict still applies only to missing internal/import references.
  */
 
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const { extractImports } = require('../utils/mdx-parser');
-const { getStagedFiles } = require('../utils/file-walker');
+const { getStagedFiles, isExcludedV2ExperimentalPath } = require('../utils/file-walker');
 
 const REPO_ROOT = getRepoRoot();
 const LEGACY_V2_PAGES_DIR = path.join(REPO_ROOT, 'v2', 'pages');
@@ -46,11 +54,22 @@ const V2_PAGES_DIR = fs.existsSync(LEGACY_V2_PAGES_DIR) ? LEGACY_V2_PAGES_DIR : 
 const INDEX_PATH = path.join(V2_PAGES_DIR, 'index.mdx');
 const DOCS_CONFIG_PATH = path.join(REPO_ROOT, 'docs.json');
 const DEFAULT_REPORT = path.join(REPO_ROOT, 'tasks', 'reports', 'navigation-links', 'LINK_TEST_REPORT.md');
+const DEFAULT_REPORT_JSON = path.join(REPO_ROOT, 'tasks', 'reports', 'navigation-links', 'LINK_TEST_REPORT.json');
 const LINKABLE_ATTRS = ['href', 'src', 'srcset', 'poster', 'action', 'data', 'to', 'image', 'url'];
 const EXCLUDED_ATTRS = new Set(['icon']);
 const FILE_EXT_CANDIDATES = ['.mdx', '.md', '.jsx', '.js', '.tsx', '.ts', '.json'];
 const INDEX_CANDIDATES = ['index.mdx', 'index.md', 'README.mdx', 'README.md'];
 const EXTERNAL_UNTESTED = '🟡 untested-external';
+const EXTERNAL_PENDING = 'external-pending';
+const EXTERNAL_OK = 'external-ok';
+const EXTERNAL_SOFT_FAIL = 'external-soft-fail';
+const EXTERNAL_HARD_FAIL = 'external-hard-fail';
+const EXTERNAL_POLICY_VALUES = new Set(['classify', 'validate']);
+const EXTERNAL_LINK_TYPES_VALUES = new Set(['navigational', 'media', 'all']);
+const HEAD_FALLBACK_STATUSES = new Set([401, 403, 405, 501]);
+const TRANSIENT_STATUSES = new Set([429, 500, 502, 503, 504]);
+const MEDIA_ATTRS = new Set(['src', 'srcset', 'poster', 'image']);
+const NAV_ATTRS = new Set(['href', 'to']);
 const MIGRATED_V2_DOMAIN_DIRS = new Set([
   'home',
   'about',
@@ -101,10 +120,16 @@ function relNoExt(absPath) {
   return toPosix(rel.replace(/\.(mdx|md)$/i, ''));
 }
 
+function isExcludedV2AbsPath(absPath) {
+  const rel = relFromRoot(absPath);
+  return isExcludedV2ExperimentalPath(rel);
+}
+
 function isActiveV2DocRel(relPath) {
   const rel = toPosix(String(relPath || ''));
   if (rel.startsWith('v2/pages/')) return true;
   if (!rel.startsWith('v2/')) return false;
+  if (isExcludedV2ExperimentalPath(rel)) return false;
   const first = rel.slice('v2/'.length).split('/')[0];
   return MIGRATED_V2_DOMAIN_DIRS.has(first);
 }
@@ -116,13 +141,27 @@ function stripV2DocsRoot(relPath) {
   return rel;
 }
 
+function parseIntegerFlag(raw, fallback, { min = 0 } = {}) {
+  const parsed = Number(raw);
+  if (!Number.isFinite(parsed)) return fallback;
+  const floored = Math.floor(parsed);
+  if (floored < min) return fallback;
+  return floored;
+}
+
 function parseArgs(argv) {
   const args = {
     mode: 'full',
     report: DEFAULT_REPORT,
+    reportJson: DEFAULT_REPORT_JSON,
     strict: false,
     writeLinks: undefined,
     externalPolicy: 'classify',
+    externalLinkTypes: 'navigational',
+    externalTimeoutMs: 10000,
+    externalConcurrency: 12,
+    externalPerHostConcurrency: 2,
+    externalRetries: 1,
     files: []
   };
 
@@ -143,17 +182,42 @@ function parseArgs(argv) {
     }
     else if (token === '--strict') args.strict = true;
     else if (token === '--write-links') args.writeLinks = true;
+    else if (token === '--no-write-links') args.writeLinks = false;
     else if (token === '--report') {
       args.report = path.resolve(REPO_ROOT, argv[i + 1] || '');
       i += 1;
-    } else if (token === '--external-policy') {
-      args.externalPolicy = argv[i + 1] || '';
+    } else if (token === '--report-json') {
+      args.reportJson = path.resolve(REPO_ROOT, argv[i + 1] || '');
       i += 1;
+    } else if (token === '--external-policy') {
+      args.externalPolicy = String(argv[i + 1] || '').trim().toLowerCase();
+      i += 1;
+    } else if (token === '--external-link-types') {
+      args.externalLinkTypes = String(argv[i + 1] || '').trim().toLowerCase();
+      i += 1;
+    } else if (token === '--external-timeout-ms') {
+      args.externalTimeoutMs = parseIntegerFlag(argv[i + 1], args.externalTimeoutMs, { min: 1 });
+      i += 1;
+    } else if (token === '--external-concurrency') {
+      args.externalConcurrency = parseIntegerFlag(argv[i + 1], args.externalConcurrency, { min: 1 });
+      i += 1;
+    } else if (token === '--external-per-host-concurrency') {
+      args.externalPerHostConcurrency = parseIntegerFlag(argv[i + 1], args.externalPerHostConcurrency, { min: 1 });
+      i += 1;
+    } else if (token === '--external-retries') {
+      args.externalRetries = parseIntegerFlag(argv[i + 1], args.externalRetries, { min: 0 });
+      i += 1;
+    } else {
+      throw new Error(`Unknown option: ${token}`);
     }
   }
 
-  if (args.externalPolicy !== 'classify') {
-    throw new Error('Only --external-policy classify is supported in this phase.');
+  if (!EXTERNAL_POLICY_VALUES.has(args.externalPolicy)) {
+    throw new Error('Invalid --external-policy value. Use classify|validate.');
+  }
+
+  if (!EXTERNAL_LINK_TYPES_VALUES.has(args.externalLinkTypes)) {
+    throw new Error('Invalid --external-link-types value. Use navigational|media|all.');
   }
 
   args.files = [...new Set(args.files)];
@@ -173,9 +237,11 @@ function walkFiles(dir, matcher, out = []) {
   const entries = fs.readdirSync(dir, { withFileTypes: true });
   for (const entry of entries) {
     const abs = path.join(dir, entry.name);
+    const rel = relFromRoot(abs);
+
     if (entry.isDirectory()) {
       if (entry.name === '.git' || entry.name === 'node_modules') continue;
-      if (path.resolve(dir) === path.resolve(V2_PAGES_DIR) && entry.name.startsWith('x-')) continue;
+      if (rel.startsWith('v2/') && isExcludedV2ExperimentalPath(rel)) continue;
       walkFiles(abs, matcher, out);
     } else if (matcher(abs)) {
       out.push(abs);
@@ -294,6 +360,7 @@ function normalizeInputFilePath(filePath) {
 }
 
 function isWithinV2Roots(absPath) {
+  if (isExcludedV2AbsPath(absPath)) return false;
   if (absPath.startsWith(V2_PAGES_DIR)) return true;
   return EXTRA_V2_DIRS.some((dir) => absPath.startsWith(dir));
 }
@@ -349,7 +416,7 @@ function stripQueryHash(p) {
   return cut >= 0 ? p.slice(0, cut) : p;
 }
 
-function normalizeRawPath(raw) {
+function trimRawPath(raw) {
   let value = String(raw || '').trim();
   value = value.replace(/\s+"[^"]*"$/, '').replace(/\s+'[^']*'$/, '').trim();
   if (value.startsWith('(') && value.endsWith(')')) {
@@ -358,7 +425,29 @@ function normalizeRawPath(raw) {
   if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
     value = value.slice(1, -1).trim();
   }
-  return decodeURI(stripQueryHash(value));
+  try {
+    return decodeURI(value);
+  } catch (_error) {
+    return value;
+  }
+}
+
+function normalizeRawPath(raw) {
+  return stripQueryHash(trimRawPath(raw));
+}
+
+function normalizeExternalUrl(raw) {
+  const trimmed = trimRawPath(raw);
+  if (!trimmed) return '';
+  const lower = trimmed.toLowerCase();
+  if (!(lower.startsWith('http://') || lower.startsWith('https://'))) return '';
+  try {
+    const parsed = new URL(trimmed);
+    parsed.hash = '';
+    return parsed.toString();
+  } catch (_error) {
+    return '';
+  }
 }
 
 function classifyPath(raw) {
@@ -589,7 +678,6 @@ function findMovedCandidates(missingAbs, repoFiles) {
 
   if (ranked.length >= 3) return ranked.slice(0, 3);
 
-  // Fallback: if basename changed, suggest close path-suffix matches.
   const fallback = repoFiles
     .filter((f) => {
       const rel = relFromRoot(f);
@@ -689,7 +777,26 @@ function extractRefs(content) {
   return refs;
 }
 
-function analyzeRef(ref, currentFileAbs, repoFiles, routeSet) {
+function shouldValidateExternalRef(ref, externalLinkTypes) {
+  const linkTypes = externalLinkTypes || 'navigational';
+  if (linkTypes === 'all') return true;
+
+  if (linkTypes === 'navigational') {
+    if (ref.sourceType === 'markdown-link') return true;
+    if (ref.sourceType === 'jsx-attr' && NAV_ATTRS.has(String(ref.attr || '').toLowerCase())) return true;
+    return false;
+  }
+
+  if (linkTypes === 'media') {
+    if (ref.sourceType === 'markdown-image') return true;
+    if (ref.sourceType === 'jsx-attr' && MEDIA_ATTRS.has(String(ref.attr || '').toLowerCase())) return true;
+    return false;
+  }
+
+  return false;
+}
+
+function analyzeRef(ref, currentFileAbs, repoFiles, routeSet, args) {
   if (ref.sourceType === 'import-path') {
     const importPath = String(ref.rawPath || '').trim();
     const isPackageImport = importPath && !importPath.startsWith('/') && !importPath.startsWith('./') && !importPath.startsWith('../');
@@ -704,7 +811,6 @@ function analyzeRef(ref, currentFileAbs, repoFiles, routeSet) {
       };
     }
 
-    // style-guide documents intentionally broken sample imports; do not treat as runtime failures
     if (toPosix(currentFileAbs).endsWith('/style-guide.mdx')) {
       return {
         ...ref,
@@ -721,13 +827,45 @@ function analyzeRef(ref, currentFileAbs, repoFiles, routeSet) {
   const linkType = ref.sourceType === 'import-path' ? 'import-path' : classifyPath(normalizedRaw);
 
   if (linkType === 'external-http' || linkType === 'external-https') {
+    const normalizedExternalUrl = normalizeExternalUrl(ref.rawPath);
+    const eligible = args.externalPolicy === 'validate' && shouldValidateExternalRef(ref, args.externalLinkTypes);
+
+    if (!eligible) {
+      return {
+        ...ref,
+        linkType,
+        resolvedPath: null,
+        exists: null,
+        status: EXTERNAL_UNTESTED,
+        movedCandidates: [],
+        normalizedExternalUrl,
+        externalEligible: false
+      };
+    }
+
+    if (!normalizedExternalUrl) {
+      return {
+        ...ref,
+        linkType,
+        resolvedPath: null,
+        exists: null,
+        status: EXTERNAL_HARD_FAIL,
+        movedCandidates: [],
+        normalizedExternalUrl: '',
+        externalEligible: true,
+        externalError: 'invalid-url'
+      };
+    }
+
     return {
       ...ref,
       linkType,
-      resolvedPath: null,
+      resolvedPath: normalizedExternalUrl,
       exists: null,
-      status: EXTERNAL_UNTESTED,
-      movedCandidates: []
+      status: EXTERNAL_PENDING,
+      movedCandidates: [],
+      normalizedExternalUrl,
+      externalEligible: true
     };
   }
 
@@ -850,6 +988,9 @@ function discoverMdxImports(startTargets) {
       const resolved = resolveExistingPath(base);
       if (!resolved || !resolved.endsWith('.mdx')) continue;
 
+      const resolvedRel = relFromRoot(resolved);
+      if (resolvedRel.startsWith('v2/') && isExcludedV2ExperimentalPath(resolvedRel)) continue;
+
       mdxImports.push(resolved);
       if (!rootFor.has(resolved)) rootFor.set(resolved, new Set());
       const childRoots = rootFor.get(resolved);
@@ -879,7 +1020,7 @@ function domainFromPath(relPath, folderToDomain) {
   return folderToDomain.get(folder) || readableFromFolder(folder) || 'unknown';
 }
 
-function analyzeFiles({ allFiles, rootTargets, importGraph, importedByRoot, structure, folderToDomain, repoFiles, routeSet }) {
+function analyzeFiles({ allFiles, rootTargets, importGraph, importedByRoot, structure, folderToDomain, repoFiles, routeSet, args }) {
   const fileResults = new Map();
   const domainLinks = new Map();
   const pageToDomain = new Map();
@@ -887,6 +1028,7 @@ function analyzeFiles({ allFiles, rootTargets, importGraph, importedByRoot, stru
   for (const f of allFiles) {
     if (path.basename(f).toLowerCase() === 'index.mdx') continue;
     const rel = relFromRoot(f);
+    if (rel.startsWith('v2/') && isExcludedV2ExperimentalPath(rel)) continue;
     const isRootPage = isActiveV2DocRel(rel);
 
     let domains = new Set();
@@ -907,7 +1049,7 @@ function analyzeFiles({ allFiles, rootTargets, importGraph, importedByRoot, stru
 
     const content = loadFile(f);
     const refs = extractRefs(content);
-    const analyzed = refs.map((r) => analyzeRef(r, f, repoFiles, routeSet));
+    const analyzed = refs.map((r) => analyzeRef(r, f, repoFiles, routeSet, args));
 
     const result = {
       file: rel,
@@ -948,6 +1090,416 @@ function analyzeFiles({ allFiles, rootTargets, importGraph, importedByRoot, stru
   }
 
   return { fileResults, domainLinks, unindexedByDomain };
+}
+
+function normalizeExternalHost(url) {
+  try {
+    return new URL(url).host.toLowerCase();
+  } catch (_error) {
+    return '';
+  }
+}
+
+function classifyExternalStatus(statusCode) {
+  if (!Number.isFinite(statusCode)) return EXTERNAL_HARD_FAIL;
+  if (statusCode >= 200 && statusCode < 400) return EXTERNAL_OK;
+  if (statusCode === 401 || statusCode === 403 || statusCode === 429 || statusCode >= 500) return EXTERNAL_SOFT_FAIL;
+  if (statusCode >= 400) return EXTERNAL_HARD_FAIL;
+  return EXTERNAL_HARD_FAIL;
+}
+
+function isRetryableExternalError(error) {
+  if (!error) return false;
+  const code = String(error.code || '').toUpperCase();
+  if (code && ['ECONNRESET', 'ECONNREFUSED', 'EHOSTUNREACH', 'ENOTFOUND', 'ETIMEDOUT', 'UND_ERR_CONNECT_TIMEOUT', 'UND_ERR_HEADERS_TIMEOUT', 'UND_ERR_BODY_TIMEOUT'].includes(code)) {
+    return true;
+  }
+  const name = String(error.name || '').toLowerCase();
+  if (name === 'aborterror') return true;
+  const message = String(error.message || '').toLowerCase();
+  return message.includes('timed out') || message.includes('timeout') || message.includes('network');
+}
+
+function isRetryableExternalStatus(statusCode) {
+  return TRANSIENT_STATUSES.has(statusCode);
+}
+
+async function fetchWithTimeout(url, options, timeoutMs) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(url, {
+      ...options,
+      redirect: 'follow',
+      signal: controller.signal
+    });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+async function requestExternalUrlOnce(url, args) {
+  let headResponse = null;
+  let getResponse = null;
+
+  try {
+    headResponse = await fetchWithTimeout(url, {
+      method: 'HEAD',
+      headers: {
+        'user-agent': 'livepeer-docs-link-audit/1.0'
+      }
+    }, args.externalTimeoutMs);
+  } catch (error) {
+    return {
+      url,
+      finalUrl: '',
+      statusCode: null,
+      class: EXTERNAL_HARD_FAIL,
+      error: error.message || String(error),
+      method: 'HEAD',
+      retryable: isRetryableExternalError(error)
+    };
+  }
+
+  if (HEAD_FALLBACK_STATUSES.has(headResponse.status)) {
+    try {
+      getResponse = await fetchWithTimeout(url, {
+        method: 'GET',
+        headers: {
+          'user-agent': 'livepeer-docs-link-audit/1.0'
+        }
+      }, args.externalTimeoutMs);
+    } catch (error) {
+      return {
+        url,
+        finalUrl: headResponse.url || '',
+        statusCode: headResponse.status,
+        class: classifyExternalStatus(headResponse.status),
+        error: error.message || String(error),
+        method: 'GET',
+        retryable: isRetryableExternalError(error) || isRetryableExternalStatus(headResponse.status)
+      };
+    }
+  }
+
+  const response = getResponse || headResponse;
+  return {
+    url,
+    finalUrl: response.url || '',
+    statusCode: response.status,
+    class: classifyExternalStatus(response.status),
+    error: '',
+    method: getResponse ? 'GET' : 'HEAD',
+    retryable: isRetryableExternalStatus(response.status)
+  };
+}
+
+async function requestExternalUrlWithRetries(url, args) {
+  const maxAttempts = Math.max(1, Number(args.externalRetries || 0) + 1);
+  let last = null;
+
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    const current = await requestExternalUrlOnce(url, args);
+    last = current;
+    const shouldRetry = attempt < maxAttempts && current.retryable;
+    if (!shouldRetry) {
+      return {
+        ...current,
+        attempts: attempt
+      };
+    }
+  }
+
+  return {
+    ...(last || {
+      url,
+      finalUrl: '',
+      statusCode: null,
+      class: EXTERNAL_HARD_FAIL,
+      error: 'unknown-external-validation-error',
+      method: 'HEAD'
+    }),
+    attempts: maxAttempts
+  };
+}
+
+async function validateExternalUrls(urls, args) {
+  const sorted = [...new Set(urls.filter(Boolean))].sort((a, b) => a.localeCompare(b));
+  const queuesByHost = new Map();
+  const hostActive = new Map();
+  const hosts = [];
+
+  for (const url of sorted) {
+    const host = normalizeExternalHost(url) || '(invalid-host)';
+    if (!queuesByHost.has(host)) {
+      queuesByHost.set(host, []);
+      hostActive.set(host, 0);
+      hosts.push(host);
+    }
+    queuesByHost.get(host).push(url);
+  }
+
+  const results = new Map();
+  if (sorted.length === 0) return results;
+
+  let inFlight = 0;
+  let cursor = 0;
+
+  function allQueuesEmpty() {
+    for (const host of hosts) {
+      if ((queuesByHost.get(host) || []).length > 0) return false;
+    }
+    return true;
+  }
+
+  function nextTask() {
+    if (hosts.length === 0) return null;
+    for (let offset = 0; offset < hosts.length; offset += 1) {
+      const host = hosts[(cursor + offset) % hosts.length];
+      const active = hostActive.get(host) || 0;
+      if (active >= args.externalPerHostConcurrency) continue;
+      const queue = queuesByHost.get(host) || [];
+      if (queue.length === 0) continue;
+      cursor = (cursor + offset + 1) % hosts.length;
+      const url = queue.shift();
+      hostActive.set(host, active + 1);
+      return { host, url };
+    }
+    return null;
+  }
+
+  return new Promise((resolve) => {
+    function schedule() {
+      if (allQueuesEmpty() && inFlight === 0) {
+        resolve(results);
+        return;
+      }
+
+      while (inFlight < args.externalConcurrency) {
+        const task = nextTask();
+        if (!task) break;
+
+        inFlight += 1;
+        requestExternalUrlWithRetries(task.url, args)
+          .then((result) => {
+            results.set(task.url, result);
+          })
+          .catch((error) => {
+            results.set(task.url, {
+              url: task.url,
+              finalUrl: '',
+              statusCode: null,
+              class: EXTERNAL_HARD_FAIL,
+              error: error.message || String(error),
+              method: 'HEAD',
+              attempts: Math.max(1, Number(args.externalRetries || 0) + 1)
+            });
+          })
+          .finally(() => {
+            inFlight -= 1;
+            hostActive.set(task.host, Math.max(0, (hostActive.get(task.host) || 0) - 1));
+            schedule();
+          });
+      }
+
+      if (allQueuesEmpty() && inFlight === 0) {
+        resolve(results);
+      }
+    }
+
+    schedule();
+  });
+}
+
+function countByStatus(items, selector) {
+  const counts = {};
+  for (const item of items) {
+    const key = selector(item);
+    if (!key) continue;
+    counts[key] = (counts[key] || 0) + 1;
+  }
+  return counts;
+}
+
+async function applyExternalValidation(fileResults, args) {
+  const refsByUrl = new Map();
+  const invalidUrlRows = new Map();
+
+  let eligibleRefCount = 0;
+
+  for (const file of Array.from(fileResults.keys()).sort()) {
+    const result = fileResults.get(file);
+    for (const ref of result.refs) {
+      if (!(ref.linkType === 'external-http' || ref.linkType === 'external-https')) continue;
+      if (!ref.externalEligible) continue;
+      eligibleRefCount += 1;
+
+      if (!ref.normalizedExternalUrl) {
+        ref.status = EXTERNAL_HARD_FAIL;
+        ref.externalError = ref.externalError || 'invalid-url';
+        ref.resolvedPath = '';
+        const invalidUrlKey = trimRawPath(ref.rawPath) || '(invalid-url)';
+        if (!invalidUrlRows.has(invalidUrlKey)) {
+          invalidUrlRows.set(invalidUrlKey, {
+            url: invalidUrlKey,
+            finalUrl: '',
+            statusCode: null,
+            class: EXTERNAL_HARD_FAIL,
+            attempts: 0,
+            error: ref.externalError,
+            method: 'HEAD',
+            host: ''
+          });
+        }
+        continue;
+      }
+
+      if (!refsByUrl.has(ref.normalizedExternalUrl)) refsByUrl.set(ref.normalizedExternalUrl, []);
+      refsByUrl.get(ref.normalizedExternalUrl).push(ref);
+    }
+  }
+
+  const validatedMap = await validateExternalUrls(Array.from(refsByUrl.keys()), args);
+
+  for (const [url, refs] of refsByUrl.entries()) {
+    const row = validatedMap.get(url) || {
+      url,
+      finalUrl: '',
+      statusCode: null,
+      class: EXTERNAL_HARD_FAIL,
+      attempts: 0,
+      error: 'missing-validation-result',
+      method: 'HEAD'
+    };
+
+    for (const ref of refs) {
+      ref.status = row.class;
+      ref.resolvedPath = row.finalUrl || url;
+      ref.externalStatusCode = Number.isFinite(row.statusCode) ? row.statusCode : null;
+      ref.externalAttempts = row.attempts;
+      ref.externalError = row.error || '';
+    }
+  }
+
+  const urlRows = [];
+  for (const [url, row] of validatedMap.entries()) {
+    urlRows.push({
+      url,
+      finalUrl: row.finalUrl || '',
+      statusCode: Number.isFinite(row.statusCode) ? row.statusCode : null,
+      class: row.class,
+      attempts: row.attempts,
+      error: row.error || '',
+      method: row.method || '',
+      host: normalizeExternalHost(row.finalUrl || url)
+    });
+  }
+  urlRows.push(...Array.from(invalidUrlRows.values()).map((row) => ({
+    ...row,
+    host: row.host || normalizeExternalHost(row.url)
+  })));
+
+  urlRows.sort((a, b) => {
+    const hostCmp = String(a.host || '').localeCompare(String(b.host || ''));
+    if (hostCmp !== 0) return hostCmp;
+    return String(a.url || '').localeCompare(String(b.url || ''));
+  });
+
+  const refsByFile = [];
+  const refRows = [];
+  for (const file of Array.from(fileResults.keys()).sort()) {
+    const result = fileResults.get(file);
+    const externalRefs = result.refs
+      .filter((ref) => ref.linkType === 'external-http' || ref.linkType === 'external-https')
+      .map((ref) => ({
+        sourceType: ref.sourceType,
+        attr: ref.attr || '',
+        rawPath: ref.rawPath,
+        normalizedUrl: ref.normalizedExternalUrl || '',
+        status: ref.status,
+        statusCode: Number.isFinite(ref.externalStatusCode) ? ref.externalStatusCode : null,
+        attempts: Number.isFinite(ref.externalAttempts) ? ref.externalAttempts : null,
+        error: ref.externalError || ''
+      }));
+
+    if (externalRefs.length > 0) {
+      refsByFile.push({ file, refs: externalRefs });
+      refRows.push(...externalRefs);
+    }
+  }
+
+  const failingHosts = new Map();
+  for (const row of urlRows) {
+    if (row.class === EXTERNAL_OK) continue;
+    const host = row.host || '(unknown)';
+    const current = failingHosts.get(host) || { host, failures: 0 };
+    current.failures += 1;
+    failingHosts.set(host, current);
+  }
+
+  const topFailingHosts = Array.from(failingHosts.values())
+    .sort((a, b) => b.failures - a.failures || a.host.localeCompare(b.host))
+    .slice(0, 10);
+
+  const sampleFailures = urlRows
+    .filter((row) => row.class !== EXTERNAL_OK)
+    .slice(0, 20)
+    .map((row) => ({
+      url: row.url,
+      host: row.host,
+      statusCode: row.statusCode,
+      class: row.class,
+      error: row.error
+    }));
+
+  const uniqueHosts = new Set(urlRows.map((row) => row.host).filter(Boolean));
+
+  return {
+    policy: args.externalPolicy,
+    linkTypes: args.externalLinkTypes,
+    timeoutMs: args.externalTimeoutMs,
+    concurrency: args.externalConcurrency,
+    perHostConcurrency: args.externalPerHostConcurrency,
+    retries: args.externalRetries,
+    eligibleRefCount,
+    uniqueUrlCount: urlRows.length,
+    uniqueHostCount: uniqueHosts.size,
+    urlClassCounts: countByStatus(urlRows, (row) => row.class),
+    refClassCounts: countByStatus(refRows, (row) => row.status),
+    urlResults: urlRows,
+    refsByFile,
+    topFailingHosts,
+    sampleFailures
+  };
+}
+
+function buildClassifyExternalSummary(fileResults, args) {
+  const refs = [];
+  for (const result of fileResults.values()) {
+    for (const ref of result.refs) {
+      if (ref.linkType === 'external-http' || ref.linkType === 'external-https') {
+        refs.push(ref);
+      }
+    }
+  }
+
+  return {
+    policy: args.externalPolicy,
+    linkTypes: args.externalLinkTypes,
+    timeoutMs: args.externalTimeoutMs,
+    concurrency: args.externalConcurrency,
+    perHostConcurrency: args.externalPerHostConcurrency,
+    retries: args.externalRetries,
+    eligibleRefCount: 0,
+    uniqueUrlCount: 0,
+    uniqueHostCount: 0,
+    urlClassCounts: {},
+    refClassCounts: countByStatus(refs, (ref) => ref.status),
+    urlResults: [],
+    refsByFile: [],
+    topFailingHosts: [],
+    sampleFailures: []
+  };
 }
 
 function countSummary(fileResults) {
@@ -996,18 +1548,25 @@ function attachImportedToStructure(structure, fileResults) {
   }
 }
 
-function renderReport({ args, structure, fileResults, unindexedByDomain, summary }) {
+function renderReport({ args, structure, fileResults, unindexedByDomain, summary, externalValidation }) {
   const lines = [];
   lines.push('# LINK_TEST_REPORT');
   lines.push('');
-  lines.push('Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.');
+
+  if (args.externalPolicy === 'validate') {
+    lines.push('Operator note: external HTTP/HTTPS links are validated in advisory mode and classified as `external-ok`, `external-soft-fail`, or `external-hard-fail`.');
+  } else {
+    lines.push('Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.');
+  }
   lines.push('');
+
   lines.push('## Run Metadata');
   lines.push(`- Timestamp: ${new Date().toISOString()}`);
   lines.push(`- Mode: ${args.mode}`);
-  lines.push(`- Strict: ${args.strict ? 'true' : 'false'}`);
+  lines.push(`- Strict: ${args.strict ? 'true' : 'false'} (internal refs only)`);
   lines.push(`- Files analyzed: ${fileResults.size}`);
   lines.push(`- Total extracted references: ${summary.totalRefs}`);
+  lines.push(`- Report JSON: ${relFromRoot(args.reportJson)}`);
   lines.push('');
 
   lines.push('## Summary Counts');
@@ -1027,6 +1586,52 @@ function renderReport({ args, structure, fileResults, unindexedByDomain, summary
     lines.push(`| ${mdEscape(k)} | ${v} |`);
   }
   lines.push('');
+
+  lines.push('## External Validation');
+  lines.push('');
+  lines.push(`- Policy: ${externalValidation.policy}`);
+  lines.push(`- Link types: ${externalValidation.linkTypes}`);
+  lines.push(`- Timeout (ms): ${externalValidation.timeoutMs}`);
+  lines.push(`- Concurrency: ${externalValidation.concurrency}`);
+  lines.push(`- Per-host concurrency: ${externalValidation.perHostConcurrency}`);
+  lines.push(`- Retries: ${externalValidation.retries}`);
+  lines.push(`- Eligible refs: ${externalValidation.eligibleRefCount}`);
+  lines.push(`- Unique URLs: ${externalValidation.uniqueUrlCount}`);
+  lines.push(`- Unique hosts: ${externalValidation.uniqueHostCount}`);
+  lines.push('');
+
+  lines.push('### External URL Classes (Unique URLs)');
+  lines.push('| class | count |');
+  lines.push('|---|---:|');
+  const urlClassEntries = Object.entries(externalValidation.urlClassCounts || {}).sort((a, b) => a[0].localeCompare(b[0]));
+  if (!urlClassEntries.length) {
+    lines.push('| (none) | 0 |');
+  } else {
+    for (const [k, v] of urlClassEntries) {
+      lines.push(`| ${mdEscape(k)} | ${v} |`);
+    }
+  }
+  lines.push('');
+
+  if (externalValidation.topFailingHosts.length > 0) {
+    lines.push('### Top Failing Hosts');
+    lines.push('| host | failures |');
+    lines.push('|---|---:|');
+    externalValidation.topFailingHosts.forEach((item) => {
+      lines.push(`| ${mdEscape(item.host)} | ${item.failures} |`);
+    });
+    lines.push('');
+  }
+
+  if (externalValidation.sampleFailures.length > 0) {
+    lines.push('### Sample External Failures');
+    lines.push('| host | url | statusCode | class | error |');
+    lines.push('|---|---|---:|---|---|');
+    externalValidation.sampleFailures.forEach((item) => {
+      lines.push(`| ${mdEscape(item.host)} | ${mdEscape(item.url)} | ${item.statusCode == null ? '' : item.statusCode} | ${mdEscape(item.class)} | ${mdEscape(item.error || '')} |`);
+    });
+    lines.push('');
+  }
 
   lines.push('## Hierarchical Inventory');
   for (const top of structure.topLevels) {
@@ -1077,6 +1682,79 @@ function renderReport({ args, structure, fileResults, unindexedByDomain, summary
   return `${lines.join('\n')}\n`;
 }
 
+function buildJsonReport({ args, summary, fileResults, externalValidation }) {
+  const perFile = [];
+  for (const file of Array.from(fileResults.keys()).sort()) {
+    const result = fileResults.get(file);
+    perFile.push({
+      file: result.file,
+      isRootPage: result.isRootPage,
+      domains: [...result.domains].sort(),
+      importedMdx: [...result.importedMdx].sort(),
+      refs: result.refs.map((ref) => ({
+        sourceType: ref.sourceType,
+        attr: ref.attr || '',
+        linkType: ref.linkType,
+        rawPath: ref.rawPath,
+        resolvedPath: ref.resolvedPath || '',
+        exists: ref.exists,
+        status: ref.status,
+        movedCandidates: Array.isArray(ref.movedCandidates) ? ref.movedCandidates : []
+      }))
+    });
+  }
+
+  return {
+    generatedAt: new Date().toISOString(),
+    args: {
+      mode: args.mode,
+      strict: args.strict,
+      report: relFromRoot(args.report),
+      reportJson: relFromRoot(args.reportJson),
+      writeLinks: args.writeLinks,
+      externalPolicy: args.externalPolicy,
+      externalLinkTypes: args.externalLinkTypes,
+      externalTimeoutMs: args.externalTimeoutMs,
+      externalConcurrency: args.externalConcurrency,
+      externalPerHostConcurrency: args.externalPerHostConcurrency,
+      externalRetries: args.externalRetries,
+      files: [...args.files].sort()
+    },
+    aggregate: {
+      filesAnalyzed: fileResults.size,
+      totalRefs: summary.totalRefs,
+      internalMissingRefs: summary.missingCount,
+      linkTypeCounts: Object.fromEntries(Object.entries(summary.linkTypeCounts).sort((a, b) => a[0].localeCompare(b[0]))),
+      statusCounts: Object.fromEntries(Object.entries(summary.statusCounts).sort((a, b) => a[0].localeCompare(b[0]))),
+      external: {
+        policy: externalValidation.policy,
+        linkTypes: externalValidation.linkTypes,
+        timeoutMs: externalValidation.timeoutMs,
+        concurrency: externalValidation.concurrency,
+        perHostConcurrency: externalValidation.perHostConcurrency,
+        retries: externalValidation.retries,
+        eligibleRefCount: externalValidation.eligibleRefCount,
+        uniqueUrlCount: externalValidation.uniqueUrlCount,
+        uniqueHostCount: externalValidation.uniqueHostCount,
+        urlClassCounts: Object.fromEntries(Object.entries(externalValidation.urlClassCounts || {}).sort((a, b) => a[0].localeCompare(b[0]))),
+        refClassCounts: Object.fromEntries(Object.entries(externalValidation.refClassCounts || {}).sort((a, b) => a[0].localeCompare(b[0])))
+      }
+    },
+    external: {
+      urlResults: externalValidation.urlResults.map((row) => ({
+        url: row.url,
+        finalUrl: row.finalUrl,
+        statusCode: row.statusCode,
+        class: row.class,
+        attempts: row.attempts,
+        error: row.error
+      })),
+      refsByFile: externalValidation.refsByFile
+    },
+    files: perFile
+  };
+}
+
 function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
 }
@@ -1094,8 +1772,8 @@ function writeDomainLinks(domainLinks) {
   return outPaths;
 }
 
-function main() {
-  const args = parseArgs(process.argv.slice(2));
+async function runAudit(options = {}) {
+  const args = options.parsedArgs || parseArgs(options.argv || process.argv.slice(2));
 
   if (!fs.existsSync(INDEX_PATH)) {
     throw new Error(`Missing required index file: ${relFromRoot(INDEX_PATH)}`);
@@ -1108,7 +1786,20 @@ function main() {
   const rootTargets = getInitialTargets(args.mode, args.files);
   if (!rootTargets.length) {
     console.log('No target MDX files found for selected mode.');
-    return;
+    return {
+      exitCode: 0,
+      args,
+      summary: {
+        totalRefs: 0,
+        linkTypeCounts: {},
+        statusCounts: {},
+        missingCount: 0
+      },
+      externalValidation: buildClassifyExternalSummary(new Map(), args),
+      reportPath: args.report,
+      reportJsonPath: args.reportJson,
+      fileCount: 0
+    };
   }
 
   const { allMdxFiles, importGraph, importedByRoot } = discoverMdxImports(rootTargets);
@@ -1123,16 +1814,25 @@ function main() {
     structure,
     folderToDomain,
     repoFiles,
-    routeSet
+    routeSet,
+    args
   });
 
   attachImportedToStructure(structure, fileResults);
 
+  const externalValidation = args.externalPolicy === 'validate'
+    ? await applyExternalValidation(fileResults, args)
+    : buildClassifyExternalSummary(fileResults, args);
+
   const summary = countSummary(fileResults);
-  const report = renderReport({ args, structure, fileResults, unindexedByDomain, summary });
+  const report = renderReport({ args, structure, fileResults, unindexedByDomain, summary, externalValidation });
+  const jsonReport = buildJsonReport({ args, summary, fileResults, externalValidation });
 
   ensureDir(path.dirname(args.report));
   fs.writeFileSync(args.report, report, 'utf8');
+
+  ensureDir(path.dirname(args.reportJson));
+  fs.writeFileSync(args.reportJson, `${JSON.stringify(jsonReport, null, 2)}\n`, 'utf8');
 
   let writtenLinks = [];
   if (args.writeLinks) {
@@ -1140,6 +1840,7 @@ function main() {
   }
 
   console.log(`📝 Report written: ${relFromRoot(args.report)}`);
+  console.log(`🧾 JSON report written: ${relFromRoot(args.reportJson)}`);
   if (writtenLinks.length) {
     console.log(`🔗 Domain link maps written: ${writtenLinks.length}`);
   } else {
@@ -1148,15 +1849,47 @@ function main() {
   console.log(`📄 Files analyzed: ${fileResults.size}`);
   console.log(`🔍 Total refs: ${summary.totalRefs}`);
   console.log(`❌ Missing refs: ${summary.missingCount}`);
-
-  if (args.strict && summary.missingCount > 0) {
-    process.exit(1);
+  if (args.externalPolicy === 'validate') {
+    console.log(`🌐 External eligible refs: ${externalValidation.eligibleRefCount}`);
+    console.log(`🌐 External unique URLs: ${externalValidation.uniqueUrlCount}`);
+    console.log(`🌐 External URL classes: ${JSON.stringify(externalValidation.urlClassCounts)}`);
   }
+
+  const exitCode = args.strict && summary.missingCount > 0 ? 1 : 0;
+
+  return {
+    exitCode,
+    args,
+    summary,
+    externalValidation,
+    reportPath: args.report,
+    reportJsonPath: args.reportJson,
+    fileCount: fileResults.size,
+    writtenLinks
+  };
 }
 
-try {
-  main();
-} catch (error) {
-  console.error(`v2-link-audit failed: ${error.message}`);
-  process.exit(1);
+if (require.main === module) {
+  runAudit({ argv: process.argv.slice(2) })
+    .then((out) => process.exit(out.exitCode || 0))
+    .catch((error) => {
+      console.error(`v2-link-audit failed: ${error.message}`);
+      process.exit(1);
+    });
 }
+
+module.exports = {
+  DEFAULT_REPORT,
+  DEFAULT_REPORT_JSON,
+  EXTERNAL_UNTESTED,
+  EXTERNAL_OK,
+  EXTERNAL_SOFT_FAIL,
+  EXTERNAL_HARD_FAIL,
+  parseArgs,
+  normalizeExternalUrl,
+  shouldValidateExternalRef,
+  classifyExternalStatus,
+  requestExternalUrlWithRetries,
+  validateExternalUrls,
+  runAudit
+};

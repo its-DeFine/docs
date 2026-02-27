@@ -41,7 +41,11 @@ Domain load audit against deployed docs URLs.
 
 - `node tests/integration/v2-link-audit.js`
 Comprehensive static link/import audit for all `v2/pages` MDX files and recursively imported MDX dependencies.
-Generates `tasks/reports/navigation-links/LINK_TEST_REPORT.md` and domain link maps at `snippets/data/<domain>/hrefs.jsx` in full mode.
+Excludes any `x-*` path segments under `v2/`.
+Generates:
+  - `tasks/reports/navigation-links/LINK_TEST_REPORT.md`
+  - `tasks/reports/navigation-links/LINK_TEST_REPORT.json`
+  - Domain link maps at `snippets/data/<domain>/hrefs.jsx` in full mode when write-links is enabled.
 
 - `node tests/integration/v2-wcag-audit.js`
 Hybrid v2 accessibility audit for filesystem docs pages under `v2/` (excluding any `x-*` directories).
@@ -58,10 +62,19 @@ Flags:
 - Link audit flags:
   - `--full` (default)
   - `--staged`
+  - `--files <path[,path...]>` (repeatable)
   - `--report <path>` (default: `tasks/reports/navigation-links/LINK_TEST_REPORT.md`)
+  - `--report-json <path>` (default: `tasks/reports/navigation-links/LINK_TEST_REPORT.json`)
   - `--write-links` (default: true in full mode, false in staged/files mode)
+  - `--no-write-links`
   - `--strict` (exit non-zero on missing internal links/imports)
-  - `--external-policy classify` (external URLs are classified-only, marked `🟡 untested-external`)
+  - `--external-policy classify|validate` (default: `classify`)
+  - `--external-link-types navigational|media|all` (default: `navigational`)
+  - `--external-timeout-ms <int>` (default: `10000`)
+  - `--external-concurrency <int>` (default: `12`)
+  - `--external-per-host-concurrency <int>` (default: `2`)
+  - `--external-retries <int>` (default: `1`)
+  - Advisory behavior note: external validation does not affect strict internal-link failures.
 - WCAG audit flags:
   - `--full` (default)
   - `--staged`
@@ -80,6 +93,7 @@ Report output (same file each run, overwritten):
 
 WCAG coverage note:
 - Automated WCAG checks are partial coverage and do not replace manual accessibility review (keyboard UX, screen-reader flows, content meaning, and task-based testing).
+- `color-contrast` findings are advisory-only (non-blocking) in the WCAG audit until color updates are approved.
 
 ## Running Tests
 
@@ -99,6 +113,7 @@ node tests/integration/domain-pages-audit.js --base-url https://docs.livepeer.or
 node tests/integration/v2-link-audit.js --full --write-links
 node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-staged.md
 node tests/integration/v2-link-audit.js --files v2/community/livepeer-community/trending-topics.mdx --strict
+node tests/integration/v2-link-audit.js --full --external-policy validate --external-link-types navigational --no-write-links --report /tmp/v2-link-audit-external.md --report-json /tmp/v2-link-audit-external.json
 node tests/integration/v2-wcag-audit.js --full
 node tests/integration/v2-wcag-audit.js --full --no-fix
 node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json
@@ -125,6 +140,9 @@ npm --prefix tests run test:pages-index:rebuild
 npm --prefix tests run test:browser
 npm --prefix tests run test:link-audit
 npm --prefix tests run test:link-audit:staged
+npm --prefix tests run test:link-audit:external
+npm --prefix tests run test:link-audit:unit
+npm --prefix tests run test:link-audit:selftest
 npm --prefix tests run test:domain
 npm --prefix tests run test:domain:v1
 npm --prefix tests run test:domain:v2
@@ -145,6 +163,7 @@ npm --prefix tests run test:wcag:selftest
 - The same workflow also runs full browser tests from `docs.json`.
 - `.github/workflows/test-v2-pages.yml` is responsible for PR comments and artifact uploads for V2 browser sweep results.
 - `.github/workflows/broken-links.yml` is currently advisory (non-blocking) while legacy link cleanup is in progress.
+- `.github/workflows/v2-external-link-audit.yml` runs nightly advisory external-link validation for full `v2` scope (excluding `x-*` paths).
 - Full matrix: `tests/PR-CI-TESTS-AND-SCRIPT-RUN-MATRIX.md`
 
 ## Pre-commit Interaction
@@ -220,6 +239,8 @@ node tools/scripts/new-script.js --path tasks/scripts/my-script.sh --owner docs 
 |---|---|---|
 | `tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. | `node tests/integration/domain-pages-audit.js --version both` |
 | `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. | `node tests/run-pr-checks.js --base-ref main` |
-| `tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit with report and domain link map outputs. | `node tests/integration/v2-link-audit.js --full --write-links --strict` |
+| `tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit with internal strict checks and optional external URL validation. | `node tests/integration/v2-link-audit.js --full --write-links --strict` |
+| `tests/unit/v2-link-audit.test.js` | Unit tests for v2 link audit args, external validation helpers, and x-* scope exclusion behavior. | `node tests/unit/v2-link-audit.test.js` |
+| `tests/integration/v2-link-audit.selftest.js` | Script-level self-tests for v2 link audit external validation using a local HTTP fixture and temporary MDX file. | `node tests/integration/v2-link-audit.selftest.js` |
 | `tests/unit/script-docs.test.js` | Enforce script header schema, keep group script indexes in sync, and build aggregate script index. | `node tests/unit/script-docs.test.js --staged --write --stage --autofill` |
 {/* SCRIPT-INDEX:END */}

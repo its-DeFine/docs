@@ -57,10 +57,11 @@ if (process.cwd() !== REPO_ROOT) {
 const DEFAULT_REPORT_MD = path.join(REPO_ROOT, 'tasks', 'reports', 'quality-accessibility', 'v2-wcag-audit-report.md');
 const DEFAULT_REPORT_JSON = path.join(REPO_ROOT, 'tasks', 'reports', 'quality-accessibility', 'v2-wcag-audit-report.json');
 const DEFAULT_TIMEOUT_MS = 30000;
-const DEFAULT_WAIT_AFTER_NAV_MS = 1200;
+const DEFAULT_WAIT_AFTER_NAV_MS = 2000;
 const WCAG_PROFILE = 'WCAG 2.2 AA';
 const WCAG_TAGS = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22a', 'wcag22aa'];
 const BEST_PRACTICE_TAGS = ['best-practice'];
+const ADVISORY_ONLY_RULES = new Set(['color-contrast']);
 const IMPACT_ORDER = ['minor', 'moderate', 'serious', 'critical'];
 const IMPACT_RANK = {
   none: -1,
@@ -592,7 +593,12 @@ function normalizeAxeNode(node) {
 }
 
 function normalizeAxeViolation(violation, context = {}) {
-  const impact = normalizeImpact(violation?.impact);
+  const id = String(violation?.id || '');
+  let impact = normalizeImpact(violation?.impact);
+  const advisoryOnly = ADVISORY_ONLY_RULES.has(id);
+  if (advisoryOnly) {
+    impact = 'none';
+  }
   const tags = Array.isArray(violation?.tags) ? violation.tags.slice().sort() : [];
   return {
     source: 'axe',
@@ -600,14 +606,15 @@ function normalizeAxeViolation(violation, context = {}) {
     routeKey: context.routeKey || '',
     url: context.url || '',
     type: context.type || 'wcag',
-    id: String(violation?.id || ''),
+    id,
     impact,
+    advisory: advisoryOnly,
     help: String(violation?.help || ''),
     helpUrl: String(violation?.helpUrl || ''),
     tags,
     nodeCount: Array.isArray(violation?.nodes) ? violation.nodes.length : 0,
     nodes: Array.isArray(violation?.nodes) ? violation.nodes.map(normalizeAxeNode) : [],
-    suggestion: suggestFixForRule(String(violation?.id || ''))
+    suggestion: suggestFixForRule(id)
   };
 }
 
@@ -751,6 +758,11 @@ async function runAxeOnUrl(browser, url, options = {}) {
     const response = await page.goto(url, { waitUntil: 'networkidle2', timeout: timeoutMs });
     if (waitAfterNavMs > 0) {
       await new Promise((resolve) => setTimeout(resolve, waitAfterNavMs));
+    }
+    try {
+      await page.waitForFunction(() => document.title && document.title.trim().length > 0, { timeout: 2000 });
+    } catch (_error) {
+      // ignore title wait timeout
     }
     await page.addScriptTag({ content: axeSource });
 
@@ -967,6 +979,7 @@ function buildJsonReport({
       mode: args.mode,
       wcagProfile: WCAG_PROFILE,
       failImpact: args.failImpact,
+      advisoryOnlyRules: Array.from(ADVISORY_ONLY_RULES),
       baseUrl: baseUrl || '',
       fixEnabled: args.fix,
       maxPages: args.maxPages,
@@ -1098,6 +1111,9 @@ function buildMarkdownReport(report) {
   lines.push('## Notes');
   lines.push('');
   lines.push('- Automated WCAG checks are partial coverage and do not replace manual accessibility review (keyboard, screen-reader UX, content meaning, and task flows).');
+  if ((md.advisoryOnlyRules || []).length) {
+    lines.push(`- Advisory-only WCAG rules (non-blocking): ${md.advisoryOnlyRules.join(', ')}.`);
+  }
   lines.push('- Best-practice findings are reported separately as advisory and are not blocking by default.');
   lines.push('- Default autofix only applies conservative raw-tag attribute insertions (iframe title, img alt, empty/icon-only anchor aria-label).');
   lines.push('');

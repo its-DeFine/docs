@@ -1,7 +1,24 @@
 {
-  "generatedAt": "2026-02-27T08:07:22.296Z",
-  "totalEntries": 1149,
+  "generatedAt": "2026-02-27T17:28:20.564Z",
+  "totalEntries": 1147,
   "syntaxErrors": [],
-  "missingRoutes": [],
+  "missingRoutes": [
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/internal/personas",
+      "normalized": "v2/internal/personas",
+      "pointer": "navigation.versions[1].languages[0].tabs[10].anchors[0].groups[0].pages[3]",
+      "suggestions": []
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "v2/internal/governance",
+      "normalized": "v2/internal/governance",
+      "pointer": "navigation.versions[1].languages[0].tabs[10].anchors[0].groups[0].pages[4]",
+      "suggestions": []
+    }
+  ],
   "missingWithSuggestions": 0
 }

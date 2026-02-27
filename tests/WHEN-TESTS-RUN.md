@@ -90,6 +90,26 @@
 
 **Policy:** Advisory only while legacy cleanup is in progress (non-blocking)
 
+### D) V2 External Link Audit (Advisory Nightly)
+
+**Location:** `.github/workflows/v2-external-link-audit.yml`
+
+**When:**
+- Nightly on schedule
+- Manual trigger (`workflow_dispatch`)
+
+**What Runs:**
+- Full V2 link audit with external HTTP/HTTPS validation:
+  `node tests/integration/v2-link-audit.js --full --external-policy validate --external-link-types navigational --no-write-links --report /tmp/v2-link-audit-external.md --report-json /tmp/v2-link-audit-external.json`
+
+**Output:**
+- Workflow artifacts:
+  - `/tmp/v2-link-audit-external.md`
+  - `/tmp/v2-link-audit-external.json`
+- GitHub Step Summary counts (files, refs, external class breakdown)
+
+**Policy:** Advisory only (non-blocking)
+
 ---
 
 ## 3. Manual Execution (On-Demand)
@@ -119,6 +139,7 @@ node tests/run-pr-checks.js --base-ref main
 
 # Strict link audit on explicit files
 node tests/integration/v2-link-audit.js --files v2/community/livepeer-community/trending-topics.mdx --strict
+node tests/integration/v2-link-audit.js --full --external-policy validate --external-link-types navigational --no-write-links --report /tmp/v2-link-audit-external.md --report-json /tmp/v2-link-audit-external.json
 ```
 
 ---

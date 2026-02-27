@@ -14,6 +14,9 @@ import { Subtitle, CopyText, CardTitleTextWithArrow, AccordionTitleWithArrow } f
 import { FlexContainer, GridContainer, Spacer } from '/snippets/components/primitives/layout.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/primitives/tables.jsx'
 import { BorderedBox, CenteredContainer, FullWidthContainer } from '/snippets/components/primitives/containers.jsx'
+import { FocusableScrollRegions } from '/snippets/components/primitives/a11y.jsx'
+
+<FocusableScrollRegions />
 
 <Card title="Back to Component Library" icon="arrow-left" href="../component-library" arrow>
   Return to the main component library index
@@ -586,7 +589,7 @@ import { CardTitleTextWithArrow } from "/snippets/components/primitives/text.jsx
 
 ### AccordionTitleWithArrow
 
-Accordion title component with arrow icon and optional link.
+Accordion title component with arrow icon. Use links inside the accordion content, not the title, to avoid nested interactive elements.
 
 **Import:**
 ```jsx
@@ -597,19 +600,19 @@ import { AccordionTitleWithArrow } from "/snippets/components/primitives/text.js
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
-| `text` | `string` | - | **Yes** | Title text |
-| `href` | `string` | - | **Yes** | Link URL |
+| `text` | `string` | - | No | Title text (optional if `children` provided) |
+| `children` | `ReactNode` | - | No | Alternative to `text` |
 | `color` | `string` | `"var(--text)"` | No | Text color |
 
 **Examples:**
 
 <Tabs>
   <Tab title="Example">
-    <AccordionTitleWithArrow text="Learn More" href="/v2/home/mission-control" />
+    <AccordionTitleWithArrow text="Learn More" />
   </Tab>
   <Tab title="Code">
 ```jsx
-<AccordionTitleWithArrow text="Learn More" href="/v2/home/mission-control" />
+<AccordionTitleWithArrow text="Learn More" />
 ```
   </Tab>
 </Tabs>

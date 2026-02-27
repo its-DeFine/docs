@@ -1,9 +1,9 @@
 # Docs Navigation Route Report
 
-- Generated at (UTC): 2026-02-27T08:07:22.296Z
-- Entries scanned: 1149
+- Generated at (UTC): 2026-02-27T17:28:20.564Z
+- Entries scanned: 1147
 - Syntax errors: 0
-- Missing routes: 0
+- Missing routes: 2
 - Missing routes with suggestions: 0
 
 ## Syntax Errors
@@ -12,4 +12,10 @@
 
 ## Missing Routes
 
-- None
+- `v2/internal/personas` (normalized: `v2/internal/personas`)
+  - Pointer: `navigation.versions[1].languages[0].tabs[10].anchors[0].groups[0].pages[3]`
+  - Suggested remaps: none
+
+- `v2/internal/governance` (normalized: `v2/internal/governance`)
+  - Pointer: `navigation.versions[1].languages[0].tabs[10].anchors[0].groups[0].pages[4]`
+  - Suggested remaps: none

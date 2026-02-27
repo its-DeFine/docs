@@ -824,6 +824,8 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
               target="_blank"
               key={`${key}-${index}`}
               style={linkIconStyle}
+              aria-label={`Open ${key} link`}
+              rel="noreferrer noopener"
             >
               <Tooltip tip={value}>
                 <Icon
@@ -874,6 +876,9 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
             height: "150px",
             overflowY: "auto",
           }}
+          role="region"
+          tabIndex={0}
+          aria-label={title ? `Scrollable description for ${title}` : "Scrollable description"}
         >
           {description}
           {renderLinkIcons}
@@ -940,11 +945,13 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           style={inputStyle}
+          aria-label="Search projects"
         />
         <select
           value={categoryFilter}
           onChange={(e) => setCategoryFilter(e.target.value)}
           style={selectStyle}
+          aria-label="Filter by category"
         >
           {allCategories.map((cat) => (
             <option key={cat} value={cat}>
@@ -956,6 +963,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
           value={productFilter}
           onChange={(e) => setProductFilter(e.target.value)}
           style={selectStyle}
+          aria-label="Filter by product"
         >
           {allProducts.map((prod) => (
             <option key={prod} value={prod}>

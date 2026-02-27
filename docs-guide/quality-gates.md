@@ -25,6 +25,7 @@ Blocking policy:
 
 - blocking for structural/style/test failures
 - blocking for staged WCAG runtime failures and remaining `serious`/`critical` accessibility findings after conservative autofix
+- `color-contrast` findings are advisory-only (non-blocking) in the WCAG audit until color updates are approved
 - docs-guide SoT check currently advisory
 
 ### 2) PR Changed-File Checks

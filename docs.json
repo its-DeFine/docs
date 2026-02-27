@@ -3039,7 +3039,7 @@
                       {
                         "group": "Home",
                         "icon": "house",
-                        "pages": ["v2/resources/resources-portal"]
+                        "pages": ["v2/resources/redirect", "v2/resources/resources-portal"]
                       },
                       {
                         "group": "Documentation Guide",
