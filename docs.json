@@ -3530,14 +3530,14 @@
                           {
                             "group": "Livestream",
                             "pages": [
-                              "v2/platforms/livepeer-studio/livestream/overview",
-                              "v2/platforms/livepeer-studio/livestream/create-livestream",
-                              "v2/platforms/livepeer-studio/livestream/playback-livestream",
-                              "v2/platforms/livepeer-studio/livestream/stream-via-obs",
-                              "v2/platforms/livepeer-studio/livestream/livestream-from-browser",
-                              "v2/platforms/livepeer-studio/livestream/multistream",
-                              "v2/platforms/livepeer-studio/livestream/clip-livestream",
-                              "v2/platforms/livepeer-studio/livestream/stream-health",
+                              "v2/es/platforms/livepeer-studio/livestream/overview",
+                              "v2/es/platforms/livepeer-studio/livestream/create-livestream",
+                              "v2/es/platforms/livepeer-studio/livestream/playback-livestream",
+                              "v2/es/platforms/livepeer-studio/livestream/stream-via-obs",
+                              "v2/es/platforms/livepeer-studio/livestream/livestream-from-browser",
+                              "v2/es/platforms/livepeer-studio/livestream/multistream",
+                              "v2/es/platforms/livepeer-studio/livestream/clip-livestream",
+                              "v2/es/platforms/livepeer-studio/livestream/stream-health",
                               "v2/platforms/livepeer-studio/livestream/optimize-latency"
                             ]
                           },
@@ -4804,15 +4804,15 @@
                           {
                             "group": "Livestream",
                             "pages": [
-                              "v2/platforms/livepeer-studio/livestream/overview",
-                              "v2/platforms/livepeer-studio/livestream/create-livestream",
-                              "v2/platforms/livepeer-studio/livestream/playback-livestream",
-                              "v2/platforms/livepeer-studio/livestream/stream-via-obs",
-                              "v2/platforms/livepeer-studio/livestream/livestream-from-browser",
-                              "v2/platforms/livepeer-studio/livestream/multistream",
-                              "v2/platforms/livepeer-studio/livestream/clip-livestream",
-                              "v2/platforms/livepeer-studio/livestream/stream-health",
-                              "v2/platforms/livepeer-studio/livestream/optimize-latency"
+                              "v2/fr/platforms/livepeer-studio/livestream/overview",
+                              "v2/fr/platforms/livepeer-studio/livestream/create-livestream",
+                              "v2/fr/platforms/livepeer-studio/livestream/playback-livestream",
+                              "v2/fr/platforms/livepeer-studio/livestream/stream-via-obs",
+                              "v2/fr/platforms/livepeer-studio/livestream/livestream-from-browser",
+                              "v2/fr/platforms/livepeer-studio/livestream/multistream",
+                              "v2/fr/platforms/livepeer-studio/livestream/clip-livestream",
+                              "v2/fr/platforms/livepeer-studio/livestream/stream-health",
+                              "v2/fr/platforms/livepeer-studio/livestream/optimize-latency"
                             ]
                           },
                           {
@@ -6078,15 +6078,15 @@
                           {
                             "group": "Livestream",
                             "pages": [
-                              "v2/platforms/livepeer-studio/livestream/overview",
-                              "v2/platforms/livepeer-studio/livestream/create-livestream",
-                              "v2/platforms/livepeer-studio/livestream/playback-livestream",
-                              "v2/platforms/livepeer-studio/livestream/stream-via-obs",
-                              "v2/platforms/livepeer-studio/livestream/livestream-from-browser",
-                              "v2/platforms/livepeer-studio/livestream/multistream",
+                              "v2/cn/platforms/livepeer-studio/livestream/overview",
+                              "v2/cn/platforms/livepeer-studio/livestream/create-livestream",
+                              "v2/cn/platforms/livepeer-studio/livestream/playback-livestream",
+                              "v2/cn/platforms/livepeer-studio/livestream/stream-via-obs",
+                              "v2/cn/platforms/livepeer-studio/livestream/livestream-from-browser",
+                              "v2/cn/platforms/livepeer-studio/livestream/multistream",
                               "v2/platforms/livepeer-studio/livestream/clip-livestream",
-                              "v2/platforms/livepeer-studio/livestream/stream-health",
-                              "v2/platforms/livepeer-studio/livestream/optimize-latency"
+                              "v2/cn/platforms/livepeer-studio/livestream/stream-health",
+                              "v2/cn/platforms/livepeer-studio/livestream/optimize-latency"
                             ]
                           },
                           {
