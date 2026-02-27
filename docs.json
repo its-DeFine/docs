@@ -5134,7 +5134,7 @@
                         "group": "Démarrage rapide ⚡",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
                         "pages": [
-                          "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                          "v2/fr/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
                           "v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
                         ]
                       },
@@ -5163,7 +5163,7 @@
                             "group": "Démarrage rapide",
                             "icon": "fast-forward",
                             "pages": [
-                              "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                              "v2/fr/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
                               "v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
                             ]
                           },
@@ -5177,7 +5177,7 @@
                                 "group": "Checklist de configuration",
                                 "pages": [
                                   "v2/gateways/run-a-gateway/requirements/setup",
-                                  "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
+                                  "v2/fr/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
                                   "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway"
                                 ]
                               },
@@ -5204,9 +5204,9 @@
                               {
                                 "group": "Tests",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
-                                  "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
-                                  "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway"
+                                  "v2/fr/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                                  "v2/fr/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                                  "v2/fr/gateways/run-a-gateway/quickstart/quickstart-a-gateway"
                                 ]
                               },
                               {
@@ -6387,7 +6387,7 @@
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
                         "pages": [
                           "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
-                          "v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
+                          "v2/cn/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
                         ]
                       },
                       {
@@ -6416,7 +6416,7 @@
                             "icon": "fast-forward",
                             "pages": [
                               "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
-                              "v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
+                              "v2/cn/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
                             ]
                           },
                           {
@@ -6429,7 +6429,7 @@
                                 "group": "设置清单",
                                 "pages": [
                                   "v2/gateways/run-a-gateway/requirements/setup",
-                                  "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
+                                  "v2/cn/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
                                   "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway"
                                 ]
                               },
