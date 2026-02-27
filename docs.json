@@ -3682,17 +3682,17 @@
                               {
                                 "group": "Rooms",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/create",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/get",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/update",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/delete",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/create-user",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/get-user",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/update-user",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/remove-user",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/start-egress",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/stop-egress"
+                                  "v2/es/platforms/livepeer-studio/api-reference/rooms/overview",
+                                  "v2/es/platforms/livepeer-studio/api-reference/rooms/create",
+                                  "v2/es/platforms/livepeer-studio/api-reference/rooms/get",
+                                  "v2/es/platforms/livepeer-studio/api-reference/rooms/update",
+                                  "v2/es/platforms/livepeer-studio/api-reference/rooms/delete",
+                                  "v2/es/platforms/livepeer-studio/api-reference/rooms/create-user",
+                                  "v2/es/platforms/livepeer-studio/api-reference/rooms/get-user",
+                                  "v2/es/platforms/livepeer-studio/api-reference/rooms/update-user",
+                                  "v2/es/platforms/livepeer-studio/api-reference/rooms/remove-user",
+                                  "v2/es/platforms/livepeer-studio/api-reference/rooms/start-egress",
+                                  "v2/es/platforms/livepeer-studio/api-reference/rooms/stop-egress"
                                 ]
                               },
                               {
@@ -4956,17 +4956,17 @@
                               {
                                 "group": "Rooms",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/create",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/get",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/update",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/delete",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/create-user",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/get-user",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/update-user",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/remove-user",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/start-egress",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/stop-egress"
+                                  "v2/fr/platforms/livepeer-studio/api-reference/rooms/overview",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/rooms/create",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/rooms/get",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/rooms/update",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/rooms/delete",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/rooms/create-user",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/rooms/get-user",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/rooms/update-user",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/rooms/remove-user",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/rooms/start-egress",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/rooms/stop-egress"
                                 ]
                               },
                               {
@@ -6230,17 +6230,17 @@
                               {
                                 "group": "Rooms",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/create",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/get",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/update",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/delete",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/create-user",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/get-user",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/update-user",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/remove-user",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/start-egress",
-                                  "v2/platforms/livepeer-studio/api-reference/rooms/stop-egress"
+                                  "v2/cn/platforms/livepeer-studio/api-reference/rooms/overview",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/rooms/create",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/rooms/get",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/rooms/update",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/rooms/delete",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/rooms/create-user",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/rooms/get-user",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/rooms/update-user",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/rooms/remove-user",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/rooms/start-egress",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/rooms/stop-egress"
                                 ]
                               },
                               {
