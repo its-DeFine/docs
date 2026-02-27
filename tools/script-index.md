@@ -62,6 +62,7 @@
 | `tools/scripts/test/test-youtube-pages.js` | Utility script for tools/scripts/test/test-youtube-pages.js. | `node tools/scripts/test/test-youtube-pages.js` | docs |
 | `tools/scripts/test/verify-all-pages.js` | Utility script for tools/scripts/verify-all-pages.js. | `node tools/scripts/verify-all-pages.js` | docs |
 | `tools/scripts/test/verify-pages.js` | Utility script for tools/scripts/verify-pages.js. | `node tools/scripts/verify-pages.js` | docs |
+| `tools/scripts/transcribe-audio-to-mdx.js` | Download audio from URL, chunk with ffmpeg, transcribe via OpenRouter, and write an MDX transcript page. | `OPENROUTER_API_KEY=... node tools/scripts/transcribe-audio-to-mdx.js --audio-url "<url>" --title "<episode title>" --show "<show name>" --published-at YYYY-MM-DD` | docs |
 | `tools/scripts/verify-all-pages.js` | Utility script for tools/scripts/verify-all-pages.js. | `node tools/scripts/verify-all-pages.js` | docs |
 | `tools/scripts/verify-pages.js` | Utility script for tools/scripts/verify-pages.js. | `node tools/scripts/verify-pages.js` | docs |
 | `tools/scripts/verify/.verify-large-change.sh` | Reserved verifier hook placeholder for large-change checks. | `bash tools/scripts/verify/.verify-large-change.sh` | docs |

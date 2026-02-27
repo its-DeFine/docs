@@ -8,7 +8,7 @@
 | `tests/integration/browser.test.js` | Utility script for tests/integration/browser.test.js. | `node tests/integration/browser.test.js` | docs |
 | `tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. | `node tests/integration/domain-pages-audit.js --version both` | docs |
 | `tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit with report and domain link map outputs. | `node tests/integration/v2-link-audit.js --full --write-links --strict` | docs |
-| `tests/integration/v2-wcag-audit.js` | Audit v2 docs accessibility (WCAG 2.2 AA) with deterministic reports and conservative source autofixes. | `node tests/integration/v2-wcag-audit.js --full` | docs |
+| `tests/integration/v2-wcag-audit.js` | Audit v2 docs.json navigation pages for accessibility (WCAG 2.2 AA) with deterministic reports and conservative source autofixes. | `node tests/integration/v2-wcag-audit.js --full` | docs |
 | `tests/integration/v2-wcag-audit.selftest.js` | Script-level self-tests for the v2 WCAG audit (local HTTP + Puppeteer axe run, and temp-file fix/stage behavior without Mintlify). | `node tests/integration/v2-wcag-audit.selftest.js` | docs |
 | `tests/run-all.js` | Utility script for tests/run-all.js. | `node tests/run-all.js` | docs |
 | `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. | `node tests/run-pr-checks.js --base-ref main` | docs |

@@ -1,9 +1,28 @@
 ---
 title: 'Problem Statements'
 sidebarTitle: 'Problem Statements'
-description: 'Problem Statements for Livepeer Documentation'
+description: 'The RFP identified four specific problems with the existing Livepeer documentation. 
+This section documents how v2 addressed each one: the decision-making process, the pre-work required, the options considered, and the full implementation evidence - tagged by delivery layer.'
 keywords: ["livepeer", "internal", "rfp", "problem statements"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
+import { DisplayCard } from "/snippets/components/display/customCards.jsx"
 
+<Columns cols={2}>
+    <DisplayCard title="Complicated Onboarding" icon="arrow-progress">
+        User journeys (node operators, app builders, delegators, gateway providers) are hidden behind toggles instead of clear entry points.
+    </DisplayCard>
+    <DisplayCard title="Outdated or inconsistent content" icon="arrow-progress">
+        Deprecated APIs, stale references, incomplete AI coverage, and fragmented changelogs.
+    </DisplayCard>
+</Columns>
+<br/>
+<Columns cols={2}>
+    <DisplayCard title="Brand & duplication" icon="arrow-progress">
+        Studio-specific guidance is mixed into core docs; AI SDKs and APIs are duplicated across gateways.
+    </DisplayCard>
+    <DisplayCard title="Weak site integration" icon="arrow-progress">
+        Poor linkage between website, explorer, governance portal, and docs. Too many Studio dashboard references.
+    </DisplayCard>
+</Columns>

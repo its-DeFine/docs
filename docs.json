@@ -3206,6 +3206,13 @@
                     "icon": "info-circle",
                     "groups": [
                       {
+                        "group": "About",
+                        "pages": [
+                          "v2/internal/overview/about",
+                          "v2/internal/overview/docs-philosophy"
+                        ]
+                      },
+                      {
                         "group": "RFP",
                         "pages": [
                           "v2/internal/rfp/aims",
@@ -3253,6 +3260,11 @@
                         "pages": ["v2/internal/reports/repo-ops/audit-scripts"]
                       }
                     ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "-",
+                    "href": " "
                   }
                 ]
               }

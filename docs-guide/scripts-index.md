@@ -34,7 +34,7 @@ Aggregate catalog generated from group script indexes.
 | `tests/integration/browser.test.js` | Utility script for tests/integration/browser.test.js. | `node tests/integration/browser.test.js` | docs |
 | `tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. | `node tests/integration/domain-pages-audit.js --version both` | docs |
 | `tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit with report and domain link map outputs. | `node tests/integration/v2-link-audit.js --full --write-links --strict` | docs |
-| `tests/integration/v2-wcag-audit.js` | Audit v2 docs accessibility (WCAG 2.2 AA) with deterministic reports and conservative source autofixes. | `node tests/integration/v2-wcag-audit.js --full` | docs |
+| `tests/integration/v2-wcag-audit.js` | Audit v2 docs.json navigation pages for accessibility (WCAG 2.2 AA) with deterministic reports and conservative source autofixes. | `node tests/integration/v2-wcag-audit.js --full` | docs |
 | `tests/integration/v2-wcag-audit.selftest.js` | Script-level self-tests for the v2 WCAG audit (local HTTP + Puppeteer axe run, and temp-file fix/stage behavior without Mintlify). | `node tests/integration/v2-wcag-audit.selftest.js` | docs |
 | `tests/run-all.js` | Utility script for tests/run-all.js. | `node tests/run-all.js` | docs |
 | `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. | `node tests/run-pr-checks.js --base-ref main` | docs |
@@ -114,6 +114,7 @@ Aggregate catalog generated from group script indexes.
 | `tools/scripts/test/test-youtube-pages.js` | Utility script for tools/scripts/test/test-youtube-pages.js. | `node tools/scripts/test/test-youtube-pages.js` | docs |
 | `tools/scripts/test/verify-all-pages.js` | Utility script for tools/scripts/verify-all-pages.js. | `node tools/scripts/verify-all-pages.js` | docs |
 | `tools/scripts/test/verify-pages.js` | Utility script for tools/scripts/verify-pages.js. | `node tools/scripts/verify-pages.js` | docs |
+| `tools/scripts/transcribe-audio-to-mdx.js` | Download audio from URL, chunk with ffmpeg, transcribe via OpenRouter, and write an MDX transcript page. | `OPENROUTER_API_KEY=... node tools/scripts/transcribe-audio-to-mdx.js --audio-url "<url>" --title "<episode title>" --show "<show name>" --published-at YYYY-MM-DD` | docs |
 | `tools/scripts/verify-all-pages.js` | Utility script for tools/scripts/verify-all-pages.js. | `node tools/scripts/verify-all-pages.js` | docs |
 | `tools/scripts/verify-pages.js` | Utility script for tools/scripts/verify-pages.js. | `node tools/scripts/verify-pages.js` | docs |
 | `tools/scripts/verify/.verify-large-change.sh` | Reserved verifier hook placeholder for large-change checks. | `bash tools/scripts/verify/.verify-large-change.sh` | docs |
