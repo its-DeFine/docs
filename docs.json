@@ -3577,10 +3577,10 @@
                           {
                             "group": "Reference",
                             "pages": [
-                              "v2/platforms/livepeer-studio/reference/api",
-                              "v2/platforms/livepeer-studio/reference/overview",
-                              "v2/platforms/livepeer-studio/reference/sdks",
-                              "v2/platforms/livepeer-studio/reference/managing-projects"
+                              "v2/es/platforms/livepeer-studio/reference/api",
+                              "v2/es/platforms/livepeer-studio/reference/overview",
+                              "v2/es/platforms/livepeer-studio/reference/sdks",
+                              "v2/es/platforms/livepeer-studio/reference/managing-projects"
                             ]
                           },
                           {
@@ -4851,10 +4851,10 @@
                           {
                             "group": "Reference",
                             "pages": [
-                              "v2/platforms/livepeer-studio/reference/api",
-                              "v2/platforms/livepeer-studio/reference/overview",
-                              "v2/platforms/livepeer-studio/reference/sdks",
-                              "v2/platforms/livepeer-studio/reference/managing-projects"
+                              "v2/fr/platforms/livepeer-studio/reference/api",
+                              "v2/fr/platforms/livepeer-studio/reference/overview",
+                              "v2/fr/platforms/livepeer-studio/reference/sdks",
+                              "v2/fr/platforms/livepeer-studio/reference/managing-projects"
                             ]
                           },
                           {
@@ -6125,10 +6125,10 @@
                           {
                             "group": "Reference",
                             "pages": [
-                              "v2/platforms/livepeer-studio/reference/api",
-                              "v2/platforms/livepeer-studio/reference/overview",
-                              "v2/platforms/livepeer-studio/reference/sdks",
-                              "v2/platforms/livepeer-studio/reference/managing-projects"
+                              "v2/cn/platforms/livepeer-studio/reference/api",
+                              "v2/cn/platforms/livepeer-studio/reference/overview",
+                              "v2/cn/platforms/livepeer-studio/reference/sdks",
+                              "v2/cn/platforms/livepeer-studio/reference/managing-projects"
                             ]
                           },
                           {
