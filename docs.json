@@ -3698,12 +3698,12 @@
                               {
                                 "group": "Viewership",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-viewership-metrics",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-creators-metrics",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-public-total-views",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-realtime-viewership"
+                                  "v2/es/platforms/livepeer-studio/api-reference/viewership/overview",
+                                  "v2/es/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics",
+                                  "v2/es/platforms/livepeer-studio/api-reference/viewership/get-viewership-metrics",
+                                  "v2/es/platforms/livepeer-studio/api-reference/viewership/get-creators-metrics",
+                                  "v2/es/platforms/livepeer-studio/api-reference/viewership/get-public-total-views",
+                                  "v2/es/platforms/livepeer-studio/api-reference/viewership/get-realtime-viewership"
                                 ]
                               }
                             ]
@@ -4972,12 +4972,12 @@
                               {
                                 "group": "Viewership",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-viewership-metrics",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-creators-metrics",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-public-total-views",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-realtime-viewership"
+                                  "v2/fr/platforms/livepeer-studio/api-reference/viewership/overview",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/viewership/get-viewership-metrics",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/viewership/get-creators-metrics",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/viewership/get-public-total-views",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/viewership/get-realtime-viewership"
                                 ]
                               }
                             ]
@@ -6246,12 +6246,12 @@
                               {
                                 "group": "Viewership",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-viewership-metrics",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-creators-metrics",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-public-total-views",
-                                  "v2/platforms/livepeer-studio/api-reference/viewership/get-realtime-viewership"
+                                  "v2/cn/platforms/livepeer-studio/api-reference/viewership/overview",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/viewership/get-viewership-metrics",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/viewership/get-creators-metrics",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/viewership/get-public-total-views",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/viewership/get-realtime-viewership"
                                 ]
                               }
                             ]
