@@ -3601,17 +3601,17 @@
                               {
                                 "group": "Streams",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/streams/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/create",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/get",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/update",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/terminate",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/create-clip",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/get-clip",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/add-multistream-target",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/delete-multistream-target",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/delete"
+                                  "v2/es/platforms/livepeer-studio/api-reference/streams/overview",
+                                  "v2/es/platforms/livepeer-studio/api-reference/streams/create",
+                                  "v2/es/platforms/livepeer-studio/api-reference/streams/get",
+                                  "v2/es/platforms/livepeer-studio/api-reference/streams/get-all",
+                                  "v2/es/platforms/livepeer-studio/api-reference/streams/update",
+                                  "v2/es/platforms/livepeer-studio/api-reference/streams/terminate",
+                                  "v2/es/platforms/livepeer-studio/api-reference/streams/create-clip",
+                                  "v2/es/platforms/livepeer-studio/api-reference/streams/get-clip",
+                                  "v2/es/platforms/livepeer-studio/api-reference/streams/add-multistream-target",
+                                  "v2/es/platforms/livepeer-studio/api-reference/streams/delete-multistream-target",
+                                  "v2/es/platforms/livepeer-studio/api-reference/streams/delete"
                                 ]
                               },
                               {
@@ -4875,17 +4875,17 @@
                               {
                                 "group": "Streams",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/streams/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/create",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/get",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/update",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/terminate",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/create-clip",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/get-clip",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/add-multistream-target",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/delete-multistream-target",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/delete"
+                                  "v2/fr/platforms/livepeer-studio/api-reference/streams/overview",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/streams/create",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/streams/get",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/streams/get-all",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/streams/update",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/streams/terminate",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/streams/create-clip",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/streams/get-clip",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/streams/add-multistream-target",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/streams/delete-multistream-target",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/streams/delete"
                                 ]
                               },
                               {
@@ -6149,17 +6149,17 @@
                               {
                                 "group": "Streams",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/streams/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/create",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/get",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/update",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/terminate",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/create-clip",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/get-clip",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/add-multistream-target",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/delete-multistream-target",
-                                  "v2/platforms/livepeer-studio/api-reference/streams/delete"
+                                  "v2/cn/platforms/livepeer-studio/api-reference/streams/overview",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/streams/create",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/streams/get",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/streams/get-all",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/streams/update",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/streams/terminate",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/streams/create-clip",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/streams/get-clip",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/streams/add-multistream-target",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/streams/delete-multistream-target",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/streams/delete"
                                 ]
                               },
                               {
