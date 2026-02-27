@@ -4094,7 +4094,7 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/es/orchestrators/orchestrators-portal",
-                          "v2/orchestrators/about-orchestrators/overview",
+                          "v2/es/orchestrators/about-orchestrators/overview",
                           "v2/es/orchestrators/about-orchestrators/orchestrator-functions",
                           "v2/es/orchestrators/about-orchestrators/architecture",
                           "v2/es/orchestrators/about-orchestrators/economics"
@@ -4104,7 +4104,7 @@
                         "group": "Quickstart ⚡",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
                         "pages": [
-                          "v2/orchestrators/quickstart/overview",
+                          "v2/es/orchestrators/quickstart/overview",
                           "v2/es/orchestrators/quickstart/join-a-pool",
                           "v2/es/orchestrators/quickstart/orchestrator-setup"
                         ]
@@ -4126,13 +4126,13 @@
                               {
                                 "group": "Installation",
                                 "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats"
+                                  "v2/es/orchestrators/setting-up-an-orchestrator/orchestrator-stats"
                                 ]
                               },
                               {
                                 "group": "Configuration",
                                 "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer"
+                                  "v2/es/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer"
                                 ]
                               },
                               {
@@ -4162,7 +4162,7 @@
                         "icon": "gamepad",
                         "pages": [
                           "v2/es/orchestrators/advanced-setup/staking-LPT",
-                          "v2/orchestrators/advanced-setup/rewards-and-fees",
+                          "v2/es/orchestrators/advanced-setup/rewards-and-fees",
                           "v2/orchestrators/advanced-setup/delegation",
                           "v2/orchestrators/advanced-setup/ai-pipelines",
                           "v2/orchestrators/advanced-setup/run-a-pool"
@@ -4175,8 +4175,8 @@
                           "v2/es/orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
                           "v2/es/orchestrators/orchestrator-tools-and-resources/community-pools",
                           "v2/es/orchestrators/orchestrator-tools-and-resources/orchestrator-guides",
-                          "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-resources",
-                          "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help"
+                          "v2/es/orchestrators/orchestrator-tools-and-resources/orchestrator-resources",
+                          "v2/es/orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help"
                         ]
                       },
                       {
@@ -4186,19 +4186,19 @@
                           {
                             "group": "Orchestrators",
                             "pages": [
-                              "v2/orchestrators/references/faq"
+                              "v2/es/orchestrators/references/faq"
                             ]
                           },
                           {
                             "group": "API & CLI Reference",
                             "pages": [
-                              "v2/orchestrators/references/cli-flags"
+                              "v2/es/orchestrators/references/cli-flags"
                             ]
                           },
                           {
                             "group": "On-Chain Reference",
                             "pages": [
-                              "v2/orchestrators/references/faq"
+                              "v2/es/orchestrators/references/faq"
                             ]
                           }
                         ]
@@ -5368,8 +5368,8 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/fr/orchestrators/orchestrators-portal",
-                          "v2/orchestrators/about-orchestrators/overview",
-                          "v2/orchestrators/about-orchestrators/orchestrator-functions",
+                          "v2/fr/orchestrators/about-orchestrators/overview",
+                          "v2/fr/orchestrators/about-orchestrators/orchestrator-functions",
                           "v2/fr/orchestrators/about-orchestrators/architecture",
                           "v2/fr/orchestrators/about-orchestrators/economics"
                         ]
@@ -5378,7 +5378,7 @@
                         "group": "Quickstart ⚡",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
                         "pages": [
-                          "v2/orchestrators/quickstart/overview",
+                          "v2/fr/orchestrators/quickstart/overview",
                           "v2/fr/orchestrators/quickstart/join-a-pool",
                           "v2/orchestrators/quickstart/orchestrator-setup"
                         ]
@@ -5390,41 +5390,41 @@
                           {
                             "group": "Orchestrator Setup Guide",
                             "pages": [
-                              "v2/orchestrators/setting-up-an-orchestrator/overview",
+                              "v2/fr/orchestrators/setting-up-an-orchestrator/overview",
                               {
                                 "group": "Setup Checklist",
                                 "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/hardware-requirements"
+                                  "v2/fr/orchestrators/setting-up-an-orchestrator/hardware-requirements"
                                 ]
                               },
                               {
                                 "group": "Installation",
                                 "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats"
+                                  "v2/fr/orchestrators/setting-up-an-orchestrator/orchestrator-stats"
                                 ]
                               },
                               {
                                 "group": "Configuration",
                                 "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer"
+                                  "v2/fr/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer"
                                 ]
                               },
                               {
                                 "group": "Testing",
                                 "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                  "v2/fr/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
                               },
                               {
                                 "group": "Network Integration",
                                 "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                  "v2/fr/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
                               },
                               {
                                 "group": "Monitor & Optimise",
                                 "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                  "v2/fr/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
                                 ]
                               }
                             ]
@@ -5436,21 +5436,21 @@
                         "icon": "gamepad",
                         "pages": [
                           "v2/orchestrators/advanced-setup/staking-LPT",
-                          "v2/orchestrators/advanced-setup/rewards-and-fees",
-                          "v2/orchestrators/advanced-setup/delegation",
-                          "v2/orchestrators/advanced-setup/ai-pipelines",
-                          "v2/orchestrators/advanced-setup/run-a-pool"
+                          "v2/fr/orchestrators/advanced-setup/rewards-and-fees",
+                          "v2/fr/orchestrators/advanced-setup/delegation",
+                          "v2/fr/orchestrators/advanced-setup/ai-pipelines",
+                          "v2/fr/orchestrators/advanced-setup/run-a-pool"
                         ]
                       },
                       {
                         "group": "Orchestrator Tools & Resources",
                         "icon": "laptop-file",
                         "pages": [
-                          "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
-                          "v2/orchestrators/orchestrator-tools-and-resources/community-pools",
+                          "v2/fr/orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
+                          "v2/fr/orchestrators/orchestrator-tools-and-resources/community-pools",
                           "v2/fr/orchestrators/orchestrator-tools-and-resources/orchestrator-guides",
-                          "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-resources",
-                          "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help"
+                          "v2/fr/orchestrators/orchestrator-tools-and-resources/orchestrator-resources",
+                          "v2/fr/orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help"
                         ]
                       },
                       {
@@ -5460,19 +5460,19 @@
                           {
                             "group": "Orchestrators",
                             "pages": [
-                              "v2/orchestrators/references/faq"
+                              "v2/fr/orchestrators/references/faq"
                             ]
                           },
                           {
                             "group": "API & CLI Reference",
                             "pages": [
-                              "v2/orchestrators/references/cli-flags"
+                              "v2/fr/orchestrators/references/cli-flags"
                             ]
                           },
                           {
                             "group": "On-Chain Reference",
                             "pages": [
-                              "v2/orchestrators/references/faq"
+                              "v2/fr/orchestrators/references/faq"
                             ]
                           }
                         ]
@@ -6642,19 +6642,19 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/cn/orchestrators/orchestrators-portal",
-                          "v2/orchestrators/about-orchestrators/overview",
-                          "v2/orchestrators/about-orchestrators/orchestrator-functions",
-                          "v2/orchestrators/about-orchestrators/architecture",
-                          "v2/orchestrators/about-orchestrators/economics"
+                          "v2/cn/orchestrators/about-orchestrators/overview",
+                          "v2/cn/orchestrators/about-orchestrators/orchestrator-functions",
+                          "v2/cn/orchestrators/about-orchestrators/architecture",
+                          "v2/cn/orchestrators/about-orchestrators/economics"
                         ]
                       },
                       {
                         "group": "Quickstart ⚡",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
                         "pages": [
-                          "v2/orchestrators/quickstart/overview",
-                          "v2/orchestrators/quickstart/join-a-pool",
-                          "v2/orchestrators/quickstart/orchestrator-setup"
+                          "v2/cn/orchestrators/quickstart/overview",
+                          "v2/cn/orchestrators/quickstart/join-a-pool",
+                          "v2/cn/orchestrators/quickstart/orchestrator-setup"
                         ]
                       },
                       {
@@ -6664,23 +6664,23 @@
                           {
                             "group": "Orchestrator Setup Guide",
                             "pages": [
-                              "v2/orchestrators/setting-up-an-orchestrator/overview",
+                              "v2/cn/orchestrators/setting-up-an-orchestrator/overview",
                               {
                                 "group": "Setup Checklist",
                                 "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/hardware-requirements"
+                                  "v2/cn/orchestrators/setting-up-an-orchestrator/hardware-requirements"
                                 ]
                               },
                               {
                                 "group": "Installation",
                                 "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats"
+                                  "v2/cn/orchestrators/setting-up-an-orchestrator/orchestrator-stats"
                                 ]
                               },
                               {
                                 "group": "Configuration",
                                 "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer"
+                                  "v2/cn/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer"
                                 ]
                               },
                               {
@@ -6709,11 +6709,11 @@
                         "group": "Advanced Orchestrator Information",
                         "icon": "gamepad",
                         "pages": [
-                          "v2/orchestrators/advanced-setup/staking-LPT",
-                          "v2/orchestrators/advanced-setup/rewards-and-fees",
+                          "v2/cn/orchestrators/advanced-setup/staking-LPT",
+                          "v2/cn/orchestrators/advanced-setup/rewards-and-fees",
                           "v2/orchestrators/advanced-setup/delegation",
-                          "v2/orchestrators/advanced-setup/ai-pipelines",
-                          "v2/orchestrators/advanced-setup/run-a-pool"
+                          "v2/cn/orchestrators/advanced-setup/ai-pipelines",
+                          "v2/cn/orchestrators/advanced-setup/run-a-pool"
                         ]
                       },
                       {
@@ -6721,7 +6721,7 @@
                         "icon": "laptop-file",
                         "pages": [
                           "v2/cn/orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
-                          "v2/orchestrators/orchestrator-tools-and-resources/community-pools",
+                          "v2/cn/orchestrators/orchestrator-tools-and-resources/community-pools",
                           "v2/cn/orchestrators/orchestrator-tools-and-resources/orchestrator-guides",
                           "v2/cn/orchestrators/orchestrator-tools-and-resources/orchestrator-resources",
                           "v2/cn/orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help"
@@ -6734,19 +6734,19 @@
                           {
                             "group": "Orchestrators",
                             "pages": [
-                              "v2/orchestrators/references/faq"
+                              "v2/cn/orchestrators/references/faq"
                             ]
                           },
                           {
                             "group": "API & CLI Reference",
                             "pages": [
-                              "v2/orchestrators/references/cli-flags"
+                              "v2/cn/orchestrators/references/cli-flags"
                             ]
                           },
                           {
                             "group": "On-Chain Reference",
                             "pages": [
-                              "v2/orchestrators/references/faq"
+                              "v2/cn/orchestrators/references/faq"
                             ]
                           }
                         ]
