@@ -3446,11 +3446,11 @@
                         "group": "Recursos",
                         "icon": "books",
                         "pages": [
-                          "v2/about/resources/livepeer-whitepaper",
-                          "v2/about/resources/livepeer-glossary",
-                          "v2/about/resources/blockchain-contracts",
-                          "v2/about/resources/technical-roadmap",
-                          "v2/about/resources/gateways-vs-orchestrators"
+                          "v2/es/about/resources/livepeer-whitepaper",
+                          "v2/es/about/resources/livepeer-glossary",
+                          "v2/es/about/resources/blockchain-contracts",
+                          "v2/es/about/resources/technical-roadmap",
+                          "v2/es/about/resources/gateways-vs-orchestrators"
                         ]
                       }
                     ]
@@ -4698,11 +4698,11 @@
                         "group": "Ressources",
                         "icon": "books",
                         "pages": [
-                          "v2/about/resources/livepeer-whitepaper",
-                          "v2/about/resources/livepeer-glossary",
-                          "v2/about/resources/blockchain-contracts",
-                          "v2/about/resources/technical-roadmap",
-                          "v2/about/resources/gateways-vs-orchestrators"
+                          "v2/fr/about/resources/livepeer-whitepaper",
+                          "v2/fr/about/resources/livepeer-glossary",
+                          "v2/fr/about/resources/blockchain-contracts",
+                          "v2/fr/about/resources/technical-roadmap",
+                          "v2/fr/about/resources/gateways-vs-orchestrators"
                         ]
                       }
                     ]
@@ -5950,11 +5950,11 @@
                         "group": "资源",
                         "icon": "books",
                         "pages": [
-                          "v2/about/resources/livepeer-whitepaper",
+                          "v2/cn/about/resources/livepeer-whitepaper",
                           "v2/about/resources/livepeer-glossary",
-                          "v2/about/resources/blockchain-contracts",
-                          "v2/about/resources/technical-roadmap",
-                          "v2/about/resources/gateways-vs-orchestrators"
+                          "v2/cn/about/resources/blockchain-contracts",
+                          "v2/cn/about/resources/technical-roadmap",
+                          "v2/cn/about/resources/gateways-vs-orchestrators"
                         ]
                       }
                     ]

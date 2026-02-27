@@ -350,6 +350,12 @@ async function generateLocalizedDocsJson({
 
   const routeMapIndex = buildRouteMapIndex(routeMapEntries);
   const perLanguage = [];
+  const existingLanguageLookup = new Map(
+    (v2Version.languages || [])
+      .filter((langNode) => langNode && typeof langNode === 'object')
+      .map((langNode) => [String(langNode.language || '').trim(), langNode])
+      .filter(([language]) => Boolean(language))
+  );
   const targetLanguageSet = new Set(targetLanguages.map((lang) => normalizeLanguageAlias(lang, languageCodeMap)));
   const existingNonTargets = (v2Version.languages || []).filter((langNode) => {
     const language = String(langNode?.language || '').trim();
@@ -375,15 +381,27 @@ async function generateLocalizedDocsJson({
   }
 
   for (const language of targetLanguages) {
-    const localizedNode = deepClone(englishNode);
+    const existingLanguageNode = existingLanguageLookup.get(language);
+    const localizedNode = existingLanguageNode ? deepClone(existingLanguageNode) : deepClone(englishNode);
     localizedNode.language = language;
 
-    const labelResult = await translateLabelFields({
-      languageNode: localizedNode,
-      language,
-      translator,
-      translationRules
-    });
+    // Reuse existing localized labels when present to avoid re-translating large nav trees every batch.
+    const labelResult = existingLanguageNode
+      ? {
+          translatedCount: 0,
+          modelUsed: 'cached_existing_labels',
+          mockPrefixedLabels: detectMockPrefixedLabels(
+            localizedNode,
+            new Set(translationRules?.translateDocsJsonLabelKeys || ['tab', 'anchor', 'group'])
+          ),
+          labelKeys: new Set(translationRules?.translateDocsJsonLabelKeys || ['tab', 'anchor', 'group'])
+        }
+      : await translateLabelFields({
+          languageNode: localizedNode,
+          language,
+          translator,
+          translationRules
+        });
 
     if (labelResult.mockPrefixedLabels.length > 0) {
       if (writeMode && translator?.name === 'mock' && !allowMockWrite) {
