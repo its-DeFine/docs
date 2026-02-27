@@ -3790,8 +3790,8 @@
                           {
                             "group": "AI Jobs & Pipelines",
                             "pages": [
-                              "v2/developers/quickstart/ai/ai-pipelines",
-                              "v2/developers/quickstart/ai/ai-jobs"
+                              "v2/es/developers/quickstart/ai/ai-pipelines",
+                              "v2/es/developers/quickstart/ai/ai-jobs"
                             ]
                           }
                         ]
@@ -5064,8 +5064,8 @@
                           {
                             "group": "AI Jobs & Pipelines",
                             "pages": [
-                              "v2/developers/quickstart/ai/ai-pipelines",
-                              "v2/developers/quickstart/ai/ai-jobs"
+                              "v2/fr/developers/quickstart/ai/ai-pipelines",
+                              "v2/fr/developers/quickstart/ai/ai-jobs"
                             ]
                           }
                         ]
@@ -6338,8 +6338,8 @@
                           {
                             "group": "AI Jobs & Pipelines",
                             "pages": [
-                              "v2/developers/quickstart/ai/ai-pipelines",
-                              "v2/developers/quickstart/ai/ai-jobs"
+                              "v2/cn/developers/quickstart/ai/ai-pipelines",
+                              "v2/cn/developers/quickstart/ai/ai-jobs"
                             ]
                           }
                         ]
