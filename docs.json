@@ -3769,7 +3769,7 @@
                             "pages": [
                               "v2/developers/quickstart/video/video-streaming",
                               "v2/developers/quickstart/video/transcoding-jobs",
-                              "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README"
+                              "v2/es/developers/livepeer-real-time-video/video-streaming-on-livepeer/README"
                             ]
                           },
                           {
@@ -3825,9 +3825,9 @@
                         "group": "Herramientas para desarrolladores",
                         "icon": "tools",
                         "pages": [
-                          "v2/developers/developer-tools/tooling-hub",
-                          "v2/developers/developer-tools/livepeer-explorer",
-                          "v2/developers/developer-tools/livepeer-cloud",
+                          "v2/es/developers/developer-tools/tooling-hub",
+                          "v2/es/developers/developer-tools/livepeer-explorer",
+                          "v2/es/developers/developer-tools/livepeer-cloud",
                           "v2/developers/developer-tools/dashboards"
                         ]
                       },
@@ -3838,12 +3838,12 @@
                           {
                             "group": "SDKs y APIs",
                             "pages": [
-                              "v2/developers/technical-references/sdks",
+                              "v2/es/developers/technical-references/sdks",
                               "v2/developers/technical-references/apis"
                             ]
                           },
                           "v2/developers/technical-references/awesome-livepeer",
-                          "v2/developers/technical-references/wiki",
+                          "v2/es/developers/technical-references/wiki",
                           "v2/developers/technical-references/deepwiki"
                         ]
                       },
@@ -3871,10 +3871,10 @@
                         "group": "Centro de Conocimiento del Gateway",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/gateways/gateways-portal",
+                          "v2/es/gateways/gateways-portal",
                           "v2/gateways/about-gateways/gateway-explainer",
                           "v2/gateways/about-gateways/gateway-functions",
-                          "v2/gateways/about-gateways/gateway-architecture",
+                          "v2/es/gateways/about-gateways/gateway-architecture",
                           "v2/gateways/about-gateways/gateway-economics"
                         ]
                       },
@@ -3882,22 +3882,22 @@
                         "group": "Inicio rápido ⚡",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
                         "pages": [
-                          "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
-                          "v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
+                          "v2/es/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                          "v2/es/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
                         ]
                       },
                       {
                         "group": "Servicios y Proveedores del Gateway",
                         "icon": "wand-magic-sparkles",
                         "pages": [
-                          "v2/gateways/using-gateways/choosing-a-gateway",
+                          "v2/es/gateways/using-gateways/choosing-a-gateway",
                           "v2/gateways/using-gateways/gateway-providers",
                           {
                             "group": "Documentación del Proveedor",
                             "pages": [
-                              "v2/gateways/using-gateways/gateway-providers/daydream-gateway",
-                              "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
-                              "v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway",
+                              "v2/es/gateways/using-gateways/gateway-providers/daydream-gateway",
+                              "v2/es/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
+                              "v2/es/gateways/using-gateways/gateway-providers/cloud-spe-gateway",
                               "v2/platforms/streamplace/overview"
                             ]
                           }
@@ -3911,21 +3911,21 @@
                             "group": "Inicio rápido",
                             "icon": "fast-forward",
                             "pages": [
-                              "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
-                              "v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
+                              "v2/es/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                              "v2/es/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
                             ]
                           },
                           {
                             "group": "Guía de Configuración del Gateway",
                             "expanded": true,
                             "pages": [
-                              "v2/gateways/run-a-gateway/why-run-a-gateway",
+                              "v2/es/gateways/run-a-gateway/why-run-a-gateway",
                               "v2/gateways/run-a-gateway/run-a-gateway",
                               {
                                 "group": "Lista de Verificación de Configuración",
                                 "pages": [
                                   "v2/gateways/run-a-gateway/requirements/setup",
-                                  "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
+                                  "v2/es/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
                                   "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway"
                                 ]
                               },
@@ -3935,7 +3935,7 @@
                                   "v2/gateways/run-a-gateway/install/install-overview",
                                   "v2/gateways/run-a-gateway/install/docker-install",
                                   "v2/gateways/run-a-gateway/install/linux-install",
-                                  "v2/gateways/run-a-gateway/install/windows-install",
+                                  "v2/es/gateways/run-a-gateway/install/windows-install",
                                   "v2/gateways/run-a-gateway/install/community-projects"
                                 ]
                               },
@@ -3952,9 +3952,9 @@
                               {
                                 "group": "Pruebas",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
-                                  "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
-                                  "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway"
+                                  "v2/es/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                                  "v2/es/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                                  "v2/es/gateways/run-a-gateway/quickstart/quickstart-a-gateway"
                                 ]
                               },
                               {
@@ -3980,10 +3980,10 @@
                         "group": "Herramientas y Recursos de Gateway",
                         "icon": "tools",
                         "pages": [
-                          "v2/gateways/gateway-tools/explorer",
-                          "v2/gateways/gateway-tools/livepeer-tools",
-                          "v2/gateways/guides-and-resources/community-guides",
-                          "v2/gateways/guides-and-resources/community-projects",
+                          "v2/es/gateways/gateway-tools/explorer",
+                          "v2/es/gateways/gateway-tools/livepeer-tools",
+                          "v2/es/gateways/guides-and-resources/community-guides",
+                          "v2/es/gateways/guides-and-resources/community-projects",
                           "v2/gateways/guides-and-resources/faq"
                         ]
                       },
@@ -5077,8 +5077,8 @@
                         "group": "Outils développeur",
                         "icon": "tools",
                         "pages": [
-                          "v2/developers/developer-tools/tooling-hub",
-                          "v2/developers/developer-tools/livepeer-explorer",
+                          "v2/fr/developers/developer-tools/tooling-hub",
+                          "v2/fr/developers/developer-tools/livepeer-explorer",
                           "v2/developers/developer-tools/livepeer-cloud",
                           "v2/developers/developer-tools/dashboards"
                         ]
@@ -5126,7 +5126,7 @@
                           "v2/gateways/gateways-portal",
                           "v2/gateways/about-gateways/gateway-explainer",
                           "v2/gateways/about-gateways/gateway-functions",
-                          "v2/gateways/about-gateways/gateway-architecture",
+                          "v2/fr/gateways/about-gateways/gateway-architecture",
                           "v2/gateways/about-gateways/gateway-economics"
                         ]
                       },
@@ -5143,13 +5143,13 @@
                         "icon": "wand-magic-sparkles",
                         "pages": [
                           "v2/gateways/using-gateways/choosing-a-gateway",
-                          "v2/gateways/using-gateways/gateway-providers",
+                          "v2/fr/gateways/using-gateways/gateway-providers",
                           {
                             "group": "Docs du fournisseur",
                             "pages": [
-                              "v2/gateways/using-gateways/gateway-providers/daydream-gateway",
-                              "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
-                              "v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway",
+                              "v2/fr/gateways/using-gateways/gateway-providers/daydream-gateway",
+                              "v2/fr/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
+                              "v2/fr/gateways/using-gateways/gateway-providers/cloud-spe-gateway",
                               "v2/platforms/streamplace/overview"
                             ]
                           }
@@ -5214,8 +5214,8 @@
                                 "tag": "Go Live!",
                                 "pages": [
                                   "v2/gateways/run-a-gateway/connect/lp-marketplace",
-                                  "v2/gateways/run-a-gateway/connect/discover-offerings",
-                                  "v2/gateways/run-a-gateway/connect/connect-with-offerings"
+                                  "v2/fr/gateways/run-a-gateway/connect/discover-offerings",
+                                  "v2/fr/gateways/run-a-gateway/connect/connect-with-offerings"
                                 ]
                               },
                               {
@@ -5234,8 +5234,8 @@
                         "pages": [
                           "v2/gateways/gateway-tools/explorer",
                           "v2/gateways/gateway-tools/livepeer-tools",
-                          "v2/gateways/guides-and-resources/community-guides",
-                          "v2/gateways/guides-and-resources/community-projects",
+                          "v2/fr/gateways/guides-and-resources/community-guides",
+                          "v2/fr/gateways/guides-and-resources/community-projects",
                           "v2/gateways/guides-and-resources/faq"
                         ]
                       },
