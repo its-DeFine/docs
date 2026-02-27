@@ -3842,9 +3842,9 @@
                               "v2/developers/technical-references/apis"
                             ]
                           },
-                          "v2/developers/technical-references/awesome-livepeer",
+                          "v2/es/developers/technical-references/awesome-livepeer",
                           "v2/es/developers/technical-references/wiki",
-                          "v2/developers/technical-references/deepwiki"
+                          "v2/es/developers/technical-references/deepwiki"
                         ]
                       },
                       {
@@ -5090,13 +5090,13 @@
                           {
                             "group": "SDK et API",
                             "pages": [
-                              "v2/developers/technical-references/sdks",
+                              "v2/fr/developers/technical-references/sdks",
                               "v2/developers/technical-references/apis"
                             ]
                           },
                           "v2/developers/technical-references/awesome-livepeer",
                           "v2/developers/technical-references/wiki",
-                          "v2/developers/technical-references/deepwiki"
+                          "v2/fr/developers/technical-references/deepwiki"
                         ]
                       },
                       {
@@ -6347,7 +6347,7 @@
                             ]
                           },
                           "v2/developers/technical-references/awesome-livepeer",
-                          "v2/developers/technical-references/wiki",
+                          "v2/cn/developers/technical-references/wiki",
                           "v2/developers/technical-references/deepwiki"
                         ]
                       },
