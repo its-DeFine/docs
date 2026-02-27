@@ -39,6 +39,7 @@ Modern view: documentation distributes the product.
 Discovery is no longer purely human-driven. Large language models retrieve, summarize, and recommend infrastructure based on structured documentation.
 
 If documentation lacks:
+
 - stable primitives
 - canonical structure
 - explicit constraints
@@ -116,6 +117,7 @@ Documentation is not static output.
 It is a feedback system.
 
 Inputs:
+
 - Product releases
 - Governance updates
 - Forum insights
@@ -123,16 +125,19 @@ Inputs:
 - Ecosystem showcases
 
 Transforms:
+
 - Authoring standards
 - Editorial enforcement
 - CI validation
 
 Outputs:
+
 - Canonical pages
 - Deployment templates
 - Troubleshooting systems
 
 Feedback loops:
+
 - Search queries
 - Issue reports
 - Broken links
@@ -148,12 +153,14 @@ Organizations that treat documentation as a system accumulate advantage.
 Documentation debt is strategic risk.
 
 It increases:
+
 - Support burden
 - Integration errors
 - Governance confusion
 - Brand inconsistency
 
 It decreases:
+
 - Trust
 - Conversion
 - Ecosystem contribution velocity
@@ -175,6 +182,7 @@ Marketing communicates possibility.
 Documentation communicates reality.
 
 When documentation is:
+
 - Structured
 - Verifiable
 - Persona-routed
@@ -203,4 +211,3 @@ It scales adoption.
 It scales trust.
 
 That is the upgrade.
-

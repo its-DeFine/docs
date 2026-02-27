@@ -23,6 +23,7 @@ Do not manually edit this file; run its generator instead.
 | sync-large-assets.yml | `.github/workflows/sync-large-assets.yml` | push, workflow_dispatch | sync-large-assets.yml | blocking by default (subject to branch protection) | repository commits | docs |
 | Docs CI - Content Quality Suite | `.github/workflows/test-suite.yml` | pull_request, push | Docs CI - Content Quality Suite | advisory or partial-advisory | step summary, PR comments/metadata | docs |
 | Docs CI - V2 Browser Sweep | `.github/workflows/test-v2-pages.yml` | pull_request, push | Docs CI - V2 Browser Sweep | advisory or partial-advisory | artifact upload, PR comments/metadata | docs |
+| Docs Translation Pipeline | `.github/workflows/translate-docs.yml` | workflow_dispatch | Docs Translation Pipeline | blocking by default (subject to branch protection) | artifact upload, step summary, PR comments/metadata | docs |
 | Update Blog and Forum Data | `.github/workflows/update-blog-data.yml` | schedule, workflow_dispatch | Update Blog and Forum Data | advisory or partial-advisory | repository commits | docs |
 | Update Forum Data | `.github/workflows/update-forum-data.yml` | schedule, workflow_dispatch | Update Forum Data | blocking by default (subject to branch protection) | repository commits | docs |
 | Update Ghost Blog Data | `.github/workflows/update-ghost-blog-data.yml` | schedule, workflow_dispatch | Update Ghost Blog Data | blocking by default (subject to branch protection) | repository commits | docs |

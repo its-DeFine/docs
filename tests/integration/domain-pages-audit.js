@@ -215,7 +215,10 @@ async function run() {
 
   const startedAt = new Date();
   const allPages = stagedOnly ? getStagedDocsPages() : getAllDocsPages();
-  const pages = [...new Set(allPages)].filter(isVersionSelected);
+  const shouldSkipInternal = baseUrl.includes('docs.livepeer.org');
+  const pages = [...new Set(allPages)]
+    .filter(isVersionSelected)
+    .filter((pagePath) => !(shouldSkipInternal && pagePath.startsWith('v2/internal/')));
 
   if (pages.length === 0) {
     console.log('ℹ️  No matching docs pages to audit.');

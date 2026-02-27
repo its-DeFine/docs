@@ -9,35 +9,42 @@
  *   style    (object)  – Optional style overrides for the title span
  *   children           – Card body content (markdown lists, etc.)
  */
-export const DisplayCard = ({ icon, title, style, children }) => {
+export const DisplayCard = ({
+  icon,
+  title,
+  style,
+  background = 'var(--card-background)',
+  children,
+}) => {
   const cardStyle = {
-    display: "flex",
-    flexDirection: "column",
-    height: "100%",
-    border: "1px solid var(--accent)",
-    borderRadius: "8px",
-    padding: "1rem",
-    backgroundColor: "var(--background)",
-  };
+    display: 'flex',
+    flexDirection: 'column',
+    height: '100%',
+    border: '1px solid var(--accent)',
+    borderRadius: '8px',
+    padding: '1rem',
+    backgroundColor: 'var(--background)',
+    gap: '1rem',
+  }
   const titleStyle = {
-    display: "flex",
-    alignItems: "center",
-    gap: "0.5rem",
-    marginBottom: "0.75rem",
-    color: "var(--hero-text)",
-    fontSize: "1rem",
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    marginBottom: '0.75rem',
+    color: 'var(--hero-text)',
+    fontSize: '1rem',
     fontWeight: 600,
     ...style,
-  };
+  }
   const bodyStyle = {
-    display: "flex",
-    flexDirection: "column",
-    backgroundColor: "var(--card-background)",
-    borderRadius: "8px",
+    display: 'flex',
+    flexDirection: 'column',
+    backgroundColor: background,
+    borderRadius: '8px',
     flex: 1,
-    padding: "0.5rem",
+    padding: '0.5rem',
     margin: 0,
-  };
+  }
   return (
     <div style={cardStyle}>
       <div style={titleStyle}>
@@ -46,40 +53,40 @@ export const DisplayCard = ({ icon, title, style, children }) => {
       </div>
       <div style={bodyStyle}>{children}</div>
     </div>
-  );
-};
+  )
+}
 
 export const CustomCardTitle = ({ icon, title, style }) => {
   const titleStyle = {
-    display: "flex",
-    alignItems: "center",
-    gap: "0.5rem",
-    marginBottom: "0.75rem",
-    color: "var(--hero-text)",
-    fontSize: "1rem",
+    display: 'flex',
+    alignItems: 'center',
+    gap: '0.5rem',
+    marginBottom: '0.75rem',
+    color: 'var(--hero-text)',
+    fontSize: '1rem',
     fontWeight: 600,
     ...style,
-  };
+  }
   return (
     <div style={titleStyle}>
       <Icon icon={icon} size={20} color="var(--accent)" />
       {title}
     </div>
-  );
-};
+  )
+}
 
-export const WidthCard = ({ width = "80%", children, ...cardProps }) => {
+export const WidthCard = ({ width = '80%', children, ...cardProps }) => {
   return (
     <div
       style={{
-        display: "flex",
-        justifyContent: "center",
-        minWidth: "350px",
+        display: 'flex',
+        justifyContent: 'center',
+        minWidth: '350px',
       }}
     >
       <div style={{ width: width }}>
         <Card {...cardProps}>{children}</Card>
       </div>
     </div>
-  );
-};
+  )
+}

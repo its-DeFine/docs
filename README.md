@@ -51,6 +51,24 @@ lpd test --staged
 lpd test --staged --wcag
 ```
 
+## Hot Reload Troubleshooting
+
+If `mint dev` stops hot-reloading all pages, use this flow:
+
+```bash
+bash tools/scripts/dev/ensure-mint-watcher-patch.sh --check
+bash tools/scripts/dev/ensure-mint-watcher-patch.sh --apply
+```
+
+Known trigger:
+
+- a repo path that includes `[` / `]` can break chokidar watch events if Mint watcher globbing is not disabled.
+
+Recovery:
+
+1. Use `lpd dev` (or `bash tools/scripts/mint-dev.sh`) so the launcher applies the patch preflight and uses a watcher-safe path fallback.
+2. Re-run `bash tools/scripts/dev/ensure-mint-watcher-patch.sh --apply` after `mint update`.
+
 ## Core Capabilities (At a Glance)
 
 ### Frontend Docs Platform

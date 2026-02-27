@@ -3102,7 +3102,7 @@
                         "group": "Home",
                         "icon": "house",
                         "pages": [
-                          "v2/resources/resources-portal"
+                          "v2/resources/redirect"
                         ]
                       },
                       {
@@ -3302,6 +3302,16 @@
                     "icon": "info-circle",
                     "groups": [
                       {
+                        "group": "About",
+                        "pages": [
+                          "v2/internal/overview/about",
+                          "v2/internal/overview/strategic-alignment",
+                          "v2/internal/overview/docs-philosophy",
+                          "v2/internal/personas",
+                          "v2/internal/governance"
+                        ]
+                      },
+                      {
                         "group": "RFP",
                         "pages": [
                           "v2/internal/rfp/aims",
@@ -3312,42 +3322,34 @@
                         ]
                       },
                       {
-                        "group": "Internal Hub",
+                        "group": "Generated Reports",
                         "pages": [
-                          "v2/internal/internal-overview",
-                          "v2/internal/governance",
-                          "v2/internal/strategic-alignment",
-                          "v2/internal/docs-philosophy",
-                          "v2/internal/definitions",
-                          "v2/internal/personas",
-                          "v2/internal/ecosystem",
-                          "v2/internal/references"
-                        ]
-                      },
-                      {
-                        "group": "Reports: Navigation & Links",
-                        "pages": [
-                          "v2/internal/reports/navigation-links/docs-navigation",
-                          "v2/internal/reports/navigation-links/v2-link-audit"
-                        ]
-                      },
-                      {
-                        "group": "Reports: Quality & Accessibility",
-                        "pages": [
-                          "v2/internal/reports/quality-accessibility/v2-wcag-audit",
-                          "v2/internal/reports/quality-accessibility/wcag-repair-common"
-                        ]
-                      },
-                      {
-                        "group": "Reports: Page Audits",
-                        "pages": [
-                          "v2/internal/reports/page-audits/domain-pages-audit"
-                        ]
-                      },
-                      {
-                        "group": "Reports: Repo Ops",
-                        "pages": [
-                          "v2/internal/reports/repo-ops/audit-scripts"
+                          {
+                            "group": "Navigation & Links",
+                            "pages": [
+                              "v2/internal/reports/navigation-links/docs-navigation",
+                              "v2/internal/reports/navigation-links/v2-link-audit"
+                            ]
+                          },
+                          {
+                            "group": "Quality & Accessibility",
+                            "pages": [
+                              "v2/internal/reports/quality-accessibility/v2-wcag-audit",
+                              "v2/internal/reports/quality-accessibility/wcag-repair-common"
+                            ]
+                          },
+                          {
+                            "group": "Page Audits",
+                            "pages": [
+                              "v2/internal/reports/page-audits/domain-pages-audit"
+                            ]
+                          },
+                          {
+                            "group": "Repo Ops",
+                            "pages": [
+                              "v2/internal/reports/repo-ops/audit-scripts"
+                            ]
+                          }
                         ]
                       }
                     ]
@@ -4376,7 +4378,7 @@
                         "group": "Home",
                         "icon": "house",
                         "pages": [
-                          "v2/resources/resources-portal"
+                          "v2/resources/redirect"
                         ]
                       },
                       {
@@ -5650,7 +5652,7 @@
                         "group": "Home",
                         "icon": "house",
                         "pages": [
-                          "v2/resources/resources-portal"
+                          "v2/resources/redirect"
                         ]
                       },
                       {
@@ -6924,7 +6926,7 @@
                         "group": "Home",
                         "icon": "house",
                         "pages": [
-                          "v2/resources/resources-portal"
+                          "v2/resources/redirect"
                         ]
                       },
                       {
@@ -7173,6 +7175,11 @@
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "-",
+                    "href": " "
                   }
                 ]
               }
