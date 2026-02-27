@@ -2109,7 +2109,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/resources/redirect"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -2177,7 +2177,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/resources/redirect"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -2436,7 +2436,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/resources/redirect"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -2516,7 +2516,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/resources/redirect"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -2754,7 +2754,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/resources/redirect"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -2884,7 +2884,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/resources/redirect"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -2951,7 +2951,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/resources/redirect"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -3018,7 +3018,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/resources/redirect"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": " ",
@@ -3039,7 +3039,7 @@
                       {
                         "group": "Home",
                         "icon": "house",
-                        "pages": ["v2/resources/redirect"]
+                        "pages": ["v2/resources/resources-portal"]
                       },
                       {
                         "group": "Documentation Guide",
@@ -3136,7 +3136,7 @@
                   {
                     "anchor": "Help Center",
                     "icon": "comments-question-check",
-                    "pages": ["v2/resources/redirect"]
+                    "pages": ["v2/resources/resources-portal"]
                   },
                   {
                     "anchor": " ",
@@ -3156,7 +3156,7 @@
                     "groups": [
                       {
                         "group": "Home",
-                        "pages": ["v2/resources/redirect"]
+                        "pages": ["v2/resources/resources-portal"]
                       },
                       {
                         "group": "About",
@@ -3187,7 +3187,7 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["v2/resources/redirect"]
+                    "pages": ["v2/pages/07_resources/redirect"]
                   },
                   {
                     "anchor": " ",
