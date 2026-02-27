@@ -677,7 +677,7 @@ import React, { useState, useEffect } from 'react';
 
 #### 7. Icon Component Behavior
 
-**CRITICAL:** Mintlify's `<Icon>` component renders custom icons as `<img>` elements, NOT inline SVG.
+**CRITICAL:** Mintlify's `<Icon>` component renders custom icons as `<img alt="Image">` elements, NOT inline SVG.
 
 ```jsx
 // ❌ This will NOT work - color styling has no effect

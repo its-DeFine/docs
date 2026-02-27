@@ -1,14 +1,25 @@
 ---
-title: 'Docs Philosophy'
-sidebarTitle: 'Docs Philosophy'
-description: 'Philosophy of Livepeer Documentation'
-keywords: ["livepeer", "internal", "docs philosophy", "docs", "philosophy", "documentation"]
+title: 'Aims - Documentation Philosophy & RFP Aim Delivery'
+sidebarTitle: 'Aims'
+description: 'Aims of the Livepeer Documentation Restructure RFP'
+keywords: ["livepeer", "internal", "rfp", "aims"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-This section articulates the philosophical framework that underpinned the v2 engagement and demonstrates, with full implementation evidence, how every element of the RFP's three stated aims — **stakeholder-focused**, **AI-first**, and **future-proofed** — was delivered across every layer of the system.
+import { CustomTabs } from "/snippets/components/primitives/tabs.jsx";
+import { Quote } from "/snippets/components/display/quote.jsx";
 
-<iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/27863aa4-9767-4c51-a1b9-7d220bb0af69?dark=true"></iframe>
+{/* # Aims - Documentation Philosophy & RFP Aim Delivery */}
+<Quote>"Restructure, refresh, and modernize Livepeer's documentation so that it is **stakeholder-focused**, **AI-first**, and **future-proofed**. It should cater to the core personas of the Livepeer project: developers, delegators, gateway operators and orchestrators." — Livepeer Foundation RFP, September 2024 </Quote>
+
+
+This section articulates the philosophical framework that underpinned the v2 engagement and demonstrates, with full implementation evidence, how every element of the RFP's three stated aims 
+— **stakeholder-focused**, 
+- **AI-first**, and 
+- **future-proofed** 
+was delivered across every layer of the system.
+
+{/* <iframe height="200px" width="100%" frameborder="no" scrolling="no" seamless src="https://player.simplecast.com/27863aa4-9767-4c51-a1b9-7d220bb0af69?dark=true"></iframe>
 <Accordion title="Eposide Details">
     In this episode of AI + a16z, dbt Labs founder and CEO Tristan Handy sits down with a16z’s Jennifer Li and Matt Bornstein to explore the next chapter of data engineering — from the rise (and plateau) of the modern data stack to the growing role of AI in analytics and data engineering. As they sum up the impact of AI on data workflows: The interesting question here is human-in-the-loop versus human-not-in-the-loop. AI isn’t about replacing analysts — it’s about enabling self-service across the company. But without a human to verify the result, that’s a very scary thing.
 
@@ -20,8 +31,9 @@ This section articulates the philosophical framework that underpinned the v2 eng
 <Accordion title="Eposide Details">
     Talks about Documentation as Infrastructure and how good documentation ensures AI surfaces the product, regardless of product capability.
     <DownloadButton label="Download Transcript" downloadLink="https://livepeer.notion.site/Docs-Philosophy-Transcript-5000c3190100412ea211119110111111" />
-</Accordion>
+</Accordion> */}
 
+<CustomTabs title="Documentation Is Infrastructure">
 ## **Documentation Is Infrastructure**
 
 The foundational premise of this engagement, articulated before a single page was written, is that documentation is not editorial output. 
@@ -92,7 +104,8 @@ They are the scaffolding that makes every page reliable, maintainable, and impro
     The core principle is to keep these four types separate. Mixing them—such as putting long technical explanations inside a step-by-step tutorial—confuses the reader and makes the documentation harder to maintain.
 
 </Accordion>
-
+</CustomTabs>
+<CustomTabs title="AI Is the New Search">
 ## **AI Is the New Search**
 For over a decade, SEO — optimising for Google — was the primary lever for documentation discoverability. 
 
@@ -106,6 +119,9 @@ This means documentation is now being read, evaluated, and cited by machines bef
 
 Answer Engine Optimization (AEO) is the evolution of SEO for this era. This engagement built Livepeer's AEO layer from first principles.
 
+</CustomTabs>
+
+<CustomTabs title="Agents Are the New Users">
 ## **Agents Are the New Users**
 The next wave beyond AI-assisted search is **AI agent consumption**: automated systems that query documentation to generate code, answer support tickets, configure infrastructure, or build integrations without human intervention. 
 
@@ -116,4 +132,7 @@ The "Get AI to Set Up the Gateway" page (v2/ateways/run-a-gateway/quickstart/get
 The llms.txt file, repository AGENTS.md, and .cursorrules files extend this philosophy into the development workflow itself — making the entire repository legible to AI coding assistants.
 
 See the 21 items for AI-First Docs implemented in the [AI-First Report](./v2/internal/rfp/reports/ai-first-report.mdx)
+
+
+</CustomTabs>
 

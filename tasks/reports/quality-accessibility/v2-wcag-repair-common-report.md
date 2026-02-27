@@ -1,6 +1,6 @@
 # V2 WCAG Accessibility Audit Report
 
-- Timestamp: 2026-02-24T12:38:31.673Z
+- Timestamp: 2026-02-26T13:52:14.527Z
 - Mode: full
 - WCAG Profile: WCAG 2.2 AA
 - Fail Threshold: serious
@@ -10,16 +10,16 @@
 
 ## Summary
 
-- Files scanned: 421
+- Files scanned: 453
 - Browser target pages: 0
 - Browser-audited pages: 0
-- Static-only files: 421
+- Static-only files: 453
 - WCAG violations: 0
 - Best-practice violations (advisory): 0
 - Incomplete/manual-review results: 0
 - Static findings still open: 0
-- Static findings auto-fixed: 10
-- Autofix edits applied: 10
+- Static findings auto-fixed: 9
+- Autofix edits applied: 9
 - Runtime/navigation failures: 0
 - Blocking issues (>= serious) + runtime failures: 0
 
@@ -38,11 +38,10 @@ _No suggestions generated._
 - `v2/developers/technical-references/deepwiki.mdx`:30 - raw-iframe-missing-title -> added title="Embedded content from deepwiki.com" (review suggested)
 - `v2/gateways/about-gateways/gateway-explainer.mdx`:335 - raw-iframe-missing-title -> added title="Embedded content from cdn.jsdelivr.net" (review suggested)
 - `v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx`:125 - raw-iframe-missing-title -> added title="Embedded content from docs.arbitrum.io" (review suggested)
-- `v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx`:256 - raw-iframe-missing-title -> added title="Embedded content from docs.arbitrum.io" (review suggested)
-- `v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx`:264 - raw-iframe-missing-title -> added title="Embedded content from docs.arbitrum.io" (review suggested)
 - `v2/home/about-livepeer/ecosystem.mdx`:293 - raw-iframe-missing-title -> added title="Embedded content from imgflip.com" (review suggested)
 - `v2/internal/ally-notes.mdx`:179 - raw-iframe-missing-title -> added title="Embedded content from cdn.jsdelivr.net" (review suggested)
 - `v2/platforms/embody/overview.mdx`:22 - raw-iframe-missing-title -> added title="Embedded content from embody.zone" (review suggested)
+- `v2/resources/documentation-guide/style-guide.mdx`:680 - raw-img-missing-alt -> added alt="Image" (review suggested)
 
 ## Static-Only Findings
 
