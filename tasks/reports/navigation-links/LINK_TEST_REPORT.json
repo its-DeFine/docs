@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-27T17:24:37.503Z",
+  "generatedAt": "2026-02-27T17:37:28.912Z",
   "args": {
     "mode": "staged",
     "strict": true,
@@ -16,20 +16,19 @@
   },
   "aggregate": {
     "filesAnalyzed": 13,
-    "totalRefs": 151,
+    "totalRefs": 149,
     "internalMissingRefs": 0,
     "linkTypeCounts": {
       "empty": 8,
       "external-https": 45,
-      "import-path": 62,
+      "import-path": 61,
       "internal-relative": 19,
-      "internal-rooted": 17
+      "internal-rooted": 16
     },
     "statusCounts": {
       "🟡 untested-external": 45,
-      "ok": 95,
+      "ok": 94,
       "skipped": 8,
-      "skipped-allowlisted": 1,
       "skipped-style-guide-example": 2
     },
     "external": {
@@ -271,66 +270,6 @@
         {
           "sourceType": "markdown-link",
           "attr": "",
-          "linkType": "internal-relative",
-          "rawPath": "./core-mechanisms",
-          "resolvedPath": "v2/about/livepeer-protocol/core-mechanisms.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "markdown-link",
-          "attr": "",
-          "linkType": "internal-relative",
-          "rawPath": "./livepeer-token",
-          "resolvedPath": "v2/about/livepeer-protocol/livepeer-token.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "markdown-link",
-          "attr": "",
-          "linkType": "internal-relative",
-          "rawPath": "./governance-model",
-          "resolvedPath": "v2/about/livepeer-protocol/governance-model.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "markdown-link",
-          "attr": "",
-          "linkType": "internal-relative",
-          "rawPath": "./treasury",
-          "resolvedPath": "v2/about/livepeer-protocol/treasury.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "markdown-link",
-          "attr": "",
-          "linkType": "internal-relative",
-          "rawPath": "./protocol-economics",
-          "resolvedPath": "v2/about/livepeer-protocol/protocol-economics",
-          "exists": false,
-          "status": "skipped-allowlisted",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "markdown-link",
-          "attr": "",
-          "linkType": "internal-relative",
-          "rawPath": "./technical-architecture",
-          "resolvedPath": "v2/about/livepeer-protocol/technical-architecture.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "markdown-link",
-          "attr": "",
           "linkType": "external-https",
           "rawPath": "https://tokenflows.xyz/tutorials/introduction-tutorials/module3/",
           "resolvedPath": "",
@@ -432,6 +371,66 @@
           "sourceType": "jsx-attr",
           "attr": "href",
           "linkType": "internal-relative",
+          "rawPath": "./core-mechanisms",
+          "resolvedPath": "v2/about/livepeer-protocol/core-mechanisms.mdx",
+          "exists": true,
+          "status": "ok",
+          "movedCandidates": []
+        },
+        {
+          "sourceType": "jsx-attr",
+          "attr": "href",
+          "linkType": "internal-relative",
+          "rawPath": "./livepeer-token",
+          "resolvedPath": "v2/about/livepeer-protocol/livepeer-token.mdx",
+          "exists": true,
+          "status": "ok",
+          "movedCandidates": []
+        },
+        {
+          "sourceType": "jsx-attr",
+          "attr": "href",
+          "linkType": "internal-relative",
+          "rawPath": "./governance-model",
+          "resolvedPath": "v2/about/livepeer-protocol/governance-model.mdx",
+          "exists": true,
+          "status": "ok",
+          "movedCandidates": []
+        },
+        {
+          "sourceType": "jsx-attr",
+          "attr": "href",
+          "linkType": "internal-relative",
+          "rawPath": "./treasury",
+          "resolvedPath": "v2/about/livepeer-protocol/treasury.mdx",
+          "exists": true,
+          "status": "ok",
+          "movedCandidates": []
+        },
+        {
+          "sourceType": "jsx-attr",
+          "attr": "href",
+          "linkType": "internal-relative",
+          "rawPath": "./economics",
+          "resolvedPath": "v2/about/livepeer-protocol/economics.mdx",
+          "exists": true,
+          "status": "ok",
+          "movedCandidates": []
+        },
+        {
+          "sourceType": "jsx-attr",
+          "attr": "href",
+          "linkType": "internal-relative",
+          "rawPath": "./technical-architecture",
+          "resolvedPath": "v2/about/livepeer-protocol/technical-architecture.mdx",
+          "exists": true,
+          "status": "ok",
+          "movedCandidates": []
+        },
+        {
+          "sourceType": "jsx-attr",
+          "attr": "href",
+          "linkType": "internal-relative",
           "rawPath": "../resources/livepeer-whitepaper",
           "resolvedPath": "v2/about/resources/livepeer-whitepaper.mdx",
           "exists": true,
@@ -444,26 +443,6 @@
           "linkType": "internal-relative",
           "rawPath": "../resources/blockchain-contracts",
           "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "href",
-          "linkType": "internal-rooted",
-          "rawPath": "/v2/resources/references/contract-addresses",
-          "resolvedPath": "v2/resources/references/contract-addresses.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "import-path",
-          "attr": "",
-          "linkType": "import-path",
-          "rawPath": "/snippets/components/primitives/text.jsx",
-          "resolvedPath": "snippets/components/primitives/text.jsx",
           "exists": true,
           "status": "ok",
           "movedCandidates": []
