@@ -3947,9 +3947,9 @@
                               {
                                 "group": "Installation",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/install/install-overview",
+                                  "v2/es/gateways/run-a-gateway/install/install-overview",
                                   "v2/es/gateways/run-a-gateway/install/docker-install",
-                                  "v2/gateways/run-a-gateway/install/linux-install",
+                                  "v2/es/gateways/run-a-gateway/install/linux-install",
                                   "v2/es/gateways/run-a-gateway/install/windows-install",
                                   "v2/es/gateways/run-a-gateway/install/community-projects"
                                 ]
@@ -3958,9 +3958,9 @@
                                 "group": "Configuration",
                                 "pages": [
                                   "v2/es/gateways/run-a-gateway/configure/configuration-overview",
-                                  "v2/gateways/run-a-gateway/configure/video-configuration",
-                                  "v2/gateways/run-a-gateway/configure/ai-configuration",
-                                  "v2/gateways/run-a-gateway/configure/dual-configuration",
+                                  "v2/es/gateways/run-a-gateway/configure/video-configuration",
+                                  "v2/es/gateways/run-a-gateway/configure/ai-configuration",
+                                  "v2/es/gateways/run-a-gateway/configure/dual-configuration",
                                   "v2/gateways/run-a-gateway/configure/pricing-configuration"
                                 ]
                               },
@@ -5221,20 +5221,20 @@
                               {
                                 "group": "Installation",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/install/install-overview",
+                                  "v2/fr/gateways/run-a-gateway/install/install-overview",
                                   "v2/fr/gateways/run-a-gateway/install/docker-install",
-                                  "v2/gateways/run-a-gateway/install/linux-install",
+                                  "v2/fr/gateways/run-a-gateway/install/linux-install",
                                   "v2/fr/gateways/run-a-gateway/install/windows-install",
-                                  "v2/gateways/run-a-gateway/install/community-projects"
+                                  "v2/fr/gateways/run-a-gateway/install/community-projects"
                                 ]
                               },
                               {
                                 "group": "Configuration",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/configure/configuration-overview",
-                                  "v2/gateways/run-a-gateway/configure/video-configuration",
-                                  "v2/gateways/run-a-gateway/configure/ai-configuration",
-                                  "v2/gateways/run-a-gateway/configure/dual-configuration",
+                                  "v2/fr/gateways/run-a-gateway/configure/configuration-overview",
+                                  "v2/fr/gateways/run-a-gateway/configure/video-configuration",
+                                  "v2/fr/gateways/run-a-gateway/configure/ai-configuration",
+                                  "v2/fr/gateways/run-a-gateway/configure/dual-configuration",
                                   "v2/gateways/run-a-gateway/configure/pricing-configuration"
                                 ]
                               },
@@ -6495,7 +6495,7 @@
                               {
                                 "group": "Installation",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/install/install-overview",
+                                  "v2/cn/gateways/run-a-gateway/install/install-overview",
                                   "v2/cn/gateways/run-a-gateway/install/docker-install",
                                   "v2/cn/gateways/run-a-gateway/install/linux-install",
                                   "v2/cn/gateways/run-a-gateway/install/windows-install",
@@ -6508,8 +6508,8 @@
                                   "v2/cn/gateways/run-a-gateway/configure/configuration-overview",
                                   "v2/cn/gateways/run-a-gateway/configure/video-configuration",
                                   "v2/cn/gateways/run-a-gateway/configure/ai-configuration",
-                                  "v2/gateways/run-a-gateway/configure/dual-configuration",
-                                  "v2/gateways/run-a-gateway/configure/pricing-configuration"
+                                  "v2/cn/gateways/run-a-gateway/configure/dual-configuration",
+                                  "v2/cn/gateways/run-a-gateway/configure/pricing-configuration"
                                 ]
                               },
                               {
