@@ -3976,15 +3976,15 @@
                                 "group": "Network Connect",
                                 "tag": "Go Live!",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/connect/lp-marketplace",
-                                  "v2/gateways/run-a-gateway/connect/discover-offerings",
-                                  "v2/gateways/run-a-gateway/connect/connect-with-offerings"
+                                  "v2/es/gateways/run-a-gateway/connect/lp-marketplace",
+                                  "v2/es/gateways/run-a-gateway/connect/discover-offerings",
+                                  "v2/es/gateways/run-a-gateway/connect/connect-with-offerings"
                                 ]
                               },
                               {
                                 "group": "Monitor & Optimise",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/monitor/monitor-and-optimise"
+                                  "v2/es/gateways/run-a-gateway/monitor/monitor-and-optimise"
                                 ]
                               }
                             ]
@@ -5258,7 +5258,7 @@
                               {
                                 "group": "Monitor & Optimise",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/monitor/monitor-and-optimise"
+                                  "v2/fr/gateways/run-a-gateway/monitor/monitor-and-optimise"
                                 ]
                               }
                             ]
@@ -6524,15 +6524,15 @@
                                 "group": "Network Connect",
                                 "tag": "Go Live!",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/connect/lp-marketplace",
+                                  "v2/cn/gateways/run-a-gateway/connect/lp-marketplace",
                                   "v2/cn/gateways/run-a-gateway/connect/discover-offerings",
-                                  "v2/gateways/run-a-gateway/connect/connect-with-offerings"
+                                  "v2/cn/gateways/run-a-gateway/connect/connect-with-offerings"
                                 ]
                               },
                               {
                                 "group": "Monitor & Optimise",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/monitor/monitor-and-optimise"
+                                  "v2/cn/gateways/run-a-gateway/monitor/monitor-and-optimise"
                                 ]
                               }
                             ]
