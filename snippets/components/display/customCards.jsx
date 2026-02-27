@@ -9,7 +9,13 @@
  *   style    (object)  – Optional style overrides for the title span
  *   children           – Card body content (markdown lists, etc.)
  */
-export const DisplayCard = ({ icon, title, style, children }) => {
+export const DisplayCard = ({
+  icon,
+  title,
+  style,
+  background = 'var(--card-background)',
+  children,
+}) => {
   const cardStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -33,7 +39,7 @@ export const DisplayCard = ({ icon, title, style, children }) => {
   const bodyStyle = {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: 'var(--card-background)',
+    backgroundColor: background,
     borderRadius: '8px',
     flex: 1,
     padding: '0.5rem',
