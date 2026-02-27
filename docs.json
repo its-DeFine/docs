@@ -3771,7 +3771,7 @@
                         "pages": [
                           "v2/es/developers/portal",
                           "v2/es/developers/developer-guide",
-                          "v2/developers/guides/partner-integrations",
+                          "v2/es/developers/guides/partner-integrations",
                           "v2/es/developers/developer-journey"
                         ]
                       },
@@ -3809,9 +3809,9 @@
                         "group": "Guides & Tutorials",
                         "icon": "laptop-file",
                         "pages": [
-                          "v2/developers/guides-and-resources/developer-guides",
+                          "v2/es/developers/guides-and-resources/developer-guides",
                           "v2/es/developers/guides-and-resources/resources",
-                          "v2/developers/guides-and-resources/developer-help",
+                          "v2/es/developers/guides-and-resources/developer-help",
                           "v2/es/developers/guides-and-resources/contribution-guide"
                         ]
                       },
@@ -3819,7 +3819,7 @@
                         "group": "Builder Opportunities",
                         "icon": "lightbulb",
                         "pages": [
-                          "v2/developers/builder-opportunities/dev-programs",
+                          "v2/es/developers/builder-opportunities/dev-programs",
                           "v2/es/developers/builder-opportunities/livepeer-rfps"
                         ]
                       }
@@ -5045,7 +5045,7 @@
                         "pages": [
                           "v2/fr/developers/portal",
                           "v2/fr/developers/developer-guide",
-                          "v2/developers/guides/partner-integrations",
+                          "v2/fr/developers/guides/partner-integrations",
                           "v2/fr/developers/developer-journey"
                         ]
                       },
@@ -5086,15 +5086,15 @@
                           "v2/fr/developers/guides-and-resources/developer-guides",
                           "v2/fr/developers/guides-and-resources/resources",
                           "v2/fr/developers/guides-and-resources/developer-help",
-                          "v2/developers/guides-and-resources/contribution-guide"
+                          "v2/fr/developers/guides-and-resources/contribution-guide"
                         ]
                       },
                       {
                         "group": "Builder Opportunities",
                         "icon": "lightbulb",
                         "pages": [
-                          "v2/developers/builder-opportunities/dev-programs",
-                          "v2/developers/builder-opportunities/livepeer-rfps"
+                          "v2/fr/developers/builder-opportunities/dev-programs",
+                          "v2/fr/developers/builder-opportunities/livepeer-rfps"
                         ]
                       }
                     ]
@@ -6319,7 +6319,7 @@
                         "pages": [
                           "v2/cn/developers/portal",
                           "v2/cn/developers/developer-guide",
-                          "v2/developers/guides/partner-integrations",
+                          "v2/cn/developers/guides/partner-integrations",
                           "v2/cn/developers/developer-journey"
                         ]
                       },
@@ -6357,17 +6357,17 @@
                         "group": "Guides & Tutorials",
                         "icon": "laptop-file",
                         "pages": [
-                          "v2/developers/guides-and-resources/developer-guides",
-                          "v2/developers/guides-and-resources/resources",
-                          "v2/developers/guides-and-resources/developer-help",
-                          "v2/developers/guides-and-resources/contribution-guide"
+                          "v2/cn/developers/guides-and-resources/developer-guides",
+                          "v2/cn/developers/guides-and-resources/resources",
+                          "v2/cn/developers/guides-and-resources/developer-help",
+                          "v2/cn/developers/guides-and-resources/contribution-guide"
                         ]
                       },
                       {
                         "group": "Builder Opportunities",
                         "icon": "lightbulb",
                         "pages": [
-                          "v2/developers/builder-opportunities/dev-programs",
+                          "v2/cn/developers/builder-opportunities/dev-programs",
                           "v2/cn/developers/builder-opportunities/livepeer-rfps"
                         ]
                       }
