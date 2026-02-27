@@ -3891,7 +3891,7 @@
                         "icon": "wand-magic-sparkles",
                         "pages": [
                           "v2/es/gateways/using-gateways/choosing-a-gateway",
-                          "v2/gateways/using-gateways/gateway-providers",
+                          "v2/es/gateways/using-gateways/gateway-providers",
                           {
                             "group": "Documentación del Proveedor",
                             "pages": [
@@ -5123,7 +5123,7 @@
                         "group": "Hub de connaissances Gateway",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/gateways/gateways-portal",
+                          "v2/fr/gateways/gateways-portal",
                           "v2/gateways/about-gateways/gateway-explainer",
                           "v2/gateways/about-gateways/gateway-functions",
                           "v2/fr/gateways/about-gateways/gateway-architecture",
@@ -6378,7 +6378,7 @@
                           "v2/cn/gateways/gateways-portal",
                           "v2/gateways/about-gateways/gateway-explainer",
                           "v2/gateways/about-gateways/gateway-functions",
-                          "v2/gateways/about-gateways/gateway-architecture",
+                          "v2/cn/gateways/about-gateways/gateway-architecture",
                           "v2/gateways/about-gateways/gateway-economics"
                         ]
                       },
