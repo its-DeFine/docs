@@ -1,9 +1,9 @@
 ---
-title: 'Run a Gateway: Quickstart Guide'
+title: 'Ejecutar un Gateway: Guía de inicio rápido'
 description: >-
-  Get a Livepeer dual AI / video Gateway node up and running locally or on the
-  Livepeer network.
-sidebarTitle: Run a Gateway Quickstart
+  Obtén un nodo de Gateway dual de IA / video Livepeer y ejecútalo localmente o
+  en la red Livepeer.
+sidebarTitle: Ejecutar un Gateway de inicio rápido
 keywords:
   - livepeer
   - gateways
@@ -15,12 +15,12 @@ keywords:
   - video
 'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
 ---
-{/* codex-i18n: eyJraW5kIjoiY29kZXgtaTE4biIsInZlcnNpb24iOjEsInNvdXJjZVBhdGgiOiJ2Mi9nYXRld2F5cy9ydW4tYS1nYXRld2F5L3F1aWNrc3RhcnQvcXVpY2tzdGFydC1hLWdhdGV3YXkubWR4Iiwic291cmNlUm91dGUiOiJ2Mi9nYXRld2F5cy9ydW4tYS1nYXRld2F5L3F1aWNrc3RhcnQvcXVpY2tzdGFydC1hLWdhdGV3YXkiLCJzb3VyY2VIYXNoIjoiNmMyZTViYTMxMzFlNTU3Y2NkOTNmNTAzYzM3Y2Q4ZjFjNzk2MmFlMGE4OWEyOWVjODAwYjJiYjQwMTAyNjRhYyIsImxhbmd1YWdlIjoiZXMiLCJwcm92aWRlciI6Im9wZW5yb3V0ZXIiLCJtb2RlbCI6Im9wZW5haS9ncHQtb3NzLTEyMGI6ZnJlZSIsImdlbmVyYXRlZEF0IjoiMjAyNi0wMi0yN1QwMzowMjozMS4xNThaIn0= */}
+{/* codex-i18n: eyJraW5kIjoiY29kZXgtaTE4biIsInZlcnNpb24iOjEsInNvdXJjZVBhdGgiOiJ2Mi9nYXRld2F5cy9ydW4tYS1nYXRld2F5L3F1aWNrc3RhcnQvcXVpY2tzdGFydC1hLWdhdGV3YXkubWR4Iiwic291cmNlUm91dGUiOiJ2Mi9nYXRld2F5cy9ydW4tYS1nYXRld2F5L3F1aWNrc3RhcnQvcXVpY2tzdGFydC1hLWdhdGV3YXkiLCJzb3VyY2VIYXNoIjoiYWMzMWZjYjg0NmVhZTU1YzY0MjEwNWZlMTJiMGNmZjI3ODliNWI5MTgzZGRhOGQ5ZDk4M2RmZmVhMTA3OTI4YiIsImxhbmd1YWdlIjoiZXMiLCJwcm92aWRlciI6Im9wZW5yb3V0ZXIiLCJtb2RlbCI6InF3ZW4vcXdlbi10dXJibyIsImdlbmVyYXRlZEF0IjoiMjAyNi0wMi0yN1QxNDowNTo1MC42MjhaIn0= */}
 {/* DATA & CODE */}
 {/* These can be moved to the view using them */}
 import { DOCKER_CODE, DOCKER_YML, BASH_CODE, AI_TEST_COMMANDS, CONFIG_FILES, CLI_CODE } from '/snippets/data/gateways/code.jsx';
 import { CONFIG_FLAGS } from '/snippets/data/gateways/flags.jsx';
-import { latestVersion } from '/snippets/automations/globals/globals.jsx';
+import { latestVersion } from '/snippets/automations/globals/globals.mdx';
 
 {/* BANNERS, CALLOUTS, VALUE STRINGS */}
 {/* These can be moved to the view using them */}
@@ -66,10 +66,10 @@ import LinuxSupport from '/snippets/pages/04_GATEWAYS/run/quickstart/groups/linu
 </Card> 
 
 --- 
-# ¡Vamos(-Livepeer) ! <Icon icon="face-grin-wink" size={26} />
-Esta página te pondrá en marcha con un nodo Gateway Livepeer para <Badge color="blue">Video</Badge> Transcodificación y <Badge color="purple">AI</Badge> Enrutamiento del servicio de canalización.
+# Vamos (-Livepeer) ! <Icon icon="face-grin-wink" size={26} />
+Esta página te permitirá configurar un Nodo de Puerta de Livepeer para <Badge color="blue">Video</Badge> Transcodificación & <Badge color="purple">AI</Badge> enrutamiento de servicios de canal.
 
-*Esta guía incluye:* 
+*Este guía incluye:* 
 - Configuración para <span><Icon icon="link" size={20}/> **on-chain _(production)_** and <Icon icon="floppy-disk" size={20}/> **off-chain _(local/dev)_** Livepeer Gateway nodes </span>
 - Guías de instalación para <span><Icon icon="docker" size={20} /> **Docker _(recommended)_** </span> y <span><Icon icon="laptop-code" size={20} /> **Pre-Built Binaries**. </span>
 

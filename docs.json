@@ -3939,9 +3939,9 @@
                               {
                                 "group": "Setup Checklist",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/requirements/setup",
+                                  "v2/es/gateways/run-a-gateway/requirements/setup",
                                   "v2/es/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
-                                  "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway"
+                                  "v2/es/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway"
                                 ]
                               },
                               {
@@ -5172,7 +5172,7 @@
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
                         "pages": [
                           "v2/fr/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
-                          "v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
+                          "v2/fr/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
                         ]
                       },
                       {
@@ -5201,7 +5201,7 @@
                             "icon": "fast-forward",
                             "pages": [
                               "v2/fr/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
-                              "v2/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
+                              "v2/fr/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
                             ]
                           },
                           {
@@ -5213,9 +5213,9 @@
                               {
                                 "group": "Setup Checklist",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/requirements/setup",
+                                  "v2/fr/gateways/run-a-gateway/requirements/setup",
                                   "v2/fr/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
-                                  "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway"
+                                  "v2/fr/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway"
                                 ]
                               },
                               {
@@ -6445,7 +6445,7 @@
                         "group": "Quickstart ⚡",
                         "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
                         "pages": [
-                          "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                          "v2/cn/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
                           "v2/cn/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
                         ]
                       },
@@ -6474,7 +6474,7 @@
                             "group": "Quickstart",
                             "icon": "fast-forward",
                             "pages": [
-                              "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                              "v2/cn/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
                               "v2/cn/gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway"
                             ]
                           },
@@ -6487,9 +6487,9 @@
                               {
                                 "group": "Setup Checklist",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/requirements/setup",
+                                  "v2/cn/gateways/run-a-gateway/requirements/setup",
                                   "v2/cn/gateways/run-a-gateway/requirements/on-chain setup/on-chain",
-                                  "v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway"
+                                  "v2/cn/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway"
                                 ]
                               },
                               {
@@ -6515,9 +6515,9 @@
                               {
                                 "group": "Testing",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
-                                  "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
-                                  "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway"
+                                  "v2/cn/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                                  "v2/cn/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+                                  "v2/cn/gateways/run-a-gateway/quickstart/quickstart-a-gateway"
                                 ]
                               },
                               {
