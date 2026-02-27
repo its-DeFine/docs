@@ -124,15 +124,23 @@ async function testRunAuditFixAndStage() {
 
   fs.writeFileSync(abs, '# Temp WCAG Selftest\n\n<img src="/tmp-selftest.png" />\n', 'utf8');
 
+  const testV2Pages = require('../../tools/scripts/test-v2-pages');
+  const originalGetV2Pages = testV2Pages.getV2Pages;
+  testV2Pages.getV2Pages = function patchedGetV2Pages() {
+    const base = originalGetV2Pages.call(this);
+    const route = rel.replace(/\.mdx?$/i, '');
+    return [...new Set([...base, route])];
+  };
+
   try {
-    const noFix = await wcag.runAudit({ argv: ['--files', rel, '--no-fix', '--report', reportMd, '--report-json', reportJson] });
+    const noFix = await wcag.runAudit({ argv: ['--files', rel, '--no-fix', '--max-pages', '0', '--report', reportMd, '--report-json', reportJson] });
     assert.ok(fs.readFileSync(abs, 'utf8').includes('<img src="/tmp-selftest.png" />'));
     assert.strictEqual(noFix.results.length, 1);
     assert.strictEqual(noFix.results[0].kind, 'static-only');
     assert.strictEqual(noFix.results[0].autofixes.length, 0);
     assert.ok(noFix.results[0].staticFindings.some((f) => f.rule === 'raw-img-missing-alt'));
 
-    const withFix = await wcag.runAudit({ argv: ['--files', rel, '--fix', '--stage', '--report', reportMd, '--report-json', reportJson] });
+    const withFix = await wcag.runAudit({ argv: ['--files', rel, '--fix', '--stage', '--max-pages', '0', '--report', reportMd, '--report-json', reportJson] });
     const fixedContent = fs.readFileSync(abs, 'utf8');
     assert.ok(/<img\b[^>]*\balt=/.test(fixedContent), 'expected img alt autofix');
     assert.ok(withFix.summary.totals.autofixes >= 1);
@@ -148,6 +156,7 @@ async function testRunAuditFixAndStage() {
       assert.strictEqual(fallback.status, 0, fallback.stderr || fallback.stdout);
     }
   } finally {
+    testV2Pages.getV2Pages = originalGetV2Pages;
     try {
       fs.unlinkSync(abs);
     } catch (_error) {

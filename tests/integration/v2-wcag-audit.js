@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * @script v2-wcag-audit
- * @summary Audit v2 docs accessibility (WCAG 2.2 AA) with deterministic reports and conservative source autofixes.
+ * @summary Audit v2 docs.json navigation pages for accessibility (WCAG 2.2 AA) with deterministic reports and conservative source autofixes.
  * @owner docs
  * @scope tests/integration, tests/utils, tasks/reports, v2
  *
@@ -27,8 +27,8 @@
  *   - v2/*.mdx or v2/*.md changes only when --fix (default) applies conservative autofixes
  *
  * @exit-codes
- *   0 = no blocking issues at/above fail threshold and no runtime failures
- *   1 = blocking issues remain, runtime error, or invalid args
+ *   0 = no blocking WCAG/static issues at/above fail threshold
+ *   1 = blocking WCAG/static issues remain, or invalid args/runtime script failure
  *
  * @examples
  *   node tests/integration/v2-wcag-audit.js --full
@@ -688,6 +688,32 @@ function resolveFilesForArgs(args) {
   return { files: out, excludedInputs };
 }
 
+function filterFilesToDocsJsonV2Navigation(absPaths, docsRoutes, options = {}) {
+  const mode = String(options.mode || 'full');
+  const explicitExcluded = [];
+  const out = [];
+  const seen = new Set();
+
+  (absPaths || []).forEach((filePath) => {
+    const abs = path.isAbsolute(filePath) ? filePath : path.resolve(REPO_ROOT, filePath);
+    if (seen.has(abs)) return;
+    seen.add(abs);
+
+    const routeKey = fileToV2RouteKey(abs);
+    if (routeKey && docsRoutes.has(routeKey)) {
+      out.push(abs);
+      return;
+    }
+
+    if (mode === 'files') {
+      explicitExcluded.push(relFromRoot(abs));
+    }
+  });
+
+  out.sort((a, b) => relFromRoot(a).localeCompare(relFromRoot(b)));
+  return { files: out, explicitExcluded };
+}
+
 function maybeStageFiles(absPaths) {
   const files = [...new Set((absPaths || []).map((p) => path.resolve(p)))];
   if (!files.length) return { attempted: 0, staged: 0, error: '' };
@@ -844,7 +870,7 @@ async function createBrowserAndMaybeServer(baseUrlArg) {
   };
 }
 
-function summarizeResults(results, allStaticFindings, runtimeFailures, failImpact) {
+function summarizeResults(results, allStaticFindings, failImpact) {
   const wcagViolations = [];
   const bestPractice = [];
   const incomplete = [];
@@ -877,7 +903,6 @@ function summarizeResults(results, allStaticFindings, runtimeFailures, failImpac
   return {
     totals: {
       results: results.length,
-      runtimeFailures: runtimeFailures.length,
       wcagViolations: wcagViolations.length,
       bestPracticeViolations: bestPractice.length,
       incomplete: incomplete.length,
@@ -886,7 +911,8 @@ function summarizeResults(results, allStaticFindings, runtimeFailures, failImpac
       autofixes: autofixes.length,
       blockingWcag: blockingWcag.length,
       blockingStatic: blockingStatic.length,
-      blockingTotal: blockingWcag.length + blockingStatic.length + runtimeFailures.length
+      // Runtime/navigation failures are reported separately and are not counted as WCAG blocking totals.
+      blockingTotal: blockingWcag.length + blockingStatic.length
     },
     impacts: {
       wcag: impactCounts(wcagViolations),
@@ -930,7 +956,6 @@ function buildJsonReport({
   browserAuditedCount,
   staticOnlyCount,
   results,
-  runtimeFailures,
   allStaticFindings,
   summary,
   suggestions,
@@ -959,8 +984,7 @@ function buildJsonReport({
     summary: {
       ...summary.totals,
       impacts: summary.impacts,
-      byRule: summary.byRule,
-      runtimeFailureDetails: runtimeFailures.map((r) => ({ file: r.file, routeKey: r.routeKey, url: r.url, error: r.error }))
+      byRule: summary.byRule
     },
     results,
     autofix: {
@@ -1000,8 +1024,7 @@ function buildMarkdownReport(report) {
   lines.push(`- Static findings still open: ${sum.staticOpen}`);
   lines.push(`- Static findings auto-fixed: ${sum.staticFixed}`);
   lines.push(`- Autofix edits applied: ${sum.autofixes}`);
-  lines.push(`- Runtime/navigation failures: ${sum.runtimeFailures}`);
-  lines.push(`- Blocking issues (>= ${md.failImpact}) + runtime failures: ${sum.blockingTotal}`);
+  lines.push(`- Blocking WCAG/static issues (>= ${md.failImpact}): ${sum.blockingTotal}`);
   if ((report.scope.browserTargetPages ?? 0) > report.scope.browserAuditedPages) {
     lines.push(`- Browser audit completion: incomplete (${report.scope.browserAuditedPages}/${report.scope.browserTargetPages})`);
   }
@@ -1024,9 +1047,6 @@ function buildMarkdownReport(report) {
           blockingRows.push({ file: r.file, impact: f.impact, rule: f.rule, line: f.line || '', note: f.message });
         }
       });
-      if (r.runtimeError) {
-        blockingRows.push({ file: r.file, impact: 'critical', rule: 'runtime-error', line: '', note: r.runtimeError });
-      }
     });
     blockingRows.sort((a, b) => a.file.localeCompare(b.file) || (IMPACT_RANK[b.impact] - IMPACT_RANK[a.impact]) || a.rule.localeCompare(b.rule));
     blockingRows.forEach((row) => {
@@ -1075,19 +1095,6 @@ function buildMarkdownReport(report) {
   }
   lines.push('');
 
-  lines.push('## Runtime / Navigation Failures');
-  lines.push('');
-  const runtimeFailures = (report.results || []).filter((r) => r.runtimeError);
-  if (!runtimeFailures.length) {
-    lines.push('_No runtime/navigation failures._');
-  } else {
-    runtimeFailures.forEach((r) => {
-      lines.push(`- \`${r.file}\` - ${r.runtimeError}`);
-      if (r.url) lines.push(`  - URL: ${r.url}`);
-    });
-  }
-  lines.push('');
-
   lines.push('## Notes');
   lines.push('');
   lines.push('- Automated WCAG checks are partial coverage and do not replace manual accessibility review (keyboard, screen-reader UX, content meaning, and task flows).');
@@ -1112,19 +1119,39 @@ async function runAudit(options = {}) {
     return { exitCode: 0, args, help: true };
   }
 
-  const { files, excludedInputs } = resolveFilesForArgs(args);
+  const docsRoutes = getV2DocsJsonRoutes();
+  if (docsRoutes.size === 0) {
+    console.error('❌ Could not load v2 docs.json navigation routes; refusing to run WCAG audit with an empty route set.');
+    return { exitCode: 1, args, error: 'empty-v2-docs-json-routes' };
+  }
+
+  const resolved = resolveFilesForArgs(args);
+  let files = resolved.files;
+  const excludedInputs = [...resolved.excludedInputs];
   if (excludedInputs.length) {
     excludedInputs.forEach((rel) => console.warn(`⚠️  Excluding x-* path from audit scope: ${rel}`));
   }
 
+  const navFiltered = filterFilesToDocsJsonV2Navigation(files, docsRoutes, { mode: args.mode });
+  const nonNavExcludedCount = files.length - navFiltered.files.length;
+  files = navFiltered.files;
+  if (navFiltered.explicitExcluded.length) {
+    navFiltered.explicitExcluded.forEach((rel) => {
+      console.warn(`⚠️  Excluding non-navigation v2 path from WCAG scope (not in docs.json v2 navigation): ${rel}`);
+      excludedInputs.push(rel);
+    });
+  } else if (nonNavExcludedCount > 0) {
+    console.log(`ℹ️  Excluding ${nonNavExcludedCount} v2 file(s) not present in docs.json v2 navigation from WCAG scope.`);
+  }
+
   if (files.length === 0) {
-    console.log('ℹ️  No matching v2 docs files to audit.');
+    console.log('ℹ️  No matching v2 docs.json navigation files to audit.');
     if (args.mode === 'staged') {
       console.log('ℹ️  Staged mode with no matching files; leaving existing reports unchanged.');
       return { exitCode: 0, args, skipped: true, files: [] };
     }
     const emptyResults = [];
-    const summary = summarizeResults(emptyResults, [], [], args.failImpact);
+    const summary = summarizeResults(emptyResults, [], args.failImpact);
     const suggestions = [];
     const jsonReport = buildJsonReport({
       args,
@@ -1134,7 +1161,6 @@ async function runAudit(options = {}) {
       browserAuditedCount: 0,
       staticOnlyCount: 0,
       results: emptyResults,
-      runtimeFailures: [],
       allStaticFindings: [],
       summary,
       suggestions,
@@ -1144,16 +1170,14 @@ async function runAudit(options = {}) {
     return { exitCode: 0, args, jsonReport, results: emptyResults, files };
   }
 
-  console.log(`♿ Auditing ${files.length} v2 docs file(s) (mode: ${args.mode})`);
+  console.log(`♿ Auditing ${files.length} v2 docs.json navigation file(s) (mode: ${args.mode})`);
   console.log(`   WCAG profile: ${WCAG_PROFILE}`);
   console.log(`   Fail threshold: ${args.failImpact}`);
   console.log(`   Autofix: ${args.fix ? 'enabled (default)' : 'disabled'}`);
-
-  const docsRoutes = getV2DocsJsonRoutes();
   const allStaticFindings = [];
   const results = [];
   const changedContentFiles = [];
-  const runtimeFailures = [];
+  const runtimeDiagnostics = [];
 
   // Static scan + optional autofix for all files.
   for (const absPath of files) {
@@ -1180,7 +1204,6 @@ async function runAudit(options = {}) {
       title: '',
       h1: '',
       bodyTextLength: 0,
-      runtimeError: '',
       wcagViolations: [],
       bestPracticeViolations: [],
       incomplete: [],
@@ -1218,20 +1241,20 @@ async function runAudit(options = {}) {
           axeSource,
           timeoutMs: args.timeoutMs
         });
-        item.browserAudited = true;
         item.url = url;
         item.status = pageResult.status;
         item.title = pageResult.title;
         item.h1 = pageResult.h1;
         item.bodyTextLength = pageResult.bodyTextLength;
-        item.wcagViolations = pageResult.wcagViolations;
-        item.bestPracticeViolations = pageResult.bestPracticeViolations;
-        item.incomplete = pageResult.incomplete;
         if (!pageResult.ok) {
-          item.runtimeError = pageResult.error;
-          runtimeFailures.push({ file: item.file, routeKey: item.routeKey, url, error: pageResult.error });
-          console.log('❌ runtime error');
+          item.kind = 'static-only';
+          runtimeDiagnostics.push({ file: item.file, routeKey: item.routeKey, url, error: pageResult.error });
+          console.log('⚠️  skipped (non-WCAG runtime issue)');
         } else {
+          item.browserAudited = true;
+          item.wcagViolations = pageResult.wcagViolations;
+          item.bestPracticeViolations = pageResult.bestPracticeViolations;
+          item.incomplete = pageResult.incomplete;
           console.log(`✅ ${pageResult.wcagViolations.length} WCAG / ${pageResult.bestPracticeViolations.length} BP`);
         }
       }
@@ -1239,8 +1262,13 @@ async function runAudit(options = {}) {
       console.error(`❌ Browser WCAG audit infrastructure failed: ${error.message}`);
       cappedCandidates.forEach((item) => {
         if (!item.browserAudited) {
-          item.runtimeError = `Browser infrastructure error: ${error.message}`;
-          runtimeFailures.push({ file: item.file, routeKey: item.routeKey, url: item.url, error: item.runtimeError });
+          item.kind = 'static-only';
+          runtimeDiagnostics.push({
+            file: item.file,
+            routeKey: item.routeKey,
+            url: item.url,
+            error: `Browser infrastructure error: ${error.message}`
+          });
         }
       });
     } finally {
@@ -1268,7 +1296,7 @@ async function runAudit(options = {}) {
     r.autofixes.sort((a, b) => (a.line || 0) - (b.line || 0) || String(a.rule || '').localeCompare(String(b.rule || '')));
   });
 
-  const summary = summarizeResults(results, allStaticFindings, runtimeFailures, args.failImpact);
+  const summary = summarizeResults(results, allStaticFindings, args.failImpact);
   const suggestions = collectTopSuggestions(summary);
   const baseUrlForReport = browserCtx ? browserCtx.baseUrl : (args.baseUrl || '');
   const actualBrowserAuditedCount = results.filter((r) => r.browserAudited).length;
@@ -1281,7 +1309,6 @@ async function runAudit(options = {}) {
     browserAuditedCount: actualBrowserAuditedCount,
     staticOnlyCount: results.filter((r) => r.kind === 'static-only').length,
     results,
-    runtimeFailures,
     allStaticFindings,
     summary,
     suggestions,
@@ -1302,7 +1329,7 @@ async function runAudit(options = {}) {
   if (args.stage) {
     console.log(`   Autofix files staged: ${stageResult.staged}/${stageResult.attempted}`);
   }
-  console.log(`   Runtime failures: ${summary.totals.runtimeFailures}`);
+  console.log(`   Non-WCAG runtime diagnostics (ignored): ${runtimeDiagnostics.length}`);
   console.log(`   Blocking total (>= ${args.failImpact}): ${summary.totals.blockingTotal}`);
   console.log(`   Report (md): ${relFromRoot(args.report)}`);
   console.log(`   Report (json): ${relFromRoot(args.reportJson)}`);

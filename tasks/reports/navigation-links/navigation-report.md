@@ -1,9 +1,9 @@
 # Docs Navigation Route Report
 
-- Generated at (UTC): 2026-02-26T05:12:20.887Z
-- Entries scanned: 1142
+- Generated at (UTC): 2026-02-27T06:26:24.151Z
+- Entries scanned: 1149
 - Syntax errors: 0
-- Missing routes: 2
+- Missing routes: 0
 - Missing routes with suggestions: 0
 
 ## Syntax Errors
@@ -12,10 +12,4 @@
 
 ## Missing Routes
 
-- `v2/pages/01_about/livepeer-network/actors` (normalized: `v2/pages/01_about/livepeer-network/actors`)
-  - Pointer: `navigation.versions[1].languages[0].tabs[8].anchors[0].groups[2].pages[2]`
-  - Suggested remaps: none
-
-- `v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory` (normalized: `v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory`)
-  - Pointer: `navigation.versions[1].languages[0].tabs[8].anchors[0].groups[4].pages[0]`
-  - Suggested remaps: none
+- None

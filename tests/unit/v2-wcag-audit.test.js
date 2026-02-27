@@ -166,7 +166,7 @@ function runTests() {
       { rule: 'raw-img-missing-alt', impact: 'serious', fixed: false },
       { rule: 'raw-iframe-missing-title', impact: 'moderate', fixed: true }
     ];
-    const summary = wcag.summarizeResults(results, staticFindings, [], 'serious');
+    const summary = wcag.summarizeResults(results, staticFindings, 'serious');
     const keys = Object.keys(summary.byRule);
     assert.deepStrictEqual(keys, [...keys].sort());
     const suggestions = wcag.collectTopSuggestions(summary);
@@ -185,7 +185,6 @@ function runTests() {
       browserAuditedCount: 1,
       staticOnlyCount: 0,
       results,
-      runtimeFailures: [],
       allStaticFindings: staticFindings,
       summary,
       suggestions,
