@@ -3617,12 +3617,12 @@
                               {
                                 "group": "Multistream",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/create",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/get",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/update",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/delete"
+                                  "v2/es/platforms/livepeer-studio/api-reference/multistream/overview",
+                                  "v2/es/platforms/livepeer-studio/api-reference/multistream/create",
+                                  "v2/es/platforms/livepeer-studio/api-reference/multistream/get",
+                                  "v2/es/platforms/livepeer-studio/api-reference/multistream/get-all",
+                                  "v2/es/platforms/livepeer-studio/api-reference/multistream/update",
+                                  "v2/es/platforms/livepeer-studio/api-reference/multistream/delete"
                                 ]
                               },
                               {
@@ -4891,12 +4891,12 @@
                               {
                                 "group": "Multistream",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/create",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/get",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/update",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/delete"
+                                  "v2/fr/platforms/livepeer-studio/api-reference/multistream/overview",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/multistream/create",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/multistream/get",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/multistream/get-all",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/multistream/update",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/multistream/delete"
                                 ]
                               },
                               {
@@ -6165,12 +6165,12 @@
                               {
                                 "group": "Multistream",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/create",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/get",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/update",
-                                  "v2/platforms/livepeer-studio/api-reference/multistream/delete"
+                                  "v2/cn/platforms/livepeer-studio/api-reference/multistream/overview",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/multistream/create",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/multistream/get",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/multistream/get-all",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/multistream/update",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/multistream/delete"
                                 ]
                               },
                               {
