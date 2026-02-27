@@ -3635,11 +3635,11 @@
                               {
                                 "group": "Sessions",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/get",
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-clip",
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-recording"
+                                  "v2/es/platforms/livepeer-studio/api-reference/sessions/overview",
+                                  "v2/es/platforms/livepeer-studio/api-reference/sessions/get",
+                                  "v2/es/platforms/livepeer-studio/api-reference/sessions/get-all",
+                                  "v2/es/platforms/livepeer-studio/api-reference/sessions/get-clip",
+                                  "v2/es/platforms/livepeer-studio/api-reference/sessions/get-recording"
                                 ]
                               },
                               {
@@ -4909,11 +4909,11 @@
                               {
                                 "group": "Sessions",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/get",
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-clip",
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-recording"
+                                  "v2/fr/platforms/livepeer-studio/api-reference/sessions/overview",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/sessions/get",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/sessions/get-all",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/sessions/get-clip",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/sessions/get-recording"
                                 ]
                               },
                               {
@@ -6183,11 +6183,11 @@
                               {
                                 "group": "Sessions",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/get",
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-clip",
-                                  "v2/platforms/livepeer-studio/api-reference/sessions/get-recording"
+                                  "v2/cn/platforms/livepeer-studio/api-reference/sessions/overview",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/sessions/get",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/sessions/get-all",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/sessions/get-clip",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/sessions/get-recording"
                                 ]
                               },
                               {
