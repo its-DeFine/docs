@@ -3628,8 +3628,8 @@
                               {
                                 "group": "Playback",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/playback/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/playback/get"
+                                  "v2/es/platforms/livepeer-studio/api-reference/playback/overview",
+                                  "v2/es/platforms/livepeer-studio/api-reference/playback/get"
                                 ]
                               },
                               {
@@ -3645,16 +3645,16 @@
                               {
                                 "group": "Tasks",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/tasks/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/tasks/get",
-                                  "v2/platforms/livepeer-studio/api-reference/tasks/get-all"
+                                  "v2/es/platforms/livepeer-studio/api-reference/tasks/overview",
+                                  "v2/es/platforms/livepeer-studio/api-reference/tasks/get",
+                                  "v2/es/platforms/livepeer-studio/api-reference/tasks/get-all"
                                 ]
                               },
                               {
                                 "group": "Transcode",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/transcode/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/transcode/create"
+                                  "v2/es/platforms/livepeer-studio/api-reference/transcode/overview",
+                                  "v2/es/platforms/livepeer-studio/api-reference/transcode/create"
                                 ]
                               },
                               {
@@ -4902,8 +4902,8 @@
                               {
                                 "group": "Playback",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/playback/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/playback/get"
+                                  "v2/fr/platforms/livepeer-studio/api-reference/playback/overview",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/playback/get"
                                 ]
                               },
                               {
@@ -4919,16 +4919,16 @@
                               {
                                 "group": "Tasks",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/tasks/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/tasks/get",
-                                  "v2/platforms/livepeer-studio/api-reference/tasks/get-all"
+                                  "v2/fr/platforms/livepeer-studio/api-reference/tasks/overview",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/tasks/get",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/tasks/get-all"
                                 ]
                               },
                               {
                                 "group": "Transcode",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/transcode/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/transcode/create"
+                                  "v2/fr/platforms/livepeer-studio/api-reference/transcode/overview",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/transcode/create"
                                 ]
                               },
                               {
@@ -6176,8 +6176,8 @@
                               {
                                 "group": "Playback",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/playback/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/playback/get"
+                                  "v2/cn/platforms/livepeer-studio/api-reference/playback/overview",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/playback/get"
                                 ]
                               },
                               {
@@ -6193,16 +6193,16 @@
                               {
                                 "group": "Tasks",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/tasks/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/tasks/get",
-                                  "v2/platforms/livepeer-studio/api-reference/tasks/get-all"
+                                  "v2/cn/platforms/livepeer-studio/api-reference/tasks/overview",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/tasks/get",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/tasks/get-all"
                                 ]
                               },
                               {
                                 "group": "Transcode",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/transcode/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/transcode/create"
+                                  "v2/cn/platforms/livepeer-studio/api-reference/transcode/overview",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/transcode/create"
                                 ]
                               },
                               {
