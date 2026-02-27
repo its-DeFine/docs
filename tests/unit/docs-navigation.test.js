@@ -42,6 +42,9 @@ const { execSync } = require('child_process');
 const REPORT_MD_REL = 'tasks/reports/navigation-links/navigation-report.md';
 const REPORT_JSON_REL = 'tasks/reports/navigation-links/navigation-report.json';
 const DEFAULT_REMAP_THRESHOLD = 0.85;
+const RESOURCE_HUB_REDIRECT_ROUTE = 'v2/resources/redirect';
+const RESOURCE_HUB_PORTAL_ROUTE = 'v2/resources/resources-portal';
+const LEGACY_RESOURCE_HUB_ROUTE = 'v2/pages/07_resources/redirect';
 
 let errors = [];
 let warnings = [];
@@ -157,6 +160,22 @@ function collectPageEntries(node, pointer, out = []) {
   return out;
 }
 
+function collectObjectNodes(node, pointer, out = []) {
+  if (Array.isArray(node)) {
+    node.forEach((item, index) => collectObjectNodes(item, `${pointer}[${index}]`, out));
+    return out;
+  }
+
+  if (!node || typeof node !== 'object') return out;
+  out.push({ node, pointer });
+
+  Object.entries(node).forEach(([key, value]) => {
+    collectObjectNodes(value, `${pointer}.${key}`, out);
+  });
+
+  return out;
+}
+
 function normalizeRoute(rawValue) {
   let value = String(rawValue || '').trim();
   value = value.replace(/^\/+/, '');
@@ -183,6 +202,40 @@ function resolveRouteToFile(repoRoot, route) {
     if (fs.existsSync(abs)) return toPosix(candidate);
   }
   return null;
+}
+
+function resolveRouteViaRedirects(repoRoot, docsJson, rawRoute) {
+  const normalized = normalizeRoute(rawRoute);
+  if (!normalized) return null;
+  const redirects = Array.isArray(docsJson?.redirects) ? docsJson.redirects : [];
+  for (const redirect of redirects) {
+    if (!redirect || typeof redirect !== 'object') continue;
+    if (normalizeRoute(redirect.source) !== normalized) continue;
+    const resolved = resolveRouteToFile(repoRoot, redirect.destination);
+    if (resolved) return resolved;
+  }
+  return null;
+}
+
+function resolveRouteViaCanonicalMap(repoRoot, rawRoute) {
+  const normalized = normalizeRoute(rawRoute);
+  if (!normalized) return null;
+
+  for (const candidate of getCanonicalMap(normalized)) {
+    const resolved = resolveRouteToFile(repoRoot, candidate);
+    if (resolved) return resolved;
+  }
+  return null;
+}
+
+function resolveRouteWithAliases(repoRoot, docsJson, rawRoute) {
+  const direct = resolveRouteToFile(repoRoot, rawRoute);
+  if (direct) return direct;
+
+  const viaRedirect = resolveRouteViaRedirects(repoRoot, docsJson, rawRoute);
+  if (viaRedirect) return viaRedirect;
+
+  return resolveRouteViaCanonicalMap(repoRoot, rawRoute);
 }
 
 function countSharedPrefix(aSegments, bSegments) {
@@ -244,8 +297,12 @@ function getCanonicalMap(normalizedRoute) {
       'v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers'
     ],
     'v2/pages/02_community/livepeer-community/media-kit': ['v2/resources/media-kit'],
+    'v2/pages/01_about/livepeer-network/actors': ['v2/about/livepeer-network/actors'],
+    'v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory': [
+      'v2/developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory'
+    ],
     'v2/resources/concepts/livepeer-core-concepts': ['v2/about/core-concepts'],
-    'v2/resources/concepts/livepeer-actors': ['v2/pages/01_about/livepeer-network/actors'],
+    'v2/resources/concepts/livepeer-actors': ['v2/about/livepeer-network/actors'],
     'v2/resources/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory': [
       'v2/pages/03_developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory'
     ],
@@ -579,6 +636,16 @@ function runTests(options = {}) {
   entries.forEach(({ value, pointer }) => {
     const raw = String(value);
     const trimmed = raw.trim();
+    const normalized = normalizeRoute(raw);
+
+    if (normalized === LEGACY_RESOURCE_HUB_ROUTE) {
+      errors.push({
+        file: 'docs.json',
+        rule: 'Legacy Resource HUB route',
+        message: `Legacy route "${LEGACY_RESOURCE_HUB_ROUTE}" is not allowed; use "${RESOURCE_HUB_REDIRECT_ROUTE}"`,
+        pointer
+      });
+    }
 
     if (!trimmed) {
       if (raw === ' ') return;
@@ -600,7 +667,7 @@ function runTests(options = {}) {
       syntaxErrors.push(issue);
     }
 
-    const resolved = resolveRouteToFile(repoRoot, raw);
+    const resolved = resolveRouteWithAliases(repoRoot, docsJson, raw);
     if (!resolved) {
       const suggestions = suggestRemaps(raw, knownRoutes);
       const issue = {
@@ -618,6 +685,64 @@ function runTests(options = {}) {
         rule: 'Missing route',
         message: `No file found for "${raw}".${topSuggestion}`,
         pointer
+      });
+    }
+  });
+
+  const objectNodes = collectObjectNodes(docsJson.navigation || docsJson, 'navigation');
+  objectNodes
+    .filter(({ node }) => node && node.anchor === 'Resource HUB')
+    .forEach(({ node, pointer }) => {
+      const pages = Array.isArray(node.pages) ? node.pages : [];
+      const isCanonical =
+        pages.length === 1 && normalizeRoute(pages[0]) === RESOURCE_HUB_REDIRECT_ROUTE;
+      if (!isCanonical) {
+        errors.push({
+          file: 'docs.json',
+          rule: 'Resource HUB anchor target',
+          message: `anchor "Resource HUB" must target exactly ["${RESOURCE_HUB_REDIRECT_ROUTE}"]`,
+          pointer
+        });
+      }
+    });
+
+  objectNodes
+    .filter(({ node }) => node && node.tab === 'Resource HUB')
+    .forEach(({ node, pointer }) => {
+      const firstRoute = node?.anchors?.[0]?.groups?.[0]?.pages?.[0];
+      if (normalizeRoute(firstRoute) !== RESOURCE_HUB_REDIRECT_ROUTE) {
+        errors.push({
+          file: 'docs.json',
+          rule: 'Resource HUB tab first route',
+          message: `Resource HUB tab first routable page must be "${RESOURCE_HUB_REDIRECT_ROUTE}"`,
+          pointer: `${pointer}.anchors[0].groups[0].pages[0]`
+        });
+      }
+    });
+
+  const redirects = Array.isArray(docsJson.redirects) ? docsJson.redirects : [];
+  const hasCanonicalRedirect = redirects.some(
+    (redirect) =>
+      redirect &&
+      redirect.source === `/${RESOURCE_HUB_REDIRECT_ROUTE}` &&
+      redirect.destination === `/${RESOURCE_HUB_PORTAL_ROUTE}`
+  );
+  if (!hasCanonicalRedirect) {
+    errors.push({
+      file: 'docs.json',
+      rule: 'Resource HUB redirect',
+      message: `Missing redirect "/${RESOURCE_HUB_REDIRECT_ROUTE}" -> "/${RESOURCE_HUB_PORTAL_ROUTE}"`,
+      pointer: 'redirects'
+    });
+  }
+
+  redirects.forEach((redirect, index) => {
+    if (redirect && redirect.source === '/v2/pages/07_resources/redirect') {
+      errors.push({
+        file: 'docs.json',
+        rule: 'Legacy Resource HUB redirect source',
+        message: 'Legacy redirect source "/v2/pages/07_resources/redirect" must be removed',
+        pointer: `redirects[${index}]`
       });
     }
   });

@@ -128,9 +128,7 @@ a.nav-tabs-item[href="/pages/08_help/README"] {
 
 /* Push Resource HUB to the right and style as outlined button */
 a.nav-tabs-item[href$="/resources/redirect"],
-a.nav-tabs-item[href$="/resources/resources-portal"],
-a.nav-tabs-item[href$="/07_resources/redirect"],
-a.nav-tabs-item[href$="/07_resources/resources-portal"] {
+a.nav-tabs-item[href$="/resources/resources-portal"] {
   margin-left: auto;
   background-color: transparent;
   border: 1px solid var(--accent) !important;
@@ -149,9 +147,7 @@ a.nav-tabs-item[href$="/07_resources/resources-portal"] {
 
 /* Shrink & color the icon */
 a.nav-tabs-item[href$="/resources/redirect"] svg,
-a.nav-tabs-item[href$="/resources/resources-portal"] svg,
-a.nav-tabs-item[href$="/07_resources/redirect"] svg,
-a.nav-tabs-item[href$="/07_resources/resources-portal"] svg {
+a.nav-tabs-item[href$="/resources/resources-portal"] svg {
   height: 0.75rem;
   width: 0.75rem;
   /* background-color: #2b9a66 !important; */
@@ -159,9 +155,7 @@ a.nav-tabs-item[href$="/07_resources/resources-portal"] svg {
 
 /* Hide the underline on the button */
 a.nav-tabs-item[href$="/resources/redirect"] > div:last-child,
-a.nav-tabs-item[href$="/resources/resources-portal"] > div:last-child,
-a.nav-tabs-item[href$="/07_resources/redirect"] > div:last-child,
-a.nav-tabs-item[href$="/07_resources/resources-portal"] > div:last-child {
+a.nav-tabs-item[href$="/resources/resources-portal"] > div:last-child {
   display: none;
 }
 

@@ -1204,7 +1204,6 @@ async function runAudit(options = {}) {
       title: '',
       h1: '',
       bodyTextLength: 0,
-      runtimeError: '',
       wcagViolations: [],
       bestPracticeViolations: [],
       incomplete: [],
@@ -1242,19 +1241,20 @@ async function runAudit(options = {}) {
           axeSource,
           timeoutMs: args.timeoutMs
         });
-        item.browserAudited = true;
         item.url = url;
         item.status = pageResult.status;
         item.title = pageResult.title;
         item.h1 = pageResult.h1;
         item.bodyTextLength = pageResult.bodyTextLength;
-        item.wcagViolations = pageResult.wcagViolations;
-        item.bestPracticeViolations = pageResult.bestPracticeViolations;
-        item.incomplete = pageResult.incomplete;
         if (!pageResult.ok) {
+          item.kind = 'static-only';
           runtimeDiagnostics.push({ file: item.file, routeKey: item.routeKey, url, error: pageResult.error });
           console.log('⚠️  skipped (non-WCAG runtime issue)');
         } else {
+          item.browserAudited = true;
+          item.wcagViolations = pageResult.wcagViolations;
+          item.bestPracticeViolations = pageResult.bestPracticeViolations;
+          item.incomplete = pageResult.incomplete;
           console.log(`✅ ${pageResult.wcagViolations.length} WCAG / ${pageResult.bestPracticeViolations.length} BP`);
         }
       }
@@ -1262,6 +1262,7 @@ async function runAudit(options = {}) {
       console.error(`❌ Browser WCAG audit infrastructure failed: ${error.message}`);
       cappedCandidates.forEach((item) => {
         if (!item.browserAudited) {
+          item.kind = 'static-only';
           runtimeDiagnostics.push({
             file: item.file,
             routeKey: item.routeKey,
