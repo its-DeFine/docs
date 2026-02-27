@@ -3544,12 +3544,12 @@
                           {
                             "group": "Video on demand",
                             "pages": [
-                              "v2/platforms/livepeer-studio/video-on-demand/overview",
-                              "v2/platforms/livepeer-studio/video-on-demand/upload-asset",
-                              "v2/platforms/livepeer-studio/video-on-demand/playback-asset",
-                              "v2/platforms/livepeer-studio/video-on-demand/encrypted-assets",
-                              "v2/platforms/livepeer-studio/video-on-demand/thumbnails-vod",
-                              "v2/platforms/livepeer-studio/video-on-demand/transcode-video"
+                              "v2/es/platforms/livepeer-studio/video-on-demand/overview",
+                              "v2/es/platforms/livepeer-studio/video-on-demand/upload-asset",
+                              "v2/es/platforms/livepeer-studio/video-on-demand/playback-asset",
+                              "v2/es/platforms/livepeer-studio/video-on-demand/encrypted-assets",
+                              "v2/es/platforms/livepeer-studio/video-on-demand/thumbnails-vod",
+                              "v2/es/platforms/livepeer-studio/video-on-demand/transcode-video"
                             ]
                           },
                           {
@@ -4818,12 +4818,12 @@
                           {
                             "group": "Video on demand",
                             "pages": [
-                              "v2/platforms/livepeer-studio/video-on-demand/overview",
-                              "v2/platforms/livepeer-studio/video-on-demand/upload-asset",
-                              "v2/platforms/livepeer-studio/video-on-demand/playback-asset",
+                              "v2/fr/platforms/livepeer-studio/video-on-demand/overview",
+                              "v2/fr/platforms/livepeer-studio/video-on-demand/upload-asset",
+                              "v2/fr/platforms/livepeer-studio/video-on-demand/playback-asset",
                               "v2/platforms/livepeer-studio/video-on-demand/encrypted-assets",
-                              "v2/platforms/livepeer-studio/video-on-demand/thumbnails-vod",
-                              "v2/platforms/livepeer-studio/video-on-demand/transcode-video"
+                              "v2/fr/platforms/livepeer-studio/video-on-demand/thumbnails-vod",
+                              "v2/fr/platforms/livepeer-studio/video-on-demand/transcode-video"
                             ]
                           },
                           {
@@ -6092,11 +6092,11 @@
                           {
                             "group": "Video on demand",
                             "pages": [
-                              "v2/platforms/livepeer-studio/video-on-demand/overview",
-                              "v2/platforms/livepeer-studio/video-on-demand/upload-asset",
-                              "v2/platforms/livepeer-studio/video-on-demand/playback-asset",
+                              "v2/cn/platforms/livepeer-studio/video-on-demand/overview",
+                              "v2/cn/platforms/livepeer-studio/video-on-demand/upload-asset",
+                              "v2/cn/platforms/livepeer-studio/video-on-demand/playback-asset",
                               "v2/platforms/livepeer-studio/video-on-demand/encrypted-assets",
-                              "v2/platforms/livepeer-studio/video-on-demand/thumbnails-vod",
+                              "v2/cn/platforms/livepeer-studio/video-on-demand/thumbnails-vod",
                               "v2/platforms/livepeer-studio/video-on-demand/transcode-video"
                             ]
                           },
