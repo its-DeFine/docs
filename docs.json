@@ -3887,7 +3887,7 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/es/gateways/gateways-portal",
-                          "v2/gateways/about-gateways/gateway-explainer",
+                          "v2/es/gateways/about-gateways/gateway-explainer",
                           "v2/es/gateways/about-gateways/gateway-functions",
                           "v2/es/gateways/about-gateways/gateway-architecture",
                           "v2/es/gateways/about-gateways/gateway-economics"
@@ -3935,7 +3935,7 @@
                             "expanded": true,
                             "pages": [
                               "v2/es/gateways/run-a-gateway/why-run-a-gateway",
-                              "v2/gateways/run-a-gateway/run-a-gateway",
+                              "v2/es/gateways/run-a-gateway/run-a-gateway",
                               {
                                 "group": "Setup Checklist",
                                 "pages": [
@@ -4163,7 +4163,7 @@
                         "pages": [
                           "v2/es/orchestrators/advanced-setup/staking-LPT",
                           "v2/es/orchestrators/advanced-setup/rewards-and-fees",
-                          "v2/orchestrators/advanced-setup/delegation",
+                          "v2/es/orchestrators/advanced-setup/delegation",
                           "v2/orchestrators/advanced-setup/ai-pipelines",
                           "v2/orchestrators/advanced-setup/run-a-pool"
                         ]
@@ -5208,8 +5208,8 @@
                             "group": "Gateway Setup Guide",
                             "expanded": true,
                             "pages": [
-                              "v2/gateways/run-a-gateway/why-run-a-gateway",
-                              "v2/gateways/run-a-gateway/run-a-gateway",
+                              "v2/fr/gateways/run-a-gateway/why-run-a-gateway",
+                              "v2/fr/gateways/run-a-gateway/run-a-gateway",
                               {
                                 "group": "Setup Checklist",
                                 "pages": [
@@ -5435,7 +5435,7 @@
                         "group": "Advanced Orchestrator Information",
                         "icon": "gamepad",
                         "pages": [
-                          "v2/orchestrators/advanced-setup/staking-LPT",
+                          "v2/fr/orchestrators/advanced-setup/staking-LPT",
                           "v2/fr/orchestrators/advanced-setup/rewards-and-fees",
                           "v2/fr/orchestrators/advanced-setup/delegation",
                           "v2/fr/orchestrators/advanced-setup/ai-pipelines",
@@ -6482,7 +6482,7 @@
                             "group": "Gateway Setup Guide",
                             "expanded": true,
                             "pages": [
-                              "v2/gateways/run-a-gateway/why-run-a-gateway",
+                              "v2/cn/gateways/run-a-gateway/why-run-a-gateway",
                               "v2/cn/gateways/run-a-gateway/run-a-gateway",
                               {
                                 "group": "Setup Checklist",
