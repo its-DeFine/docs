@@ -4010,9 +4010,9 @@
                             "group": "Gateways",
                             "pages": [
                               "v2/es/gateways/references/technical-architecture",
-                              "v2/gateways/references/configuration-flags",
-                              "v2/gateways/references/configuration-flags",
-                              "v2/gateways/references/cli-commands"
+                              "v2/es/gateways/references/configuration-flags",
+                              "v2/es/gateways/references/configuration-flags",
+                              "v2/es/gateways/references/cli-commands"
                             ]
                           },
                           {
@@ -4040,7 +4040,7 @@
                               {
                                 "group": "CLI HTTP API",
                                 "pages": [
-                                  "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api",
+                                  "v2/es/gateways/references/api-reference/CLI-HTTP/cli-http-api",
                                   "v2/es/gateways/references/api-reference/CLI-HTTP/unbond",
                                   "v2/es/gateways/references/api-reference/CLI-HTTP/rebond",
                                   "v2/es/gateways/references/api-reference/CLI-HTTP/activateorchestrator",
@@ -5286,7 +5286,7 @@
                               "v2/fr/gateways/references/technical-architecture",
                               "v2/fr/gateways/references/configuration-flags",
                               "v2/fr/gateways/references/configuration-flags",
-                              "v2/gateways/references/cli-commands"
+                              "v2/fr/gateways/references/cli-commands"
                             ]
                           },
                           {
@@ -5314,7 +5314,7 @@
                               {
                                 "group": "CLI HTTP API",
                                 "pages": [
-                                  "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api",
+                                  "v2/fr/gateways/references/api-reference/CLI-HTTP/cli-http-api",
                                   "v2/fr/gateways/references/api-reference/CLI-HTTP/unbond",
                                   "v2/fr/gateways/references/api-reference/CLI-HTTP/rebond",
                                   "v2/fr/gateways/references/api-reference/CLI-HTTP/activateorchestrator",
@@ -5332,7 +5332,7 @@
                             "pages": [
                               "v2/fr/gateways/references/livepeer-exchanges",
                               "v2/fr/gateways/references/artibtrum-exchanges",
-                              "v2/gateways/references/arbitrum-rpc"
+                              "v2/fr/gateways/references/arbitrum-rpc"
                             ]
                           }
                         ]
@@ -6560,7 +6560,7 @@
                               "v2/cn/gateways/references/technical-architecture",
                               "v2/cn/gateways/references/configuration-flags",
                               "v2/cn/gateways/references/configuration-flags",
-                              "v2/gateways/references/cli-commands"
+                              "v2/cn/gateways/references/cli-commands"
                             ]
                           },
                           {
@@ -6569,7 +6569,7 @@
                               {
                                 "group": "AI API",
                                 "pages": [
-                                  "v2/gateways/references/api-reference/AI-API/ai",
+                                  "v2/cn/gateways/references/api-reference/AI-API/ai",
                                   "v2/cn/gateways/references/api-reference/AI-API/text-to-image",
                                   "v2/cn/gateways/references/api-reference/AI-API/image-to-image",
                                   "v2/cn/gateways/references/api-reference/AI-API/image-to-video",
@@ -6588,7 +6588,7 @@
                               {
                                 "group": "CLI HTTP API",
                                 "pages": [
-                                  "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api",
+                                  "v2/cn/gateways/references/api-reference/CLI-HTTP/cli-http-api",
                                   "v2/cn/gateways/references/api-reference/CLI-HTTP/unbond",
                                   "v2/cn/gateways/references/api-reference/CLI-HTTP/rebond",
                                   "v2/cn/gateways/references/api-reference/CLI-HTTP/activateorchestrator",
@@ -6604,8 +6604,8 @@
                           {
                             "group": "Exchanges & RPCs",
                             "pages": [
-                              "v2/gateways/references/livepeer-exchanges",
-                              "v2/gateways/references/artibtrum-exchanges",
+                              "v2/cn/gateways/references/livepeer-exchanges",
+                              "v2/cn/gateways/references/artibtrum-exchanges",
                               "v2/cn/gateways/references/arbitrum-rpc"
                             ]
                           }
