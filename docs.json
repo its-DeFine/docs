@@ -3888,9 +3888,9 @@
                         "pages": [
                           "v2/es/gateways/gateways-portal",
                           "v2/gateways/about-gateways/gateway-explainer",
-                          "v2/gateways/about-gateways/gateway-functions",
+                          "v2/es/gateways/about-gateways/gateway-functions",
                           "v2/es/gateways/about-gateways/gateway-architecture",
-                          "v2/gateways/about-gateways/gateway-economics"
+                          "v2/es/gateways/about-gateways/gateway-economics"
                         ]
                       },
                       {
@@ -3999,7 +3999,7 @@
                           "v2/es/gateways/gateway-tools/livepeer-tools",
                           "v2/es/gateways/guides-and-resources/community-guides",
                           "v2/es/gateways/guides-and-resources/community-projects",
-                          "v2/gateways/guides-and-resources/faq"
+                          "v2/es/gateways/guides-and-resources/faq"
                         ]
                       },
                       {
@@ -5161,10 +5161,10 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/fr/gateways/gateways-portal",
-                          "v2/gateways/about-gateways/gateway-explainer",
-                          "v2/gateways/about-gateways/gateway-functions",
+                          "v2/fr/gateways/about-gateways/gateway-explainer",
+                          "v2/fr/gateways/about-gateways/gateway-functions",
                           "v2/fr/gateways/about-gateways/gateway-architecture",
-                          "v2/gateways/about-gateways/gateway-economics"
+                          "v2/fr/gateways/about-gateways/gateway-economics"
                         ]
                       },
                       {
@@ -5179,7 +5179,7 @@
                         "group": "Gateway Services & Providers",
                         "icon": "wand-magic-sparkles",
                         "pages": [
-                          "v2/gateways/using-gateways/choosing-a-gateway",
+                          "v2/fr/gateways/using-gateways/choosing-a-gateway",
                           "v2/fr/gateways/using-gateways/gateway-providers",
                           {
                             "group": "Provider Docs",
@@ -5273,7 +5273,7 @@
                           "v2/fr/gateways/gateway-tools/livepeer-tools",
                           "v2/fr/gateways/guides-and-resources/community-guides",
                           "v2/fr/gateways/guides-and-resources/community-projects",
-                          "v2/gateways/guides-and-resources/faq"
+                          "v2/fr/gateways/guides-and-resources/faq"
                         ]
                       },
                       {
@@ -6435,10 +6435,10 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/cn/gateways/gateways-portal",
-                          "v2/gateways/about-gateways/gateway-explainer",
-                          "v2/gateways/about-gateways/gateway-functions",
+                          "v2/cn/gateways/about-gateways/gateway-explainer",
+                          "v2/cn/gateways/about-gateways/gateway-functions",
                           "v2/cn/gateways/about-gateways/gateway-architecture",
-                          "v2/gateways/about-gateways/gateway-economics"
+                          "v2/cn/gateways/about-gateways/gateway-economics"
                         ]
                       },
                       {
@@ -6453,8 +6453,8 @@
                         "group": "Gateway Services & Providers",
                         "icon": "wand-magic-sparkles",
                         "pages": [
-                          "v2/gateways/using-gateways/choosing-a-gateway",
-                          "v2/gateways/using-gateways/gateway-providers",
+                          "v2/cn/gateways/using-gateways/choosing-a-gateway",
+                          "v2/cn/gateways/using-gateways/gateway-providers",
                           {
                             "group": "Provider Docs",
                             "pages": [
