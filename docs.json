@@ -3854,7 +3854,7 @@
                             "group": "SDKs & APIs",
                             "pages": [
                               "v2/es/developers/technical-references/sdks",
-                              "v2/developers/technical-references/apis"
+                              "v2/es/developers/technical-references/apis"
                             ]
                           },
                           "v2/es/developers/technical-references/awesome-livepeer",
@@ -5058,7 +5058,7 @@
                             "pages": [
                               "v2/fr/developers/quickstart/video/video-streaming",
                               "v2/developers/quickstart/video/transcoding-jobs",
-                              "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README"
+                              "v2/fr/developers/livepeer-real-time-video/video-streaming-on-livepeer/README"
                             ]
                           },
                           {
@@ -5116,8 +5116,8 @@
                         "pages": [
                           "v2/fr/developers/developer-tools/tooling-hub",
                           "v2/fr/developers/developer-tools/livepeer-explorer",
-                          "v2/developers/developer-tools/livepeer-cloud",
-                          "v2/developers/developer-tools/dashboards"
+                          "v2/fr/developers/developer-tools/livepeer-cloud",
+                          "v2/fr/developers/developer-tools/dashboards"
                         ]
                       },
                       {
@@ -5128,11 +5128,11 @@
                             "group": "SDKs & APIs",
                             "pages": [
                               "v2/fr/developers/technical-references/sdks",
-                              "v2/developers/technical-references/apis"
+                              "v2/fr/developers/technical-references/apis"
                             ]
                           },
-                          "v2/developers/technical-references/awesome-livepeer",
-                          "v2/developers/technical-references/wiki",
+                          "v2/fr/developers/technical-references/awesome-livepeer",
+                          "v2/fr/developers/technical-references/wiki",
                           "v2/fr/developers/technical-references/deepwiki"
                         ]
                       },
@@ -6332,7 +6332,7 @@
                             "pages": [
                               "v2/cn/developers/quickstart/video/video-streaming",
                               "v2/developers/quickstart/video/transcoding-jobs",
-                              "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README"
+                              "v2/cn/developers/livepeer-real-time-video/video-streaming-on-livepeer/README"
                             ]
                           },
                           {
@@ -6389,7 +6389,7 @@
                         "icon": "tools",
                         "pages": [
                           "v2/cn/developers/developer-tools/tooling-hub",
-                          "v2/developers/developer-tools/livepeer-explorer",
+                          "v2/cn/developers/developer-tools/livepeer-explorer",
                           "v2/cn/developers/developer-tools/livepeer-cloud",
                           "v2/cn/developers/developer-tools/dashboards"
                         ]
@@ -6401,13 +6401,13 @@
                           {
                             "group": "SDKs & APIs",
                             "pages": [
-                              "v2/developers/technical-references/sdks",
-                              "v2/developers/technical-references/apis"
+                              "v2/cn/developers/technical-references/sdks",
+                              "v2/cn/developers/technical-references/apis"
                             ]
                           },
-                          "v2/developers/technical-references/awesome-livepeer",
+                          "v2/cn/developers/technical-references/awesome-livepeer",
                           "v2/cn/developers/technical-references/wiki",
-                          "v2/developers/technical-references/deepwiki"
+                          "v2/cn/developers/technical-references/deepwiki"
                         ]
                       },
                       {
