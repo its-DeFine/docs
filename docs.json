@@ -3660,12 +3660,12 @@
                               {
                                 "group": "Signing Keys",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/create",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/get",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/update",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/delete"
+                                  "v2/es/platforms/livepeer-studio/api-reference/signing-keys/overview",
+                                  "v2/es/platforms/livepeer-studio/api-reference/signing-keys/create",
+                                  "v2/es/platforms/livepeer-studio/api-reference/signing-keys/get",
+                                  "v2/es/platforms/livepeer-studio/api-reference/signing-keys/get-all",
+                                  "v2/es/platforms/livepeer-studio/api-reference/signing-keys/update",
+                                  "v2/es/platforms/livepeer-studio/api-reference/signing-keys/delete"
                                 ]
                               },
                               {
@@ -4934,12 +4934,12 @@
                               {
                                 "group": "Signing Keys",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/create",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/get",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/update",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/delete"
+                                  "v2/fr/platforms/livepeer-studio/api-reference/signing-keys/overview",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/signing-keys/create",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/signing-keys/get",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/signing-keys/get-all",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/signing-keys/update",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/signing-keys/delete"
                                 ]
                               },
                               {
@@ -6208,12 +6208,12 @@
                               {
                                 "group": "Signing Keys",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/create",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/get",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/get-all",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/update",
-                                  "v2/platforms/livepeer-studio/api-reference/signing-keys/delete"
+                                  "v2/cn/platforms/livepeer-studio/api-reference/signing-keys/overview",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/signing-keys/create",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/signing-keys/get",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/signing-keys/get-all",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/signing-keys/update",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/signing-keys/delete"
                                 ]
                               },
                               {
