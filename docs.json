@@ -3805,7 +3805,7 @@
                         "icon": "lightbulb",
                         "pages": [
                           "v2/developers/builder-opportunities/dev-programs",
-                          "v2/developers/builder-opportunities/livepeer-rfps"
+                          "v2/es/developers/builder-opportunities/livepeer-rfps"
                         ]
                       }
                     ]
@@ -3828,7 +3828,7 @@
                           "v2/es/developers/developer-tools/tooling-hub",
                           "v2/es/developers/developer-tools/livepeer-explorer",
                           "v2/es/developers/developer-tools/livepeer-cloud",
-                          "v2/developers/developer-tools/dashboards"
+                          "v2/es/developers/developer-tools/dashboards"
                         ]
                       },
                       {
@@ -6309,7 +6309,7 @@
                         "icon": "lightbulb",
                         "pages": [
                           "v2/developers/builder-opportunities/dev-programs",
-                          "v2/developers/builder-opportunities/livepeer-rfps"
+                          "v2/cn/developers/builder-opportunities/livepeer-rfps"
                         ]
                       }
                     ]
@@ -6329,10 +6329,10 @@
                         "group": "开发者工具",
                         "icon": "tools",
                         "pages": [
-                          "v2/developers/developer-tools/tooling-hub",
+                          "v2/cn/developers/developer-tools/tooling-hub",
                           "v2/developers/developer-tools/livepeer-explorer",
-                          "v2/developers/developer-tools/livepeer-cloud",
-                          "v2/developers/developer-tools/dashboards"
+                          "v2/cn/developers/developer-tools/livepeer-cloud",
+                          "v2/cn/developers/developer-tools/dashboards"
                         ]
                       },
                       {
