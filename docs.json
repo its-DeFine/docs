@@ -3589,13 +3589,13 @@
                               {
                                 "group": "Assets",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/assets/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/upload",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/upload-via-url",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/get",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/update",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/delete",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/get-all"
+                                  "v2/es/platforms/livepeer-studio/api-reference/assets/overview",
+                                  "v2/es/platforms/livepeer-studio/api-reference/assets/upload",
+                                  "v2/es/platforms/livepeer-studio/api-reference/assets/upload-via-url",
+                                  "v2/es/platforms/livepeer-studio/api-reference/assets/get",
+                                  "v2/es/platforms/livepeer-studio/api-reference/assets/update",
+                                  "v2/es/platforms/livepeer-studio/api-reference/assets/delete",
+                                  "v2/es/platforms/livepeer-studio/api-reference/assets/get-all"
                                 ]
                               },
                               {
@@ -4863,13 +4863,13 @@
                               {
                                 "group": "Assets",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/assets/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/upload",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/upload-via-url",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/get",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/update",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/delete",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/get-all"
+                                  "v2/fr/platforms/livepeer-studio/api-reference/assets/overview",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/assets/upload",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/assets/upload-via-url",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/assets/get",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/assets/update",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/assets/delete",
+                                  "v2/fr/platforms/livepeer-studio/api-reference/assets/get-all"
                                 ]
                               },
                               {
@@ -6137,13 +6137,13 @@
                               {
                                 "group": "Assets",
                                 "pages": [
-                                  "v2/platforms/livepeer-studio/api-reference/assets/overview",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/upload",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/upload-via-url",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/get",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/update",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/delete",
-                                  "v2/platforms/livepeer-studio/api-reference/assets/get-all"
+                                  "v2/cn/platforms/livepeer-studio/api-reference/assets/overview",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/assets/upload",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/assets/upload-via-url",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/assets/get",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/assets/update",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/assets/delete",
+                                  "v2/cn/platforms/livepeer-studio/api-reference/assets/get-all"
                                 ]
                               },
                               {
