@@ -3767,7 +3767,7 @@
                           {
                             "group": "Video y transcodificación",
                             "pages": [
-                              "v2/developers/quickstart/video/video-streaming",
+                              "v2/es/developers/quickstart/video/video-streaming",
                               "v2/developers/quickstart/video/transcoding-jobs",
                               "v2/es/developers/livepeer-real-time-video/video-streaming-on-livepeer/README"
                             ]
@@ -3994,7 +3994,7 @@
                           {
                             "group": "Puertas de enlace",
                             "pages": [
-                              "v2/gateways/references/technical-architecture",
+                              "v2/es/gateways/references/technical-architecture",
                               "v2/gateways/references/configuration-flags",
                               "v2/gateways/references/configuration-flags",
                               "v2/gateways/references/cli-commands"
@@ -4007,33 +4007,33 @@
                                 "group": "API de IA",
                                 "pages": [
                                   "v2/gateways/references/api-reference/AI-API/ai",
-                                  "v2/gateways/references/api-reference/AI-API/text-to-image",
-                                  "v2/gateways/references/api-reference/AI-API/image-to-image",
-                                  "v2/gateways/references/api-reference/AI-API/image-to-video",
-                                  "v2/gateways/references/api-reference/AI-API/upscale",
-                                  "v2/gateways/references/api-reference/AI-API/audio-to-text",
-                                  "v2/gateways/references/api-reference/AI-API/segment-anything-2",
-                                  "v2/gateways/references/api-reference/AI-API/llm",
-                                  "v2/gateways/references/api-reference/AI-API/image-to-text",
-                                  "v2/gateways/references/api-reference/AI-API/live-video-to-video",
-                                  "v2/gateways/references/api-reference/AI-API/text-to-speech",
-                                  "v2/gateways/references/api-reference/AI-API/health",
-                                  "v2/gateways/references/api-reference/AI-API/hardware-info",
-                                  "v2/gateways/references/api-reference/AI-API/hardware-stats"
+                                  "v2/es/gateways/references/api-reference/AI-API/text-to-image",
+                                  "v2/es/gateways/references/api-reference/AI-API/image-to-image",
+                                  "v2/es/gateways/references/api-reference/AI-API/image-to-video",
+                                  "v2/es/gateways/references/api-reference/AI-API/upscale",
+                                  "v2/es/gateways/references/api-reference/AI-API/audio-to-text",
+                                  "v2/es/gateways/references/api-reference/AI-API/segment-anything-2",
+                                  "v2/es/gateways/references/api-reference/AI-API/llm",
+                                  "v2/es/gateways/references/api-reference/AI-API/image-to-text",
+                                  "v2/es/gateways/references/api-reference/AI-API/live-video-to-video",
+                                  "v2/es/gateways/references/api-reference/AI-API/text-to-speech",
+                                  "v2/es/gateways/references/api-reference/AI-API/health",
+                                  "v2/es/gateways/references/api-reference/AI-API/hardware-info",
+                                  "v2/es/gateways/references/api-reference/AI-API/hardware-stats"
                                 ]
                               },
                               {
                                 "group": "API HTTP de CLI",
                                 "pages": [
                                   "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/unbond",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/rebond",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/reward",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/transfertokens",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/signmessage"
+                                  "v2/es/gateways/references/api-reference/CLI-HTTP/unbond",
+                                  "v2/es/gateways/references/api-reference/CLI-HTTP/rebond",
+                                  "v2/es/gateways/references/api-reference/CLI-HTTP/activateorchestrator",
+                                  "v2/es/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
+                                  "v2/es/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
+                                  "v2/es/gateways/references/api-reference/CLI-HTTP/reward",
+                                  "v2/es/gateways/references/api-reference/CLI-HTTP/transfertokens",
+                                  "v2/es/gateways/references/api-reference/CLI-HTTP/signmessage"
                                 ]
                               }
                             ]
@@ -4041,7 +4041,7 @@
                           {
                             "group": "Intercambios y RPC",
                             "pages": [
-                              "v2/gateways/references/livepeer-exchanges",
+                              "v2/es/gateways/references/livepeer-exchanges",
                               "v2/gateways/references/artibtrum-exchanges",
                               "v2/gateways/references/arbitrum-rpc"
                             ]
@@ -4080,8 +4080,8 @@
                         "pages": [
                           "v2/orchestrators/orchestrators-portal",
                           "v2/orchestrators/about-orchestrators/overview",
-                          "v2/orchestrators/about-orchestrators/orchestrator-functions",
-                          "v2/orchestrators/about-orchestrators/architecture",
+                          "v2/es/orchestrators/about-orchestrators/orchestrator-functions",
+                          "v2/es/orchestrators/about-orchestrators/architecture",
                           "v2/orchestrators/about-orchestrators/economics"
                         ]
                       },
@@ -4091,7 +4091,7 @@
                         "pages": [
                           "v2/orchestrators/quickstart/overview",
                           "v2/orchestrators/quickstart/join-a-pool",
-                          "v2/orchestrators/quickstart/orchestrator-setup"
+                          "v2/es/orchestrators/quickstart/orchestrator-setup"
                         ]
                       },
                       {
@@ -5246,9 +5246,9 @@
                           {
                             "group": "Passerelles",
                             "pages": [
-                              "v2/gateways/references/technical-architecture",
-                              "v2/gateways/references/configuration-flags",
-                              "v2/gateways/references/configuration-flags",
+                              "v2/fr/gateways/references/technical-architecture",
+                              "v2/fr/gateways/references/configuration-flags",
+                              "v2/fr/gateways/references/configuration-flags",
                               "v2/gateways/references/cli-commands"
                             ]
                           },
@@ -5259,33 +5259,33 @@
                                 "group": "API IA",
                                 "pages": [
                                   "v2/gateways/references/api-reference/AI-API/ai",
-                                  "v2/gateways/references/api-reference/AI-API/text-to-image",
-                                  "v2/gateways/references/api-reference/AI-API/image-to-image",
-                                  "v2/gateways/references/api-reference/AI-API/image-to-video",
-                                  "v2/gateways/references/api-reference/AI-API/upscale",
-                                  "v2/gateways/references/api-reference/AI-API/audio-to-text",
-                                  "v2/gateways/references/api-reference/AI-API/segment-anything-2",
-                                  "v2/gateways/references/api-reference/AI-API/llm",
-                                  "v2/gateways/references/api-reference/AI-API/image-to-text",
-                                  "v2/gateways/references/api-reference/AI-API/live-video-to-video",
-                                  "v2/gateways/references/api-reference/AI-API/text-to-speech",
-                                  "v2/gateways/references/api-reference/AI-API/health",
-                                  "v2/gateways/references/api-reference/AI-API/hardware-info",
-                                  "v2/gateways/references/api-reference/AI-API/hardware-stats"
+                                  "v2/fr/gateways/references/api-reference/AI-API/text-to-image",
+                                  "v2/fr/gateways/references/api-reference/AI-API/image-to-image",
+                                  "v2/fr/gateways/references/api-reference/AI-API/image-to-video",
+                                  "v2/fr/gateways/references/api-reference/AI-API/upscale",
+                                  "v2/fr/gateways/references/api-reference/AI-API/audio-to-text",
+                                  "v2/fr/gateways/references/api-reference/AI-API/segment-anything-2",
+                                  "v2/fr/gateways/references/api-reference/AI-API/llm",
+                                  "v2/fr/gateways/references/api-reference/AI-API/image-to-text",
+                                  "v2/fr/gateways/references/api-reference/AI-API/live-video-to-video",
+                                  "v2/fr/gateways/references/api-reference/AI-API/text-to-speech",
+                                  "v2/fr/gateways/references/api-reference/AI-API/health",
+                                  "v2/fr/gateways/references/api-reference/AI-API/hardware-info",
+                                  "v2/fr/gateways/references/api-reference/AI-API/hardware-stats"
                                 ]
                               },
                               {
                                 "group": "API HTTP CLI",
                                 "pages": [
                                   "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/unbond",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/rebond",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/reward",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/transfertokens",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/signmessage"
+                                  "v2/fr/gateways/references/api-reference/CLI-HTTP/unbond",
+                                  "v2/fr/gateways/references/api-reference/CLI-HTTP/rebond",
+                                  "v2/fr/gateways/references/api-reference/CLI-HTTP/activateorchestrator",
+                                  "v2/fr/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
+                                  "v2/fr/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
+                                  "v2/fr/gateways/references/api-reference/CLI-HTTP/reward",
+                                  "v2/fr/gateways/references/api-reference/CLI-HTTP/transfertokens",
+                                  "v2/fr/gateways/references/api-reference/CLI-HTTP/signmessage"
                                 ]
                               }
                             ]
@@ -5330,11 +5330,11 @@
                         "group": "Hub de connaissances de l'Orchestrateur",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/orchestrators/orchestrators-portal",
+                          "v2/fr/orchestrators/orchestrators-portal",
                           "v2/orchestrators/about-orchestrators/overview",
                           "v2/orchestrators/about-orchestrators/orchestrator-functions",
-                          "v2/orchestrators/about-orchestrators/architecture",
-                          "v2/orchestrators/about-orchestrators/economics"
+                          "v2/fr/orchestrators/about-orchestrators/architecture",
+                          "v2/fr/orchestrators/about-orchestrators/economics"
                         ]
                       },
                       {
@@ -6271,7 +6271,7 @@
                           {
                             "group": "视频与转码",
                             "pages": [
-                              "v2/developers/quickstart/video/video-streaming",
+                              "v2/cn/developers/quickstart/video/video-streaming",
                               "v2/developers/quickstart/video/transcoding-jobs",
                               "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README"
                             ]
@@ -6375,7 +6375,7 @@
                         "group": "网关知识中心",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/gateways/gateways-portal",
+                          "v2/cn/gateways/gateways-portal",
                           "v2/gateways/about-gateways/gateway-explainer",
                           "v2/gateways/about-gateways/gateway-functions",
                           "v2/gateways/about-gateways/gateway-architecture",
@@ -6399,9 +6399,9 @@
                           {
                             "group": "提供商文档",
                             "pages": [
-                              "v2/gateways/using-gateways/gateway-providers/daydream-gateway",
-                              "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
-                              "v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway",
+                              "v2/cn/gateways/using-gateways/gateway-providers/daydream-gateway",
+                              "v2/cn/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
+                              "v2/cn/gateways/using-gateways/gateway-providers/cloud-spe-gateway",
                               "v2/platforms/streamplace/overview"
                             ]
                           }
@@ -6424,7 +6424,7 @@
                             "expanded": true,
                             "pages": [
                               "v2/gateways/run-a-gateway/why-run-a-gateway",
-                              "v2/gateways/run-a-gateway/run-a-gateway",
+                              "v2/cn/gateways/run-a-gateway/run-a-gateway",
                               {
                                 "group": "设置清单",
                                 "pages": [
@@ -6438,16 +6438,16 @@
                                 "pages": [
                                   "v2/gateways/run-a-gateway/install/install-overview",
                                   "v2/gateways/run-a-gateway/install/docker-install",
-                                  "v2/gateways/run-a-gateway/install/linux-install",
-                                  "v2/gateways/run-a-gateway/install/windows-install",
+                                  "v2/cn/gateways/run-a-gateway/install/linux-install",
+                                  "v2/cn/gateways/run-a-gateway/install/windows-install",
                                   "v2/gateways/run-a-gateway/install/community-projects"
                                 ]
                               },
                               {
                                 "group": "配置",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/configure/configuration-overview",
-                                  "v2/gateways/run-a-gateway/configure/video-configuration",
+                                  "v2/cn/gateways/run-a-gateway/configure/configuration-overview",
+                                  "v2/cn/gateways/run-a-gateway/configure/video-configuration",
                                   "v2/gateways/run-a-gateway/configure/ai-configuration",
                                   "v2/gateways/run-a-gateway/configure/dual-configuration",
                                   "v2/gateways/run-a-gateway/configure/pricing-configuration"
@@ -6484,10 +6484,10 @@
                         "group": "网关工具与资源",
                         "icon": "tools",
                         "pages": [
-                          "v2/gateways/gateway-tools/explorer",
+                          "v2/cn/gateways/gateway-tools/explorer",
                           "v2/gateways/gateway-tools/livepeer-tools",
-                          "v2/gateways/guides-and-resources/community-guides",
-                          "v2/gateways/guides-and-resources/community-projects",
+                          "v2/cn/gateways/guides-and-resources/community-guides",
+                          "v2/cn/gateways/guides-and-resources/community-projects",
                           "v2/gateways/guides-and-resources/faq"
                         ]
                       },
@@ -6499,8 +6499,8 @@
                             "group": "网关",
                             "pages": [
                               "v2/gateways/references/technical-architecture",
-                              "v2/gateways/references/configuration-flags",
-                              "v2/gateways/references/configuration-flags",
+                              "v2/cn/gateways/references/configuration-flags",
+                              "v2/cn/gateways/references/configuration-flags",
                               "v2/gateways/references/cli-commands"
                             ]
                           },
@@ -6511,33 +6511,33 @@
                                 "group": "AI API",
                                 "pages": [
                                   "v2/gateways/references/api-reference/AI-API/ai",
-                                  "v2/gateways/references/api-reference/AI-API/text-to-image",
-                                  "v2/gateways/references/api-reference/AI-API/image-to-image",
-                                  "v2/gateways/references/api-reference/AI-API/image-to-video",
-                                  "v2/gateways/references/api-reference/AI-API/upscale",
-                                  "v2/gateways/references/api-reference/AI-API/audio-to-text",
-                                  "v2/gateways/references/api-reference/AI-API/segment-anything-2",
-                                  "v2/gateways/references/api-reference/AI-API/llm",
-                                  "v2/gateways/references/api-reference/AI-API/image-to-text",
-                                  "v2/gateways/references/api-reference/AI-API/live-video-to-video",
-                                  "v2/gateways/references/api-reference/AI-API/text-to-speech",
-                                  "v2/gateways/references/api-reference/AI-API/health",
-                                  "v2/gateways/references/api-reference/AI-API/hardware-info",
-                                  "v2/gateways/references/api-reference/AI-API/hardware-stats"
+                                  "v2/cn/gateways/references/api-reference/AI-API/text-to-image",
+                                  "v2/cn/gateways/references/api-reference/AI-API/image-to-image",
+                                  "v2/cn/gateways/references/api-reference/AI-API/image-to-video",
+                                  "v2/cn/gateways/references/api-reference/AI-API/upscale",
+                                  "v2/cn/gateways/references/api-reference/AI-API/audio-to-text",
+                                  "v2/cn/gateways/references/api-reference/AI-API/segment-anything-2",
+                                  "v2/cn/gateways/references/api-reference/AI-API/llm",
+                                  "v2/cn/gateways/references/api-reference/AI-API/image-to-text",
+                                  "v2/cn/gateways/references/api-reference/AI-API/live-video-to-video",
+                                  "v2/cn/gateways/references/api-reference/AI-API/text-to-speech",
+                                  "v2/cn/gateways/references/api-reference/AI-API/health",
+                                  "v2/cn/gateways/references/api-reference/AI-API/hardware-info",
+                                  "v2/cn/gateways/references/api-reference/AI-API/hardware-stats"
                                 ]
                               },
                               {
                                 "group": "CLI HTTP API",
                                 "pages": [
                                   "v2/gateways/references/api-reference/CLI-HTTP/cli-http-api",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/unbond",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/rebond",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/activateorchestrator",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/reward",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/transfertokens",
-                                  "v2/gateways/references/api-reference/CLI-HTTP/signmessage"
+                                  "v2/cn/gateways/references/api-reference/CLI-HTTP/unbond",
+                                  "v2/cn/gateways/references/api-reference/CLI-HTTP/rebond",
+                                  "v2/cn/gateways/references/api-reference/CLI-HTTP/activateorchestrator",
+                                  "v2/cn/gateways/references/api-reference/CLI-HTTP/setbroadcastconfig",
+                                  "v2/cn/gateways/references/api-reference/CLI-HTTP/setmaxpriceforcapability",
+                                  "v2/cn/gateways/references/api-reference/CLI-HTTP/reward",
+                                  "v2/cn/gateways/references/api-reference/CLI-HTTP/transfertokens",
+                                  "v2/cn/gateways/references/api-reference/CLI-HTTP/signmessage"
                                 ]
                               }
                             ]
@@ -6547,7 +6547,7 @@
                             "pages": [
                               "v2/gateways/references/livepeer-exchanges",
                               "v2/gateways/references/artibtrum-exchanges",
-                              "v2/gateways/references/arbitrum-rpc"
+                              "v2/cn/gateways/references/arbitrum-rpc"
                             ]
                           }
                         ]
