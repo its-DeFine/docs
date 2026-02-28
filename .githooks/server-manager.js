@@ -93,22 +93,29 @@ function detectPortFromLog() {
   try {
     const logContent = fs.readFileSync(LOG_FILE, 'utf8');
     
+    const lastMatch = (regex) => {
+      const matches = [...logContent.matchAll(regex)];
+      if (!matches.length) return null;
+      const last = matches[matches.length - 1];
+      return last && last[1] ? parseInt(last[1], 10) : null;
+    };
+    
     // Pattern 1: "local → http://localhost:XXXX"
-    const localMatch = logContent.match(/local\s*→\s*http:\/\/localhost:(\d+)/i);
-    if (localMatch) {
-      return parseInt(localMatch[1]);
+    const localPort = lastMatch(/local\s*→\s*http:\/\/localhost:(\d+)/gi);
+    if (localPort) {
+      return localPort;
     }
     
     // Pattern 2: "port XXXX is already in use. trying YYYY instead"
-    const portMatch = logContent.match(/port\s+\d+\s+is\s+already\s+in\s+use\.\s+trying\s+(\d+)\s+instead/i);
-    if (portMatch) {
-      return parseInt(portMatch[1]);
+    const portPort = lastMatch(/port\s+\d+\s+is\s+already\s+in\s+use\.\s+trying\s+(\d+)\s+instead/gi);
+    if (portPort) {
+      return portPort;
     }
     
     // Pattern 3: "preview ready" followed by port info
-    const previewMatch = logContent.match(/preview\s+ready[^\n]*localhost:(\d+)/i);
-    if (previewMatch) {
-      return parseInt(previewMatch[1]);
+    const previewPort = lastMatch(/preview\s+ready[^\n]*localhost:(\d+)/gi);
+    if (previewPort) {
+      return previewPort;
     }
   } catch (e) {
     // Ignore errors reading log
@@ -222,7 +229,7 @@ function startServer() {
   
   // Start mint dev in background with specific port via environment variable
   // Use 'pipe' instead of WriteStream directly to avoid stdio issues
-  serverProcess = spawn('mint', ['dev'], {
+  serverProcess = spawn('mint', ['dev', '--port', PORT.toString(), '--no-open'], {
     stdio: ['ignore', 'pipe', 'pipe'],
     detached: true,
     shell: true,
@@ -305,6 +312,8 @@ function stopServer() {
  */
 async function ensureServerRunning(options = {}) {
   const { probePath, allowCommonPorts = true } = options;
+  // Reset detected port so each run uses fresh discovery.
+  detectedServerPort = null;
   // Check if already running
   if (await isServerRunning({ probePath, allowCommonPorts })) {
     console.log(`✅ Server already running at ${getServerUrl()}`);

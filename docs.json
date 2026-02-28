@@ -2199,6 +2199,7 @@
                         "icon": "code",
                         "pages": [
                           "v2/developers/portal",
+                          "v2/developers/journey-mapping",
                           "v2/developers/developer-guide",
                           "v2/developers/developer-journey"
                         ]
