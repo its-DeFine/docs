@@ -3500,16 +3500,16 @@
                         "group": "Use Livepeer",
                         "icon": "play",
                         "pages": [
-                          "v2/platforms/portal",
-                          "v2/platforms/product-hub",
-                          "v2/platforms/ecosystem-products"
+                          "v2/es/platforms/portal",
+                          "v2/es/platforms/product-hub",
+                          "v2/es/platforms/ecosystem-products"
                         ]
                       },
                       {
                         "group": "Daydream",
                         "icon": "camera-movie",
                         "pages": [
-                          "v2/platforms/daydream/overview"
+                          "v2/es/platforms/daydream/overview"
                         ]
                       },
                       {
@@ -3731,14 +3731,14 @@
                         "group": "Embody Avatars",
                         "icon": "user-robot",
                         "pages": [
-                          "v2/platforms/embody/overview"
+                          "v2/es/platforms/embody/overview"
                         ]
                       },
                       {
                         "group": "Frameworks",
                         "icon": "clapperboard-play",
                         "pages": [
-                          "v2/platforms/frameworks/overview"
+                          "v2/es/platforms/frameworks/overview"
                         ]
                       }
                     ]
@@ -4774,16 +4774,16 @@
                         "group": "Use Livepeer",
                         "icon": "play",
                         "pages": [
-                          "v2/platforms/portal",
-                          "v2/platforms/product-hub",
-                          "v2/platforms/ecosystem-products"
+                          "v2/fr/platforms/portal",
+                          "v2/fr/platforms/product-hub",
+                          "v2/fr/platforms/ecosystem-products"
                         ]
                       },
                       {
                         "group": "Daydream",
                         "icon": "camera-movie",
                         "pages": [
-                          "v2/platforms/daydream/overview"
+                          "v2/fr/platforms/daydream/overview"
                         ]
                       },
                       {
@@ -5005,14 +5005,14 @@
                         "group": "Embody Avatars",
                         "icon": "user-robot",
                         "pages": [
-                          "v2/platforms/embody/overview"
+                          "v2/fr/platforms/embody/overview"
                         ]
                       },
                       {
                         "group": "Frameworks",
                         "icon": "clapperboard-play",
                         "pages": [
-                          "v2/platforms/frameworks/overview"
+                          "v2/fr/platforms/frameworks/overview"
                         ]
                       }
                     ]
@@ -6048,16 +6048,16 @@
                         "group": "Use Livepeer",
                         "icon": "play",
                         "pages": [
-                          "v2/platforms/portal",
-                          "v2/platforms/product-hub",
-                          "v2/platforms/ecosystem-products"
+                          "v2/cn/platforms/portal",
+                          "v2/cn/platforms/product-hub",
+                          "v2/cn/platforms/ecosystem-products"
                         ]
                       },
                       {
                         "group": "Daydream",
                         "icon": "camera-movie",
                         "pages": [
-                          "v2/platforms/daydream/overview"
+                          "v2/cn/platforms/daydream/overview"
                         ]
                       },
                       {
@@ -6279,14 +6279,14 @@
                         "group": "Embody Avatars",
                         "icon": "user-robot",
                         "pages": [
-                          "v2/platforms/embody/overview"
+                          "v2/cn/platforms/embody/overview"
                         ]
                       },
                       {
                         "group": "Frameworks",
                         "icon": "clapperboard-play",
                         "pages": [
-                          "v2/platforms/frameworks/overview"
+                          "v2/cn/platforms/frameworks/overview"
                         ]
                       }
                     ]
