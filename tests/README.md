@@ -118,7 +118,9 @@ node tests/integration/v2-wcag-audit.js --full
 node tests/integration/v2-wcag-audit.js --full --no-fix
 node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json
 bash lpd test --staged --wcag
+bash lpd test --staged --link-audit-external
 bash lpd test --full --wcag
+bash lpd test --full --link-audit-external
 bash lpd test --full --wcag --wcag-no-fix
 bash lpd tools wcag-repair-common -- --staged --stage
 node tests/run-pr-checks.js --base-ref main

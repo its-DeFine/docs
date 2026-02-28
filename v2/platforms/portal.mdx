@@ -1,8 +1,8 @@
 ---
 mode: frame
-title: 'Livepeer Products & Developer Platforms'
-sidebarTitle: 'Product Portal'
-description: 'Welcome To The Product Portal: Explore, Connect, Contribute'
+title: 'Livepeer Developer Platforms'
+sidebarTitle: 'Platform Portal'
+description: 'Welcome To The Platform Portal: Explore, Build, Create'
 tag: 'Start Here'
 keywords: ['livepeer', 'about', 'about livepeer', 'about portal', 'about livepeer portal', 'about livepeer network', 'about livepeer protocol', 'about livepeer network', 'about livepeer protocol', 'about livepeer token', 'about livepeer governance', 'about livepeer actors', 'about livepeer economics', 'about livepeer whitepaper', 'about livepeer faq']
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsHero.svg"
@@ -49,18 +49,18 @@ import { YouTubeVideo } from '/snippets/components/display/video.jsx'
           </>
       }
       >  
-        <Note>
+        {/* <Note>
           Owners of products are responsible for maintaining their own documentation. Though it will be initially seeded. 
 
           Automation pipelines may be available if docs owners provide repo access to enable these OR the docs can embed your documentation site or simply link out to it.
-        </Note>
+        </Note> */}
         <YouTubeVideo embedUrl="https://www.youtube.com/embed/t9jhLn2fZcc?si=AM29wXYZwFJWw3UN" title="Discover Daydream" />
         </PortalHeroContent>
     </HeroContentContainer>
 </HeroSectionContainer>
 
 <PortalContentContainer>
-  <PortalCardsHeader title="Product Portal">
+  <PortalCardsHeader title="Platform Portal">
     <BlinkingIcon icon="circle-play" size={20}  />
   </PortalCardsHeader>
 
@@ -71,7 +71,9 @@ import { YouTubeVideo } from '/snippets/components/display/video.jsx'
       href="./daydream/overview"
       arrow
     >
-      Daydream is a real-time AI video platform that allows you to create, edit, and share AI video content.
+      Daydream is a real-time AI video platform that allows you to create, edit, and share AI video content. 
+      
+      It provides the tools to build with open world models and real-time AI, in a community where creatives, builders, and researchers advance the field together.
     </Card>
     <Card
       title="Livepeer Studio"
@@ -79,9 +81,9 @@ import { YouTubeVideo } from '/snippets/components/display/video.jsx'
       href="./livepeer-studio/overview"
       arrow
     >
-    
-      {/* The Livepeer Protocol is the underlying code that enforces the mechanisms and rules to ensure the reliability, cooperation and coordination of these decentralised actors. */}
-    {/* A deep dive into the on-chain governance and incentive layer that secures and coordinates orchestrators, staking rewards, inflation, slashing, and probabilistic payments. */}
+      Livepeer Studio is a developer-friendly gateway and toolkit for the Livepeer decentralized video infrastructure.
+
+      Livepeer Studio offers easy-to-use APIs and dashboards for builders to add scalable, cost-efficient, and censorship-resistant live streaming and video-on-demand (VOD) features to applications.
     </Card>
     <Card
       title="Frameworks"
@@ -89,7 +91,10 @@ import { YouTubeVideo } from '/snippets/components/display/video.jsx'
       href="./frameworks/overview"
       arrow
     >
-    The models, nodes and actors that contribute to the Livepeer Real-time Video AI Network.
+    Frameworks offers a full-stack video streaming platform that combines full self-hosting capabilities with hosted processing and features to 10x your ideas.
+
+    The MistServer team is on a mission to democratize video infrastructure by leveraging decentralized protocols and open source technology -> creating a streaming infrastructure that doesn't lock you in.
+
     </Card>
     <Card
       title="Stream.place"
@@ -97,9 +102,11 @@ import { YouTubeVideo } from '/snippets/components/display/video.jsx'
       href="./streamplace/overview"
       arrow
     >
-      A comprehensive glossary of terms used in the Livepeer Real-time Video AI Network.
+     Streamplace is an open-source video infrastructure layer for social networks, livestreaming platforms and web3-native apps.
+     
+     It provides identity, distribution, monetisation and sovreignty primitives to bring high-quality video experiences while preserving content authenticity.
     </Card>
-    <Card
+    {/* <Card
       title="Embody"
       icon="book"
       href="./embody/overview"
@@ -114,7 +121,7 @@ import { YouTubeVideo } from '/snippets/components/display/video.jsx'
       arrow
     >
       A comprehensive glossary of terms used in the Livepeer Real-time Video AI Network.
-    </Card>
+    </Card> */}
   </Columns>
 
   <br/>

@@ -50,16 +50,17 @@ let detectedServerPort = null; // Port where server was actually found
 /**
  * Check if server is already running (on expected port, detected port, or common ports)
  */
-async function isServerRunning() {
+async function isServerRunning(options = {}) {
+  const { probePath } = options;
   // Check expected port first (3145)
-  if (await isServerRunningOnPort(PORT)) {
+  if (await isServerRunningOnPort(PORT, probePath)) {
     return true;
   }
   
   // Check common mint dev ports (3000, 3001, 3002, etc.)
   // Mint dev often uses these ports if 3000 is in use
   for (let commonPort = 3000; commonPort <= 3010; commonPort++) {
-    if (await isServerRunningOnPort(commonPort)) {
+    if (await isServerRunningOnPort(commonPort, probePath)) {
       // Found server on common port - store it for getServerUrl()
       detectedServerPort = commonPort;
       console.log(`   Found existing server on port ${commonPort}, using it`);
@@ -70,7 +71,7 @@ async function isServerRunning() {
   // Check if log shows server on different port
   const detectedPort = detectPortFromLog();
   if (detectedPort && detectedPort !== PORT) {
-    return await isServerRunningOnPort(detectedPort);
+    return await isServerRunningOnPort(detectedPort, probePath);
   }
   
   return false;
@@ -115,12 +116,29 @@ function detectPortFromLog() {
 /**
  * Check if server is running on a specific port
  */
-async function isServerRunningOnPort(port) {
-  const url = `http://localhost:${port}`;
+function normalizeProbePath(probePath) {
+  if (!probePath) {
+    return '';
+  }
+  return probePath.startsWith('/') ? probePath : `/${probePath}`;
+}
+
+async function isServerRunningOnPort(port, probePath) {
+  const pathSuffix = normalizeProbePath(probePath);
+  const url = `http://localhost:${port}${pathSuffix}`;
   return new Promise((resolve) => {
     const req = http.get(url, { timeout: 2000 }, (res) => {
+      if (!Number.isInteger(res.statusCode)) {
+        resolve(false);
+        return;
+      }
+      if (pathSuffix) {
+        // Treat 404 on probe paths as a mismatch (not the expected server).
+        resolve(res.statusCode !== 404);
+        return;
+      }
       // Any HTTP response means the server is up (Mint may return redirects during startup).
-      resolve(Number.isInteger(res.statusCode) && res.statusCode > 0);
+      resolve(res.statusCode > 0);
     });
     
     req.on('error', () => resolve(false));
@@ -134,16 +152,17 @@ async function isServerRunningOnPort(port) {
 /**
  * Wait for server to be ready, checking expected port, common ports, and detected port from log
  */
-async function waitForServer(maxAttempts = 60, interval = 2000) {
+async function waitForServer(maxAttempts = 60, interval = 2000, options = {}) {
+  const { probePath } = options;
   for (let i = 0; i < maxAttempts; i++) {
     // First check expected port (3145)
-    if (await isServerRunningOnPort(PORT)) {
+    if (await isServerRunningOnPort(PORT, probePath)) {
       return true;
     }
     
     // Check common ports (3000-3010) - mint dev often uses these if 3145 is unavailable
     for (let commonPort = 3000; commonPort <= 3010; commonPort++) {
-      if (await isServerRunningOnPort(commonPort)) {
+      if (await isServerRunningOnPort(commonPort, probePath)) {
         detectedServerPort = commonPort;
         console.log(`   Server started on port ${commonPort} (expected ${PORT})`);
         return true;
@@ -155,7 +174,7 @@ async function waitForServer(maxAttempts = 60, interval = 2000) {
       const detectedPort = detectPortFromLog();
       if (detectedPort && detectedPort !== PORT) {
         // Check detected port
-        if (await isServerRunningOnPort(detectedPort)) {
+        if (await isServerRunningOnPort(detectedPort, probePath)) {
           detectedServerPort = detectedPort;
           console.log(`   Server detected on port ${detectedPort} from log (expected ${PORT})`);
           return true;
@@ -278,10 +297,11 @@ function stopServer() {
 /**
  * Ensure server is running (start if needed)
  */
-async function ensureServerRunning() {
+async function ensureServerRunning(options = {}) {
+  const { probePath } = options;
   // Check if already running
-  if (await isServerRunning()) {
-    console.log(`✅ Server already running at ${BASE_URL}`);
+  if (await isServerRunning({ probePath })) {
+    console.log(`✅ Server already running at ${getServerUrl()}`);
     return false; // Didn't start it
   }
   
@@ -290,7 +310,7 @@ async function ensureServerRunning() {
   
   // Wait for it to be ready (checks common ports 3000-3010, not just 3145)
   console.log(`⏳ Waiting for server to be ready (max 2 minutes)...`);
-  const ready = await waitForServer(60, 2000);
+  const ready = await waitForServer(60, 2000, { probePath });
   
   if (!ready) {
     console.error(`❌ Server failed to start within 2 minutes`);

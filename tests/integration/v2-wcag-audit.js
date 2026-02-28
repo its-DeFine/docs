@@ -845,14 +845,15 @@ async function runAxeOnUrl(browser, url, options = {}) {
   }
 }
 
-async function createBrowserAndMaybeServer(baseUrlArg) {
+async function createBrowserAndMaybeServer(baseUrlArg, options = {}) {
+  const { probePath } = options;
   let startedServer = false;
   let baseUrl = String(baseUrlArg || '').trim();
   let serverManager = null;
 
   if (!baseUrl) {
     serverManager = require('../../.githooks/server-manager');
-    startedServer = await serverManager.ensureServerRunning();
+    startedServer = await serverManager.ensureServerRunning({ probePath });
     baseUrl = serverManager.getServerUrl();
   }
 
@@ -971,7 +972,8 @@ function buildJsonReport({
   allStaticFindings,
   summary,
   suggestions,
-  baseUrl
+  baseUrl,
+  runtimeDiagnostics
 }) {
   return {
     metadata: {
@@ -996,9 +998,11 @@ function buildJsonReport({
     },
     summary: {
       ...summary.totals,
+      runtimeDiagnostics: (runtimeDiagnostics || []).length,
       impacts: summary.impacts,
       byRule: summary.byRule
     },
+    runtimeDiagnostics: runtimeDiagnostics || [],
     results,
     autofix: {
       applied: summary.autofixes,
@@ -1037,6 +1041,7 @@ function buildMarkdownReport(report) {
   lines.push(`- Static findings still open: ${sum.staticOpen}`);
   lines.push(`- Static findings auto-fixed: ${sum.staticFixed}`);
   lines.push(`- Autofix edits applied: ${sum.autofixes}`);
+  lines.push(`- Runtime/navigation failures (ignored): ${sum.runtimeDiagnostics || 0}`);
   lines.push(`- Blocking WCAG/static issues (>= ${md.failImpact}): ${sum.blockingTotal}`);
   if ((report.scope.browserTargetPages ?? 0) > report.scope.browserAuditedPages) {
     lines.push(`- Browser audit completion: incomplete (${report.scope.browserAuditedPages}/${report.scope.browserTargetPages})`);
@@ -1105,6 +1110,28 @@ function buildMarkdownReport(report) {
         .filter((f) => !f.fixed)
         .forEach((f) => lines.push(`- \`${r.file}\`:${f.line || 1} [${f.impact}] ${f.rule} - ${f.message}`));
     });
+  }
+  lines.push('');
+
+  lines.push('## Runtime/Navigation Failures');
+  lines.push('');
+  const runtimeDiagnostics = report.runtimeDiagnostics || [];
+  if (!runtimeDiagnostics.length) {
+    lines.push('_No runtime/navigation failures recorded._');
+  } else {
+    const grouped = new Map();
+    runtimeDiagnostics.forEach((item) => {
+      const key = item.error || 'Unknown error';
+      const entries = grouped.get(key) || [];
+      entries.push(item);
+      grouped.set(key, entries);
+    });
+    [...grouped.entries()]
+      .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
+      .forEach(([error, entries]) => {
+        const examples = entries.slice(0, 5).map((e) => `\`${e.file}\``).join(', ');
+        lines.push(`- ${entries.length}× ${error}${examples ? ` (examples: ${examples})` : ''}`);
+      });
   }
   lines.push('');
 
@@ -1180,7 +1207,8 @@ async function runAudit(options = {}) {
       allStaticFindings: [],
       summary,
       suggestions,
-      baseUrl: args.baseUrl || ''
+      baseUrl: args.baseUrl || '',
+      runtimeDiagnostics: []
     });
     writeReports(args, jsonReport);
     return { exitCode: 0, args, jsonReport, results: emptyResults, files };
@@ -1245,7 +1273,8 @@ async function runAudit(options = {}) {
   if (cappedCandidates.length > 0) {
     console.log(`🌐 Browser WCAG audit target pages: ${cappedCandidates.length}${browserCandidates.length > cappedCandidates.length ? ` (capped from ${browserCandidates.length})` : ''}`);
     try {
-      browserCtx = await createBrowserAndMaybeServer(args.baseUrl);
+      const probePath = cappedCandidates[0]?.routeKey ? routeKeyToUrlPath(cappedCandidates[0].routeKey) : '';
+      browserCtx = await createBrowserAndMaybeServer(args.baseUrl, { probePath });
       const axeSource = loadAxeSource();
       for (const item of cappedCandidates) {
         const urlPath = routeKeyToUrlPath(item.routeKey);
@@ -1328,7 +1357,8 @@ async function runAudit(options = {}) {
     allStaticFindings,
     summary,
     suggestions,
-    baseUrl: baseUrlForReport
+    baseUrl: baseUrlForReport,
+    runtimeDiagnostics
   });
   writeReports(args, jsonReport);
 

@@ -49,6 +49,7 @@ bash lpd dev
 ```bash
 lpd test --staged
 lpd test --staged --wcag
+lpd test --staged --link-audit-external
 ```
 
 ## Hot Reload Troubleshooting

@@ -39,6 +39,20 @@ const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const DOCS_JSON_PATH = path.join(REPO_ROOT, 'docs.json');
 const INTERNAL_REPORTS_ROOT = path.join(REPO_ROOT, 'v2', 'internal', 'reports');
 const GENERATED_OG_IMAGE = '/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg';
+const UTC_MONTHS = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
 
 function usage() {
   console.log(
@@ -141,6 +155,33 @@ function titleFromBasename(baseName) {
     .join(' ');
 }
 
+function getDocsGroups() {
+  if (Array.isArray(manifest.docsGroups) && manifest.docsGroups.length) {
+    return manifest.docsGroups;
+  }
+  return manifest.categories.map((category) => ({
+    slug: category.slug,
+    groupTitle: category.groupTitle,
+  }));
+}
+
+function formatUtcHuman(date) {
+  const month = UTC_MONTHS[date.getUTCMonth()];
+  const day = String(date.getUTCDate()).padStart(2, '0');
+  const year = date.getUTCFullYear();
+  const hour = String(date.getUTCHours()).padStart(2, '0');
+  const minute = String(date.getUTCMinutes()).padStart(2, '0');
+  return `${month} ${day}, ${year} ${hour}:${minute} UTC`;
+}
+
+function buildGenerationStamp(generation) {
+  return [
+    `Last Generated (UTC ISO): \`${generation.isoUtc}\``,
+    `Last Generated (UTC Human): \`${generation.humanUtc}\``,
+    '',
+  ].join('\n');
+}
+
 function buildFrontmatter(record) {
   const keywords = [
     'livepeer',
@@ -202,6 +243,41 @@ function expandSimpleGlob(repoGlob) {
     .sort((a, b) => toRepoPath(a).localeCompare(toRepoPath(b)));
 }
 
+function selectNewestAbsPath(absPaths) {
+  return [...absPaths].sort((a, b) => {
+    const aStat = fs.statSync(a);
+    const bStat = fs.statSync(b);
+    if (bStat.mtimeMs !== aStat.mtimeMs) return bStat.mtimeMs - aStat.mtimeMs;
+    return toRepoPath(a).localeCompare(toRepoPath(b));
+  })[0];
+}
+
+function resolveFileSourceAbsPath(entry) {
+  const primaryAbs = path.join(REPO_ROOT, ...entry.sourcePath.split('/'));
+  if (fs.existsSync(primaryAbs)) return primaryAbs;
+
+  const fallbackPaths = Array.isArray(entry.sourcePathFallbacks)
+    ? entry.sourcePathFallbacks
+    : [];
+  for (const fallback of fallbackPaths) {
+    const fallbackAbs = path.join(REPO_ROOT, ...fallback.split('/'));
+    if (fs.existsSync(fallbackAbs)) return fallbackAbs;
+  }
+
+  const fallbackGlobs = Array.isArray(entry.sourceFallbackGlobs)
+    ? entry.sourceFallbackGlobs
+    : [];
+  let globMatches = [];
+  for (const fallbackGlob of fallbackGlobs) {
+    globMatches = globMatches.concat(expandSimpleGlob(fallbackGlob));
+  }
+  if (globMatches.length) {
+    return selectNewestAbsPath(globMatches);
+  }
+
+  return null;
+}
+
 function buildDynamicTarget(entry, sourceAbsPath) {
   const sourceRepoPath = toRepoPath(sourceAbsPath);
   const baseName = path.basename(sourceRepoPath);
@@ -218,8 +294,10 @@ function buildDynamicTarget(entry, sourceAbsPath) {
 
 function resolvePublishRecords(args) {
   const categoriesBySlug = new Map(manifest.categories.map((c) => [c.slug, c]));
+  const docsGroupsBySlug = new Map(getDocsGroups().map((g) => [g.slug, g]));
   const records = [];
   const missing = [];
+  const skippedOptional = [];
 
   for (const entry of manifest.entries) {
     if (entry.publish === false) continue;
@@ -228,15 +306,29 @@ function resolvePublishRecords(args) {
       throw new Error(`Manifest entry references unknown category: ${entry.categorySlug}`);
     }
 
+    const docsGroupSlugs =
+      Array.isArray(entry.docsGroupSlugs) && entry.docsGroupSlugs.length
+        ? [...new Set(entry.docsGroupSlugs)]
+        : [entry.categorySlug];
+    for (const docsGroupSlug of docsGroupSlugs) {
+      if (!docsGroupsBySlug.has(docsGroupSlug)) {
+        throw new Error(
+          `Manifest entry references unknown docs group: ${docsGroupSlug} (${entry.scriptId})`
+        );
+      }
+    }
+
     if (entry.sourceType === 'file') {
-      const sourceAbs = path.join(REPO_ROOT, ...entry.sourcePath.split('/'));
-      if (!fs.existsSync(sourceAbs)) {
-        missing.push({ entry, sourcePath: entry.sourcePath });
+      const sourceAbs = resolveFileSourceAbsPath(entry);
+      if (!sourceAbs) {
+        const bucket = entry.optionalWhenMissing ? skippedOptional : missing;
+        bucket.push({ entry, sourcePath: entry.sourcePath });
         continue;
       }
       records.push(
         makeRecord({
           entry,
+          docsGroupSlugs,
           sourceAbsPath: sourceAbs,
           targetSlug: entry.targetSlug,
           title: entry.title,
@@ -250,7 +342,8 @@ function resolvePublishRecords(args) {
     if (entry.sourceType === 'glob') {
       const matches = expandSimpleGlob(entry.sourceGlob);
       if (matches.length === 0) {
-        missing.push({ entry, sourcePath: entry.sourceGlob });
+        const bucket = entry.optionalWhenMissing ? skippedOptional : missing;
+        bucket.push({ entry, sourcePath: entry.sourceGlob });
         continue;
       }
       for (const sourceAbs of matches) {
@@ -258,6 +351,7 @@ function resolvePublishRecords(args) {
         records.push(
           makeRecord({
             entry,
+            docsGroupSlugs,
             sourceAbsPath: sourceAbs,
             targetSlug: dynamic.targetSlug,
             title: dynamic.title,
@@ -272,10 +366,18 @@ function resolvePublishRecords(args) {
     throw new Error(`Unsupported sourceType: ${entry.sourceType}`);
   }
 
-  return { records, missing };
+  return { records, missing, skippedOptional };
 }
 
-function makeRecord({ entry, sourceAbsPath, targetSlug, title, sidebarTitle, description }) {
+function makeRecord({
+  entry,
+  docsGroupSlugs,
+  sourceAbsPath,
+  targetSlug,
+  title,
+  sidebarTitle,
+  description,
+}) {
   const targetAbsPath = path.join(
     INTERNAL_REPORTS_ROOT,
     entry.categorySlug,
@@ -284,6 +386,7 @@ function makeRecord({ entry, sourceAbsPath, targetSlug, title, sidebarTitle, des
   return {
     entry,
     categorySlug: entry.categorySlug,
+    docsGroupSlugs,
     scriptId: entry.scriptId,
     sourceAbsPath,
     sourceRepoPath: toRepoPath(sourceAbsPath),
@@ -298,10 +401,13 @@ function makeRecord({ entry, sourceAbsPath, targetSlug, title, sidebarTitle, des
   };
 }
 
-function writeManagedPage(record, args) {
+function writeManagedPage(record, generation, args) {
   const sourceRaw = fs.readFileSync(record.sourceAbsPath, 'utf8');
   const body = stripFrontmatter(sourceRaw).replace(/^\uFEFF/, '');
-  const nextContent = `${buildFrontmatter(record)}${body.replace(/^\n+/, '')}`;
+  const nextContent = `${buildFrontmatter(record)}${buildGenerationStamp(generation)}${body.replace(
+    /^\n+/,
+    ''
+  )}`;
   if (args.check) return { changed: true };
   ensureDir(path.dirname(record.targetAbsPath));
   const prev = fs.existsSync(record.targetAbsPath)
@@ -356,17 +462,42 @@ function findInternalHubTab(node) {
   return null;
 }
 
+function getOrCreateGeneratedReportsGroup(internalAnchor) {
+  const groups = Array.isArray(internalAnchor.groups) ? internalAnchor.groups : [];
+  const existing = groups.find(
+    (group) => group && group.group === 'Generated Reports' && Array.isArray(group.pages)
+  );
+  if (existing) return existing;
+  const created = { group: 'Generated Reports', pages: [] };
+  internalAnchor.groups = [...groups, created];
+  return created;
+}
+
 function updateDocsJson(records, args) {
-  const categoryMap = new Map(manifest.categories.map((c) => [c.slug, c]));
-  const pagesByCategory = new Map();
-  for (const category of manifest.categories) {
-    if (args.categories && !args.categories.has(category.slug)) continue;
-    pagesByCategory.set(category.slug, []);
+  const docsGroups = getDocsGroups();
+  const managedTitles = new Set(docsGroups.map((group) => group.groupTitle));
+  const targetDocsGroupSlugs = new Set();
+  for (const entry of manifest.entries) {
+    if (entry.publish === false) continue;
+    if (args.categories && !args.categories.has(entry.categorySlug)) continue;
+    const docsGroupSlugs =
+      Array.isArray(entry.docsGroupSlugs) && entry.docsGroupSlugs.length
+        ? entry.docsGroupSlugs
+        : [entry.categorySlug];
+    docsGroupSlugs.forEach((slug) => targetDocsGroupSlugs.add(slug));
   }
+  const pagesByDocsGroup = new Map(
+    [...targetDocsGroupSlugs].map((slug) => [slug, []])
+  );
   for (const record of records) {
-    const pages = pagesByCategory.get(record.categorySlug);
-    if (!pages) continue;
-    pages.push(stripExtension(record.targetRepoPath));
+    const pagePath = stripExtension(record.targetRepoPath);
+    for (const docsGroupSlug of record.docsGroupSlugs) {
+      if (!targetDocsGroupSlugs.has(docsGroupSlug)) continue;
+      if (!pagesByDocsGroup.has(docsGroupSlug)) {
+        pagesByDocsGroup.set(docsGroupSlug, []);
+      }
+      pagesByDocsGroup.get(docsGroupSlug).push(pagePath);
+    }
   }
   const docs = JSON.parse(fs.readFileSync(DOCS_JSON_PATH, 'utf8'));
   const internalTab = findInternalHubTab(docs);
@@ -379,30 +510,47 @@ function updateDocsJson(records, args) {
   if (!internalAnchor) {
     throw new Error('Unable to find "Internal Hub" anchor groups in docs.json');
   }
-
-  const managedGroupTitles = new Set(
-    manifest.categories
-      .filter((c) => !args.categories || args.categories.has(c.slug))
-      .map((c) => c.groupTitle)
+  const generatedReportsGroup = getOrCreateGeneratedReportsGroup(internalAnchor);
+  const existingSubgroups = Array.isArray(generatedReportsGroup.pages)
+    ? generatedReportsGroup.pages.filter(
+        (group) =>
+          group &&
+          typeof group === 'object' &&
+          typeof group.group === 'string' &&
+          Array.isArray(group.pages)
+      )
+    : [];
+  const existingByTitle = new Map(existingSubgroups.map((group) => [group.group, group]));
+  const preservedUnknownGroups = existingSubgroups.filter(
+    (group) => !managedTitles.has(group.group)
   );
 
-  const preservedGroups = (internalAnchor.groups || []).filter(
-    (group) => !managedGroupTitles.has(group.group)
-  );
-  const newGroups = [];
-  for (const category of manifest.categories) {
-    if (args.categories && !args.categories.has(category.slug)) continue;
-    const pages = pagesByCategory.get(category.slug) || [];
-    if (!pages.length) continue;
-    newGroups.push({ group: category.groupTitle, pages });
+  const nextManagedGroups = [];
+  for (const docsGroup of docsGroups) {
+    const shouldRebuildGroup = !args.categories || targetDocsGroupSlugs.has(docsGroup.slug);
+    if (!shouldRebuildGroup) {
+      const existing = existingByTitle.get(docsGroup.groupTitle);
+      if (existing) nextManagedGroups.push(existing);
+      continue;
+    }
+    const rawPages = pagesByDocsGroup.get(docsGroup.slug) || [];
+    const dedupedPages = [...new Set(rawPages)];
+    if (!dedupedPages.length) continue;
+    nextManagedGroups.push({
+      group: docsGroup.groupTitle,
+      pages: dedupedPages,
+    });
   }
-  internalAnchor.groups = [...preservedGroups, ...newGroups];
+
+  generatedReportsGroup.pages = [...nextManagedGroups, ...preservedUnknownGroups];
 
   const next = `${JSON.stringify(docs, null, 2)}\n`;
   const prev = fs.readFileSync(DOCS_JSON_PATH, 'utf8');
-  if (args.check || prev === next) return { changed: false, groupsWritten: newGroups.length };
+  if (args.check || prev === next) {
+    return { changed: false, groupsWritten: nextManagedGroups.length };
+  }
   fs.writeFileSync(DOCS_JSON_PATH, next, 'utf8');
-  return { changed: true, groupsWritten: newGroups.length };
+  return { changed: true, groupsWritten: nextManagedGroups.length };
 }
 
 function main() {
@@ -420,7 +568,7 @@ function main() {
     process.exit(0);
   }
 
-  const { records, missing } = resolvePublishRecords(args);
+  const { records, missing, skippedOptional } = resolvePublishRecords(args);
   if (missing.length) {
     for (const row of missing) {
       console.warn(`Missing source report: ${row.sourcePath}`);
@@ -430,10 +578,19 @@ function main() {
       process.exit(1);
     }
   }
+  if (skippedOptional.length) {
+    console.log(`Optional source reports missing (skipped): ${skippedOptional.length}`);
+  }
+
+  const generationDate = new Date();
+  const generation = {
+    isoUtc: generationDate.toISOString(),
+    humanUtc: formatUtcHuman(generationDate),
+  };
 
   let changedPages = 0;
   for (const record of records) {
-    const result = writeManagedPage(record, args);
+    const result = writeManagedPage(record, generation, args);
     if (result.changed) changedPages += 1;
   }
   const removedDynamic = cleanupDynamicPages(records, args);

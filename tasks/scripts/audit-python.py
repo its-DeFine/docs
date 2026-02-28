@@ -11,8 +11,8 @@
 #   No required CLI flags; optional flags are documented inline.
 #
 # @outputs
-#   - tasks/PLAN/reports/page-audit-python-latest.json
-#   - tasks/PLAN/reports/page-audit-python-latest.md
+#   - tasks/reports/page-audits/page-audit-python-latest.json
+#   - tasks/reports/page-audits/page-audit-python-latest.md
 #
 # @exit-codes
 #   0 = success
@@ -38,7 +38,7 @@ import re
 SCRIPT_DIR = Path(__file__).resolve().parent
 BASE_DIR = SCRIPT_DIR.parent.parent
 DOCS_JSON_PATH = BASE_DIR / 'docs.json'
-REPORT_DIR = BASE_DIR / 'tasks' / 'PLAN' / 'reports'
+REPORT_DIR = BASE_DIR / 'tasks' / 'reports' / 'page-audits'
 V2_PAGES_DIR = BASE_DIR / 'v2' / 'pages'
 SNIPPETS_DIR = BASE_DIR / 'snippets'
 
