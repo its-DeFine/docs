@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-02-28T04:45:42.297Z",
-  "totalEntries": 1176,
+  "generatedAt": "2026-02-28T09:25:28.535Z",
+  "totalEntries": 1164,
   "syntaxErrors": [],
   "missingRoutes": [
     {
@@ -8,7 +8,7 @@
       "rule": "Missing route",
       "value": "v2/internal/personas",
       "normalized": "v2/internal/personas",
-      "pointer": "navigation.versions[1].languages[0].tabs[10].anchors[0].groups[0].pages[3]",
+      "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[0].pages[3]",
       "suggestions": []
     },
     {
@@ -16,7 +16,7 @@
       "rule": "Missing route",
       "value": "v2/internal/governance",
       "normalized": "v2/internal/governance",
-      "pointer": "navigation.versions[1].languages[0].tabs[10].anchors[0].groups[0].pages[4]",
+      "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[0].pages[4]",
       "suggestions": []
     }
   ],

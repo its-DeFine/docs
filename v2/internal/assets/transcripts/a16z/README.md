@@ -2,14 +2,14 @@
 
 This folder is the target for internally generated MDX transcripts produced by `tools/scripts/transcribe-audio-to-mdx.js`. The script handles the audio download, `ffmpeg` chunking, OpenRouter transcription, and markdown rendering; it writes files to `v2/internal/assets/transcripts/a16z/<published-at>-<slug>.mdx`.
 
-## First planned transcript
+## First transcript
 
 - **Episode**: Inferact: Building the Infrastructure That Runs Modern AI
 - **Published**: 2026-01-22
 - **Slug**: `inferact-building-the-infrastructure-that-runs-modern-ai`
 - **Output path**: `v2/internal/assets/transcripts/a16z/2026-01-22-inferact-building-the-infrastructure-that-runs-modern-ai.mdx`
 
-The transcript itself is not yet generated because it requires a valid `OPENROUTER_API_KEY`. Run the following command locally (with your own API key) to produce the MDX file when ready:
+The transcript file now exists at the output path above. Re-run the command below with `--overwrite` if you want to refresh it:
 
 ```bash
 OPENROUTER_API_KEY=... \
@@ -18,7 +18,15 @@ OPENROUTER_API_KEY=... \
     --title "Inferact: Building the Infrastructure That Runs Modern AI" \
     --show "AI + a16z" \
     --published-at 2026-01-22 \
-    --output-dir v2/internal/assets/transcripts/a16z
+    --output-dir v2/internal/assets/transcripts/a16z \
+    --overwrite
 ```
 
-For a reliable run, ensure that `ffmpeg`/`ffprobe` are installed (`brew install ffmpeg` on macOS, `sudo apt install ffmpeg` on Debian/Ubuntu) and that the OpenRouter site headers match your environment (`OPENROUTER_SITE_URL` and `OPENROUTER_SITE_NAME`, if needed). The script already enforces the required flags and will retry transient API errors before failing with troubleshooting hints.
+## Runtime usage/cost telemetry
+
+The transcription script prints provider usage data for each chunk and at the end of the run (when returned by OpenRouter):
+
+- Per chunk: `Usage: prompt=..., completion=..., total=..., audio=..., cost=$..., provider=...`
+- Run total: `Usage totals: prompt=..., completion=..., total=..., audio=..., cost=$...`
+
+For a reliable run, ensure that `ffmpeg`/`ffprobe` are installed (`brew install ffmpeg` on macOS, `sudo apt install ffmpeg` on Debian/Ubuntu) and that the OpenRouter site headers match your environment (`OPENROUTER_SITE_URL` and `OPENROUTER_SITE_NAME`, if needed). The script enforces required flags, retries transient API errors, and exits with actionable errors for missing dependencies or credentials.

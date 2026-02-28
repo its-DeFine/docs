@@ -846,14 +846,14 @@ async function runAxeOnUrl(browser, url, options = {}) {
 }
 
 async function createBrowserAndMaybeServer(baseUrlArg, options = {}) {
-  const { probePath } = options;
+  const { probePath, allowCommonPorts } = options;
   let startedServer = false;
   let baseUrl = String(baseUrlArg || '').trim();
   let serverManager = null;
 
   if (!baseUrl) {
     serverManager = require('../../.githooks/server-manager');
-    startedServer = await serverManager.ensureServerRunning({ probePath });
+    startedServer = await serverManager.ensureServerRunning({ probePath, allowCommonPorts });
     baseUrl = serverManager.getServerUrl();
   }
 
@@ -1274,7 +1274,7 @@ async function runAudit(options = {}) {
     console.log(`🌐 Browser WCAG audit target pages: ${cappedCandidates.length}${browserCandidates.length > cappedCandidates.length ? ` (capped from ${browserCandidates.length})` : ''}`);
     try {
       const probePath = cappedCandidates[0]?.routeKey ? routeKeyToUrlPath(cappedCandidates[0].routeKey) : '';
-      browserCtx = await createBrowserAndMaybeServer(args.baseUrl, { probePath });
+      browserCtx = await createBrowserAndMaybeServer(args.baseUrl, { probePath, allowCommonPorts: false });
       const axeSource = loadAxeSource();
       for (const item of cappedCandidates) {
         const urlPath = routeKeyToUrlPath(item.routeKey);

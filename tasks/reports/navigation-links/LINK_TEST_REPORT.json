@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-28T04:45:42.601Z",
+  "generatedAt": "2026-02-28T09:25:05.990Z",
   "args": {
     "mode": "staged",
     "strict": true,
@@ -15,19 +15,11 @@
     "files": []
   },
   "aggregate": {
-    "filesAnalyzed": 2,
-    "totalRefs": 24,
+    "filesAnalyzed": 1,
+    "totalRefs": 0,
     "internalMissingRefs": 0,
-    "linkTypeCounts": {
-      "external-https": 3,
-      "import-path": 7,
-      "internal-relative": 11,
-      "internal-rooted": 3
-    },
-    "statusCounts": {
-      "🟡 untested-external": 3,
-      "ok": 21
-    },
+    "linkTypeCounts": {},
+    "statusCounts": {},
     "external": {
       "policy": "classify",
       "linkTypes": "navigational",
@@ -39,9 +31,7 @@
       "uniqueUrlCount": 0,
       "uniqueHostCount": 0,
       "urlClassCounts": {},
-      "refClassCounts": {
-        "🟡 untested-external": 3
-      }
+      "refClassCounts": {}
     }
   },
   "external": {
@@ -50,264 +40,13 @@
   },
   "files": [
     {
-      "file": "v2/platforms/portal.mdx",
+      "file": "v2/internal/assets/transcripts/a16z/2026-01-22-inferact-building-the-infrastructure-that-runs-modern-ai.mdx",
       "isRootPage": true,
       "domains": [
-        "platforms"
+        "internal"
       ],
       "importedMdx": [],
-      "refs": [
-        {
-          "sourceType": "jsx-attr",
-          "attr": "href",
-          "linkType": "external-https",
-          "rawPath": "https://github.com/livepeer/",
-          "resolvedPath": "",
-          "exists": null,
-          "status": "🟡 untested-external",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "href",
-          "linkType": "internal-relative",
-          "rawPath": "./daydream/overview",
-          "resolvedPath": "v2/platforms/daydream/overview.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "href",
-          "linkType": "internal-relative",
-          "rawPath": "./livepeer-studio/overview",
-          "resolvedPath": "v2/platforms/livepeer-studio/overview.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "href",
-          "linkType": "internal-relative",
-          "rawPath": "./frameworks/overview",
-          "resolvedPath": "v2/platforms/frameworks/overview.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "href",
-          "linkType": "internal-relative",
-          "rawPath": "./streamplace/overview",
-          "resolvedPath": "v2/platforms/streamplace/overview.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "href",
-          "linkType": "internal-relative",
-          "rawPath": "./embody/overview",
-          "resolvedPath": "v2/platforms/embody/overview.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "href",
-          "linkType": "internal-relative",
-          "rawPath": "./product-hub",
-          "resolvedPath": "v2/platforms/product-hub.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "import-path",
-          "attr": "",
-          "linkType": "import-path",
-          "rawPath": "/snippets/components/domain/SHARED/Portals.jsx",
-          "resolvedPath": "snippets/components/domain/SHARED/Portals.jsx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "import-path",
-          "attr": "",
-          "linkType": "import-path",
-          "rawPath": "/snippets/components/display/frameMode.jsx",
-          "resolvedPath": "snippets/components/display/frameMode.jsx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "import-path",
-          "attr": "",
-          "linkType": "import-path",
-          "rawPath": "/snippets/components/primitives/divider.jsx",
-          "resolvedPath": "snippets/components/primitives/divider.jsx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "import-path",
-          "attr": "",
-          "linkType": "import-path",
-          "rawPath": "/snippets/components/primitives/links.jsx",
-          "resolvedPath": "snippets/components/primitives/links.jsx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "import-path",
-          "attr": "",
-          "linkType": "import-path",
-          "rawPath": "/snippets/components/domain/SHARED/HeroGif.jsx",
-          "resolvedPath": "snippets/components/domain/SHARED/HeroGif.jsx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "import-path",
-          "attr": "",
-          "linkType": "import-path",
-          "rawPath": "/snippets/components/display/video.jsx",
-          "resolvedPath": "snippets/components/display/video.jsx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        }
-      ]
-    },
-    {
-      "file": "v2/platforms/product-hub.mdx",
-      "isRootPage": true,
-      "domains": [
-        "platforms"
-      ],
-      "importedMdx": [],
-      "refs": [
-        {
-          "sourceType": "markdown-link",
-          "attr": "",
-          "linkType": "external-https",
-          "rawPath": "https://github.com/livepeer/docs",
-          "resolvedPath": "",
-          "exists": null,
-          "status": "🟡 untested-external",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "href",
-          "linkType": "internal-relative",
-          "rawPath": "./daydream/overview",
-          "resolvedPath": "v2/platforms/daydream/overview.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "src",
-          "linkType": "internal-rooted",
-          "rawPath": "/snippets/assets/logos/products/daydream-logo-dark.svg",
-          "resolvedPath": "snippets/assets/logos/products/daydream-logo-dark.svg",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "href",
-          "linkType": "internal-relative",
-          "rawPath": "./livepeer-studio/overview",
-          "resolvedPath": "v2/platforms/livepeer-studio/overview.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "src",
-          "linkType": "internal-rooted",
-          "rawPath": "/snippets/assets/logos/products/livepeer-studio-logo.svg",
-          "resolvedPath": "snippets/assets/logos/products/livepeer-studio-logo.svg",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "href",
-          "linkType": "internal-relative",
-          "rawPath": "./frameworks/overview",
-          "resolvedPath": "v2/platforms/frameworks/overview.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "src",
-          "linkType": "external-https",
-          "rawPath": "https://frameworks.network/frameworks-dark-horizontal-lockup-transparent.svg",
-          "resolvedPath": "",
-          "exists": null,
-          "status": "🟡 untested-external",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "href",
-          "linkType": "internal-relative",
-          "rawPath": "./streamplace/overview",
-          "resolvedPath": "v2/platforms/streamplace/overview.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "src",
-          "linkType": "internal-rooted",
-          "rawPath": "/snippets/assets/logos/products/streamplace-logo.svg",
-          "resolvedPath": "snippets/assets/logos/products/streamplace-logo.svg",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "jsx-attr",
-          "attr": "href",
-          "linkType": "internal-relative",
-          "rawPath": "./ecosystem-products",
-          "resolvedPath": "v2/platforms/ecosystem-products.mdx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        },
-        {
-          "sourceType": "import-path",
-          "attr": "",
-          "linkType": "import-path",
-          "rawPath": "/snippets/components/primitives/links.jsx",
-          "resolvedPath": "snippets/components/primitives/links.jsx",
-          "exists": true,
-          "status": "ok",
-          "movedCandidates": []
-        }
-      ]
+      "refs": []
     }
   ]
 }

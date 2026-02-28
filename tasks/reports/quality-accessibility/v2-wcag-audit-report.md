@@ -1,27 +1,28 @@
 # V2 WCAG Accessibility Audit Report
 
-- Timestamp: 2026-02-27T17:57:06.819Z
+- Timestamp: 2026-02-28T09:22:44.987Z
 - Mode: full
 - WCAG Profile: WCAG 2.2 AA
 - Fail Threshold: serious
-- Base URL: http://localhost:3000
+- Base URL: (none / static-only run)
 - Fix Enabled (default): yes
 - Max Browser Pages: unlimited
 
 ## Summary
 
-- Files scanned: 319
-- Browser target pages: 319
-- Browser-audited pages: 1
-- Static-only files: 318
-- WCAG violations: 2
-- Best-practice violations (advisory): 3
-- Incomplete/manual-review results: 1
+- Files scanned: 342
+- Browser target pages: 342
+- Browser-audited pages: 0
+- Static-only files: 342
+- WCAG violations: 0
+- Best-practice violations (advisory): 0
+- Incomplete/manual-review results: 0
 - Static findings still open: 0
 - Static findings auto-fixed: 0
 - Autofix edits applied: 0
+- Runtime/navigation failures (ignored): 342
 - Blocking WCAG/static issues (>= serious): 0
-- Browser audit completion: incomplete (1/319)
+- Browser audit completion: incomplete (0/342)
 
 ## Blocking Issues
 
@@ -29,8 +30,7 @@ _No blocking issues found at configured threshold._
 
 ## Top Rules And Suggestions
 
-- **color-contrast** (1) - Adjust foreground/background colors to meet WCAG contrast minimums; avoid relying on color alone.
-- **meta-viewport** (1) - Review the axe rule guidance and update the source/component markup to provide semantic structure and accessible labels.
+_No suggestions generated._
 
 ## Autofixes Applied
 
@@ -39,6 +39,10 @@ _No autofixes applied._
 ## Static-Only Findings
 
 _No open static-only findings._
+
+## Runtime/Navigation Failures
+
+- 342× Browser infrastructure error: Server failed to start (examples: `v2/about/core-concepts.mdx`, `v2/about/livepeer-network/actors.mdx`, `v2/about/livepeer-network/interfaces.mdx`, `v2/about/livepeer-network/job-lifecycle.mdx`, `v2/about/livepeer-network/marketplace.mdx`)
 
 ## Notes
 
