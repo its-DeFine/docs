@@ -221,6 +221,13 @@ function truncateText(value, limit = 90) {
   return `${text.slice(0, limit - 3)}...`;
 }
 
+function escapeTemplateLiteral(value) {
+  return String(value || '')
+    .replace(/\\/g, '\\\\')
+    .replace(/`/g, '\\`')
+    .replace(/\$\{/g, '\\${');
+}
+
 function walkCategoryFiles(categoryKey) {
   const categoryRoot = path.join(REPO_ROOT, SOURCE_ROOT, categoryKey);
   if (!fs.existsSync(categoryRoot) || !fs.statSync(categoryRoot).isDirectory()) {
@@ -495,9 +502,9 @@ function buildContent() {
           lines.push(`      **Props**: ${summary.propsLine}`);
           lines.push(`      **Defaults**: ${summary.defaultsLine}`);
           lines.push('');
-          lines.push('```jsx');
-          usageLines.forEach((usageLine) => lines.push(usageLine));
-          lines.push('```');
+          lines.push('      <CodeBlock language="jsx">');
+          lines.push(`      {\`${escapeTemplateLiteral(usageLines.join('\n'))}\`}`);
+          lines.push('      </CodeBlock>');
           lines.push('    </ResponseField>');
         });
       }
