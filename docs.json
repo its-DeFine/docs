@@ -3814,8 +3814,8 @@
                         "group": "Changelog & Migrations",
                         "icon": "swap",
                         "pages": [
-                          "v2/resources/changelog/changelog",
-                          "v2/resources/changelog/migration-guide"
+                          "v2/es/resources/changelog/changelog",
+                          "v2/es/resources/changelog/migration-guide"
                         ]
                       }
                     ]
@@ -4288,7 +4288,7 @@
                         "group": "Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/resources/media-kit",
+                          "v2/es/resources/media-kit",
                           "v2/community/livepeer-community/trending-topics",
                           "v2/community/livepeer-community/livepeer-latest-topics"
                         ]
@@ -4427,8 +4427,8 @@
                         "group": "Changelog",
                         "icon": "swap",
                         "pages": [
-                          "v2/resources/changelog/changelog",
-                          "v2/resources/changelog/migration-guide"
+                          "v2/es/resources/changelog/changelog",
+                          "v2/es/resources/changelog/migration-guide"
                         ]
                       }
                     ]
@@ -5088,8 +5088,8 @@
                         "group": "Changelog & Migrations",
                         "icon": "swap",
                         "pages": [
-                          "v2/resources/changelog/changelog",
-                          "v2/resources/changelog/migration-guide"
+                          "v2/fr/resources/changelog/changelog",
+                          "v2/fr/resources/changelog/migration-guide"
                         ]
                       }
                     ]
@@ -5562,7 +5562,7 @@
                         "group": "Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/resources/media-kit",
+                          "v2/fr/resources/media-kit",
                           "v2/community/livepeer-community/trending-topics",
                           "v2/community/livepeer-community/livepeer-latest-topics"
                         ]
@@ -5701,8 +5701,8 @@
                         "group": "Changelog",
                         "icon": "swap",
                         "pages": [
-                          "v2/resources/changelog/changelog",
-                          "v2/resources/changelog/migration-guide"
+                          "v2/fr/resources/changelog/changelog",
+                          "v2/fr/resources/changelog/migration-guide"
                         ]
                       }
                     ]
@@ -6362,8 +6362,8 @@
                         "group": "Changelog & Migrations",
                         "icon": "swap",
                         "pages": [
-                          "v2/resources/changelog/changelog",
-                          "v2/resources/changelog/migration-guide"
+                          "v2/cn/resources/changelog/changelog",
+                          "v2/cn/resources/changelog/migration-guide"
                         ]
                       }
                     ]
@@ -6836,7 +6836,7 @@
                         "group": "Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/resources/media-kit",
+                          "v2/cn/resources/media-kit",
                           "v2/community/livepeer-community/trending-topics",
                           "v2/community/livepeer-community/livepeer-latest-topics"
                         ]
@@ -6975,8 +6975,8 @@
                         "group": "Changelog",
                         "icon": "swap",
                         "pages": [
-                          "v2/resources/changelog/changelog",
-                          "v2/resources/changelog/migration-guide"
+                          "v2/cn/resources/changelog/changelog",
+                          "v2/cn/resources/changelog/migration-guide"
                         ]
                       }
                     ]
