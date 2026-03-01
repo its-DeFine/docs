@@ -4,10 +4,10 @@
 - [Gateway Home Portal](gateways-portal.mdx)
 
 ## About Gateways
-- [Gateway Architecture](about-gateways/gateway-architecture.mdx)
-- [Gateway Economics](about-gateways/gateway-economics.mdx)
-- [Gateway Explainer](about-gateways/gateway-explainer.mdx)
-- [Gateway Functions & Services](about-gateways/gateway-functions.mdx)
+- [Gateway Architecture](about/architecture.mdx)
+- [Gateway Economics](about/economics.mdx)
+- [Gateway Explainer](about/explainer.mdx)
+- [Gateway Functions & Services](about/functions.mdx)
 
 ## Gateway Tools
 - [Gateway Explorer](gateway-tools/explorer.mdx)
@@ -95,10 +95,17 @@
 # TODO:
 
 ## Upgrade:
+About
 - Explainer (style)
 - Functions (style + review)
 - Architecture (review)
 - Economics (style)
+
+Quickstart
+- Run (should it include BYOC?)
+- Get AI to Set up (complete)
+
+All
 - Refresh content and examples for all non-warning pages listed above.
 - Improve SEO metadata and section-level discoverability.
 

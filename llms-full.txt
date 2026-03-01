@@ -690,7 +690,7 @@ Livepeer provides the “eyes” (and the brains) for the real-time, AI-monitore
 # Key Applications for Livepeer
 URL: https://docs.livepeer.org/v2/home/solutions/applications
 
-Video is integral to the success of many of the applications we use daily.
+Video is integral to the success of many of the applications we use daily.&#x20;
 
 ### **Verticals where video is now essential**&#x20;
 
@@ -728,15 +728,6 @@ Real-time effects, Object tracking, Smart editing
 8. **Telehealth apps** (video-first remote medical consultations)
 9. **Online education platforms** like Coursera/Udacity (video-based learning)
 10. **Virtual events platforms** (Devcon/ETH CC streaming, powered by infrastructures like Livepeer)
-
----
-
-# Resource Portal
-URL: https://docs.livepeer.org/v2/resources/resources-portal
-
-## Resources Portal
-
-All resources and references in one place!
 
 ---
 
@@ -3864,60 +3855,966 @@ They do not expose external APIs directly—Gateways handle that.
 
 ---
 
-# Resource Portal
-URL: https://docs.livepeer.org/v2/resources/resources-portal
+# Livepeer Developer Portal
+URL: https://docs.livepeer.org/v2/developers/portal
 
-## Resources Portal
+Stream Live Video on Livepeer
 
-All resources and references in one place!
+Run AI Inference, Comfystream, or Custom AI Models on Livepeer
+
+Discover Developer Platforms that make it easy to Integrate Real-time Video AI into your ideas.
+
+Build your own applications on the Livepeer Protocol by deploying a Gateway.
+
+Contribute to the Livepeer Ecosystem and find opportunities to earn rewards through grants, RFPs, and more.
+
+Find Guides, Tutorials, & Resources for Developers
 
 ---
 
-# Livepeer Products & Developer Platforms
+# Developer Journey
+URL: https://docs.livepeer.org/v2/developers/developer-path
+
+Livepeer offers multiple paths for developers depending on how you want to engage with the network. Whether you're bringing compute workloads, consuming existing AI pipelines, or contributing to the core Go implementation, there's a clear path for you.
+
+## Pick Your Path
+
+Bring your own compute workloads to the Livepeer network by running a gateway or interacting with smart contracts directly.
+
+Consume existing pipeline workloads running on the Livepeer network — no infrastructure setup required.
+
+Contribute directly to go-livepeer, the Go implementation that powers the Livepeer network.
+
+***
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui', 'clusterBkg': 'rgba(255,255,255,0.05)', 'clusterBorder': '#2d9a67' }}}%%
+flowchart TD
+    classDef default stroke-width:2px
+
+    Start["Developer"] --> WP["Workload Provider"]
+    Start --> WC["Workload Consumer"]
+    Start --> CC["Core Contributor"]
+
+    WP --> TR["Traditional Route<br/>Gateway + BYOC"]
+    WP --> SC["Custom Smart Contract<br/>Interaction"]
+
+    TR --> GW["Run a Gateway"]
+    TR --> BYOC["Engineer BYOC<br/>Sidecar Containers"]
+
+    SC --> OPS["livepeer-ops"]
+    SC --> EMB["Embody Pipeline"]
+
+    WC --> DD["Daydream"]
+    WC --> EP["Embody Pipeline<br/>Consumer"]
+
+    CC --> REPO["go-livepeer Repo"]
+    CC --> CG["Contribution Guide"]
+```
+
+***
+
+## Path 1: Workload Provider
+
+As a **Workload Provider**, you bring compute workloads to the Livepeer network. You define what gets processed — whether that's an AI inference pipeline, a video transcoding job, or something entirely custom — and route it through Livepeer's orchestrator network.
+
+There are two approaches depending on your needs.
+
+### Option A: Traditional Route (Gateway + BYOC)
+
+The standard path runs your own gateway and uses BYOC (Bring Your Own Container) sidecar containers alongside the go-livepeer main container.
+
+Set up a Livepeer gateway node that routes workloads to orchestrators on the network.
+
+Get your gateway node running in minutes.
+
+Build sidecar containers that run alongside the go-livepeer main container. BYOC lets you define custom workloads that orchestrators execute on their GPUs.
+
+Learn how to build and deploy BYOC sidecar containers.
+
+Once your gateway is running and your BYOC containers are built, deploy your workloads to the network through your gateway.
+
+Understand the full AI pipeline architecture.
+
+### Option B: Custom Smart Contract Interaction
+
+If you want more control, you can interact with Livepeer's smart contracts directly — bypassing the standard gateway flow to build custom orchestration logic.
+
+Infrastructure tooling for deploying and managing Livepeer workloads with custom smart contract interactions.
+
+A reference implementation showing how to build a custom pipeline that interacts with Livepeer contracts directly.
+
+You're not limited to these two options. Providers can fork livepeer-ops, extend the Embody pipeline, or build entirely custom implementations. The smart contract interface is open — use it however fits your architecture.
+
+***
+
+## Path 2: Workload Consumer
+
+As a **Workload Consumer**, you use existing pipeline workloads that are already running on the Livepeer network. You don't need to set up infrastructure or deploy containers — you connect to available pipelines and consume their output.
+
+### Available Pipelines
+
+Consume Daydream pipeline workloads on the Livepeer network.
+Link coming soon
+
+Consume Embody pipeline workloads for real-time avatar and VTuber applications.
+Link coming soon
+
+***
+
+## Path 3: Core Contributor
+
+As a **Core Contributor**, you work directly on go-livepeer — the Go implementation that powers gateways, orchestrators, and the protocol itself. This path is for developers who want to improve the network at the infrastructure level.
+
+The official Go implementation of the Livepeer protocol. Clone the repo and start exploring.
+
+Guidelines for contributing to Livepeer — coding standards, PR process, and how to get your changes merged.
+
+---
+
+# Video Quickstarts
+URL: https://docs.livepeer.org/v2/developers/quickstart/video/video-streaming
+
+# Video Quickstarts
+
+Use these quickstarts to get to a working Livepeer video workflow quickly.
+
+## Choose a quickstart
+
+* [Real-time video quickstart](/developers/livepeer-real-time-video/video-streaming-on-livepeer/README) - Realtime streaming flows and platform integrations.
+* [Transcoding Jobs quickstart](./transcoding-jobs) - Submit an on-demand transcoding job and track task completion (Rick TD review required before final publish).
+* [Livepeer Studio quickstart](/platforms/livepeer-studio/quickstart) - Studio account + API key + SDK-based getting started flow.
+
+## Canonical references
+
+* [Studio API overview](/platforms/livepeer-studio/reference/api)
+* [Transcode API reference](/platforms/livepeer-studio/api-reference/transcode/overview)
+* [Create Transcode Job endpoint](/platforms/livepeer-studio/api-reference/transcode/create)
+* [Tasks API reference](/platforms/livepeer-studio/api-reference/tasks/overview)
+
+## Notes
+
+* This page is a hub. The end-to-end job submission walkthrough is in [Transcoding Jobs quickstart](./transcoding-jobs).
+* Transcoding examples are built from the GitHub-validated Studio OpenAPI spec in this repo and require final TD review for production accuracy.
+
+---
+
+# Transcoding Jobs Quickstart
+URL: https://docs.livepeer.org/v2/developers/quickstart/video/transcoding-jobs
+
+# Transcoding Jobs Quickstart
+
+Submit an on-demand transcoding job through the Livepeer Studio API and track it to completion using the Tasks API.
+
+## AI-ready summary (for humans and assistants)
+
+* Use the Studio API base URL: `https://livepeer.studio/api`
+* Submit jobs with `POST /transcode`
+* Transcoding is asynchronous; poll `GET /task/{id}`
+* A successful `POST /transcode` returns a `task.id`
+* Final technical accuracy review is required from Rick (TD)
+
+## Review status
+
+This quickstart is structurally complete and based on the GitHub-validated Studio OpenAPI spec, but **Rick (TD) review is required** before final publish for canonical flow accuracy and user-facing defaults.
+
+## 1. Prerequisites
+
+* A Livepeer API key (backend use only)
+* `curl` (and optionally `jq`)
+* Input video accessible over HTTP **or** a S3-compatible source
+* Output storage destination (S3-compatible or web3.storage delegation proof)
+
+## 2. Base URL and authentication
+
+* Base URL: `https://livepeer.studio/api`
+* Auth header: `Authorization: Bearer <LIVEPEER_API_KEY>`
+
+```bash
+```
+
+## 3. Submit a transcode job
+
+The Studio spec requires:
+
+* `input`
+* `storage`
+* `outputs`
+
+The example below uses:
+
+* HTTP input URL
+* S3-compatible storage output
+* HLS + MP4 outputs
+
+### Example request body
+
+```json
+{
+  "input": {
+    "url": "https://example.com/video.mp4"
+  },
+  "storage": {
+    "type": "s3",
+    "endpoint": "https://gateway.storjshare.io",
+    "bucket": "outputbucket",
+    "credentials": {
+      "accessKeyId": "<ACCESS_KEY_ID>",
+      "secretAccessKey": "<SECRET_ACCESS_KEY>"
+    }
+  },
+  "outputs": {
+    "hls": {
+      "path": "/samplevideo/hls"
+    },
+    "mp4": {
+      "path": "/samplevideo/mp4"
+    }
+  },
+  "profiles": [
+    {
+      "name": "720p",
+      "width": 1280,
+      "height": 720,
+      "bitrate": 3000000,
+      "fps": 30
+    }
+  ]
+}
+```
+
+### Example curl request
+
+```bash
+curl -sS \
+  -X POST "https://livepeer.studio/api/transcode" \
+  -H "Authorization: Bearer $LIVEPEER_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "input": { "url": "https://example.com/video.mp4" },
+    "storage": {
+      "type": "s3",
+      "endpoint": "https://gateway.storjshare.io",
+      "bucket": "outputbucket",
+      "credentials": {
+        "accessKeyId": "<ACCESS_KEY_ID>",
+        "secretAccessKey": "<SECRET_ACCESS_KEY>"
+      }
+    },
+    "outputs": {
+      "hls": { "path": "/samplevideo/hls" },
+      "mp4": { "path": "/samplevideo/mp4" }
+    },
+    "profiles": [
+      {
+        "name": "720p",
+        "width": 1280,
+        "height": 720,
+        "bitrate": 3000000,
+        "fps": 30
+      }
+    ]
+  }'
+```
+
+## 4. Capture the task ID
+
+Transcoding is asynchronous. The response is a `task` object. Save the `id` field and poll the task endpoint.
+
+Example response shape (trimmed):
+
+```json
+{
+  "id": "09F8B46C-61A0-4254-9875-F71F4C605BC7",
+  "type": "transcode-file",
+  "status": {
+    "phase": "pending",
+    "updatedAt": 1587667174725
+  }
+}
+```
+
+## 5. Poll the task status
+
+Use `GET /task/{id}` until `status.phase` is `completed` or `failed`.
+
+```bash
+TASK_ID="<TASK_ID_FROM_TRANSCODE_RESPONSE>"
+
+curl -sS \
+  -H "Authorization: Bearer $LIVEPEER_API_KEY" \
+  "https://livepeer.studio/api/task/$TASK_ID"
+```
+
+Phases defined in the Studio spec include:
+
+* `pending`
+* `waiting`
+* `running`
+* `failed`
+* `completed`
+* `cancelled`
+
+## 6. Verify completion and outputs
+
+When `status.phase` is `completed`:
+
+* Confirm the task did not report an `errorMessage`
+* Inspect task output metadata and/or linked asset IDs
+* Verify the output paths you requested under `outputs` in your destination storage
+
+## 7. Common failure modes
+
+### `401 Unauthorized`
+
+* Invalid API key
+* Missing/incorrect `Authorization` header
+
+### `422 Validation Error`
+
+* Missing required top-level fields (`input`, `storage`, `outputs`)
+* Invalid `input` schema (URL vs S3 object mismatch)
+* Invalid `profiles` shape
+
+### Task enters `failed`
+
+* Check `status.errorMessage`
+* Verify input URL is accessible to the service
+* Verify output storage credentials and bucket permissions
+* Re-run with a minimal profile/output combination first
+
+## 8. Rick (TD) review checklist (blocking before final publish)
+
+* Confirm canonical user-facing transcoding flow for 2026 docs
+* Confirm recommended default profile example(s)
+* Confirm polling expectations and completion verification guidance
+* Confirm deprecated legacy examples should be removed/labeled
+* Confirm boundary with realtime APIs (what belongs elsewhere)
+
+## 9. Next steps
+
+* [Create Transcode Job endpoint reference](/platforms/livepeer-studio/api-reference/transcode/create)
+* [Transcode API overview](/platforms/livepeer-studio/api-reference/transcode/overview)
+* [Tasks API overview](/platforms/livepeer-studio/api-reference/tasks/overview)
+* [Get Task endpoint reference](/platforms/livepeer-studio/api-reference/tasks/get)
+* [Studio API overview](/platforms/livepeer-studio/reference/api)
+* [SDKs overview](/platforms/livepeer-studio/reference/sdks)
+
+## Canonical references (source-of-truth first)
+
+* GitHub (primary): [livepeer/docs `api/studio.yaml`](https://github.com/livepeer/docs/blob/main/api/studio.yaml)
+* GitHub (primary): [livepeer/docs `api/gateway.openapi.yaml`](https://github.com/livepeer/docs/blob/main/api/gateway.openapi.yaml) (for shared `generate` tag context)
+* DeepWiki (corroboration only): [livepeer/docs | DeepWiki](https://deepwiki.com/livepeer/docs)
+* Repo-local docs refs (unvalidated until cross-checked): `/platforms/livepeer-studio/api-reference/transcode/create`, `/platforms/livepeer-studio/api-reference/tasks/get`
+
+---
+
+# Video Streaming on Livepeer
+URL: https://docs.livepeer.org/v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README
+
+# Video Streaming on Livepeer
+
+---
+
+# AI Jobs & Pipelines Quickstart
+URL: https://docs.livepeer.org/v2/developers/quickstart/ai/ai-pipelines
+
+# AI Jobs & Pipelines Quickstart
+
+Start here if you want to send AI inference jobs through a Livepeer gateway.
+
+## Choose a quickstart
+
+* [AI Jobs quickstart](./ai-jobs) - End-to-end request flow using the AI gateway API (GitHub-validated endpoint surface; stakeholder flow signoff still required).
+* [AI Pipelines overview](/developers/ai-pipelines/overview) - Broader overview of the AI pipeline ecosystem on Livepeer.
+* [BYOC (Bring Your Own Compute)](/developers/ai-pipelines/byoc) - Run your own compute and connect it to the Livepeer AI network.
+
+## What this section covers
+
+* Sending requests to the AI gateway API
+* Choosing a supported AI task endpoint (for example, `text-to-image`)
+* Auth and base URLs
+* Troubleshooting and next steps (BYOC, realtime, advanced pipelines)
+
+## Canonical references
+
+* [AI API portal](/gateways/references/api-reference/AI-API/ai)
+* [Text-to-image endpoint reference](/gateways/references/api-reference/AI-API/text-to-image)
+* [AI gateway health endpoint](/gateways/references/api-reference/AI-API/health)
+* [Livepeer AI Runner (GitHub)](https://github.com/livepeer/ai-runner)
+
+## Notes
+
+* This quickstart hub is intentionally short. The runnable workflow is in [AI Jobs quickstart](./ai-jobs).
+* Source precedence for the AI Jobs quickstart is GitHub-first, then DeepWiki corroboration, then repo-local docs/specs.
+
+---
+
+# AI Jobs Quickstart
+URL: https://docs.livepeer.org/v2/developers/quickstart/ai/ai-jobs
+
+# AI Jobs Quickstart
+
+Submit your first AI inference job through a Livepeer gateway, verify the response shape, and then branch into more advanced pipelines.
+
+## AI-ready summary (for humans and assistants)
+
+* Use the AI gateway base URL: `https://livepeer.studio/api/beta/generate`
+* Authenticate with `Authorization: Bearer <LIVEPEER_API_KEY>`
+* Start with `POST /text-to-image` for a simple request/response pattern
+* Other AI job endpoints follow the same auth/base URL pattern
+* Final default pipeline flow still requires stakeholder approval
+
+## Review status
+
+This quickstart is structurally complete and source-backed, but **stakeholder signoff is still required** to confirm the canonical AI pipeline flow and default example `model_id`.
+
+## 1. Prerequisites
+
+* A Livepeer API key (backend use only)
+* `curl` (and optionally `jq`)
+* A known-good `model_id` approved by stakeholders for user-facing docs
+
+## 2. Base URL and authentication
+
+Use the Livepeer AI gateway base URL and Bearer auth:
+
+* Base URL: `https://livepeer.studio/api/beta/generate`
+* Auth header: `Authorization: Bearer <LIVEPEER_API_KEY>`
+
+Minimal connectivity check:
+
+```bash
+curl -sS \
+  -H "Authorization: Bearer $LIVEPEER_API_KEY" \
+  https://livepeer.studio/api/beta/generate/health
+```
+
+If auth and routing are working, you should receive a JSON response from the health endpoint.
+
+## 3. Submit an AI job (text-to-image starter flow)
+
+`POST /text-to-image` is the simplest JSON-only AI job endpoint in the current AI gateway spec.
+
+### Example request body
+
+`model_id` is required by the spec. Use a stakeholder-approved model ID for production docs.
+
+```json
+{
+  "model_id": "<MODEL_ID>",
+  "prompt": "A cinematic still of a lighthouse on a rocky coast at sunrise",
+  "width": 1024,
+  "height": 576,
+  "num_images_per_prompt": 1
+}
+```
+
+### Example curl request
+
+```bash
+curl -sS \
+  -X POST "https://livepeer.studio/api/beta/generate/text-to-image" \
+  -H "Authorization: Bearer $LIVEPEER_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "model_id": "<MODEL_ID>",
+    "prompt": "A cinematic still of a lighthouse on a rocky coast at sunrise",
+    "width": 1024,
+    "height": 576,
+    "num_images_per_prompt": 1
+  }'
+```
+
+## 4. Read the response
+
+The AI gateway spec defines `ImageResponse` as an object with an `images` array. Each item includes:
+
+* `url` (generated media URL)
+* `seed`
+* `nsfw`
+
+Example response shape (trimmed to the fields defined in the spec):
+
+```json
+{
+  "images": [
+    {
+      "url": "https://example-cdn/path/to/output.png",
+      "seed": 123456789,
+      "nsfw": false
+    }
+  ]
+}
+```
+
+## 5. Troubleshooting
+
+### `401 Unauthorized`
+
+* Confirm the Bearer token is valid
+* Confirm the header is exactly `Authorization: Bearer ...`
+
+### `422 Validation Error`
+
+* Check required fields (`model_id`, `prompt`)
+* Check request body JSON formatting
+* Check field types (`width`/`height` should be integers)
+
+### `500 Internal Server Error`
+
+* Retry the request
+* Check gateway health endpoint
+* If persistent, collect request ID/log context and escalate through the current support path
+
+## 6. What counts as an “AI job” (scope note)
+
+This quickstart uses `text-to-image` as the starter flow because it is the simplest JSON endpoint pattern in the current gateway spec.
+
+The same auth/base URL pattern also applies to other AI job endpoints such as:
+
+* `image-to-image`
+* `image-to-video`
+* `upscale`
+* `audio-to-text`
+* `segment-anything-2`
+* `llm`
+* `image-to-text`
+* `live-video-to-video`
+* `text-to-speech`
+
+## 7. Required stakeholder signoff before marking final
+
+* Confirm the canonical user-facing “AI Jobs” flow(s)
+* Confirm the default `model_id` to publish in examples
+* Confirm any deprecated flows/endpoints that should be excluded
+* Confirm required caveats (limits, model availability, pricing, auth/onboarding changes)
+
+## 8. Next steps
+
+* [AI API portal](/gateways/references/api-reference/AI-API/ai)
+* [Text-to-image endpoint reference](/gateways/references/api-reference/AI-API/text-to-image)
+* [AI Pipelines overview](/developers/ai-pipelines/overview)
+* [BYOC (Bring Your Own Compute)](/developers/ai-pipelines/byoc)
+
+## Canonical references (source-of-truth first)
+
+* GitHub (primary): [livepeer/docs `api/gateway.openapi.yaml`](https://github.com/livepeer/docs/blob/main/api/gateway.openapi.yaml)
+* GitHub (primary): [livepeer/ai-runner `gateway.openapi.yaml`](https://github.com/livepeer/ai-runner/blob/main/gateway.openapi.yaml)
+* GitHub (primary): [livepeer/ai-runner README](https://github.com/livepeer/ai-runner/blob/main/README.md)
+* DeepWiki (corroboration only): [livepeer/ai-runner | DeepWiki](https://deepwiki.com/livepeer/ai-runner)
+* Repo-local docs refs (unvalidated until cross-checked): `/gateways/references/api-reference/AI-API/ai`, `/gateways/references/api-reference/AI-API/text-to-image`
+
+---
+
+# AI Pipelines Overview
+URL: https://docs.livepeer.org/v2/developers/ai-pipelines/overview
+
+Livepeer AI Pipelines let you run customizable, composable video inference jobs across distributed GPU infrastructure. Powered by the Livepeer network and supported by off-chain workers like ComfyStream, the system makes it easy to deploy video AI at scale.
+
+## In a nutshell
+
+* **Pipelines** are one or more inference tasks (e.g. Whisper, style transfer, detection) run in sequence on video frames.
+* **Gateways** route jobs to compatible **Orchestrators** and **workers**; the protocol handles payment and coordination.
+* **BYOC** (Bring Your Own Compute) and **ComfyStream** are two ways to run or extend pipelines with your own models and nodes.
+
+## Use cases
+
+* Speech-to-text (Whisper)
+* Style transfer or filters (Stable Diffusion)
+* Object tracking and detection (YOLO)
+* Video segmentation (segment-anything)
+* Face redaction or blurring
+* BYOC (Bring Your Own Compute)
+
+## What is a pipeline?
+
+An AI pipeline consists of one or more tasks executed in sequence on live video frames. Each task may:
+
+* Modify the video (e.g. add overlays)
+* Generate metadata (e.g. transcript, bounding boxes)
+* Relay results to another node
+
+Livepeer handles stream ingest, frame extraction, and job dispatching. Nodes run the actual inference.
+
+```mermaid
+flowchart TD
+  A[Stream Ingest] --> B[Frame Extraction]
+  B --> C[Inference Task 1: Whisper]
+  C --> D[Task 2: Overlay Generator]
+  D --> E[Return Output Stream / Result]
+```
+
+## Architecture
+
+### Gateway and workers
+
+* **Orchestrators** queue inference jobs and run (or delegate to) workers.
+* **Workers** subscribe to task types (e.g. whisper-transcribe) and execute them.
+* **Gateways** route jobs from clients to compatible nodes. This is off-chain; the protocol (Arbitrum) handles payments and rewards.
+
+### Worker types
+
+## Pipeline definition format
+
+Jobs can be JSON-based task objects. Example:
+
+```json
+{
+  "streamId": "abc123",
+  "task": "custom-pipeline",
+  "pipeline": [
+    { "task": "whisper-transcribe", "lang": "en" },
+    { "task": "segment-blur", "target": "faces" }
+  ]
+}
+```
+
+Workers can accept:
+
+* JSON-formatted tasks via the Gateway
+* Frame-by-frame gRPC (low latency)
+* Result upload via webhook
+
+## Bring your own compute (BYOC)
+
+You can use your own GPU nodes to serve inference tasks:
+
+1. Clone [ComfyStream](https://github.com/livepeer/comfystream) or implement the processing API.
+2. Add plugins for Whisper, ControlNet, or other models.
+3. Register your node with the gateway (and optionally on-chain).
+
+See [BYOC](./byoc) for a full setup guide.
+
+## See also
+
+* [BYOC](./byoc) — Run your own AI workers and register with the network
+* [ComfyStream](./comfystream) — ComfyUI-based pipelines and Gateway integration
+* [Livepeer AI (overview)](../ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer) — Product overview and use cases
+* [Network technical architecture](/v2/about/livepeer-network/technical-architecture) — Gateway, Orchestrator, and protocol
+
+## Resources
+
+* [ComfyStream GitHub](https://github.com/livepeer/comfystream)
+* [Livepeer Studio AI docs](https://livepeer.studio/docs/ai)
+* [Forum: example pipelines](https://forum.livepeer.org/t/example-pipelines)
+* [Explorer](https://explorer.livepeer.org) — Network and node stats
+
+---
+
+# BYOC (Bring Your Own Compute)
+URL: https://docs.livepeer.org/v2/developers/ai-pipelines/byoc
+
+This guide details how to integrate your own AI models or GPU infrastructure into the Livepeer AI inference network. BYOC lets you run inference tasks with custom models (e.g. ControlNet, Whisper, SegFormer), deploy nodes across cloud, edge, or on-prem environments, and serve Livepeer inference workloads with economic incentives.
+
+For full BYOC architecture, Gateway/Orchestrator roles, container lifecycle, and Protocol vs AI BYOC concepts, see the [BYOC full guide](../ai-inference-on-livepeer/byoc).
+
+## Requirements
+
+* Linux or Docker-capable machine with GPU (CUDA 11+)
+* Internet-accessible IP or NAT hole-punching
+* Git, Python 3.9+; optional ComfyUI fork for modular tasks
+* Livepeer Gateway credentials or API key for worker registration
+
+## Step 1 — Clone and setup
+
+```bash
+git clone https://github.com/livepeer/comfystream
+cd comfystream
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+Install your desired inference model(s):
+
+```bash
+python scripts/download.py --model whisper-large
+python scripts/download.py --model sdxl
+```
+
+## Step 2 — Configure node
+
+Edit your `config.yaml`:
+
+```yaml
+publicKey: "0xYourEthereumAddress"
+gatewayURL: "wss://gateway.livepeer.org"
+models:
+  - whisper-large
+  - sdxl
+heartbeat: true
+```
+
+Optional: run as Docker; add plugin adapters (e.g. segment-anything, blip2).
+
+## Step 3 — Start gateway node
+
+```bash
+python run.py --adapter grpc --gpu --model whisper-large
+```
+
+You should see logs for heartbeats to the Livepeer Gateway, job claims and model execution, and result uploads or webhooks.
+
+## Step 4 — Register (optional)
+
+Register your node on-chain (Arbitrum) so Gateways can discover and route work to you:
+
+```bash
+livepeer-cli gateway register \
+  --addr=1.2.3.4:5040 \
+  --models=whisper-large,sdxl \
+  --bond=100LPT \
+  --region=NA1
+```
+
+Contract and ABI references are in the Blockchain contracts docs under About / Resources.
+
+## Pipeline examples
+
+**Whisper + caption overlay:**
+
+```yaml
+pipeline:
+  - task: whisper-transcribe
+  - task: overlay
+    type: caption
+```
+
+**Blur faces + YOLO:**
+
+```yaml
+pipeline:
+  - task: object-detection
+    model: yolov8
+  - task: segment-blur
+    target: faces
+```
+
+## Troubleshooting
+
+## Developer notes
+
+* BYOC workers use the same Gateway Protocol as the rest of the Livepeer network. See Network technical architecture under About.
+* You can serve from multiple geographic regions.
+* Contribution rewards may be offered in LPT or credits; check the Forum and Builder opportunities.
+
+## See also
+
+* [AI Pipelines overview](./overview)
+* [ComfyStream](./comfystream)
+* [BYOC full guide](../ai-inference-on-livepeer/byoc) — Architecture, Gateway/Orchestrator, container lifecycle
+* [Network interfaces](/v2/about/livepeer-network/interfaces)
+
+## Resources
+
+* [ComfyStream GitHub](https://github.com/livepeer/comfystream)
+* [Model registry (Forum)](https://forum.livepeer.org/t/model-registry)
+* [Livepeer Studio AI docs](https://livepeer.studio/docs/ai)
+
+---
+
+# ComfyStream
+URL: https://docs.livepeer.org/v2/developers/ai-pipelines/comfystream
+
+ComfyStream is a modular AI inference engine that integrates with Livepeer’s Gateway Protocol to execute video frame pipelines on GPU-powered worker nodes. It extends [ComfyUI](https://github.com/comfyanonymous/ComfyUI) with Livepeer-compatible gateway binding, real-time stream I/O, dynamic node graphs and plugin chaining, and overlay rendering and metadata export.
+
+For a high-level overview and DeepWiki, see the [ComfyStream full guide](../ai-inference-on-livepeer/comfystream).
+
+## Architecture overview
+
+```mermaid
+flowchart LR
+  A[RTMP/HLS Video Stream] --> B[Livepeer Ingest + Frame Split]
+  B --> C[Gateway Task Queue]
+  C --> D[ComfyStream Worker Node]
+  D --> E[Model Execution]
+  E --> F[Result Upload / Stream Return]
+```
+
+## Node types in ComfyStream
+
+These are exposed as modules in `nodes/*.py` and can be chained in graph format.
+
+## Example pipeline: caption overlay
+
+```json
+{
+  "pipeline": [
+    { "task": "whisper-transcribe" },
+    { "task": "caption-overlay", "font": "Roboto" }
+  ]
+}
+```
+
+ComfyStream converts this to an internal computation graph (e.g. WhisperNode → TextOverlayNode → OutputStreamNode).
+
+## Plugin support
+
+You can build your own plugins:
+
+* Implement the `NodeBase` class from ComfyUI
+* Register metadata and parameters
+* Declare inputs and outputs for chaining
+
+Example:
+
+```python
+class FaceBlurNode(NodeBase):
+  def run(self, frame):
+    result = blur_faces(frame)
+    return result
+```
+
+## Connecting to Livepeer Gateway
+
+In `config.yaml`:
+
+```yaml
+gatewayURL: wss://gateway.livepeer.org
+models:
+  - whisper
+  - sdxl
+```
+
+Start your node:
+
+```bash
+python run.py --adapter grpc --model whisper --gpu
+```
+
+The ComfyStream worker will listen to task queues via pub/sub, execute pipelines frame-by-frame, and return inference results as overlays or JSON.
+
+## Debugging pipelines
+
+ComfyStream logs heartbeats to the gateway, job payloads, graph errors, and output stream metrics. Enable verbose mode:
+
+```bash
+python run.py --debug
+```
+
+## See also
+
+* [AI Pipelines overview](./overview) — Pipeline concepts and worker types
+* [BYOC](./byoc) — Bring your own compute setup
+* [ComfyStream full guide](../ai-inference-on-livepeer/comfystream) — Architecture layers, components, and DeepWiki
+* [Network technical architecture](/v2/about/livepeer-network/technical-architecture) — Gateway and Orchestrator stack
+
+## Resources
+
+* [ComfyStream GitHub](https://github.com/livepeer/comfystream)
+* [BYOC setup](./byoc)
+* [Plugin examples (Forum)](https://forum.livepeer.org/t/comfystream-nodes)
+* [Livepeer Studio AI](https://livepeer.studio/docs/ai)
+
+---
+
+# Developer Guides
+URL: https://docs.livepeer.org/v2/developers/guides-and-resources/developer-guides
+
+# Developer Guides
+
+---
+
+# Resources
+URL: https://docs.livepeer.org/v2/developers/guides-and-resources/resources
+
+# Resources
+
+---
+
+# Developer Help
+URL: https://docs.livepeer.org/v2/developers/guides-and-resources/developer-help
+
+# Developer Help
+
+A pipeline to office hours, guide to discord & forum channels
+
+### Getting help
+
+Discord
+
+Forum
+
+Ask at Livepeer Office Hours
+
+---
+
+# Contribution Guide
+URL: https://docs.livepeer.org/v2/developers/guides-and-resources/contribution-guide
+
+### Contributors Spotlight
+
+---
+
+# Dev Programs
+URL: https://docs.livepeer.org/v2/developers/builder-opportunities/dev-programs
+
+This page is intended as a guide for startup projects building on Livepeer, OSS Developers looking to contribute and community member participation pathways.
+
+Need more info
+
+### Hackathons
+
+...
+
+### Dev Programs
+
+Content coming soon.
+
+### Treasury Proposals
+
+...
+
+**Other ?**
+
+* Livepeer Developer Paths
+* Funding for Startups
+
+---
+
+# Livepeer RFPs
+URL: https://docs.livepeer.org/v2/developers/builder-opportunities/livepeer-rfps
+
+## RFPs Overview
+
+...
+
+## Current RFPs
+
+...
+
+## Grants
+
+* Grant process
+
+---
+
+# Livepeer Developer Platforms
 URL: https://docs.livepeer.org/v2/platforms/portal
-
-Owners of products are responsible for maintaining their own documentation. Though it will be initially seeded.
-
-Automation pipelines may be available if docs owners provide repo access to enable these OR the docs can embed your documentation site or simply link out to it.
 
 Daydream is a real-time AI video platform that allows you to create, edit, and share AI video content.
 
-The models, nodes and actors that contribute to the Livepeer Real-time Video AI Network.
+It provides the tools to build with open world models and real-time AI, in a community where creatives, builders, and researchers advance the field together.
 
-A comprehensive glossary of terms used in the Livepeer Real-time Video AI Network.
+Livepeer Studio is a developer-friendly gateway and toolkit for the Livepeer decentralized video infrastructure.
 
-A comprehensive glossary of terms used in the Livepeer Real-time Video AI Network.
+Livepeer Studio offers easy-to-use APIs and dashboards for builders to add scalable, cost-efficient, and censorship-resistant live streaming and video-on-demand (VOD) features to applications.
 
-A comprehensive glossary of terms used in the Livepeer Real-time Video AI Network.
+Frameworks offers a full-stack video streaming platform that combines full self-hosting capabilities with hosted processing and features to 10x your ideas.
+
+The MistServer team is on a mission to democratize video infrastructure by leveraging decentralized protocols and open source technology -> creating a streaming infrastructure that doesn't lock you in.
+
+Streamplace is an open-source video infrastructure layer for social networks, livestreaming platforms and web3-native apps.
+
+It provides identity, distribution, monetisation and sovreignty primitives to bring high-quality video experiences while preserving content authenticity.
 
 ---
 
-# Product HUB
+# Developer Platform HUB
 URL: https://docs.livepeer.org/v2/platforms/product-hub
 
-&#x20;MERGE WITH PORTAL - there is no benefit in duplicating these pages.  Also consider not hosting group sections.&#x20;
-
-This page will be an automation from a google form -> a quick approval process on github -> merged into docs.
-
-As new products are available - they can easily be aggragated here (at least initially while an ecosystem product page is built out.)
-
-**This is not currently operational**
-
-Product owners can submit a PR to the [Livepeer Docs repo though](https://github.com/livepeer/docs).
-
-The form will ask for:
-
-* Product Name
-* Product Description
-* Product Link
-* Product Logo
-* Product Category (eg. Streaming, AI, etc.)
-* Product Tags (eg. Open Source, Enterprise, etc.)
-
 # Developer Platforms
-
-Ideally we want a sortable and filterable table with tags and cateogries.
-It'sprobably best to embed this from elsewhere for full functionality
 
 Daydream provides the tools to build with open world models and real-time AI, and the community where creatives, builders, and researchers advance the field together.
 
@@ -6687,13 +7584,6 @@ Ecosystem news, SPEs, and protocol updates.
 
 ---
 
-# Embody Avatars
-URL: https://docs.livepeer.org/v2/platforms/embody/overview
-
-Embody Enables real-time interactive 3D avatars for education, training, and communication.
-
----
-
 # Frameworks
 URL: https://docs.livepeer.org/v2/platforms/frameworks/overview
 
@@ -6724,1059 +7614,6 @@ Ecosystem news, SPEs, and protocol updates.
 * [App](https://app.frameworks.network/) — Dashboard, StreamCrafter, Skipper.
 * [GitHub](https://github.com/livepeer-frameworks/monorepo) — Open-source stack.
 * [Contact](https://frameworks.network/contact) — Talk to the team.
-
----
-
-# Resource Portal
-URL: https://docs.livepeer.org/v2/resources/resources-portal
-
-## Resources Portal
-
-All resources and references in one place!
-
----
-
-# Livepeer Developer Portal
-URL: https://docs.livepeer.org/v2/developers/portal
-
-Stream Live Video on Livepeer
-
-Run AI Inference, Comfystream, or Custom AI Models on Livepeer
-
-Discover Developer Platforms that make it easy to Integrate Real-time Video AI into your ideas.
-
-Build your own applications on the Livepeer Protocol by deploying a Gateway.
-
-Contribute to the Livepeer Ecosystem and find opportunities to earn rewards through grants, RFPs, and more.
-
-Find Guides, Tutorials, & Resources for Developers
-
----
-
-# Developer Guide
-URL: https://docs.livepeer.org/v2/developers/developer-guide
-
-## Overview
-
-Anyone building software that uses Livepeer compute, contributes to the
-Livepeer Protocol, or builds tooling for network operators is a
-developer.
-
-This section is for those folks looking to ...
-
-The easiest way to use AI or video is to use a hosted service such as Daydream or Livepeer Studio.
-If you want to develop directly on the protocol… you'll start by running your own gateway node.
-
-&#x20;Test Diagram 1: Possible Definitions
-
-```mermaid flowchart LR classDef title fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
-classDef node fill:##0d0d0d,color:#fff,stroke:#2d9a67,stroke-width:1px classDef role
-fill:#0d0d0d,color:#fff,stroke:#2d9a67,stroke-width:1px
-
-    A[Developer<br>Umbrella Term]:::title --> B[Uses Third-Party Gateway<br>Studio, Daydream, External API]:::node
-    A --> C[Runs Own Gateway Node]:::node
-    A --> D[Builds Protocol Extensions<br>e.g., Liquid Staking, Smart Contracts]:::node
-    A --> E[Builds Tooling for GPU Node Operators<br>Monitoring, Automation]:::node
-
-    B --> B1[Not a Protocol Actor<br>Consumes Livepeer indirectly]:::node
-    C --> C1[Assumes Gateway Role<br>Consumes Livepeer Network directly]:::node
-    D --> D1[Protocol Integrator<br>Interacts with Livepeer Protocol]:::node
-    E --> E1[Ecosystem Contributor<br>Supports GPU Nodes]:::node
-
-```
-
-&#x20;Test Diagram 2: Possible Journeys
-
-```mermaid
-flowchart LR
-    classDef title fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
-    classDef node fill:#0d0d0d,color:#fff,stroke:#2d9a67,stroke-width:1px
-    classDef role fill:#0d0d0d,color:#fff,stroke:#2d9a67,stroke-width:1px
-
-    A[Developer / Builder<br>Umbrella Term]:::title
-
-    A --> B1[I build applications<br>that consume video/AI compute]:::node
-    A --> C1[I want to run infrastructure<br>or operate a node]:::node
-    A --> D1[I want to extend Livepeer Protocol<br>or write smart contracts]:::node
-    A --> E1[I build tooling for operators<br>or data analysis dashboards]:::node
-    A --> F1[I want to contribute socially<br>govern, educate, or organize]:::node
-
-    B1 --> B2[Application Developer<br>Uses a Hosted Gateway]:::role
-    B1 --> B3[Gateway Operator<br>Runs own Gateway Node]:::role
-    C1 --> C2[GPU Node Operator<br>Provides compute to network]:::role
-    D1 --> D2[Protocol Developer<br>Builds staking derivatives]:::role
-    E1 --> E2[Tooling Engineer<br>Observability and analysis]:::role
-    F1 --> F2[Community Builder<br>Education and governance]:::role
-```
-
-Testing developer Journey
-
-## What do you want to do?
-
-&#x20;TESTING: Landing Page for Developer Persona&#x20;
--> choose your own adventure here.
-
-Broadcast Real-Time Video
-
-Run AI Pipelines on Livepeer
-
-Build Your Own App
-
-Integrate With Livepeer
-
-Placeholder - Build your own platorm
-
-Contribute to the Ecosystem as an OSS Developer
-
-Be a founder
-
-Win Hacks
-
-Find Grants, RFPs & Other Opportunities
-
-What are the possible persona journeys.
-
-Developer Mapping: - Using a hosted gateway → Application Developer - Running
-their own gateway → Gateway Operator - Extending protocol contracts → Protocol
-Developer - Building node tooling → Tooling / Data Engineer - Helping grow
-ecosystem → Community / Governance Builder
-
----
-
-# Livepeer Ecosystem Partner Integrations
-URL: https://docs.livepeer.org/v2/developers/guides/partner-integrations
-
-Livepeer is a multi-layered ecosystem that includes a public, open-source, and permissionless network, a set of products and services built on top of the network, numerous partner integrations that expand the network's capabilities and a community of developers, users, and organizations that contribute to and benefit from the ecosystem.
-
-## Partner Integrations
-
-#### Storage
-
-* Storj
-* Arweave
-* Filecoin
-* IPFS
-
-#### Chains
-
-#### Payments
-
-#### Security
-
-#### CDN
-
-* Media Network (Decentralized CDN)
-
-#### Streaming
-
-* MistServer Catalyst
-* Wowza
-* NGINX
-* Red5
-
-## Partner Use Cases
-
-#### Metaverse
-
-* Decentraland
-* Serraform
-
-#### Streaming
-
-* Fanteasy (Note: NSFW)
-
-***
-
-&#x20;Explore Projects&#x20;
-&#x20;Explore Products
-
-The Livepeer Network is a public, open-source, and permissionless network that provides a decentralized infrastructure for real-time video and AI processing.
-
-Livepeer Partners are organizations that have partnered with Livepeer to integrate their services with the Livepeer Network.
-
-Livepeer Ecosystem Projects are built on top of the Livepeer Network and use its infrastructure to provide specialized services.
-
-The Livepeer Community is a diverse and vibrant group of individuals and organizations that are passionate about the Livepeer Real-time Video AI Network.
-
-## Livepeer Partners
-
-The Livepeer Network is a public, open-source, and permissionless network that provides a decentralized infrastructure for real-time video and AI processing. The network is composed of three main components: gateways, orchestrators, and delegators.
-
-### Gateways
-
-Gateways are the entry point for applications into the Livepeer network. They are the coordination layer that connects real-time AI and video workloads to the orchestrators who perform the GPU compute. Gateways earn revenue from transaction fees on all jobs they route.
-
-### Orchestrators
-
-Orchestrators are GPU operators who run real-time AI inference, Daydream / ComfyStream pipelines, BYOC containers, and traditional transcoding. They provide GPU horsepower, model execution, deterministic and verifiable output, and performance guarantees. Orchestrators earn revenue from job fees and LPT staking rewards.
-
-### Delegators
-
-Delegators are token holders who stake their LPT to an orchestrator to help secure the network and earn a share of rewards. Delegators do not participate in the day-to-day operations of the network, but they do play a crucial role in the network's security and decentralization.
-
-## Livepeer Ecosystem Projects
-
-Livepeer Ecosystem Projects are built on top of the Livepeer Network and use its infrastructure to provide specialized services. These projects include everything from AI-powered video editing tools to decentralized video marketplaces.
-
-## Livepeer Community
-
-The Livepeer Community is a diverse and vibrant group of individuals and organizations that are passionate about the Livepeer Real-time Video AI Network. The community includes developers, users, organizations, and enthusiasts from around the world.
-
----
-
-# Developer Journey
-URL: https://docs.livepeer.org/v2/developers/developer-journey
-
-| Stage | Name        | Purpose                                             | Outcomes                                                                           |
-| ----- | ----------- | --------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| 0     | Awareness   | Understand Livepeer, compute model, ecosystem roles | Clarity on Protocol → Network → Apps; basic mental model                           |
-| 1     | Orientation | Identify which builder persona fits their goals     | Path chosen: App Dev, Gateway Operator, GPU Node, Protocol Dev, Tooling, Community |
-| 2     | Activation  | Perform first meaningful action in chosen path      | "First win" achieved: app built, node deployed, contract written, tool created     |
-| 3     | Progression | Increase expertise and contribution                 | Contributions, optimizations, mentoring, advanced workflows                        |
-| 4     | Hero        | Become a leader/steward in the ecosystem            | Operate at scale, publish tools, author proposals, run programs                    |
-
-```mermaid
-flowchart TD
-    classDef stage fill:#0d0d0d,color:#fff,stroke:#2d9a67,stroke-width:1px;
-    classDef phase fill:#0d0d0d,color:#fff,stroke:#2d9a67,stroke-width:1px;
-
-    A["Stage 0: Awareness<br/>What is Livepeer?"]:::stage --> B["Stage 1: Orientation<br/>Choose builder path"]:::stage
-    B --> C["Stage 2: Activation<br/>First wins"]:::stage
-    C --> D["Stage 3: Progression<br/>Deepening skills"]:::stage
-    D --> E["Stage 4: Hero<br/>Ecosystem leadership"]:::stage
-
-    B --> B1["Paths:<br/>• Application Developer<br/>• Gateway Operator<br/>• GPU Node Operator<br/>• Protocol Developer<br/>• Tooling Developer<br/>• Community Builder"]:::phase
-    C --> C1["Each path executes its first real success milestone"]:::phase
-    D --> D1["Contribute, optimize, mentor, build advanced infra"]:::phase
-    E --> E1["Heroes lead apps, gateways, nodes, protocol, tooling, gov"]:::phase
-```
-
----
-
-# Video Quickstarts
-URL: https://docs.livepeer.org/v2/developers/quickstart/video/video-streaming
-
-# Video Quickstarts
-
-Use these quickstarts to get to a working Livepeer video workflow quickly.
-
-## Choose a quickstart
-
-* [Real-time video quickstart](/developers/livepeer-real-time-video/video-streaming-on-livepeer/README) - Realtime streaming flows and platform integrations.
-* [Transcoding Jobs quickstart](./transcoding-jobs) - Submit an on-demand transcoding job and track task completion (Rick TD review required before final publish).
-* [Livepeer Studio quickstart](/platforms/livepeer-studio/quickstart) - Studio account + API key + SDK-based getting started flow.
-
-## Canonical references
-
-* [Studio API overview](/platforms/livepeer-studio/reference/api)
-* [Transcode API reference](/platforms/livepeer-studio/api-reference/transcode/overview)
-* [Create Transcode Job endpoint](/platforms/livepeer-studio/api-reference/transcode/create)
-* [Tasks API reference](/platforms/livepeer-studio/api-reference/tasks/overview)
-
-## Notes
-
-* This page is a hub. The end-to-end job submission walkthrough is in [Transcoding Jobs quickstart](./transcoding-jobs).
-* Transcoding examples are built from the GitHub-validated Studio OpenAPI spec in this repo and require final TD review for production accuracy.
-
----
-
-# Transcoding Jobs Quickstart
-URL: https://docs.livepeer.org/v2/developers/quickstart/video/transcoding-jobs
-
-# Transcoding Jobs Quickstart
-
-Submit an on-demand transcoding job through the Livepeer Studio API and track it to completion using the Tasks API.
-
-## AI-ready summary (for humans and assistants)
-
-* Use the Studio API base URL: `https://livepeer.studio/api`
-* Submit jobs with `POST /transcode`
-* Transcoding is asynchronous; poll `GET /task/{id}`
-* A successful `POST /transcode` returns a `task.id`
-* Final technical accuracy review is required from Rick (TD)
-
-## Review status
-
-This quickstart is structurally complete and based on the GitHub-validated Studio OpenAPI spec, but **Rick (TD) review is required** before final publish for canonical flow accuracy and user-facing defaults.
-
-## 1. Prerequisites
-
-* A Livepeer API key (backend use only)
-* `curl` (and optionally `jq`)
-* Input video accessible over HTTP **or** a S3-compatible source
-* Output storage destination (S3-compatible or web3.storage delegation proof)
-
-## 2. Base URL and authentication
-
-* Base URL: `https://livepeer.studio/api`
-* Auth header: `Authorization: Bearer <LIVEPEER_API_KEY>`
-
-```bash
-```
-
-## 3. Submit a transcode job
-
-The Studio spec requires:
-
-* `input`
-* `storage`
-* `outputs`
-
-The example below uses:
-
-* HTTP input URL
-* S3-compatible storage output
-* HLS + MP4 outputs
-
-### Example request body
-
-```json
-{
-  "input": {
-    "url": "https://example.com/video.mp4"
-  },
-  "storage": {
-    "type": "s3",
-    "endpoint": "https://gateway.storjshare.io",
-    "bucket": "outputbucket",
-    "credentials": {
-      "accessKeyId": "<ACCESS_KEY_ID>",
-      "secretAccessKey": "<SECRET_ACCESS_KEY>"
-    }
-  },
-  "outputs": {
-    "hls": {
-      "path": "/samplevideo/hls"
-    },
-    "mp4": {
-      "path": "/samplevideo/mp4"
-    }
-  },
-  "profiles": [
-    {
-      "name": "720p",
-      "width": 1280,
-      "height": 720,
-      "bitrate": 3000000,
-      "fps": 30
-    }
-  ]
-}
-```
-
-### Example curl request
-
-```bash
-curl -sS \
-  -X POST "https://livepeer.studio/api/transcode" \
-  -H "Authorization: Bearer $LIVEPEER_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "input": { "url": "https://example.com/video.mp4" },
-    "storage": {
-      "type": "s3",
-      "endpoint": "https://gateway.storjshare.io",
-      "bucket": "outputbucket",
-      "credentials": {
-        "accessKeyId": "<ACCESS_KEY_ID>",
-        "secretAccessKey": "<SECRET_ACCESS_KEY>"
-      }
-    },
-    "outputs": {
-      "hls": { "path": "/samplevideo/hls" },
-      "mp4": { "path": "/samplevideo/mp4" }
-    },
-    "profiles": [
-      {
-        "name": "720p",
-        "width": 1280,
-        "height": 720,
-        "bitrate": 3000000,
-        "fps": 30
-      }
-    ]
-  }'
-```
-
-## 4. Capture the task ID
-
-Transcoding is asynchronous. The response is a `task` object. Save the `id` field and poll the task endpoint.
-
-Example response shape (trimmed):
-
-```json
-{
-  "id": "09F8B46C-61A0-4254-9875-F71F4C605BC7",
-  "type": "transcode-file",
-  "status": {
-    "phase": "pending",
-    "updatedAt": 1587667174725
-  }
-}
-```
-
-## 5. Poll the task status
-
-Use `GET /task/{id}` until `status.phase` is `completed` or `failed`.
-
-```bash
-TASK_ID="<TASK_ID_FROM_TRANSCODE_RESPONSE>"
-
-curl -sS \
-  -H "Authorization: Bearer $LIVEPEER_API_KEY" \
-  "https://livepeer.studio/api/task/$TASK_ID"
-```
-
-Phases defined in the Studio spec include:
-
-* `pending`
-* `waiting`
-* `running`
-* `failed`
-* `completed`
-* `cancelled`
-
-## 6. Verify completion and outputs
-
-When `status.phase` is `completed`:
-
-* Confirm the task did not report an `errorMessage`
-* Inspect task output metadata and/or linked asset IDs
-* Verify the output paths you requested under `outputs` in your destination storage
-
-## 7. Common failure modes
-
-### `401 Unauthorized`
-
-* Invalid API key
-* Missing/incorrect `Authorization` header
-
-### `422 Validation Error`
-
-* Missing required top-level fields (`input`, `storage`, `outputs`)
-* Invalid `input` schema (URL vs S3 object mismatch)
-* Invalid `profiles` shape
-
-### Task enters `failed`
-
-* Check `status.errorMessage`
-* Verify input URL is accessible to the service
-* Verify output storage credentials and bucket permissions
-* Re-run with a minimal profile/output combination first
-
-## 8. Rick (TD) review checklist (blocking before final publish)
-
-* Confirm canonical user-facing transcoding flow for 2026 docs
-* Confirm recommended default profile example(s)
-* Confirm polling expectations and completion verification guidance
-* Confirm deprecated legacy examples should be removed/labeled
-* Confirm boundary with realtime APIs (what belongs elsewhere)
-
-## 9. Next steps
-
-* [Create Transcode Job endpoint reference](/platforms/livepeer-studio/api-reference/transcode/create)
-* [Transcode API overview](/platforms/livepeer-studio/api-reference/transcode/overview)
-* [Tasks API overview](/platforms/livepeer-studio/api-reference/tasks/overview)
-* [Get Task endpoint reference](/platforms/livepeer-studio/api-reference/tasks/get)
-* [Studio API overview](/platforms/livepeer-studio/reference/api)
-* [SDKs overview](/platforms/livepeer-studio/reference/sdks)
-
-## Canonical references (source-of-truth first)
-
-* GitHub (primary): [livepeer/docs `api/studio.yaml`](https://github.com/livepeer/docs/blob/main/api/studio.yaml)
-* GitHub (primary): [livepeer/docs `api/gateway.openapi.yaml`](https://github.com/livepeer/docs/blob/main/api/gateway.openapi.yaml) (for shared `generate` tag context)
-* DeepWiki (corroboration only): [livepeer/docs | DeepWiki](https://deepwiki.com/livepeer/docs)
-* Repo-local docs refs (unvalidated until cross-checked): `/platforms/livepeer-studio/api-reference/transcode/create`, `/platforms/livepeer-studio/api-reference/tasks/get`
-
----
-
-# Video Streaming on Livepeer
-URL: https://docs.livepeer.org/v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README
-
-# Video Streaming on Livepeer
-
----
-
-# AI Jobs & Pipelines Quickstart
-URL: https://docs.livepeer.org/v2/developers/quickstart/ai/ai-pipelines
-
-# AI Jobs & Pipelines Quickstart
-
-Start here if you want to send AI inference jobs through a Livepeer gateway.
-
-## Choose a quickstart
-
-* [AI Jobs quickstart](./ai-jobs) - End-to-end request flow using the AI gateway API (GitHub-validated endpoint surface; stakeholder flow signoff still required).
-* [AI Pipelines overview](/developers/ai-pipelines/overview) - Broader overview of the AI pipeline ecosystem on Livepeer.
-* [BYOC (Bring Your Own Compute)](/developers/ai-pipelines/byoc) - Run your own compute and connect it to the Livepeer AI network.
-
-## What this section covers
-
-* Sending requests to the AI gateway API
-* Choosing a supported AI task endpoint (for example, `text-to-image`)
-* Auth and base URLs
-* Troubleshooting and next steps (BYOC, realtime, advanced pipelines)
-
-## Canonical references
-
-* [AI API portal](/gateways/references/api-reference/AI-API/ai)
-* [Text-to-image endpoint reference](/gateways/references/api-reference/AI-API/text-to-image)
-* [AI gateway health endpoint](/gateways/references/api-reference/AI-API/health)
-* [Livepeer AI Runner (GitHub)](https://github.com/livepeer/ai-runner)
-
-## Notes
-
-* This quickstart hub is intentionally short. The runnable workflow is in [AI Jobs quickstart](./ai-jobs).
-* Source precedence for the AI Jobs quickstart is GitHub-first, then DeepWiki corroboration, then repo-local docs/specs.
-
----
-
-# AI Jobs Quickstart
-URL: https://docs.livepeer.org/v2/developers/quickstart/ai/ai-jobs
-
-# AI Jobs Quickstart
-
-Submit your first AI inference job through a Livepeer gateway, verify the response shape, and then branch into more advanced pipelines.
-
-## AI-ready summary (for humans and assistants)
-
-* Use the AI gateway base URL: `https://livepeer.studio/api/beta/generate`
-* Authenticate with `Authorization: Bearer <LIVEPEER_API_KEY>`
-* Start with `POST /text-to-image` for a simple request/response pattern
-* Other AI job endpoints follow the same auth/base URL pattern
-* Final default pipeline flow still requires stakeholder approval
-
-## Review status
-
-This quickstart is structurally complete and source-backed, but **stakeholder signoff is still required** to confirm the canonical AI pipeline flow and default example `model_id`.
-
-## 1. Prerequisites
-
-* A Livepeer API key (backend use only)
-* `curl` (and optionally `jq`)
-* A known-good `model_id` approved by stakeholders for user-facing docs
-
-## 2. Base URL and authentication
-
-Use the Livepeer AI gateway base URL and Bearer auth:
-
-* Base URL: `https://livepeer.studio/api/beta/generate`
-* Auth header: `Authorization: Bearer <LIVEPEER_API_KEY>`
-
-Minimal connectivity check:
-
-```bash
-curl -sS \
-  -H "Authorization: Bearer $LIVEPEER_API_KEY" \
-  https://livepeer.studio/api/beta/generate/health
-```
-
-If auth and routing are working, you should receive a JSON response from the health endpoint.
-
-## 3. Submit an AI job (text-to-image starter flow)
-
-`POST /text-to-image` is the simplest JSON-only AI job endpoint in the current AI gateway spec.
-
-### Example request body
-
-`model_id` is required by the spec. Use a stakeholder-approved model ID for production docs.
-
-```json
-{
-  "model_id": "<MODEL_ID>",
-  "prompt": "A cinematic still of a lighthouse on a rocky coast at sunrise",
-  "width": 1024,
-  "height": 576,
-  "num_images_per_prompt": 1
-}
-```
-
-### Example curl request
-
-```bash
-curl -sS \
-  -X POST "https://livepeer.studio/api/beta/generate/text-to-image" \
-  -H "Authorization: Bearer $LIVEPEER_API_KEY" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model_id": "<MODEL_ID>",
-    "prompt": "A cinematic still of a lighthouse on a rocky coast at sunrise",
-    "width": 1024,
-    "height": 576,
-    "num_images_per_prompt": 1
-  }'
-```
-
-## 4. Read the response
-
-The AI gateway spec defines `ImageResponse` as an object with an `images` array. Each item includes:
-
-* `url` (generated media URL)
-* `seed`
-* `nsfw`
-
-Example response shape (trimmed to the fields defined in the spec):
-
-```json
-{
-  "images": [
-    {
-      "url": "https://example-cdn/path/to/output.png",
-      "seed": 123456789,
-      "nsfw": false
-    }
-  ]
-}
-```
-
-## 5. Troubleshooting
-
-### `401 Unauthorized`
-
-* Confirm the Bearer token is valid
-* Confirm the header is exactly `Authorization: Bearer ...`
-
-### `422 Validation Error`
-
-* Check required fields (`model_id`, `prompt`)
-* Check request body JSON formatting
-* Check field types (`width`/`height` should be integers)
-
-### `500 Internal Server Error`
-
-* Retry the request
-* Check gateway health endpoint
-* If persistent, collect request ID/log context and escalate through the current support path
-
-## 6. What counts as an “AI job” (scope note)
-
-This quickstart uses `text-to-image` as the starter flow because it is the simplest JSON endpoint pattern in the current gateway spec.
-
-The same auth/base URL pattern also applies to other AI job endpoints such as:
-
-* `image-to-image`
-* `image-to-video`
-* `upscale`
-* `audio-to-text`
-* `segment-anything-2`
-* `llm`
-* `image-to-text`
-* `live-video-to-video`
-* `text-to-speech`
-
-## 7. Required stakeholder signoff before marking final
-
-* Confirm the canonical user-facing “AI Jobs” flow(s)
-* Confirm the default `model_id` to publish in examples
-* Confirm any deprecated flows/endpoints that should be excluded
-* Confirm required caveats (limits, model availability, pricing, auth/onboarding changes)
-
-## 8. Next steps
-
-* [AI API portal](/gateways/references/api-reference/AI-API/ai)
-* [Text-to-image endpoint reference](/gateways/references/api-reference/AI-API/text-to-image)
-* [AI Pipelines overview](/developers/ai-pipelines/overview)
-* [BYOC (Bring Your Own Compute)](/developers/ai-pipelines/byoc)
-
-## Canonical references (source-of-truth first)
-
-* GitHub (primary): [livepeer/docs `api/gateway.openapi.yaml`](https://github.com/livepeer/docs/blob/main/api/gateway.openapi.yaml)
-* GitHub (primary): [livepeer/ai-runner `gateway.openapi.yaml`](https://github.com/livepeer/ai-runner/blob/main/gateway.openapi.yaml)
-* GitHub (primary): [livepeer/ai-runner README](https://github.com/livepeer/ai-runner/blob/main/README.md)
-* DeepWiki (corroboration only): [livepeer/ai-runner | DeepWiki](https://deepwiki.com/livepeer/ai-runner)
-* Repo-local docs refs (unvalidated until cross-checked): `/gateways/references/api-reference/AI-API/ai`, `/gateways/references/api-reference/AI-API/text-to-image`
-
----
-
-# AI Pipelines Overview
-URL: https://docs.livepeer.org/v2/developers/ai-pipelines/overview
-
-Livepeer AI Pipelines let you run customizable, composable video inference jobs across distributed GPU infrastructure. Powered by the Livepeer network and supported by off-chain workers like ComfyStream, the system makes it easy to deploy video AI at scale.
-
-## In a nutshell
-
-* **Pipelines** are one or more inference tasks (e.g. Whisper, style transfer, detection) run in sequence on video frames.
-* **Gateways** route jobs to compatible **Orchestrators** and **workers**; the protocol handles payment and coordination.
-* **BYOC** (Bring Your Own Compute) and **ComfyStream** are two ways to run or extend pipelines with your own models and nodes.
-
-## Use cases
-
-* Speech-to-text (Whisper)
-* Style transfer or filters (Stable Diffusion)
-* Object tracking and detection (YOLO)
-* Video segmentation (segment-anything)
-* Face redaction or blurring
-* BYOC (Bring Your Own Compute)
-
-## What is a pipeline?
-
-An AI pipeline consists of one or more tasks executed in sequence on live video frames. Each task may:
-
-* Modify the video (e.g. add overlays)
-* Generate metadata (e.g. transcript, bounding boxes)
-* Relay results to another node
-
-Livepeer handles stream ingest, frame extraction, and job dispatching. Nodes run the actual inference.
-
-```mermaid
-flowchart TD
-  A[Stream Ingest] --> B[Frame Extraction]
-  B --> C[Inference Task 1: Whisper]
-  C --> D[Task 2: Overlay Generator]
-  D --> E[Return Output Stream / Result]
-```
-
-## Architecture
-
-### Gateway and workers
-
-* **Orchestrators** queue inference jobs and run (or delegate to) workers.
-* **Workers** subscribe to task types (e.g. whisper-transcribe) and execute them.
-* **Gateways** route jobs from clients to compatible nodes. This is off-chain; the protocol (Arbitrum) handles payments and rewards.
-
-### Worker types
-
-## Pipeline definition format
-
-Jobs can be JSON-based task objects. Example:
-
-```json
-{
-  "streamId": "abc123",
-  "task": "custom-pipeline",
-  "pipeline": [
-    { "task": "whisper-transcribe", "lang": "en" },
-    { "task": "segment-blur", "target": "faces" }
-  ]
-}
-```
-
-Workers can accept:
-
-* JSON-formatted tasks via the Gateway
-* Frame-by-frame gRPC (low latency)
-* Result upload via webhook
-
-## Bring your own compute (BYOC)
-
-You can use your own GPU nodes to serve inference tasks:
-
-1. Clone [ComfyStream](https://github.com/livepeer/comfystream) or implement the processing API.
-2. Add plugins for Whisper, ControlNet, or other models.
-3. Register your node with the gateway (and optionally on-chain).
-
-See [BYOC](./byoc) for a full setup guide.
-
-## See also
-
-* [BYOC](./byoc) — Run your own AI workers and register with the network
-* [ComfyStream](./comfystream) — ComfyUI-based pipelines and Gateway integration
-* [Livepeer AI (overview)](../ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer) — Product overview and use cases
-* [Network technical architecture](/v2/about/livepeer-network/technical-architecture) — Gateway, Orchestrator, and protocol
-
-## Resources
-
-* [ComfyStream GitHub](https://github.com/livepeer/comfystream)
-* [Livepeer Studio AI docs](https://livepeer.studio/docs/ai)
-* [Forum: example pipelines](https://forum.livepeer.org/t/example-pipelines)
-* [Explorer](https://explorer.livepeer.org) — Network and node stats
-
----
-
-# BYOC (Bring Your Own Compute)
-URL: https://docs.livepeer.org/v2/developers/ai-pipelines/byoc
-
-This guide details how to integrate your own AI models or GPU infrastructure into the Livepeer AI inference network. BYOC lets you run inference tasks with custom models (e.g. ControlNet, Whisper, SegFormer), deploy nodes across cloud, edge, or on-prem environments, and serve Livepeer inference workloads with economic incentives.
-
-For full BYOC architecture, Gateway/Orchestrator roles, container lifecycle, and Protocol vs AI BYOC concepts, see the [BYOC full guide](../ai-inference-on-livepeer/byoc).
-
-## Requirements
-
-* Linux or Docker-capable machine with GPU (CUDA 11+)
-* Internet-accessible IP or NAT hole-punching
-* Git, Python 3.9+; optional ComfyUI fork for modular tasks
-* Livepeer Gateway credentials or API key for worker registration
-
-## Step 1 — Clone and setup
-
-```bash
-git clone https://github.com/livepeer/comfystream
-cd comfystream
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-```
-
-Install your desired inference model(s):
-
-```bash
-python scripts/download.py --model whisper-large
-python scripts/download.py --model sdxl
-```
-
-## Step 2 — Configure node
-
-Edit your `config.yaml`:
-
-```yaml
-publicKey: "0xYourEthereumAddress"
-gatewayURL: "wss://gateway.livepeer.org"
-models:
-  - whisper-large
-  - sdxl
-heartbeat: true
-```
-
-Optional: run as Docker; add plugin adapters (e.g. segment-anything, blip2).
-
-## Step 3 — Start gateway node
-
-```bash
-python run.py --adapter grpc --gpu --model whisper-large
-```
-
-You should see logs for heartbeats to the Livepeer Gateway, job claims and model execution, and result uploads or webhooks.
-
-## Step 4 — Register (optional)
-
-Register your node on-chain (Arbitrum) so Gateways can discover and route work to you:
-
-```bash
-livepeer-cli gateway register \
-  --addr=1.2.3.4:5040 \
-  --models=whisper-large,sdxl \
-  --bond=100LPT \
-  --region=NA1
-```
-
-Contract and ABI references are in the Blockchain contracts docs under About / Resources.
-
-## Pipeline examples
-
-**Whisper + caption overlay:**
-
-```yaml
-pipeline:
-  - task: whisper-transcribe
-  - task: overlay
-    type: caption
-```
-
-**Blur faces + YOLO:**
-
-```yaml
-pipeline:
-  - task: object-detection
-    model: yolov8
-  - task: segment-blur
-    target: faces
-```
-
-## Troubleshooting
-
-## Developer notes
-
-* BYOC workers use the same Gateway Protocol as the rest of the Livepeer network. See Network technical architecture under About.
-* You can serve from multiple geographic regions.
-* Contribution rewards may be offered in LPT or credits; check the Forum and Builder opportunities.
-
-## See also
-
-* [AI Pipelines overview](./overview)
-* [ComfyStream](./comfystream)
-* [BYOC full guide](../ai-inference-on-livepeer/byoc) — Architecture, Gateway/Orchestrator, container lifecycle
-* [Network interfaces](/v2/about/livepeer-network/interfaces)
-
-## Resources
-
-* [ComfyStream GitHub](https://github.com/livepeer/comfystream)
-* [Model registry (Forum)](https://forum.livepeer.org/t/model-registry)
-* [Livepeer Studio AI docs](https://livepeer.studio/docs/ai)
-
----
-
-# ComfyStream
-URL: https://docs.livepeer.org/v2/developers/ai-pipelines/comfystream
-
-ComfyStream is a modular AI inference engine that integrates with Livepeer’s Gateway Protocol to execute video frame pipelines on GPU-powered worker nodes. It extends [ComfyUI](https://github.com/comfyanonymous/ComfyUI) with Livepeer-compatible gateway binding, real-time stream I/O, dynamic node graphs and plugin chaining, and overlay rendering and metadata export.
-
-For a high-level overview and DeepWiki, see the [ComfyStream full guide](../ai-inference-on-livepeer/comfystream).
-
-## Architecture overview
-
-```mermaid
-flowchart LR
-  A[RTMP/HLS Video Stream] --> B[Livepeer Ingest + Frame Split]
-  B --> C[Gateway Task Queue]
-  C --> D[ComfyStream Worker Node]
-  D --> E[Model Execution]
-  E --> F[Result Upload / Stream Return]
-```
-
-## Node types in ComfyStream
-
-These are exposed as modules in `nodes/*.py` and can be chained in graph format.
-
-## Example pipeline: caption overlay
-
-```json
-{
-  "pipeline": [
-    { "task": "whisper-transcribe" },
-    { "task": "caption-overlay", "font": "Roboto" }
-  ]
-}
-```
-
-ComfyStream converts this to an internal computation graph (e.g. WhisperNode → TextOverlayNode → OutputStreamNode).
-
-## Plugin support
-
-You can build your own plugins:
-
-* Implement the `NodeBase` class from ComfyUI
-* Register metadata and parameters
-* Declare inputs and outputs for chaining
-
-Example:
-
-```python
-class FaceBlurNode(NodeBase):
-  def run(self, frame):
-    result = blur_faces(frame)
-    return result
-```
-
-## Connecting to Livepeer Gateway
-
-In `config.yaml`:
-
-```yaml
-gatewayURL: wss://gateway.livepeer.org
-models:
-  - whisper
-  - sdxl
-```
-
-Start your node:
-
-```bash
-python run.py --adapter grpc --model whisper --gpu
-```
-
-The ComfyStream worker will listen to task queues via pub/sub, execute pipelines frame-by-frame, and return inference results as overlays or JSON.
-
-## Debugging pipelines
-
-ComfyStream logs heartbeats to the gateway, job payloads, graph errors, and output stream metrics. Enable verbose mode:
-
-```bash
-python run.py --debug
-```
-
-## See also
-
-* [AI Pipelines overview](./overview) — Pipeline concepts and worker types
-* [BYOC](./byoc) — Bring your own compute setup
-* [ComfyStream full guide](../ai-inference-on-livepeer/comfystream) — Architecture layers, components, and DeepWiki
-* [Network technical architecture](/v2/about/livepeer-network/technical-architecture) — Gateway and Orchestrator stack
-
-## Resources
-
-* [ComfyStream GitHub](https://github.com/livepeer/comfystream)
-* [BYOC setup](./byoc)
-* [Plugin examples (Forum)](https://forum.livepeer.org/t/comfystream-nodes)
-* [Livepeer Studio AI](https://livepeer.studio/docs/ai)
-
----
-
-# Developer Guides
-URL: https://docs.livepeer.org/v2/developers/guides-and-resources/developer-guides
-
-# Developer Guides
-
----
-
-# Resources
-URL: https://docs.livepeer.org/v2/developers/guides-and-resources/resources
-
-# Resources
-
----
-
-# Developer Help
-URL: https://docs.livepeer.org/v2/developers/guides-and-resources/developer-help
-
-# Developer Help
-
-A pipeline to office hours, guide to discord & forum channels
-
-### Getting help
-
-Discord
-
-Forum
-
-Ask at Livepeer Office Hours
-
----
-
-# Contribution Guide
-URL: https://docs.livepeer.org/v2/developers/guides-and-resources/contribution-guide
-
-### Contributors Spotlight
-
----
-
-# Dev Programs
-URL: https://docs.livepeer.org/v2/developers/builder-opportunities/dev-programs
-
-This page is intended as a guide for startup projects building on Livepeer, OSS Developers looking to contribute and community member participation pathways.
-
-Need more info
-
-### Hackathons
-
-...
-
-### Dev Programs
-
-Content coming soon.
-
-### Treasury Proposals
-
-...
-
-**Other ?**
-
-* Livepeer Developer Paths
-* Funding for Startups
-
----
-
-# Livepeer RFPs
-URL: https://docs.livepeer.org/v2/developers/builder-opportunities/livepeer-rfps
-
-## RFPs Overview
-
-...
-
-## Current RFPs
-
-...
-
-## Grants
-
-* Grant process
-
----
-
-# Resource Portal
-URL: https://docs.livepeer.org/v2/resources/resources-portal
-
-## Resources Portal
-
-All resources and references in one place!
 
 ---
 
@@ -8075,10 +7912,7 @@ All your Gateway questions answered.
 ---
 
 # Gateway Explainer
-URL: https://docs.livepeer.org/v2/gateways/about-gateways/gateway-explainer
-
-This page is a work in progress.&#x20;
-TODO: Edit, Streamline, Format & Style
+URL: https://docs.livepeer.org/v2/gateways/about/explainer
 
 ## Definition
 
@@ -8210,7 +8044,7 @@ flowchart LR
 
 ## What is a Gateway?
 
-Gateways are the entry point for applications into the Livepeercompute network.
+Gateways are the entry point for applications into the Livepeer compute network.
 They are the coordination layer that connects real-time AI
 and video workloads to the orchestrators who perform the GPU compute.
 
@@ -8218,7 +8052,7 @@ They operate as the essential technical layer between the protocol and
 the distributed compute network.
 
 A gateway is a self-operated Livepeer node that interacts directly with orchestrators, submits jobs, handles payment, and exposes direct protocol interfaces.
-Hosted services like Daydream are not gateways.
+Hosted services like [Daydream](../../developers/developer-platforms/daydream/daydream.mdx) operate as both application layers and Gateways.
 
 A Gateway is responsible for
 
@@ -8227,13 +8061,12 @@ A Gateway is responsible for
 * translating requests into Worker OpenAPI calls
 * aggregating results
 
-Gateways earn revenue from transaction fees on all jobs they route.
-
 If you are coming from an Ethereum background, Gateways could loosely be thought of as sequencers in L2 rollups.
 If you are coming from a traditional cloud background, Gateways are akin to API gateways or load balancers.
 
-Anyone that wants to build applications and services (like \[Daydream] and \[Stream.place] ) on top of the Livepeer
-protocol will build their own Gateway in order to offer their services to Livepeer Developers, Builders & end-users and enable
+Anyone that wants to build applications and services (like [Daydream](../../developers/developer-platforms/daydream/daydream.mdx) and [Stream.place](../../platforms/streamplace/overview.mdx)) on top of the Livepeer
+protocol will build their own Gateway to connect with Orchestrators and route jobs.
+This enables them to offer their services to Livepeer Developers, Builders & end-users and provide
 communication of their application with the Livepeer GPU network (DePIN / Orchestrators)
 
 ## What Gateways Do
@@ -8262,10 +8095,10 @@ They enable:
 
 * Low-latency workflows for Daydream, ComfyStream, and other real-time AI video tools
 * Dynamic GPU routing for inference-heavy workloads
-* A decentralized marketplace of compute capabilities
+* A decentralised marketplace of compute capabilities
 * Flexible integration via the BYOC pipeline model
 
-Gateways simplify the developer experience while preserving the decentralization, performance, and competitiveness of the Livepeer network.
+Gateways simplify the developer experience while preserving the decentralisation, performance, and competitiveness of the Livepeer network.
 
 ## Summary
 
@@ -8274,102 +8107,14 @@ and dispatch them to orchestrators for GPU execution. This design enables a scal
 
 This architecture enables Livepeer to scale into a global provider of real-time AI video infrastructure.
 
-***
-
-***
-
-***
-
-***
-
-&#x20;WIP: Unsure where below section belongs currently
-
-## Key Marketplace Features
-
-### 1. Capability Discovery
-
-Gateways and orchestrators list:
-
-* AI model support
-* Versioning and model weights
-* Pipeline compatibility
-* GPU type and compute class
-
-Applications can programmatically choose the best provider.
-
-### 2. Dynamic Pricing
-
-Pricing can vary by:
-
-* GPU class
-* Model complexity
-* Latency SLA
-* Throughput requirements
-* Region
-
-Gateways expose pricing APIs for transparent selection.
-
-### 3. Performance Competition
-
-Orchestrators compete on:
-
-* Speed
-* Reliability
-* GPU quality
-* Cost efficiency
-
-Gateways compete on:
-
-* Routing quality
-* Supported features
-* Latency
-* Developer ecosystem fit
-
-This creates a healthy decentralized market.
-
-### 4. BYOC Integration
-
-Any container-based pipeline can be brought into the marketplace:
-
-* Run custom AI models
-* Run ML workflows
-* Execute arbitrary compute
-* Support enterprise workloads
-
-Gateways advertise BYOC offerings; orchestrators execute containers.
-
-## Marketplace Benefits
-
-* **Developer choice** — choose the best model, price, and performance
-* **Economic incentives** — better nodes earn more work
-* **Scalability** — network supply grows independently of demand
-* **Innovation unlock** — new models and pipelines can be added instantly
-* **Decentralization** — no single operator controls the workload flow
-
-## Summary
-
-The Marketplace turns Livepeer into a competitive, discoverable, real-time AI compute layer.
-
-* Gateways expose services
-* Orchestrators execute them
-* Applications choose the best fit
-* Developers build on top of it
-* Users benefit from low-latency, high-performance AI
-
-# References
-
-&#x20;Unverified Reference&#x20;
-https://github.com/videoDAC/livepeer-gateway
+# Resources
 
 Your browser does not support iframes.
 
 ---
 
 # Gateway Functions & Services
-URL: https://docs.livepeer.org/v2/gateways/about-gateways/gateway-functions
-
-This page is a work in progress.&#x20;
-TODO: Proper copy, edit, Streamline, Format & Style
+URL: https://docs.livepeer.org/v2/gateways/about/functions
 
 ## What a Gateway Operator Does
 
@@ -8457,12 +8202,9 @@ The Marketplace turns Livepeer into a competitive, discoverable, real-time AI co
 ---
 
 # Gateway Architecture
-URL: https://docs.livepeer.org/v2/gateways/about-gateways/gateway-architecture
+URL: https://docs.livepeer.org/v2/gateways/about/architecture
 
-This page is a work in progress.&#x20;
-TODO: Overview, Edit, Streamline, Format, Style, Link to github / other resources
-
-Livepeer Gateway Architecture is defined in the livepeer-go core codebase.
+Livepeer Gateway Architecture is defined in the `livepeer-go` core codebase.
 
 ## Gateway Technical Architecture
 
@@ -8527,14 +8269,48 @@ flowchart TB
 
 ### Flow Diagram
 
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui', 'clusterBkg': 'rgba(255,255,255,0.05)', 'clusterBorder': '#2d9a67' }}}%%
+graph TD
+    classDef default stroke-width:2px
+    A["Application<br/>Daydream, ComfyUI, BYOC"] -->|Job Request| B["Gateway<br/>Job Intake, Pricing, Capability Match"]
+    B -->|Route Job| C["Orchestrator<br/>GPU Compute, AI Inference, Transcoding"]
+    C -->|Results| B
+    B -->|Response| A
+```
+
 ### Layered Architecture
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui', 'clusterBkg': 'rgba(255,255,255,0.05)', 'clusterBorder': '#2d9a67' }}}%%
+graph LR
+    classDef default stroke-width:2px
+    subgraph APP[Application Layer]
+        X["User App<br/>Web, Mobile, TouchDesigner"]
+    end
+    subgraph GW[Gateway Layer]
+        G1[Job Intake]
+        G2[Capability Discovery]
+        G3[Pricing & Marketplace]
+        G4[Routing / Scheduling]
+    end
+    subgraph ORC[Orchestrator Layer]
+        O1[GPU Worker]
+        O2[AI Models / BYOC Containers]
+        O3[Transcoder]
+    end
+    X --> G1
+    G1 --> O1
+    O1 --> G1
+    G1 --> X
+```
 
 ---
 
 # Gateway Economics
-URL: https://docs.livepeer.org/v2/gateways/about-gateways/gateway-economics
+URL: https://docs.livepeer.org/v2/gateways/about/economics
 
-# Gateway Economics in Livepeer
+## Overview
 
 Gateways in Livepeer do not earn money at the *protocol level* (though they can earn money at the *business application level*).
 
@@ -8682,13 +8458,13 @@ livepeer_cli
 
 Your "fee" is the difference between what customers pay you and what you pay orchestrators for processing.
 
-### Case Study: Streamplace
+### Case Studies
 
-[Streamplace](https://stream.place) is a gateway that provides video processing services to content creators.
+[Streamplace](../../developers/developer-platforms/streamplace/streamplace.mdx) is a gateway that provides video processing services to content creators.
 Creators pay Streamplace for video processing, and Streamplace pays orchestrators for the actual work.
 Streamplace's profit margin is the difference between what creators pay and what it pays orchestrators.
 
-[Daydream](https://daydream.live) is another example of a gateway that provides AI video processing services.
+[Daydream](../../developers/developer-platforms/daydream/daydream.mdx) is another example of a gateway that provides AI video processing services.
 Builders & Creators pay Daydream for AI video processing, and Daydream pays orchestrators for the actual work.
 Daydream's profit margin is the difference between what creators pay and what it pays orchestrators.
 
@@ -10723,9 +10499,9 @@ Page Not Finalised
 
 **TODO:**
 
-* \[ ] Verify all content
-* \[ ] Add a real link for community submissions
-* \[ ] Not happy with contribution layout
+* Verify all content
+* Add a real link for community submissions
+* Not happy with contribution layout
 
 # Gateway HUB
 
@@ -14059,15 +13835,6 @@ Public RPC endpoints from [Chainlist](https://chainlist.org/chain/42161) (dynami
 
 ---
 
-# Resource Portal
-URL: https://docs.livepeer.org/v2/resources/resources-portal
-
-## Resources Portal
-
-All resources and references in one place!
-
----
-
 # Orchestrator Home Portal
 URL: https://docs.livepeer.org/v2/orchestrators/orchestrators-portal
 
@@ -14348,12 +14115,12 @@ Common discovery channels include:
 
 ***Before committing hardware, confirm:***
 
-* \[ ] How earnings are calculated
-* \[ ] How usage is measured
-* \[ ] How disputes are handled
-* \[ ] Whether GPUs can be removed at any time
-* \[ ] What happens during downtime or network changes
-* \[ ] On-chain identity and reputation
+* How earnings are calculated
+* How usage is measured
+* How disputes are handled
+* Whether GPUs can be removed at any time
+* What happens during downtime or network changes
+* On-chain identity and reputation
 
 ***A legitimate orchestrator pool will clearly publish:***
 
@@ -14624,12 +14391,12 @@ Also ensure: CUDA 12+, NVIDIA Container Toolkit, good cooling, high IOPS storage
 
 ## Checklist before going live
 
-* \[ ] GPU visible via `nvidia-smi`
-* \[ ] Docker sees GPU (`--gpus all`)
-* \[ ] CUDA functional
-* \[ ] Ports open (e.g. 8935)
-* \[ ] Stable Arbitrum RPC
-* \[ ] Monitoring configured
+* GPU visible via `nvidia-smi`
+* Docker sees GPU (`--gpus all`)
+* CUDA functional
+* Ports open (e.g. 8935)
+* Stable Arbitrum RPC
+* Monitoring configured
 
 ## See also
 
@@ -15168,15 +14935,6 @@ See [Orchestrator stats and monitoring](../setting-up-an-orchestrator/orchestrat
 For more, see [Install go-livepeer](../setting-up-an-orchestrator/install-go-livepeer), [Connect to Arbitrum](../setting-up-an-orchestrator/connect-to-arbitrum), and [CLI flags](./cli-flags).
 
 ## See also
-
----
-
-# Resource Portal
-URL: https://docs.livepeer.org/v2/resources/resources-portal
-
-## Resources Portal
-
-All resources and references in one place!
 
 ---
 
@@ -18030,15 +17788,6 @@ The payment system is built on Ethereum's currency.
 
 ---
 
-# Resource Portal
-URL: https://docs.livepeer.org/v2/resources/resources-portal
-
-## Resources Portal
-
-All resources and references in one place!
-
----
-
 # Livepeer Community Portal
 URL: https://docs.livepeer.org/v2/community/community-portal
 
@@ -18315,17 +18064,1620 @@ All resources and references in one place!
 
 ---
 
-# Resource Portal
-URL: https://docs.livepeer.org/v2/resources/resources-portal
+# Components Index
+URL: https://docs.livepeer.org/v2/resources/documentation-guide/component-library/overview
 
-## Resources Portal
+**Generation Script**: This file is generated from script(s): `tools/scripts/generate-docs-guide-components-index.js`.&#x20;
+**Purpose**: Aggregate inventory of repository components from snippets/components for docs-guide maintenance.&#x20;
+**Run when**: Components are added, removed, renamed, or their exported signatures change under `snippets/components`.&#x20;
+**Important**: Do not manually edit this file; run `node tools/scripts/generate-docs-guide-components-index.js --write`.&#x20;
 
-All resources and references in one place!
+## Content
+
+Content components provide code, data, and response-format helpers for documentation pages.
+
+**Props**: `filename`, `icon`, `language`, `highlight`, `expandable`, `wrap`, `lines`, `codeString`, `placeholderValue`&#x20;
+**Defaults**: `filename=""`, `icon="terminal"`, `language=""`, `highlight=""`, `expandable=false`, `wrap=true`, `lines=true`, `codeString=""`, `placeholderValue=""`
+
+```jsx lines Example
+
+
+<CodeComponent
+  filename={""}
+  icon={"terminal"}
+  language={""}
+  highlight={""}
+  expandable={false}
+  wrap={true}
+  lines={true}
+  codeString={""}
+  placeholderValue={""}
+/>
+```
+
+**Props**: `fields`&#x20;
+**Defaults**: `fields={}`
+
+```jsx lines Example
+
+
+<CodeSection
+  fields={{}}
+/>
+```
+
+**Props**: `filename`, `icon`, `language`, `highlight`, `codeString`, `placeholderValue`, `wrap`, `lines`, `preNote`, `postNote`&#x20;
+**Defaults**: `codeString=""`, `placeholderValue=""`, `wrap=true`, `lines=true`, `preNote=null`, `postNote=null`
+
+```jsx lines Example
+
+
+<ComplexCodeBlock
+  filename={"<value>"}
+  icon={"<value>"}
+  language={"<value>"}
+  highlight={"<value>"}
+  codeString={""}
+  placeholderValue={""}
+  wrap={true}
+  lines={true}
+  preNote={null}
+  postNote={null}
+/>
+```
+
+**Props**: `filename`, `icon`, `language`, `highlight`, `codeString`, `placeholderValue`, `wrap`, `lines`, `preNote`, `postNote`, `output`&#x20;
+**Defaults**: `codeString=""`, `placeholderValue=""`, `wrap=true`, `lines=true`, `preNote=""`, `postNote=""`, `output=""`
+
+```jsx lines Example
+
+
+<CustomCodeBlock
+  filename={"<value>"}
+  icon={"<value>"}
+  language={"<value>"}
+  highlight={"<value>"}
+  codeString={""}
+  placeholderValue={""}
+  wrap={true}
+  lines={true}
+  preNote={""}
+  postNote={""}
+  output={""}
+/>
+```
+
+**Props**: `title`, `content`, `href`, `author`, `datePosted`, `excerpt`, `icon`, `authorIcon`, `dateIcon`, `cta`, `img`&#x20;
+**Defaults**: `author="Livepeer Team"`, `datePosted=null`, `excerpt=null`, `icon="book-open"`, `authorIcon="user-pen"`, `dateIcon="calendar"`, `cta="Read More"`, `img=null`
+
+```jsx lines Example
+
+
+<BlogCard
+  title={"<value>"}
+  content={"<value>"}
+  href={"<value>"}
+  author={"Livepeer Team"}
+  datePosted={null}
+  excerpt={null}
+  icon={"book-open"}
+  authorIcon={"user-pen"}
+  dateIcon={"calendar"}
+  cta={"Read More"}
+  img={null}
+/>
+```
+
+**Props**: `items`, `limit`&#x20;
+**Defaults**: `items=[]`
+
+```jsx lines Example
+
+
+<BlogDataLayout
+  items={[]}
+  limit={0}
+/>
+```
+
+**Props**: `items`, `limit`&#x20;
+**Defaults**: `items=[]`
+
+```jsx lines Example
+
+
+<CardBlogDataLayout
+  items={[]}
+  limit={0}
+/>
+```
+
+**Props**: `cols`, `items`, `limit`&#x20;
+**Defaults**: `cols=2`, `items=[]`
+
+```jsx lines Example
+
+
+<CardColumnsPostLayout
+  cols={2}
+  items={[]}
+  limit={0}
+/>
+```
+
+**Props**: `items`, `limit`&#x20;
+**Defaults**: `items=[]`
+
+```jsx lines Example
+
+
+<CardInCardLayout
+  items={[]}
+  limit={0}
+/>
+```
+
+**Props**: `items`, `cols`, `limit`&#x20;
+**Defaults**: `items=[]`, `cols=2`
+
+```jsx lines Example
+
+
+<ColumnsBlogCardLayout
+  items={[]}
+  cols={2}
+  limit={0}
+/>
+```
+
+**Props**: `items`, `limit`&#x20;
+**Defaults**: `items=[]`
+
+```jsx lines Example
+
+
+<DiscordAnnouncements
+  items={[]}
+  limit={0}
+/>
+```
+
+**Props**: `items`, `limit`&#x20;
+**Defaults**: `items=[]`
+
+```jsx lines Example
+
+
+<ForumLatestLayout
+  items={[]}
+  limit={0}
+/>
+```
+
+**Props**: `data`, `limit`, `type`&#x20;
+**Defaults**: `type="upcoming"`
+
+```jsx lines Example
+
+
+<LumaEvents
+  data={{}}
+  limit={0}
+  type={"upcoming"}
+/>
+```
+
+**Props**: `title`, `content`, `href`, `author`, `datePosted`, `replyCount`, `icon`, `authorIcon`, `dateIcon`, `cta`, `img`&#x20;
+**Defaults**: `author="Unknown"`, `datePosted=null`, `replyCount=null`, `icon="book-open"`, `authorIcon="user-pen"`, `dateIcon="calendar"`, `cta="Read More"`, `img=null`
+
+```jsx lines Example
+
+
+<PostCard
+  title={"<value>"}
+  content={"<value>"}
+  href={"<value>"}
+  author={"Unknown"}
+  datePosted={null}
+  replyCount={null}
+  icon={"book-open"}
+  authorIcon={"user-pen"}
+  dateIcon={"calendar"}
+  cta={"Read More"}
+  img={null}
+/>
+```
+
+**Props**: `repoName`, `githubUrl`, `maxHeight`, `icon`, `children`&#x20;
+**Defaults**: `maxHeight="1000px"`, `icon="github"`
+
+```jsx lines Example
+
+
+<ExternalContent
+  repoName={"<value>"}
+  githubUrl={"<value>"}
+  maxHeight={"1000px"}
+  icon={"github"}
+/>
+```
+
+**Props**: `latex`, `className`, `ariaLabel`&#x20;
+**Defaults**: `className=""`
+
+```jsx lines Example
+
+
+<MathBlock
+  latex={"<value>"}
+  className={""}
+  ariaLabel={"<value>"}
+/>
+```
+
+**Props**: `latex`, `className`, `ariaLabel`&#x20;
+**Defaults**: `className=""`
+
+```jsx lines Example
+
+
+<MathInline
+  latex={"<value>"}
+  className={""}
+  ariaLabel={"<value>"}
+/>
+```
+
+**Props**: `version`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<LatestVersion
+  version={"<value>"}
+/>
+```
+
+**Props**: `description`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<CustomResponseField
+  description={"<value>"}
+/>
+```
+
+**Props**: `fields`&#x20;
+**Defaults**: `fields={}`
+
+```jsx lines Example
+
+
+<ResponseFieldAccordion
+  fields={{}}
+/>
+```
+
+**Props**: `fields`&#x20;
+**Defaults**: `fields={}`
+
+```jsx lines Example
+
+
+<ResponseFieldExpandable
+  fields={{}}
+/>
+```
+
+**Props**: `component`, `fields`&#x20;
+**Defaults**: `component="accordion"`, `fields={}`
+
+```jsx lines Example
+
+
+<ResponseFieldGroup
+  component={"accordion"}
+  fields={{}}
+/>
+```
+
+**Props**: `description`, `post`, `label`, `line`, `children`&#x20;
+**Defaults**: `post=null`, `label="value"`, `line=true`
+
+```jsx lines Example
+
+
+<ValueResponseField
+  description={"<value>"}
+  post={null}
+  label={"value"}
+  line={true}
+/>
+```
+
+## Display
+
+Display components handle media, embeds, quotes, and visual presentation patterns.
+
+**Props**: `children`, `visibleCount`, `gap`, `showDots`, `style`&#x20;
+**Defaults**: `visibleCount=3`, `gap="1.5rem"`, `showDots=true`
+
+```jsx lines Example
+
+
+<CardCarousel
+  visibleCount={3}
+  gap={"1.5rem"}
+  showDots={true}
+  style={{}}
+/>
+```
+
+**Props**: `children`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<TabsContainer />
+```
+
+**Props**: `icon`, `title`, `style`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<CustomCardTitle
+  icon={"<value>"}
+  title={"<value>"}
+  style={{}}
+/>
+```
+
+**Props**: `icon`, `title`, `style`, `background`, `children`&#x20;
+**Defaults**: `background='var(--card-background)'`
+
+```jsx lines Example
+
+
+<DisplayCard
+  icon={"<value>"}
+  title={"<value>"}
+  style={{}}
+  background={'var(--card-background)'}
+/>
+```
+
+**Props**: `width`, `children`&#x20;
+**Defaults**: `width='80%'`
+
+```jsx lines Example
+
+
+<WidthCard
+  width={'80%'}
+/>
+```
+
+**Props**: `url`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<EmbedMarkdown
+  url={"<value>"}
+/>
+```
+
+**Props**: `url`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<MarkdownEmbed
+  url={"<value>"}
+/>
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<TwitterTimeline />
+```
+
+**Props**: `title`, `src`, `height`, `width`&#x20;
+**Defaults**: `height="700px"`, `width="100%"`
+
+```jsx lines Example
+
+
+<PdfEmbed
+  title={"<value>"}
+  src={"<value>"}
+  height={"700px"}
+  width={"100%"}
+/>
+```
+
+**Props**: `color`, `margin`, `opacity`&#x20;
+**Defaults**: `margin="1.5rem 0"`, `opacity=0.2`
+
+```jsx lines Example
+
+
+<Divider
+  color={"<value>"}
+  margin={"1.5rem 0"}
+  opacity={0.2}
+/>
+```
+
+**Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap`&#x20;
+**Defaults**: `iconSize=32`, `align="left"`, `gap="0.75rem"`
+
+```jsx lines Example
+
+
+<H1
+  icon={"<value>"}
+  iconSize={32}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.75rem"}
+/>
+```
+
+**Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap`&#x20;
+**Defaults**: `iconSize=28`, `align="left"`, `gap="0.75rem"`
+
+```jsx lines Example
+
+
+<H2
+  icon={"<value>"}
+  iconSize={28}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.75rem"}
+/>
+```
+
+**Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap`&#x20;
+**Defaults**: `iconSize=24`, `align="left"`, `gap="0.5rem"`
+
+```jsx lines Example
+
+
+<H3
+  icon={"<value>"}
+  iconSize={24}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+
+**Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap`&#x20;
+**Defaults**: `iconSize=20`, `align="left"`, `gap="0.5rem"`
+
+```jsx lines Example
+
+
+<H4
+  icon={"<value>"}
+  iconSize={20}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+
+**Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap`&#x20;
+**Defaults**: `iconSize=18`, `align="left"`, `gap="0.5rem"`
+
+```jsx lines Example
+
+
+<H5
+  icon={"<value>"}
+  iconSize={18}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+
+**Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap`&#x20;
+**Defaults**: `iconSize=16`, `align="left"`, `gap="0.5rem"`
+
+```jsx lines Example
+
+
+<H6
+  icon={"<value>"}
+  iconSize={16}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+
+**Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap`&#x20;
+**Defaults**: `iconSize=16`, `align="left"`, `gap="0.5rem"`
+
+```jsx lines Example
+
+
+<P
+  icon={"<value>"}
+  iconSize={16}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+
+**Props**: `title`, `subtitle`, `description`, `children`, `titleColor`, `subtitleColor`, `descriptionColor`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<PageHeader
+  title={"<value>"}
+  subtitle={"<value>"}
+  description={"<value>"}
+  titleColor={"<value>"}
+  subtitleColor={"<value>"}
+  descriptionColor={"<value>"}
+/>
+```
+
+**Props**: `src`, `alt`, `caption`, `icon`, `hint`, `fullwidth`&#x20;
+**Defaults**: `fullwidth=true`
+
+```jsx lines Example
+
+
+<Image
+  src={"<value>"}
+  alt={"<value>"}
+  caption={"<value>"}
+  icon={"<value>"}
+  hint={"<value>"}
+  fullwidth={true}
+/>
+```
+
+**Props**: `src`, `alt`, `caption`, `icon`, `hint`, `href`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<LinkImage
+  src={"<value>"}
+  alt={"<value>"}
+  caption={"<value>"}
+  icon={"<value>"}
+  hint={"<value>"}
+  href={"<value>"}
+/>
+```
+
+**Props**: `children`, `author`, `source`, `href`, `frame`, `align`, `borderColor`, `img`, `spacing`&#x20;
+**Defaults**: `frame=true`, `align='right'`, `spacing=true`
+
+```jsx lines Example
+
+
+<FrameQuote
+  author={"<value>"}
+  source={"<value>"}
+  href={"<value>"}
+  frame={true}
+  align={'right'}
+  borderColor={"<value>"}
+  img={"<value>"}
+  spacing={true}
+/>
+```
+
+**Props**: `children`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<Quote />
+```
+
+**Props**: `items`, `limit`, `pageSize`&#x20;
+**Defaults**: `items=[]`, `limit=null`, `pageSize=10`
+
+```jsx lines Example
+
+
+<ShowcaseCards
+  items={[]}
+  limit={null}
+  pageSize={10}
+/>
+```
+
+**Props**: `size`, `gap`, `justify`, `color`&#x20;
+**Defaults**: `size=20`, `gap="0.75rem"`, `justify="center"`
+
+```jsx lines Example
+
+
+<SocialLinks
+  size={20}
+  gap={"0.75rem"}
+  justify={"center"}
+  color={"<value>"}
+/>
+```
+
+**Props**: `embedUrl`, `title`, `style`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<CardVideo
+  embedUrl={"<value>"}
+  title={"<value>"}
+  style={{}}
+/>
+```
+
+**Props**: `embedUrl`, `title`, `hint`, `caption`, `height`&#x20;
+**Defaults**: `title="Embedded post"`, `hint=""`, `height="399"`
+
+```jsx lines Example
+
+
+<LinkedInEmbed
+  embedUrl={"<value>"}
+  title={"Embedded post"}
+  hint={""}
+  caption={"<value>"}
+  height={"399"}
+/>
+```
+
+**Props**: `src`, `title`, `subtitle`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<ShowcaseVideo
+  src={"<value>"}
+  title={"<value>"}
+  subtitle={"<value>"}
+/>
+```
+
+**Props**: `src`, `title`, `subtitle`, `arrow`, `borderRadius`, `style`&#x20;
+**Defaults**: `arrow=false`, `borderRadius="12px"`, `style={}`
+
+```jsx lines Example
+
+
+<TitledVideo
+  src={"<value>"}
+  title={"<value>"}
+  subtitle={"<value>"}
+  arrow={false}
+  borderRadius={"12px"}
+  style={{}}
+/>
+```
+
+**Props**: `src`, `title`, `author`, `caption`, `href`, `controls`, `autoPlay`, `loop`, `muted`, `children`&#x20;
+**Defaults**: `title=""`, `author=""`, `href=""`, `controls=true`, `autoPlay=false`, `loop=false`, `muted=false`
+
+```jsx lines Example
+
+
+<Video
+  src={"<value>"}
+  title={""}
+  author={""}
+  caption={"<value>"}
+  href={""}
+  controls={true}
+  autoPlay={false}
+  loop={false}
+  muted={false}
+/>
+```
+
+**Props**: `embedUrl`, `title`, `author`, `hint`, `caption`&#x20;
+**Defaults**: `title=""`, `author=""`, `hint=""`
+
+```jsx lines Example
+
+
+<YouTubeVideo
+  embedUrl={"<value>"}
+  title={""}
+  author={""}
+  hint={""}
+  caption={"<value>"}
+/>
+```
+
+**Props**: `items`, `limit`, `cols`&#x20;
+**Defaults**: `items=[]`, `cols=2`
+
+```jsx lines Example
+
+
+<YouTubeVideoData
+  items={[]}
+  limit={0}
+  cols={2}
+/>
+```
+
+**Props**: `embedUrl`, `title`, `hint`, `caption`&#x20;
+**Defaults**: `caption=""`
+
+```jsx lines Example
+
+
+<YouTubeVideoDownload
+  embedUrl={"<value>"}
+  title={"<value>"}
+  hint={"<value>"}
+  caption={""}
+/>
+```
+
+**Props**: `children`, `title`, `maxHeight`, `minWidth`, `showControls`&#x20;
+**Defaults**: `title=""`, `maxHeight="500px"`, `minWidth="100%"`, `showControls=false`
+
+```jsx lines Example
+
+
+<ScrollableDiagram
+  title={""}
+  maxHeight={"500px"}
+  minWidth={"100%"}
+  showControls={false}
+/>
+```
+
+## Domain
+
+Domain components package feature-specific UI blocks used by dedicated documentation domains.
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<FfmpegWarning />
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<GatewayOffChainWarning />
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<GatewayOnChainTTestnetNote />
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<GatewayOnChainWarning />
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<OrchAddrNote />
+```
+
+**Props**: `children`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<TestVideoDownload />
+```
+
+**Props**: `dataSource`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<QuickStartSteps
+  dataSource={{}}
+/>
+```
+
+**Props**: `offchainSteps`, `onchainSteps`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<QuickStartTabs
+  offchainSteps={"<value>"}
+  onchainSteps={"<value>"}
+/>
+```
+
+**Props**: `density`&#x20;
+**Defaults**: `density=1.1`
+
+```jsx lines Example
+
+
+<Starfield
+  density={1.1}
+/>
+```
+
+**Props**: `children`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<HeroContentContainer />
+```
+
+**Props**: `children`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<HeroImageBackgroundComponent />
+```
+
+**Props**: `children`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<HeroOverviewContent />
+```
+
+**Props**: `children`, `minHeight`&#x20;
+**Defaults**: `minHeight="fit-content"`
+
+```jsx lines Example
+
+
+<HeroSectionContainer
+  minHeight={"fit-content"}
+/>
+```
+
+**Props**: `src`, `alt`, `width`, `margin`, `imgHeight`, `imgWidth`, `objectFit`, `children`&#x20;
+**Defaults**: `src="/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg"`, `alt="Livepeer Logo"`, `width="100%"`, `margin="1rem auto 0 auto"`, `imgHeight="20px"`, `imgWidth="auto"`, `objectFit="contain"`
+
+```jsx lines Example
+
+
+<LogoHeroContainer
+  src={"/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg"}
+  alt={"Livepeer Logo"}
+  width={"100%"}
+  margin={"1rem auto 0 auto"}
+  imgHeight={"20px"}
+  imgWidth={"auto"}
+  objectFit={"contain"}
+/>
+```
+
+**Props**: `children`, `title`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<PortalCardsHeader
+  title={"<value>"}
+/>
+```
+
+**Props**: `children`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<PortalContentContainer />
+```
+
+**Props**: `zIndex`, `subtitle`, `subtitleIcon`, `description`, `refCardLink`, `overview`, `divider`, `callout`, `titleColor`, `subtitleColor`, `children`&#x20;
+**Defaults**: `zIndex=true`, `subtitle="Build - Explore - Create"`, `subtitleIcon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg"`, `divider=true`, `callout=null`
+
+```jsx lines Example
+
+
+<PortalHeroContent
+  zIndex={true}
+  subtitle={"Build - Explore - Create"}
+  subtitleIcon={"/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg"}
+  description={"<value>"}
+  refCardLink={"<value>"}
+  overview={"<value>"}
+  divider={true}
+  callout={null}
+  titleColor={"<value>"}
+  subtitleColor={"<value>"}
+/>
+```
+
+**Props**: `children`, `title`, `icon`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<PortalSectionHeader
+  title={"<value>"}
+  icon={"<value>"}
+/>
+```
+
+**Props**: `children`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<RefCardContainer />
+```
+
+**Props**: `type`&#x20;
+**Defaults**: `type="page"`
+
+```jsx lines Example
+
+
+<ComingSoonCallout
+  type={"page"}
+/>
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<PreviewCallout />
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<ReviewCallout />
+```
+
+## Integrations
+
+Integration components connect docs pages to external APIs and third-party datasets.
+
+**Props**: `coinId`&#x20;
+**Defaults**: `coinId="arbitrum"`
+
+```jsx lines Example
+
+
+<CoinGeckoExchanges
+  coinId={"arbitrum"}
+/>
+```
+
+## Layout
+
+Layout components provide reusable structure primitives for organizing page content.
+
+**Props**: `urls`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<ApiBaseUrlsTable
+  urls={"<value>"}
+/>
+```
+
+**Props**: `children`, `maxHeight`, `showHint`, `ariaLabel`, `style`&#x20;
+**Defaults**: `maxHeight=300`, `showHint=true`, `ariaLabel="Scrollable content"`
+
+```jsx lines Example
+
+
+<ScrollBox
+  maxHeight={300}
+  showHint={true}
+  ariaLabel={"Scrollable content"}
+  style={{}}
+/>
+```
+
+**Props**: `listItems`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<BasicList
+  listItems={[]}
+/>
+```
+
+**Props**: `listItems`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<IconList
+  listItems={[]}
+/>
+```
+
+**Props**: `listItems`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<StepLinkList
+  listItems={[]}
+/>
+```
+
+**Props**: `listItems`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<StepList
+  listItems={[]}
+/>
+```
+
+**Props**: `listItems`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<UpdateLinkList
+  listItems={[]}
+/>
+```
+
+**Props**: `listItems`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<UpdateList
+  listItems={[]}
+/>
+```
+
+**Props**: `listItems`, `stepsConfig`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<ListSteps
+  listItems={[]}
+  stepsConfig={{}}
+/>
+```
+
+**Props**: `children`, `icon`, `iconSize`, `iconColor`, `spinDuration`&#x20;
+**Defaults**: `icon="arrows-spin"`, `iconSize=50`, `iconColor="var(--accent)"`, `spinDuration="10s"`
+
+```jsx lines Example
+
+
+<QuadGrid
+  icon={"arrows-spin"}
+  iconSize={50}
+  iconColor={"var(--accent)"}
+  spinDuration={"10s"}
+/>
+```
+
+**Props**: `TableComponent`, `tableTitle`, `headerList`, `itemsList`, `monospaceColumns`, `margin`, `searchPlaceholder`, `searchColumns`, `categoryColumn`&#x20;
+**Defaults**: `TableComponent=null`, `tableTitle=null`, `headerList=[]`, `itemsList=[]`, `monospaceColumns=[]`, `searchPlaceholder='Search...'`, `searchColumns=[]`, `categoryColumn='Category'`
+
+```jsx lines Example
+
+
+<SearchTable
+  TableComponent={null}
+  tableTitle={null}
+  headerList={[]}
+  itemsList={[]}
+  monospaceColumns={[]}
+  margin={"<value>"}
+  searchPlaceholder={'Search...'}
+  searchColumns={[]}
+  categoryColumn={'Category'}
+/>
+```
+
+**Props**: `title`, `icon`, `titleSize`, `children`&#x20;
+**Defaults**: `titleSize="h3"`
+
+```jsx lines Example
+
+
+<StyledStep
+  title={"<value>"}
+  icon={"<value>"}
+  titleSize={"h3"}
+/>
+```
+
+**Props**: `children`, `iconColor`, `titleColor`, `lineColor`, `iconSize`&#x20;
+**Defaults**: `iconSize="24px"`
+
+```jsx lines Example
+
+
+<StyledSteps
+  iconColor={"<value>"}
+  titleColor={"<value>"}
+  lineColor={"<value>"}
+  iconSize={"24px"}
+/>
+```
+
+**Props**: `tableTitle`, `headerList`, `itemsList`, `monospaceColumns`, `margin`&#x20;
+**Defaults**: `tableTitle=null`, `headerList=[]`, `itemsList=[]`, `monospaceColumns=[]`
+
+```jsx lines Example
+
+
+<DynamicTable
+  tableTitle={null}
+  headerList={[]}
+  itemsList={[]}
+  monospaceColumns={[]}
+  margin={"<value>"}
+/>
+```
+
+**Props**: `children`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<AccordionLayout />
+```
+
+## Primitives
+
+Primitive components are foundational UI building blocks reused across the docs system.
+
+**Props**: `selectors`&#x20;
+**Defaults**: `selectors=DEFAULT_SELECTORS`
+
+```jsx lines Example
+
+
+<FocusableScrollRegions
+  selectors={DEFAULT_SELECTORS}
+/>
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<BasicBtn />
+```
+
+**Props**: `label`, `icon`, `downloadLink`, `rightIcon`, `border`&#x20;
+**Defaults**: `label='Download'`, `icon='download'`, `rightIcon=''`, `border=false`
+
+```jsx lines Example
+
+
+<DownloadButton
+  label={'Download'}
+  icon={'download'}
+  downloadLink={"<value>"}
+  rightIcon={''}
+  border={false}
+/>
+```
+
+**Props**: `children`, `variant`, `padding`, `borderRadius`, `style`&#x20;
+**Defaults**: `variant="default"`, `padding="1rem"`, `borderRadius="8px"`, `style={}`
+
+```jsx lines Example
+
+
+<BorderedBox
+  variant={"default"}
+  padding={"1rem"}
+  borderRadius={"8px"}
+  style={{}}
+/>
+```
+
+**Props**: `children`, `maxWidth`, `padding`, `style`&#x20;
+**Defaults**: `maxWidth="800px"`, `padding="0"`, `style={}`
+
+```jsx lines Example
+
+
+<CenteredContainer
+  maxWidth={"800px"}
+  padding={"0"}
+  style={{}}
+/>
+```
+
+**Props**: `children`, `backgroundColor`, `style`&#x20;
+**Defaults**: `style={}`
+
+```jsx lines Example
+
+
+<FullWidthContainer
+  backgroundColor={"<value>"}
+  style={{}}
+/>
+```
+
+**Props**: `color`, `middleText`, `style`&#x20;
+**Defaults**: `color="var(--border)"`, `middleText=""`, `style={}`
+
+```jsx lines Example
+
+
+<CustomDivider
+  color={"var(--border)"}
+  middleText={""}
+  style={{}}
+/>
+```
+
+**Props**: `size`, `color`&#x20;
+**Defaults**: `size=16`
+
+```jsx lines Example
+
+
+<LivepeerIcon
+  size={16}
+  color={"<value>"}
+/>
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<LivepeerIconFlipped />
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<LivepeerIconOld />
+```
+
+**Props**: `size`&#x20;
+**Defaults**: `size=24`
+
+```jsx lines Example
+
+
+<LivepeerSVG
+  size={24}
+/>
+```
+
+**Props**: `children`, `direction`, `gap`, `align`, `justify`, `wrap`, `style`&#x20;
+**Defaults**: `direction="row"`, `gap="1rem"`, `align="flex-start"`, `justify="flex-start"`, `wrap=false`, `style={}`
+
+```jsx lines Example
+
+
+<FlexContainer
+  direction={"row"}
+  gap={"1rem"}
+  align={"flex-start"}
+  justify={"flex-start"}
+  wrap={false}
+  style={{}}
+/>
+```
+
+**Props**: `children`, `columns`, `gap`, `style`&#x20;
+**Defaults**: `gap="1rem"`, `style={}`
+
+```jsx lines Example
+
+
+<GridContainer
+  columns={[]}
+  gap={"1rem"}
+  style={{}}
+/>
+```
+
+**Props**: `size`, `direction`&#x20;
+**Defaults**: `size="1rem"`, `direction="vertical"`
+
+```jsx lines Example
+
+
+<Spacer
+  size={"1rem"}
+  direction={"vertical"}
+/>
+```
+
+**Props**: `icon`, `size`, `color`&#x20;
+**Defaults**: `icon="terminal"`, `size=16`
+
+```jsx lines Example
+
+
+<BlinkingIcon
+  icon={"terminal"}
+  size={16}
+  color={"<value>"}
+/>
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<BlinkingTerminal />
+```
+
+**Props**: `children`, `icon`, `color`, `iconSize`, `textSize`, `textColor`&#x20;
+**Defaults**: `icon="lightbulb"`, `iconSize=16`, `textSize="0.875rem"`
+
+```jsx lines Example
+
+
+<CustomCallout
+  icon={"lightbulb"}
+  color={"<value>"}
+  iconSize={16}
+  textSize={"0.875rem"}
+  textColor={"<value>"}
+/>
+```
+
+**Props**: `label`, `href`, `text`, `iconLeft`, `iconRight`&#x20;
+**Defaults**: `label=""`, `href="#"`, `text=""`, `iconLeft="github"`, `iconRight="arrow-up-right"`
+
+```jsx lines Example
+
+
+<DoubleIconLink
+  label={""}
+  href={"#"}
+  text={""}
+  iconLeft={"github"}
+  iconRight={"arrow-up-right"}
+/>
+```
+
+**Props**: `label`, `relativePath`, `icon`, `text`, `cta`&#x20;
+**Defaults**: `cta=""`
+
+```jsx lines Example
+
+
+<GotoCard
+  label={"<value>"}
+  relativePath={"<value>"}
+  icon={"<value>"}
+  text={"<value>"}
+  cta={""}
+/>
+```
+
+**Props**: `label`, `relativePath`, `text`, `icon`&#x20;
+**Defaults**: `text=""`, `icon="arrow-turn-down-right"`
+
+```jsx lines Example
+
+
+<GotoLink
+  label={"<value>"}
+  relativePath={"<value>"}
+  text={""}
+  icon={"arrow-turn-down-right"}
+/>
+```
+
+**Props**: `href`, `label`, `description`, `newline`, `borderColor`&#x20;
+**Defaults**: `newline=true`
+
+```jsx lines Example
+
+
+<LinkArrow
+  href={"<value>"}
+  label={"<value>"}
+  description={"<value>"}
+  newline={true}
+  borderColor={"<value>"}
+/>
+```
+
+**Props**: `children`, `icon`, `arrowIcon`, `color`, `iconSize`, `arrowSize`&#x20;
+**Defaults**: `icon="lightbulb"`, `arrowIcon="arrow-up-right"`, `iconSize=16`, `arrowSize=16`
+
+```jsx lines Example
+
+
+<TipWithArrow
+  icon={"lightbulb"}
+  arrowIcon={"arrow-up-right"}
+  color={"<value>"}
+  iconSize={16}
+  arrowSize={16}
+/>
+```
+
+**Props**: `children`, `variant`, `style`&#x20;
+**Defaults**: `variant="default"`, `style={}`
+
+```jsx lines Example
+
+
+<StyledTable
+  variant={"default"}
+  style={{}}
+/>
+```
+
+**Props**: `children`, `align`, `header`, `style`&#x20;
+**Defaults**: `align="left"`, `header=false`, `style={}`
+
+```jsx lines Example
+
+
+<TableCell
+  align={"left"}
+  header={false}
+  style={{}}
+/>
+```
+
+**Props**: `children`, `header`, `hover`, `style`&#x20;
+**Defaults**: `header=false`, `hover=false`, `style={}`
+
+```jsx lines Example
+
+
+<TableRow
+  header={false}
+  hover={false}
+  style={{}}
+/>
+```
+
+**Props**: `text`, `children`, `color`&#x20;
+**Defaults**: `color="var(--text)"`
+
+```jsx lines Example
+
+
+<AccordionTitleWithArrow
+  text={"<value>"}
+  color={"var(--text)"}
+/>
+```
+
+**Props**: `children`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<CardTitleTextWithArrow />
+```
+
+**Props**: `text`, `label`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<CopyText
+  text={"<value>"}
+  label={"<value>"}
+/>
+```
+
+**Props**: `style`, `text`, `children`&#x20;
+**Defaults**: `style={}`
+
+```jsx lines Example
+
+
+<Subtitle
+  style={{}}
+  text={"<value>"}
+/>
+```
+
+## Lookup Table
+
+Search by category, page path, or component name.
 
 ---
 
 # Component Library
-URL: https://docs.livepeer.org/v2/resources/documentation-guide/component-library
+URL: https://docs.livepeer.org/v2/resources/documentation-guide//component-library/component-library
 
 // ResponseFieldGroup commented out - component bug: Expandable is not defined
 
@@ -18604,7 +19956,9 @@ Accordion Title with Arrow
 **AccordionTitleWithArrow:**
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
-| `children` | `ReactNode` | required | Title text |
+| `text` | `string` | - | Title text (optional if `children` provided) |
+| `children` | `ReactNode` | - | Alternative to `text` |
+| `color` | `string` | `"var(--text)"` | Text color |
 
 ***
 
@@ -20182,7 +21536,7 @@ Card Title with Arrow
 
 ### AccordionTitleWithArrow
 
-Accordion title component with arrow icon and optional link.
+Accordion title component with arrow icon. Use links inside the accordion content, not the title, to avoid nested interactive elements.
 
 **Import:**
 
@@ -20193,14 +21547,14 @@ Accordion title component with arrow icon and optional link.
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
-| `text` | `string` | - | **Yes** | Title text |
-| `href` | `string` | - | **Yes** | Link URL |
+| `text` | `string` | - | No | Title text (optional if `children` provided) |
+| `children` | `ReactNode` | - | No | Alternative to `text` |
 | `color` | `string` | `"var(--text)"` | No | Text color |
 
 **Examples:**
 
 ```jsx
-<AccordionTitleWithArrow text="Learn More" href="/v2/home/mission-control" />
+<AccordionTitleWithArrow text="Learn More" />
 ```
 
 ## Dividers
@@ -21914,11 +23268,7 @@ Return to the main component library index
 # Documentation Overview
 URL: https://docs.livepeer.org/v2/resources/documentation-guide/documentation-overview
 
-## Documentation Overview
-
-Livepeer is a vibrant and broad ecosystem, and the community is equally diverse, ranging from creators, developers, founders, hardware operators, AI scientists, web3 participants, end-users and many, many more.
-
-Learning is also different for everyone, with user preferences as unique as the community across the following:
+Learning is different for everyone, with user preferences as unique as the community across the following:
 
 * **Format** (like text, engineering references or video)
 * **Style of learning** (hands-on, reading, visual)
@@ -21984,10 +23334,6 @@ For detailed information about these features, see the [Documentation Guide](./d
 
 # Guide To Using The Documentation
 URL: https://docs.livepeer.org/v2/resources/documentation-guide/documentation-guide
-
-## Using the Docs Effectively
-
-This guide will help you navigate and make the most of the Livepeer documentation site.
 
 ## Site Layout & Navigation
 
@@ -22142,10 +23488,6 @@ Official Mintlify documentation for built-in components like Tabs, Cards, and Ca
 
 # Features and AI Integrations
 URL: https://docs.livepeer.org/v2/resources/documentation-guide/docs-features-and-ai-integrations
-
-## Documentation Features
-
-The Livepeer documentation includes several powerful features designed to enhance your experience and make information more accessible.
 
 ## Search
 
@@ -23061,7 +24403,7 @@ Mintlify provides React hooks globally - no imports needed:
 
 #### 7. Icon Component Behavior
 
-**CRITICAL:** Mintlify's `<Icon>` component renders custom icons as `<img>` elements, NOT inline SVG.
+**CRITICAL:** Mintlify's `<Icon>` component renders custom icons as `<img alt="Image">` elements, NOT inline SVG.
 
 ```jsx
 // ❌ This will NOT work - color styling has no effect
@@ -23263,17 +24605,17 @@ git checkout -b docs-plan/XX-task-name
 
 Before submitting documentation:
 
-* \[ ] Content renders correctly in dark mode (default)
-* \[ ] Content renders correctly in light mode
-* \[ ] All links work and point to correct pages
-* \[ ] Code examples are accurate and tested
-* \[ ] Images load and have appropriate alt text
-* \[ ] Components use theme-aware colors
-* \[ ] No hardcoded colors that should adapt to theme
-* \[ ] Components render correctly
-* \[ ] No console errors in browser dev tools
-* \[ ] MDX syntax errors checked and fixed
-* \[ ] All pages verified in headless browser (see Verification Requirements below)
+* Content renders correctly in dark mode (default)
+* Content renders correctly in light mode
+* All links work and point to correct pages
+* Code examples are accurate and tested
+* Images load and have appropriate alt text
+* Components use theme-aware colors
+* No hardcoded colors that should adapt to theme
+* Components render correctly
+* No console errors in browser dev tools
+* MDX syntax errors checked and fixed
+* All pages verified in headless browser (see Verification Requirements below)
 
 ## Verification Requirements
 
@@ -23500,10 +24842,6 @@ For full details on the hooks, see the [Git Hooks Documentation](/contribute/CON
 
 # Snippets Folder Inventory
 URL: https://docs.livepeer.org/v2/resources/documentation-guide/snippets-inventory
-
-# Snippets Folder Inventory
-
-This page provides a comprehensive inventory of all files and folders in the `/snippets` directory. The snippets folder is the central location for all custom components, data, scripts, and assets used in the Livepeer documentation.
 
 ## Overview
 
@@ -23852,13 +25190,13 @@ Edit the relevant files:
 
 ```
 v2/pages/
-├── home/             # Home tab content
-├── 01_about/         # About tab content
-├── 02_community/     # Community tab content
-├── developers/        # Developers tab content
-├── 04_gateways/      # Gateways tab content
+├── home/          # Home tab content
+├── about/         # About tab content
+├── developers/    # Developers tab content
+├── gateways/      # Gateways tab content
 ├── orchestrators/ # Orchestrators tab content
-├── 06_delegators/    # Delegators tab content
+├── delegators/    # Delegators tab content
+├── community/     # Community tab content
 ├── resources/     # Resources tab content
 └── internal/      # Internal documentation
 ```
@@ -24163,26 +25501,26 @@ We welcome contributions in many areas:
 ### Section Organization
 
 ```
-v2/pages/
+v2/
 ├── home/                 # Home tab
 │   ├── mission-control.mdx
 │   ├── introduction/
 │   └── project-showcase/
-├── 01_about/             # About tab
+├── about/             # About tab
 │   ├── about-portal.mdx
 │   └── core-concepts/
 ├── developers/            # Developers tab
 │   ├── building-on-livepeer/
 │   ├── guides-and-resources/
 │   └── builder-opportunities/
-├── 04_gateways/          # Gateways tab
+├── gateways/          # Gateways tab
 │   ├── gateway-portal.mdx
 │   ├── run/
 │   └── build/
 ├── orchestrators/     # Orchestrators tab
 │   ├── orchestrator-portal.mdx
 │   └── run/
-├── 06_delegators/        # Delegators tab
+├── delegators/        # Delegators tab
 │   └── delegator-portal.mdx
 └── resources/         # Resources tab
     ├── resources-portal.mdx
@@ -24367,10 +25705,6 @@ If you have ideas for making non-technical contributions easier, please:
 
 # Automations & Workflows Guide
 URL: https://docs.livepeer.org/v2/resources/documentation-guide/automations-workflows
-
-# Automations & Workflows Guide
-
-This guide documents all automation scripts, GitHub Actions workflows, n8n automations, and pre-commit hooks used in the Livepeer documentation repository.
 
 For a detailed audit of all automations, see the [Automations & Workflows Audit Report](/tasks/reports/_legacy-unmanaged/ungenerated/20-automations-workflows-audit-report.md).
 
@@ -28909,12 +30243,3 @@ Community discussions and announcements
 
 # Migration Guide
 URL: https://docs.livepeer.org/v2/resources/changelog/migration-guide
-
----
-
-# Resource Portal
-URL: https://docs.livepeer.org/v2/resources/resources-portal
-
-## Resources Portal
-
-All resources and references in one place!

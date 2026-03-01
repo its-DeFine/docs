@@ -24,7 +24,6 @@
 
 ### Resource HUB
 
-- [Resource Portal](https://docs.livepeer.org/v2/resources/resources-portal): Livepeer Resource Compendium
 
 
 ## About
@@ -65,198 +64,6 @@
 
 ### Resource HUB
 
-- [Resource Portal](https://docs.livepeer.org/v2/resources/resources-portal): Livepeer Resource Compendium
-
-
-## Platforms
-
-### Products / Use Livepeer
-
-- [Livepeer Products & Developer Platforms](https://docs.livepeer.org/v2/platforms/portal): Welcome To The Product Portal: Explore, Connect, Contribute
-- [Product HUB](https://docs.livepeer.org/v2/platforms/product-hub): Platforms & Products that make using Livepeer easy in your applications
-- [Ecosystem Products](https://docs.livepeer.org/v2/platforms/ecosystem-products)
-
-### Products / Daydream
-
-- [Daydream](https://docs.livepeer.org/v2/platforms/daydream/overview): Open-source toolkit for world models and real-time AI video on the Livepeer network.
-
-### Products / Livepeer Studio / Get started
-
-- [Getting Started with Livepeer Studio](https://docs.livepeer.org/v2/platforms/livepeer-studio/get-started/overview): Learn how to get started with Livepeer Studio
-- [Quickstart](https://docs.livepeer.org/v2/platforms/livepeer-studio/quickstart): Create an account, get an API key, and add live or on-demand video in under 5 minutes.
-- [Authentication](https://docs.livepeer.org/v2/platforms/livepeer-studio/get-started/authentication): Learn how to authenticate requests to the Livepeer Studio API
-- [Studio CLI](https://docs.livepeer.org/v2/platforms/livepeer-studio/get-started/studio-cli): Scaffold a new Livepeer app with the Livepeer Studio CLI.
-
-### Products / Livepeer Studio / Livestream
-
-- [Livestream overview](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/overview): Concepts for livestreams in Livepeer Studio: streams, sessions, ingest, playback, and health.
-- [Create a livestream](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/create-livestream): Create a livestream with the Livepeer Studio API and get a stream key and playback ID.
-- [Play a livestream](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/playback-livestream): Play livestreams in your app with the Livepeer Player or a custom HLS/WebRTC player.
-- [Stream via OBS](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/stream-via-obs): Configure OBS Studio to stream into Livepeer Studio using RTMP and the stream key.
-- [Livestream from browser](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/livestream-from-browser): Broadcast live from the browser using WebRTC and the Livepeer Broadcast component or custom WHIP.
-- [Multistream](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/multistream): Send one livestream to multiple RTMP/RTMPS destinations (e.g. Twitch, YouTube).
-- [Clip a livestream](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/clip-livestream): Create short clips from active livestreams using the Create Clip API.
-- [Stream health](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/stream-health): Monitor livestream health: transcoding, real-time status, multistream targets, ingest rate, and logs.
-- [Optimize latency](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/optimize-latency): Achieve low or ultra-low latency with WebRTC and HLS and tune OBS and in-browser broadcast settings.
-
-### Products / Livepeer Studio / Video on demand
-
-- [Video on demand overview](https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/overview): Concepts for VOD in Livepeer Studio: assets, playback, recordings, clips, and encrypted assets.
-- [Upload an asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/upload-asset): Upload video files to Livepeer Studio with TUS resumable uploads or PUT.
-- [Play an asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/playback-asset): Play VOD assets with the Livepeer Player or a custom HLS/MP4 player.
-- [Encrypted assets](https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/encrypted-assets): Upload and play encrypted video with Livepeer Studio and control access.
-- [Thumbnails (VOD)](https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/thumbnails-vod): Get thumbnails for video assets from the playback info API (WebVTT and keyframe images).
-- [Transcode video](https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/transcode-video): Use the Transcode API to transcode video from and to S3-compatible storage (e.g. Storj, W3S).
-
-### Products / Livepeer Studio / Access control & security
-
-- [Access control overview](https://docs.livepeer.org/v2/platforms/livepeer-studio/access-control/overview): Restrict playback for streams and assets with webhooks or JWTs.
-- [Access control with webhooks](https://docs.livepeer.org/v2/platforms/livepeer-studio/access-control/webhooks): Gate playback using a webhook that validates the viewer and returns allow or deny.
-- [Access control with JWTs](https://docs.livepeer.org/v2/platforms/livepeer-studio/access-control/jwt): Gate playback using signed JWTs so only viewers with a valid token can watch.
-
-### Products / Livepeer Studio / Events & analytics
-
-- [Webhooks](https://docs.livepeer.org/v2/platforms/livepeer-studio/analytics/webhooks): Receive real-time events from Livepeer Studio (stream, asset, recording, multistream, task, access control).
-- [Listen to events](https://docs.livepeer.org/v2/platforms/livepeer-studio/analytics/listen-to-events): Use webhooks to react to stream and asset events (started, ready, failed, etc.).
-- [Analytics](https://docs.livepeer.org/v2/platforms/livepeer-studio/analytics/overview): Viewership and engagement metrics via the Livepeer API, Grafana, and Timeplus.
-
-### Products / Livepeer Studio / Player & embed
-
-- [Player and embed](https://docs.livepeer.org/v2/platforms/livepeer-studio/player): Use the Livepeer Player component and the lvpr.tv embeddable player for playback.
-
-### Products / Livepeer Studio / Reference
-
-- [API overview](https://docs.livepeer.org/v2/platforms/livepeer-studio/reference/api): Livepeer Studio REST API: authentication and basic usage.
-- [API Reference](https://docs.livepeer.org/v2/platforms/livepeer-studio/reference/overview): Complete API reference for Livepeer Studio endpoints
-- [SDKs overview](https://docs.livepeer.org/v2/platforms/livepeer-studio/reference/sdks): Server and client SDKs for the Livepeer Studio API: TypeScript, Go, Python, and React.
-- [Managing projects](https://docs.livepeer.org/v2/platforms/livepeer-studio/reference/managing-projects): Organize streams, assets, and API keys with Livepeer Studio projects (staging, production, multiple apps).
-
-### Products / Livepeer Studio / API Reference / Assets
-
-- [Assets API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/overview): The Assets API is used to create, retrieve, update, delete assets object from pipeline
-- [Upload an asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/upload): Upload a video or audio asset
-- [Upload Asset via URL](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/upload-via-url): Upload an asset by providing a URL
-- [Retrieve an asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/get): Get details about a specific asset
-- [Update Asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/update): Update an asset
-- [Delete Asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/delete): Delete an asset
-- [Get All Assets](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/get-all): Retrieve all assets
-
-### Products / Livepeer Studio / API Reference / Streams
-
-- [Streams API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/overview): The Livestream API is used to create, retrieve, update, delete stream object from pipeline
-- [Create a livestream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/create): Create a new livestream
-- [Retrieve a livestream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/get): Get details about a specific livestream
-- [Get All Streams](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/get-all): Retrieve all livestreams
-- [Update Stream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/update): Update a livestream
-- [Terminate Stream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/terminate): Terminate an active livestream
-- [Create Clip](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/create-clip): Create a clip from a livestream
-- [Get Clip](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/get-clip): Retrieve a clip from a livestream
-- [Add Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/add-multistream-target): Add a multistreaming target to a livestream
-- [Delete Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/delete-multistream-target): Remove a multistreaming target from a livestream
-- [Delete Stream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/delete): Delete a livestream
-
-### Products / Livepeer Studio / API Reference / Multistream
-
-- [Multistream API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/overview): The Multistream API is used to manage multistreaming targets
-- [Create Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/create): Livepeer Studio API endpoint
-- [Get Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/get): Livepeer Studio API endpoint
-- [Get All Multistream Targets](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/get-all): Livepeer Studio API endpoint
-- [Update Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/update): Livepeer Studio API endpoint
-- [Delete Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/delete): Livepeer Studio API endpoint
-
-### Products / Livepeer Studio / API Reference / Playback
-
-- [Playback API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/playback/overview): The Playback API is used to retrieve playback object from pipeline
-- [Retrieve Playback Info](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/playback/get): Get playback information for a stream or asset
-
-### Products / Livepeer Studio / API Reference / Sessions
-
-- [Sessions API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/overview): The Sessions API is used to retrieve session information
-- [Get Session](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get): Livepeer Studio API endpoint
-- [Get All Sessions](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get-all): Livepeer Studio API endpoint
-- [Get Session Clip](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get-clip): Livepeer Studio API endpoint
-- [Get Session Recording](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get-recording): Livepeer Studio API endpoint
-
-### Products / Livepeer Studio / API Reference / Tasks
-
-- [Tasks API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/tasks/overview): The Tasks API is used to monitor task status
-- [Get Task](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/tasks/get): Livepeer Studio API endpoint
-- [Get All Tasks](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/tasks/get-all): Livepeer Studio API endpoint
-
-### Products / Livepeer Studio / API Reference / Transcode
-
-- [Transcode API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/transcode/overview): The Transcode API is used for on-demand video transcoding
-- [Create Transcode Job](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/transcode/create): Livepeer Studio API endpoint
-
-### Products / Livepeer Studio / API Reference / Signing Keys
-
-- [Signing Keys API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/overview): The Signing Keys API is used to manage signing keys for secure playback
-- [Create Signing Key](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/create): Livepeer Studio API endpoint
-- [Get Signing Key](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/get): Livepeer Studio API endpoint
-- [Get All Signing Keys](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/get-all): Livepeer Studio API endpoint
-- [Update Signing Key](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/update): Livepeer Studio API endpoint
-- [Delete Signing Key](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/delete): Livepeer Studio API endpoint
-
-### Products / Livepeer Studio / API Reference / Webhooks
-
-- [Webhooks API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/overview): The Webhooks API is used to manage webhook configurations
-- [Create Webhook](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/create): Livepeer Studio API endpoint
-- [Get Webhook](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/get): Livepeer Studio API endpoint
-- [Get All Webhooks](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/get-all): Livepeer Studio API endpoint
-- [Update Webhook](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/update): Livepeer Studio API endpoint
-- [Delete Webhook](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/delete): Livepeer Studio API endpoint
-
-### Products / Livepeer Studio / API Reference / Rooms
-
-- [Rooms API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/overview): The Rooms API is used to manage WebRTC rooms
-- [Create Room](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/create): Livepeer Studio API endpoint
-- [Get Room](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/get): Livepeer Studio API endpoint
-- [Update Room](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/update): Livepeer Studio API endpoint
-- [Delete Room](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/delete): Livepeer Studio API endpoint
-- [Create Room User](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/create-user): Livepeer Studio API endpoint
-- [Get Room User](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/get-user): Livepeer Studio API endpoint
-- [Update Room User](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/update-user): Livepeer Studio API endpoint
-- [Remove Room User](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/remove-user): Livepeer Studio API endpoint
-- [Start Room Egress](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/start-egress): Livepeer Studio API endpoint
-- [Stop Room Egress](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/stop-egress): Livepeer Studio API endpoint
-
-### Products / Livepeer Studio / API Reference / Viewership
-
-- [Viewership API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/overview): The Viewership API provides analytics and metrics
-- [Get Usage Metrics](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics): Livepeer Studio API endpoint
-- [Get Viewership Metrics](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-viewership-metrics): Livepeer Studio API endpoint
-- [Get Creators Metrics](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-creators-metrics): Livepeer Studio API endpoint
-- [Get Public Total Views](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-public-total-views): Livepeer Studio API endpoint
-- [Get Realtime Viewership](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-realtime-viewership): Livepeer Studio API endpoint
-
-### Products / Livepeer Studio
-
-- [Livepeer Studio overview](https://docs.livepeer.org/v2/platforms/livepeer-studio/overview): Add live and on-demand video to your app with Livepeer Studio—APIs, dashboard, SDKs, and billing in one place.
-- [Livepeer Studio Client Use Cases](https://docs.livepeer.org/v2/platforms/livepeer-studio/client-use-cases): Livepeer’s commercial offering, Livepeer Studio, has attracted multiple Web2 and Web3 platforms,spanning from social media to live entertainment, each bringing their user base’s video traffic onto...
-
-### Products / Stream.place / Stream.place
-
-- [How Streamplace Works](https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-guide): A step-by-step explanation of ingest, segmentation, provenance, transcoding, and delivery.
-- [Streamplace Architecture](https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-architecture): Detailed architecture showing Streamplace, Livepeer, Orchestrators, provenance, and user layers.
-- [Developer Integration Guide](https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-integration): How to integrate Streamplace into decentralized social apps, Web3 platforms, and Livepeer-powered video pipelines.
-- [Provenance & Metadata](https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-provenance): How C2PA manifests, Ethereum signatures, and the Streamplace metadata schema create verifiable, rights-aware video.
-- [SPE Funding Model](https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-funding-model): Understanding Streamplace's role and responsibilities as a Special Purpose Entity (SPE) funded by the Livepeer ecosystem.
-
-### Products / Stream.place
-
-- [Streamplace Overview](https://docs.livepeer.org/v2/platforms/streamplace/overview): What Streamplace is, why it exists, and how it fits into the Livepeer Network.
-
-### Products / Embody Avatars
-
-- [Embody Avatars](https://docs.livepeer.org/v2/platforms/embody/overview): Embody Avatars is a Livepeer-powered platform for creating and sharing 3D avatars and virtual worlds.
-
-### Products / Frameworks
-
-- [Frameworks](https://docs.livepeer.org/v2/platforms/frameworks/overview): Full-stack video infrastructure: open stack, live video processing, and flexible self-hosted or hosted deployments on Livepeer.
-
-### Resource HUB
-
-- [Resource Portal](https://docs.livepeer.org/v2/resources/resources-portal): Livepeer Resource Compendium
 
 
 ## Developers
@@ -264,9 +71,7 @@
 ### Developers / Building on Livepeer
 
 - [Livepeer Developer Portal](https://docs.livepeer.org/v2/developers/portal): Welcome To The Developer Portal: Explore, Build, Create
-- [Developer Guide](https://docs.livepeer.org/v2/developers/developer-guide): A guide to building on Livepeer for video streaming and AI pipelines
-- [Livepeer Ecosystem Partner Integrations](https://docs.livepeer.org/v2/developers/guides/partner-integrations): A look at the thriving Livepeer ecosystem and it's partner integrations that expand the network's capabilities.
-- [Developer Journey](https://docs.livepeer.org/v2/developers/developer-journey): A guide to building on Livepeer for video streaming and AI pipelines
+- [Developer Journey](https://docs.livepeer.org/v2/developers/developer-path): Choose your path as a Livepeer developer — provide workloads, consume pipelines, or contribute to the core protocol
 
 ### Developers / Quickstart / Video & Transcoding
 
@@ -297,9 +102,188 @@
 - [Dev Programs](https://docs.livepeer.org/v2/developers/builder-opportunities/dev-programs): This page is intended as a guide for startup projects building on Livepeer, OSS Developers looking to contribute and community member participation pathways.
 - [Livepeer RFPs](https://docs.livepeer.org/v2/developers/builder-opportunities/livepeer-rfps): ...
 
+### Developer Platforms / Platforms
+
+- [Livepeer Developer Platforms](https://docs.livepeer.org/v2/platforms/portal): Welcome To The Platform Portal: Explore, Build, Create
+- [Developer Platform HUB](https://docs.livepeer.org/v2/platforms/product-hub): Platforms & Products that make using Livepeer easy in your applications
+- [Ecosystem Products](https://docs.livepeer.org/v2/platforms/ecosystem-products)
+
+### Developer Platforms / Daydream
+
+- [Daydream](https://docs.livepeer.org/v2/platforms/daydream/overview): Open-source toolkit for world models and real-time AI video on the Livepeer network.
+
+### Developer Platforms / Livepeer Studio / Get started
+
+- [Getting Started with Livepeer Studio](https://docs.livepeer.org/v2/platforms/livepeer-studio/get-started/overview): Learn how to get started with Livepeer Studio
+- [Quickstart](https://docs.livepeer.org/v2/platforms/livepeer-studio/quickstart): Create an account, get an API key, and add live or on-demand video in under 5 minutes.
+- [Authentication](https://docs.livepeer.org/v2/platforms/livepeer-studio/get-started/authentication): Learn how to authenticate requests to the Livepeer Studio API
+- [Studio CLI](https://docs.livepeer.org/v2/platforms/livepeer-studio/get-started/studio-cli): Scaffold a new Livepeer app with the Livepeer Studio CLI.
+
+### Developer Platforms / Livepeer Studio / Livestream
+
+- [Livestream overview](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/overview): Concepts for livestreams in Livepeer Studio: streams, sessions, ingest, playback, and health.
+- [Create a livestream](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/create-livestream): Create a livestream with the Livepeer Studio API and get a stream key and playback ID.
+- [Play a livestream](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/playback-livestream): Play livestreams in your app with the Livepeer Player or a custom HLS/WebRTC player.
+- [Stream via OBS](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/stream-via-obs): Configure OBS Studio to stream into Livepeer Studio using RTMP and the stream key.
+- [Livestream from browser](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/livestream-from-browser): Broadcast live from the browser using WebRTC and the Livepeer Broadcast component or custom WHIP.
+- [Multistream](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/multistream): Send one livestream to multiple RTMP/RTMPS destinations (e.g. Twitch, YouTube).
+- [Clip a livestream](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/clip-livestream): Create short clips from active livestreams using the Create Clip API.
+- [Stream health](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/stream-health): Monitor livestream health: transcoding, real-time status, multistream targets, ingest rate, and logs.
+- [Optimize latency](https://docs.livepeer.org/v2/platforms/livepeer-studio/livestream/optimize-latency): Achieve low or ultra-low latency with WebRTC and HLS and tune OBS and in-browser broadcast settings.
+
+### Developer Platforms / Livepeer Studio / Video on demand
+
+- [Video on demand overview](https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/overview): Concepts for VOD in Livepeer Studio: assets, playback, recordings, clips, and encrypted assets.
+- [Upload an asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/upload-asset): Upload video files to Livepeer Studio with TUS resumable uploads or PUT.
+- [Play an asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/playback-asset): Play VOD assets with the Livepeer Player or a custom HLS/MP4 player.
+- [Encrypted assets](https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/encrypted-assets): Upload and play encrypted video with Livepeer Studio and control access.
+- [Thumbnails (VOD)](https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/thumbnails-vod): Get thumbnails for video assets from the playback info API (WebVTT and keyframe images).
+- [Transcode video](https://docs.livepeer.org/v2/platforms/livepeer-studio/video-on-demand/transcode-video): Use the Transcode API to transcode video from and to S3-compatible storage (e.g. Storj, W3S).
+
+### Developer Platforms / Livepeer Studio / Access control & security
+
+- [Access control overview](https://docs.livepeer.org/v2/platforms/livepeer-studio/access-control/overview): Restrict playback for streams and assets with webhooks or JWTs.
+- [Access control with webhooks](https://docs.livepeer.org/v2/platforms/livepeer-studio/access-control/webhooks): Gate playback using a webhook that validates the viewer and returns allow or deny.
+- [Access control with JWTs](https://docs.livepeer.org/v2/platforms/livepeer-studio/access-control/jwt): Gate playback using signed JWTs so only viewers with a valid token can watch.
+
+### Developer Platforms / Livepeer Studio / Events & analytics
+
+- [Webhooks](https://docs.livepeer.org/v2/platforms/livepeer-studio/analytics/webhooks): Receive real-time events from Livepeer Studio (stream, asset, recording, multistream, task, access control).
+- [Listen to events](https://docs.livepeer.org/v2/platforms/livepeer-studio/analytics/listen-to-events): Use webhooks to react to stream and asset events (started, ready, failed, etc.).
+- [Analytics](https://docs.livepeer.org/v2/platforms/livepeer-studio/analytics/overview): Viewership and engagement metrics via the Livepeer API, Grafana, and Timeplus.
+
+### Developer Platforms / Livepeer Studio / Player & embed
+
+- [Player and embed](https://docs.livepeer.org/v2/platforms/livepeer-studio/player): Use the Livepeer Player component and the lvpr.tv embeddable player for playback.
+
+### Developer Platforms / Livepeer Studio / Reference
+
+- [API overview](https://docs.livepeer.org/v2/platforms/livepeer-studio/reference/api): Livepeer Studio REST API: authentication and basic usage.
+- [API Reference](https://docs.livepeer.org/v2/platforms/livepeer-studio/reference/overview): Complete API reference for Livepeer Studio endpoints
+- [SDKs overview](https://docs.livepeer.org/v2/platforms/livepeer-studio/reference/sdks): Server and client SDKs for the Livepeer Studio API: TypeScript, Go, Python, and React.
+- [Managing projects](https://docs.livepeer.org/v2/platforms/livepeer-studio/reference/managing-projects): Organize streams, assets, and API keys with Livepeer Studio projects (staging, production, multiple apps).
+
+### Developer Platforms / Livepeer Studio / API Reference / Assets
+
+- [Assets API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/overview): The Assets API is used to create, retrieve, update, delete assets object from pipeline
+- [Upload an asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/upload): Upload a video or audio asset
+- [Upload Asset via URL](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/upload-via-url): Upload an asset by providing a URL
+- [Retrieve an asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/get): Get details about a specific asset
+- [Update Asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/update): Update an asset
+- [Delete Asset](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/delete): Delete an asset
+- [Get All Assets](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/assets/get-all): Retrieve all assets
+
+### Developer Platforms / Livepeer Studio / API Reference / Streams
+
+- [Streams API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/overview): The Livestream API is used to create, retrieve, update, delete stream object from pipeline
+- [Create a livestream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/create): Create a new livestream
+- [Retrieve a livestream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/get): Get details about a specific livestream
+- [Get All Streams](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/get-all): Retrieve all livestreams
+- [Update Stream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/update): Update a livestream
+- [Terminate Stream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/terminate): Terminate an active livestream
+- [Create Clip](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/create-clip): Create a clip from a livestream
+- [Get Clip](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/get-clip): Retrieve a clip from a livestream
+- [Add Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/add-multistream-target): Add a multistreaming target to a livestream
+- [Delete Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/delete-multistream-target): Remove a multistreaming target from a livestream
+- [Delete Stream](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/streams/delete): Delete a livestream
+
+### Developer Platforms / Livepeer Studio / API Reference / Multistream
+
+- [Multistream API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/overview): The Multistream API is used to manage multistreaming targets
+- [Create Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/create): Livepeer Studio API endpoint
+- [Get Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/get): Livepeer Studio API endpoint
+- [Get All Multistream Targets](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/get-all): Livepeer Studio API endpoint
+- [Update Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/update): Livepeer Studio API endpoint
+- [Delete Multistream Target](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/multistream/delete): Livepeer Studio API endpoint
+
+### Developer Platforms / Livepeer Studio / API Reference / Playback
+
+- [Playback API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/playback/overview): The Playback API is used to retrieve playback object from pipeline
+- [Retrieve Playback Info](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/playback/get): Get playback information for a stream or asset
+
+### Developer Platforms / Livepeer Studio / API Reference / Sessions
+
+- [Sessions API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/overview): The Sessions API is used to retrieve session information
+- [Get Session](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get): Livepeer Studio API endpoint
+- [Get All Sessions](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get-all): Livepeer Studio API endpoint
+- [Get Session Clip](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get-clip): Livepeer Studio API endpoint
+- [Get Session Recording](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/sessions/get-recording): Livepeer Studio API endpoint
+
+### Developer Platforms / Livepeer Studio / API Reference / Tasks
+
+- [Tasks API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/tasks/overview): The Tasks API is used to monitor task status
+- [Get Task](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/tasks/get): Livepeer Studio API endpoint
+- [Get All Tasks](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/tasks/get-all): Livepeer Studio API endpoint
+
+### Developer Platforms / Livepeer Studio / API Reference / Transcode
+
+- [Transcode API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/transcode/overview): The Transcode API is used for on-demand video transcoding
+- [Create Transcode Job](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/transcode/create): Livepeer Studio API endpoint
+
+### Developer Platforms / Livepeer Studio / API Reference / Signing Keys
+
+- [Signing Keys API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/overview): The Signing Keys API is used to manage signing keys for secure playback
+- [Create Signing Key](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/create): Livepeer Studio API endpoint
+- [Get Signing Key](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/get): Livepeer Studio API endpoint
+- [Get All Signing Keys](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/get-all): Livepeer Studio API endpoint
+- [Update Signing Key](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/update): Livepeer Studio API endpoint
+- [Delete Signing Key](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/signing-keys/delete): Livepeer Studio API endpoint
+
+### Developer Platforms / Livepeer Studio / API Reference / Webhooks
+
+- [Webhooks API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/overview): The Webhooks API is used to manage webhook configurations
+- [Create Webhook](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/create): Livepeer Studio API endpoint
+- [Get Webhook](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/get): Livepeer Studio API endpoint
+- [Get All Webhooks](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/get-all): Livepeer Studio API endpoint
+- [Update Webhook](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/update): Livepeer Studio API endpoint
+- [Delete Webhook](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/webhooks/delete): Livepeer Studio API endpoint
+
+### Developer Platforms / Livepeer Studio / API Reference / Rooms
+
+- [Rooms API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/overview): The Rooms API is used to manage WebRTC rooms
+- [Create Room](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/create): Livepeer Studio API endpoint
+- [Get Room](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/get): Livepeer Studio API endpoint
+- [Update Room](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/update): Livepeer Studio API endpoint
+- [Delete Room](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/delete): Livepeer Studio API endpoint
+- [Create Room User](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/create-user): Livepeer Studio API endpoint
+- [Get Room User](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/get-user): Livepeer Studio API endpoint
+- [Update Room User](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/update-user): Livepeer Studio API endpoint
+- [Remove Room User](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/remove-user): Livepeer Studio API endpoint
+- [Start Room Egress](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/start-egress): Livepeer Studio API endpoint
+- [Stop Room Egress](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/rooms/stop-egress): Livepeer Studio API endpoint
+
+### Developer Platforms / Livepeer Studio / API Reference / Viewership
+
+- [Viewership API](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/overview): The Viewership API provides analytics and metrics
+- [Get Usage Metrics](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-usage-metrics): Livepeer Studio API endpoint
+- [Get Viewership Metrics](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-viewership-metrics): Livepeer Studio API endpoint
+- [Get Creators Metrics](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-creators-metrics): Livepeer Studio API endpoint
+- [Get Public Total Views](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-public-total-views): Livepeer Studio API endpoint
+- [Get Realtime Viewership](https://docs.livepeer.org/v2/platforms/livepeer-studio/api-reference/viewership/get-realtime-viewership): Livepeer Studio API endpoint
+
+### Developer Platforms / Livepeer Studio
+
+- [Livepeer Studio overview](https://docs.livepeer.org/v2/platforms/livepeer-studio/overview): Add live and on-demand video to your app with Livepeer Studio—APIs, dashboard, SDKs, and billing in one place.
+- [Livepeer Studio Client Use Cases](https://docs.livepeer.org/v2/platforms/livepeer-studio/client-use-cases): Livepeer’s commercial offering, Livepeer Studio, has attracted multiple Web2 and Web3 platforms,spanning from social media to live entertainment, each bringing their user base’s video traffic onto...
+
+### Developer Platforms / Stream.place / Stream.place
+
+- [How Streamplace Works](https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-guide): A step-by-step explanation of ingest, segmentation, provenance, transcoding, and delivery.
+- [Streamplace Architecture](https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-architecture): Detailed architecture showing Streamplace, Livepeer, Orchestrators, provenance, and user layers.
+- [Developer Integration Guide](https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-integration): How to integrate Streamplace into decentralized social apps, Web3 platforms, and Livepeer-powered video pipelines.
+- [Provenance & Metadata](https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-provenance): How C2PA manifests, Ethereum signatures, and the Streamplace metadata schema create verifiable, rights-aware video.
+- [SPE Funding Model](https://docs.livepeer.org/v2/platforms/streamplace/introduction/streamplace-funding-model): Understanding Streamplace's role and responsibilities as a Special Purpose Entity (SPE) funded by the Livepeer ecosystem.
+
+### Developer Platforms / Stream.place
+
+- [Streamplace Overview](https://docs.livepeer.org/v2/platforms/streamplace/overview): What Streamplace is, why it exists, and how it fits into the Livepeer Network.
+
+### Developer Platforms / Frameworks
+
+- [Frameworks](https://docs.livepeer.org/v2/platforms/frameworks/overview): Full-stack video infrastructure: open stack, live video processing, and flexible self-hosted or hosted deployments on Livepeer.
+
 ### Resource HUB
 
-- [Resource Portal](https://docs.livepeer.org/v2/resources/resources-portal): Livepeer Resource Compendium
 
 ### Developer Tools
 
@@ -330,10 +314,10 @@
 ### Gateways / Gateway Knowledge Hub
 
 - [Gateway Home Portal](https://docs.livepeer.org/v2/gateways/gateways-portal): Welcome To The Gateway Portal: Explore, Navigate, Create
-- [Gateway Explainer](https://docs.livepeer.org/v2/gateways/about-gateways/gateway-explainer): This page is a work in progress. TODO: Edit, Streamline, Format & Style
-- [Gateway Functions & Services](https://docs.livepeer.org/v2/gateways/about-gateways/gateway-functions): Learn about the key functions and services provided by Livepeer Gateways.
-- [Gateway Architecture](https://docs.livepeer.org/v2/gateways/about-gateways/gateway-architecture): This page is a work in progress. TODO: Overview, Edit, Streamline, Format, Style, Link to github / other resources
-- [Gateway Economics](https://docs.livepeer.org/v2/gateways/about-gateways/gateway-economics): Learn about the economics of running a Livepeer Gateway
+- [Gateway Explainer](https://docs.livepeer.org/v2/gateways/about/explainer): Learn about the role of Livepeer Gateways in the Livepeer Network
+- [Gateway Functions & Services](https://docs.livepeer.org/v2/gateways/about/functions): This page describes the key functions and services provided by Livepeer Gateways and their marketplace role.
+- [Gateway Architecture](https://docs.livepeer.org/v2/gateways/about/architecture): This page describes the architecture of Livepeer Gateways.
+- [Gateway Economics](https://docs.livepeer.org/v2/gateways/about/economics): This page describes the payment flows and economics of Livepeer Gateways
 
 ### Gateways / Quickstart ⚡
 
@@ -452,7 +436,6 @@
 
 ### Resource HUB
 
-- [Resource Portal](https://docs.livepeer.org/v2/resources/resources-portal): Livepeer Resource Compendium
 
 
 ## GPU Nodes
@@ -529,7 +512,6 @@
 
 ### Resource HUB
 
-- [Resource Portal](https://docs.livepeer.org/v2/resources/resources-portal): Livepeer Resource Compendium
 
 
 ## LP Token
@@ -567,7 +549,6 @@
 
 ### Resource HUB
 
-- [Resource Portal](https://docs.livepeer.org/v2/resources/resources-portal): Livepeer Resource Compendium
 
 
 ## Community
@@ -603,7 +584,6 @@
 
 ### Resource HUB
 
-- [Resource Portal](https://docs.livepeer.org/v2/resources/resources-portal): Livepeer Resource Compendium
 
 
 ## Resource HUB
@@ -614,7 +594,8 @@
 
 ### Reference & Help HUB / Documentation Guide / Component Library
 
-- [Component Library](https://docs.livepeer.org/v2/resources/documentation-guide/component-library): Complete reference of custom components with live examples. This page provides a comprehensive reference for all custom components available in the Livepeer documentation. Each component includes a...
+- [Components Index](https://docs.livepeer.org/v2/resources/documentation-guide/component-library/overview): Aggregate inventory of repository components from snippets/components, generated for docs-guide maintenance.
+- [Component Library](https://docs.livepeer.org/v2/resources/documentation-guide//component-library/component-library): Complete reference of custom components with live examples. This page provides a comprehensive reference for all custom components available in the Livepeer documentation. Each component includes a...
 - [Primitives](https://docs.livepeer.org/v2/resources/documentation-guide/component-library/primitives): Basic UI building blocks used throughout the Livepeer documentation: buttons, icons, links, text, dividers, containers, tables, and layout utilities
 - [Display Components](https://docs.livepeer.org/v2/resources/documentation-guide/component-library/display): Components for displaying media, visual content, and frame mode elements: video, images, embeds, quotes, carousels, diagrams, and social links
 - [Content Components](https://docs.livepeer.org/v2/resources/documentation-guide/component-library/content): Components for displaying code, data, external content, and API documentation: code blocks, external content loaders, API response fields, version displays, and data layouts for blogs, forums, and...
@@ -628,8 +609,8 @@
 - [Guide To Using The Documentation](https://docs.livepeer.org/v2/resources/documentation-guide/documentation-guide): This guide will help you navigate and make the most of the Livepeer documentation site.
 - [Features and AI Integrations](https://docs.livepeer.org/v2/resources/documentation-guide/docs-features-and-ai-integrations): The Livepeer documentation includes several powerful features designed to enhance your experience and make information more accessible.
 - [Documentation Style Guide](https://docs.livepeer.org/v2/resources/documentation-guide/style-guide): Style guide, Mintlify gotchas, and best practices for writing Livepeer documentation
-- [Snippets Folder Inventory](https://docs.livepeer.org/v2/resources/documentation-guide/snippets-inventory): Complete inventory of all files and folders in the snippets directory
-- [Contribute To The Docs](https://docs.livepeer.org/v2/resources/documentation-guide/contribute-to-the-docs): We love community feedback and contributions, and it's our mission to make it easy for everyone to contribute to these docs and provide feedback for us to make them even better!
+- [Snippets Folder Inventory](https://docs.livepeer.org/v2/resources/documentation-guide/snippets-inventory): This page provides a comprehensive inventory of all files and folders in the `/snippets` directory. The snippets folder is the central location for all custom components, data, scripts, and assets...
+- [Contribute To The Docs](https://docs.livepeer.org/v2/resources/documentation-guide/contribute-to-the-docs): Contribute to the Livepeer documentation and help us make it even better!
 - [Automations & Workflows Guide](https://docs.livepeer.org/v2/resources/documentation-guide/automations-workflows): Complete guide to all automation scripts, GitHub Actions workflows, n8n automations, and pre-commit hooks in the Livepeer documentation repository
 
 ### Reference & Help HUB / Livepeer Concepts
@@ -672,5 +653,3 @@
 - [Migration Guide](https://docs.livepeer.org/v2/resources/changelog/migration-guide)
 
 ### Help Center
-
-- [Resource Portal](https://docs.livepeer.org/v2/resources/resources-portal): Livepeer Resource Compendium

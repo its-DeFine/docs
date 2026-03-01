@@ -98,10 +98,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/livepeer-protocol/overview</loc>
-    <lastmod>2026-02-25T18:16:43+11:00</lastmod>
+    <lastmod>2026-02-28T04:36:23+11:00</lastmod>
     <ai:section>about</ai:section>
-    <ai:wordCount>911</ai:wordCount>
-    <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
+    <ai:wordCount>896</ai:wordCount>
+    <ai:lastVerified>2026-02-28T04:36:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, about, livepeer protocol, protocol overview, protocol, overview</ai:tags>
   </url>
   <url>
@@ -122,10 +122,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/about/mental-model</loc>
-    <lastmod>2026-02-24T01:56:23+11:00</lastmod>
+    <lastmod>2026-02-26T16:16:14+11:00</lastmod>
     <ai:section>about</ai:section>
     <ai:wordCount>1432</ai:wordCount>
-    <ai:lastVerified>2026-02-24T01:56:23+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-02-26T16:16:14+11:00</ai:lastVerified>
     <ai:tags>livepeer, about, core concepts, mental model, introduction, key, architecture</ai:tags>
   </url>
   <url>
@@ -296,10 +296,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/builder-opportunities/dev-programs</loc>
-    <lastmod>2026-02-24T03:51:34+11:00</lastmod>
+    <lastmod>2026-02-27T15:23:39+11:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>49</ai:wordCount>
-    <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-02-27T15:23:39+11:00</ai:lastVerified>
     <ai:tags>livepeer, developers, builder opportunities, dev programs, programs</ai:tags>
   </url>
   <url>
@@ -311,20 +311,12 @@
     <ai:tags>livepeer, developers, builder opportunities, livepeer rfps, rfps</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/developers/developer-guide</loc>
-    <lastmod>2026-02-24T03:10:57+11:00</lastmod>
+    <loc>https://docs.livepeer.org/v2/developers/developer-path</loc>
+    <lastmod>2026-03-01T14:36:57+11:00</lastmod>
     <ai:section>developers</ai:section>
-    <ai:wordCount>189</ai:wordCount>
-    <ai:lastVerified>2026-02-24T03:10:57+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, building on livepeer, developer guide, developer, guide, building</ai:tags>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/developers/developer-journey</loc>
-    <lastmod>2026-02-24T03:10:57+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>130</ai:wordCount>
-    <ai:lastVerified>2026-02-24T03:10:57+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, building on livepeer, developer journey, developer, journey, guide, building</ai:tags>
+    <ai:wordCount>485</ai:wordCount>
+    <ai:lastVerified>2026-03-01T14:36:57+11:00</ai:lastVerified>
+    <ai:tags>livepeer, developers, building on livepeer, developer journey, workload provider, workload consumer, core contributor, BYOC, ai pipelines</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/developer-tools/dashboards</loc>
@@ -391,14 +383,6 @@
     <ai:lastVerified>2026-02-22T00:55:44+11:00</ai:lastVerified>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/developers/guides/partner-integrations</loc>
-    <lastmod>2026-02-24T03:10:57+11:00</lastmod>
-    <ai:section>developers</ai:section>
-    <ai:wordCount>432</ai:wordCount>
-    <ai:lastVerified>2026-02-24T03:10:57+11:00</ai:lastVerified>
-    <ai:tags>livepeer, livepeer ecosystem, livepeer network, livepeer protocol, livepeer community</ai:tags>
-  </url>
-  <url>
     <loc>https://docs.livepeer.org/v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README</loc>
     <lastmod>2026-02-22T01:00:02+11:00</lastmod>
     <ai:section>developers</ai:section>
@@ -463,10 +447,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/developers/technical-references/deepwiki</loc>
-    <lastmod>2026-02-24T03:51:34+11:00</lastmod>
+    <lastmod>2026-02-27T15:23:39+11:00</lastmod>
     <ai:section>developers</ai:section>
     <ai:wordCount>86</ai:wordCount>
-    <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-02-27T15:23:39+11:00</ai:lastVerified>
     <ai:tags>livepeer, developers, technical references, deepwiki</ai:tags>
   </url>
   <url>
@@ -486,35 +470,35 @@
     <ai:tags>livepeer, developers, technical references, wiki</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/gateways/about-gateways/gateway-architecture</loc>
-    <lastmod>2026-02-24T03:51:34+11:00</lastmod>
+    <loc>https://docs.livepeer.org/v2/gateways/about/architecture</loc>
+    <lastmod>2026-03-01T08:52:07.057Z</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>39</ai:wordCount>
-    <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
+    <ai:wordCount>19</ai:wordCount>
+    <ai:lastVerified>2026-03-01T08:52:07.057Z</ai:lastVerified>
     <ai:tags>livepeer, gateways, about gateways, gateway architecture, gateway, architecture</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/gateways/about-gateways/gateway-economics</loc>
-    <lastmod>2026-02-24T03:51:34+11:00</lastmod>
+    <loc>https://docs.livepeer.org/v2/gateways/about/economics</loc>
+    <lastmod>2026-03-01T08:56:17.811Z</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>619</ai:wordCount>
-    <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
+    <ai:wordCount>615</ai:wordCount>
+    <ai:lastVerified>2026-03-01T08:56:17.811Z</ai:lastVerified>
     <ai:tags>livepeer, gateways, about gateways, gateway economics, gateway, economics, learn, running</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/gateways/about-gateways/gateway-explainer</loc>
-    <lastmod>2026-02-24T03:51:34+11:00</lastmod>
+    <loc>https://docs.livepeer.org/v2/gateways/about/explainer</loc>
+    <lastmod>2026-03-01T09:22:56.258Z</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>870</ai:wordCount>
-    <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
+    <ai:wordCount>603</ai:wordCount>
+    <ai:lastVerified>2026-03-01T09:22:56.258Z</ai:lastVerified>
     <ai:tags>livepeer, gateways, about gateways, gateway explainer, gateway, explainer</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/gateways/about-gateways/gateway-functions</loc>
-    <lastmod>2026-02-24T03:51:34+11:00</lastmod>
+    <loc>https://docs.livepeer.org/v2/gateways/about/functions</loc>
+    <lastmod>2026-03-01T08:50:07.656Z</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>306</ai:wordCount>
-    <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
+    <ai:wordCount>291</ai:wordCount>
+    <ai:lastVerified>2026-03-01T08:50:07.656Z</ai:lastVerified>
     <ai:tags>livepeer, gateways, about gateways, gateway functions, gateway, functions, services, learn</ai:tags>
   </url>
   <url>
@@ -863,10 +847,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/install/community-projects</loc>
-    <lastmod>2026-02-24T03:51:34+11:00</lastmod>
+    <lastmod>2026-02-28T04:36:23+11:00</lastmod>
     <ai:section>gateways</ai:section>
-    <ai:wordCount>160</ai:wordCount>
-    <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
+    <ai:wordCount>154</ai:wordCount>
+    <ai:lastVerified>2026-02-28T04:36:23+11:00</ai:lastVerified>
     <ai:tags>beta, livepeer, gateways, run a gateway, install, community projects, easy, devops, community, projects, pipelines</ai:tags>
   </url>
   <url>
@@ -887,18 +871,18 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/install/linux-install</loc>
-    <lastmod>2026-02-24T03:51:34+11:00</lastmod>
+    <lastmod>2026-02-27T17:26:39+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>300</ai:wordCount>
-    <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-02-27T17:26:39+11:00</ai:lastVerified>
     <ai:tags>livepeer, gateways, run a gateway, install, linux install, linux, gateway</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/install/windows-install</loc>
-    <lastmod>2026-02-24T03:51:34+11:00</lastmod>
+    <lastmod>2026-02-27T17:26:39+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>306</ai:wordCount>
-    <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-02-27T17:26:39+11:00</ai:lastVerified>
     <ai:tags>livepeer, gateways, run a gateway, install, windows install, windows, gateway</ai:tags>
   </url>
   <url>
@@ -919,18 +903,18 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway</loc>
-    <lastmod>2026-02-24T03:51:34+11:00</lastmod>
+    <lastmod>2026-02-27T17:26:39+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>226</ai:wordCount>
-    <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-02-27T17:26:39+11:00</ai:lastVerified>
     <ai:tags>livepeer, gateways, run a gateway, quickstart, quickstart a gateway, gateway, guide, video</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway</loc>
-    <lastmod>2026-02-24T03:51:34+11:00</lastmod>
+    <lastmod>2026-02-27T15:23:39+11:00</lastmod>
     <ai:section>gateways</ai:section>
     <ai:wordCount>867</ai:wordCount>
-    <ai:lastVerified>2026-02-24T03:51:34+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-02-27T15:23:39+11:00</ai:lastVerified>
     <ai:tags>livepeer, gateways, run a gateway, requirements, on chain setup, fund gateway, fund, gateway</ai:tags>
   </url>
   <url>
@@ -1004,18 +988,18 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/about-livepeer/benefits</loc>
-    <lastmod>2026-02-23T22:08:49+11:00</lastmod>
+    <lastmod>2026-02-26T16:16:14+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>525</ai:wordCount>
-    <ai:lastVerified>2026-02-23T22:08:49+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-02-26T16:16:14+11:00</ai:lastVerified>
     <ai:tags>livepeer, home, project showcase, why livepeer, best choice, next project</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/about-livepeer/ecosystem</loc>
-    <lastmod>2026-02-23T22:08:49+11:00</lastmod>
+    <lastmod>2026-02-27T15:23:39+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>1886</ai:wordCount>
-    <ai:lastVerified>2026-02-23T22:08:49+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-02-27T15:23:39+11:00</ai:lastVerified>
     <ai:tags>livepeer, home, introduction, livepeer ecosystem, ecosystem, grown, robust</ai:tags>
   </url>
   <url>
@@ -1044,50 +1028,50 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/get-started</loc>
-    <lastmod>2026-02-25T18:16:43+11:00</lastmod>
+    <lastmod>2026-02-26T16:16:14+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>54</ai:wordCount>
-    <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-02-26T16:16:14+11:00</ai:lastVerified>
     <ai:tags>livepeer, home, user journey, user, journey, guide</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/mission-control</loc>
-    <lastmod>2026-02-24T02:36:09+11:00</lastmod>
+    <lastmod>2026-02-26T16:16:14+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>21</ai:wordCount>
-    <ai:lastVerified>2026-02-24T02:36:09+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-02-26T16:16:14+11:00</ai:lastVerified>
     <ai:tags>Start Here, home, index, landing, livepeer, real-time AI, Daydream</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/primer</loc>
-    <lastmod>2026-02-25T18:16:43+11:00</lastmod>
+    <lastmod>2026-02-26T16:16:14+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>595</ai:wordCount>
-    <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-02-26T16:16:14+11:00</ai:lastVerified>
     <ai:tags>livepeer intro, livepeer introduction, livepeer overview, livepeer primer</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/solutions/applications</loc>
-    <lastmod>2026-02-26T05:05:48.855Z</lastmod>
+    <lastmod>2026-02-27T19:07:31+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>148</ai:wordCount>
-    <ai:lastVerified>2026-02-26T05:05:48.855Z</ai:lastVerified>
+    <ai:lastVerified>2026-02-27T19:07:31+11:00</ai:lastVerified>
     <ai:tags>livepeer, livepeer applications, livepeer use cases, livepeer apps, livepeer projects, livepeer ecosystem, livepeer built on, livepeer built on livepeer, livepeer apps built on livepeer, livepeer applications built on livepeer, livepeer use cases built on livepeer</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/solutions/showcase</loc>
-    <lastmod>2026-02-26T05:05:48.855Z</lastmod>
+    <lastmod>2026-02-26T16:16:14+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>14</ai:wordCount>
-    <ai:lastVerified>2026-02-26T05:05:48.855Z</ai:lastVerified>
+    <ai:lastVerified>2026-02-26T16:16:14+11:00</ai:lastVerified>
     <ai:tags>livepeer, built on livepeer, livepeer projects, livepeer ecosystem, livepeer apps, livepeer applications, livepeer use cases, livepeer projects built on livepeer, livepeer apps built on livepeer, livepeer applications built on livepeer, livepeer use cases built on livepeer</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/home/solutions/verticals</loc>
-    <lastmod>2026-02-26T05:05:48.855Z</lastmod>
+    <lastmod>2026-02-26T16:16:14+11:00</lastmod>
     <ai:section>home</ai:section>
     <ai:wordCount>1343</ai:wordCount>
-    <ai:lastVerified>2026-02-26T05:05:48.855Z</ai:lastVerified>
+    <ai:lastVerified>2026-02-26T16:16:14+11:00</ai:lastVerified>
     <ai:tags>livepeer, home, project showcase, industry verticals, industry, applications</ai:tags>
   </url>
   <url>
@@ -1337,10 +1321,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/quickstart/join-a-pool</loc>
-    <lastmod>2026-02-25T05:29:12+11:00</lastmod>
+    <lastmod>2026-02-28T04:36:23+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
-    <ai:wordCount>1073</ai:wordCount>
-    <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
+    <ai:wordCount>1061</ai:wordCount>
+    <ai:lastVerified>2026-02-28T04:36:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, setting up an orchestrator, join a pool, join, pool</ai:tags>
   </url>
   <url>
@@ -1384,10 +1368,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/hardware-requirements</loc>
-    <lastmod>2026-02-25T05:29:12+11:00</lastmod>
+    <lastmod>2026-02-28T04:36:23+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
-    <ai:wordCount>170</ai:wordCount>
-    <ai:lastVerified>2026-02-25T05:29:12+11:00</ai:lastVerified>
+    <ai:wordCount>158</ai:wordCount>
+    <ai:lastVerified>2026-02-28T04:36:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, hardware, GPU, requirements</ai:tags>
   </url>
   <url>
@@ -1427,14 +1411,6 @@
     <ai:section>platforms</ai:section>
     <ai:wordCount>0</ai:wordCount>
     <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-  </url>
-  <url>
-    <loc>https://docs.livepeer.org/v2/platforms/embody/overview</loc>
-    <lastmod>2026-02-24T02:38:32+11:00</lastmod>
-    <ai:section>platforms</ai:section>
-    <ai:wordCount>11</ai:wordCount>
-    <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
-    <ai:tags>livepeer, developers, developer platforms, embody, embody avatars, overview, exists</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/frameworks/overview</loc>
@@ -2193,18 +2169,18 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/portal</loc>
-    <lastmod>2026-02-24T23:28:21+11:00</lastmod>
+    <lastmod>2026-02-28T15:50:59+11:00</lastmod>
     <ai:section>platforms</ai:section>
-    <ai:wordCount>153</ai:wordCount>
-    <ai:lastVerified>2026-02-24T23:28:21+11:00</ai:lastVerified>
+    <ai:wordCount>200</ai:wordCount>
+    <ai:lastVerified>2026-02-28T15:50:59+11:00</ai:lastVerified>
     <ai:tags>Start Here, livepeer, about, about livepeer, about portal, about livepeer portal, about livepeer network, about livepeer protocol, about livepeer token, about livepeer governance, about livepeer actors, about livepeer economics, about livepeer whitepaper, about livepeer faq</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/platforms/product-hub</loc>
-    <lastmod>2026-02-24T02:38:32+11:00</lastmod>
+    <lastmod>2026-02-28T15:50:59+11:00</lastmod>
     <ai:section>platforms</ai:section>
-    <ai:wordCount>564</ai:wordCount>
-    <ai:lastVerified>2026-02-24T02:38:32+11:00</ai:lastVerified>
+    <ai:wordCount>434</ai:wordCount>
+    <ai:lastVerified>2026-02-28T15:50:59+11:00</ai:lastVerified>
     <ai:tags>Bookmark Me, livepeer, developers, developer platforms, builder hub, builders, platforms, products, using</ai:tags>
   </url>
   <url>
@@ -2272,20 +2248,20 @@
     <ai:tags>livepeer, resources, changelog, migration guide</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/resources/documentation-guide/automations-workflows</loc>
-    <lastmod>2026-02-25T18:16:43+11:00</lastmod>
+    <loc>https://docs.livepeer.org/v2/resources/documentation-guide//component-library/component-library</loc>
+    <lastmod>2026-02-27T14:58:55.970Z</lastmod>
     <ai:section>resources</ai:section>
-    <ai:wordCount>3751</ai:wordCount>
-    <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, resources, documentation guide, automations, workflows, scripts, github actions, n8n, pre-commit, hooks</ai:tags>
+    <ai:wordCount>3545</ai:wordCount>
+    <ai:lastVerified>2026-02-27T14:58:55.970Z</ai:lastVerified>
+    <ai:tags>livepeer, documentation, components, library, reference</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library</loc>
-    <lastmod>2026-02-25T18:16:43+11:00</lastmod>
+    <loc>https://docs.livepeer.org/v2/resources/documentation-guide/automations-workflows</loc>
+    <lastmod>2026-03-01T19:30:45+11:00</lastmod>
     <ai:section>resources</ai:section>
-    <ai:wordCount>3527</ai:wordCount>
-    <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
-    <ai:tags>livepeer, documentation, components, library, reference</ai:tags>
+    <ai:wordCount>3726</ai:wordCount>
+    <ai:lastVerified>2026-03-01T19:30:45+11:00</ai:lastVerified>
+    <ai:tags>livepeer, resources, documentation guide, automations, workflows, scripts, github actions, n8n, pre-commit, hooks</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/content</loc>
@@ -2328,59 +2304,67 @@
     <ai:tags>livepeer, components, layout, cards, lists, steps, tables</ai:tags>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/primitives</loc>
-    <lastmod>2026-02-25T18:16:43+11:00</lastmod>
+    <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/overview</loc>
+    <lastmod>2026-03-01T19:30:45+11:00</lastmod>
     <ai:section>resources</ai:section>
-    <ai:wordCount>1935</ai:wordCount>
-    <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
+    <ai:wordCount>968</ai:wordCount>
+    <ai:lastVerified>2026-03-01T19:30:45+11:00</ai:lastVerified>
+    <ai:tags>livepeer, components index, aggregate inventory, repository, snippets</ai:tags>
+  </url>
+  <url>
+    <loc>https://docs.livepeer.org/v2/resources/documentation-guide/component-library/primitives</loc>
+    <lastmod>2026-02-28T04:36:23+11:00</lastmod>
+    <ai:section>resources</ai:section>
+    <ai:wordCount>1949</ai:wordCount>
+    <ai:lastVerified>2026-02-28T04:36:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, components, primitives, buttons, icons, links</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/contribute-to-the-docs</loc>
-    <lastmod>2026-02-25T18:16:43+11:00</lastmod>
+    <lastmod>2026-03-01T19:30:45+11:00</lastmod>
     <ai:section>resources</ai:section>
     <ai:wordCount>1993</ai:wordCount>
-    <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-01T19:30:45+11:00</ai:lastVerified>
     <ai:tags>livepeer, resources, documentation guide, contribute to the docs, contribute, docs</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/docs-features-and-ai-integrations</loc>
-    <lastmod>2026-02-25T18:16:43+11:00</lastmod>
+    <lastmod>2026-03-01T19:30:45+11:00</lastmod>
     <ai:section>resources</ai:section>
-    <ai:wordCount>1098</ai:wordCount>
-    <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
+    <ai:wordCount>1078</ai:wordCount>
+    <ai:lastVerified>2026-03-01T19:30:45+11:00</ai:lastVerified>
     <ai:tags>livepeer, resources, documentation guide, docs features and ai integrations, features, integrations</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/documentation-guide</loc>
-    <lastmod>2026-02-25T18:16:43+11:00</lastmod>
+    <lastmod>2026-03-01T19:30:45+11:00</lastmod>
     <ai:section>resources</ai:section>
-    <ai:wordCount>827</ai:wordCount>
-    <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
+    <ai:wordCount>807</ai:wordCount>
+    <ai:lastVerified>2026-03-01T19:30:45+11:00</ai:lastVerified>
     <ai:tags>livepeer, resources, documentation guide, guide, using, documentation</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/documentation-overview</loc>
-    <lastmod>2026-02-25T18:16:43+11:00</lastmod>
+    <lastmod>2026-03-01T19:30:45+11:00</lastmod>
     <ai:section>resources</ai:section>
-    <ai:wordCount>462</ai:wordCount>
-    <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
+    <ai:wordCount>429</ai:wordCount>
+    <ai:lastVerified>2026-03-01T19:30:45+11:00</ai:lastVerified>
     <ai:tags>livepeer, resources, documentation guide, documentation overview, documentation, overview, outlines, ethos, objectives</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/snippets-inventory</loc>
-    <lastmod>2026-02-25T18:16:43+11:00</lastmod>
+    <lastmod>2026-03-01T19:30:45+11:00</lastmod>
     <ai:section>resources</ai:section>
-    <ai:wordCount>812</ai:wordCount>
-    <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
+    <ai:wordCount>774</ai:wordCount>
+    <ai:lastVerified>2026-03-01T19:30:45+11:00</ai:lastVerified>
     <ai:tags>livepeer, resources, documentation guide, snippets, inventory, components, data, scripts, automations</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/resources/documentation-guide/style-guide</loc>
-    <lastmod>2026-02-25T18:16:43+11:00</lastmod>
+    <lastmod>2026-02-28T04:36:23+11:00</lastmod>
     <ai:section>resources</ai:section>
-    <ai:wordCount>3340</ai:wordCount>
-    <ai:lastVerified>2026-02-25T18:16:43+11:00</ai:lastVerified>
+    <ai:wordCount>3318</ai:wordCount>
+    <ai:lastVerified>2026-02-28T04:36:23+11:00</ai:lastVerified>
     <ai:tags>livepeer, resources, documentation guide, style guide, styling, mintlify, gotchas, best practices</ai:tags>
   </url>
   <url>

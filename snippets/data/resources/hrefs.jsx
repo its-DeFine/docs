@@ -31,10 +31,14 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "../../internal/governance",
-      "resolvedPath": "v2/internal/governance.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
+      "resolvedPath": "v2/internal/governance",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/internal/overview/governance.mdx",
+        "v2/about/livepeer-protocol/governance-model.mdx",
+        "v2/developers/moved-to-about-livepeer-protocol/livepeer-governance.mdx"
+      ]
     },
     {
       "sourceType": "markdown-link",
@@ -67,10 +71,14 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "../../internal/governance",
-      "resolvedPath": "v2/internal/governance.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
+      "resolvedPath": "v2/internal/governance",
+      "exists": false,
+      "status": "missing",
+      "movedCandidates": [
+        "v2/internal/overview/governance.mdx",
+        "v2/about/livepeer-protocol/governance-model.mdx",
+        "v2/developers/moved-to-about-livepeer-protocol/livepeer-governance.mdx"
+      ]
     },
     {
       "sourceType": "jsx-attr",
@@ -156,9 +164,9 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
       "exists": true,
-      "status": "ok",
+      "status": "ok-folder-route",
       "movedCandidates": []
     },
     {
@@ -196,525 +204,9 @@ export const LINK_MAP = {
       "exists": true,
       "status": "ok",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
     }
   ],
-  "v2/resources/documentation-guide/component-library/content.mdx": [
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../component-library/layout",
-      "resolvedPath": "v2/resources/documentation-guide/component-library/layout.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/content/code.jsx",
-      "resolvedPath": "snippets/components/content/code.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/content/external-content.jsx",
-      "resolvedPath": "snippets/components/content/external-content.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/content/responseField.jsx",
-      "resolvedPath": "snippets/components/content/responseField.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/content/release.jsx",
-      "resolvedPath": "snippets/components/content/release.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/content/data.jsx",
-      "resolvedPath": "snippets/components/content/data.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/divider.jsx",
-      "resolvedPath": "snippets/components/primitives/divider.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/resources/documentation-guide/component-library/display.mdx": [
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/media/videos/HeroBackground.mp4",
-      "resolvedPath": "snippets/assets/media/videos/HeroBackground.mp4",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/media/videos/HeroBackground.mp4",
-      "resolvedPath": "snippets/assets/media/videos/HeroBackground.mp4",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/media/videos/livepeer-founders-post.mp4",
-      "resolvedPath": "snippets/assets/media/videos/livepeer-founders-post.mp4",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/media/videos/daydream.mp4",
-      "resolvedPath": "snippets/assets/media/videos/daydream.mp4",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
-      "resolvedPath": "snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
-      "resolvedPath": "snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
-      "resolvedPath": "snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/media/images/nytv-logo.png",
-      "resolvedPath": "snippets/assets/media/images/nytv-logo.png",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../component-library/content",
-      "resolvedPath": "v2/resources/documentation-guide/component-library/content.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/video.jsx",
-      "resolvedPath": "snippets/components/display/video.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/image.jsx",
-      "resolvedPath": "snippets/components/display/image.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/zoomable-diagram.jsx",
-      "resolvedPath": "snippets/components/display/zoomable-diagram.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/embed.jsx",
-      "resolvedPath": "snippets/components/display/embed.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/quote.jsx",
-      "resolvedPath": "snippets/components/display/quote.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/CardCarousel.jsx",
-      "resolvedPath": "snippets/components/display/CardCarousel.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/showcaseCards.jsx",
-      "resolvedPath": "snippets/components/display/showcaseCards.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/display/socialLinks.jsx",
-      "resolvedPath": "snippets/components/display/socialLinks.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/divider.jsx",
-      "resolvedPath": "snippets/components/primitives/divider.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/resources/documentation-guide/component-library/domain.mdx": [
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/04_GATEWAYS/callouts.jsx",
-      "resolvedPath": "snippets/components/domain/04_GATEWAYS/callouts.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/divider.jsx",
-      "resolvedPath": "snippets/components/primitives/divider.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/resources/documentation-guide/component-library/integrations.mdx": [
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/integrations/coingecko.jsx",
-      "resolvedPath": "snippets/components/integrations/coingecko.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/divider.jsx",
-      "resolvedPath": "snippets/components/primitives/divider.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/resources/documentation-guide/component-library/layout.mdx": [
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../component-library/integrations",
-      "resolvedPath": "v2/resources/documentation-guide/component-library/integrations.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/cards.jsx",
-      "resolvedPath": "snippets/components/layout/cards.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/lists.jsx",
-      "resolvedPath": "snippets/components/layout/lists.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/steps.jsx",
-      "resolvedPath": "snippets/components/layout/steps.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/table.jsx",
-      "resolvedPath": "snippets/components/layout/table.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/quadGrid.jsx",
-      "resolvedPath": "snippets/components/layout/quadGrid.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/divider.jsx",
-      "resolvedPath": "snippets/components/primitives/divider.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/resources/documentation-guide/component-library/primitives.mdx": [
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
-      "rawPath": "https://livepeer.org",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/home/mission-control",
-      "resolvedPath": "v2/home/mission-control.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "../component-library/display",
-      "resolvedPath": "v2/resources/documentation-guide/component-library/display.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/divider.jsx",
-      "resolvedPath": "snippets/components/primitives/divider.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/icons.jsx",
-      "resolvedPath": "snippets/components/primitives/icons.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/links.jsx",
-      "resolvedPath": "snippets/components/primitives/links.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/buttons.jsx",
-      "resolvedPath": "snippets/components/primitives/buttons.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/text.jsx",
-      "resolvedPath": "snippets/components/primitives/text.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/layout.jsx",
-      "resolvedPath": "snippets/components/primitives/layout.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/tables.jsx",
-      "resolvedPath": "snippets/components/primitives/tables.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/resources/documentation-guide/component-library.mdx": [
+  "v2/resources/documentation-guide/component-library/component-library.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "empty",
@@ -1076,6 +568,551 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
+  "v2/resources/documentation-guide/component-library/content.mdx": [
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../component-library",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
+      "exists": true,
+      "status": "ok-folder-route",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../component-library/layout",
+      "resolvedPath": "v2/resources/documentation-guide/component-library/layout.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/content/code.jsx",
+      "resolvedPath": "snippets/components/content/code.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/content/external-content.jsx",
+      "resolvedPath": "snippets/components/content/external-content.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/content/responseField.jsx",
+      "resolvedPath": "snippets/components/content/responseField.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/content/release.jsx",
+      "resolvedPath": "snippets/components/content/release.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/content/data.jsx",
+      "resolvedPath": "snippets/components/content/data.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/divider.jsx",
+      "resolvedPath": "snippets/components/primitives/divider.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/resources/documentation-guide/component-library/display.mdx": [
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../component-library",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
+      "exists": true,
+      "status": "ok-folder-route",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/media/videos/HeroBackground.mp4",
+      "resolvedPath": "snippets/assets/media/videos/HeroBackground.mp4",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/media/videos/HeroBackground.mp4",
+      "resolvedPath": "snippets/assets/media/videos/HeroBackground.mp4",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/media/videos/livepeer-founders-post.mp4",
+      "resolvedPath": "snippets/assets/media/videos/livepeer-founders-post.mp4",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/media/videos/daydream.mp4",
+      "resolvedPath": "snippets/assets/media/videos/daydream.mp4",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
+      "resolvedPath": "snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
+      "resolvedPath": "snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
+      "resolvedPath": "snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/media/images/nytv-logo.png",
+      "resolvedPath": "snippets/assets/media/images/nytv-logo.png",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../component-library/content",
+      "resolvedPath": "v2/resources/documentation-guide/component-library/content.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/video.jsx",
+      "resolvedPath": "snippets/components/display/video.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/image.jsx",
+      "resolvedPath": "snippets/components/display/image.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/zoomable-diagram.jsx",
+      "resolvedPath": "snippets/components/display/zoomable-diagram.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/embed.jsx",
+      "resolvedPath": "snippets/components/display/embed.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/quote.jsx",
+      "resolvedPath": "snippets/components/display/quote.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/CardCarousel.jsx",
+      "resolvedPath": "snippets/components/display/CardCarousel.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/showcaseCards.jsx",
+      "resolvedPath": "snippets/components/display/showcaseCards.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/socialLinks.jsx",
+      "resolvedPath": "snippets/components/display/socialLinks.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/divider.jsx",
+      "resolvedPath": "snippets/components/primitives/divider.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/resources/documentation-guide/component-library/domain.mdx": [
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../component-library",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
+      "exists": true,
+      "status": "ok-folder-route",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../component-library",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
+      "exists": true,
+      "status": "ok-folder-route",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/domain/04_GATEWAYS/callouts.jsx",
+      "resolvedPath": "snippets/components/domain/04_GATEWAYS/callouts.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/divider.jsx",
+      "resolvedPath": "snippets/components/primitives/divider.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/resources/documentation-guide/component-library/integrations.mdx": [
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../component-library",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
+      "exists": true,
+      "status": "ok-folder-route",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../component-library",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
+      "exists": true,
+      "status": "ok-folder-route",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/integrations/coingecko.jsx",
+      "resolvedPath": "snippets/components/integrations/coingecko.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/divider.jsx",
+      "resolvedPath": "snippets/components/primitives/divider.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/resources/documentation-guide/component-library/layout.mdx": [
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../component-library",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
+      "exists": true,
+      "status": "ok-folder-route",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../component-library/integrations",
+      "resolvedPath": "v2/resources/documentation-guide/component-library/integrations.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/layout/cards.jsx",
+      "resolvedPath": "snippets/components/layout/cards.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/layout/lists.jsx",
+      "resolvedPath": "snippets/components/layout/lists.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/layout/steps.jsx",
+      "resolvedPath": "snippets/components/layout/steps.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/layout/table.jsx",
+      "resolvedPath": "snippets/components/layout/table.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/layout/quadGrid.jsx",
+      "resolvedPath": "snippets/components/layout/quadGrid.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/divider.jsx",
+      "resolvedPath": "snippets/components/primitives/divider.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/resources/documentation-guide/component-library/overview.mdx": [
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg",
+      "resolvedPath": "snippets/assets/logos/Livepeer-Logo-Full-Theme.svg",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "empty",
+      "rawPath": "#",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/layout/SearchTable.jsx",
+      "resolvedPath": "snippets/components/layout/SearchTable.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/layout/table.jsx",
+      "resolvedPath": "snippets/components/layout/table.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/resources/documentation-guide/component-library/primitives.mdx": [
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../component-library",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
+      "exists": true,
+      "status": "ok-folder-route",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://livepeer.org",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-relative",
+      "rawPath": "../component-library/display",
+      "resolvedPath": "v2/resources/documentation-guide/component-library/display.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/divider.jsx",
+      "resolvedPath": "snippets/components/primitives/divider.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/icons.jsx",
+      "resolvedPath": "snippets/components/primitives/icons.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/links.jsx",
+      "resolvedPath": "snippets/components/primitives/links.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/buttons.jsx",
+      "resolvedPath": "snippets/components/primitives/buttons.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/text.jsx",
+      "resolvedPath": "snippets/components/primitives/text.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/layout.jsx",
+      "resolvedPath": "snippets/components/primitives/layout.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/tables.jsx",
+      "resolvedPath": "snippets/components/primitives/tables.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/containers.jsx",
+      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/a11y.jsx",
+      "resolvedPath": "snippets/components/primitives/a11y.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
   "v2/resources/documentation-guide/contribute-to-the-docs.mdx": [
     {
       "sourceType": "markdown-link",
@@ -1135,9 +1172,9 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
       "exists": true,
-      "status": "ok",
+      "status": "ok-folder-route",
       "movedCandidates": []
     },
     {
@@ -1171,9 +1208,9 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
       "exists": true,
-      "status": "ok",
+      "status": "ok-folder-route",
       "movedCandidates": []
     },
     {
@@ -1198,9 +1235,9 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
       "exists": true,
-      "status": "ok",
+      "status": "ok-folder-route",
       "movedCandidates": []
     },
     {
@@ -1237,15 +1274,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     }
   ],
@@ -1290,18 +1318,9 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
       "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
+      "status": "ok-folder-route",
       "movedCandidates": []
     }
   ],
@@ -1364,9 +1383,9 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
       "exists": true,
-      "status": "ok",
+      "status": "ok-folder-route",
       "movedCandidates": []
     },
     {
@@ -1382,9 +1401,9 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
       "exists": true,
-      "status": "ok",
+      "status": "ok-folder-route",
       "movedCandidates": []
     },
     {
@@ -1430,15 +1449,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     }
   ],
@@ -1581,8 +1591,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "../../internal/overview/docs-philosophy.mdx",
+      "resolvedPath": "v2/internal/overview/docs-philosophy.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1593,9 +1603,9 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
       "exists": true,
-      "status": "ok",
+      "status": "ok-folder-route",
       "movedCandidates": []
     },
     {
@@ -1628,10 +1638,10 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
+      "rawPath": "snippets/components/primitives/divider.jsx",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped-package-import",
       "movedCandidates": []
     }
   ],
@@ -1658,9 +1668,9 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
       "exists": true,
-      "status": "ok",
+      "status": "ok-folder-route",
       "movedCandidates": []
     },
     {
@@ -1676,9 +1686,9 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
       "exists": true,
-      "status": "ok",
+      "status": "ok-folder-route",
       "movedCandidates": []
     },
     {
@@ -1712,9 +1722,9 @@ export const LINK_MAP = {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
       "rawPath": "./component-library",
-      "resolvedPath": "v2/resources/documentation-guide/component-library.mdx",
+      "resolvedPath": "/v2/resources/documentation-guide/component-library",
       "exists": true,
-      "status": "ok",
+      "status": "ok-folder-route",
       "movedCandidates": []
     },
     {
@@ -1748,6 +1758,15 @@ export const LINK_MAP = {
       "sourceType": "import-path",
       "linkType": "import-path",
       "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped-style-guide-example",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/a11y.jsx",
       "resolvedPath": null,
       "exists": null,
       "status": "skipped-style-guide-example",
@@ -2626,6 +2645,9 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
+  "snippets/components/display/embed.mdx": [],
+  "snippets/components/display/containers.mdx": [],
+  "snippets/components/layout/api-base-urls-table.mdx": [],
   "snippets/pages/04_GATEWAYS/run/quickstart/views/docker/dockerOffChainTab.mdx": [
     {
       "sourceType": "markdown-link",
@@ -2654,8 +2676,7 @@ export const LINK_MAP = {
       "status": "ok",
       "movedCandidates": []
     }
-  ],
-  "snippets/components/layout/api-base-urls-table.mdx": []
+  ]
 };
 
 export default LINK_MAP;

@@ -732,6 +732,116 @@ export const LINK_MAP = {
     }
   ],
   "v2/developers/developer-journey.mdx": [],
+  "v2/developers/developer-path.mdx": [
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "empty",
+      "rawPath": "#path-1-workload-provider",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "empty",
+      "rawPath": "#path-2-workload-consumer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "empty",
+      "rawPath": "#path-3-core-contributor",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway",
+      "resolvedPath": "v2/gateways/run-a-gateway/quickstart/quickstart-a-gateway.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/developers/ai-pipelines/byoc",
+      "resolvedPath": "v2/developers/ai-pipelines/byoc.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/developers/ai-pipelines/overview",
+      "resolvedPath": "v2/developers/ai-pipelines/overview.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/its-DeFine/livepeer-ops",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/its-DeFine/Unreal_Vtuber",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "empty",
+      "rawPath": "#",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "empty",
+      "rawPath": "#",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/go-livepeer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/developers/guides-and-resources/contribution-guide",
+      "resolvedPath": "v2/developers/guides-and-resources/contribution-guide.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
   "v2/developers/developer-platforms/all-ecosystem/ecosystem-products.mdx": [],
   "v2/developers/developer-platforms/builder-hub.mdx": [
     {
@@ -1252,6 +1362,7 @@ export const LINK_MAP = {
   "v2/developers/guides-and-resources/developer-guides.mdx": [],
   "v2/developers/guides-and-resources/developer-help.mdx": [],
   "v2/developers/guides-and-resources/resources.mdx": [],
+  "v2/developers/journey-mapping.mdx": [],
   "v2/developers/livepeer-real-time-video/page-1.mdx": [],
   "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx": [],
   "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/frameworks-spe.mdx": [],
