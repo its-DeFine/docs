@@ -4276,9 +4276,9 @@
                         "icon": "hashtag",
                         "pages": [
                           "v2/es/community/livepeer-community/community-guidelines",
-                          "v2/community/livepeer-connect/news-and-socials",
-                          "v2/community/livepeer-connect/events-and-community-streams",
-                          "v2/community/livepeer-connect/forums-and-discussions"
+                          "v2/es/community/livepeer-connect/news-and-socials",
+                          "v2/es/community/livepeer-connect/events-and-community-streams",
+                          "v2/es/community/livepeer-connect/forums-and-discussions"
                         ]
                       },
                       {
@@ -5550,9 +5550,9 @@
                         "icon": "hashtag",
                         "pages": [
                           "v2/fr/community/livepeer-community/community-guidelines",
-                          "v2/community/livepeer-connect/news-and-socials",
-                          "v2/community/livepeer-connect/events-and-community-streams",
-                          "v2/community/livepeer-connect/forums-and-discussions"
+                          "v2/fr/community/livepeer-connect/news-and-socials",
+                          "v2/fr/community/livepeer-connect/events-and-community-streams",
+                          "v2/fr/community/livepeer-connect/forums-and-discussions"
                         ]
                       },
                       {
@@ -6824,9 +6824,9 @@
                         "icon": "hashtag",
                         "pages": [
                           "v2/cn/community/livepeer-community/community-guidelines",
-                          "v2/community/livepeer-connect/news-and-socials",
-                          "v2/community/livepeer-connect/events-and-community-streams",
-                          "v2/community/livepeer-connect/forums-and-discussions"
+                          "v2/cn/community/livepeer-connect/news-and-socials",
+                          "v2/cn/community/livepeer-connect/events-and-community-streams",
+                          "v2/cn/community/livepeer-connect/forums-and-discussions"
                         ]
                       },
                       {
