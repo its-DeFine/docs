@@ -3909,7 +3909,7 @@
                                   "v2/es/gateways/run-a-gateway/configure/video-configuration",
                                   "v2/es/gateways/run-a-gateway/configure/ai-configuration",
                                   "v2/es/gateways/run-a-gateway/configure/dual-configuration",
-                                  "v2/gateways/run-a-gateway/configure/pricing-configuration"
+                                  "v2/es/gateways/run-a-gateway/configure/pricing-configuration"
                                 ]
                               },
                               {
@@ -4112,8 +4112,8 @@
                           "v2/es/orchestrators/advanced-setup/staking-LPT",
                           "v2/es/orchestrators/advanced-setup/rewards-and-fees",
                           "v2/es/orchestrators/advanced-setup/delegation",
-                          "v2/orchestrators/advanced-setup/ai-pipelines",
-                          "v2/orchestrators/advanced-setup/run-a-pool"
+                          "v2/es/orchestrators/advanced-setup/ai-pipelines",
+                          "v2/es/orchestrators/advanced-setup/run-a-pool"
                         ]
                       },
                       {
@@ -5183,7 +5183,7 @@
                                   "v2/fr/gateways/run-a-gateway/configure/video-configuration",
                                   "v2/fr/gateways/run-a-gateway/configure/ai-configuration",
                                   "v2/fr/gateways/run-a-gateway/configure/dual-configuration",
-                                  "v2/gateways/run-a-gateway/configure/pricing-configuration"
+                                  "v2/fr/gateways/run-a-gateway/configure/pricing-configuration"
                                 ]
                               },
                               {
@@ -5328,7 +5328,7 @@
                         "pages": [
                           "v2/fr/orchestrators/quickstart/overview",
                           "v2/fr/orchestrators/quickstart/join-a-pool",
-                          "v2/orchestrators/quickstart/orchestrator-setup"
+                          "v2/fr/orchestrators/quickstart/orchestrator-setup"
                         ]
                       },
                       {
