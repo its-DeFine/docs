@@ -4234,9 +4234,9 @@
                       {
                         "group": "Livepeer Treasury",
                         "pages": [
-                          "v2/lpt/treasury/overview",
-                          "v2/lpt/treasury/proposals",
-                          "v2/lpt/treasury/allocations"
+                          "v2/es/lpt/treasury/overview",
+                          "v2/es/lpt/treasury/proposals",
+                          "v2/es/lpt/treasury/allocations"
                         ]
                       },
                       {
@@ -5508,9 +5508,9 @@
                       {
                         "group": "Livepeer Treasury",
                         "pages": [
-                          "v2/lpt/treasury/overview",
-                          "v2/lpt/treasury/proposals",
-                          "v2/lpt/treasury/allocations"
+                          "v2/fr/lpt/treasury/overview",
+                          "v2/fr/lpt/treasury/proposals",
+                          "v2/fr/lpt/treasury/allocations"
                         ]
                       },
                       {
@@ -6782,9 +6782,9 @@
                       {
                         "group": "Livepeer Treasury",
                         "pages": [
-                          "v2/lpt/treasury/overview",
-                          "v2/lpt/treasury/proposals",
-                          "v2/lpt/treasury/allocations"
+                          "v2/cn/lpt/treasury/overview",
+                          "v2/cn/lpt/treasury/proposals",
+                          "v2/cn/lpt/treasury/allocations"
                         ]
                       },
                       {
