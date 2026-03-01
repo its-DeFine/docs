@@ -1,17 +1,36 @@
+---
+title: 'Source of Truth Policy'
+sidebarTitle: 'Source of Truth Policy'
+description: 'Canonical ownership boundaries to prevent drift across README, docs-guide, tests docs, and Mintlify pages'
+keywords:
+  [
+    'livepeer',
+    'source of truth policy',
+    'canonical',
+    'ownership',
+    'boundaries',
+    'drift',
+    'readme',
+    'docs-guide',
+    'tests docs',
+    'mintlify pages',
+  ]
+---
+
 # Source of Truth Policy
 
 This document defines canonical ownership boundaries to prevent drift across README, docs-guide, tests docs, and Mintlify pages.
 
 ## Canonical Boundaries
 
-| Concern | Canonical source | Notes |
-|---|---|---|
-| Script/runtime behavior | Code + tests | Behavioral truth always lives in executable code and validation tests. |
-| Script metadata and inventory | Script headers + generated indexes | Script headers feed script index generation. |
-| Repo feature navigation map | `docs-guide/*.md` (manual canonical files) | Internal maintainer source of truth. |
-| Public user-facing docs content | `v2/pages/**` | Mintlify docs in `docs.json` navigation. |
-| CI/test execution behavior | Workflow files + test runner scripts | Narrative summaries must link to these files. |
-| Issue/PR intake behavior | `.github/ISSUE_TEMPLATE/*` + PR templates + workflows | Generated templates index summarizes usage. |
+| Concern                         | Canonical source                                      | Notes                                                                  |
+| ------------------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------- |
+| Script/runtime behavior         | Code + tests                                          | Behavioral truth always lives in executable code and validation tests. |
+| Script metadata and inventory   | Script headers + generated indexes                    | Script headers feed script index generation.                           |
+| Repo feature navigation map     | `docs-guide/*.md` (manual canonical files)            | Internal maintainer source of truth.                                   |
+| Public user-facing docs content | `v2/pages/**`                                         | Mintlify docs in `docs.json` navigation.                               |
+| CI/test execution behavior      | Workflow files + test runner scripts                  | Narrative summaries must link to these files.                          |
+| Issue/PR intake behavior        | `.github/ISSUE_TEMPLATE/*` + PR templates + workflows | Generated templates index summarizes usage.                            |
 
 ## Required docs-guide Canonical Files
 

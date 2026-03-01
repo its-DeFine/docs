@@ -1,6 +1,17 @@
-# Content System
-
-This document defines how product messaging, information architecture, and technical depth are organized.
+---
+title: 'Content System'
+sidebarTitle: 'Content System'
+description: 'This document defines how product messaging, information architecture, and technical depth are organized.'
+keywords:
+  [
+    'livepeer',
+    'content system',
+    'product messaging',
+    'information architecture',
+    'technical depth',
+    'organized',
+  ]
+---
 
 ## Objectives
 

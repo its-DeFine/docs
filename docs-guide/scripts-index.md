@@ -1,8 +1,17 @@
-# Script Index
+---
+title: 'Scripts Index'
+sidebarTitle: 'Scripts Index'
+description: 'This page provides an aggregate catalog inventory of repository scripts generated from group script indexes.'
+keywords:
+  ['livepeer', 'scripts index', 'aggregate inventory', 'repository', 'scripts']
+---
 
-Aggregate catalog generated from group script indexes.
-
-> Generated file. Do not edit manually. Run `node tests/unit/script-docs.test.js --write --rebuild-indexes`.
+<Note>
+**Generation Script**: This file is generated from script(s): `tests/unit/script-docs.test.js`. <br/>
+**Purpose**: Enforce script header schema, keep group script indexes in sync, and build aggregate script index. <br/>
+**Run when**: Scripts are added, removed, renamed, or script metadata changes in scoped roots. <br/>
+**Important**: Do not manually edit this file; run `node tests/unit/script-docs.test.js --write --rebuild-indexes`. <br/>
+</Note>
 
 ## .githooks
 

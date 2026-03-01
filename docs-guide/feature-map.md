@@ -1,6 +1,17 @@
-# Feature Map
-
-This map captures repository capabilities as an internal maintainer index.
+---
+title: 'Feature Map'
+sidebarTitle: 'Feature Map'
+description: 'This map captures repository capabilities as an internal maintainer index.'
+keywords:
+[
+'livepeer',
+'feature map',
+'internal',
+'map',
+'repository',
+'capabilities',
+]
+---
 
 ## 1) Frontend Docs Experience
 

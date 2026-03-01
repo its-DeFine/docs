@@ -1,3 +1,19 @@
+---
+title: 'Docs Guide Overview'
+sidebarTitle: 'Docs Guide'
+description: 'Internal source of truth for repository features and functionality'
+keywords:
+  [
+    'livepeer',
+    'docs guide',
+    'internal',
+    'source of truth',
+    'repository',
+    'features',
+    'functionality',
+  ]
+---
+
 # Docs Guide (Internal Source of Truth)
 
 This folder is the internal maintainer navigation source of truth for repository features and functionality. It is not part of Mintlify navigation in `docs.json`; it exists to keep operational documentation discoverable, non-duplicative, and maintainable.
@@ -13,19 +29,19 @@ See [source-of-truth-policy.md](./source-of-truth-policy.md) for full boundaries
 
 ## Start Here
 
-| If you need to understand... | Canonical file |
-|---|---|
-| Governance and canonical ownership | [source-of-truth-policy.md](./source-of-truth-policy.md) |
-| Complete repo capability map | [feature-map.md](./feature-map.md) |
-| Data + control flow across systems | [architecture-map.md](./architecture-map.md) |
-| CLI behavior and operator runbooks | [lpd.md](./lpd.md) |
-| Validation and enforcement gates | [quality-gates.md](./quality-gates.md) |
-| GitHub Actions, n8n, and automation pipelines | [automation-pipelines.md](./automation-pipelines.md) |
-| Information architecture and content strategy | [content-system.md](./content-system.md) |
-| APIs and external data integrations | [data-integrations.md](./data-integrations.md) |
-| Script catalog (generated) | [scripts-index.md](./scripts-index.md) |
-| Workflow catalog (generated) | [workflows-index.md](./workflows-index.md) |
-| Issue/PR template catalog (generated) | [templates-index.md](./templates-index.md) |
+| If you need to understand...                  | Canonical file                                           |
+| --------------------------------------------- | -------------------------------------------------------- |
+| Governance and canonical ownership            | [source-of-truth-policy.md](./source-of-truth-policy.md) |
+| Complete repo capability map                  | [feature-map.md](./feature-map.md)                       |
+| Data + control flow across systems            | [architecture-map.md](./architecture-map.md)             |
+| CLI behavior and operator runbooks            | [lpd.md](./lpd.md)                                       |
+| Validation and enforcement gates              | [quality-gates.md](./quality-gates.md)                   |
+| GitHub Actions, n8n, and automation pipelines | [automation-pipelines.md](./automation-pipelines.md)     |
+| Information architecture and content strategy | [content-system.md](./content-system.md)                 |
+| APIs and external data integrations           | [data-integrations.md](./data-integrations.md)           |
+| Script catalog (generated)                    | [scripts-index.md](./scripts-index.md)                   |
+| Workflow catalog (generated)                  | [workflows-index.md](./workflows-index.md)               |
+| Issue/PR template catalog (generated)         | [templates-index.md](./templates-index.md)               |
 
 ## Update Rules
 

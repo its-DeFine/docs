@@ -1,4 +1,19 @@
-# Architecture Map
+---
+title: 'Architecture Map'
+sidebarTitle: 'Architecture Map'
+description: 'Internal systems map for how content, tooling, validation, and automation interact'
+keywords:
+  [
+    'livepeer',
+    'architecture map',
+    'internal',
+    'systems map',
+    'content',
+    'tooling',
+    'validation',
+    'automation',
+  ]
+---
 
 This is an internal systems map for how content, tooling, validation, and automation interact.
 

@@ -2199,9 +2199,7 @@
                         "icon": "code",
                         "pages": [
                           "v2/developers/portal",
-                          "v2/developers/journey-mapping",
-                          "v2/developers/developer-guide",
-                          "v2/developers/developer-journey"
+                          "v2/developers/developer-path"
                         ]
                       },
                       {
@@ -3154,6 +3152,24 @@
                           "v2/internal/rfp/outcomes",
                           "v2/internal/rfp/deliverables",
                           "v2/internal/rfp/report"
+                        ]
+                      },
+                      {
+                        "group": "Docs Guide",
+                        "pages": [
+                          "docs-guide/README",
+                          "docs-guide/source-of-truth-policy",
+                          "v2/index",
+                          "docs-guide/feature-map",
+                          "docs-guide/architecture-map",
+                          "docs-guide/lpd",
+                          "docs-guide/quality-gates",
+                          "docs-guide/automation-pipelines",
+                          "docs-guide/content-system",
+                          "docs-guide/data-integrations",
+                          "docs-guide/scripts-index",
+                          "docs-guide/workflows-index",
+                          "docs-guide/templates-index"
                         ]
                       },
                       {

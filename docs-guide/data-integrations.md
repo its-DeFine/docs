@@ -1,6 +1,19 @@
-# Data Integrations
-
-This document maps primary API/data integrations used by docs content and automation.
+---
+title: 'Data Integrations'
+sidebarTitle: 'Data Integrations'
+description: 'This document maps primary API/data integrations used by docs content and automations.'
+keywords:
+  [
+    'livepeer',
+    'data integrations',
+    'primary',
+    'api',
+    'data',
+    'integrations',
+    'docs content',
+    'automation',
+  ]
+---
 
 ## API Specifications
 

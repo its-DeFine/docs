@@ -1,6 +1,19 @@
-# Automation Pipelines Map
-
-This document tracks automation systems and where they write data.
+---
+title: 'Automation Pipelines Map'
+sidebarTitle: 'Automation Pipelines'
+description: 'This document tracks automation systems and where they write data.'
+keywords:
+  [
+    'livepeer',
+    'automation pipelines',
+    'internal',
+    'map',
+    'automation',
+    'systems',
+    'write',
+    'data',
+  ]
+---
 
 ## Automation Surfaces
 
