@@ -102,7 +102,9 @@
                           {
                             "group": "Projects",
                             "icon": "folder-open",
-                            "pages": ["v1/developers/guides/managing-projects"]
+                            "pages": [
+                              "v1/developers/guides/managing-projects"
+                            ]
                           },
                           {
                             "group": "Integrations",
@@ -304,7 +306,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -526,7 +530,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -789,7 +795,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -1011,7 +1019,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -1287,7 +1297,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -1509,7 +1521,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -1777,7 +1791,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -1999,7 +2015,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -2109,12 +2127,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["/v2/resources/redirect"]
+                    "pages": [
+                      "/v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2177,12 +2199,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["/v2/resources/redirect"]
+                    "pages": [
+                      "/v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2268,7 +2294,9 @@
                       {
                         "group": "Daydream",
                         "icon": "camera-movie",
-                        "pages": ["v2/platforms/daydream/overview"]
+                        "pages": [
+                          "v2/platforms/daydream/overview"
+                        ]
                       },
                       {
                         "group": "Livepeer Studio",
@@ -2328,7 +2356,9 @@
                           },
                           {
                             "group": "Player & embed",
-                            "pages": ["v2/platforms/livepeer-studio/player"]
+                            "pages": [
+                              "v2/platforms/livepeer-studio/player"
+                            ]
                           },
                           {
                             "group": "Reference",
@@ -2486,14 +2516,18 @@
                       {
                         "group": "Frameworks",
                         "icon": "clapperboard-play",
-                        "pages": ["v2/platforms/frameworks/overview"]
+                        "pages": [
+                          "v2/platforms/frameworks/overview"
+                        ]
                       }
                     ]
                   },
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["/v2/resources/redirect"]
+                    "pages": [
+                      "/v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
@@ -2731,12 +2765,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["/v2/resources/redirect"]
+                    "pages": [
+                      "/v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2844,15 +2882,21 @@
                         "pages": [
                           {
                             "group": "Orchestrators",
-                            "pages": ["v2/orchestrators/references/faq"]
+                            "pages": [
+                              "v2/orchestrators/references/faq"
+                            ]
                           },
                           {
                             "group": "API & CLI Reference",
-                            "pages": ["v2/orchestrators/references/cli-flags"]
+                            "pages": [
+                              "v2/orchestrators/references/cli-flags"
+                            ]
                           },
                           {
                             "group": "On-Chain Reference",
-                            "pages": ["v2/orchestrators/references/faq"]
+                            "pages": [
+                              "v2/orchestrators/references/faq"
+                            ]
                           }
                         ]
                       }
@@ -2861,12 +2905,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["/v2/resources/redirect"]
+                    "pages": [
+                      "/v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2928,12 +2976,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["/v2/resources/redirect"]
+                    "pages": [
+                      "/v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2995,12 +3047,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["/v2/resources/redirect"]
+                    "pages": [
+                      "/v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -3060,7 +3116,9 @@
                       {
                         "group": "Developer References",
                         "icon": "book",
-                        "pages": ["v2/resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Gateway References",
@@ -3072,27 +3130,37 @@
                       {
                         "group": "Orchestrator References",
                         "icon": "microchip",
-                        "pages": ["v2/resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "LPT & Delegator References",
                         "icon": "hand-holding-dollar",
-                        "pages": ["v2/resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Community Resources",
                         "icon": "",
-                        "pages": ["v2/resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Partner Resources",
                         "icon": "handshake",
-                        "pages": ["v2/resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Help Center",
                         "icon": "comments-question-check",
-                        "pages": ["v2/resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Technical References",
@@ -3100,7 +3168,9 @@
                         "pages": [
                           {
                             "group": "Protocol References",
-                            "pages": [" "]
+                            "pages": [
+                              " "
+                            ]
                           }
                         ]
                       },
@@ -3117,7 +3187,9 @@
                   {
                     "anchor": "Help Center",
                     "icon": "comments-question-check",
-                    "pages": ["v2/resources/redirect"]
+                    "pages": [
+                      "v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
@@ -3173,7 +3245,9 @@
                           },
                           {
                             "group": "Contributing",
-                            "pages": ["docs-guide/contributing"]
+                            "pages": [
+                              "docs-guide/contributing"
+                            ]
                           },
                           {
                             "group": "Indexes",
@@ -3187,7 +3261,9 @@
                           },
                           {
                             "group": "Quality & Testing",
-                            "pages": ["docs-guide/quality-gates"]
+                            "pages": [
+                              "docs-guide/quality-gates"
+                            ]
                           }
                         ]
                       },
@@ -4131,10 +4207,10 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/lpt/token-portal",
-                          "v2/lpt/about/overview",
-                          "v2/lpt/about/purpose",
-                          "v2/lpt/about/tokenomics",
-                          "v2/lpt/about/mechanics"
+                          "v2/es/lpt/about/overview",
+                          "v2/es/lpt/about/purpose",
+                          "v2/es/lpt/about/tokenomics",
+                          "v2/es/lpt/about/mechanics"
                         ]
                       },
                       {
@@ -5405,10 +5481,10 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/lpt/token-portal",
-                          "v2/lpt/about/overview",
-                          "v2/lpt/about/purpose",
-                          "v2/lpt/about/tokenomics",
-                          "v2/lpt/about/mechanics"
+                          "v2/fr/lpt/about/overview",
+                          "v2/fr/lpt/about/purpose",
+                          "v2/fr/lpt/about/tokenomics",
+                          "v2/fr/lpt/about/mechanics"
                         ]
                       },
                       {
@@ -6679,10 +6755,10 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/lpt/token-portal",
-                          "v2/lpt/about/overview",
-                          "v2/lpt/about/purpose",
-                          "v2/lpt/about/tokenomics",
-                          "v2/lpt/about/mechanics"
+                          "v2/cn/lpt/about/overview",
+                          "v2/cn/lpt/about/purpose",
+                          "v2/cn/lpt/about/tokenomics",
+                          "v2/cn/lpt/about/mechanics"
                         ]
                       },
                       {
