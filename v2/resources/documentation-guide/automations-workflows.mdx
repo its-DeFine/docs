@@ -6,17 +6,9 @@ keywords: ["livepeer", "resources", "documentation guide", "automations", "workf
 og:image: "/snippets/assets/domain/07_RESOURCES/social-preview-resources.jpg"
 ---
 
-import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
-
-<PreviewCallout />
-
-# Automations & Workflows Guide
-
-This guide documents all automation scripts, GitHub Actions workflows, n8n automations, and pre-commit hooks used in the Livepeer documentation repository.
-
-<Info>
+<Tip>
 For a detailed audit of all automations, see the [Automations & Workflows Audit Report](/tasks/reports/_legacy-unmanaged/ungenerated/20-automations-workflows-audit-report.md).
-</Info>
+</Tip>
 
 ## Overview
 
@@ -27,9 +19,9 @@ The documentation repository uses multiple automation systems to keep content up
 - **Scripts** - Command-line tools for content generation, data fetching, and maintenance
 - **Pre-commit Hooks** - Local validation to enforce style guide compliance
 
-<Info>
+<Tip>
 **Intentional Duplication:** Both GitHub Actions and n8n workflows exist for the same functionality (Ghost blog, Forum, YouTube data). This is intentional to provide flexibility for future maintainers. Use whichever platform you prefer based on your needs.
-</Info>
+</Tip>
 
 ## GitHub Actions Workflows
 

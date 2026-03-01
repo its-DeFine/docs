@@ -3,7 +3,7 @@
  * @script docs-guide-sot.test
  * @summary Validate docs-guide source-of-truth coverage, README pointers, and generated index freshness.
  * @owner docs
- * @scope tests, docs-guide, README.md, tools/scripts/generate-docs-guide-indexes.js, tools/scripts/generate-docs-guide-pages-index.js
+ * @scope tests, docs-guide, README.md, tools/scripts/generate-docs-guide-indexes.js, tools/scripts/generate-docs-guide-pages-index.js, tools/scripts/generate-docs-guide-components-index.js
  *
  * @usage
  *   node tests/unit/docs-guide-sot.test.js
@@ -48,7 +48,8 @@ const REQUIRED_GENERATED_FILES = [
   'docs-guide/scripts-index.md',
   'docs-guide/workflows-index.mdx',
   'docs-guide/templates-index.mdx',
-  'docs-guide/pages-index.mdx'
+  'docs-guide/pages-index.mdx',
+  'docs-guide/components-index.mdx'
 ];
 
 const REQUIRED_README_REFERENCES = [
@@ -59,6 +60,7 @@ const REQUIRED_README_REFERENCES = [
   'docs-guide/quality-gates.mdx',
   'docs-guide/automation-pipelines.mdx',
   'docs-guide/pages-index.mdx',
+  'docs-guide/components-index.mdx',
   'docs-guide/scripts-index.md',
   'docs-guide/workflows-index.mdx',
   'docs-guide/templates-index.mdx'
@@ -137,6 +139,11 @@ function checkGeneratedIndexFreshness(errors) {
       args: ['tools/scripts/generate-docs-guide-pages-index.js', '--check'],
       file: 'docs-guide/pages-index.mdx',
       message: 'Generated docs-guide pages index is out of date. Run pages index generator script.'
+    },
+    {
+      args: ['tools/scripts/generate-docs-guide-components-index.js', '--check'],
+      file: 'docs-guide/components-index.mdx',
+      message: 'Generated docs-guide components index is out of date. Run components index generator script.'
     }
   ];
 

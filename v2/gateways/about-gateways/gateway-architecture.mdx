@@ -1,25 +1,18 @@
 ---
 title: 'Gateway Architecture'
 sidebarTitle: 'Architecture'
+description: 'This page describes the architecture of Livepeer Gateways.'
 keywords: ["livepeer", "gateways", "about gateways", "gateway architecture", "gateway", "architecture"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-
-
-
-<Danger>
-  This page is a work in progress. <br />
-  TODO: Overview, Edit, Streamline, Format, Style, Link to github / other resources
-</Danger>
-
 import { ScrollableDiagram } from '/snippets/components/display/zoomable-diagram.jsx'
 import { DoubleIconLink } from '/snippets/components/primitives/links.jsx'
 
-Livepeer Gateway Architecture is defined in the livepeer-go core codebase.
+Livepeer Gateway Architecture is defined in the `livepeer-go` core codebase.
 
 <Card
-  title="livpeer/go-livepeer/core/livepeernode.go"
+  title="/go-livepeer/core/livepeernode.go"
   href="https://github.com/livepeer/go-livepeer/blob/5691cb48/core/livepeernode.go"
   icon="github"
   arrow
@@ -93,39 +86,48 @@ flowchart TB
 
 ### Flow Diagram
 
-<div style={{ display: 'flex', justifyContent: 'center' }}>
-  <Mermaid
-    chart={`graph TD
-      A["Application<br/>(Daydream, ComfyUI, BYOC)"] -->|Job Request| B["Gateway<br/>Job Intake, Pricing, Capability Match"]
-      B -->|Route Job| C["Orchestrator<br/>GPU Compute, AI Inference, Transcoding"]
-      C -->|Results| B
-      B -->|Response| A `}
-  />
-</div>
+<ScrollableDiagram title="Gateway Flow" maxHeight="600px">
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui', 'clusterBkg': 'rgba(255,255,255,0.05)', 'clusterBorder': '#2d9a67' }}}%%
+graph TD
+    classDef default stroke-width:2px
+    A["Application<br/>Daydream, ComfyUI, BYOC"] -->|Job Request| B["Gateway<br/>Job Intake, Pricing, Capability Match"]
+    B -->|Route Job| C["Orchestrator<br/>GPU Compute, AI Inference, Transcoding"]
+    C -->|Results| B
+    B -->|Response| A
+```
+
+</ScrollableDiagram>
 
 <br />
 
 ### Layered Architecture
 
-<Mermaid
-  chart={`
-    graph LR
-      subgraph APP[Application Layer]
-          X["User App<br/>(Web, Mobile, TouchDesigner)"]
-      end
-      subgraph GW[Gateway Layer]
-          G1[Job Intake]
-          G2[Capability Discovery]
-          G3[Pricing & Marketplace]
-          G4[Routing / Scheduling]
-      end
-      subgraph ORC[Orchestrator Layer]
-          O1[GPU Worker]
-          O2[AI Models / BYOC Containers]
-          O3[Transcoder]
-      end
-      X --> G1
-      G1 --> O1
-      O1 --> G1
-      G1 --> X `}
-/>
+<ScrollableDiagram title="Layered Architecture" maxHeight="600px">
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui', 'clusterBkg': 'rgba(255,255,255,0.05)', 'clusterBorder': '#2d9a67' }}}%%
+graph LR
+    classDef default stroke-width:2px
+    subgraph APP[Application Layer]
+        X["User App<br/>Web, Mobile, TouchDesigner"]
+    end
+    subgraph GW[Gateway Layer]
+        G1[Job Intake]
+        G2[Capability Discovery]
+        G3[Pricing & Marketplace]
+        G4[Routing / Scheduling]
+    end
+    subgraph ORC[Orchestrator Layer]
+        O1[GPU Worker]
+        O2[AI Models / BYOC Containers]
+        O3[Transcoder]
+    end
+    X --> G1
+    G1 --> O1
+    O1 --> G1
+    G1 --> X
+```
+
+</ScrollableDiagram>
