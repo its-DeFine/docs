@@ -3731,7 +3731,7 @@
                             "group": "Video & Transcoding",
                             "pages": [
                               "v2/es/developers/quickstart/video/video-streaming",
-                              "v2/developers/quickstart/video/transcoding-jobs",
+                              "v2/es/developers/quickstart/video/transcoding-jobs",
                               "v2/es/developers/livepeer-real-time-video/video-streaming-on-livepeer/README"
                             ]
                           },
