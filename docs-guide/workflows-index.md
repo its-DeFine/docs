@@ -1,3 +1,18 @@
+---
+title: 'Workflows Index'
+sidebarTitle: 'Workflows Index'
+description: 'Aggregate inventory of repository GitHub workflows'
+keywords:
+  [
+    'livepeer',
+    'workflows index',
+    'aggregate inventory',
+    'repository',
+    'github',
+    'workflows',
+  ]
+---
+
 {/*
 This file is generated from script(s): tools/scripts/generate-docs-guide-indexes.js.
 Purpose: Workflow inventory for docs-guide maintenance.

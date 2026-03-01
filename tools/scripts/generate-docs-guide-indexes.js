@@ -48,6 +48,39 @@ const OUTPUT_FILES = {
   templates: 'docs-guide/templates-index.md'
 };
 
+const WORKFLOWS_INDEX_FRONTMATTER_LINES = [
+  '---',
+  "title: 'Workflows Index'",
+  "sidebarTitle: 'Workflows Index'",
+  "description: 'Aggregate inventory of repository GitHub workflows'",
+  'keywords:',
+  '  [',
+  "    'livepeer',",
+  "    'workflows index',",
+  "    'aggregate inventory',",
+  "    'repository',",
+  "    'github',",
+  "    'workflows',",
+  '  ]',
+  '---'
+];
+
+const TEMPLATES_INDEX_FRONTMATTER_LINES = [
+  '---',
+  "title: 'Templates Index'",
+  "sidebarTitle: 'Templates Index'",
+  "description: 'Aggregate inventory of repository templates'",
+  'keywords:',
+  '  [',
+  "    'livepeer',",
+  "    'templates index',",
+  "    'aggregate inventory',",
+  "    'repository',",
+  "    'templates',",
+  '  ]',
+  '---'
+];
+
 function normalizeRepoPath(value) {
   return String(value || '').split(path.sep).join('/');
 }
@@ -193,6 +226,8 @@ function buildWorkflowsIndex() {
   });
 
   const lines = [];
+  WORKFLOWS_INDEX_FRONTMATTER_LINES.forEach((line) => lines.push(line));
+  lines.push('');
   buildGeneratedMarkdownBannerLines({
     script: 'tools/scripts/generate-docs-guide-indexes.js',
     purpose: 'Workflow inventory for docs-guide maintenance.',
@@ -287,6 +322,8 @@ function buildTemplatesIndex() {
     .sort((a, b) => a.file.localeCompare(b.file));
 
   const lines = [];
+  TEMPLATES_INDEX_FRONTMATTER_LINES.forEach((line) => lines.push(line));
+  lines.push('');
   buildGeneratedMarkdownBannerLines({
     script: 'tools/scripts/generate-docs-guide-indexes.js',
     purpose: 'Issue and PR template inventory for docs-guide maintenance.',

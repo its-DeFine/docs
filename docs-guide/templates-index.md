@@ -1,3 +1,17 @@
+---
+title: 'Templates Index'
+sidebarTitle: 'Templates Index'
+description: 'Aggregate inventory of repository templates'
+keywords:
+  [
+    'livepeer',
+    'templates index',
+    'aggregate inventory',
+    'repository',
+    'templates',
+  ]
+---
+
 {/*
 This file is generated from script(s): tools/scripts/generate-docs-guide-indexes.js.
 Purpose: Issue and PR template inventory for docs-guide maintenance.
