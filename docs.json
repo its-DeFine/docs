@@ -4226,9 +4226,9 @@
                         "group": "Livepeer Governance",
                         "icon": "box-ballot",
                         "pages": [
-                          "v2/lpt/governance/overview",
-                          "v2/lpt/governance/model",
-                          "v2/lpt/governance/processes"
+                          "v2/es/lpt/governance/overview",
+                          "v2/es/lpt/governance/model",
+                          "v2/es/lpt/governance/processes"
                         ]
                       },
                       {
@@ -5500,9 +5500,9 @@
                         "group": "Livepeer Governance",
                         "icon": "box-ballot",
                         "pages": [
-                          "v2/lpt/governance/overview",
-                          "v2/lpt/governance/model",
-                          "v2/lpt/governance/processes"
+                          "v2/fr/lpt/governance/overview",
+                          "v2/fr/lpt/governance/model",
+                          "v2/fr/lpt/governance/processes"
                         ]
                       },
                       {
@@ -6774,9 +6774,9 @@
                         "group": "Livepeer Governance",
                         "icon": "box-ballot",
                         "pages": [
-                          "v2/lpt/governance/overview",
-                          "v2/lpt/governance/model",
-                          "v2/lpt/governance/processes"
+                          "v2/cn/lpt/governance/overview",
+                          "v2/cn/lpt/governance/model",
+                          "v2/cn/lpt/governance/processes"
                         ]
                       },
                       {
