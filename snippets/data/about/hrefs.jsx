@@ -73,9 +73,7 @@ export const LINK_MAP = {
       "resolvedPath": "v2/about/livepeer-protocol/protocol-economics",
       "exists": false,
       "status": "missing",
-      "movedCandidates": [
-        "v2/x-pages/01_about/livepeer-protocol/protocol-economics.mdx"
-      ]
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -346,9 +344,7 @@ export const LINK_MAP = {
       "resolvedPath": "v2/about/livepeer-protocol/protocol-economics",
       "exists": false,
       "status": "missing",
-      "movedCandidates": [
-        "v2/x-pages/01_about/livepeer-protocol/protocol-economics.mdx"
-      ]
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -1809,10 +1805,10 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "./protocol-economics",
-      "resolvedPath": "v2/about/livepeer-protocol/protocol-economics",
-      "exists": false,
-      "status": "skipped-allowlisted",
+      "rawPath": "./economics",
+      "resolvedPath": "v2/about/livepeer-protocol/economics.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -1838,24 +1834,6 @@ export const LINK_MAP = {
       "linkType": "internal-relative",
       "rawPath": "../resources/blockchain-contracts",
       "resolvedPath": "v2/about/resources/blockchain-contracts.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/resources/references/contract-addresses",
-      "resolvedPath": "v2/resources/references/contract-addresses.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/text.jsx",
-      "resolvedPath": "snippets/components/primitives/text.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

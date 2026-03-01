@@ -3,11 +3,13 @@ docs/ABOUT/CONTEXT DATA/
 docs/ORCHESTRATORS/CONTEXT DATA/
 docs/DEVELOPERS/CONTEXT DATA/
 v2/x-pages/
+v2/x-pages/**/
+v2/x-notes/
 v2/pages/01_about/_contextData_/
-v2/pages/**/_contextData_/
-v2/pages/**/_context_data_/
-v2/pages/**/_tests-to-delete/
-/tasks/
+v2/**/_contextData_/
+v2/**/_context_data_/
+v2/**/_tests-to-delete/
+/tasks/*
 
 # Temporary local test files
 tmp_*
