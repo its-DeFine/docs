@@ -32,6 +32,7 @@
  * @notes
  *   Requires ffmpeg + ffprobe on PATH.
  *   OpenRouter audio input is sent as base64 via messages[].content input_audio.
+ *   Logs per-chunk and total token/cost usage when provider usage fields are returned.
  */
 
 const fs = require('fs')
@@ -254,6 +255,25 @@ function extractMessageText(content) {
   return ''
 }
 
+function toFiniteNumber(value) {
+  const parsed = Number(value)
+  return Number.isFinite(parsed) ? parsed : null
+}
+
+function parseUsage(rawUsage) {
+  return {
+    promptTokens: toFiniteNumber(rawUsage?.prompt_tokens),
+    completionTokens: toFiniteNumber(rawUsage?.completion_tokens),
+    totalTokens: toFiniteNumber(rawUsage?.total_tokens),
+    audioTokens: toFiniteNumber(rawUsage?.prompt_tokens_details?.audio_tokens),
+    cost: toFiniteNumber(rawUsage?.cost),
+  }
+}
+
+function formatCost(value) {
+  return value === null ? 'n/a' : `$${value.toFixed(6)}`
+}
+
 async function transcribeChunk({
   chunkPath,
   model,
@@ -327,7 +347,11 @@ async function transcribeChunk({
         `OpenRouter returned empty transcript for chunk ${chunkNumber}/${chunkCount}.`
       )
     }
-    return transcript
+    return {
+      text: transcript,
+      usage: parseUsage(json?.usage),
+      provider: json?.provider || null,
+    }
   }
 
   throw new Error(`Exhausted retries for chunk ${chunkNumber}/${chunkCount}.`)
@@ -459,6 +483,18 @@ async function main() {
     const chunkFiles = normalizeAndChunkAudio(inputAudioPath, chunkDir, chunkSeconds)
 
     const chunkResults = []
+    const usageTotals = {
+      promptTokens: 0,
+      completionTokens: 0,
+      totalTokens: 0,
+      audioTokens: 0,
+      cost: 0,
+      promptTokenSamples: 0,
+      completionTokenSamples: 0,
+      totalTokenSamples: 0,
+      audioTokenSamples: 0,
+      costSamples: 0,
+    }
     let timelineSeconds = 0
 
     for (let i = 0; i < chunkFiles.length; i += 1) {
@@ -473,7 +509,7 @@ async function main() {
           start
         )} - ${formatTime(end)})`
       )
-      const text = await transcribeChunk({
+      const chunkResult = await transcribeChunk({
         chunkPath,
         model,
         openRouterKey,
@@ -482,11 +518,41 @@ async function main() {
         chunkNumber,
         chunkCount: chunkFiles.length,
       })
+      const usage = chunkResult.usage
+      const usageFields = [
+        ['prompt', 'promptTokens', 'promptTokenSamples'],
+        ['completion', 'completionTokens', 'completionTokenSamples'],
+        ['total', 'totalTokens', 'totalTokenSamples'],
+        ['audio', 'audioTokens', 'audioTokenSamples'],
+        ['cost', 'cost', 'costSamples'],
+      ]
+      const usageParts = []
+
+      for (const [label, valueKey, sampleKey] of usageFields) {
+        const value = usage[valueKey]
+        if (value === null) {
+          if (label === 'cost') usageParts.push('cost=n/a')
+          continue
+        }
+
+        usageTotals[valueKey] += value
+        usageTotals[sampleKey] += 1
+        if (label === 'cost') {
+          usageParts.push(`cost=${formatCost(value)}`)
+        } else {
+          usageParts.push(`${label}=${value}`)
+        }
+      }
+
+      if (chunkResult.provider) {
+        usageParts.push(`provider=${chunkResult.provider}`)
+      }
+      console.log(`  Usage: ${usageParts.join(', ') || 'none returned by provider'}`)
 
       chunkResults.push({
         start,
         end,
-        text,
+        text: chunkResult.text,
       })
       timelineSeconds += durationSeconds
     }
@@ -506,6 +572,28 @@ async function main() {
     console.log('✓ Transcript written')
     console.log(`  File: ${outputPath}`)
     console.log(`  Chunks transcribed: ${chunkResults.length}`)
+
+    const totalsParts = []
+    if (usageTotals.promptTokenSamples) {
+      totalsParts.push(`prompt=${usageTotals.promptTokens}`)
+    }
+    if (usageTotals.completionTokenSamples) {
+      totalsParts.push(`completion=${usageTotals.completionTokens}`)
+    }
+    if (usageTotals.totalTokenSamples) {
+      totalsParts.push(`total=${usageTotals.totalTokens}`)
+    }
+    if (usageTotals.audioTokenSamples) {
+      totalsParts.push(`audio=${usageTotals.audioTokens}`)
+    }
+    if (usageTotals.costSamples) {
+      totalsParts.push(`cost=${formatCost(usageTotals.cost)}`)
+    }
+    if (totalsParts.length) {
+      console.log(`  Usage totals: ${totalsParts.join(', ')}`)
+    } else {
+      console.log('  Usage totals: not returned by provider')
+    }
   } finally {
     fs.rmSync(workspacePath, { recursive: true, force: true })
   }

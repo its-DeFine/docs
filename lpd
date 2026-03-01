@@ -54,8 +54,8 @@ Usage:
     - flags: pass-through Mintlify args.
     - info: Compatibility alias to `lpd dev`.
 
-  lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--wcag] [--wcag-no-fix] [--base-url URL]
-    - flags: choose test scope and optional browser/domain/WCAG checks.
+  lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--wcag] [--wcag-no-fix] [--link-audit-external] [--base-url URL]
+    - flags: choose test scope and optional browser/domain/WCAG/external-link-audit checks.
     - info: Run test suite with optional integration checks.
 
   lpd ai-sitemap [--write|--check] [--json]
@@ -138,7 +138,7 @@ Command Groups:
     lpd setup [--yes] [--no-tools] [--no-tests] [--no-hooks] [--with-mintlify] [--no-cli]
     lpd doctor [--strict] [--json]
     lpd dev [--test] [--test-mode fast|staged|full] [-- ...mint args]
-    lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--wcag] [--wcag-no-fix] [--base-url URL]
+    lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--wcag] [--wcag-no-fix] [--link-audit-external] [--base-url URL]
     lpd ai-sitemap [--write|--check] [--json]
     lpd ci [--skip-browser] [--base-url URL]
 
@@ -1006,6 +1006,7 @@ cmd_test() {
     local run_browser=0
     local domain_scope=""
     local run_wcag=0
+    local run_link_audit_external=0
     local wcag_no_fix=0
     local base_url=""
 
@@ -1035,6 +1036,9 @@ cmd_test() {
                 run_wcag=1
                 wcag_no_fix=1
                 ;;
+            --link-audit-external)
+                run_link_audit_external=1
+                ;;
             --base-url)
                 if [ "$#" -lt 2 ]; then
                     finish 1 "test" "--base-url requires a URL."
@@ -1048,7 +1052,7 @@ cmd_test() {
                 ;;
             --help|-h)
                 cat <<'EOF'
-Usage: lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--wcag] [--wcag-no-fix] [--base-url URL] [--json]
+Usage: lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--wcag] [--wcag-no-fix] [--link-audit-external] [--base-url URL] [--json]
 EOF
                 return 0
                 ;;
@@ -1102,6 +1106,51 @@ EOF
         fi
         if ! "${wcag_cmd[@]}"; then
             failures=$((failures + 1))
+        fi
+    fi
+
+    if [ "$run_link_audit_external" = "1" ]; then
+        local external_report
+        local external_report_json
+        local -a external_link_cmd
+        case "$mode" in
+            full)
+                external_report="/tmp/v2-link-audit-external-full.md"
+                external_report_json="/tmp/v2-link-audit-external-full.json"
+                external_link_cmd=(
+                    node tests/integration/v2-link-audit.js
+                    --full
+                    --external-policy validate
+                    --external-link-types navigational
+                    --no-write-links
+                    --report "$external_report"
+                    --report-json "$external_report_json"
+                )
+                ;;
+            *)
+                external_report="/tmp/v2-link-audit-external-staged.md"
+                external_report_json="/tmp/v2-link-audit-external-staged.json"
+                external_link_cmd=(
+                    node tests/integration/v2-link-audit.js
+                    --staged
+                    --external-policy validate
+                    --external-link-types navigational
+                    --no-write-links
+                    --report "$external_report"
+                    --report-json "$external_report_json"
+                )
+                ;;
+        esac
+
+        if ! "${external_link_cmd[@]}"; then
+            if [ "$mode" = "full" ]; then
+                failures=$((failures + 1))
+                echo "External link audit failed in full mode (blocking). Reports: $external_report, $external_report_json"
+            else
+                echo "Warning: external link audit failed in '$mode' mode (advisory). Reports: $external_report, $external_report_json"
+            fi
+        else
+            echo "External link audit completed successfully. Reports: $external_report, $external_report_json"
         fi
     fi
 

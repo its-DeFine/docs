@@ -186,6 +186,18 @@ a.nav-tabs-item[href$='/07_resources/resources_hub'] > div:last-child {
   padding-bottom: 1rem !important;
 }
 
+/* Accessibility: prevent hidden assistant sheet from receiving focus */
+#chat-assistant-sheet[aria-hidden="true"] {
+  display: none !important;
+}
+
+/* Accessibility: ensure CTA buttons meet minimum target size */
+button.text-left.text-gray-600.text-sm.font-medium {
+  min-height: 24px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
 /* #footer > div > div:first-child {
   display: flex;
   flex-direction: row !important;

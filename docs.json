@@ -2213,15 +2213,79 @@
                 ]
               },
               {
-                "tab": "Platforms",
-                "icon": "film-canister",
+                "tab": "Developers",
+                "icon": "display-code",
                 "anchors": [
                   {
-                    "anchor": "Products",
+                    "anchor": "Developers",
                     "icon": "display-code",
                     "groups": [
                       {
-                        "group": "Use Livepeer",
+                        "group": "Building on Livepeer",
+                        "icon": "code",
+                        "pages": [
+                          "v2/developers/portal",
+                          "v2/developers/journey-mapping",
+                          "v2/developers/developer-guide",
+                          "v2/developers/developer-journey"
+                        ]
+                      },
+                      {
+                        "group": "Quickstart",
+                        "icon": "fast-forward",
+                        "pages": [
+                          {
+                            "group": "Video & Transcoding",
+                            "pages": [
+                              "v2/developers/quickstart/video/video-streaming",
+                              "v2/developers/quickstart/video/transcoding-jobs",
+                              "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README"
+                            ]
+                          },
+                          {
+                            "group": "AI Jobs & Pipelines",
+                            "pages": [
+                              "v2/developers/quickstart/ai/ai-pipelines",
+                              "v2/developers/quickstart/ai/ai-jobs"
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "AI Pipelines",
+                        "icon": "user-robot",
+                        "pages": [
+                          "v2/developers/ai-pipelines/overview",
+                          "v2/developers/ai-pipelines/byoc",
+                          "v2/developers/ai-pipelines/comfystream"
+                        ]
+                      },
+                      {
+                        "group": "Guides & Tutorials",
+                        "icon": "laptop-file",
+                        "pages": [
+                          "v2/developers/guides-and-resources/developer-guides",
+                          "v2/developers/guides-and-resources/resources",
+                          "v2/developers/guides-and-resources/developer-help",
+                          "v2/developers/guides-and-resources/contribution-guide"
+                        ]
+                      },
+                      {
+                        "group": "Builder Opportunities",
+                        "icon": "lightbulb",
+                        "pages": [
+                          "v2/developers/builder-opportunities/dev-programs",
+                          "v2/developers/builder-opportunities/livepeer-rfps"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "Developer Platforms",
+                    "icon": "display-code",
+                    "groups": [
+                      {
+                        "group": "Platforms",
                         "icon": "play",
                         "pages": [
                           "v2/platforms/portal",
@@ -2452,101 +2516,10 @@
                         ]
                       },
                       {
-                        "group": "Embody Avatars",
-                        "icon": "user-robot",
-                        "pages": [
-                          "v2/platforms/embody/overview"
-                        ]
-                      },
-                      {
                         "group": "Frameworks",
                         "icon": "clapperboard-play",
                         "pages": [
                           "v2/platforms/frameworks/overview"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "anchor": "Resource HUB",
-                    "icon": "books",
-                    "pages": [
-                      "/v2/resources/redirect"
-                    ]
-                  },
-                  {
-                    "anchor": " ",
-                    "icon": "horizontal-rule",
-                    "pages": [
-                      " "
-                    ]
-                  }
-                ]
-              },
-              {
-                "tab": "Developers",
-                "icon": "display-code",
-                "anchors": [
-                  {
-                    "anchor": "Developers",
-                    "icon": "display-code",
-                    "groups": [
-                      {
-                        "group": "Building on Livepeer",
-                        "icon": "code",
-                        "pages": [
-                          "v2/developers/portal",
-                          "v2/developers/developer-guide",
-                          "v2/developers/guides/partner-integrations",
-                          "v2/developers/developer-journey"
-                        ]
-                      },
-                      {
-                        "group": "Quickstart",
-                        "icon": "fast-forward",
-                        "pages": [
-                          {
-                            "group": "Video & Transcoding",
-                            "pages": [
-                              "v2/developers/quickstart/video/video-streaming",
-                              "v2/developers/quickstart/video/transcoding-jobs",
-                              "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README"
-                            ]
-                          },
-                          {
-                            "group": "AI Jobs & Pipelines",
-                            "pages": [
-                              "v2/developers/quickstart/ai/ai-pipelines",
-                              "v2/developers/quickstart/ai/ai-jobs"
-                            ]
-                          }
-                        ]
-                      },
-                      {
-                        "group": "AI Pipelines",
-                        "icon": "user-robot",
-                        "pages": [
-                          "v2/developers/ai-pipelines/overview",
-                          "v2/developers/ai-pipelines/byoc",
-                          "v2/developers/ai-pipelines/comfystream"
-                        ]
-                      },
-                      {
-                        "group": "Guides & Tutorials",
-                        "icon": "laptop-file",
-                        "pages": [
-                          "v2/developers/guides-and-resources/developer-guides",
-                          "v2/developers/guides-and-resources/resources",
-                          "v2/developers/guides-and-resources/developer-help",
-                          "v2/developers/guides-and-resources/contribution-guide"
-                        ]
-                      },
-                      {
-                        "group": "Builder Opportunities",
-                        "icon": "lightbulb",
-                        "pages": [
-                          "v2/developers/builder-opportunities/dev-programs",
-                          "v2/developers/builder-opportunities/livepeer-rfps"
                         ]
                       }
                     ]
@@ -3102,7 +3075,8 @@
                         "group": "Home",
                         "icon": "house",
                         "pages": [
-                          "v2/resources/redirect"
+                          "v2/resources/redirect",
+                          "v2/resources/resources-portal"
                         ]
                       },
                       {
@@ -3226,73 +3200,6 @@
                 ]
               },
               {
-                "tab": "Deprecated",
-                "hidden": true,
-                "icon": "comments-question-check",
-                "anchors": [
-                  {
-                    "anchor": "Edited Content",
-                    "icon": "comments-question-check",
-                    "groups": [
-                      {
-                        "group": "Home",
-                        "pages": [
-                          "v2/resources/redirect"
-                        ]
-                      },
-                      {
-                        "group": "About",
-                        "pages": [
-                          " "
-                        ]
-                      },
-                      {
-                        "group": "Platforms",
-                        "pages": [
-                          " "
-                        ]
-                      },
-                      {
-                        "group": "Developers",
-                        "pages": [
-                          " "
-                        ]
-                      },
-                      {
-                        "group": "Orchestrators",
-                        "pages": [
-                          " "
-                        ]
-                      },
-                      {
-                        "group": "LPT",
-                        "pages": [
-                          " "
-                        ]
-                      },
-                      {
-                        "group": "Resources",
-                        "pages": [
-                          " "
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "anchor": "Resource HUB",
-                    "icon": "books",
-                    "pages": [
-                      "/v2/resources/redirect"
-                    ]
-                  },
-                  {
-                    "anchor": " ",
-                    "icon": "-",
-                    "href": " "
-                  }
-                ]
-              },
-              {
                 "tab": "Internal Hub",
                 "hidden": true,
                 "icon": "info-circle",
@@ -3335,24 +3242,63 @@
                             "group": "Quality & Accessibility",
                             "pages": [
                               "v2/internal/reports/quality-accessibility/v2-wcag-audit",
-                              "v2/internal/reports/quality-accessibility/wcag-repair-common"
+                              "v2/internal/reports/quality-accessibility/wcag-repair-common",
+                              "v2/internal/reports/quality-accessibility/audit-v2-usefulness"
                             ]
                           },
                           {
                             "group": "Page Audits",
                             "pages": [
+                              "v2/internal/reports/page-audits/audit-all-pages-simple",
+                              "v2/internal/reports/page-audits/audit-python",
                               "v2/internal/reports/page-audits/domain-pages-audit"
                             ]
                           },
                           {
                             "group": "Repo Ops",
                             "pages": [
-                              "v2/internal/reports/repo-ops/audit-scripts"
+                              "v2/internal/reports/repo-ops/audit-scripts",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--errors-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-complete-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-migration-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-retrospective-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-rfp-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-legacy-unmanaged-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-legacy-unmanaged-ungenerated-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-docs-index-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-navigation-links-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-page-audits-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-full-run-2026-02-23-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-smoke-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-smoke2-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-smoke3-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-repo-ops-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-rfp-deliverable-i-r1-r15-2026-02-24-replan-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--scripts-audit",
+                              "v2/internal/reports/repo-ops/audit-tasks-folders--tasks-root-audit"
+                            ]
+                          },
+                          {
+                            "group": "Tests",
+                            "pages": [
+                              "v2/internal/reports/navigation-links/docs-navigation",
+                              "v2/internal/reports/navigation-links/v2-link-audit",
+                              "v2/internal/reports/quality-accessibility/v2-wcag-audit",
+                              "v2/internal/reports/page-audits/domain-pages-audit"
                             ]
                           }
                         ]
                       }
                     ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "-",
+                    "href": " "
                   }
                 ]
               }

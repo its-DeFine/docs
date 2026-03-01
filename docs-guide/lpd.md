@@ -50,9 +50,11 @@ lpd dev -- --port 3333
 ```bash
 lpd test --staged
 lpd test --staged --wcag
+lpd test --staged --link-audit-external
 lpd test --full
 lpd test --full --wcag
 lpd test --full --wcag --wcag-no-fix
+lpd test --full --link-audit-external
 lpd test --browser
 lpd ci --skip-browser
 ```
@@ -64,6 +66,13 @@ WCAG audit notes:
 - In `--full` mode, `lpd` runs the full v2 WCAG sweep.
 - WCAG autofix is enabled by default for the WCAG script; use `--wcag-no-fix` to switch to suggestions-only mode.
 - Automated WCAG checks are partial coverage and do not replace manual accessibility review.
+
+External link audit notes:
+
+- `--link-audit-external` runs `tests/integration/v2-link-audit.js` with `--external-policy validate`.
+- In default/fast and `--staged` modes, `lpd` maps external audit scope to `--staged`.
+- In `--full` mode, `lpd` maps external audit scope to `--full`.
+- Non-zero external audit exits are advisory in default/fast and `--staged`, but blocking in `--full`.
 
 ### 3.5) AI sitemap generation
 

@@ -2,25 +2,48 @@ module.exports = {
   categories: [
     {
       slug: 'navigation-links',
-      groupTitle: 'Reports: Navigation & Links',
+      groupTitle: 'Navigation & Links',
     },
     {
       slug: 'quality-accessibility',
-      groupTitle: 'Reports: Quality & Accessibility',
+      groupTitle: 'Quality & Accessibility',
     },
     {
       slug: 'page-audits',
-      groupTitle: 'Reports: Page Audits',
+      groupTitle: 'Page Audits',
     },
     {
       slug: 'repo-ops',
-      groupTitle: 'Reports: Repo Ops',
+      groupTitle: 'Repo Ops',
+    },
+  ],
+  docsGroups: [
+    {
+      slug: 'navigation-links',
+      groupTitle: 'Navigation & Links',
+    },
+    {
+      slug: 'quality-accessibility',
+      groupTitle: 'Quality & Accessibility',
+    },
+    {
+      slug: 'page-audits',
+      groupTitle: 'Page Audits',
+    },
+    {
+      slug: 'repo-ops',
+      groupTitle: 'Repo Ops',
+    },
+    {
+      slug: 'tests',
+      groupTitle: 'Tests',
     },
   ],
   entries: [
     {
       publish: true,
       categorySlug: 'navigation-links',
+      docsGroupSlugs: ['navigation-links', 'tests'],
       scriptId: 'docs-navigation.test',
       title: 'Docs Navigation Route Report',
       sidebarTitle: 'Docs Navigation',
@@ -33,6 +56,7 @@ module.exports = {
     {
       publish: true,
       categorySlug: 'navigation-links',
+      docsGroupSlugs: ['navigation-links', 'tests'],
       scriptId: 'v2-link-audit',
       title: 'V2 Link Audit Report',
       sidebarTitle: 'Link Audit',
@@ -45,6 +69,7 @@ module.exports = {
     {
       publish: true,
       categorySlug: 'quality-accessibility',
+      docsGroupSlugs: ['quality-accessibility', 'tests'],
       scriptId: 'v2-wcag-audit',
       title: 'V2 WCAG Audit Report',
       sidebarTitle: 'WCAG Audit',
@@ -76,6 +101,9 @@ module.exports = {
         'Generated usefulness audit summary from tools/scripts/audit-v2-usefulness.js.',
       sourceType: 'file',
       sourcePath: 'tasks/reports/quality-accessibility/docs-usefulness/latest/summary.md',
+      sourceFallbackGlobs: [
+        'tasks/reports/quality-accessibility/docs-usefulness/*/summary.md',
+      ],
       targetSlug: 'audit-v2-usefulness',
     },
     {
@@ -123,12 +151,13 @@ module.exports = {
       description:
         'Generated Python audit report from tasks/scripts/audit-python.py.',
       sourceType: 'file',
-      sourcePath: 'tasks/PLAN/reports/page-audit-python-latest.md',
+      sourcePath: 'tasks/reports/page-audits/page-audit-python-latest.md',
       targetSlug: 'audit-python',
     },
     {
       publish: true,
       categorySlug: 'page-audits',
+      docsGroupSlugs: ['page-audits', 'tests'],
       scriptId: 'domain-pages-audit',
       title: 'Domain Page Load Audit Report',
       sidebarTitle: 'Domain Pages',
@@ -171,6 +200,7 @@ module.exports = {
       sidebarTitle: 'Audit Conflicts',
       description:
         'Generated recommendation conflicts report from tools/scripts/audit-tasks-folders.js.',
+      optionalWhenMissing: true,
       sourceType: 'file',
       sourcePath: 'tasks/reports/repo-ops/recommendation-conflicts.md',
       targetSlug: 'audit-tasks-folders--recommendation-conflicts',

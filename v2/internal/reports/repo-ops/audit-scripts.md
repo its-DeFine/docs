@@ -5,6 +5,8 @@ description: 'Generated script inventory audit report from tools/scripts/audit-s
 keywords: ["livepeer","internal","reports","repo-ops","audit-scripts"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
+Last Generated (UTC ISO): `2026-02-28T04:22:56.252Z`
+Last Generated (UTC Human): `February 28, 2026 04:22 UTC`
 # SCRIPT_AUDIT
 
 Generated: 2026-02-24T13:08:14.862Z

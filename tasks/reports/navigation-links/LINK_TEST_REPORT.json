@@ -1,0 +1,52 @@
+{
+  "generatedAt": "2026-02-28T09:26:09.549Z",
+  "args": {
+    "mode": "staged",
+    "strict": true,
+    "report": "../../../../../tmp/livepeer-link-audit-precommit.md",
+    "reportJson": "tasks/reports/navigation-links/LINK_TEST_REPORT.json",
+    "writeLinks": false,
+    "externalPolicy": "classify",
+    "externalLinkTypes": "navigational",
+    "externalTimeoutMs": 10000,
+    "externalConcurrency": 12,
+    "externalPerHostConcurrency": 2,
+    "externalRetries": 1,
+    "files": []
+  },
+  "aggregate": {
+    "filesAnalyzed": 1,
+    "totalRefs": 0,
+    "internalMissingRefs": 0,
+    "linkTypeCounts": {},
+    "statusCounts": {},
+    "external": {
+      "policy": "classify",
+      "linkTypes": "navigational",
+      "timeoutMs": 10000,
+      "concurrency": 12,
+      "perHostConcurrency": 2,
+      "retries": 1,
+      "eligibleRefCount": 0,
+      "uniqueUrlCount": 0,
+      "uniqueHostCount": 0,
+      "urlClassCounts": {},
+      "refClassCounts": {}
+    }
+  },
+  "external": {
+    "urlResults": [],
+    "refsByFile": []
+  },
+  "files": [
+    {
+      "file": "v2/internal/assets/transcripts/a16z/2026-01-22-inferact-building-the-infrastructure-that-runs-modern-ai.mdx",
+      "isRootPage": true,
+      "domains": [
+        "internal"
+      ],
+      "importedMdx": [],
+      "refs": []
+    }
+  ]
+}

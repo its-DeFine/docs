@@ -7,8 +7,10 @@ og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
 import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+import { FocusableScrollRegions } from '/snippets/components/primitives/a11y.jsx'
 
 <PreviewCallout />
+<FocusableScrollRegions />
 
 
 # Documentation Style Guide
@@ -875,17 +877,17 @@ git checkout -b docs-plan/XX-task-name
 
 Before submitting documentation:
 
-- [ ] Content renders correctly in dark mode (default)
-- [ ] Content renders correctly in light mode
-- [ ] All links work and point to correct pages
-- [ ] Code examples are accurate and tested
-- [ ] Images load and have appropriate alt text
-- [ ] Components use theme-aware colors
-- [ ] No hardcoded colors that should adapt to theme
-- [ ] Components render correctly
-- [ ] No console errors in browser dev tools
-- [ ] MDX syntax errors checked and fixed
-- [ ] All pages verified in headless browser (see Verification Requirements below)
+- Content renders correctly in dark mode (default)
+- Content renders correctly in light mode
+- All links work and point to correct pages
+- Code examples are accurate and tested
+- Images load and have appropriate alt text
+- Components use theme-aware colors
+- No hardcoded colors that should adapt to theme
+- Components render correctly
+- No console errors in browser dev tools
+- MDX syntax errors checked and fixed
+- All pages verified in headless browser (see Verification Requirements below)
 
 ## Verification Requirements
 
