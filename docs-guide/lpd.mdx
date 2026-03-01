@@ -426,12 +426,12 @@ For deeper test/audit script behaviour and owning paths, see [`quality-gates`](.
 **Available to run in Hooks right now**
 
 <DynamicTable
-  headerList={["Runnable hooks command", "Purpose"]}
+  headerList={["Runnable hooks command", "Purpose", "PURPOSE"]}
   itemsList={[
-    { "Runnable hooks command": "lpd hooks install", Purpose: "Install/update the git pre-commit hook from .githooks/pre-commit." },
-    { "Runnable hooks command": "lpd hooks status", Purpose: "Check whether the installed hook exists, is executable, and matches source." },
-    { "Runnable hooks command": "lpd hooks verify", Purpose: "Run hook verification checks via .githooks/verify.sh." },
-    { "Runnable hooks command": "lpd hooks info", Purpose: "Print hook scripts, bypass flags, and override policy details." },
+    { "Runnable hooks command": "lpd hooks install", Purpose: "Install/update the git pre-commit hook from .githooks/pre-commit.", PURPOSE: "Copies/syncs hook files into .git/hooks so repository checks run on commit." },
+    { "Runnable hooks command": "lpd hooks status", Purpose: "Check whether the installed hook exists, is executable, and matches source.", PURPOSE: "Validates current hook state and reports drift (missing, non-executable, out-of-date)." },
+    { "Runnable hooks command": "lpd hooks verify", Purpose: "Run hook verification checks via .githooks/verify.sh.", PURPOSE: "Executes hook health checks to confirm required hook scripts and policy wiring are valid." },
+    { "Runnable hooks command": "lpd hooks info", Purpose: "Print hook scripts, bypass flags, and override policy details.", PURPOSE: "Shows operator guidance, bypass env flags, and human-only override trailer rules." },
   ]}
   monospaceColumns={[0]}
 />
@@ -439,23 +439,23 @@ For deeper test/audit script behaviour and owning paths, see [`quality-gates`](.
 You can also run managed hook scripts directly via fallback resolution:
 
 <DynamicTable
-  headerList={["Hook script command token", "Resolved script path"]}
+  headerList={["Hook script command token", "Resolved script path", "PURPOSE"]}
   itemsList={[
-    { "Hook script command token": "lpd hooks install", "Resolved script path": ".githooks/install.sh" },
-    { "Hook script command token": "lpd hooks verify-browser", "Resolved script path": ".githooks/verify-browser.js" },
-    { "Hook script command token": "lpd hooks server-manager", "Resolved script path": ".githooks/server-manager.js" },
-    { "Hook script command token": "lpd hooks pre-commit", "Resolved script path": ".githooks/pre-commit" },
-    { "Hook script command token": "lpd hooks pre-commit-no-deletions", "Resolved script path": ".githooks/pre-commit-no-deletions" },
-    { "Hook script command token": "lpd hooks verify", "Resolved script path": ".githooks/verify.sh" },
+    { "Hook script command token": "lpd hooks install", "Resolved script path": ".githooks/install.sh", PURPOSE: "Installs or refreshes git hook files from repository-managed hook sources." },
+    { "Hook script command token": "lpd hooks verify-browser", "Resolved script path": ".githooks/verify-browser.js", PURPOSE: "Runs browser-focused verification used by hook workflows." },
+    { "Hook script command token": "lpd hooks server-manager", "Resolved script path": ".githooks/server-manager.js", PURPOSE: "Manages local server lifecycle steps used by hook/browser checks." },
+    { "Hook script command token": "lpd hooks pre-commit", "Resolved script path": ".githooks/pre-commit", PURPOSE: "Runs the main repository pre-commit policy and staged-check pipeline." },
+    { "Hook script command token": "lpd hooks pre-commit-no-deletions", "Resolved script path": ".githooks/pre-commit-no-deletions", PURPOSE: "Runs stricter pre-commit flow that blocks file deletions by policy." },
+    { "Hook script command token": "lpd hooks verify", "Resolved script path": ".githooks/verify.sh", PURPOSE: "Performs shell/MDX/link/import verification checks for hook integrity." },
   ]}
   monospaceColumns={[0, 1]}
 />
 
 <DynamicTable
-  headerList={["Discovery command", "What you get"]}
+  headerList={["Discovery command", "What you get", "PURPOSE"]}
   itemsList={[
-    { "Discovery command": "lpd hooks info", "What you get": "Built-in hook subcommands, policy details, and known hook scripts." },
-    { "Discovery command": "lpd scripts list --group hooks --show-ignored", "What you get": "Hook-group script inventory, including ignored entries." },
+    { "Discovery command": "lpd hooks info", "What you get": "Built-in hook subcommands, policy details, and known hook scripts.", PURPOSE: "Gives the authoritative hooks runbook before you execute or bypass anything." },
+    { "Discovery command": "lpd scripts list --group hooks --show-ignored", "What you get": "Hook-group script inventory, including ignored entries.", PURPOSE: "Shows every hook command token you can invoke via script runner fallback." },
   ]}
   monospaceColumns={[0]}
 />
@@ -507,22 +507,22 @@ and
 **Available to run in Scripts right now**
 
 <DynamicTable
-  headerList={["Group", "List what is runnable", "Run a command from that group"]}
+  headerList={["Group", "List what is runnable", "Run a command from that group", "PURPOSE"]}
   itemsList={[
-    { Group: "tools", "List what is runnable": "lpd scripts list --group tools", "Run a command from that group": "lpd tools <script-path tokens...> [-- script args]" },
-    { Group: "tasks", "List what is runnable": "lpd scripts list --group tasks", "Run a command from that group": "lpd tasks <script-path tokens...> [-- script args]" },
-    { Group: "tests", "List what is runnable": "lpd scripts list --group tests", "Run a command from that group": "lpd tests <script-path tokens...> [-- script args]" },
-    { Group: "v2", "List what is runnable": "lpd scripts list --group v2", "Run a command from that group": "lpd v2 <script-path tokens...> [-- script args]" },
-    { Group: "hooks", "List what is runnable": "lpd scripts list --group hooks --show-ignored", "Run a command from that group": "lpd hooks <hook-script tokens...> [-- script args]" },
+    { Group: "tools", "List what is runnable": "lpd scripts list --group tools", "Run a command from that group": "lpd tools <script-path tokens...> [-- script args]", PURPOSE: "Developer tooling tasks: generators, maintenance utilities, and local ops helpers." },
+    { Group: "tasks", "List what is runnable": "lpd scripts list --group tasks", "Run a command from that group": "lpd tasks <script-path tokens...> [-- script args]", PURPOSE: "Higher-risk operational/reporting flows that can modify broad repository state." },
+    { Group: "tests", "List what is runnable": "lpd scripts list --group tests", "Run a command from that group": "lpd tests <script-path tokens...> [-- script args]", PURPOSE: "Test runners, validators, and QA checks used by local and hook pipelines." },
+    { Group: "v2", "List what is runnable": "lpd scripts list --group v2", "Run a command from that group": "lpd v2 <script-path tokens...> [-- script args]", PURPOSE: "v2 docs migration, content-repair, and structural maintenance operations." },
+    { Group: "hooks", "List what is runnable": "lpd scripts list --group hooks --show-ignored", "Run a command from that group": "lpd hooks <hook-script tokens...> [-- script args]", PURPOSE: "Hook install/verification and commit-policy enforcement scripts." },
   ]}
   monospaceColumns={[1, 2]}
 />
 
 <DynamicTable
-  headerList={["Inventory/run command", "Purpose"]}
+  headerList={["Inventory/run command", "Purpose", "PURPOSE"]}
   itemsList={[
-    { "Inventory/run command": "lpd scripts list", Purpose: "Print full managed-script inventory across all groups." },
-    { "Inventory/run command": "lpd scripts run <group> <script-path tokens...> [-- script args]", Purpose: "Run one exact managed script once you have its token path." },
+    { "Inventory/run command": "lpd scripts list", Purpose: "Print full managed-script inventory across all groups.", PURPOSE: "Discovers runnable script tokens and shows their group/risk/path mapping." },
+    { "Inventory/run command": "lpd scripts run <group> <script-path tokens...> [-- script args]", Purpose: "Run one exact managed script once you have its token path.", PURPOSE: "Resolves token path to a file, enforces risk confirmation, and executes it with passthrough args." },
   ]}
   monospaceColumns={[0]}
 />
