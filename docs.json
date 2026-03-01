@@ -3523,7 +3523,7 @@
                             "pages": [
                               "v2/es/platforms/livepeer-studio/get-started/overview",
                               "v2/es/platforms/livepeer-studio/quickstart",
-                              "v2/platforms/livepeer-studio/get-started/authentication",
+                              "v2/es/platforms/livepeer-studio/get-started/authentication",
                               "v2/es/platforms/livepeer-studio/get-started/studio-cli"
                             ]
                           },
@@ -3538,7 +3538,7 @@
                               "v2/es/platforms/livepeer-studio/livestream/multistream",
                               "v2/es/platforms/livepeer-studio/livestream/clip-livestream",
                               "v2/es/platforms/livepeer-studio/livestream/stream-health",
-                              "v2/platforms/livepeer-studio/livestream/optimize-latency"
+                              "v2/es/platforms/livepeer-studio/livestream/optimize-latency"
                             ]
                           },
                           {
@@ -3557,7 +3557,7 @@
                             "pages": [
                               "v2/es/platforms/livepeer-studio/access-control/overview",
                               "v2/es/platforms/livepeer-studio/access-control/webhooks",
-                              "v2/platforms/livepeer-studio/access-control/jwt"
+                              "v2/es/platforms/livepeer-studio/access-control/jwt"
                             ]
                           },
                           {
@@ -4797,7 +4797,7 @@
                             "pages": [
                               "v2/fr/platforms/livepeer-studio/get-started/overview",
                               "v2/fr/platforms/livepeer-studio/quickstart",
-                              "v2/platforms/livepeer-studio/get-started/authentication",
+                              "v2/fr/platforms/livepeer-studio/get-started/authentication",
                               "v2/fr/platforms/livepeer-studio/get-started/studio-cli"
                             ]
                           },
@@ -4821,7 +4821,7 @@
                               "v2/fr/platforms/livepeer-studio/video-on-demand/overview",
                               "v2/fr/platforms/livepeer-studio/video-on-demand/upload-asset",
                               "v2/fr/platforms/livepeer-studio/video-on-demand/playback-asset",
-                              "v2/platforms/livepeer-studio/video-on-demand/encrypted-assets",
+                              "v2/fr/platforms/livepeer-studio/video-on-demand/encrypted-assets",
                               "v2/fr/platforms/livepeer-studio/video-on-demand/thumbnails-vod",
                               "v2/fr/platforms/livepeer-studio/video-on-demand/transcode-video"
                             ]
@@ -4830,7 +4830,7 @@
                             "group": "Access control & security",
                             "pages": [
                               "v2/fr/platforms/livepeer-studio/access-control/overview",
-                              "v2/platforms/livepeer-studio/access-control/webhooks",
+                              "v2/fr/platforms/livepeer-studio/access-control/webhooks",
                               "v2/fr/platforms/livepeer-studio/access-control/jwt"
                             ]
                           },
@@ -4993,9 +4993,9 @@
                             "group": "Stream.place",
                             "pages": [
                               "v2/fr/platforms/streamplace/introduction/streamplace-guide",
-                              "v2/platforms/streamplace/introduction/streamplace-architecture",
+                              "v2/fr/platforms/streamplace/introduction/streamplace-architecture",
                               "v2/fr/platforms/streamplace/introduction/streamplace-integration",
-                              "v2/platforms/streamplace/introduction/streamplace-provenance",
+                              "v2/fr/platforms/streamplace/introduction/streamplace-provenance",
                               "v2/fr/platforms/streamplace/introduction/streamplace-funding-model"
                             ]
                           }
@@ -6072,7 +6072,7 @@
                               "v2/cn/platforms/livepeer-studio/get-started/overview",
                               "v2/cn/platforms/livepeer-studio/quickstart",
                               "v2/cn/platforms/livepeer-studio/get-started/authentication",
-                              "v2/platforms/livepeer-studio/get-started/studio-cli"
+                              "v2/cn/platforms/livepeer-studio/get-started/studio-cli"
                             ]
                           },
                           {
@@ -6084,7 +6084,7 @@
                               "v2/cn/platforms/livepeer-studio/livestream/stream-via-obs",
                               "v2/cn/platforms/livepeer-studio/livestream/livestream-from-browser",
                               "v2/cn/platforms/livepeer-studio/livestream/multistream",
-                              "v2/platforms/livepeer-studio/livestream/clip-livestream",
+                              "v2/cn/platforms/livepeer-studio/livestream/clip-livestream",
                               "v2/cn/platforms/livepeer-studio/livestream/stream-health",
                               "v2/cn/platforms/livepeer-studio/livestream/optimize-latency"
                             ]
@@ -6095,9 +6095,9 @@
                               "v2/cn/platforms/livepeer-studio/video-on-demand/overview",
                               "v2/cn/platforms/livepeer-studio/video-on-demand/upload-asset",
                               "v2/cn/platforms/livepeer-studio/video-on-demand/playback-asset",
-                              "v2/platforms/livepeer-studio/video-on-demand/encrypted-assets",
+                              "v2/cn/platforms/livepeer-studio/video-on-demand/encrypted-assets",
                               "v2/cn/platforms/livepeer-studio/video-on-demand/thumbnails-vod",
-                              "v2/platforms/livepeer-studio/video-on-demand/transcode-video"
+                              "v2/cn/platforms/livepeer-studio/video-on-demand/transcode-video"
                             ]
                           },
                           {
