@@ -1,8 +1,17 @@
-# Script Index
+---
+title: 'Scripts Index'
+sidebarTitle: 'Scripts Index'
+description: 'This page provides an aggregate catalog inventory of repository scripts generated from group script indexes.'
+keywords:
+  ['livepeer', 'scripts index', 'aggregate inventory', 'repository', 'scripts']
+---
 
-Aggregate catalog generated from group script indexes.
-
-> Generated file. Do not edit manually. Run `node tests/unit/script-docs.test.js --write --rebuild-indexes`.
+<Note>
+**Generation Script**: This file is generated from script(s): `tests/unit/script-docs.test.js`. <br/>
+**Purpose**: Enforce script header schema, keep group script indexes in sync, and build aggregate script index. <br/>
+**Run when**: Scripts are added, removed, renamed, or script metadata changes in scoped roots. <br/>
+**Important**: Do not manually edit this file; run `node tests/unit/script-docs.test.js --write --rebuild-indexes`. <br/>
+</Note>
 
 ## .githooks
 
@@ -85,6 +94,7 @@ Aggregate catalog generated from group script indexes.
 | `tools/scripts/find-correct-url.js` | Utility script for tools/scripts/find-correct-url.js. | `node tools/scripts/find-correct-url.js` | docs |
 | `tools/scripts/generate-ai-sitemap.js` | Generate an AI-focused sitemap from v2 docs navigation. | `node tools/scripts/generate-ai-sitemap.js --write` | docs |
 | `tools/scripts/generate-docs-guide-indexes.js` | Generate docs-guide workflow/template indexes and optionally verify they are up to date. | `node tools/scripts/generate-docs-guide-indexes.js --write` | docs |
+| `tools/scripts/generate-docs-guide-pages-index.js` | Generate docs-guide/pages-index.mdx from v2/index.mdx entries filtered to docs.json navigation pages. | `node tools/scripts/generate-docs-guide-pages-index.js --write` | docs |
 | `tools/scripts/generate-docs-index.js` | Generate docs-index.json and optionally backfill v2 frontmatter metadata. | `node tools/scripts/generate-docs-index.js --write` | docs |
 | `tools/scripts/generate-llms-files.js` | Generate llms.txt and llms-full.txt from v2 docs navigation. | `node tools/scripts/generate-llms-files.js --write` | docs |
 | `tools/scripts/generate-pages-index.js` | Generate and verify section-style index.mdx files for v2 docs folders, plus the root aggregate index. | `node tools/scripts/generate-pages-index.js --write` | docs |

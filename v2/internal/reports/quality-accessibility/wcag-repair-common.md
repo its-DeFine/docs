@@ -5,8 +5,15 @@ description: 'Generated WCAG repair report from tools/scripts/wcag-repair-common
 keywords: ["livepeer","internal","reports","quality-accessibility","wcag-repair-common"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
-Last Generated (UTC ISO): `2026-02-28T04:22:56.252Z`
-Last Generated (UTC Human): `February 28, 2026 04:22 UTC`
+Last Generated (UTC ISO): `2026-03-01T04:39:53.754Z`
+Last Generated (UTC Human): `March 01, 2026 04:39 UTC`
+Generator Script: `tools/scripts/wcag-repair-common.js`
+What It Does: Apply conservative WCAG-related source autofixes across v2 docs (common raw-tag issues) and write deterministic repair reports.
+Audited Scope: `tools/scripts, tests/integration, tasks/reports, v2`
+Outputs:
+- tasks/reports/quality-accessibility/v2-wcag-repair-common-report.md (default)
+- tasks/reports/quality-accessibility/v2-wcag-repair-common-report.json (default)
+- v2/*.mdx or v2/*.md changes when --fix (default) applies conservative autofixes
 # V2 WCAG Accessibility Audit Report
 
 - Timestamp: 2026-02-26T13:52:14.527Z

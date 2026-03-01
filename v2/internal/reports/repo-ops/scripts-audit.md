@@ -1,12 +1,20 @@
 ---
-title: 'Tasks Folder Audit: Scripts Audit'
-sidebarTitle: 'Tasks Folder Audits'
+title: 'Scripts Audit'
+sidebarTitle: 'Scripts Audit'
 description: 'Generated tasks folder audit reports from tools/scripts/audit-tasks-folders.js.'
 keywords: ["livepeer","internal","reports","repo-ops","audit-tasks-folders"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
-Last Generated (UTC ISO): `2026-02-28T04:22:56.252Z`
-Last Generated (UTC Human): `February 28, 2026 04:22 UTC`
+Last Generated (UTC ISO): `2026-03-01T04:50:34.348Z`
+Last Generated (UTC Human): `March 01, 2026 04:50 UTC`
+Generator Script: `tools/scripts/audit-tasks-folders.js`
+What It Does: Audit tasks folders, optionally normalize report locations, and optionally apply audit recommendations with conflict-safe moves.
+Audited Scope: `tasks/scripts`
+Outputs:
+- tasks/reports/repo-ops/*_audit.md (one report per audited folder, plus tasks_root_audit.md)
+- File moves/deletes in tasks/reports + tasks/report when --apply is set
+- tasks/reports/repo-ops/recommendation-apply-summary.json when --apply-recommendations is set (non dry-run)
+- tasks/reports/repo-ops/recommendation-conflicts.md when conflicts exist (non dry-run)
 # tasks/scripts Audit
 
 Generated: 2026-02-28T04:22:42.987Z

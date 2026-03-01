@@ -86,6 +86,23 @@ const GROUP_INDEX_MAP = [
 ];
 
 const AGGREGATE_INDEX_PATH = 'docs-guide/scripts-index.md';
+const AGGREGATE_FRONTMATTER_LINES = [
+  '---',
+  "title: 'Scripts Index'",
+  "sidebarTitle: 'Scripts Index'",
+  "description: 'This page provides an aggregate catalog inventory of repository scripts generated from group script indexes.'",
+  'keywords:',
+  "  ['livepeer', 'scripts index', 'aggregate inventory', 'repository', 'scripts']",
+  '---'
+];
+const AGGREGATE_NOTE_LINES = [
+  '<Note>',
+  '**Generation Script**: This file is generated from script(s): `tests/unit/script-docs.test.js`. <br/>',
+  '**Purpose**: Enforce script header schema, keep group script indexes in sync, and build aggregate script index. <br/>',
+  '**Run when**: Scripts are added, removed, renamed, or script metadata changes in scoped roots. <br/>',
+  '**Important**: Do not manually edit this file; run `node tests/unit/script-docs.test.js --write --rebuild-indexes`. <br/>',
+  '</Note>'
+];
 
 function normalizeRepoPath(filePath) {
   return filePath.split(path.sep).join('/');
@@ -475,14 +492,7 @@ function parseGroupIndexRows(indexPath) {
 }
 
 function buildAggregateMarkdown() {
-  const lines = [
-    '# Script Index',
-    '',
-    'Aggregate catalog generated from group script indexes.',
-    '',
-    '> Generated file. Do not edit manually. Run `node tests/unit/script-docs.test.js --write --rebuild-indexes`.',
-    ''
-  ];
+  const lines = [...AGGREGATE_FRONTMATTER_LINES, '', ...AGGREGATE_NOTE_LINES, ''];
   for (const group of GROUP_INDEX_MAP) {
     const rows = parseGroupIndexRows(group.index);
     lines.push(`## ${group.root}`);

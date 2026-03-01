@@ -1,3 +1,11 @@
+const developerOld = {
+  pages: [
+    'v2/developers/journey-mapping',
+    'v2/developers/developer-guide',
+    'v2/developers/developer-journey',
+  ],
+}
+
 const platformsIntab = {
   group: 'Developer Platforms',
   icon: 'laptop-code',

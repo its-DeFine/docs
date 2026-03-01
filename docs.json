@@ -2225,9 +2225,7 @@
                         "icon": "code",
                         "pages": [
                           "v2/developers/portal",
-                          "v2/developers/journey-mapping",
-                          "v2/developers/developer-guide",
-                          "v2/developers/developer-journey"
+                          "v2/developers/developer-path"
                         ]
                       },
                       {
@@ -3229,6 +3227,46 @@
                         ]
                       },
                       {
+                        "group": "Docs Guide",
+                        "pages": [
+                          "docs-guide/README",
+                          "docs-guide/source-of-truth-policy",
+                          "docs-guide/lpd",
+                          {
+                            "group": "Feature Guides",
+                            "pages": [
+                              "docs-guide/feature-map",
+                              "docs-guide/architecture-map",
+                              "docs-guide/automation-pipelines",
+                              "docs-guide/content-system",
+                              "docs-guide/data-integrations"
+                            ]
+                          },
+                          {
+                            "group": "Contributing",
+                            "pages": [
+                              "docs-guide/contributing"
+                            ]
+                          },
+                          {
+                            "group": "Indexes",
+                            "pages": [
+                              "docs-guide/pages-index",
+                              "docs-guide/scripts-index",
+                              "docs-guide/workflows-index",
+                              "docs-guide/templates-index"
+                            ]
+                          },
+                          {
+                            "group": "Quality & Testing",
+                            "pages": [
+                              "docs-guide/quality-gates",
+                              "tests/README"
+                            ]
+                          }
+                        ]
+                      },
+                      {
                         "group": "Generated Reports",
                         "pages": [
                           {
@@ -3249,6 +3287,8 @@
                           {
                             "group": "Page Audits",
                             "pages": [
+                              "v2/internal/reports/page-audits/test-all-pages-comprehensive",
+                              "v2/internal/reports/page-audits/audit-all-pages",
                               "v2/internal/reports/page-audits/audit-all-pages-simple",
                               "v2/internal/reports/page-audits/audit-python",
                               "v2/internal/reports/page-audits/domain-pages-audit"
@@ -3258,28 +3298,12 @@
                             "group": "Repo Ops",
                             "pages": [
                               "v2/internal/reports/repo-ops/audit-scripts",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--errors-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-complete-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-migration-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-retrospective-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-rfp-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-legacy-unmanaged-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-legacy-unmanaged-ungenerated-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-docs-index-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-navigation-links-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-page-audits-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-full-run-2026-02-23-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-smoke-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-smoke2-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-smoke3-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-repo-ops-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-rfp-deliverable-i-r1-r15-2026-02-24-replan-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--scripts-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--tasks-root-audit"
+                              "v2/internal/reports/repo-ops/errors-audit",
+                              "v2/internal/reports/repo-ops/reports-navigation-links-audit",
+                              "v2/internal/reports/repo-ops/reports-page-audits-audit",
+                              "v2/internal/reports/repo-ops/reports-quality-accessibility-audit",
+                              "v2/internal/reports/repo-ops/reports-quality-accessibility-docs-usefulness-audit",
+                              "v2/internal/reports/repo-ops/scripts-audit"
                             ]
                           },
                           {

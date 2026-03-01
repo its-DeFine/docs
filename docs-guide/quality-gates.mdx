@@ -1,6 +1,19 @@
-# Quality Gates Map
-
-This document maps local and CI enforcement behavior and whether checks are blocking or advisory.
+---
+title: 'Quality Gates Map'
+sidebarTitle: 'Quality Gates'
+description: 'This document maps local and CI enforcement behaviour and whether checks are blocking or advisory.'
+keywords:
+  [
+    'livepeer',
+    'quality gates',
+    'internal',
+    'map',
+    'quality',
+    'gates',
+    'enforcement',
+    'behavior',
+  ]
+---
 
 ## Gate Layers
 

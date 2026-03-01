@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-28T09:26:17.017Z",
+  "generatedAt": "2026-03-01T05:37:32.427Z",
   "totalEntries": 1164,
   "syntaxErrors": [],
   "missingRoutes": [
@@ -17,6 +17,14 @@
       "value": "v2/internal/governance",
       "normalized": "v2/internal/governance",
       "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[0].pages[4]",
+      "suggestions": []
+    },
+    {
+      "file": "docs.json",
+      "rule": "Missing route",
+      "value": "docs-guide/contributing",
+      "normalized": "docs-guide/contributing",
+      "pointer": "navigation.versions[1].languages[0].tabs[8].anchors[0].groups[2].pages[4].pages[0]",
       "suggestions": []
     }
   ],
