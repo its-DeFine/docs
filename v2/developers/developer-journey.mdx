@@ -1,23 +1,26 @@
 ---
 title: 'Developer Journey'
 sidebarTitle: 'Developer Journey'
-description: 'Choose your path as a Livepeer developer — provide workloads, consume pipelines, or contribute to the core protocol'
-keywords: ["livepeer", "developers", "building on livepeer", "developer journey", "workload provider", "workload consumer", "core contributor", "BYOC", "ai pipelines"]
+description: 'Choose your path as a Livepeer developer — provide workloads, consume pipelines, run an orchestrator, or contribute to the core protocol'
+keywords: ["livepeer", "developers", "building on livepeer", "developer journey", "workload provider", "workload consumer", "orchestrator", "core contributor", "BYOC", "ai pipelines"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-Livepeer offers multiple paths for developers depending on how you want to engage with the network. Whether you're bringing compute workloads, consuming existing AI pipelines, or contributing to the core Go implementation, there's a clear path for you.
+Livepeer offers multiple paths for developers depending on how you want to engage with the network. Whether you're bringing compute workloads, consuming existing AI pipelines, running an orchestrator node, or contributing to the core Go implementation, there's a clear path for you.
 
 ## Pick Your Path
 
-<Columns cols={3}>
+<Columns cols={2}>
   <Card title="Workload Provider" icon="server" href="#path-1-workload-provider" arrow>
     Create workloads that run on Livepeer orchestrators — build containers, deploy pipelines, and leverage the network's GPU compute.
   </Card>
   <Card title="Workload Consumer" icon="wand-magic-sparkles" href="#path-2-workload-consumer" arrow>
     Consume existing pipeline workloads running on the Livepeer network — no infrastructure setup required.
   </Card>
-  <Card title="Core Contributor" icon="code-branch" href="#path-3-core-contributor" arrow>
+  <Card title="Orchestrator" icon="microchip" href="#path-3-orchestrator" arrow>
+    Run an orchestrator node to provide GPU compute to the network — earn rewards and process workloads.
+  </Card>
+  <Card title="Core Contributor" icon="code-branch" href="#path-4-core-contributor" arrow>
     Contribute directly to go-livepeer, the Go implementation that powers the Livepeer network.
   </Card>
 </Columns>
@@ -31,6 +34,7 @@ flowchart TD
 
     Start["Developer"] --> WP["Workload Provider"]
     Start --> WC["Workload Consumer"]
+    Start --> ORCH["Orchestrator"]
     Start --> CC["Core Contributor"]
 
     WP --> TR["Traditional Route<br/>BYOC + Gateway"]
@@ -45,6 +49,13 @@ flowchart TD
 
     WC --> DD["Daydream"]
     WC --> EP["Embody Pipeline<br/>Consumer"]
+
+    ORCH --> FULL["Full go-livepeer<br/>Setup"]
+    ORCH --> SIPHON["OrchestratorSiphon<br/>+ go-livepeer"]
+
+    FULL --> ACTIVATE["Register &<br/>Activate On-Chain"]
+    SIPHON --> REWARDS["Claim Rewards<br/>Securely"]
+    SIPHON --> DEPLOY_GL["Deploy go-livepeer<br/>for Workloads"]
 
     CC --> REPO["go-livepeer Repo"]
     CC --> CG["Contribution Guide"]
@@ -133,7 +144,58 @@ As a **Workload Consumer**, you use existing pipeline workloads that are already
 
 ---
 
-## Path 3: Core Contributor
+## Path 3: Orchestrator
+
+As an **Orchestrator**, you run a node that provides GPU compute to the Livepeer network. Orchestrators process workloads submitted by gateways — transcoding video, running AI inference, or executing BYOC containers — and earn LPT rewards and ETH fees in return.
+
+There are two approaches depending on whether you want to actively process workloads or start with a lighter setup.
+
+### Option A: Full go-livepeer Setup
+
+The standard path runs the full go-livepeer binary, registers on-chain, and actively processes workloads from the network. This is the path for operators who want to run a fully active orchestrator.
+
+<Steps>
+  <Step title="Install go-livepeer" icon="download">
+    Build or download the go-livepeer binary. The CLI includes everything you need to run as an orchestrator.
+
+    <Card title="go-livepeer Repository" icon="github" href="https://github.com/livepeer/go-livepeer" arrow horizontal>
+      Source code, releases, and installation instructions.
+    </Card>
+  </Step>
+  <Step title="Configure and register on-chain" icon="link">
+    Use the go-livepeer CLI to register as an orchestrator on the Livepeer protocol, stake LPT, and activate your node on-chain.
+
+    <Card title="go-livepeer Documentation" icon="book-open" href="https://github.com/livepeer/go-livepeer/tree/master/doc" arrow horizontal>
+      Technical docs for networking, GPU setup, payments, and Ethereum configuration.
+    </Card>
+  </Step>
+  <Step title="Start processing workloads" icon="microchip">
+    Once registered and active, your node receives workloads from gateways and processes them on your GPUs.
+  </Step>
+</Steps>
+
+### Option B: OrchestratorSiphon + go-livepeer (Split Setup)
+
+If you want to participate in the network without running a full active orchestrator on a single box, you can use **OrchestratorSiphon** — a lightweight Python toolkit that securely manages your orchestrator keystore for on-chain actions like claiming rewards, voting on proposals, and updating your service URI.
+
+This setup is ideal for separating concerns: run OrchestratorSiphon on a secure machine to handle rewards and on-chain operations, then deploy go-livepeer on a separate box to actively process workloads. This avoids missing rewards while keeping your keystore isolated from your GPU infrastructure.
+
+<Columns cols={2}>
+  <Card title="OrchestratorSiphon" icon="github" href="https://github.com/Stronk-Tech/OrchestratorSiphon" arrow>
+    Lightweight keystore management — claim rewards, vote on proposals, update service URI. Keep your keystore on one secure machine.
+  </Card>
+  <Card title="go-livepeer" icon="github" href="https://github.com/livepeer/go-livepeer" arrow>
+    Deploy on a separate box for active workload processing once you're ready to serve the network.
+  </Card>
+</Columns>
+
+<Tip>
+  The split setup is a good way to start earning rewards as a passive orchestrator while you prepare your GPU infrastructure. When you're ready to process workloads, deploy go-livepeer on a separate machine and point your service URI to it.
+</Tip>
+
+---
+
+## Path 4: Core Contributor
 
 As a **Core Contributor**, you work directly on go-livepeer — the Go implementation that powers gateways, orchestrators, and the protocol itself. This path is for developers who want to improve the network at the infrastructure level.
 
