@@ -4266,16 +4266,16 @@
                         "group": "Livepeer Community",
                         "icon": "people-group",
                         "pages": [
-                          "v2/community/community-portal",
-                          "v2/community/livepeer-community/trending-topics",
-                          "v2/community/livepeer-community/roadmap"
+                          "v2/es/community/community-portal",
+                          "v2/es/community/livepeer-community/trending-topics",
+                          "v2/es/community/livepeer-community/roadmap"
                         ]
                       },
                       {
                         "group": "Livepeer Connect",
                         "icon": "hashtag",
                         "pages": [
-                          "v2/community/livepeer-community/community-guidelines",
+                          "v2/es/community/livepeer-community/community-guidelines",
                           "v2/community/livepeer-connect/news-and-socials",
                           "v2/community/livepeer-connect/events-and-community-streams",
                           "v2/community/livepeer-connect/forums-and-discussions"
@@ -4295,7 +4295,7 @@
                         "icon": "comments-question-check",
                         "hidden": true,
                         "pages": [
-                          "v2/community/livepeer-community/trending-topics"
+                          "v2/es/community/livepeer-community/trending-topics"
                         ]
                       },
                       {
@@ -4303,8 +4303,8 @@
                         "icon": "books",
                         "pages": [
                           "v2/es/resources/media-kit",
-                          "v2/community/livepeer-community/trending-topics",
-                          "v2/community/livepeer-community/livepeer-latest-topics"
+                          "v2/es/community/livepeer-community/trending-topics",
+                          "v2/es/community/livepeer-community/livepeer-latest-topics"
                         ]
                       }
                     ]
@@ -5540,16 +5540,16 @@
                         "group": "Livepeer Community",
                         "icon": "people-group",
                         "pages": [
-                          "v2/community/community-portal",
-                          "v2/community/livepeer-community/trending-topics",
-                          "v2/community/livepeer-community/roadmap"
+                          "v2/fr/community/community-portal",
+                          "v2/fr/community/livepeer-community/trending-topics",
+                          "v2/fr/community/livepeer-community/roadmap"
                         ]
                       },
                       {
                         "group": "Livepeer Connect",
                         "icon": "hashtag",
                         "pages": [
-                          "v2/community/livepeer-community/community-guidelines",
+                          "v2/fr/community/livepeer-community/community-guidelines",
                           "v2/community/livepeer-connect/news-and-socials",
                           "v2/community/livepeer-connect/events-and-community-streams",
                           "v2/community/livepeer-connect/forums-and-discussions"
@@ -5569,7 +5569,7 @@
                         "icon": "comments-question-check",
                         "hidden": true,
                         "pages": [
-                          "v2/community/livepeer-community/trending-topics"
+                          "v2/fr/community/livepeer-community/trending-topics"
                         ]
                       },
                       {
@@ -5577,8 +5577,8 @@
                         "icon": "books",
                         "pages": [
                           "v2/fr/resources/media-kit",
-                          "v2/community/livepeer-community/trending-topics",
-                          "v2/community/livepeer-community/livepeer-latest-topics"
+                          "v2/fr/community/livepeer-community/trending-topics",
+                          "v2/fr/community/livepeer-community/livepeer-latest-topics"
                         ]
                       }
                     ]
@@ -6814,16 +6814,16 @@
                         "group": "Livepeer Community",
                         "icon": "people-group",
                         "pages": [
-                          "v2/community/community-portal",
-                          "v2/community/livepeer-community/trending-topics",
-                          "v2/community/livepeer-community/roadmap"
+                          "v2/cn/community/community-portal",
+                          "v2/cn/community/livepeer-community/trending-topics",
+                          "v2/cn/community/livepeer-community/roadmap"
                         ]
                       },
                       {
                         "group": "Livepeer Connect",
                         "icon": "hashtag",
                         "pages": [
-                          "v2/community/livepeer-community/community-guidelines",
+                          "v2/cn/community/livepeer-community/community-guidelines",
                           "v2/community/livepeer-connect/news-and-socials",
                           "v2/community/livepeer-connect/events-and-community-streams",
                           "v2/community/livepeer-connect/forums-and-discussions"
@@ -6843,7 +6843,7 @@
                         "icon": "comments-question-check",
                         "hidden": true,
                         "pages": [
-                          "v2/community/livepeer-community/trending-topics"
+                          "v2/cn/community/livepeer-community/trending-topics"
                         ]
                       },
                       {
@@ -6851,8 +6851,8 @@
                         "icon": "books",
                         "pages": [
                           "v2/cn/resources/media-kit",
-                          "v2/community/livepeer-community/trending-topics",
-                          "v2/community/livepeer-community/livepeer-latest-topics"
+                          "v2/cn/community/livepeer-community/trending-topics",
+                          "v2/cn/community/livepeer-community/livepeer-latest-topics"
                         ]
                       }
                     ]
