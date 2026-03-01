@@ -2565,20 +2565,11 @@
                         ]
                       },
                       {
-                        "group": "Gateway Services & Providers",
+                        "group": "Public Gateways",
                         "icon": "wand-magic-sparkles",
                         "pages": [
                           "v2/gateways/using-gateways/choosing-a-gateway",
-                          "v2/gateways/using-gateways/gateway-providers",
-                          {
-                            "group": "Provider Docs",
-                            "pages": [
-                              "v2/gateways/using-gateways/gateway-providers/daydream-gateway",
-                              "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
-                              "v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway",
-                              "v2/platforms/streamplace/overview"
-                            ]
-                          }
+                          "v2/gateways/using-gateways/gateway-providers"
                         ]
                       },
                       {
@@ -2660,8 +2651,6 @@
                         "pages": [
                           "v2/gateways/gateway-tools/explorer",
                           "v2/gateways/gateway-tools/livepeer-tools",
-                          "v2/gateways/guides-and-resources/community-guides",
-                          "v2/gateways/guides-and-resources/community-projects",
                           "v2/gateways/guides-and-resources/faq"
                         ]
                       },
