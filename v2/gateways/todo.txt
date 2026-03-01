@@ -102,7 +102,7 @@ About
 - Economics (style)
 
 Quickstart
-- Run (should it include BYOC?)
+- Run (should it include BYOC?), fix latestVersion automation
 - Get AI to Set up (complete)
 
 All
