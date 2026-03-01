@@ -37,8 +37,8 @@ flowchart TD
     WP --> SC["Direct Smart Contract<br/>Interaction"]
 
     TR --> BYOC["Build BYOC Container"]
-    BYOC --> GW["Run a Gateway"]
-    GW --> DEPLOY["Deploy to<br/>Orchestrators"]
+    BYOC --> COORD["Coordinate with<br/>Orchestrators"]
+    COORD --> GW["Run a Gateway"]
 
     SC --> OPS["Fork livepeer-ops"]
     SC --> CUSTOM["Build Your Own<br/>Tooling"]
@@ -80,8 +80,8 @@ The standard path for getting your workloads running on orchestrators. You devel
       Get your gateway node running.
     </Card>
   </Step>
-  <Step title="Deploy to orchestrators" icon="arrow-up-right-from-square">
-    Push your BYOC container to the network through your gateway. Orchestrators pull your container and execute workloads on their GPUs.
+  <Step title="Coordinate with orchestrators" icon="arrow-up-right-from-square">
+    Contact orchestrators directly to get your BYOC container running on their nodes. Once they're running your container, you can route jobs to them through your gateway.
 
     <Card title="AI Pipelines Overview" icon="brain-circuit" href="/v2/developers/ai-pipelines/overview" arrow horizontal>
       Understand the full pipeline architecture.
