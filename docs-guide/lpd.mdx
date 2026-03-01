@@ -426,12 +426,12 @@ For deeper test/audit script behaviour and owning paths, see [`quality-gates`](.
 **Available to run in Hooks right now**
 
 <DynamicTable
-  headerList={["Runnable hooks command", "Purpose", "PURPOSE"]}
+  headerList={["Runnable hooks command", "How to run", "PURPOSE"]}
   itemsList={[
-    { "Runnable hooks command": "lpd hooks install", Purpose: "Install/update the git pre-commit hook from .githooks/pre-commit.", PURPOSE: "Copies/syncs hook files into .git/hooks so repository checks run on commit." },
-    { "Runnable hooks command": "lpd hooks status", Purpose: "Check whether the installed hook exists, is executable, and matches source.", PURPOSE: "Validates current hook state and reports drift (missing, non-executable, out-of-date)." },
-    { "Runnable hooks command": "lpd hooks verify", Purpose: "Run hook verification checks via .githooks/verify.sh.", PURPOSE: "Executes hook health checks to confirm required hook scripts and policy wiring are valid." },
-    { "Runnable hooks command": "lpd hooks info", Purpose: "Print hook scripts, bypass flags, and override policy details.", PURPOSE: "Shows operator guidance, bypass env flags, and human-only override trailer rules." },
+    { "Runnable hooks command": "lpd hooks install", "How to run": "Built-in hooks subcommand", PURPOSE: "Copies/syncs hook files into .git/hooks so repository checks run on commit." },
+    { "Runnable hooks command": "lpd hooks status", "How to run": "Built-in hooks subcommand", PURPOSE: "Validates current hook state and reports drift (missing, non-executable, out-of-date)." },
+    { "Runnable hooks command": "lpd hooks verify", "How to run": "Built-in hooks subcommand", PURPOSE: "Executes hook health checks to confirm required hook scripts and policy wiring are valid." },
+    { "Runnable hooks command": "lpd hooks info", "How to run": "Built-in hooks subcommand", PURPOSE: "Shows operator guidance, bypass env flags, and human-only override trailer rules." },
   ]}
   monospaceColumns={[0]}
 />
@@ -504,32 +504,114 @@ and
 
 ### Scripts Commands
 
-**Available to run in Scripts right now**
+Use these entry commands to discover and run scripts:
 
 <DynamicTable
-  headerList={["Group", "List what is runnable", "Run a command from that group", "PURPOSE"]}
+  headerList={["Action", "Run this", "PURPOSE"]}
   itemsList={[
-    { Group: "tools", "List what is runnable": "lpd scripts list --group tools", "Run a command from that group": "lpd tools <script-path tokens...> [-- script args]", PURPOSE: "Developer tooling tasks: generators, maintenance utilities, and local ops helpers." },
-    { Group: "tasks", "List what is runnable": "lpd scripts list --group tasks", "Run a command from that group": "lpd tasks <script-path tokens...> [-- script args]", PURPOSE: "Higher-risk operational/reporting flows that can modify broad repository state." },
-    { Group: "tests", "List what is runnable": "lpd scripts list --group tests", "Run a command from that group": "lpd tests <script-path tokens...> [-- script args]", PURPOSE: "Test runners, validators, and QA checks used by local and hook pipelines." },
-    { Group: "v2", "List what is runnable": "lpd scripts list --group v2", "Run a command from that group": "lpd v2 <script-path tokens...> [-- script args]", PURPOSE: "v2 docs migration, content-repair, and structural maintenance operations." },
-    { Group: "hooks", "List what is runnable": "lpd scripts list --group hooks --show-ignored", "Run a command from that group": "lpd hooks <hook-script tokens...> [-- script args]", PURPOSE: "Hook install/verification and commit-policy enforcement scripts." },
+    { Action: "List every script token", "Run this": "lpd scripts list", PURPOSE: "Shows all runnable script tokens across tools/tasks/tests/v2/hooks with risk and path." },
+    { Action: "List one group", "Run this": "lpd scripts list --group <tools|tasks|tests|v2|hooks>", PURPOSE: "Shows the exact token names available in a single group." },
+    { Action: "Run one script by group + token path", "Run this": "lpd scripts run <group> <script-path tokens...> [-- script args]", PURPOSE: "Resolves token path to a file, applies risk confirmation, then executes it." },
+    { Action: "Run with shorthand alias", "Run this": "lpd <tools|tasks|tests|v2> <script-path tokens...> [-- script args]", PURPOSE: "Shortcut wrapper around `lpd scripts run` for each group." },
   ]}
-  monospaceColumns={[1, 2]}
+  monospaceColumns={[1]}
 />
 
-<DynamicTable
-  headerList={["Inventory/run command", "Purpose", "PURPOSE"]}
-  itemsList={[
-    { "Inventory/run command": "lpd scripts list", Purpose: "Print full managed-script inventory across all groups.", PURPOSE: "Discovers runnable script tokens and shows their group/risk/path mapping." },
-    { "Inventory/run command": "lpd scripts run <group> <script-path tokens...> [-- script args]", Purpose: "Run one exact managed script once you have its token path.", PURPOSE: "Resolves token path to a file, enforces risk confirmation, and executes it with passthrough args." },
-  ]}
-  monospaceColumns={[0]}
-/>
+#### Exact Runnable Script Tokens: `tools` (42)
+
+| Script token | Resolved path | PURPOSE |
+|---|---|---|
+| `audit-all-pages-simple` | `tools/scripts/audit-all-pages-simple.js` | Utility script for tasks/scripts/audit-all-pages-simple.js. |
+| `audit-all-pages` | `tools/scripts/audit-all-pages.js` | Utility script for tasks/scripts/audit-all-pages.js. |
+| `audit-all-v2-pages` | `tools/scripts/audit-all-v2-pages.js` | Utility script for tools/scripts/audit-all-v2-pages.js. |
+| `audit-scripts` | `tools/scripts/audit-scripts.js` | Audit full-repo executable scripts, categorize usage/overlap, and overwrite SCRIPT_AUDIT reports. |
+| `audit-tasks-folders` | `tools/scripts/audit-tasks-folders.js` | Audit tasks folders, optionally normalise report locations, and optionally apply audit recommendations with conflict-safe moves. |
+| `audit-v2-usefulness` | `tools/scripts/audit-v2-usefulness.js` | Audit v2 MDX pages (excluding x-* directories) and emit page-level usefulness matrix rows with source-weighted 2026 accuracy verification fields. |
+| `convert-rss-to-mdx` | `tools/scripts/convert-rss-to-mdx.js` | Runs `tools/scripts/convert-rss-to-mdx.js`. |
+| `debug-mint-dev` | `tools/scripts/debug-mint-dev.js` | Utility script for tools/scripts/debug-mint-dev.js. |
+| `deprecated project-management-output-script` | `tools/scripts/deprecated/project-management-output-script.js` | Deprecated legacy project-management output script retained as a reference stub. |
+| `dev add-callouts` | `tools/scripts/dev/add-callouts.js` | Utility script for tools/scripts/dev/add-callouts.js. |
+| `dev batch-update-og-image` | `tools/scripts/dev/batch-update-og-image.sh` | Utility script for tools/scripts/dev/batch-update-og-image.sh. |
+| `dev ensure-mint-watcher-patch` | `tools/scripts/dev/ensure-mint-watcher-patch.sh` | Ensure Mint local-preview watcher disables glob expansion in repo paths. |
+| `dev replace-og-image` | `tools/scripts/dev/replace-og-image.py` | Utility script for tools/scripts/dev/replace-og-image.py. |
+| `dev test-add-callouts` | `tools/scripts/dev/test-add-callouts.js` | Utility script for tools/scripts/dev/test-add-callouts.js. |
+| `download-linkedin-video` | `tools/scripts/download-linkedin-video.sh` | Utility script for tools/scripts/download-linkedin-video.sh. |
+| `download-linkedin-with-cookies` | `tools/scripts/download-linkedin-with-cookies.sh` | Utility script for tools/scripts/download-linkedin-with-cookies.sh. |
+| `generate-ai-sitemap` | `tools/scripts/generate-ai-sitemap.js` | Generate an AI-focused sitemap from v2 docs navigation. |
+| `generate-docs-guide-indexes` | `tools/scripts/generate-docs-guide-indexes.js` | Generate docs-guide workflow/template indexes and optionally verify they are up to date. |
+| `generate-docs-guide-pages-index` | `tools/scripts/generate-docs-guide-pages-index.js` | Generate docs-guide/pages-index.mdx from v2/index.mdx entries filtered to docs.json navigation pages. |
+| `generate-docs-index` | `tools/scripts/generate-docs-index.js` | Generate docs-index.json and optionally backfill v2 frontmatter metadata. |
+| `generate-llms-files` | `tools/scripts/generate-llms-files.js` | Generate llms.txt and llms-full.txt from v2 docs navigation. |
+| `generate-pages-index` | `tools/scripts/generate-pages-index.js` | Generate and verify section-style index.mdx files for v2 docs folders, plus the root aggregate index. |
+| `mint-dev` | `tools/scripts/mint-dev.sh` | Utility script for tools/scripts/mint-dev.sh. |
+| `new-script` | `tools/scripts/new-script.js` | Create a new script file prefilled with the required docs header template. |
+| `publish-v2-internal-reports` | `tools/scripts/publish-v2-internal-reports.js` | Duplicate approved markdown reports into v2/internal/reports pages with metadata and update docs.json. |
+| `snippets fetch-external-docs` | `tools/scripts/snippets/fetch-external-docs.sh` | Utility script for tools/scripts/snippets/fetch-external-docs.sh. |
+| `snippets fetch-lpt-exchanges` | `tools/scripts/snippets/fetch-lpt-exchanges.sh` | Utility script for tools/scripts/snippets/fetch-lpt-exchanges.sh. |
+| `snippets fetch-openapi-specs` | `tools/scripts/snippets/fetch-openapi-specs.sh` | Utility script for tools/scripts/snippets/fetch-openapi-specs.sh. |
+| `snippets generate-api-docs` | `tools/scripts/snippets/generate-api-docs.sh` | Utility script for tools/scripts/snippets/generate-api-docs.sh. |
+| `snippets generate-data scripts generate-glossary` | `tools/scripts/snippets/generate-data/scripts/generate-glossary.js` | Utility script for tools/scripts/snippets/generate-data/scripts/generate-glossary.js. |
+| `snippets generate-data scripts terminology-search` | `tools/scripts/snippets/generate-data/scripts/terminology-search.js` | Utility script for tools/scripts/snippets/generate-data/scripts/terminology-search.js. |
+| `snippets generate-seo` | `tools/scripts/snippets/generate-seo.js` | Utility script for tools/scripts/snippets/generate-seo.js. |
+| `snippets test-scripts` | `tools/scripts/snippets/test-scripts.sh` | Utility script for tools/scripts/snippets/test-scripts.sh. |
+| `snippets update-component-library` | `tools/scripts/snippets/update-component-library.sh` | Utility script for tools/scripts/snippets/update-component-library.sh. |
+| `test-all-pages-browser` | `tools/scripts/test-all-pages-browser.js` | Utility script for tools/scripts/test-all-pages-browser.js. |
+| `test-all-pages-comprehensive` | `tools/scripts/test-all-pages-comprehensive.js` | Utility script for tools/scripts/test-all-pages-comprehensive.js. |
+| `test-v2-pages` | `tools/scripts/test-v2-pages.js` | Utility script for tools/scripts/test-v2-pages.js. |
+| `test-youtube-pages` | `tools/scripts/test-youtube-pages.js` | Utility script for tools/scripts/test-youtube-pages.js. |
+| `test test-youtube-pages` | `tools/scripts/test/test-youtube-pages.js` | Utility script for tools/scripts/test/test-youtube-pages.js. |
+| `transcribe-audio-to-mdx` | `tools/scripts/transcribe-audio-to-mdx.js` | Download audio from URL, chunk with ffmpeg, transcribe via OpenRouter, and write an MDX transcript page. |
+| `verify .verify-large-change` | `tools/scripts/verify/.verify-large-change.sh` | Reserved verifier hook placeholder for large-change checks. |
+| `wcag-repair-common` | `tools/scripts/wcag-repair-common.js` | Apply conservative WCAG-related source autofixes across v2 docs (common raw-tag issues) and write deterministic repair reports. |
+
+#### Exact Runnable Script Tokens: `tasks` (3)
+
+| Script token | Resolved path | PURPOSE |
+|---|---|---|
+| `audit-minimal` | `tasks/scripts/audit-minimal.js` | Utility script for tasks/scripts/audit-minimal.js. |
+| `audit-python` | `tasks/scripts/audit-python.py` | Utility script for tasks/scripts/audit-python.py. |
+| `run-audit-now` | `tasks/scripts/run-audit-now.js` | Utility script for tasks/scripts/run-audit-now.js. |
+
+#### Exact Runnable Script Tokens: `tests` (23)
+
+| Script token | Resolved path | PURPOSE |
+|---|---|---|
+| `integration browser.test` | `tests/integration/browser.test.js` | Utility script for tests/integration/browser.test.js. |
+| `integration domain-pages-audit` | `tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. |
+| `integration v2-link-audit` | `tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit with internal strict checks and optional external URL validation. |
+| `integration v2-link-audit.selftest` | `tests/integration/v2-link-audit.selftest.js` | Script-level self-tests for v2 link audit external validation using a local HTTP fixture and temporary MDX file. |
+| `integration v2-wcag-audit` | `tests/integration/v2-wcag-audit.js` | Audit v2 docs.json navigation pages for accessibility (WCAG 2.2 AA) with deterministic reports and conservative source autofixes. |
+| `integration v2-wcag-audit.selftest` | `tests/integration/v2-wcag-audit.selftest.js` | Script-level self-tests for the v2 WCAG audit (local HTTP + Puppeteer axe run, and temp-file fix/stage behaviour without Mintlify). |
+| `run-all` | `tests/run-all.js` | Utility script for tests/run-all.js. |
+| `run-pr-checks` | `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. |
+| `unit docs-guide-sot.test` | `tests/unit/docs-guide-sot.test.js` | Validate docs-guide source-of-truth coverage, README pointers, and generated index freshness. |
+| `unit docs-navigation.test` | `tests/unit/docs-navigation.test.js` | Validate docs.json page-entry syntax, report missing routes, suggest remaps, and optionally apply approved remaps. |
+| `unit docs-usefulness-accuracy-verifier.test` | `tests/unit/docs-usefulness-accuracy-verifier.test.js` | Validate source-weighted 2026 accuracy verification rules (GitHub vs DeepWiki precedence, freshness, fallback, and cache reuse). |
+| `unit links-imports.test` | `tests/unit/links-imports.test.js` | Utility script for tests/unit/links-imports.test.js. |
+| `unit mdx-guards.test` | `tests/unit/mdx-guards.test.js` | Enforce MDX guardrails for globals imports, math delimiters, and markdown table line breaks. |
+| `unit mdx.test` | `tests/unit/mdx.test.js` | Utility script for tests/unit/mdx.test.js. |
+| `unit quality.test` | `tests/unit/quality.test.js` | Utility script for tests/unit/quality.test.js. |
+| `unit script-docs.test` | `tests/unit/script-docs.test.js` | Enforce script header schema, keep group script indexes in sync, and build aggregate script index. |
+| `unit spelling.test` | `tests/unit/spelling.test.js` | Utility script for tests/unit/spelling.test.js. |
+| `unit style-guide.test` | `tests/unit/style-guide.test.js` | Utility script for tests/unit/style-guide.test.js. |
+| `unit v2-link-audit.test` | `tests/unit/v2-link-audit.test.js` | Unit tests for v2 link audit args, external validation helpers, and x-* scope exclusion behaviour. |
+| `unit v2-wcag-audit.test` | `tests/unit/v2-wcag-audit.test.js` | Unit tests for v2 WCAG audit helper logic (args, thresholds, route mapping, report sorting, and conservative autofixes). |
+| `utils file-walker` | `tests/utils/file-walker.js` | Utility script for tests/utils/file-walker.js. |
+| `utils mdx-parser` | `tests/utils/mdx-parser.js` | Utility script for tests/utils/mdx-parser.js. |
+| `utils spell-checker` | `tests/utils/spell-checker.js` | Utility script for tests/utils/spell-checker.js. |
+
+#### Exact Runnable Script Tokens: `v2` (5)
+
+| Script token | Resolved path | PURPOSE |
+|---|---|---|
+| `add-callouts` | `tools/scripts/dev/add-callouts.js` | Utility script for tools/scripts/dev/add-callouts.js. |
+| `batch-update-og-image` | `tools/scripts/dev/batch-update-og-image.sh` | Utility script for tools/scripts/dev/batch-update-og-image.sh. |
+| `ensure-mint-watcher-patch` | `tools/scripts/dev/ensure-mint-watcher-patch.sh` | Ensure Mint local-preview watcher disables glob expansion in repo paths. |
+| `replace-og-image` | `tools/scripts/dev/replace-og-image.py` | Utility script for tools/scripts/dev/replace-og-image.py. |
+| `test-add-callouts` | `tools/scripts/dev/test-add-callouts.js` | Utility script for tools/scripts/dev/test-add-callouts.js. |
 
 <Note>
-Canonical generated inventory lives in [`scripts-index`](./scripts-index.md).  
-Use [`workflows-index`](./workflows-index.mdx) for end-to-end operational flows.
+For generated full script metadata (script path, summary, usage, owner), see [`scripts-index`](./scripts-index.md).
 </Note>
 
 <ResponseField name="lpd scripts list" type="command">
