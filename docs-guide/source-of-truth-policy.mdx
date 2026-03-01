@@ -53,12 +53,14 @@ The following files are generated and should not be edited directly:
 - `docs-guide/workflows-index.mdx`
 - `docs-guide/templates-index.mdx`
 - `docs-guide/pages-index.mdx`
+- `docs-guide/components-index.mdx`
 
 Regenerate with:
 
 ```bash
 node tools/scripts/generate-docs-guide-indexes.js --write
 node tools/scripts/generate-docs-guide-pages-index.js --write
+node tools/scripts/generate-docs-guide-components-index.js --write
 node tests/unit/script-docs.test.js --write --rebuild-indexes
 ```
 

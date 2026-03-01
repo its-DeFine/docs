@@ -1,0 +1,1950 @@
+---
+title: 'Components Index'
+sidebarTitle: 'Components Index'
+description: 'Aggregate inventory of repository components from snippets/components, generated for docs-guide maintenance.'
+keywords: ['livepeer', 'components index', 'aggregate inventory', 'repository', 'snippets']
+---
+
+import { SearchTable } from "/snippets/components/layout/SearchTable.jsx";
+
+<Note>
+**Generation Script**: This file is generated from script(s): `tools/scripts/generate-docs-guide-components-index.js`. <br/>
+**Purpose**: Aggregate inventory of repository components from snippets/components for docs-guide maintenance. <br/>
+**Run when**: Components are added, removed, renamed, or their exported signatures change under `snippets/components`. <br/>
+**Important**: Do not manually edit this file; run `node tools/scripts/generate-docs-guide-components-index.js --write`. <br/>
+</Note>
+
+## Content
+Content components provide code, data, and response-format helpers for documentation pages.
+
+<AccordionGroup>
+  <Accordion title="code.jsx" icon="file-code">
+    <ResponseField name="CodeComponent" type="component">
+      **Props**: `filename`, `icon`, `language`, `highlight`, `expandable`, `wrap`, `lines`, `codeString`, `placeholderValue`
+      **Defaults**: `filename=""`, `icon="terminal"`, `language=""`, `highlight=""`, `expandable=false`, `wrap=true`, `lines=true`, `codeString=""`, `placeholderValue=""`
+
+```jsx
+import { CodeComponent } from "/snippets/components/content/code.jsx";
+
+<CodeComponent />
+
+<CodeComponent
+  filename={""}
+  icon={"terminal"}
+  language={""}
+  highlight={""}
+  expandable={false}
+  wrap={true}
+  lines={true}
+  codeString={""}
+  placeholderValue={""}
+/>
+```
+    </ResponseField>
+    <ResponseField name="CodeSection" type="component">
+      **Props**: `fields`
+      **Defaults**: `fields={}`
+
+```jsx
+import { CodeSection } from "/snippets/components/content/code.jsx";
+
+<CodeSection />
+
+<CodeSection
+  fields={{}}
+/>
+```
+    </ResponseField>
+    <ResponseField name="ComplexCodeBlock" type="component">
+      **Props**: `filename`, `icon`, `language`, `highlight`, `codeString`, `placeholderValue`, `wrap`, `lines`, `preNote`, `postNote`
+      **Defaults**: `codeString=""`, `placeholderValue=""`, `wrap=true`, `lines=true`, `preNote=null`, `postNote=null`
+
+```jsx
+import { ComplexCodeBlock } from "/snippets/components/content/code.jsx";
+
+<ComplexCodeBlock />
+
+<ComplexCodeBlock
+  codeString={""}
+  placeholderValue={""}
+  wrap={true}
+  lines={true}
+  preNote={null}
+  postNote={null}
+/>
+```
+    </ResponseField>
+    <ResponseField name="CustomCodeBlock" type="component">
+      **Props**: `filename`, `icon`, `language`, `highlight`, `codeString`, `placeholderValue`, `wrap`, `lines`, `preNote`, `postNote`, `output`
+      **Defaults**: `codeString=""`, `placeholderValue=""`, `wrap=true`, `lines=true`, `preNote=""`, `postNote=""`, `output=""`
+
+```jsx
+import { CustomCodeBlock } from "/snippets/components/content/code.jsx";
+
+<CustomCodeBlock />
+
+<CustomCodeBlock
+  codeString={""}
+  placeholderValue={""}
+  wrap={true}
+  lines={true}
+  preNote={""}
+  postNote={""}
+  output={""}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="data.jsx" icon="file-code">
+    <ResponseField name="BlogCard" type="component">
+      **Props**: `title`, `content`, `href`, `author`, `datePosted`, `excerpt`, `icon`, `authorIcon`, `dateIcon`, `cta`, `img`
+      **Defaults**: `author="Livepeer Team"`, `datePosted=null`, `excerpt=null`, `icon="book-open"`, `authorIcon="user-pen"`, `dateIcon="calendar"`, `cta="Read More"`, `img=null`
+
+```jsx
+import { BlogCard } from "/snippets/components/content/data.jsx";
+
+<BlogCard />
+
+<BlogCard
+  author={"Livepeer Team"}
+  datePosted={null}
+  excerpt={null}
+  icon={"book-open"}
+  authorIcon={"user-pen"}
+  dateIcon={"calendar"}
+  cta={"Read More"}
+  img={null}
+/>
+```
+    </ResponseField>
+    <ResponseField name="BlogDataLayout" type="component">
+      **Props**: `items`, `limit`
+      **Defaults**: `items=[]`
+
+```jsx
+import { BlogDataLayout } from "/snippets/components/content/data.jsx";
+
+<BlogDataLayout />
+
+<BlogDataLayout
+  items={[]}
+/>
+```
+    </ResponseField>
+    <ResponseField name="CardBlogDataLayout" type="component">
+      **Props**: `items`, `limit`
+      **Defaults**: `items=[]`
+
+```jsx
+import { CardBlogDataLayout } from "/snippets/components/content/data.jsx";
+
+<CardBlogDataLayout />
+
+<CardBlogDataLayout
+  items={[]}
+/>
+```
+    </ResponseField>
+    <ResponseField name="CardColumnsPostLayout" type="component">
+      **Props**: `cols`, `items`, `limit`
+      **Defaults**: `cols=2`, `items=[]`
+
+```jsx
+import { CardColumnsPostLayout } from "/snippets/components/content/data.jsx";
+
+<CardColumnsPostLayout />
+
+<CardColumnsPostLayout
+  cols={2}
+  items={[]}
+/>
+```
+    </ResponseField>
+    <ResponseField name="CardInCardLayout" type="component">
+      **Props**: `items`, `limit`
+      **Defaults**: `items=[]`
+
+```jsx
+import { CardInCardLayout } from "/snippets/components/content/data.jsx";
+
+<CardInCardLayout />
+
+<CardInCardLayout
+  items={[]}
+/>
+```
+    </ResponseField>
+    <ResponseField name="ColumnsBlogCardLayout" type="component">
+      **Props**: `items`, `cols`, `limit`
+      **Defaults**: `items=[]`, `cols=2`
+
+```jsx
+import { ColumnsBlogCardLayout } from "/snippets/components/content/data.jsx";
+
+<ColumnsBlogCardLayout />
+
+<ColumnsBlogCardLayout
+  items={[]}
+  cols={2}
+/>
+```
+    </ResponseField>
+    <ResponseField name="DiscordAnnouncements" type="component">
+      **Props**: `items`, `limit`
+      **Defaults**: `items=[]`
+
+```jsx
+import { DiscordAnnouncements } from "/snippets/components/content/data.jsx";
+
+<DiscordAnnouncements />
+
+<DiscordAnnouncements
+  items={[]}
+/>
+```
+    </ResponseField>
+    <ResponseField name="ForumLatestLayout" type="component">
+      **Props**: `items`, `limit`
+      **Defaults**: `items=[]`
+
+```jsx
+import { ForumLatestLayout } from "/snippets/components/content/data.jsx";
+
+<ForumLatestLayout />
+
+<ForumLatestLayout
+  items={[]}
+/>
+```
+    </ResponseField>
+    <ResponseField name="LumaEvents" type="component">
+      **Props**: `data`, `limit`, `type`
+      **Defaults**: `type="upcoming"`
+
+```jsx
+import { LumaEvents } from "/snippets/components/content/data.jsx";
+
+<LumaEvents />
+
+<LumaEvents
+  type={"upcoming"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="PostCard" type="component">
+      **Props**: `title`, `content`, `href`, `author`, `datePosted`, `replyCount`, `icon`, `authorIcon`, `dateIcon`, `cta`, `img`
+      **Defaults**: `author="Unknown"`, `datePosted=null`, `replyCount=null`, `icon="book-open"`, `authorIcon="user-pen"`, `dateIcon="calendar"`, `cta="Read More"`, `img=null`
+
+```jsx
+import { PostCard } from "/snippets/components/content/data.jsx";
+
+<PostCard />
+
+<PostCard
+  author={"Unknown"}
+  datePosted={null}
+  replyCount={null}
+  icon={"book-open"}
+  authorIcon={"user-pen"}
+  dateIcon={"calendar"}
+  cta={"Read More"}
+  img={null}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="external-content.jsx" icon="file-code">
+    <ResponseField name="ExternalContent" type="component">
+      **Props**: `repoName`, `githubUrl`, `maxHeight`, `icon`, `children`
+      **Defaults**: `maxHeight="1000px"`, `icon="github"`
+
+```jsx
+import { ExternalContent } from "/snippets/components/content/external-content.jsx";
+
+<ExternalContent />
+
+<ExternalContent
+  maxHeight={"1000px"}
+  icon={"github"}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="math.jsx" icon="file-code">
+    <ResponseField name="MathBlock" type="component">
+      **Props**: `latex`, `className`, `ariaLabel`
+      **Defaults**: `className=""`
+
+```jsx
+import { MathBlock } from "/snippets/components/content/math.jsx";
+
+<MathBlock />
+
+<MathBlock
+  className={""}
+/>
+```
+    </ResponseField>
+    <ResponseField name="MathInline" type="component">
+      **Props**: `latex`, `className`, `ariaLabel`
+      **Defaults**: `className=""`
+
+```jsx
+import { MathInline } from "/snippets/components/content/math.jsx";
+
+<MathInline />
+
+<MathInline
+  className={""}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="release.jsx" icon="file-code">
+    <ResponseField name="LatestVersion" type="component">
+      **Props**: `version`
+      **Defaults**: None
+
+```jsx
+import { LatestVersion } from "/snippets/components/content/release.jsx";
+
+<LatestVersion />
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="responseField.jsx" icon="file-code">
+    <ResponseField name="CustomResponseField" type="component">
+      **Props**: `description`
+      **Defaults**: None
+
+```jsx
+import { CustomResponseField } from "/snippets/components/content/responseField.jsx";
+
+<CustomResponseField />
+```
+    </ResponseField>
+    <ResponseField name="ResponseFieldAccordion" type="component">
+      **Props**: `fields`
+      **Defaults**: `fields={}`
+
+```jsx
+import { ResponseFieldAccordion } from "/snippets/components/content/responseField.jsx";
+
+<ResponseFieldAccordion />
+
+<ResponseFieldAccordion
+  fields={{}}
+/>
+```
+    </ResponseField>
+    <ResponseField name="ResponseFieldExpandable" type="component">
+      **Props**: `fields`
+      **Defaults**: `fields={}`
+
+```jsx
+import { ResponseFieldExpandable } from "/snippets/components/content/responseField.jsx";
+
+<ResponseFieldExpandable />
+
+<ResponseFieldExpandable
+  fields={{}}
+/>
+```
+    </ResponseField>
+    <ResponseField name="ResponseFieldGroup" type="component">
+      **Props**: `component`, `fields`
+      **Defaults**: `component="accordion"`, `fields={}`
+
+```jsx
+import { ResponseFieldGroup } from "/snippets/components/content/responseField.jsx";
+
+<ResponseFieldGroup />
+
+<ResponseFieldGroup
+  component={"accordion"}
+  fields={{}}
+/>
+```
+    </ResponseField>
+    <ResponseField name="ValueResponseField" type="component">
+      **Props**: `description`, `post`, `label`, `line`, `children`
+      **Defaults**: `post=null`, `label="value"`, `line=true`
+
+```jsx
+import { ValueResponseField } from "/snippets/components/content/responseField.jsx";
+
+<ValueResponseField />
+
+<ValueResponseField
+  post={null}
+  label={"value"}
+  line={true}
+/>
+```
+    </ResponseField>
+  </Accordion>
+</AccordionGroup>
+
+## Display
+Display components handle media, embeds, quotes, and visual presentation patterns.
+
+<AccordionGroup>
+  <Accordion title="CardCarousel.jsx" icon="file-code">
+    <ResponseField name="CardCarousel" type="component">
+      **Props**: `children`, `visibleCount`, `gap`, `showDots`, `style`
+      **Defaults**: `visibleCount=3`, `gap="1.5rem"`, `showDots=true`
+
+```jsx
+import { CardCarousel } from "/snippets/components/display/CardCarousel.jsx";
+
+<CardCarousel />
+
+<CardCarousel
+  visibleCount={3}
+  gap={"1.5rem"}
+  showDots={true}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="containers.mdx" icon="file-code">
+    <ResponseField name="TabsContainer" type="component">
+      **Props**: `children`
+      **Defaults**: None
+
+```jsx
+import { TabsContainer } from "/snippets/components/display/containers.mdx";
+
+<TabsContainer />
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="customCards.jsx" icon="file-code">
+    <ResponseField name="CustomCardTitle" type="component">
+      **Props**: `icon`, `title`, `style`
+      **Defaults**: None
+
+```jsx
+import { CustomCardTitle } from "/snippets/components/display/customCards.jsx";
+
+<CustomCardTitle />
+```
+    </ResponseField>
+    <ResponseField name="DisplayCard" type="component">
+      **Props**: `icon`, `title`, `style`, `background`, `children`
+      **Defaults**: `background='var(--card-background)'`
+
+```jsx
+import { DisplayCard } from "/snippets/components/display/customCards.jsx";
+
+<DisplayCard />
+
+<DisplayCard
+  background={'var(--card-background)'}
+/>
+```
+    </ResponseField>
+    <ResponseField name="WidthCard" type="component">
+      **Props**: `width`, `children`
+      **Defaults**: `width='80%'`
+
+```jsx
+import { WidthCard } from "/snippets/components/display/customCards.jsx";
+
+<WidthCard />
+
+<WidthCard
+  width={'80%'}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="embed.jsx" icon="file-code">
+    <ResponseField name="EmbedMarkdown" type="component">
+      **Props**: `url`
+      **Defaults**: None
+
+```jsx
+import { EmbedMarkdown } from "/snippets/components/display/embed.jsx";
+
+<EmbedMarkdown />
+```
+    </ResponseField>
+    <ResponseField name="MarkdownEmbed" type="component">
+      **Props**: `url`
+      **Defaults**: None
+
+```jsx
+import { MarkdownEmbed } from "/snippets/components/display/embed.jsx";
+
+<MarkdownEmbed />
+```
+    </ResponseField>
+    <ResponseField name="TwitterTimeline" type="component">
+      **Props**: No explicit props detected from signature.
+      **Defaults**: No explicit defaults detected.
+
+```jsx
+import { TwitterTimeline } from "/snippets/components/display/embed.jsx";
+
+<TwitterTimeline />
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="embed.mdx" icon="file-code">
+    <ResponseField name="PdfEmbed" type="component">
+      **Props**: `title`, `src`, `height`, `width`
+      **Defaults**: `height="700px"`, `width="100%"`
+
+```jsx
+import { PdfEmbed } from "/snippets/components/display/embed.mdx";
+
+<PdfEmbed />
+
+<PdfEmbed
+  height={"700px"}
+  width={"100%"}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="frameMode.jsx" icon="file-code">
+    <ResponseField name="Divider" type="component">
+      **Props**: `color`, `margin`, `opacity`
+      **Defaults**: `margin="1.5rem 0"`, `opacity=0.2`
+
+```jsx
+import { Divider } from "/snippets/components/display/frameMode.jsx";
+
+<Divider />
+
+<Divider
+  margin={"1.5rem 0"}
+  opacity={0.2}
+/>
+```
+    </ResponseField>
+    <ResponseField name="H1" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap`
+      **Defaults**: `iconSize=32`, `align="left"`, `gap="0.75rem"`
+
+```jsx
+import { H1 } from "/snippets/components/display/frameMode.jsx";
+
+<H1 />
+
+<H1
+  iconSize={32}
+  align={"left"}
+  gap={"0.75rem"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="H2" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap`
+      **Defaults**: `iconSize=28`, `align="left"`, `gap="0.75rem"`
+
+```jsx
+import { H2 } from "/snippets/components/display/frameMode.jsx";
+
+<H2 />
+
+<H2
+  iconSize={28}
+  align={"left"}
+  gap={"0.75rem"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="H3" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap`
+      **Defaults**: `iconSize=24`, `align="left"`, `gap="0.5rem"`
+
+```jsx
+import { H3 } from "/snippets/components/display/frameMode.jsx";
+
+<H3 />
+
+<H3
+  iconSize={24}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="H4" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap`
+      **Defaults**: `iconSize=20`, `align="left"`, `gap="0.5rem"`
+
+```jsx
+import { H4 } from "/snippets/components/display/frameMode.jsx";
+
+<H4 />
+
+<H4
+  iconSize={20}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="H5" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap`
+      **Defaults**: `iconSize=18`, `align="left"`, `gap="0.5rem"`
+
+```jsx
+import { H5 } from "/snippets/components/display/frameMode.jsx";
+
+<H5 />
+
+<H5
+  iconSize={18}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="H6" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap`
+      **Defaults**: `iconSize=16`, `align="left"`, `gap="0.5rem"`
+
+```jsx
+import { H6 } from "/snippets/components/display/frameMode.jsx";
+
+<H6 />
+
+<H6
+  iconSize={16}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="P" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap`
+      **Defaults**: `iconSize=16`, `align="left"`, `gap="0.5rem"`
+
+```jsx
+import { P } from "/snippets/components/display/frameMode.jsx";
+
+<P />
+
+<P
+  iconSize={16}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="PageHeader" type="component">
+      **Props**: `title`, `subtitle`, `description`, `children`, `titleColor`, `subtitleColor`, `descriptionColor`
+      **Defaults**: None
+
+```jsx
+import { PageHeader } from "/snippets/components/display/frameMode.jsx";
+
+<PageHeader />
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="image.jsx" icon="file-code">
+    <ResponseField name="Image" type="component">
+      **Props**: `src`, `alt`, `caption`, `icon`, `hint`, `fullwidth`
+      **Defaults**: `fullwidth=true`
+
+```jsx
+import { Image } from "/snippets/components/display/image.jsx";
+
+<Image />
+
+<Image
+  fullwidth={true}
+/>
+```
+    </ResponseField>
+    <ResponseField name="LinkImage" type="component">
+      **Props**: `src`, `alt`, `caption`, `icon`, `hint`, `href`
+      **Defaults**: None
+
+```jsx
+import { LinkImage } from "/snippets/components/display/image.jsx";
+
+<LinkImage />
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="quote.jsx" icon="file-code">
+    <ResponseField name="FrameQuote" type="component">
+      **Props**: `children`, `author`, `source`, `href`, `frame`, `align`, `borderColor`, `img`, `spacing`
+      **Defaults**: `frame=true`, `align='right'`, `spacing=true`
+
+```jsx
+import { FrameQuote } from "/snippets/components/display/quote.jsx";
+
+<FrameQuote />
+
+<FrameQuote
+  frame={true}
+  align={'right'}
+  spacing={true}
+/>
+```
+    </ResponseField>
+    <ResponseField name="Quote" type="component">
+      **Props**: `children`
+      **Defaults**: None
+
+```jsx
+import { Quote } from "/snippets/components/display/quote.jsx";
+
+<Quote />
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="showcaseCards.jsx" icon="file-code">
+    <ResponseField name="ShowcaseCards" type="component">
+      **Props**: `items`, `limit`, `pageSize`
+      **Defaults**: `items=[]`, `limit=null`, `pageSize=10`
+
+```jsx
+import { ShowcaseCards } from "/snippets/components/display/showcaseCards.jsx";
+
+<ShowcaseCards />
+
+<ShowcaseCards
+  items={[]}
+  limit={null}
+  pageSize={10}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="socialLinks.jsx" icon="file-code">
+    <ResponseField name="SocialLinks" type="component">
+      **Props**: `size`, `gap`, `justify`, `color`
+      **Defaults**: `size=20`, `gap="0.75rem"`, `justify="center"`
+
+```jsx
+import { SocialLinks } from "/snippets/components/display/socialLinks.jsx";
+
+<SocialLinks />
+
+<SocialLinks
+  size={20}
+  gap={"0.75rem"}
+  justify={"center"}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="video.jsx" icon="file-code">
+    <ResponseField name="CardVideo" type="component">
+      **Props**: `embedUrl`, `title`, `style`
+      **Defaults**: None
+
+```jsx
+import { CardVideo } from "/snippets/components/display/video.jsx";
+
+<CardVideo />
+```
+    </ResponseField>
+    <ResponseField name="LinkedInEmbed" type="component">
+      **Props**: `embedUrl`, `title`, `hint`, `caption`, `height`
+      **Defaults**: `title="Embedded post"`, `hint=""`, `height="399"`
+
+```jsx
+import { LinkedInEmbed } from "/snippets/components/display/video.jsx";
+
+<LinkedInEmbed />
+
+<LinkedInEmbed
+  title={"Embedded post"}
+  hint={""}
+  height={"399"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="ShowcaseVideo" type="component">
+      **Props**: `src`, `title`, `subtitle`
+      **Defaults**: None
+
+```jsx
+import { ShowcaseVideo } from "/snippets/components/display/video.jsx";
+
+<ShowcaseVideo />
+```
+    </ResponseField>
+    <ResponseField name="TitledVideo" type="component">
+      **Props**: `src`, `title`, `subtitle`, `arrow`, `borderRadius`, `style`
+      **Defaults**: `arrow=false`, `borderRadius="12px"`, `style={}`
+
+```jsx
+import { TitledVideo } from "/snippets/components/display/video.jsx";
+
+<TitledVideo />
+
+<TitledVideo
+  arrow={false}
+  borderRadius={"12px"}
+  style={{}}
+/>
+```
+    </ResponseField>
+    <ResponseField name="Video" type="component">
+      **Props**: `src`, `title`, `author`, `caption`, `href`, `controls`, `autoPlay`, `loop`, `muted`, `children`
+      **Defaults**: `title=""`, `author=""`, `href=""`, `controls=true`, `autoPlay=false`, `loop=false`, `muted=false`
+
+```jsx
+import { Video } from "/snippets/components/display/video.jsx";
+
+<Video />
+
+<Video
+  title={""}
+  author={""}
+  href={""}
+  controls={true}
+  autoPlay={false}
+  loop={false}
+  muted={false}
+/>
+```
+    </ResponseField>
+    <ResponseField name="YouTubeVideo" type="component">
+      **Props**: `embedUrl`, `title`, `author`, `hint`, `caption`
+      **Defaults**: `title=""`, `author=""`, `hint=""`
+
+```jsx
+import { YouTubeVideo } from "/snippets/components/display/video.jsx";
+
+<YouTubeVideo />
+
+<YouTubeVideo
+  title={""}
+  author={""}
+  hint={""}
+/>
+```
+    </ResponseField>
+    <ResponseField name="YouTubeVideoData" type="component">
+      **Props**: `items`, `limit`, `cols`
+      **Defaults**: `items=[]`, `cols=2`
+
+```jsx
+import { YouTubeVideoData } from "/snippets/components/display/video.jsx";
+
+<YouTubeVideoData />
+
+<YouTubeVideoData
+  items={[]}
+  cols={2}
+/>
+```
+    </ResponseField>
+    <ResponseField name="YouTubeVideoDownload" type="component">
+      **Props**: `embedUrl`, `title`, `hint`, `caption`
+      **Defaults**: `caption=""`
+
+```jsx
+import { YouTubeVideoDownload } from "/snippets/components/display/video.jsx";
+
+<YouTubeVideoDownload />
+
+<YouTubeVideoDownload
+  caption={""}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="zoomable-diagram.jsx" icon="file-code">
+    <ResponseField name="ScrollableDiagram" type="component">
+      **Props**: `children`, `title`, `maxHeight`, `minWidth`, `showControls`
+      **Defaults**: `title=""`, `maxHeight="500px"`, `minWidth="100%"`, `showControls=false`
+
+```jsx
+import { ScrollableDiagram } from "/snippets/components/display/zoomable-diagram.jsx";
+
+<ScrollableDiagram />
+
+<ScrollableDiagram
+  title={""}
+  maxHeight={"500px"}
+  minWidth={"100%"}
+  showControls={false}
+/>
+```
+    </ResponseField>
+  </Accordion>
+</AccordionGroup>
+
+## Domain
+Domain components package feature-specific UI blocks used by dedicated documentation domains.
+
+<AccordionGroup>
+  <Accordion title="04_GATEWAYS/callouts.jsx" icon="file-code">
+    <ResponseField name="FfmpegWarning" type="component">
+      **Props**: No explicit props detected from signature.
+      **Defaults**: No explicit defaults detected.
+
+```jsx
+import { FfmpegWarning } from "/snippets/components/domain/04_GATEWAYS/callouts.jsx";
+
+<FfmpegWarning />
+```
+    </ResponseField>
+    <ResponseField name="GatewayOffChainWarning" type="component">
+      **Props**: No explicit props detected from signature.
+      **Defaults**: No explicit defaults detected.
+
+```jsx
+import { GatewayOffChainWarning } from "/snippets/components/domain/04_GATEWAYS/callouts.jsx";
+
+<GatewayOffChainWarning />
+```
+    </ResponseField>
+    <ResponseField name="GatewayOnChainTTestnetNote" type="component">
+      **Props**: No explicit props detected from signature.
+      **Defaults**: No explicit defaults detected.
+
+```jsx
+import { GatewayOnChainTTestnetNote } from "/snippets/components/domain/04_GATEWAYS/callouts.jsx";
+
+<GatewayOnChainTTestnetNote />
+```
+    </ResponseField>
+    <ResponseField name="GatewayOnChainWarning" type="component">
+      **Props**: No explicit props detected from signature.
+      **Defaults**: No explicit defaults detected.
+
+```jsx
+import { GatewayOnChainWarning } from "/snippets/components/domain/04_GATEWAYS/callouts.jsx";
+
+<GatewayOnChainWarning />
+```
+    </ResponseField>
+    <ResponseField name="OrchAddrNote" type="component">
+      **Props**: No explicit props detected from signature.
+      **Defaults**: No explicit defaults detected.
+
+```jsx
+import { OrchAddrNote } from "/snippets/components/domain/04_GATEWAYS/callouts.jsx";
+
+<OrchAddrNote />
+```
+    </ResponseField>
+    <ResponseField name="TestVideoDownload" type="component">
+      **Props**: `children`
+      **Defaults**: None
+
+```jsx
+import { TestVideoDownload } from "/snippets/components/domain/04_GATEWAYS/callouts.jsx";
+
+<TestVideoDownload />
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="04_GATEWAYS/quickstartTabs.jsx" icon="file-code">
+    <ResponseField name="QuickStartSteps" type="component">
+      **Props**: `dataSource`
+      **Defaults**: None
+
+```jsx
+import { QuickStartSteps } from "/snippets/components/domain/04_GATEWAYS/quickstartTabs.jsx";
+
+<QuickStartSteps />
+```
+    </ResponseField>
+    <ResponseField name="QuickStartTabs" type="component">
+      **Props**: `offchainSteps`, `onchainSteps`
+      **Defaults**: None
+
+```jsx
+import { QuickStartTabs } from "/snippets/components/domain/04_GATEWAYS/quickstartTabs.jsx";
+
+<QuickStartTabs />
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="SHARED/HeroGif.jsx" icon="file-code">
+    <ResponseField name="Starfield" type="component">
+      **Props**: `density`
+      **Defaults**: `density=1.1`
+
+```jsx
+import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
+
+<Starfield />
+
+<Starfield
+  density={1.1}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="SHARED/Portals.jsx" icon="file-code">
+    <ResponseField name="HeroContentContainer" type="component">
+      **Props**: `children`
+      **Defaults**: None
+
+```jsx
+import { HeroContentContainer } from "/snippets/components/domain/SHARED/Portals.jsx";
+
+<HeroContentContainer />
+```
+    </ResponseField>
+    <ResponseField name="HeroImageBackgroundComponent" type="component">
+      **Props**: `children`
+      **Defaults**: None
+
+```jsx
+import { HeroImageBackgroundComponent } from "/snippets/components/domain/SHARED/Portals.jsx";
+
+<HeroImageBackgroundComponent />
+```
+    </ResponseField>
+    <ResponseField name="HeroOverviewContent" type="component">
+      **Props**: `children`
+      **Defaults**: None
+
+```jsx
+import { HeroOverviewContent } from "/snippets/components/domain/SHARED/Portals.jsx";
+
+<HeroOverviewContent />
+```
+    </ResponseField>
+    <ResponseField name="HeroSectionContainer" type="component">
+      **Props**: `children`, `minHeight`
+      **Defaults**: `minHeight="fit-content"`
+
+```jsx
+import { HeroSectionContainer } from "/snippets/components/domain/SHARED/Portals.jsx";
+
+<HeroSectionContainer />
+
+<HeroSectionContainer
+  minHeight={"fit-content"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="LogoHeroContainer" type="component">
+      **Props**: `src`, `alt`, `width`, `margin`, `imgHeight`, `imgWidth`, `objectFit`, `children`
+      **Defaults**: `src="/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg"`, `alt="Livepeer Logo"`, `width="100%"`, `margin="1rem auto 0 auto"`, `imgHeight="20px"`, `imgWidth="auto"`, `objectFit="contain"`
+
+```jsx
+import { LogoHeroContainer } from "/snippets/components/domain/SHARED/Portals.jsx";
+
+<LogoHeroContainer />
+
+<LogoHeroContainer
+  src={"/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg"}
+  alt={"Livepeer Logo"}
+  width={"100%"}
+  margin={"1rem auto 0 auto"}
+  imgHeight={"20px"}
+  imgWidth={"auto"}
+  objectFit={"contain"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="PortalCardsHeader" type="component">
+      **Props**: `children`, `title`
+      **Defaults**: None
+
+```jsx
+import { PortalCardsHeader } from "/snippets/components/domain/SHARED/Portals.jsx";
+
+<PortalCardsHeader />
+```
+    </ResponseField>
+    <ResponseField name="PortalContentContainer" type="component">
+      **Props**: `children`
+      **Defaults**: None
+
+```jsx
+import { PortalContentContainer } from "/snippets/components/domain/SHARED/Portals.jsx";
+
+<PortalContentContainer />
+```
+    </ResponseField>
+    <ResponseField name="PortalHeroContent" type="component">
+      **Props**: `zIndex`, `subtitle`, `subtitleIcon`, `description`, `refCardLink`, `overview`, `divider`, `callout`, `titleColor`, `subtitleColor`, `children`
+      **Defaults**: `zIndex=true`, `subtitle="Build - Explore - Create"`, `subtitleIcon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg"`, `divider=true`, `callout=null`
+
+```jsx
+import { PortalHeroContent } from "/snippets/components/domain/SHARED/Portals.jsx";
+
+<PortalHeroContent />
+
+<PortalHeroContent
+  zIndex={true}
+  subtitle={"Build - Explore - Create"}
+  subtitleIcon={"/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg"}
+  divider={true}
+  callout={null}
+/>
+```
+    </ResponseField>
+    <ResponseField name="PortalSectionHeader" type="component">
+      **Props**: `children`, `title`, `icon`
+      **Defaults**: None
+
+```jsx
+import { PortalSectionHeader } from "/snippets/components/domain/SHARED/Portals.jsx";
+
+<PortalSectionHeader />
+```
+    </ResponseField>
+    <ResponseField name="RefCardContainer" type="component">
+      **Props**: `children`
+      **Defaults**: None
+
+```jsx
+import { RefCardContainer } from "/snippets/components/domain/SHARED/Portals.jsx";
+
+<RefCardContainer />
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="SHARED/previewCallouts.jsx" icon="file-code">
+    <ResponseField name="ComingSoonCallout" type="component">
+      **Props**: `type`
+      **Defaults**: `type="page"`
+
+```jsx
+import { ComingSoonCallout } from "/snippets/components/domain/SHARED/previewCallouts.jsx";
+
+<ComingSoonCallout />
+
+<ComingSoonCallout
+  type={"page"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="PreviewCallout" type="component">
+      **Props**: No explicit props detected from signature.
+      **Defaults**: No explicit defaults detected.
+
+```jsx
+import { PreviewCallout } from "/snippets/components/domain/SHARED/previewCallouts.jsx";
+
+<PreviewCallout />
+```
+    </ResponseField>
+    <ResponseField name="ReviewCallout" type="component">
+      **Props**: No explicit props detected from signature.
+      **Defaults**: No explicit defaults detected.
+
+```jsx
+import { ReviewCallout } from "/snippets/components/domain/SHARED/previewCallouts.jsx";
+
+<ReviewCallout />
+```
+    </ResponseField>
+  </Accordion>
+</AccordionGroup>
+
+## Integrations
+Integration components connect docs pages to external APIs and third-party datasets.
+
+<AccordionGroup>
+  <Accordion title="coingecko.jsx" icon="file-code">
+    <ResponseField name="CoinGeckoExchanges" type="component">
+      **Props**: `coinId`
+      **Defaults**: `coinId="arbitrum"`
+
+```jsx
+import { CoinGeckoExchanges } from "/snippets/components/integrations/coingecko.jsx";
+
+<CoinGeckoExchanges />
+
+<CoinGeckoExchanges
+  coinId={"arbitrum"}
+/>
+```
+    </ResponseField>
+  </Accordion>
+</AccordionGroup>
+
+## Layout
+Layout components provide reusable structure primitives for organizing page content.
+
+<AccordionGroup>
+  <Accordion title="api-base-urls-table.mdx" icon="file-code">
+    <ResponseField name="ApiBaseUrlsTable" type="component">
+      **Props**: `urls`
+      **Defaults**: None
+
+```jsx
+import { ApiBaseUrlsTable } from "/snippets/components/layout/api-base-urls-table.mdx";
+
+<ApiBaseUrlsTable />
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="cards.jsx" icon="file-code">
+    <ResponseField name="ScrollBox" type="component">
+      **Props**: `children`, `maxHeight`, `showHint`, `ariaLabel`, `style`
+      **Defaults**: `maxHeight=300`, `showHint=true`, `ariaLabel="Scrollable content"`
+
+```jsx
+import { ScrollBox } from "/snippets/components/layout/cards.jsx";
+
+<ScrollBox />
+
+<ScrollBox
+  maxHeight={300}
+  showHint={true}
+  ariaLabel={"Scrollable content"}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="lists.jsx" icon="file-code">
+    <ResponseField name="BasicList" type="component">
+      **Props**: `listItems`
+      **Defaults**: None
+
+```jsx
+import { BasicList } from "/snippets/components/layout/lists.jsx";
+
+<BasicList />
+```
+    </ResponseField>
+    <ResponseField name="IconList" type="component">
+      **Props**: `listItems`
+      **Defaults**: None
+
+```jsx
+import { IconList } from "/snippets/components/layout/lists.jsx";
+
+<IconList />
+```
+    </ResponseField>
+    <ResponseField name="StepLinkList" type="component">
+      **Props**: `listItems`
+      **Defaults**: None
+
+```jsx
+import { StepLinkList } from "/snippets/components/layout/lists.jsx";
+
+<StepLinkList />
+```
+    </ResponseField>
+    <ResponseField name="StepList" type="component">
+      **Props**: `listItems`
+      **Defaults**: None
+
+```jsx
+import { StepList } from "/snippets/components/layout/lists.jsx";
+
+<StepList />
+```
+    </ResponseField>
+    <ResponseField name="UpdateLinkList" type="component">
+      **Props**: `listItems`
+      **Defaults**: None
+
+```jsx
+import { UpdateLinkList } from "/snippets/components/layout/lists.jsx";
+
+<UpdateLinkList />
+```
+    </ResponseField>
+    <ResponseField name="UpdateList" type="component">
+      **Props**: `listItems`
+      **Defaults**: None
+
+```jsx
+import { UpdateList } from "/snippets/components/layout/lists.jsx";
+
+<UpdateList />
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="ListSteps.jsx" icon="file-code">
+    <ResponseField name="ListSteps" type="component">
+      **Props**: `listItems`, `stepsConfig`
+      **Defaults**: None
+
+```jsx
+import { ListSteps } from "/snippets/components/layout/ListSteps.jsx";
+
+<ListSteps />
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="quadGrid.jsx" icon="file-code">
+    <ResponseField name="QuadGrid" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `spinDuration`
+      **Defaults**: `icon="arrows-spin"`, `iconSize=50`, `iconColor="var(--accent)"`, `spinDuration="10s"`
+
+```jsx
+import { QuadGrid } from "/snippets/components/layout/quadGrid.jsx";
+
+<QuadGrid />
+
+<QuadGrid
+  icon={"arrows-spin"}
+  iconSize={50}
+  iconColor={"var(--accent)"}
+  spinDuration={"10s"}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="SearchTable.jsx" icon="file-code">
+    <ResponseField name="SearchTable" type="component">
+      **Props**: `tableTitle`, `headerList`, `itemsList`, `monospaceColumns`, `margin`, `searchPlaceholder`, `searchColumns`
+      **Defaults**: `tableTitle=null`, `headerList=[]`, `itemsList=[]`, `monospaceColumns=[]`, `searchPlaceholder='Search...'`, `searchColumns=[]`
+
+```jsx
+import { SearchTable } from "/snippets/components/layout/SearchTable.jsx";
+
+<SearchTable />
+
+<SearchTable
+  tableTitle={null}
+  headerList={[]}
+  itemsList={[]}
+  monospaceColumns={[]}
+  searchPlaceholder={'Search...'}
+  searchColumns={[]}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="steps.jsx" icon="file-code">
+    <ResponseField name="StyledStep" type="component">
+      **Props**: `title`, `icon`, `titleSize`, `children`
+      **Defaults**: `titleSize="h3"`
+
+```jsx
+import { StyledStep } from "/snippets/components/layout/steps.jsx";
+
+<StyledStep />
+
+<StyledStep
+  titleSize={"h3"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="StyledSteps" type="component">
+      **Props**: `children`, `iconColor`, `titleColor`, `lineColor`, `iconSize`
+      **Defaults**: `iconSize="24px"`
+
+```jsx
+import { StyledSteps } from "/snippets/components/layout/steps.jsx";
+
+<StyledSteps />
+
+<StyledSteps
+  iconSize={"24px"}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="table.jsx" icon="file-code">
+    <ResponseField name="DynamicTable" type="component">
+      **Props**: `tableTitle`, `headerList`, `itemsList`, `monospaceColumns`, `margin`
+      **Defaults**: `tableTitle=null`, `headerList=[]`, `itemsList=[]`, `monospaceColumns=[]`
+
+```jsx
+import { DynamicTable } from "/snippets/components/layout/table.jsx";
+
+<DynamicTable />
+
+<DynamicTable
+  tableTitle={null}
+  headerList={[]}
+  itemsList={[]}
+  monospaceColumns={[]}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="text.jsx" icon="file-code">
+    <ResponseField name="AccordionLayout" type="component">
+      **Props**: `children`
+      **Defaults**: None
+
+```jsx
+import { AccordionLayout } from "/snippets/components/layout/text.jsx";
+
+<AccordionLayout />
+```
+    </ResponseField>
+  </Accordion>
+</AccordionGroup>
+
+## Primitives
+Primitive components are foundational UI building blocks reused across the docs system.
+
+<AccordionGroup>
+  <Accordion title="a11y.jsx" icon="file-code">
+    <ResponseField name="FocusableScrollRegions" type="component">
+      **Props**: `selectors`
+      **Defaults**: `selectors=DEFAULT_SELECTORS`
+
+```jsx
+import { FocusableScrollRegions } from "/snippets/components/primitives/a11y.jsx";
+
+<FocusableScrollRegions />
+
+<FocusableScrollRegions
+  selectors={DEFAULT_SELECTORS}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="buttons.jsx" icon="file-code">
+    <ResponseField name="BasicBtn" type="component">
+      **Props**: No explicit props detected from signature.
+      **Defaults**: No explicit defaults detected.
+
+```jsx
+import { BasicBtn } from "/snippets/components/primitives/buttons.jsx";
+
+<BasicBtn />
+```
+    </ResponseField>
+    <ResponseField name="DownloadButton" type="component">
+      **Props**: `label`, `icon`, `downloadLink`, `rightIcon`, `border`
+      **Defaults**: `label='Download'`, `icon='download'`, `rightIcon=''`, `border=false`
+
+```jsx
+import { DownloadButton } from "/snippets/components/primitives/buttons.jsx";
+
+<DownloadButton />
+
+<DownloadButton
+  label={'Download'}
+  icon={'download'}
+  rightIcon={''}
+  border={false}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="containers.jsx" icon="file-code">
+    <ResponseField name="BorderedBox" type="component">
+      **Props**: `children`, `variant`, `padding`, `borderRadius`, `style`
+      **Defaults**: `variant="default"`, `padding="1rem"`, `borderRadius="8px"`, `style={}`
+
+```jsx
+import { BorderedBox } from "/snippets/components/primitives/containers.jsx";
+
+<BorderedBox />
+
+<BorderedBox
+  variant={"default"}
+  padding={"1rem"}
+  borderRadius={"8px"}
+  style={{}}
+/>
+```
+    </ResponseField>
+    <ResponseField name="CenteredContainer" type="component">
+      **Props**: `children`, `maxWidth`, `padding`, `style`
+      **Defaults**: `maxWidth="800px"`, `padding="0"`, `style={}`
+
+```jsx
+import { CenteredContainer } from "/snippets/components/primitives/containers.jsx";
+
+<CenteredContainer />
+
+<CenteredContainer
+  maxWidth={"800px"}
+  padding={"0"}
+  style={{}}
+/>
+```
+    </ResponseField>
+    <ResponseField name="FullWidthContainer" type="component">
+      **Props**: `children`, `backgroundColor`, `style`
+      **Defaults**: `style={}`
+
+```jsx
+import { FullWidthContainer } from "/snippets/components/primitives/containers.jsx";
+
+<FullWidthContainer />
+
+<FullWidthContainer
+  style={{}}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="divider.jsx" icon="file-code">
+    <ResponseField name="CustomDivider" type="component">
+      **Props**: `color`, `middleText`, `style`
+      **Defaults**: `color="var(--border)"`, `middleText=""`, `style={}`
+
+```jsx
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx";
+
+<CustomDivider />
+
+<CustomDivider
+  color={"var(--border)"}
+  middleText={""}
+  style={{}}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="icons.jsx" icon="file-code">
+    <ResponseField name="LivepeerIcon" type="component">
+      **Props**: `size`, `color`
+      **Defaults**: `size=16`
+
+```jsx
+import { LivepeerIcon } from "/snippets/components/primitives/icons.jsx";
+
+<LivepeerIcon />
+
+<LivepeerIcon
+  size={16}
+/>
+```
+    </ResponseField>
+    <ResponseField name="LivepeerIconFlipped" type="component">
+      **Props**: No explicit props detected from signature.
+      **Defaults**: No explicit defaults detected.
+
+```jsx
+import { LivepeerIconFlipped } from "/snippets/components/primitives/icons.jsx";
+
+<LivepeerIconFlipped />
+```
+    </ResponseField>
+    <ResponseField name="LivepeerIconOld" type="component">
+      **Props**: No explicit props detected from signature.
+      **Defaults**: No explicit defaults detected.
+
+```jsx
+import { LivepeerIconOld } from "/snippets/components/primitives/icons.jsx";
+
+<LivepeerIconOld />
+```
+    </ResponseField>
+    <ResponseField name="LivepeerSVG" type="component">
+      **Props**: `size`
+      **Defaults**: `size=24`
+
+```jsx
+import { LivepeerSVG } from "/snippets/components/primitives/icons.jsx";
+
+<LivepeerSVG />
+
+<LivepeerSVG
+  size={24}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="layout.jsx" icon="file-code">
+    <ResponseField name="FlexContainer" type="component">
+      **Props**: `children`, `direction`, `gap`, `align`, `justify`, `wrap`, `style`
+      **Defaults**: `direction="row"`, `gap="1rem"`, `align="flex-start"`, `justify="flex-start"`, `wrap=false`, `style={}`
+
+```jsx
+import { FlexContainer } from "/snippets/components/primitives/layout.jsx";
+
+<FlexContainer />
+
+<FlexContainer
+  direction={"row"}
+  gap={"1rem"}
+  align={"flex-start"}
+  justify={"flex-start"}
+  wrap={false}
+  style={{}}
+/>
+```
+    </ResponseField>
+    <ResponseField name="GridContainer" type="component">
+      **Props**: `children`, `columns`, `gap`, `style`
+      **Defaults**: `gap="1rem"`, `style={}`
+
+```jsx
+import { GridContainer } from "/snippets/components/primitives/layout.jsx";
+
+<GridContainer />
+
+<GridContainer
+  gap={"1rem"}
+  style={{}}
+/>
+```
+    </ResponseField>
+    <ResponseField name="Spacer" type="component">
+      **Props**: `size`, `direction`
+      **Defaults**: `size="1rem"`, `direction="vertical"`
+
+```jsx
+import { Spacer } from "/snippets/components/primitives/layout.jsx";
+
+<Spacer />
+
+<Spacer
+  size={"1rem"}
+  direction={"vertical"}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="links.jsx" icon="file-code">
+    <ResponseField name="BlinkingIcon" type="component">
+      **Props**: `icon`, `size`, `color`
+      **Defaults**: `icon="terminal"`, `size=16`
+
+```jsx
+import { BlinkingIcon } from "/snippets/components/primitives/links.jsx";
+
+<BlinkingIcon />
+
+<BlinkingIcon
+  icon={"terminal"}
+  size={16}
+/>
+```
+    </ResponseField>
+    <ResponseField name="BlinkingTerminal" type="component">
+      **Props**: No explicit props detected from signature.
+      **Defaults**: No explicit defaults detected.
+
+```jsx
+import { BlinkingTerminal } from "/snippets/components/primitives/links.jsx";
+
+<BlinkingTerminal />
+```
+    </ResponseField>
+    <ResponseField name="CustomCallout" type="component">
+      **Props**: `children`, `icon`, `color`, `iconSize`, `textSize`, `textColor`
+      **Defaults**: `icon="lightbulb"`, `iconSize=16`, `textSize="0.875rem"`
+
+```jsx
+import { CustomCallout } from "/snippets/components/primitives/links.jsx";
+
+<CustomCallout />
+
+<CustomCallout
+  icon={"lightbulb"}
+  iconSize={16}
+  textSize={"0.875rem"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="DoubleIconLink" type="component">
+      **Props**: `label`, `href`, `text`, `iconLeft`, `iconRight`
+      **Defaults**: `label=""`, `href="#"`, `text=""`, `iconLeft="github"`, `iconRight="arrow-up-right"`
+
+```jsx
+import { DoubleIconLink } from "/snippets/components/primitives/links.jsx";
+
+<DoubleIconLink />
+
+<DoubleIconLink
+  label={""}
+  href={"#"}
+  text={""}
+  iconLeft={"github"}
+  iconRight={"arrow-up-right"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="GotoCard" type="component">
+      **Props**: `label`, `relativePath`, `icon`, `text`, `cta`
+      **Defaults**: `cta=""`
+
+```jsx
+import { GotoCard } from "/snippets/components/primitives/links.jsx";
+
+<GotoCard />
+
+<GotoCard
+  cta={""}
+/>
+```
+    </ResponseField>
+    <ResponseField name="GotoLink" type="component">
+      **Props**: `label`, `relativePath`, `text`, `icon`
+      **Defaults**: `text=""`, `icon="arrow-turn-down-right"`
+
+```jsx
+import { GotoLink } from "/snippets/components/primitives/links.jsx";
+
+<GotoLink />
+
+<GotoLink
+  text={""}
+  icon={"arrow-turn-down-right"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="LinkArrow" type="component">
+      **Props**: `href`, `label`, `description`, `newline`, `borderColor`
+      **Defaults**: `newline=true`
+
+```jsx
+import { LinkArrow } from "/snippets/components/primitives/links.jsx";
+
+<LinkArrow />
+
+<LinkArrow
+  newline={true}
+/>
+```
+    </ResponseField>
+    <ResponseField name="TipWithArrow" type="component">
+      **Props**: `children`, `icon`, `arrowIcon`, `color`, `iconSize`, `arrowSize`
+      **Defaults**: `icon="lightbulb"`, `arrowIcon="arrow-up-right"`, `iconSize=16`, `arrowSize=16`
+
+```jsx
+import { TipWithArrow } from "/snippets/components/primitives/links.jsx";
+
+<TipWithArrow />
+
+<TipWithArrow
+  icon={"lightbulb"}
+  arrowIcon={"arrow-up-right"}
+  iconSize={16}
+  arrowSize={16}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="tables.jsx" icon="file-code">
+    <ResponseField name="StyledTable" type="component">
+      **Props**: `children`, `variant`, `style`
+      **Defaults**: `variant="default"`, `style={}`
+
+```jsx
+import { StyledTable } from "/snippets/components/primitives/tables.jsx";
+
+<StyledTable />
+
+<StyledTable
+  variant={"default"}
+  style={{}}
+/>
+```
+    </ResponseField>
+    <ResponseField name="TableCell" type="component">
+      **Props**: `children`, `align`, `header`, `style`
+      **Defaults**: `align="left"`, `header=false`, `style={}`
+
+```jsx
+import { TableCell } from "/snippets/components/primitives/tables.jsx";
+
+<TableCell />
+
+<TableCell
+  align={"left"}
+  header={false}
+  style={{}}
+/>
+```
+    </ResponseField>
+    <ResponseField name="TableRow" type="component">
+      **Props**: `children`, `header`, `hover`, `style`
+      **Defaults**: `header=false`, `hover=false`, `style={}`
+
+```jsx
+import { TableRow } from "/snippets/components/primitives/tables.jsx";
+
+<TableRow />
+
+<TableRow
+  header={false}
+  hover={false}
+  style={{}}
+/>
+```
+    </ResponseField>
+  </Accordion>
+  <Accordion title="text.jsx" icon="file-code">
+    <ResponseField name="AccordionTitleWithArrow" type="component">
+      **Props**: `text`, `children`, `color`
+      **Defaults**: `color="var(--text)"`
+
+```jsx
+import { AccordionTitleWithArrow } from "/snippets/components/primitives/text.jsx";
+
+<AccordionTitleWithArrow />
+
+<AccordionTitleWithArrow
+  color={"var(--text)"}
+/>
+```
+    </ResponseField>
+    <ResponseField name="CardTitleTextWithArrow" type="component">
+      **Props**: `children`
+      **Defaults**: None
+
+```jsx
+import { CardTitleTextWithArrow } from "/snippets/components/primitives/text.jsx";
+
+<CardTitleTextWithArrow />
+```
+    </ResponseField>
+    <ResponseField name="CopyText" type="component">
+      **Props**: `text`, `label`
+      **Defaults**: None
+
+```jsx
+import { CopyText } from "/snippets/components/primitives/text.jsx";
+
+<CopyText />
+```
+    </ResponseField>
+    <ResponseField name="Subtitle" type="component">
+      **Props**: `style`, `text`, `children`
+      **Defaults**: `style={}`
+
+```jsx
+import { Subtitle } from "/snippets/components/primitives/text.jsx";
+
+<Subtitle />
+
+<Subtitle
+  style={{}}
+/>
+```
+    </ResponseField>
+  </Accordion>
+</AccordionGroup>
+
+## Lookup Table
+Search by page path or component name.
+
+<SearchTable
+  tableTitle="Component Lookup"
+  headerList={["Page", "Component"]}
+  itemsList={[
+    { Page: "content/code.jsx", Component: "CodeComponent" },
+    { Page: "content/code.jsx", Component: "CodeSection" },
+    { Page: "content/code.jsx", Component: "ComplexCodeBlock" },
+    { Page: "content/code.jsx", Component: "CustomCodeBlock" },
+    { Page: "content/data.jsx", Component: "BlogCard" },
+    { Page: "content/data.jsx", Component: "BlogDataLayout" },
+    { Page: "content/data.jsx", Component: "CardBlogDataLayout" },
+    { Page: "content/data.jsx", Component: "CardColumnsPostLayout" },
+    { Page: "content/data.jsx", Component: "CardInCardLayout" },
+    { Page: "content/data.jsx", Component: "ColumnsBlogCardLayout" },
+    { Page: "content/data.jsx", Component: "DiscordAnnouncements" },
+    { Page: "content/data.jsx", Component: "ForumLatestLayout" },
+    { Page: "content/data.jsx", Component: "LumaEvents" },
+    { Page: "content/data.jsx", Component: "PostCard" },
+    { Page: "content/external-content.jsx", Component: "ExternalContent" },
+    { Page: "content/math.jsx", Component: "MathBlock" },
+    { Page: "content/math.jsx", Component: "MathInline" },
+    { Page: "content/release.jsx", Component: "LatestVersion" },
+    { Page: "content/responseField.jsx", Component: "CustomResponseField" },
+    { Page: "content/responseField.jsx", Component: "ResponseFieldAccordion" },
+    { Page: "content/responseField.jsx", Component: "ResponseFieldExpandable" },
+    { Page: "content/responseField.jsx", Component: "ResponseFieldGroup" },
+    { Page: "content/responseField.jsx", Component: "ValueResponseField" },
+    { Page: "display/CardCarousel.jsx", Component: "CardCarousel" },
+    { Page: "display/containers.mdx", Component: "TabsContainer" },
+    { Page: "display/customCards.jsx", Component: "CustomCardTitle" },
+    { Page: "display/customCards.jsx", Component: "DisplayCard" },
+    { Page: "display/customCards.jsx", Component: "WidthCard" },
+    { Page: "display/embed.jsx", Component: "EmbedMarkdown" },
+    { Page: "display/embed.jsx", Component: "MarkdownEmbed" },
+    { Page: "display/embed.jsx", Component: "TwitterTimeline" },
+    { Page: "display/embed.mdx", Component: "PdfEmbed" },
+    { Page: "display/frameMode.jsx", Component: "Divider" },
+    { Page: "display/frameMode.jsx", Component: "H1" },
+    { Page: "display/frameMode.jsx", Component: "H2" },
+    { Page: "display/frameMode.jsx", Component: "H3" },
+    { Page: "display/frameMode.jsx", Component: "H4" },
+    { Page: "display/frameMode.jsx", Component: "H5" },
+    { Page: "display/frameMode.jsx", Component: "H6" },
+    { Page: "display/frameMode.jsx", Component: "P" },
+    { Page: "display/frameMode.jsx", Component: "PageHeader" },
+    { Page: "display/image.jsx", Component: "Image" },
+    { Page: "display/image.jsx", Component: "LinkImage" },
+    { Page: "display/quote.jsx", Component: "FrameQuote" },
+    { Page: "display/quote.jsx", Component: "Quote" },
+    { Page: "display/showcaseCards.jsx", Component: "ShowcaseCards" },
+    { Page: "display/socialLinks.jsx", Component: "SocialLinks" },
+    { Page: "display/video.jsx", Component: "CardVideo" },
+    { Page: "display/video.jsx", Component: "LinkedInEmbed" },
+    { Page: "display/video.jsx", Component: "ShowcaseVideo" },
+    { Page: "display/video.jsx", Component: "TitledVideo" },
+    { Page: "display/video.jsx", Component: "Video" },
+    { Page: "display/video.jsx", Component: "YouTubeVideo" },
+    { Page: "display/video.jsx", Component: "YouTubeVideoData" },
+    { Page: "display/video.jsx", Component: "YouTubeVideoDownload" },
+    { Page: "display/zoomable-diagram.jsx", Component: "ScrollableDiagram" },
+    { Page: "domain/04_GATEWAYS/callouts.jsx", Component: "FfmpegWarning" },
+    { Page: "domain/04_GATEWAYS/callouts.jsx", Component: "GatewayOffChainWarning" },
+    { Page: "domain/04_GATEWAYS/callouts.jsx", Component: "GatewayOnChainTTestnetNote" },
+    { Page: "domain/04_GATEWAYS/callouts.jsx", Component: "GatewayOnChainWarning" },
+    { Page: "domain/04_GATEWAYS/callouts.jsx", Component: "OrchAddrNote" },
+    { Page: "domain/04_GATEWAYS/callouts.jsx", Component: "TestVideoDownload" },
+    { Page: "domain/04_GATEWAYS/quickstartTabs.jsx", Component: "QuickStartSteps" },
+    { Page: "domain/04_GATEWAYS/quickstartTabs.jsx", Component: "QuickStartTabs" },
+    { Page: "domain/SHARED/HeroGif.jsx", Component: "Starfield" },
+    { Page: "domain/SHARED/Portals.jsx", Component: "HeroContentContainer" },
+    { Page: "domain/SHARED/Portals.jsx", Component: "HeroImageBackgroundComponent" },
+    { Page: "domain/SHARED/Portals.jsx", Component: "HeroOverviewContent" },
+    { Page: "domain/SHARED/Portals.jsx", Component: "HeroSectionContainer" },
+    { Page: "domain/SHARED/Portals.jsx", Component: "LogoHeroContainer" },
+    { Page: "domain/SHARED/Portals.jsx", Component: "PortalCardsHeader" },
+    { Page: "domain/SHARED/Portals.jsx", Component: "PortalContentContainer" },
+    { Page: "domain/SHARED/Portals.jsx", Component: "PortalHeroContent" },
+    { Page: "domain/SHARED/Portals.jsx", Component: "PortalSectionHeader" },
+    { Page: "domain/SHARED/Portals.jsx", Component: "RefCardContainer" },
+    { Page: "domain/SHARED/previewCallouts.jsx", Component: "ComingSoonCallout" },
+    { Page: "domain/SHARED/previewCallouts.jsx", Component: "PreviewCallout" },
+    { Page: "domain/SHARED/previewCallouts.jsx", Component: "ReviewCallout" },
+    { Page: "integrations/coingecko.jsx", Component: "CoinGeckoExchanges" },
+    { Page: "layout/api-base-urls-table.mdx", Component: "ApiBaseUrlsTable" },
+    { Page: "layout/cards.jsx", Component: "ScrollBox" },
+    { Page: "layout/lists.jsx", Component: "BasicList" },
+    { Page: "layout/lists.jsx", Component: "IconList" },
+    { Page: "layout/lists.jsx", Component: "StepLinkList" },
+    { Page: "layout/lists.jsx", Component: "StepList" },
+    { Page: "layout/lists.jsx", Component: "UpdateLinkList" },
+    { Page: "layout/lists.jsx", Component: "UpdateList" },
+    { Page: "layout/ListSteps.jsx", Component: "ListSteps" },
+    { Page: "layout/quadGrid.jsx", Component: "QuadGrid" },
+    { Page: "layout/SearchTable.jsx", Component: "SearchTable" },
+    { Page: "layout/steps.jsx", Component: "StyledStep" },
+    { Page: "layout/steps.jsx", Component: "StyledSteps" },
+    { Page: "layout/table.jsx", Component: "DynamicTable" },
+    { Page: "layout/text.jsx", Component: "AccordionLayout" },
+    { Page: "primitives/a11y.jsx", Component: "FocusableScrollRegions" },
+    { Page: "primitives/buttons.jsx", Component: "BasicBtn" },
+    { Page: "primitives/buttons.jsx", Component: "DownloadButton" },
+    { Page: "primitives/containers.jsx", Component: "BorderedBox" },
+    { Page: "primitives/containers.jsx", Component: "CenteredContainer" },
+    { Page: "primitives/containers.jsx", Component: "FullWidthContainer" },
+    { Page: "primitives/divider.jsx", Component: "CustomDivider" },
+    { Page: "primitives/icons.jsx", Component: "LivepeerIcon" },
+    { Page: "primitives/icons.jsx", Component: "LivepeerIconFlipped" },
+    { Page: "primitives/icons.jsx", Component: "LivepeerIconOld" },
+    { Page: "primitives/icons.jsx", Component: "LivepeerSVG" },
+    { Page: "primitives/layout.jsx", Component: "FlexContainer" },
+    { Page: "primitives/layout.jsx", Component: "GridContainer" },
+    { Page: "primitives/layout.jsx", Component: "Spacer" },
+    { Page: "primitives/links.jsx", Component: "BlinkingIcon" },
+    { Page: "primitives/links.jsx", Component: "BlinkingTerminal" },
+    { Page: "primitives/links.jsx", Component: "CustomCallout" },
+    { Page: "primitives/links.jsx", Component: "DoubleIconLink" },
+    { Page: "primitives/links.jsx", Component: "GotoCard" },
+    { Page: "primitives/links.jsx", Component: "GotoLink" },
+    { Page: "primitives/links.jsx", Component: "LinkArrow" },
+    { Page: "primitives/links.jsx", Component: "TipWithArrow" },
+    { Page: "primitives/tables.jsx", Component: "StyledTable" },
+    { Page: "primitives/tables.jsx", Component: "TableCell" },
+    { Page: "primitives/tables.jsx", Component: "TableRow" },
+    { Page: "primitives/text.jsx", Component: "AccordionTitleWithArrow" },
+    { Page: "primitives/text.jsx", Component: "CardTitleTextWithArrow" },
+    { Page: "primitives/text.jsx", Component: "CopyText" },
+    { Page: "primitives/text.jsx", Component: "Subtitle" },
+  ]}
+  searchPlaceholder="Search pages or components..."
+/>

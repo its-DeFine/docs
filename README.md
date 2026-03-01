@@ -113,6 +113,7 @@ Recovery:
 | Content system and IA model | [`docs-guide/content-system.mdx`](docs-guide/content-system.mdx) |
 | APIs and data integrations | [`docs-guide/data-integrations.mdx`](docs-guide/data-integrations.mdx) |
 | Generated pages tree inventory | [`docs-guide/pages-index.mdx`](docs-guide/pages-index.mdx) |
+| Generated components inventory | [`docs-guide/components-index.mdx`](docs-guide/components-index.mdx) |
 | Generated script inventory | [`docs-guide/scripts-index.md`](docs-guide/scripts-index.md) |
 | Generated workflow inventory | [`docs-guide/workflows-index.mdx`](docs-guide/workflows-index.mdx) |
 | Generated issue/PR template inventory | [`docs-guide/templates-index.mdx`](docs-guide/templates-index.mdx) |
@@ -199,5 +200,7 @@ Regenerate docs-guide generated indexes:
 
 ```bash
 node tools/scripts/generate-docs-guide-indexes.js --write
+node tools/scripts/generate-docs-guide-pages-index.js --write
+node tools/scripts/generate-docs-guide-components-index.js --write
 node tests/unit/script-docs.test.js --write --rebuild-indexes
 ```
