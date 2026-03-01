@@ -4372,7 +4372,7 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/es/about/core-concepts",
-                          "v2/resources/livepeer-glossary",
+                          "v2/es/resources/livepeer-glossary",
                           "v2/pages/01_about/livepeer-network/actors"
                         ]
                       },
@@ -4380,7 +4380,7 @@
                         "group": "Developer References",
                         "icon": "book",
                         "pages": [
-                          "v2/resources/livepeer-glossary"
+                          "v2/es/resources/livepeer-glossary"
                         ]
                       },
                       {
@@ -4394,35 +4394,35 @@
                         "group": "Orchestrator References",
                         "icon": "microchip",
                         "pages": [
-                          "v2/resources/livepeer-glossary"
+                          "v2/es/resources/livepeer-glossary"
                         ]
                       },
                       {
                         "group": "LPT & Delegator References",
                         "icon": "hand-holding-dollar",
                         "pages": [
-                          "v2/resources/livepeer-glossary"
+                          "v2/es/resources/livepeer-glossary"
                         ]
                       },
                       {
                         "group": "Community Resources",
                         "icon": "",
                         "pages": [
-                          "v2/resources/livepeer-glossary"
+                          "v2/es/resources/livepeer-glossary"
                         ]
                       },
                       {
                         "group": "Partner Resources",
                         "icon": "handshake",
                         "pages": [
-                          "v2/resources/livepeer-glossary"
+                          "v2/es/resources/livepeer-glossary"
                         ]
                       },
                       {
                         "group": "Help Center",
                         "icon": "comments-question-check",
                         "pages": [
-                          "v2/resources/livepeer-glossary"
+                          "v2/es/resources/livepeer-glossary"
                         ]
                       },
                       {
@@ -5646,7 +5646,7 @@
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/fr/about/core-concepts",
-                          "v2/resources/livepeer-glossary",
+                          "v2/fr/resources/livepeer-glossary",
                           "v2/pages/01_about/livepeer-network/actors"
                         ]
                       },
@@ -5654,7 +5654,7 @@
                         "group": "Developer References",
                         "icon": "book",
                         "pages": [
-                          "v2/resources/livepeer-glossary"
+                          "v2/fr/resources/livepeer-glossary"
                         ]
                       },
                       {
@@ -5668,35 +5668,35 @@
                         "group": "Orchestrator References",
                         "icon": "microchip",
                         "pages": [
-                          "v2/resources/livepeer-glossary"
+                          "v2/fr/resources/livepeer-glossary"
                         ]
                       },
                       {
                         "group": "LPT & Delegator References",
                         "icon": "hand-holding-dollar",
                         "pages": [
-                          "v2/resources/livepeer-glossary"
+                          "v2/fr/resources/livepeer-glossary"
                         ]
                       },
                       {
                         "group": "Community Resources",
                         "icon": "",
                         "pages": [
-                          "v2/resources/livepeer-glossary"
+                          "v2/fr/resources/livepeer-glossary"
                         ]
                       },
                       {
                         "group": "Partner Resources",
                         "icon": "handshake",
                         "pages": [
-                          "v2/resources/livepeer-glossary"
+                          "v2/fr/resources/livepeer-glossary"
                         ]
                       },
                       {
                         "group": "Help Center",
                         "icon": "comments-question-check",
                         "pages": [
-                          "v2/resources/livepeer-glossary"
+                          "v2/fr/resources/livepeer-glossary"
                         ]
                       },
                       {
