@@ -4359,10 +4359,10 @@
                               "v2/resources/documentation-guide/component-library",
                               "v2/es/resources/documentation-guide/component-library/primitives",
                               "v2/es/resources/documentation-guide/component-library/display",
-                              "v2/resources/documentation-guide/component-library/content",
-                              "v2/resources/documentation-guide/component-library/layout",
-                              "v2/resources/documentation-guide/component-library/integrations",
-                              "v2/resources/documentation-guide/component-library/domain"
+                              "v2/es/resources/documentation-guide/component-library/content",
+                              "v2/es/resources/documentation-guide/component-library/layout",
+                              "v2/es/resources/documentation-guide/component-library/integrations",
+                              "v2/es/resources/documentation-guide/component-library/domain"
                             ]
                           }
                         ]
@@ -5633,10 +5633,10 @@
                               "v2/resources/documentation-guide/component-library",
                               "v2/fr/resources/documentation-guide/component-library/primitives",
                               "v2/fr/resources/documentation-guide/component-library/display",
-                              "v2/resources/documentation-guide/component-library/content",
-                              "v2/resources/documentation-guide/component-library/layout",
-                              "v2/resources/documentation-guide/component-library/integrations",
-                              "v2/resources/documentation-guide/component-library/domain"
+                              "v2/fr/resources/documentation-guide/component-library/content",
+                              "v2/fr/resources/documentation-guide/component-library/layout",
+                              "v2/fr/resources/documentation-guide/component-library/integrations",
+                              "v2/fr/resources/documentation-guide/component-library/domain"
                             ]
                           }
                         ]
@@ -6907,10 +6907,10 @@
                               "v2/resources/documentation-guide/component-library",
                               "v2/cn/resources/documentation-guide/component-library/primitives",
                               "v2/cn/resources/documentation-guide/component-library/display",
-                              "v2/resources/documentation-guide/component-library/content",
-                              "v2/resources/documentation-guide/component-library/layout",
-                              "v2/resources/documentation-guide/component-library/integrations",
-                              "v2/resources/documentation-guide/component-library/domain"
+                              "v2/cn/resources/documentation-guide/component-library/content",
+                              "v2/cn/resources/documentation-guide/component-library/layout",
+                              "v2/cn/resources/documentation-guide/component-library/integrations",
+                              "v2/cn/resources/documentation-guide/component-library/domain"
                             ]
                           }
                         ]
