@@ -1,7 +1,7 @@
 # Docs Navigation Route Report
 
-- Generated at (UTC): 2026-03-01T07:09:16.508Z
-- Entries scanned: 1164
+- Generated at (UTC): 2026-03-01T10:48:43.962Z
+- Entries scanned: 1165
 - Syntax errors: 0
 - Missing routes: 3
 - Missing routes with suggestions: 0
