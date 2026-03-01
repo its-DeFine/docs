@@ -155,6 +155,110 @@ function titleFromBasename(baseName) {
     .join(' ');
 }
 
+function titleFromScope(scopeValue) {
+  const rawScope = String(scopeValue || '').replace(/`/g, '').trim();
+  const scopePath = rawScope.split('(')[0].trim();
+  let pathSegments = scopePath.split('/').map((segment) => segment.trim()).filter(Boolean);
+  if (pathSegments[0] === 'tasks') pathSegments = pathSegments.slice(1);
+  if (pathSegments[0] === 'reports') pathSegments = pathSegments.slice(1);
+
+  const source = pathSegments.length ? pathSegments.join('/') : scopePath;
+  const words = source
+    .split(/[^a-zA-Z0-9]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1));
+  if (!words.length) return '';
+  const hasAuditWord = words.some((word) => /^audit(s)?$/i.test(word));
+  if (!hasAuditWord) words.push('Audit');
+  return words.join(' ');
+}
+
+function parseScopeFromReportBody(body) {
+  const match = String(body || '').match(/^Scope:\s*`?([^`\n]+?)`?\s*$/m);
+  return match ? match[1].trim() : '';
+}
+
+function normalizeScriptHeaderLine(rawLine) {
+  let line = String(rawLine || '').trim();
+  if (!line) return '';
+  line = line.replace(/^\/\*\*?/, '').replace(/\*\/$/, '').trim();
+  line = line.replace(/^\*\s?/, '').replace(/^#\s?/, '').trim();
+  return line;
+}
+
+function parseScriptHeaderMetadata(scriptRepoPath) {
+  if (!scriptRepoPath) {
+    return { summary: '', scope: '', outputs: [] };
+  }
+  const scriptAbsPath = path.join(REPO_ROOT, ...scriptRepoPath.split('/'));
+  if (!fs.existsSync(scriptAbsPath)) {
+    return { summary: '', scope: '', outputs: [] };
+  }
+
+  const lines = fs.readFileSync(scriptAbsPath, 'utf8').split('\n');
+  const metadata = { summary: '', scope: '', outputs: [] };
+  let inOutputs = false;
+
+  for (const rawLine of lines.slice(0, 280)) {
+    const line = normalizeScriptHeaderLine(rawLine);
+    if (!line) continue;
+
+    if (line.startsWith('@summary')) {
+      metadata.summary = line.replace(/^@summary\s*:?\s*/, '').trim();
+      inOutputs = false;
+      continue;
+    }
+    if (line.startsWith('@scope')) {
+      metadata.scope = line.replace(/^@scope\s*:?\s*/, '').trim();
+      inOutputs = false;
+      continue;
+    }
+    if (line.startsWith('@outputs')) {
+      inOutputs = true;
+      continue;
+    }
+    if (line.startsWith('@')) {
+      inOutputs = false;
+      continue;
+    }
+    if (inOutputs && line.startsWith('- ')) {
+      metadata.outputs.push(line.slice(2).trim());
+    }
+  }
+
+  return metadata;
+}
+
+function isGenericSummary(summary) {
+  return /^(utility script for\b|general task script\b)/i.test(String(summary || '').trim());
+}
+
+function buildScriptContextBlock(record, body, scriptMetadata) {
+  const rawSummary = (scriptMetadata.summary || '').trim();
+  const summary = rawSummary && !isGenericSummary(rawSummary) ? rawSummary : record.description;
+  const reportScope = parseScopeFromReportBody(body);
+  const scope = reportScope || (scriptMetadata.scope || '').trim();
+  const outputs = scriptMetadata.outputs || [];
+
+  const lines = [
+    `Generator Script: \`${record.scriptRepoPath || 'unknown'}\``,
+    `What It Does: ${summary}`,
+  ];
+  if (scope) {
+    lines.push(`Audited Scope: \`${scope}\``);
+  }
+  lines.push('Outputs:');
+  if (outputs.length) {
+    for (const output of outputs) {
+      lines.push(`- ${output}`);
+    }
+  } else {
+    lines.push('- _Not documented in script header._');
+  }
+  lines.push('');
+  return lines.join('\n');
+}
+
 function getDocsGroups() {
   if (Array.isArray(manifest.docsGroups) && manifest.docsGroups.length) {
     return manifest.docsGroups;
@@ -278,14 +382,24 @@ function resolveFileSourceAbsPath(entry) {
   return null;
 }
 
-function buildDynamicTarget(entry, sourceAbsPath) {
+function buildDynamicTarget(entry, sourceAbsPath, sourceBody) {
   const sourceRepoPath = toRepoPath(sourceAbsPath);
   const baseName = path.basename(sourceRepoPath);
   const slugSuffix = slugify(baseName);
+  const targetSlugPrefix = entry.targetSlugPrefix || '';
+  const scopedTitle = entry.dynamicTitleFromScope
+    ? titleFromScope(parseScopeFromReportBody(sourceBody))
+    : '';
+  const fallbackTitle = entry.dynamicTitleFromScope
+    ? titleFromBasename(baseName)
+    : (entry.titlePrefix
+      ? `${entry.titlePrefix}: ${titleFromBasename(baseName)}`
+      : entry.title || titleFromBasename(baseName));
+  const title = scopedTitle || fallbackTitle;
   return {
-    targetSlug: `${entry.targetSlugPrefix}${slugSuffix}`,
-    title: entry.titlePrefix ? `${entry.titlePrefix}: ${titleFromBasename(baseName)}` : entry.title,
-    sidebarTitle: entry.sidebarTitle || titleFromBasename(baseName),
+    targetSlug: `${targetSlugPrefix}${slugSuffix}`,
+    title,
+    sidebarTitle: entry.dynamicTitleFromScope ? title : (entry.sidebarTitle || titleFromBasename(baseName)),
     description:
       entry.description ||
       `Generated report from ${entry.scriptId} (${sourceRepoPath}).`,
@@ -340,14 +454,28 @@ function resolvePublishRecords(args) {
     }
 
     if (entry.sourceType === 'glob') {
-      const matches = expandSimpleGlob(entry.sourceGlob);
+      const globMatches = expandSimpleGlob(entry.sourceGlob);
+      let matches = globMatches;
+      if (
+        Array.isArray(entry.sourceBasenameAllowList)
+        && entry.sourceBasenameAllowList.length
+      ) {
+        const byBaseName = new Map(
+          globMatches.map((sourceAbsPath) => [path.basename(sourceAbsPath), sourceAbsPath])
+        );
+        matches = entry.sourceBasenameAllowList
+          .map((baseName) => byBaseName.get(baseName))
+          .filter(Boolean);
+      }
       if (matches.length === 0) {
         const bucket = entry.optionalWhenMissing ? skippedOptional : missing;
         bucket.push({ entry, sourcePath: entry.sourceGlob });
         continue;
       }
       for (const sourceAbs of matches) {
-        const dynamic = buildDynamicTarget(entry, sourceAbs);
+        const sourceRaw = fs.readFileSync(sourceAbs, 'utf8');
+        const sourceBody = stripFrontmatter(sourceRaw).replace(/^\uFEFF/, '');
+        const dynamic = buildDynamicTarget(entry, sourceAbs, sourceBody);
         records.push(
           makeRecord({
             entry,
@@ -388,6 +516,7 @@ function makeRecord({
     categorySlug: entry.categorySlug,
     docsGroupSlugs,
     scriptId: entry.scriptId,
+    scriptRepoPath: entry.scriptPath || '',
     sourceAbsPath,
     sourceRepoPath: toRepoPath(sourceAbsPath),
     targetAbsPath,
@@ -401,10 +530,16 @@ function makeRecord({
   };
 }
 
-function writeManagedPage(record, generation, args) {
+function writeManagedPage(record, generation, args, scriptMetadataCache) {
   const sourceRaw = fs.readFileSync(record.sourceAbsPath, 'utf8');
   const body = stripFrontmatter(sourceRaw).replace(/^\uFEFF/, '');
-  const nextContent = `${buildFrontmatter(record)}${buildGenerationStamp(generation)}${body.replace(
+  let scriptMetadata = scriptMetadataCache.get(record.scriptRepoPath);
+  if (!scriptMetadata) {
+    scriptMetadata = parseScriptHeaderMetadata(record.scriptRepoPath);
+    scriptMetadataCache.set(record.scriptRepoPath, scriptMetadata);
+  }
+  const contextBlock = buildScriptContextBlock(record, body, scriptMetadata);
+  const nextContent = `${buildFrontmatter(record)}${buildGenerationStamp(generation)}${contextBlock}${body.replace(
     /^\n+/,
     ''
   )}`;
@@ -416,6 +551,31 @@ function writeManagedPage(record, generation, args) {
   if (prev === nextContent) return { changed: false };
   fs.writeFileSync(record.targetAbsPath, nextContent, 'utf8');
   return { changed: true };
+}
+
+function buildManagedDynamicFileNames(entry) {
+  const sourceBaseNames = new Set(
+    expandSimpleGlob(entry.sourceGlob).map((sourceAbsPath) => path.basename(sourceAbsPath))
+  );
+  if (Array.isArray(entry.sourceBasenameAllowList)) {
+    for (const baseName of entry.sourceBasenameAllowList) {
+      sourceBaseNames.add(baseName);
+    }
+  }
+
+  const currentPrefix = entry.targetSlugPrefix || '';
+  const legacyPrefixes = Array.isArray(entry.legacyTargetSlugPrefixes)
+    ? entry.legacyTargetSlugPrefixes
+    : [];
+  const managedFileNames = new Set();
+  for (const baseName of sourceBaseNames) {
+    const slug = slugify(baseName);
+    managedFileNames.add(`${currentPrefix}${slug}.md`);
+    for (const legacyPrefix of legacyPrefixes) {
+      managedFileNames.add(`${legacyPrefix}${slug}.md`);
+    }
+  }
+  return managedFileNames;
 }
 
 function cleanupDynamicPages(records, args) {
@@ -434,11 +594,35 @@ function cleanupDynamicPages(records, args) {
         .filter((record) => record.entry === entry)
         .map((record) => path.basename(record.targetAbsPath))
     );
+    const managedFileNames = buildManagedDynamicFileNames(entry);
+    const legacyPrefixes = Array.isArray(entry.legacyTargetSlugPrefixes)
+      ? entry.legacyTargetSlugPrefixes
+      : [];
     for (const fileName of fs.readdirSync(categoryDir)) {
-      if (!fileName.startsWith(entry.targetSlugPrefix)) continue;
+      const matchesLegacyPrefix = legacyPrefixes.some(
+        (legacyPrefix) => legacyPrefix && fileName.startsWith(legacyPrefix)
+      );
+      if (!managedFileNames.has(fileName) && !matchesLegacyPrefix) continue;
       if (keep.has(fileName)) continue;
       const fullPath = path.join(categoryDir, fileName);
       if (!args.check) fs.unlinkSync(fullPath);
+      removed += 1;
+    }
+  }
+  return removed;
+}
+
+function cleanupLegacyTargetPages(args) {
+  let removed = 0;
+  for (const entry of manifest.entries) {
+    if (entry.publish === false) continue;
+    if (args.categories && !args.categories.has(entry.categorySlug)) continue;
+    if (!Array.isArray(entry.legacyTargetSlugs) || !entry.legacyTargetSlugs.length) continue;
+    const categoryDir = path.join(INTERNAL_REPORTS_ROOT, entry.categorySlug);
+    for (const legacySlug of entry.legacyTargetSlugs) {
+      const legacyFile = path.join(categoryDir, `${legacySlug}.md`);
+      if (!fs.existsSync(legacyFile)) continue;
+      if (!args.check) fs.unlinkSync(legacyFile);
       removed += 1;
     }
   }
@@ -589,16 +773,19 @@ function main() {
   };
 
   let changedPages = 0;
+  const scriptMetadataCache = new Map();
   for (const record of records) {
-    const result = writeManagedPage(record, generation, args);
+    const result = writeManagedPage(record, generation, args, scriptMetadataCache);
     if (result.changed) changedPages += 1;
   }
   const removedDynamic = cleanupDynamicPages(records, args);
+  const removedLegacy = cleanupLegacyTargetPages(args);
   const docsResult = updateDocsJson(records, args);
 
   console.log(`${args.check ? 'Previewed' : 'Processed'} report pages: ${records.length}`);
   console.log(`Page writes ${args.check ? '(planned)' : ''}: ${changedPages}`);
   console.log(`Dynamic stale pages ${args.check ? '(planned removals)' : 'removed'}: ${removedDynamic}`);
+  console.log(`Legacy alias pages ${args.check ? '(planned removals)' : 'removed'}: ${removedLegacy}`);
   console.log(`docs.json report groups ${args.check ? '(planned)' : ''}: ${docsResult.groupsWritten}`);
   if (records.length) {
     for (const record of records) {

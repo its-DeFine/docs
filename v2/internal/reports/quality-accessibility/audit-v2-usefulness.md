@@ -5,8 +5,16 @@ description: 'Generated usefulness audit summary from tools/scripts/audit-v2-use
 keywords: ["livepeer","internal","reports","quality-accessibility","audit-v2-usefulness"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
-Last Generated (UTC ISO): `2026-02-28T04:22:56.252Z`
-Last Generated (UTC Human): `February 28, 2026 04:22 UTC`
+Last Generated (UTC ISO): `2026-03-01T04:39:53.754Z`
+Last Generated (UTC Human): `March 01, 2026 04:39 UTC`
+Generator Script: `tools/scripts/audit-v2-usefulness.js`
+What It Does: Audit v2 MDX pages (excluding x-* directories) and emit page-level usefulness matrix rows with source-weighted 2026 accuracy verification fields.
+Audited Scope: `tools/scripts, v2, tasks/reports, tools/config`
+Outputs:
+- page-matrix.jsonl (canonical rows with accuracy verification fields)
+- page-matrix.csv (flattened matrix with human/agent usefulness scores and flags)
+- run-metadata.json (run config, counts, and source policy)
+- summary.md (human-readable audit summary)
 # Docs Usefulness Audit Summary
 
 - Run date (as-of): `2026-02-23`

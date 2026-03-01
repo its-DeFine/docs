@@ -5,8 +5,14 @@ description: 'Generated file-check audit report from tools/scripts/audit-all-pag
 keywords: ["livepeer","internal","reports","page-audits","audit-all-pages-simple"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
-Last Generated (UTC ISO): `2026-02-28T04:22:56.252Z`
-Last Generated (UTC Human): `February 28, 2026 04:22 UTC`
+Last Generated (UTC ISO): `2026-03-01T04:39:53.754Z`
+Last Generated (UTC Human): `March 01, 2026 04:39 UTC`
+Generator Script: `tools/scripts/audit-all-pages-simple.js`
+What It Does: Generated file-check audit report from tools/scripts/audit-all-pages-simple.js.
+Audited Scope: `tasks/scripts`
+Outputs:
+- tasks/reports/page-audits/page-audit-simple-latest.json
+- tasks/reports/page-audits/page-audit-simple-latest.md
 # Page Audit Report (File Checks Only)
 
 **Generated:** 2/28/2026, 3:21:42 PM

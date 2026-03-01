@@ -5,8 +5,14 @@ description: 'Generated Python audit report from tasks/scripts/audit-python.py.'
 keywords: ["livepeer","internal","reports","page-audits","audit-python"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
-Last Generated (UTC ISO): `2026-02-28T04:22:56.252Z`
-Last Generated (UTC Human): `February 28, 2026 04:22 UTC`
+Last Generated (UTC ISO): `2026-03-01T04:39:53.754Z`
+Last Generated (UTC Human): `March 01, 2026 04:39 UTC`
+Generator Script: `tasks/scripts/audit-python.py`
+What It Does: Generated Python audit report from tasks/scripts/audit-python.py.
+Audited Scope: `tasks/scripts`
+Outputs:
+- tasks/reports/page-audits/page-audit-python-latest.json
+- tasks/reports/page-audits/page-audit-python-latest.md
 # Page Audit Report (Python - File Checks Only)
 
 **Generated:** 2026-02-28 15:21:36

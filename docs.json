@@ -102,7 +102,9 @@
                           {
                             "group": "Projects",
                             "icon": "folder-open",
-                            "pages": ["v1/developers/guides/managing-projects"]
+                            "pages": [
+                              "v1/developers/guides/managing-projects"
+                            ]
                           },
                           {
                             "group": "Integrations",
@@ -304,7 +306,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -526,7 +530,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -789,7 +795,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -1011,7 +1019,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -1287,7 +1297,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -1509,7 +1521,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -1777,7 +1791,9 @@
                     "groups": [
                       {
                         "group": "Overview",
-                        "pages": ["v1/sdks/introduction"]
+                        "pages": [
+                          "v1/sdks/introduction"
+                        ]
                       },
                       {
                         "group": "Server-side SDKs",
@@ -1999,7 +2015,9 @@
                               "name": "heart",
                               "style": "solid"
                             },
-                            "pages": ["v1/ai/contributors/coming-soon"]
+                            "pages": [
+                              "v1/ai/contributors/coming-soon"
+                            ]
                           },
                           {
                             "group": "SDKs",
@@ -2109,12 +2127,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["/v2/resources/redirect"]
+                    "pages": [
+                      "/v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2177,12 +2199,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["/v2/resources/redirect"]
+                    "pages": [
+                      "/v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2268,7 +2294,9 @@
                       {
                         "group": "Daydream",
                         "icon": "camera-movie",
-                        "pages": ["v2/platforms/daydream/overview"]
+                        "pages": [
+                          "v2/platforms/daydream/overview"
+                        ]
                       },
                       {
                         "group": "Livepeer Studio",
@@ -2328,7 +2356,9 @@
                           },
                           {
                             "group": "Player & embed",
-                            "pages": ["v2/platforms/livepeer-studio/player"]
+                            "pages": [
+                              "v2/platforms/livepeer-studio/player"
+                            ]
                           },
                           {
                             "group": "Reference",
@@ -2486,14 +2516,18 @@
                       {
                         "group": "Frameworks",
                         "icon": "clapperboard-play",
-                        "pages": ["v2/platforms/frameworks/overview"]
+                        "pages": [
+                          "v2/platforms/frameworks/overview"
+                        ]
                       }
                     ]
                   },
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["/v2/resources/redirect"]
+                    "pages": [
+                      "/v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
@@ -2731,12 +2765,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["/v2/resources/redirect"]
+                    "pages": [
+                      "/v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2844,15 +2882,21 @@
                         "pages": [
                           {
                             "group": "Orchestrators",
-                            "pages": ["v2/orchestrators/references/faq"]
+                            "pages": [
+                              "v2/orchestrators/references/faq"
+                            ]
                           },
                           {
                             "group": "API & CLI Reference",
-                            "pages": ["v2/orchestrators/references/cli-flags"]
+                            "pages": [
+                              "v2/orchestrators/references/cli-flags"
+                            ]
                           },
                           {
                             "group": "On-Chain Reference",
-                            "pages": ["v2/orchestrators/references/faq"]
+                            "pages": [
+                              "v2/orchestrators/references/faq"
+                            ]
                           }
                         ]
                       }
@@ -2861,12 +2905,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["/v2/resources/redirect"]
+                    "pages": [
+                      "/v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2928,12 +2976,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["/v2/resources/redirect"]
+                    "pages": [
+                      "/v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -2995,12 +3047,16 @@
                   {
                     "anchor": "Resource HUB",
                     "icon": "books",
-                    "pages": ["/v2/resources/redirect"]
+                    "pages": [
+                      "/v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
                     "icon": "horizontal-rule",
-                    "pages": [" "]
+                    "pages": [
+                      " "
+                    ]
                   }
                 ]
               },
@@ -3059,7 +3115,9 @@
                       {
                         "group": "Developer References",
                         "icon": "book",
-                        "pages": ["v2/resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Gateway References",
@@ -3071,27 +3129,37 @@
                       {
                         "group": "Orchestrator References",
                         "icon": "microchip",
-                        "pages": ["v2/resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "LPT & Delegator References",
                         "icon": "hand-holding-dollar",
-                        "pages": ["v2/resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Community Resources",
                         "icon": "",
-                        "pages": ["v2/resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Partner Resources",
                         "icon": "handshake",
-                        "pages": ["v2/resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Help Center",
                         "icon": "comments-question-check",
-                        "pages": ["v2/resources/livepeer-glossary"]
+                        "pages": [
+                          "v2/resources/livepeer-glossary"
+                        ]
                       },
                       {
                         "group": "Technical References",
@@ -3099,7 +3167,9 @@
                         "pages": [
                           {
                             "group": "Protocol References",
-                            "pages": [" "]
+                            "pages": [
+                              " "
+                            ]
                           }
                         ]
                       },
@@ -3116,7 +3186,9 @@
                   {
                     "anchor": "Help Center",
                     "icon": "comments-question-check",
-                    "pages": ["v2/resources/redirect"]
+                    "pages": [
+                      "v2/resources/redirect"
+                    ]
                   },
                   {
                     "anchor": " ",
@@ -3159,17 +3231,39 @@
                         "pages": [
                           "docs-guide/README",
                           "docs-guide/source-of-truth-policy",
-                          "v2/index",
-                          "docs-guide/feature-map",
-                          "docs-guide/architecture-map",
                           "docs-guide/lpd",
-                          "docs-guide/quality-gates",
-                          "docs-guide/automation-pipelines",
-                          "docs-guide/content-system",
-                          "docs-guide/data-integrations",
-                          "docs-guide/scripts-index",
-                          "docs-guide/workflows-index",
-                          "docs-guide/templates-index"
+                          {
+                            "group": "Feature Guides",
+                            "pages": [
+                              "docs-guide/feature-map",
+                              "docs-guide/architecture-map",
+                              "docs-guide/automation-pipelines",
+                              "docs-guide/content-system",
+                              "docs-guide/data-integrations"
+                            ]
+                          },
+                          {
+                            "group": "Contributing",
+                            "pages": [
+                              "docs-guide/contributing"
+                            ]
+                          },
+                          {
+                            "group": "Indexes",
+                            "pages": [
+                              "docs-guide/pages-index",
+                              "docs-guide/scripts-index",
+                              "docs-guide/workflows-index",
+                              "docs-guide/templates-index"
+                            ]
+                          },
+                          {
+                            "group": "Quality & Testing",
+                            "pages": [
+                              "docs-guide/quality-gates",
+                              "tests/README"
+                            ]
+                          }
                         ]
                       },
                       {
@@ -3193,6 +3287,8 @@
                           {
                             "group": "Page Audits",
                             "pages": [
+                              "v2/internal/reports/page-audits/test-all-pages-comprehensive",
+                              "v2/internal/reports/page-audits/audit-all-pages",
                               "v2/internal/reports/page-audits/audit-all-pages-simple",
                               "v2/internal/reports/page-audits/audit-python",
                               "v2/internal/reports/page-audits/domain-pages-audit"
@@ -3202,28 +3298,12 @@
                             "group": "Repo Ops",
                             "pages": [
                               "v2/internal/reports/repo-ops/audit-scripts",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--errors-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-complete-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-migration-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-retrospective-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--plan-rfp-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-legacy-unmanaged-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-legacy-unmanaged-ungenerated-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-docs-index-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-navigation-links-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-page-audits-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-full-run-2026-02-23-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-smoke-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-smoke2-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-quality-accessibility-docs-usefulness-smoke3-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-repo-ops-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--reports-rfp-deliverable-i-r1-r15-2026-02-24-replan-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--scripts-audit",
-                              "v2/internal/reports/repo-ops/audit-tasks-folders--tasks-root-audit"
+                              "v2/internal/reports/repo-ops/errors-audit",
+                              "v2/internal/reports/repo-ops/reports-navigation-links-audit",
+                              "v2/internal/reports/repo-ops/reports-page-audits-audit",
+                              "v2/internal/reports/repo-ops/reports-quality-accessibility-audit",
+                              "v2/internal/reports/repo-ops/reports-quality-accessibility-docs-usefulness-audit",
+                              "v2/internal/reports/repo-ops/scripts-audit"
                             ]
                           },
                           {

@@ -5,8 +5,15 @@ description: 'Generated V2 MDX link audit report from tests/integration/v2-link-
 keywords: ["livepeer","internal","reports","navigation-links","v2-link-audit"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
-Last Generated (UTC ISO): `2026-02-28T04:22:56.252Z`
-Last Generated (UTC Human): `February 28, 2026 04:22 UTC`
+Last Generated (UTC ISO): `2026-03-01T04:39:53.754Z`
+Last Generated (UTC Human): `March 01, 2026 04:39 UTC`
+Generator Script: `tests/integration/v2-link-audit.js`
+What It Does: Comprehensive V2 MDX link audit with internal strict checks and optional external URL validation.
+Audited Scope: `tests`
+Outputs:
+- Markdown report at tasks/reports/navigation-links/LINK_TEST_REPORT.md (or custom path)
+- JSON report at tasks/reports/navigation-links/LINK_TEST_REPORT.json (or custom path)
+- snippets/data/<domain>/hrefs.jsx files when write-links enabled
 # LINK_TEST_REPORT
 
 Operator note: external HTTP/HTTPS links are classified only and marked as `🟡 untested-external` in this phase.

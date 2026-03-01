@@ -71,8 +71,14 @@ function isExcludedV2ExperimentalPath(relPath) {
 function collectDocsPageEntries(node, out = []) {
   if (typeof node === 'string') {
     const value = node.trim();
-    if (value.startsWith('v1/') || value.startsWith('v2/pages/')) {
-      out.push(value);
+    const normalizedValue = value.replace(/^\/+/, '');
+    if (normalizedValue.startsWith('v1/')) {
+      out.push(normalizedValue);
+    } else if (
+      normalizedValue.startsWith('v2/') &&
+      !isExcludedV2ExperimentalPath(normalizedValue)
+    ) {
+      out.push(normalizedValue);
     }
     return out;
   }
@@ -125,7 +131,10 @@ function toDocsRouteKeyFromFile(filePath, rootDir = null) {
   const repoRoot = resolveRepoRoot(rootDir);
   const absPath = path.isAbsolute(filePath) ? filePath : path.resolve(repoRoot, filePath);
   const relPath = toPosix(path.relative(repoRoot, absPath));
-  if (!(relPath.startsWith('v1/') || relPath.startsWith('v2/pages/'))) {
+  if (!(relPath.startsWith('v1/') || relPath.startsWith('v2/'))) {
+    return '';
+  }
+  if (relPath.startsWith('v2/') && isExcludedV2ExperimentalPath(relPath)) {
     return '';
   }
   return normalizeDocsRouteKey(relPath);
