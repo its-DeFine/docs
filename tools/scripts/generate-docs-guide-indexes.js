@@ -13,8 +13,8 @@
  *   --check Verify generated index files are current without writing.
  *
  * @outputs
- *   - docs-guide/workflows-index.md
- *   - docs-guide/templates-index.md
+ *   - docs-guide/workflows-index.mdx
+ *   - docs-guide/templates-index.mdx
  *
  * @exit-codes
  *   0 = generation/check succeeded
@@ -44,6 +44,11 @@ const ISSUE_TEMPLATE_DIR = '.github/ISSUE_TEMPLATE';
 const PR_TEMPLATE_FILES = ['.github/pull-request-template-v2.md', '.github/pull_request_template.md'];
 
 const OUTPUT_FILES = {
+  workflows: 'docs-guide/workflows-index.mdx',
+  templates: 'docs-guide/templates-index.mdx'
+};
+
+const LEGACY_OUTPUT_FILES = {
   workflows: 'docs-guide/workflows-index.md',
   templates: 'docs-guide/templates-index.md'
 };
@@ -122,14 +127,14 @@ function mdEscape(value) {
   return String(value || '').replace(/\|/g, '\\|').replace(/\n/g, ' ');
 }
 
-function buildGeneratedMarkdownBannerLines({ script, purpose, runWhen }) {
+function buildGeneratedNoteLines({ script, purpose, runWhen, runCommand }) {
   return [
-    '{/*',
-    `This file is generated from script(s): ${script}.`,
-    `Purpose: ${purpose}`,
-    `Run when: ${runWhen}`,
-    'Do not manually edit this file; run its generator instead.',
-    '*/}'
+    '<Note>',
+    `**Generation Script**: This file is generated from script(s): \`${script}\`. <br/>`,
+    `**Purpose**: ${purpose} <br/>`,
+    `**Run when**: ${runWhen} <br/>`,
+    `**Important**: Do not manually edit this file; run \`${runCommand}\`. <br/>`,
+    '</Note>'
   ];
 }
 
@@ -228,13 +233,12 @@ function buildWorkflowsIndex() {
   const lines = [];
   WORKFLOWS_INDEX_FRONTMATTER_LINES.forEach((line) => lines.push(line));
   lines.push('');
-  buildGeneratedMarkdownBannerLines({
+  buildGeneratedNoteLines({
     script: 'tools/scripts/generate-docs-guide-indexes.js',
     purpose: 'Workflow inventory for docs-guide maintenance.',
-    runWhen: 'GitHub workflows are added, removed, or changed.'
+    runWhen: 'GitHub workflows are added, removed, or changed.',
+    runCommand: 'node tools/scripts/generate-docs-guide-indexes.js --write'
   }).forEach((line) => lines.push(line));
-  lines.push('');
-  lines.push('# Workflows Index');
   lines.push('');
   lines.push('| Workflow | File | Triggers | Purpose | Blocking Policy | Outputs | Owner |');
   lines.push('|---|---|---|---|---|---|---|');
@@ -324,13 +328,12 @@ function buildTemplatesIndex() {
   const lines = [];
   TEMPLATES_INDEX_FRONTMATTER_LINES.forEach((line) => lines.push(line));
   lines.push('');
-  buildGeneratedMarkdownBannerLines({
+  buildGeneratedNoteLines({
     script: 'tools/scripts/generate-docs-guide-indexes.js',
     purpose: 'Issue and PR template inventory for docs-guide maintenance.',
-    runWhen: 'Issue templates or PR templates are added, removed, or changed.'
+    runWhen: 'Issue templates or PR templates are added, removed, or changed.',
+    runCommand: 'node tools/scripts/generate-docs-guide-indexes.js --write'
   }).forEach((line) => lines.push(line));
-  lines.push('');
-  lines.push('# Templates Index');
   lines.push('');
   lines.push('| Template | Type | File | Purpose | When To Use | Labels/Automation | Owner |');
   lines.push('|---|---|---|---|---|---|---|');
@@ -358,6 +361,21 @@ function writeIfChanged(repoPath, nextContent, shouldWrite) {
   return { changed, path: repoPath };
 }
 
+function removeLegacyOutputs(shouldWrite) {
+  const removed = [];
+  const existing = [];
+
+  Object.values(LEGACY_OUTPUT_FILES).forEach((repoPath) => {
+    if (!fileExists(repoPath)) return;
+    existing.push(repoPath);
+    if (!shouldWrite) return;
+    fs.unlinkSync(path.join(REPO_ROOT, repoPath));
+    removed.push(repoPath);
+  });
+
+  return { removed, existing };
+}
+
 function parseArgs(argv) {
   const hasCheck = argv.includes('--check');
   const hasWrite = argv.includes('--write');
@@ -378,10 +396,17 @@ function main() {
     writeIfChanged(OUTPUT_FILES.workflows, workflowsContent, args.write),
     writeIfChanged(OUTPUT_FILES.templates, templatesContent, args.write)
   ];
+  const legacy = removeLegacyOutputs(args.write);
 
   const changed = results.filter((result) => result.changed);
 
   if (args.check) {
+    if (legacy.existing.length > 0) {
+      console.error('Legacy docs-guide generated index files detected:');
+      legacy.existing.forEach((repoPath) => console.error(`  - ${repoPath}`));
+      console.error('Run: node tools/scripts/generate-docs-guide-indexes.js --write');
+      process.exit(1);
+    }
     if (changed.length > 0) {
       console.error('Docs-guide generated indexes are out of date:');
       changed.forEach((result) => console.error(`  - ${result.path}`));
@@ -397,6 +422,8 @@ function main() {
   } else {
     changed.forEach((result) => console.log(`Updated ${result.path}`));
   }
+
+  legacy.removed.forEach((repoPath) => console.log(`Removed legacy ${repoPath}`));
 }
 
 main();

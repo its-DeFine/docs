@@ -3,7 +3,7 @@
  * @script docs-guide-sot.test
  * @summary Validate docs-guide source-of-truth coverage, README pointers, and generated index freshness.
  * @owner docs
- * @scope tests, docs-guide, README.md, tools/scripts/generate-docs-guide-indexes.js
+ * @scope tests, docs-guide, README.md, tools/scripts/generate-docs-guide-indexes.js, tools/scripts/generate-docs-guide-pages-index.js
  *
  * @usage
  *   node tests/unit/docs-guide-sot.test.js
@@ -33,33 +33,35 @@ const { spawnSync } = require('child_process');
 const REPO_ROOT = process.cwd();
 
 const REQUIRED_MANUAL_FILES = [
-  'docs-guide/README.md',
-  'docs-guide/source-of-truth-policy.md',
-  'docs-guide/feature-map.md',
-  'docs-guide/architecture-map.md',
-  'docs-guide/lpd.md',
-  'docs-guide/quality-gates.md',
-  'docs-guide/automation-pipelines.md',
-  'docs-guide/content-system.md',
-  'docs-guide/data-integrations.md'
+  'docs-guide/README.mdx',
+  'docs-guide/source-of-truth-policy.mdx',
+  'docs-guide/feature-map.mdx',
+  'docs-guide/architecture-map.mdx',
+  'docs-guide/lpd.mdx',
+  'docs-guide/quality-gates.mdx',
+  'docs-guide/automation-pipelines.mdx',
+  'docs-guide/content-system.mdx',
+  'docs-guide/data-integrations.mdx'
 ];
 
 const REQUIRED_GENERATED_FILES = [
   'docs-guide/scripts-index.md',
-  'docs-guide/workflows-index.md',
-  'docs-guide/templates-index.md'
+  'docs-guide/workflows-index.mdx',
+  'docs-guide/templates-index.mdx',
+  'docs-guide/pages-index.mdx'
 ];
 
 const REQUIRED_README_REFERENCES = [
-  'docs-guide/README.md',
-  'docs-guide/feature-map.md',
-  'docs-guide/source-of-truth-policy.md',
-  'docs-guide/lpd.md',
-  'docs-guide/quality-gates.md',
-  'docs-guide/automation-pipelines.md',
+  'docs-guide/README.mdx',
+  'docs-guide/feature-map.mdx',
+  'docs-guide/source-of-truth-policy.mdx',
+  'docs-guide/lpd.mdx',
+  'docs-guide/quality-gates.mdx',
+  'docs-guide/automation-pipelines.mdx',
+  'docs-guide/pages-index.mdx',
   'docs-guide/scripts-index.md',
-  'docs-guide/workflows-index.md',
-  'docs-guide/templates-index.md'
+  'docs-guide/workflows-index.mdx',
+  'docs-guide/templates-index.mdx'
 ];
 
 function readFileSafe(repoPath) {
@@ -125,23 +127,34 @@ function checkReadmeReferences(errors, warnings) {
 }
 
 function checkGeneratedIndexFreshness(errors) {
-  const cmd = spawnSync(
-    'node',
-    ['tools/scripts/generate-docs-guide-indexes.js', '--check'],
-    { cwd: REPO_ROOT, encoding: 'utf8' }
-  );
+  const checks = [
+    {
+      args: ['tools/scripts/generate-docs-guide-indexes.js', '--check'],
+      file: 'docs-guide/workflows-index.mdx',
+      message: 'Generated docs-guide template/workflow indexes are out of date. Run generator script.'
+    },
+    {
+      args: ['tools/scripts/generate-docs-guide-pages-index.js', '--check'],
+      file: 'docs-guide/pages-index.mdx',
+      message: 'Generated docs-guide pages index is out of date. Run pages index generator script.'
+    }
+  ];
 
-  if (cmd.stdout) process.stdout.write(cmd.stdout);
-  if (cmd.stderr) process.stderr.write(cmd.stderr);
+  checks.forEach((check) => {
+    const cmd = spawnSync('node', check.args, { cwd: REPO_ROOT, encoding: 'utf8' });
 
-  if (cmd.status !== 0) {
-    errors.push({
-      file: 'docs-guide/workflows-index.md',
-      rule: 'Generated index freshness',
-      message: 'Generated docs-guide indexes are out of date. Run generator script.',
-      line: 1
-    });
-  }
+    if (cmd.stdout) process.stdout.write(cmd.stdout);
+    if (cmd.stderr) process.stderr.write(cmd.stderr);
+
+    if (cmd.status !== 0) {
+      errors.push({
+        file: check.file,
+        rule: 'Generated index freshness',
+        message: check.message,
+        line: 1
+      });
+    }
+  });
 }
 
 function runTests(options = {}) {

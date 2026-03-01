@@ -103,18 +103,19 @@ Recovery:
 
 | Need | Canonical doc |
 |---|---|
-| Start here + update rules | [`docs-guide/README.md`](docs-guide/README.md) |
-| Source-of-truth boundaries | [`docs-guide/source-of-truth-policy.md`](docs-guide/source-of-truth-policy.md) |
-| Full feature inventory | [`docs-guide/feature-map.md`](docs-guide/feature-map.md) |
-| System/data/control flow | [`docs-guide/architecture-map.md`](docs-guide/architecture-map.md) |
-| CLI commands and runbooks | [`docs-guide/lpd.md`](docs-guide/lpd.md) |
-| Validation + enforcement gates | [`docs-guide/quality-gates.md`](docs-guide/quality-gates.md) |
-| Automation pipelines map | [`docs-guide/automation-pipelines.md`](docs-guide/automation-pipelines.md) |
-| Content system and IA model | [`docs-guide/content-system.md`](docs-guide/content-system.md) |
-| APIs and data integrations | [`docs-guide/data-integrations.md`](docs-guide/data-integrations.md) |
+| Start here + update rules | [`docs-guide/README.mdx`](docs-guide/README.mdx) |
+| Source-of-truth boundaries | [`docs-guide/source-of-truth-policy.mdx`](docs-guide/source-of-truth-policy.mdx) |
+| Full feature inventory | [`docs-guide/feature-map.mdx`](docs-guide/feature-map.mdx) |
+| System/data/control flow | [`docs-guide/architecture-map.mdx`](docs-guide/architecture-map.mdx) |
+| CLI commands and runbooks | [`docs-guide/lpd.mdx`](docs-guide/lpd.mdx) |
+| Validation + enforcement gates | [`docs-guide/quality-gates.mdx`](docs-guide/quality-gates.mdx) |
+| Automation pipelines map | [`docs-guide/automation-pipelines.mdx`](docs-guide/automation-pipelines.mdx) |
+| Content system and IA model | [`docs-guide/content-system.mdx`](docs-guide/content-system.mdx) |
+| APIs and data integrations | [`docs-guide/data-integrations.mdx`](docs-guide/data-integrations.mdx) |
+| Generated pages tree inventory | [`docs-guide/pages-index.mdx`](docs-guide/pages-index.mdx) |
 | Generated script inventory | [`docs-guide/scripts-index.md`](docs-guide/scripts-index.md) |
-| Generated workflow inventory | [`docs-guide/workflows-index.md`](docs-guide/workflows-index.md) |
-| Generated issue/PR template inventory | [`docs-guide/templates-index.md`](docs-guide/templates-index.md) |
+| Generated workflow inventory | [`docs-guide/workflows-index.mdx`](docs-guide/workflows-index.mdx) |
+| Generated issue/PR template inventory | [`docs-guide/templates-index.mdx`](docs-guide/templates-index.mdx) |
 
 ## Contributing (Quick Path)
 
@@ -179,7 +180,7 @@ Key automation categories:
 
 Automation deep docs:
 
-- [`docs-guide/automation-pipelines.md`](docs-guide/automation-pipelines.md)
+- [`docs-guide/automation-pipelines.mdx`](docs-guide/automation-pipelines.mdx)
 - [`v2/resources/documentation-guide/automations-workflows.mdx`](v2/resources/documentation-guide/automations-workflows.mdx)
 
 ## AI and Maintainer Guidance
