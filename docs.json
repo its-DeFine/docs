@@ -4285,9 +4285,9 @@
                         "group": "Livepeer Contribute",
                         "icon": "door-open",
                         "pages": [
-                          "v2/community/livepeer-contribute/contribute",
-                          "v2/community/livepeer-contribute/opportunities",
-                          "v2/community/livepeer-contribute/build-livepeer"
+                          "v2/es/community/livepeer-contribute/contribute",
+                          "v2/es/community/livepeer-contribute/opportunities",
+                          "v2/es/community/livepeer-contribute/build-livepeer"
                         ]
                       },
                       {
@@ -5559,9 +5559,9 @@
                         "group": "Livepeer Contribute",
                         "icon": "door-open",
                         "pages": [
-                          "v2/community/livepeer-contribute/contribute",
-                          "v2/community/livepeer-contribute/opportunities",
-                          "v2/community/livepeer-contribute/build-livepeer"
+                          "v2/fr/community/livepeer-contribute/contribute",
+                          "v2/fr/community/livepeer-contribute/opportunities",
+                          "v2/fr/community/livepeer-contribute/build-livepeer"
                         ]
                       },
                       {
@@ -6833,9 +6833,9 @@
                         "group": "Livepeer Contribute",
                         "icon": "door-open",
                         "pages": [
-                          "v2/community/livepeer-contribute/contribute",
-                          "v2/community/livepeer-contribute/opportunities",
-                          "v2/community/livepeer-contribute/build-livepeer"
+                          "v2/cn/community/livepeer-contribute/contribute",
+                          "v2/cn/community/livepeer-contribute/opportunities",
+                          "v2/cn/community/livepeer-contribute/build-livepeer"
                         ]
                       },
                       {
