@@ -4195,7 +4195,7 @@
                         "group": "About LPT",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/lpt/token-portal",
+                          "v2/es/lpt/token-portal",
                           "v2/es/lpt/about/overview",
                           "v2/es/lpt/about/purpose",
                           "v2/es/lpt/about/tokenomics",
@@ -4232,8 +4232,8 @@
                         "group": "Guides & Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/lpt/resources/exchanges",
-                          "v2/lpt/resources/lpt-eth-usage"
+                          "v2/es/lpt/resources/exchanges",
+                          "v2/es/lpt/resources/lpt-eth-usage"
                         ]
                       }
                     ]
@@ -5469,7 +5469,7 @@
                         "group": "About LPT",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/lpt/token-portal",
+                          "v2/fr/lpt/token-portal",
                           "v2/fr/lpt/about/overview",
                           "v2/fr/lpt/about/purpose",
                           "v2/fr/lpt/about/tokenomics",
@@ -5506,8 +5506,8 @@
                         "group": "Guides & Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/lpt/resources/exchanges",
-                          "v2/lpt/resources/lpt-eth-usage"
+                          "v2/fr/lpt/resources/exchanges",
+                          "v2/fr/lpt/resources/lpt-eth-usage"
                         ]
                       }
                     ]
@@ -6743,7 +6743,7 @@
                         "group": "About LPT",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/lpt/token-portal",
+                          "v2/cn/lpt/token-portal",
                           "v2/cn/lpt/about/overview",
                           "v2/cn/lpt/about/purpose",
                           "v2/cn/lpt/about/tokenomics",
@@ -6780,8 +6780,8 @@
                         "group": "Guides & Resources",
                         "icon": "books",
                         "pages": [
-                          "v2/lpt/resources/exchanges",
-                          "v2/lpt/resources/lpt-eth-usage"
+                          "v2/cn/lpt/resources/exchanges",
+                          "v2/cn/lpt/resources/lpt-eth-usage"
                         ]
                       }
                     ]
