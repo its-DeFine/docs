@@ -104,6 +104,13 @@ function escapeJsxAttribute(value) {
   return String(value || '').replace(/&/g, '&amp;').replace(/"/g, '&quot;');
 }
 
+function escapeJsString(value) {
+  return String(value || '')
+    .replace(/\\/g, '\\\\')
+    .replace(/"/g, '\\"')
+    .replace(/\n/g, ' ');
+}
+
 function escapeMdInline(value) {
   return String(value || '').replace(/`/g, '\\`');
 }
@@ -410,6 +417,32 @@ function formatPropsSummary(props) {
   };
 }
 
+function normalizeDefaultForLookup(defaultValue) {
+  const value = compactWhitespace(String(defaultValue || ''));
+  if (!value) return '""';
+
+  const quotedMatch = value.match(/^(['"`])([\s\S]*)\1$/);
+  if (quotedMatch) {
+    return `"${quotedMatch[2].replace(/"/g, '\\"')}"`;
+  }
+
+  return truncateText(value, 36);
+}
+
+function buildLookupPropsList(props) {
+  const usageProps = props.filter((prop) => /^[A-Za-z_$][\w$]*$/.test(prop.name));
+  if (!usageProps.length) return 'none';
+
+  return usageProps
+    .map((prop) => {
+      if (prop.defaultValue != null) {
+        return `${prop.name}=${normalizeDefaultForLookup(prop.defaultValue)}`;
+      }
+      return prop.name;
+    })
+    .join(', ');
+}
+
 function buildUsageSnippet(componentName, props) {
   const lines = [];
   const usageProps = props.filter((prop) => /^[A-Za-z_$][\w$]*$/.test(prop.name) && prop.name !== 'children');
@@ -466,7 +499,7 @@ function serializeLookupRows(rows) {
   const lines = ['['];
   rows.forEach((row) => {
     lines.push(
-      `    { Category: "${escapeJsxAttribute(row.Category)}", Page: "${escapeJsxAttribute(row.Page)}", Component: "${escapeJsxAttribute(row.Component)}" },`
+      `    { Category: "${escapeJsString(row.Category)}", Page: "${escapeJsString(row.Page)}", Component: "${escapeJsString(row.Component)}", Props: "${escapeJsString(row.Props)}" },`
     );
   });
   lines.push('  ]');
@@ -522,8 +555,9 @@ function buildContent() {
           const importLine = `import { ${component.name} } from "/${path.posix.join(SOURCE_ROOT, file.repoPath)}";`;
           const usageLines = buildUsageSnippet(component.name, component.props);
           const exampleLines = [importLine, '', ...usageLines];
+          const lookupProps = buildLookupPropsList(component.props);
 
-          lookupRows.push({ Category: category.title, Page: file.repoPath, Component: component.name });
+          lookupRows.push({ Category: category.title, Page: file.repoPath, Component: component.name, Props: lookupProps });
 
           lines.push(`    <ResponseField name="${escapeJsxAttribute(component.name)}" type="component">`);
           lines.push(`      **Props**: ${summary.propsLine} <br/>`);
@@ -557,10 +591,10 @@ function buildContent() {
   lines.push('<SearchTable');
   lines.push('  TableComponent={DynamicTable}');
   lines.push('  tableTitle="Component Lookup"');
-  lines.push('  headerList={["Category", "Page", "Component"]}');
+  lines.push('  headerList={["Category", "Page", "Component", "Props"]}');
   lines.push(`  itemsList={${serializeLookupRows(sortedLookupRows)}}`);
-  lines.push('  searchPlaceholder="Search category, page, or component..."');
-  lines.push('  monospaceColumns={[1, 2]}');
+  lines.push('  searchPlaceholder="Search category, page, component, or props..."');
+  lines.push('  monospaceColumns={[1, 2, 3]}');
   lines.push('/>');
   lines.push('');
 

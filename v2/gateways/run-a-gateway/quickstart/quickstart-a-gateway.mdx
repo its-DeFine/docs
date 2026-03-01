@@ -8,12 +8,12 @@ og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 
 {/* DATA & CODE */}
 {/* These can be moved to the view using them */}
-import { DOCKER_CODE, DOCKER_YML, BASH_CODE, AI_TEST_COMMANDS, CONFIG_FILES, CLI_CODE } from '/snippets/data/gateways/code.jsx';
-import { CONFIG_FLAGS } from '/snippets/data/gateways/flags.jsx';
+import { DOCKER_CODE, DOCKER_YML, BASH_CODE, AI_TEST_COMMANDS, CONFIG_FILES, CLI_CODE } from './data/docker/code.jsx';
+import { CONFIG_FLAGS } from './data/flags.jsx';
 
 {/* BANNERS, CALLOUTS, VALUE STRINGS */}
 {/* These can be moved to the view using them */}
-import { GatewayOffChainWarning, GatewayOnChainWarning, GatewayOnChainTTestnetNote, OrchAddrNote, TestVideoDownload, FfmpegWarning } from "/snippets/components/domain/04_GATEWAYS/callouts.jsx";
+import { GatewayOffChainWarning, GatewayOnChainWarning, GatewayOnChainTTestnetNote, OrchAddrNote, TestVideoDownload, FfmpegWarning } from "./components/callouts.jsx";
 
 {/* COMPONENTS */}
 {/* These can be moved to the view using them */}
@@ -23,6 +23,8 @@ import { TipWithArrow, DoubleIconLink } from '/snippets/components/primitives/li
 import { DownloadButton } from '/snippets/components/primitives/buttons.jsx';
 import { FlexContainer } from '/snippets/components/primitives/layout.jsx';
 import { LatestVersion } from '/snippets/components/content/release.jsx';
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx';
+import { WidthCard } from '/snippets/components/display/customCards.jsx';
 
 {/* LAYOUTS & VIEWS */}
 import DockerOffChainTab from './views/docker/dockerOffChainTab.mdx';
@@ -33,28 +35,21 @@ import WindowsOffChainTab from './views/windows/windowsOffChainTab.mdx';
 import WindowsOnChainTab from './views/windows/windowsOnChainTab.mdx';
 
 {/* LAYOUT COMPOSABLE GROUPS */}
-import DockerSupport from '/snippets/pages/04_GATEWAYS/run/quickstart/groups/docker/dockerSupport.mdx';
-import LinuxSupport from '/snippets/pages/04_GATEWAYS/run/quickstart/groups/linux/linuxSupport.mdx';
+import DockerSupport from './groups/docker/dockerSupport.mdx';
+import LinuxSupport from './groups/linux/linuxSupport.mdx';
 
-{/* 
-<Panel>
-  <div>
-    <span> *`go-livepeer` Latest Version:* <Badge color="green">{latestVersion}</Badge> </span>
-    <h1>Docker Quickstart Guide</h1>
-      <h4>{" "}<a href="#off-chain-gateway">Off-Chain Gateway</a></h4>
-      <h4>{" "}<a href="#on-chain-gateway">On-Chain Gateway</a></h4>
-  </div>
-</Panel> */}
-{/* <Icon icon="github" size={20} /> Github: [go-livepeer](https://github.com/livepeer/go-livepeer) <Icon icon="arrow-up-right" color="#2d9a67" size={10}/> codebase */}
+
 <TipWithArrow>
   <span style={{fontSize: '1.0rem'}}> Use the <Icon icon="circle-chevron-down" /> **Dropdown** at the top-right of this page to view the Quickstart Guide
   for your preferred OS. </span>
 </TipWithArrow>
-<Card title="go-livepeer" href="https://github.com/livepeer/go-livepeer" icon="github" arrow horizontal> 
-  <span> *Latest Version:* <Badge color="green">{latestVersion}</Badge> </span>
-</Card> 
 
---- 
+<WidthCard title="go-livepeer" href="https://github.com/livepeer/go-livepeer" icon="github" arrow horizontal> 
+  <span> *Latest Version:* <Badge color="green">{latestVersion}</Badge> </span>
+</WidthCard> 
+
+<CustomDivider style={{narginTop: "-1rem", marginBottom: "-1rem"}} />
+
 # Let's Go(-Livepeer) ! <Icon icon="face-grin-wink" size={26} />
 This page will get you up & running with a Livepeer Gateway Node for <Badge color="blue">Video</Badge> Transcoding & <Badge color="purple">AI</Badge> Pipeline service routing.
 
@@ -62,25 +57,6 @@ This page will get you up & running with a Livepeer Gateway Node for <Badge colo
 - Setup for <span><Icon icon="link" size={20}/> **on-chain _(production)_** and <Icon icon="floppy-disk" size={20}/> **off-chain _(local/dev)_** Livepeer Gateway nodes </span>
 - Installation guides for <span><Icon icon="docker" size={20} /> **Docker _(recommended)_** </span> and <span><Icon icon="laptop-code" size={20} /> **Pre-Built Binaries**. </span>
 
-{/* You can also build from source -> see full guide. */}
-
-
-{/* You can also build from source-> but
-Only build from source if you need to:
-
-Modify the code
-Test unreleased features
-Build for a specific configuration
-Debug issues
-*/}
-
-{/* Installing a Gateway means installing the <DoubleIconLink label="go-livepeer" href="https://github.com/livepeer/go-livepeer"/> Gateway code. */}
-
-{/* <Note>
-  You can install & run a [Livepeer Gateway Node](https://github.com/livepeer/go-livepeer) using
-  1. <Icon icon="docker" size={20} /> **Docker** (recommended)
-  2. Building from <Icon icon="code" size={20} /> **source (binary)**
-</Note> */}
 <Note>
   <span style={{fontSize: '1.0rem'}}><Icon icon="docker" size={20}/> [Docker](https://docs.docker.com/get-docker/) is the recommended way to install and run a Livepeer Gateway Node.</span>
   <br/>
@@ -116,8 +92,8 @@ Debug issues
 
   _**Choose your Gateway Mode:**_
   <Tabs>
-    <DockerOffChainTab />
-    {/* <DockerOnChainTab /> */}
+      <DockerOffChainTab />
+    <DockerOnChainTab />
   </Tabs>
 
   <Accordion title="Docker Tips & Tricks" icon="magic-wand-sparkles">
