@@ -95,6 +95,10 @@
 # TODO:
 
 ## Upgrade:
+- Explainer (style)
+- Functions (style + review)
+- Architecture (review)
+- Economics (style)
 - Refresh content and examples for all non-warning pages listed above.
 - Improve SEO metadata and section-level discoverability.
 
