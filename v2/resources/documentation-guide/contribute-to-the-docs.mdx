@@ -1,13 +1,10 @@
 ---
 sidebarTitle: 'Contribute'
 title: 'Contribute To The Docs'
+description: 'Contribute to the Livepeer documentation and help us make it even better!'
 keywords: ["livepeer", "resources", "documentation guide", "contribute to the docs", "contribute", "docs"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
-
-import { PreviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
-
-<PreviewCallout />
 
 We love community feedback and contributions, and it's our mission to make it easy for everyone to contribute to these docs and provide feedback for us to make them even better!
 
@@ -21,9 +18,9 @@ You can provide feedback directly on any documentation page:
 - **Comments** — Share specific feedback, suggestions, or questions
 - **Issue Reporting** — Report errors, outdated information, or broken links
 
-<Note>
+<Tip>
 Feedback mechanisms are provided by Mintlify. Look for feedback options at the bottom of pages or in the page header.
-</Note>
+</Tip>
 
 ### General Feedback Channels
 
@@ -43,9 +40,9 @@ You don't need to know Git or Markdown to contribute:
 
 #### Option 1: Feedback Form
 
-<Info>
+<Tip>
 A feedback form is available for non-technical contributions. This allows you to suggest improvements, report issues, or share content ideas without needing to work with code.
-</Info>
+</Tip>
 
 #### Option 2: Content Suggestions
 
@@ -115,9 +112,9 @@ git checkout -b docs/update-component-docs
 
 #### 5. Install Pre-commit Hooks
 
-<Info>
+<Tip>
 Pre-commit hooks automatically check your code for style guide violations and syntax errors before you commit.
-</Info>
+</Tip>
 
 ```bash
 # Install the pre-commit hook
@@ -144,13 +141,13 @@ Edit the relevant files:
 **File structure:**
 ```
 v2/pages/
-├── home/             # Home tab content
-├── 01_about/         # About tab content
-├── 02_community/     # Community tab content
-├── developers/        # Developers tab content
-├── 04_gateways/      # Gateways tab content
+├── home/          # Home tab content
+├── about/         # About tab content
+├── developers/    # Developers tab content
+├── gateways/      # Gateways tab content
 ├── orchestrators/ # Orchestrators tab content
-├── 06_delegators/    # Delegators tab content
+├── delegators/    # Delegators tab content
+├── community/     # Community tab content
 ├── resources/     # Resources tab content
 └── internal/      # Internal documentation
 ```
@@ -254,9 +251,9 @@ Fixes #123
 
 #### 11. Address Review Feedback
 
-<Info>
+<Tip>
 All PRs require at least one review from a maintainer. See [Review Process](#review-process) below for details.
-</Info>
+</Tip>
 
 - Respond to comments
 - Make requested changes
@@ -380,9 +377,9 @@ Documentation changes are reviewed by section owners. See [CODEOWNERS](https://g
 
 ### Review Timeline
 
-<Info>
+<Tip>
 We aim to review PRs within **48-72 hours** during business days.
-</Info>
+</Tip>
 
 - **Small changes** (typos, broken links): Usually reviewed within 24 hours
 - **Medium changes** (content updates, examples): 48-72 hours
@@ -450,26 +447,26 @@ We welcome contributions in many areas:
 ### Section Organization
 
 ```
-v2/pages/
+v2/
 ├── home/                 # Home tab
 │   ├── mission-control.mdx
 │   ├── introduction/
 │   └── project-showcase/
-├── 01_about/             # About tab
+├── about/             # About tab
 │   ├── about-portal.mdx
 │   └── core-concepts/
 ├── developers/            # Developers tab
 │   ├── building-on-livepeer/
 │   ├── guides-and-resources/
 │   └── builder-opportunities/
-├── 04_gateways/          # Gateways tab
+├── gateways/          # Gateways tab
 │   ├── gateway-portal.mdx
 │   ├── run/
 │   └── build/
 ├── orchestrators/     # Orchestrators tab
 │   ├── orchestrator-portal.mdx
 │   └── run/
-├── 06_delegators/        # Delegators tab
+├── delegators/        # Delegators tab
 │   └── delegator-portal.mdx
 └── resources/         # Resources tab
     ├── resources-portal.mdx
@@ -549,9 +546,9 @@ Thank you for helping improve the Livepeer documentation! 🎉
 
 ## Non-Technical Contribution Proposal
 
-<Info>
+<Tip>
 This section outlines proposed workflows for contributors who don't use Git, Markdown, or React. These are **proposals** and may not be fully implemented yet.
-</Info>
+</Tip>
 
 ### Current Options
 

@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script generate-docs-guide-components-index
- * @summary Generate docs-guide/components-index.mdx from snippets/components exports and optionally verify freshness.
+ * @summary Generate component inventory indexes from snippets/components exports and optionally verify freshness.
  * @owner docs
- * @scope tools/scripts, docs-guide/components-index.mdx, snippets/components
+ * @scope tools/scripts, docs-guide/components-index.mdx, v2/resources/documentation-guide/component-library/overview.mdx, snippets/components
  *
  * @usage
  *   node tools/scripts/generate-docs-guide-components-index.js --write
@@ -14,6 +14,7 @@
  *
  * @outputs
  *   - docs-guide/components-index.mdx
+ *   - v2/resources/documentation-guide/component-library/overview.mdx
  *
  * @exit-codes
  *   0 = generation/check succeeded
@@ -32,7 +33,10 @@ const path = require('path');
 
 const REPO_ROOT = process.cwd();
 const SOURCE_ROOT = 'snippets/components';
-const OUTPUT_PATH = 'docs-guide/components-index.mdx';
+const OUTPUT_PATHS = [
+  'docs-guide/components-index.mdx',
+  'v2/resources/documentation-guide/component-library/overview.mdx'
+];
 
 const CATEGORIES = [
   {
@@ -221,13 +225,6 @@ function truncateText(value, limit = 90) {
   return `${text.slice(0, limit - 3)}...`;
 }
 
-function escapeTemplateLiteral(value) {
-  return String(value || '')
-    .replace(/\\/g, '\\\\')
-    .replace(/`/g, '\\`')
-    .replace(/\$\{/g, '\\${');
-}
-
 function walkCategoryFiles(categoryKey) {
   const categoryRoot = path.join(REPO_ROOT, SOURCE_ROOT, categoryKey);
   if (!fs.existsSync(categoryRoot) || !fs.statSync(categoryRoot).isDirectory()) {
@@ -413,19 +410,44 @@ function formatPropsSummary(props) {
   };
 }
 
-function buildUsageSnippet(componentName, repoPath, props) {
-  const defaults = props.filter((prop) => prop.defaultValue != null && /^[A-Za-z_$][\w$]*$/.test(prop.name));
-  const lines = [`import { ${componentName} } from "/${repoPath}";`, '', `<${componentName} />`];
+function buildUsageSnippet(componentName, props) {
+  const lines = [];
+  const usageProps = props.filter((prop) => /^[A-Za-z_$][\w$]*$/.test(prop.name) && prop.name !== 'children');
 
-  if (defaults.length) {
-    lines.push('', `<${componentName}`);
-    defaults.forEach((prop) => {
-      lines.push(`  ${prop.name}={${truncateText(prop.defaultValue, 120)}}`);
-    });
-    lines.push('/>');
+  if (!usageProps.length) {
+    lines.push(`<${componentName} />`);
+    return lines;
   }
 
+  function inferPlaceholderValue(name) {
+    const key = String(name || '').toLowerCase();
+    if (/^(is|has|can)[a-z]/.test(name) || /(enabled|disabled|loading|visible|open|required|active)/.test(key)) {
+      return 'false';
+    }
+    if (/(count|size|limit|width|height|duration|index|page|offset|amount|num)/.test(key)) {
+      return '0';
+    }
+    if (/(items|list|array|rows|columns|tabs)/.test(key)) {
+      return '[]';
+    }
+    if (/(style|config|options|map|fields|props|data|meta)/.test(key)) {
+      return '{}';
+    }
+    return '"<value>"';
+  }
+
+  lines.push(`<${componentName}`);
+  usageProps.forEach((prop) => {
+    const value = prop.defaultValue != null ? truncateText(prop.defaultValue, 120) : inferPlaceholderValue(prop.name);
+    lines.push(`  ${prop.name}={${value}}`);
+  });
+  lines.push('/>');
   return lines;
+}
+
+function indentLines(lines, spaces) {
+  const pad = ' '.repeat(spaces);
+  return lines.map((line) => `${pad}${line}`);
 }
 
 function buildGeneratedNoteLines() {
@@ -443,7 +465,9 @@ function serializeLookupRows(rows) {
   if (!rows.length) return '[]';
   const lines = ['['];
   rows.forEach((row) => {
-    lines.push(`    { Page: "${escapeJsxAttribute(row.Page)}", Component: "${escapeJsxAttribute(row.Component)}" },`);
+    lines.push(
+      `    { Category: "${escapeJsxAttribute(row.Category)}", Page: "${escapeJsxAttribute(row.Page)}", Component: "${escapeJsxAttribute(row.Component)}" },`
+    );
   });
   lines.push('  ]');
   return lines.join('\n');
@@ -474,6 +498,7 @@ function buildContent() {
 
   const lines = [...FRONTMATTER_LINES, ''];
   lines.push('import { SearchTable } from "/snippets/components/layout/SearchTable.jsx";');
+  lines.push('import { DynamicTable } from "/snippets/components/layout/table.jsx";');
   lines.push('');
   buildGeneratedNoteLines().forEach((line) => lines.push(line));
   lines.push('');
@@ -494,17 +519,21 @@ function buildContent() {
       } else {
         file.components.forEach((component) => {
           const summary = formatPropsSummary(component.props);
-          const usageLines = buildUsageSnippet(component.name, path.posix.join(SOURCE_ROOT, file.repoPath), component.props);
+          const importLine = `import { ${component.name} } from "/${path.posix.join(SOURCE_ROOT, file.repoPath)}";`;
+          const usageLines = buildUsageSnippet(component.name, component.props);
+          const exampleLines = [importLine, '', ...usageLines];
 
-          lookupRows.push({ Page: file.repoPath, Component: component.name });
+          lookupRows.push({ Category: category.title, Page: file.repoPath, Component: component.name });
 
           lines.push(`    <ResponseField name="${escapeJsxAttribute(component.name)}" type="component">`);
-          lines.push(`      **Props**: ${summary.propsLine}`);
+          lines.push(`      **Props**: ${summary.propsLine} <br/>`);
           lines.push(`      **Defaults**: ${summary.defaultsLine}`);
           lines.push('');
-          lines.push('      <CodeBlock language="jsx">');
-          lines.push(`      {\`${escapeTemplateLiteral(usageLines.join('\n'))}\`}`);
-          lines.push('      </CodeBlock>');
+          lines.push('      <CodeGroup>');
+          lines.push('```jsx lines Example');
+          indentLines(exampleLines, 0).forEach((line) => lines.push(line));
+          lines.push('```');
+          lines.push('      </CodeGroup>');
           lines.push('    </ResponseField>');
         });
       }
@@ -517,18 +546,21 @@ function buildContent() {
   });
 
   const sortedLookupRows = [...lookupRows].sort((a, b) => {
+    if (a.Category !== b.Category) return a.Category.localeCompare(b.Category, 'en', { sensitivity: 'base' });
     if (a.Page !== b.Page) return a.Page.localeCompare(b.Page, 'en', { sensitivity: 'base' });
     return a.Component.localeCompare(b.Component, 'en', { sensitivity: 'base' });
   });
 
   lines.push('## Lookup Table');
-  lines.push('Search by page path or component name.');
+  lines.push('Search by category, page path, or component name.');
   lines.push('');
   lines.push('<SearchTable');
+  lines.push('  TableComponent={DynamicTable}');
   lines.push('  tableTitle="Component Lookup"');
-  lines.push('  headerList={["Page", "Component"]}');
+  lines.push('  headerList={["Category", "Page", "Component"]}');
   lines.push(`  itemsList={${serializeLookupRows(sortedLookupRows)}}`);
-  lines.push('  searchPlaceholder="Search pages or components..."');
+  lines.push('  searchPlaceholder="Search category, page, or component..."');
+  lines.push('  monospaceColumns={[1, 2]}');
   lines.push('/>');
   lines.push('');
 
@@ -560,26 +592,32 @@ function main() {
   try {
     content = buildContent();
   } catch (error) {
-    console.error(`Failed to generate ${OUTPUT_PATH}: ${error.message}`);
+    console.error(`Failed to generate components indexes: ${error.message}`);
     process.exit(1);
   }
 
-  const result = writeIfChanged(OUTPUT_PATH, content, args.write);
+  const results = OUTPUT_PATHS.map((outputPath) => writeIfChanged(outputPath, content, args.write));
 
   if (args.check) {
-    if (result.changed) {
-      console.error(`Docs-guide components index is out of date: ${result.path}`);
+    const outdated = results.filter((result) => result.changed);
+    if (outdated.length > 0) {
+      outdated.forEach((result) => {
+        console.error(`Components index is out of date: ${result.path}`);
+      });
       console.error('Run: node tools/scripts/generate-docs-guide-components-index.js --write');
       process.exit(1);
     }
-    console.log('Docs-guide components index is up to date.');
+    console.log('Components indexes are up to date.');
     return;
   }
 
-  if (result.changed) {
-    console.log(`Updated ${result.path}`);
+  const updated = results.filter((result) => result.changed);
+  if (updated.length > 0) {
+    updated.forEach((result) => {
+      console.log(`Updated ${result.path}`);
+    });
   } else {
-    console.log('No changes. Docs-guide components index already current.');
+    console.log('No changes. Components indexes already current.');
   }
 }
 
