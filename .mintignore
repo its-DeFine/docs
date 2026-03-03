@@ -9,6 +9,7 @@
 .out/
 
 # Non-doc operational directories
+/.github/**
 /tasks/**
 /tests/**
 /ai-tools/**
