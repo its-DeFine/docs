@@ -108,6 +108,50 @@ run_codex_task_contract_check() {
     return 1
 }
 
+run_ai_stash_policy_check() {
+    local script_path="tools/scripts/check-no-ai-stash.sh"
+    if [ ! -x "$script_path" ]; then
+        WARNINGS+=("❌ Missing executable guard script: $script_path")
+        VIOLATIONS=$((VIOLATIONS + 1))
+        echo -e "${RED}❌ Missing executable guard script: $script_path${NC}"
+        return 1
+    fi
+
+    echo -e "${YELLOW}🔍 Enforcing AI stash policy...${NC}"
+    if bash "$script_path" --quiet; then
+        echo -e "${GREEN}✓ AI stash policy check passed${NC}"
+        return 0
+    fi
+
+    VIOLATIONS=$((VIOLATIONS + 1))
+    WARNINGS+=("❌ AI stash policy violation: stash-based isolation detected")
+    echo -e "${RED}❌ AI stash policy violation: stash-based isolation detected${NC}"
+    echo -e "${YELLOW}   Required workflow: branch + WIP commit checkpoints (no git stash).${NC}"
+    return 1
+}
+
+run_pay_orc_gate_finalize_check() {
+    local script_path="tools/scripts/verify-pay-orc-gate-finalize.sh"
+    if [ ! -x "$script_path" ]; then
+        WARNINGS+=("❌ Missing executable guard script: $script_path")
+        VIOLATIONS=$((VIOLATIONS + 1))
+        echo -e "${RED}❌ Missing executable guard script: $script_path${NC}"
+        return 1
+    fi
+
+    echo -e "${YELLOW}🔍 Enforcing pay/orc/gate finalize file contract...${NC}"
+    if bash "$script_path" --quiet; then
+        echo -e "${GREEN}✓ Pay/Orc/Gate finalize check passed${NC}"
+        return 0
+    fi
+
+    VIOLATIONS=$((VIOLATIONS + 1))
+    WARNINGS+=("❌ Pay/Orc/Gate finalize check failed - required deliverables missing or legacy paths still present")
+    echo -e "${RED}❌ Pay/Orc/Gate finalize check failed${NC}"
+    echo -e "${YELLOW}   Run: bash $script_path${NC}"
+    return 1
+}
+
 if [ "$SKIP_ALL" = "1" ]; then
     echo -e "${YELLOW}⚠️  WARNING: All pre-commit checks bypassed (SKIP_ALL=1)${NC}"
     echo -e "${YELLOW}   This should only be used in emergencies.${NC}"
@@ -115,6 +159,8 @@ if [ "$SKIP_ALL" = "1" ]; then
 fi
 
 run_codex_task_contract_check
+run_ai_stash_policy_check
+run_pay_orc_gate_finalize_check
 
 # Check for file deletions (BLOCKED - requires human override)
 # NOTE: Deletions in tasks/ are allowed (AI-only working directory)

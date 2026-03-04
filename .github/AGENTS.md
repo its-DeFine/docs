@@ -8,6 +8,7 @@
   hard project constraints.
 - **NEVER** perform a `git reset --hard` or `git push --force` without an
   explicit, multi-turn plan confirmed by the user.
+- **NEVER** use `git stash` for AI task isolation in this repository.
 - **NEVER** perform a `git reset --hard` or `git push --force` without a saved
   branch to revert to in case of failure.
 - For any implementation task, apply the `codex-task-isolation-standard` skill
@@ -20,6 +21,8 @@ destructive or history-altering actions.
 
 - **Automatic Checkpoints:** Every `commit`, `push`, and `rebase` triggers a
   safety hook that creates a branch named `checkpoint/YYYY-MM-DD_HHMMSS`.
+- **Isolation Rule:** Use branch-scoped WIP commits for checkpoints. Do not use
+  stash as a checkpoint or isolation mechanism.
 - **Pre-Write Announcement:** Before executing a write command, you MUST state:
   _"I am initiating [COMMAND]. A safety checkpoint will be created. Please
   switch to your terminal to type 'yes' when prompted."_
