@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-03T23:31:53.191Z",
+  "generated": "2026-03-04T04:18:42.044Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -21,7 +21,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 21,
-      "lastVerified": "2026-03-04T00:47:36+11:00",
+      "lastVerified": "2026-03-04T15:12:55+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -470,23 +470,6 @@
           "text": "**Products that wouldn’t exist without video**"
         }
       ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/resources/redirect",
-      "title": "Resources (redirect)",
-      "description": "This page points to the Resources portal.",
-      "section": "resources",
-      "tags": [
-        "resources",
-        "redirect"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 10,
-      "lastVerified": "2026-03-03T23:08:29.311Z",
-      "headings": [],
       "codeLanguages": []
     },
     {
@@ -5989,7 +5972,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 112,
-      "lastVerified": "2026-03-04T00:47:36+11:00",
+      "lastVerified": "2026-03-04T10:56:31+11:00",
       "headings": [
         {
           "level": 2,
@@ -14453,7 +14436,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1993,
-      "lastVerified": "2026-03-04T01:00:46+11:00",
+      "lastVerified": "2026-03-04T10:56:31+11:00",
       "headings": [
         {
           "level": 2,
@@ -17012,7 +16995,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 41,
-      "lastVerified": "2026-03-04T03:45:54+11:00",
+      "lastVerified": "2026-03-04T10:56:31+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -17087,7 +17070,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2169,
-      "lastVerified": "2026-03-04T02:36:32+11:00",
+      "lastVerified": "2026-03-04T10:54:51+11:00",
       "headings": [
         {
           "level": 2,
@@ -26125,7 +26108,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 21,
-      "lastVerified": "2026-03-04T03:24:38+11:00",
+      "lastVerified": "2026-03-04T10:55:08+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -26148,7 +26131,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 54,
-      "lastVerified": "2026-03-04T03:24:38+11:00",
+      "lastVerified": "2026-03-04T10:55:08+11:00",
       "headings": [
         {
           "level": 3,
@@ -28158,7 +28141,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 92,
-      "lastVerified": "2026-03-04T03:24:38+11:00",
+      "lastVerified": "2026-03-04T10:56:31+11:00",
       "headings": [
         {
           "level": 2,
@@ -28188,7 +28171,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 179,
-      "lastVerified": "2026-03-04T03:24:38+11:00",
+      "lastVerified": "2026-03-04T10:55:08+11:00",
       "headings": [
         {
           "level": 2,
@@ -28313,7 +28296,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 130,
-      "lastVerified": "2026-03-04T03:24:38+11:00",
+      "lastVerified": "2026-03-04T10:55:08+11:00",
       "headings": [
         {
           "level": 1,
@@ -28853,6 +28836,166 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/es/developers/guides-and-tools/developer-help",
+      "title": "Ayuda para desarrolladores",
+      "description": "Cada forma de obtener ayuda como desarrollador de Livepeer — canales de Discord, foro, horas de oficina, problemas de GitHub y más.",
+      "section": "es",
+      "tags": [
+        "livepeer",
+        "developer",
+        "help",
+        "support",
+        "discord",
+        "forum",
+        "office-hours",
+        "github",
+        "bug-report",
+        "contact",
+        "es",
+        "developers"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1232,
+      "lastVerified": "2026-03-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Referencia Rápida"
+        },
+        {
+          "level": 2,
+          "text": "Discord"
+        },
+        {
+          "level": 3,
+          "text": "Canales"
+        },
+        {
+          "level": 2,
+          "text": "Livepeer Foro"
+        },
+        {
+          "level": 3,
+          "text": "Categorías del Foro"
+        },
+        {
+          "level": 2,
+          "text": "Horas de Oficina para Desarrolladores"
+        },
+        {
+          "level": 2,
+          "text": "Problemas de GitHub"
+        },
+        {
+          "level": 3,
+          "text": "Escribiendo un Buen Problema"
+        },
+        {
+          "level": 2,
+          "text": "Livepeer Soporte de Studio"
+        },
+        {
+          "level": 2,
+          "text": "Vulnerabilidades de Seguridad y Recompensas por Errores"
+        },
+        {
+          "level": 2,
+          "text": "Comunidad y Social"
+        },
+        {
+          "level": 2,
+          "text": "Ayuda con Subvenciones y Financiamiento"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/es/developers/guides-and-tools/contribution-guide",
+      "title": "Guía de Contribución",
+      "description": "Cómo contribuir a Livepeer — código, documentación, gobernanza, soporte comunitario y reportes de errores en todos los repositorios.",
+      "section": "es",
+      "tags": [
+        "livepeer",
+        "developers",
+        "contribution-guide",
+        "contribute",
+        "open-source",
+        "pull-request",
+        "github",
+        "documentation",
+        "es",
+        "guides-and-tools"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1127,
+      "lastVerified": "2026-03-04T03:16:51+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Contribuyentes Destacados"
+        },
+        {
+          "level": 2,
+          "text": "Formas de Contribuir"
+        },
+        {
+          "level": 2,
+          "text": "Contribuyendo al Código"
+        },
+        {
+          "level": 3,
+          "text": "Antes de Comenzar"
+        },
+        {
+          "level": 3,
+          "text": "Repositorios Clave"
+        },
+        {
+          "level": 3,
+          "text": "Principios Generales de Pull Request"
+        },
+        {
+          "level": 2,
+          "text": "Contribuyendo a la Documentación"
+        },
+        {
+          "level": 3,
+          "text": "Ruta Rápida: Comentarios Sin Código"
+        },
+        {
+          "level": 3,
+          "text": "Flujo de Trabajo de Pull Request"
+        },
+        {
+          "level": 3,
+          "text": "Revisar Asignaciones"
+        },
+        {
+          "level": 2,
+          "text": "Contribuyendo a la Gobernanza"
+        },
+        {
+          "level": 2,
+          "text": "Subvenciones y Recompensas"
+        },
+        {
+          "level": 2,
+          "text": "Principios de Contribución Comunitaria"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
       "url": "https://docs.livepeer.org/v2/es/developers/builder-opportunities/grants-and-programmes",
       "title": "Subvenciones y Programas",
       "description": "Livepeer oportunidades de financiación para desarrolladores de aplicaciones, creadores de flujos de trabajo de IA, orquestadores y equipos de investigación -- desde microsubvenciones hasta programas aceleradores de varios meses.",
@@ -29353,7 +29496,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1003,
-      "lastVerified": "2026-03-04T03:24:38+11:00",
+      "lastVerified": "2026-03-04T10:55:08+11:00",
       "headings": [
         {
           "level": 2,
@@ -29831,7 +29974,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 216,
-      "lastVerified": "2026-03-04T03:24:38+11:00",
+      "lastVerified": "2026-03-04T10:55:08+11:00",
       "headings": [
         {
           "level": 2,
@@ -35121,7 +35264,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2312,
-      "lastVerified": "2026-03-03T23:12:21+11:00",
+      "lastVerified": "2026-03-04T10:56:31+11:00",
       "headings": [
         {
           "level": 2,
@@ -37241,7 +37384,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 21,
-      "lastVerified": "2026-03-04T03:35:43+11:00",
+      "lastVerified": "2026-03-04T10:55:26+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -43348,7 +43491,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 92,
-      "lastVerified": "2026-03-04T03:35:43+11:00",
+      "lastVerified": "2026-03-04T10:56:31+11:00",
       "headings": [
         {
           "level": 2,
@@ -43378,7 +43521,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 186,
-      "lastVerified": "2026-03-04T03:35:43+11:00",
+      "lastVerified": "2026-03-04T10:55:26+11:00",
       "headings": [
         {
           "level": 2,
@@ -43445,7 +43588,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 123,
-      "lastVerified": "2026-03-04T03:35:43+11:00",
+      "lastVerified": "2026-03-04T10:55:26+11:00",
       "headings": [
         {
           "level": 1,
@@ -43985,6 +44128,166 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/fr/developers/guides-and-tools/developer-help",
+      "title": "Aide aux développeurs",
+      "description": "Chaque moyen d'obtenir de l'aide en tant que Livepeer développeur — canaux Discord, forum, heures de bureau, problèmes GitHub, et plus encore.",
+      "section": "fr",
+      "tags": [
+        "livepeer",
+        "developer",
+        "help",
+        "support",
+        "discord",
+        "forum",
+        "office-hours",
+        "github",
+        "bug-report",
+        "contact",
+        "fr",
+        "developers"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1270,
+      "lastVerified": "2026-03-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Référence rapide"
+        },
+        {
+          "level": 2,
+          "text": "Discord"
+        },
+        {
+          "level": 3,
+          "text": "Canaux"
+        },
+        {
+          "level": 2,
+          "text": "Livepeer Forum"
+        },
+        {
+          "level": 3,
+          "text": "Catégories du forum"
+        },
+        {
+          "level": 2,
+          "text": "Heures de bureau des développeurs"
+        },
+        {
+          "level": 2,
+          "text": "Problèmes GitHub"
+        },
+        {
+          "level": 3,
+          "text": "Rédiger un bon problème"
+        },
+        {
+          "level": 2,
+          "text": "Livepeer Support Studio"
+        },
+        {
+          "level": 2,
+          "text": "Vulnérabilités de sécurité et primes de bogues"
+        },
+        {
+          "level": 2,
+          "text": "Communauté et social"
+        },
+        {
+          "level": 2,
+          "text": "Aide aux subventions et au financement"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/fr/developers/guides-and-tools/contribution-guide",
+      "title": "Guide de contribution",
+      "description": "Comment contribuer à Livepeer — code, documentation, gouvernance, support communautaire et rapports de bogues dans tous les dépôts.",
+      "section": "fr",
+      "tags": [
+        "livepeer",
+        "developers",
+        "contribution-guide",
+        "contribute",
+        "open-source",
+        "pull-request",
+        "github",
+        "documentation",
+        "fr",
+        "guides-and-tools"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1185,
+      "lastVerified": "2026-03-04T03:16:51+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Mise en avant des contributeurs"
+        },
+        {
+          "level": 2,
+          "text": "Façons de contribuer"
+        },
+        {
+          "level": 2,
+          "text": "Contribuer au code"
+        },
+        {
+          "level": 3,
+          "text": "Avant de commencer"
+        },
+        {
+          "level": 3,
+          "text": "Dépôts clés"
+        },
+        {
+          "level": 3,
+          "text": "Principes généraux des Pull Requests"
+        },
+        {
+          "level": 2,
+          "text": "Contribuer à la documentation"
+        },
+        {
+          "level": 3,
+          "text": "Chemin rapide : Retour d'information sans code"
+        },
+        {
+          "level": 3,
+          "text": "Flux de travail des Pull Requests"
+        },
+        {
+          "level": 3,
+          "text": "Examens des attributions"
+        },
+        {
+          "level": 2,
+          "text": "Contribuer à la gouvernance"
+        },
+        {
+          "level": 2,
+          "text": "Subventions et primes"
+        },
+        {
+          "level": 2,
+          "text": "Principes de contribution communautaire"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
       "url": "https://docs.livepeer.org/v2/fr/developers/builder-opportunities/dev-programs",
       "title": "Programmes de développement",
       "description": "",
@@ -44437,7 +44740,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 998,
-      "lastVerified": "2026-03-04T03:35:43+11:00",
+      "lastVerified": "2026-03-04T10:55:26+11:00",
       "headings": [
         {
           "level": 2,
@@ -44929,7 +45232,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 211,
-      "lastVerified": "2026-03-04T03:35:43+11:00",
+      "lastVerified": "2026-03-04T10:55:26+11:00",
       "headings": [
         {
           "level": 2,
@@ -50219,7 +50522,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2481,
-      "lastVerified": "2026-03-03T23:12:21+11:00",
+      "lastVerified": "2026-03-04T10:56:31+11:00",
       "headings": [
         {
           "level": 2,
@@ -52088,7 +52391,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 21,
-      "lastVerified": "2026-03-04T03:45:54+11:00",
+      "lastVerified": "2026-03-04T10:55:43+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -58194,7 +58497,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 92,
-      "lastVerified": "2026-03-04T03:45:54+11:00",
+      "lastVerified": "2026-03-04T10:56:31+11:00",
       "headings": [
         {
           "level": 2,
@@ -58224,7 +58527,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 141,
-      "lastVerified": "2026-03-04T03:45:54+11:00",
+      "lastVerified": "2026-03-04T10:55:43+11:00",
       "headings": [
         {
           "level": 2,
@@ -58349,7 +58652,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 42,
-      "lastVerified": "2026-03-04T03:45:54+11:00",
+      "lastVerified": "2026-03-04T10:55:43+11:00",
       "headings": [
         {
           "level": 1,
@@ -58889,6 +59192,166 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/cn/developers/guides-and-tools/developer-help",
+      "title": "开发者帮助",
+      "description": "作为一个 Livepeer 开发者获取帮助的每种方式——Discord 频道、论坛、办公时间、GitHub 问题等。",
+      "section": "cn",
+      "tags": [
+        "livepeer",
+        "developer",
+        "help",
+        "support",
+        "discord",
+        "forum",
+        "office-hours",
+        "github",
+        "bug-report",
+        "contact",
+        "cn",
+        "developers"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 791,
+      "lastVerified": "2026-03-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "快速参考"
+        },
+        {
+          "level": 2,
+          "text": "Discord"
+        },
+        {
+          "level": 3,
+          "text": "频道"
+        },
+        {
+          "level": 2,
+          "text": "Livepeer 论坛"
+        },
+        {
+          "level": 3,
+          "text": "论坛类别"
+        },
+        {
+          "level": 2,
+          "text": "开发者办公时间"
+        },
+        {
+          "level": 2,
+          "text": "GitHub 问题"
+        },
+        {
+          "level": 3,
+          "text": "撰写良好问题"
+        },
+        {
+          "level": 2,
+          "text": "Livepeer Studio 支持"
+        },
+        {
+          "level": 2,
+          "text": "安全漏洞和漏洞悬赏"
+        },
+        {
+          "level": 2,
+          "text": "社区和社交"
+        },
+        {
+          "level": 2,
+          "text": "资助和资金帮助"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/cn/developers/guides-and-tools/contribution-guide",
+      "title": "贡献指南",
+      "description": "如何为 Livepeer 贡献 — 代码、文档、治理、社区支持和所有存储库中的错误报告。",
+      "section": "cn",
+      "tags": [
+        "livepeer",
+        "developers",
+        "contribution-guide",
+        "contribute",
+        "open-source",
+        "pull-request",
+        "github",
+        "documentation",
+        "cn",
+        "guides-and-tools"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 703,
+      "lastVerified": "2026-03-04T03:16:51+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "贡献者聚光灯"
+        },
+        {
+          "level": 2,
+          "text": "贡献方式"
+        },
+        {
+          "level": 2,
+          "text": "贡献代码"
+        },
+        {
+          "level": 3,
+          "text": "开始之前"
+        },
+        {
+          "level": 3,
+          "text": "关键仓库"
+        },
+        {
+          "level": 3,
+          "text": "一般拉取请求原则"
+        },
+        {
+          "level": 2,
+          "text": "贡献文档"
+        },
+        {
+          "level": 3,
+          "text": "快速路径：无需代码的反馈"
+        },
+        {
+          "level": 3,
+          "text": "拉取请求工作流程"
+        },
+        {
+          "level": 3,
+          "text": "审查分配"
+        },
+        {
+          "level": 2,
+          "text": "参与治理"
+        },
+        {
+          "level": 2,
+          "text": "补助和悬赏"
+        },
+        {
+          "level": 2,
+          "text": "社区贡献原则"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
       "url": "https://docs.livepeer.org/v2/cn/developers/builder-opportunities/dev-programs",
       "title": "开发计划",
       "description": "",
@@ -59340,7 +59803,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 503,
-      "lastVerified": "2026-03-04T03:45:54+11:00",
+      "lastVerified": "2026-03-04T10:55:43+11:00",
       "headings": [
         {
           "level": 2,
@@ -59832,7 +60295,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 119,
-      "lastVerified": "2026-03-04T03:45:54+11:00",
+      "lastVerified": "2026-03-04T10:55:43+11:00",
       "headings": [
         {
           "level": 2,
@@ -65082,7 +65545,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1069,
-      "lastVerified": "2026-03-03T23:12:21+11:00",
+      "lastVerified": "2026-03-04T10:56:31+11:00",
       "headings": [
         {
           "level": 2,
