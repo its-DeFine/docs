@@ -114,7 +114,7 @@ lpd tools dev test-add-callouts -- --help
     { Command: "lpd version", "Flags available": "--json (global prefix)", Purpose: "CLI version", "JSON-capable": "Yes" },
     { Command: "lpd setup", "Flags available": "--yes, --no-tools, --no-tests, --no-hooks, --with-mintlify, --no-cli, --json", Purpose: "Bootstrap dependencies, hooks, and PATH wiring", "JSON-capable": "Yes" },
     { Command: "lpd doctor", "Flags available": "--strict, --json", Purpose: "Environment and repo-readiness checks", "JSON-capable": "Yes" },
-    { Command: "lpd dev", "Flags available": "--test, --test-mode, --script, --script=, --dry-run, --json, --", Purpose: "Run local docs dev launcher", "JSON-capable": "Yes" },
+    { Command: "lpd dev", "Flags available": "--test, --test-mode, --script, --script=, --dry-run, --json, --clear-cache, --", Purpose: "Run local docs dev launcher", "JSON-capable": "Yes" },
     { Command: "lpd mint dev", "Flags available": "-- (pass-through), --json (global prefix)", Purpose: "Alias to lpd dev", "JSON-capable": "Yes" },
     { Command: "lpd test", "Flags available": "--staged, --full, --browser, --domain, --wcag, --wcag-no-fix, --link-audit-external, --base-url, --json", Purpose: "Run tests and optional audits", "JSON-capable": "Yes" },
     { Command: "lpd ci", "Flags available": "--skip-browser, --base-url, --json", Purpose: "Run CI-like local validation", "JSON-capable": "Yes" },
@@ -275,7 +275,7 @@ For deeper test/audit script behaviour and owning paths, see [`quality-gates`](.
 
     **Usage**
     ```bash
-    lpd dev [--test] [--test-mode fast|staged|full] [--script <path>] [--script=<path>] [--dry-run] [--json] [-- ...mint args]
+    lpd dev [--test] [--test-mode fast|staged|full] [--script <path>] [--script=<path>] [--dry-run] [--json] [--clear-cache] [-- ...mint args]
     ```
 
     **Examples**
@@ -306,6 +306,11 @@ For deeper test/audit script behaviour and owning paths, see [`quality-gates`](.
       Passes remaining args to the launcher script.
       Example: `lpd dev -- --port 3333`
     </ResponseField>
+
+    **Cache clearing**
+    `lpd dev` clears repo-local Mintlify cache when `docs.json` or `docs-index.json` changes.
+    Force a clear with `lpd dev --clear-cache` or `MINT_DEV_CLEAR_CACHE=1 lpd dev`.
+    Disable change-based clearing with `MINT_DEV_CLEAR_CACHE_ON_CHANGE=0 lpd dev`.
   </ResponseField>
 
   <ResponseField name="lpd mint dev" type="command">
