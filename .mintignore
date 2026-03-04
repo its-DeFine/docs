@@ -31,6 +31,9 @@ tmp_*
 
 # V2 draft / scratch / context-only content
 /v2/x-*/**
+/v2/**/x-*
+/v2/**/x-*/
+/v2/**/x-*/**
 /v2/**/_contextData_/**
 /v2/**/_context_data_/**
 /v2/**/_tests-to-delete/**
@@ -52,6 +55,8 @@ tmp_*
 /tools/**/*.md
 /tools/**/*.mdx
 !/tools/scripts/snippets/README.mdx
+/tools/scripts/deprecated
+/tools/scripts/deprecated/**
 
 # Snippets docs/examples not intended as routable pages
 /snippets/README.md
@@ -61,7 +66,19 @@ tmp_*
 /snippets/components/**/examples/**
 /snippets/components/layout/examples/README-custom-view.md
 /snippets/data/API/README.md
+/snippets/data/deprecated
+/snippets/data/deprecated/**
 /snippets/automations/showcase/README.md
+
+# Generated artifacts
+docs-index.json
+llms-full.txt
+llms.txt
+sitemap-ai.xml
+
+# Externalized heavy assets
+/snippets/assets/domain/00_HOME/Eric Shreck Gif.gif
+/snippets/assets/media/gifs/daydream.gif
 
 # AI files
 .llms.txt
@@ -70,4 +87,3 @@ tmp_*
 .AI_GUIDELINES.md
 .cursorrules
 .allowlist
-

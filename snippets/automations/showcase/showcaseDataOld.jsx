@@ -17,7 +17,7 @@ export const showcaseData = [
     subtitle: "New York City’s first-ever Web3-native TV network",
     href: "nytv/",
     mediaSrc:
-      "https://github.com/livepeer/docs/blob/docs-v2-preview/snippets/assets/media/gifs/daydream.gif?raw=true",
+      "https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/gifs/daydream.gif",
     categoryTags: ["Video Streaming"],
     productTags: ["Daydream"],
     description:
