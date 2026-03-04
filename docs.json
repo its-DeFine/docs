@@ -6561,6 +6561,10 @@
   },
   "redirects": [
     {
+      "source": "/",
+      "destination": "/v2/"
+    },
+    {
       "source": "/v2/resources/redirect",
       "destination": "/v2/resources/resources-portal"
     },
