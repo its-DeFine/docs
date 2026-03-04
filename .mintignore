@@ -1,3 +1,9 @@
+# Dev Runs (remove in prod)
+/v2/es/**
+/v2/cn/**
+/v2/fr/**
+
+
 # Dependencies and build artifacts
 **/node_modules/**
 **/.cache/**
@@ -29,7 +35,7 @@ tmp_*
 **/*.bak*
 **/*.disabled
 
-# V2 draft / scratch / context-only content
+# V2 draft / scratch / context-only content / deprecated
 /v2/x-*/**
 /v2/**/x-*
 /v2/**/x-*/

@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-04T09:57:49.862Z",
+  "generated": "2026-03-04T10:06:25.738Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -9277,27 +9277,117 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/payments",
-      "title": "Gateway Payments",
-      "description": "Payment setup for Livepeer gateways.",
+      "url": "https://docs.livepeer.org/v2/gateways/payments/how-payments-work",
+      "title": "How Payments Work",
+      "description": "Understand Livepeer's probabilistic micropayment system and what it means for gateway operators managing payment signing keys, ETH balances, and on-chain settlement.",
       "section": "gateways",
       "tags": [
-        "livepeer",
         "gateways",
         "payments",
-        "clearinghouse",
-        "arbitrum",
-        "eth",
-        "lpt"
+        "how-payments-work"
       ],
       "entities": [
         "gateway"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 27,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
-      "headings": [],
+      "wordCount": 627,
+      "lastVerified": "2026-02-01",
+      "headings": [
+        {
+          "level": 1,
+          "text": "How Payments Work"
+        },
+        {
+          "level": 2,
+          "text": "Why Probabilistic Micropayments?"
+        },
+        {
+          "level": 2,
+          "text": "Gateway Payment Responsibilities"
+        },
+        {
+          "level": 3,
+          "text": "1. ETH Deposit Balance"
+        },
+        {
+          "level": 3,
+          "text": "2. Payment Signing Key"
+        },
+        {
+          "level": 3,
+          "text": "3. Ticket Parameters and Session State"
+        },
+        {
+          "level": 3,
+          "text": "4. Reserve Balance"
+        },
+        {
+          "level": 2,
+          "text": "On-Chain vs Off-Chain Operation"
+        },
+        {
+          "level": 2,
+          "text": "Ticket Generation Flow"
+        },
+        {
+          "level": 2,
+          "text": "Fee Calculation for Live AI"
+        },
+        {
+          "level": 2,
+          "text": "Next Steps"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/payments/payment-clearinghouse",
+      "title": "Payment Clearinghouses",
+      "description": "How third-party clearinghouses can manage Ethereum custody, payment signing, and PM settlement on behalf of gateway operators and app developers.",
+      "section": "gateways",
+      "tags": [
+        "gateways",
+        "payments",
+        "payment-clearinghouse"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 486,
+      "lastVerified": "2026-02-01",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Why Clearinghouses Exist"
+        },
+        {
+          "level": 2,
+          "text": "Architecture"
+        },
+        {
+          "level": 2,
+          "text": "What a Clearinghouse Manages"
+        },
+        {
+          "level": 2,
+          "text": "Developer Experience"
+        },
+        {
+          "level": 2,
+          "text": "Relationship to Remote Signers"
+        },
+        {
+          "level": 2,
+          "text": "Current Status and NaaP"
+        },
+        {
+          "level": 2,
+          "text": "Related Concepts"
+        }
+      ],
       "codeLanguages": []
     },
     {
@@ -17043,7 +17133,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 2205,
+      "wordCount": 2209,
       "lastVerified": "2026-03-04T19:56:49+11:00",
       "headings": [
         {

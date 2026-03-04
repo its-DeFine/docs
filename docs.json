@@ -2695,8 +2695,8 @@
                         "group": "Payments",
                         "icon": "coins",
                         "pages": [
-                          "v2/gateways/payments/index",
-                          "v2/gateways/run-a-gateway/payments/payment-clearinghouse"
+                          "v2/gateways/payments/how-payments-work",
+                          "v2/gateways/payments/payment-clearinghouse"
                         ]
                       },
                       {
