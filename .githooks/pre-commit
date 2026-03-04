@@ -61,6 +61,13 @@ SKIP_ALL=${SKIP_ALL:-0}
 ALLOW_DELETIONS=${ALLOW_DELETIONS:-0}
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
 
+# Freeze staged files snapshot to avoid hook-induced staging changes.
+STAGED_FILES_SNAPSHOT=$(git diff --cached --name-only --diff-filter=ACMR 2>/dev/null || true)
+STAGED_FILES_SNAPSHOT_ALL=$(git diff --cached --name-only --diff-filter=ACMRD 2>/dev/null || true)
+STAGED_FILES_SNAPSHOT_ADDED=$(git diff --cached --name-only --diff-filter=A 2>/dev/null || true)
+STAGED_FILES_SNAPSHOT_DELETED=$(git diff --cached --name-only --diff-filter=D 2>/dev/null || true)
+export LPD_STAGED_FILES_SNAPSHOT="$STAGED_FILES_SNAPSHOT"
+
 get_staged_docs_pages() {
     if ! command -v node &>/dev/null || [ ! -f "tests/utils/file-walker.js" ]; then
         return 0
@@ -72,7 +79,19 @@ get_staged_docs_pages() {
 STAGED_DOCS_PAGES=$(get_staged_docs_pages)
 
 get_staged_files() {
+    if [ -n "$STAGED_FILES_SNAPSHOT" ]; then
+        printf '%s\n' "$STAGED_FILES_SNAPSHOT"
+        return 0
+    fi
     git diff --cached --name-only --diff-filter=ACMR 2>/dev/null || true
+}
+
+get_staged_added_files() {
+    if [ -n "$STAGED_FILES_SNAPSHOT_ADDED" ]; then
+        printf '%s\n' "$STAGED_FILES_SNAPSHOT_ADDED"
+        return 0
+    fi
+    git diff --cached --name-only --diff-filter=A 2>/dev/null || true
 }
 
 has_docs_guide_scope_changes() {
