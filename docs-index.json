@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-04T04:18:42.044Z",
+  "generated": "2026-03-04T09:57:49.862Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -8178,56 +8178,6 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/payments",
-      "title": "Gateway Payments",
-      "description": "Payment setup for Livepeer gateways.",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "payments",
-        "clearinghouse",
-        "arbitrum",
-        "eth",
-        "lpt"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 27,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/gateways/run-a-gateway/payments/payment-clearinghouse",
-      "title": "Payment Clearinghouse",
-      "description": "This page explains how to use the Livepeer Payment Clearinghouse to process payments for Livepeer Gateway services.",
-      "section": "gateways",
-      "tags": [
-        "livepeer",
-        "gateways",
-        "run-a-gateway",
-        "payments",
-        "payment-clearinghouse",
-        "payment",
-        "clearinghouse",
-        "explains",
-        "how-to-use"
-      ],
-      "entities": [
-        "gateway"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 0,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
       "url": "https://docs.livepeer.org/v2/gateways/run-a-gateway/why-run-a-gateway",
       "title": "Why You Should Run a Gateway",
       "description": "Reasons you should run a Livepeer Gateway",
@@ -9325,6 +9275,30 @@
       "codeLanguages": [
         "mermaid"
       ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/payments",
+      "title": "Gateway Payments",
+      "description": "Payment setup for Livepeer gateways.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "payments",
+        "clearinghouse",
+        "arbitrum",
+        "eth",
+        "lpt"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 27,
+      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "headings": [],
+      "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/v2/gateways/gateway-tools/explorer",
@@ -16893,7 +16867,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2093,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-04T19:45:13+11:00",
       "headings": [
         {
           "level": 2,
@@ -16995,7 +16969,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 41,
-      "lastVerified": "2026-03-04T10:56:31+11:00",
+      "lastVerified": "2026-03-04T15:18:10+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -17069,8 +17043,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 2169,
-      "lastVerified": "2026-03-04T10:54:51+11:00",
+      "wordCount": 2205,
+      "lastVerified": "2026-03-04T19:56:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -54622,6 +54596,510 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/cn/solutions/streamplace/overview",
+      "title": "Streamplace 概述",
+      "description": "什么是 Streamplace，它为何存在，以及它如何融入 Livepeer 网络。",
+      "section": "cn",
+      "tags": [
+        "livepeer",
+        "developers",
+        "developer-platforms",
+        "streamplace",
+        "overview",
+        "exists",
+        "cn",
+        "solutions"
+      ],
+      "entities": [
+        "streamplace"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 128,
+      "lastVerified": "2026-03-03T23:12:21+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "✨ 为什么需要 Streamplace"
+        },
+        {
+          "level": 2,
+          "text": "🎥 视频"
+        },
+        {
+          "level": 2,
+          "text": "📰 博客与媒体"
+        },
+        {
+          "level": 2,
+          "text": "🔗 社交媒体与资源"
+        },
+        {
+          "level": 2,
+          "text": "📚 相关页面"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/cn/solutions/streamplace/introduction/streamplace-guide",
+      "title": "如何使用 Streamplace",
+      "description": "对输入、分段、来源、转码和交付的逐步解释。",
+      "section": "cn",
+      "tags": [
+        "livepeer",
+        "developers",
+        "developer-platforms",
+        "streamplace",
+        "streamplace-guide",
+        "works",
+        "explanation",
+        "ingest",
+        "segmentation",
+        "cn",
+        "solutions",
+        "introduction"
+      ],
+      "entities": [
+        "streamplace"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 128,
+      "lastVerified": "2026-03-03T20:26:34+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "🧩 端到端流程图"
+        },
+        {
+          "level": 2,
+          "text": "🔍 分步分解"
+        },
+        {
+          "level": 3,
+          "text": "**1. 接入**"
+        },
+        {
+          "level": 3,
+          "text": "**2. 分段**"
+        },
+        {
+          "level": 3,
+          "text": "**3. 权威层**"
+        },
+        {
+          "level": 3,
+          "text": "**4. 通过 Livepeer 进行转码**"
+        },
+        {
+          "level": 3,
+          "text": "**5. 清单重建**"
+        },
+        {
+          "level": 3,
+          "text": "**6. 播放与验证**"
+        },
+        {
+          "level": 2,
+          "text": "📚 相关页面"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/cn/solutions/streamplace/introduction/streamplace-architecture",
+      "title": "Streamplace 架构",
+      "description": "详细架构图展示了 Streamplace, Livepeer, Orchestrators, 权威来源和用户层。",
+      "section": "cn",
+      "tags": [
+        "livepeer",
+        "developers",
+        "developer-platforms",
+        "streamplace",
+        "streamplace-architecture",
+        "architecture",
+        "detailed",
+        "showing",
+        "cn",
+        "solutions",
+        "introduction"
+      ],
+      "entities": [
+        "streamplace"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 227,
+      "lastVerified": "2026-03-03T23:12:21+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "🧩 高级架构图"
+        },
+        {
+          "level": 1,
+          "text": "🧠 架构层解释"
+        },
+        {
+          "level": 2,
+          "text": "1. **Livepeer 基金会 / DAO（资金层）**"
+        },
+        {
+          "level": 2,
+          "text": "2. **Streamplace SPE 层**"
+        },
+        {
+          "level": 2,
+          "text": "3. **应用/客户端层（去中心化社交应用）**"
+        },
+        {
+          "level": 2,
+          "text": "4. **Streamplace 节点层（输入与溯源）**"
+        },
+        {
+          "level": 3,
+          "text": "输入"
+        },
+        {
+          "level": 3,
+          "text": "分段"
+        },
+        {
+          "level": 3,
+          "text": "来源"
+        },
+        {
+          "level": 3,
+          "text": "元数据嵌入"
+        },
+        {
+          "level": 2,
+          "text": "5. **Livepeer 网络层**"
+        },
+        {
+          "level": 2,
+          "text": "6. **分发层（Streamplace 输出）**"
+        },
+        {
+          "level": 2,
+          "text": "7. **播放层（面向用户）**"
+        },
+        {
+          "level": 1,
+          "text": "🔗 相关页面"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/cn/solutions/streamplace/introduction/streamplace-integration",
+      "title": "开发者集成指南",
+      "description": "如何将Streamplace集成到去中心化社交应用、Web3平台和Livepeer驱动的视频流水线中。",
+      "section": "cn",
+      "tags": [
+        "livepeer",
+        "developers",
+        "developer-platforms",
+        "streamplace",
+        "streamplace-integration",
+        "developer",
+        "integration",
+        "guide",
+        "integrate",
+        "decentralized",
+        "cn",
+        "solutions"
+      ],
+      "entities": [
+        "streamplace"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 160,
+      "lastVerified": "2026-03-03T20:26:34+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "开发者集成指南"
+        },
+        {
+          "level": 1,
+          "text": "🚀 快速入门"
+        },
+        {
+          "level": 2,
+          "text": "1. 安装 Streamplace 节点"
+        },
+        {
+          "level": 2,
+          "text": "2. 开始直播"
+        },
+        {
+          "level": 2,
+          "text": "3. 添加元数据"
+        },
+        {
+          "level": 2,
+          "text": "4. 使用 Streamplace SDK"
+        },
+        {
+          "level": 1,
+          "text": "🧩 Streamplace 如何与 Livepeer 集成"
+        },
+        {
+          "level": 1,
+          "text": "📦 播放集成"
+        },
+        {
+          "level": 1,
+          "text": "🔧 集成模式"
+        },
+        {
+          "level": 2,
+          "text": "🤝 1. 社交网络（AT 协议，Fediverse）"
+        },
+        {
+          "level": 2,
+          "text": "🎥 2. 创作者平台"
+        },
+        {
+          "level": 2,
+          "text": "📰 3. 新闻与事实核查"
+        },
+        {
+          "level": 2,
+          "text": "🏛️ 4. 社区运营的视频平台"
+        },
+        {
+          "level": 1,
+          "text": "📚 相关页面"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "json",
+        "ts",
+        "jsx"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/cn/solutions/streamplace/introduction/streamplace-provenance",
+      "title": "来源与元数据",
+      "description": "C2PA 如何体现、以太坊签名以及 Streamplace 元数据模式如何创建可验证的、具有权利意识的视频。",
+      "section": "cn",
+      "tags": [
+        "livepeer",
+        "developers",
+        "developer-platforms",
+        "streamplace",
+        "streamplace-provenance",
+        "provenance",
+        "metadata",
+        "manifests",
+        "ethereum",
+        "signatures",
+        "cn",
+        "solutions"
+      ],
+      "entities": [
+        "streamplace"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 155,
+      "lastVerified": "2026-03-03T23:12:21+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "🛡️ 为什么来源很重要"
+        },
+        {
+          "level": 1,
+          "text": "🧬 来源流程图"
+        },
+        {
+          "level": 1,
+          "text": "🔐 C2PA 清单"
+        },
+        {
+          "level": 1,
+          "text": "🔏 Ethereum 签名"
+        },
+        {
+          "level": 1,
+          "text": "🧱 元数据模式（权利、警告、政策）"
+        },
+        {
+          "level": 1,
+          "text": "🌐 如何使元数据和来源在转码后仍然存在"
+        },
+        {
+          "level": 1,
+          "text": "🧩 示例用例"
+        },
+        {
+          "level": 3,
+          "text": "**1. 去中心化社交媒体网络**"
+        },
+        {
+          "level": 3,
+          "text": "**2. 公民新闻**"
+        },
+        {
+          "level": 3,
+          "text": "**3. 创作者经济平台**"
+        },
+        {
+          "level": 3,
+          "text": "**4. 审核工具**"
+        },
+        {
+          "level": 1,
+          "text": "📚 相关页面"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/cn/solutions/streamplace/introduction/streamplace-funding-model",
+      "title": "SPE 资金模型",
+      "description": "了解 Streamplace 作为由 Livepeer 生态系统资助的特殊目的实体 (SPE) 的角色和责任。",
+      "section": "cn",
+      "tags": [
+        "livepeer",
+        "developers",
+        "developer-platforms",
+        "streamplace",
+        "streamplace-funding-model",
+        "funding",
+        "model",
+        "understanding",
+        "responsibilities",
+        "cn",
+        "solutions",
+        "introduction"
+      ],
+      "entities": [
+        "streamplace"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 152,
+      "lastVerified": "2026-03-03T20:26:34+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "🏛️ 什么是SPE？"
+        },
+        {
+          "level": 1,
+          "text": "💸 资金流动图"
+        },
+        {
+          "level": 1,
+          "text": "📦 Streamplace 作为 SPE 提供的内容"
+        },
+        {
+          "level": 3,
+          "text": "**1. Streamplace 节点**"
+        },
+        {
+          "level": 3,
+          "text": "**2. SDK & APIs**"
+        },
+        {
+          "level": 3,
+          "text": "**3. 元数据与来源标准**"
+        },
+        {
+          "level": 3,
+          "text": "**4. 公共产品基础设施**"
+        },
+        {
+          "level": 1,
+          "text": "🔥 为什么存在 SPE 模型"
+        },
+        {
+          "level": 1,
+          "text": "📚 相关页面"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/cn/solutions/embody/overview",
+      "title": "化身头像",
+      "description": "化身头像是一个由 Livepeer 驱动的平台，用于创建和分享 3D 头像和虚拟世界。",
+      "section": "cn",
+      "tags": [
+        "livepeer",
+        "developers",
+        "developer-platforms",
+        "embody",
+        "embody-avatars",
+        "overview",
+        "exists",
+        "cn",
+        "solutions"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 4,
+      "lastVerified": "2026-03-03T20:26:34+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/cn/solutions/frameworks/overview",
+      "title": "框架",
+      "description": "全栈视频基础设施：开放堆栈、实时视频处理，以及在 Livepeer 上灵活的自托管或托管部署。",
+      "section": "cn",
+      "tags": [
+        "cn",
+        "solutions",
+        "frameworks",
+        "overview"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 85,
+      "lastVerified": "2026-03-03T23:12:21+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "视频"
+        },
+        {
+          "level": 2,
+          "text": "概览"
+        },
+        {
+          "level": 2,
+          "text": "快速入门"
+        },
+        {
+          "level": 2,
+          "text": "博客与社区"
+        },
+        {
+          "level": 2,
+          "text": "社交与资源"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
       "url": "https://docs.livepeer.org/v2/cn/solutions/livepeer-studio/get-started/overview",
       "title": "开始使用 Livepeer Studio",
       "description": "了解如何开始使用 Livepeer Studio",
@@ -57530,6 +58008,40 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/cn/solutions/livepeer-studio/api-reference/rooms/update-user",
+      "title": "更新房间用户",
+      "description": "Livepeer Studio API 端点",
+      "section": "cn",
+      "tags": [
+        "livepeer",
+        "studio",
+        "api",
+        "rooms",
+        "cn",
+        "solutions",
+        "livepeer-studio",
+        "api-reference",
+        "update-user"
+      ],
+      "entities": [
+        "livepeer-studio",
+        "room"
+      ],
+      "apiEndpoints": [
+        "PUT /room/{id}/user/{userId}"
+      ],
+      "difficulty": "advanced",
+      "wordCount": 2,
+      "lastVerified": "2026-03-03T20:26:34+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "更新房间用户"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
       "url": "https://docs.livepeer.org/v2/cn/solutions/livepeer-studio/api-reference/rooms/delete",
       "title": "删除房间",
       "description": "Livepeer Studio API 端点",
@@ -57627,40 +58139,6 @@
         {
           "level": 1,
           "text": "获取房间用户"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/cn/solutions/livepeer-studio/api-reference/rooms/update-user",
-      "title": "更新房间用户",
-      "description": "Livepeer Studio API 端点",
-      "section": "cn",
-      "tags": [
-        "livepeer",
-        "studio",
-        "api",
-        "rooms",
-        "cn",
-        "solutions",
-        "livepeer-studio",
-        "api-reference",
-        "update-user"
-      ],
-      "entities": [
-        "livepeer-studio",
-        "room"
-      ],
-      "apiEndpoints": [
-        "PUT /room/{id}/user/{userId}"
-      ],
-      "difficulty": "advanced",
-      "wordCount": 2,
-      "lastVerified": "2026-03-03T20:26:34+11:00",
-      "headings": [
-        {
-          "level": 1,
-          "text": "更新房间用户"
         }
       ],
       "codeLanguages": []
@@ -57964,510 +58442,6 @@
         {
           "level": 1,
           "text": "获取实时观看人数"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/cn/solutions/streamplace/overview",
-      "title": "Streamplace 概述",
-      "description": "什么是 Streamplace，它为何存在，以及它如何融入 Livepeer 网络。",
-      "section": "cn",
-      "tags": [
-        "livepeer",
-        "developers",
-        "developer-platforms",
-        "streamplace",
-        "overview",
-        "exists",
-        "cn",
-        "solutions"
-      ],
-      "entities": [
-        "streamplace"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "beginner",
-      "wordCount": 128,
-      "lastVerified": "2026-03-03T23:12:21+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "✨ 为什么需要 Streamplace"
-        },
-        {
-          "level": 2,
-          "text": "🎥 视频"
-        },
-        {
-          "level": 2,
-          "text": "📰 博客与媒体"
-        },
-        {
-          "level": 2,
-          "text": "🔗 社交媒体与资源"
-        },
-        {
-          "level": 2,
-          "text": "📚 相关页面"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/cn/solutions/streamplace/introduction/streamplace-guide",
-      "title": "如何使用 Streamplace",
-      "description": "对输入、分段、来源、转码和交付的逐步解释。",
-      "section": "cn",
-      "tags": [
-        "livepeer",
-        "developers",
-        "developer-platforms",
-        "streamplace",
-        "streamplace-guide",
-        "works",
-        "explanation",
-        "ingest",
-        "segmentation",
-        "cn",
-        "solutions",
-        "introduction"
-      ],
-      "entities": [
-        "streamplace"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "beginner",
-      "wordCount": 128,
-      "lastVerified": "2026-03-03T20:26:34+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "🧩 端到端流程图"
-        },
-        {
-          "level": 2,
-          "text": "🔍 分步分解"
-        },
-        {
-          "level": 3,
-          "text": "**1. 接入**"
-        },
-        {
-          "level": 3,
-          "text": "**2. 分段**"
-        },
-        {
-          "level": 3,
-          "text": "**3. 权威层**"
-        },
-        {
-          "level": 3,
-          "text": "**4. 通过 Livepeer 进行转码**"
-        },
-        {
-          "level": 3,
-          "text": "**5. 清单重建**"
-        },
-        {
-          "level": 3,
-          "text": "**6. 播放与验证**"
-        },
-        {
-          "level": 2,
-          "text": "📚 相关页面"
-        }
-      ],
-      "codeLanguages": [
-        "mermaid"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/cn/solutions/streamplace/introduction/streamplace-architecture",
-      "title": "Streamplace 架构",
-      "description": "详细架构图展示了 Streamplace, Livepeer, Orchestrators, 权威来源和用户层。",
-      "section": "cn",
-      "tags": [
-        "livepeer",
-        "developers",
-        "developer-platforms",
-        "streamplace",
-        "streamplace-architecture",
-        "architecture",
-        "detailed",
-        "showing",
-        "cn",
-        "solutions",
-        "introduction"
-      ],
-      "entities": [
-        "streamplace"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "beginner",
-      "wordCount": 227,
-      "lastVerified": "2026-03-03T23:12:21+11:00",
-      "headings": [
-        {
-          "level": 1,
-          "text": "🧩 高级架构图"
-        },
-        {
-          "level": 1,
-          "text": "🧠 架构层解释"
-        },
-        {
-          "level": 2,
-          "text": "1. **Livepeer 基金会 / DAO（资金层）**"
-        },
-        {
-          "level": 2,
-          "text": "2. **Streamplace SPE 层**"
-        },
-        {
-          "level": 2,
-          "text": "3. **应用/客户端层（去中心化社交应用）**"
-        },
-        {
-          "level": 2,
-          "text": "4. **Streamplace 节点层（输入与溯源）**"
-        },
-        {
-          "level": 3,
-          "text": "输入"
-        },
-        {
-          "level": 3,
-          "text": "分段"
-        },
-        {
-          "level": 3,
-          "text": "来源"
-        },
-        {
-          "level": 3,
-          "text": "元数据嵌入"
-        },
-        {
-          "level": 2,
-          "text": "5. **Livepeer 网络层**"
-        },
-        {
-          "level": 2,
-          "text": "6. **分发层（Streamplace 输出）**"
-        },
-        {
-          "level": 2,
-          "text": "7. **播放层（面向用户）**"
-        },
-        {
-          "level": 1,
-          "text": "🔗 相关页面"
-        }
-      ],
-      "codeLanguages": [
-        "mermaid"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/cn/solutions/streamplace/introduction/streamplace-integration",
-      "title": "开发者集成指南",
-      "description": "如何将Streamplace集成到去中心化社交应用、Web3平台和Livepeer驱动的视频流水线中。",
-      "section": "cn",
-      "tags": [
-        "livepeer",
-        "developers",
-        "developer-platforms",
-        "streamplace",
-        "streamplace-integration",
-        "developer",
-        "integration",
-        "guide",
-        "integrate",
-        "decentralized",
-        "cn",
-        "solutions"
-      ],
-      "entities": [
-        "streamplace"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "beginner",
-      "wordCount": 160,
-      "lastVerified": "2026-03-03T20:26:34+11:00",
-      "headings": [
-        {
-          "level": 1,
-          "text": "开发者集成指南"
-        },
-        {
-          "level": 1,
-          "text": "🚀 快速入门"
-        },
-        {
-          "level": 2,
-          "text": "1. 安装 Streamplace 节点"
-        },
-        {
-          "level": 2,
-          "text": "2. 开始直播"
-        },
-        {
-          "level": 2,
-          "text": "3. 添加元数据"
-        },
-        {
-          "level": 2,
-          "text": "4. 使用 Streamplace SDK"
-        },
-        {
-          "level": 1,
-          "text": "🧩 Streamplace 如何与 Livepeer 集成"
-        },
-        {
-          "level": 1,
-          "text": "📦 播放集成"
-        },
-        {
-          "level": 1,
-          "text": "🔧 集成模式"
-        },
-        {
-          "level": 2,
-          "text": "🤝 1. 社交网络（AT 协议，Fediverse）"
-        },
-        {
-          "level": 2,
-          "text": "🎥 2. 创作者平台"
-        },
-        {
-          "level": 2,
-          "text": "📰 3. 新闻与事实核查"
-        },
-        {
-          "level": 2,
-          "text": "🏛️ 4. 社区运营的视频平台"
-        },
-        {
-          "level": 1,
-          "text": "📚 相关页面"
-        }
-      ],
-      "codeLanguages": [
-        "bash",
-        "json",
-        "ts",
-        "jsx"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/cn/solutions/streamplace/introduction/streamplace-provenance",
-      "title": "来源与元数据",
-      "description": "C2PA 如何体现、以太坊签名以及 Streamplace 元数据模式如何创建可验证的、具有权利意识的视频。",
-      "section": "cn",
-      "tags": [
-        "livepeer",
-        "developers",
-        "developer-platforms",
-        "streamplace",
-        "streamplace-provenance",
-        "provenance",
-        "metadata",
-        "manifests",
-        "ethereum",
-        "signatures",
-        "cn",
-        "solutions"
-      ],
-      "entities": [
-        "streamplace"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "beginner",
-      "wordCount": 155,
-      "lastVerified": "2026-03-03T23:12:21+11:00",
-      "headings": [
-        {
-          "level": 1,
-          "text": "🛡️ 为什么来源很重要"
-        },
-        {
-          "level": 1,
-          "text": "🧬 来源流程图"
-        },
-        {
-          "level": 1,
-          "text": "🔐 C2PA 清单"
-        },
-        {
-          "level": 1,
-          "text": "🔏 Ethereum 签名"
-        },
-        {
-          "level": 1,
-          "text": "🧱 元数据模式（权利、警告、政策）"
-        },
-        {
-          "level": 1,
-          "text": "🌐 如何使元数据和来源在转码后仍然存在"
-        },
-        {
-          "level": 1,
-          "text": "🧩 示例用例"
-        },
-        {
-          "level": 3,
-          "text": "**1. 去中心化社交媒体网络**"
-        },
-        {
-          "level": 3,
-          "text": "**2. 公民新闻**"
-        },
-        {
-          "level": 3,
-          "text": "**3. 创作者经济平台**"
-        },
-        {
-          "level": 3,
-          "text": "**4. 审核工具**"
-        },
-        {
-          "level": 1,
-          "text": "📚 相关页面"
-        }
-      ],
-      "codeLanguages": [
-        "mermaid"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/cn/solutions/streamplace/introduction/streamplace-funding-model",
-      "title": "SPE 资金模型",
-      "description": "了解 Streamplace 作为由 Livepeer 生态系统资助的特殊目的实体 (SPE) 的角色和责任。",
-      "section": "cn",
-      "tags": [
-        "livepeer",
-        "developers",
-        "developer-platforms",
-        "streamplace",
-        "streamplace-funding-model",
-        "funding",
-        "model",
-        "understanding",
-        "responsibilities",
-        "cn",
-        "solutions",
-        "introduction"
-      ],
-      "entities": [
-        "streamplace"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "beginner",
-      "wordCount": 152,
-      "lastVerified": "2026-03-03T20:26:34+11:00",
-      "headings": [
-        {
-          "level": 1,
-          "text": "🏛️ 什么是SPE？"
-        },
-        {
-          "level": 1,
-          "text": "💸 资金流动图"
-        },
-        {
-          "level": 1,
-          "text": "📦 Streamplace 作为 SPE 提供的内容"
-        },
-        {
-          "level": 3,
-          "text": "**1. Streamplace 节点**"
-        },
-        {
-          "level": 3,
-          "text": "**2. SDK & APIs**"
-        },
-        {
-          "level": 3,
-          "text": "**3. 元数据与来源标准**"
-        },
-        {
-          "level": 3,
-          "text": "**4. 公共产品基础设施**"
-        },
-        {
-          "level": 1,
-          "text": "🔥 为什么存在 SPE 模型"
-        },
-        {
-          "level": 1,
-          "text": "📚 相关页面"
-        }
-      ],
-      "codeLanguages": [
-        "mermaid"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/cn/solutions/embody/overview",
-      "title": "化身头像",
-      "description": "化身头像是一个由 Livepeer 驱动的平台，用于创建和分享 3D 头像和虚拟世界。",
-      "section": "cn",
-      "tags": [
-        "livepeer",
-        "developers",
-        "developer-platforms",
-        "embody",
-        "embody-avatars",
-        "overview",
-        "exists",
-        "cn",
-        "solutions"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "beginner",
-      "wordCount": 4,
-      "lastVerified": "2026-03-03T20:26:34+11:00",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/cn/solutions/frameworks/overview",
-      "title": "框架",
-      "description": "全栈视频基础设施：开放堆栈、实时视频处理，以及在 Livepeer 上灵活的自托管或托管部署。",
-      "section": "cn",
-      "tags": [
-        "cn",
-        "solutions",
-        "frameworks",
-        "overview"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "beginner",
-      "wordCount": 85,
-      "lastVerified": "2026-03-03T23:12:21+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "视频"
-        },
-        {
-          "level": 2,
-          "text": "概览"
-        },
-        {
-          "level": 2,
-          "text": "快速入门"
-        },
-        {
-          "level": 2,
-          "text": "博客与社区"
-        },
-        {
-          "level": 2,
-          "text": "社交与资源"
         }
       ],
       "codeLanguages": []
