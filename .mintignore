@@ -4,6 +4,17 @@
 /v2/fr/**
 /v1/**
 
+# Compatibility aliases for simpler ignore parsers
+.github
+tasks
+tests
+ai-tools
+tools/notion
+
+# Explicit nested dependency dirs
+tests/node_modules
+tools/node_modules
+tools/notion/node_modules
 
 # Dependencies and build artifacts
 **/node_modules/**
