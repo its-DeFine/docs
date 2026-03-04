@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-04T04:18:42.044Z",
+  "generated": "2026-03-04T08:11:12.138Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -8196,35 +8196,344 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 27,
+      "wordCount": 83,
       "lastVerified": "2026-03-03T21:46:17+11:00",
       "headings": [],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/gateways/run-a-gateway/payments/payment-clearinghouse",
-      "title": "Payment Clearinghouse",
-      "description": "This page explains how to use the Livepeer Payment Clearinghouse to process payments for Livepeer Gateway services.",
+      "url": "https://docs.livepeer.org/v2/gateways/payments/payments-overview",
+      "title": "How Payments Work",
+      "description": "Understand Livepeer's probabilistic micropayment system and what it means for gateway operators managing payment signing keys, ETH balances, and on-chain settlement.",
       "section": "gateways",
       "tags": [
-        "livepeer",
         "gateways",
-        "run-a-gateway",
         "payments",
-        "payment-clearinghouse",
-        "payment",
-        "clearinghouse",
-        "explains",
-        "how-to-use"
+        "payments-overview"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 627,
+      "lastVerified": "2026-02-01",
+      "headings": [
+        {
+          "level": 1,
+          "text": "How Payments Work"
+        },
+        {
+          "level": 2,
+          "text": "Why Probabilistic Micropayments?"
+        },
+        {
+          "level": 2,
+          "text": "Gateway Payment Responsibilities"
+        },
+        {
+          "level": 3,
+          "text": "1. ETH Deposit Balance"
+        },
+        {
+          "level": 3,
+          "text": "2. Payment Signing Key"
+        },
+        {
+          "level": 3,
+          "text": "3. Ticket Parameters and Session State"
+        },
+        {
+          "level": 3,
+          "text": "4. Reserve Balance"
+        },
+        {
+          "level": 2,
+          "text": "On-Chain vs Off-Chain Operation"
+        },
+        {
+          "level": 2,
+          "text": "Ticket Generation Flow"
+        },
+        {
+          "level": 2,
+          "text": "Fee Calculation for Live AI"
+        },
+        {
+          "level": 2,
+          "text": "Next Steps"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/payments/how-payments-work",
+      "title": "How Payments Work",
+      "description": "Understand Livepeer's probabilistic micropayment system and what it means for gateway operators managing payment signing keys, ETH balances, and on-chain settlement.",
+      "section": "gateways",
+      "tags": [
+        "gateways",
+        "payments",
+        "how-payments-work"
       ],
       "entities": [
         "gateway"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 0,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
-      "headings": [],
+      "wordCount": 627,
+      "lastVerified": "2026-02-01",
+      "headings": [
+        {
+          "level": 1,
+          "text": "How Payments Work"
+        },
+        {
+          "level": 2,
+          "text": "Why Probabilistic Micropayments?"
+        },
+        {
+          "level": 2,
+          "text": "Gateway Payment Responsibilities"
+        },
+        {
+          "level": 3,
+          "text": "1. ETH Deposit Balance"
+        },
+        {
+          "level": 3,
+          "text": "2. Payment Signing Key"
+        },
+        {
+          "level": 3,
+          "text": "3. Ticket Parameters and Session State"
+        },
+        {
+          "level": 3,
+          "text": "4. Reserve Balance"
+        },
+        {
+          "level": 2,
+          "text": "On-Chain vs Off-Chain Operation"
+        },
+        {
+          "level": 2,
+          "text": "Ticket Generation Flow"
+        },
+        {
+          "level": 2,
+          "text": "Fee Calculation for Live AI"
+        },
+        {
+          "level": 2,
+          "text": "Next Steps"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/payments/remote-signers",
+      "title": "Remote Signers",
+      "description": "Run Ethereum payment signing as a standalone service, separate from your gateway's media handling. Improves security and enables gateways on platforms without native Ethereum support.",
+      "section": "gateways",
+      "tags": [
+        "gateways",
+        "payments",
+        "remote-signers"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 822,
+      "lastVerified": "2026-02-01",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Remote Signers"
+        },
+        {
+          "level": 2,
+          "text": "Why Use a Remote Signer?"
+        },
+        {
+          "level": 3,
+          "text": "Security"
+        },
+        {
+          "level": 3,
+          "text": "Platform Flexibility"
+        },
+        {
+          "level": 3,
+          "text": "Clearinghouse Support"
+        },
+        {
+          "level": 2,
+          "text": "Scope: Live AI Only"
+        },
+        {
+          "level": 2,
+          "text": "Architecture"
+        },
+        {
+          "level": 3,
+          "text": "GetOrchestratorInfo Signature (PR #3791)"
+        },
+        {
+          "level": 3,
+          "text": "Payment Ticket Signing (PR #3822)"
+        },
+        {
+          "level": 2,
+          "text": "Operational Requirements"
+        },
+        {
+          "level": 3,
+          "text": "Run Multiple Instances"
+        },
+        {
+          "level": 3,
+          "text": "Never Reuse Tickets"
+        },
+        {
+          "level": 3,
+          "text": "No Concurrent Signing for the Same Session"
+        },
+        {
+          "level": 3,
+          "text": "Orchestrator Discovery"
+        },
+        {
+          "level": 2,
+          "text": "Community Remote Signer"
+        },
+        {
+          "level": 2,
+          "text": "CLI Startup"
+        },
+        {
+          "level": 2,
+          "text": "Related Concepts"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/payments/payment-clearinghouse",
+      "title": "Payment Clearinghouses",
+      "description": "How third-party clearinghouses can manage Ethereum custody, payment signing, and PM settlement on behalf of gateway operators and app developers.",
+      "section": "gateways",
+      "tags": [
+        "gateways",
+        "payments",
+        "payment-clearinghouse"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 488,
+      "lastVerified": "2026-02-01",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Payment Clearinghouses"
+        },
+        {
+          "level": 2,
+          "text": "Why Clearinghouses Exist"
+        },
+        {
+          "level": 2,
+          "text": "Architecture"
+        },
+        {
+          "level": 2,
+          "text": "What a Clearinghouse Manages"
+        },
+        {
+          "level": 2,
+          "text": "Developer Experience"
+        },
+        {
+          "level": 2,
+          "text": "Relationship to Remote Signers"
+        },
+        {
+          "level": 2,
+          "text": "Current Status and NaaP"
+        },
+        {
+          "level": 2,
+          "text": "Related Concepts"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/payments/naap-platform",
+      "title": "NaaP Platform",
+      "description": "The Livepeer Foundation's Network as a Platform -- a managed access layer providing API keys, network observability, capacity planning, and a plugin marketplace for gateway operators.",
+      "section": "gateways",
+      "tags": [
+        "gateways",
+        "payments",
+        "naap-platform"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 591,
+      "lastVerified": "2026-02-01",
+      "headings": [
+        {
+          "level": 1,
+          "text": "NaaP Platform"
+        },
+        {
+          "level": 2,
+          "text": "Who NaaP Serves"
+        },
+        {
+          "level": 2,
+          "text": "Key Features"
+        },
+        {
+          "level": 3,
+          "text": "Network Observability"
+        },
+        {
+          "level": 3,
+          "text": "Developer API Access"
+        },
+        {
+          "level": 3,
+          "text": "Capacity Planner"
+        },
+        {
+          "level": 3,
+          "text": "Plugin Marketplace"
+        },
+        {
+          "level": 2,
+          "text": "For Gateway Operators"
+        },
+        {
+          "level": 2,
+          "text": "Relationship to Remote Signers and Clearinghouses"
+        },
+        {
+          "level": 2,
+          "text": "Related Concepts"
+        }
+      ],
       "codeLanguages": []
     },
     {
@@ -9390,6 +9699,171 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/gateways/guides-and-resources/faq",
+      "title": "Gateway FAQ",
+      "description": "Gateway Frequently Asked Questions",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "guides-and-resources",
+        "faq",
+        "gateway",
+        "frequently",
+        "asked"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 764,
+      "lastVerified": "2026-03-04T01:00:46+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "FAQ"
+        },
+        {
+          "level": 2,
+          "text": "Gateway Pricing References & Resources"
+        },
+        {
+          "level": 3,
+          "text": "Deep references related to Gateway pricing, orchestration economics, and marketplace visibility"
+        },
+        {
+          "level": 2,
+          "text": "Key Findings for Docs"
+        },
+        {
+          "level": 3,
+          "text": "How pricing works (verified)"
+        },
+        {
+          "level": 3,
+          "text": "AI inference endpoints"
+        },
+        {
+          "level": 3,
+          "text": "Marketplace visibility"
+        },
+        {
+          "level": 2,
+          "text": "Answers to Your Specific Questions"
+        },
+        {
+          "level": 3,
+          "text": "1) How is pricing done?"
+        },
+        {
+          "level": 3,
+          "text": "2) Can Gateway Operators add or contribute new AI inference endpoints if they run them?"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/guides-and-resources/gateway-job-pipelines/overview",
+      "title": "Gateway Job Pipelines Overview",
+      "description": "How gateway operators handle AI job pipelines, capability routing, and BYOC-backed workloads on Livepeer.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateway",
+        "job-pipelines",
+        "ai",
+        "byoc",
+        "routing",
+        "capabilities",
+        "gateways",
+        "guides-and-resources",
+        "gateway-job-pipelines",
+        "overview"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 160,
+      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "What a gateway pipeline does"
+        },
+        {
+          "level": 2,
+          "text": "Gateway vs orchestrator responsibilities"
+        },
+        {
+          "level": 2,
+          "text": "Pipeline types"
+        },
+        {
+          "level": 2,
+          "text": "BYOC in gateway pipelines"
+        },
+        {
+          "level": 2,
+          "text": "See also"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/guides-and-resources/gateway-job-pipelines/byoc",
+      "title": "BYOC for Gateway Operators",
+      "description": "Gateway-operator guidance for routing BYOC-capable AI workloads on Livepeer.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "byoc",
+        "gateway-job-pipelines",
+        "routing",
+        "ai",
+        "guides-and-resources"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 198,
+      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "What gateway operators need to do"
+        },
+        {
+          "level": 2,
+          "text": "What gateway operators do not do"
+        },
+        {
+          "level": 2,
+          "text": "Routing best practices"
+        },
+        {
+          "level": 2,
+          "text": "Operational flow"
+        },
+        {
+          "level": 2,
+          "text": "Developer handoff"
+        },
+        {
+          "level": 2,
+          "text": "Related pages"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
       "url": "https://docs.livepeer.org/v2/gateways/references/technical-architecture",
       "title": "Technical Architecture",
       "description": "Technical Architecture Diagrams and References",
@@ -10552,15 +11026,66 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/overview",
-      "title": "Orchestrator Quickstart",
-      "description": "",
+      "url": "https://docs.livepeer.org/v2/orchestrators/about-orchestrators/naap-platform",
+      "title": "NaaP Platform for Orchestrators",
+      "description": "How the Livepeer Foundation's Network as a Platform (NaaP) serves orchestrators -- network observability, performance dashboards, capacity planning, and plugin-based job routing.",
       "section": "orchestrators",
       "tags": [
-        "livepeer",
+        "orchestrators",
+        "about-orchestrators",
+        "naap-platform"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 447,
+      "lastVerified": "2026-02-01",
+      "headings": [
+        {
+          "level": 1,
+          "text": "NaaP Platform for Orchestrators"
+        },
+        {
+          "level": 2,
+          "text": "What NaaP Means for Orchestrators"
+        },
+        {
+          "level": 3,
+          "text": "Network Performance Dashboard"
+        },
+        {
+          "level": 3,
+          "text": "Discovery and Visibility"
+        },
+        {
+          "level": 3,
+          "text": "Capacity Planner"
+        },
+        {
+          "level": 3,
+          "text": "Plugin System"
+        },
+        {
+          "level": 2,
+          "text": "No Immediate Action Required"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/overview",
+      "title": "Orchestrator Quickstarts",
+      "description": "Choose your orchestrator workload and follow the appropriate setup guide. Realtime AI is the recommended starting point for new operators with NVIDIA GPUs.",
+      "section": "orchestrators",
+      "tags": [
         "orchestrators",
         "quickstart",
-        "orchestrator",
         "overview"
       ],
       "entities": [
@@ -10568,16 +11093,12 @@
       ],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 52,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "wordCount": 110,
+      "lastVerified": "2026-02-01",
       "headings": [
         {
-          "level": 2,
-          "text": "What do you want to run?"
-        },
-        {
-          "level": 2,
-          "text": "Need help deciding?"
+          "level": 1,
+          "text": "Orchestrator Quickstart"
         }
       ],
       "codeLanguages": []
@@ -10616,7 +11137,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/orchestrator-setup",
+      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/transcoding",
       "title": "Transcoding Orchestrator Quickstart",
       "description": "Run go-livepeer as a transcoding orchestrator: create your wallet, configure your node, register, and verify.",
       "section": "orchestrators",
@@ -10625,8 +11146,7 @@
         "orchestrators",
         "quickstart",
         "transcoding",
-        "go-livepeer",
-        "orchestrator-setup"
+        "go-livepeer"
       ],
       "entities": [
         "orchestrator"
@@ -10634,7 +11154,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 176,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "lastVerified": "2026-03-03T10:42:46.502Z",
       "headings": [
         {
           "level": 2,
@@ -10666,16 +11186,14 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/realtime-ai-quickstart",
+      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/realtime-ai",
       "title": "Realtime AI Orchestrator Quickstart",
-      "description": "Setup path for realtime AI orchestrators on Livepeer (coming soon).",
+      "description": "Set up a Livepeer AI Orchestrator to serve live-video-to-video and real-time AI inference workloads. Covers ai-runner installation, aiModels.json configuration, on-chain registration, and ticket redemption.",
       "section": "orchestrators",
       "tags": [
-        "livepeer",
         "orchestrators",
-        "realtime-ai",
         "quickstart",
-        "realtime-ai-quickstart"
+        "realtime-ai"
       ],
       "entities": [
         "orchestrator",
@@ -10683,22 +11201,80 @@
       ],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 31,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
-      "headings": [],
-      "codeLanguages": []
+      "wordCount": 793,
+      "lastVerified": "2026-02-01",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Realtime AI Orchestrator Quickstart"
+        },
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "Step 1: Pull the AI Runner Image"
+        },
+        {
+          "level": 2,
+          "text": "Step 2: Configure aiModels.json"
+        },
+        {
+          "level": 2,
+          "text": "Step 3: Pre-download Models (Recommended)"
+        },
+        {
+          "level": 2,
+          "text": "Step 4: Start in Off-Chain Mode (Test First)"
+        },
+        {
+          "level": 2,
+          "text": "Step 5: Register On-Chain"
+        },
+        {
+          "level": 3,
+          "text": "5a. Activate as an Orchestrator (if not already active)"
+        },
+        {
+          "level": 3,
+          "text": "5b. Register AI Capabilities via AIServiceRegistry"
+        },
+        {
+          "level": 2,
+          "text": "Step 6: Start in On-Chain Mode"
+        },
+        {
+          "level": 2,
+          "text": "Step 7: Enable Ticket Redemption"
+        },
+        {
+          "level": 2,
+          "text": "Pricing Guidance"
+        },
+        {
+          "level": 2,
+          "text": "Monitoring and Health Checks"
+        },
+        {
+          "level": 2,
+          "text": "Next Steps"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "json"
+      ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/batch-ai-quickstart",
-      "title": "Batch AI Orchestrator Quickstart",
-      "description": "Setup path for batch AI orchestrators on Livepeer (coming soon).",
+      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/batch-ai",
+      "title": "Batch AI Orchestrator",
+      "description": "Batch AI orchestrator documentation -- async inference workloads including image generation, audio-to-text, and LLM. Payment mechanics and formal protocol support are in active development.",
       "section": "orchestrators",
       "tags": [
-        "livepeer",
         "orchestrators",
-        "batch-ai",
         "quickstart",
-        "batch-ai-quickstart"
+        "batch-ai"
       ],
       "entities": [
         "orchestrator",
@@ -10706,10 +11282,33 @@
       ],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 33,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
-      "headings": [],
-      "codeLanguages": []
+      "wordCount": 329,
+      "lastVerified": "2026-02-01",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Batch AI Orchestrator"
+        },
+        {
+          "level": 2,
+          "text": "Current Status"
+        },
+        {
+          "level": 2,
+          "text": "What You Can Do Now"
+        },
+        {
+          "level": 2,
+          "text": "Participating in Protocol Design"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "json"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/payments",
@@ -16892,8 +17491,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 2093,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "wordCount": 2113,
+      "lastVerified": "2026-03-04T18:44:45+11:00",
       "headings": [
         {
           "level": 2,
@@ -16995,7 +17594,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 41,
-      "lastVerified": "2026-03-04T10:56:31+11:00",
+      "lastVerified": "2026-03-04T15:18:10+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -17069,7 +17668,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 2169,
+      "wordCount": 2195,
       "lastVerified": "2026-03-04T10:54:51+11:00",
       "headings": [
         {
@@ -30984,6 +31583,121 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/es/gateways/guides-and-resources/community-guides",
+      "title": "Guías de la comunidad",
+      "description": "Guías de la comunidad para ejecutar un Livepeer Gateway",
+      "section": "es",
+      "tags": [
+        "community",
+        "guides",
+        "gateway",
+        "es",
+        "gateways",
+        "guides-and-resources",
+        "community-guides"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 0,
+      "lastVerified": "2026-03-03T23:12:21+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/es/gateways/guides-and-resources/community-projects",
+      "title": "Proyectos de la comunidad",
+      "description": "¡Una lista de proyectos comunitarios que facilitan la ejecución de un gateway!",
+      "section": "es",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "guides-and-resources",
+        "community-projects",
+        "community",
+        "projects",
+        "making",
+        "es"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 0,
+      "lastVerified": "2026-03-03T23:12:21+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/es/gateways/guides-and-resources/faq",
+      "title": "Preguntas frecuentes del Gateway",
+      "description": "Preguntas frecuentes del Gateway",
+      "section": "es",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "guides-and-resources",
+        "faq",
+        "gateway",
+        "frequently",
+        "asked",
+        "es"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1030,
+      "lastVerified": "2026-03-03T23:12:21+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Preguntas frecuentes"
+        },
+        {
+          "level": 2,
+          "text": "Referencias y recursos sobre precios de gateway"
+        },
+        {
+          "level": 3,
+          "text": "Referencias profundas relacionadas con los precios de gateway, la economía de orquestación y la visibilidad del mercado"
+        },
+        {
+          "level": 2,
+          "text": "Hallazgos clave para Docs"
+        },
+        {
+          "level": 3,
+          "text": "Cómo funciona el precio (verificado)"
+        },
+        {
+          "level": 3,
+          "text": "Puntos finales de inferencia de IA"
+        },
+        {
+          "level": 3,
+          "text": "Visibilidad en el mercado"
+        },
+        {
+          "level": 2,
+          "text": "Respuestas a sus preguntas específicas"
+        },
+        {
+          "level": 3,
+          "text": "1) ¿Cómo se determina el precio?"
+        },
+        {
+          "level": 3,
+          "text": "2) ¿Pueden los operadores de pasarela agregar o contribuir nuevos puntos finales de inferencia de IA si los ejecutan?"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
       "url": "https://docs.livepeer.org/v2/es/gateways/references/technical-architecture",
       "title": "Arquitectura Técnica",
       "description": "Diagramas y Referencias de Arquitectura Técnica",
@@ -43537,6 +44251,64 @@
       ]
     },
     {
+      "url": "https://docs.livepeer.org/v2/fr/developers/guides-and-tools/developer-guides",
+      "title": "Guides pour développeurs",
+      "description": "Une bibliothèque soigneusement sélectionnée de guides pratiques, tutoriels et démonstrations pour construire avec Livepeer — de l'appel API initial aux pipelines IA en production.",
+      "section": "fr",
+      "tags": [
+        "livepeer",
+        "developers",
+        "guides",
+        "tutorials",
+        "how-to",
+        "video-streaming",
+        "ai-inference",
+        "sdk",
+        "api",
+        "fr",
+        "guides-and-tools",
+        "developer-guides"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 983,
+      "lastVerified": "2026-03-04T07:17:16.442Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Commencer"
+        },
+        {
+          "level": 2,
+          "text": "Diffusion Vidéo : Livestreams et VOD"
+        },
+        {
+          "level": 2,
+          "text": "Guides d'Application Full-Stack"
+        },
+        {
+          "level": 2,
+          "text": "Inférence AI et Vidéo AI en Temps Réel"
+        },
+        {
+          "level": 2,
+          "text": "Guides de Référence SDK et API"
+        },
+        {
+          "level": 2,
+          "text": "Opérations de Nœud : Orchestrateurs et Passerelles"
+        },
+        {
+          "level": 2,
+          "text": "Ressources Curatées par la Communauté"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
       "url": "https://docs.livepeer.org/v2/fr/developers/developer-journey",
       "title": "Parcours développeur",
       "description": "Un guide pour développer sur Livepeer pour le streaming vidéo et les pipelines d'IA",
@@ -46237,6 +47009,121 @@
         {
           "level": 2,
           "text": "Code source de l'Explorateur"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/fr/gateways/guides-and-resources/community-guides",
+      "title": "Guides communautaires",
+      "description": "Guides communautaires pour exécuter un Livepeer Gateway",
+      "section": "fr",
+      "tags": [
+        "community",
+        "guides",
+        "gateway",
+        "fr",
+        "gateways",
+        "guides-and-resources",
+        "community-guides"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 0,
+      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/fr/gateways/guides-and-resources/community-projects",
+      "title": "Projets communautaires",
+      "description": "Une liste de projets communautaires facilitant la mise en place d'une passerelle !",
+      "section": "fr",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "guides-and-resources",
+        "community-projects",
+        "community",
+        "projects",
+        "making",
+        "fr"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 0,
+      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/fr/gateways/guides-and-resources/faq",
+      "title": "FAQ du Gateway",
+      "description": "Questions fréquemment posées sur le Gateway",
+      "section": "fr",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "guides-and-resources",
+        "faq",
+        "gateway",
+        "frequently",
+        "asked",
+        "fr"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1009,
+      "lastVerified": "2026-03-03T23:12:21+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "FAQ"
+        },
+        {
+          "level": 2,
+          "text": "Références et ressources sur les tarifs des gateways"
+        },
+        {
+          "level": 3,
+          "text": "Références approfondies concernant les tarifs des gateways, l'économie d'orchestration et la visibilité du marché"
+        },
+        {
+          "level": 2,
+          "text": "Points clés pour les Docs"
+        },
+        {
+          "level": 3,
+          "text": "Comment fonctionne la tarification (vérifié)"
+        },
+        {
+          "level": 3,
+          "text": "Points d'entrée d'inférence AI"
+        },
+        {
+          "level": 3,
+          "text": "Visibilité sur le marché"
+        },
+        {
+          "level": 2,
+          "text": "Réponses à vos questions spécifiques"
+        },
+        {
+          "level": 3,
+          "text": "1) Comment est déterminé le prix ?"
+        },
+        {
+          "level": 3,
+          "text": "2) Les opérateurs de passerelle peuvent-ils ajouter ou contribuer de nouveaux points d'entrée d'inférence IA s'ils en exécutent ?"
         }
       ],
       "codeLanguages": []
@@ -61302,6 +62189,55 @@
           "text": "Explorer 代码库"
         }
       ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/cn/gateways/guides-and-resources/community-guides",
+      "title": "社区指南",
+      "description": "社区指南，关于运行一个 Livepeer Gateway",
+      "section": "cn",
+      "tags": [
+        "community",
+        "guides",
+        "gateway",
+        "cn",
+        "gateways",
+        "guides-and-resources",
+        "community-guides"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 0,
+      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/cn/gateways/guides-and-resources/community-projects",
+      "title": "社区项目",
+      "description": "一份让运行网关变得轻松的社区项目列表！",
+      "section": "cn",
+      "tags": [
+        "livepeer",
+        "gateways",
+        "guides-and-resources",
+        "community-projects",
+        "community",
+        "projects",
+        "making",
+        "cn"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 0,
+      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "headings": [],
       "codeLanguages": []
     },
     {

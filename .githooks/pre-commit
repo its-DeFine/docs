@@ -71,6 +71,17 @@ get_staged_docs_pages() {
 
 STAGED_DOCS_PAGES=$(get_staged_docs_pages)
 
+get_staged_files() {
+    git diff --cached --name-only --diff-filter=ACMR 2>/dev/null || true
+}
+
+has_docs_guide_scope_changes() {
+    local staged
+    staged="$(get_staged_files)"
+    echo "$staged" | grep -Eq '^(docs-guide/README\.mdx|docs-guide/indexes/|README\.md|tools/scripts/generate-docs-guide-|tools/scripts/enforce-generated-file-banners\.js|tools/lib/generated-file-banners\.js|tests/unit/docs-guide-sot\.test\.js)' || return 1
+    return 0
+}
+
 # pre-commit hooks do not receive commit args directly. Detect trailer usage
 # from the parent git commit command.
 PARENT_GIT_CMD=$(ps -o command= -p "$PPID" 2>/dev/null || true)
@@ -584,12 +595,16 @@ else
 
             # Docs-guide source-of-truth checks are advisory during stabilization
             if [ -f "tests/unit/docs-guide-sot.test.js" ]; then
-                echo -e "${YELLOW}Running docs-guide SoT checks (advisory)...${NC}"
-                if node tests/unit/docs-guide-sot.test.js 2>&1; then
-                    echo -e "${GREEN}✓ Docs-guide SoT checks passed${NC}"
+                if has_docs_guide_scope_changes; then
+                    echo -e "${YELLOW}Running docs-guide SoT checks (advisory)...${NC}"
+                    if node tests/unit/docs-guide-sot.test.js 2>&1; then
+                        echo -e "${GREEN}✓ Docs-guide SoT checks passed${NC}"
+                    else
+                        WARNINGS+=("⚠️ Docs-guide SoT checks need updates - run node tests/unit/docs-guide-sot.test.js")
+                        echo -e "${YELLOW}⚠️  Docs-guide SoT checks reported advisory issues${NC}"
+                    fi
                 else
-                    WARNINGS+=("⚠️ Docs-guide SoT checks need updates - run node tests/unit/docs-guide-sot.test.js")
-                    echo -e "${YELLOW}⚠️  Docs-guide SoT checks reported advisory issues${NC}"
+                    echo -e "${GREEN}✓ No docs-guide scope changes staged, skipping docs-guide SoT checks${NC}"
                 fi
             fi
 
@@ -703,12 +718,16 @@ else
 
             # Docs-guide source-of-truth checks are advisory during stabilization
             if [ -f "tests/unit/docs-guide-sot.test.js" ]; then
-                echo -e "${YELLOW}Running docs-guide SoT checks (advisory)...${NC}"
-                if node tests/unit/docs-guide-sot.test.js 2>&1; then
-                    echo -e "${GREEN}✓ Docs-guide SoT checks passed${NC}"
+                if has_docs_guide_scope_changes; then
+                    echo -e "${YELLOW}Running docs-guide SoT checks (advisory)...${NC}"
+                    if node tests/unit/docs-guide-sot.test.js 2>&1; then
+                        echo -e "${GREEN}✓ Docs-guide SoT checks passed${NC}"
+                    else
+                        WARNINGS+=("⚠️ Docs-guide SoT checks need updates - run node tests/unit/docs-guide-sot.test.js")
+                        echo -e "${YELLOW}⚠️  Docs-guide SoT checks reported advisory issues${NC}"
+                    fi
                 else
-                    WARNINGS+=("⚠️ Docs-guide SoT checks need updates - run node tests/unit/docs-guide-sot.test.js")
-                    echo -e "${YELLOW}⚠️  Docs-guide SoT checks reported advisory issues${NC}"
+                    echo -e "${GREEN}✓ No docs-guide scope changes staged, skipping docs-guide SoT checks${NC}"
                 fi
             fi
 
