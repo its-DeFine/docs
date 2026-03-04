@@ -79,19 +79,15 @@ get_staged_docs_pages() {
 STAGED_DOCS_PAGES=$(get_staged_docs_pages)
 
 get_staged_files() {
-    if [ -n "$STAGED_FILES_SNAPSHOT" ]; then
-        printf '%s\n' "$STAGED_FILES_SNAPSHOT"
-        return 0
-    fi
-    git diff --cached --name-only --diff-filter=ACMR 2>/dev/null || true
+    printf '%s\n' "$STAGED_FILES_SNAPSHOT"
 }
 
 get_staged_added_files() {
-    if [ -n "$STAGED_FILES_SNAPSHOT_ADDED" ]; then
-        printf '%s\n' "$STAGED_FILES_SNAPSHOT_ADDED"
-        return 0
-    fi
-    git diff --cached --name-only --diff-filter=A 2>/dev/null || true
+    printf '%s\n' "$STAGED_FILES_SNAPSHOT_ADDED"
+}
+
+get_staged_deleted_files() {
+    printf '%s\n' "$STAGED_FILES_SNAPSHOT_DELETED"
 }
 
 has_docs_guide_scope_changes() {
@@ -142,7 +138,7 @@ run_codex_task_contract_check
 
 # Check for file deletions (BLOCKED - requires human override)
 # NOTE: Deletions in tasks/ are allowed (AI-only working directory)
-ALL_DELETED_FILES=$(git diff --cached --name-only --diff-filter=D || true)
+ALL_DELETED_FILES=$(get_staged_deleted_files || true)
 DELETED_FILES=$(echo "$ALL_DELETED_FILES" | grep -v '^tasks/' || true)
 
 if [ -n "$DELETED_FILES" ]; then
@@ -207,7 +203,7 @@ if [ -n "$DELETED_FILES" ]; then
 fi
 
 # Check for .allowlist file changes (BLOCKED for AIs, requires human override)
-WHITELIST_CHANGES=$(git diff --cached --name-only | grep -E '^\.allowlist$|^\.allowlist ' || true)
+WHITELIST_CHANGES=$(get_staged_files | grep -E '^\.allowlist$|^\.allowlist ' || true)
 if [ -n "$WHITELIST_CHANGES" ]; then
     ALLOWLIST_EDIT=${ALLOWLIST_EDIT:-0}
 
@@ -278,10 +274,10 @@ else
         echo -e "${YELLOW}⚠️  .allowlist is empty, skipping root structure check${NC}"
     else
         # Check for new root files (not in allowlist)
-        NEW_ROOT_FILES=$(git diff --cached --name-only --diff-filter=A | grep -E '^[^/]+$' | grep -vE "^($ALLOWLIST)$" || true)
+        NEW_ROOT_FILES=$(get_staged_added_files | grep -E '^[^/]+$' | grep -vE "^($ALLOWLIST)$" || true)
         
         # Check for new root directories (not in allowlist)
-        NEW_ROOT_DIRS=$(git diff --cached --name-only --diff-filter=A | grep -E '^[^/]+/' | cut -d'/' -f1 | sort -u | grep -vE "^($ALLOWLIST)$" || true)
+        NEW_ROOT_DIRS=$(get_staged_added_files | grep -E '^[^/]+/' | cut -d'/' -f1 | sort -u | grep -vE "^($ALLOWLIST)$" || true)
         
         if [ -n "$NEW_ROOT_FILES" ] || [ -n "$NEW_ROOT_DIRS" ]; then
             VIOLATIONS=$((VIOLATIONS + 1))
@@ -329,7 +325,7 @@ else
     echo ""
     echo -e "${YELLOW}🔍 Checking snippets directory structure...${NC}"
 
-    STAGED_SNIPPETS=$(git diff --cached --name-only --diff-filter=A | grep '^snippets/')
+    STAGED_SNIPPETS=$(get_staged_added_files | grep '^snippets/')
 
     if [ -n "$STAGED_SNIPPETS" ]; then
     # Check for scripts in snippets/
@@ -371,7 +367,7 @@ else
     echo ""
     echo -e "${YELLOW}🔍 Checking v1/ directory (frozen)...${NC}"
 
-    V1_CHANGES=$(git diff --cached --name-only | grep '^v1/')
+    V1_CHANGES=$(get_staged_files | grep '^v1/')
     if [ -n "$V1_CHANGES" ]; then
         VIOLATIONS=$((VIOLATIONS + 1))
         echo -e "${RED}╔═══════════════════════════════════════════════════════════════╗${NC}"
@@ -566,7 +562,7 @@ else
 
             # Keep docs-index.json synced and staged when docs routes/content change
             if [ -f "tools/scripts/generate-docs-index.js" ]; then
-                if git diff --cached --name-only | grep -Eq '^(docs\.json|v1/|v2/|snippets/)'; then
+                if get_staged_files | grep -Eq '^(docs\.json|v1/|v2/|snippets/)'; then
                     echo -e "${YELLOW}Checking docs-index sync...${NC}"
                     if node tools/scripts/generate-docs-index.js --check >/dev/null 2>&1; then
                         echo -e "${GREEN}✓ docs-index.json is up to date${NC}"
@@ -689,7 +685,7 @@ else
 
             # Keep docs-index.json synced and staged when docs routes/content change
             if [ -f "tools/scripts/generate-docs-index.js" ]; then
-                if git diff --cached --name-only | grep -Eq '^(docs\.json|v1/|v2/|snippets/)'; then
+                if get_staged_files | grep -Eq '^(docs\.json|v1/|v2/|snippets/)'; then
                     echo -e "${YELLOW}Checking docs-index sync...${NC}"
                     if node tools/scripts/generate-docs-index.js --check >/dev/null 2>&1; then
                         echo -e "${GREEN}✓ docs-index.json is up to date${NC}"

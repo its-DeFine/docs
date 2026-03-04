@@ -225,15 +225,24 @@ function getStagedFiles(rootDir = null) {
   try {
     // Get repo root directory (where .git is)
     const repoRoot = resolveRepoRoot(rootDir);
-    
+
+    const snapshot = process.env.LPD_STAGED_FILES_SNAPSHOT;
+    if (snapshot && snapshot.trim()) {
+      return snapshot
+        .split('\n')
+        .map((line) => line.trim())
+        .filter(Boolean)
+        .map((line) => path.resolve(repoRoot, line));
+    }
+
     const output = execSync('git diff --cached --name-only --diff-filter=ACMR', {
       encoding: 'utf8',
       cwd: repoRoot
     });
     return output
       .split('\n')
-      .filter(line => line.trim())
-      .map(line => path.resolve(repoRoot, line));
+      .filter((line) => line.trim())
+      .map((line) => path.resolve(repoRoot, line));
   } catch (error) {
     return [];
   }
