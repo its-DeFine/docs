@@ -21,7 +21,7 @@ bash lpd dev
 
 ## Pre-commit Hook
 
-The pre-commit hook enforces style guide compliance and runs verification scripts:
+The pre-commit hook is staged-scoped and enforces style guide compliance plus fast checks:
 
 ### Style Guide Checks
 
@@ -34,17 +34,10 @@ The pre-commit hook enforces style guide compliance and runs verification script
 
 ### Verification Scripts
 
-The hook also runs `.githooks/verify.sh` which checks:
+- Legacy `.githooks/verify.sh` is not run in pre-commit fast mode.
+- Core staged validation is handled by `node tests/run-all.js --staged --skip-browser`.
 
-- ✅ **MDX syntax** - Validates frontmatter and basic MDX structure
-- ✅ **JSON syntax** - Validates JSON files are parseable
-- ✅ **Shell script syntax** - Validates shell scripts with `bash -n`
-- ✅ **JavaScript syntax** - Validates JS files with `node --check`
-- ✅ **Mintlify config** - Validates docs.json/mint.json syntax
-- ✅ **Import paths** - Ensures snippets imports use absolute paths
-- ✅ **Browser validation** - Tests MDX files in headless browser (requires `mint dev` running)
-
-### Test Suite + Domain Audit
+### Test Suite (Staged)
 
 The pre-commit hook also runs:
 
@@ -52,15 +45,7 @@ The pre-commit hook also runs:
 - `node tools/scripts/generate-pages-index.js --staged --write --stage`
 - `node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json`
 - `node tests/run-all.js --staged --skip-browser`
-- `node tests/integration/domain-pages-audit.js --staged --base-url https://docs.livepeer.org --version "$DOMAIN_AUDIT_VERSION"`
-
-Domain audit scope:
-- `DOMAIN_AUDIT_VERSION=v1`
-- `DOMAIN_AUDIT_VERSION=v2`
-- `DOMAIN_AUDIT_VERSION=both` (default)
-
-Domain audit report path (stable, overwritten each run):
-- `tests/reports/domain-page-load-report.json`
+- `node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-precommit.md` (only when staged docs pages exist)
 
 WCAG audit report paths (hook run, overwritten each run):
 - `/tmp/livepeer-wcag-audit-precommit.md`
@@ -92,17 +77,14 @@ Current script index targets:
 - `tasks/scripts/*` -> `tasks/scripts/script-index.md`
 - Aggregate -> `docs-guide/scripts-index.md`
 
-Example:
-```bash
-DOMAIN_AUDIT_VERSION=v2 git commit -m "docs update"
-```
-
 ## Pre-push Hook (`codex/*` branches only)
 
 The pre-push hook enforces Codex branch safety on `codex/*`:
 
 - requires `.codex/task-contract.yaml`
 - validates branch/issue binding and changed-file scope
+- validates local codex lock ownership and overlap
+- enforces AI stash policy
 - blocks non-fast-forward pushes by default
 
 Human override for explicit exception:
@@ -158,15 +140,12 @@ rm test-violation.jsx
 git reset HEAD test-violation.jsx
 ```
 
-## Bypassing (Not Recommended)
+## Bypassing (Human Override Only)
 
-If you absolutely must bypass the hook (not recommended):
+`--no-verify` is not a default path. If a human explicitly authorizes bypass in chat, follow:
 
-```bash
-git commit --no-verify -m "message"
-```
-
-**Warning:** Only bypass if you have a legitimate reason and understand the style guide violations.
+- `ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md`
+- `node tools/scripts/codex-commit.js --message \"...\" --no-verify --human-override true --override-note \"...\"`
 
 ### Human-Only `.allowlist` Override
 

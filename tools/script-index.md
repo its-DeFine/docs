@@ -13,9 +13,15 @@
 | `tools/scripts/audit-tasks-folders.js` | Audit tasks folders, optionally normalize report locations, and optionally apply audit recommendations with conflict-safe moves. | `node tools/scripts/audit-tasks-folders.js` | docs |
 | `tools/scripts/audit-v1-to-v2-mapping.js` | Build a complete v1->v2 mapping audit (English IA canonical), including seed revalidation and adjudication queue. | `node tools/scripts/audit-v1-to-v2-mapping.js` | docs |
 | `tools/scripts/audit-v2-usefulness.js` | Audit v2 MDX pages (excluding x-* directories) and emit page-level usefulness matrix rows with source-weighted 2026 accuracy verification fields. | `node tools/scripts/audit-v2-usefulness.js --mode full --accuracy-mode tiered` | docs |
+| `tools/scripts/check-codex-pr-overlap.js` | Fail codex PR checks when changed files overlap another open codex PR without explicit handoff label. | `node tools/scripts/check-codex-pr-overlap.js --base-ref docs-v2` | docs |
 | `tools/scripts/check-component-errors.js` | Utility script for tools/scripts/check-component-errors.js. | `node tools/scripts/check-component-errors.js` | docs |
 | `tools/scripts/check-no-ai-stash.sh` | Block commits when AI-tagged stash entries are present; enforce branch plus WIP checkpoint isolation. | `bash tools/scripts/check-no-ai-stash.sh` | docs |
 | `tools/scripts/cleanup-quarantine-manager.js` | Classify cleanup candidates and optionally quarantine files with a reversible manifest. | `node tools/scripts/cleanup-quarantine-manager.js` | docs |
+| `tools/scripts/codex-commit.js` | Create git commits with explicit audited human override controls for --no-verify usage. | `node tools/scripts/codex-commit.js --message "Update hooks"` | docs |
+| `tools/scripts/codex/lock-release.js` | Release active local codex lock entries for a branch/task. | `node tools/scripts/codex/lock-release.js --branch codex/123-task` | docs |
+| `tools/scripts/codex/task-finalize.js` | Run finalize gates for a codex task: contract scope, lock ownership, and optional finalize profile checks. | `node tools/scripts/codex/task-finalize.js --branch codex/123-task` | docs |
+| `tools/scripts/codex/task-preflight.js` | Create a codex task branch/worktree scaffold, task contract, and local lock for isolated agent execution. | `node tools/scripts/codex/task-preflight.js --task 1234 --slug hook-hardening --scope "tests/,.githooks/"` | docs |
+| `tools/scripts/codex/validate-locks.js` | Validate codex local lock ownership and fail on overlapping active lock scopes. | `node tools/scripts/codex/validate-locks.js --branch codex/123-task --staged` | docs |
 | `tools/scripts/component-layout-governance.js` | Validate v2 English docs against component-layout contracts by page type. | `node tools/scripts/component-layout-governance.js --scope full` | docs |
 | `tools/scripts/convert-rss-to-mdx.js` | Convert an RSS feed XML file into a structured MDX document. | `node tools/scripts/convert-rss-to-mdx.js --input v2/internal/assets/transcripts/ycomb.rss --output v2/internal/assets/transcripts/ycomb.mdx` | docs |
 | `tools/scripts/create-codex-pr.js` | Generate a codex PR body from task contract metadata and optionally open a prefilled GitHub pull request. | `node tools/scripts/create-codex-pr.js --create` | docs |
@@ -102,7 +108,7 @@
 | `tools/scripts/test/verify-all-pages.js` | Utility script for tools/scripts/verify-all-pages.js. | `node tools/scripts/verify-all-pages.js` | docs |
 | `tools/scripts/test/verify-pages.js` | Utility script for tools/scripts/verify-pages.js. | `node tools/scripts/verify-pages.js` | docs |
 | `tools/scripts/transcribe-audio-to-mdx.js` | Download audio from URL, chunk with ffmpeg, transcribe via OpenRouter, and write an MDX transcript page. | `OPENROUTER_API_KEY=... node tools/scripts/transcribe-audio-to-mdx.js --audio-url "<url>" --title "<episode title>" --show "<show name>" --published-at YYYY-MM-DD` | docs |
-| `tools/scripts/validate-codex-task-contract.js` | Validate codex branch task contract schema, branch binding, changed-file scope, and PR body sections. | `node tools/scripts/validate-codex-task-contract.js` | docs |
+| `tools/scripts/validate-codex-task-contract.js` | Validate codex branch task contract schema, branch binding, changed-file scope, PR body sections, and optional linked-issue readiness policy. | `node tools/scripts/validate-codex-task-contract.js` | docs |
 | `tools/scripts/verify-all-pages.js` | Utility script for tools/scripts/verify-all-pages.js. | `node tools/scripts/verify-all-pages.js` | docs |
 | `tools/scripts/verify-pages.js` | Utility script for tools/scripts/verify-pages.js. | `node tools/scripts/verify-pages.js` | docs |
 | `tools/scripts/verify-pay-orc-gate-finalize.sh` | Enforce the payments/orchestrators insertion deliverables and migration paths before commit. | `bash tools/scripts/verify-pay-orc-gate-finalize.sh` | docs |

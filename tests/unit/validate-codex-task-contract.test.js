@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * @script validate-codex-task-contract.test
- * @summary Validate codex task-contract PR-body marker enforcement behavior for codex branch checks.
+ * @summary Validate codex task-contract marker and issue-readiness enforcement behavior.
  * @owner docs
  * @scope tests/unit, tools/scripts/validate-codex-task-contract.js
  *
@@ -12,7 +12,7 @@
  *   No required CLI flags.
  *
  * @outputs
- *   - Console summary with pass/fail status for marker enforcement cases.
+ *   - Console summary with pass/fail status for validator enforcement cases.
  *
  * @exit-codes
  *   0 = all test cases passed
@@ -22,7 +22,7 @@
  *   node tests/unit/validate-codex-task-contract.test.js
  *
  * @notes
- *   Uses temporary files and does not modify tracked repository files.
+ *   Uses temporary files and local command mocks; does not modify tracked repository files.
  */
 
 const assert = require('assert');
@@ -38,15 +38,19 @@ function mkTmpDir(prefix) {
   return fs.mkdtempSync(path.join(os.tmpdir(), prefix));
 }
 
-function writeFile(absPath, content) {
+function writeFile(absPath, content, mode = 0o644) {
   fs.mkdirSync(path.dirname(absPath), { recursive: true });
-  fs.writeFileSync(absPath, content, 'utf8');
+  fs.writeFileSync(absPath, content, { encoding: 'utf8', mode });
 }
 
-function runScript(args) {
+function runScript(args, env = {}) {
   return spawnSync('node', [SCRIPT_PATH, ...args], {
     cwd: REPO_ROOT,
-    encoding: 'utf8'
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      ...env
+    }
   });
 }
 
@@ -69,6 +73,29 @@ function writeContract(absPath, taskId, branchName) {
   writeFile(absPath, content);
 }
 
+function writeIssuePolicy(absPath) {
+  const policy = {
+    required_labels: ['docs-v2'],
+    required_label_prefixes: ['type:', 'area:', 'classification:', 'priority:'],
+    forbidden_labels: ['status: needs-info'],
+    required_state: 'open'
+  };
+  writeFile(absPath, `${JSON.stringify(policy, null, 2)}\n`);
+}
+
+function buildIssuePayload({ state = 'open', labels = [] }) {
+  return JSON.stringify({
+    state,
+    labels: labels.map((name) => ({ name }))
+  });
+}
+
+function assertFailedWith(result, regex, msg) {
+  assert.strictEqual(result.status, 1, msg || 'expected command to fail');
+  const combined = `${result.stdout}\n${result.stderr}`;
+  assert.match(combined, regex, `expected output to match ${regex}, got:\n${combined}`);
+}
+
 async function runTests() {
   const failures = [];
 
@@ -79,8 +106,10 @@ async function runTests() {
     const contractPath = path.join(tmp, 'task-contract.yaml');
     const prBodyOk = path.join(tmp, 'pr-ok.md');
     const prBodyMissing = path.join(tmp, 'pr-missing.md');
+    const issuePolicy = path.join(tmp, 'issue-policy.json');
 
     writeContract(contractPath, taskId, branchName);
+    writeIssuePolicy(issuePolicy);
 
     writeFile(
       prBodyOk,
@@ -120,6 +149,28 @@ async function runTests() {
       ].join('\n')
     );
 
+    const baseArgs = [
+      '--branch',
+      branchName,
+      '--contract',
+      contractPath,
+      '--issue-source',
+      'gh',
+      '--issue-policy',
+      issuePolicy,
+      '--issue-number',
+      String(taskId),
+      '--issue-repo',
+      'livepeer/docs',
+      '--validate-contract-only',
+      '--require-issue-state'
+    ];
+
+    const baseEnv = {
+      PATH: process.env.PATH
+    };
+
+    // Marker success
     const ok = runScript([
       '--branch',
       branchName,
@@ -134,6 +185,7 @@ async function runTests() {
     assert.strictEqual(ok.status, 0, `expected marker-valid run to pass: ${ok.stderr || ok.stdout}`);
     console.log('   ✓ marker-valid case passed');
 
+    // Marker missing
     const missing = runScript([
       '--branch',
       branchName,
@@ -145,17 +197,67 @@ async function runTests() {
       '--files',
       '.codex/task-contract.yaml'
     ]);
-    assert.strictEqual(missing.status, 1, 'expected missing-marker run to fail');
-    const combined = `${missing.stdout}\n${missing.stderr}`;
-    assert.match(combined, /missing required generated marker/i, 'expected missing marker failure message');
+    assertFailedWith(missing, /missing required generated marker/i, 'expected missing-marker run to fail');
     console.log('   ✓ missing-marker case passed');
+
+    // Issue-state pass
+    const issuePass = runScript(baseArgs, {
+      ...baseEnv,
+      CODEX_MOCK_ISSUE_JSON: buildIssuePayload({
+        state: 'open',
+        labels: ['docs-v2', 'type: enhancement', 'area: ci-cd', 'classification: high', 'priority: high']
+      })
+    });
+    assert.strictEqual(issuePass.status, 0, `expected issue-state pass: ${issuePass.stderr || issuePass.stdout}`);
+    console.log('   ✓ issue-state pass case passed');
+
+    // Missing prefix class (area)
+    const missingArea = runScript(baseArgs, {
+      ...baseEnv,
+      CODEX_MOCK_ISSUE_JSON: buildIssuePayload({
+        state: 'open',
+        labels: ['docs-v2', 'type: enhancement', 'classification: high', 'priority: high']
+      })
+    });
+    assertFailedWith(missingArea, /missing required label prefix class: area:/i, 'expected missing area prefix to fail');
+    console.log('   ✓ issue-state missing area prefix case passed');
+
+    // Forbidden needs-info
+    const hasNeedsInfo = runScript(baseArgs, {
+      ...baseEnv,
+      CODEX_MOCK_ISSUE_JSON: buildIssuePayload({
+        state: 'open',
+        labels: ['docs-v2', 'type: enhancement', 'area: ci-cd', 'classification: high', 'priority: high', 'status: needs-info']
+      })
+    });
+    assertFailedWith(hasNeedsInfo, /forbidden label: status: needs-info/i, 'expected forbidden needs-info to fail');
+    console.log('   ✓ issue-state forbidden label case passed');
+
+    // Closed issue
+    const closedIssue = runScript(baseArgs, {
+      ...baseEnv,
+      CODEX_MOCK_ISSUE_JSON: buildIssuePayload({
+        state: 'closed',
+        labels: ['docs-v2', 'type: enhancement', 'area: ci-cd', 'classification: high', 'priority: high']
+      })
+    });
+    assertFailedWith(closedIssue, /must be in state "open"/i, 'expected closed issue to fail');
+    console.log('   ✓ issue-state closed issue case passed');
+
+    // gh unavailable
+    const ghUnavailable = runScript(baseArgs, {
+      ...baseEnv,
+      CODEX_MOCK_ISSUE_ERROR: 'mock issue source unavailable'
+    });
+    assertFailedWith(ghUnavailable, /issue readiness check failed/i, 'expected gh failure to fail readiness check');
+    console.log('   ✓ issue-state unavailable case passed');
   } catch (error) {
     failures.push(error.message);
   }
 
   return {
     passed: failures.length === 0,
-    total: 2,
+    total: 7,
     errors: failures
   };
 }

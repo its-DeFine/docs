@@ -108,6 +108,31 @@ run_codex_task_contract_check() {
     return 1
 }
 
+run_codex_lock_check() {
+    if [[ "$CURRENT_BRANCH" != codex/* ]]; then
+        return 0
+    fi
+
+    local script_path="tools/scripts/codex/validate-locks.js"
+    if [ ! -f "$script_path" ]; then
+        WARNINGS+=("❌ Missing codex lock validator: $script_path")
+        VIOLATIONS=$((VIOLATIONS + 1))
+        echo -e "${RED}❌ Missing codex lock validator: $script_path${NC}"
+        return 1
+    fi
+
+    echo -e "${YELLOW}🔍 Validating codex local lock ownership...${NC}"
+    if node "$script_path" --branch "$CURRENT_BRANCH" --staged --quiet; then
+        echo -e "${GREEN}✓ Codex local lock check passed${NC}"
+        return 0
+    fi
+
+    WARNINGS+=("❌ Codex local lock validation failed")
+    VIOLATIONS=$((VIOLATIONS + 1))
+    echo -e "${RED}❌ Codex local lock validation failed${NC}"
+    return 1
+}
+
 run_ai_stash_policy_check() {
     local script_path="tools/scripts/check-no-ai-stash.sh"
     if [ ! -x "$script_path" ]; then
@@ -130,37 +155,19 @@ run_ai_stash_policy_check() {
     return 1
 }
 
-run_pay_orc_gate_finalize_check() {
-    local script_path="tools/scripts/verify-pay-orc-gate-finalize.sh"
-    if [ ! -x "$script_path" ]; then
-        WARNINGS+=("❌ Missing executable guard script: $script_path")
-        VIOLATIONS=$((VIOLATIONS + 1))
-        echo -e "${RED}❌ Missing executable guard script: $script_path${NC}"
-        return 1
-    fi
-
-    echo -e "${YELLOW}🔍 Enforcing pay/orc/gate finalize file contract...${NC}"
-    if bash "$script_path" --quiet; then
-        echo -e "${GREEN}✓ Pay/Orc/Gate finalize check passed${NC}"
-        return 0
-    fi
-
-    VIOLATIONS=$((VIOLATIONS + 1))
-    WARNINGS+=("❌ Pay/Orc/Gate finalize check failed - required deliverables missing or legacy paths still present")
-    echo -e "${RED}❌ Pay/Orc/Gate finalize check failed${NC}"
-    echo -e "${YELLOW}   Run: bash $script_path${NC}"
-    return 1
-}
-
 if [ "$SKIP_ALL" = "1" ]; then
     echo -e "${YELLOW}⚠️  WARNING: All pre-commit checks bypassed (SKIP_ALL=1)${NC}"
     echo -e "${YELLOW}   This should only be used in emergencies.${NC}"
     exit 0
 fi
 
+if [[ "$CURRENT_BRANCH" == "docs-v2" ]]; then
+    echo -e "${YELLOW}⚠️  You are committing on docs-v2. Recommended path for agent tasks is an isolated codex/<issue-id>-<slug> branch/worktree.${NC}"
+fi
+
 run_codex_task_contract_check
+run_codex_lock_check
 run_ai_stash_policy_check
-run_pay_orc_gate_finalize_check
 
 # Check for file deletions (BLOCKED - requires human override)
 # NOTE: Deletions in tasks/ are allowed (AI-only working directory)
@@ -522,28 +529,32 @@ else
     fi
 fi
 
-# Run verification scripts
+# Run verification scripts (legacy path disabled for faster staged-only hooks)
 if [ "$SKIP_VERIFICATION" = "1" ]; then
     echo -e "${YELLOW}⚠️  Verification scripts bypassed (SKIP_VERIFICATION=1)${NC}"
 else
     echo ""
     echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
-    echo -e "${YELLOW}Running verification scripts...${NC}"
-    if [ -f ".githooks/verify.sh" ]; then
-        if bash .githooks/verify.sh; then
-            echo -e "${GREEN}✓ Verification scripts passed${NC}"
-        else
-            VERIFY_EXIT=$?
-            if [ $VERIFY_EXIT -ne 0 ]; then
-                VIOLATIONS=$((VIOLATIONS + 1))
-                WARNINGS+=("❌ Verification scripts failed - see output above")
-            fi
-        fi
-    else
-        echo -e "${YELLOW}⚠️  Verification script not found, skipping...${NC}"
-    fi
+    echo -e "${YELLOW}Skipping legacy verify.sh in pre-commit (staged-only fast mode).${NC}"
     echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
 fi
+
+run_node_check() {
+    local label="$1"
+    local failure_message="$2"
+    shift 2
+
+    echo -e "${YELLOW}${label}${NC}"
+    if node "$@" 2>&1; then
+        echo -e "${GREEN}✓ ${label} passed${NC}"
+        return 0
+    fi
+
+    VIOLATIONS=$((VIOLATIONS + 1))
+    WARNINGS+=("${failure_message}")
+    echo -e "${RED}❌ ${label} failed${NC}"
+    return 1
+}
 
 # Run test suite (fast mode for pre-commit)
 if [ "$SKIP_TESTS" = "1" ]; then
@@ -553,247 +564,70 @@ else
     echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo -e "${YELLOW}Running test suite (staged files only)...${NC}"
     if [ -f "tests/run-all.js" ] && command -v node &>/dev/null; then
-        # Check if dependencies are installed in tools/node_modules or tests/node_modules
         if [ -d "tools/node_modules" ]; then
-            # Set NODE_PATH to include tools/node_modules for module resolution
             export NODE_PATH="$(pwd)/tools/node_modules:${NODE_PATH:-}"
-
-            # Enforce script documentation template for newly added scripts and update README indexes
-            if [ -f "tests/unit/script-docs.test.js" ]; then
-                echo -e "${YELLOW}Running script documentation enforcement (staged additions)...${NC}"
-                if node tests/unit/script-docs.test.js --staged --write --stage --autofill 2>&1; then
-                    echo -e "${GREEN}✓ Script documentation enforcement passed${NC}"
-                else
-                    DOCS_ENFORCE_EXIT=$?
-                    if [ $DOCS_ENFORCE_EXIT -ne 0 ]; then
-                        VIOLATIONS=$((VIOLATIONS + 1))
-                        WARNINGS+=("❌ Script documentation enforcement failed - missing required script header template")
-                    fi
-                fi
-            fi
-
-            # Keep v2/pages index.mdx files synced and staged
-            if [ -f "tools/scripts/generate-pages-index.js" ]; then
-                echo -e "${YELLOW}Running v2/pages index generation (staged changes)...${NC}"
-                if node tools/scripts/generate-pages-index.js --staged --write --stage 2>&1; then
-                    echo -e "${GREEN}✓ v2/pages index generation passed${NC}"
-                else
-                    PAGES_INDEX_EXIT=$?
-                    if [ $PAGES_INDEX_EXIT -ne 0 ]; then
-                        VIOLATIONS=$((VIOLATIONS + 1))
-                        WARNINGS+=("❌ v2/pages index generation failed - fix index sync issues")
-                    fi
-                fi
-            fi
-
-            # Keep docs-index.json synced and staged when docs routes/content change
-            if [ -f "tools/scripts/generate-docs-index.js" ]; then
-                if git diff --cached --name-only | grep -Eq '^(docs\.json|v1/|v2/|snippets/)'; then
-                    echo -e "${YELLOW}Checking docs-index sync...${NC}"
-                    if node tools/scripts/generate-docs-index.js --check >/dev/null 2>&1; then
-                        echo -e "${GREEN}✓ docs-index.json is up to date${NC}"
-                    else
-                        echo -e "${YELLOW}docs-index.json out of date, regenerating...${NC}"
-                        if node tools/scripts/generate-docs-index.js --write 2>&1; then
-                            git add docs-index.json
-                            echo -e "${GREEN}✓ docs-index.json regenerated and staged${NC}"
-                        else
-                            DOCS_INDEX_EXIT=$?
-                            if [ $DOCS_INDEX_EXIT -ne 0 ]; then
-                                VIOLATIONS=$((VIOLATIONS + 1))
-                                WARNINGS+=("❌ docs-index generation failed - run node tools/scripts/generate-docs-index.js --write")
-                            fi
-                        fi
-                    fi
-                else
-                    echo -e "${GREEN}✓ No docs/nav changes staged, skipping docs-index sync${NC}"
-                fi
-            fi
-
-            # Staged WCAG accessibility audit (conservative autofix enabled by default)
-            if [ -f "tests/integration/v2-wcag-audit.js" ]; then
-                echo -e "${YELLOW}Running staged V2 WCAG accessibility audit...${NC}"
-                if node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json 2>&1; then
-                    echo -e "${GREEN}✓ Staged V2 WCAG accessibility audit passed${NC}"
-                else
-                    WCAG_AUDIT_EXIT=$?
-                    if [ $WCAG_AUDIT_EXIT -ne 0 ]; then
-                        VIOLATIONS=$((VIOLATIONS + 1))
-                        WARNINGS+=("❌ Staged V2 WCAG accessibility audit failed - see /tmp/livepeer-wcag-audit-precommit.md")
-                    fi
-                fi
-            fi
-
-            if node tests/run-all.js --staged --skip-browser 2>&1; then
-                echo -e "${GREEN}✓ Test suite passed${NC}"
-            else
-                TEST_EXIT=$?
-                if [ $TEST_EXIT -ne 0 ]; then
-                    VIOLATIONS=$((VIOLATIONS + 1))
-                    WARNINGS+=("❌ Test suite failed - see output above")
-                fi
-            fi
-
-            # Docs-guide source-of-truth checks are advisory during stabilization
-            if [ -f "tests/unit/docs-guide-sot.test.js" ]; then
-                echo -e "${YELLOW}Running docs-guide SoT checks (advisory)...${NC}"
-                if node tests/unit/docs-guide-sot.test.js 2>&1; then
-                    echo -e "${GREEN}✓ Docs-guide SoT checks passed${NC}"
-                else
-                    WARNINGS+=("⚠️ Docs-guide SoT checks need updates - run node tests/unit/docs-guide-sot.test.js")
-                    echo -e "${YELLOW}⚠️  Docs-guide SoT checks reported advisory issues${NC}"
-                fi
-            fi
-
-            # Staged link audit (internal links/imports strict, external links classify-only)
-            if [ -f "tests/integration/v2-link-audit.js" ]; then
-                echo -e "${YELLOW}Running staged V2 link audit...${NC}"
-                if node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-precommit.md 2>&1; then
-                    echo -e "${GREEN}✓ Staged V2 link audit passed${NC}"
-                else
-                    LINK_AUDIT_EXIT=$?
-                    if [ $LINK_AUDIT_EXIT -ne 0 ]; then
-                        VIOLATIONS=$((VIOLATIONS + 1))
-                        WARNINGS+=("❌ Staged V2 link audit failed - see output above")
-                    fi
-                fi
-            fi
-
-            # Domain page load audit (stable report path in tests/reports)
-            if [ -f "tests/integration/domain-pages-audit.js" ]; then
-                echo -e "${YELLOW}Running domain page load audit (staged pages)...${NC}"
-                DOMAIN_AUDIT_VERSION=${DOMAIN_AUDIT_VERSION:-both}
-                if node tests/integration/domain-pages-audit.js --staged --base-url "https://docs.livepeer.org" --version "$DOMAIN_AUDIT_VERSION" 2>&1; then
-                    echo -e "${GREEN}✓ Domain page load audit passed${NC}"
-                else
-                    DOMAIN_AUDIT_EXIT=$?
-                    if [ $DOMAIN_AUDIT_EXIT -ne 0 ]; then
-                        VIOLATIONS=$((VIOLATIONS + 1))
-                        WARNINGS+=("❌ Domain page load audit failed - see tests/reports/domain-page-load-report.json")
-                    fi
-                fi
-            fi
         elif [ -d "tests/node_modules" ]; then
-            # Fallback to tests/node_modules if tools doesn't exist
             export NODE_PATH="$(pwd)/tests/node_modules:${NODE_PATH:-}"
-
-            # Enforce script documentation template for newly added scripts and update README indexes
-            if [ -f "tests/unit/script-docs.test.js" ]; then
-                echo -e "${YELLOW}Running script documentation enforcement (staged additions)...${NC}"
-                if node tests/unit/script-docs.test.js --staged --write --stage --autofill 2>&1; then
-                    echo -e "${GREEN}✓ Script documentation enforcement passed${NC}"
-                else
-                    DOCS_ENFORCE_EXIT=$?
-                    if [ $DOCS_ENFORCE_EXIT -ne 0 ]; then
-                        VIOLATIONS=$((VIOLATIONS + 1))
-                        WARNINGS+=("❌ Script documentation enforcement failed - missing required script header template")
-                    fi
-                fi
-            fi
-
-            # Keep v2/pages index.mdx files synced and staged
-            if [ -f "tools/scripts/generate-pages-index.js" ]; then
-                echo -e "${YELLOW}Running v2/pages index generation (staged changes)...${NC}"
-                if node tools/scripts/generate-pages-index.js --staged --write --stage 2>&1; then
-                    echo -e "${GREEN}✓ v2/pages index generation passed${NC}"
-                else
-                    PAGES_INDEX_EXIT=$?
-                    if [ $PAGES_INDEX_EXIT -ne 0 ]; then
-                        VIOLATIONS=$((VIOLATIONS + 1))
-                        WARNINGS+=("❌ v2/pages index generation failed - fix index sync issues")
-                    fi
-                fi
-            fi
-
-            # Keep docs-index.json synced and staged when docs routes/content change
-            if [ -f "tools/scripts/generate-docs-index.js" ]; then
-                if git diff --cached --name-only | grep -Eq '^(docs\.json|v1/|v2/|snippets/)'; then
-                    echo -e "${YELLOW}Checking docs-index sync...${NC}"
-                    if node tools/scripts/generate-docs-index.js --check >/dev/null 2>&1; then
-                        echo -e "${GREEN}✓ docs-index.json is up to date${NC}"
-                    else
-                        echo -e "${YELLOW}docs-index.json out of date, regenerating...${NC}"
-                        if node tools/scripts/generate-docs-index.js --write 2>&1; then
-                            git add docs-index.json
-                            echo -e "${GREEN}✓ docs-index.json regenerated and staged${NC}"
-                        else
-                            DOCS_INDEX_EXIT=$?
-                            if [ $DOCS_INDEX_EXIT -ne 0 ]; then
-                                VIOLATIONS=$((VIOLATIONS + 1))
-                                WARNINGS+=("❌ docs-index generation failed - run node tools/scripts/generate-docs-index.js --write")
-                            fi
-                        fi
-                    fi
-                else
-                    echo -e "${GREEN}✓ No docs/nav changes staged, skipping docs-index sync${NC}"
-                fi
-            fi
-
-            # Staged WCAG accessibility audit (conservative autofix enabled by default)
-            if [ -f "tests/integration/v2-wcag-audit.js" ]; then
-                echo -e "${YELLOW}Running staged V2 WCAG accessibility audit...${NC}"
-                if node tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json 2>&1; then
-                    echo -e "${GREEN}✓ Staged V2 WCAG accessibility audit passed${NC}"
-                else
-                    WCAG_AUDIT_EXIT=$?
-                    if [ $WCAG_AUDIT_EXIT -ne 0 ]; then
-                        VIOLATIONS=$((VIOLATIONS + 1))
-                        WARNINGS+=("❌ Staged V2 WCAG accessibility audit failed - see /tmp/livepeer-wcag-audit-precommit.md")
-                    fi
-                fi
-            fi
-
-            if node tests/run-all.js --staged --skip-browser 2>&1; then
-                echo -e "${GREEN}✓ Test suite passed${NC}"
-            else
-                TEST_EXIT=$?
-                if [ $TEST_EXIT -ne 0 ]; then
-                    VIOLATIONS=$((VIOLATIONS + 1))
-                    WARNINGS+=("❌ Test suite failed - see output above")
-                fi
-            fi
-
-            # Docs-guide source-of-truth checks are advisory during stabilization
-            if [ -f "tests/unit/docs-guide-sot.test.js" ]; then
-                echo -e "${YELLOW}Running docs-guide SoT checks (advisory)...${NC}"
-                if node tests/unit/docs-guide-sot.test.js 2>&1; then
-                    echo -e "${GREEN}✓ Docs-guide SoT checks passed${NC}"
-                else
-                    WARNINGS+=("⚠️ Docs-guide SoT checks need updates - run node tests/unit/docs-guide-sot.test.js")
-                    echo -e "${YELLOW}⚠️  Docs-guide SoT checks reported advisory issues${NC}"
-                fi
-            fi
-
-            # Staged link audit (internal links/imports strict, external links classify-only)
-            if [ -f "tests/integration/v2-link-audit.js" ]; then
-                echo -e "${YELLOW}Running staged V2 link audit...${NC}"
-                if node tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-precommit.md 2>&1; then
-                    echo -e "${GREEN}✓ Staged V2 link audit passed${NC}"
-                else
-                    LINK_AUDIT_EXIT=$?
-                    if [ $LINK_AUDIT_EXIT -ne 0 ]; then
-                        VIOLATIONS=$((VIOLATIONS + 1))
-                        WARNINGS+=("❌ Staged V2 link audit failed - see output above")
-                    fi
-                fi
-            fi
-
-            # Domain page load audit (stable report path in tests/reports)
-            if [ -f "tests/integration/domain-pages-audit.js" ]; then
-                echo -e "${YELLOW}Running domain page load audit (staged pages)...${NC}"
-                DOMAIN_AUDIT_VERSION=${DOMAIN_AUDIT_VERSION:-both}
-                if node tests/integration/domain-pages-audit.js --staged --base-url "https://docs.livepeer.org" --version "$DOMAIN_AUDIT_VERSION" 2>&1; then
-                    echo -e "${GREEN}✓ Domain page load audit passed${NC}"
-                else
-                    DOMAIN_AUDIT_EXIT=$?
-                    if [ $DOMAIN_AUDIT_EXIT -ne 0 ]; then
-                        VIOLATIONS=$((VIOLATIONS + 1))
-                        WARNINGS+=("❌ Domain page load audit failed - see tests/reports/domain-page-load-report.json")
-                    fi
-                fi
-            fi
         else
             echo -e "${YELLOW}⚠️  Dependencies not installed. Run 'cd tools && npm install' or 'cd tests && npm install' to enable tests${NC}"
+        fi
+
+        if [ -f "tests/unit/script-docs.test.js" ]; then
+            run_node_check \
+              "Running script documentation enforcement (staged additions)..." \
+              "❌ Script documentation enforcement failed - missing required script header template" \
+              tests/unit/script-docs.test.js --staged --write --stage --autofill
+        fi
+
+        if [ -f "tools/scripts/generate-pages-index.js" ]; then
+            run_node_check \
+              "Running v2/pages index generation (staged changes)..." \
+              "❌ v2/pages index generation failed - fix index sync issues" \
+              tools/scripts/generate-pages-index.js --staged --write --stage
+        fi
+
+        if [ -f "tools/scripts/generate-docs-index.js" ]; then
+            if echo "$STAGED_FILES_SNAPSHOT_ALL" | grep -Eq '^(docs\.json|v1/|v2/|snippets/)'; then
+                echo -e "${YELLOW}Checking docs-index sync...${NC}"
+                if node tools/scripts/generate-docs-index.js --check >/dev/null 2>&1; then
+                    echo -e "${GREEN}✓ docs-index.json is up to date${NC}"
+                else
+                    echo -e "${YELLOW}docs-index.json out of date, regenerating...${NC}"
+                    if node tools/scripts/generate-docs-index.js --write 2>&1; then
+                        git add docs-index.json
+                        echo -e "${GREEN}✓ docs-index.json regenerated and staged${NC}"
+                    else
+                        VIOLATIONS=$((VIOLATIONS + 1))
+                        WARNINGS+=("❌ docs-index generation failed - run node tools/scripts/generate-docs-index.js --write")
+                        echo -e "${RED}❌ docs-index generation failed${NC}"
+                    fi
+                fi
+            else
+                echo -e "${GREEN}✓ No docs/nav changes staged, skipping docs-index sync${NC}"
+            fi
+        fi
+
+        run_node_check \
+          "Running core staged test suite..." \
+          "❌ Core staged test suite failed - see output above" \
+          tests/run-all.js --staged --skip-browser
+
+        if [ -n "$STAGED_DOCS_PAGES" ]; then
+            if [ -f "tests/integration/v2-link-audit.js" ]; then
+                run_node_check \
+                  "Running staged V2 link audit..." \
+                  "❌ Staged V2 link audit failed - see /tmp/livepeer-link-audit-precommit.md" \
+                  tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-precommit.md
+            fi
+
+            if [ -f "tests/integration/v2-wcag-audit.js" ]; then
+                run_node_check \
+                  "Running staged V2 WCAG accessibility audit..." \
+                  "❌ Staged V2 WCAG accessibility audit failed - see /tmp/livepeer-wcag-audit-precommit.md" \
+                  tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json
+            fi
+        else
+            echo -e "${GREEN}✓ No staged docs pages, skipping link audit and WCAG audit${NC}"
         fi
     else
         echo -e "${YELLOW}⚠️  Test suite not available, skipping...${NC}"

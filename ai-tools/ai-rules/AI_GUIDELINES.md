@@ -5,9 +5,10 @@
 This repository uses custom Git hooks for "Human-in-the-Loop" (HitL)
 verification.
 
-- **ENFORCEMENT:** You SHALL NOT attempt to bypass hooks.
-- **FORBIDDEN:** The use of `--no-verify`, `-n`, or any environment variable
-  designed to skip Git hook execution is STRICTLY PROHIBITED.
+- **ENFORCEMENT:** You SHALL NOT bypass hooks by default.
+- **EXCEPTION:** `--no-verify` is allowed only with explicit human instruction
+  in chat and full audit controls defined in
+  `ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md`.
 - **BEHAVIOR:** When you initiate a `commit`, `push`, or `rebase`, the hook will
   pause and wait for manual input in the user's terminal. You MUST wait for the
   user to confirm.

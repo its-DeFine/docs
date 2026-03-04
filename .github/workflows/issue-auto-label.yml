@@ -328,4 +328,11 @@ jobs:
                   body: commentBody,
                 });
               }
+            } else if (labelsSeen.has('status: needs-info')) {
+              try {
+                await github.rest.issues.removeLabel({ owner, repo, issue_number, name: 'status: needs-info' });
+                labelsSeen.delete('status: needs-info');
+              } catch (error) {
+                if (error.status !== 404) throw error;
+              }
             }

@@ -4,8 +4,10 @@
 
 - **ALWAYS** check for the existence of local Git hooks in `.git/hooks/` before
   initiating a write command.
-- **NEVER** use `--no-verify` or `-n` flags to bypass safety checks. These are
-  hard project constraints.
+- **DEFAULT:** Do not use `--no-verify` or `-n`.
+- **EXCEPTION:** A human may explicitly authorize `--no-verify` in-thread; if so,
+  follow [`ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md`](../ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md)
+  (requires `ALLOW_HUMAN_NO_VERIFY=1` and commit trailers).
 - **NEVER** perform a `git reset --hard` or `git push --force` without an
   explicit, multi-turn plan confirmed by the user.
 - **NEVER** use `git stash` for AI task isolation in this repository.

@@ -22,6 +22,7 @@ This GitHub Actions workflow automatically tests all v2 pages from `docs.json` u
 
 - `.github/workflows/test-suite.yml` runs changed-file blocking checks and writes GitHub Step Summary output.
 - This workflow (`test-v2-pages.yml`) owns PR comment updates and browser-sweep artifact uploads.
+- `.github/workflows/codex-governance.yml` runs codex-only governance checks (task contract scope, PR body marker, issue readiness labels/state, and codex PR overlap gate).
 
 ## Workflow steps
 

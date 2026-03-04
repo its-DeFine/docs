@@ -21,8 +21,23 @@ For implementation work on agent branches, use:
 Enforcement behavior:
 
 - `pre-commit` validates contract presence/schema on `codex/*`.
+- `pre-commit` and `pre-push` validate local lock ownership on `codex/*`.
 - `pre-push` validates contract scope and blocks non-fast-forward pushes by default on `codex/*`.
 - CI (`tests/run-pr-checks.js`) validates contract and required PR body sections on `codex/*`.
+
+Recommended lifecycle:
+
+```bash
+# Start task scaffold (branch + contract + local lock)
+node tools/scripts/codex/task-preflight.js --task <issue-id> --slug <slug> --scope <a,b,c>
+
+# Validate local lock + scope before commit
+node tools/scripts/codex/validate-locks.js --staged
+
+# Finalize before PR, then release lock when done
+node tools/scripts/codex/task-finalize.js
+node tools/scripts/codex/lock-release.js
+```
 
 PR autofill command:
 
@@ -151,16 +166,11 @@ import { Component } from "/snippets/components/Component.jsx";
 
 ## Bypassing Hooks
 
-**⚠️ CRITICAL:** Agents MUST NOT bypass hooks without explicit user permission.
+**Default:** agents must not bypass hooks.
 
-The `.github/augment-instructions.md` explicitly states:
-- **NEVER** use `--no-verify` flag to bypass hooks
-- This is a hard project constraint
-
-If you encounter a false positive:
-1. Report it to the user
-2. Ask for guidance
-3. Do NOT bypass the hook
+**Human override path:** if a human explicitly authorizes `--no-verify` in chat,
+follow the canonical policy in
+`ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md`.
 
 If a human explicitly needs to edit `.allowlist`, they must commit with:
 
@@ -174,36 +184,13 @@ If a human explicitly needs to allow file deletions, they must commit with:
 git commit -m "Remove obsolete files" --trailer "allow-deletions=true"
 ```
 
-## Browser Validation
+## Pre-commit Runtime Profile
 
-The hook includes **headless browser validation** that tests MDX files actually render in the browser.
+Pre-commit is staged-scoped and balanced for speed:
 
-### Requirements
-
-- `mint dev` must be running (or set `MINT_BASE_URL` environment variable)
-- Puppeteer must be installed (`npm install` or in `package.json`)
-
-### How It Works
-
-1. Extracts staged MDX files
-2. Converts file paths to URLs
-3. Tests each page in headless Chrome using Puppeteer
-4. Checks for:
-   - Console errors
-   - Page errors
-   - Render failures
-   - Empty pages
-
-### If Server Not Running
-
-If `mint dev` is not running, browser validation is **skipped** (doesn't block commit). This makes the hook fast for local development.
-
-### For Full Testing
-
-To test all pages (not just staged):
-```bash
-npm run test:v2-pages
-```
+1. Runs staged core checks only.
+2. Runs staged link/WCAG audits only when docs pages are staged.
+3. Does not run legacy global browser verification from pre-commit.
 
 ## Testing Hooks
 

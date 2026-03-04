@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 /**
  * @script validate-codex-task-contract
- * @summary Validate codex branch task contract schema, branch binding, changed-file scope, and PR body sections.
+ * @summary Validate codex branch task contract schema, branch binding, changed-file scope, PR body sections, and optional linked-issue readiness policy.
  * @owner docs
- * @scope tools/scripts, .codex/task-contract.yaml, .github/pull_request_template.md, .github/pull-request-template-v2.md
+ * @scope tools/scripts, .codex/task-contract.yaml, tests/config/codex-issue-policy.json, .github/pull_request_template.md, .github/pull-request-template-v2.md
  *
  * @usage
  *   node tools/scripts/validate-codex-task-contract.js
@@ -17,6 +17,12 @@
  *   --validate-contract-only (skip changed-file and PR body checks)
  *   --require-pr-body (enforce PR sections and generated marker from --pr-body-file or GITHUB_EVENT_PATH)
  *   --pr-body-file <path> (explicit PR body source)
+ *   --require-issue-state (enforce linked issue readiness policy)
+ *   --issue-number <int> (optional override; defaults to task_id)
+ *   --issue-repo <owner/repo> (optional override; defaults to GITHUB_REPOSITORY or origin remote)
+ *   --issue-source <api|gh|auto> (default: auto)
+ *   --issue-token-env <ENV_NAME> (default: GITHUB_TOKEN)
+ *   --issue-policy <path> (default: tests/config/codex-issue-policy.json)
  *   --quiet (suppress success/skip logs)
  *   --json (emit machine-readable result object)
  *
@@ -25,10 +31,11 @@
  *
  * @exit-codes
  *   0 = validation passed or non-codex branch skipped
- *   1 = contract/schema/scope/PR-body validation failed
+ *   1 = contract/schema/scope/PR-body/issue-state validation failed
  *
  * @examples
  *   node tools/scripts/validate-codex-task-contract.js --branch codex/123-community-fixes --require-pr-body
+ *   node tools/scripts/validate-codex-task-contract.js --branch codex/123-community-fixes --require-issue-state
  *   node tools/scripts/validate-codex-task-contract.js --staged --validate-contract-only
  *
  * @notes
@@ -41,7 +48,10 @@ const { spawnSync } = require('child_process');
 const yaml = require('js-yaml');
 
 const DEFAULT_CONTRACT_PATH = '.codex/task-contract.yaml';
+const DEFAULT_ISSUE_POLICY_PATH = 'tests/config/codex-issue-policy.json';
 const DEFAULT_BASE_BRANCH = 'docs-v2';
+const DEFAULT_ISSUE_SOURCE = 'auto';
+const DEFAULT_ISSUE_TOKEN_ENV = 'GITHUB_TOKEN';
 const CODEX_BRANCH_RE = /^codex\/(\d+)-[a-z0-9][a-z0-9-]*$/;
 const REQUIRED_PR_SECTIONS = ['Scope', 'Validation', 'Follow-up Tasks'];
 const PR_GENERATOR_MARKER_PREFIX = 'codex-pr-body-generated';
@@ -66,7 +76,8 @@ function fail(message, jsonMode) {
       JSON.stringify(
         {
           passed: false,
-          message
+          message,
+          errors: [message]
         },
         null,
         2
@@ -92,6 +103,12 @@ function usage() {
       '  --validate-contract-only     Validate schema + branch binding only',
       '  --require-pr-body            Enforce PR body sections',
       '  --pr-body-file <path>        Read PR body from file',
+      '  --require-issue-state        Enforce linked issue state + labels policy',
+      '  --issue-number <int>         Linked issue number override',
+      '  --issue-repo <owner/repo>    Linked issue repo override',
+      '  --issue-source <mode>        api | gh | auto (default: auto)',
+      '  --issue-token-env <ENV>      Token env var for API mode (default: GITHUB_TOKEN)',
+      '  --issue-policy <path>        Issue policy JSON path',
       '  --quiet                      Suppress success/skip logs',
       '  --json                       Emit JSON result',
       '  --help                       Show this help message'
@@ -114,6 +131,12 @@ function parseArgs(argv) {
     validateContractOnly: false,
     requirePrBody: false,
     prBodyFile: '',
+    requireIssueState: false,
+    issueNumber: null,
+    issueRepo: '',
+    issueSource: DEFAULT_ISSUE_SOURCE,
+    issueTokenEnv: DEFAULT_ISSUE_TOKEN_ENV,
+    issuePolicyPath: DEFAULT_ISSUE_POLICY_PATH,
     quiet: false,
     json: false
   };
@@ -182,6 +205,57 @@ function parseArgs(argv) {
       args.prBodyFile = token.slice('--pr-body-file='.length).trim();
       continue;
     }
+    if (token === '--require-issue-state') {
+      args.requireIssueState = true;
+      continue;
+    }
+    if (token === '--issue-number') {
+      const raw = String(argv[i + 1] || '').trim();
+      args.issueNumber = raw ? Number(raw) : null;
+      i += 1;
+      continue;
+    }
+    if (token.startsWith('--issue-number=')) {
+      const raw = token.slice('--issue-number='.length).trim();
+      args.issueNumber = raw ? Number(raw) : null;
+      continue;
+    }
+    if (token === '--issue-repo') {
+      args.issueRepo = String(argv[i + 1] || '').trim();
+      i += 1;
+      continue;
+    }
+    if (token.startsWith('--issue-repo=')) {
+      args.issueRepo = token.slice('--issue-repo='.length).trim();
+      continue;
+    }
+    if (token === '--issue-source') {
+      args.issueSource = String(argv[i + 1] || '').trim().toLowerCase();
+      i += 1;
+      continue;
+    }
+    if (token.startsWith('--issue-source=')) {
+      args.issueSource = token.slice('--issue-source='.length).trim().toLowerCase();
+      continue;
+    }
+    if (token === '--issue-token-env') {
+      args.issueTokenEnv = String(argv[i + 1] || '').trim();
+      i += 1;
+      continue;
+    }
+    if (token.startsWith('--issue-token-env=')) {
+      args.issueTokenEnv = token.slice('--issue-token-env='.length).trim();
+      continue;
+    }
+    if (token === '--issue-policy') {
+      args.issuePolicyPath = String(argv[i + 1] || '').trim();
+      i += 1;
+      continue;
+    }
+    if (token.startsWith('--issue-policy=')) {
+      args.issuePolicyPath = token.slice('--issue-policy='.length).trim();
+      continue;
+    }
     if (token === '--quiet') {
       args.quiet = true;
       continue;
@@ -190,7 +264,16 @@ function parseArgs(argv) {
       args.json = true;
       continue;
     }
+
     throw new Error(`Unknown argument: ${token}`);
+  }
+
+  if (!['api', 'gh', 'auto'].includes(args.issueSource)) {
+    throw new Error(`--issue-source must be one of: api, gh, auto (received "${args.issueSource}")`);
+  }
+
+  if (args.issueNumber != null && (!Number.isInteger(args.issueNumber) || args.issueNumber <= 0)) {
+    throw new Error('--issue-number must be a positive integer');
   }
 
   return args;
@@ -216,6 +299,20 @@ function tryRunGit(args) {
   } catch (_error) {
     return '';
   }
+}
+
+function runCmd(command, args, options = {}) {
+  const result = spawnSync(command, args, {
+    cwd: REPO_ROOT,
+    encoding: 'utf8',
+    ...options
+  });
+
+  return {
+    status: result.status,
+    stdout: String(result.stdout || ''),
+    stderr: String(result.stderr || '')
+  };
 }
 
 function detectBranch(argsBranch) {
@@ -381,6 +478,40 @@ function loadTaskContract(contractPathAbs) {
   return parsed;
 }
 
+function loadJsonFile(absPath, label) {
+  if (!fs.existsSync(absPath)) {
+    throw new Error(`${label} not found: ${toPosix(path.relative(REPO_ROOT, absPath))}`);
+  }
+
+  try {
+    return JSON.parse(fs.readFileSync(absPath, 'utf8'));
+  } catch (error) {
+    throw new Error(`Invalid JSON in ${label}: ${error.message}`);
+  }
+}
+
+function normalizeIssuePolicy(policyRaw) {
+  if (!policyRaw || typeof policyRaw !== 'object' || Array.isArray(policyRaw)) {
+    throw new Error('Issue policy must be a JSON object');
+  }
+
+  const requiredLabels = normalizeArray(policyRaw.required_labels, 'required_labels', true);
+  const requiredPrefixes = normalizeArray(policyRaw.required_label_prefixes, 'required_label_prefixes', true);
+  const forbiddenLabels = normalizeArray(policyRaw.forbidden_labels, 'forbidden_labels', false);
+  const requiredState = String(policyRaw.required_state == null ? '' : policyRaw.required_state).trim().toLowerCase();
+
+  if (!requiredState) {
+    throw new Error('"required_state" is required in issue policy');
+  }
+
+  return {
+    requiredLabels,
+    requiredPrefixes,
+    forbiddenLabels,
+    requiredState
+  };
+}
+
 function loadPrBody(args) {
   if (args.prBodyFile) {
     const abs = path.resolve(REPO_ROOT, args.prBodyFile);
@@ -442,6 +573,209 @@ function validateScope(contract, changedFiles, contractPathRel) {
       violations.push(`Out-of-scope (scope_in/allowed_generated): ${filePath}`);
     }
   });
+
+  return violations;
+}
+
+function normalizeIssueRepo(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+  const normalized = raw.replace(/^https?:\/\/github\.com\//i, '').replace(/^git@github\.com:/i, '').replace(/\.git$/i, '');
+  const match = normalized.match(/^([A-Za-z0-9_.-]+)\/([A-Za-z0-9_.-]+)$/);
+  if (!match) {
+    throw new Error(`Invalid issue repo "${value}"; expected owner/repo`);
+  }
+  return `${match[1]}/${match[2]}`;
+}
+
+function resolveIssueRepo(args) {
+  if (args.issueRepo) {
+    return normalizeIssueRepo(args.issueRepo);
+  }
+
+  const envRepo = String(process.env.GITHUB_REPOSITORY || '').trim();
+  if (envRepo) {
+    return normalizeIssueRepo(envRepo);
+  }
+
+  const originUrl = tryRunGit(['config', '--get', 'remote.origin.url']);
+  if (!originUrl) {
+    throw new Error('Could not resolve issue repo from --issue-repo, GITHUB_REPOSITORY, or origin remote');
+  }
+
+  return normalizeIssueRepo(originUrl);
+}
+
+function resolveIssueNumber(args, contract) {
+  if (args.issueNumber != null) {
+    return args.issueNumber;
+  }
+  return contract.taskId;
+}
+
+function extractLabels(issue) {
+  const rawLabels = Array.isArray(issue && issue.labels) ? issue.labels : [];
+  return rawLabels
+    .map((label) => {
+      if (typeof label === 'string') return label.trim();
+      if (label && typeof label.name === 'string') return label.name.trim();
+      return '';
+    })
+    .filter(Boolean);
+}
+
+function fetchIssueViaApi({ issueRepo, issueNumber, tokenEnv }) {
+  const tokenName = String(tokenEnv || DEFAULT_ISSUE_TOKEN_ENV).trim() || DEFAULT_ISSUE_TOKEN_ENV;
+  const token = String(process.env[tokenName] || '').trim();
+  if (!token) {
+    throw new Error(`Missing token in env ${tokenName} for API issue lookup`);
+  }
+
+  const url = `https://api.github.com/repos/${issueRepo}/issues/${issueNumber}`;
+  const cmd = runCmd('curl', [
+    '-sSfL',
+    '-H',
+    'Accept: application/vnd.github+json',
+    '-H',
+    `Authorization: Bearer ${token}`,
+    '-H',
+    'X-GitHub-Api-Version: 2022-11-28',
+    '-H',
+    'User-Agent: livepeer-docs-codex-validator',
+    url
+  ]);
+
+  if (cmd.status !== 0) {
+    const details = cmd.stderr.trim() || cmd.stdout.trim() || `curl failed for ${url}`;
+    throw new Error(`GitHub API issue lookup failed: ${details}`);
+  }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(cmd.stdout);
+  } catch (error) {
+    throw new Error(`GitHub API issue lookup returned invalid JSON: ${error.message}`);
+  }
+
+  return {
+    source: 'api',
+    issue: {
+      state: String(parsed.state || '').toLowerCase(),
+      labels: extractLabels(parsed)
+    }
+  };
+}
+
+function fetchIssueViaGh({ issueRepo, issueNumber }) {
+  const cmd = runCmd('gh', ['issue', 'view', String(issueNumber), '--repo', issueRepo, '--json', 'state,labels']);
+
+  if (cmd.status !== 0) {
+    const details = cmd.stderr.trim() || cmd.stdout.trim() || `gh issue view failed for ${issueRepo}#${issueNumber}`;
+    throw new Error(`gh issue lookup failed: ${details}`);
+  }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(cmd.stdout);
+  } catch (error) {
+    throw new Error(`gh issue lookup returned invalid JSON: ${error.message}`);
+  }
+
+  return {
+    source: 'gh',
+    issue: {
+      state: String(parsed.state || '').toLowerCase(),
+      labels: extractLabels(parsed)
+    }
+  };
+}
+
+function fetchIssue({ issueRepo, issueNumber, issueSource, issueTokenEnv }) {
+  const mockIssueError = String(process.env.CODEX_MOCK_ISSUE_ERROR || '').trim();
+  if (mockIssueError) {
+    throw new Error(mockIssueError);
+  }
+
+  const mockIssueJson = String(process.env.CODEX_MOCK_ISSUE_JSON || '').trim();
+  if (mockIssueJson) {
+    let parsed;
+    try {
+      parsed = JSON.parse(mockIssueJson);
+    } catch (error) {
+      throw new Error(`Invalid CODEX_MOCK_ISSUE_JSON payload: ${error.message}`);
+    }
+
+    return {
+      source: 'mock',
+      issue: {
+        state: String(parsed.state || '').toLowerCase(),
+        labels: extractLabels(parsed)
+      }
+    };
+  }
+
+  if (issueSource === 'api') {
+    return fetchIssueViaApi({ issueRepo, issueNumber, tokenEnv: issueTokenEnv });
+  }
+
+  if (issueSource === 'gh') {
+    return fetchIssueViaGh({ issueRepo, issueNumber });
+  }
+
+  const token = String(process.env[String(issueTokenEnv || DEFAULT_ISSUE_TOKEN_ENV).trim() || DEFAULT_ISSUE_TOKEN_ENV] || '').trim();
+  if (token) {
+    try {
+      return fetchIssueViaApi({ issueRepo, issueNumber, tokenEnv: issueTokenEnv });
+    } catch (_error) {
+      return fetchIssueViaGh({ issueRepo, issueNumber });
+    }
+  }
+
+  return fetchIssueViaGh({ issueRepo, issueNumber });
+}
+
+function validateIssuePolicy({ issueRepo, issueNumber, issueSource, issueTokenEnv, policy }) {
+  const violations = [];
+
+  let fetched;
+  try {
+    fetched = fetchIssue({
+      issueRepo,
+      issueNumber,
+      issueSource,
+      issueTokenEnv
+    });
+  } catch (error) {
+    violations.push(`Issue readiness check failed for ${issueRepo}#${issueNumber}: ${error.message}`);
+    return violations;
+  }
+
+  const labels = fetched.issue.labels;
+  const state = fetched.issue.state;
+
+  policy.requiredLabels.forEach((name) => {
+    if (!labels.includes(name)) {
+      violations.push(`Issue ${issueRepo}#${issueNumber} missing required label: ${name}`);
+    }
+  });
+
+  policy.requiredPrefixes.forEach((prefix) => {
+    if (!labels.some((label) => label.startsWith(prefix))) {
+      violations.push(`Issue ${issueRepo}#${issueNumber} missing required label prefix class: ${prefix}`);
+    }
+  });
+
+  policy.forbiddenLabels.forEach((forbidden) => {
+    if (labels.includes(forbidden)) {
+      violations.push(`Issue ${issueRepo}#${issueNumber} has forbidden label: ${forbidden}`);
+    }
+  });
+
+  if (String(state || '').toLowerCase() !== policy.requiredState) {
+    violations.push(
+      `Issue ${issueRepo}#${issueNumber} must be in state "${policy.requiredState}" (received "${state || 'unknown'}")`
+    );
+  }
 
   return violations;
 }
@@ -545,6 +879,23 @@ function main() {
           }
         }
       }
+    }
+
+    if (args.requireIssueState) {
+      const issuePolicyAbs = path.resolve(REPO_ROOT, args.issuePolicyPath);
+      const issuePolicyRaw = loadJsonFile(issuePolicyAbs, 'Issue policy');
+      const issuePolicy = normalizeIssuePolicy(issuePolicyRaw);
+      const issueRepo = resolveIssueRepo(args);
+      const issueNumber = resolveIssueNumber(args, contract);
+
+      const issueViolations = validateIssuePolicy({
+        issueRepo,
+        issueNumber,
+        issueSource: args.issueSource,
+        issueTokenEnv: args.issueTokenEnv,
+        policy: issuePolicy
+      });
+      errors.push(...issueViolations);
     }
 
     if (errors.length > 0) {

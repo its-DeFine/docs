@@ -31,7 +31,7 @@
 | `tests/unit/style-guide.test.js` | Utility script for tests/unit/style-guide.test.js. | `node tests/unit/style-guide.test.js` | docs |
 | `tests/unit/v2-link-audit.test.js` | Unit tests for v2 link audit args, external validation helpers, and x-* scope exclusion behavior. | `node tests/unit/v2-link-audit.test.js` | docs |
 | `tests/unit/v2-wcag-audit.test.js` | Unit tests for v2 WCAG audit helper logic (args, thresholds, route mapping, report sorting, and conservative autofixes). | `node tests/unit/v2-wcag-audit.test.js` | docs |
-| `tests/unit/validate-codex-task-contract.test.js` | Validate codex task-contract PR-body marker enforcement behavior for codex branch checks. | `node tests/unit/validate-codex-task-contract.test.js` | docs |
+| `tests/unit/validate-codex-task-contract.test.js` | Validate codex task-contract marker and issue-readiness enforcement behavior. | `node tests/unit/validate-codex-task-contract.test.js` | docs |
 | `tests/utils/file-walker.js` | Utility script for tests/utils/file-walker.js. | `node tests/utils/file-walker.js` | docs |
 | `tests/utils/mdx-parser.js` | Utility script for tests/utils/mdx-parser.js. | `node tests/utils/mdx-parser.js` | docs |
 | `tests/utils/mintignore.js` | Helpers to evaluate .mintignore using gitignore semantics for test scanners. | `node tests/utils/mintignore.js` | docs |

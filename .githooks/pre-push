@@ -50,6 +50,23 @@ if ! node tools/scripts/validate-codex-task-contract.js --branch "$CURRENT_BRANC
   exit 1
 fi
 
+if [ -f "tools/scripts/codex/validate-locks.js" ]; then
+  if ! node tools/scripts/codex/validate-locks.js --branch "$CURRENT_BRANCH" --quiet; then
+    echo -e "${RED}❌ Codex local lock validation failed. Push blocked.${NC}"
+    exit 1
+  fi
+else
+  echo -e "${RED}❌ Missing codex lock validator: tools/scripts/codex/validate-locks.js${NC}"
+  exit 1
+fi
+
+if [ -x "tools/scripts/check-no-ai-stash.sh" ]; then
+  if ! bash tools/scripts/check-no-ai-stash.sh --branch "$CURRENT_BRANCH" --quiet; then
+    echo -e "${RED}❌ AI stash policy violation detected. Push blocked.${NC}"
+    exit 1
+  fi
+fi
+
 BLOCKED=0
 
 while IFS=' ' read -r local_ref local_sha remote_ref remote_sha; do

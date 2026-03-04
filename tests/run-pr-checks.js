@@ -327,6 +327,7 @@ function runCodexTaskContractCheck(branch, changedFiles, baseRef) {
   }
 
   const args = ['tools/scripts/validate-codex-task-contract.js', '--branch', branch];
+  args.push('--require-issue-state');
   if (baseRef) {
     args.push('--base-ref', baseRef);
   }
