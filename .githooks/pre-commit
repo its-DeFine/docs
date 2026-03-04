@@ -91,6 +91,69 @@ has_human_override_trailer() {
     return 1
 }
 
+is_codex_session() {
+    if [[ "${CODEX_SHELL:-0}" == "1" ]]; then
+        return 0
+    fi
+
+    if [[ -n "${CODEX_THREAD_ID:-}" ]]; then
+        return 0
+    fi
+
+    if [[ "${CODEX_CI:-0}" == "1" ]]; then
+        return 0
+    fi
+
+    if [[ -n "${CODEX_INTERNAL_ORIGINATOR_OVERRIDE:-}" ]]; then
+        return 0
+    fi
+
+    return 1
+}
+
+allow_docs_v2_commit_override() {
+    if [[ "${ALLOW_MAIN_COMMIT:-0}" == "1" ]]; then
+        return 0
+    fi
+
+    if has_human_override_trailer "allow-main-commit=true"; then
+        return 0
+    fi
+
+    return 1
+}
+
+enforce_docs_v2_codex_isolation() {
+    if [[ "$CURRENT_BRANCH" != "docs-v2" ]]; then
+        return 0
+    fi
+
+    if ! is_codex_session; then
+        return 0
+    fi
+
+    if allow_docs_v2_commit_override; then
+        echo -e "${YELLOW}⚠️  docs-v2 commit override detected (human-authorized).${NC}"
+        return 0
+    fi
+
+    echo -e "${RED}╔═══════════════════════════════════════════════════════════════╗${NC}"
+    echo -e "${RED}║  ❌ COMMIT BLOCKED: CODEX SESSION ON docs-v2                 ║${NC}"
+    echo -e "${RED}╚═══════════════════════════════════════════════════════════════╝${NC}"
+    echo ""
+    echo -e "${YELLOW}Do not stash/reset. Preserve current staged+unstaged edits by branching in-place:${NC}"
+    echo "  git switch -c codex/<issue-id>-<slug>"
+    echo "  # if branch exists already: git switch codex/<issue-id>-<slug>"
+    echo ""
+    echo -e "${YELLOW}Then initialize contract + lock:${NC}"
+    echo "  node tools/scripts/codex/task-preflight.js --task <issue-id> --slug <slug> --scope \"<path1,path2>\""
+    echo ""
+    echo -e "${YELLOW}Human override (explicit chat instruction required):${NC}"
+    echo "  ALLOW_MAIN_COMMIT=1 git commit -m \"...\" --trailer \"allow-main-commit=true\""
+    echo ""
+    return 1
+}
+
 run_codex_task_contract_check() {
     if [[ "$CURRENT_BRANCH" != codex/* ]]; then
         return 0
@@ -167,6 +230,10 @@ if [ "$SKIP_ALL" = "1" ]; then
     echo -e "${YELLOW}⚠️  WARNING: All pre-commit checks bypassed (SKIP_ALL=1)${NC}"
     echo -e "${YELLOW}   This should only be used in emergencies.${NC}"
     exit 0
+fi
+
+if ! enforce_docs_v2_codex_isolation; then
+    exit 1
 fi
 
 if [[ "$CURRENT_BRANCH" == "docs-v2" ]]; then

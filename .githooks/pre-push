@@ -35,9 +35,56 @@ NC='\033[0m'
 
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
 ALLOW_CODEX_FORCE_PUSH="${ALLOW_CODEX_FORCE_PUSH:-0}"
+ALLOW_MAIN_PUSH="${ALLOW_MAIN_PUSH:-0}"
 
 # Read stdin first so we can inspect all pushed refs while still validating branch scope.
 PUSH_LINES=$(cat)
+
+is_codex_session() {
+  if [[ "${CODEX_SHELL:-0}" == "1" ]]; then
+    return 0
+  fi
+
+  if [[ -n "${CODEX_THREAD_ID:-}" ]]; then
+    return 0
+  fi
+
+  if [[ "${CODEX_CI:-0}" == "1" ]]; then
+    return 0
+  fi
+
+  if [[ -n "${CODEX_INTERNAL_ORIGINATOR_OVERRIDE:-}" ]]; then
+    return 0
+  fi
+
+  return 1
+}
+
+TARGETS_DOCS_V2=0
+while IFS=' ' read -r local_ref local_sha remote_ref remote_sha; do
+  if [[ -z "${local_ref:-}" ]]; then
+    continue
+  fi
+
+  if [[ "${remote_ref:-}" == "refs/heads/docs-v2" ]]; then
+    TARGETS_DOCS_V2=1
+    break
+  fi
+done <<< "$PUSH_LINES"
+
+if [[ "$TARGETS_DOCS_V2" -eq 1 ]] && is_codex_session; then
+  if [[ "$ALLOW_MAIN_PUSH" != "1" ]]; then
+    echo -e "${RED}❌ Push blocked: Codex sessions must not push directly to docs-v2.${NC}"
+    echo -e "${YELLOW}Use codex/<issue-id>-<slug> branches and open a PR.${NC}"
+    echo -e "${YELLOW}Do not stash/reset to switch. Keep work in place with:${NC}"
+    echo "  git switch -c codex/<issue-id>-<slug>"
+    echo -e "${YELLOW}Human override (explicit chat instruction required):${NC}"
+    echo "  ALLOW_MAIN_PUSH=1 git push origin <branch>:docs-v2"
+    exit 1
+  fi
+
+  echo -e "${YELLOW}⚠️ ALLOW_MAIN_PUSH=1 set; overriding docs-v2 push block for this push.${NC}"
+fi
 
 if [[ "$CURRENT_BRANCH" != codex/* ]]; then
   exit 0
