@@ -22,6 +22,7 @@ const LIVE_URL_PREFIX = "https://docs.livepeer.org/";
 const SIDEBAR_TITLE_PROP_NAME = "Sidebar Title";
 const NAV_ORDER_PROP_NAME = "Navigation Order";
 const PAGE_STATUS_PROP_NAME = "Page Status";
+const LEAVE_ME_PROP_NAME = "Leave Me";
 const NOT_IN_NAV_STATUS = "Not In Navigation";
 const STALE_NAV_ORDER_BASE = 1000000;
 const SEVERITY_RANK = {
@@ -1279,6 +1280,7 @@ function getReviewerCheckboxNames(dataSource) {
   return Object.values(dataSource?.properties || {})
     .filter((prop) => prop?.type === "checkbox")
     .map((prop) => normalizeText(prop?.name))
+    .filter((name) => normalizeKeyPart(name) !== normalizeKeyPart(LEAVE_ME_PROP_NAME))
     .filter(Boolean)
     .sort((a, b) => a.localeCompare(b));
 }
@@ -1305,6 +1307,7 @@ function parseExistingRows(rows, reviewerPropertyNames) {
       sidebarTitle: getRichText(p[SIDEBAR_TITLE_PROP_NAME]),
       navigationOrder: getNumber(p[NAV_ORDER_PROP_NAME]),
       notes: getRichText(p["Notes"]),
+      leaveMe: getCheckbox(p[LEAVE_ME_PROP_NAME]),
       relativePathUrl,
       url: getUrl(p["URL"]),
       reviewerChecks,
@@ -1433,6 +1436,7 @@ async function main() {
   const existingRows = parseExistingRows(rawExistingRows, reviewerCheckboxNames).filter(
     (row) => !row.inTrash
   );
+  const leaveMeProtectedCount = existingRows.filter((row) => row.leaveMe).length;
 
   const existingByKey = new Map();
   const existingByRoute = new Map();
@@ -1487,6 +1491,7 @@ async function main() {
         action: "create",
         matchStrategy: "none",
         pageId: "",
+        leaveMe: false,
         pageName: row.pageName,
         tabGroup: row.tabGroup,
         sectionGroup: row.sectionGroup,
@@ -1504,10 +1509,34 @@ async function main() {
       return;
     }
 
+    if (existing.leaveMe) {
+      canonicalActions.push({
+        action: "leave-me-noop",
+        matchStrategy,
+        pageId: existing.id,
+        leaveMe: true,
+        pageName: existing.pageName,
+        tabGroup: existing.tabGroup,
+        sectionGroup: existing.sectionGroup,
+        subSection: existing.subSection,
+        sidebarTitle: existing.sidebarTitle,
+        navigationOrder: existing.navigationOrder,
+        relativePathUrl: existing.relativePathUrl,
+        url: existing.url,
+        autoStatus: routeInfo.autoStatus,
+        humanUsefulnessScore: routeInfo.humanUsefulnessScore,
+        humanBand: routeInfo.humanBand,
+        flags: routeInfo.flags.join("|"),
+        changed: false
+      });
+      return;
+    }
+
     canonicalActions.push({
       action: needsUpdate ? "update" : "noop",
       matchStrategy,
       pageId: existing.id,
+      leaveMe: false,
       pageName: row.pageName,
       tabGroup: row.tabGroup,
       sectionGroup: row.sectionGroup,
@@ -1526,6 +1555,7 @@ async function main() {
 
   existingRows.forEach((row) => {
     if (matchedIds.has(row.id)) return;
+    if (row.leaveMe) return;
     if (!row.relativePathUrl) return;
 
     const route = normalizeRoute(row.relativePathUrl);
@@ -1557,6 +1587,7 @@ async function main() {
   const staleCandidates = existingRows.filter((row) => {
     if (!row.relativePathUrl) return false;
     if (matchedIds.has(row.id)) return false;
+    if (row.leaveMe) return false;
     return !canonicalKeySet.has(row.key);
   });
 
@@ -1900,37 +1931,10 @@ async function main() {
 
       async function processContentRow(row) {
         try {
-          const route = normalizeRoute(row.relativePathUrl);
-          const routeInfo = getRouteInfo(route);
-          const translation = buildTranslationCoverage(
-            route,
-            canonicalData.localeTargets,
-            canonicalData.localeRouteSets,
-            repoRoot
-          );
-
-          const blocks = buildPageInfoBlocks({
-            row,
-            routeInfo,
-            translation,
-            linkMissingRefs: linkMissingRefsMap.has(route) ? linkMissingRefsMap.get(route) : null,
-            wcagBlocking: wcagBlockingMap.has(route) ? wcagBlockingMap.get(route) : null,
-            domainStatus: domainStatusMap.get(route) || null,
-            reviewerNames: reviewerCheckboxNames,
-            syncedAt,
-            sourceRunIds
-          });
-
-          const result = await upsertGeneratedSections(notion, row.id, blocks, {
-            skipIfUnchanged: args.skipUnchangedBody,
-            deleteSleepMs: args.deleteSleepMs,
-            appendSleepMs: args.appendSleepMs
-          });
-
-          if (result.skipped) {
+          if (row.leaveMe) {
             contentSkipped += 1;
             contentActions.push({
-              action: "skip-page-content-noop",
+              action: "skip-page-content-leave-me",
               pageId: row.id,
               relativePathUrl: row.relativePathUrl,
               reviewerCount: reviewerCheckboxNames.length,
@@ -1939,16 +1943,56 @@ async function main() {
               changed: false
             });
           } else {
-            contentUpdated += 1;
-            contentActions.push({
-              action: "upsert-page-content",
-              pageId: row.id,
-              relativePathUrl: row.relativePathUrl,
-              reviewerCount: reviewerCheckboxNames.length,
-              deletedBlocks: result.deletedBlocks,
-              appendedBlocks: result.appendedBlocks,
-              changed: true
+            const route = normalizeRoute(row.relativePathUrl);
+            const routeInfo = getRouteInfo(route);
+            const translation = buildTranslationCoverage(
+              route,
+              canonicalData.localeTargets,
+              canonicalData.localeRouteSets,
+              repoRoot
+            );
+
+            const blocks = buildPageInfoBlocks({
+              row,
+              routeInfo,
+              translation,
+              linkMissingRefs: linkMissingRefsMap.has(route) ? linkMissingRefsMap.get(route) : null,
+              wcagBlocking: wcagBlockingMap.has(route) ? wcagBlockingMap.get(route) : null,
+              domainStatus: domainStatusMap.get(route) || null,
+              reviewerNames: reviewerCheckboxNames,
+              syncedAt,
+              sourceRunIds
             });
+
+            const result = await upsertGeneratedSections(notion, row.id, blocks, {
+              skipIfUnchanged: args.skipUnchangedBody,
+              deleteSleepMs: args.deleteSleepMs,
+              appendSleepMs: args.appendSleepMs
+            });
+
+            if (result.skipped) {
+              contentSkipped += 1;
+              contentActions.push({
+                action: "skip-page-content-noop",
+                pageId: row.id,
+                relativePathUrl: row.relativePathUrl,
+                reviewerCount: reviewerCheckboxNames.length,
+                deletedBlocks: 0,
+                appendedBlocks: 0,
+                changed: false
+              });
+            } else {
+              contentUpdated += 1;
+              contentActions.push({
+                action: "upsert-page-content",
+                pageId: row.id,
+                relativePathUrl: row.relativePathUrl,
+                reviewerCount: reviewerCheckboxNames.length,
+                deletedBlocks: result.deletedBlocks,
+                appendedBlocks: result.appendedBlocks,
+                changed: true
+              });
+            }
           }
         } catch (error) {
           contentFailed += 1;
@@ -1983,6 +2027,18 @@ async function main() {
     existingRows
       .filter((row) => normalizeRoute(row.relativePathUrl).startsWith("v2/"))
       .forEach((row) => {
+        if (row.leaveMe) {
+          contentActions.push({
+            action: "plan-skip-page-content-leave-me",
+            pageId: row.id,
+            relativePathUrl: row.relativePathUrl,
+            reviewerCount: reviewerCheckboxNames.length,
+            deletedBlocks: 0,
+            appendedBlocks: 0,
+            changed: false
+          });
+          return;
+        }
         contentActions.push({
           action: "plan-upsert-page-content",
           pageId: row.id,
@@ -2006,6 +2062,7 @@ async function main() {
     "action",
     "matchStrategy",
     "pageId",
+    "leaveMe",
     "pageName",
     "sidebarTitle",
     "navigationOrder",
@@ -2070,6 +2127,7 @@ async function main() {
     runStamp,
     mode: args.write ? "write" : "dry-run",
     staleTabName: args.staleTabName,
+    leaveMeProtectedRows: leaveMeProtectedCount,
     reviewers: reviewerCheckboxNames,
     note:
       "Notion API does not support manual row ordering. Sort by `Navigation Order` ascending in the Notion view.",
@@ -2143,9 +2201,9 @@ async function main() {
       legacyCsvPath,
       staleCsvPath,
       schemaCsvPath,
-      contentCsvPath,
-      summaryPath
-    },
+    contentCsvPath,
+    summaryPath
+  },
     errors
   };
 
@@ -2156,6 +2214,7 @@ async function main() {
   console.log(`  canonical actions: ${JSON.stringify(summary.canonical.actions)}`);
   console.log(`  legacy migration candidates: ${summary.legacyMigration.candidates}`);
   console.log(`  stale candidates: ${summary.stale.candidates}`);
+  console.log(`  leave me protected rows: ${summary.leaveMeProtectedRows}`);
   console.log(`  schema actions: ${JSON.stringify(summary.schema.actions)}`);
   console.log(`  content rows planned: ${summary.content.rowsPlanned}`);
   console.log(`  reviewers detected (checkbox props): ${summary.reviewers.length}`);
