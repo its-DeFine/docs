@@ -36,6 +36,7 @@ destructive or history-altering actions.
 **⚠️ MANDATORY: Read Structure Rules Before Creating/Moving Files**
 
 **BEFORE creating, moving, or organizing files, you MUST read:**
+
 - `contribute/STRUCTURE.md` - Complete repository structure rules (if exists)
 - `tasks/plan/migration-plan.md` - Detailed structure documentation (Section 4)
 

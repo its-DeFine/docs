@@ -94,16 +94,19 @@ The pre-commit hook runs automatically when you attempt to commit. It:
 ### Before Committing
 
 1. **Check hook is installed:**
+
    ```bash
    ls -la .git/hooks/pre-commit
    ```
 
 2. **Stage your changes:**
+
    ```bash
    git add <files>
    ```
 
 3. **Attempt commit** (hook runs automatically):
+
    ```bash
    git commit -m "your message"
    ```
@@ -118,11 +121,13 @@ The pre-commit hook runs automatically when you attempt to commit. It:
 #### ThemeData Usage
 
 **Error:**
+
 ```
 ❌ file.jsx: Uses deprecated ThemeData - use CSS Custom Properties instead
 ```
 
 **Fix:**
+
 ```jsx
 // ❌ WRONG
 import { ThemeData } from "/snippets/styles/themeStyles.jsx";
@@ -135,11 +140,13 @@ import { ThemeData } from "/snippets/styles/themeStyles.jsx";
 #### Hardcoded Colors
 
 **Error:**
+
 ```
 ⚠️  file.mdx: Contains hardcoded theme colors - use CSS Custom Properties
 ```
 
 **Fix:**
+
 ```jsx
 // ❌ WRONG
 <div style={{ color: "#3CB540" }}>
@@ -151,17 +158,19 @@ import { ThemeData } from "/snippets/styles/themeStyles.jsx";
 #### Relative Imports
 
 **Error:**
+
 ```
 ⚠️  file.jsx: Uses relative imports - use absolute paths from root
 ```
 
 **Fix:**
+
 ```jsx
 // ❌ WRONG
-import { Component } from "../components/Component.jsx";
+import { Component } from '../components/Component.jsx'
 
 // ✅ CORRECT
-import { Component } from "/snippets/components/Component.jsx";
+import { Component } from '/snippets/components/Component.jsx'
 ```
 
 ## Bypassing Hooks
