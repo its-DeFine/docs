@@ -27,7 +27,6 @@
 /**
  * Main test runner - orchestrates all test suites
  */
-const fs = require('fs');
 const { spawnSync } = require('child_process');
 const path = require('path');
 
@@ -41,7 +40,6 @@ const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const pagesIndexGenerator = require('../tools/scripts/generate-pages-index');
 const browserTests = require('./integration/browser.test');
-const { getStagedFiles } = require('./utils/file-walker');
 const REPO_ROOT = path.resolve(__dirname, '..');
 
 const args = process.argv.slice(2);
@@ -53,71 +51,6 @@ const wcagNoFix = args.includes('--wcag-no-fix');
 
 let totalErrors = 0;
 let totalWarnings = 0;
-
-function toPosix(filePath) {
-  return String(filePath || '').split(path.sep).join('/');
-}
-
-function getStagedRelPaths() {
-  return getStagedFiles(REPO_ROOT).map((absPath) => toPosix(path.relative(REPO_ROOT, absPath)));
-}
-
-const stagedRelPaths = stagedOnly ? new Set(getStagedRelPaths()) : new Set();
-
-function anyStagedMatch(predicate) {
-  for (const rel of stagedRelPaths) {
-    if (predicate(rel)) return true;
-  }
-  return false;
-}
-
-function loadI18nLanguages() {
-  const configPath = path.join(REPO_ROOT, 'tools', 'i18n', 'config.json');
-  if (!fs.existsSync(configPath)) return [];
-  try {
-    const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
-    return Array.isArray(config.targetLanguages)
-      ? config.targetLanguages.map((lang) => String(lang).toLowerCase())
-      : [];
-  } catch (_error) {
-    return [];
-  }
-}
-
-const i18nLanguages = stagedOnly ? loadI18nLanguages() : [];
-
-function shouldRunDocsNavigation() {
-  if (!stagedOnly) return true;
-  return stagedRelPaths.has('docs.json');
-}
-
-function shouldRunGeneratedBannerChecks() {
-  if (!stagedOnly) return true;
-  if (stagedRelPaths.size === 0) return false;
-
-  const generatorFiles = new Set([
-    'tools/scripts/enforce-generated-file-banners.js',
-    'tools/lib/generated-file-banners.js',
-    'tools/scripts/generate-docs-guide-indexes.js',
-    'tools/scripts/generate-docs-guide-pages-index.js',
-    'tools/scripts/generate-docs-guide-components-index.js',
-    'tools/scripts/generate-pages-index.js',
-    'tests/unit/script-docs.test.js'
-  ]);
-
-  for (const rel of stagedRelPaths) {
-    if (generatorFiles.has(rel)) return true;
-    if (rel.startsWith('docs-guide/indexes/')) return true;
-    if (rel === 'v2/index.mdx') return true;
-    if (/^v2\/[^/]+\/index\.mdx$/.test(rel)) return true;
-    if (rel === 'v2/resources/documentation-guide/component-library/overview.mdx') return true;
-    if (i18nLanguages.length && i18nLanguages.some((lang) => rel.startsWith(`v2/${lang}/`))) {
-      return true;
-    }
-  }
-
-  return false;
-}
 
 /**
  * Run all tests
@@ -170,14 +103,10 @@ async function runAllTests() {
 
   // Docs Navigation Validation
   console.log('\n🧭 Running Docs Navigation Validation...');
-  if (shouldRunDocsNavigation()) {
-    const docsNavigationResult = docsNavigationTests.runTests({ writeReport: false });
-    totalErrors += docsNavigationResult.errors.length;
-    totalWarnings += docsNavigationResult.warnings.length;
-    console.log(`   ${docsNavigationResult.errors.length} errors, ${docsNavigationResult.warnings.length} warnings`);
-  } else {
-    console.log('   skipped (docs.json not staged)');
-  }
+  const docsNavigationResult = docsNavigationTests.runTests({ writeReport: false });
+  totalErrors += docsNavigationResult.errors.length;
+  totalWarnings += docsNavigationResult.warnings.length;
+  console.log(`   ${docsNavigationResult.errors.length} errors, ${docsNavigationResult.warnings.length} warnings`);
 
   // Script Docs Enforcement
   console.log('\n🧾 Running Script Documentation Enforcement...');
@@ -199,22 +128,18 @@ async function runAllTests() {
 
   // Generated Banner Enforcement
   console.log('\n🏷️  Running Generated Banner Enforcement...');
-  if (shouldRunGeneratedBannerChecks()) {
-    const generatedBannerCheck = spawnSync(
-      'node',
-      ['tools/scripts/enforce-generated-file-banners.js', '--check'],
-      { cwd: REPO_ROOT, encoding: 'utf8' }
-    );
-    if (generatedBannerCheck.stdout) process.stdout.write(generatedBannerCheck.stdout);
-    if (generatedBannerCheck.stderr) process.stderr.write(generatedBannerCheck.stderr);
-    if (generatedBannerCheck.status !== 0) {
-      totalErrors += 1;
-      console.log('   1 error, 0 warnings');
-    } else {
-      console.log('   0 errors, 0 warnings');
-    }
+  const generatedBannerCheck = spawnSync(
+    'node',
+    ['tools/scripts/enforce-generated-file-banners.js', '--check'],
+    { cwd: REPO_ROOT, encoding: 'utf8' }
+  );
+  if (generatedBannerCheck.stdout) process.stdout.write(generatedBannerCheck.stdout);
+  if (generatedBannerCheck.stderr) process.stderr.write(generatedBannerCheck.stderr);
+  if (generatedBannerCheck.status !== 0) {
+    totalErrors += 1;
+    console.log('   1 error, 0 warnings');
   } else {
-    console.log('   skipped (no relevant staged files)');
+    console.log('   0 errors, 0 warnings');
   }
   
   // Browser Tests (optional)

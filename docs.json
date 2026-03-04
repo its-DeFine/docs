@@ -2655,11 +2655,7 @@
                         "icon": "coins",
                         "pages": [
                           "v2/gateways/payments/index",
-                          "v2/gateways/payments/payments-overview",
-                          "v2/gateways/payments/how-payments-work",
-                          "v2/gateways/payments/remote-signers",
-                          "v2/gateways/payments/payment-clearinghouse",
-                          "v2/gateways/payments/naap-platform"
+                          "v2/gateways/run-a-gateway/payments/payment-clearinghouse"
                         ]
                       },
                       {
@@ -2743,9 +2739,9 @@
                         "pages": [
                           "v2/gateways/gateway-tools/explorer",
                           "v2/gateways/gateway-tools/livepeer-tools",
-                          "v2/gateways/guides-and-resources/faq",
-                          "v2/gateways/guides-and-resources/gateway-job-pipelines/overview",
-                          "v2/gateways/guides-and-resources/gateway-job-pipelines/byoc"
+                          "v2/gateways/guides-and-tools/faq",
+                          "v2/gateways/guides-and-tools/gateway-job-pipelines/overview",
+                          "v2/gateways/guides-and-tools/gateway-job-pipelines/byoc"
                         ]
                       },
                       {
@@ -2843,8 +2839,7 @@
                           "v2/orchestrators/about-orchestrators/orchestrator-functions",
                           "v2/orchestrators/about-orchestrators/architecture",
                           "v2/orchestrators/about-orchestrators/economics",
-                          "v2/orchestrators/about-orchestrators/job-types",
-                          "v2/orchestrators/about-orchestrators/naap-platform"
+                          "v2/orchestrators/about-orchestrators/job-types"
                         ]
                       },
                       {
@@ -2853,9 +2848,9 @@
                         "pages": [
                           "v2/orchestrators/quickstart/overview",
                           "v2/orchestrators/quickstart/join-a-pool",
-                          "v2/orchestrators/quickstart/transcoding",
-                          "v2/orchestrators/quickstart/realtime-ai",
-                          "v2/orchestrators/quickstart/batch-ai"
+                          "v2/orchestrators/quickstart/orchestrator-setup",
+                          "v2/orchestrators/quickstart/realtime-ai-quickstart",
+                          "v2/orchestrators/quickstart/batch-ai-quickstart"
                         ]
                       },
                       {
@@ -3184,7 +3179,7 @@
                         "group": "Gateway References",
                         "icon": "wand-magic-sparkles",
                         "pages": [
-                          "v2/gateways/guides-and-resources/gateway-job-pipelines/overview"
+                          "v2/gateways/guides-and-tools/gateway-job-pipelines/overview"
                         ]
                       },
                       {
@@ -3742,9 +3737,9 @@
                         "pages": [
                           "v2/es/gateways/gateway-tools/explorer",
                           "v2/es/gateways/gateway-tools/livepeer-tools",
-                          "v2/es/gateways/guides-and-resources/community-guides",
-                          "v2/es/gateways/guides-and-resources/community-projects",
-                          "v2/es/gateways/guides-and-resources/faq"
+                          "v2/es/gateways/guides-and-tools/community-guides",
+                          "v2/es/gateways/guides-and-tools/community-projects",
+                          "v2/es/gateways/guides-and-tools/faq"
                         ]
                       },
                       {
@@ -4160,7 +4155,7 @@
                         "group": "Gateway References",
                         "icon": "wand-magic-sparkles",
                         "pages": [
-                          "v2/gateways/guides-and-resources/gateway-job-pipelines/overview"
+                          "v2/gateways/guides-and-tools/gateway-job-pipelines/overview"
                         ]
                       },
                       {
@@ -4990,9 +4985,9 @@
                         "pages": [
                           "v2/fr/gateways/gateway-tools/explorer",
                           "v2/fr/gateways/gateway-tools/livepeer-tools",
-                          "v2/fr/gateways/guides-and-resources/community-guides",
-                          "v2/fr/gateways/guides-and-resources/community-projects",
-                          "v2/fr/gateways/guides-and-resources/faq"
+                          "v2/fr/gateways/guides-and-tools/community-guides",
+                          "v2/fr/gateways/guides-and-tools/community-projects",
+                          "v2/fr/gateways/guides-and-tools/faq"
                         ]
                       },
                       {
@@ -5408,7 +5403,7 @@
                         "group": "Gateway References",
                         "icon": "wand-magic-sparkles",
                         "pages": [
-                          "v2/gateways/guides-and-resources/gateway-job-pipelines/overview"
+                          "v2/gateways/guides-and-tools/gateway-job-pipelines/overview"
                         ]
                       },
                       {
@@ -6522,9 +6517,9 @@
                         "pages": [
                           "v2/cn/gateways/gateway-tools/explorer",
                           "v2/cn/gateways/gateway-tools/livepeer-tools",
-                          "v2/cn/gateways/guides-and-resources/community-guides",
-                          "v2/cn/gateways/guides-and-resources/community-projects",
-                          "v2/gateways/guides-and-resources/faq"
+                          "v2/cn/gateways/guides-and-tools/community-guides",
+                          "v2/cn/gateways/guides-and-tools/community-projects",
+                          "v2/gateways/guides-and-tools/faq"
                         ]
                       },
                       {
@@ -6940,7 +6935,7 @@
                         "group": "Gateway References",
                         "icon": "wand-magic-sparkles",
                         "pages": [
-                          "v2/gateways/guides-and-resources/gateway-job-pipelines/overview"
+                          "v2/gateways/guides-and-tools/gateway-job-pipelines/overview"
                         ]
                       },
                       {
@@ -7212,34 +7207,6 @@
     {
       "source": "/v2/pages/08_help/redirect",
       "destination": "/v2/pages/08_help/README"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/payments/payment-clearinghouse",
-      "destination": "/v2/gateways/payments/payment-clearinghouse"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/how-payments-work",
-      "destination": "/v2/gateways/payments/how-payments-work"
-    },
-    {
-      "source": "/v2/gateways/run-a-gateway/remote-signers",
-      "destination": "/v2/gateways/payments/remote-signers"
-    },
-    {
-      "source": "/v2/gateways/about-gateways/naap-platform",
-      "destination": "/v2/gateways/payments/naap-platform"
-    },
-    {
-      "source": "/v2/orchestrators/quickstart/orchestrator-setup",
-      "destination": "/v2/orchestrators/quickstart/transcoding"
-    },
-    {
-      "source": "/v2/orchestrators/quickstart/realtime-ai-quickstart",
-      "destination": "/v2/orchestrators/quickstart/realtime-ai"
-    },
-    {
-      "source": "/v2/orchestrators/quickstart/batch-ai-quickstart",
-      "destination": "/v2/orchestrators/quickstart/batch-ai"
     },
     {
       "source": "/v1/guides/developing/quickstart",
