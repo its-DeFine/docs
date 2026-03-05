@@ -38,18 +38,6 @@ bash lpd setup --yes
 lpd dev
 ```
 
-For very large `docs.json` runs (multi-version/language) use scoped dev profile mode:
-
-```bash
-lpd dev --scoped --scope-version v2 --scope-language en --scope-tab Developers
-```
-
-Interactive scoped picker:
-
-```bash
-lpd dev --scoped --scope-interactive
-```
-
 If `lpd` is not on PATH yet:
 
 ```bash
@@ -81,11 +69,6 @@ Recovery:
 
 1. Use `lpd dev` (or `bash tools/scripts/mint-dev.sh`) so the launcher applies the patch preflight and uses a watcher-safe path fallback.
 2. Re-run `bash tools/scripts/dev/ensure-mint-watcher-patch.sh --apply` after `mint update`.
-
-For very large docs trees with sluggish route transitions:
-
-1. Run `lpd dev --scoped ...` to load only the active version/language/tab/prefix.
-2. Add `--skip-external-fetch` during local iterations when external snippets do not need refresh.
 
 ## Core Capabilities (At a Glance)
 
@@ -155,7 +138,6 @@ For agent implementation branches, use:
 - branch name: `codex/<issue-id>-<slug>`
 - task contract file: `.codex/task-contract.yaml`
 - required PR sections: `Scope`, `Validation`, `Follow-up Tasks`
-- override policy (human-directed only): `ai-tools/ai-rules/HUMAN-OVERRIDE-POLICY.md`
 
 Enforcement runs on `codex/*` only via:
 
@@ -170,11 +152,6 @@ node tools/scripts/create-codex-pr.js --create
 
 This generates `.codex/pr-body.generated.md` and calls `gh pr create --body-file ...`.
 Codex PR CI also requires the generated marker in the PR body, so manual bodies without the marker fail contract validation.
-
-When a human explicitly requests merge or no-verify commit operations:
-
-- safe merge flow: `node tools/scripts/codex-safe-merge-with-stash.js --target <branch-or-ref>`
-- audited no-verify commit flow: `node tools/scripts/codex-commit.js --message "..." --no-verify --human-override true --override-note "..."`
 
 Contributor deep docs:
 

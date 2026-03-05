@@ -1,148 +1,104 @@
 ---
 title: 'Quality Gates Map'
 sidebarTitle: 'Quality Gates'
-description: 'This document maps local and CI enforcement behaviour and whether checks are blocking or advisory.'
+description: 'Layered quality gate map aligned to first-principles ownership and runtime budgets.'
 keywords:
   [
     'livepeer',
     'quality gates',
-    'internal',
-    'map',
-    'quality',
-    'gates',
+    'hooks',
+    'ci',
+    'ownership',
     'enforcement',
-    'behavior',
+    'runtime budget',
   ]
 ---
 
+## Canonical Policy
+
+Primary policy source:
+
+- `docs-guide/quality-testing/infrastructure-principles.mdx`
+
+This page is the operational map. Rule ownership and budgets are canonical in the policy file above.
+
 ## Gate Layers
 
-### 1) Pre-commit (local)
+### 1) Pre-commit (Local, Fast, Offline)
 
 Entry:
 
 - `.githooks/pre-commit`
 
-Key checks:
+Responsibilities:
 
-- repository structure rules
-- style guide checks
-- syntax/verification checks (`.githooks/verify.sh`)
-- staged test suite (`tests/run-all.js --staged --skip-browser`)
-- staged link/domain/WCAG audits
-- staged WCAG audit runs `tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious ...`
-- script docs enforcement
-- pages index synchronization
+- staged structure and style invariants
+- staged unit/static checks (`tests/run-all.js --staged --skip-browser`)
+- staged generated-artifact sync checks
+- runtime budget enforcement (`<= 60s` default)
 
-Blocking policy:
+Out of scope:
 
-- blocking for structural/style/test failures
-- blocking for staged WCAG runtime failures and remaining `serious`/`critical` accessibility findings after conservative autofix
-- `color-contrast` findings are advisory-only (non-blocking) in the WCAG audit until color updates are approved
-- docs-guide SoT check currently advisory
+- browser sweeps
+- WCAG crawl/audit flows
+- full/broad link sweeps
+- codex issue-readiness governance
 
-### 2) PR Changed-File Checks
+### 2) Pre-push (`codex/*` Governance)
 
 Entry:
 
+- `.githooks/pre-push`
+
+Responsibilities:
+
+- codex task-contract validation
+- codex issue-readiness validation
+- lock overlap validation
+- stash-policy enforcement
+- non-fast-forward push blocking by default
+
+### 3) PR Changed-File CI (Blocking)
+
+Entries:
+
+- `.github/workflows/test-suite.yml`
 - `tests/run-pr-checks.js`
-- `.github/workflows/test-suite.yml` (PR mode)
 
-Key checks:
+Responsibilities:
 
-- style, MDX, spelling, quality, links/imports (changed scope)
-- MDX guardrails + docs navigation checks
-- script docs checks on changed scripts
-- strict link audit on changed docs pages
-- docs-guide SoT check currently advisory
+- blocking changed-file checks for style/MDX/spelling/quality/links/imports
+- docs navigation and script-doc checks
+- codex contract + PR-body + issue-state checks
 
-Blocking policy:
+### 4) Full/Broad CI Sweeps (Blocking or Advisory by Workflow)
 
-- blocking for failed required checks
-- advisory behavior for integration PR exceptions and docs-guide SoT check
+Primary entries:
 
-### 3) Browser Validation / Sweeps
-
-Entries:
-
-- `tests/integration/browser.test.js`
-- `tools/scripts/test-v2-pages.js`
 - `.github/workflows/test-v2-pages.yml`
-
-Blocking policy:
-
-- browser failures are treated as blocking in primary CI flows
-
-### 4) OpenAPI Reference Integrity (V2 + Locales)
-
-Entries:
-
-- `tests/integration/openapi-reference-audit.js`
 - `.github/workflows/openapi-reference-validation.yml`
+- `.github/workflows/v2-external-link-audit.yml`
+- `.github/workflows/broken-links.yml`
 
-What it validates:
+Responsibilities:
 
-- endpoint-form OpenAPI references in frontmatter and `<OpenAPI ...>` components
-- canonical file-path to spec mapping
-- exact method+path presence in mapped local spec
-- `intra-file-openapi-mismatch` between frontmatter and component in the same page
+- browser/render integrity across route sets
+- OpenAPI reference integrity
+- broad link health and scheduled external checks
 
-Run triggers:
+## Blocking Defaults
 
-- pull requests to `main` and `docs-v2`
-- pushes to `main` and `docs-v2`
-- daily schedule at `04:35 UTC`
-- manual `workflow_dispatch`
-
-Autofix boundaries:
-
-- only method casing normalization
-- only single-space `METHOD /path` normalization
-- only missing leading slash normalization
-- no semantic endpoint-path rewrites
-
-Rolling issue behavior:
-
-- single marker issue `<!-- openapi-reference-audit -->`
-- open/update on unresolved failures
-- add resolution comment + close when run is clean
-
-Blocking policy:
-
-- unresolved findings are blocking for PR/push workflow outcomes
-
-Triage for `endpoint-not-found-in-spec`:
-
-1. verify `resolvedSpec` from report
-2. verify endpoint presence in mapped spec
-3. update both frontmatter `openapi` and `<OpenAPI path=...>` together
-4. retire endpoint pages and locale variants when endpoint is intentionally removed
-5. rerun strict audit until clean
+- `P0/P1` checks are blocking where they are owned.
+- `P2` checks may be blocking or advisory based on rollout state.
+- `P3` checks are advisory unless explicitly graduated.
 
 ## Source Files
 
 - `.githooks/pre-commit`
-- `.githooks/verify.sh`
+- `.githooks/pre-push`
 - `tests/run-all.js`
 - `tests/run-pr-checks.js`
-- `tests/integration/v2-wcag-audit.js`
 - `.github/workflows/test-suite.yml`
 - `.github/workflows/test-v2-pages.yml`
 - `.github/workflows/openapi-reference-validation.yml`
-- `tests/WHEN-TESTS-RUN.md`
-- `tests/PR-CI-TESTS-AND-SCRIPT-RUN-MATRIX.md`
-
-## Guardrails for Docs SoT
-
-Guardrail checks are implemented in:
-
-- `tests/unit/docs-guide-sot.test.js`
-
-Generated-index freshness is checked through:
-
-- `tools/scripts/generate-docs-guide-indexes.js --check`
-
-Advisory rollout intent:
-
-1. advisory in pre-commit + CI summaries
-2. switch to blocking once docs-guide structure stabilizes and drift rate is low
+- `docs-guide/quality-testing/infrastructure-principles.mdx`

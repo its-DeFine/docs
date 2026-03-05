@@ -547,14 +547,6 @@
                         ]
                       },
                       {
-                        "group": "Quickstart ⚡",
-                        "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
-                        "pages": [
-                          "v2/gateways/quickstart/gateway-setup",
-                          "v2/gateways/quickstart/AI-prompt"
-                        ]
-                      },
-                      {
                         "group": "Public Gateways",
                         "icon": "wand-magic-sparkles",
                         "pages": [
@@ -570,17 +562,17 @@
                         ]
                       },
                       {
+                        "group": "Operate Quickstart ⚡",
+                        "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg",
+                        "pages": [
+                          "v2/gateways/quickstart/gateway-setup",
+                          "v2/gateways/quickstart/AI-prompt"
+                        ]
+                      },
+                      {
                         "group": "Run A Gateway",
                         "icon": "sign-posts-wrench",
                         "pages": [
-                          {
-                            "group": "Quickstart",
-                            "icon": "fast-forward",
-                            "pages": [
-                              "v2/gateways/quickstart/gateway-setup",
-                              "v2/gateways/quickstart/AI-prompt"
-                            ]
-                          },
                           {
                             "group": "Gateway Setup Guide",
                             "expanded": true,
@@ -645,22 +637,24 @@
                         ]
                       },
                       {
-                        "group": "Payments",
-                        "icon": "coins",
-                        "pages": [
-                          "v2/gateways/payments/how-payments-work",
-                          "v2/gateways/payments/payment-clearinghouse"
-                        ]
-                      },
-                      {
-                        "group": "Gateway Tools & Resources",
+                        "group": "Guides and Tools",
                         "icon": "tools",
                         "pages": [
-                          "v2/gateways/gateway-tools/explorer",
-                          "v2/gateways/gateway-tools/livepeer-tools",
-                          "v2/gateways/guides-and-tools/faq",
-                          "v2/gateways/guides-and-tools/gateway-job-pipelines/overview",
-                          "v2/gateways/guides-and-tools/gateway-job-pipelines/byoc"
+                          {
+                            "group": "Dashboards",
+                            "pages": [
+                              "v2/gateways/gateway-tools/explorer",
+                              "v2/gateways/gateway-tools/livepeer-tools"
+                            ]
+                          },
+                          {
+                            "group": "Payments",
+                            "icon": "coins",
+                            "pages": [
+                              "v2/gateways/payments/how-payments-work",
+                              "v2/gateways/payments/payment-clearinghouse"
+                            ]
+                          }
                         ]
                       },
                       {
