@@ -14,6 +14,2053 @@
   "navigation": {
     "versions": [
       {
+        "version": "v1",
+        "default": true,
+        "languages": [
+          {
+            "language": "en",
+            "dropdowns": [
+              {
+                "dropdown": "Developers",
+                "icon": "code",
+                "anchors": [
+                  {
+                    "anchor": "Documentation",
+                    "icon": "code",
+                    "groups": [
+                      {
+                        "group": "Getting Started",
+                        "pages": [
+                          "v1/developers/introduction",
+                          "v1/developers/quick-start",
+                          "v1/developers/livepeer-studio-cli"
+                        ]
+                      },
+                      {
+                        "group": "Guides",
+                        "pages": [
+                          "v1/developers/guides/overview",
+                          {
+                            "group": "Assets",
+                            "icon": "video",
+                            "pages": [
+                              "v1/developers/guides/upload-video-asset",
+                              "v1/developers/guides/playback-an-asset",
+                              "v1/developers/guides/listen-to-asset-events",
+                              "v1/developers/guides/encrypted-asset",
+                              "v1/developers/guides/thumbnails-vod"
+                            ]
+                          },
+                          {
+                            "group": "Livestream",
+                            "icon": "camera",
+                            "pages": [
+                              "v1/developers/guides/create-livestream",
+                              "v1/developers/guides/playback-a-livestream",
+                              "v1/developers/guides/stream-via-obs",
+                              "v1/developers/guides/livestream-from-browser",
+                              "v1/developers/guides/optimize-latency-of-a-livestream",
+                              "v1/developers/guides/monitor-stream-health",
+                              "v1/developers/guides/listen-to-stream-events",
+                              "v1/developers/guides/multistream",
+                              "v1/developers/guides/clip-a-livestream",
+                              "v1/developers/guides/thumbnails-live"
+                            ]
+                          },
+                          {
+                            "group": "Access control",
+                            "icon": "lock",
+                            "pages": [
+                              "v1/developers/guides/access-control-webhooks",
+                              "v1/developers/guides/access-control-jwt"
+                            ]
+                          },
+                          {
+                            "group": "Webhooks",
+                            "icon": "bell",
+                            "pages": [
+                              "v1/developers/guides/setup-and-listen-to-webhooks"
+                            ]
+                          },
+                          {
+                            "group": "Transcode API",
+                            "icon": "photo-film",
+                            "pages": [
+                              "v1/developers/guides/transcode-video-storj",
+                              "v1/developers/guides/transcode-video-w3s"
+                            ]
+                          },
+                          {
+                            "group": "Viewership Metrics",
+                            "icon": "chart-bar",
+                            "pages": [
+                              "v1/developers/guides/get-engagement-analytics-via-api",
+                              "v1/developers/guides/get-engagement-analytics-via-grafana",
+                              "v1/developers/guides/get-engagement-analytics-via-timeplus"
+                            ]
+                          },
+                          {
+                            "group": "Projects",
+                            "icon": "folder-open",
+                            "pages": ["v1/developers/guides/managing-projects"]
+                          },
+                          {
+                            "group": "Integrations",
+                            "icon": "puzzle-piece",
+                            "pages": [
+                              "v1/developers/tutorials/decentralized-app-with-fvm",
+                              "v1/developers/tutorials/token-gate-videos-with-lit",
+                              {
+                                "group": "Storage Provider Integration",
+                                "pages": [
+                                  "v1/developers/tutorials/upload-playback-videos-4everland",
+                                  "v1/developers/tutorials/upload-playback-videos-on-arweave",
+                                  "v1/developers/tutorials/upload-playback-videos-on-ipfs"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "References",
+                        "pages": [
+                          "v1/references/api-support-matrix",
+                          {
+                            "group": "Livepeer Node Software",
+                            "icon": "golang",
+                            "pages": [
+                              "v1/references/go-livepeer/bandwidth-requirements",
+                              "v1/references/go-livepeer/cli-reference",
+                              "v1/references/go-livepeer/gpu-support",
+                              "v1/references/go-livepeer/hardware-requirements",
+                              "v1/references/go-livepeer/prometheus-metrics"
+                            ]
+                          },
+                          "v1/references/contract-addresses",
+                          "v1/references/example-applications",
+                          "v1/references/awesome-livepeer",
+                          {
+                            "group": "FAQs",
+                            "icon": "book",
+                            "pages": [
+                              "v1/references/knowledge-base/livestream",
+                              "v1/references/knowledge-base/playback",
+                              "v1/references/knowledge-base/vod"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "API Reference",
+                    "icon": "rectangle-terminal",
+                    "groups": [
+                      {
+                        "group": "Overview",
+                        "pages": [
+                          "v1/api-reference/overview/introduction",
+                          "v1/api-reference/overview/authentication"
+                        ]
+                      },
+                      {
+                        "group": "APIs",
+                        "pages": [
+                          {
+                            "group": "Asset",
+                            "icon": "video",
+                            "pages": [
+                              "v1/api-reference/asset/overview",
+                              "v1/api-reference/asset/upload",
+                              "v1/api-reference/asset/upload-via-url",
+                              "v1/api-reference/asset/get",
+                              "v1/api-reference/asset/update",
+                              "v1/api-reference/asset/delete",
+                              "v1/api-reference/asset/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Livestream",
+                            "icon": "camera",
+                            "pages": [
+                              "v1/api-reference/stream/overview",
+                              "v1/api-reference/stream/create",
+                              "v1/api-reference/stream/get",
+                              "v1/api-reference/stream/update",
+                              "v1/api-reference/stream/terminate",
+                              "v1/api-reference/stream/add-multistream-target",
+                              "v1/api-reference/stream/delete-multistream-target",
+                              "v1/api-reference/stream/delete",
+                              "v1/api-reference/stream/get-all",
+                              "v1/api-reference/stream/create-clip",
+                              "v1/api-reference/stream/get-clip"
+                            ]
+                          },
+                          {
+                            "group": "Generate",
+                            "icon": "microchip-ai",
+                            "pages": [
+                              "v1/api-reference/generate/overview",
+                              "v1/api-reference/generate/audio-to-text",
+                              "v1/api-reference/generate/text-to-image",
+                              "v1/api-reference/generate/image-to-image",
+                              "v1/api-reference/generate/image-to-video",
+                              "v1/api-reference/generate/llm",
+                              "v1/api-reference/generate/segment-anything-2",
+                              "v1/api-reference/generate/upscale"
+                            ]
+                          },
+                          {
+                            "group": "Multistream target",
+                            "icon": "arrows-split-up-and-left",
+                            "pages": [
+                              "v1/api-reference/multistream/overview",
+                              "v1/api-reference/multistream/create",
+                              "v1/api-reference/multistream/get",
+                              "v1/api-reference/multistream/update",
+                              "v1/api-reference/multistream/delete",
+                              "v1/api-reference/multistream/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Session",
+                            "icon": "film",
+                            "pages": [
+                              "v1/api-reference/session/overview",
+                              "v1/api-reference/session/get",
+                              "v1/api-reference/session/get-all",
+                              "v1/api-reference/session/get-recording",
+                              "v1/api-reference/session/get-clip"
+                            ]
+                          },
+                          {
+                            "group": "Access control",
+                            "icon": "lock",
+                            "pages": [
+                              "v1/api-reference/signing-key/overview",
+                              "v1/api-reference/signing-key/create",
+                              "v1/api-reference/signing-key/get",
+                              "v1/api-reference/signing-key/update",
+                              "v1/api-reference/signing-key/delete",
+                              "v1/api-reference/signing-key/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Webhook",
+                            "icon": "bell",
+                            "pages": [
+                              "v1/api-reference/webhook/overview",
+                              "v1/api-reference/webhook/create",
+                              "v1/api-reference/webhook/get",
+                              "v1/api-reference/webhook/update",
+                              "v1/api-reference/webhook/delete",
+                              "v1/api-reference/webhook/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Task",
+                            "icon": "gear",
+                            "pages": [
+                              "v1/api-reference/task/overview",
+                              "v1/api-reference/task/get-all",
+                              "v1/api-reference/task/get"
+                            ]
+                          },
+                          {
+                            "group": "Playback",
+                            "icon": "play",
+                            "pages": [
+                              "v1/api-reference/playback/overview",
+                              "v1/api-reference/playback/get"
+                            ]
+                          },
+                          {
+                            "group": "Transcode",
+                            "icon": "photo-film",
+                            "pages": [
+                              "v1/api-reference/transcode/overview",
+                              "v1/api-reference/transcode/create"
+                            ]
+                          },
+                          {
+                            "group": "Viewership",
+                            "icon": "chart-bar",
+                            "pages": [
+                              "v1/api-reference/viewership/get-realtime-viewership",
+                              "v1/api-reference/viewership/get-viewership-metrics",
+                              "v1/api-reference/viewership/get-usage-metrics",
+                              "v1/api-reference/viewership/get-public-total-views",
+                              "v1/api-reference/viewership/get-creators-metrics"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "SDKs",
+                    "icon": "brackets-curly",
+                    "groups": [
+                      {
+                        "group": "Overview",
+                        "pages": ["v1/sdks/introduction"]
+                      },
+                      {
+                        "group": "Server-side SDKs",
+                        "pages": [
+                          "v1/sdks/javascript",
+                          "v1/sdks/go",
+                          "v1/sdks/python"
+                        ]
+                      },
+                      {
+                        "group": "React Components",
+                        "icon": "circle-play",
+                        "pages": [
+                          "v1/sdks/react/getting-started",
+                          {
+                            "group": "Player",
+                            "icon": "circle-play",
+                            "pages": [
+                              "v1/sdks/react/player/Root",
+                              "v1/sdks/react/player/Container",
+                              "v1/sdks/react/player/Video",
+                              "v1/sdks/react/player/Error",
+                              "v1/sdks/react/player/Loading",
+                              "v1/sdks/react/player/Portal",
+                              "v1/sdks/react/player/Poster",
+                              {
+                                "group": "Controls",
+                                "pages": [
+                                  "v1/sdks/react/player/Controls",
+                                  "v1/sdks/react/player/Clip",
+                                  "v1/sdks/react/player/Fullscreen",
+                                  "v1/sdks/react/player/Live",
+                                  "v1/sdks/react/player/PictureInPicture",
+                                  "v1/sdks/react/player/Play",
+                                  "v1/sdks/react/player/RateSelect",
+                                  "v1/sdks/react/player/Seek",
+                                  "v1/sdks/react/player/Time",
+                                  "v1/sdks/react/player/VideoQualitySelect",
+                                  "v1/sdks/react/player/Volume"
+                                ]
+                              },
+                              {
+                                "group": "Functions",
+                                "pages": [
+                                  "v1/sdks/react/player/get-src",
+                                  "v1/sdks/react/player/useMediaContext"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "group": "Broadcast",
+                            "icon": "signal-stream",
+                            "pages": [
+                              "v1/sdks/react/broadcast/Root",
+                              "v1/sdks/react/broadcast/Container",
+                              "v1/sdks/react/broadcast/Video",
+                              "v1/sdks/react/broadcast/Enabled",
+                              "v1/sdks/react/broadcast/Error",
+                              "v1/sdks/react/broadcast/Loading",
+                              "v1/sdks/react/broadcast/Portal",
+                              {
+                                "group": "Controls",
+                                "pages": [
+                                  "v1/sdks/react/broadcast/Controls",
+                                  "v1/sdks/react/broadcast/Audio",
+                                  "v1/sdks/react/broadcast/Camera",
+                                  "v1/sdks/react/broadcast/Fullscreen",
+                                  "v1/sdks/react/broadcast/PictureInPicture",
+                                  "v1/sdks/react/broadcast/Screenshare",
+                                  "v1/sdks/react/broadcast/Source",
+                                  "v1/sdks/react/broadcast/Status"
+                                ]
+                              },
+                              {
+                                "group": "Functions",
+                                "pages": [
+                                  "v1/sdks/react/broadcast/get-ingest",
+                                  "v1/sdks/react/broadcast/useBroadcastContext"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "group": "Examples",
+                            "icon": "clipboard",
+                            "pages": [
+                              "v1/sdks/react/Player",
+                              "v1/sdks/react/Broadcast"
+                            ]
+                          },
+                          {
+                            "group": "Migration",
+                            "icon": "right-left",
+                            "pages": [
+                              "v1/sdks/react/migration/migration-4.x",
+                              {
+                                "group": "Livepeer React (3.x and below)",
+                                "pages": [
+                                  "v1/sdks/react/migration/3.x/getting-started",
+                                  "v1/sdks/react/migration/3.x/client",
+                                  "v1/sdks/react/migration/3.x/LivepeerConfig",
+                                  "v1/sdks/react/migration/3.x/Player",
+                                  "v1/sdks/react/migration/3.x/Broadcast",
+                                  {
+                                    "group": "Asset",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/asset/useCreateAsset",
+                                      "v1/sdks/react/migration/3.x/asset/useAsset",
+                                      "v1/sdks/react/migration/3.x/asset/useUpdateAsset",
+                                      "v1/sdks/react/migration/3.x/asset/useAssetMetrics"
+                                    ]
+                                  },
+                                  {
+                                    "group": "Stream",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/stream/useCreateStream",
+                                      "v1/sdks/react/migration/3.x/stream/useStream",
+                                      "v1/sdks/react/migration/3.x/stream/useUpdateStream",
+                                      "v1/sdks/react/migration/3.x/stream/useStreamSession",
+                                      "v1/sdks/react/migration/3.x/stream/useStreamSessions"
+                                    ]
+                                  },
+                                  {
+                                    "group": "Playback",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/playback/usePlaybackInfo"
+                                    ]
+                                  },
+                                  {
+                                    "group": "Constants",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/constants/abis",
+                                      "v1/sdks/react/migration/3.x/constants/contract-addresses"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "AI Video (Beta)",
+                    "icon": {
+                      "name": "microchip-ai",
+                      "style": "regular"
+                    },
+                    "groups": [
+                      {
+                        "group": "AI Video",
+                        "pages": [
+                          "v1/ai/introduction",
+                          "v1/ai/whats-new",
+                          {
+                            "group": "AI Pipelines",
+                            "icon": {
+                              "name": "wand-magic-sparkles",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/pipelines/overview",
+                              "v1/ai/pipelines/audio-to-text",
+                              "v1/ai/pipelines/image-to-image",
+                              "v1/ai/pipelines/image-to-text",
+                              "v1/ai/pipelines/image-to-video",
+                              "v1/ai/pipelines/llm",
+                              "v1/ai/pipelines/segment-anything-2",
+                              "v1/ai/pipelines/text-to-image",
+                              "v1/ai/pipelines/text-to-speech",
+                              "v1/ai/pipelines/upscale"
+                            ]
+                          },
+                          {
+                            "group": "Setup an AI Orchestrator",
+                            "icon": {
+                              "name": "robot",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/orchestrators/get-started",
+                              "v1/ai/orchestrators/models-config",
+                              "v1/ai/orchestrators/models-download",
+                              "v1/ai/orchestrators/start-orchestrator",
+                              "v1/ai/orchestrators/ai-worker",
+                              "v1/ai/orchestrators/benchmarking",
+                              "v1/ai/orchestrators/onchain"
+                            ]
+                          },
+                          {
+                            "group": "Setup an AI Gateway",
+                            "icon": {
+                              "name": "signal-stream",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/gateways/get-started",
+                              "v1/ai/gateways/start-gateway",
+                              "v1/ai/gateways/onchain"
+                            ]
+                          },
+                          {
+                            "group": "AI Builders",
+                            "icon": {
+                              "name": "screwdriver-wrench",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/builders/get-started",
+                              "v1/ai/builders/gateways",
+                              "v1/ai/builders/showcase"
+                            ]
+                          },
+                          {
+                            "group": "How to Contribute",
+                            "icon": {
+                              "name": "heart",
+                              "style": "solid"
+                            },
+                            "pages": ["v1/ai/contributors/coming-soon"]
+                          },
+                          {
+                            "group": "SDKs",
+                            "icon": "brackets-curly",
+                            "pages": [
+                              "v1/ai/sdks/overview",
+                              "v1/ai/sdks/go",
+                              "v1/ai/sdks/javascript",
+                              "v1/ai/sdks/python"
+                            ]
+                          },
+                          {
+                            "group": "AI API Reference",
+                            "icon": "rectangle-terminal",
+                            "pages": [
+                              "v1/ai/api-reference/overview",
+                              "v1/ai/api-reference/audio-to-text",
+                              "v1/ai/api-reference/image-to-image",
+                              "v1/ai/api-reference/image-to-text",
+                              "v1/ai/api-reference/image-to-video",
+                              "v1/ai/api-reference/llm",
+                              "v1/ai/api-reference/segment-anything-2",
+                              "v1/ai/api-reference/text-to-image",
+                              "v1/ai/api-reference/text-to-speech",
+                              "v1/ai/api-reference/upscale"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "href": " "
+                  },
+                  {
+                    "anchor": "Livepeer Studio            ➚",
+                    "href": "https://livepeer.studio",
+                    "icon": "clapperboard-play"
+                  },
+                  {
+                    "anchor": "What's New                  ➚",
+                    "href": "https://livepeer.canny.io/changelog",
+                    "icon": "rocket"
+                  },
+                  {
+                    "anchor": "Community                   ➚",
+                    "href": "https://discord.gg/livepeer",
+                    "icon": {
+                      "name": "discord",
+                      "style": "brands"
+                    }
+                  }
+                ]
+              },
+              {
+                "dropdown": "Delegators",
+                "icon": "coins",
+                "anchors": [
+                  {
+                    "anchor": "Documentation",
+                    "icon": "code",
+                    "groups": [
+                      {
+                        "group": "Getting Started",
+                        "pages": [
+                          "v1/delegators/introduction",
+                          "v1/delegators/quick-start",
+                          "v1/delegators/livepeer-studio-cli"
+                        ]
+                      },
+                      {
+                        "group": "Guides",
+                        "pages": [
+                          "v1/delegators/guides/bridge-lpt-to-arbitrum",
+                          "v1/delegators/guides/migrate-stake-to-arbitrum",
+                          "v1/delegators/guides/yield-calculation"
+                        ]
+                      },
+                      {
+                        "group": "References",
+                        "pages": [
+                          "v1/references/api-support-matrix",
+                          {
+                            "group": "Livepeer Node Software",
+                            "icon": "golang",
+                            "pages": [
+                              "v1/references/go-livepeer/bandwidth-requirements",
+                              "v1/references/go-livepeer/cli-reference",
+                              "v1/references/go-livepeer/gpu-support",
+                              "v1/references/go-livepeer/hardware-requirements",
+                              "v1/references/go-livepeer/prometheus-metrics"
+                            ]
+                          },
+                          "v1/references/contract-addresses",
+                          "v1/references/example-applications",
+                          "v1/references/awesome-livepeer",
+                          {
+                            "group": "FAQs",
+                            "icon": "book",
+                            "pages": [
+                              "v1/references/knowledge-base/livestream",
+                              "v1/references/knowledge-base/playback",
+                              "v1/references/knowledge-base/vod"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "API Reference",
+                    "icon": "rectangle-terminal",
+                    "groups": [
+                      {
+                        "group": "Overview",
+                        "pages": [
+                          "v1/api-reference/overview/introduction",
+                          "v1/api-reference/overview/authentication"
+                        ]
+                      },
+                      {
+                        "group": "APIs",
+                        "pages": [
+                          {
+                            "group": "Asset",
+                            "icon": "video",
+                            "pages": [
+                              "v1/api-reference/asset/overview",
+                              "v1/api-reference/asset/upload",
+                              "v1/api-reference/asset/upload-via-url",
+                              "v1/api-reference/asset/get",
+                              "v1/api-reference/asset/update",
+                              "v1/api-reference/asset/delete",
+                              "v1/api-reference/asset/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Livestream",
+                            "icon": "camera",
+                            "pages": [
+                              "v1/api-reference/stream/overview",
+                              "v1/api-reference/stream/create",
+                              "v1/api-reference/stream/get",
+                              "v1/api-reference/stream/update",
+                              "v1/api-reference/stream/terminate",
+                              "v1/api-reference/stream/add-multistream-target",
+                              "v1/api-reference/stream/delete-multistream-target",
+                              "v1/api-reference/stream/delete",
+                              "v1/api-reference/stream/get-all",
+                              "v1/api-reference/stream/create-clip",
+                              "v1/api-reference/stream/get-clip"
+                            ]
+                          },
+                          {
+                            "group": "Generate",
+                            "icon": "microchip-ai",
+                            "pages": [
+                              "v1/api-reference/generate/overview",
+                              "v1/api-reference/generate/audio-to-text",
+                              "v1/api-reference/generate/text-to-image",
+                              "v1/api-reference/generate/image-to-image",
+                              "v1/api-reference/generate/image-to-video",
+                              "v1/api-reference/generate/llm",
+                              "v1/api-reference/generate/segment-anything-2",
+                              "v1/api-reference/generate/upscale"
+                            ]
+                          },
+                          {
+                            "group": "Multistream target",
+                            "icon": "arrows-split-up-and-left",
+                            "pages": [
+                              "v1/api-reference/multistream/overview",
+                              "v1/api-reference/multistream/create",
+                              "v1/api-reference/multistream/get",
+                              "v1/api-reference/multistream/update",
+                              "v1/api-reference/multistream/delete",
+                              "v1/api-reference/multistream/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Session",
+                            "icon": "film",
+                            "pages": [
+                              "v1/api-reference/session/overview",
+                              "v1/api-reference/session/get",
+                              "v1/api-reference/session/get-all",
+                              "v1/api-reference/session/get-recording",
+                              "v1/api-reference/session/get-clip"
+                            ]
+                          },
+                          {
+                            "group": "Access control",
+                            "icon": "lock",
+                            "pages": [
+                              "v1/api-reference/signing-key/overview",
+                              "v1/api-reference/signing-key/create",
+                              "v1/api-reference/signing-key/get",
+                              "v1/api-reference/signing-key/update",
+                              "v1/api-reference/signing-key/delete",
+                              "v1/api-reference/signing-key/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Webhook",
+                            "icon": "bell",
+                            "pages": [
+                              "v1/api-reference/webhook/overview",
+                              "v1/api-reference/webhook/create",
+                              "v1/api-reference/webhook/get",
+                              "v1/api-reference/webhook/update",
+                              "v1/api-reference/webhook/delete",
+                              "v1/api-reference/webhook/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Task",
+                            "icon": "gear",
+                            "pages": [
+                              "v1/api-reference/task/overview",
+                              "v1/api-reference/task/get-all",
+                              "v1/api-reference/task/get"
+                            ]
+                          },
+                          {
+                            "group": "Playback",
+                            "icon": "play",
+                            "pages": [
+                              "v1/api-reference/playback/overview",
+                              "v1/api-reference/playback/get"
+                            ]
+                          },
+                          {
+                            "group": "Transcode",
+                            "icon": "photo-film",
+                            "pages": [
+                              "v1/api-reference/transcode/overview",
+                              "v1/api-reference/transcode/create"
+                            ]
+                          },
+                          {
+                            "group": "Viewership",
+                            "icon": "chart-bar",
+                            "pages": [
+                              "v1/api-reference/viewership/get-realtime-viewership",
+                              "v1/api-reference/viewership/get-viewership-metrics",
+                              "v1/api-reference/viewership/get-usage-metrics",
+                              "v1/api-reference/viewership/get-public-total-views",
+                              "v1/api-reference/viewership/get-creators-metrics"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "SDKs",
+                    "icon": "brackets-curly",
+                    "groups": [
+                      {
+                        "group": "Overview",
+                        "pages": ["v1/sdks/introduction"]
+                      },
+                      {
+                        "group": "Server-side SDKs",
+                        "pages": [
+                          "v1/sdks/javascript",
+                          "v1/sdks/go",
+                          "v1/sdks/python"
+                        ]
+                      },
+                      {
+                        "group": "React Components",
+                        "icon": "circle-play",
+                        "pages": [
+                          "v1/sdks/react/getting-started",
+                          {
+                            "group": "Player",
+                            "icon": "circle-play",
+                            "pages": [
+                              "v1/sdks/react/player/Root",
+                              "v1/sdks/react/player/Container",
+                              "v1/sdks/react/player/Video",
+                              "v1/sdks/react/player/Error",
+                              "v1/sdks/react/player/Loading",
+                              "v1/sdks/react/player/Portal",
+                              "v1/sdks/react/player/Poster",
+                              {
+                                "group": "Controls",
+                                "pages": [
+                                  "v1/sdks/react/player/Controls",
+                                  "v1/sdks/react/player/Clip",
+                                  "v1/sdks/react/player/Fullscreen",
+                                  "v1/sdks/react/player/Live",
+                                  "v1/sdks/react/player/PictureInPicture",
+                                  "v1/sdks/react/player/Play",
+                                  "v1/sdks/react/player/RateSelect",
+                                  "v1/sdks/react/player/Seek",
+                                  "v1/sdks/react/player/Time",
+                                  "v1/sdks/react/player/VideoQualitySelect",
+                                  "v1/sdks/react/player/Volume"
+                                ]
+                              },
+                              {
+                                "group": "Functions",
+                                "pages": [
+                                  "v1/sdks/react/player/get-src",
+                                  "v1/sdks/react/player/useMediaContext"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "group": "Broadcast",
+                            "icon": "signal-stream",
+                            "pages": [
+                              "v1/sdks/react/broadcast/Root",
+                              "v1/sdks/react/broadcast/Container",
+                              "v1/sdks/react/broadcast/Video",
+                              "v1/sdks/react/broadcast/Enabled",
+                              "v1/sdks/react/broadcast/Error",
+                              "v1/sdks/react/broadcast/Loading",
+                              "v1/sdks/react/broadcast/Portal",
+                              {
+                                "group": "Controls",
+                                "pages": [
+                                  "v1/sdks/react/broadcast/Controls",
+                                  "v1/sdks/react/broadcast/Audio",
+                                  "v1/sdks/react/broadcast/Camera",
+                                  "v1/sdks/react/broadcast/Fullscreen",
+                                  "v1/sdks/react/broadcast/PictureInPicture",
+                                  "v1/sdks/react/broadcast/Screenshare",
+                                  "v1/sdks/react/broadcast/Source",
+                                  "v1/sdks/react/broadcast/Status"
+                                ]
+                              },
+                              {
+                                "group": "Functions",
+                                "pages": [
+                                  "v1/sdks/react/broadcast/get-ingest",
+                                  "v1/sdks/react/broadcast/useBroadcastContext"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "group": "Examples",
+                            "icon": "clipboard",
+                            "pages": [
+                              "v1/sdks/react/Player",
+                              "v1/sdks/react/Broadcast"
+                            ]
+                          },
+                          {
+                            "group": "Migration",
+                            "icon": "right-left",
+                            "pages": [
+                              "v1/sdks/react/migration/migration-4.x",
+                              {
+                                "group": "Livepeer React (3.x and below)",
+                                "pages": [
+                                  "v1/sdks/react/migration/3.x/getting-started",
+                                  "v1/sdks/react/migration/3.x/client",
+                                  "v1/sdks/react/migration/3.x/LivepeerConfig",
+                                  "v1/sdks/react/migration/3.x/Player",
+                                  "v1/sdks/react/migration/3.x/Broadcast",
+                                  {
+                                    "group": "Asset",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/asset/useCreateAsset",
+                                      "v1/sdks/react/migration/3.x/asset/useAsset",
+                                      "v1/sdks/react/migration/3.x/asset/useUpdateAsset",
+                                      "v1/sdks/react/migration/3.x/asset/useAssetMetrics"
+                                    ]
+                                  },
+                                  {
+                                    "group": "Stream",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/stream/useCreateStream",
+                                      "v1/sdks/react/migration/3.x/stream/useStream",
+                                      "v1/sdks/react/migration/3.x/stream/useUpdateStream",
+                                      "v1/sdks/react/migration/3.x/stream/useStreamSession",
+                                      "v1/sdks/react/migration/3.x/stream/useStreamSessions"
+                                    ]
+                                  },
+                                  {
+                                    "group": "Playback",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/playback/usePlaybackInfo"
+                                    ]
+                                  },
+                                  {
+                                    "group": "Constants",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/constants/abis",
+                                      "v1/sdks/react/migration/3.x/constants/contract-addresses"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "AI Video (Beta)",
+                    "icon": {
+                      "name": "microchip-ai",
+                      "style": "regular"
+                    },
+                    "groups": [
+                      {
+                        "group": "AI Video",
+                        "pages": [
+                          "v1/ai/introduction",
+                          "v1/ai/whats-new",
+                          {
+                            "group": "AI Pipelines",
+                            "icon": {
+                              "name": "wand-magic-sparkles",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/pipelines/overview",
+                              "v1/ai/pipelines/audio-to-text",
+                              "v1/ai/pipelines/image-to-image",
+                              "v1/ai/pipelines/image-to-text",
+                              "v1/ai/pipelines/image-to-video",
+                              "v1/ai/pipelines/llm",
+                              "v1/ai/pipelines/segment-anything-2",
+                              "v1/ai/pipelines/text-to-image",
+                              "v1/ai/pipelines/text-to-speech",
+                              "v1/ai/pipelines/upscale"
+                            ]
+                          },
+                          {
+                            "group": "Setup an AI Orchestrator",
+                            "icon": {
+                              "name": "robot",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/orchestrators/get-started",
+                              "v1/ai/orchestrators/models-config",
+                              "v1/ai/orchestrators/models-download",
+                              "v1/ai/orchestrators/start-orchestrator",
+                              "v1/ai/orchestrators/ai-worker",
+                              "v1/ai/orchestrators/benchmarking",
+                              "v1/ai/orchestrators/onchain"
+                            ]
+                          },
+                          {
+                            "group": "Setup an AI Gateway",
+                            "icon": {
+                              "name": "signal-stream",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/gateways/get-started",
+                              "v1/ai/gateways/start-gateway",
+                              "v1/ai/gateways/onchain"
+                            ]
+                          },
+                          {
+                            "group": "AI Builders",
+                            "icon": {
+                              "name": "screwdriver-wrench",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/builders/get-started",
+                              "v1/ai/builders/gateways",
+                              "v1/ai/builders/showcase"
+                            ]
+                          },
+                          {
+                            "group": "How to Contribute",
+                            "icon": {
+                              "name": "heart",
+                              "style": "solid"
+                            },
+                            "pages": ["v1/ai/contributors/coming-soon"]
+                          },
+                          {
+                            "group": "SDKs",
+                            "icon": "brackets-curly",
+                            "pages": [
+                              "v1/ai/sdks/overview",
+                              "v1/ai/sdks/go",
+                              "v1/ai/sdks/javascript",
+                              "v1/ai/sdks/python"
+                            ]
+                          },
+                          {
+                            "group": "AI API Reference",
+                            "icon": "rectangle-terminal",
+                            "pages": [
+                              "v1/ai/api-reference/overview",
+                              "v1/ai/api-reference/audio-to-text",
+                              "v1/ai/api-reference/image-to-image",
+                              "v1/ai/api-reference/image-to-text",
+                              "v1/ai/api-reference/image-to-video",
+                              "v1/ai/api-reference/llm",
+                              "v1/ai/api-reference/segment-anything-2",
+                              "v1/ai/api-reference/text-to-image",
+                              "v1/ai/api-reference/text-to-speech",
+                              "v1/ai/api-reference/upscale"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "href": " "
+                  },
+                  {
+                    "anchor": "Livepeer Studio            ➚",
+                    "href": "https://livepeer.studio",
+                    "icon": "clapperboard-play"
+                  },
+                  {
+                    "anchor": "What's New                  ➚",
+                    "href": "https://livepeer.canny.io/changelog",
+                    "icon": "rocket"
+                  },
+                  {
+                    "anchor": "Community                   ➚",
+                    "href": "https://discord.gg/livepeer",
+                    "icon": {
+                      "name": "discord",
+                      "style": "brands"
+                    }
+                  }
+                ]
+              },
+              {
+                "dropdown": "Orchestrators",
+                "icon": "microchip",
+                "anchors": [
+                  {
+                    "anchor": "Documentation",
+                    "icon": "code",
+                    "groups": [
+                      {
+                        "group": "Getting Started",
+                        "pages": [
+                          "v1/orchestrators/introduction",
+                          "v1/orchestrators/quick-start",
+                          "v1/orchestrators/livepeer-studio-cli"
+                        ]
+                      },
+                      {
+                        "group": "Guides",
+                        "pages": [
+                          "v1/orchestrators/guides/get-started",
+                          "v1/orchestrators/guides/install-go-livepeer",
+                          "v1/orchestrators/guides/connect-to-arbitrum",
+                          "v1/orchestrators/guides/configure-reward-calling",
+                          "v1/orchestrators/guides/set-session-limits",
+                          "v1/orchestrators/guides/set-pricing",
+                          "v1/orchestrators/guides/benchmark-transcoding",
+                          "v1/orchestrators/guides/assess-capabilities",
+                          "v1/orchestrators/guides/monitor-metrics",
+                          "v1/orchestrators/guides/vote",
+                          "v1/orchestrators/guides/dual-mine",
+                          "v1/orchestrators/guides/o-t-split",
+                          "v1/orchestrators/guides/migrate-to-arbitrum",
+                          "v1/orchestrators/guides/migrate-from-contract-wallet",
+                          "v1/orchestrators/guides/gateway-introspection",
+                          "v1/orchestrators/guides/troubleshoot"
+                        ]
+                      },
+                      {
+                        "group": "References",
+                        "pages": [
+                          "v1/references/api-support-matrix",
+                          {
+                            "group": "Livepeer Node Software",
+                            "icon": "golang",
+                            "pages": [
+                              "v1/references/go-livepeer/bandwidth-requirements",
+                              "v1/references/go-livepeer/cli-reference",
+                              "v1/references/go-livepeer/gpu-support",
+                              "v1/references/go-livepeer/hardware-requirements",
+                              "v1/references/go-livepeer/prometheus-metrics"
+                            ]
+                          },
+                          "v1/references/contract-addresses",
+                          "v1/references/example-applications",
+                          "v1/references/awesome-livepeer",
+                          {
+                            "group": "FAQs",
+                            "icon": "book",
+                            "pages": [
+                              "v1/references/knowledge-base/livestream",
+                              "v1/references/knowledge-base/playback",
+                              "v1/references/knowledge-base/vod"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "API Reference",
+                    "icon": "rectangle-terminal",
+                    "groups": [
+                      {
+                        "group": "Overview",
+                        "pages": [
+                          "v1/api-reference/overview/introduction",
+                          "v1/api-reference/overview/authentication"
+                        ]
+                      },
+                      {
+                        "group": "APIs",
+                        "pages": [
+                          {
+                            "group": "Asset",
+                            "icon": "video",
+                            "pages": [
+                              "v1/api-reference/asset/overview",
+                              "v1/api-reference/asset/upload",
+                              "v1/api-reference/asset/upload-via-url",
+                              "v1/api-reference/asset/get",
+                              "v1/api-reference/asset/update",
+                              "v1/api-reference/asset/delete",
+                              "v1/api-reference/asset/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Livestream",
+                            "icon": "camera",
+                            "pages": [
+                              "v1/api-reference/stream/overview",
+                              "v1/api-reference/stream/create",
+                              "v1/api-reference/stream/get",
+                              "v1/api-reference/stream/update",
+                              "v1/api-reference/stream/terminate",
+                              "v1/api-reference/stream/add-multistream-target",
+                              "v1/api-reference/stream/delete-multistream-target",
+                              "v1/api-reference/stream/delete",
+                              "v1/api-reference/stream/get-all",
+                              "v1/api-reference/stream/create-clip",
+                              "v1/api-reference/stream/get-clip"
+                            ]
+                          },
+                          {
+                            "group": "Generate",
+                            "icon": "microchip-ai",
+                            "pages": [
+                              "v1/api-reference/generate/overview",
+                              "v1/api-reference/generate/audio-to-text",
+                              "v1/api-reference/generate/text-to-image",
+                              "v1/api-reference/generate/image-to-image",
+                              "v1/api-reference/generate/image-to-video",
+                              "v1/api-reference/generate/llm",
+                              "v1/api-reference/generate/segment-anything-2",
+                              "v1/api-reference/generate/upscale"
+                            ]
+                          },
+                          {
+                            "group": "Multistream target",
+                            "icon": "arrows-split-up-and-left",
+                            "pages": [
+                              "v1/api-reference/multistream/overview",
+                              "v1/api-reference/multistream/create",
+                              "v1/api-reference/multistream/get",
+                              "v1/api-reference/multistream/update",
+                              "v1/api-reference/multistream/delete",
+                              "v1/api-reference/multistream/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Session",
+                            "icon": "film",
+                            "pages": [
+                              "v1/api-reference/session/overview",
+                              "v1/api-reference/session/get",
+                              "v1/api-reference/session/get-all",
+                              "v1/api-reference/session/get-recording",
+                              "v1/api-reference/session/get-clip"
+                            ]
+                          },
+                          {
+                            "group": "Access control",
+                            "icon": "lock",
+                            "pages": [
+                              "v1/api-reference/signing-key/overview",
+                              "v1/api-reference/signing-key/create",
+                              "v1/api-reference/signing-key/get",
+                              "v1/api-reference/signing-key/update",
+                              "v1/api-reference/signing-key/delete",
+                              "v1/api-reference/signing-key/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Webhook",
+                            "icon": "bell",
+                            "pages": [
+                              "v1/api-reference/webhook/overview",
+                              "v1/api-reference/webhook/create",
+                              "v1/api-reference/webhook/get",
+                              "v1/api-reference/webhook/update",
+                              "v1/api-reference/webhook/delete",
+                              "v1/api-reference/webhook/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Task",
+                            "icon": "gear",
+                            "pages": [
+                              "v1/api-reference/task/overview",
+                              "v1/api-reference/task/get-all",
+                              "v1/api-reference/task/get"
+                            ]
+                          },
+                          {
+                            "group": "Playback",
+                            "icon": "play",
+                            "pages": [
+                              "v1/api-reference/playback/overview",
+                              "v1/api-reference/playback/get"
+                            ]
+                          },
+                          {
+                            "group": "Transcode",
+                            "icon": "photo-film",
+                            "pages": [
+                              "v1/api-reference/transcode/overview",
+                              "v1/api-reference/transcode/create"
+                            ]
+                          },
+                          {
+                            "group": "Viewership",
+                            "icon": "chart-bar",
+                            "pages": [
+                              "v1/api-reference/viewership/get-realtime-viewership",
+                              "v1/api-reference/viewership/get-viewership-metrics",
+                              "v1/api-reference/viewership/get-usage-metrics",
+                              "v1/api-reference/viewership/get-public-total-views",
+                              "v1/api-reference/viewership/get-creators-metrics"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "SDKs",
+                    "icon": "brackets-curly",
+                    "groups": [
+                      {
+                        "group": "Overview",
+                        "pages": ["v1/sdks/introduction"]
+                      },
+                      {
+                        "group": "Server-side SDKs",
+                        "pages": [
+                          "v1/sdks/javascript",
+                          "v1/sdks/go",
+                          "v1/sdks/python"
+                        ]
+                      },
+                      {
+                        "group": "React Components",
+                        "icon": "circle-play",
+                        "pages": [
+                          "v1/sdks/react/getting-started",
+                          {
+                            "group": "Player",
+                            "icon": "circle-play",
+                            "pages": [
+                              "v1/sdks/react/player/Root",
+                              "v1/sdks/react/player/Container",
+                              "v1/sdks/react/player/Video",
+                              "v1/sdks/react/player/Error",
+                              "v1/sdks/react/player/Loading",
+                              "v1/sdks/react/player/Portal",
+                              "v1/sdks/react/player/Poster",
+                              {
+                                "group": "Controls",
+                                "pages": [
+                                  "v1/sdks/react/player/Controls",
+                                  "v1/sdks/react/player/Clip",
+                                  "v1/sdks/react/player/Fullscreen",
+                                  "v1/sdks/react/player/Live",
+                                  "v1/sdks/react/player/PictureInPicture",
+                                  "v1/sdks/react/player/Play",
+                                  "v1/sdks/react/player/RateSelect",
+                                  "v1/sdks/react/player/Seek",
+                                  "v1/sdks/react/player/Time",
+                                  "v1/sdks/react/player/VideoQualitySelect",
+                                  "v1/sdks/react/player/Volume"
+                                ]
+                              },
+                              {
+                                "group": "Functions",
+                                "pages": [
+                                  "v1/sdks/react/player/get-src",
+                                  "v1/sdks/react/player/useMediaContext"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "group": "Broadcast",
+                            "icon": "signal-stream",
+                            "pages": [
+                              "v1/sdks/react/broadcast/Root",
+                              "v1/sdks/react/broadcast/Container",
+                              "v1/sdks/react/broadcast/Video",
+                              "v1/sdks/react/broadcast/Enabled",
+                              "v1/sdks/react/broadcast/Error",
+                              "v1/sdks/react/broadcast/Loading",
+                              "v1/sdks/react/broadcast/Portal",
+                              {
+                                "group": "Controls",
+                                "pages": [
+                                  "v1/sdks/react/broadcast/Controls",
+                                  "v1/sdks/react/broadcast/Audio",
+                                  "v1/sdks/react/broadcast/Camera",
+                                  "v1/sdks/react/broadcast/Fullscreen",
+                                  "v1/sdks/react/broadcast/PictureInPicture",
+                                  "v1/sdks/react/broadcast/Screenshare",
+                                  "v1/sdks/react/broadcast/Source",
+                                  "v1/sdks/react/broadcast/Status"
+                                ]
+                              },
+                              {
+                                "group": "Functions",
+                                "pages": [
+                                  "v1/sdks/react/broadcast/get-ingest",
+                                  "v1/sdks/react/broadcast/useBroadcastContext"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "group": "Examples",
+                            "icon": "clipboard",
+                            "pages": [
+                              "v1/sdks/react/Player",
+                              "v1/sdks/react/Broadcast"
+                            ]
+                          },
+                          {
+                            "group": "Migration",
+                            "icon": "right-left",
+                            "pages": [
+                              "v1/sdks/react/migration/migration-4.x",
+                              {
+                                "group": "Livepeer React (3.x and below)",
+                                "pages": [
+                                  "v1/sdks/react/migration/3.x/getting-started",
+                                  "v1/sdks/react/migration/3.x/client",
+                                  "v1/sdks/react/migration/3.x/LivepeerConfig",
+                                  "v1/sdks/react/migration/3.x/Player",
+                                  "v1/sdks/react/migration/3.x/Broadcast",
+                                  {
+                                    "group": "Asset",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/asset/useCreateAsset",
+                                      "v1/sdks/react/migration/3.x/asset/useAsset",
+                                      "v1/sdks/react/migration/3.x/asset/useUpdateAsset",
+                                      "v1/sdks/react/migration/3.x/asset/useAssetMetrics"
+                                    ]
+                                  },
+                                  {
+                                    "group": "Stream",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/stream/useCreateStream",
+                                      "v1/sdks/react/migration/3.x/stream/useStream",
+                                      "v1/sdks/react/migration/3.x/stream/useUpdateStream",
+                                      "v1/sdks/react/migration/3.x/stream/useStreamSession",
+                                      "v1/sdks/react/migration/3.x/stream/useStreamSessions"
+                                    ]
+                                  },
+                                  {
+                                    "group": "Playback",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/playback/usePlaybackInfo"
+                                    ]
+                                  },
+                                  {
+                                    "group": "Constants",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/constants/abis",
+                                      "v1/sdks/react/migration/3.x/constants/contract-addresses"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "AI Video (Beta)",
+                    "icon": {
+                      "name": "microchip-ai",
+                      "style": "regular"
+                    },
+                    "groups": [
+                      {
+                        "group": "AI Video",
+                        "pages": [
+                          "v1/ai/introduction",
+                          "v1/ai/whats-new",
+                          {
+                            "group": "AI Pipelines",
+                            "icon": {
+                              "name": "wand-magic-sparkles",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/pipelines/overview",
+                              "v1/ai/pipelines/audio-to-text",
+                              "v1/ai/pipelines/image-to-image",
+                              "v1/ai/pipelines/image-to-text",
+                              "v1/ai/pipelines/image-to-video",
+                              "v1/ai/pipelines/llm",
+                              "v1/ai/pipelines/segment-anything-2",
+                              "v1/ai/pipelines/text-to-image",
+                              "v1/ai/pipelines/text-to-speech",
+                              "v1/ai/pipelines/upscale"
+                            ]
+                          },
+                          {
+                            "group": "Setup an AI Orchestrator",
+                            "icon": {
+                              "name": "robot",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/orchestrators/get-started",
+                              "v1/ai/orchestrators/models-config",
+                              "v1/ai/orchestrators/models-download",
+                              "v1/ai/orchestrators/start-orchestrator",
+                              "v1/ai/orchestrators/ai-worker",
+                              "v1/ai/orchestrators/benchmarking",
+                              "v1/ai/orchestrators/onchain"
+                            ]
+                          },
+                          {
+                            "group": "Setup an AI Gateway",
+                            "icon": {
+                              "name": "signal-stream",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/gateways/get-started",
+                              "v1/ai/gateways/start-gateway",
+                              "v1/ai/gateways/onchain"
+                            ]
+                          },
+                          {
+                            "group": "AI Builders",
+                            "icon": {
+                              "name": "screwdriver-wrench",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/builders/get-started",
+                              "v1/ai/builders/gateways",
+                              "v1/ai/builders/showcase"
+                            ]
+                          },
+                          {
+                            "group": "How to Contribute",
+                            "icon": {
+                              "name": "heart",
+                              "style": "solid"
+                            },
+                            "pages": ["v1/ai/contributors/coming-soon"]
+                          },
+                          {
+                            "group": "SDKs",
+                            "icon": "brackets-curly",
+                            "pages": [
+                              "v1/ai/sdks/overview",
+                              "v1/ai/sdks/go",
+                              "v1/ai/sdks/javascript",
+                              "v1/ai/sdks/python"
+                            ]
+                          },
+                          {
+                            "group": "AI API Reference",
+                            "icon": "rectangle-terminal",
+                            "pages": [
+                              "v1/ai/api-reference/overview",
+                              "v1/ai/api-reference/audio-to-text",
+                              "v1/ai/api-reference/image-to-image",
+                              "v1/ai/api-reference/image-to-text",
+                              "v1/ai/api-reference/image-to-video",
+                              "v1/ai/api-reference/llm",
+                              "v1/ai/api-reference/segment-anything-2",
+                              "v1/ai/api-reference/text-to-image",
+                              "v1/ai/api-reference/text-to-speech",
+                              "v1/ai/api-reference/upscale"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "href": " "
+                  },
+                  {
+                    "anchor": "Livepeer Studio            ➚",
+                    "href": "https://livepeer.studio",
+                    "icon": "clapperboard-play"
+                  },
+                  {
+                    "anchor": "What's New                  ➚",
+                    "href": "https://livepeer.canny.io/changelog",
+                    "icon": "rocket"
+                  },
+                  {
+                    "anchor": "Community                   ➚",
+                    "href": "https://discord.gg/livepeer",
+                    "icon": {
+                      "name": "discord",
+                      "style": "brands"
+                    }
+                  }
+                ]
+              },
+              {
+                "dropdown": "Gateways",
+                "icon": "torii-gate",
+                "anchors": [
+                  {
+                    "anchor": "Documentation",
+                    "icon": "code",
+                    "groups": [
+                      {
+                        "group": "Getting Started",
+                        "pages": [
+                          "v1/gateways/introduction",
+                          "v1/gateways/quick-start",
+                          "v1/gateways/livepeer-studio-cli"
+                        ]
+                      },
+                      {
+                        "group": "Guides",
+                        "pages": [
+                          "v1/gateways/guides/gateway-overview",
+                          "v1/gateways/guides/docker-install",
+                          "v1/gateways/guides/linux-install",
+                          "v1/gateways/guides/windows-install",
+                          "v1/gateways/guides/transcoding-options",
+                          "v1/gateways/guides/fund-gateway",
+                          "v1/gateways/guides/publish-content",
+                          "v1/gateways/guides/playback-content"
+                        ]
+                      },
+                      {
+                        "group": "References",
+                        "pages": [
+                          "v1/references/api-support-matrix",
+                          {
+                            "group": "Livepeer Node Software",
+                            "icon": "golang",
+                            "pages": [
+                              "v1/references/go-livepeer/bandwidth-requirements",
+                              "v1/references/go-livepeer/cli-reference",
+                              "v1/references/go-livepeer/gpu-support",
+                              "v1/references/go-livepeer/hardware-requirements",
+                              "v1/references/go-livepeer/prometheus-metrics"
+                            ]
+                          },
+                          "v1/references/contract-addresses",
+                          "v1/references/example-applications",
+                          "v1/references/awesome-livepeer",
+                          {
+                            "group": "FAQs",
+                            "icon": "book",
+                            "pages": [
+                              "v1/references/knowledge-base/livestream",
+                              "v1/references/knowledge-base/playback",
+                              "v1/references/knowledge-base/vod"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "API Reference",
+                    "icon": "rectangle-terminal",
+                    "groups": [
+                      {
+                        "group": "Overview",
+                        "pages": [
+                          "v1/api-reference/overview/introduction",
+                          "v1/api-reference/overview/authentication"
+                        ]
+                      },
+                      {
+                        "group": "APIs",
+                        "pages": [
+                          {
+                            "group": "Asset",
+                            "icon": "video",
+                            "pages": [
+                              "v1/api-reference/asset/overview",
+                              "v1/api-reference/asset/upload",
+                              "v1/api-reference/asset/upload-via-url",
+                              "v1/api-reference/asset/get",
+                              "v1/api-reference/asset/update",
+                              "v1/api-reference/asset/delete",
+                              "v1/api-reference/asset/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Livestream",
+                            "icon": "camera",
+                            "pages": [
+                              "v1/api-reference/stream/overview",
+                              "v1/api-reference/stream/create",
+                              "v1/api-reference/stream/get",
+                              "v1/api-reference/stream/update",
+                              "v1/api-reference/stream/terminate",
+                              "v1/api-reference/stream/add-multistream-target",
+                              "v1/api-reference/stream/delete-multistream-target",
+                              "v1/api-reference/stream/delete",
+                              "v1/api-reference/stream/get-all",
+                              "v1/api-reference/stream/create-clip",
+                              "v1/api-reference/stream/get-clip"
+                            ]
+                          },
+                          {
+                            "group": "Generate",
+                            "icon": "microchip-ai",
+                            "pages": [
+                              "v1/api-reference/generate/overview",
+                              "v1/api-reference/generate/audio-to-text",
+                              "v1/api-reference/generate/text-to-image",
+                              "v1/api-reference/generate/image-to-image",
+                              "v1/api-reference/generate/image-to-video",
+                              "v1/api-reference/generate/llm",
+                              "v1/api-reference/generate/segment-anything-2",
+                              "v1/api-reference/generate/upscale"
+                            ]
+                          },
+                          {
+                            "group": "Multistream target",
+                            "icon": "arrows-split-up-and-left",
+                            "pages": [
+                              "v1/api-reference/multistream/overview",
+                              "v1/api-reference/multistream/create",
+                              "v1/api-reference/multistream/get",
+                              "v1/api-reference/multistream/update",
+                              "v1/api-reference/multistream/delete",
+                              "v1/api-reference/multistream/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Session",
+                            "icon": "film",
+                            "pages": [
+                              "v1/api-reference/session/overview",
+                              "v1/api-reference/session/get",
+                              "v1/api-reference/session/get-all",
+                              "v1/api-reference/session/get-recording",
+                              "v1/api-reference/session/get-clip"
+                            ]
+                          },
+                          {
+                            "group": "Access control",
+                            "icon": "lock",
+                            "pages": [
+                              "v1/api-reference/signing-key/overview",
+                              "v1/api-reference/signing-key/create",
+                              "v1/api-reference/signing-key/get",
+                              "v1/api-reference/signing-key/update",
+                              "v1/api-reference/signing-key/delete",
+                              "v1/api-reference/signing-key/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Webhook",
+                            "icon": "bell",
+                            "pages": [
+                              "v1/api-reference/webhook/overview",
+                              "v1/api-reference/webhook/create",
+                              "v1/api-reference/webhook/get",
+                              "v1/api-reference/webhook/update",
+                              "v1/api-reference/webhook/delete",
+                              "v1/api-reference/webhook/get-all"
+                            ]
+                          },
+                          {
+                            "group": "Task",
+                            "icon": "gear",
+                            "pages": [
+                              "v1/api-reference/task/overview",
+                              "v1/api-reference/task/get-all",
+                              "v1/api-reference/task/get"
+                            ]
+                          },
+                          {
+                            "group": "Playback",
+                            "icon": "play",
+                            "pages": [
+                              "v1/api-reference/playback/overview",
+                              "v1/api-reference/playback/get"
+                            ]
+                          },
+                          {
+                            "group": "Transcode",
+                            "icon": "photo-film",
+                            "pages": [
+                              "v1/api-reference/transcode/overview",
+                              "v1/api-reference/transcode/create"
+                            ]
+                          },
+                          {
+                            "group": "Viewership",
+                            "icon": "chart-bar",
+                            "pages": [
+                              "v1/api-reference/viewership/get-realtime-viewership",
+                              "v1/api-reference/viewership/get-viewership-metrics",
+                              "v1/api-reference/viewership/get-usage-metrics",
+                              "v1/api-reference/viewership/get-public-total-views",
+                              "v1/api-reference/viewership/get-creators-metrics"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "SDKs",
+                    "icon": "brackets-curly",
+                    "groups": [
+                      {
+                        "group": "Overview",
+                        "pages": ["v1/sdks/introduction"]
+                      },
+                      {
+                        "group": "Server-side SDKs",
+                        "pages": [
+                          "v1/sdks/javascript",
+                          "v1/sdks/go",
+                          "v1/sdks/python"
+                        ]
+                      },
+                      {
+                        "group": "React Components",
+                        "icon": "circle-play",
+                        "pages": [
+                          "v1/sdks/react/getting-started",
+                          {
+                            "group": "Player",
+                            "icon": "circle-play",
+                            "pages": [
+                              "v1/sdks/react/player/Root",
+                              "v1/sdks/react/player/Container",
+                              "v1/sdks/react/player/Video",
+                              "v1/sdks/react/player/Error",
+                              "v1/sdks/react/player/Loading",
+                              "v1/sdks/react/player/Portal",
+                              "v1/sdks/react/player/Poster",
+                              {
+                                "group": "Controls",
+                                "pages": [
+                                  "v1/sdks/react/player/Controls",
+                                  "v1/sdks/react/player/Clip",
+                                  "v1/sdks/react/player/Fullscreen",
+                                  "v1/sdks/react/player/Live",
+                                  "v1/sdks/react/player/PictureInPicture",
+                                  "v1/sdks/react/player/Play",
+                                  "v1/sdks/react/player/RateSelect",
+                                  "v1/sdks/react/player/Seek",
+                                  "v1/sdks/react/player/Time",
+                                  "v1/sdks/react/player/VideoQualitySelect",
+                                  "v1/sdks/react/player/Volume"
+                                ]
+                              },
+                              {
+                                "group": "Functions",
+                                "pages": [
+                                  "v1/sdks/react/player/get-src",
+                                  "v1/sdks/react/player/useMediaContext"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "group": "Broadcast",
+                            "icon": "signal-stream",
+                            "pages": [
+                              "v1/sdks/react/broadcast/Root",
+                              "v1/sdks/react/broadcast/Container",
+                              "v1/sdks/react/broadcast/Video",
+                              "v1/sdks/react/broadcast/Enabled",
+                              "v1/sdks/react/broadcast/Error",
+                              "v1/sdks/react/broadcast/Loading",
+                              "v1/sdks/react/broadcast/Portal",
+                              {
+                                "group": "Controls",
+                                "pages": [
+                                  "v1/sdks/react/broadcast/Controls",
+                                  "v1/sdks/react/broadcast/Audio",
+                                  "v1/sdks/react/broadcast/Camera",
+                                  "v1/sdks/react/broadcast/Fullscreen",
+                                  "v1/sdks/react/broadcast/PictureInPicture",
+                                  "v1/sdks/react/broadcast/Screenshare",
+                                  "v1/sdks/react/broadcast/Source",
+                                  "v1/sdks/react/broadcast/Status"
+                                ]
+                              },
+                              {
+                                "group": "Functions",
+                                "pages": [
+                                  "v1/sdks/react/broadcast/get-ingest",
+                                  "v1/sdks/react/broadcast/useBroadcastContext"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "group": "Examples",
+                            "icon": "clipboard",
+                            "pages": [
+                              "v1/sdks/react/Player",
+                              "v1/sdks/react/Broadcast"
+                            ]
+                          },
+                          {
+                            "group": "Migration",
+                            "icon": "right-left",
+                            "pages": [
+                              "v1/sdks/react/migration/migration-4.x",
+                              {
+                                "group": "Livepeer React (3.x and below)",
+                                "pages": [
+                                  "v1/sdks/react/migration/3.x/getting-started",
+                                  "v1/sdks/react/migration/3.x/client",
+                                  "v1/sdks/react/migration/3.x/LivepeerConfig",
+                                  "v1/sdks/react/migration/3.x/Player",
+                                  "v1/sdks/react/migration/3.x/Broadcast",
+                                  {
+                                    "group": "Asset",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/asset/useCreateAsset",
+                                      "v1/sdks/react/migration/3.x/asset/useAsset",
+                                      "v1/sdks/react/migration/3.x/asset/useUpdateAsset",
+                                      "v1/sdks/react/migration/3.x/asset/useAssetMetrics"
+                                    ]
+                                  },
+                                  {
+                                    "group": "Stream",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/stream/useCreateStream",
+                                      "v1/sdks/react/migration/3.x/stream/useStream",
+                                      "v1/sdks/react/migration/3.x/stream/useUpdateStream",
+                                      "v1/sdks/react/migration/3.x/stream/useStreamSession",
+                                      "v1/sdks/react/migration/3.x/stream/useStreamSessions"
+                                    ]
+                                  },
+                                  {
+                                    "group": "Playback",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/playback/usePlaybackInfo"
+                                    ]
+                                  },
+                                  {
+                                    "group": "Constants",
+                                    "pages": [
+                                      "v1/sdks/react/migration/3.x/constants/abis",
+                                      "v1/sdks/react/migration/3.x/constants/contract-addresses"
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": "AI Video (Beta)",
+                    "icon": {
+                      "name": "microchip-ai",
+                      "style": "regular"
+                    },
+                    "groups": [
+                      {
+                        "group": "AI Video",
+                        "pages": [
+                          "v1/ai/introduction",
+                          "v1/ai/whats-new",
+                          {
+                            "group": "AI Pipelines",
+                            "icon": {
+                              "name": "wand-magic-sparkles",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/pipelines/overview",
+                              "v1/ai/pipelines/audio-to-text",
+                              "v1/ai/pipelines/image-to-image",
+                              "v1/ai/pipelines/image-to-text",
+                              "v1/ai/pipelines/image-to-video",
+                              "v1/ai/pipelines/llm",
+                              "v1/ai/pipelines/segment-anything-2",
+                              "v1/ai/pipelines/text-to-image",
+                              "v1/ai/pipelines/text-to-speech",
+                              "v1/ai/pipelines/upscale"
+                            ]
+                          },
+                          {
+                            "group": "Setup an AI Orchestrator",
+                            "icon": {
+                              "name": "robot",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/orchestrators/get-started",
+                              "v1/ai/orchestrators/models-config",
+                              "v1/ai/orchestrators/models-download",
+                              "v1/ai/orchestrators/start-orchestrator",
+                              "v1/ai/orchestrators/ai-worker",
+                              "v1/ai/orchestrators/benchmarking",
+                              "v1/ai/orchestrators/onchain"
+                            ]
+                          },
+                          {
+                            "group": "Setup an AI Gateway",
+                            "icon": {
+                              "name": "signal-stream",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/gateways/get-started",
+                              "v1/ai/gateways/start-gateway",
+                              "v1/ai/gateways/onchain"
+                            ]
+                          },
+                          {
+                            "group": "AI Builders",
+                            "icon": {
+                              "name": "screwdriver-wrench",
+                              "style": "solid"
+                            },
+                            "pages": [
+                              "v1/ai/builders/get-started",
+                              "v1/ai/builders/gateways",
+                              "v1/ai/builders/showcase"
+                            ]
+                          },
+                          {
+                            "group": "How to Contribute",
+                            "icon": {
+                              "name": "heart",
+                              "style": "solid"
+                            },
+                            "pages": ["v1/ai/contributors/coming-soon"]
+                          },
+                          {
+                            "group": "SDKs",
+                            "icon": "brackets-curly",
+                            "pages": [
+                              "v1/ai/sdks/overview",
+                              "v1/ai/sdks/go",
+                              "v1/ai/sdks/javascript",
+                              "v1/ai/sdks/python"
+                            ]
+                          },
+                          {
+                            "group": "AI API Reference",
+                            "icon": "rectangle-terminal",
+                            "pages": [
+                              "v1/ai/api-reference/overview",
+                              "v1/ai/api-reference/audio-to-text",
+                              "v1/ai/api-reference/image-to-image",
+                              "v1/ai/api-reference/image-to-text",
+                              "v1/ai/api-reference/image-to-video",
+                              "v1/ai/api-reference/llm",
+                              "v1/ai/api-reference/segment-anything-2",
+                              "v1/ai/api-reference/text-to-image",
+                              "v1/ai/api-reference/text-to-speech",
+                              "v1/ai/api-reference/upscale"
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "anchor": " ",
+                    "icon": "horizontal-rule",
+                    "href": " "
+                  },
+                  {
+                    "anchor": "Livepeer Studio            ➚",
+                    "href": "https://livepeer.studio",
+                    "icon": "clapperboard-play"
+                  },
+                  {
+                    "anchor": "What's New                  ➚",
+                    "href": "https://livepeer.canny.io/changelog",
+                    "icon": "rocket"
+                  },
+                  {
+                    "anchor": "Community                   ➚",
+                    "href": "https://discord.gg/livepeer",
+                    "icon": {
+                      "name": "discord",
+                      "style": "brands"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
         "version": "v2",
         "default": false,
         "languages": [
