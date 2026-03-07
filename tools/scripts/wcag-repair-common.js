@@ -1,39 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script wcag-repair-common
- * @summary Apply conservative WCAG-related source autofixes across v2 docs (common raw-tag issues) and write deterministic repair reports.
- * @owner docs
- * @scope tools/scripts, tests/integration, tasks/reports, v2
- *
- * @usage
- *   node tools/scripts/wcag-repair-common.js --full
- *
- * @inputs
- *   --full (default)
- *   --staged
- *   --files <path[,path...]> (repeatable; explicit files mode)
- *   --fix | --no-fix (default: --fix)
- *   --stage (git add only content files changed by autofix)
- *   --fail-impact <critical|serious|moderate|minor|none> (default: serious)
- *   --report <path> (default: tasks/reports/quality-accessibility/v2-wcag-repair-common-report.md)
- *   --report-json <path> (default: tasks/reports/quality-accessibility/v2-wcag-repair-common-report.json)
- *
- * @outputs
- *   - tasks/reports/quality-accessibility/v2-wcag-repair-common-report.md (default)
- *   - tasks/reports/quality-accessibility/v2-wcag-repair-common-report.json (default)
- *   - v2/*.mdx or v2/*.md changes when --fix (default) applies conservative autofixes
- *
- * @exit-codes
- *   0 = repair pass completed with no blocking issues at configured threshold
- *   1 = runtime error or blocking issues remain at configured threshold
- *
- * @examples
- *   node tools/scripts/wcag-repair-common.js --full
- *   node tools/scripts/wcag-repair-common.js --staged --stage
- *   node tools/scripts/wcag-repair-common.js --files v2/home/primer.mdx --no-fix
- *
- * @notes
- *   This wrapper disables browser auditing (`--max-pages 0`) and runs the shared WCAG audit engine in static/autofix mode only.
+ * @script            wcag-repair-common
+ * @category          remediator
+ * @purpose           qa:content-quality
+ * @scope             tools/scripts, tests/integration, tasks/reports, v2
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement WCAG repair shared logic — common repair functions used by WCAG audit fix mode
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/wcag-repair-common.js [flags]
  */
 
 const path = require('path');

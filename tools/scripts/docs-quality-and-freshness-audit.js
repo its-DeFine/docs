@@ -1,30 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script docs-quality-and-freshness-audit
- * @summary Audit v2 English docs for freshness and quality markers (TODO/TBD/Coming Soon, placeholders, and thin content).
- * @owner docs
- * @scope tools/scripts, v2, tasks/reports/quality-accessibility
- *
- * @usage
- *   node tools/scripts/docs-quality-and-freshness-audit.js --scope full
- *
- * @inputs
- *   --scope <changed|full> (default: full)
- *   --output-dir <path> (default: tasks/reports/repo-ops)
- *
- * @outputs
- *   - tasks/reports/repo-ops/docs-quality-and-freshness-audit.md
- *   - tasks/reports/repo-ops/docs-quality-and-freshness-audit.json
- *
- * @exit-codes
- *   0 = audit completed
- *   1 = runtime error
- *
- * @examples
- *   node tools/scripts/docs-quality-and-freshness-audit.js --scope full
- *
- * @notes
- *   Static-only analysis. Phase-1 scope is English v2 documentation.
+ * @script            docs-quality-and-freshness-audit
+ * @category          validator
+ * @purpose           qa:content-quality
+ * @scope             tools/scripts, v2, tasks/reports/quality-accessibility
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Content freshness audit — checks for TODO/TBD/Coming Soon markers, thin pages, stale content
+ * @pipeline          P5 (scheduled, weekly)
+ * @usage             node tools/scripts/docs-quality-and-freshness-audit.js [flags]
  */
 
 const fs = require('fs');

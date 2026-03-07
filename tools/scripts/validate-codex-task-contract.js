@@ -1,45 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script validate-codex-task-contract
- * @summary Validate codex branch task contract schema, branch binding, changed-file scope, PR body sections, and optional linked-issue readiness policy.
- * @owner docs
- * @scope tools/scripts, .codex/task-contract.yaml, tests/config/codex-issue-policy.json, .github/pull_request_template.md, .github/pull-request-template-v2.md
- *
- * @usage
- *   node tools/scripts/validate-codex-task-contract.js
- *
- * @inputs
- *   --contract <path> (default: .codex/task-contract.yaml)
- *   --branch <name> (default: current git branch or GITHUB_HEAD_REF)
- *   --base-ref <branch> (default: contract base_branch)
- *   --files <comma-separated paths> (override changed-file discovery)
- *   --staged (use staged files instead of branch diff)
- *   --validate-contract-only (skip changed-file and PR body checks)
- *   --require-pr-body (enforce PR sections and generated marker from --pr-body-file or GITHUB_EVENT_PATH)
- *   --pr-body-file <path> (explicit PR body source)
- *   --require-issue-state (enforce linked issue readiness policy)
- *   --issue-number <int> (optional override; defaults to task_id)
- *   --issue-repo <owner/repo> (optional override; defaults to GITHUB_REPOSITORY or origin remote)
- *   --issue-source <api|gh|auto> (default: auto)
- *   --issue-token-env <ENV_NAME> (default: GITHUB_TOKEN)
- *   --issue-policy <path> (default: tests/config/codex-issue-policy.json)
- *   --quiet (suppress success/skip logs)
- *   --json (emit machine-readable result object)
- *
- * @outputs
- *   - Console validation summary and violations
- *
- * @exit-codes
- *   0 = validation passed or non-codex branch skipped
- *   1 = contract/schema/scope/PR-body/issue-state validation failed
- *
- * @examples
- *   node tools/scripts/validate-codex-task-contract.js --branch codex/123-community-fixes --require-pr-body
- *   node tools/scripts/validate-codex-task-contract.js --branch codex/123-community-fixes --require-issue-state
- *   node tools/scripts/validate-codex-task-contract.js --staged --validate-contract-only
- *
- * @notes
- *   Intended for codex/* branch enforcement from pre-commit, pre-push, and PR CI.
+ * @script            validate-codex-task-contract
+ * @category          enforcer
+ * @purpose           governance:agent-governance
+ * @scope             tools/scripts, .codex/task-contract.yaml, tests/config/codex-issue-policy.json, .github/pull_request_template.md, .github/pull-request-template-v2.md
+ * @owner             docs
+ * @needs             R-R27, R-R30
+ * @purpose-statement Codex task contract enforcer — validates branch naming, task files, PR body, and issue state for codex branches
+ * @pipeline          P1 (commit), P2 (push), P3 (PR, Track B)
+ * @usage             node tools/scripts/validate-codex-task-contract.js [flags]
  */
 
 const fs = require('fs');

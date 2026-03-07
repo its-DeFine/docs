@@ -1,34 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script cross-agent-packager
- * @summary Generate consistent audit skill packs for Codex, Cursor, Claude Code, and Windsurf from one catalog.
- * @owner docs
- * @scope tools/scripts, ai-tools/ai-skills/catalog, ai-tools/agent-packs
- *
- * @usage
- *   node tools/scripts/cross-agent-packager.js --agent-pack all
- *
- * @inputs
- *   --agent-pack <codex|cursor|claude|windsurf|all> (default: all)
- *   --output-dir <path> (default: ai-tools/agent-packs)
- *   --catalog <path> (default: ai-tools/ai-skills/catalog/skill-catalog.json)
- *   --manifest <path> (default: ai-tools/ai-skills/catalog/execution-manifest.json)
- *
- * @outputs
- *   - ai-tools/agent-packs/codex/skills-manifest.json
- *   - ai-tools/agent-packs/cursor/rules.md
- *   - ai-tools/agent-packs/claude/CLAUDE.md
- *   - ai-tools/agent-packs/windsurf/rules.md
- *
- * @exit-codes
- *   0 = packs generated
- *   1 = runtime error
- *
- * @examples
- *   node tools/scripts/cross-agent-packager.js --agent-pack codex
- *
- * @notes
- *   Uses one shared catalog so all agent packs stay semantically aligned.
+ * @script            cross-agent-packager
+ * @category          generator
+ * @purpose           governance:agent-governance
+ * @scope             tools/scripts, ai-tools/ai-skills/catalog, ai-tools/agent-packs
+ * @owner             docs
+ * @needs             R-R27, R-R30
+ * @purpose-statement Cross-agent packager — bundles audit reports and repo state into agent-consumable packages
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/cross-agent-packager.js [flags]
  */
 
 const fs = require('fs');

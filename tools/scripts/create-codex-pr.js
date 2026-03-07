@@ -1,40 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script create-codex-pr
- * @summary Generate a codex PR body from task contract metadata and optionally open a prefilled GitHub pull request.
- * @owner docs
- * @scope tools/scripts, .codex/task-contract.yaml
- *
- * @usage
- *   node tools/scripts/create-codex-pr.js --create
- *
- * @inputs
- *   --contract <path> (default: .codex/task-contract.yaml)
- *   --output <path> (default: .codex/pr-body.generated.md)
- *   --title <text> (optional custom PR title)
- *   --base <branch> (default: contract base_branch)
- *   --head <branch> (default: contract branch)
- *   --changed-files <a,b,c> (optional explicit changed file list)
- *   --create (run gh pr create with generated body file)
- *   --draft (create PR as draft; only with --create)
- *   --dry-run (print gh command without creating PR)
- *   --json (emit machine-readable output)
- *
- * @outputs
- *   - Generated PR body markdown at --output path
- *   - Optional `gh pr create` invocation with `--body-file`
- *
- * @exit-codes
- *   0 = generation/create succeeded
- *   1 = validation or command failure
- *
- * @examples
- *   node tools/scripts/create-codex-pr.js
- *   node tools/scripts/create-codex-pr.js --create --draft
- *   node tools/scripts/create-codex-pr.js --dry-run --create
- *
- * @notes
- *   Designed for codex/* branches to keep PR sections aligned with task-contract scope and checks, including CI marker requirements.
+ * @script            create-codex-pr
+ * @category          generator
+ * @purpose           governance:agent-governance
+ * @scope             tools/scripts, .codex/task-contract.yaml
+ * @owner             docs
+ * @needs             R-R27, R-R30
+ * @purpose-statement Codex PR creator — generates codex PR with correct branch naming, labels, and body template
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/create-codex-pr.js [flags]
  */
 
 const fs = require('fs');

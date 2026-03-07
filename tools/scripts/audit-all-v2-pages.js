@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script audit-all-v2-pages
- * @summary Utility script for tools/scripts/audit-all-v2-pages.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/audit-all-v2-pages.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/audit-all-v2-pages.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            audit-all-v2-pages
+ * @category          validator
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement V2-specific page auditor — checks v2/** pages for v2-specific requirements (frontmatter, components)
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/audit-all-v2-pages.js [flags]
  */
 /**
  * Comprehensive Browser Audit of ALL v2 Pages

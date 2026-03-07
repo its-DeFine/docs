@@ -1,36 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script repo-audit-orchestrator
- * @summary Run the docs infrastructure audit pipeline and emit a unified prioritized scorecard.
- * @owner docs
- * @scope tools/scripts, ai-tools/ai-skills/catalog, tasks/reports/repo-ops
- *
- * @usage
- *   node tools/scripts/repo-audit-orchestrator.js --mode static --scope full
- *
- * @inputs
- *   --mode <static|runtime|full> (default: static)
- *   --scope <changed|full> (default: full)
- *   --output-dir <path> (default: tasks/reports/repo-ops)
- *   --quarantine Apply cleanup quarantine moves (default: classify only)
- *   --agent-pack <codex|cursor|claude|windsurf|all|none> (default: none)
- *   --catalog <path> (default: ai-tools/ai-skills/catalog/skill-catalog.json)
- *   --manifest <path> (default: ai-tools/ai-skills/catalog/execution-manifest.json)
- *
- * @outputs
- *   - tasks/reports/repo-ops/repo-audit-summary.md
- *   - tasks/reports/repo-ops/repo-audit-summary.json
- *
- * @exit-codes
- *   0 = pipeline completed
- *   1 = one or more stages failed
- *
- * @examples
- *   node tools/scripts/repo-audit-orchestrator.js --mode static --scope changed
- *   node tools/scripts/repo-audit-orchestrator.js --mode full --scope full --quarantine --agent-pack all
- *
- * @notes
- *   Static + report-synthesis is the default strategy. Cleanup defaults to non-mutating classification.
+ * @script            repo-audit-orchestrator
+ * @category          orchestrator
+ * @purpose           infrastructure:pipeline-orchestration
+ * @scope             tools/scripts, ai-tools/ai-skills/catalog, tasks/reports/repo-ops
+ * @owner             docs
+ * @needs             R-R29
+ * @purpose-statement Repo audit orchestrator — dispatches all static analysis validators in sequence. Supports --mode (static/full), --scope (full/changed), --quarantine, --agent-pack.
+ * @pipeline          P6 (on-demand, health audit)
+ * @usage             node tools/scripts/repo-audit-orchestrator.js [flags]
  */
 
 const fs = require('fs');

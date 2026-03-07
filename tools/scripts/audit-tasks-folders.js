@@ -1,44 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script audit-tasks-folders
- * @summary Audit tasks folders, optionally normalize report locations, and optionally apply audit recommendations with conflict-safe moves.
- * @owner docs
- * @scope tools/scripts, tasks
- *
- * @usage
- *   node tools/scripts/audit-tasks-folders.js
- *   node tools/scripts/audit-tasks-folders.js --dry-run
- *   node tools/scripts/audit-tasks-folders.js --apply
- *   node tools/scripts/audit-tasks-folders.js --apply-recommendations --recommendation-scope full
- *   node tools/scripts/audit-tasks-folders.js --folders plan,reports,report
- *
- * @inputs
- *   --apply Perform report/report(s) normalization moves in addition to writing audits.
- *   --dry-run Write audits and planned move actions without mutating files.
- *   --apply-recommendations Apply move/delete recommendations from existing audit reports.
- *   --recommendation-scope full|targeted Recommendation application scope (default: full).
- *   --conflict-policy pause Conflict handling policy for recommendation application (default: pause).
- *   --audit-output-dir <path> Directory for audit markdown outputs (default: tasks/reports/repo-ops).
- *   --folders Comma-separated folder subset (for example: plan,reports,report,plan/reports).
- *
- * @outputs
- *   - tasks/reports/repo-ops/*_audit.md (one report per audited folder, plus tasks_root_audit.md)
- *   - File moves/deletes in tasks/reports + tasks/report when --apply is set
- *   - tasks/reports/repo-ops/recommendation-apply-summary.json when --apply-recommendations is set (non dry-run)
- *   - tasks/reports/repo-ops/recommendation-conflicts.md when conflicts exist (non dry-run)
- *
- * @exit-codes
- *   0 = audit/report generation succeeded
- *   1 = invalid arguments or runtime failure
- *
- * @examples
- *   node tools/scripts/audit-tasks-folders.js --dry-run
- *   node tools/scripts/audit-tasks-folders.js --apply
- *   node tools/scripts/audit-tasks-folders.js --apply-recommendations --dry-run --recommendation-scope full
- *   node tools/scripts/audit-tasks-folders.js --folders tasks/plan/reports,tasks/report
- *
- * @notes
- *   Reports are overwritten on each run and include timestamped headers. Excludes tasks/context_data and any _contextData_ subtree.
+ * @script            audit-tasks-folders
+ * @category          validator
+ * @purpose           qa:repo-health
+ * @scope             tools/scripts, tasks
+ * @owner             docs
+ * @needs             E-C1, R-R14
+ * @purpose-statement Tasks folder auditor — checks tasks/ structure, normalises report locations, applies recommendations with conflict-safe moves
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/audit-tasks-folders.js [flags]
  */
 
 const fs = require('fs');

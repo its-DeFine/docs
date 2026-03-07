@@ -1,32 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script generate-ai-sitemap
- * @summary Generate an AI-focused sitemap from v2 docs navigation.
- * @owner docs
- * @scope tools/scripts, docs.json, v2
- *
- * @usage
- *   node tools/scripts/generate-ai-sitemap.js --write
- *   node tools/scripts/generate-ai-sitemap.js --check
- *
- * @inputs
- *   --write Write sitemap-ai.xml at the repo root.
- *   --check Verify sitemap-ai.xml is up to date.
- *
- * @outputs
- *   - sitemap-ai.xml
- *
- * @exit-codes
- *   0 = success (or --check found no changes)
- *   1 = --check found differences or missing pages
- *
- * @examples
- *   node tools/scripts/generate-ai-sitemap.js --write
- *   node tools/scripts/generate-ai-sitemap.js --check
- *
- * @notes
- *   - Sources pages from v2 navigation in docs.json.
- *   - Excludes v2/internal and v2/x-* routes.
+ * @script            generate-ai-sitemap
+ * @category          generator
+ * @purpose           governance:index-management
+ * @scope             tools/scripts, docs.json, v2
+ * @owner             docs
+ * @needs             R-R16, R-R17
+ * @purpose-statement AI sitemap generator — produces AI-optimised sitemap files. Dual-mode: --check (enforcer) / --write (generator).
+ * @pipeline          P3 (PR, Track E, --check), P4 (post-merge, --write)
+ * @dualmode          --check (enforcer) | --write (generator)
+ * @usage             node tools/scripts/generate-ai-sitemap.js [flags]
  */
 
 const fs = require('fs');

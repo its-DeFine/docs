@@ -1,30 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script generate-docs-guide-pages-index
- * @summary Generate docs-guide/indexes/pages-index.mdx from v2/index.mdx entries filtered to docs.json navigation pages.
- * @owner docs
- * @scope tools/scripts, docs-guide/indexes/pages-index.mdx, v2/index.mdx, docs.json
- *
- * @usage
- *   node tools/scripts/generate-docs-guide-pages-index.js --write
- *
- * @inputs
- *   --write Write generated pages index file (default behavior when --check is not set).
- *   --check Verify generated pages index file is current without writing.
- *
- * @outputs
- *   - docs-guide/indexes/pages-index.mdx
- *
- * @exit-codes
- *   0 = generation/check succeeded
- *   1 = generation/check failed
- *
- * @examples
- *   node tools/scripts/generate-docs-guide-pages-index.js --write
- *   node tools/scripts/generate-docs-guide-pages-index.js --check
- *
- * @notes
- *   Output intentionally uses Mintlify Tree components and excludes warning-marked entries from v2/index.mdx.
+ * @script            generate-docs-guide-pages-index
+ * @category          generator
+ * @purpose           governance:index-management
+ * @scope             tools/scripts, docs-guide/indexes/pages-index.mdx, v2/index.mdx, docs.json
+ * @owner             docs
+ * @needs             R-R16, R-R17
+ * @purpose-statement Generates the docs-guide pages index
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/generate-docs-guide-pages-index.js [flags]
  */
 
 const fs = require('fs');

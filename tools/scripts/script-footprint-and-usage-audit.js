@@ -1,30 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script script-footprint-and-usage-audit
- * @summary Audit script sprawl, duplicate fixtures, backup artifacts, and report-size hotspots.
- * @owner docs
- * @scope tools/scripts, tests, tasks/reports, ai-tools/ai-skills
- *
- * @usage
- *   node tools/scripts/script-footprint-and-usage-audit.js --scope full
- *
- * @inputs
- *   --scope <changed|full> (default: full)
- *   --output-dir <path> (default: tasks/reports/repo-ops)
- *
- * @outputs
- *   - tasks/reports/repo-ops/script-footprint-and-usage-audit.md
- *   - tasks/reports/repo-ops/script-footprint-and-usage-audit.json
- *
- * @exit-codes
- *   0 = audit completed
- *   1 = runtime error
- *
- * @examples
- *   node tools/scripts/script-footprint-and-usage-audit.js --scope full
- *
- * @notes
- *   Static-only analysis. No file mutations are performed.
+ * @script            script-footprint-and-usage-audit
+ * @category          validator
+ * @purpose           qa:repo-health
+ * @scope             tools/scripts, tests, tasks/reports, ai-tools/ai-skills
+ * @owner             docs
+ * @needs             E-C1, R-R14
+ * @purpose-statement Script footprint auditor — analyses script file sizes, dependencies, and usage patterns across the repo
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/script-footprint-and-usage-audit.js [flags]
  */
 
 const fs = require('fs');

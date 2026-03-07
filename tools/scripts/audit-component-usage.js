@@ -1,27 +1,13 @@
 /**
- * @script audit-component-usage
- * @summary Utility script for tools/scripts/audit-component-usage.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/audit-component-usage.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - tasks/reports/repo-ops/component-usage-audit.json
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/audit-component-usage.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            audit-component-usage
+ * @category          validator
+ * @purpose           qa:repo-health
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C1, R-R14
+ * @purpose-statement Component usage auditor — scans pages for component usage patterns and reports statistics
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/audit-component-usage.js [flags]
  */
 const fs = require('fs');
 const path = require('path');

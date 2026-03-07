@@ -1,31 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script generate-docs-guide-indexes
- * @summary Generate docs-guide workflow/template indexes and optionally verify they are up to date.
- * @owner docs
- * @scope tools/scripts, docs-guide, .github/workflows, .github/ISSUE_TEMPLATE
- *
- * @usage
- *   node tools/scripts/generate-docs-guide-indexes.js --write
- *
- * @inputs
- *   --write Write generated index files (default behavior when --check is not set).
- *   --check Verify generated index files are current without writing.
- *
- * @outputs
- *   - docs-guide/indexes/workflows-index.mdx
- *   - docs-guide/indexes/templates-index.mdx
- *
- * @exit-codes
- *   0 = generation/check succeeded
- *   1 = generation/check failed
- *
- * @examples
- *   node tools/scripts/generate-docs-guide-indexes.js --write
- *   node tools/scripts/generate-docs-guide-indexes.js --check
- *
- * @notes
- *   Generated files include a banner and are deterministic for CI checks.
+ * @script            generate-docs-guide-indexes
+ * @category          generator
+ * @purpose           governance:index-management
+ * @scope             tools/scripts, docs-guide, .github/workflows, .github/ISSUE_TEMPLATE
+ * @owner             docs
+ * @needs             R-R16, R-R17
+ * @purpose-statement Generates docs-guide workflow/template indexes and optionally verifies freshness
+ * @pipeline          manual — not yet in pipeline
+ * @dualmode          dual-mode (document flags)
+ * @usage             node tools/scripts/generate-docs-guide-indexes.js [flags]
  */
 
 const fs = require('fs');

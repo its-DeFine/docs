@@ -1,27 +1,13 @@
 /**
- * @script find-correct-url
- * @summary Utility script for tools/scripts/find-correct-url.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/find-correct-url.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/find-correct-url.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            find-correct-url
+ * @category          utility
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement Diagnostic — given a broken URL, attempts to find the correct v2 equivalent
+ * @pipeline          manual — developer tool
+ * @usage             node tools/scripts/find-correct-url.js [flags]
  */
 const puppeteer = require('puppeteer');
 

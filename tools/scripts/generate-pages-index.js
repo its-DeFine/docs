@@ -1,32 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script generate-pages-index
- * @summary Generate and verify section-style index.mdx files for v2 docs folders, plus the root aggregate index.
- * @owner docs
- * @scope tools/scripts, v2
- *
- * @usage
- *   node tools/scripts/generate-pages-index.js --write
- *
- * @inputs
- *   --staged Only run when staged files include v2 docs changes.
- *   --write Regenerate index files.
- *   --stage Stage generated index updates with git add.
- *   --rebuild-indexes Force full rebuild even when --staged has no matching files.
- *
- * @outputs
- *   - v2/pages/<top-level-folder>/index.mdx (while legacy root exists)
- *   - v2/pages/index.mdx (while legacy root exists)
- *
- * @exit-codes
- *   0 = success
- *   1 = validation or write/stage failure
- *
- * @examples
- *   node tools/scripts/generate-pages-index.js --staged --write --stage
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            generate-pages-index
+ * @category          generator
+ * @purpose           governance:index-management
+ * @scope             tools/scripts, v2
+ * @owner             docs
+ * @needs             R-R16, R-R17
+ * @purpose-statement Pages index generator — generates and verifies section-style index.mdx files for v2 docs folders plus root aggregate index
+ * @pipeline          manual — not yet in pipeline
+ * @dualmode          --check (enforcer) | --write (generator)
+ * @usage             node tools/scripts/generate-pages-index.js [flags]
  */
 
 const fs = require('fs');

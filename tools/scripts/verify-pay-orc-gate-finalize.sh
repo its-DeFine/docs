@@ -1,32 +1,13 @@
 #!/usr/bin/env bash
-# @script verify-pay-orc-gate-finalize
-# @summary Enforce the payments/orchestrators insertion deliverables and migration paths before commit.
-# @owner docs
-# @scope tools/scripts, .githooks/pre-commit, v2/gateways, v2/orchestrators
-#
-# @usage
-#   bash tools/scripts/verify-pay-orc-gate-finalize.sh
-#   bash tools/scripts/verify-pay-orc-gate-finalize.sh --quiet
-#   bash tools/scripts/verify-pay-orc-gate-finalize.sh --print-targets
-#
-# @inputs
-#   --quiet Emit only failing paths.
-#   --print-targets Print the enforced target and legacy file lists.
-#
-# @outputs
-#   - Console report of missing required files and legacy files that must not exist.
-#
-# @exit-codes
-#   0 = required target files exist and blocked legacy files are absent
-#   1 = one or more required files are missing or blocked legacy files still exist
-#
-# @examples
-#   bash tools/scripts/verify-pay-orc-gate-finalize.sh
-#   bash tools/scripts/verify-pay-orc-gate-finalize.sh --print-targets
-#
-# @notes
-#   Enforces the "Gateway/Orchestrator Payments + Quickstart Insertions" target map.
-
+# @script            verify-pay-orc-gate-finalize
+# @category          enforcer
+# @purpose           qa:repo-health
+# @scope             tools/scripts, .githooks/pre-commit, v2/gateways, v2/orchestrators
+# @owner             docs
+# @needs             E-C1, R-R14
+# @purpose-statement Payment/orchestrator gate verifier — checks payment and orchestrator documentation gate conditions
+# @pipeline          manual — not yet in pipeline
+# @usage             bash tools/scripts/verify-pay-orc-gate-finalize.sh [flags]
 set -euo pipefail
 
 quiet=0

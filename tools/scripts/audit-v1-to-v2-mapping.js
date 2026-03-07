@@ -1,38 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script audit-v1-to-v2-mapping
- * @summary Build a complete v1->v2 mapping audit (English IA canonical), including seed revalidation and adjudication queue.
- * @owner docs
- * @scope tools/scripts, v1, v2, docs.json, tasks/reports
- *
- * @usage
- *   node tools/scripts/audit-v1-to-v2-mapping.js
- *
- * @inputs
- *   --out-dir <path> Output directory (default: tasks/reports/v1-v2-mapping-audit)
- *   --candidate-count <n> Number of ranked target candidates per row (default: 8)
- *   --adjudicate-threshold <0-1> Confidence threshold for adjudication queueing (default: 0.8)
- *   --use-seed <csv-path> Optional seed matrix CSV for revalidation
- *   --section <name> Limit v1 inventory to one top-level section (e.g., gateways)
- *   --resume <json-path> Resume from prior JSON artifact (rows keyed by v1_page)
- *
- * @outputs
- *   - tasks/reports/v1-v2-mapping-audit/v1-v2-page-mapping-audit.csv
- *   - tasks/reports/v1-v2-mapping-audit/v1-v2-page-mapping-audit.json
- *   - tasks/reports/v1-v2-mapping-audit/v1-v2-page-mapping-audit-report.md
- *   - tasks/reports/v1-v2-mapping-audit/v1-v2-page-mapping-adjudication-queue.json
- *   - tasks/reports/v1-v2-mapping-audit/v1-v2-page-mapping-run-metadata.json
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/audit-v1-to-v2-mapping.js
- *   node tools/scripts/audit-v1-to-v2-mapping.js --section gateways --candidate-count 5
- *
- * @notes
- *   Generates adjudication-oriented mapping artifacts for planning and should be run from the repository root.
+ * @script            audit-v1-to-v2-mapping
+ * @category          validator
+ * @purpose           qa:repo-health
+ * @scope             tools/scripts, v1, v2, docs.json, tasks/reports
+ * @owner             docs
+ * @needs             E-C1, R-R14
+ * @purpose-statement Diagnostic — maps v1 page URLs to v2 equivalents for migration tracking
+ * @pipeline          manual — not yet in pipeline
+ * @dualmode          dual-mode (document flags)
+ * @usage             node tools/scripts/audit-v1-to-v2-mapping.js [flags]
  */
 
 const fs = require('fs');

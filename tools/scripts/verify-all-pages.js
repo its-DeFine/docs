@@ -1,27 +1,13 @@
 /**
- * @script verify-all-pages
- * @summary Utility script for tools/scripts/verify-all-pages.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/verify-all-pages.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/verify-all-pages.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            verify-all-pages
+ * @category          enforcer
+ * @purpose           qa:repo-health
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C1, R-R14
+ * @purpose-statement Page verifier — checks all pages in docs.json resolve to valid files
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/verify-all-pages.js [flags]
  */
 const puppeteer = require('puppeteer');
 

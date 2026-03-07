@@ -1,36 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script generate-docs-index
- * @summary Generate docs-index.json and optionally backfill v2 frontmatter metadata.
- * @owner docs
- * @scope tools/scripts, tools/lib, v2, docs.json, root
- *
- * @usage
- *   node tools/scripts/generate-docs-index.js --write
- *   node tools/scripts/generate-docs-index.js --check
- *   node tools/scripts/generate-docs-index.js --write --backfill
- *
- * @inputs
- *   --write Write docs-index.json (and report when backfill is enabled).
- *   --check Verify docs-index.json matches generated output.
- *   --backfill Update frontmatter fields (tags, entities, difficulty, lastVerified).
- *   --report Write missing frontmatter report without backfill.
- *
- * @outputs
- *   - docs-index.json
- *   - tasks/reports/docs-index/missing-frontmatter.md (when reporting/backfill)
- *
- * @exit-codes
- *   0 = success (or --check found no changes)
- *   1 = --check found differences or runtime failure
- *
- * @examples
- *   node tools/scripts/generate-docs-index.js --write
- *   node tools/scripts/generate-docs-index.js --check
- *   node tools/scripts/generate-docs-index.js --write --backfill
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            generate-docs-index
+ * @category          generator
+ * @purpose           governance:index-management
+ * @scope             tools/scripts, tools/lib, v2, docs.json, root
+ * @owner             docs
+ * @needs             R-R16, R-R17
+ * @purpose-statement Docs index generator — produces docs-index.json from v2 frontmatter and docs.json. Dual-mode: --check (enforcer) / --write (generator). Most-called script in the repo.
+ * @pipeline          P1 (commit, --check), P3 (PR, Track D, --check), P4 (post-merge, --write)
+ * @dualmode          --check (enforcer) | --write (generator)
+ * @usage             node tools/scripts/generate-docs-index.js [flags]
  */
 
 const fs = require('fs');

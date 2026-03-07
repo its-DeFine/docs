@@ -1,29 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script test-all-pages-comprehensive
- * @summary Utility script for tools/scripts/test-all-pages-comprehensive.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/test-all-pages-comprehensive.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - tasks/reports/page-audits/browser-test-report.json
- *   - tasks/reports/page-audits/browser-test-report.md
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/test-all-pages-comprehensive.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            test-all-pages-comprehensive
+ * @category          utility
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement Manual comprehensive test — runs all page validators including slow/network checks
+ * @pipeline          manual — developer tool
+ * @usage             node tools/scripts/test-all-pages-comprehensive.js [flags]
  */
 
 /**

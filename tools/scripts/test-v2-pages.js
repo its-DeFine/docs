@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script test-v2-pages
- * @summary Utility script for tools/scripts/test-v2-pages.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/test-v2-pages.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/test-v2-pages.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            test-v2-pages
+ * @category          utility
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement V2 page tester — validates v2 pages via Puppeteer browser rendering
+ * @pipeline          manual — developer tool
+ * @usage             node tools/scripts/test-v2-pages.js [flags]
  */
 
 /**

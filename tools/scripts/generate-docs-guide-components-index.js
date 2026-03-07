@@ -1,31 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script generate-docs-guide-components-index
- * @summary Generate component inventory indexes from snippets/components exports and optionally verify freshness.
- * @owner docs
- * @scope tools/scripts, docs-guide/indexes/components-index.mdx, v2/resources/documentation-guide/component-library/overview.mdx, snippets/components
- *
- * @usage
- *   node tools/scripts/generate-docs-guide-components-index.js --write
- *
- * @inputs
- *   --write Write generated components index file (default behavior when --check is not set).
- *   --check Verify generated components index file is current without writing.
- *
- * @outputs
- *   - docs-guide/indexes/components-index.mdx
- *   - v2/resources/documentation-guide/component-library/overview.mdx
- *
- * @exit-codes
- *   0 = generation/check succeeded
- *   1 = generation/check failed
- *
- * @examples
- *   node tools/scripts/generate-docs-guide-components-index.js --write
- *   node tools/scripts/generate-docs-guide-components-index.js --check
- *
- * @notes
- *   Output intentionally uses Mintlify AccordionGroup + ResponseField patterns and a searchable lookup table.
+ * @script            generate-docs-guide-components-index
+ * @category          generator
+ * @purpose           governance:index-management
+ * @scope             tools/scripts, docs-guide/indexes/components-index.mdx, v2/resources/documentation-guide/component-library/overview.mdx, snippets/components
+ * @owner             docs
+ * @needs             R-R16, R-R17
+ * @purpose-statement Generates the docs-guide component library index page
+ * @pipeline          manual — not yet in pipeline
+ * @dualmode          dual-mode (document flags)
+ * @usage             node tools/scripts/generate-docs-guide-components-index.js [flags]
  */
 
 const fs = require('fs');

@@ -1,29 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script audit-all-pages
- * @summary Utility script for tasks/scripts/audit-all-pages.js.
- * @owner docs
- * @scope tasks/scripts
- *
- * @usage
- *   node tasks/scripts/audit-all-pages.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - tasks/reports/page-audits/page-audit-latest.json
- *   - tasks/reports/page-audits/page-audit-latest.md
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tasks/scripts/audit-all-pages.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            audit-all-pages
+ * @category          validator
+ * @purpose           qa:content-quality
+ * @scope             tasks/scripts
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Full page auditor — comprehensive check of all pages including content quality metrics
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/audit-all-pages.js [flags]
  */
 
 /**

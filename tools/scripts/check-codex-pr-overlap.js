@@ -1,33 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script check-codex-pr-overlap
- * @summary Fail codex PR checks when changed files overlap another open codex PR without explicit handoff label.
- * @owner docs
- * @scope tools/scripts, .github/workflows, codex PR governance
- *
- * @usage
- *   node tools/scripts/check-codex-pr-overlap.js --base-ref docs-v2
- *
- * @inputs
- *   --base-ref <branch> Base branch used for current PR changed-file diff (default: GITHUB_BASE_REF or docs-v2)
- *   --repo <owner/repo> Repository (default: GITHUB_REPOSITORY)
- *   --head-branch <name> Current head branch (default: GITHUB_HEAD_REF or git branch)
- *   --handoff-label <name> Label that allows overlap (default: codex-handoff-approved)
- *   --token-env <ENV_NAME> Token env for API calls (default: GITHUB_TOKEN)
- *   --json Emit machine-readable result
- *
- * @outputs
- *   - Console overlap report for codex governance CI
- *
- * @exit-codes
- *   0 = no blocking overlap
- *   1 = overlap detected or API/query failure
- *
- * @examples
- *   node tools/scripts/check-codex-pr-overlap.js --base-ref docs-v2 --handoff-label codex-handoff-approved
- *
- * @notes
- *   Only applies to codex/* branches. Non-codex branches are skipped.
+ * @script            check-codex-pr-overlap
+ * @category          enforcer
+ * @purpose           governance:agent-governance
+ * @scope             tools/scripts, .github/workflows, codex PR governance
+ * @owner             docs
+ * @needs             R-R27, R-R30
+ * @purpose-statement PR enforcer — checks for conflicting codex PRs targeting the same files/branches
+ * @pipeline          P3 (PR, Track B)
+ * @usage             node tools/scripts/check-codex-pr-overlap.js [flags]
  */
 
 const { spawnSync } = require('child_process');

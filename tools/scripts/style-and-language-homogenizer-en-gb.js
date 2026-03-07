@@ -1,31 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script style-and-language-homogenizer-en-gb
- * @summary Enforce EN-GB style and terminology profile for English v2 docs in phase 1.
- * @owner docs
- * @scope tools/scripts, v2, tools/config/style-language-profile-en-gb.json
- *
- * @usage
- *   node tools/scripts/style-and-language-homogenizer-en-gb.js --scope full
- *
- * @inputs
- *   --scope <changed|full> (default: full)
- *   --output-dir <path> (default: tasks/reports/repo-ops)
- *   --profile <path> (default: tools/config/style-language-profile-en-gb.json)
- *
- * @outputs
- *   - tasks/reports/repo-ops/style-and-language-homogenizer-en-gb.md
- *   - tasks/reports/repo-ops/style-and-language-homogenizer-en-gb.json
- *
- * @exit-codes
- *   0 = audit completed
- *   1 = runtime error
- *
- * @examples
- *   node tools/scripts/style-and-language-homogenizer-en-gb.js --scope full
- *
- * @notes
- *   Static-only analysis. Does not modify source files.
+ * @script            style-and-language-homogenizer-en-gb
+ * @category          remediator
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts, v2, tools/config/style-language-profile-en-gb.json
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement EN-GB style homogeniser — finds and fixes American English spellings, style guide violations, and formatting inconsistencies across v2 content
+ * @pipeline          P6 (on-demand, repair)
+ * @usage             node tools/scripts/style-and-language-homogenizer-en-gb.js [flags]
  */
 
 const fs = require('fs');

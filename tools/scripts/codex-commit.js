@@ -1,33 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script codex-commit
- * @summary Create git commits with explicit audited human override controls for --no-verify usage.
- * @owner docs
- * @scope tools/scripts, .githooks, ai-tools/ai-rules
- *
- * @usage
- *   node tools/scripts/codex-commit.js --message "Update hooks"
- *
- * @inputs
- *   --message <text> Required commit message subject
- *   --no-verify Optional no-verify commit path (human override required)
- *   --human-override <true|false> Required true when --no-verify is used
- *   --override-note <text> Required when --no-verify is used
- *   --trailer <key=value> Optional extra trailer; repeatable
- *
- * @outputs
- *   - Executes git commit with validated override semantics
- *
- * @exit-codes
- *   0 = commit succeeded
- *   1 = validation failure or git commit failure
- *
- * @examples
- *   node tools/scripts/codex-commit.js --message "Refine docs nav checks"
- *   ALLOW_HUMAN_NO_VERIFY=1 node tools/scripts/codex-commit.js --message "Emergency fix" --no-verify --human-override true --override-note "explicit user instruction in chat"
- *
- * @notes
- *   Override path enforces trailer + env token so no-verify usage remains auditable.
+ * @script            codex-commit
+ * @category          generator
+ * @purpose           governance:agent-governance
+ * @scope             tools/scripts, .githooks, ai-tools/ai-rules
+ * @owner             docs
+ * @needs             R-R27, R-R30
+ * @purpose-statement Codex commit helper — audits codex branch state and generates compliant commit messages
+ * @pipeline          manual — not yet in pipeline
+ * @dualmode          dual-mode (document flags)
+ * @usage             node tools/scripts/codex-commit.js [flags]
  */
 
 const { spawnSync } = require('child_process')

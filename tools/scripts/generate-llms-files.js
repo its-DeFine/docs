@@ -1,32 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script generate-llms-files
- * @summary Generate llms.txt and llms-full.txt from v2 docs navigation.
- * @owner docs
- * @scope tools/scripts, docs.json, v2
- *
- * @usage
- *   node tools/scripts/generate-llms-files.js --write
- *   node tools/scripts/generate-llms-files.js --check
- *
- * @inputs
- *   --write Write outputs to repo root.
- *   --check Verify outputs are up to date.
- *
- * @outputs
- *   - llms.txt
- *   - llms-full.txt
- *
- * @exit-codes
- *   0 = success
- *   1 = validation failure or stale outputs
- *
- * @examples
- *   node tools/scripts/generate-llms-files.js --write
- *   node tools/scripts/generate-llms-files.js --check
- *
- * @notes
- *   Excludes v2/internal and v2/x-* routes from docs.json navigation.
+ * @script            generate-llms-files
+ * @category          generator
+ * @purpose           governance:index-management
+ * @scope             tools/scripts, docs.json, v2
+ * @owner             docs
+ * @needs             R-R16, R-R17
+ * @purpose-statement LLMs file generator — produces llms.txt and llms-full.txt for AI consumption. Dual-mode: --check / --write.
+ * @pipeline          P3 (PR, Track F, --check), P4 (post-merge, --write)
+ * @dualmode          --check (enforcer) | --write (generator)
+ * @usage             node tools/scripts/generate-llms-files.js [flags]
  */
 
 const fs = require('fs');

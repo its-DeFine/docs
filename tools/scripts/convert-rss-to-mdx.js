@@ -1,29 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script convert-rss-to-mdx
- * @summary Convert an RSS feed XML file into a structured MDX document.
- * @owner docs
- * @scope tools/scripts, v2/internal/assets/transcripts
- *
- * @usage
- *   node tools/scripts/convert-rss-to-mdx.js --input v2/internal/assets/transcripts/ycomb.rss --output v2/internal/assets/transcripts/ycomb.mdx
- *
- * @inputs
- *   --input <path> (required)
- *   --output <path> (required)
- *
- * @outputs
- *   - <output> (MDX file)
- *
- * @exit-codes
- *   0 = success
- *   1 = missing args or read/write failure
- *
- * @examples
- *   node tools/scripts/convert-rss-to-mdx.js --input v2/internal/assets/transcripts/ycomb.rss --output v2/internal/assets/transcripts/ycomb.mdx
- *
- * @notes
- *   RSS parsing uses regex heuristics; review output for unusual feeds.
+ * @script            convert-rss-to-mdx
+ * @category          automation
+ * @purpose           infrastructure:data-feeds
+ * @scope             tools/scripts, v2/internal/assets/transcripts
+ * @owner             docs
+ * @needs             F-R1
+ * @purpose-statement RSS-to-MDX converter — imports RSS feed items and converts to MDX page format
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/convert-rss-to-mdx.js [flags]
  */
 
 const fs = require('fs')

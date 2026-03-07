@@ -1,32 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script codex-safe-merge-with-stash
- * @summary Safely execute an explicit merge request by stashing local changes, merging a target ref, and restoring the stash.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/codex-safe-merge-with-stash.js --target docs-v2
- *
- * @inputs
- *   --target <branch-or-ref> Required merge target.
- *   --stash-untracked Whether to stash untracked files (default: true).
- *   --dry-run Print planned git commands without mutating state.
- *   --json Emit machine-readable result output.
- *
- * @outputs
- *   - Console summary
- *   - Optional JSON result object
- *
- * @exit-codes
- *   0 = merge flow completed successfully
- *   1 = invalid arguments or merge/stash failure
- *
- * @examples
- *   node tools/scripts/codex-safe-merge-with-stash.js --target origin/docs-v2
- *
- * @notes
- *   Designed for explicit human-requested merge operations in multi-agent workflows. No force-push or auto conflict resolution.
+ * @script            codex-safe-merge-with-stash
+ * @category          utility
+ * @purpose           governance:agent-governance
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             R-R27, R-R30
+ * @purpose-statement Codex merge utility — safely merges branches with stash handling to avoid codex conflicts
+ * @pipeline          manual — developer tool
+ * @usage             node tools/scripts/codex-safe-merge-with-stash.js [flags]
  */
 
 const { spawnSync } = require('child_process');

@@ -1,36 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script sync-codex-skills
- * @summary Sync canonical skill templates into local Codex skills using safe upsert and deterministic openai.yaml generation.
- * @owner docs
- * @scope tools/scripts, ai-tools/ai-skills/templates, tests/unit/codex-skill-sync.test.js
- *
- * @usage
- *   node tools/scripts/sync-codex-skills.js
- *
- * @inputs
- *   --source-dir <path> (default: ai-tools/ai-skills/templates)
- *   --dest <path> (default: $CODEX_HOME/skills or ~/.codex/skills)
- *   --check (validate-only; exit non-zero on drift)
- *   --dry-run (print planned actions without writing)
- *   --skills <name[,name...]> (optional subset by frontmatter name)
- *   --openai-yaml / --no-openai-yaml (default: --openai-yaml)
- *
- * @outputs
- *   - <dest>/<skill-name>/SKILL.md
- *   - <dest>/<skill-name>/agents/openai.yaml (unless --no-openai-yaml)
- *   - Console summary with created/updated/unchanged/failed counts
- *
- * @exit-codes
- *   0 = sync/check succeeded
- *   1 = parse/validation error or check-mode drift
- *
- * @examples
- *   node tools/scripts/sync-codex-skills.js --check
- *   node tools/scripts/sync-codex-skills.js --skills lpd-bootstrap-and-doctor,new-script-scaffold --dry-run
- *
- * @notes
- *   Safe upsert mode never deletes local skills or extra files.
+ * @script            sync-codex-skills
+ * @category          automation
+ * @purpose           governance:agent-governance
+ * @scope             tools/scripts, ai-tools/ai-skills/templates, tests/unit/codex-skill-sync.test.js
+ * @owner             docs
+ * @needs             R-R27, R-R30
+ * @purpose-statement Codex skills sync — synchronises skill definition files between local and remote sources. Supports --check mode.
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/sync-codex-skills.js [flags]
  */
 
 const fs = require('fs');

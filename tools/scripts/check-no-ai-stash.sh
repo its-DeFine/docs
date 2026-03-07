@@ -1,31 +1,13 @@
 #!/usr/bin/env bash
-# @script check-no-ai-stash
-# @summary Block commits when AI-tagged stash entries are present; enforce branch plus WIP checkpoint isolation.
-# @owner docs
-# @scope tools/scripts, .githooks/pre-commit
-#
-# @usage
-#   bash tools/scripts/check-no-ai-stash.sh
-#   bash tools/scripts/check-no-ai-stash.sh --branch docs-v2 --quiet
-#
-# @inputs
-#   --branch <name> Optional branch name. Defaults to current git branch.
-#   --quiet Emit only violating entries.
-#
-# @outputs
-#   - Console diagnostics for violating stash entries.
-#
-# @exit-codes
-#   0 = no violating AI stash entries detected
-#   1 = violating AI stash entries detected
-#
-# @examples
-#   bash tools/scripts/check-no-ai-stash.sh
-#   bash tools/scripts/check-no-ai-stash.sh --quiet
-#
-# @notes
-#   Policy: AI tasks must isolate work with branch plus WIP commits, never stash.
-
+# @script            check-no-ai-stash
+# @category          enforcer
+# @purpose           governance:agent-governance
+# @scope             tools/scripts, .githooks/pre-commit
+# @owner             docs
+# @needs             R-R27, R-R30
+# @purpose-statement AI stash enforcer — blocks push if AI temporary/stash files are present in working tree
+# @pipeline          P2 (push)
+# @usage             bash tools/scripts/check-no-ai-stash.sh [flags]
 set -euo pipefail
 
 branch=""

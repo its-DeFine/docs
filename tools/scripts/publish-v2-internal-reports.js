@@ -1,33 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script publish-v2-internal-reports
- * @summary Duplicate approved markdown reports into v2/internal/reports pages with metadata and update docs.json.
- * @owner docs
- * @scope tools/scripts, tools/config, v2/internal, docs.json, tasks/reports, tests/reports
- *
- * @usage
- *   node tools/scripts/publish-v2-internal-reports.js --check
- *   node tools/scripts/publish-v2-internal-reports.js
- *
- * @inputs
- *   --check Preview actions without writing files or modifying docs.json.
- *   --strict Exit non-zero if any configured source report is missing.
- *   --category <slug[,slug]> Restrict processing to one or more category slugs.
- *
- * @outputs
- *   - v2/internal/reports/<category>/<page>.md (generated docs pages)
- *   - docs.json (Internal Hub report groups only)
- *
- * @exit-codes
- *   0 = success (or dry-run preview)
- *   1 = invalid args, missing strict sources, or write failure
- *
- * @examples
- *   node tools/scripts/publish-v2-internal-reports.js --check
- *   node tools/scripts/publish-v2-internal-reports.js --category navigation-links,repo-ops
- *
- * @notes
- *   Overwrites managed report pages on each run. Dynamic audit-tasks-folders pages are cleaned by filename prefix.
+ * @script            publish-v2-internal-reports
+ * @category          automation
+ * @purpose           qa:repo-health
+ * @scope             tools/scripts, tools/config, v2/internal, docs.json, tasks/reports, tests/reports
+ * @owner             docs
+ * @needs             E-C1, R-R14
+ * @purpose-statement Report publisher — publishes v2 internal audit reports to configured output locations
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/publish-v2-internal-reports.js [flags]
  */
 
 const fs = require('fs');

@@ -1,33 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script cleanup-quarantine-manager
- * @summary Classify cleanup candidates and optionally quarantine files with a reversible manifest.
- * @owner docs
- * @scope tools/scripts, tasks/reports/repo-ops, tasks/quarantine
- *
- * @usage
- *   node tools/scripts/cleanup-quarantine-manager.js
- *
- * @inputs
- *   --output-dir <path> (default: tasks/reports/repo-ops)
- *   --manifest <path> (default: <output-dir>/cleanup-quarantine-manifest.json)
- *   --quarantine-root <path> (default: tasks/quarantine/repo-audit)
- *   --apply Move quarantine candidates into quarantine root.
- *
- * @outputs
- *   - tasks/reports/repo-ops/cleanup-quarantine-manifest.json
- *   - tasks/reports/repo-ops/cleanup-quarantine-manifest.md
- *
- * @exit-codes
- *   0 = classification/quarantine completed
- *   1 = runtime error
- *
- * @examples
- *   node tools/scripts/cleanup-quarantine-manager.js
- *   node tools/scripts/cleanup-quarantine-manager.js --apply
- *
- * @notes
- *   Default behavior is non-mutating classification. Deletions are never performed.
+ * @script            cleanup-quarantine-manager
+ * @category          remediator
+ * @purpose           qa:repo-health
+ * @scope             tools/scripts, tasks/reports/repo-ops, tasks/quarantine
+ * @owner             docs
+ * @needs             E-C1, R-R14
+ * @purpose-statement Quarantine manager — classifies files for quarantine (default) or applies quarantine moves (--apply)
+ * @pipeline          P6 (on-demand, quarantine)
+ * @usage             node tools/scripts/cleanup-quarantine-manager.js [flags]
  */
 
 const fs = require('fs');

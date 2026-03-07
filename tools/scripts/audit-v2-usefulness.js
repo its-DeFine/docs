@@ -1,45 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script audit-v2-usefulness
- * @summary Run purpose-aware usefulness audit on docs.json EN-routable v2 pages with optional Tier 2 LLM evaluation and persona journey reporting.
- * @owner docs
- * @scope tools/scripts, tools/lib/docs-usefulness, tools/config, tests/utils, tasks/reports
- *
- * @usage
- *   node tools/scripts/audit-v2-usefulness.js --mode full
- *
- * @inputs
- *   --mode <full|changed|files> (default: full)
- *   --files <path[,path...]> Explicit files/routes (forces files mode)
- *   --out-dir <path> Output directory (default: tasks/reports/quality-accessibility/docs-usefulness/latest)
- *   --format <jsonl,csv,json,md> Output formats (default: jsonl,csv,json,md)
- *   --max-pages <n> Limit processed pages
- *   --llm Enable Tier 2 LLM scoring
- *   --llm-tier <free|good|optimal> LLM cost tier (default: free)
- *   --llm-budget <usd> Budget cap for paid tiers
- *   --llm-sample <1-100> Percent of pages to send to Tier 2 (default: 100)
- *   --llm-resume Reuse LLM cache (default: true)
- *   --journey Enable journey report (default: true in full mode)
- *   --no-journey Disable journey report
- *   --purpose-aware Use purpose-aware rubric (default: true)
- *   --legacy-rubric Force legacy fallback scoring
- *
- * @outputs
- *   - page-matrix.jsonl
- *   - page-matrix.csv
- *   - run-metadata.json
- *   - summary.md
- *
- * @exit-codes
- *   0 = completed
- *   1 = invalid args, config mismatch, or runtime error
- *
- * @examples
- *   node tools/scripts/audit-v2-usefulness.js --mode full
- *   OPENROUTER_API_KEY=... node tools/scripts/audit-v2-usefulness.js --mode full --llm --llm-sample 25
- *
- * @notes
- *   Deprecated accuracy-verification flags are hard-failed with migration guidance.
+ * @script            audit-v2-usefulness
+ * @category          validator
+ * @purpose           qa:content-quality
+ * @scope             tools/scripts, v2, tasks/reports, tools/config
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Usefulness auditor — scores v2 MDX pages on human and agent usefulness with source-weighted 2026 accuracy verification
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/audit-v2-usefulness.js [flags]
  */
 
 'use strict';

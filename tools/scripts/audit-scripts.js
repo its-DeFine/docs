@@ -1,33 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script audit-scripts
- * @summary Audit full-repo executable scripts, categorize usage/overlap, and overwrite SCRIPT_AUDIT reports.
- * @owner docs
- * @scope tools/scripts, tasks/reports, tests/unit/script-docs.test.js, tests/README.md
- *
- * @usage
- *   node tools/scripts/audit-scripts.js
- *
- * @inputs
- *   --format both|md|json (default: both)
- *   --output-dir <repo-relative-or-absolute-dir> (default: tasks/reports/repo-ops)
- *   --strict Exit non-zero when any script fails template compliance.
- *
- * @outputs
- *   - tasks/reports/repo-ops/SCRIPT_AUDIT.md
- *   - tasks/reports/repo-ops/SCRIPT_AUDIT.json
- *
- * @exit-codes
- *   0 = audit generated successfully
- *   1 = invalid args, generation failure, or strict-mode compliance failure
- *
- * @examples
- *   node tools/scripts/audit-scripts.js
- *   node tools/scripts/audit-scripts.js --format json --strict
- *   node tools/scripts/audit-scripts.js --output-dir tasks/reports/repo-ops --format both
- *
- * @notes
- *   Overwrites the same report files on every run.
+ * @script            audit-scripts
+ * @category          validator
+ * @purpose           qa:repo-health
+ * @scope             tools/scripts, tasks/reports, tests/unit/script-docs.test.js, tests/README.md
+ * @owner             docs
+ * @needs             E-C1, R-R14
+ * @purpose-statement Script auditor — analyses all repo scripts, categorises usage/overlap, generates SCRIPT_AUDIT reports
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/audit-scripts.js [flags]
  */
 
 const fs = require('fs')
