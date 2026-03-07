@@ -1,6 +1,6 @@
 # Content Map
 
-- Generated: 2026-03-07T14:17:15+00:00
+- Generated: 2026-03-07T14:19:15+00:00
 - Inventory: `ai-tools/ai-skills/inventory.json`
 - Files catalogued: 84
 
