@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script generate-seo
- * @summary Utility script for tools/scripts/snippets/generate-seo.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/snippets/generate-seo.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/snippets/generate-seo.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            generate-seo
+ * @category          generator
+ * @purpose           feature:seo
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-R19, F-R7
+ * @purpose-statement SEO generator — generates SEO metadata (title, description, keywords) for v2 pages from content analysis
+ * @pipeline          P6 (on-demand, SEO refresh)
+ * @usage             node tools/scripts/snippets/generate-seo.js [flags]
  */
 /**
  * SEO Generator for Livepeer Documentation

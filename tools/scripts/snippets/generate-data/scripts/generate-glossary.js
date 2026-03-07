@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script generate-glossary
- * @summary Utility script for tools/scripts/snippets/generate-data/scripts/generate-glossary.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/snippets/generate-data/scripts/generate-glossary.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/snippets/generate-data/scripts/generate-glossary.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            generate-glossary
+ * @category          generator
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement Glossary generator — produces glossary data file from terminology sources
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tools/scripts/snippets/generate-data/scripts/generate-glossary.js [flags]
  */
 
 /**

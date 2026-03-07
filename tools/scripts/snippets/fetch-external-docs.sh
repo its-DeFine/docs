@@ -1,27 +1,13 @@
 #!/bin/bash
-# @script fetch-external-docs
-# @summary Utility script for tools/scripts/snippets/fetch-external-docs.sh.
-# @owner docs
-# @scope tools/scripts
-#
-# @usage
-#   bash tools/scripts/snippets/fetch-external-docs.sh
-#
-# @inputs
-#   No required CLI flags; optional flags are documented inline.
-#
-# @outputs
-#   - Console output and/or file updates based on script purpose.
-#
-# @exit-codes
-#   0 = success
-#   1 = runtime or validation failure
-#
-# @examples
-#   bash tools/scripts/snippets/fetch-external-docs.sh
-#
-# @notes
-#   Keep script behavior deterministic and update script indexes after changes.
+# @script            fetch-external-docs
+# @category          automation
+# @purpose           infrastructure:data-feeds
+# @scope             tools/scripts
+# @owner             docs
+# @needs             F-R1
+# @purpose-statement External docs fetcher — pulls doc fragments from external GitHub repos into snippets/data/ for inclusion in builds
+# @pipeline          P3 (PR, build dep)
+# @usage             bash tools/scripts/snippets/fetch-external-docs.sh [flags]
 # Pre-build script to fetch external markdown files
 # Run this before building the docs to ensure external content is up-to-date
 # Sanitizes markdown to be MDX-compatible

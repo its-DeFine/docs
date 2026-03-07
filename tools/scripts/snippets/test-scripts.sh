@@ -1,27 +1,13 @@
 #!/bin/bash
-# @script test-scripts
-# @summary Utility script for tools/scripts/snippets/test-scripts.sh.
-# @owner docs
-# @scope tools/scripts
-#
-# @usage
-#   bash tools/scripts/snippets/test-scripts.sh
-#
-# @inputs
-#   No required CLI flags; optional flags are documented inline.
-#
-# @outputs
-#   - Console output and/or file updates based on script purpose.
-#
-# @exit-codes
-#   0 = success
-#   1 = runtime or validation failure
-#
-# @examples
-#   bash tools/scripts/snippets/test-scripts.sh
-#
-# @notes
-#   Keep script behavior deterministic and update script indexes after changes.
+# @script            test-scripts
+# @category          utility
+# @purpose           tooling:dev-tools
+# @scope             tools/scripts
+# @owner             docs
+# @needs             E-C6, F-C1
+# @purpose-statement Snippet test runner — runs basic validation on snippet scripts
+# @pipeline          manual — developer tool
+# @usage             bash tools/scripts/snippets/test-scripts.sh [flags]
 # Test suite for tools/scripts/snippets
 # Run this before using scripts to verify they work correctly
 #
