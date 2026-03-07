@@ -45,39 +45,11 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 
 | Script | Summary | Usage | Owner |
 |---|---|---|---|
-| `tests/integration/browser.test.js` | Utility script for tests/integration/browser.test.js. | `node tests/integration/browser.test.js` | docs |
-| `tests/integration/domain-pages-audit.js` | Audit deployed docs page load status and emit a stable JSON report. | `node tests/integration/domain-pages-audit.js --version both` | docs |
-| `tests/integration/openapi-reference-audit.js` | Audit V2 OpenAPI references against canonical specs with optional conservative autofix. | `node tests/integration/openapi-reference-audit.js --full --strict --report /tmp/openapi-audit.md --report-json /tmp/openapi-audit.json` | docs |
-| `tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit with internal strict checks and optional external URL validation. | `node tests/integration/v2-link-audit.js --full --write-links --strict` | docs |
-| `tests/integration/v2-link-audit.selftest.js` | Script-level self-tests for v2 link audit external validation using a local HTTP fixture and temporary MDX file. | `node tests/integration/v2-link-audit.selftest.js` | docs |
-| `tests/integration/v2-wcag-audit.js` | Audit v2 docs.json navigation pages for accessibility (WCAG 2.2 AA) with deterministic reports and conservative source autofixes. | `node tests/integration/v2-wcag-audit.js --full` | docs |
-| `tests/integration/v2-wcag-audit.selftest.js` | Script-level self-tests for the v2 WCAG audit (local HTTP + Puppeteer axe run, and temp-file fix/stage behavior without Mintlify). | `node tests/integration/v2-wcag-audit.selftest.js` | docs |
 | `tests/run-all 2.js` | Utility script for tests/run-all.js. | `node tests/run-all.js` | docs |
 | `tests/run-all.js` | Utility script for tests/run-all.js. | `node tests/run-all.js` | docs |
 | `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI, including Codex skill sync and codex task-contract enforcement. | `node tests/run-pr-checks.js --base-ref main` | docs |
-| `tests/unit/codex-commit.test.js` | Validate codex commit helper behavior for normal commits and explicit audited no-verify override handling. | `node tests/unit/codex-commit.test.js` | docs |
-| `tests/unit/codex-safe-merge-with-stash.test.js` | Validate safe merge helper behavior for clean merges, dirty-tree stash/restore, and conflict handling. | `node tests/unit/codex-safe-merge-with-stash.test.js` | docs |
-| `tests/unit/codex-skill-sync.test.js` | Validate template-driven Codex skill sync behavior including check drift, safe upsert, subset sync, and openai.yaml generation. | `node tests/unit/codex-skill-sync.test.js` | docs |
-| `tests/unit/create-codex-pr.test.js` | Validate codex PR body generation and dry-run create behavior from task-contract input. | `node tests/unit/create-codex-pr.test.js` | docs |
-| `tests/unit/docs-guide-sot.test.js` | Validate docs-guide source-of-truth coverage, README pointers, and generated index freshness. | `node tests/unit/docs-guide-sot.test.js` | docs |
-| `tests/unit/docs-navigation.test.js` | Validate docs.json page-entry syntax in check-only mode by default, with optional report writing and approved remaps. | `./lpd tests unit docs-navigation.test` | docs |
-| `tests/unit/docs-usefulness-accuracy-verifier.test.js` | Validate source-weighted 2026 accuracy verification rules (GitHub vs DeepWiki precedence, freshness, fallback, and cache reuse). | `node tests/unit/docs-usefulness-accuracy-verifier.test.js` | docs |
-| `tests/unit/links-imports.test.js` | Utility script for tests/unit/links-imports.test.js. | `node tests/unit/links-imports.test.js` | docs |
-| `tests/unit/lpd-scoped-mint-dev.test.js` | Validate scoped lpd mint-dev profile filtering, generated .mintignore exclusions, and dry-run flag wiring. | `node tests/unit/lpd-scoped-mint-dev.test.js` | docs |
-| `tests/unit/mdx-guards.test.js` | Enforce MDX guardrails for globals imports, math delimiters, and markdown table line breaks. | `node tests/unit/mdx-guards.test.js` | docs |
-| `tests/unit/mdx.test.js` | Utility script for tests/unit/mdx.test.js. | `node tests/unit/mdx.test.js` | docs |
-| `tests/unit/openapi-reference-audit.test.js` | Unit tests for OpenAPI reference audit parsing, mapping, validation findings, and conservative autofix behavior. | `node tests/unit/openapi-reference-audit.test.js` | docs |
-| `tests/unit/openapi-rolling-issue.test.js` | Unit tests for OpenAPI rolling issue dedupe, action selection, body formatting, and top-findings limits. | `node tests/unit/openapi-rolling-issue.test.js` | docs |
-| `tests/unit/quality.test.js` | Utility script for tests/unit/quality.test.js. | `node tests/unit/quality.test.js` | docs |
-| `tests/unit/repo-audit-pipeline.test.js` | Validate audit skill discovery, orchestrator dry-run output, cleanup manifest safety, and cross-agent packaging outputs. | `node tests/unit/repo-audit-pipeline.test.js` | docs |
-| `tests/unit/script-docs.test.js` | Enforce script header schema, keep group script indexes in sync, and build aggregate script index. | `node tests/unit/script-docs.test.js --staged --write --stage --autofill` | docs |
-| `tests/unit/spelling.test.js` | Utility script for tests/unit/spelling.test.js. | `node tests/unit/spelling.test.js` | docs |
-| `tests/unit/style-guide.test.js` | Utility script for tests/unit/style-guide.test.js. | `node tests/unit/style-guide.test.js` | docs |
 | `tests/unit/usefulness-journey.test.js` | Validate journey completeness evaluation and journey-config guardrails for usefulness scoring. | `node tests/unit/usefulness-journey.test.js` | docs |
 | `tests/unit/usefulness-rubric.test.js` | Validate usefulness rubric loading, rule evaluator coverage, argument deprecations, route precedence, and score divergence behavior. | `node tests/unit/usefulness-rubric.test.js` | docs |
-| `tests/unit/v2-link-audit.test.js` | Unit tests for v2 link audit args, external validation helpers, and x-* scope exclusion behavior. | `node tests/unit/v2-link-audit.test.js` | docs |
-| `tests/unit/v2-wcag-audit.test.js` | Unit tests for v2 WCAG audit helper logic (args, thresholds, route mapping, report sorting, and conservative autofixes). | `node tests/unit/v2-wcag-audit.test.js` | docs |
-| `tests/unit/validate-codex-task-contract.test.js` | Validate codex task-contract marker and issue-readiness enforcement behavior. | `node tests/unit/validate-codex-task-contract.test.js` | docs |
 | `tests/utils/file-walker.js` | Utility script for tests/utils/file-walker.js. | `node tests/utils/file-walker.js` | docs |
 | `tests/utils/mdx-parser.js` | Utility script for tests/utils/mdx-parser.js. | `node tests/utils/mdx-parser.js` | docs |
 | `tests/utils/mintignore.js` | Helpers to evaluate .mintignore using gitignore semantics for test scanners. | `node tests/utils/mintignore.js` | docs |
@@ -90,29 +62,11 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 |---|---|---|---|
 | `tools/scripts/add-framework-headers.js` | Insert or verify governance framework metadata headers from classification JSON. | `node tools/scripts/add-framework-headers.js --data script-classifications.json --dry-run` | docs |
 | `tools/scripts/assign-purpose-metadata.js` | Assign purpose and audience frontmatter metadata for docs.json EN-routable v2 pages using deterministic rules with optional LLM classification for unclassified pages. | `node tools/scripts/assign-purpose-metadata.js --scope pilot --dry-run` | docs |
-| `tools/scripts/audit-all-pages-simple.js` | Utility script for tasks/scripts/audit-all-pages-simple.js. | `node tasks/scripts/audit-all-pages-simple.js` | docs |
-| `tools/scripts/audit-all-pages.js` | Utility script for tasks/scripts/audit-all-pages.js. | `node tasks/scripts/audit-all-pages.js` | docs |
-| `tools/scripts/audit-all-v2-pages.js` | Utility script for tools/scripts/audit-all-v2-pages.js. | `node tools/scripts/audit-all-v2-pages.js` | docs |
-| `tools/scripts/audit-component-usage.js` | Utility script for tools/scripts/audit-component-usage.js. | `node tools/scripts/audit-component-usage.js` | docs |
-| `tools/scripts/audit-scripts.js` | Audit full-repo executable scripts, categorize usage/overlap, and overwrite SCRIPT_AUDIT reports. | `node tools/scripts/audit-scripts.js` | docs |
-| `tools/scripts/audit-tasks-folders.js` | Audit tasks folders, optionally normalize report locations, and optionally apply audit recommendations with conflict-safe moves. | `node tools/scripts/audit-tasks-folders.js` | docs |
-| `tools/scripts/audit-v1-to-v2-mapping.js` | Build a complete v1->v2 mapping audit (English IA canonical), including seed revalidation and adjudication queue. | `node tools/scripts/audit-v1-to-v2-mapping.js` | docs |
-| `tools/scripts/audit-v2-usefulness.js` | Run purpose-aware usefulness audit on docs.json EN-routable v2 pages with optional Tier 2 LLM evaluation and persona journey reporting. | `node tools/scripts/audit-v2-usefulness.js --mode full` | docs |
-| `tools/scripts/check-codex-pr-overlap.js` | Fail codex PR checks when changed files overlap another open codex PR without explicit handoff label. | `node tools/scripts/check-codex-pr-overlap.js --base-ref docs-v2` | docs |
-| `tools/scripts/check-component-errors.js` | Utility script for tools/scripts/check-component-errors.js. | `node tools/scripts/check-component-errors.js` | docs |
-| `tools/scripts/check-no-ai-stash.sh` | Block commits when AI-tagged stash entries are present; enforce branch plus WIP checkpoint isolation. | `bash tools/scripts/check-no-ai-stash.sh` | docs |
-| `tools/scripts/cleanup-quarantine-manager.js` | Classify cleanup candidates and optionally quarantine files with a reversible manifest. | `node tools/scripts/cleanup-quarantine-manager.js` | docs |
-| `tools/scripts/codex-commit.js` | Create git commits with explicit audited human override controls for --no-verify usage. | `node tools/scripts/codex-commit.js --message "Update hooks"` | docs |
-| `tools/scripts/codex-safe-merge-with-stash.js` | Safely execute an explicit merge request by stashing local changes, merging a target ref, and restoring the stash. | `node tools/scripts/codex-safe-merge-with-stash.js --target docs-v2` | docs |
 | `tools/scripts/codex/lock-release.js` | Release active local codex lock entries for a branch/task. | `node tools/scripts/codex/lock-release.js --branch codex/123-task` | docs |
 | `tools/scripts/codex/task-finalize.js` | Run finalize gates for a codex task: contract scope, lock ownership, and optional finalize profile checks. | `node tools/scripts/codex/task-finalize.js --branch codex/123-task` | docs |
 | `tools/scripts/codex/task-preflight.js` | Create a codex task branch/worktree scaffold, task contract, and local lock for isolated agent execution. | `node tools/scripts/codex/task-preflight.js --task 1234 --slug hook-hardening --scope "tests/,.githooks/"` | docs |
 | `tools/scripts/codex/validate-locks.js` | Validate codex local lock ownership and fail on overlapping active lock scopes. | `node tools/scripts/codex/validate-locks.js --branch codex/123-task --staged` | docs |
 | `tools/scripts/component-layout-governance.js` | Validate v2 English docs against component-layout contracts by page type. | `node tools/scripts/component-layout-governance.js --scope full` | docs |
-| `tools/scripts/convert-rss-to-mdx.js` | Convert an RSS feed XML file into a structured MDX document. | `node tools/scripts/convert-rss-to-mdx.js --input v2/internal/assets/transcripts/ycomb.rss --output v2/internal/assets/transcripts/ycomb.mdx` | docs |
-| `tools/scripts/create-codex-pr.js` | Generate a codex PR body from task contract metadata and optionally open a prefilled GitHub pull request. | `node tools/scripts/create-codex-pr.js --create` | docs |
-| `tools/scripts/cross-agent-packager.js` | Generate consistent audit skill packs for Codex, Cursor, Claude Code, and Windsurf from one catalog. | `node tools/scripts/cross-agent-packager.js --agent-pack all` | docs |
-| `tools/scripts/debug-mint-dev.js` | Utility script for tools/scripts/debug-mint-dev.js. | `node tools/scripts/debug-mint-dev.js` | docs |
 | `tools/scripts/dev/add-callouts.js` | Utility script for tools/scripts/dev/add-callouts.js. | `node tools/scripts/dev/add-callouts.js` | docs |
 | `tools/scripts/dev/batch-update-og-image.sh` | Utility script for tools/scripts/dev/batch-update-og-image.sh. | `bash tools/scripts/dev/batch-update-og-image.sh` | docs |
 | `tools/scripts/dev/ensure-mint-watcher-patch.sh` | Ensure Mint local-preview watcher disables glob expansion in repo paths. | `bash tools/scripts/dev/ensure-mint-watcher-patch.sh --check` | docs |
@@ -123,18 +77,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/scripts/dev/test-seo-generator.js` | Utility script for tools/scripts/dev/test-seo-generator.js. | `node tools/scripts/dev/test-seo-generator.js` | docs |
 | `tools/scripts/dev/update-all-og-images.js` | Utility script for tools/scripts/dev/update-all-og-images.js. | `node tools/scripts/dev/update-all-og-images.js` | docs |
 | `tools/scripts/dev/update-og-image.js` | Utility script for tools/scripts/dev/update-og-image.js. | `node tools/scripts/dev/update-og-image.js` | docs |
-| `tools/scripts/docs-quality-and-freshness-audit.js` | Audit v2 English docs for freshness and quality markers (TODO/TBD/Coming Soon, placeholders, and thin content). | `node tools/scripts/docs-quality-and-freshness-audit.js --scope full` | docs |
-| `tools/scripts/enforce-generated-file-banners.js` | Enforce standardized hidden/visible generated banners and frontmatter across generated MDX outputs. | `node tools/scripts/enforce-generated-file-banners.js --check` | docs |
-| `tools/scripts/final-verification.js` | Utility script for tools/scripts/final-verification.js. | `node tools/scripts/final-verification.js` | docs |
-| `tools/scripts/find-correct-url.js` | Utility script for tools/scripts/find-correct-url.js. | `node tools/scripts/find-correct-url.js` | docs |
-| `tools/scripts/generate-ai-sitemap.js` | Generate an AI-focused sitemap from v2 docs navigation. | `node tools/scripts/generate-ai-sitemap.js --write` | docs |
 | `tools/scripts/generate-content-gap-reconciliation.js` | Generate IA reconciliation CSV and summary from blueprint and v2 MDX coverage. | `node tools/scripts/generate-content-gap-reconciliation.js` | docs |
-| `tools/scripts/generate-docs-guide-components-index.js` | Generate component inventory indexes from snippets/components exports and optionally verify freshness. | `node tools/scripts/generate-docs-guide-components-index.js --write` | docs |
-| `tools/scripts/generate-docs-guide-indexes.js` | Generate docs-guide workflow/template indexes and optionally verify they are up to date. | `node tools/scripts/generate-docs-guide-indexes.js --write` | docs |
-| `tools/scripts/generate-docs-guide-pages-index.js` | Generate docs-guide/indexes/pages-index.mdx from v2/index.mdx entries filtered to docs.json navigation pages. | `node tools/scripts/generate-docs-guide-pages-index.js --write` | docs |
-| `tools/scripts/generate-docs-index.js` | Generate docs-index.json and optionally backfill v2 frontmatter metadata. | `node tools/scripts/generate-docs-index.js --write` | docs |
-| `tools/scripts/generate-llms-files.js` | Generate llms.txt and llms-full.txt from v2 docs navigation. | `node tools/scripts/generate-llms-files.js --write` | docs |
-| `tools/scripts/generate-pages-index.js` | Generate and verify section-style index.mdx files for v2 docs folders, plus the root aggregate index. | `node tools/scripts/generate-pages-index.js --write` | docs |
 | `tools/scripts/i18n/generate-localized-docs-json.js` | Add/update v2 language nodes in docs.json using English v2 as template plus route-map-driven route rewrites. | `node tools/scripts/i18n/generate-localized-docs-json.js --write --languages es,fr,zh-CN --route-map /tmp/route-map.json --report-json /tmp/docsjson-report.json` | docs |
 | `tools/scripts/i18n/lib/common.js` | Utility script for tools/scripts/i18n/lib/common.js. | `node tools/scripts/i18n/lib/common.js` | docs |
 | `tools/scripts/i18n/lib/config.js` | Utility script for tools/scripts/i18n/lib/config.js. | `node tools/scripts/i18n/lib/config.js` | docs |
@@ -157,13 +100,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/scripts/i18n/test/provider-openrouter.test.js` | Utility script for tools/scripts/i18n/test/provider-openrouter.test.js. | `node tools/scripts/i18n/test/provider-openrouter.test.js` | docs |
 | `tools/scripts/i18n/translate-docs.js` | Translate selected v2 docs pages into configured languages and emit localized MDX files plus route-map/report artifacts. | `node tools/scripts/i18n/translate-docs.js --languages es,fr,de --scope-mode prefixes --prefixes v2/about/livepeer-network --max-pages 10 --max-concurrency 5` | docs |
 | `tools/scripts/i18n/validate-generated.js` | Validate generated localized MDX files parse cleanly and exist for successful route-map entries. | `node tools/scripts/i18n/validate-generated.js --languages es,fr,zh-CN --route-map /tmp/route-map.json --report-json /tmp/validate-report.json` | docs |
-| `tools/scripts/inspect-page.js` | Utility script for tools/scripts/inspect-page.js. | `node tools/scripts/inspect-page.js` | docs |
-| `tools/scripts/inspect-video-page.js` | Utility script for tools/scripts/inspect-video-page.js. | `node tools/scripts/inspect-video-page.js` | docs |
-| `tools/scripts/mint-dev.sh` | Utility script for tools/scripts/mint-dev.sh. | `bash tools/scripts/mint-dev.sh` | docs |
-| `tools/scripts/new-script.js` | Create a new script file prefilled with the required docs header template. | `node tools/scripts/new-script.js --path tests/integration/my-script.js` | docs |
-| `tools/scripts/publish-v2-internal-reports.js` | Duplicate approved markdown reports into v2/internal/reports pages with metadata and update docs.json. | `node tools/scripts/publish-v2-internal-reports.js --check` | docs |
-| `tools/scripts/repo-audit-orchestrator.js` | Run the docs infrastructure audit pipeline and emit a unified prioritized scorecard. | `node tools/scripts/repo-audit-orchestrator.js --mode static --scope full` | docs |
-| `tools/scripts/script-footprint-and-usage-audit.js` | Audit script sprawl, duplicate fixtures, backup artifacts, and report-size hotspots. | `node tools/scripts/script-footprint-and-usage-audit.js --scope full` | docs |
+| `tools/scripts/new-script.js` | ' + params.summary, | `/` | docs |
 | `tools/scripts/snippets/fetch-external-docs.sh` | Utility script for tools/scripts/snippets/fetch-external-docs.sh. | `bash tools/scripts/snippets/fetch-external-docs.sh` | docs |
 | `tools/scripts/snippets/fetch-lpt-exchanges.sh` | Utility script for tools/scripts/snippets/fetch-lpt-exchanges.sh. | `bash tools/scripts/snippets/fetch-lpt-exchanges.sh` | docs |
 | `tools/scripts/snippets/fetch-openapi-specs.sh` | Utility script for tools/scripts/snippets/fetch-openapi-specs.sh. | `bash tools/scripts/snippets/fetch-openapi-specs.sh` | docs |
@@ -173,18 +110,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/scripts/snippets/generate-seo.js` | Utility script for tools/scripts/snippets/generate-seo.js. | `node tools/scripts/snippets/generate-seo.js` | docs |
 | `tools/scripts/snippets/test-scripts.sh` | Utility script for tools/scripts/snippets/test-scripts.sh. | `bash tools/scripts/snippets/test-scripts.sh` | docs |
 | `tools/scripts/snippets/update-component-library.sh` | Utility script for tools/scripts/snippets/update-component-library.sh. | `bash tools/scripts/snippets/update-component-library.sh` | docs |
-| `tools/scripts/style-and-language-homogenizer-en-gb.js` | Enforce EN-GB style and terminology profile for English v2 docs in phase 1. | `node tools/scripts/style-and-language-homogenizer-en-gb.js --scope full` | docs |
-| `tools/scripts/sync-codex-skills.js` | Sync canonical skill templates into local Codex skills using safe upsert and deterministic openai.yaml generation. | `node tools/scripts/sync-codex-skills.js` | docs |
-| `tools/scripts/test-all-pages-browser.js` | Utility script for tools/scripts/test-all-pages-browser.js. | `node tools/scripts/test-all-pages-browser.js` | docs |
-| `tools/scripts/test-all-pages-comprehensive.js` | Utility script for tools/scripts/test-all-pages-comprehensive.js. | `node tools/scripts/test-all-pages-comprehensive.js` | docs |
-| `tools/scripts/test-v2-pages.js` | Utility script for tools/scripts/test-v2-pages.js. | `node tools/scripts/test-v2-pages.js` | docs |
-| `tools/scripts/test-youtube-pages.js` | Utility script for tools/scripts/test-youtube-pages.js. | `node tools/scripts/test-youtube-pages.js` | docs |
-| `tools/scripts/validate-codex-task-contract.js` | Validate codex branch task contract schema, branch binding, changed-file scope, PR body sections, and optional linked-issue readiness policy. | `node tools/scripts/validate-codex-task-contract.js` | docs |
-| `tools/scripts/verify-all-pages.js` | Utility script for tools/scripts/verify-all-pages.js. | `node tools/scripts/verify-all-pages.js` | docs |
-| `tools/scripts/verify-pages.js` | Utility script for tools/scripts/verify-pages.js. | `node tools/scripts/verify-pages.js` | docs |
-| `tools/scripts/verify-pay-orc-gate-finalize.sh` | Enforce the payments/orchestrators insertion deliverables and migration paths before commit. | `bash tools/scripts/verify-pay-orc-gate-finalize.sh` | docs |
 | `tools/scripts/verify/.verify-large-change.sh` | Reserved verifier hook placeholder for large-change checks. | `bash tools/scripts/verify/.verify-large-change.sh` | docs |
-| `tools/scripts/wcag-repair-common.js` | Apply conservative WCAG-related source autofixes across v2 docs (common raw-tag issues) and write deterministic repair reports. | `node tools/scripts/wcag-repair-common.js --full` | docs |
 
 ## tasks/scripts
 
