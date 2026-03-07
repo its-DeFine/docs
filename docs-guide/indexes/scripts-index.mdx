@@ -73,38 +73,7 @@ _No scripts indexed yet._
 | `tools/scripts/codex/task-preflight.js` | Create a codex task branch/worktree scaffold, task contract, and local lock for isolated agent execution. | `node tools/scripts/codex/task-preflight.js --task 1234 --slug hook-hardening --scope "tests/,.githooks/"` | docs |
 | `tools/scripts/codex/validate-locks.js` | Validate codex local lock ownership and fail on overlapping active lock scopes. | `node tools/scripts/codex/validate-locks.js --branch codex/123-task --staged` | docs |
 | `tools/scripts/component-layout-governance.js` | Validate v2 English docs against component-layout contracts by page type. | `node tools/scripts/component-layout-governance.js --scope full` | docs |
-| `tools/scripts/dev/add-callouts.js` | Utility script for tools/scripts/dev/add-callouts.js. | `node tools/scripts/dev/add-callouts.js` | docs |
-| `tools/scripts/dev/batch-update-og-image.sh` | Utility script for tools/scripts/dev/batch-update-og-image.sh. | `bash tools/scripts/dev/batch-update-og-image.sh` | docs |
-| `tools/scripts/dev/ensure-mint-watcher-patch.sh` | Ensure Mint local-preview watcher disables glob expansion in repo paths. | `bash tools/scripts/dev/ensure-mint-watcher-patch.sh --check` | docs |
-| `tools/scripts/dev/generate-mint-dev-scope.js` | Build deterministic Mint dev scoped profiles (docs.json + .mintignore) for large navigation trees. | `node tools/scripts/dev/generate-mint-dev-scope.js --versions v2 --languages en --tabs Developers` | docs |
-| `tools/scripts/dev/replace-og-image.py` | Utility script for tools/scripts/dev/replace-og-image.py. | `python3 tools/scripts/dev/replace-og-image.py` | docs |
-| `tools/scripts/dev/seo-generator-safe.js` | Utility script for tools/scripts/dev/seo-generator-safe.js. | `node tools/scripts/dev/seo-generator-safe.js` | docs |
-| `tools/scripts/dev/test-add-callouts.js` | Utility script for tools/scripts/dev/test-add-callouts.js. | `node tools/scripts/dev/test-add-callouts.js` | docs |
-| `tools/scripts/dev/test-seo-generator.js` | Utility script for tools/scripts/dev/test-seo-generator.js. | `node tools/scripts/dev/test-seo-generator.js` | docs |
-| `tools/scripts/dev/update-all-og-images.js` | Utility script for tools/scripts/dev/update-all-og-images.js. | `node tools/scripts/dev/update-all-og-images.js` | docs |
-| `tools/scripts/dev/update-og-image.js` | Utility script for tools/scripts/dev/update-og-image.js. | `node tools/scripts/dev/update-og-image.js` | docs |
 | `tools/scripts/generate-content-gap-reconciliation.js` | Generate IA reconciliation CSV and summary from blueprint and v2 MDX coverage. | `node tools/scripts/generate-content-gap-reconciliation.js` | docs |
-| `tools/scripts/i18n/generate-localized-docs-json.js` | Add/update v2 language nodes in docs.json using English v2 as template plus route-map-driven route rewrites. | `node tools/scripts/i18n/generate-localized-docs-json.js --write --languages es,fr,zh-CN --route-map /tmp/route-map.json --report-json /tmp/docsjson-report.json` | docs |
-| `tools/scripts/i18n/lib/common.js` | Utility script for tools/scripts/i18n/lib/common.js. | `node tools/scripts/i18n/lib/common.js` | docs |
-| `tools/scripts/i18n/lib/config.js` | Utility script for tools/scripts/i18n/lib/config.js. | `node tools/scripts/i18n/lib/config.js` | docs |
-| `tools/scripts/i18n/lib/docs-json-localizer.js` | Utility script for tools/scripts/i18n/lib/docs-json-localizer.js. | `node tools/scripts/i18n/lib/docs-json-localizer.js` | docs |
-| `tools/scripts/i18n/lib/docs-routes.js` | Utility script for tools/scripts/i18n/lib/docs-routes.js. | `node tools/scripts/i18n/lib/docs-routes.js` | docs |
-| `tools/scripts/i18n/lib/frontmatter.js` | Utility script for tools/scripts/i18n/lib/frontmatter.js. | `node tools/scripts/i18n/lib/frontmatter.js` | docs |
-| `tools/scripts/i18n/lib/mdx-parser.js` | Utility script for tools/scripts/i18n/lib/mdx-parser.js. | `node tools/scripts/i18n/lib/mdx-parser.js` | docs |
-| `tools/scripts/i18n/lib/mdx-translate.js` | Utility script for tools/scripts/i18n/lib/mdx-translate.js. | `node tools/scripts/i18n/lib/mdx-translate.js` | docs |
-| `tools/scripts/i18n/lib/path-utils.js` | Utility script for tools/scripts/i18n/lib/path-utils.js. | `node tools/scripts/i18n/lib/path-utils.js` | docs |
-| `tools/scripts/i18n/lib/provenance.js` | Utility script for tools/scripts/i18n/lib/provenance.js. | `node tools/scripts/i18n/lib/provenance.js` | docs |
-| `tools/scripts/i18n/lib/provider-mock.js` | Utility script for tools/scripts/i18n/lib/provider-mock.js. | `node tools/scripts/i18n/lib/provider-mock.js` | docs |
-| `tools/scripts/i18n/lib/provider-openrouter.js` | Utility script for tools/scripts/i18n/lib/provider-openrouter.js. | `node tools/scripts/i18n/lib/provider-openrouter.js` | docs |
-| `tools/scripts/i18n/lib/providers.js` | Utility script for tools/scripts/i18n/lib/providers.js. | `node tools/scripts/i18n/lib/providers.js` | docs |
-| `tools/scripts/i18n/test-mintlify-version-language-toggle.js` | Validate Mintlify version/language toggle behavior on localized v2 routes. | `node tools/scripts/i18n/test-mintlify-version-language-toggle.js --base-url http://localhost:3012` | docs |
-| `tools/scripts/i18n/test/cli-guardrails.test.js` | Utility script for tools/scripts/i18n/test/cli-guardrails.test.js. | `node tools/scripts/i18n/test/cli-guardrails.test.js` | docs |
-| `tools/scripts/i18n/test/docs-json-localizer.test.js` | Utility script for tools/scripts/i18n/test/docs-json-localizer.test.js. | `node tools/scripts/i18n/test/docs-json-localizer.test.js` | docs |
-| `tools/scripts/i18n/test/frontmatter.test.js` | Utility script for tools/scripts/i18n/test/frontmatter.test.js. | `node tools/scripts/i18n/test/frontmatter.test.js` | docs |
-| `tools/scripts/i18n/test/mdx-translate.test.js` | Utility script for tools/scripts/i18n/test/mdx-translate.test.js. | `node tools/scripts/i18n/test/mdx-translate.test.js` | docs |
-| `tools/scripts/i18n/test/provenance.test.js` | Utility script for tools/scripts/i18n/test/provenance.test.js. | `node tools/scripts/i18n/test/provenance.test.js` | docs |
-| `tools/scripts/i18n/test/provider-openrouter.test.js` | Utility script for tools/scripts/i18n/test/provider-openrouter.test.js. | `node tools/scripts/i18n/test/provider-openrouter.test.js` | docs |
-| `tools/scripts/i18n/translate-docs.js` | Translate selected v2 docs pages into configured languages and emit localized MDX files plus route-map/report artifacts. | `node tools/scripts/i18n/translate-docs.js --languages es,fr,de --scope-mode prefixes --prefixes v2/about/livepeer-network --max-pages 10 --max-concurrency 5` | docs |
 | `tools/scripts/i18n/validate-generated.js` | Validate generated localized MDX files parse cleanly and exist for successful route-map entries. | `node tools/scripts/i18n/validate-generated.js --languages es,fr,zh-CN --route-map /tmp/route-map.json --report-json /tmp/validate-report.json` | docs |
 | `tools/scripts/new-script.js` | ' + params.summary, | `/` | docs |
 | `tools/scripts/snippets/fetch-external-docs.sh` | Utility script for tools/scripts/snippets/fetch-external-docs.sh. | `bash tools/scripts/snippets/fetch-external-docs.sh` | docs |

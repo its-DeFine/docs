@@ -1,28 +1,13 @@
 #!/bin/bash
-# @script batch-update-og-image
-# @summary Utility script for tools/scripts/dev/batch-update-og-image.sh.
-# @owner docs
-# @scope tools/scripts
-#
-# @usage
-#   bash tools/scripts/dev/batch-update-og-image.sh
-#
-# @inputs
-#   No required CLI flags; optional flags are documented inline.
-#
-# @outputs
-#   - Console output and/or file updates based on script purpose.
-#
-# @exit-codes
-#   0 = success
-#   1 = runtime or validation failure
-#
-# @examples
-#   bash tools/scripts/dev/batch-update-og-image.sh
-#
-# @notes
-#   Keep script behavior deterministic and update script indexes after changes.
-
+# @script            batch-update-og-image
+# @category          remediator
+# @purpose           feature:seo
+# @scope             tools/scripts
+# @owner             docs
+# @needs             E-R19, F-R7
+# @purpose-statement Batch OG image updater — updates og:image meta tags across multiple pages
+# @pipeline          manual — developer tool
+# @usage             bash tools/scripts/dev/batch-update-og-image.sh [flags]
 OLD_IMAGE='og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"'
 NEW_IMAGE='og:image: "/snippets/assets/domain/SHARED/LivepeerDocsHero.svg"'
 

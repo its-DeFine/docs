@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script test-add-callouts
- * @summary Utility script for tools/scripts/dev/test-add-callouts.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/dev/test-add-callouts.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/dev/test-add-callouts.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            test-add-callouts
+ * @category          remediator
+ * @purpose           qa:content-quality
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Test for add-callouts.js — validates callout insertion logic against fixtures
+ * @pipeline          manual — developer tool
+ * @usage             node tools/scripts/dev/test-add-callouts.js [flags]
  */
 
 /**

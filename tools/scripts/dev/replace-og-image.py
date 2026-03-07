@@ -1,27 +1,13 @@
 #!/usr/bin/env python3
-# @script replace-og-image
-# @summary Utility script for tools/scripts/dev/replace-og-image.py.
-# @owner docs
-# @scope tools/scripts
-#
-# @usage
-#   python3 tools/scripts/dev/replace-og-image.py
-#
-# @inputs
-#   No required CLI flags; optional flags are documented inline.
-#
-# @outputs
-#   - Console output and/or file updates based on script purpose.
-#
-# @exit-codes
-#   0 = success
-#   1 = runtime or validation failure
-#
-# @examples
-#   python3 tools/scripts/dev/replace-og-image.py
-#
-# @notes
-#   Keep script behavior deterministic and update script indexes after changes.
+# @script            replace-og-image
+# @category          remediator
+# @purpose           feature:seo
+# @scope             tools/scripts
+# @owner             docs
+# @needs             E-R19, F-R7
+# @purpose-statement OG image replacer — replaces og:image path in a single page frontmatter
+# @pipeline          manual — developer tool
+# @usage             python3 tools/scripts/dev/replace-og-image.py [flags]
 import os
 import sys
 

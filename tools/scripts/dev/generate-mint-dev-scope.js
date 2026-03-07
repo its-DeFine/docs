@@ -1,40 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script generate-mint-dev-scope
- * @summary Build deterministic Mint dev scoped profiles (docs.json + .mintignore) for large navigation trees.
- * @owner docs
- * @scope tools/scripts/dev, docs.json, .mintignore
- *
- * @usage
- *   node tools/scripts/dev/generate-mint-dev-scope.js --versions v2 --languages en --tabs Developers
- *   node tools/scripts/dev/generate-mint-dev-scope.js --interactive --workspace-base /tmp/lpd-mint-dev
- *
- * @inputs
- *   --repo-root <path> Optional repo root (default: process.cwd()).
- *   --workspace-base <path> Optional workspace base directory (default: /tmp/lpd-mint-dev).
- *   --scope-file <path> JSON file with versions/languages/tabs/prefixes arrays.
- *   --versions <csv> Version filter(s), repeatable.
- *   --languages <csv> Language filter(s), repeatable.
- *   --tabs <csv> Tab filter(s), repeatable.
- *   --prefixes <csv> Route prefix filter(s), repeatable.
- *   --interactive Prompt for selections (TTY required).
- *   --disable-openapi Exclude api-reference routes from scoped docs.json and .mintignore.
- *   --print-only Print scoped metadata only; do not create /tmp workspace.
- *
- * @outputs
- *   - JSON payload to stdout with workspace path + scope statistics.
- *   - Scoped docs.json and .mintignore in /tmp/lpd-mint-dev/<hash>/ (unless --print-only).
- *
- * @exit-codes
- *   0 = success
- *   1 = invalid input, empty scope result, or runtime failure
- *
- * @examples
- *   node tools/scripts/dev/generate-mint-dev-scope.js --versions v2 --languages en --tabs Developers --prefixes v2/gateways
- *   node tools/scripts/dev/generate-mint-dev-scope.js --scope-file tools/config/mint-dev-scope.json --disable-openapi
- *
- * @notes
- *   The generated workspace is a symlink scaffold over repo root with scoped docs.json/.mintignore overrides.
+ * @script            generate-mint-dev-scope
+ * @category          generator
+ * @purpose           tooling:dev-tools
+ * @scope             tools/scripts/dev, docs.json, .mintignore
+ * @owner             docs
+ * @needs             E-C6, F-C1
+ * @purpose-statement Mint dev scope generator — creates a scoped docs.json for running mint dev on a subset of pages
+ * @pipeline          manual — developer tool
+ * @usage             node tools/scripts/dev/generate-mint-dev-scope.js [flags]
  */
 
 const fs = require('fs');

@@ -1,27 +1,13 @@
 /**
- * @script seo-generator-safe
- * @summary Utility script for tools/scripts/dev/seo-generator-safe.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/dev/seo-generator-safe.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/dev/seo-generator-safe.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            seo-generator-safe
+ * @category          generator
+ * @purpose           feature:seo
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-R19, F-R7
+ * @purpose-statement Safe SEO generator — generates SEO metadata with dry-run and rollback safety
+ * @pipeline          manual — developer tool
+ * @usage             node tools/scripts/dev/seo-generator-safe.js [flags]
  */
 const fs = require("fs");
 const path = require("path");

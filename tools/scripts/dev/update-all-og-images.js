@@ -1,27 +1,13 @@
 /**
- * @script update-all-og-images
- * @summary Utility script for tools/scripts/dev/update-all-og-images.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/dev/update-all-og-images.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/dev/update-all-og-images.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            update-all-og-images
+ * @category          remediator
+ * @purpose           feature:seo
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-R19, F-R7
+ * @purpose-statement Bulk OG image updater — updates og:image across all v2 pages
+ * @pipeline          manual — developer tool
+ * @usage             node tools/scripts/dev/update-all-og-images.js [flags]
  */
 const fs = require('fs');
 const path = require('path');

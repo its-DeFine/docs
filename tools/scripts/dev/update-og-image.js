@@ -1,27 +1,13 @@
 /**
- * @script update-og-image
- * @summary Utility script for tools/scripts/dev/update-og-image.js.
- * @owner docs
- * @scope tools/scripts
- *
- * @usage
- *   node tools/scripts/dev/update-og-image.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tools/scripts/dev/update-og-image.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            update-og-image
+ * @category          remediator
+ * @purpose           feature:seo
+ * @scope             tools/scripts
+ * @owner             docs
+ * @needs             E-R19, F-R7
+ * @purpose-statement Single OG image updater — updates og:image for one page
+ * @pipeline          manual — developer tool
+ * @usage             node tools/scripts/dev/update-og-image.js [flags]
  */
 const fs = require('fs');
 const path = require('path');

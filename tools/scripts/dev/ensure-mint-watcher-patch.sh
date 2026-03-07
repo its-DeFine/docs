@@ -1,33 +1,13 @@
 #!/usr/bin/env bash
-# @script ensure-mint-watcher-patch
-# @summary Ensure Mint local-preview watcher disables glob expansion in repo paths.
-# @owner docs
-# @scope tools/scripts
-#
-# @usage
-#   bash tools/scripts/dev/ensure-mint-watcher-patch.sh --check
-#   bash tools/scripts/dev/ensure-mint-watcher-patch.sh --apply
-#
-# @inputs
-#   --check Verify patch presence and exit non-zero if missing.
-#   --apply Apply patch if missing (default mode).
-#
-# @outputs
-#   - Console status for current Mint listener patch state.
-#
-# @exit-codes
-#   0 = patched/present
-#   1 = patch missing in --check mode
-#   2 = invalid usage / mint install not found / unsupported listener shape
-#   3 = patch write failed
-#
-# @examples
-#   bash tools/scripts/dev/ensure-mint-watcher-patch.sh --check
-#   bash tools/scripts/dev/ensure-mint-watcher-patch.sh --apply
-#
-# @notes
-#   Keep script behavior deterministic and update script indexes after changes.
-
+# @script            ensure-mint-watcher-patch
+# @category          utility
+# @purpose           tooling:dev-tools
+# @scope             tools/scripts
+# @owner             docs
+# @needs             E-C6, F-C1
+# @purpose-statement Mint watcher patcher — applies patch to fix Mintlify file watcher issues in dev mode
+# @pipeline          manual — developer tool
+# @usage             bash tools/scripts/dev/ensure-mint-watcher-patch.sh [flags]
 set -euo pipefail
 
 MODE="apply"
