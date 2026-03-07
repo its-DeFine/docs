@@ -1,24 +1,29 @@
-task_id: 20260305
-branch: codex/20260305-usefulness-cutover
+task_id: 788
+branch: codex/788-e-05-silo-personal-utility-scripts
 base_branch: docs-v2
 scope_in:
-  - tools/scripts/audit-v2-usefulness.js
-  - tools/scripts/assign-purpose-metadata.js
-  - tools/lib/docs-usefulness/
-  - tools/config/usefulness-*.json
-  - tests/unit/usefulness-*.test.js
-  - tests/run-all.js
-  - tests/run-pr-checks.js
-  - tools/package.json
-  - tools/package-lock.json
-  - .gitignore
-  - tools/scripts/docs-quality-and-freshness-audit.js
-  - tasks/plan/active/usefulness-scoring-implementation-strategy.md
-  - tasks/plan/active/usefulness-scoring-gap-analysis.md
-  - tests/script-index.md
+  - .codex/task-contract.yaml
+  - .lpdignore
+  - tools/scripts/download-linkedin-video.sh
+  - tools/scripts/download-linkedin-with-cookies.sh
+  - tools/scripts/transcribe-audio-to-mdx.js
+  - tools/scripts/execute-phase1-worktree-plan.js
+  - tools/utility/personal/
   - tools/script-index.md
   - docs-guide/indexes/scripts-index.mdx
-  - .codex/task-contract.yaml
+  - docs-guide/lpd.mdx
+  - docs-guide/scripts-index.md
+  - tests/PR-CI-TESTS-AND-SCRIPT-RUN-MATRIX.md
+  - v2/index.mdx
+  - v2/cn/index.mdx
+  - v2/es/index.mdx
+  - v2/fr/index.mdx
+  - v2/internal/assets/transcripts/a16z/README.md
+  - docs-index.json
+  - .githooks/script-index.md
+  - .github/script-index.md
+  - tests/script-index.md
+  - tasks/scripts/script-index.md
 scope_out: []
 allowed_generated:
   - .codex/pr-body.generated.md
