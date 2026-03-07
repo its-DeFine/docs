@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-07T07:45:02.179Z",
+  "generated": "2026-03-07T14:10:08.263Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -16957,7 +16957,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2194,
-      "lastVerified": "2026-03-05T01:27:26+11:00",
+      "lastVerified": "2026-03-07T18:52:50+11:00",
       "headings": [
         {
           "level": 2,
@@ -17137,8 +17137,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 2445,
-      "lastVerified": "2026-03-07T17:41:08+11:00",
+      "wordCount": 2845,
+      "lastVerified": "2026-03-08T00:52:27+11:00",
       "headings": [
         {
           "level": 2,
@@ -25217,8 +25217,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 10709,
-      "lastVerified": "2026-03-03T20:52:52+11:00",
+      "wordCount": 11077,
+      "lastVerified": "2026-03-07T21:03:27+11:00",
       "headings": [
         {
           "level": 1,
@@ -25251,10 +25251,6 @@
         {
           "level": 3,
           "text": "`snippets/automations/youtube/filterVideos.js`"
-        },
-        {
-          "level": 3,
-          "text": "`tests/utils/mintignore.js`"
         },
         {
           "level": 3,
@@ -25306,10 +25302,6 @@
         },
         {
           "level": 3,
-          "text": "`.github/scripts/embed-table.js`"
-        },
-        {
-          "level": 3,
           "text": "`.github/scripts/fetch-forum-data.js`"
         },
         {
@@ -25319,14 +25311,6 @@
         {
           "level": 3,
           "text": "`.github/scripts/fetch-youtube-data.js`"
-        },
-        {
-          "level": 3,
-          "text": "`.github/scripts/gen-table.js`"
-        },
-        {
-          "level": 3,
-          "text": "`.github/scripts/gen-textareas.js`"
         },
         {
           "level": 3,
@@ -25386,11 +25370,23 @@
         },
         {
           "level": 3,
+          "text": "`tests/run-all 2.js`"
+        },
+        {
+          "level": 3,
           "text": "`tests/run-all.js`"
         },
         {
           "level": 3,
           "text": "`tests/run-pr-checks.js`"
+        },
+        {
+          "level": 3,
+          "text": "`tests/unit/codex-commit.test.js`"
+        },
+        {
+          "level": 3,
+          "text": "`tests/unit/codex-safe-merge-with-stash.test.js`"
         },
         {
           "level": 3,
@@ -25415,6 +25411,10 @@
         {
           "level": 3,
           "text": "`tests/unit/links-imports.test.js`"
+        },
+        {
+          "level": 3,
+          "text": "`tests/unit/lpd-scoped-mint-dev.test.js`"
         },
         {
           "level": 3,
@@ -25538,11 +25538,43 @@
         },
         {
           "level": 3,
+          "text": "`tools/scripts/check-codex-pr-overlap.js`"
+        },
+        {
+          "level": 3,
           "text": "`tools/scripts/check-component-errors.js`"
         },
         {
           "level": 3,
+          "text": "`tools/scripts/check-no-ai-stash.sh`"
+        },
+        {
+          "level": 3,
           "text": "`tools/scripts/cleanup-quarantine-manager.js`"
+        },
+        {
+          "level": 3,
+          "text": "`tools/scripts/codex-commit.js`"
+        },
+        {
+          "level": 3,
+          "text": "`tools/scripts/codex-safe-merge-with-stash.js`"
+        },
+        {
+          "level": 3,
+          "text": "`tools/scripts/codex/lock-release.js`"
+        },
+        {
+          "level": 3,
+          "text": "`tools/scripts/codex/task-finalize.js`"
+        },
+        {
+          "level": 3,
+          "text": "`tools/scripts/codex/task-preflight.js`"
+        },
+        {
+          "level": 3,
+          "text": "`tools/scripts/codex/validate-locks.js`"
         },
         {
           "level": 3,
@@ -25566,10 +25598,6 @@
         },
         {
           "level": 3,
-          "text": "`tools/scripts/deprecated/project-management-output-script.js`"
-        },
-        {
-          "level": 3,
           "text": "`tools/scripts/dev/add-callouts.js`"
         },
         {
@@ -25579,6 +25607,10 @@
         {
           "level": 3,
           "text": "`tools/scripts/dev/ensure-mint-watcher-patch.sh`"
+        },
+        {
+          "level": 3,
+          "text": "`tools/scripts/dev/generate-mint-dev-scope.js`"
         },
         {
           "level": 3,
@@ -25603,10 +25635,6 @@
         {
           "level": 3,
           "text": "`tools/scripts/dev/update-og-image.js`"
-        },
-        {
-          "level": 3,
-          "text": "`tools/scripts/docs-coverage-and-route-integrity-audit.js`"
         },
         {
           "level": 3,
@@ -25842,18 +25870,6 @@
         },
         {
           "level": 3,
-          "text": "`tools/scripts/test/allowed-script.js`"
-        },
-        {
-          "level": 3,
-          "text": "`tools/scripts/test/allowed-test.js`"
-        },
-        {
-          "level": 3,
-          "text": "`tools/scripts/test/allowed.js`"
-        },
-        {
-          "level": 3,
           "text": "`tools/scripts/test/check-component-errors.js`"
         },
         {
@@ -25871,6 +25887,10 @@
         {
           "level": 3,
           "text": "`tools/scripts/test/inspect-video-page.js`"
+        },
+        {
+          "level": 3,
+          "text": "`tools/scripts/test/test-youtube-pages 2.js`"
         },
         {
           "level": 3,
@@ -25899,6 +25919,10 @@
         {
           "level": 3,
           "text": "`tools/scripts/verify-pages.js`"
+        },
+        {
+          "level": 3,
+          "text": "`tools/scripts/verify-pay-orc-gate-finalize.sh`"
         },
         {
           "level": 3,
@@ -25946,7 +25970,7 @@
         },
         {
           "level": 3,
-          "text": "Cluster 9 (exact)"
+          "text": "Cluster 9 (near)"
         },
         {
           "level": 2,

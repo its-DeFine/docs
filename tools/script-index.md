@@ -5,55 +5,101 @@
 
 | Script | Summary | Usage | Owner |
 |---|---|---|---|
-| `tools/scripts/add-framework-headers.js` | Insert or verify governance framework metadata headers from classification JSON. | `node tools/scripts/add-framework-headers.js --data script-classifications.json --dry-run` | docs |
-| `tools/scripts/assign-purpose-metadata.js` | Assign purpose and audience frontmatter metadata for docs.json EN-routable v2 pages using deterministic rules with optional LLM classification for unclassified pages. | `node tools/scripts/assign-purpose-metadata.js --scope pilot --dry-run` | docs |
-| `tools/scripts/codex/lock-release.js` | Release active local codex lock entries for a branch/task. | `node tools/scripts/codex/lock-release.js --branch codex/123-task` | docs |
-| `tools/scripts/codex/task-finalize.js` | Run finalize gates for a codex task: contract scope, lock ownership, and optional finalize profile checks. | `node tools/scripts/codex/task-finalize.js --branch codex/123-task` | docs |
-| `tools/scripts/codex/task-preflight.js` | Create a codex task branch/worktree scaffold, task contract, and local lock for isolated agent execution. | `node tools/scripts/codex/task-preflight.js --task 1234 --slug hook-hardening --scope "tests/,.githooks/"` | docs |
-| `tools/scripts/codex/validate-locks.js` | Validate codex local lock ownership and fail on overlapping active lock scopes. | `node tools/scripts/codex/validate-locks.js --branch codex/123-task --staged` | docs |
-| `tools/scripts/component-layout-governance.js` | Validate v2 English docs against component-layout contracts by page type. | `node tools/scripts/component-layout-governance.js --scope full` | docs |
-| `tools/scripts/dev/add-callouts.js` | Utility script for tools/scripts/dev/add-callouts.js. | `node tools/scripts/dev/add-callouts.js` | docs |
-| `tools/scripts/dev/batch-update-og-image.sh` | Utility script for tools/scripts/dev/batch-update-og-image.sh. | `bash tools/scripts/dev/batch-update-og-image.sh` | docs |
-| `tools/scripts/dev/ensure-mint-watcher-patch.sh` | Ensure Mint local-preview watcher disables glob expansion in repo paths. | `bash tools/scripts/dev/ensure-mint-watcher-patch.sh --check` | docs |
-| `tools/scripts/dev/generate-mint-dev-scope.js` | Build deterministic Mint dev scoped profiles (docs.json + .mintignore) for large navigation trees. | `node tools/scripts/dev/generate-mint-dev-scope.js --versions v2 --languages en --tabs Developers` | docs |
-| `tools/scripts/dev/replace-og-image.py` | Utility script for tools/scripts/dev/replace-og-image.py. | `python3 tools/scripts/dev/replace-og-image.py` | docs |
-| `tools/scripts/dev/seo-generator-safe.js` | Utility script for tools/scripts/dev/seo-generator-safe.js. | `node tools/scripts/dev/seo-generator-safe.js` | docs |
-| `tools/scripts/dev/test-add-callouts.js` | Utility script for tools/scripts/dev/test-add-callouts.js. | `node tools/scripts/dev/test-add-callouts.js` | docs |
-| `tools/scripts/dev/test-seo-generator.js` | Utility script for tools/scripts/dev/test-seo-generator.js. | `node tools/scripts/dev/test-seo-generator.js` | docs |
-| `tools/scripts/dev/update-all-og-images.js` | Utility script for tools/scripts/dev/update-all-og-images.js. | `node tools/scripts/dev/update-all-og-images.js` | docs |
-| `tools/scripts/dev/update-og-image.js` | Utility script for tools/scripts/dev/update-og-image.js. | `node tools/scripts/dev/update-og-image.js` | docs |
-| `tools/scripts/generate-content-gap-reconciliation.js` | Generate IA reconciliation CSV and summary from blueprint and v2 MDX coverage. | `node tools/scripts/generate-content-gap-reconciliation.js` | docs |
-| `tools/scripts/i18n/generate-localized-docs-json.js` | Add/update v2 language nodes in docs.json using English v2 as template plus route-map-driven route rewrites. | `node tools/scripts/i18n/generate-localized-docs-json.js --write --languages es,fr,zh-CN --route-map /tmp/route-map.json --report-json /tmp/docsjson-report.json` | docs |
-| `tools/scripts/i18n/lib/common.js` | Utility script for tools/scripts/i18n/lib/common.js. | `node tools/scripts/i18n/lib/common.js` | docs |
-| `tools/scripts/i18n/lib/config.js` | Utility script for tools/scripts/i18n/lib/config.js. | `node tools/scripts/i18n/lib/config.js` | docs |
-| `tools/scripts/i18n/lib/docs-json-localizer.js` | Utility script for tools/scripts/i18n/lib/docs-json-localizer.js. | `node tools/scripts/i18n/lib/docs-json-localizer.js` | docs |
-| `tools/scripts/i18n/lib/docs-routes.js` | Utility script for tools/scripts/i18n/lib/docs-routes.js. | `node tools/scripts/i18n/lib/docs-routes.js` | docs |
-| `tools/scripts/i18n/lib/frontmatter.js` | Utility script for tools/scripts/i18n/lib/frontmatter.js. | `node tools/scripts/i18n/lib/frontmatter.js` | docs |
-| `tools/scripts/i18n/lib/mdx-parser.js` | Utility script for tools/scripts/i18n/lib/mdx-parser.js. | `node tools/scripts/i18n/lib/mdx-parser.js` | docs |
-| `tools/scripts/i18n/lib/mdx-translate.js` | Utility script for tools/scripts/i18n/lib/mdx-translate.js. | `node tools/scripts/i18n/lib/mdx-translate.js` | docs |
-| `tools/scripts/i18n/lib/path-utils.js` | Utility script for tools/scripts/i18n/lib/path-utils.js. | `node tools/scripts/i18n/lib/path-utils.js` | docs |
-| `tools/scripts/i18n/lib/provenance.js` | Utility script for tools/scripts/i18n/lib/provenance.js. | `node tools/scripts/i18n/lib/provenance.js` | docs |
-| `tools/scripts/i18n/lib/provider-mock.js` | Utility script for tools/scripts/i18n/lib/provider-mock.js. | `node tools/scripts/i18n/lib/provider-mock.js` | docs |
-| `tools/scripts/i18n/lib/provider-openrouter.js` | Utility script for tools/scripts/i18n/lib/provider-openrouter.js. | `node tools/scripts/i18n/lib/provider-openrouter.js` | docs |
-| `tools/scripts/i18n/lib/providers.js` | Utility script for tools/scripts/i18n/lib/providers.js. | `node tools/scripts/i18n/lib/providers.js` | docs |
-| `tools/scripts/i18n/test-mintlify-version-language-toggle.js` | Validate Mintlify version/language toggle behavior on localized v2 routes. | `node tools/scripts/i18n/test-mintlify-version-language-toggle.js --base-url http://localhost:3012` | docs |
-| `tools/scripts/i18n/test/cli-guardrails.test.js` | Utility script for tools/scripts/i18n/test/cli-guardrails.test.js. | `node tools/scripts/i18n/test/cli-guardrails.test.js` | docs |
-| `tools/scripts/i18n/test/docs-json-localizer.test.js` | Utility script for tools/scripts/i18n/test/docs-json-localizer.test.js. | `node tools/scripts/i18n/test/docs-json-localizer.test.js` | docs |
-| `tools/scripts/i18n/test/frontmatter.test.js` | Utility script for tools/scripts/i18n/test/frontmatter.test.js. | `node tools/scripts/i18n/test/frontmatter.test.js` | docs |
-| `tools/scripts/i18n/test/mdx-translate.test.js` | Utility script for tools/scripts/i18n/test/mdx-translate.test.js. | `node tools/scripts/i18n/test/mdx-translate.test.js` | docs |
-| `tools/scripts/i18n/test/provenance.test.js` | Utility script for tools/scripts/i18n/test/provenance.test.js. | `node tools/scripts/i18n/test/provenance.test.js` | docs |
-| `tools/scripts/i18n/test/provider-openrouter.test.js` | Utility script for tools/scripts/i18n/test/provider-openrouter.test.js. | `node tools/scripts/i18n/test/provider-openrouter.test.js` | docs |
-| `tools/scripts/i18n/translate-docs.js` | Translate selected v2 docs pages into configured languages and emit localized MDX files plus route-map/report artifacts. | `node tools/scripts/i18n/translate-docs.js --languages es,fr,de --scope-mode prefixes --prefixes v2/about/livepeer-network --max-pages 10 --max-concurrency 5` | docs |
-| `tools/scripts/i18n/validate-generated.js` | Validate generated localized MDX files parse cleanly and exist for successful route-map entries. | `node tools/scripts/i18n/validate-generated.js --languages es,fr,zh-CN --route-map /tmp/route-map.json --report-json /tmp/validate-report.json` | docs |
-| `tools/scripts/new-script.js` | ' + params.summary, | `/` | docs |
-| `tools/scripts/snippets/fetch-external-docs.sh` | Utility script for tools/scripts/snippets/fetch-external-docs.sh. | `bash tools/scripts/snippets/fetch-external-docs.sh` | docs |
-| `tools/scripts/snippets/fetch-lpt-exchanges.sh` | Utility script for tools/scripts/snippets/fetch-lpt-exchanges.sh. | `bash tools/scripts/snippets/fetch-lpt-exchanges.sh` | docs |
-| `tools/scripts/snippets/fetch-openapi-specs.sh` | Utility script for tools/scripts/snippets/fetch-openapi-specs.sh. | `bash tools/scripts/snippets/fetch-openapi-specs.sh` | docs |
-| `tools/scripts/snippets/generate-api-docs.sh` | Utility script for tools/scripts/snippets/generate-api-docs.sh. | `bash tools/scripts/snippets/generate-api-docs.sh` | docs |
-| `tools/scripts/snippets/generate-data/scripts/generate-glossary.js` | Utility script for tools/scripts/snippets/generate-data/scripts/generate-glossary.js. | `node tools/scripts/snippets/generate-data/scripts/generate-glossary.js` | docs |
-| `tools/scripts/snippets/generate-data/scripts/terminology-search.js` | Utility script for tools/scripts/snippets/generate-data/scripts/terminology-search.js. | `node tools/scripts/snippets/generate-data/scripts/terminology-search.js` | docs |
-| `tools/scripts/snippets/generate-seo.js` | Utility script for tools/scripts/snippets/generate-seo.js. | `node tools/scripts/snippets/generate-seo.js` | docs |
-| `tools/scripts/snippets/test-scripts.sh` | Utility script for tools/scripts/snippets/test-scripts.sh. | `bash tools/scripts/snippets/test-scripts.sh` | docs |
-| `tools/scripts/snippets/update-component-library.sh` | Utility script for tools/scripts/snippets/update-component-library.sh. | `bash tools/scripts/snippets/update-component-library.sh` | docs |
-| `tools/scripts/verify/.verify-large-change.sh` | Reserved verifier hook placeholder for large-change checks. | `bash tools/scripts/verify/.verify-large-change.sh` | docs |
+| `tools/scripts/add-framework-headers.js` | Insert or verify governance framework metadata headers from classification JSON. | `*   node tools/scripts/add-framework-headers.js --data script-classifications.json --dry-run` | docs |
+| `tools/scripts/assign-purpose-metadata.js` | Assign purpose and audience frontmatter metadata for docs.json EN-routable v2 pages using deterministic rules with optional LLM classification for unclassified pages. | `*   node tools/scripts/assign-purpose-metadata.js --scope pilot --dry-run` | docs |
+| `tools/scripts/audit-all-pages-simple.js` | Lightweight page auditor — quick pass over all pages checking basic frontmatter and structure | `node tools/scripts/audit-all-pages-simple.js [flags]` | docs |
+| `tools/scripts/audit-all-pages.js` | Full page auditor — comprehensive check of all pages including content quality metrics | `node tools/scripts/audit-all-pages.js [flags]` | docs |
+| `tools/scripts/audit-all-v2-pages.js` | V2-specific page auditor — checks v2/** pages for v2-specific requirements (frontmatter, components) | `node tools/scripts/audit-all-v2-pages.js [flags]` | docs |
+| `tools/scripts/audit-component-usage.js` | Component usage auditor — scans pages for component usage patterns and reports statistics | `node tools/scripts/audit-component-usage.js [flags]` | docs |
+| `tools/scripts/audit-scripts.js` | Script auditor — analyses all repo scripts, categorises usage/overlap, generates SCRIPT_AUDIT reports | `node tools/scripts/audit-scripts.js [flags]` | docs |
+| `tools/scripts/audit-tasks-folders.js` | Tasks folder auditor — checks tasks/ structure, normalises report locations, applies recommendations with conflict-safe moves | `node tools/scripts/audit-tasks-folders.js [flags]` | docs |
+| `tools/scripts/audit-v1-to-v2-mapping.js` | Diagnostic — maps v1 page URLs to v2 equivalents for migration tracking | `node tools/scripts/audit-v1-to-v2-mapping.js [flags]` | docs |
+| `tools/scripts/audit-v2-usefulness.js` | Usefulness auditor — scores v2 MDX pages on human and agent usefulness with source-weighted 2026 accuracy verification | `node tools/scripts/audit-v2-usefulness.js [flags]` | docs |
+| `tools/scripts/check-codex-pr-overlap.js` | PR enforcer — checks for conflicting codex PRs targeting the same files/branches | `node tools/scripts/check-codex-pr-overlap.js [flags]` | docs |
+| `tools/scripts/check-component-errors.js` | Component error checker — scans pages for broken or misconfigured component usage | `node tools/scripts/check-component-errors.js [flags]` | docs |
+| `tools/scripts/check-no-ai-stash.sh` | AI stash enforcer — blocks push if AI temporary/stash files are present in working tree | `bash tools/scripts/check-no-ai-stash.sh [flags]` | docs |
+| `tools/scripts/cleanup-quarantine-manager.js` | Quarantine manager — classifies files for quarantine (default) or applies quarantine moves (--apply) | `node tools/scripts/cleanup-quarantine-manager.js [flags]` | docs |
+| `tools/scripts/codex-commit.js` | Codex commit helper — audits codex branch state and generates compliant commit messages | `node tools/scripts/codex-commit.js [flags]` | docs |
+| `tools/scripts/codex-safe-merge-with-stash.js` | Codex merge utility — safely merges branches with stash handling to avoid codex conflicts | `node tools/scripts/codex-safe-merge-with-stash.js [flags]` | docs |
+| `tools/scripts/codex/lock-release.js` | Codex lock release utility — releases stale codex lock files | `node tools/scripts/codex/lock-release.js [flags]` | docs |
+| `tools/scripts/codex/task-finalize.js` | Codex task finaliser — enforces task completion requirements before closing | `node tools/scripts/codex/task-finalize.js [flags]` | docs |
+| `tools/scripts/codex/task-preflight.js` | Codex task preflight — generates task setup files and validates preconditions | `node tools/scripts/codex/task-preflight.js [flags]` | docs |
+| `tools/scripts/codex/validate-locks.js` | Codex lock validator — checks for stale or conflicting lock files before push | `node tools/scripts/codex/validate-locks.js [flags]` | docs |
+| `tools/scripts/component-layout-governance.js` | Validate v2 English docs against component-layout contracts by page type. | `*   node tools/scripts/component-layout-governance.js --scope full` | docs |
+| `tools/scripts/convert-rss-to-mdx.js` | RSS-to-MDX converter — imports RSS feed items and converts to MDX page format | `node tools/scripts/convert-rss-to-mdx.js [flags]` | docs |
+| `tools/scripts/create-codex-pr.js` | Codex PR creator — generates codex PR with correct branch naming, labels, and body template | `node tools/scripts/create-codex-pr.js [flags]` | docs |
+| `tools/scripts/cross-agent-packager.js` | Cross-agent packager — bundles audit reports and repo state into agent-consumable packages | `node tools/scripts/cross-agent-packager.js [flags]` | docs |
+| `tools/scripts/debug-mint-dev.js` | Mintlify dev debugger — diagnostic tool for troubleshooting mint dev server issues | `node tools/scripts/debug-mint-dev.js [flags]` | docs |
+| `tools/scripts/dev/add-callouts.js` | Callout inserter — adds Note/Tip/Warning callout components to MDX files based on content patterns | `node tools/scripts/dev/add-callouts.js [flags]` | docs |
+| `tools/scripts/dev/batch-update-og-image.sh` | Batch OG image updater — updates og:image meta tags across multiple pages | `bash tools/scripts/dev/batch-update-og-image.sh [flags]` | docs |
+| `tools/scripts/dev/ensure-mint-watcher-patch.sh` | Mint watcher patcher — applies patch to fix Mintlify file watcher issues in dev mode | `bash tools/scripts/dev/ensure-mint-watcher-patch.sh [flags]` | docs |
+| `tools/scripts/dev/generate-mint-dev-scope.js` | Mint dev scope generator — creates a scoped docs.json for running mint dev on a subset of pages | `node tools/scripts/dev/generate-mint-dev-scope.js [flags]` | docs |
+| `tools/scripts/dev/replace-og-image.py` | OG image replacer — replaces og:image path in a single page frontmatter | `python3 tools/scripts/dev/replace-og-image.py [flags]` | docs |
+| `tools/scripts/dev/seo-generator-safe.js` | Safe SEO generator — generates SEO metadata with dry-run and rollback safety | `node tools/scripts/dev/seo-generator-safe.js [flags]` | docs |
+| `tools/scripts/dev/test-add-callouts.js` | Test for add-callouts.js — validates callout insertion logic against fixtures | `node tools/scripts/dev/test-add-callouts.js [flags]` | docs |
+| `tools/scripts/dev/test-seo-generator.js` | Test for seo-generator — validates SEO generation logic | `node tools/scripts/dev/test-seo-generator.js [flags]` | docs |
+| `tools/scripts/dev/update-all-og-images.js` | Bulk OG image updater — updates og:image across all v2 pages | `node tools/scripts/dev/update-all-og-images.js [flags]` | docs |
+| `tools/scripts/dev/update-og-image.js` | Single OG image updater — updates og:image for one page | `node tools/scripts/dev/update-og-image.js [flags]` | docs |
+| `tools/scripts/docs-quality-and-freshness-audit.js` | Content freshness audit — checks for TODO/TBD/Coming Soon markers, thin pages, stale content | `node tools/scripts/docs-quality-and-freshness-audit.js [flags]` | docs |
+| `tools/scripts/enforce-generated-file-banners.js` | Generated file banner enforcer — checks (--check) or writes (default) "do not edit" banners on generated files | `node tools/scripts/enforce-generated-file-banners.js [flags]` | docs |
+| `tools/scripts/final-verification.js` | Diagnostic — runs final verification checks on page set (manual tool) | `node tools/scripts/final-verification.js [flags]` | docs |
+| `tools/scripts/find-correct-url.js` | Diagnostic — given a broken URL, attempts to find the correct v2 equivalent | `node tools/scripts/find-correct-url.js [flags]` | docs |
+| `tools/scripts/generate-ai-sitemap.js` | AI sitemap generator — produces AI-optimised sitemap files. Dual-mode: --check (enforcer) / --write (generator). | `node tools/scripts/generate-ai-sitemap.js [flags]` | docs |
+| `tools/scripts/generate-content-gap-reconciliation.js` | Generate IA reconciliation CSV and summary from blueprint and v2 MDX coverage. | `*   node tools/scripts/generate-content-gap-reconciliation.js` | docs |
+| `tools/scripts/generate-docs-guide-components-index.js` | Generates the docs-guide component library index page | `node tools/scripts/generate-docs-guide-components-index.js [flags]` | docs |
+| `tools/scripts/generate-docs-guide-indexes.js` | Generates docs-guide workflow/template indexes and optionally verifies freshness | `node tools/scripts/generate-docs-guide-indexes.js [flags]` | docs |
+| `tools/scripts/generate-docs-guide-pages-index.js` | Generates the docs-guide pages index | `node tools/scripts/generate-docs-guide-pages-index.js [flags]` | docs |
+| `tools/scripts/generate-docs-index.js` | Docs index generator — produces docs-index.json from v2 frontmatter and docs.json. Dual-mode: --check (enforcer) / --write (generator). Most-called script in the repo. | `node tools/scripts/generate-docs-index.js [flags]` | docs |
+| `tools/scripts/generate-llms-files.js` | LLMs file generator — produces llms.txt and llms-full.txt for AI consumption. Dual-mode: --check / --write. | `node tools/scripts/generate-llms-files.js [flags]` | docs |
+| `tools/scripts/generate-pages-index.js` | Pages index generator — generates and verifies section-style index.mdx files for v2 docs folders plus root aggregate index | `node tools/scripts/generate-pages-index.js [flags]` | docs |
+| `tools/scripts/i18n/generate-localized-docs-json.js` | Locale docs.json generator — produces localised docs.json variants from route-map and source docs.json | `node tools/scripts/i18n/generate-localized-docs-json.js [flags]` | docs |
+| `tools/scripts/i18n/lib/common.js` | i18n shared utilities — common helper functions for translation pipeline | `node tools/scripts/i18n/lib/common.js [flags]` | docs |
+| `tools/scripts/i18n/lib/config.js` | i18n configuration — language codes, locale paths, translation settings | `node tools/scripts/i18n/lib/config.js [flags]` | docs |
+| `tools/scripts/i18n/lib/docs-json-localizer.js` | docs.json localiser engine — transforms docs.json navigation for locale variants | `node tools/scripts/i18n/lib/docs-json-localizer.js [flags]` | docs |
+| `tools/scripts/i18n/lib/docs-routes.js` | docs route resolver — maps page paths to locale-aware routes | `node tools/scripts/i18n/lib/docs-routes.js [flags]` | docs |
+| `tools/scripts/i18n/lib/frontmatter.js` | Frontmatter parser/writer — reads and writes MDX frontmatter for translation | `node tools/scripts/i18n/lib/frontmatter.js [flags]` | docs |
+| `tools/scripts/i18n/lib/mdx-parser.js` | MDX parser for i18n — extracts translatable content blocks from MDX | `node tools/scripts/i18n/lib/mdx-parser.js [flags]` | docs |
+| `tools/scripts/i18n/lib/mdx-translate.js` | MDX translation engine — applies translations to MDX content blocks | `node tools/scripts/i18n/lib/mdx-translate.js [flags]` | docs |
+| `tools/scripts/i18n/lib/path-utils.js` | Path utilities for i18n — locale-aware path resolution and mapping | `node tools/scripts/i18n/lib/path-utils.js [flags]` | docs |
+| `tools/scripts/i18n/lib/provenance.js` | Translation provenance tracker — records source, timestamp, and provider for each translated segment | `node tools/scripts/i18n/lib/provenance.js [flags]` | docs |
+| `tools/scripts/i18n/lib/provider-mock.js` | Mock translation provider — returns placeholder translations for testing without API calls | `node tools/scripts/i18n/lib/provider-mock.js [flags]` | docs |
+| `tools/scripts/i18n/lib/provider-openrouter.js` | OpenRouter translation provider — calls OpenRouter API for actual translations | `node tools/scripts/i18n/lib/provider-openrouter.js [flags]` | docs |
+| `tools/scripts/i18n/lib/providers.js` | Provider registry — selects translation provider (OpenRouter or mock) based on configuration | `node tools/scripts/i18n/lib/providers.js [flags]` | docs |
+| `tools/scripts/i18n/test-mintlify-version-language-toggle.js` | Mintlify language toggle checker — validates Mintlify version supports language toggle feature | `node tools/scripts/i18n/test-mintlify-version-language-toggle.js [flags]` | docs |
+| `tools/scripts/i18n/test/cli-guardrails.test.js` | Tests i18n CLI guardrails — validates argument validation and safety checks | `node tools/scripts/i18n/test/cli-guardrails.test.js [flags]` | docs |
+| `tools/scripts/i18n/test/docs-json-localizer.test.js` | Tests docs-json-localizer — validates locale docs.json transformation logic | `node tools/scripts/i18n/test/docs-json-localizer.test.js [flags]` | docs |
+| `tools/scripts/i18n/test/frontmatter.test.js` | Tests frontmatter parser — validates frontmatter read/write roundtrip | `node tools/scripts/i18n/test/frontmatter.test.js [flags]` | docs |
+| `tools/scripts/i18n/test/mdx-translate.test.js` | Tests MDX translation — validates content block translation logic | `node tools/scripts/i18n/test/mdx-translate.test.js [flags]` | docs |
+| `tools/scripts/i18n/test/provenance.test.js` | Tests provenance tracker — validates translation provenance recording | `node tools/scripts/i18n/test/provenance.test.js [flags]` | docs |
+| `tools/scripts/i18n/test/provider-openrouter.test.js` | Tests OpenRouter provider — validates API call logic and response parsing | `node tools/scripts/i18n/test/provider-openrouter.test.js [flags]` | docs |
+| `tools/scripts/i18n/translate-docs.js` | Translation generator — translates v2 MDX pages to target languages via OpenRouter API | `node tools/scripts/i18n/translate-docs.js [flags]` | docs |
+| `tools/scripts/i18n/validate-generated.js` | Validate generated localized MDX files parse cleanly and exist for successful route-map entries. | `*   node tools/scripts/i18n/validate-generated.js --languages es,fr,zh-CN --route-map /tmp/route-map.json --report-json /tmp/validate-report.json` | docs |
+| `tools/scripts/inspect-page.js` | Page inspector — displays parsed metadata, frontmatter, components, and structure for a single page | `node tools/scripts/inspect-page.js [flags]` | docs |
+| `tools/scripts/inspect-video-page.js` | Video page inspector — displays video-specific metadata and embed configuration for a page | `node tools/scripts/inspect-video-page.js [flags]` | docs |
+| `tools/scripts/mint-dev.sh` | Mintlify dev server launcher — starts mint dev with correct configuration | `bash tools/scripts/mint-dev.sh [flags]` | docs |
+| `tools/scripts/new-script.js` | ' + params.summary, | `node tools/scripts/new-script.js [flags]` | docs |
+| `tools/scripts/publish-v2-internal-reports.js` | Report publisher — publishes v2 internal audit reports to configured output locations | `node tools/scripts/publish-v2-internal-reports.js [flags]` | docs |
+| `tools/scripts/repo-audit-orchestrator.js` | Repo audit orchestrator — dispatches all static analysis validators in sequence. Supports --mode (static/full), --scope (full/changed), --quarantine, --agent-pack. | `node tools/scripts/repo-audit-orchestrator.js [flags]` | docs |
+| `tools/scripts/script-footprint-and-usage-audit.js` | Script footprint auditor — analyses script file sizes, dependencies, and usage patterns across the repo | `node tools/scripts/script-footprint-and-usage-audit.js [flags]` | docs |
+| `tools/scripts/snippets/fetch-external-docs.sh` | External docs fetcher — pulls doc fragments from external GitHub repos into snippets/data/ for inclusion in builds | `bash tools/scripts/snippets/fetch-external-docs.sh [flags]` | docs |
+| `tools/scripts/snippets/fetch-lpt-exchanges.sh` | LPT exchange data fetcher — pulls exchange listing data for LPT token pages | `bash tools/scripts/snippets/fetch-lpt-exchanges.sh [flags]` | docs |
+| `tools/scripts/snippets/fetch-openapi-specs.sh` | OpenAPI spec fetcher — pulls latest OpenAPI specs from Livepeer services for reference pages | `bash tools/scripts/snippets/fetch-openapi-specs.sh [flags]` | docs |
+| `tools/scripts/snippets/generate-api-docs.sh` | API docs generator — generates API reference pages from OpenAPI specs | `bash tools/scripts/snippets/generate-api-docs.sh [flags]` | docs |
+| `tools/scripts/snippets/generate-data/scripts/generate-glossary.js` | Glossary generator — produces glossary data file from terminology sources | `node tools/scripts/snippets/generate-data/scripts/generate-glossary.js [flags]` | docs |
+| `tools/scripts/snippets/generate-data/scripts/terminology-search.js` | Terminology search — searches glossary/terminology data for definitions | `node tools/scripts/snippets/generate-data/scripts/terminology-search.js [flags]` | docs |
+| `tools/scripts/snippets/generate-seo.js` | SEO generator — generates SEO metadata (title, description, keywords) for v2 pages from content analysis | `node tools/scripts/snippets/generate-seo.js [flags]` | docs |
+| `tools/scripts/snippets/test-scripts.sh` | Snippet test runner — runs basic validation on snippet scripts | `bash tools/scripts/snippets/test-scripts.sh [flags]` | docs |
+| `tools/scripts/snippets/update-component-library.sh` | Component library updater — syncs component library documentation from source | `bash tools/scripts/snippets/update-component-library.sh [flags]` | docs |
+| `tools/scripts/style-and-language-homogenizer-en-gb.js` | EN-GB style homogeniser — finds and fixes American English spellings, style guide violations, and formatting inconsistencies across v2 content | `node tools/scripts/style-and-language-homogenizer-en-gb.js [flags]` | docs |
+| `tools/scripts/sync-codex-skills.js` | Codex skills sync — synchronises skill definition files between local and remote sources. Supports --check mode. | `node tools/scripts/sync-codex-skills.js [flags]` | docs |
+| `tools/scripts/test-all-pages-browser.js` | Manual browser test runner — opens all pages in Puppeteer for visual inspection | `node tools/scripts/test-all-pages-browser.js [flags]` | docs |
+| `tools/scripts/test-all-pages-comprehensive.js` | Manual comprehensive test — runs all page validators including slow/network checks | `node tools/scripts/test-all-pages-comprehensive.js [flags]` | docs |
+| `tools/scripts/test-v2-pages.js` | V2 page tester — validates v2 pages via Puppeteer browser rendering | `node tools/scripts/test-v2-pages.js [flags]` | docs |
+| `tools/scripts/test-youtube-pages.js` | YouTube page tester — validates YouTube embed pages render correctly | `node tools/scripts/test-youtube-pages.js [flags]` | docs |
+| `tools/scripts/validate-codex-task-contract.js` | Codex task contract enforcer — validates branch naming, task files, PR body, and issue state for codex branches | `node tools/scripts/validate-codex-task-contract.js [flags]` | docs |
+| `tools/scripts/verify-all-pages.js` | Page verifier — checks all pages in docs.json resolve to valid files | `node tools/scripts/verify-all-pages.js [flags]` | docs |
+| `tools/scripts/verify-pages.js` | Page verifier — checks a subset of pages resolve to valid files | `node tools/scripts/verify-pages.js [flags]` | docs |
+| `tools/scripts/verify-pay-orc-gate-finalize.sh` | Payment/orchestrator gate verifier — checks payment and orchestrator documentation gate conditions | `bash tools/scripts/verify-pay-orc-gate-finalize.sh [flags]` | docs |
+| `tools/scripts/verify/.verify-large-change.sh` | Large change verifier — blocks or warns when a commit touches an unusually large number of files | `bash tools/scripts/verify/.verify-large-change.sh [flags]` | docs |
+| `tools/scripts/wcag-repair-common.js` | WCAG repair shared logic — common repair functions used by WCAG audit fix mode | `node tools/scripts/wcag-repair-common.js [flags]` | docs |
 {/* SCRIPT-INDEX:END */}
