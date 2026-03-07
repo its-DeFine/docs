@@ -6,7 +6,7 @@
  * @owner             docs
  * @needs             E-R19, F-R7
  * @purpose-statement Single OG image updater — updates og:image for one page
- * @pipeline          manual — developer tool
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
  * @usage             node tools/scripts/dev/update-og-image.js [flags]
  */
 const fs = require('fs');

@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             E-C6, F-C1
  * @purpose-statement Manual browser test runner — opens all pages in Puppeteer for visual inspection
- * @pipeline          manual — developer tool
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
  * @usage             node tools/scripts/test-all-pages-browser.js [flags]
  */
 /**

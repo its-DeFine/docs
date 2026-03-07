@@ -4,6 +4,7 @@
  * @summary Execute Phase 1 action-plan artifacts and route fixes inside the current docs-v2 worktree only.
  * @owner docs
  * @scope tools/utility/personal, docs.json, tasks/reports/v1-v2-mapping-audit
+ * @pipeline manual — personal utility, not for shared pipelines
  *
  * @usage
  *   node tools/utility/personal/execute-phase1-worktree-plan.js

@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             E-R1, R-R11
  * @purpose-statement Lightweight page auditor — quick pass over all pages checking basic frontmatter and structure
- * @pipeline          manual — not yet in pipeline
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
  * @usage             node tools/scripts/audit-all-pages-simple.js [flags]
  */
 

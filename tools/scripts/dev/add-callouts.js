@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             E-R1, R-R11
  * @purpose-statement Callout inserter — adds Note/Tip/Warning callout components to MDX files based on content patterns
- * @pipeline          manual — developer tool
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
  * @usage             node tools/scripts/dev/add-callouts.js [flags]
  */
 

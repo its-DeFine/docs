@@ -6,7 +6,7 @@
  * @owner             docs
  * @needs             E-R19, F-R7
  * @purpose-statement Safe SEO generator — generates SEO metadata with dry-run and rollback safety
- * @pipeline          manual — developer tool
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
  * @usage             node tools/scripts/dev/seo-generator-safe.js [flags]
  */
 const fs = require("fs");

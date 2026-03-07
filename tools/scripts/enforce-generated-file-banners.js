@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             R-R16, R-R17
  * @purpose-statement Generated file banner enforcer — checks (--check) or writes (default) "do not edit" banners on generated files
- * @pipeline          manual — not yet in pipeline
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
  * @dualmode          --check (enforcer) | default (remediator)
  * @usage             node tools/scripts/enforce-generated-file-banners.js [flags]
  */

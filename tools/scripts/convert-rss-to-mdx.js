@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             F-R1
  * @purpose-statement RSS-to-MDX converter — imports RSS feed items and converts to MDX page format
- * @pipeline          manual — not yet in pipeline
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
  * @usage             node tools/scripts/convert-rss-to-mdx.js [flags]
  */
 

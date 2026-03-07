@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             E-C6, F-C1
  * @purpose-statement V2-specific page auditor — checks v2/** pages for v2-specific requirements (frontmatter, components)
- * @pipeline          manual — not yet in pipeline
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
  * @usage             node tools/scripts/audit-all-v2-pages.js [flags]
  */
 /**

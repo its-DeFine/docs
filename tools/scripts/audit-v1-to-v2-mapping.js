@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             E-C1, R-R14
  * @purpose-statement Diagnostic — maps v1 page URLs to v2 equivalents for migration tracking
- * @pipeline          manual — not yet in pipeline
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
  * @dualmode          dual-mode (document flags)
  * @usage             node tools/scripts/audit-v1-to-v2-mapping.js [flags]
  */

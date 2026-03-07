@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             R-R27, R-R30
  * @purpose-statement Codex merge utility — safely merges branches with stash handling to avoid codex conflicts
- * @pipeline          manual — developer tool
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
  * @usage             node tools/scripts/codex-safe-merge-with-stash.js [flags]
  */
 

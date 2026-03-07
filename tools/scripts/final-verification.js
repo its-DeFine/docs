@@ -6,7 +6,7 @@
  * @owner             docs
  * @needs             E-C6, F-C1
  * @purpose-statement Diagnostic — runs final verification checks on page set (manual tool)
- * @pipeline          manual — developer tool
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
  * @usage             node tools/scripts/final-verification.js [flags]
  */
 const puppeteer = require('puppeteer');

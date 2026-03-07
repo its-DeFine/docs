@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             E-R1, R-R11
  * @purpose-statement Full page auditor — comprehensive check of all pages including content quality metrics
- * @pipeline          manual — not yet in pipeline
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
  * @usage             node tools/scripts/audit-all-pages.js [flags]
  */
 

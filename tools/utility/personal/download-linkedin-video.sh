@@ -3,6 +3,7 @@
 # @summary Utility script for tools/utility/personal/download-linkedin-video.sh.
 # @owner docs
 # @scope tools/utility/personal, snippets/assets/media/videos
+# @pipeline manual — personal utility, not for shared pipelines
 #
 # @usage
 #   bash tools/utility/personal/download-linkedin-video.sh

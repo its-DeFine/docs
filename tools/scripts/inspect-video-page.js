@@ -6,7 +6,7 @@
  * @owner             docs
  * @needs             E-C6, F-C1
  * @purpose-statement Video page inspector — displays video-specific metadata and embed configuration for a page
- * @pipeline          manual — developer tool
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
  * @usage             node tools/scripts/inspect-video-page.js [flags]
  */
 const puppeteer = require('puppeteer');

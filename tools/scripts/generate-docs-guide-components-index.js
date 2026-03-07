@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             R-R16, R-R17
  * @purpose-statement Generates the docs-guide component library index page
- * @pipeline          manual — not yet in pipeline
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
  * @dualmode          dual-mode (document flags)
  * @usage             node tools/scripts/generate-docs-guide-components-index.js [flags]
  */

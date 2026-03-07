@@ -4,6 +4,7 @@
  * @summary Assign purpose and audience frontmatter metadata for docs.json EN-routable v2 pages using deterministic rules with optional LLM classification for unclassified pages.
  * @owner docs
  * @scope tools/scripts, tools/lib/docs-usefulness, tools/config, v2
+ * @pipeline manual — interactive developer tool, not suited for automated pipelines
  *
  * @usage
  *   node tools/scripts/assign-purpose-metadata.js --scope pilot --dry-run

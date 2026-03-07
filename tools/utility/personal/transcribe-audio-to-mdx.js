@@ -4,6 +4,7 @@
  * @summary Download audio from URL, chunk with ffmpeg, transcribe via OpenRouter, and write an MDX transcript page.
  * @owner docs
  * @scope tools/utility/personal, v2/internal/assets/transcripts
+ * @pipeline manual — personal utility, not for shared pipelines
  *
  * @usage
  *   OPENROUTER_API_KEY=... node tools/utility/personal/transcribe-audio-to-mdx.js --audio-url "<url>" --title "<episode title>" --show "<show name>" --published-at YYYY-MM-DD

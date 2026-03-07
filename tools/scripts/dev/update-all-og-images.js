@@ -6,7 +6,7 @@
  * @owner             docs
  * @needs             E-R19, F-R7
  * @purpose-statement Bulk OG image updater — updates og:image across all v2 pages
- * @pipeline          manual — developer tool
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
  * @usage             node tools/scripts/dev/update-all-og-images.js [flags]
  */
 const fs = require('fs');

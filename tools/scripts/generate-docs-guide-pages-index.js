@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             R-R16, R-R17
  * @purpose-statement Generates the docs-guide pages index
- * @pipeline          manual — not yet in pipeline
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
  * @usage             node tools/scripts/generate-docs-guide-pages-index.js [flags]
  */
 

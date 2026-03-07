@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             E-C6, F-C1
  * @purpose-statement Manual comprehensive test — runs all page validators including slow/network checks
- * @pipeline          manual — developer tool
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
  * @usage             node tools/scripts/test-all-pages-comprehensive.js [flags]
  */
 

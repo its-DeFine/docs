@@ -6,7 +6,7 @@
 # @owner             docs
 # @needs             E-C6, F-C1
 # @purpose-statement Mint watcher patcher — applies patch to fix Mintlify file watcher issues in dev mode
-# @pipeline          manual — developer tool
+# @pipeline          manual — interactive developer tool, not suited for automated pipelines
 # @usage             bash tools/scripts/dev/ensure-mint-watcher-patch.sh [flags]
 set -euo pipefail
 

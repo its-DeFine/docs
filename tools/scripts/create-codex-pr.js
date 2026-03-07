@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             R-R27, R-R30
  * @purpose-statement Codex PR creator — generates codex PR with correct branch naming, labels, and body template
- * @pipeline          manual — not yet in pipeline
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
  * @usage             node tools/scripts/create-codex-pr.js [flags]
  */
 

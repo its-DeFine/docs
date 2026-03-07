@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             E-C6, F-C1
  * @purpose-statement Mint dev scope generator — creates a scoped docs.json for running mint dev on a subset of pages
- * @pipeline          manual — developer tool
+ * @pipeline          manual — interactive developer tool, not suited for automated pipelines
  * @usage             node tools/scripts/dev/generate-mint-dev-scope.js [flags]
  */
 

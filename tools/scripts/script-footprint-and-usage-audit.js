@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             E-C1, R-R14
  * @purpose-statement Script footprint auditor — analyses script file sizes, dependencies, and usage patterns across the repo
- * @pipeline          manual — not yet in pipeline
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
  * @usage             node tools/scripts/script-footprint-and-usage-audit.js [flags]
  */
 
