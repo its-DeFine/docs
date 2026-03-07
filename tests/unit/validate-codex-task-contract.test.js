@@ -106,6 +106,8 @@ async function runTests() {
     const contractPath = path.join(tmp, 'task-contract.yaml');
     const prBodyOk = path.join(tmp, 'pr-ok.md');
     const prBodyMissing = path.join(tmp, 'pr-missing.md');
+    const prBodyNoClosing = path.join(tmp, 'pr-no-closing.md');
+    const prBodyWrongClosing = path.join(tmp, 'pr-wrong-closing.md');
     const issuePolicy = path.join(tmp, 'issue-policy.json');
 
     writeContract(contractPath, taskId, branchName);
@@ -115,6 +117,50 @@ async function runTests() {
       prBodyOk,
       [
         `<!-- codex-pr-body-generated: task_id=${taskId}; branch=${branchName}; contract=.codex/task-contract.yaml -->`,
+        '',
+        `Fixes #${taskId}`,
+        '',
+        '## Scope',
+        '',
+        '- scope details',
+        '',
+        '## Validation',
+        '',
+        '- validation details',
+        '',
+        '## Follow-up Tasks',
+        '',
+        '- none',
+        ''
+      ].join('\n')
+    );
+
+    writeFile(
+      prBodyNoClosing,
+      [
+        `<!-- codex-pr-body-generated: task_id=${taskId}; branch=${branchName}; contract=.codex/task-contract.yaml -->`,
+        '',
+        '## Scope',
+        '',
+        '- scope details',
+        '',
+        '## Validation',
+        '',
+        '- validation details',
+        '',
+        '## Follow-up Tasks',
+        '',
+        '- none',
+        ''
+      ].join('\n')
+    );
+
+    writeFile(
+      prBodyWrongClosing,
+      [
+        `<!-- codex-pr-body-generated: task_id=${taskId}; branch=${branchName}; contract=.codex/task-contract.yaml -->`,
+        '',
+        'Fixes #9999',
         '',
         '## Scope',
         '',
@@ -200,6 +246,36 @@ async function runTests() {
     assertFailedWith(missing, /missing required generated marker/i, 'expected missing-marker run to fail');
     console.log('   ✓ missing-marker case passed');
 
+    // Missing closing keyword for task id
+    const noClosing = runScript([
+      '--branch',
+      branchName,
+      '--contract',
+      contractPath,
+      '--require-pr-body',
+      '--pr-body-file',
+      prBodyNoClosing,
+      '--files',
+      '.codex/task-contract.yaml'
+    ]);
+    assertFailedWith(noClosing, /must include a closing keyword for task issue/i, 'expected missing closing keyword to fail');
+    console.log('   ✓ missing-closing-keyword case passed');
+
+    // Wrong closing issue id
+    const wrongClosing = runScript([
+      '--branch',
+      branchName,
+      '--contract',
+      contractPath,
+      '--require-pr-body',
+      '--pr-body-file',
+      prBodyWrongClosing,
+      '--files',
+      '.codex/task-contract.yaml'
+    ]);
+    assertFailedWith(wrongClosing, /must include a closing keyword for task issue/i, 'expected wrong closing issue id to fail');
+    console.log('   ✓ wrong-closing-issue case passed');
+
     // Issue-state pass
     const issuePass = runScript(baseArgs, {
       ...baseEnv,
@@ -257,7 +333,7 @@ async function runTests() {
 
   return {
     passed: failures.length === 0,
-    total: 7,
+    total: 9,
     errors: failures
   };
 }
