@@ -123,6 +123,7 @@
 
 | Script | Summary | Usage | Owner |
 |---|---|---|---|
+| `tools/scripts/assign-purpose-metadata.js` | Assign purpose and audience frontmatter metadata for docs.json EN-routable v2 pages using deterministic rules with optional LLM classification for unclassified pages. | `node tools/scripts/assign-purpose-metadata.js --scope pilot --dry-run` | docs |
 | `tools/scripts/audit-all-pages-simple.js` | Utility script for tasks/scripts/audit-all-pages-simple.js. | `node tasks/scripts/audit-all-pages-simple.js` | docs |
 | `tools/scripts/audit-all-pages.js` | Utility script for tasks/scripts/audit-all-pages.js. | `node tasks/scripts/audit-all-pages.js` | docs |
 | `tools/scripts/audit-all-v2-pages.js` | Utility script for tools/scripts/audit-all-v2-pages.js. | `node tools/scripts/audit-all-v2-pages.js` | docs |
@@ -130,7 +131,7 @@
 | `tools/scripts/audit-scripts.js` | Audit full-repo executable scripts, categorize usage/overlap, and overwrite SCRIPT_AUDIT reports. | `node tools/scripts/audit-scripts.js` | docs |
 | `tools/scripts/audit-tasks-folders.js` | Audit tasks folders, optionally normalize report locations, and optionally apply audit recommendations with conflict-safe moves. | `node tools/scripts/audit-tasks-folders.js` | docs |
 | `tools/scripts/audit-v1-to-v2-mapping.js` | Build a complete v1->v2 mapping audit (English IA canonical), including seed revalidation and adjudication queue. | `node tools/scripts/audit-v1-to-v2-mapping.js` | docs |
-| `tools/scripts/audit-v2-usefulness.js` | Audit v2 MDX pages (excluding x-* directories) and emit page-level usefulness matrix rows with source-weighted 2026 accuracy verification fields. | `node tools/scripts/audit-v2-usefulness.js --mode full --accuracy-mode tiered` | docs |
+| `tools/scripts/audit-v2-usefulness.js` | Run purpose-aware usefulness audit on docs.json EN-routable v2 pages with optional Tier 2 LLM evaluation and persona journey reporting. | `node tools/scripts/audit-v2-usefulness.js --mode full` | docs |
 | `tools/scripts/check-codex-pr-overlap.js` | Fail codex PR checks when changed files overlap another open codex PR without explicit handoff label. | `node tools/scripts/check-codex-pr-overlap.js --base-ref docs-v2` | docs |
 | `tools/scripts/check-component-errors.js` | Utility script for tools/scripts/check-component-errors.js. | `node tools/scripts/check-component-errors.js` | docs |
 | `tools/scripts/check-no-ai-stash.sh` | Block commits when AI-tagged stash entries are present; enforce branch plus WIP checkpoint isolation. | `bash tools/scripts/check-no-ai-stash.sh` | docs |

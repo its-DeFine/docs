@@ -115,6 +115,28 @@ async function runAllTests() {
   totalWarnings += scriptDocsResult.warnings.length;
   console.log(`   ${scriptDocsResult.errors.length} errors, ${scriptDocsResult.warnings.length} warnings`);
 
+  // Usefulness Unit Tests
+  console.log('\n📈 Running Usefulness Unit Tests...');
+  const usefulnessRubricCheck = spawnSync(
+    'node',
+    ['tests/unit/usefulness-rubric.test.js'],
+    { cwd: REPO_ROOT, encoding: 'utf8' }
+  );
+  if (usefulnessRubricCheck.stdout) process.stdout.write(usefulnessRubricCheck.stdout);
+  if (usefulnessRubricCheck.stderr) process.stderr.write(usefulnessRubricCheck.stderr);
+  if (usefulnessRubricCheck.status !== 0) totalErrors += 1;
+
+  const usefulnessJourneyCheck = spawnSync(
+    'node',
+    ['tests/unit/usefulness-journey.test.js'],
+    { cwd: REPO_ROOT, encoding: 'utf8' }
+  );
+  if (usefulnessJourneyCheck.stdout) process.stdout.write(usefulnessJourneyCheck.stdout);
+  if (usefulnessJourneyCheck.stderr) process.stderr.write(usefulnessJourneyCheck.stderr);
+  if (usefulnessJourneyCheck.status !== 0) totalErrors += 1;
+  const usefulnessFailures = (usefulnessRubricCheck.status === 0 ? 0 : 1) + (usefulnessJourneyCheck.status === 0 ? 0 : 1);
+  console.log(`   ${usefulnessFailures} errors, 0 warnings`);
+
   // Pages Index Sync Validation
   console.log('\n🗂️  Running Pages Index Sync Validation...');
   const pagesIndexResult = pagesIndexGenerator.run({ stagedOnly });
@@ -128,18 +150,22 @@ async function runAllTests() {
 
   // Generated Banner Enforcement
   console.log('\n🏷️  Running Generated Banner Enforcement...');
-  const generatedBannerCheck = spawnSync(
-    'node',
-    ['tools/scripts/enforce-generated-file-banners.js', '--check'],
-    { cwd: REPO_ROOT, encoding: 'utf8' }
-  );
-  if (generatedBannerCheck.stdout) process.stdout.write(generatedBannerCheck.stdout);
-  if (generatedBannerCheck.stderr) process.stderr.write(generatedBannerCheck.stderr);
-  if (generatedBannerCheck.status !== 0) {
-    totalErrors += 1;
-    console.log('   1 error, 0 warnings');
+  if (stagedOnly) {
+    console.log('   skipped in --staged mode (covered by changed-file PR checks)');
   } else {
-    console.log('   0 errors, 0 warnings');
+    const generatedBannerCheck = spawnSync(
+      'node',
+      ['tools/scripts/enforce-generated-file-banners.js', '--check'],
+      { cwd: REPO_ROOT, encoding: 'utf8' }
+    );
+    if (generatedBannerCheck.stdout) process.stdout.write(generatedBannerCheck.stdout);
+    if (generatedBannerCheck.stderr) process.stderr.write(generatedBannerCheck.stderr);
+    if (generatedBannerCheck.status !== 0) {
+      totalErrors += 1;
+      console.log('   1 error, 0 warnings');
+    } else {
+      console.log('   0 errors, 0 warnings');
+    }
   }
   
   // Browser Tests (optional)
