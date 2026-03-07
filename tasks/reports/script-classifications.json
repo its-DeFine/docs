@@ -471,7 +471,7 @@
   },
   {
     "path": "tests/utils/file-walker.js",
-    "category": "validator",
+    "category": "utility",
     "purpose": "tooling:dev-tools",
     "scope": "tests",
     "needs": "E-C6, F-C1",

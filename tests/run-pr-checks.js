@@ -1,29 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script run-pr-checks
- * @summary Run changed-file scoped validation checks for pull request CI, including Codex skill sync and codex task-contract enforcement.
- * @owner docs
- * @scope tests, .github/workflows, tools/scripts
- *
- * @usage
- *   node tests/run-pr-checks.js --base-ref main
- *
- * @inputs
- *   --base-ref <branch> Base branch used to compute merge-base (default: env GITHUB_BASE_REF).
- *
- * @outputs
- *   - Console summary
- *   - GitHub step summary table when GITHUB_STEP_SUMMARY is set
- *
- * @exit-codes
- *   0 = all applicable checks passed
- *   1 = one or more checks failed, or changed-file discovery failed
- *
- * @examples
- *   node tests/run-pr-checks.js --base-ref docs-v2
- *
- * @notes
- *   Designed for pull_request CI. Uses changed-file scope to avoid blocking on legacy full-repo debt.
+ * @script            run-pr-checks
+ * @category          orchestrator
+ * @purpose           infrastructure:pipeline-orchestration
+ * @scope             tests, .github/workflows, tools/scripts
+ * @owner             docs
+ * @needs             R-R29
+ * @purpose-statement PR orchestrator — runs changed-file scoped validation checks for pull request CI. Dispatches per-file validators based on PR diff.
+ * @pipeline          P3 (PR, orchestrator)
+ * @usage             node tests/run-pr-checks.js [flags]
  */
 
 const fs = require('fs');

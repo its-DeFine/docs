@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script run-all
- * @summary Utility script for tests/run-all.js.
- * @owner docs
- * @scope tests
- *
- * @usage
- *   node tests/run-all.js
- *
- * @inputs
- *   No required CLI flags; optional flags are documented inline.
- *
- * @outputs
- *   - Console output and/or file updates based on script purpose.
- *
- * @exit-codes
- *   0 = success
- *   1 = runtime or validation failure
- *
- * @examples
- *   node tests/run-all.js
- *
- * @notes
- *   Keep script behavior deterministic and update script indexes after changes.
+ * @script            run-all
+ * @category          orchestrator
+ * @purpose           infrastructure:pipeline-orchestration
+ * @scope             tests
+ * @owner             docs
+ * @needs             R-R29
+ * @purpose-statement Test orchestrator — dispatches all unit test suites. Called by pre-commit hook and npm test.
+ * @pipeline          P1 (commit, orchestrator)
+ * @usage             node tests/run-all.js [flags]
  */
 /**
  * Main test runner - orchestrates all test suites
