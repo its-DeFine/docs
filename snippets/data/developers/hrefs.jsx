@@ -57,8 +57,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/layout.jsx",
-      "resolvedPath": "snippets/components/primitives/layout.jsx",
+      "rawPath": "/snippets/components/layout/layout.jsx",
+      "resolvedPath": "snippets/components/layout/layout.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -66,8 +66,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -131,8 +131,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -140,8 +140,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/layout.jsx",
-      "resolvedPath": "snippets/components/primitives/layout.jsx",
+      "rawPath": "/snippets/components/layout/layout.jsx",
+      "resolvedPath": "snippets/components/layout/layout.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -232,8 +232,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -490,8 +490,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/tables.jsx",
-      "resolvedPath": "snippets/components/primitives/tables.jsx",
+      "rawPath": "/snippets/components/layout/tables.jsx",
+      "resolvedPath": "snippets/components/layout/tables.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -499,8 +499,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -555,8 +555,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -564,8 +564,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/layout.jsx",
-      "resolvedPath": "snippets/components/primitives/layout.jsx",
+      "rawPath": "/snippets/components/layout/layout.jsx",
+      "resolvedPath": "snippets/components/layout/layout.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -656,8 +656,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
+      "rawPath": "/snippets/components/layout/customCards.jsx",
+      "resolvedPath": "snippets/components/layout/customCards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -665,8 +665,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -847,8 +847,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
+      "rawPath": "/snippets/components/layout/customCards.jsx",
+      "resolvedPath": "snippets/components/layout/customCards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -856,8 +856,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1012,8 +1012,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
+      "rawPath": "/snippets/components/layout/customCards.jsx",
+      "resolvedPath": "snippets/components/layout/customCards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1021,8 +1021,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1203,8 +1203,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
+      "rawPath": "/snippets/components/layout/customCards.jsx",
+      "resolvedPath": "snippets/components/layout/customCards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1212,8 +1212,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1376,8 +1376,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
+      "rawPath": "/snippets/components/layout/customCards.jsx",
+      "resolvedPath": "snippets/components/layout/customCards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1385,8 +1385,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1824,8 +1824,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3681,27 +3681,27 @@ export const LINK_MAP = {
   "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx": [
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "./README",
-      "resolvedPath": "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/developers/quickstart/video/video-streaming",
+      "resolvedPath": "v2/developers/quickstart/video/video-streaming.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "./README",
-      "resolvedPath": "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/developers/quickstart/video/video-streaming",
+      "resolvedPath": "v2/developers/quickstart/video/video-streaming.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-relative",
-      "rawPath": "./README",
-      "resolvedPath": "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/developers/quickstart/video/video-streaming",
+      "resolvedPath": "v2/developers/quickstart/video/video-streaming.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3745,8 +3745,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/tables.jsx",
-      "resolvedPath": "snippets/components/primitives/tables.jsx",
+      "rawPath": "/snippets/components/layout/tables.jsx",
+      "resolvedPath": "snippets/components/layout/tables.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3754,8 +3754,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4200,41 +4200,29 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "./README",
-      "resolvedPath": "v2/developers/quickstart/video/README",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/developers/building-on-livepeer/quick-starts/README.mdx",
-        "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
-        "v2/developers/moved-to-about-livepeer-protocol/livepeer-actors/README.mdx"
-      ]
+      "rawPath": "./video-streaming",
+      "resolvedPath": "v2/developers/quickstart/video/video-streaming.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "./README",
-      "resolvedPath": "v2/developers/quickstart/video/README",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/developers/building-on-livepeer/quick-starts/README.mdx",
-        "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
-        "v2/developers/moved-to-about-livepeer-protocol/livepeer-actors/README.mdx"
-      ]
+      "rawPath": "./video-streaming",
+      "resolvedPath": "v2/developers/quickstart/video/video-streaming.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "./README",
-      "resolvedPath": "v2/developers/quickstart/video/README",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/developers/building-on-livepeer/quick-starts/README.mdx",
-        "v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README.mdx",
-        "v2/developers/moved-to-about-livepeer-protocol/livepeer-actors/README.mdx"
-      ]
+      "rawPath": "./video-streaming",
+      "resolvedPath": "v2/developers/quickstart/video/video-streaming.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -4275,8 +4263,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/tables.jsx",
-      "resolvedPath": "snippets/components/primitives/tables.jsx",
+      "rawPath": "/snippets/components/layout/tables.jsx",
+      "resolvedPath": "snippets/components/layout/tables.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4284,8 +4272,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

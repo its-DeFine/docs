@@ -29,7 +29,7 @@ import { MarkdownEmbed, TwitterTimeline } from '/snippets/components/display/emb
 import { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider } from '/snippets/components/display/frameMode.jsx'
 import { Quote, FrameQuote } from '/snippets/components/display/quote.jsx'
 import { SocialLinks } from '/snippets/components/primitives/socialLinks.jsx'
-import { CardCarousel } from '/snippets/components/display/CardCarousel.jsx'
+import { CardCarousel } from '/snippets/components/layout/cardCarousel.jsx'
 import { ShowcaseCards } from '/snippets/components/display/showcaseCards.jsx'
 
 import { CustomCodeBlock, CodeComponent, ComplexCodeBlock, CodeSection } from '/snippets/components/content/code.jsx'
@@ -851,7 +851,7 @@ Un composant de carrousel simple qui pagine à travers un nombre fixe de cartes 
   </Tab>
   <Tab title="Code">
 ```jsx
-import { CardCarousel } from "/snippets/components/display/CardCarousel.jsx";
+import { CardCarousel } from "/snippets/components/layout/cardCarousel.jsx";
 
 <CardCarousel visibleCount={3} showDots={true} gap="2rem">
   <Card title="Card 1">Content</Card>

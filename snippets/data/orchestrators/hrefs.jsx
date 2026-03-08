@@ -278,8 +278,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -529,8 +529,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/tables.jsx",
-      "resolvedPath": "snippets/components/primitives/tables.jsx",
+      "rawPath": "/snippets/components/layout/tables.jsx",
+      "resolvedPath": "snippets/components/layout/tables.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -538,8 +538,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/containers.jsx",
-      "resolvedPath": "snippets/components/primitives/containers.jsx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -977,8 +977,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/primitives/tables.jsx",
-      "resolvedPath": "snippets/components/primitives/tables.jsx",
+      "rawPath": "/snippets/components/layout/tables.jsx",
+      "resolvedPath": "snippets/components/layout/tables.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

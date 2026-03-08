@@ -38,6 +38,10 @@ const V2_DOMAIN_DIRS = new Set([
   'notes'
 ]);
 
+function isStyleGuideExampleFile(file) {
+  return file.includes('style-guide.mdx');
+}
+
 /**
  * Resolve a file path relative to the repository root
  */
@@ -375,6 +379,9 @@ function runTests(options = {}) {
       testFiles = getMdxFiles();
     }
   }
+
+  // Style guide pages intentionally contain invalid example links/imports.
+  testFiles = testFiles.filter((file) => !isStyleGuideExampleFile(file));
   
   checkBrokenLinks(testFiles);
   checkEmptyLinks(testFiles);

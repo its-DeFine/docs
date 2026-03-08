@@ -3,7 +3,7 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "\"https://www.linkedin.com/in/shannon-wells/\"",
+      "rawPath": "https://www.linkedin.com/in/shannon-wells/",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -111,8 +111,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
+      "rawPath": "/snippets/components/layout/customCards.jsx",
+      "resolvedPath": "snippets/components/layout/customCards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -828,8 +828,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
+      "rawPath": "/snippets/components/layout/customCards.jsx",
+      "resolvedPath": "snippets/components/layout/customCards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -956,8 +956,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
+      "rawPath": "/snippets/components/layout/customCards.jsx",
+      "resolvedPath": "snippets/components/layout/customCards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1268,8 +1268,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
+      "rawPath": "/snippets/components/layout/customCards.jsx",
+      "resolvedPath": "snippets/components/layout/customCards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1697,8 +1697,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/customCards.jsx",
-      "resolvedPath": "snippets/components/display/customCards.jsx",
+      "rawPath": "/snippets/components/layout/customCards.jsx",
+      "resolvedPath": "snippets/components/layout/customCards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

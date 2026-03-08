@@ -20,10 +20,10 @@ import { CustomCallout, GotoLink, GotoCard, TipWithArrow, LinkArrow } from '/sni
 // BlinkingIcon, BlinkingTerminal, DoubleIconLink commented out - require a legacy theme dependency (components are immutable)
 import { DownloadButton } from '/snippets/components/primitives/buttons.jsx'
 import { Subtitle, CopyText, CardTitleTextWithArrow, AccordionTitleWithArrow } from '/snippets/components/primitives/text.jsx'
-import { FlexContainer, GridContainer } from '/snippets/components/primitives/layout.jsx'
+import { FlexContainer, GridContainer } from '/snippets/components/layout/layout.jsx'
 import { Spacer } from '/snippets/components/primitives/spacer.jsx'
-import { StyledTable, TableRow, TableCell } from '/snippets/components/primitives/tables.jsx'
-import { BorderedBox, CenteredContainer, FullWidthContainer } from '/snippets/components/primitives/containers.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { BorderedBox, CenteredContainer, FullWidthContainer } from '/snippets/components/layout/containers.jsx'
 import { FocusableScrollRegions } from '/snippets/components/primitives/a11y.jsx'
 
 <FocusableScrollRegions />
@@ -672,7 +672,7 @@ Composant de conteneur Flexbox pour organiser les éléments en lignes ou en col
 
 **Importer :**
 ```jsx
-import { FlexContainer } from "/snippets/components/primitives/layout.jsx";
+import { FlexContainer } from "/snippets/components/layout/layout.jsx";
 ```
 
 **Props :**
@@ -732,7 +732,7 @@ Composant de conteneur CSS Grid pour les dispositions en grille.
 
 **Importation :**
 ```jsx
-import { GridContainer } from "/snippets/components/primitives/layout.jsx";
+import { GridContainer } from "/snippets/components/layout/layout.jsx";
 ```
 
 **Props :**
@@ -812,7 +812,7 @@ Composant de tableau sensible au thème avec prise en charge des variantes.
 
 **Importation :**
 ```jsx
-import { StyledTable, TableRow, TableCell } from "/snippets/components/primitives/tables.jsx";
+import { StyledTable, TableRow, TableCell } from "/snippets/components/layout/tables.jsx";
 ```
 
 **Props :**
@@ -896,7 +896,7 @@ Composant conteneur avec bordure adapté au thème.
 
 **Importation :**
 ```jsx
-import { BorderedBox } from "/snippets/components/primitives/containers.jsx";
+import { BorderedBox } from "/snippets/components/layout/containers.jsx";
 ```
 
 **Props :**
@@ -939,7 +939,7 @@ Composant de conteneur de contenu centré.
 
 **Importer :**
 ```jsx
-import { CenteredContainer } from "/snippets/components/primitives/containers.jsx";
+import { CenteredContainer } from "/snippets/components/layout/containers.jsx";
 ```
 
 **Props :**
@@ -976,7 +976,7 @@ Composant conteneur de rupture à pleine largeur pour les sections d'accueil et 
 
 **Importer :**
 ```jsx
-import { FullWidthContainer } from "/snippets/components/primitives/containers.jsx";
+import { FullWidthContainer } from "/snippets/components/layout/containers.jsx";
 ```
 
 **Props :**

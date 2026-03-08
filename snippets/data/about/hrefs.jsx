@@ -1906,7 +1906,7 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "\"https://www.notion.so/livepeer/Livepeer-Rewards-Accumulation-Mechanism-23e0a348568780199f26f8cbc3c2d231\"",
+      "rawPath": "https://www.notion.so/livepeer/Livepeer-Rewards-Accumulation-Mechanism-23e0a348568780199f26f8cbc3c2d231",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -1915,7 +1915,7 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "\"https://www.notion.so/livepeer/Livepeer-L1-L2-Migration-Report-Complete-Technical-Overview-2b10a348568780a28b59df9d8710bff9\"",
+      "rawPath": "https://www.notion.so/livepeer/Livepeer-L1-L2-Migration-Report-Complete-Technical-Overview-2b10a348568780a28b59df9d8710bff9",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",

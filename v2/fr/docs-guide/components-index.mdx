@@ -64,56 +64,6 @@ import { DownloadButton } from "/snippets/components/primitives/buttons.jsx";
       </CodeGroup>
     </ResponseField>
   </Accordion>
-  <Accordion title="containers.jsx" icon="file-code">
-    <ResponseField name="BorderedBox" type="component">
-      **Props**: `children`, `variant`, `padding`, `borderRadius`, `style` <br/>
-      **Defaults**: `variant="default"`, `padding="1rem"`, `borderRadius="8px"`, `style={}`
-
-      <CodeGroup>
-```jsx lines Example
-import { BorderedBox } from "/snippets/components/primitives/containers.jsx";
-
-<BorderedBox
-  variant={"default"}
-  padding={"1rem"}
-  borderRadius={"8px"}
-  style={{}}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="CenteredContainer" type="component">
-      **Props**: `children`, `maxWidth`, `padding`, `style` <br/>
-      **Defaults**: `maxWidth="800px"`, `padding="0"`, `style={}`
-
-      <CodeGroup>
-```jsx lines Example
-import { CenteredContainer } from "/snippets/components/primitives/containers.jsx";
-
-<CenteredContainer
-  maxWidth={"800px"}
-  padding={"0"}
-  style={{}}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="FullWidthContainer" type="component">
-      **Props**: `children`, `backgroundColor`, `style` <br/>
-      **Defaults**: `style={}`
-
-      <CodeGroup>
-```jsx lines Example
-import { FullWidthContainer } from "/snippets/components/primitives/containers.jsx";
-
-<FullWidthContainer
-  backgroundColor={"<value>"}
-  style={{}}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
   <Accordion title="customCardTitle.jsx" icon="file-code">
     <ResponseField name="CustomCardTitle" type="component">
       **Props**: `icon`, `title`, `style` <br/>
@@ -241,43 +191,6 @@ import { LinkImage } from "/snippets/components/primitives/image.jsx";
   icon={"<value>"}
   hint={"<value>"}
   href={"<value>"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
-  <Accordion title="layout.jsx" icon="file-code">
-    <ResponseField name="FlexContainer" type="component">
-      **Props**: `children`, `direction`, `gap`, `align`, `justify`, `wrap`, `style` <br/>
-      **Defaults**: `direction="row"`, `gap="1rem"`, `align="flex-start"`, `justify="flex-start"`, `wrap=false`, `style={}`
-
-      <CodeGroup>
-```jsx lines Example
-import { FlexContainer } from "/snippets/components/primitives/layout.jsx";
-
-<FlexContainer
-  direction={"row"}
-  gap={"1rem"}
-  align={"flex-start"}
-  justify={"flex-start"}
-  wrap={false}
-  style={{}}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="GridContainer" type="component">
-      **Props**: `children`, `columns`, `gap`, `style` <br/>
-      **Defaults**: `gap="1rem"`, `style={}`
-
-      <CodeGroup>
-```jsx lines Example
-import { GridContainer } from "/snippets/components/primitives/layout.jsx";
-
-<GridContainer
-  columns={[]}
-  gap={"1rem"}
-  style={{}}
 />
 ```
       </CodeGroup>
@@ -496,55 +409,6 @@ import { Spacer } from "/snippets/components/primitives/spacer.jsx";
       </CodeGroup>
     </ResponseField>
   </Accordion>
-  <Accordion title="tables.jsx" icon="file-code">
-    <ResponseField name="StyledTable" type="component">
-      **Props**: `children`, `variant`, `style` <br/>
-      **Defaults**: `variant="default"`, `style={}`
-
-      <CodeGroup>
-```jsx lines Example
-import { StyledTable } from "/snippets/components/primitives/tables.jsx";
-
-<StyledTable
-  variant={"default"}
-  style={{}}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="TableCell" type="component">
-      **Props**: `children`, `align`, `header`, `style` <br/>
-      **Defaults**: `align="left"`, `header=false`, `style={}`
-
-      <CodeGroup>
-```jsx lines Example
-import { TableCell } from "/snippets/components/primitives/tables.jsx";
-
-<TableCell
-  align={"left"}
-  header={false}
-  style={{}}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="TableRow" type="component">
-      **Props**: `children`, `header`, `hover`, `style` <br/>
-      **Defaults**: `header=false`, `hover=false`, `style={}`
-
-      <CodeGroup>
-```jsx lines Example
-import { TableRow } from "/snippets/components/primitives/tables.jsx";
-
-<TableRow
-  header={false}
-  hover={false}
-  style={{}}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
   <Accordion title="text.jsx" icon="file-code">
     <ResponseField name="AccordionTitleWithArrow" type="component">
       **Props**: `text`, `children`, `color` <br/>
@@ -626,6 +490,25 @@ import { ApiBaseUrlsTable } from "/snippets/components/layout/api-base-urls-tabl
       </CodeGroup>
     </ResponseField>
   </Accordion>
+  <Accordion title="cardCarousel.jsx" icon="file-code">
+    <ResponseField name="CardCarousel" type="component">
+      **Props**: `children`, `visibleCount`, `gap`, `showDots`, `style` <br/>
+      **Defaults**: `visibleCount=3`, `gap="1.5rem"`, `showDots=true`
+
+      <CodeGroup>
+```jsx lines Example
+import { CardCarousel } from "/snippets/components/layout/cardCarousel.jsx";
+
+<CardCarousel
+  visibleCount={3}
+  gap={"1.5rem"}
+  showDots={true}
+  style={{}}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
   <Accordion title="cards.jsx" icon="file-code">
     <ResponseField name="ScrollBox" type="component">
       **Props**: `children`, `maxHeight`, `showHint`, `ariaLabel`, `style` <br/>
@@ -639,6 +522,143 @@ import { ScrollBox } from "/snippets/components/layout/cards.jsx";
   maxHeight={300}
   showHint={true}
   ariaLabel={"Scrollable content"}
+  style={{}}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
+  <Accordion title="containers.jsx" icon="file-code">
+    <ResponseField name="BorderedBox" type="component">
+      **Props**: `children`, `variant`, `padding`, `borderRadius`, `style` <br/>
+      **Defaults**: `variant="default"`, `padding="1rem"`, `borderRadius="8px"`, `style={}`
+
+      <CodeGroup>
+```jsx lines Example
+import { BorderedBox } from "/snippets/components/layout/containers.jsx";
+
+<BorderedBox
+  variant={"default"}
+  padding={"1rem"}
+  borderRadius={"8px"}
+  style={{}}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="CenteredContainer" type="component">
+      **Props**: `children`, `maxWidth`, `padding`, `style` <br/>
+      **Defaults**: `maxWidth="800px"`, `padding="0"`, `style={}`
+
+      <CodeGroup>
+```jsx lines Example
+import { CenteredContainer } from "/snippets/components/layout/containers.jsx";
+
+<CenteredContainer
+  maxWidth={"800px"}
+  padding={"0"}
+  style={{}}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="FullWidthContainer" type="component">
+      **Props**: `children`, `backgroundColor`, `style` <br/>
+      **Defaults**: `style={}`
+
+      <CodeGroup>
+```jsx lines Example
+import { FullWidthContainer } from "/snippets/components/layout/containers.jsx";
+
+<FullWidthContainer
+  backgroundColor={"<value>"}
+  style={{}}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
+  <Accordion title="customCards.jsx" icon="file-code">
+    <ResponseField name="DisplayCard" type="component">
+      **Props**: `icon`, `title`, `style`, `background`, `children` <br/>
+      **Defaults**: `background='var(--card-background)'`
+
+      <CodeGroup>
+```jsx lines Example
+import { DisplayCard } from "/snippets/components/layout/customCards.jsx";
+
+<DisplayCard
+  icon={"<value>"}
+  title={"<value>"}
+  style={{}}
+  background={'var(--card-background)'}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="InlineImageCard" type="component">
+      **Props**: `children`, `imgProps`, `imgStyle`, `cardProps`, `style` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { InlineImageCard } from "/snippets/components/layout/customCards.jsx";
+
+<InlineImageCard
+  imgProps={{}}
+  imgStyle={{}}
+  cardProps={{}}
+  style={{}}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="WidthCard" type="component">
+      **Props**: `width`, `children` <br/>
+      **Defaults**: `width='80%'`
+
+      <CodeGroup>
+```jsx lines Example
+import { WidthCard } from "/snippets/components/layout/customCards.jsx";
+
+<WidthCard
+  width={'80%'}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
+  <Accordion title="layout.jsx" icon="file-code">
+    <ResponseField name="FlexContainer" type="component">
+      **Props**: `children`, `direction`, `gap`, `align`, `justify`, `wrap`, `style` <br/>
+      **Defaults**: `direction="row"`, `gap="1rem"`, `align="flex-start"`, `justify="flex-start"`, `wrap=false`, `style={}`
+
+      <CodeGroup>
+```jsx lines Example
+import { FlexContainer } from "/snippets/components/layout/layout.jsx";
+
+<FlexContainer
+  direction={"row"}
+  gap={"1rem"}
+  align={"flex-start"}
+  justify={"flex-start"}
+  wrap={false}
+  style={{}}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="GridContainer" type="component">
+      **Props**: `children`, `columns`, `gap`, `style` <br/>
+      **Defaults**: `gap="1rem"`, `style={}`
+
+      <CodeGroup>
+```jsx lines Example
+import { GridContainer } from "/snippets/components/layout/layout.jsx";
+
+<GridContainer
+  columns={[]}
+  gap={"1rem"}
   style={{}}
 />
 ```
@@ -841,6 +861,55 @@ import { DynamicTable } from "/snippets/components/layout/table.jsx";
   itemsList={[]}
   monospaceColumns={[]}
   margin={"<value>"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
+  <Accordion title="tables.jsx" icon="file-code">
+    <ResponseField name="StyledTable" type="component">
+      **Props**: `children`, `variant`, `style` <br/>
+      **Defaults**: `variant="default"`, `style={}`
+
+      <CodeGroup>
+```jsx lines Example
+import { StyledTable } from "/snippets/components/layout/tables.jsx";
+
+<StyledTable
+  variant={"default"}
+  style={{}}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="TableCell" type="component">
+      **Props**: `children`, `align`, `header`, `style` <br/>
+      **Defaults**: `align="left"`, `header=false`, `style={}`
+
+      <CodeGroup>
+```jsx lines Example
+import { TableCell } from "/snippets/components/layout/tables.jsx";
+
+<TableCell
+  align={"left"}
+  header={false}
+  style={{}}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="TableRow" type="component">
+      **Props**: `children`, `header`, `hover`, `style` <br/>
+      **Defaults**: `header=false`, `hover=false`, `style={}`
+
+      <CodeGroup>
+```jsx lines Example
+import { TableRow } from "/snippets/components/layout/tables.jsx";
+
+<TableRow
+  header={false}
+  hover={false}
+  style={{}}
 />
 ```
       </CodeGroup>
@@ -1272,25 +1341,6 @@ Les composants de structure de page orchestrent des sections complètes, des tra
 Les composants d’affichage gèrent les médias, les intégrations, les citations et les motifs de présentation visuelle.
 
 <AccordionGroup>
-  <Accordion title="CardCarousel.jsx" icon="file-code">
-    <ResponseField name="CardCarousel" type="component">
-      **Props**: `children`, `visibleCount`, `gap`, `showDots`, `style` <br/>
-      **Defaults**: `visibleCount=3`, `gap="1.5rem"`, `showDots=true`
-
-      <CodeGroup>
-```jsx lines Example
-import { CardCarousel } from "/snippets/components/display/CardCarousel.jsx";
-
-<CardCarousel
-  visibleCount={3}
-  gap={"1.5rem"}
-  showDots={true}
-  style={{}}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
   <Accordion title="containers.mdx" icon="file-code">
     <ResponseField name="CalloutContainer" type="component">
       **Props**: `children`, `width`, `align` <br/>
@@ -1332,56 +1382,6 @@ import { CardContentContainer } from "/snippets/components/display/containers.md
 import { TabsContainer } from "/snippets/components/display/containers.mdx";
 
 <TabsContainer />
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
-  <Accordion title="customCards.jsx" icon="file-code">
-    <ResponseField name="DisplayCard" type="component">
-      **Props**: `icon`, `title`, `style`, `background`, `children` <br/>
-      **Defaults**: `background='var(--card-background)'`
-
-      <CodeGroup>
-```jsx lines Example
-import { DisplayCard } from "/snippets/components/display/customCards.jsx";
-
-<DisplayCard
-  icon={"<value>"}
-  title={"<value>"}
-  style={{}}
-  background={'var(--card-background)'}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="InlineImageCard" type="component">
-      **Props**: `children`, `imgProps`, `imgStyle`, `cardProps`, `style` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { InlineImageCard } from "/snippets/components/display/customCards.jsx";
-
-<InlineImageCard
-  imgProps={{}}
-  imgStyle={{}}
-  cardProps={{}}
-  style={{}}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="WidthCard" type="component">
-      **Props**: `width`, `children` <br/>
-      **Defaults**: `width='80%'`
-
-      <CodeGroup>
-```jsx lines Example
-import { WidthCard } from "/snippets/components/display/customCards.jsx";
-
-<WidthCard
-  width={'80%'}
-/>
 ```
       </CodeGroup>
     </ResponseField>
@@ -2014,13 +2014,9 @@ Recherchez par catégorie, chemin de page ou nom de composant.
   tableTitle="Component Lookup"
   headerList={["Category", "Page", "Component", "Props"]}
   itemsList={[
-    { Category: "Affichage", Page: "display/CardCarousel.jsx", Component: "CardCarousel", Props: "children, visibleCount=3, gap=\"1.5rem\", showDots=true, style" },
     { Category: "Affichage", Page: "display/containers.mdx", Component: "CalloutContainer", Props: "children, width=\"fit-content\", align=\"center\"" },
     { Category: "Affichage", Page: "display/containers.mdx", Component: "CardContentContainer", Props: "children, align, justify, gap=\"1rem\"" },
     { Category: "Affichage", Page: "display/containers.mdx", Component: "TabsContainer", Props: "children" },
-    { Category: "Affichage", Page: "display/customCards.jsx", Component: "DisplayCard", Props: "icon, title, style, background=\"var(--card-background)\", children" },
-    { Category: "Affichage", Page: "display/customCards.jsx", Component: "InlineImageCard", Props: "children, imgProps, imgStyle, cardProps, style" },
-    { Category: "Affichage", Page: "display/customCards.jsx", Component: "WidthCard", Props: "width=\"80%\", children" },
     { Category: "Affichage", Page: "display/embed.jsx", Component: "MarkdownEmbed", Props: "url" },
     { Category: "Affichage", Page: "display/embed.jsx", Component: "TwitterTimeline", Props: "none" },
     { Category: "Affichage", Page: "display/embed.mdx", Component: "PdfEmbed", Props: "title, src, height=\"700px\", width=\"100%\"" },
@@ -2068,7 +2064,16 @@ Recherchez par catégorie, chemin de page ou nom de composant.
     { Category: "Contenu", Page: "content/responseField.jsx", Component: "ResponseFieldGroup", Props: "component=\"accordion\", fields={}" },
     { Category: "Contenu", Page: "content/responseField.jsx", Component: "ValueResponseField", Props: "description, post=null, label=\"value\", line=true, children" },
     { Category: "Disposition", Page: "layout/api-base-urls-table.mdx", Component: "ApiBaseUrlsTable", Props: "urls" },
+    { Category: "Disposition", Page: "layout/cardCarousel.jsx", Component: "CardCarousel", Props: "children, visibleCount=3, gap=\"1.5rem\", showDots=true, style" },
     { Category: "Disposition", Page: "layout/cards.jsx", Component: "ScrollBox", Props: "children, maxHeight=300, showHint=true, ariaLabel=\"Scrollable content\", style" },
+    { Category: "Disposition", Page: "layout/containers.jsx", Component: "BorderedBox", Props: "children, variant=\"default\", padding=\"1rem\", borderRadius=\"8px\", style={}" },
+    { Category: "Disposition", Page: "layout/containers.jsx", Component: "CenteredContainer", Props: "children, maxWidth=\"800px\", padding=\"0\", style={}" },
+    { Category: "Disposition", Page: "layout/containers.jsx", Component: "FullWidthContainer", Props: "children, backgroundColor, style={}" },
+    { Category: "Disposition", Page: "layout/customCards.jsx", Component: "DisplayCard", Props: "icon, title, style, background=\"var(--card-background)\", children" },
+    { Category: "Disposition", Page: "layout/customCards.jsx", Component: "InlineImageCard", Props: "children, imgProps, imgStyle, cardProps, style" },
+    { Category: "Disposition", Page: "layout/customCards.jsx", Component: "WidthCard", Props: "width=\"80%\", children" },
+    { Category: "Disposition", Page: "layout/layout.jsx", Component: "FlexContainer", Props: "children, direction=\"row\", gap=\"1rem\", align=\"flex-start\", justify=\"flex-start\", wrap=false, style={}" },
+    { Category: "Disposition", Page: "layout/layout.jsx", Component: "GridContainer", Props: "children, columns, gap=\"1rem\", style={}" },
     { Category: "Disposition", Page: "layout/lists.jsx", Component: "BasicList", Props: "listItems" },
     { Category: "Disposition", Page: "layout/lists.jsx", Component: "IconList", Props: "listItems" },
     { Category: "Disposition", Page: "layout/lists.jsx", Component: "StepLinkList", Props: "listItems" },
@@ -2081,6 +2086,9 @@ Recherchez par catégorie, chemin de page ou nom de composant.
     { Category: "Disposition", Page: "layout/steps.jsx", Component: "StyledStep", Props: "title, icon, titleSize=\"h3\", children" },
     { Category: "Disposition", Page: "layout/steps.jsx", Component: "StyledSteps", Props: "children, iconColor, titleColor, lineColor, iconSize=\"24px\"" },
     { Category: "Disposition", Page: "layout/table.jsx", Component: "DynamicTable", Props: "tableTitle=null, headerList=[], itemsList=[], monospaceColumns=[], margin" },
+    { Category: "Disposition", Page: "layout/tables.jsx", Component: "StyledTable", Props: "children, variant=\"default\", style={}" },
+    { Category: "Disposition", Page: "layout/tables.jsx", Component: "TableCell", Props: "children, align=\"left\", header=false, style={}" },
+    { Category: "Disposition", Page: "layout/tables.jsx", Component: "TableRow", Props: "children, header=false, hover=false, style={}" },
     { Category: "Disposition", Page: "layout/text.jsx", Component: "AccordionLayout", Props: "children" },
     { Category: "Domaine", Page: "domain/SHARED/HeroGif.jsx", Component: "Starfield", Props: "density=1.1" },
     { Category: "Domaine", Page: "domain/SHARED/Portals.jsx", Component: "HeroContentContainer", Props: "children" },
@@ -2096,9 +2104,6 @@ Recherchez par catégorie, chemin de page ou nom de composant.
     { Category: "Intégrations", Page: "integrations/coingecko.jsx", Component: "CoinGeckoExchanges", Props: "coinId=\"arbitrum\"" },
     { Category: "Primitives", Page: "primitives/a11y.jsx", Component: "FocusableScrollRegions", Props: "selectors" },
     { Category: "Primitives", Page: "primitives/buttons.jsx", Component: "DownloadButton", Props: "label=\"Download\", icon=\"download\", downloadLink, rightIcon=\"\", border=false" },
-    { Category: "Primitives", Page: "primitives/containers.jsx", Component: "BorderedBox", Props: "children, variant=\"default\", padding=\"1rem\", borderRadius=\"8px\", style={}" },
-    { Category: "Primitives", Page: "primitives/containers.jsx", Component: "CenteredContainer", Props: "children, maxWidth=\"800px\", padding=\"0\", style={}" },
-    { Category: "Primitives", Page: "primitives/containers.jsx", Component: "FullWidthContainer", Props: "children, backgroundColor, style={}" },
     { Category: "Primitives", Page: "primitives/customCardTitle.jsx", Component: "CustomCardTitle", Props: "icon, title, style" },
     { Category: "Primitives", Page: "primitives/divider.jsx", Component: "CustomDivider", Props: "color=\"var(--border)\", middleText=\"\", style={}" },
     { Category: "Primitives", Page: "primitives/icons.jsx", Component: "LivepeerIcon", Props: "size=16, color" },
@@ -2107,8 +2112,6 @@ Recherchez par catégorie, chemin de page ou nom de composant.
     { Category: "Primitives", Page: "primitives/icons.jsx", Component: "LivepeerSVG", Props: "size=24, fill=\"var(--lp-color-white)\"" },
     { Category: "Primitives", Page: "primitives/image.jsx", Component: "Image", Props: "src, alt, caption, icon, hint, fullwidth=true" },
     { Category: "Primitives", Page: "primitives/image.jsx", Component: "LinkImage", Props: "src, alt, caption, icon, hint, href" },
-    { Category: "Primitives", Page: "primitives/layout.jsx", Component: "FlexContainer", Props: "children, direction=\"row\", gap=\"1rem\", align=\"flex-start\", justify=\"flex-start\", wrap=false, style={}" },
-    { Category: "Primitives", Page: "primitives/layout.jsx", Component: "GridContainer", Props: "children, columns, gap=\"1rem\", style={}" },
     { Category: "Primitives", Page: "primitives/links.jsx", Component: "BlinkingIcon", Props: "icon=\"terminal\", size=16, color" },
     { Category: "Primitives", Page: "primitives/links.jsx", Component: "BlinkingTerminal", Props: "none" },
     { Category: "Primitives", Page: "primitives/links.jsx", Component: "CustomCallout", Props: "children, icon=\"lightbulb\", color, iconSize=16, textSize=\"0.875rem\", textColor" },
@@ -2122,9 +2125,6 @@ Recherchez par catégorie, chemin de page ou nom de composant.
     { Category: "Primitives", Page: "primitives/previewCallouts.jsx", Component: "ReviewCallout", Props: "none" },
     { Category: "Primitives", Page: "primitives/socialLinks.jsx", Component: "SocialLinks", Props: "size=20, gap=\"0.75rem\", justify=\"center\", color" },
     { Category: "Primitives", Page: "primitives/spacer.jsx", Component: "Spacer", Props: "size=\"1rem\", direction=\"vertical\"" },
-    { Category: "Primitives", Page: "primitives/tables.jsx", Component: "StyledTable", Props: "children, variant=\"default\", style={}" },
-    { Category: "Primitives", Page: "primitives/tables.jsx", Component: "TableCell", Props: "children, align=\"left\", header=false, style={}" },
-    { Category: "Primitives", Page: "primitives/tables.jsx", Component: "TableRow", Props: "children, header=false, hover=false, style={}" },
     { Category: "Primitives", Page: "primitives/text.jsx", Component: "AccordionTitleWithArrow", Props: "text, children, color=\"var(--text)\"" },
     { Category: "Primitives", Page: "primitives/text.jsx", Component: "CardTitleTextWithArrow", Props: "children" },
     { Category: "Primitives", Page: "primitives/text.jsx", Component: "CopyText", Props: "text, label" },
