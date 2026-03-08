@@ -22,20 +22,20 @@ const { getMdxFiles, getJsxFiles, getStagedDocsPageFiles, readFile } = require('
 const REPO_ROOT = process.cwd();
 let errors = [];
 let warnings = [];
-let stagedLineMap = null;
+let changedLineMap = null;
 
 function toPosix(filePath) {
   return String(filePath || '').split(path.sep).join('/');
 }
 
-function getStagedChangedLineSet(filePath) {
+function getChangedLineSetFromDiff(filePath, diffArgs) {
   const relPath = toPosix(path.relative(REPO_ROOT, filePath));
   if (!relPath) {
     return null;
   }
 
   try {
-    const diff = execSync(`git diff --cached --unified=0 -- "${relPath}"`, {
+    const diff = execSync(`git ${diffArgs.join(' ')} -- "${relPath}"`, {
       encoding: 'utf8',
       cwd: REPO_ROOT
     });
@@ -61,12 +61,24 @@ function getStagedChangedLineSet(filePath) {
   }
 }
 
-function shouldCheckLine(file, line, stagedOnly) {
-  if (!stagedOnly || !stagedLineMap) {
+function getStagedChangedLineSet(filePath) {
+  return getChangedLineSetFromDiff(filePath, ['diff', '--cached', '--unified=0']);
+}
+
+function getBaseRefChangedLineSet(filePath, baseRef) {
+  if (!baseRef) {
+    return null;
+  }
+
+  return getChangedLineSetFromDiff(filePath, ['diff', '--unified=0', `origin/${baseRef}...HEAD`]);
+}
+
+function shouldCheckLine(file, line, changedOnly) {
+  if (!changedOnly || !changedLineMap) {
     return true;
   }
 
-  const changedLines = stagedLineMap.get(file);
+  const changedLines = changedLineMap.get(file);
   if (!changedLines || changedLines.size === 0) {
     return false;
   }
@@ -301,9 +313,10 @@ function findLineNumber(content, search) {
 function runTests(options = {}) {
   errors = [];
   warnings = [];
-  stagedLineMap = null;
+  changedLineMap = null;
   
-  const { files = null, stagedOnly = false } = options;
+  const { files = null, stagedOnly = false, baseRef = '' } = options;
+  const changedOnly = Boolean(stagedOnly || baseRef);
   
   let testFiles = files;
   if (!testFiles) {
@@ -317,18 +330,19 @@ function runTests(options = {}) {
     testFiles = testFiles.filter(f => !f.includes('style-guide.mdx'));
   }
 
-  if (stagedOnly) {
-    stagedLineMap = new Map();
+  if (changedOnly) {
+    changedLineMap = new Map();
     testFiles.forEach((file) => {
-      stagedLineMap.set(file, getStagedChangedLineSet(file));
+      const lineSet = stagedOnly ? getStagedChangedLineSet(file) : getBaseRefChangedLineSet(file, baseRef);
+      changedLineMap.set(file, lineSet);
     });
   }
 
-  checkThemeData(testFiles, stagedOnly);
-  checkHardcodedColors(testFiles, stagedOnly);
-  checkInlineStylesInMdx(testFiles, stagedOnly);
-  checkTailwindClasses(testFiles, stagedOnly);
-  checkImportPaths(testFiles, stagedOnly);
+  checkThemeData(testFiles, changedOnly);
+  checkHardcodedColors(testFiles, changedOnly);
+  checkInlineStylesInMdx(testFiles, changedOnly);
+  checkTailwindClasses(testFiles, changedOnly);
+  checkImportPaths(testFiles, changedOnly);
   checkFileNaming(testFiles);
   
   return {

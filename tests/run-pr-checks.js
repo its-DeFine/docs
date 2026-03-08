@@ -258,7 +258,7 @@ function runLinkAuditCheck(files) {
 
   const cmd = spawnSync(
     'node',
-    ['tests/integration/v2-link-audit.js', '--files', files.join(','), '--strict', '--report', LINK_AUDIT_REPORT],
+    ['tests/integration/v2-link-audit.js', '--files', files.join(','), '--strict', '--strict-roots-only', '--report', LINK_AUDIT_REPORT],
     { cwd: REPO_ROOT, encoding: 'utf8' }
   );
 
@@ -452,7 +452,11 @@ async function main() {
   console.log(`Changed usefulness files: ${groups.usefulnessFiles.length}`);
 
   const checks = [];
-  checks.push(await runUnitCheck('Style Guide', groups.styleFiles, styleGuideTests.runTests));
+  checks.push(
+    await runUnitCheck('Style Guide', groups.styleFiles, (options) =>
+      styleGuideTests.runTests({ ...options, baseRef: args.baseRef })
+    )
+  );
   checks.push(await runUnitCheck('MDX Validation', groups.docsMdxAbs, mdxTests.runTests));
   checks.push(await runUnitCheck('Spelling', groups.docsMdxAbs, spellingTests.runTests));
   checks.push(await runUnitCheck('Quality', groups.docsMdxAbs, qualityTests.runTests));
