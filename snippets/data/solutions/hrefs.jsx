@@ -377,11 +377,11 @@ export const LINK_MAP = {
   "v2/solutions/embody/overview.mdx": [
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/domain/10_PRODUCTS/Embody/Videos/arealiensreal.mp4",
-      "resolvedPath": "snippets/assets/domain/10_PRODUCTS/Embody/Videos/arealiensreal.mp4",
-      "exists": true,
-      "status": "ok",
+      "linkType": "external-https",
+      "rawPath": "https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/domain/10_PRODUCTS/Embody/Videos/arealiensreal.mp4",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {

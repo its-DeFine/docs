@@ -40,49 +40,49 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../../developers/developer-platforms/streamplace/streamplace.mdx",
-      "resolvedPath": "v2/developers/developer-platforms/streamplace/streamplace.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/solutions/streamplace/overview",
+      "resolvedPath": "v2/solutions/streamplace/overview.mdx",
       "exists": true,
-      "status": "route-missing",
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../../developers/developer-platforms/daydream/daydream.mdx",
-      "resolvedPath": "v2/developers/developer-platforms/daydream/daydream.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/solutions/daydream/overview",
+      "resolvedPath": "v2/solutions/daydream/overview.mdx",
       "exists": true,
-      "status": "route-missing",
+      "status": "ok",
       "movedCandidates": []
     }
   ],
   "v2/gateways/about/explainer.mdx": [
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../../developers/developer-platforms/daydream/daydream.mdx",
-      "resolvedPath": "v2/developers/developer-platforms/daydream/daydream.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/solutions/daydream/overview",
+      "resolvedPath": "v2/solutions/daydream/overview.mdx",
       "exists": true,
-      "status": "route-missing",
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../../developers/developer-platforms/daydream/daydream.mdx",
-      "resolvedPath": "v2/developers/developer-platforms/daydream/daydream.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/solutions/daydream/overview",
+      "resolvedPath": "v2/solutions/daydream/overview.mdx",
       "exists": true,
-      "status": "route-missing",
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "../../solutions/streamplace/overview.mdx",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/solutions/streamplace/overview",
       "resolvedPath": "v2/solutions/streamplace/overview.mdx",
       "exists": true,
-      "status": "route-missing",
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -560,73 +560,40 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/run-a-gateway/remote-signers",
-      "resolvedPath": "v2/gateways/run-a-gateway/remote-signers",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/gateways/payments/remote-signers.mdx"
-      ]
+      "rawPath": "/v2/gateways/payments/remote-signers",
+      "resolvedPath": "v2/gateways/payments/remote-signers.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/run-a-gateway/remote-signers",
-      "resolvedPath": "v2/gateways/run-a-gateway/remote-signers",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/gateways/payments/remote-signers.mdx"
-      ]
+      "rawPath": "/v2/gateways/payments/remote-signers",
+      "resolvedPath": "v2/gateways/payments/remote-signers.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/about-gateways/payment-clearinghouse",
-      "resolvedPath": "v2/gateways/about-gateways/payment-clearinghouse",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/gateways/payments/payment-clearinghouse.mdx"
-      ]
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/Callout.mdx",
-      "resolvedPath": "snippets/components/Callout.mdx",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/components/_archive/folders/domain-examples/previewCallouts-examples.mdx",
-        "snippets/components/_archive/previewCallouts.jsx",
-        "snippets/components/primitives/previewCallouts.jsx"
-      ]
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/Steps.mdx",
-      "resolvedPath": "snippets/components/Steps.mdx",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/components/_archive/ListSteps.jsx",
-        "snippets/components/layout/listSteps.jsx"
-      ]
+      "rawPath": "/v2/gateways/payments/payment-clearinghouse",
+      "resolvedPath": "v2/gateways/payments/payment-clearinghouse.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     }
   ],
   "v2/gateways/payments/overview.mdx": [
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/run-a-gateway/payments/payment-clearinghouse",
-      "resolvedPath": "v2/gateways/run-a-gateway/payments/payment-clearinghouse",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/gateways/payments/payment-clearinghouse.mdx"
-      ]
+      "rawPath": "/v2/gateways/payments/payment-clearinghouse",
+      "resolvedPath": "v2/gateways/payments/payment-clearinghouse.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -734,60 +701,29 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/about-gateways/payment-clearinghouse",
-      "resolvedPath": "v2/gateways/about-gateways/payment-clearinghouse",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/gateways/payments/payment-clearinghouse.mdx"
-      ]
+      "rawPath": "/v2/gateways/payments/payment-clearinghouse",
+      "resolvedPath": "v2/gateways/payments/payment-clearinghouse.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/run-a-gateway/how-payments-work",
-      "resolvedPath": "v2/gateways/run-a-gateway/how-payments-work",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/gateways/payments/how-payments-work.mdx"
-      ]
+      "rawPath": "/v2/gateways/payments/how-payments-work",
+      "resolvedPath": "v2/gateways/payments/how-payments-work.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/about-gateways/payment-clearinghouse",
-      "resolvedPath": "v2/gateways/about-gateways/payment-clearinghouse",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/gateways/payments/payment-clearinghouse.mdx"
-      ]
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/Callout.mdx",
-      "resolvedPath": "snippets/components/Callout.mdx",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/components/_archive/folders/domain-examples/previewCallouts-examples.mdx",
-        "snippets/components/_archive/previewCallouts.jsx",
-        "snippets/components/primitives/previewCallouts.jsx"
-      ]
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/Steps.mdx",
-      "resolvedPath": "snippets/components/Steps.mdx",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/components/_archive/ListSteps.jsx",
-        "snippets/components/layout/listSteps.jsx"
-      ]
+      "rawPath": "/v2/gateways/payments/payment-clearinghouse",
+      "resolvedPath": "v2/gateways/payments/payment-clearinghouse.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     }
   ],
   "v2/gateways/quickstart/AI-prompt.mdx": [],
@@ -1011,8 +947,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/content/release.jsx",
-      "resolvedPath": "snippets/components/content/release.jsx",
+      "rawPath": "/snippets/automations/globals/globals.mdx",
+      "resolvedPath": "snippets/automations/globals/globals.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1106,156 +1042,17 @@ export const LINK_MAP = {
       "exists": true,
       "status": "ok",
       "movedCandidates": []
-    }
-  ],
-  "v2/gateways/quickstart/groups/docker/dockerSupport.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/go-livepeer/blob/master/box/box.md",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/quickstart/groups/linux/linuxSupport.mdx": [],
-  "v2/gateways/quickstart/groups/linux/macSupport.mdx": [],
-  "v2/gateways/quickstart/views/docker/dockerOffChainTab.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "\"https://hub.docker.com/r/livepeer/go-livepeer\"",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/references/cli-commands",
-      "resolvedPath": "v2/gateways/references/cli-commands.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/references/api-reference/AI-API/ai",
-      "resolvedPath": "v2/gateways/references/api-reference/AI-API/ai.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/quickstart/views/docker/dockerOnChainTab.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://arbitrum.io/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "empty",
-      "rawPath": "#arbitrum-testnet",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://discord.gg/livepeer",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://forum.livepeer.org",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "\"https://hub.docker.com/r/livepeer/go-livepeer\"",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://explorer.livepeer.org/leaderboard",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/go-livepeer/blob/master/test_args.sh",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://explorer.livepeer.org/leaderboard",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    }
-  ],
-  "v2/gateways/quickstart/views/linux/linuxOffChainTab.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/go-livepeer",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
     },
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/automations/globals/globals.mdx",
-      "resolvedPath": "snippets/automations/globals/globals.mdx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "../../data/linux/code.jsx",
-      "resolvedPath": "v2/gateways/quickstart/data/linux/code.jsx",
+      "rawPath": "./groups/linux/macSupport.mdx",
+      "resolvedPath": "v2/gateways/quickstart/groups/linux/macSupport.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
   ],
-  "v2/gateways/quickstart/views/linux/linuxOnChainTab.mdx": [],
-  "v2/gateways/quickstart/views/windows/windowsOffChainTab.mdx": [],
-  "v2/gateways/quickstart/views/windows/windowsOnChainTab.mdx": [],
   "v2/gateways/references/api-reference/AI-API/ai.mdx": [
     {
       "sourceType": "jsx-attr",
@@ -2122,6 +1919,15 @@ export const LINK_MAP = {
   "v2/gateways/run-a-gateway/configure/configuration-reference.mdx": [],
   "v2/gateways/run-a-gateway/configure/dual-configuration.mdx": [
     {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/go-livepeer/blob/master/box/box.md",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
       "rawPath": "https://github.com/livepeer/go-livepeer/blob/5691cb48/core/livepeernode.go",
@@ -2162,24 +1968,6 @@ export const LINK_MAP = {
       "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/links.jsx",
       "resolvedPath": "snippets/components/primitives/links.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/content/externalContent.jsx",
-      "resolvedPath": "snippets/components/content/externalContent.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/external/box-additional-config.mdx",
-      "resolvedPath": "snippets/external/box-additional-config.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2837,24 +2625,6 @@ export const LINK_MAP = {
       "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/links.jsx",
       "resolvedPath": "snippets/components/primitives/links.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/content/externalContent.jsx",
-      "resolvedPath": "snippets/components/content/externalContent.jsx",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/external/gwid-readme.mdx",
-      "resolvedPath": "snippets/external/gwid-readme.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4843,15 +4613,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../choosing-a-gateway",
-      "resolvedPath": "v2/gateways/choosing-a-gateway",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/gateways/using-gateways/choosing-a-gateway.mdx",
-        "v2/cn/gateways/using-gateways/choosing-a-gateway.mdx",
-        "v2/es/gateways/using-gateways/choosing-a-gateway.mdx"
-      ]
+      "rawPath": "./choosing-a-gateway",
+      "resolvedPath": "v2/gateways/using-gateways/choosing-a-gateway.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -4927,11 +4693,58 @@ export const LINK_MAP = {
     }
   ],
   "snippets/automations/globals/globals.mdx": [],
-  "snippets/external/box-additional-config.mdx": [
+  "v2/gateways/quickstart/views/docker/dockerOffChainTab.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "https://ffmpeg.org/",
+      "rawPath": "\"https://hub.docker.com/r/livepeer/go-livepeer\"",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/gateways/references/cli-commands",
+      "resolvedPath": "v2/gateways/references/cli-commands.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/gateways/references/api-reference/AI-API/ai",
+      "resolvedPath": "v2/gateways/references/api-reference/AI-API/ai.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    }
+  ],
+  "v2/gateways/quickstart/views/docker/dockerOnChainTab.mdx": [
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://arbitrum.io/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "empty",
+      "rawPath": "#arbitrum-testnet",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "skipped",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://discord.gg/livepeer",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -4940,172 +4753,94 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "https://github.com/bluenviron/mediamtx",
+      "rawPath": "https://forum.livepeer.org",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "\"https://hub.docker.com/r/livepeer/go-livepeer\"",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://explorer.livepeer.org/leaderboard",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/go-livepeer/blob/master/test_args.sh",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://explorer.livepeer.org/leaderboard",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
       "movedCandidates": []
     }
   ],
-  "snippets/external/gwid-readme.mdx": [
+  "v2/gateways/quickstart/views/linux/linuxOffChainTab.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "https://livepeer.org",
+      "rawPath": "https://github.com/livepeer/go-livepeer",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/automations/globals/globals.mdx",
+      "resolvedPath": "snippets/automations/globals/globals.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://livepeer.org/primer",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "../../data/linux/code.jsx",
+      "resolvedPath": "v2/gateways/quickstart/data/linux/code.jsx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-image",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/user-attachments/assets/86f03ea8-2f3c-49c7-bc99-32bd01f4159f",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
+    }
+  ],
+  "v2/gateways/quickstart/views/linux/linuxOnChainTab.mdx": [],
+  "v2/gateways/quickstart/views/windows/windowsOffChainTab.mdx": [],
+  "v2/gateways/quickstart/views/windows/windowsOnChainTab.mdx": [],
+  "v2/gateways/quickstart/groups/docker/dockerSupport.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "https://obsproject.com/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://manycam.com/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://www.ffmpeg.org/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://www.videolan.org/vlc/index.html",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://exoplayer.dev/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/go-livepeer/releases",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-image",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/user-attachments/assets/f7871bd8-d8d8-42b1-bf62-8047c7c15554",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "./publish-and-consume-content.md",
-      "resolvedPath": "snippets/external/publish-and-consume-content.md",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "./transcoding.md",
-      "resolvedPath": "snippets/external/transcoding.md",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/developers/quickstart/video/transcoding-jobs.mdx",
-        "v2/gateways/run-a-gateway/transcoding.mdx",
-        "v2/gateways/run-a-gateway/v1/transcoding-options.mdx"
-      ]
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "./hosted-setup.md",
-      "resolvedPath": "snippets/external/hosted-setup.md",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "./start-on-system-boot.md",
-      "resolvedPath": "snippets/external/start-on-system-boot.md",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "./architecture-summary.md",
-      "resolvedPath": "snippets/external/architecture-summary.md",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://docs.livepeer.org/orchestrators/guides/install-go-livepeer#build-from-source",
+      "rawPath": "https://github.com/livepeer/go-livepeer/blob/master/box/box.md",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
       "movedCandidates": []
     }
   ],
+  "v2/gateways/quickstart/groups/linux/linuxSupport.mdx": [],
+  "v2/gateways/quickstart/groups/linux/macSupport.mdx": [],
   "snippets/pages/08_SHARED/eth-account-setup.mdx": [
     {
       "sourceType": "markdown-link",
@@ -5119,10 +4854,10 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/references/artibtrum-exchanges",
-      "resolvedPath": "v2/gateways/references/artibtrum-exchanges",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/gateways/references/arbitrum-exchanges",
+      "resolvedPath": "v2/gateways/references/arbitrum-exchanges.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     }
   ]

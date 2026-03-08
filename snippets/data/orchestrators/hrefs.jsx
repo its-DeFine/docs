@@ -1779,10 +1779,10 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/references/artibtrum-exchanges",
-      "resolvedPath": "v2/gateways/references/artibtrum-exchanges",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/gateways/references/arbitrum-exchanges",
+      "resolvedPath": "v2/gateways/references/arbitrum-exchanges.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     }
   ],

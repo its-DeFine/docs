@@ -30,15 +30,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../../internal/governance",
-      "resolvedPath": "v2/internal/governance",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/internal/overview/governance.mdx",
-        "v2/about/livepeer-protocol/governance-model.mdx",
-        "v2/community/livepeer-community/governance-and-foundation.mdx"
-      ]
+      "rawPath": "../../internal/overview/governance",
+      "resolvedPath": "v2/internal/overview/governance.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -70,15 +66,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../internal/governance",
-      "resolvedPath": "v2/internal/governance",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/internal/overview/governance.mdx",
-        "v2/about/livepeer-protocol/governance-model.mdx",
-        "v2/community/livepeer-community/governance-and-foundation.mdx"
-      ]
+      "rawPath": "../../internal/overview/governance",
+      "resolvedPath": "v2/internal/overview/governance.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -654,20 +646,20 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/media/videos/HeroBackground.mp4",
-      "resolvedPath": "snippets/assets/media/videos/HeroBackground.mp4",
-      "exists": true,
-      "status": "ok",
+      "linkType": "external-https",
+      "rawPath": "https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/media/videos/HeroBackground.mp4",
-      "resolvedPath": "snippets/assets/media/videos/HeroBackground.mp4",
-      "exists": true,
-      "status": "ok",
+      "linkType": "external-https",
+      "rawPath": "https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {
@@ -681,11 +673,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/media/videos/daydream.mp4",
-      "resolvedPath": "snippets/assets/media/videos/daydream.mp4",
-      "exists": true,
-      "status": "ok",
+      "linkType": "external-https",
+      "rawPath": "https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/daydream.mp4",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {
@@ -1609,7 +1601,7 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "../../internal/overview/docs-philosophy.mdx",
+      "rawPath": "/v2/internal/overview/docs-philosophy.mdx",
       "resolvedPath": "v2/internal/overview/docs-philosophy.mdx",
       "exists": true,
       "status": "ok",
@@ -1806,15 +1798,6 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
-      "rawPath": "https://paulieb14.github.io/livepeer-delegator-dashboard/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
-      "linkType": "external-https",
       "rawPath": "https://delegator.livepeer.org",
       "resolvedPath": null,
       "exists": null,
@@ -1824,7 +1807,7 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
-      "rawPath": "https://explorer.livepeer.org",
+      "rawPath": "https://paulieb14.github.io/livepeer-delegator-dashboard/",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -1833,7 +1816,7 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
-      "rawPath": "https://paulieb14.github.io/livepeer-delegator-dashboard/",
+      "rawPath": "https://explorer.livepeer.org",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
@@ -2728,116 +2711,6 @@ export const LINK_MAP = {
   ],
   "v2/resources/resources/videos.mdx": [],
   "v2/resources/resources-portal.mdx": [],
-  "snippets/external/wiki-readme.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://docs.livepeer.org/",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/awesome-livepeer",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/wiki/blob/master/WHITEPAPER.md",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/LIPs",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/wiki/blob/master/STREAMFLOW.md",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/wiki/blob/master/STREAMFLOW.md",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-73.md",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/protocol",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/arbitrum-lpt-bridge",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/go-livepeer/tree/master",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/wiki/blob/master/spec/streamflow/spec.md",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://github.com/livepeer/wiki/blob/master/spec/streamflow/pm.md",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    }
-  ],
   "snippets/components/layout/api-base-urls-table.mdx": [],
   "snippets/pages/00_HOME/project-showcase.mdx": [
     {

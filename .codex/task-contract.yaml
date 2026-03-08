@@ -1,59 +1,53 @@
-task_id: 789
-branch: codex/789-phase2b-component-migration
+task_id: 99999
+branch: codex/99999-asset-migrate-3a
 base_branch: docs-v2
 scope_in:
-  - .codex/locks-local/
   - .codex/task-contract.yaml
-  - style.css
-  - .githooks/pre-commit
-  - snippets/components/
+  - tasks/reports/media-audit/media-audit-manifest.json
+  - snippets/assets/domain/04_GATEWAYS/test-video.mp4
+  - snippets/assets/domain/10_PRODUCTS/Embody/Videos/arealiensreal.mp4
+  - snippets/assets/media/videos/HeroBackground.mp4
+  - snippets/assets/media/videos/LivepeerStudio.mp4
+  - snippets/assets/media/videos/daydream.mp4
+  - snippets/assets/media/videos/nytv.live.mp4
   - snippets/data/
-  - snippets/pages/
-  - snippets/snippetsWiki/
-  - snippets/snippetsWiki/componentLibrary/
-  - .githooks/pre-commit-no-deletions
   - tests/integration/v2-link-audit.js
-  - tests/run-all.js
   - tests/run-pr-checks.js
-  - tests/script-index.md
-  - tests/unit/script-docs.test.js
-  - tests/unit/links-imports.test.js
-  - tests/unit/style-guide.test.js
-  - tools/scripts/validators/components/check-naming-conventions.js
-  - tools/scripts/validators/components/check-component-docs.js
-  - tools/scripts/generate-docs-guide-components-index.js
-  - tools/scripts/dev/
-  - tools/scripts/snippets/update-component-library.sh
-  - tools/script-index.md
-  - docs-guide/indexes/scripts-index.mdx
-  - docs-guide/indexes/components-index.mdx
-  - docs-guide/scripts-index.md
-  - docs-guide/
-  - docs-index.json
-  - v2/
-  - tasks/reports/component-governance-audit.md
-  - tasks/reports/migration-impact-report.md
-  - tasks/reports/colour-remediation-report.md
-  - tasks/reports/style-css-token-audit.md
-  - tasks/reports/defensive-rendering-remediation-report.md
-  - tasks/reports/archived-components-review.md
+  - tools/scripts/validate-codex-task-contract.js
+  - tools/scripts/create-codex-pr.js
+  - tasks/reports/navigation-links/LINK_TEST_REPORT.md
+  - tasks/reports/navigation-links/LINK_TEST_REPORT.json
+  - v2/gateways/quickstart/views/docker/dockerOffChainTab.mdx
+  - v2/gateways/quickstart/views/docker/dockerOnChainTab.mdx
+  - v2/solutions/embody/overview.mdx
+  - v2/resources/documentation-guide/component-library/component-library.mdx
+  - v2/resources/documentation-guide/component-library/display.mdx
+  - v2/cn/solutions/embody/overview.mdx
+  - v2/cn/resources/documentation-guide/component-library/component-library.mdx
+  - v2/cn/resources/documentation-guide/component-library/display.mdx
+  - v2/es/solutions/embody/overview.mdx
+  - v2/es/resources/documentation-guide/component-library/component-library.mdx
+  - v2/es/resources/documentation-guide/component-library/display.mdx
+  - v2/fr/solutions/embody/overview.mdx
+  - v2/fr/resources/documentation-guide/component-library/component-library.mdx
+  - v2/fr/resources/documentation-guide/component-library/display.mdx
+  - v2/about/faq-about.mdx
+  - v2/gateways/payments/overview.mdx
+  - v2/gateways/using-gateways/gateway-providers.mdx
+  - v2/internal/docs-philosophy.mdx
 scope_out: []
 allowed_generated:
   - .codex/pr-body.generated.md
-  - docs-guide/indexes/components-index.mdx
-  - v2/resources/documentation-guide/component-library/overview.mdx
-  - docs-index.json
   - snippets/data/
-  - snippets/snippetsWiki/componentLibrary/index.mdx
+  - tasks/reports/navigation-links/LINK_TEST_REPORT.md
+  - tasks/reports/navigation-links/LINK_TEST_REPORT.json
 acceptance_checks:
-  - bash lpd hooks status
-  - node tests/run-all.js --skip-browser
-  - node tests/integration/v2-link-audit.js --full --write-links --strict --report /tmp/livepeer-phase2b-link-audit.md --report-json /tmp/livepeer-phase2b-link-audit.json
-  - MINT_BASE_URL=http://localhost:3000 node tools/scripts/test-v2-pages.js
+  - node tests/integration/v2-link-audit.js --full --write-links --strict
+  - cd tests && npm test
   - node tests/run-pr-checks.js --base-ref docs-v2
-  - node tools/scripts/validate-codex-task-contract.js --branch codex/789-phase2b-component-migration --require-pr-body
+  - node tools/scripts/validate-codex-task-contract.js --branch codex/99999-asset-migrate-3a --require-pr-body
 risk_flags:
-  - component-migration
+  - asset-migration
   - generated-artifacts
-  - browser-regression
+  - large-binary-removal
 follow_up_issues: []

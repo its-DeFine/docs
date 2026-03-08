@@ -3,11 +3,11 @@ export const LINK_MAP = {
   "v2/internal/docs-philosophy.mdx": [
     {
       "sourceType": "markdown-link",
-      "linkType": "internal-relative",
-      "rawPath": "./v2/internal/rfp/reports/ai-first-report.mdx",
-      "resolvedPath": "v2/internal/v2/internal/rfp/reports/ai-first-report.mdx",
-      "exists": false,
-      "status": "missing",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/internal/rfp/reports/livepeer-ai-first-docs-plan.pdf",
+      "resolvedPath": "v2/internal/rfp/reports/livepeer-ai-first-docs-plan.pdf",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -88,13 +88,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "./strategic-alignment",
-      "resolvedPath": "v2/internal/strategic-alignment",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/internal/overview/strategic-alignment.mdx"
-      ]
+      "rawPath": "./overview/strategic-alignment",
+      "resolvedPath": "v2/internal/overview/strategic-alignment.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -108,13 +106,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "./personas",
-      "resolvedPath": "v2/internal/personas",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/internal/overview/personas.mdx"
-      ]
+      "rawPath": "./overview/personas",
+      "resolvedPath": "v2/internal/overview/personas.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -451,7 +447,7 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
-      "rawPath": "\"https://github.com/shtukaresearch/livepeer-data-geography/tree/main/roles\"",
+      "rawPath": "https://github.com/shtukaresearch/livepeer-data-geography/tree/main/roles",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
