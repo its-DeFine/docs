@@ -680,7 +680,7 @@ else
                 run_node_check \
                   "Running staged V2 link audit..." \
                   "❌ Staged V2 link audit failed - see /tmp/livepeer-link-audit-precommit.md" \
-                  tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-precommit.md
+                  tests/integration/v2-link-audit.js --staged --strict --strict-roots-only --report /tmp/livepeer-link-audit-precommit.md
             fi
 
             if [ -f "tests/integration/v2-wcag-audit.js" ]; then

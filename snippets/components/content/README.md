@@ -16,7 +16,7 @@ Content components handle code display, external content loading, and data prese
 
 ```jsx
 import { CustomCodeBlock, CodeComponent } from "/snippets/components/content/code.jsx";
-import { ExternalContent } from "/snippets/components/content/external-content.jsx";
+import { ExternalContent } from "/snippets/components/content/externalContent.jsx";
 import { MathInline, MathBlock } from "/snippets/components/content/math.jsx";
 import { LatestVersion } from "/snippets/components/content/release.jsx";
 import { ResponseFieldExpandable } from "/snippets/components/content/responseField.jsx";

@@ -612,14 +612,14 @@ import { UpdateList } from "/snippets/components/layout/lists.jsx";
       </CodeGroup>
     </ResponseField>
   </Accordion>
-  <Accordion title="ListSteps.jsx" icon="file-code">
+  <Accordion title="listSteps.jsx" icon="file-code">
     <ResponseField name="ListSteps" type="component">
       **Props**: `listItems`, `stepsConfig` <br/>
       **Defaults**: None
 
       <CodeGroup>
 ```jsx lines Example
-import { ListSteps } from "/snippets/components/layout/ListSteps.jsx";
+import { ListSteps } from "/snippets/components/layout/listSteps.jsx";
 
 <ListSteps
   listItems={[]}
@@ -648,14 +648,14 @@ import { QuadGrid } from "/snippets/components/layout/quadGrid.jsx";
       </CodeGroup>
     </ResponseField>
   </Accordion>
-  <Accordion title="SearchTable.jsx" icon="file-code">
+  <Accordion title="searchTable.jsx" icon="file-code">
     <ResponseField name="SearchTable" type="component">
       **Props**: `TableComponent`, `tableTitle`, `headerList`, `itemsList`, `monospaceColumns`, `margin`, `searchPlaceholder`, `searchColumns`, `categoryColumn` <br/>
       **Defaults**: `TableComponent=null`, `tableTitle=null`, `headerList=[]`, `itemsList=[]`, `monospaceColumns=[]`, `searchPlaceholder='Search...'`, `searchColumns=[]`, `categoryColumn='Category'`
 
       <CodeGroup>
 ```jsx lines Example
-import { SearchTable } from "/snippets/components/layout/SearchTable.jsx";
+import { SearchTable } from "/snippets/components/layout/searchTable.jsx";
 
 <SearchTable
   TableComponent={null}
@@ -990,14 +990,14 @@ import { PostCard } from "/snippets/components/content/data.jsx";
       </CodeGroup>
     </ResponseField>
   </Accordion>
-  <Accordion title="external-content.jsx" icon="file-code">
+  <Accordion title="externalContent.jsx" icon="file-code">
     <ResponseField name="ExternalContent" type="component">
       **Props**: `repoName`, `githubUrl`, `maxHeight`, `icon`, `children` <br/>
       **Defaults**: `maxHeight="1000px"`, `icon="github"`
 
       <CodeGroup>
 ```jsx lines Example
-import { ExternalContent } from "/snippets/components/content/external-content.jsx";
+import { ExternalContent } from "/snippets/components/content/externalContent.jsx";
 
 <ExternalContent
   repoName={"<value>"}
@@ -2023,7 +2023,7 @@ import { ReviewCallout } from "/snippets/components/domain/SHARED/previewCallout
     { Category: "内容", Page: "content/data.jsx", Component: "ForumLatestLayout", Props: "items=[], limit" },
     { Category: "内容", Page: "content/data.jsx", Component: "LumaEvents", Props: "data, limit, type=\"upcoming\"" },
     { Category: "内容", Page: "content/data.jsx", Component: "PostCard", Props: "title, content, href, author=\"Unknown\", datePosted=null, replyCount=null, icon=\"book-open\", authorIcon=\"user-pen\", dateIcon=\"calendar\", cta=\"Read More\", img=null" },
-    { Category: "内容", Page: "content/external-content.jsx", Component: "ExternalContent", Props: "repoName, githubUrl, maxHeight=\"1000px\", icon=\"github\", children" },
+    { Category: "内容", Page: "content/externalContent.jsx", Component: "ExternalContent", Props: "repoName, githubUrl, maxHeight=\"1000px\", icon=\"github\", children" },
     { Category: "内容", Page: "content/math.jsx", Component: "MathBlock", Props: "latex, className=\"\", ariaLabel" },
     { Category: "内容", Page: "content/math.jsx", Component: "MathInline", Props: "latex, className=\"\", ariaLabel" },
     { Category: "内容", Page: "content/release.jsx", Component: "LatestVersion", Props: "version" },
@@ -2068,9 +2068,9 @@ import { ReviewCallout } from "/snippets/components/domain/SHARED/previewCallout
     { Category: "布局", Page: "layout/lists.jsx", Component: "StepList", Props: "listItems" },
     { Category: "布局", Page: "layout/lists.jsx", Component: "UpdateLinkList", Props: "listItems" },
     { Category: "布局", Page: "layout/lists.jsx", Component: "UpdateList", Props: "listItems" },
-    { Category: "布局", Page: "layout/ListSteps.jsx", Component: "ListSteps", Props: "listItems, stepsConfig" },
+    { Category: "布局", Page: "layout/listSteps.jsx", Component: "ListSteps", Props: "listItems, stepsConfig" },
     { Category: "布局", Page: "layout/quadGrid.jsx", Component: "QuadGrid", Props: "children, icon=\"arrows-spin\", iconSize=50, iconColor=\"var(--accent)\", spinDuration=\"10s\"" },
-    { Category: "布局", Page: "layout/SearchTable.jsx", Component: "SearchTable", Props: "TableComponent=null, tableTitle=null, headerList=[], itemsList=[], monospaceColumns=[], margin, searchPlaceholder=\"Search...\", searchColumns=[], categoryColumn=\"Category\"" },
+    { Category: "布局", Page: "layout/searchTable.jsx", Component: "SearchTable", Props: "TableComponent=null, tableTitle=null, headerList=[], itemsList=[], monospaceColumns=[], margin, searchPlaceholder=\"Search...\", searchColumns=[], categoryColumn=\"Category\"" },
     { Category: "布局", Page: "layout/steps.jsx", Component: "StyledStep", Props: "title, icon, titleSize=\"h3\", children" },
     { Category: "布局", Page: "layout/steps.jsx", Component: "StyledSteps", Props: "children, iconColor, titleColor, lineColor, iconSize=\"24px\"" },
     { Category: "布局", Page: "layout/table.jsx", Component: "DynamicTable", Props: "tableTitle=null, headerList=[], itemsList=[], monospaceColumns=[], margin" },

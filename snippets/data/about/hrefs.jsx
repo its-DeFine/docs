@@ -107,15 +107,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/orchestrators/orchestrators-portal.mdx",
-        "v2/cn/orchestrators/orchestrators-portal.mdx",
-        "v2/es/orchestrators/orchestrators-portal.mdx"
-      ]
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -344,24 +340,20 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../../livepeer-protocol/protocol-economics",
-      "resolvedPath": "v2/about/livepeer-protocol/protocol-economics",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "../../livepeer-protocol/economics",
+      "resolvedPath": "v2/about/livepeer-protocol/economics.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/orchestrators/orchestrators-portal.mdx",
-        "v2/cn/orchestrators/orchestrators-portal.mdx",
-        "v2/es/orchestrators/orchestrators-portal.mdx"
-      ]
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     }
   ],
   "v2/about/livepeer-network/livepeer-actors/end-users.mdx": [
@@ -397,15 +389,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/orchestrators/orchestrators-portal.mdx",
-        "v2/cn/orchestrators/orchestrators-portal.mdx",
-        "v2/es/orchestrators/orchestrators-portal.mdx"
-      ]
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -540,15 +528,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/orchestrators/orchestrators-portal.mdx",
-        "v2/cn/orchestrators/orchestrators-portal.mdx",
-        "v2/es/orchestrators/orchestrators-portal.mdx"
-      ]
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -729,15 +713,11 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/orchestrators/orchestrators-portal.mdx",
-        "v2/cn/orchestrators/orchestrators-portal.mdx",
-        "v2/es/orchestrators/orchestrators-portal.mdx"
-      ]
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
@@ -789,15 +769,11 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/pages/05_orchestrators/orchestrators-portal",
-      "resolvedPath": "v2/pages/05_orchestrators/orchestrators-portal",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/orchestrators/orchestrators-portal.mdx",
-        "v2/cn/orchestrators/orchestrators-portal.mdx",
-        "v2/es/orchestrators/orchestrators-portal.mdx"
-      ]
+      "rawPath": "/v2/orchestrators/orchestrators-portal",
+      "resolvedPath": "v2/orchestrators/orchestrators-portal.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
@@ -2348,8 +2324,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../platforms/portal",
-      "resolvedPath": "v2/platforms/portal.mdx",
+      "rawPath": "../solutions/portal",
+      "resolvedPath": "v2/solutions/portal.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2392,15 +2368,6 @@ export const LINK_MAP = {
     }
   ],
   "v2/about/portal.mdx": [
-    {
-      "sourceType": "markdown-link",
-      "linkType": "external-https",
-      "rawPath": "https://en.wikipedia.org/wiki/OSI_model",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
@@ -2780,8 +2747,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/content/external-content.jsx",
-      "resolvedPath": "snippets/components/content/external-content.jsx",
+      "rawPath": "/snippets/components/content/externalContent.jsx",
+      "resolvedPath": "snippets/components/content/externalContent.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

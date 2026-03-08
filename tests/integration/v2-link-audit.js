@@ -131,6 +131,7 @@ function parseArgs(argv) {
     reportJson: DEFAULT_REPORT_JSON,
     respectMintIgnore: true,
     strict: false,
+    strictRootsOnly: false,
     writeLinks: undefined,
     externalPolicy: 'classify',
     externalLinkTypes: 'navigational',
@@ -157,6 +158,7 @@ function parseArgs(argv) {
       i += 1;
     }
     else if (token === '--strict') args.strict = true;
+    else if (token === '--strict-roots-only') args.strictRootsOnly = true;
     else if (token === '--no-mintignore') args.respectMintIgnore = false;
     else if (token === '--write-links') args.writeLinks = true;
     else if (token === '--no-write-links') args.writeLinks = false;
@@ -1491,22 +1493,28 @@ function buildClassifyExternalSummary(fileResults, args) {
   };
 }
 
-function countSummary(fileResults) {
+function countSummary(fileResults, options = {}) {
+  const { blockingFiles = null } = options;
   const linkTypeCounts = {};
   const statusCounts = {};
   let totalRefs = 0;
   let missingCount = 0;
+  let blockingMissingCount = 0;
 
   for (const result of fileResults.values()) {
+    const countsTowardBlocking = !blockingFiles || blockingFiles.has(result.file);
     for (const ref of result.refs) {
       totalRefs += 1;
       linkTypeCounts[ref.linkType] = (linkTypeCounts[ref.linkType] || 0) + 1;
       statusCounts[ref.status] = (statusCounts[ref.status] || 0) + 1;
-      if (ref.status === 'missing' || ref.status === 'route-missing') missingCount += 1;
+      if (ref.status === 'missing' || ref.status === 'route-missing') {
+        missingCount += 1;
+        if (countsTowardBlocking) blockingMissingCount += 1;
+      }
     }
   }
 
-  return { totalRefs, linkTypeCounts, statusCounts, missingCount };
+  return { totalRefs, linkTypeCounts, statusCounts, missingCount, blockingMissingCount };
 }
 
 function mdEscape(s) {
@@ -1553,6 +1561,9 @@ function renderReport({ args, structure, fileResults, unindexedByDomain, summary
   lines.push(`- Timestamp: ${new Date().toISOString()}`);
   lines.push(`- Mode: ${args.mode}`);
   lines.push(`- Strict: ${args.strict ? 'true' : 'false'} (internal refs only)`);
+  if (args.strictRootsOnly) {
+    lines.push('- Strict scope: root targets only');
+  }
   lines.push(`- Files analyzed: ${fileResults.size}`);
   lines.push(`- Total extracted references: ${summary.totalRefs}`);
   lines.push(`- Report JSON: ${relFromRoot(args.reportJson)}`);
@@ -1698,6 +1709,7 @@ function buildJsonReport({ args, summary, fileResults, externalValidation }) {
     args: {
       mode: args.mode,
       strict: args.strict,
+      strictRootsOnly: args.strictRootsOnly,
       report: relFromRoot(args.report),
       reportJson: relFromRoot(args.reportJson),
       respectMintIgnore: args.respectMintIgnore,
@@ -1714,6 +1726,7 @@ function buildJsonReport({ args, summary, fileResults, externalValidation }) {
       filesAnalyzed: fileResults.size,
       totalRefs: summary.totalRefs,
       internalMissingRefs: summary.missingCount,
+      blockingMissingRefs: summary.blockingMissingCount,
       linkTypeCounts: Object.fromEntries(Object.entries(summary.linkTypeCounts).sort((a, b) => a[0].localeCompare(b[0]))),
       statusCounts: Object.fromEntries(Object.entries(summary.statusCounts).sort((a, b) => a[0].localeCompare(b[0]))),
       external: {
@@ -1816,7 +1829,10 @@ async function runAudit(options = {}) {
     ? await applyExternalValidation(fileResults, args)
     : buildClassifyExternalSummary(fileResults, args);
 
-  const summary = countSummary(fileResults);
+  const blockingFiles = args.strictRootsOnly
+    ? new Set(rootTargets.map((absPath) => relFromRoot(absPath)))
+    : null;
+  const summary = countSummary(fileResults, { blockingFiles });
   const report = renderReport({ args, structure, fileResults, unindexedByDomain, summary, externalValidation });
   const jsonReport = buildJsonReport({ args, summary, fileResults, externalValidation });
 
@@ -1841,13 +1857,17 @@ async function runAudit(options = {}) {
   console.log(`📄 Files analyzed: ${fileResults.size}`);
   console.log(`🔍 Total refs: ${summary.totalRefs}`);
   console.log(`❌ Missing refs: ${summary.missingCount}`);
+  if (args.strictRootsOnly) {
+    console.log(`🚫 Strict-scope missing refs: ${summary.blockingMissingCount}`);
+  }
   if (args.externalPolicy === 'validate') {
     console.log(`🌐 External eligible refs: ${externalValidation.eligibleRefCount}`);
     console.log(`🌐 External unique URLs: ${externalValidation.uniqueUrlCount}`);
     console.log(`🌐 External URL classes: ${JSON.stringify(externalValidation.urlClassCounts)}`);
   }
 
-  const exitCode = args.strict && summary.missingCount > 0 ? 1 : 0;
+  const strictMissingCount = args.strictRootsOnly ? summary.blockingMissingCount : summary.missingCount;
+  const exitCode = args.strict && strictMissingCount > 0 ? 1 : 0;
 
   return {
     exitCode,

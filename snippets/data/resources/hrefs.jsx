@@ -37,7 +37,7 @@ export const LINK_MAP = {
       "movedCandidates": [
         "v2/internal/overview/governance.mdx",
         "v2/about/livepeer-protocol/governance-model.mdx",
-        "v2/developers/moved-to-about-livepeer-protocol/livepeer-governance.mdx"
+        "v2/community/livepeer-community/governance-and-foundation.mdx"
       ]
     },
     {
@@ -77,7 +77,7 @@ export const LINK_MAP = {
       "movedCandidates": [
         "v2/internal/overview/governance.mdx",
         "v2/about/livepeer-protocol/governance-model.mdx",
-        "v2/developers/moved-to-about-livepeer-protocol/livepeer-governance.mdx"
+        "v2/community/livepeer-community/governance-and-foundation.mdx"
       ]
     },
     {
@@ -96,15 +96,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     }
   ],
@@ -426,8 +417,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/content/external-content.jsx",
-      "resolvedPath": "snippets/components/content/external-content.jsx",
+      "rawPath": "/snippets/components/content/externalContent.jsx",
+      "resolvedPath": "snippets/components/content/externalContent.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -480,8 +471,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/ListSteps.jsx",
-      "resolvedPath": "snippets/components/layout/ListSteps.jsx",
+      "rawPath": "/snippets/components/layout/listSteps.jsx",
+      "resolvedPath": "snippets/components/layout/listSteps.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -599,8 +590,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/content/external-content.jsx",
-      "resolvedPath": "snippets/components/content/external-content.jsx",
+      "rawPath": "/snippets/components/content/externalContent.jsx",
+      "resolvedPath": "snippets/components/content/externalContent.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -968,15 +959,6 @@ export const LINK_MAP = {
   "v2/resources/documentation-guide/component-library/overview.mdx": [
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg",
-      "resolvedPath": "snippets/assets/logos/Livepeer-Logo-Full-Theme.svg",
-      "exists": true,
-      "status": "ok",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "jsx-attr",
       "linkType": "empty",
       "rawPath": "#",
       "resolvedPath": null,
@@ -985,10 +967,19 @@ export const LINK_MAP = {
       "movedCandidates": []
     },
     {
+      "sourceType": "jsx-attr",
+      "linkType": "internal-rooted",
+      "rawPath": "/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg",
+      "resolvedPath": "snippets/assets/logos/Livepeer-Logo-Full-Theme.svg",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/layout/SearchTable.jsx",
-      "resolvedPath": "snippets/components/layout/SearchTable.jsx",
+      "rawPath": "/snippets/components/layout/searchTable.jsx",
+      "resolvedPath": "snippets/components/layout/searchTable.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1638,10 +1629,10 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "snippets/components/primitives/divider.jsx",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped-package-import",
+      "rawPath": "/snippets/components/primitives/divider.jsx",
+      "resolvedPath": "snippets/components/primitives/divider.jsx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     }
   ],
@@ -1757,15 +1748,6 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": null,
-      "exists": null,
-      "status": "skipped-style-guide-example",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/a11y.jsx",
       "resolvedPath": null,
       "exists": null,
@@ -1790,15 +1772,6 @@ export const LINK_MAP = {
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",
-      "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
-      "exists": true,
-      "status": "ok",
       "movedCandidates": []
     }
   ],
@@ -2727,20 +2700,185 @@ export const LINK_MAP = {
     }
   ],
   "v2/resources/resources/videos.mdx": [],
-  "v2/resources/resources-portal.mdx": [
+  "v2/resources/resources-portal.mdx": [],
+  "snippets/external/wiki-readme.mdx": [
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://docs.livepeer.org/",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/awesome-livepeer",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/wiki/blob/master/WHITEPAPER.md",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/LIPs",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/wiki/blob/master/STREAMFLOW.md",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/wiki/blob/master/STREAMFLOW.md",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-73.md",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/protocol",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/arbitrum-lpt-bridge",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/go-livepeer/tree/master",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/wiki/blob/master/spec/streamflow/spec.md",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "external-https",
+      "rawPath": "https://github.com/livepeer/wiki/blob/master/spec/streamflow/pm.md",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    }
+  ],
+  "snippets/components/display/embed.mdx": [],
+  "snippets/components/display/containers.mdx": [],
+  "snippets/components/layout/api-base-urls-table.mdx": [],
+  "snippets/pages/00_HOME/project-showcase.mdx": [
+    {
+      "sourceType": "jsx-attr",
+      "linkType": "external-https",
+      "rawPath": "https://docs.google.com/forms/d/e/1FAIpQLSeJ4uoxQ9LUSg89RDWcGiTsbePXsSkRXzGzrdyJ8RVrM1171Q/viewform?usp=sharing&ouid=103197690869380433914",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
+      "movedCandidates": []
+    },
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "/snippets/components/layout/cards.jsx",
+      "resolvedPath": "snippets/components/layout/cards.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/text.jsx",
+      "resolvedPath": "snippets/components/primitives/text.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/divider.jsx",
+      "resolvedPath": "snippets/components/primitives/divider.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/video.jsx",
+      "resolvedPath": "snippets/components/display/video.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/display/showcaseCards.jsx",
+      "resolvedPath": "snippets/components/display/showcaseCards.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/automations/showcase/showcaseData.jsx",
+      "resolvedPath": "snippets/automations/showcase/showcaseData.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
     }
-  ],
-  "snippets/components/display/containers.mdx": [],
-  "snippets/components/display/embed.mdx": [],
-  "snippets/components/layout/api-base-urls-table.mdx": []
+  ]
 };
 
 export default LINK_MAP;
