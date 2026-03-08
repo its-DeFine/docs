@@ -6,7 +6,7 @@
  * @scope             tools/scripts/validators/components, tests/run-all.js, tests/run-pr-checks.js, snippets/components
  * @owner             docs
  * @needs             R-R10
- * @purpose-statement Validates active component filenames against migration-aware naming rules and exported PascalCase naming under snippets/components.
+ * @purpose-statement Validates active component filenames against strict camelCase file naming and PascalCase exports under snippets/components.
  * @pipeline          PR/manual validator for snippets/components/** scope
  * @usage             node tools/scripts/validators/components/check-naming-conventions.js [--path snippets/components] [--files path[,path...]] [--mode migration|strict-camel]
  */
@@ -16,7 +16,7 @@ const path = require('path');
 const { spawnSync } = require('child_process');
 
 const DEFAULT_TARGET = 'snippets/components';
-const DEFAULT_MODE = process.env.LP_COMPONENT_NAMING_MODE || 'migration';
+const DEFAULT_MODE = process.env.LP_COMPONENT_NAMING_MODE || 'strict-camel';
 const VALID_MODES = new Set(['migration', 'strict-camel']);
 const FILE_RULE_LABEL = '[4.6]';
 const EXPORT_RULE_LABEL = '[4.7]';

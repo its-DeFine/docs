@@ -24,6 +24,34 @@ export const MarkdownEmbed = ({ url }) => {
   return <Markdown>{content}</Markdown>
 }
 
+/**
+ * PdfEmbed - Displays an embedded PDF or PDF-like document inside a frame
+ *
+ * @description
+ * Wraps an iframe in a Mintlify Frame so long-form external documents can be
+ * embedded with a caption and responsive width.
+ *
+ * @param {string} title - Frame caption and iframe title
+ * @param {string} src - PDF or embeddable document URL
+ * @param {string} [height="700px"] - Iframe height
+ * @param {string} [width="100%"] - Iframe width
+ *
+ * @example
+ * <PdfEmbed title="Whitepaper" src="https://example.com/whitepaper.pdf" />
+ *
+ * @author Livepeer Documentation Team
+ */
+export const PdfEmbed = ({
+  title,
+  src,
+  height = '700px',
+  width = '100%',
+}) => (
+  <Frame caption={title}>
+    <iframe src={src} width={width} height={height} frameBorder="0" title={title}></iframe>
+  </Frame>
+)
+
 // ARCHIVED: duplicate of MarkdownEmbed - see tasks/reports/archived-components-review.md
 // export const EmbedMarkdown = ({ url }) => <MarkdownEmbed url={url} />
 

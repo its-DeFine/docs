@@ -545,6 +545,37 @@ import { BorderedBox } from "/snippets/components/layout/containers.jsx";
 ```
       </CodeGroup>
     </ResponseField>
+    <ResponseField name="CalloutContainer" type="component">
+      **Props**: `children`, `width`, `align` <br/>
+      **Defaults**: `width="fit-content"`, `align="center"`
+
+      <CodeGroup>
+```jsx lines Example
+import { CalloutContainer } from "/snippets/components/layout/containers.jsx";
+
+<CalloutContainer
+  width={"fit-content"}
+  align={"center"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="CardContentContainer" type="component">
+      **Props**: `children`, `align`, `justify`, `gap` <br/>
+      **Defaults**: `gap="1rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { CardContentContainer } from "/snippets/components/layout/containers.jsx";
+
+<CardContentContainer
+  align={"<value>"}
+  justify={"<value>"}
+  gap={"1rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
     <ResponseField name="CenteredContainer" type="component">
       **Props**: `children`, `maxWidth`, `padding`, `style` <br/>
       **Defaults**: `maxWidth="800px"`, `padding="0"`, `style={}`
@@ -573,6 +604,18 @@ import { FullWidthContainer } from "/snippets/components/layout/containers.jsx";
   backgroundColor={"<value>"}
   style={{}}
 />
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="TabsContainer" type="component">
+      **Props**: `children` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { TabsContainer } from "/snippets/components/layout/containers.jsx";
+
+<TabsContainer />
 ```
       </CodeGroup>
     </ResponseField>
@@ -1541,6 +1584,23 @@ import { MarkdownEmbed } from "/snippets/components/data/embed.jsx";
 ```
       </CodeGroup>
     </ResponseField>
+    <ResponseField name="PdfEmbed" type="component">
+      **Props**: `title`, `src`, `height`, `width` <br/>
+      **Defaults**: `height='700px'`, `width='100%'`
+
+      <CodeGroup>
+```jsx lines Example
+import { PdfEmbed } from "/snippets/components/data/embed.jsx";
+
+<PdfEmbed
+  title={"<value>"}
+  src={"<value>"}
+  height={'700px'}
+  width={'100%'}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
     <ResponseField name="TwitterTimeline" type="component">
       **Props**: No explicit props detected from signature. <br/>
       **Defaults**: No explicit defaults detected.
@@ -1925,88 +1985,6 @@ import { RefCardContainer } from "/snippets/components/page-structure/portals.js
   </Accordion>
 </AccordionGroup>
 
-## Display
-Display components handle media, embeds, quotes, and visual presentation patterns.
-
-<AccordionGroup>
-  <Accordion title="containers.mdx" icon="file-code">
-    <ResponseField name="CalloutContainer" type="component">
-      **Props**: `children`, `width`, `align` <br/>
-      **Defaults**: `width="fit-content"`, `align="center"`
-
-      <CodeGroup>
-```jsx lines Example
-import { CalloutContainer } from "/snippets/components/display/containers.mdx";
-
-<CalloutContainer
-  width={"fit-content"}
-  align={"center"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="CardContentContainer" type="component">
-      **Props**: `children`, `align`, `justify`, `gap` <br/>
-      **Defaults**: `gap="1rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { CardContentContainer } from "/snippets/components/display/containers.mdx";
-
-<CardContentContainer
-  align={"<value>"}
-  justify={"<value>"}
-  gap={"1rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="TabsContainer" type="component">
-      **Props**: `children` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { TabsContainer } from "/snippets/components/display/containers.mdx";
-
-<TabsContainer />
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
-  <Accordion title="embed.mdx" icon="file-code">
-    <ResponseField name="PdfEmbed" type="component">
-      **Props**: `title`, `src`, `height`, `width` <br/>
-      **Defaults**: `height="700px"`, `width="100%"`
-
-      <CodeGroup>
-```jsx lines Example
-import { PdfEmbed } from "/snippets/components/display/embed.mdx";
-
-<PdfEmbed
-  title={"<value>"}
-  src={"<value>"}
-  height={"700px"}
-  width={"100%"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
-</AccordionGroup>
-
-## Integrations
-Integration components connect docs pages to external APIs and third-party datasets.
-
-<AccordionGroup>
-</AccordionGroup>
-
-## Domain
-Domain components package feature-specific UI blocks used by dedicated documentation domains.
-
-<AccordionGroup>
-</AccordionGroup>
-
 ## Lookup Table
 Search by category, page path, or component name.
 
@@ -2049,19 +2027,19 @@ Search by category, page path, or component name.
     { Category: "Data", Page: "data/data.jsx", Component: "LumaEvents", Props: "data, limit, type=\"upcoming\"" },
     { Category: "Data", Page: "data/data.jsx", Component: "PostCard", Props: "title, content, href, author=\"Unknown\", datePosted=null, replyCount=null, icon=\"book-open\", authorIcon=\"user-pen\", dateIcon=\"calendar\", cta=\"Read More\", img=null" },
     { Category: "Data", Page: "data/embed.jsx", Component: "MarkdownEmbed", Props: "url" },
+    { Category: "Data", Page: "data/embed.jsx", Component: "PdfEmbed", Props: "title, src, height=\"700px\", width=\"100%\"" },
     { Category: "Data", Page: "data/embed.jsx", Component: "TwitterTimeline", Props: "none" },
     { Category: "Data", Page: "data/showcaseCards.jsx", Component: "ShowcaseCards", Props: "items=[], limit=null, pageSize=10" },
     { Category: "Data", Page: "data/videoData.jsx", Component: "YouTubeVideoData", Props: "items=[], limit, cols=2" },
-    { Category: "Display", Page: "display/containers.mdx", Component: "CalloutContainer", Props: "children, width=\"fit-content\", align=\"center\"" },
-    { Category: "Display", Page: "display/containers.mdx", Component: "CardContentContainer", Props: "children, align, justify, gap=\"1rem\"" },
-    { Category: "Display", Page: "display/containers.mdx", Component: "TabsContainer", Props: "children" },
-    { Category: "Display", Page: "display/embed.mdx", Component: "PdfEmbed", Props: "title, src, height=\"700px\", width=\"100%\"" },
     { Category: "Layout", Page: "layout/api-base-urls-table.mdx", Component: "ApiBaseUrlsTable", Props: "urls" },
     { Category: "Layout", Page: "layout/cardCarousel.jsx", Component: "CardCarousel", Props: "children, visibleCount=3, gap=\"1.5rem\", showDots=true, style" },
     { Category: "Layout", Page: "layout/cards.jsx", Component: "ScrollBox", Props: "children, maxHeight=300, showHint=true, ariaLabel=\"Scrollable content\", style" },
     { Category: "Layout", Page: "layout/containers.jsx", Component: "BorderedBox", Props: "children, variant=\"default\", padding=\"1rem\", borderRadius=\"8px\", style={}" },
+    { Category: "Layout", Page: "layout/containers.jsx", Component: "CalloutContainer", Props: "children, width=\"fit-content\", align=\"center\"" },
+    { Category: "Layout", Page: "layout/containers.jsx", Component: "CardContentContainer", Props: "children, align, justify, gap=\"1rem\"" },
     { Category: "Layout", Page: "layout/containers.jsx", Component: "CenteredContainer", Props: "children, maxWidth=\"800px\", padding=\"0\", style={}" },
     { Category: "Layout", Page: "layout/containers.jsx", Component: "FullWidthContainer", Props: "children, backgroundColor, style={}" },
+    { Category: "Layout", Page: "layout/containers.jsx", Component: "TabsContainer", Props: "children" },
     { Category: "Layout", Page: "layout/customCards.jsx", Component: "DisplayCard", Props: "icon, title, style, background=\"var(--card-background)\", children" },
     { Category: "Layout", Page: "layout/customCards.jsx", Component: "InlineImageCard", Props: "children, imgProps, imgStyle, cardProps, style" },
     { Category: "Layout", Page: "layout/customCards.jsx", Component: "WidthCard", Props: "width=\"80%\", children" },

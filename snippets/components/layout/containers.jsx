@@ -132,3 +132,105 @@ export const FullWidthContainer = ({
     </div>
   );
 };
+
+/**
+ * TabsContainer - Bordered wrapper for Mintlify tabs
+ *
+ * @description
+ * Provides a consistent bordered container around a Tabs block so tab groups can
+ * be embedded inside callouts and docs sections without repeating inline styles.
+ *
+ * @param {React.ReactNode} children - Tab content to render inside the container
+ *
+ * @example
+ * <TabsContainer>
+ *   <Tab title="Example">Content</Tab>
+ * </TabsContainer>
+ *
+ * @author Livepeer Documentation Team
+ */
+export const TabsContainer = ({ children }) => (
+  <div
+    style={{
+      border: "1px solid var(--accent)",
+      borderRadius: "12px",
+      padding: "1rem",
+    }}
+  >
+    <Tabs>{children}</Tabs>
+  </div>
+);
+
+/**
+ * CardContentContainer - Vertical flex container for card body content
+ *
+ * @description
+ * Stacks child content vertically with configurable spacing and optional
+ * alignment controls for card layouts.
+ *
+ * @param {React.ReactNode} children - Content to render inside the container
+ * @param {string} [align] - Optional CSS align-items value
+ * @param {string} [justify] - Optional CSS justify-content value
+ * @param {string} [gap="1rem"] - Gap between child items
+ *
+ * @example
+ * <CardContentContainer gap="1.5rem">
+ *   <p>Body content</p>
+ * </CardContentContainer>
+ *
+ * @author Livepeer Documentation Team
+ */
+export const CardContentContainer = ({
+  children,
+  align,
+  justify,
+  gap = "1rem",
+}) => (
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      gap: gap,
+      ...(align ? { alignItems: align } : {}),
+      ...(justify ? { justifyContent: justify } : {}),
+    }}
+  >
+    {children}
+  </div>
+);
+
+/**
+ * CalloutContainer - Flex wrapper for grouped callout content
+ *
+ * @description
+ * Wraps one or more callouts in a vertical flex container with configurable
+ * width and alignment for media-kit and resource pages.
+ *
+ * @param {React.ReactNode} children - Callout content to render
+ * @param {string} [width="fit-content"] - Container width
+ * @param {string} [align="center"] - CSS align-items value
+ *
+ * @example
+ * <CalloutContainer align="flex-start">
+ *   <Note>Example</Note>
+ * </CalloutContainer>
+ *
+ * @author Livepeer Documentation Team
+ */
+export const CalloutContainer = ({
+  children,
+  width = "fit-content",
+  align = "center",
+}) => (
+  <div
+    style={{
+      display: "flex",
+      flexDirection: "column",
+      gap: "1rem",
+      width: width,
+      alignItems: align,
+    }}
+  >
+    {children}
+  </div>
+);

@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-08T09:56:21.385Z",
+  "generated": "2026-03-08T10:15:20.172Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -21,7 +21,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 21,
-      "lastVerified": "2026-03-04T15:12:55+11:00",
+      "lastVerified": "2026-03-08T20:56:17+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -495,7 +495,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 172,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-08T20:56:17+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -2025,7 +2025,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 200,
-      "lastVerified": "2026-03-08T20:43:02+11:00",
+      "lastVerified": "2026-03-08T20:56:17+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -5972,7 +5972,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 112,
-      "lastVerified": "2026-03-04T10:56:31+11:00",
+      "lastVerified": "2026-03-08T20:56:17+11:00",
       "headings": [
         {
           "level": 2,
@@ -7598,7 +7598,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 127,
-      "lastVerified": "2026-03-03T22:03:40+11:00",
+      "lastVerified": "2026-03-08T20:56:17+11:00",
       "headings": [],
       "codeLanguages": [
         "mermaid"
@@ -9419,7 +9419,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 486,
+      "wordCount": 478,
       "lastVerified": "2026-02-01",
       "headings": [
         {
@@ -10358,7 +10358,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 174,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-08T20:56:17+11:00",
       "headings": [
         {
           "level": 2,
@@ -11606,7 +11606,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 152,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-08T20:56:17+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -12989,7 +12989,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 220,
-      "lastVerified": "2026-03-08T20:43:02+11:00",
+      "lastVerified": "2026-03-08T20:56:17+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -14027,7 +14027,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3318,
-      "lastVerified": "2026-03-08T20:43:02+11:00",
+      "lastVerified": "2026-03-08T20:56:17+11:00",
       "headings": [
         {
           "level": 1,
@@ -15052,8 +15052,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 927,
-      "lastVerified": "2026-03-08T20:50:28+11:00",
+      "wordCount": 889,
+      "lastVerified": "2026-03-08T20:56:17+11:00",
       "headings": [
         {
           "level": 2,
@@ -15074,18 +15074,6 @@
         {
           "level": 2,
           "text": "Page Structure"
-        },
-        {
-          "level": 2,
-          "text": "Display"
-        },
-        {
-          "level": 2,
-          "text": "Integrations"
-        },
-        {
-          "level": 2,
-          "text": "Domain"
         },
         {
           "level": 2,
@@ -15114,8 +15102,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3520,
-      "lastVerified": "2026-03-08T20:50:28+11:00",
+      "wordCount": 3517,
+      "lastVerified": "2026-03-08T20:56:17+11:00",
       "headings": [
         {
           "level": 2,
@@ -15541,7 +15529,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1984,
-      "lastVerified": "2026-03-08T20:50:28+11:00",
+      "lastVerified": "2026-03-08T20:56:17+11:00",
       "headings": [
         {
           "level": 2,
@@ -17080,8 +17068,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 927,
-      "lastVerified": "2026-03-08T20:50:28+11:00",
+      "wordCount": 889,
+      "lastVerified": "2026-03-08T20:56:17+11:00",
       "headings": [
         {
           "level": 2,
@@ -17102,18 +17090,6 @@
         {
           "level": 2,
           "text": "Page Structure"
-        },
-        {
-          "level": 2,
-          "text": "Display"
-        },
-        {
-          "level": 2,
-          "text": "Integrations"
-        },
-        {
-          "level": 2,
-          "text": "Domain"
         },
         {
           "level": 2,

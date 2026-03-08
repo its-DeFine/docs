@@ -47,8 +47,8 @@ import { AccordionLayout } from '/snippets/components/layout/text.jsx'
 
 import { CoinGeckoExchanges } from '/snippets/components/data/coingecko.jsx'
 import { ComingSoonCallout, PreviewCallout, ReviewCallout } from '/snippets/components/primitives/previewCallouts.jsx'
-import { GatewayOffChainWarning, GatewayOnChainWarning, GatewayOnChainTTestnetNote, OrchAddrNote, TestVideoDownload, FfmpegWarning } from '/snippets/components/domain/04_GATEWAYS/callouts.jsx'
-import { QuickStartTabs, QuickStartSteps } from '/snippets/components/domain/04_GATEWAYS/quickstartTabs.jsx'
+import { GatewayOffChainWarning, GatewayOnChainWarning, GatewayOnChainTTestnetNote, OrchAddrNote, TestVideoDownload, FfmpegWarning } from '/v2/gateways/quickstart/components/callouts.jsx'
+import { QuickStartTabs, QuickStartSteps } from '/v2/gateways/quickstart/components/quickstartTabs.jsx'
 import { Starfield } from '/snippets/components/page-structure/heroGif.jsx'
 
 <Note>
@@ -1603,7 +1603,7 @@ import {
   OrchAddrNote,
   TestVideoDownload,
   FfmpegWarning
-} from "/snippets/components/domain/04_GATEWAYS/callouts.jsx";
+} from "/v2/gateways/quickstart/components/callouts.jsx";
 
 <GatewayOffChainWarning />
 <GatewayOnChainWarning />
@@ -1637,7 +1637,7 @@ import {
 <Tabs>
   <Tab title="Code">
 ```jsx
-import { QuickStartTabs, QuickStartSteps } from "/snippets/components/domain/04_GATEWAYS/quickstartTabs.jsx";
+import { QuickStartTabs, QuickStartSteps } from "/v2/gateways/quickstart/components/quickstartTabs.jsx";
 
 <QuickStartTabs 
   offchainSteps={[
@@ -1958,11 +1958,10 @@ client.connect();`}
 | 类别 | 导入路径 |
 |----------|-------------|
 | 基本元素 | `/snippets/components/primitives/` |
-| 显示 | `/snippets/components/display/` |
+| 数据 | `/snippets/components/data/` |
 | 内容 | `/snippets/components/content/` |
 | 布局 | `/snippets/components/layout/` |
-| 集成 | `/snippets/components/integrations/` |
-| 域名 | `/snippets/components/domain/` |
+| 页面结构 | `/snippets/components/page-structure/` |
 
 ### 全局组件（无需导入）
 

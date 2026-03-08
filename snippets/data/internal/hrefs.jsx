@@ -357,8 +357,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/embed.mdx",
-      "resolvedPath": "snippets/components/display/embed.mdx",
+      "rawPath": "/snippets/components/data/embed.jsx",
+      "resolvedPath": "snippets/components/data/embed.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -366,8 +366,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/containers.mdx",
-      "resolvedPath": "snippets/components/display/containers.mdx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -491,8 +491,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/containers.mdx",
-      "resolvedPath": "snippets/components/display/containers.mdx",
+      "rawPath": "/snippets/components/layout/containers.jsx",
+      "resolvedPath": "snippets/components/layout/containers.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -509,8 +509,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/embed.mdx",
-      "resolvedPath": "snippets/components/display/embed.mdx",
+      "rawPath": "/snippets/components/data/embed.jsx",
+      "resolvedPath": "snippets/components/data/embed.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -557,9 +557,7 @@ export const LINK_MAP = {
       "status": "ok",
       "movedCandidates": []
     }
-  ],
-  "snippets/components/display/embed.mdx": [],
-  "snippets/components/display/containers.mdx": []
+  ]
 };
 
 export default LINK_MAP;

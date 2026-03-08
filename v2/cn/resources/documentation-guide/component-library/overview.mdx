@@ -546,6 +546,37 @@ import { BorderedBox } from "/snippets/components/layout/containers.jsx";
 ```
       </CodeGroup>
     </ResponseField>
+    <ResponseField name="CalloutContainer" type="component">
+      **Props**: `children`, `width`, `align` <br/>
+      **Defaults**: `width="fit-content"`, `align="center"`
+
+      <CodeGroup>
+```jsx lines Example
+import { CalloutContainer } from "/snippets/components/layout/containers.jsx";
+
+<CalloutContainer
+  width={"fit-content"}
+  align={"center"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="CardContentContainer" type="component">
+      **Props**: `children`, `align`, `justify`, `gap` <br/>
+      **Defaults**: `gap="1rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { CardContentContainer } from "/snippets/components/layout/containers.jsx";
+
+<CardContentContainer
+  align={"<value>"}
+  justify={"<value>"}
+  gap={"1rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
     <ResponseField name="CenteredContainer" type="component">
       **Props**: `children`, `maxWidth`, `padding`, `style` <br/>
       **Defaults**: `maxWidth="800px"`, `padding="0"`, `style={}`
@@ -574,6 +605,18 @@ import { FullWidthContainer } from "/snippets/components/layout/containers.jsx";
   backgroundColor={"<value>"}
   style={{}}
 />
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="TabsContainer" type="component">
+      **Props**: `children` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { TabsContainer } from "/snippets/components/layout/containers.jsx";
+
+<TabsContainer />
 ```
       </CodeGroup>
     </ResponseField>
@@ -1542,6 +1585,23 @@ import { MarkdownEmbed } from "/snippets/components/data/embed.jsx";
 ```
       </CodeGroup>
     </ResponseField>
+    <ResponseField name="PdfEmbed" type="component">
+      **Props**: `title`, `src`, `height`, `width` <br/>
+      **Defaults**: `height='700px'`, `width='100%'`
+
+      <CodeGroup>
+```jsx lines Example
+import { PdfEmbed } from "/snippets/components/data/embed.jsx";
+
+<PdfEmbed
+  title={"<value>"}
+  src={"<value>"}
+  height={'700px'}
+  width={'100%'}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
     <ResponseField name="TwitterTimeline" type="component">
       **Props**: No explicit props detected from signature. <br/>
       **Defaults**: No explicit defaults detected.
@@ -1926,88 +1986,6 @@ import { RefCardContainer } from "/snippets/components/page-structure/portals.js
   </Accordion>
 </AccordionGroup>
 
-## 显示
-显示组件处理媒体、嵌入、引用和视觉呈现模式。
-
-<AccordionGroup>
-  <Accordion title="containers.mdx" icon="file-code">
-    <ResponseField name="CalloutContainer" type="component">
-      **Props**: `children`, `width`, `align` <br/>
-      **Defaults**: `width="fit-content"`, `align="center"`
-
-      <CodeGroup>
-```jsx lines Example
-import { CalloutContainer } from "/snippets/components/display/containers.mdx";
-
-<CalloutContainer
-  width={"fit-content"}
-  align={"center"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="CardContentContainer" type="component">
-      **Props**: `children`, `align`, `justify`, `gap` <br/>
-      **Defaults**: `gap="1rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { CardContentContainer } from "/snippets/components/display/containers.mdx";
-
-<CardContentContainer
-  align={"<value>"}
-  justify={"<value>"}
-  gap={"1rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="TabsContainer" type="component">
-      **Props**: `children` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { TabsContainer } from "/snippets/components/display/containers.mdx";
-
-<TabsContainer />
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
-  <Accordion title="embed.mdx" icon="file-code">
-    <ResponseField name="PdfEmbed" type="component">
-      **Props**: `title`, `src`, `height`, `width` <br/>
-      **Defaults**: `height="700px"`, `width="100%"`
-
-      <CodeGroup>
-```jsx lines Example
-import { PdfEmbed } from "/snippets/components/display/embed.mdx";
-
-<PdfEmbed
-  title={"<value>"}
-  src={"<value>"}
-  height={"700px"}
-  width={"100%"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
-</AccordionGroup>
-
-## 集成
-集成组件将文档页面连接到外部 API 和第三方数据集。
-
-<AccordionGroup>
-</AccordionGroup>
-
-## 领域
-领域组件封装专用文档领域中使用的特定功能 UI 模块。
-
-<AccordionGroup>
-</AccordionGroup>
-
 ## 查找表
 按类别、页面路径或组件名称搜索。
 
@@ -2070,8 +2048,11 @@ import { PdfEmbed } from "/snippets/components/display/embed.mdx";
     { Category: "布局", Page: "layout/cardCarousel.jsx", Component: "CardCarousel", Props: "children, visibleCount=3, gap=\"1.5rem\", showDots=true, style" },
     { Category: "布局", Page: "layout/cards.jsx", Component: "ScrollBox", Props: "children, maxHeight=300, showHint=true, ariaLabel=\"Scrollable content\", style" },
     { Category: "布局", Page: "layout/containers.jsx", Component: "BorderedBox", Props: "children, variant=\"default\", padding=\"1rem\", borderRadius=\"8px\", style={}" },
+    { Category: "布局", Page: "layout/containers.jsx", Component: "CalloutContainer", Props: "children, width=\"fit-content\", align=\"center\"" },
+    { Category: "布局", Page: "layout/containers.jsx", Component: "CardContentContainer", Props: "children, align, justify, gap=\"1rem\"" },
     { Category: "布局", Page: "layout/containers.jsx", Component: "CenteredContainer", Props: "children, maxWidth=\"800px\", padding=\"0\", style={}" },
     { Category: "布局", Page: "layout/containers.jsx", Component: "FullWidthContainer", Props: "children, backgroundColor, style={}" },
+    { Category: "布局", Page: "layout/containers.jsx", Component: "TabsContainer", Props: "children" },
     { Category: "布局", Page: "layout/customCards.jsx", Component: "DisplayCard", Props: "icon, title, style, background=\"var(--card-background)\", children" },
     { Category: "布局", Page: "layout/customCards.jsx", Component: "InlineImageCard", Props: "children, imgProps, imgStyle, cardProps, style" },
     { Category: "布局", Page: "layout/customCards.jsx", Component: "WidthCard", Props: "width=\"80%\", children" },
@@ -2104,13 +2085,10 @@ import { PdfEmbed } from "/snippets/components/display/embed.mdx";
     { Category: "数据", Page: "data/data.jsx", Component: "LumaEvents", Props: "data, limit, type=\"upcoming\"" },
     { Category: "数据", Page: "data/data.jsx", Component: "PostCard", Props: "title, content, href, author=\"Unknown\", datePosted=null, replyCount=null, icon=\"book-open\", authorIcon=\"user-pen\", dateIcon=\"calendar\", cta=\"Read More\", img=null" },
     { Category: "数据", Page: "data/embed.jsx", Component: "MarkdownEmbed", Props: "url" },
+    { Category: "数据", Page: "data/embed.jsx", Component: "PdfEmbed", Props: "title, src, height=\"700px\", width=\"100%\"" },
     { Category: "数据", Page: "data/embed.jsx", Component: "TwitterTimeline", Props: "none" },
     { Category: "数据", Page: "data/showcaseCards.jsx", Component: "ShowcaseCards", Props: "items=[], limit=null, pageSize=10" },
     { Category: "数据", Page: "data/videoData.jsx", Component: "YouTubeVideoData", Props: "items=[], limit, cols=2" },
-    { Category: "显示", Page: "display/containers.mdx", Component: "CalloutContainer", Props: "children, width=\"fit-content\", align=\"center\"" },
-    { Category: "显示", Page: "display/containers.mdx", Component: "CardContentContainer", Props: "children, align, justify, gap=\"1rem\"" },
-    { Category: "显示", Page: "display/containers.mdx", Component: "TabsContainer", Props: "children" },
-    { Category: "显示", Page: "display/embed.mdx", Component: "PdfEmbed", Props: "title, src, height=\"700px\", width=\"100%\"" },
     { Category: "页面结构", Page: "page-structure/frameMode.jsx", Component: "Divider", Props: "color, margin=\"1.5rem 0\", opacity=0.2" },
     { Category: "页面结构", Page: "page-structure/frameMode.jsx", Component: "H1", Props: "children, icon, iconSize=32, iconColor, align=\"left\", gap=\"0.75rem\"" },
     { Category: "页面结构", Page: "page-structure/frameMode.jsx", Component: "H2", Props: "children, icon, iconSize=28, iconColor, align=\"left\", gap=\"0.75rem\"" },

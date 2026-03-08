@@ -50,8 +50,8 @@ import { AccordionLayout } from '/snippets/components/layout/text.jsx'
 
 import { CoinGeckoExchanges } from '/snippets/components/data/coingecko.jsx'
 import { ComingSoonCallout, PreviewCallout, ReviewCallout } from '/snippets/components/primitives/previewCallouts.jsx'
-import { GatewayOffChainWarning, GatewayOnChainWarning, GatewayOnChainTTestnetNote, OrchAddrNote, TestVideoDownload, FfmpegWarning } from '/snippets/components/domain/04_GATEWAYS/callouts.jsx'
-import { QuickStartTabs, QuickStartSteps } from '/snippets/components/domain/04_GATEWAYS/quickstartTabs.jsx'
+import { GatewayOffChainWarning, GatewayOnChainWarning, GatewayOnChainTTestnetNote, OrchAddrNote, TestVideoDownload, FfmpegWarning } from '/v2/gateways/quickstart/components/callouts.jsx'
+import { QuickStartTabs, QuickStartSteps } from '/v2/gateways/quickstart/components/quickstartTabs.jsx'
 import { Starfield } from '/snippets/components/page-structure/heroGif.jsx'
 
 <Note>
@@ -1606,7 +1606,7 @@ import {
   OrchAddrNote,
   TestVideoDownload,
   FfmpegWarning
-} from "/snippets/components/domain/04_GATEWAYS/callouts.jsx";
+} from "/v2/gateways/quickstart/components/callouts.jsx";
 
 <GatewayOffChainWarning />
 <GatewayOnChainWarning />
@@ -1640,7 +1640,7 @@ Componentes para la documentación de inicio rápido de Gateway con diseños con
 <Tabs>
   <Tab title="Code">
 ```jsx
-import { QuickStartTabs, QuickStartSteps } from "/snippets/components/domain/04_GATEWAYS/quickstartTabs.jsx";
+import { QuickStartTabs, QuickStartSteps } from "/v2/gateways/quickstart/components/quickstartTabs.jsx";
 
 <QuickStartTabs 
   offchainSteps={[
@@ -1961,11 +1961,10 @@ client.connect();`}
 | Categoría | Ruta de importación |
 |----------|-------------|
 | Primitivos | `/snippets/components/primitives/` |
-| Mostrar | `/snippets/components/display/` |
+| Datos | `/snippets/components/data/` |
 | Contenido | `/snippets/components/content/` |
 | Diseño | `/snippets/components/layout/` |
-| Integraciones | `/snippets/components/integrations/` |
-| Dominio | `/snippets/components/domain/` |
+| Estructura de página | `/snippets/components/page-structure/` |
 
 ### Componentes globales (Sin necesidad de importar)
 
