@@ -733,8 +733,7 @@ export const DiscordAnnouncements = ({ items = [], limit }) => {
             <span
               style={{
                 fontSize: "0.875rem",
-                // TODO: remove !important - specificity investigation needed.
-                color: "var(--text) !important",
+                color: "var(--text)",
                 marginLeft: "auto",
               }}
             >

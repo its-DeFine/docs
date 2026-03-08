@@ -41,8 +41,7 @@ const ComingSoonCallout = ({ type = "page" }) => {
     alignItems: "center",
   };
   const linkStyle = {
-    // TODO: remove !important - specificity investigation needed.
-    color: "var(--hero-text) !important",
+    color: "var(--hero-text)",
     display: "inline-flex",
     alignItems: "center",
     gap: "4px",
@@ -155,8 +154,7 @@ const PreviewCallout = () => {
     flex: 1,
   };
   const linkStyle = {
-    // TODO: remove !important - specificity investigation needed.
-    color: "var(--hero-text) !important",
+    color: "var(--hero-text)",
     display: "inline-flex",
     alignItems: "center",
     gap: "4px",
