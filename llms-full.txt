@@ -9820,7 +9820,7 @@ They operate as the essential technical layer between the protocol and
 the distributed compute network.
 
 A gateway is a self-operated Livepeer node that interacts directly with orchestrators, submits jobs, handles payment, and exposes direct protocol interfaces.
-Hosted services like [Daydream](../../developers/developer-platforms/daydream/daydream.mdx) operate as both application layers and Gateways.
+Hosted services like [Daydream](/v2/solutions/daydream/overview) operate as both application layers and Gateways.
 
 A Gateway is responsible for
 
@@ -9832,7 +9832,7 @@ A Gateway is responsible for
 If you are coming from an Ethereum background, Gateways could loosely be thought of as sequencers in L2 rollups.
 If you are coming from a traditional cloud background, Gateways are akin to API gateways or load balancers.
 
-Anyone that wants to build applications and services (like [Daydream](../../developers/developer-platforms/daydream/daydream.mdx) and [Stream.place](../../solutions/streamplace/overview.mdx)) on top of the Livepeer
+Anyone that wants to build applications and services (like [Daydream](/v2/solutions/daydream/overview) and [Stream.place](/v2/solutions/streamplace/overview)) on top of the Livepeer
 protocol will build their own Gateway to connect with Orchestrators and route jobs.
 This enables them to offer their services to Livepeer Developers, Builders & end-users and provide
 communication of their application with the Livepeer GPU network (DePIN / Orchestrators)
@@ -10228,11 +10228,11 @@ Your "fee" is the difference between what customers pay you and what you pay orc
 
 ### Case Studies
 
-[Streamplace](../../developers/developer-platforms/streamplace/streamplace.mdx) is a gateway that provides video processing services to content creators.
+[Streamplace](/v2/solutions/streamplace/overview) is a gateway that provides video processing services to content creators.
 Creators pay Streamplace for video processing, and Streamplace pays orchestrators for the actual work.
 Streamplace's profit margin is the difference between what creators pay and what it pays orchestrators.
 
-[Daydream](../../developers/developer-platforms/daydream/daydream.mdx) is another example of a gateway that provides AI video processing services.
+[Daydream](/v2/solutions/daydream/overview) is another example of a gateway that provides AI video processing services.
 Builders & Creators pay Daydream for AI video processing, and Daydream pays orchestrators for the actual work.
 Daydream's profit margin is the difference between what creators pay and what it pays orchestrators.
 
@@ -26582,14 +26582,14 @@ Automatically styled container
 Link to GitHub source
 
 ```jsx
-
-
 <ExternalContent
   repoName="livepeer/wiki"
   githubUrl="https://github.com/livepeer/wiki"
   maxHeight="800px"
 >
-  <WikiReadme />
+  <div>
+    <p>External content rendered inside the component shell.</p>
+  </div>
 </ExternalContent>
 ```
 
