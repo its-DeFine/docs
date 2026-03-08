@@ -27499,12 +27499,12 @@ Planned automations include:
 
 ### Automatic Page Index Generation
 
-The repository includes an internal docs feature that keeps `v2/pages` index files synchronized with the current folder and markdown file structure.
+The repository includes an internal docs feature that keeps `v2/` index files synchronized with the current folder and markdown file structure.
 
 What it generates:
 
-* `v2/pages/<top-level-section>/index.mdx` for each direct child folder under `v2/pages/`
-* `v2/pages/index.mdx` as the root aggregate index
+* `v2/<top-level-section>/index.mdx` for each direct child folder under `v2/`
+* `v2/index.mdx` as the root aggregate index
 
 Format rules:
 
@@ -27523,7 +27523,7 @@ Validation and cleanup rules:
 
 Automation behavior:
 
-* Runs in pre-commit when staged files include `v2/pages` changes:
+* Runs in pre-commit when staged files include `v2/` changes:
   `node tools/scripts/generate-pages-index.js --staged --write --stage`
 * Supports manual verification/rebuild:
   * `node tools/scripts/generate-pages-index.js`
@@ -27821,7 +27821,7 @@ The Livepeer documentation uses a **three-layer styling framework** designed to 
 };
 ```
 
-#### Layer 3: MDX Files (`v2/pages/**/*.mdx`)
+#### Layer 3: MDX Files (`v2/**/*.mdx`)
 
 **Purpose**: Content only - **ZERO inline styles**
 
@@ -28013,11 +28013,11 @@ You can configure LaTeX rendering in `docs.json` under `styles.latex` to overrid
 
 ```mdx
 {/* ❌ Plain markdown link */}
-[Getting Started](/get-started)
+[Getting Started](/v2/home/get-started)
 
 {/* ✅ Custom component with better styling */}
 
-<GotoLink label="Getting Started" relativePath="/get-started" icon="arrow-right" />
+<GotoLink label="Getting Started" relativePath="/v2/home/get-started" icon="arrow-right" />
 ```
 
 ```mdx
@@ -28154,7 +28154,7 @@ Our styling framework intentionally overrides some Mintlify default recommendati
 
 
 // ❌ Wrong - relative paths don't work
-
+// import { GotoLink } from '../components/primitives/links.jsx';
 ```
 
 #### 2. File Extensions Required
@@ -28164,7 +28164,7 @@ Our styling framework intentionally overrides some Mintlify default recommendati
 
 
 // ❌ May not resolve
-
+// import { GotoLink } from '/snippets/components/primitives/links';
 ```
 
 #### 3. Cannot Import into Component Files
@@ -28188,8 +28188,8 @@ Our styling framework intentionally overrides some Mintlify default recommendati
 
 
 
-<MyComponent />
-// MyComponent can access ThemeData from parent scope
+<GotoLink label="Docs" relativePath="/v2/home/get-started" />
+// GotoLink can access ThemeData from parent scope
 ```
 
 #### 4. JSX Files Cannot Import Other JSX Files
@@ -28211,7 +28211,7 @@ When importing MDX files into other MDX files:
 
 
 
-<ChildView />
+<ContainersGuide />
 ```
 
 ```mdx
@@ -28331,7 +28331,7 @@ Frame mode (`mode: frame` in frontmatter) removes all default Mintlify styling. 
 
 
 
-<MyComponent />
+<GotoLink label="Docs" relativePath="/v2/home/get-started" />
 ```
 
 ```jsx
@@ -29019,22 +29019,23 @@ Edit the relevant files:
 
 **Where to edit content:**
 
-* **Main documentation pages:** `v2/pages/` (organized by section)
+* **Main documentation pages:** `v2/` (organized by section)
 * **Components:** `snippets/components/`
 * **Data files:** `snippets/data/`
 * **Assets:** `snippets/assets/`
 
 **File structure:**
 
-```
-v2/pages/
+```text
+v2/
 ├── home/          # Home tab content
 ├── about/         # About tab content
+├── community/     # Community tab content
 ├── developers/    # Developers tab content
 ├── gateways/      # Gateways tab content
 ├── orchestrators/ # Orchestrators tab content
-├── delegators/    # Delegators tab content
-├── community/     # Community tab content
+├── lpt/           # LPT token and delegation content
+├── solutions/     # Solutions and product content
 ├── resources/     # Resources tab content
 └── internal/      # Internal documentation
 ```
@@ -29190,7 +29191,7 @@ mint dev
 
 ```
 docs/
-├── v2/pages/              # Main documentation pages (MDX)
+├── v2/                    # Main documentation pages (MDX)
 ├── snippets/              # Reusable components and data
 │   ├── components/        # React/JSX components
 │   ├── data/             # Data files (JSX)
@@ -29329,7 +29330,7 @@ We welcome contributions in many areas:
 
 | Content Type | Location | Example |
 |-------------|----------|---------|
-| **Main pages** | `v2/pages/[section]/` | `v2/developers/guides-and-tools/` |
+| **Main pages** | `v2/[section]/` | `v2/developers/guides-and-tools/` |
 | **Components** | `snippets/components/` | `snippets/components/primitives/links.jsx` |
 | **Data files** | `snippets/data/` | `snippets/data/gateways/flags.jsx` |
 | **Assets** | `snippets/assets/` | `snippets/assets/logos/` |
@@ -30118,7 +30119,7 @@ node tools/scripts/snippets/generate-seo.js --file=v2/home/mission-control.mdx
 
 **What it does:**
 
-1. Scans all MDX files in `v2/pages/`
+1. Scans all MDX files in `v2/`
 2. Generates `keywords` from file path, title, and description
 3. Adds `og:image` using domain-specific or default social preview images
 4. Preserves existing SEO metadata (won't overwrite if already present)
@@ -30150,7 +30151,7 @@ node tools/scripts/snippets/generate-seo.js --file=v2/home/mission-control.mdx
 ```bash
 ./tools/scripts/snippets/generate-api-docs.sh \
   ai/worker/api/openapi.yaml \
-  v2/pages/04_gateways/api-reference/AI-API \
+  v2/gateways/references/api-reference/AI-API \
   "AI API" \
   "https://github.com/livepeer/ai-worker"
 ```
@@ -30281,7 +30282,7 @@ output-dir/
 1. Fetches live data from CoinGecko API for Livepeer token
 2. Generates a styled table of CEX exchanges with volume and trust scores
 3. Appends DEX information and contract addresses
-4. Updates `v2/pages/06_delegators/token-resources/lpt-exchanges.mdx`
+4. Updates `v2/lpt/resources/exchanges.mdx`
 
 **When to run:**
 
