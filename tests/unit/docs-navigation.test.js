@@ -16,6 +16,7 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 const { execSync } = require('child_process');
+const { listMintIgnoredRepoPaths } = require('../utils/mintignore');
 
 const REPORT_MD_REL = 'tasks/reports/navigation-links/navigation-report.md';
 const REPORT_JSON_REL = 'tasks/reports/navigation-links/navigation-report.json';
@@ -334,6 +335,46 @@ function resolveRouteWithAliases(repoRoot, docsJson, rawRoute) {
   if (viaRedirect) return viaRedirect;
 
   return resolveRouteViaCanonicalMap(repoRoot, rawRoute);
+}
+
+function collectIgnoredResolvedDocsPaths(repoRoot, docsJson, entries) {
+  const routeChecks = [];
+
+  entries.forEach(({ value, pointer }) => {
+    const resolved = resolveRouteWithAliases(repoRoot, docsJson, value);
+    if (!resolved) return;
+
+    routeChecks.push({
+      kind: 'navigation',
+      pointer,
+      route: String(value),
+      resolved
+    });
+  });
+
+  const redirects = Array.isArray(docsJson?.redirects) ? docsJson.redirects : [];
+  redirects.forEach((redirect, index) => {
+    if (!redirect || typeof redirect !== 'object') return;
+    const source = String(redirect.source || '').trim();
+    const destination = String(redirect.destination || '').trim();
+    const resolved = resolveRouteToFile(repoRoot, destination);
+    if (!resolved) return;
+
+    routeChecks.push({
+      kind: 'redirect',
+      pointer: `redirects[${index}]`,
+      route: source,
+      destination,
+      resolved
+    });
+  });
+
+  const ignoredResolvedPaths = listMintIgnoredRepoPaths(
+    routeChecks.map((entry) => entry.resolved),
+    { rootDir: repoRoot }
+  );
+
+  return routeChecks.filter((entry) => ignoredResolvedPaths.has(entry.resolved));
 }
 
 function countSharedPrefix(aSegments, bSegments) {
@@ -885,6 +926,19 @@ function runTests(options = {}) {
   });
 
   const missingWithSuggestions = missingRoutes.filter((item) => item.suggestions.length > 0).length;
+  const ignoredResolvedRoutes = collectIgnoredResolvedDocsPaths(repoRoot, docsJson, entries);
+  ignoredResolvedRoutes.forEach((issue) => {
+    const routeLabel = issue.kind === 'redirect'
+      ? `"${issue.route}" -> "${issue.destination}"`
+      : `"${issue.route}"`;
+    errors.push({
+      file: '.mintignore',
+      rule: 'Routed page ignored',
+      message: `${issue.kind} route ${routeLabel} resolves to "${issue.resolved}", but that file is excluded by .mintignore`,
+      pointer: issue.pointer
+    });
+  });
+
   const reportData = buildReportData({
     generatedAt: new Date().toISOString(),
     totalEntries: entries.length,
