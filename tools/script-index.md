@@ -115,6 +115,7 @@
 | `tools/scripts/test-v2-pages.js` | V2 page tester — validates v2 pages via Puppeteer browser rendering | `node tools/scripts/test-v2-pages.js [flags]` | docs |
 | `tools/scripts/test-youtube-pages.js` | YouTube page tester — validates YouTube embed pages render correctly | `node tools/scripts/test-youtube-pages.js [flags]` | docs |
 | `tools/scripts/validate-codex-task-contract.js` | Codex task contract enforcer — validates branch naming, task files, PR body, and issue state for codex branches | `node tools/scripts/validate-codex-task-contract.js [flags]` | docs |
+| `tools/scripts/validators/content/check-proper-nouns.js` | Detects and fixes incorrect proper noun capitalisation in prose while skipping code, frontmatter, URLs, and path-like tokens. | `node tools/scripts/validators/content/check-proper-nouns.js [--file <path[,path...]>] [--fix]` | docs |
 | `tools/scripts/verify-all-pages.js` | Page verifier — checks all pages in docs.json resolve to valid files | `node tools/scripts/verify-all-pages.js [flags]` | docs |
 | `tools/scripts/verify-pages.js` | Page verifier — checks a subset of pages resolve to valid files | `node tools/scripts/verify-pages.js [flags]` | docs |
 | `tools/scripts/verify-pay-orc-gate-finalize.sh` | Payment/orchestrator gate verifier — checks payment and orchestrator documentation gate conditions | `bash tools/scripts/verify-pay-orc-gate-finalize.sh [flags]` | docs |
