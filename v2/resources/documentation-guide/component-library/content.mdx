@@ -1,8 +1,18 @@
 ---
-title: 'Content Components'
-sidebarTitle: 'Content'
-description: 'Components for displaying code, data, external content, and API documentation: code blocks, external content loaders, API response fields, version displays, and data layouts for blogs, forums, and events'
-keywords: ["livepeer", "components", "content", "code", "api", "data"]
+title: Content Components
+sidebarTitle: Content
+description: >-
+  Components for displaying code, data, external content, and API documentation: code blocks, external content loaders,
+  API response fields, version displays, and data layouts for blogs, forums, and events
+audience: everyone
+purpose: concept
+keywords:
+  - livepeer
+  - components
+  - content
+  - code
+  - api
+  - data
 ---
 
 import { CustomCodeBlock, CodeComponent, ComplexCodeBlock, CodeSection } from '/snippets/components/content/code.jsx'
@@ -167,14 +177,14 @@ import { ExternalContent } from "/snippets/components/content/externalContent.js
   </Tab>
   <Tab title="Code">
 ```jsx
-import WikiReadme from '/snippets/external/wiki-readme.mdx'
-
 <ExternalContent
   repoName="livepeer/wiki"
   githubUrl="https://github.com/livepeer/wiki"
   maxHeight="800px"
 >
-  <WikiReadme />
+  <div>
+    <p>External content rendered inside the component shell.</p>
+  </div>
 </ExternalContent>
 ```
   </Tab>
