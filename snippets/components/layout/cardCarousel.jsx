@@ -1,21 +1,29 @@
 /**
- * CardCarousel
+ * @component CardCarousel
+ * @category layout
+ * @tier pattern
+ * @status stable
+ * @description Renders a simple carousel that paginates through a fixed number of cards
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/display.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * Renders a simple carousel that paginates through a fixed number of cards.
- * Uses theme-aware colors for buttons and indicators.
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {number} [visibleCount=3] - Visible count used by the component.
+ * @param {string} [gap="1.5rem"] - Gap used by the component.
+ * @param {boolean} [showDots=true] - Boolean flag that controls component behaviour.
+ * @param {object} style - Style used by the component.
  *
- * @param {React.ReactNode} children - Card elements to display.
- * @param {number} visibleCount - Number of cards to show per view.
- * @param {string|number} gap - Gap between cards (CSS value).
- * @param {boolean} showDots - Whether to show page indicator dots.
- * @param {object} style - Container style overrides.
  * @example
- * <CardCarousel visibleCount={3}>
- *   <InteractiveCard ... />
- *   <InteractiveCard ... />
- *   <InteractiveCard ... />
- *   <InteractiveCard ... />
- * </CardCarousel>
+ * <CardCarousel style={{}} />
  */
 export const CardCarousel = ({
   children,

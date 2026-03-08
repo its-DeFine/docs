@@ -36,6 +36,32 @@
  *
  * @author Alison Haire
  */
+/**
+ * @component HeroSectionContainer
+ * @category page-structure
+ * @tier pattern
+ * @status stable
+ * @description Wraps the full-width portal hero section and applies the shared frame-mode hero
+ *   container styling.
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx,
+ *   v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx,
+ *   v2/orchestrators/orchestrators-portal.mdx,
+ *   v2/resources/documentation-guide/component-library/overview.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} [minHeight="fit-content"] - Min Height used by the component.
+ *
+ * @example
+ * <HeroSectionContainer>Example</HeroSectionContainer>
+ */
 const HeroSectionContainer = ({ children, minHeight = "fit-content" }) => {
   if (children == null) {
     console.warn("[HeroSectionContainer] Missing children");
@@ -69,6 +95,31 @@ const HeroSectionContainer = ({ children, minHeight = "fit-content" }) => {
  * <Starfield /> is created in components/domain/SHARED/HeroGif.jsx
  *
  * @author Alison Haire
+ */
+/**
+ * @component HeroImageBackgroundComponent
+ * @category page-structure
+ * @tier pattern
+ * @status stable
+ * @description Positions portal hero background content behind the hero header within the
+ *   full-width hero shell.
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx,
+ *   v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx,
+ *   v2/orchestrators/orchestrators-portal.mdx,
+ *   v2/resources/documentation-guide/component-library/overview.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ *
+ * @example
+ * <HeroImageBackgroundComponent>Example</HeroImageBackgroundComponent>
  */
 const HeroImageBackgroundComponent = ({ children }) => {
   if (children == null) {
@@ -107,6 +158,30 @@ const HeroImageBackgroundComponent = ({ children }) => {
  *
  * @author Alison Haire
  */
+/**
+ * @component HeroContentContainer
+ * @category page-structure
+ * @tier pattern
+ * @status stable
+ * @description Centers and constrains portal hero content inside the shared frame-mode container.
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx,
+ *   v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx,
+ *   v2/orchestrators/orchestrators-portal.mdx,
+ *   v2/resources/documentation-guide/component-library/overview.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ *
+ * @example
+ * <HeroContentContainer>Example</HeroContentContainer>
+ */
 const HeroContentContainer = ({ children }) => {
   if (children == null) {
     console.warn("[HeroContentContainer] Missing children");
@@ -129,6 +204,27 @@ const HeroContentContainer = ({ children }) => {
 };
 
 //unused
+/**
+ * @component HeroOverviewContent
+ * @category page-structure
+ * @tier pattern
+ * @status stable
+ * @description Displays centered portal overview content with the shared divider treatment.
+ * @contentAffinity reference
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ *
+ * @example
+ * <HeroOverviewContent>Example</HeroOverviewContent>
+ */
 const HeroOverviewContent = ({ children }) => {
   if (children == null) {
     console.warn("[HeroOverviewContent] Missing children");
@@ -169,6 +265,31 @@ const HeroOverviewContent = ({ children }) => {
  *
  * @author Alison Haire
  */
+/**
+ * @component PortalContentContainer
+ * @category page-structure
+ * @tier pattern
+ * @status stable
+ * @description Wraps portal page body content in the shared frame-mode container and vertical
+ *   stack.
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx,
+ *   v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx,
+ *   v2/orchestrators/orchestrators-portal.mdx,
+ *   v2/resources/documentation-guide/component-library/overview.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ *
+ * @example
+ * <PortalContentContainer>Example</PortalContentContainer>
+ */
 const PortalContentContainer = ({ children }) => {
     if (children == null) {
         console.warn("[PortalContentContainer] Missing children");
@@ -202,6 +323,42 @@ const PortalContentContainer = ({ children }) => {
  * @param {string} descriptionColor: The color of the description text.
  *
  * @author Alison Haire
+ */
+/**
+ * @component PortalHeroContent
+ * @category page-structure
+ * @tier pattern
+ * @status stable
+ * @description Renders portal hero headings, optional subtitle icon, overview, callout, and divider
+ *   content.
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx,
+ *   v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx,
+ *   v2/orchestrators/orchestrators-portal.mdx,
+ *   v2/resources/documentation-guide/component-library/overview.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {boolean} [zIndex=true] - Z Index used by the component.
+ * @param {string} [title="Portal Page"] - Title text rendered by the component.
+ * @param {string} [subtitle="Build - Explore - Create"] - Subtitle text rendered by the component.
+ * @param {string} [subtitleIcon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg"] - Icon configuration used by the component.
+ * @param {React.ReactNode} description - Primary content rendered by the component.
+ * @param {React.ReactNode} refCardLink - Reference card content rendered by the component.
+ * @param {React.ReactNode} overview - Overview content rendered by the component.
+ * @param {boolean} [divider=true] - Divider used by the component.
+ * @param {string} [callout=null] - Callout used by the component.
+ * @param {string} titleColor - Title color used by the component.
+ * @param {string} subtitleColor - Subtitle color used by the component.
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ *
+ * @example
+ * <PortalHeroContent description="Example" refCardLink={<span>Example</span>} overview="Example" />
  */
 const PortalHeroContent = ({
   zIndex = true, //Not working currently
@@ -336,6 +493,31 @@ const PortalHeroContent = ({
   );
 };
 
+/**
+ * @component PortalCardsHeader
+ * @category page-structure
+ * @tier pattern
+ * @status stable
+ * @description Renders the heading block above portal card grids.
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx,
+ *   v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx,
+ *   v2/orchestrators/orchestrators-portal.mdx,
+ *   v2/resources/documentation-guide/component-library/overview.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} title - Title text rendered by the component.
+ *
+ * @example
+ * <PortalCardsHeader title="Example" />
+ */
 const PortalCardsHeader = ({ children, title }) => {
     if (!title && children == null) {
         console.warn("[PortalCardsHeader] Missing required prop: title");
@@ -358,6 +540,30 @@ const PortalCardsHeader = ({ children, title }) => {
   );
 };
 
+/**
+ * @component PortalSectionHeader
+ * @category page-structure
+ * @tier pattern
+ * @status stable
+ * @description Renders a portal section heading with an optional icon and child content.
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/community/community-portal.mdx, v2/lpt/token-portal.mdx,
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} title - Title text rendered by the component.
+ * @param {string} icon - Icon configuration used by the component.
+ *
+ * @example
+ * <PortalSectionHeader title="Example" icon="sparkles" />
+ */
 const PortalSectionHeader = ({ children, title, icon }) => {
     if (!title && children == null) {
         console.warn("[PortalSectionHeader] Missing required prop: title");
@@ -393,6 +599,37 @@ const PortalSectionHeader = ({ children, title, icon }) => {
  * @param {string} objectFit: The object-fit property of the logo image. Defaults to "contain".
  *
  * @author Alison Haire
+ */
+/**
+ * @component LogoHeroContainer
+ * @category page-structure
+ * @tier pattern
+ * @status stable
+ * @description Centers a portal logo image and can render child content as an anchored overlay.
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx,
+ *   v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx,
+ *   v2/orchestrators/orchestrators-portal.mdx,
+ *   v2/resources/documentation-guide/component-library/overview.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {string} [src="/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg"] - Asset source used by the component.
+ * @param {string} [alt="Livepeer Logo"] - Accessible alt text for the logo image.
+ * @param {string} [width="100%"] - Width used by the component.
+ * @param {string} [margin="1rem auto 0 auto"] - Margin used by the component.
+ * @param {string} [imgHeight="20px"] - Img Height used by the component.
+ * @param {string} [imgWidth="auto"] - Img Width used by the component.
+ * @param {string} [objectFit="contain"] - Object Fit used by the component.
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ *
+ * @example
+ * <LogoHeroContainer>Example</LogoHeroContainer>
  */
 const LogoHeroContainer = ({
   src = "/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg",
@@ -440,6 +677,29 @@ const LogoHeroContainer = ({
   );
 };
 
+/**
+ * @component RefCardContainer
+ * @category page-structure
+ * @tier pattern
+ * @status stable
+ * @description Centers vertically stacked reference card content for portal pages.
+ * @contentAffinity reference
+ * @owner @livepeer/docs-team
+ * @dependencies HeroSectionContainer, HeroImageBackgroundComponent, HeroContentContainer,
+ *   HeroOverviewContent, PortalContentContainer, PortalHeroContent, PortalCardsHeader,
+ *   PortalSectionHeader, LogoHeroContainer
+ * @usedIn v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ *
+ * @example
+ * <RefCardContainer>Example</RefCardContainer>
+ */
 const RefCardContainer = ({ children }) => {
   if (children == null) {
     console.warn("[RefCardContainer] Missing children");
@@ -473,3 +733,4 @@ export {
     PortalCardsHeader,
     PortalSectionHeader
 };
+

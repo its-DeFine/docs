@@ -1,14 +1,28 @@
 import { GotoLink } from "/snippets/components/primitives/links.jsx";
 
 /**
- * BasicList - A basic list component (placeholder)
+ * @component BasicList
+ * @category layout
+ * @tier pattern
+ * @status stable
+ * @description Placeholder component for basic list functionality. Currently returns empty fragment
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies IconList
+ * @usedIn v2/home/primer.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/layout.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * @description
- * Placeholder component for basic list functionality. Currently returns empty fragment.
+ * @param {Array} listItems - Collection data rendered by the component.
  *
- * @param {Array} listItems - Array of list items
- *
- * @author Livepeer Documentation Team
+ * @example
+ * <BasicList listItems={[]} />
  */
 export const BasicList = ({ listItems: array }) => {
   return <></>;
@@ -23,6 +37,31 @@ export const BasicList = ({ listItems: array }) => {
  * @param {Array} listItems - Array of list items with icons
  *
  * @author Livepeer Documentation Team
+ */
+/**
+ * @component IconList
+ * @category layout
+ * @tier pattern
+ * @status stable
+ * @description Placeholder component for icon list functionality. Currently returns empty fragment
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies StepLinkList, StepList
+ * @usedIn v2/home/primer.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/layout.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/snippets-inventory.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {Array} listItems - Collection data rendered by the component.
+ *
+ * @example
+ * <IconList listItems={[]} />
  */
 export const IconList = ({ listItems: array }) => {
   return <></>;
@@ -48,6 +87,32 @@ export const IconList = ({ listItems: array }) => {
  * <StepList listItems={steps} />
  *
  * @author Livepeer Documentation Team
+ */
+/**
+ * @component StepList
+ * @category layout
+ * @tier pattern
+ * @status stable
+ * @description Displays an array of items using the Steps/Step components. Each item includes a
+ *   title, optional icon, and content
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies StepLinkList, UpdateList
+ * @usedIn v2/home/primer.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/layout.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/snippets-inventory.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {Array} listItems - Collection data rendered by the component.
+ *
+ * @example
+ * <StepList listItems={[]} />
  */
 export const StepList = ({ listItems }) => {
   const safeItems = Array.isArray(listItems) ? listItems : [];
@@ -87,6 +152,30 @@ export const StepList = ({ listItems }) => {
  *
  * @author Livepeer Documentation Team
  */
+/**
+ * @component StepLinkList
+ * @category layout
+ * @tier pattern
+ * @status stable
+ * @description Similar to StepList but each step contains a GotoLink component for navigation
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies UpdateList
+ * @usedIn v2/home/primer.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/layout.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {Array} listItems - Collection data rendered by the component.
+ *
+ * @example
+ * <StepLinkList listItems={[]} />
+ */
 export const StepLinkList = ({ listItems }) => {
   const safeItems = Array.isArray(listItems) ? listItems : [];
   if (safeItems.length === 0) {
@@ -114,6 +203,30 @@ export const StepLinkList = ({ listItems }) => {
  * @param {Array} listItems - Array of update items
  *
  * @author Livepeer Documentation Team
+ */
+/**
+ * @component UpdateList
+ * @category layout
+ * @tier pattern
+ * @status stable
+ * @description Placeholder component for displaying updates. Currently shows hardcoded content
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies UpdateLinkList
+ * @usedIn v2/home/primer.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/layout.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {Array} listItems - Collection data rendered by the component.
+ *
+ * @example
+ * <UpdateList listItems={[]} />
  */
 export const UpdateList = ({ listItems: array }) => {
   const safeItems = Array.isArray(array) ? array : [];
@@ -162,6 +275,30 @@ export const UpdateList = ({ listItems: array }) => {
  * <UpdateLinkList listItems={updates} />
  *
  * @author Livepeer Documentation Team
+ */
+/**
+ * @component UpdateLinkList
+ * @category layout
+ * @tier pattern
+ * @status stable
+ * @description Displays multiple Update components, each with a title, content, and navigation link
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/home/primer.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/layout.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {Array} listItems - Collection data rendered by the component.
+ *
+ * @example
+ * <UpdateLinkList listItems={[]} />
  */
 export const UpdateLinkList = ({ listItems: array }) => {
   const safeItems = Array.isArray(array) ? array : [];

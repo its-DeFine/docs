@@ -1,5 +1,34 @@
 
 
+/**
+ * @component QuadGrid
+ * @category layout
+ * @tier pattern
+ * @status stable
+ * @description Renders the quad grid component
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/about/livepeer-overview.mdx, v2/home/about-livepeer/ecosystem.mdx
+ *   v2/home/about-livepeer/vision.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/layout.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} [icon="arrows-spin"] - Icon configuration used by the component.
+ * @param {number} [iconSize=50] - Icon configuration used by the component.
+ * @param {string} [iconColor="var(--accent)"] - Icon configuration used by the component.
+ * @param {string} [spinDuration="10s"] - Spin duration used by the component.
+ *
+ * @example
+ * <QuadGrid>Example</QuadGrid>
+ */
 export const QuadGrid = ({ 
   children, 
   icon = "arrows-spin", 

@@ -23,6 +23,7 @@
     "tests/unit/links-imports.test.js",
     "tests/unit/style-guide.test.js",
     "tools/scripts/validators/components/check-naming-conventions.js",
+    "tools/scripts/validators/components/check-component-docs.js",
     "tools/scripts/generate-docs-guide-components-index.js",
     "tools/scripts/snippets/update-component-library.sh",
     "tools/script-index.md",

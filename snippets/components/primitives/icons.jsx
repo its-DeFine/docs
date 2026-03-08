@@ -1,17 +1,28 @@
 /**
- * LivepeerSVG - Inline SVG version of the Livepeer logo
+ * @component LivepeerSVG
+ * @category primitives
+ * @tier primitive
+ * @status stable
+ * @description Renders the Livepeer logo as an inline SVG element. Uses em units for responsive
+ *   sizing
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies LivepeerIconFlipped, LivepeerIconOld
+ * @usedIn v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ *   v2/resources/documentation-guide/snippets-inventory.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * @description
- * Renders the Livepeer logo as an inline SVG element.
- * Uses em units for responsive sizing.
- *
- * @param {number} [size=24] - Size of the icon (currently unused, uses 1em)
- * @param {Object} props - Additional SVG props
+ * @param {number} [size=24] - Size used by the component.
+ * @param {string} [fill="var(--lp-color-white)"] - Fill used by the component.
  *
  * @example
- * <LivepeerSVG size={32} />
- *
- * @author Livepeer Documentation Team
+ * <LivepeerSVG />
  */
 export const LivepeerSVG = ({
   size = 24,
@@ -50,6 +61,28 @@ export const LivepeerSVG = ({
  *
  * @author Livepeer Documentation Team
  */
+/**
+ * @component LivepeerIconOld
+ * @category primitives
+ * @tier primitive
+ * @status stable
+ * @description Displays the Livepeer logo using the light symbol SVG file. This is the older
+ *   version of the icon component
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies LivepeerIcon, LivepeerIconFlipped
+ * @usedIn v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @example
+ * <LivepeerIconOld />
+ */
 export const LivepeerIconOld = ({ ...props }) => {
   const iconProps = props && typeof props === "object" ? props : {};
 
@@ -74,6 +107,28 @@ export const LivepeerIconOld = ({ ...props }) => {
  * <LivepeerIconFlipped size={20} />
  *
  * @author Livepeer Documentation Team
+ */
+/**
+ * @component LivepeerIconFlipped
+ * @category primitives
+ * @tier primitive
+ * @status stable
+ * @description Displays the Livepeer logo flipped horizontally using CSS transform. Useful for
+ *   decorative purposes or directional indicators
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies LivepeerIcon
+ * @usedIn v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @example
+ * <LivepeerIconFlipped />
  */
 export const LivepeerIconFlipped = ({ ...props }) => {
   const iconProps = props && typeof props === "object" ? props : {};
@@ -104,6 +159,32 @@ export const LivepeerIconFlipped = ({ ...props }) => {
  * <LivepeerIcon size={20} color="#ff0000" />
  *
  * @author Livepeer Documentation Team
+ */
+/**
+ * @component LivepeerIcon
+ * @category primitives
+ * @tier primitive
+ * @status stable
+ * @description Displays the Livepeer logo with automatic color adaptation for light/dark themes.
+ *   Uses CSS custom properties for theme-aware coloring
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/home/mission-control.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {number} [size=16] - Size used by the component.
+ * @param {string} color - Color used by the component.
+ *
+ * @example
+ * <LivepeerIcon color="value" />
  */
 export const LivepeerIcon = ({ size = 16, color, ...props }) => {
   const resolvedColor =

@@ -1,38 +1,47 @@
 
 /**
- * CustomCodeBlock - Advanced code block with placeholder replacement and optional output
+ * @component CustomCodeBlock
+ * @category content
+ * @tier composite
+ * @status stable
+ * @description Displays a code block with support for placeholder replacement, pre/post notes, and
+ *   expandable expected output section
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies CodeComponent, ComplexCodeBlock
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx
+ *   v2/gateways/run-a-gateway/install/linux-install.mdx
+ *   v2/gateways/run-a-gateway/install/windows-install.mdx
+ *   v2/orchestrators/orchestrators-portal.mdx, v2/orchestrators/quickstart/orchestrator-setup.mdx
+ *   v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx
+ *   v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx
+ *   v2/orchestrators/setting-up-an-orchestrator/orch-config.mdx
+ *   v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx
+ *   v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/snippets-inventory.mdx
+ * @breakingChangeRisk medium
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * @description
- * Displays a code block with support for placeholder replacement, pre/post notes,
- * and expandable expected output section.
- *
- * @param {string} filename - Name of the file to display in the code block header
- * @param {string} icon - Icon to display in the code block header
- * @param {string} language - Programming language for syntax highlighting
- * @param {string} highlight - Line numbers or ranges to highlight (e.g., "1-3,5")
- * @param {string} [codeString=""] - The code content to display
- * @param {string} [placeholderValue=""] - Value to replace {PLACEHOLDER} with in the code
- * @param {boolean} [wrap=true] - Whether to wrap long lines
- * @param {boolean} [lines=true] - Whether to show line numbers
- * @param {string} [preNote=""] - Note to display before the code block
- * @param {string} [postNote=""] - Note to display after the code block
- * @param {Object} [output=""] - Optional output configuration object
- * @param {string} [output.codeString] - Output code content
- * @param {string} [output.filename] - Output filename
- * @param {string} [output.icon] - Output icon
- * @param {string} [output.language] - Output language
+ * @param {string} filename - Filename used by the component.
+ * @param {string} icon - Icon configuration used by the component.
+ * @param {string} language - Language used by the component.
+ * @param {string} highlight - Highlight used by the component.
+ * @param {string} [codeString=""] - Code string used by the component.
+ * @param {string} [placeholderValue=""] - Placeholder value used by the component.
+ * @param {boolean} [wrap=true] - Boolean flag that controls component behaviour.
+ * @param {boolean} [lines=true] - Boolean flag that controls component behaviour.
+ * @param {string} [preNote=""] - Pre note used by the component.
+ * @param {string} [postNote=""] - Post note used by the component.
+ * @param {string} [output=""] - Output used by the component.
  *
  * @example
- * <CustomCodeBlock
- *   filename="config.js"
- *   language="javascript"
- *   codeString="const API_KEY = '{PLACEHOLDER}';"
- *   placeholderValue="your-api-key-here"
- *   preNote="Add this to your configuration file"
- *   output={{ codeString: "Config loaded successfully", language: "bash" }}
- * />
- *
- * @author Livepeer Documentation Team
+ * <CustomCodeBlock filename="value" icon="sparkles" language="value" />
  */
 export const CustomCodeBlock = ({
   filename,
@@ -125,6 +134,39 @@ export const CustomCodeBlock = ({
  *   - codeString: string with {PLACEHOLDER} to replace
  *   - placeholderValue: string value to insert in place of {PLACEHOLDER}
  */
+/**
+ * @component CodeComponent
+ * @category content
+ * @tier composite
+ * @status stable
+ * @description CodeComponent - Simple code display with {PLACEHOLDER} replacement
+ * @contentAffinity how_to
+ * @owner @livepeer/docs-team
+ * @dependencies CodeSection, ComplexCodeBlock
+ * @usedIn v2/gateways/run-a-gateway/install/linux-install.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/snippets-inventory.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {string} [filename=""] - Filename used by the component.
+ * @param {string} [icon="terminal"] - Icon configuration used by the component.
+ * @param {string} [language=""] - Language used by the component.
+ * @param {string} [highlight=""] - Highlight used by the component.
+ * @param {boolean} [expandable=false] - Boolean flag that controls component behaviour.
+ * @param {boolean} [wrap=true] - Boolean flag that controls component behaviour.
+ * @param {boolean} [lines=true] - Boolean flag that controls component behaviour.
+ * @param {string} [codeString=""] - Code string used by the component.
+ * @param {string} [placeholderValue=""] - Placeholder value used by the component.
+ *
+ * @example
+ * <CodeComponent />
+ */
 export const CodeComponent = ({
   filename = "",
   icon = "terminal",
@@ -180,6 +222,40 @@ export const CodeComponent = ({
  * />
  *
  * @author Livepeer Documentation Team
+ */
+/**
+ * @component ComplexCodeBlock
+ * @category content
+ * @tier composite
+ * @status stable
+ * @description Similar to CustomCodeBlock but without the output section. Supports placeholder
+ *   replacement and optional notes before/after the code
+ * @contentAffinity how_to
+ * @owner @livepeer/docs-team
+ * @dependencies CodeSection
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {string} filename - Filename used by the component.
+ * @param {string} icon - Icon configuration used by the component.
+ * @param {string} language - Language used by the component.
+ * @param {string} highlight - Highlight used by the component.
+ * @param {string} [codeString=""] - Code string used by the component.
+ * @param {string} [placeholderValue=""] - Placeholder value used by the component.
+ * @param {boolean} [wrap=true] - Boolean flag that controls component behaviour.
+ * @param {boolean} [lines=true] - Boolean flag that controls component behaviour.
+ * @param {string} [preNote=null] - Pre note used by the component.
+ * @param {string} [postNote=null] - Post note used by the component.
+ *
+ * @example
+ * <ComplexCodeBlock filename="value" icon="sparkles" language="value" />
  */
 export const ComplexCodeBlock = ({
   filename,
@@ -257,6 +333,31 @@ export const ComplexCodeBlock = ({
  * <CodeSection fields={codeConfig} />
  *
  * @author Livepeer Documentation Team
+ */
+/**
+ * @component CodeSection
+ * @category content
+ * @tier pattern
+ * @status stable
+ * @description Convenience wrapper that accepts a fields object and spreads it to ComplexCodeBlock.
+ *   Useful for passing configuration objects
+ * @contentAffinity how_to
+ * @owner @livepeer/docs-team
+ * @dependencies ComplexCodeBlock
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {object} [fields={}] - Fields used by the component.
+ *
+ * @example
+ * <CodeSection />
  */
 export const CodeSection = ({ fields = {} }) => {
   return <ComplexCodeBlock {...fields} />;

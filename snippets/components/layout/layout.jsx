@@ -1,25 +1,36 @@
 /**
- * FlexContainer - Flexible container component for MDX files
+ * @component FlexContainer
+ * @category layout
+ * @tier composite
+ * @status stable
+ * @description Provides flexbox layout without requiring inline styles in MDX files. All styling
+ *   uses CSS Custom Properties for theme awareness
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies GridContainer
+ * @usedIn v2/community/livepeer-community/community-guidelines.mdx
+ *   v2/developers/ai-inference-on-livepeer/overview.mdx
+ *   v2/developers/ai-inference-on-livepeer/workload-fit.mdx
+ *   v2/developers/ai-pipelines/workload-fit.mdx, v2/gateways/quickstart/gateway-setup.mdx
+ *   v2/gateways/run-a-gateway/run-a-gateway.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * @description
- * Provides flexbox layout without requiring inline styles in MDX files.
- * All styling uses CSS Custom Properties for theme awareness.
- *
- * @param {React.ReactNode} children - Content to display
- * @param {string} [direction="row"] - Flex direction: "row" | "column" | "row-reverse" | "column-reverse"
- * @param {string} [gap="1rem"] - Gap between items (CSS value)
- * @param {string} [align="flex-start"] - Align items: "flex-start" | "center" | "flex-end" | "stretch"
- * @param {string} [justify="flex-start"] - Justify content: "flex-start" | "center" | "flex-end" | "space-between" | "space-around" | "space-evenly"
- * @param {boolean} [wrap=false] - Allow wrapping
- * @param {object} [style={}] - Additional inline styles
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} [direction="row"] - Direction used by the component.
+ * @param {string} [gap="1rem"] - Gap used by the component.
+ * @param {string} [align="flex-start"] - Align used by the component.
+ * @param {string} [justify="flex-start"] - Justify used by the component.
+ * @param {boolean} [wrap=false] - Boolean flag that controls component behaviour.
+ * @param {object} [style={}] - Style used by the component.
  *
  * @example
- * <FlexContainer gap="2rem" align="center">
- *   <Card>Item 1</Card>
- *   <Card>Item 2</Card>
- * </FlexContainer>
- *
- * @author Livepeer Documentation Team
+ * <FlexContainer>Example</FlexContainer>
  */
 export const FlexContainer = ({
   children,
@@ -72,6 +83,32 @@ export const FlexContainer = ({
  * </GridContainer>
  *
  * @author Livepeer Documentation Team
+ */
+/**
+ * @component GridContainer
+ * @category layout
+ * @tier composite
+ * @status stable
+ * @description Provides grid layout without requiring inline styles in MDX files. All styling uses
+ *   CSS Custom Properties for theme awareness
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {Array} columns - Collection data rendered by the component.
+ * @param {string} [gap="1rem"] - Gap used by the component.
+ * @param {object} [style={}] - Style used by the component.
+ *
+ * @example
+ * <GridContainer columns={[]} />
  */
 export const GridContainer = ({
   children,

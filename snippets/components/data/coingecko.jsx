@@ -1,9 +1,29 @@
 
 /**
- * CoinGeckoExchanges - Dynamically fetches and displays exchanges that support a coin from CoinGecko
+ * @component CoinGeckoExchanges
+ * @category data
+ * @tier pattern
+ * @status stable
+ * @description CoinGeckoExchanges - Dynamically fetches and displays exchanges that support a coin
+ *   from CoinGecko
+ * @contentAffinity reference
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/gateways/references/arbitrum-exchanges.mdx
+ *   v2/gateways/references/livepeer-exchanges.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/integrations.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource CoinGecko API (live)
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * Props:
- *   - coinId: The CoinGecko coin ID (e.g., "arbitrum", "ethereum", "bitcoin")
+ * @param {string} [coinId="arbitrum"] - Coin id used by the component.
+ *
+ * @example
+ * <CoinGeckoExchanges />
  */
 export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
   const [exchanges, setExchanges] = useState([]);

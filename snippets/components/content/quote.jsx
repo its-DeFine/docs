@@ -1,3 +1,32 @@
+/**
+ * @component Quote
+ * @category content
+ * @tier composite
+ * @status stable
+ * @description Renders the quote component
+ * @contentAffinity concept
+ * @owner @livepeer/docs-team
+ * @dependencies FrameQuote
+ * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx
+ *   v2/about/livepeer-protocol/governance-model.mdx, v2/about/livepeer-protocol/livepeer-token.mdx
+ *   v2/about/livepeer-protocol/overview.mdx, v2/about/livepeer-protocol/technical-architecture.mdx
+ *   v2/about/livepeer-protocol/treasury.mdx, v2/home/about-livepeer/vision.mdx
+ *   v2/internal/rfp/aims.mdx, v2/internal/rfp/report.mdx
+ *   v2/orchestrators/quickstart/join-a-pool.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/display.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk medium
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ *
+ * @example
+ * <Quote>Example</Quote>
+ */
 export const Quote = ({ children }) => {
   if (children == null) {
     console.warn("[Quote] Missing children");
@@ -18,6 +47,41 @@ export const Quote = ({ children }) => {
   return <div style={quoteStyle}>{children}</div>
 }
 
+/**
+ * @component FrameQuote
+ * @category content
+ * @tier composite
+ * @status stable
+ * @description Renders the frame quote component
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx, v2/about/livepeer-protocol/overview.mdx
+ *   v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/ecosystem.mdx
+ *   v2/home/about-livepeer/vision.mdx, v2/internal/overview/docs-philosophy.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/display.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/style-guide.mdx
+ * @breakingChangeRisk medium
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} author - Author used by the component.
+ * @param {string} source - Source used by the component.
+ * @param {string} href - Destination URL used by the component.
+ * @param {boolean} [frame=true] - Boolean flag that controls component behaviour.
+ * @param {string} [align='right'] - Align used by the component.
+ * @param {string} borderColor - Border color used by the component.
+ * @param {string} img - Asset or embed source used by the component.
+ * @param {boolean} [spacing=true] - Boolean flag that controls component behaviour.
+ *
+ * @example
+ * <FrameQuote author="value" source="value" href="/example" />
+ */
 export const FrameQuote = ({
   children,
   author,

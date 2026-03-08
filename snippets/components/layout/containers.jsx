@@ -1,22 +1,48 @@
 /**
- * BorderedBox - Theme-aware bordered container component
+ * @component BorderedBox
+ * @category layout
+ * @tier composite
+ * @status stable
+ * @description Provides a bordered box container without requiring inline styles in MDX files. All
+ *   styling uses CSS Custom Properties for theme awareness
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies CenteredContainer, FullWidthContainer
+ * @usedIn v2/community/livepeer-community/community-guidelines.mdx
+ *   v2/developers/ai-inference-on-livepeer/overview.mdx
+ *   v2/developers/ai-inference-on-livepeer/workload-fit.mdx, v2/developers/ai-pipelines/byoc.mdx
+ *   v2/developers/ai-pipelines/overview.mdx, v2/developers/ai-pipelines/workload-fit.mdx
+ *   v2/developers/builder-opportunities/bug-bounties.mdx
+ *   v2/developers/builder-opportunities/grants-and-programmes.mdx
+ *   v2/developers/builder-opportunities/oss-contributions.mdx
+ *   v2/developers/builder-opportunities/overview.mdx
+ *   v2/developers/builder-opportunities/rfps-and-proposals.mdx, v2/developers/developer-path.mdx
+ *   v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx
+ *   v2/developers/quickstart/video/video-streaming-101.mdx
+ *   v2/gateways/run-a-gateway/gateway-operator-opportunities.mdx
+ *   v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx
+ *   v2/gateways/run-a-gateway/requirements/setup.mdx
+ *   v2/gateways/using-gateways/choosing-a-gateway.mdx
+ *   v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx
+ *   v2/gateways/using-gateways/gateway-providers/daydream-gateway.mdx
+ *   v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx
+ *   v2/lpt/delegation/getting-started.mdx, v2/orchestrators/advanced-setup/hosting-models.mdx
+ *   v2/orchestrators/earnings.mdx, v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk medium
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * @description
- * Provides a bordered box container without requiring inline styles in MDX files.
- * All styling uses CSS Custom Properties for theme awareness.
- *
- * @param {React.ReactNode} children - Content to display
- * @param {string} [variant="default"] - Border variant: "default" | "accent" | "muted"
- * @param {string} [padding="1rem"] - Internal padding (CSS value)
- * @param {string} [borderRadius="8px"] - Border radius (CSS value)
- * @param {object} [style={}] - Additional inline styles
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} [variant="default"] - Variant used by the component.
+ * @param {string} [padding="1rem"] - Padding used by the component.
+ * @param {string} [borderRadius="8px"] - Border radius used by the component.
+ * @param {object} [style={}] - Style used by the component.
  *
  * @example
- * <BorderedBox variant="accent" padding="1.5rem">
- *   Important content here
- * </BorderedBox>
- *
- * @author Livepeer Documentation Team
+ * <BorderedBox>Example</BorderedBox>
  */
 export const BorderedBox = ({
   children,
@@ -77,6 +103,31 @@ export const BorderedBox = ({
  *
  * @author Livepeer Documentation Team
  */
+/**
+ * @component CenteredContainer
+ * @category layout
+ * @tier composite
+ * @status stable
+ * @description Provides a centered container without requiring inline styles in MDX files
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies FullWidthContainer, TabsContainer
+ * @usedIn v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} [maxWidth="800px"] - Max width used by the component.
+ * @param {string} [padding="0"] - Padding used by the component.
+ * @param {object} [style={}] - Style used by the component.
+ *
+ * @example
+ * <CenteredContainer>Example</CenteredContainer>
+ */
 export const CenteredContainer = ({
   children,
   maxWidth = "800px",
@@ -114,6 +165,31 @@ export const CenteredContainer = ({
  * </FullWidthContainer>
  *
  * @author Livepeer Documentation Team
+ */
+/**
+ * @component FullWidthContainer
+ * @category layout
+ * @tier composite
+ * @status stable
+ * @description Provides a full-width container that breaks out of parent padding. Useful for hero
+ *   sections, full-width images, etc
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies CardContentContainer, TabsContainer
+ * @usedIn v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} backgroundColor - Background color used by the component.
+ * @param {object} [style={}] - Style used by the component.
+ *
+ * @example
+ * <FullWidthContainer backgroundColor="value" />
  */
 export const FullWidthContainer = ({
   children,
@@ -159,6 +235,28 @@ export const FullWidthContainer = ({
  *
  * @author Livepeer Documentation Team
  */
+/**
+ * @component TabsContainer
+ * @category layout
+ * @tier composite
+ * @status stable
+ * @description Provides a consistent bordered container around a Tabs block so tab groups can be
+ *   embedded inside callouts and docs sections without repeating inline styles
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies CalloutContainer, CardContentContainer
+ * @usedIn none
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ *
+ * @example
+ * <TabsContainer>Example</TabsContainer>
+ */
 export const TabsContainer = ({ children }) =>
   children == null ? null : (
     <div
@@ -190,6 +288,31 @@ export const TabsContainer = ({ children }) =>
  * </CardContentContainer>
  *
  * @author Livepeer Documentation Team
+ */
+/**
+ * @component CardContentContainer
+ * @category layout
+ * @tier composite
+ * @status stable
+ * @description Stacks child content vertically with configurable spacing and optional alignment
+ *   controls for card layouts
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies CalloutContainer
+ * @usedIn none
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} align - Align used by the component.
+ * @param {string} justify - Justify used by the component.
+ * @param {string} [gap="1rem"] - Gap used by the component.
+ *
+ * @example
+ * <CardContentContainer align="value" justify="value" />
  */
 export const CardContentContainer = ({
   children,
@@ -228,6 +351,30 @@ export const CardContentContainer = ({
  * </CalloutContainer>
  *
  * @author Livepeer Documentation Team
+ */
+/**
+ * @component CalloutContainer
+ * @category layout
+ * @tier composite
+ * @status stable
+ * @description Wraps one or more callouts in a vertical flex container with configurable width and
+ *   alignment for media-kit and resource pages
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn none
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} [width="fit-content"] - Width used by the component.
+ * @param {string} [align="center"] - Align used by the component.
+ *
+ * @example
+ * <CalloutContainer>Example</CalloutContainer>
  */
 export const CalloutContainer = ({
   children,

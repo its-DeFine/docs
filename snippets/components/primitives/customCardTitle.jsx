@@ -1,3 +1,28 @@
+/**
+ * @component CustomCardTitle
+ * @category primitives
+ * @tier primitive
+ * @status stable
+ * @description Renders the custom card title component
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/home/about-livepeer/benefits.mdx, v2/home/primer.mdx
+ *   v2/internal/overview/docs-philosophy.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {string} icon - Icon configuration used by the component.
+ * @param {React.ReactNode} title - Title text rendered by the component.
+ * @param {object} style - Style used by the component.
+ *
+ * @example
+ * <CustomCardTitle icon="sparkles" title="Example" style={{}} />
+ */
 export const CustomCardTitle = ({ icon, title, style }) => {
   const titleStyle = {
     display: 'flex',

@@ -1,11 +1,43 @@
 /**
- * DynamicTable - A reusable table component with site-consistent styling
+ * @component DynamicTable
+ * @category layout
+ * @tier pattern
+ * @status stable
+ * @description DynamicTable - A reusable table component with site-consistent styling
+ * @contentAffinity concept
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/about/livepeer-network/interfaces.mdx, v2/about/livepeer-network/job-lifecycle.mdx
+ *   v2/about/livepeer-network/marketplace.mdx, v2/about/livepeer-network/technical-architecture.mdx
+ *   v2/about/livepeer-protocol/core-mechanisms.mdx, v2/about/livepeer-protocol/livepeer-token.mdx
+ *   v2/about/livepeer-protocol/overview.mdx, v2/about/livepeer-protocol/technical-architecture.mdx
+ *   v2/about/livepeer-protocol/treasury.mdx, v2/developers/ai-inference-on-livepeer/overview.mdx
+ *   v2/developers/ai-inference-on-livepeer/workload-fit.mdx, v2/developers/ai-pipelines/byoc.mdx
+ *   v2/developers/ai-pipelines/comfystream.mdx, v2/developers/ai-pipelines/model-support.mdx
+ *   v2/developers/ai-pipelines/workload-fit.mdx
+ *   v2/gateways/guides-and-resources/gateway-job-pipelines/overview.mdx
+ *   v2/gateways/run-a-gateway/configure/pricing-configuration.mdx
+ *   v2/gateways/run-a-gateway/configure/video-configuration-view.mdx
+ *   v2/gateways/run-a-gateway/configure/video-configuration.mdx
+ *   v2/orchestrators/advanced-setup/hosting-models.mdx, v2/orchestrators/quickstart/join-a-pool.mdx
+ *   v2/orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/layout.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk medium
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * Props:
- *   - headerList: Array of strings for column headers
- *   - itemsList: Array of objects where keys match headerList values
- *   - monospaceColumns: Optional array of column indices (0-based) to render in monospace
- *   - margin: Optional CSS margin override (e.g. "0", "1rem 0")
+ * @param {React.ReactNode} [tableTitle=null] - Table title used by the component.
+ * @param {Array} [headerList=[]] - Collection data rendered by the component.
+ * @param {Array} [itemsList=[]] - Collection data rendered by the component.
+ * @param {Array} [monospaceColumns=[]] - Collection data rendered by the component.
+ * @param {string} margin - Margin used by the component.
+ *
+ * @example
+ * <DynamicTable margin="value" />
  */
 export const DynamicTable = ({
   tableTitle = null,

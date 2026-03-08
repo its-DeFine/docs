@@ -1,18 +1,26 @@
 /**
- * Spacer - Vertical or horizontal spacing component
+ * @component Spacer
+ * @category primitives
+ * @tier primitive
+ * @status stable
+ * @description Provides consistent spacing without requiring inline styles or empty divs in MDX
+ *   files
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * @description
- * Provides consistent spacing without requiring inline styles or empty divs in MDX files.
- *
- * @param {string} [size="1rem"] - Spacing size (CSS value)
- * @param {string} [direction="vertical"] - Spacing direction: "vertical" | "horizontal"
+ * @param {string} [size="1rem"] - Size used by the component.
+ * @param {string} [direction="vertical"] - Direction used by the component.
  *
  * @example
- * <Card>Content 1</Card>
- * <Spacer size="2rem" />
- * <Card>Content 2</Card>
- *
- * @author Livepeer Documentation Team
+ * <Spacer />
  */
 export const Spacer = ({ size = "1rem", direction = "vertical" }) => {
   return (

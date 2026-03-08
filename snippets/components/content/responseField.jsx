@@ -1,15 +1,33 @@
 /**
- * CustomResponseField - ResponseField wrapper that hides the bottom divider
+ * @component ValueResponseField
+ * @category content
+ * @tier composite
+ * @status stable
+ * @description CustomResponseField - ResponseField wrapper that hides the bottom divider
+ * @contentAffinity concept
+ * @owner @livepeer/docs-team
+ * @dependencies CustomResponseField, ResponseFieldAccordion, ResponseFieldExpandable,
+ *   ResponseFieldGroup
+ * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx, v2/gateways/quickstart/gateway-setup.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/snippets-inventory.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * Usage:
- *   <CustomResponseField name="field_name" type="string">
- *     Description text
- *   </CustomResponseField>
+ * @param {React.ReactNode} description - Primary content rendered by the component.
+ * @param {string} [post=null] - Post used by the component.
+ * @param {string} [label="value"] - Label text rendered by the component.
+ * @param {boolean} [line=true] - Boolean flag that controls component behaviour.
+ * @param {React.ReactNode} children - Content rendered inside the component.
  *
- * Props:
- *   - All ResponseField props are supported (name, type, default, required, post, etc.)
+ * @example
+ * <ValueResponseField description="Example" />
  */
-
 const ValueResponseField = ({
   description,
   post = null,
@@ -62,6 +80,32 @@ const expandableCode = () => {
   );
 };
 
+/**
+ * @component CustomResponseField
+ * @category content
+ * @tier composite
+ * @status stable
+ * @description Renders the custom response field component
+ * @contentAffinity how_to
+ * @owner @livepeer/docs-team
+ * @dependencies ResponseFieldAccordion, ResponseFieldExpandable, ResponseFieldGroup,
+ *   ValueResponseField
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx
+ *   v2/gateways/run-a-gateway/configure/video-configuration.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} description - Primary content rendered by the component.
+ *
+ * @example
+ * <CustomResponseField description="Example" />
+ */
 const CustomResponseField = ({ description, ...props }) => {
   const uniqueId = `custom-rf-${Math.random().toString(36).substring(2, 11)}`;
 
@@ -78,6 +122,30 @@ const CustomResponseField = ({ description, ...props }) => {
   );
 };
 
+/**
+ * @component ResponseFieldExpandable
+ * @category content
+ * @tier composite
+ * @status stable
+ * @description Renders the response field expandable component
+ * @contentAffinity how_to
+ * @owner @livepeer/docs-team
+ * @dependencies CustomResponseField, ResponseFieldAccordion, ResponseFieldGroup, ValueResponseField
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {object} [fields={}] - Fields used by the component.
+ *
+ * @example
+ * <ResponseFieldExpandable />
+ */
 const ResponseFieldExpandable = ({ fields = {}, ...props }) => {
   const fieldsArray = Array.isArray(fields) ? fields : Object.values(fields);
   if (fieldsArray.length === 0) {
@@ -93,6 +161,30 @@ const ResponseFieldExpandable = ({ fields = {}, ...props }) => {
   );
 };
 
+/**
+ * @component ResponseFieldAccordion
+ * @category content
+ * @tier composite
+ * @status stable
+ * @description Renders the response field accordion component
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies CustomResponseField, ResponseFieldExpandable, ResponseFieldGroup,
+ *   ValueResponseField
+ * @usedIn v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {object} [fields={}] - Fields used by the component.
+ *
+ * @example
+ * <ResponseFieldAccordion />
+ */
 const ResponseFieldAccordion = ({ fields = {}, ...props }) => {
   const fieldsArray = Array.isArray(fields) ? fields : Object.values(fields);
   if (fieldsArray.length === 0) {
@@ -110,6 +202,31 @@ const ResponseFieldAccordion = ({ fields = {}, ...props }) => {
 };
 
 // Wrapper that chooses accordion or expandable layout at runtime.
+/**
+ * @component ResponseFieldGroup
+ * @category content
+ * @tier composite
+ * @status stable
+ * @description Renders the response field group component
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies CustomResponseField, ResponseFieldAccordion, ResponseFieldExpandable,
+ *   ValueResponseField
+ * @usedIn v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {string} [component="accordion"] - Component used by the component.
+ * @param {object} [fields={}] - Fields used by the component.
+ *
+ * @example
+ * <ResponseFieldGroup />
+ */
 const ResponseFieldGroup = ({
   component = "accordion",
   fields = {},

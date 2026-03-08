@@ -1,58 +1,40 @@
 /**
- * ──────────────────────────────────────────────────────────────
- * MERMAID STYLE GUIDE
- * ──────────────────────────────────────────────────────────────
+ * @component ScrollableDiagram
+ * @category content
+ * @tier composite
+ * @status stable
+ * @description ──────────────────────────────────────────────────────────────
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/about/livepeer-protocol/livepeer-token.mdx
+ *   v2/about/livepeer-protocol/technical-architecture.mdx, v2/gateways/about/architecture.mdx
+ *   v2/gateways/references/technical-architecture.mdx
+ *   v2/gateways/run-a-gateway/configure/dual-configuration.mdx
+ *   v2/gateways/run-a-gateway/configure/video-configuration-view.mdx
+ *   v2/gateways/run-a-gateway/configure/video-configuration.mdx
+ *   v2/gateways/run-a-gateway/connect/connect-with-offerings.mdx
+ *   v2/gateways/run-a-gateway/connect/lp-marketplace.mdx
+ *   v2/gateways/run-a-gateway/monitor/monitor-and-optimise.mdx
+ *   v2/gateways/run-a-gateway/publish/connect-with-offerings.mdx
+ *   v2/gateways/run-a-gateway/run-a-gateway.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/display.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk medium
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * Paste the following init line as the FIRST line inside every
- * ```mermaid block to keep diagrams consistent across the repo:
- *
- * %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui', 'clusterBkg': 'rgba(255,255,255,0.05)', 'clusterBorder': '#2d9a67' }}}%%
- *
- * For thicker node borders, add after the flowchart/graph line:
- *     classDef default stroke-width:2px
- *
- * Rules:
- * - No parentheses in node labels — breaks the mermaid parser.
- *     Bad:  A["Smart Contracts (L2)"]
- *     Good: A["Smart Contracts - L2"]
- * - No leading indentation on mermaid lines inside JSX components.
- * - Blank line required between <ScrollableDiagram> tag and ```mermaid fence.
- *
- * Full usage example:
- *
- * <ScrollableDiagram title="My Diagram" maxHeight="600px">
- *
- * ```mermaid
- * %%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui', 'clusterBkg': 'rgba(255,255,255,0.05)', 'clusterBorder': '#2d9a67' }}}%%
- * flowchart TD
- *     classDef default stroke-width:2px
- *     A[Node A] --> B[Node B]
- * ```
- *
- * </ScrollableDiagram>
- *
- * ──────────────────────────────────────────────────────────────
- */
-
-/**
- * ScrollableDiagram - Interactive diagram viewer with zoom and pan controls
- *
- * @description
- * Displays diagrams or large content with zoom controls (25%-200%) and scrollable pan.
- * Includes zoom in/out buttons, reset button, and displays current zoom level.
- *
- * @param {React.ReactNode} children - Diagram or content to display
- * @param {string} [title=""] - Optional title to display above the diagram
- * @param {string} [maxHeight="500px"] - Maximum height of the scrollable container
- * @param {string} [minWidth="100%"] - Minimum width of the content area
- * @param {boolean} [showControls=false] - Whether to show zoom controls
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} [title=""] - Title text rendered by the component.
+ * @param {string} [maxHeight="500px"] - Max height used by the component.
+ * @param {string} [minWidth="100%"] - Min width used by the component.
+ * @param {boolean} [showControls=false] - Boolean flag that controls component behaviour.
  *
  * @example
- * <ScrollableDiagram title="System Architecture" maxHeight="600px">
- *   <img src="/diagrams/architecture.png" alt="Architecture" />
- * </ScrollableDiagram>
- *
- * @author Livepeer Documentation Team
+ * <ScrollableDiagram>Example</ScrollableDiagram>
  */
 export const ScrollableDiagram = ({
   children,

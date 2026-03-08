@@ -1,5 +1,31 @@
 // used in project showcase
 
+/**
+ * @component ShowcaseCards
+ * @category data
+ * @tier pattern
+ * @status experimental
+ * @description Renders the showcase cards component
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/home/solutions/showcase.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/display.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {Array} [items=[]] - Collection data rendered by the component.
+ * @param {number} [limit=null] - Limit used by the component.
+ * @param {number} [pageSize=10] - Page size used by the component.
+ *
+ * @example
+ * <ShowcaseCards />
+ */
 export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
   const [search, setSearch] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("All");

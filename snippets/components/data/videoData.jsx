@@ -1,16 +1,30 @@
 import { YouTubeVideo } from "/snippets/components/content/video.jsx";
 
 /**
- * YouTubeVideoData - Renders YouTube videos from youtubeData.jsx format
+ * @component YouTubeVideoData
+ * @category data
+ * @tier pattern
+ * @status stable
+ * @description YouTubeVideoData - Renders YouTube videos from youtubeData.jsx format
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/trending.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/display.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource /snippets/automations/youtube/youtubeData.jsx
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * @param {Array} items - Array of video objects from youtubeData.jsx
- * @param {number} [limit] - Optional limit on number of videos to display
+ * @param {Array} [items=[]] - Collection data rendered by the component.
+ * @param {number} limit - Limit used by the component.
+ * @param {number} [cols=2] - Cols used by the component.
  *
  * @example
- * import { youtubeData } from '/snippets/automations/youtube/youtubeData.jsx';
- * import { filterVideos } from '/snippets/automations/youtube/filterVideos.js';
- *
- * <YouTubeVideoData items={filterVideos(youtubeData)} limit={3} />
+ * <YouTubeVideoData limit={1} />
  */
 export const YouTubeVideoData = ({ items = [], limit, cols = 2 }) => {
   const displayItems = limit ? items.slice(0, limit) : items;

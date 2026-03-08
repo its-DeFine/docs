@@ -1,3 +1,32 @@
+/**
+ * @component SearchTable
+ * @category layout
+ * @tier pattern
+ * @status stable
+ * @description Renders the search table component
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {string} [TableComponent=null] - Table component used by the component.
+ * @param {React.ReactNode} [tableTitle=null] - Table title used by the component.
+ * @param {Array} [headerList=[]] - Collection data rendered by the component.
+ * @param {Array} [itemsList=[]] - Collection data rendered by the component.
+ * @param {Array} [monospaceColumns=[]] - Collection data rendered by the component.
+ * @param {string} margin - Margin used by the component.
+ * @param {string} [searchPlaceholder='Search...'] - Search placeholder used by the component.
+ * @param {Array} [searchColumns=[]] - Collection data rendered by the component.
+ * @param {string} [categoryColumn='Category'] - Category column used by the component.
+ *
+ * @example
+ * <SearchTable margin="value" />
+ */
 export const SearchTable = ({
   TableComponent = null,
   tableTitle = null,

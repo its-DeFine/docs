@@ -1,13 +1,35 @@
 /**
- * DisplayCard
- * --------
- * A Card wrapper that renders an icon + title header and accepts children.
+ * @component DisplayCard
+ * @category layout
+ * @tier composite
+ * @status stable
+ * @description --------
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies InlineImageCard, WidthCard
+ * @usedIn v2/community/livepeer-community/community-guidelines.mdx
+ *   v2/developers/builder-opportunities/bug-bounties.mdx
+ *   v2/developers/builder-opportunities/grants-and-programmes.mdx
+ *   v2/developers/builder-opportunities/oss-contributions.mdx
+ *   v2/developers/builder-opportunities/overview.mdx
+ *   v2/developers/builder-opportunities/rfps-and-proposals.mdx, v2/home/about-livepeer/vision.mdx
+ *   v2/home/get-started.mdx, v2/home/solutions/applications.mdx
+ *   v2/internal/rfp/problem-statements.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk medium
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * Props:
- *   icon     (string)  – Mintlify Icon name, e.g. "comment-question"
- *   title    (string)  – Card heading text
- *   style    (object)  – Optional style overrides for the title span
- *   children           – Card body content (markdown lists, etc.)
+ * @param {string} icon - Icon configuration used by the component.
+ * @param {React.ReactNode} title - Title text rendered by the component.
+ * @param {object} style - Style used by the component.
+ * @param {string} [background='var(--card-background)'] - Background used by the component.
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ *
+ * @example
+ * <DisplayCard icon="sparkles" title="Example" style={{}} />
  */
 export const DisplayCard = ({
   icon,
@@ -62,6 +84,30 @@ export const DisplayCard = ({
   )
 }
 
+/**
+ * @component WidthCard
+ * @category layout
+ * @tier composite
+ * @status stable
+ * @description Renders the width card component
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies InlineImageCard
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx, v2/home/about-livepeer/benefits.mdx
+ *   v2/home/about-livepeer/roadmap.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx, v2/resources/media-kit.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {string} [width='80%'] - Width used by the component.
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ *
+ * @example
+ * <WidthCard>Example</WidthCard>
+ */
 export const WidthCard = ({ width = '80%', children, ...cardProps }) => {
   return (
     <div
@@ -78,6 +124,32 @@ export const WidthCard = ({ width = '80%', children, ...cardProps }) => {
   )
 }
 
+/**
+ * @component InlineImageCard
+ * @category layout
+ * @tier composite
+ * @status stable
+ * @description Renders the inline image card component
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/media-kit.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {object} imgProps - Img props used by the component.
+ * @param {object} imgStyle - Img style used by the component.
+ * @param {object} cardProps - Card props used by the component.
+ * @param {object} style - Style used by the component.
+ *
+ * @example
+ * <InlineImageCard imgProps={{}} imgStyle={{}} cardProps={{}} />
+ */
 export const InlineImageCard = ({
   children,
   imgProps,

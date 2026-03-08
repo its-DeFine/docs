@@ -141,7 +141,14 @@ function walkJsxFiles(repoPath) {
       const relPath = toPosix(path.relative(REPO_ROOT, absPath));
 
       if (entry.isDirectory()) {
-        if (entry.name === '.git' || entry.name === 'node_modules') continue;
+        if (
+          entry.name === '.git' ||
+          entry.name === 'node_modules' ||
+          entry.name === '_archive' ||
+          entry.name === 'examples'
+        ) {
+          continue;
+        }
         walk(absPath);
         continue;
       }
@@ -481,7 +488,7 @@ function normalizeDocPropName(token) {
 
 function collectDocumentedProps(jsdocText) {
   const documented = new Set();
-  const pattern = /@(param|prop)\s+\{[^}]+\}\s+([^\s*]+)/g;
+  const pattern = /@(param|prop)\s+\{[^}]+\}\s+(\[[^\]]+\]|[^\s*]+)/g;
   let match = pattern.exec(jsdocText);
 
   while (match) {

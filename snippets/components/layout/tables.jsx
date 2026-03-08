@@ -1,25 +1,37 @@
 /**
- * StyledTable - Theme-aware table component for MDX files
+ * @component StyledTable
+ * @category layout
+ * @tier pattern
+ * @status stable
+ * @description Provides table styling without requiring inline styles in MDX files. All styling
+ *   uses CSS Custom Properties for theme awareness
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies TableCell, TableRow
+ * @usedIn v2/developers/ai-pipelines/overview.mdx
+ *   v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx
+ *   v2/developers/quickstart/video/video-streaming-101.mdx
+ *   v2/gateways/references/api-reference/AI-API/ai.mdx
+ *   v2/gateways/run-a-gateway/gateway-operator-opportunities.mdx
+ *   v2/gateways/run-a-gateway/requirements/setup.mdx
+ *   v2/gateways/using-gateways/choosing-a-gateway.mdx
+ *   v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx
+ *   v2/internal/rfp/report.mdx, v2/lpt/delegation/getting-started.mdx
+ *   v2/orchestrators/earnings.mdx, v2/orchestrators/quickstart/orchestrator-setup.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk medium
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * @description
- * Provides table styling without requiring inline styles in MDX files.
- * All styling uses CSS Custom Properties for theme awareness.
- *
- * @param {React.ReactNode} children - Table content (thead, tbody, etc.)
- * @param {string} [variant="default"] - Table variant: "default" | "bordered" | "minimal"
- * @param {object} [style={}] - Additional inline styles
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} [variant="default"] - Variant used by the component.
+ * @param {object} [style={}] - Style used by the component.
  *
  * @example
- * <StyledTable variant="bordered">
- *   <thead>
- *     <tr><th>Header 1</th><th>Header 2</th></tr>
- *   </thead>
- *   <tbody>
- *     <tr><td>Data 1</td><td>Data 2</td></tr>
- *   </tbody>
- * </StyledTable>
- *
- * @author Livepeer Documentation Team
+ * <StyledTable>Example</StyledTable>
  */
 export const StyledTable = ({ children, variant = "default", style = {} }) => {
   if (children == null) {
@@ -74,6 +86,41 @@ export const StyledTable = ({ children, variant = "default", style = {} }) => {
  *
  * @author Livepeer Documentation Team
  */
+/**
+ * @component TableRow
+ * @category layout
+ * @tier composite
+ * @status stable
+ * @description Provides table row styling with optional hover effects
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies TableCell
+ * @usedIn v2/developers/ai-pipelines/overview.mdx
+ *   v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx
+ *   v2/developers/quickstart/video/video-streaming-101.mdx
+ *   v2/gateways/references/api-reference/AI-API/ai.mdx
+ *   v2/gateways/run-a-gateway/gateway-operator-opportunities.mdx
+ *   v2/gateways/run-a-gateway/requirements/setup.mdx
+ *   v2/gateways/using-gateways/choosing-a-gateway.mdx
+ *   v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx
+ *   v2/internal/rfp/report.mdx, v2/lpt/delegation/getting-started.mdx
+ *   v2/orchestrators/earnings.mdx, v2/orchestrators/quickstart/orchestrator-setup.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk medium
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {boolean} [header=false] - Boolean flag that controls component behaviour.
+ * @param {boolean} [hover=false] - Boolean flag that controls component behaviour.
+ * @param {object} [style={}] - Style used by the component.
+ *
+ * @example
+ * <TableRow>Example</TableRow>
+ */
 export const TableRow = ({
   children,
   header = false,
@@ -123,6 +170,41 @@ export const TableRow = ({
  * <TableCell align="center" header>Header</TableCell>
  *
  * @author Livepeer Documentation Team
+ */
+/**
+ * @component TableCell
+ * @category layout
+ * @tier composite
+ * @status stable
+ * @description Provides table cell styling with alignment options
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/developers/ai-pipelines/overview.mdx
+ *   v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx
+ *   v2/developers/quickstart/video/video-streaming-101.mdx
+ *   v2/gateways/references/api-reference/AI-API/ai.mdx
+ *   v2/gateways/run-a-gateway/gateway-operator-opportunities.mdx
+ *   v2/gateways/run-a-gateway/requirements/setup.mdx
+ *   v2/gateways/using-gateways/choosing-a-gateway.mdx
+ *   v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx
+ *   v2/internal/rfp/report.mdx, v2/lpt/delegation/getting-started.mdx
+ *   v2/orchestrators/earnings.mdx, v2/orchestrators/quickstart/orchestrator-setup.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk medium
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} [align="left"] - Align used by the component.
+ * @param {boolean} [header=false] - Boolean flag that controls component behaviour.
+ * @param {object} [style={}] - Style used by the component.
+ *
+ * @example
+ * <TableCell>Example</TableCell>
  */
 export const TableCell = ({
   children,

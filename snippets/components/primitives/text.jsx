@@ -1,3 +1,30 @@
+/**
+ * @component Subtitle
+ * @category primitives
+ * @tier primitive
+ * @status stable
+ * @description Renders the subtitle component
+ * @contentAffinity concept
+ * @owner @livepeer/docs-team
+ * @dependencies CopyText
+ * @usedIn v2/about/mental-model.mdx, v2/about/resources/blockchain-contracts.mdx
+ *   v2/home/solutions/showcase.mdx, v2/home/solutions/verticals.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {object} [style={}] - Style used by the component.
+ * @param {React.ReactNode} text - Primary content rendered by the component.
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ *
+ * @example
+ * <Subtitle text="Example" />
+ */
 export const Subtitle = ({ style = {}, text, children }) => {
   if (text == null && children == null) {
     console.warn("[Subtitle] Missing required prop: text");
@@ -26,6 +53,32 @@ export const Subtitle = ({ style = {}, text, children }) => {
  * CopyText - Inline code with copy button
  * @param {string} text - The text to display and copy
  * @param {string} [label] - Optional label before the text
+ */
+/**
+ * @component CopyText
+ * @category primitives
+ * @tier primitive
+ * @status stable
+ * @description CopyText - Inline code with copy button
+ * @contentAffinity concept
+ * @owner @livepeer/docs-team
+ * @dependencies AccordionTitleWithArrow, CardTitleTextWithArrow
+ * @usedIn v2/about/resources/blockchain-contracts.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ *   v2/resources/documentation-guide/snippets-inventory.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} text - Primary content rendered by the component.
+ * @param {React.ReactNode} label - Label text rendered by the component.
+ *
+ * @example
+ * <CopyText text="Example" label="Example" />
  */
 export const CopyText = ({ text, label }) => {
   if (typeof text !== "string" || text.length === 0) {
@@ -85,6 +138,33 @@ export const CopyText = ({ text, label }) => {
   );
 };
 
+/**
+ * @component CardTitleTextWithArrow
+ * @category primitives
+ * @tier primitive
+ * @status stable
+ * @description Renders the card title text with arrow component
+ * @contentAffinity concept
+ * @owner @livepeer/docs-team
+ * @dependencies AccordionTitleWithArrow
+ * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx
+ *   v2/about/livepeer-protocol/governance-model.mdx, v2/about/livepeer-protocol/livepeer-token.mdx
+ *   v2/about/livepeer-protocol/overview.mdx, v2/about/livepeer-protocol/technical-architecture.mdx
+ *   v2/about/livepeer-protocol/treasury.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ *
+ * @example
+ * <CardTitleTextWithArrow>Example</CardTitleTextWithArrow>
+ */
 export const CardTitleTextWithArrow = ({ children, ...cardProps }) => {
   return (
     <div
@@ -134,6 +214,33 @@ export const CardTitleTextWithArrow = ({ children, ...cardProps }) => {
   // );
 };
 
+/**
+ * @component AccordionTitleWithArrow
+ * @category primitives
+ * @tier primitive
+ * @status stable
+ * @description Renders the accordion title with arrow component
+ * @contentAffinity concept
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx
+ *   v2/about/livepeer-protocol/governance-model.mdx, v2/about/livepeer-protocol/livepeer-token.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} text - Primary content rendered by the component.
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {string} [color="var(--text)"] - Color used by the component.
+ *
+ * @example
+ * <AccordionTitleWithArrow text="Example" />
+ */
 export const AccordionTitleWithArrow = ({
   text,
   children,

@@ -1,16 +1,34 @@
 /**
- * ExternalContent - A reusable component for displaying external GitHub content
- * Usage:
- *   import { ExternalContent } from '/snippets/components/content/externalContent.jsx'
- *   import MyContent from '/snippets/external/my-content.mdx'
- *   <ExternalContent
- *     repoName="livepeer/awesome-livepeer"
- *     githubUrl="https://github.com/livepeer/awesome-livepeer"
- *   >
- *     <MyContent />
- *   </ExternalContent>
+ * @component ExternalContent
+ * @category content
+ * @tier composite
+ * @status stable
+ * @description ExternalContent - A reusable component for displaying external GitHub content
+ * @contentAffinity how_to
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/about/resources/livepeer-whitepaper.mdx
+ *   v2/developers/technical-references/awesome-livepeer.mdx
+ *   v2/gateways/run-a-gateway/configure/dual-configuration.mdx
+ *   v2/gateways/run-a-gateway/install/community-projects.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {string} repoName - Repo name used by the component.
+ * @param {string} githubUrl - Github url used by the component.
+ * @param {string} [maxHeight="1000px"] - Max height used by the component.
+ * @param {string} [icon="github"] - Icon configuration used by the component.
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ *
+ * @example
+ * <ExternalContent repoName="value" githubUrl="value" />
  */
-
 export const ExternalContent = ({
   repoName,
   githubUrl,

@@ -24,6 +24,32 @@
     <a href="https://forum.livepeer.org" target="_blank" rel="noopener noreferrer"><Icon icon="message" size={20} color="var(--accent)" /></a>
     <a href="https://twitter.com/livepeer" target="_blank" rel="noopener noreferrer"><Icon icon="twitter" size={20} color="var(--accent)" /></a>
     </span> */}
+/**
+ * @component SocialLinks
+ * @category primitives
+ * @tier primitive
+ * @status stable
+ * @description Renders the social links component
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/display.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {number} [size=20] - Size used by the component.
+ * @param {string} [gap="0.75rem"] - Gap used by the component.
+ * @param {string} [justify="center"] - Justify used by the component.
+ * @param {string} color - Color used by the component.
+ *
+ * @example
+ * <SocialLinks color="value" />
+ */
 export const SocialLinks = ({
   size = 20,
   gap = "0.75rem",

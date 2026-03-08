@@ -1,23 +1,31 @@
 /**
- * ScrollBox - A scrollable container for use inside Card components
+ * @component ScrollBox
+ * @category layout
+ * @tier composite
+ * @status stable
+ * @description Provides a scrollable area with optional max height and scroll hint. Use as a child
+ *   of Card to make long content scrollable
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/home/solutions/showcase.mdx, v2/home/solutions/verticals.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/layout.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * @description
- * Provides a scrollable area with optional max height and scroll hint.
- * Use as a child of Card to make long content scrollable.
- *
- * @param {React.ReactNode} children - Content to display inside the scroll area
- * @param {number|string} [maxHeight=300] - Maximum height before scrolling (px or CSS value)
- * @param {boolean} [showHint=true] - Whether to show "Scroll for more" hint
- * @param {string} [ariaLabel="Scrollable content"] - Accessible label for the scroll region
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {number} [maxHeight=300] - Max height used by the component.
+ * @param {boolean} [showHint=true] - Boolean flag that controls component behaviour.
+ * @param {string} [ariaLabel="Scrollable content"] - Aria label used by the component.
+ * @param {object} style - Style used by the component.
  *
  * @example
- * <Card title="Gaming">
- *   <ScrollBox maxHeight={200}>
- *     <p>Long content here...</p>
- *   </ScrollBox>
- * </Card>
- *
- * @author Livepeer Documentation Team
+ * <ScrollBox style={{}} />
  */
 export const ScrollBox = ({
   children,

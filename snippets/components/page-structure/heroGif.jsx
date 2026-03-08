@@ -1,3 +1,27 @@
+/**
+ * @component Starfield
+ * @category page-structure
+ * @tier pattern
+ * @status stable
+ * @description Renders the starfield component
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx
+ *   v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx
+ *   v2/orchestrators/orchestrators-portal.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {number} [density=1.1] - Density used by the component.
+ *
+ * @example
+ * <Starfield />
+ */
 export const Starfield = ({ density = 1.1 }) => {
   const canvasRef = useRef(null);
 

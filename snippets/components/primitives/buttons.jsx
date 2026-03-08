@@ -2,28 +2,35 @@
 // export const BasicBtn = () => <div></div>
 
 /**
- * DownloadButton - Interactive download button with lazy loading
+ * @component DownloadButton
+ * @category primitives
+ * @tier primitive
+ * @status stable
+ * @description A download button that uses IntersectionObserver for lazy rendering. Only renders
+ *   the full button when it becomes visible in the viewport. Supports custom icons, labels, and
+ *   optional border styling
+ * @contentAffinity how_to
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx
+ *   v2/gateways/run-a-gateway/install/linux-install.mdx, v2/internal/overview/docs-philosophy.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/component-library/primitives.mdx, v2/resources/media-kit.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
  *
- * @description
- * A download button that uses IntersectionObserver for lazy rendering.
- * Only renders the full button when it becomes visible in the viewport.
- * Supports custom icons, labels, and optional border styling.
- *
- * @param {string} [label="Download"] - Button text label
- * @param {string} [icon="download"] - Left icon name
- * @param {string} downloadLink - URL of the file to download
- * @param {string} [rightIcon=""] - Optional right icon name
- * @param {boolean} [border=false] - Whether to show a border around the button
+ * @param {string} [label='Download'] - Label text rendered by the component.
+ * @param {string} [icon='download'] - Icon configuration used by the component.
+ * @param {string} downloadLink - Download link used by the component.
+ * @param {string} [rightIcon=''] - Right icon used by the component.
+ * @param {boolean} [border=false] - Boolean flag that controls component behaviour.
  *
  * @example
- * <DownloadButton
- *   label="Download PDF"
- *   downloadLink="https://example.com/file.pdf"
- *   icon="file-pdf"
- *   border={true}
- * />
- *
- * @author Livepeer Documentation Team
+ * <DownloadButton downloadLink="value" />
  */
 export const DownloadButton = ({
   label = 'Download',

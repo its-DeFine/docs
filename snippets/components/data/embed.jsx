@@ -1,16 +1,26 @@
 /**
- * MarkdownEmbed - Fetches and renders markdown content from a URL
+ * @component MarkdownEmbed
+ * @category data
+ * @tier pattern
+ * @status stable
+ * @description Dynamically fetches markdown content from a remote URL and renders it. Uses React
+ *   hooks to manage the fetch lifecycle
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies PdfEmbed, TwitterTimeline
+ * @usedIn v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/display.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource live API
+ * @duplicates EmbedMarkdown
+ * @lastMeaningfulChange 2026-03-08
  *
- * @description
- * Dynamically fetches markdown content from a remote URL and renders it.
- * Uses React hooks to manage the fetch lifecycle.
- *
- * @param {string} url - URL of the markdown file to fetch and display
+ * @param {string} url - Destination URL used by the component.
  *
  * @example
- * <MarkdownEmbed url="https://raw.githubusercontent.com/user/repo/main/README.md" />
- *
- * @author Livepeer Documentation Team
+ * <MarkdownEmbed url="/example" />
  */
 export const MarkdownEmbed = ({ url }) => {
   const [content, setContent] = useState('')
@@ -41,6 +51,31 @@ export const MarkdownEmbed = ({ url }) => {
  *
  * @author Livepeer Documentation Team
  */
+/**
+ * @component PdfEmbed
+ * @category data
+ * @tier pattern
+ * @status stable
+ * @description Wraps an iframe in a Mintlify Frame so long-form external documents can be embedded
+ *   with a caption and responsive width
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies TwitterTimeline
+ * @usedIn none
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource live API
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} title - Title text rendered by the component.
+ * @param {string} src - Asset or embed source used by the component.
+ * @param {string} [height='700px'] - Height used by the component.
+ * @param {string} [width='100%'] - Width used by the component.
+ *
+ * @example
+ * <PdfEmbed title="Example" src="https://example.com" />
+ */
 export const PdfEmbed = ({
   title,
   src,
@@ -55,6 +90,28 @@ export const PdfEmbed = ({
 // ARCHIVED: duplicate of MarkdownEmbed - see tasks/reports/archived-components-review.md
 // export const EmbedMarkdown = ({ url }) => <MarkdownEmbed url={url} />
 
+/**
+ * @component TwitterTimeline
+ * @category data
+ * @tier pattern
+ * @status stable
+ * @description Renders the twitter timeline component
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/trending.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/display.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource live API
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @example
+ * <TwitterTimeline />
+ */
 export const TwitterTimeline = ({}) => {
   return (
     <div
