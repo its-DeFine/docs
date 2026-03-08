@@ -340,8 +340,8 @@ export const YouTubeVideo = ({
  * @param {number} [limit] - Optional limit on number of videos to display
  *
  * @example
- * import { youtubeData } from 'snippets/automations/youtube/youtubeData.jsx';
- * import { filterVideos } from 'snippets/automations/youtube/filterVideos.js';
+ * import { youtubeData } from '/snippets/automations/youtube/youtubeData.jsx';
+ * import { filterVideos } from '/snippets/automations/youtube/filterVideos.js';
  *
  * <YouTubeVideoData items={filterVideos(youtubeData)} limit={3} />
  */
