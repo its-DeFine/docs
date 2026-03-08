@@ -79,6 +79,99 @@ has_human_override_trailer() {
     return 1
 }
 
+get_contract_allowed_generated() {
+    local contract_path=".codex/task-contract.yaml"
+    if [ ! -f "$contract_path" ]; then
+        return 0
+    fi
+
+    awk '
+        /^allowed_generated:[[:space:]]*$/ { in_block = 1; next }
+        in_block && /^[^[:space:]-]/ { in_block = 0 }
+        in_block && /^[[:space:]]*-[[:space:]]*/ {
+            line = $0
+            sub(/^[[:space:]]*-[[:space:]]*/, "", line)
+            print line
+        }
+    ' "$contract_path"
+}
+
+path_in_allowed_generated() {
+    local target="$1"
+    local entry=""
+
+    while IFS= read -r entry; do
+        [ -z "$entry" ] && continue
+        if [ "$target" = "$entry" ]; then
+            return 0
+        fi
+        case "$entry" in
+            */)
+                if [[ "$target" == "$entry"* ]]; then
+                    return 0
+                fi
+                ;;
+            *)
+                if [[ "$target" == "$entry/"* ]]; then
+                    return 0
+                fi
+                ;;
+        esac
+    done < <(get_contract_allowed_generated)
+
+    return 1
+}
+
+is_repo_generated_untrack_allowlisted() {
+    local file="$1"
+
+    case "$file" in
+        docs-index.json|llms-full.txt|tools/scripts/snippets/generate-data/data/discovered-terms.json|tools/scripts/snippets/generate-data/data/glossary-terms.json)
+            return 0
+            ;;
+    esac
+
+    return 1
+}
+
+is_allowed_generated_untrack() {
+    local file="$1"
+
+    if [ ! -e "$file" ]; then
+        return 1
+    fi
+
+    if ! git check-ignore -q -- "$file"; then
+        return 1
+    fi
+
+    if is_repo_generated_untrack_allowlisted "$file"; then
+        return 0
+    fi
+
+    if [[ "$CURRENT_BRANCH" == codex/* ]] && path_in_allowed_generated "$file"; then
+        return 0
+    fi
+
+    return 1
+}
+
+partition_deleted_files() {
+    local deleted_list="$1"
+    ALLOWED_GENERATED_DELETIONS=""
+    BLOCKED_DELETED_FILES=""
+
+    while IFS= read -r file; do
+        [ -z "$file" ] && continue
+
+        if is_allowed_generated_untrack "$file"; then
+            ALLOWED_GENERATED_DELETIONS="${ALLOWED_GENERATED_DELETIONS}${file}"$'\n'
+        else
+            BLOCKED_DELETED_FILES="${BLOCKED_DELETED_FILES}${file}"$'\n'
+        fi
+    done <<< "$deleted_list"
+}
+
 is_codex_session() {
     if [[ "${CODEX_SHELL:-0}" == "1" ]]; then
         return 0
@@ -237,13 +330,24 @@ fi
 # Check for file deletions (BLOCKED - requires human override)
 # NOTE: Deletions in tasks/ are allowed (AI-only working directory)
 ALL_DELETED_FILES=$(git diff --cached --name-only --diff-filter=D || true)
-DELETED_FILES=$(echo "$ALL_DELETED_FILES" | grep -v '^tasks/' || true)
-ALLOWED_GENERATED_DELETIONS=$(echo "$DELETED_FILES" | grep -E '^snippets/data/[^/]+/hrefs\.jsx$' || true)
-BLOCKED_DELETED_FILES=$(echo "$DELETED_FILES" | grep -Ev '^snippets/data/[^/]+/hrefs\.jsx$' || true)
+DELETED_FILES_INPUT=$(echo "$ALL_DELETED_FILES" | grep -v '^tasks/' || true)
+ALLOWED_LINK_MAP_DELETIONS=$(echo "$DELETED_FILES_INPUT" | grep -E '^snippets/data/[^/]+/hrefs\.jsx$' || true)
+REMAINING_DELETED_FILES=$(echo "$DELETED_FILES_INPUT" | grep -Ev '^snippets/data/[^/]+/hrefs\.jsx$' || true)
+partition_deleted_files "$REMAINING_DELETED_FILES"
+if [ -n "$ALLOWED_LINK_MAP_DELETIONS" ]; then
+    ALLOWED_GENERATED_DELETIONS="${ALLOWED_LINK_MAP_DELETIONS}"$'\n'"${ALLOWED_GENERATED_DELETIONS}"
+fi
+DELETED_FILES=$(printf '%s' "$BLOCKED_DELETED_FILES")
+
+if [ -n "$ALLOWED_GENERATED_DELETIONS" ]; then
+    echo -e "${GREEN}✓ Allowed generated file untracking detected:${NC}"
+    echo "$ALLOWED_GENERATED_DELETIONS" | sed '/^$/d; s/^/  • /'
+    echo ""
+fi
 
 if [ -n "$DELETED_FILES" ]; then
     if [ -n "$ALLOWED_GENERATED_DELETIONS" ]; then
-        echo -e "${YELLOW}ℹ️  Allowing generated domain link map deletions:${NC}"
+        echo -e "${YELLOW}ℹ️  Allowing exempt generated deletions:${NC}"
         echo "$ALLOWED_GENERATED_DELETIONS" | sed 's/^/  ↺ /'
         echo ""
     fi
@@ -268,7 +372,7 @@ if [ -n "$DELETED_FILES" ]; then
             echo ""
         fi
         if [ -n "$ALLOWED_GENERATED_DELETIONS" ]; then
-            echo -e "${GREEN}ℹ️  Generated snippets link maps are exempt from this block when pruned by the link audit.${NC}"
+            echo -e "${GREEN}ℹ️  Generated link maps and approved generated outputs are exempt from this block when safely regenerated or untracked.${NC}"
             echo ""
         fi
         echo -e "${YELLOW}📋 INSTRUCTIONS FOR AI AGENTS:${NC}"
