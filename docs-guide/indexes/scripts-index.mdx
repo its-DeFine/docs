@@ -142,6 +142,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/scripts/dev/update-og-image.js` | Single OG image updater — updates og:image for one page | `node tools/scripts/dev/update-og-image.js [flags]` | docs |
 | `tools/scripts/docs-quality-and-freshness-audit.js` | Content freshness audit — checks for TODO/TBD/Coming Soon markers, thin pages, stale content | `node tools/scripts/docs-quality-and-freshness-audit.js [flags]` | docs |
 | `tools/scripts/enforce-generated-file-banners.js` | Generated file banner enforcer — checks (--check) or writes (default) "do not edit" banners on generated files | `node tools/scripts/enforce-generated-file-banners.js [flags]` | docs |
+| `tools/scripts/enforcers/pr/check-component-immutability.js` | Flags modifications to existing component files in PR context. New files allowed. Modifications require approval label. | `node tools/scripts/enforcers/pr/check-component-immutability.js --base-ref main` | docs |
 | `tools/scripts/final-verification.js` | Diagnostic — runs final verification checks on page set (manual tool) | `node tools/scripts/final-verification.js [flags]` | docs |
 | `tools/scripts/find-correct-url.js` | Diagnostic — given a broken URL, attempts to find the correct v2 equivalent | `node tools/scripts/find-correct-url.js [flags]` | docs |
 | `tools/scripts/generate-ai-sitemap.js` | AI sitemap generator — produces AI-optimised sitemap files. Dual-mode: --check (enforcer) / --write (generator). | `node tools/scripts/generate-ai-sitemap.js [flags]` | docs |
