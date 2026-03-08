@@ -5,11 +5,12 @@ description: 'Components for displaying media, visual content, and frame mode el
 keywords: ["livepeer", "components", "display", "video", "image", "embed"]
 ---
 
-import { YouTubeVideo, Video, TitledVideo, ShowcaseVideo, CardVideo, LinkedInEmbed, YouTubeVideoData, YouTubeVideoDownload } from '/snippets/components/display/video.jsx'
+import { YouTubeVideo, Video, TitledVideo, ShowcaseVideo, CardVideo, LinkedInEmbed, YouTubeVideoDownload } from '/snippets/components/content/video.jsx';
+import { YouTubeVideoData } from '/snippets/components/data/videoData.jsx';
 import { Image, LinkImage } from '/snippets/components/primitives/image.jsx'
-import { ScrollableDiagram } from '/snippets/components/display/zoomable-diagram.jsx'
+import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 import { MarkdownEmbed, TwitterTimeline } from '/snippets/components/display/embed.jsx'
-import { Quote, FrameQuote } from '/snippets/components/display/quote.jsx'
+import { Quote, FrameQuote } from '/snippets/components/content/quote.jsx'
 import { CardCarousel } from '/snippets/components/layout/cardCarousel.jsx'
 import { ShowcaseCards } from '/snippets/components/display/showcaseCards.jsx'
 import { SocialLinks } from '/snippets/components/primitives/socialLinks.jsx'
@@ -31,7 +32,7 @@ Embeds a YouTube video with optional caption and author attribution. Displays a 
 
 **Import:**
 ```jsx
-import { YouTubeVideo } from "/snippets/components/display/video.jsx";
+import { YouTubeVideo } from "/snippets/components/content/video.jsx";
 ```
 
 **Props:**
@@ -86,7 +87,7 @@ Self-hosted video component with Frame wrapper. Displays a self-hosted video fil
 
 **Import:**
 ```jsx
-import { Video } from "/snippets/components/display/video.jsx";
+import { Video } from "/snippets/components/content/video.jsx";
 ```
 
 **Props:**
@@ -150,7 +151,7 @@ A video component with an overlay title. Displays a looping video with an option
 
 **Import:**
 ```jsx
-import { TitledVideo } from "/snippets/components/display/video.jsx";
+import { TitledVideo } from "/snippets/components/content/video.jsx";
 ```
 
 **Props:**
@@ -193,7 +194,7 @@ Showcase video component with custom styling for showcase pages.
 
 **Import:**
 ```jsx
-import { ShowcaseVideo } from "/snippets/components/display/video.jsx";
+import { ShowcaseVideo } from "/snippets/components/content/video.jsx";
 ```
 
 **Props:** Same as `TitledVideo` (uses TitledVideo internally with showcase-specific styling)
@@ -206,7 +207,7 @@ YouTube video embedded in a Card component. Displays a YouTube video within a Ca
 
 **Import:**
 ```jsx
-import { CardVideo } from "/snippets/components/display/video.jsx";
+import { CardVideo } from "/snippets/components/content/video.jsx";
 ```
 
 **Props:**
@@ -251,7 +252,7 @@ Embeds a LinkedIn post with optional caption and hint. Follows LinkedIn's offici
 
 **Import:**
 ```jsx
-import { LinkedInEmbed } from "/snippets/components/display/video.jsx";
+import { LinkedInEmbed } from "/snippets/components/content/video.jsx";
 ```
 
 **Props:**
@@ -287,7 +288,7 @@ Renders YouTube videos from youtubeData.jsx format. Converts YouTube watch URLs 
 
 **Import:**
 ```jsx
-import { YouTubeVideoData } from "/snippets/components/display/video.jsx";
+import { YouTubeVideoData } from "/snippets/components/data/videoData.jsx";
 ```
 
 **Props:**
@@ -466,7 +467,7 @@ Simple quote component with styled border and italic text.
 
 **Import:**
 ```jsx
-import { Quote } from "/snippets/components/display/quote.jsx";
+import { Quote } from "/snippets/components/content/quote.jsx";
 ```
 
 **Props:**
@@ -500,7 +501,7 @@ Quote component with Frame wrapper, optional author, source, and image.
 
 **Import:**
 ```jsx
-import { FrameQuote } from "/snippets/components/display/quote.jsx";
+import { FrameQuote } from "/snippets/components/content/quote.jsx";
 ```
 
 **Props:**
@@ -640,7 +641,7 @@ Interactive diagram viewer with zoom controls (25%-200%) and scrollable pan supp
 
 **Import:**
 ```jsx
-import { ScrollableDiagram } from "/snippets/components/display/zoomable-diagram.jsx";
+import { ScrollableDiagram } from "/snippets/components/content/zoomableDiagram.jsx";
 ```
 
 **Props:**

@@ -1231,6 +1231,41 @@ import { MathInline } from "/snippets/components/content/math.jsx";
       </CodeGroup>
     </ResponseField>
   </Accordion>
+  <Accordion title="quote.jsx" icon="file-code">
+    <ResponseField name="FrameQuote" type="component">
+      **Props**: `children`, `author`, `source`, `href`, `frame`, `align`, `borderColor`, `img`, `spacing` <br/>
+      **Defaults**: `frame=true`, `align='right'`, `spacing=true`
+
+      <CodeGroup>
+```jsx lines Example
+import { FrameQuote } from "/snippets/components/content/quote.jsx";
+
+<FrameQuote
+  author={"<value>"}
+  source={"<value>"}
+  href={"<value>"}
+  frame={true}
+  align={'right'}
+  borderColor={"<value>"}
+  img={"<value>"}
+  spacing={true}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="Quote" type="component">
+      **Props**: `children` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { Quote } from "/snippets/components/content/quote.jsx";
+
+<Quote />
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
   <Accordion title="release.jsx" icon="file-code">
     <ResponseField name="LatestVersion" type="component">
       **Props**: `version` <br/>
@@ -1323,12 +1358,177 @@ import { ValueResponseField } from "/snippets/components/content/responseField.j
       </CodeGroup>
     </ResponseField>
   </Accordion>
+  <Accordion title="video.jsx" icon="file-code">
+    <ResponseField name="CardVideo" type="component">
+      **Props**: `embedUrl`, `title`, `style` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { CardVideo } from "/snippets/components/content/video.jsx";
+
+<CardVideo
+  embedUrl={"<value>"}
+  title={"<value>"}
+  style={{}}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="LinkedInEmbed" type="component">
+      **Props**: `embedUrl`, `title`, `hint`, `caption`, `height` <br/>
+      **Defaults**: `title="Embedded post"`, `hint=""`, `height="399"`
+
+      <CodeGroup>
+```jsx lines Example
+import { LinkedInEmbed } from "/snippets/components/content/video.jsx";
+
+<LinkedInEmbed
+  embedUrl={"<value>"}
+  title={"Embedded post"}
+  hint={""}
+  caption={"<value>"}
+  height={"399"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="ShowcaseVideo" type="component">
+      **Props**: `src`, `title`, `subtitle` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { ShowcaseVideo } from "/snippets/components/content/video.jsx";
+
+<ShowcaseVideo
+  src={"<value>"}
+  title={"<value>"}
+  subtitle={"<value>"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="TitledVideo" type="component">
+      **Props**: `src`, `title`, `subtitle`, `arrow`, `borderRadius`, `style` <br/>
+      **Defaults**: `arrow=false`, `borderRadius="12px"`, `style={}`
+
+      <CodeGroup>
+```jsx lines Example
+import { TitledVideo } from "/snippets/components/content/video.jsx";
+
+<TitledVideo
+  src={"<value>"}
+  title={"<value>"}
+  subtitle={"<value>"}
+  arrow={false}
+  borderRadius={"12px"}
+  style={{}}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="Video" type="component">
+      **Props**: `src`, `title`, `author`, `caption`, `href`, `controls`, `autoPlay`, `loop`, `muted`, `children` <br/>
+      **Defaults**: `title=""`, `author=""`, `href=""`, `controls=true`, `autoPlay=false`, `loop=false`, `muted=false`
+
+      <CodeGroup>
+```jsx lines Example
+import { Video } from "/snippets/components/content/video.jsx";
+
+<Video
+  src={"<value>"}
+  title={""}
+  author={""}
+  caption={"<value>"}
+  href={""}
+  controls={true}
+  autoPlay={false}
+  loop={false}
+  muted={false}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="YouTubeVideo" type="component">
+      **Props**: `embedUrl`, `title`, `author`, `hint`, `caption` <br/>
+      **Defaults**: `title=""`, `author=""`, `hint=""`
+
+      <CodeGroup>
+```jsx lines Example
+import { YouTubeVideo } from "/snippets/components/content/video.jsx";
+
+<YouTubeVideo
+  embedUrl={"<value>"}
+  title={""}
+  author={""}
+  hint={""}
+  caption={"<value>"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="YouTubeVideoDownload" type="component">
+      **Props**: `embedUrl`, `title`, `hint`, `caption` <br/>
+      **Defaults**: `caption=""`
+
+      <CodeGroup>
+```jsx lines Example
+import { YouTubeVideoDownload } from "/snippets/components/content/video.jsx";
+
+<YouTubeVideoDownload
+  embedUrl={"<value>"}
+  title={"<value>"}
+  hint={"<value>"}
+  caption={""}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
+  <Accordion title="zoomableDiagram.jsx" icon="file-code">
+    <ResponseField name="ScrollableDiagram" type="component">
+      **Props**: `children`, `title`, `maxHeight`, `minWidth`, `showControls` <br/>
+      **Defaults**: `title=""`, `maxHeight="500px"`, `minWidth="100%"`, `showControls=false`
+
+      <CodeGroup>
+```jsx lines Example
+import { ScrollableDiagram } from "/snippets/components/content/zoomableDiagram.jsx";
+
+<ScrollableDiagram
+  title={""}
+  maxHeight={"500px"}
+  minWidth={"100%"}
+  showControls={false}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
 </AccordionGroup>
 
 ## 数据
 数据组件渲染结构化数据集、获取的内容和 API 驱动的文档界面。
 
 <AccordionGroup>
+  <Accordion title="videoData.jsx" icon="file-code">
+    <ResponseField name="YouTubeVideoData" type="component">
+      **Props**: `items`, `limit`, `cols` <br/>
+      **Defaults**: `items=[]`, `cols=2`
+
+      <CodeGroup>
+```jsx lines Example
+import { YouTubeVideoData } from "/snippets/components/data/videoData.jsx";
+
+<YouTubeVideoData
+  items={[]}
+  limit={0}
+  cols={2}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
 </AccordionGroup>
 
 ## 页面结构
@@ -1596,41 +1796,6 @@ import { PageHeader } from "/snippets/components/display/frameMode.jsx";
       </CodeGroup>
     </ResponseField>
   </Accordion>
-  <Accordion title="quote.jsx" icon="file-code">
-    <ResponseField name="FrameQuote" type="component">
-      **Props**: `children`, `author`, `source`, `href`, `frame`, `align`, `borderColor`, `img`, `spacing` <br/>
-      **Defaults**: `frame=true`, `align='right'`, `spacing=true`
-
-      <CodeGroup>
-```jsx lines Example
-import { FrameQuote } from "/snippets/components/display/quote.jsx";
-
-<FrameQuote
-  author={"<value>"}
-  source={"<value>"}
-  href={"<value>"}
-  frame={true}
-  align={'right'}
-  borderColor={"<value>"}
-  img={"<value>"}
-  spacing={true}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="Quote" type="component">
-      **Props**: `children` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { Quote } from "/snippets/components/display/quote.jsx";
-
-<Quote />
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
   <Accordion title="showcaseCards.jsx" icon="file-code">
     <ResponseField name="ShowcaseCards" type="component">
       **Props**: `items`, `limit`, `pageSize` <br/>
@@ -1644,169 +1809,6 @@ import { ShowcaseCards } from "/snippets/components/display/showcaseCards.jsx";
   items={[]}
   limit={null}
   pageSize={10}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
-  <Accordion title="video.jsx" icon="file-code">
-    <ResponseField name="CardVideo" type="component">
-      **Props**: `embedUrl`, `title`, `style` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { CardVideo } from "/snippets/components/display/video.jsx";
-
-<CardVideo
-  embedUrl={"<value>"}
-  title={"<value>"}
-  style={{}}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="LinkedInEmbed" type="component">
-      **Props**: `embedUrl`, `title`, `hint`, `caption`, `height` <br/>
-      **Defaults**: `title="Embedded post"`, `hint=""`, `height="399"`
-
-      <CodeGroup>
-```jsx lines Example
-import { LinkedInEmbed } from "/snippets/components/display/video.jsx";
-
-<LinkedInEmbed
-  embedUrl={"<value>"}
-  title={"Embedded post"}
-  hint={""}
-  caption={"<value>"}
-  height={"399"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="ShowcaseVideo" type="component">
-      **Props**: `src`, `title`, `subtitle` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { ShowcaseVideo } from "/snippets/components/display/video.jsx";
-
-<ShowcaseVideo
-  src={"<value>"}
-  title={"<value>"}
-  subtitle={"<value>"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="TitledVideo" type="component">
-      **Props**: `src`, `title`, `subtitle`, `arrow`, `borderRadius`, `style` <br/>
-      **Defaults**: `arrow=false`, `borderRadius="12px"`, `style={}`
-
-      <CodeGroup>
-```jsx lines Example
-import { TitledVideo } from "/snippets/components/display/video.jsx";
-
-<TitledVideo
-  src={"<value>"}
-  title={"<value>"}
-  subtitle={"<value>"}
-  arrow={false}
-  borderRadius={"12px"}
-  style={{}}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="Video" type="component">
-      **Props**: `src`, `title`, `author`, `caption`, `href`, `controls`, `autoPlay`, `loop`, `muted`, `children` <br/>
-      **Defaults**: `title=""`, `author=""`, `href=""`, `controls=true`, `autoPlay=false`, `loop=false`, `muted=false`
-
-      <CodeGroup>
-```jsx lines Example
-import { Video } from "/snippets/components/display/video.jsx";
-
-<Video
-  src={"<value>"}
-  title={""}
-  author={""}
-  caption={"<value>"}
-  href={""}
-  controls={true}
-  autoPlay={false}
-  loop={false}
-  muted={false}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="YouTubeVideo" type="component">
-      **Props**: `embedUrl`, `title`, `author`, `hint`, `caption` <br/>
-      **Defaults**: `title=""`, `author=""`, `hint=""`
-
-      <CodeGroup>
-```jsx lines Example
-import { YouTubeVideo } from "/snippets/components/display/video.jsx";
-
-<YouTubeVideo
-  embedUrl={"<value>"}
-  title={""}
-  author={""}
-  hint={""}
-  caption={"<value>"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="YouTubeVideoData" type="component">
-      **Props**: `items`, `limit`, `cols` <br/>
-      **Defaults**: `items=[]`, `cols=2`
-
-      <CodeGroup>
-```jsx lines Example
-import { YouTubeVideoData } from "/snippets/components/display/video.jsx";
-
-<YouTubeVideoData
-  items={[]}
-  limit={0}
-  cols={2}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="YouTubeVideoDownload" type="component">
-      **Props**: `embedUrl`, `title`, `hint`, `caption` <br/>
-      **Defaults**: `caption=""`
-
-      <CodeGroup>
-```jsx lines Example
-import { YouTubeVideoDownload } from "/snippets/components/display/video.jsx";
-
-<YouTubeVideoDownload
-  embedUrl={"<value>"}
-  title={"<value>"}
-  hint={"<value>"}
-  caption={""}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
-  <Accordion title="zoomable-diagram.jsx" icon="file-code">
-    <ResponseField name="ScrollableDiagram" type="component">
-      **Props**: `children`, `title`, `maxHeight`, `minWidth`, `showControls` <br/>
-      **Defaults**: `title=""`, `maxHeight="500px"`, `minWidth="100%"`, `showControls=false`
-
-      <CodeGroup>
-```jsx lines Example
-import { ScrollableDiagram } from "/snippets/components/display/zoomable-diagram.jsx";
-
-<ScrollableDiagram
-  title={""}
-  maxHeight={"500px"}
-  minWidth={"100%"}
-  showControls={false}
 />
 ```
       </CodeGroup>
@@ -2030,12 +2032,22 @@ import { RefCardContainer } from "/snippets/components/domain/SHARED/Portals.jsx
     { Category: "内容", Page: "content/externalContent.jsx", Component: "ExternalContent", Props: "repoName, githubUrl, maxHeight=\"1000px\", icon=\"github\", children" },
     { Category: "内容", Page: "content/math.jsx", Component: "MathBlock", Props: "latex, className=\"\", ariaLabel" },
     { Category: "内容", Page: "content/math.jsx", Component: "MathInline", Props: "latex, className=\"\", ariaLabel" },
+    { Category: "内容", Page: "content/quote.jsx", Component: "FrameQuote", Props: "children, author, source, href, frame=true, align=\"right\", borderColor, img, spacing=true" },
+    { Category: "内容", Page: "content/quote.jsx", Component: "Quote", Props: "children" },
     { Category: "内容", Page: "content/release.jsx", Component: "LatestVersion", Props: "version" },
     { Category: "内容", Page: "content/responseField.jsx", Component: "CustomResponseField", Props: "description" },
     { Category: "内容", Page: "content/responseField.jsx", Component: "ResponseFieldAccordion", Props: "fields={}" },
     { Category: "内容", Page: "content/responseField.jsx", Component: "ResponseFieldExpandable", Props: "fields={}" },
     { Category: "内容", Page: "content/responseField.jsx", Component: "ResponseFieldGroup", Props: "component=\"accordion\", fields={}" },
     { Category: "内容", Page: "content/responseField.jsx", Component: "ValueResponseField", Props: "description, post=null, label=\"value\", line=true, children" },
+    { Category: "内容", Page: "content/video.jsx", Component: "CardVideo", Props: "embedUrl, title, style" },
+    { Category: "内容", Page: "content/video.jsx", Component: "LinkedInEmbed", Props: "embedUrl, title=\"Embedded post\", hint=\"\", caption, height=\"399\"" },
+    { Category: "内容", Page: "content/video.jsx", Component: "ShowcaseVideo", Props: "src, title, subtitle" },
+    { Category: "内容", Page: "content/video.jsx", Component: "TitledVideo", Props: "src, title, subtitle, arrow=false, borderRadius=\"12px\", style={}" },
+    { Category: "内容", Page: "content/video.jsx", Component: "Video", Props: "src, title=\"\", author=\"\", caption, href=\"\", controls=true, autoPlay=false, loop=false, muted=false, children" },
+    { Category: "内容", Page: "content/video.jsx", Component: "YouTubeVideo", Props: "embedUrl, title=\"\", author=\"\", hint=\"\", caption" },
+    { Category: "内容", Page: "content/video.jsx", Component: "YouTubeVideoDownload", Props: "embedUrl, title, hint, caption=\"\"" },
+    { Category: "内容", Page: "content/zoomableDiagram.jsx", Component: "ScrollableDiagram", Props: "children, title=\"\", maxHeight=\"500px\", minWidth=\"100%\", showControls=false" },
     { Category: "原始组件", Page: "primitives/a11y.jsx", Component: "FocusableScrollRegions", Props: "selectors" },
     { Category: "原始组件", Page: "primitives/buttons.jsx", Component: "DownloadButton", Props: "label=\"Download\", icon=\"download\", downloadLink, rightIcon=\"\", border=false" },
     { Category: "原始组件", Page: "primitives/customCardTitle.jsx", Component: "CustomCardTitle", Props: "icon, title, style" },
@@ -2090,6 +2102,7 @@ import { RefCardContainer } from "/snippets/components/domain/SHARED/Portals.jsx
     { Category: "布局", Page: "layout/tables.jsx", Component: "TableCell", Props: "children, align=\"left\", header=false, style={}" },
     { Category: "布局", Page: "layout/tables.jsx", Component: "TableRow", Props: "children, header=false, hover=false, style={}" },
     { Category: "布局", Page: "layout/text.jsx", Component: "AccordionLayout", Props: "children" },
+    { Category: "数据", Page: "data/videoData.jsx", Component: "YouTubeVideoData", Props: "items=[], limit, cols=2" },
     { Category: "显示", Page: "display/containers.mdx", Component: "CalloutContainer", Props: "children, width=\"fit-content\", align=\"center\"" },
     { Category: "显示", Page: "display/containers.mdx", Component: "CardContentContainer", Props: "children, align, justify, gap=\"1rem\"" },
     { Category: "显示", Page: "display/containers.mdx", Component: "TabsContainer", Props: "children" },
@@ -2105,18 +2118,7 @@ import { RefCardContainer } from "/snippets/components/domain/SHARED/Portals.jsx
     { Category: "显示", Page: "display/frameMode.jsx", Component: "H6", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
     { Category: "显示", Page: "display/frameMode.jsx", Component: "P", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
     { Category: "显示", Page: "display/frameMode.jsx", Component: "PageHeader", Props: "title, subtitle, description, children, titleColor, subtitleColor, descriptionColor" },
-    { Category: "显示", Page: "display/quote.jsx", Component: "FrameQuote", Props: "children, author, source, href, frame=true, align=\"right\", borderColor, img, spacing=true" },
-    { Category: "显示", Page: "display/quote.jsx", Component: "Quote", Props: "children" },
     { Category: "显示", Page: "display/showcaseCards.jsx", Component: "ShowcaseCards", Props: "items=[], limit=null, pageSize=10" },
-    { Category: "显示", Page: "display/video.jsx", Component: "CardVideo", Props: "embedUrl, title, style" },
-    { Category: "显示", Page: "display/video.jsx", Component: "LinkedInEmbed", Props: "embedUrl, title=\"Embedded post\", hint=\"\", caption, height=\"399\"" },
-    { Category: "显示", Page: "display/video.jsx", Component: "ShowcaseVideo", Props: "src, title, subtitle" },
-    { Category: "显示", Page: "display/video.jsx", Component: "TitledVideo", Props: "src, title, subtitle, arrow=false, borderRadius=\"12px\", style={}" },
-    { Category: "显示", Page: "display/video.jsx", Component: "Video", Props: "src, title=\"\", author=\"\", caption, href=\"\", controls=true, autoPlay=false, loop=false, muted=false, children" },
-    { Category: "显示", Page: "display/video.jsx", Component: "YouTubeVideo", Props: "embedUrl, title=\"\", author=\"\", hint=\"\", caption" },
-    { Category: "显示", Page: "display/video.jsx", Component: "YouTubeVideoData", Props: "items=[], limit, cols=2" },
-    { Category: "显示", Page: "display/video.jsx", Component: "YouTubeVideoDownload", Props: "embedUrl, title, hint, caption=\"\"" },
-    { Category: "显示", Page: "display/zoomable-diagram.jsx", Component: "ScrollableDiagram", Props: "children, title=\"\", maxHeight=\"500px\", minWidth=\"100%\", showControls=false" },
     { Category: "集成", Page: "integrations/coingecko.jsx", Component: "CoinGeckoExchanges", Props: "coinId=\"arbitrum\"" },
     { Category: "领域", Page: "domain/SHARED/HeroGif.jsx", Component: "Starfield", Props: "density=1.1" },
     { Category: "领域", Page: "domain/SHARED/Portals.jsx", Component: "HeroContentContainer", Props: "children" },

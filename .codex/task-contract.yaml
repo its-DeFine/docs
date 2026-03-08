@@ -8,7 +8,9 @@ scope_in:
   - .githooks/pre-commit
   - snippets/components/
   - snippets/data/
+  - snippets/pages/
   - snippets/snippetsWiki/componentLibrary/
+  - .githooks/pre-commit-no-deletions
   - tests/integration/v2-link-audit.js
   - tests/run-all.js
   - tests/run-pr-checks.js

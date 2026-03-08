@@ -1762,7 +1762,22 @@ function ensureDir(dirPath) {
   fs.mkdirSync(dirPath, { recursive: true });
 }
 
+function listExistingDomainLinkOutputs() {
+  const dataRoot = path.join(REPO_ROOT, 'snippets', 'data');
+  if (!fs.existsSync(dataRoot)) return [];
+
+  const outPaths = [];
+  for (const entry of fs.readdirSync(dataRoot, { withFileTypes: true })) {
+    if (!entry.isDirectory()) continue;
+    const candidate = path.join(dataRoot, entry.name, 'hrefs.jsx');
+    if (fs.existsSync(candidate)) outPaths.push(candidate);
+  }
+
+  return outPaths;
+}
+
 function writeDomainLinks(domainLinks) {
+  const staleOutputs = new Set(listExistingDomainLinkOutputs());
   const outPaths = [];
   for (const [domain, map] of domainLinks.entries()) {
     const dir = path.join(REPO_ROOT, 'snippets', 'data', domain);
@@ -1770,8 +1785,14 @@ function writeDomainLinks(domainLinks) {
     const out = path.join(dir, 'hrefs.jsx');
     const body = `export const LINK_MAP = ${JSON.stringify(map, null, 2)};\n\nexport default LINK_MAP;\n`;
     fs.writeFileSync(out, body, 'utf8');
+    staleOutputs.delete(out);
     outPaths.push(out);
   }
+
+  for (const stalePath of staleOutputs) {
+    fs.unlinkSync(stalePath);
+  }
+
   return outPaths;
 }
 

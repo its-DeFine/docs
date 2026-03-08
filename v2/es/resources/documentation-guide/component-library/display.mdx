@@ -14,11 +14,12 @@ keywords:
   - embed
 ---
 {/* codex-i18n: eyJraW5kIjoiY29kZXgtaTE4biIsInZlcnNpb24iOjEsInNvdXJjZVBhdGgiOiJ2Mi9yZXNvdXJjZXMvZG9jdW1lbnRhdGlvbi1ndWlkZS9jb21wb25lbnQtbGlicmFyeS9kaXNwbGF5Lm1keCIsInNvdXJjZVJvdXRlIjoidjIvcmVzb3VyY2VzL2RvY3VtZW50YXRpb24tZ3VpZGUvY29tcG9uZW50LWxpYnJhcnkvZGlzcGxheSIsInNvdXJjZUhhc2giOiJmMzQ5MjVhMTE4YmVlMjRiNGVmMTk4NDFkZWY2Y2RlODg1YTBkZDFjNWMyZDk1N2MzYzQxODU5OGQ3ZGJiYzU0IiwibGFuZ3VhZ2UiOiJlcyIsInByb3ZpZGVyIjoib3BlbnJvdXRlciIsIm1vZGVsIjoicXdlbi9xd2VuLXR1cmJvIiwiZ2VuZXJhdGVkQXQiOiIyMDI2LTAzLTAxVDEzOjIwOjE3LjE1MVoifQ== */}
-import { YouTubeVideo, Video, TitledVideo, ShowcaseVideo, CardVideo, LinkedInEmbed, YouTubeVideoData, YouTubeVideoDownload } from '/snippets/components/display/video.jsx'
+import { YouTubeVideo, Video, TitledVideo, ShowcaseVideo, CardVideo, LinkedInEmbed, YouTubeVideoDownload } from '/snippets/components/content/video.jsx';
+import { YouTubeVideoData } from '/snippets/components/data/videoData.jsx';
 import { Image, LinkImage } from '/snippets/components/primitives/image.jsx'
-import { ScrollableDiagram } from '/snippets/components/display/zoomable-diagram.jsx'
+import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 import { MarkdownEmbed, TwitterTimeline } from '/snippets/components/display/embed.jsx'
-import { Quote, FrameQuote } from '/snippets/components/display/quote.jsx'
+import { Quote, FrameQuote } from '/snippets/components/content/quote.jsx'
 import { CardCarousel } from '/snippets/components/layout/cardCarousel.jsx'
 import { ShowcaseCards } from '/snippets/components/display/showcaseCards.jsx'
 import { SocialLinks } from '/snippets/components/primitives/socialLinks.jsx'
@@ -40,7 +41,7 @@ Incorpora un video de YouTube con una leyenda opcional y atribución del autor. 
 
 **Importar:**
 ```jsx
-import { YouTubeVideo } from "/snippets/components/display/video.jsx";
+import { YouTubeVideo } from "/snippets/components/content/video.jsx";
 ```
 
 **Props:**
@@ -95,7 +96,7 @@ Componente de video autohospedado con envoltura Frame. Muestra un archivo de vid
 
 **Importar:**
 ```jsx
-import { Video } from "/snippets/components/display/video.jsx";
+import { Video } from "/snippets/components/content/video.jsx";
 ```
 
 **Props:**
@@ -159,7 +160,7 @@ Un componente de video con un título en superposición. Muestra un video en buc
 
 **Importar:**
 ```jsx
-import { TitledVideo } from "/snippets/components/display/video.jsx";
+import { TitledVideo } from "/snippets/components/content/video.jsx";
 ```
 
 **Props:**
@@ -202,7 +203,7 @@ Componente de video de presentación con estilo personalizado para páginas de p
 
 **Importar:**
 ```jsx
-import { ShowcaseVideo } from "/snippets/components/display/video.jsx";
+import { ShowcaseVideo } from "/snippets/components/content/video.jsx";
 ```
 
 **Props:**Mismo que`TitledVideo` (utiliza TitledVideo internamente con estilo específico de presentación)
@@ -215,7 +216,7 @@ Vídeo de YouTube integrado en un componente Card. Muestra un vídeo de YouTube 
 
 **Importar:**
 ```jsx
-import { CardVideo } from "/snippets/components/display/video.jsx";
+import { CardVideo } from "/snippets/components/content/video.jsx";
 ```
 
 **Props:**
@@ -260,7 +261,7 @@ Incorpora una publicación de LinkedIn con una leyenda y una pista opcionales. C
 
 **Importar:**
 ```jsx
-import { LinkedInEmbed } from "/snippets/components/display/video.jsx";
+import { LinkedInEmbed } from "/snippets/components/content/video.jsx";
 ```
 
 **Props:**
@@ -296,7 +297,7 @@ Renderiza videos de YouTube desde el formato youtubeData.jsx. Convierte las URL 
 
 **Importar:**
 ```jsx
-import { YouTubeVideoData } from "/snippets/components/display/video.jsx";
+import { YouTubeVideoData } from "/snippets/components/data/videoData.jsx";
 ```
 
 **Props:**
@@ -475,7 +476,7 @@ Componente de cotización simple con borde con estilo y texto en cursiva.
 
 **Importar:**
 ```jsx
-import { Quote } from "/snippets/components/display/quote.jsx";
+import { Quote } from "/snippets/components/content/quote.jsx";
 ```
 
 **Props:**
@@ -509,7 +510,7 @@ Componente de cita con envoltura Frame, autor, fuente y imagen opcionales.
 
 **Importar:**
 ```jsx
-import { FrameQuote } from "/snippets/components/display/quote.jsx";
+import { FrameQuote } from "/snippets/components/content/quote.jsx";
 ```
 
 **Props:**
@@ -649,7 +650,7 @@ Visualizador de diagrama interactivo con controles de zoom (25%-200%) y soporte 
 
 **Importar:**
 ```jsx
-import { ScrollableDiagram } from "/snippets/components/display/zoomable-diagram.jsx";
+import { ScrollableDiagram } from "/snippets/components/content/zoomableDiagram.jsx";
 ```
 
 **Props:**

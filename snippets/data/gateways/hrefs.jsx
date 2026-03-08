@@ -12,8 +12,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/zoomable-diagram.jsx",
-      "resolvedPath": "snippets/components/display/zoomable-diagram.jsx",
+      "rawPath": "/snippets/components/content/zoomableDiagram.jsx",
+      "resolvedPath": "snippets/components/content/zoomableDiagram.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1929,8 +1929,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/zoomable-diagram.jsx",
-      "resolvedPath": "snippets/components/display/zoomable-diagram.jsx",
+      "rawPath": "/snippets/components/content/zoomableDiagram.jsx",
+      "resolvedPath": "snippets/components/content/zoomableDiagram.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2170,8 +2170,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/zoomable-diagram.jsx",
-      "resolvedPath": "snippets/components/display/zoomable-diagram.jsx",
+      "rawPath": "/snippets/components/content/zoomableDiagram.jsx",
+      "resolvedPath": "snippets/components/content/zoomableDiagram.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2482,8 +2482,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/zoomable-diagram.jsx",
-      "resolvedPath": "snippets/components/display/zoomable-diagram.jsx",
+      "rawPath": "/snippets/components/content/zoomableDiagram.jsx",
+      "resolvedPath": "snippets/components/content/zoomableDiagram.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2592,8 +2592,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/zoomable-diagram.jsx",
-      "resolvedPath": "snippets/components/display/zoomable-diagram.jsx",
+      "rawPath": "/snippets/components/content/zoomableDiagram.jsx",
+      "resolvedPath": "snippets/components/content/zoomableDiagram.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2657,8 +2657,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/zoomable-diagram.jsx",
-      "resolvedPath": "snippets/components/display/zoomable-diagram.jsx",
+      "rawPath": "/snippets/components/content/zoomableDiagram.jsx",
+      "resolvedPath": "snippets/components/content/zoomableDiagram.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2706,8 +2706,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/zoomable-diagram.jsx",
-      "resolvedPath": "snippets/components/display/zoomable-diagram.jsx",
+      "rawPath": "/snippets/components/content/zoomableDiagram.jsx",
+      "resolvedPath": "snippets/components/content/zoomableDiagram.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2845,8 +2845,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/video.jsx",
-      "resolvedPath": "snippets/components/display/video.jsx",
+      "rawPath": "/snippets/components/content/video.jsx",
+      "resolvedPath": "snippets/components/content/video.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3251,8 +3251,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/zoomable-diagram.jsx",
-      "resolvedPath": "snippets/components/display/zoomable-diagram.jsx",
+      "rawPath": "/snippets/components/content/zoomableDiagram.jsx",
+      "resolvedPath": "snippets/components/content/zoomableDiagram.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3298,8 +3298,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/zoomable-diagram.jsx",
-      "resolvedPath": "snippets/components/display/zoomable-diagram.jsx",
+      "rawPath": "/snippets/components/content/zoomableDiagram.jsx",
+      "resolvedPath": "snippets/components/content/zoomableDiagram.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -4154,8 +4154,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/zoomable-diagram.jsx",
-      "resolvedPath": "snippets/components/display/zoomable-diagram.jsx",
+      "rawPath": "/snippets/components/content/zoomableDiagram.jsx",
+      "resolvedPath": "snippets/components/content/zoomableDiagram.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

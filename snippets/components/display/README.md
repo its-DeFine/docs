@@ -19,9 +19,9 @@ Display components handle the presentation of media, embeds, quotes, and visual 
 ## Usage
 
 ```jsx
-import { YouTubeVideo } from "/snippets/components/display/video.jsx";
-import { ScrollableDiagram } from "/snippets/components/display/zoomable-diagram.jsx";
-import { Quote, FrameQuote } from "/snippets/components/display/quote.jsx";
+import { YouTubeVideo } from "/snippets/components/content/video.jsx";
+import { ScrollableDiagram } from "/snippets/components/content/zoomableDiagram.jsx";
+import { Quote, FrameQuote } from "/snippets/components/content/quote.jsx";
 import { H1, H2, PageHeader } from "/snippets/components/display/frameMode.jsx";
 import { ShowcaseCards } from "/snippets/components/display/showcaseCards.jsx";
 import { SocialLinks } from "/snippets/components/primitives/socialLinks.jsx";

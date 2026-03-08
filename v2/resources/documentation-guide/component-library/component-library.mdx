@@ -12,12 +12,13 @@ import { CustomCallout, BlinkingIcon, DoubleIconLink, GotoLink, GotoCard, TipWit
 import { DownloadButton } from '/snippets/components/primitives/buttons.jsx'
 import { Subtitle, CopyText, CardTitleTextWithArrow, AccordionTitleWithArrow } from '/snippets/components/primitives/text.jsx'
 
-import { YouTubeVideo, Video, CardVideo, LinkedInEmbed, TitledVideo, ShowcaseVideo, YouTubeVideoData } from '/snippets/components/display/video.jsx'
+import { YouTubeVideo, Video, CardVideo, LinkedInEmbed, TitledVideo, ShowcaseVideo } from '/snippets/components/content/video.jsx';
+import { YouTubeVideoData } from '/snippets/components/data/videoData.jsx';
 import { Image, LinkImage } from '/snippets/components/primitives/image.jsx'
-import { ScrollableDiagram } from '/snippets/components/display/zoomable-diagram.jsx'
+import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 import { MarkdownEmbed, TwitterTimeline } from '/snippets/components/display/embed.jsx'
 import { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider } from '/snippets/components/display/frameMode.jsx'
-import { Quote, FrameQuote } from '/snippets/components/display/quote.jsx'
+import { Quote, FrameQuote } from '/snippets/components/content/quote.jsx'
 import { SocialLinks } from '/snippets/components/primitives/socialLinks.jsx'
 import { CardCarousel } from '/snippets/components/layout/cardCarousel.jsx'
 import { ShowcaseCards } from '/snippets/components/display/showcaseCards.jsx'
@@ -54,7 +55,7 @@ import { Starfield } from '/snippets/components/domain/SHARED/HeroGif.jsx'
 Import components in your MDX files using absolute paths from `/snippets/`:
 
 ```jsx
-import { YouTubeVideo } from "/snippets/components/display/video.jsx";
+import { YouTubeVideo } from "/snippets/components/content/video.jsx";
 import { GotoCard, GotoLink } from "/snippets/components/primitives/links.jsx";
 import { CustomCodeBlock } from "/snippets/components/content/code.jsx";
 ```
@@ -486,7 +487,7 @@ Embeds a YouTube video with optional caption and author attribution.
   </Tab>
   <Tab title="Code">
 ```jsx
-import { YouTubeVideo } from "/snippets/components/display/video.jsx";
+import { YouTubeVideo } from "/snippets/components/content/video.jsx";
 
 <YouTubeVideo
   embedUrl="https://www.youtube.com/embed/DKAChLmC0uk"
@@ -515,7 +516,7 @@ Self-hosted video component with Frame wrapper.
 <Tabs>
   <Tab title="Code">
 ```jsx
-import { Video } from "/snippets/components/display/video.jsx";
+import { Video } from "/snippets/components/content/video.jsx";
 
 <Video 
   src="/snippets/assets/media/videos/HeroBackground.mp4" 
@@ -595,16 +596,7 @@ Interactive diagram viewer with zoom controls (25%-200%) and pan support.
   <Tab title="Live Example">
     <ScrollableDiagram title="Example Diagram" maxHeight="300px">
       <div style={{ 
-        width: "800px", 
-        height: "400px", 
-        background: "linear-gradient(135deg, var(--accent) 0%, #0066ff 100%)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        color: "white",
-        fontSize: "24px",
-        fontWeight: "bold",
-        borderRadius: "8px"
+        width: "800px", height: "400px", background: "linear-gradient(135deg, var(--accent) 0%, #0066ff 100%)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: "24px", fontWeight: "bold", borderRadius: "8px"
       }}>
         Large Diagram Content - Scroll and Zoom!
       </div>
@@ -612,7 +604,7 @@ Interactive diagram viewer with zoom controls (25%-200%) and pan support.
   </Tab>
   <Tab title="Code">
 ```jsx
-import { ScrollableDiagram } from "/snippets/components/display/zoomable-diagram.jsx";
+import { ScrollableDiagram } from "/snippets/components/content/zoomableDiagram.jsx";
 
 <ScrollableDiagram title="System Architecture" maxHeight="600px">
   <img src="/snippets/assets/media/images/Livepeer%20Stats.png" alt="Architecture" />
@@ -638,7 +630,7 @@ Embed LinkedIn posts following official embed requirements.
 <Tabs>
   <Tab title="Code">
 ```jsx
-import { LinkedInEmbed } from "/snippets/components/display/video.jsx";
+import { LinkedInEmbed } from "/snippets/components/content/video.jsx";
 
 <LinkedInEmbed
   embedUrl="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7387171661868933120?compact=1"
@@ -759,7 +751,7 @@ Quote components for displaying testimonials, citations, and highlighted text.
   </Tab>
   <Tab title="Code">
 ```jsx
-import { Quote, FrameQuote } from "/snippets/components/display/quote.jsx";
+import { Quote, FrameQuote } from "/snippets/components/content/quote.jsx";
 
 <Quote>
   Simple quote text here.

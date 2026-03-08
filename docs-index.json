@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-08T09:22:19.453Z",
+  "generated": "2026-03-08T09:37:50.246Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -43,7 +43,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 54,
-      "lastVerified": "2026-03-04T00:47:36+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 3,
@@ -155,7 +155,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 385,
-      "lastVerified": "2026-03-08T20:15:15+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -222,7 +222,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 525,
-      "lastVerified": "2026-03-08T20:15:15+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -364,7 +364,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 71,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -459,7 +459,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 148,
-      "lastVerified": "2026-03-04T01:00:46+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 3,
@@ -6004,7 +6004,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 699,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -6347,7 +6347,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 843,
-      "lastVerified": "2026-03-03T23:22:07+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -6483,7 +6483,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 632,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -6558,7 +6558,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 675,
-      "lastVerified": "2026-03-04T00:31:58+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -7855,7 +7855,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 492,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -7909,7 +7909,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 622,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -7974,7 +7974,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 460,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -8053,7 +8053,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 701,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -8122,7 +8122,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 318,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 1,
@@ -8232,7 +8232,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 655,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -8285,7 +8285,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 177,
-      "lastVerified": "2026-03-05T14:04:40+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -8366,7 +8366,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 500,
-      "lastVerified": "2026-03-04T01:00:46+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -8411,7 +8411,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1790,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -9601,7 +9601,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 166,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -10698,7 +10698,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 176,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -11034,7 +11034,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 891,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -11285,7 +11285,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 733,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -11909,7 +11909,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 970,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -13160,7 +13160,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 62,
+      "wordCount": 52,
       "lastVerified": "2026-03-03T19:21:03+11:00",
       "headings": [
         {
@@ -14027,7 +14027,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3318,
-      "lastVerified": "2026-03-03T21:46:17+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 1,
@@ -15053,7 +15053,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 927,
-      "lastVerified": "2026-03-08T20:15:15+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -15115,7 +15115,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3520,
-      "lastVerified": "2026-03-08T20:15:15+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -15382,7 +15382,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1923,
-      "lastVerified": "2026-03-08T20:15:15+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -15541,7 +15541,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1984,
-      "lastVerified": "2026-03-08T20:15:15+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -16735,7 +16735,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2722,
-      "lastVerified": "2026-03-04T01:00:46+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,
@@ -16809,7 +16809,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 475,
-      "lastVerified": "2026-03-04T01:00:46+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 1,
@@ -17081,7 +17081,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 927,
-      "lastVerified": "2026-03-08T20:15:15+11:00",
+      "lastVerified": "2026-03-08T20:25:59+11:00",
       "headings": [
         {
           "level": 2,

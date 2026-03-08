@@ -79,7 +79,7 @@ components/
 Import components in MDX files using absolute paths from `/snippets/`:
 
 ```jsx
-import { YouTubeVideo } from "/snippets/components/display/video.jsx";
+import { YouTubeVideo } from "/snippets/components/content/video.jsx";
 import { GotoCard, GotoLink } from "/snippets/components/primitives/links.jsx";
 import { CustomCodeBlock } from "/snippets/components/content/code.jsx";
 ```
