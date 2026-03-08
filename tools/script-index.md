@@ -6,28 +6,12 @@
 | Script | Summary | Usage | Owner |
 |---|---|---|---|
 | `tools/scripts/add-framework-headers.js` | Insert or verify governance framework metadata headers from classification JSON. | `node tools/scripts/add-framework-headers.js --data script-classifications.json --dry-run` | docs |
-| `tools/scripts/archive/deprecated/docs-coverage-and-route-integrity-audit.js` | Audit docs coverage integrity, missing routes, legacy /v2/pages references, and orphan candidate files. | `node tools/scripts/archive/deprecated/docs-coverage-and-route-integrity-audit.js --scope full` | docs |
-| `tools/scripts/archive/deprecated/project-management-output-script.js` | Deprecated legacy project-management output script retained as a reference stub. | `node tools/scripts/archive/deprecated/project-management-output-script.js` | docs |
-| `tools/scripts/archive/duplicates/check-component-errors.js` | Utility script for tools/scripts/test/check-component-errors.js. | `node tools/scripts/test/check-component-errors.js` | docs |
-| `tools/scripts/archive/duplicates/final-verification.js` | Utility script for tools/scripts/test/final-verification.js. | `node tools/scripts/test/final-verification.js` | docs |
-| `tools/scripts/archive/duplicates/find-correct-url.js` | Utility script for tools/scripts/test/find-correct-url.js. | `node tools/scripts/test/find-correct-url.js` | docs |
-| `tools/scripts/archive/duplicates/inspect-page.js` | Utility script for tools/scripts/test/inspect-page.js. | `node tools/scripts/test/inspect-page.js` | docs |
-| `tools/scripts/archive/duplicates/inspect-video-page.js` | Utility script for tools/scripts/test/inspect-video-page.js. | `node tools/scripts/test/inspect-video-page.js` | docs |
-| `tools/scripts/archive/duplicates/test-youtube-pages-v2.js` | Utility script for tools/scripts/test/test-youtube-pages.js. | `node tools/scripts/test/test-youtube-pages.js` | docs |
-| `tools/scripts/archive/duplicates/test-youtube-pages.js` | Utility script for tools/scripts/test/test-youtube-pages.js. | `node tools/scripts/test/test-youtube-pages.js` | docs |
-| `tools/scripts/archive/duplicates/verify-all-pages.js` | Utility script for tools/scripts/verify-all-pages.js. | `node tools/scripts/verify-all-pages.js` | docs |
-| `tools/scripts/archive/duplicates/verify-pages.js` | Utility script for tools/scripts/verify-pages.js. | `node tools/scripts/verify-pages.js` | docs |
-| `tools/scripts/archive/fixtures/allowed-script.js` | Utility script for tools/scripts/archive/fixtures/allowed-script.js. | `node tools/scripts/archive/fixtures/allowed-script.js` | docs |
-| `tools/scripts/archive/fixtures/allowed-test.js` | Utility script for tools/scripts/archive/fixtures/allowed-test.js. | `node tools/scripts/archive/fixtures/allowed-test.js` | docs |
-| `tools/scripts/archive/fixtures/allowed.js` | Utility script for tools/scripts/archive/fixtures/allowed.js. | `node tools/scripts/archive/fixtures/allowed.js` | docs |
-| `tools/scripts/archive/placeholders/embed-table.js` | Archived no-op placeholder for markdown table embedding utility tasks. | `node tools/scripts/archive/placeholders/embed-table.js` | docs |
-| `tools/scripts/archive/placeholders/gen-table.js` | Archived no-op placeholder for generated table output utility tasks. | `node tools/scripts/archive/placeholders/gen-table.js` | docs |
-| `tools/scripts/archive/placeholders/gen-textareas.js` | Archived no-op placeholder for textarea generation utility tasks. | `node tools/scripts/archive/placeholders/gen-textareas.js` | docs |
 | `tools/scripts/assign-purpose-metadata.js` | Assign purpose and audience frontmatter metadata for docs.json EN-routable v2 pages using deterministic rules with optional LLM classification for unclassified pages. | `node tools/scripts/assign-purpose-metadata.js --scope pilot --dry-run` | docs |
 | `tools/scripts/audit-all-pages-simple.js` | Lightweight page auditor — quick pass over all pages checking basic frontmatter and structure | `node tools/scripts/audit-all-pages-simple.js [flags]` | docs |
 | `tools/scripts/audit-all-pages.js` | Full page auditor — comprehensive check of all pages including content quality metrics | `node tools/scripts/audit-all-pages.js [flags]` | docs |
 | `tools/scripts/audit-all-v2-pages.js` | V2-specific page auditor — checks v2/** pages for v2-specific requirements (frontmatter, components) | `node tools/scripts/audit-all-v2-pages.js [flags]` | docs |
 | `tools/scripts/audit-component-usage.js` | Component usage auditor — scans pages for component usage patterns and reports statistics | `node tools/scripts/audit-component-usage.js [flags]` | docs |
+| `tools/scripts/audit-media-assets.js` | Audit repo media assets, references, ignore leakage, and externalized asset branch inventory. | `node tools/scripts/audit-media-assets.js [--manifest &lt;path&gt;] [--summary &lt;path&gt;] [--assets-branch-ref &lt;ref&gt;] [--check-staged]` | docs |
 | `tools/scripts/audit-scripts.js` | Script auditor — analyses all repo scripts, categorises usage/overlap, generates SCRIPT_AUDIT reports | `node tools/scripts/audit-scripts.js [flags]` | docs |
 | `tools/scripts/audit-tasks-folders.js` | Tasks folder auditor — checks tasks/ structure, normalises report locations, applies recommendations with conflict-safe moves | `node tools/scripts/audit-tasks-folders.js [flags]` | docs |
 | `tools/scripts/audit-v1-to-v2-mapping.js` | Diagnostic — maps v1 page URLs to v2 equivalents for migration tracking | `node tools/scripts/audit-v1-to-v2-mapping.js [flags]` | docs |
