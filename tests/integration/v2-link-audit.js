@@ -124,6 +124,14 @@ function parseIntegerFlag(raw, fallback, { min = 0 } = {}) {
   return floored;
 }
 
+function deriveJsonReportPath(reportPath) {
+  const parsed = path.parse(path.resolve(REPO_ROOT, reportPath || DEFAULT_REPORT));
+  if (!parsed.ext) {
+    return path.join(parsed.dir, `${parsed.base}.json`);
+  }
+  return path.join(parsed.dir, `${parsed.name}.json`);
+}
+
 function parseArgs(argv) {
   const args = {
     mode: 'full',
@@ -141,6 +149,8 @@ function parseArgs(argv) {
     externalRetries: 1,
     files: []
   };
+  let reportExplicit = false;
+  let reportJsonExplicit = false;
 
   for (let i = 0; i < argv.length; i += 1) {
     const token = argv[i];
@@ -164,9 +174,11 @@ function parseArgs(argv) {
     else if (token === '--no-write-links') args.writeLinks = false;
     else if (token === '--report') {
       args.report = path.resolve(REPO_ROOT, argv[i + 1] || '');
+      reportExplicit = true;
       i += 1;
     } else if (token === '--report-json') {
       args.reportJson = path.resolve(REPO_ROOT, argv[i + 1] || '');
+      reportJsonExplicit = true;
       i += 1;
     } else if (token === '--external-policy') {
       args.externalPolicy = String(argv[i + 1] || '').trim().toLowerCase();
@@ -206,6 +218,10 @@ function parseArgs(argv) {
 
   if (typeof args.writeLinks === 'undefined') {
     args.writeLinks = args.mode === 'full';
+  }
+
+  if (reportExplicit && !reportJsonExplicit) {
+    args.reportJson = deriveJsonReportPath(args.report);
   }
 
   return args;
@@ -1918,6 +1934,7 @@ module.exports = {
   EXTERNAL_OK,
   EXTERNAL_SOFT_FAIL,
   EXTERNAL_HARD_FAIL,
+  deriveJsonReportPath,
   parseArgs,
   normalizeExternalUrl,
   shouldValidateExternalRef,

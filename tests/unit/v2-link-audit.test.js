@@ -52,6 +52,8 @@ async function runTests() {
   await runCase('Parses default args with classify policy', async () => {
     const parsed = audit.parseArgs([]);
     assert.strictEqual(parsed.mode, 'full');
+    assert.strictEqual(parsed.report, audit.DEFAULT_REPORT);
+    assert.strictEqual(parsed.reportJson, audit.DEFAULT_REPORT_JSON);
     assert.strictEqual(parsed.respectMintIgnore, true);
     assert.strictEqual(parsed.externalPolicy, 'classify');
     assert.strictEqual(parsed.externalLinkTypes, 'navigational');
@@ -86,6 +88,16 @@ async function runTests() {
     assert.strictEqual(parsed.respectMintIgnore, false);
     assert.strictEqual(parsed.writeLinks, false);
     assert.ok(parsed.reportJson.endsWith('/tmp/v2-link-audit-unit.json'));
+  });
+
+  await runCase('Derives JSON report path from custom markdown report when report-json is omitted', async () => {
+    const parsed = audit.parseArgs([
+      '--report', '/tmp/v2-link-audit-unit-report.md',
+      '--no-write-links'
+    ]);
+
+    assert.ok(parsed.report.endsWith('/tmp/v2-link-audit-unit-report.md'));
+    assert.ok(parsed.reportJson.endsWith('/tmp/v2-link-audit-unit-report.json'));
   });
 
   await runCase('Normalizes external URLs by removing hash and preserving query', async () => {
@@ -158,7 +170,7 @@ async function runTests() {
     errors,
     warnings,
     passed: errors.length === 0,
-    total: 6
+    total: 7
   };
 }
 

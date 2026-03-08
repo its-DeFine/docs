@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-08T18:05:18.987Z",
+  "generated": "2026-03-08T18:45:39.893Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -432,7 +432,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1343,
-      "lastVerified": "2026-03-09T01:25:13+11:00",
+      "lastVerified": "2026-03-09T05:13:56+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -992,7 +992,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 781,
-      "lastVerified": "2026-03-09T01:25:13+11:00",
+      "lastVerified": "2026-03-09T05:13:56+11:00",
       "headings": [
         {
           "level": 2,
@@ -1492,7 +1492,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 436,
-      "lastVerified": "2026-03-09T01:25:13+11:00",
+      "lastVerified": "2026-03-09T05:13:56+11:00",
       "headings": [
         {
           "level": 3,
@@ -7361,7 +7361,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 43,
-      "lastVerified": "2026-03-09T01:25:13+11:00",
+      "lastVerified": "2026-03-09T05:13:56+11:00",
       "headings": [
         {
           "level": 2,
@@ -7387,7 +7387,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 29,
-      "lastVerified": "2026-03-09T01:25:13+11:00",
+      "lastVerified": "2026-03-09T05:13:56+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -7408,7 +7408,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 86,
-      "lastVerified": "2026-03-09T01:25:13+11:00",
+      "lastVerified": "2026-03-09T05:13:56+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -10457,7 +10457,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 350,
-      "lastVerified": "2026-03-09T01:25:13+11:00",
+      "lastVerified": "2026-03-09T05:13:56+11:00",
       "headings": [
         {
           "level": 3,
@@ -10493,7 +10493,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 304,
-      "lastVerified": "2026-03-09T01:25:13+11:00",
+      "lastVerified": "2026-03-09T05:13:56+11:00",
       "headings": [
         {
           "level": 2,
@@ -10553,7 +10553,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 44,
-      "lastVerified": "2026-03-09T01:25:13+11:00",
+      "lastVerified": "2026-03-09T05:13:56+11:00",
       "headings": [],
       "codeLanguages": [
         "mermaid"
@@ -10578,7 +10578,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 289,
-      "lastVerified": "2026-03-09T01:25:13+11:00",
+      "lastVerified": "2026-03-09T05:13:56+11:00",
       "headings": [
         {
           "level": 2,
@@ -10658,7 +10658,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 52,
-      "lastVerified": "2026-03-09T01:25:13+11:00",
+      "lastVerified": "2026-03-09T05:13:56+11:00",
       "headings": [
         {
           "level": 2,
@@ -11410,7 +11410,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 33,
-      "lastVerified": "2026-03-09T01:25:13+11:00",
+      "lastVerified": "2026-03-09T05:13:56+11:00",
       "headings": [
         {
           "level": 2,
@@ -11443,7 +11443,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 67,
-      "lastVerified": "2026-03-09T01:25:13+11:00",
+      "lastVerified": "2026-03-09T05:13:56+11:00",
       "headings": [],
       "codeLanguages": []
     },
