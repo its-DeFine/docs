@@ -50,6 +50,26 @@ F61067 - Razzmatazz Pink
   --card-background: #f9fafb;
   --border: #e5e7eb;
   --button-text: #ffffff;
+
+  /* Brand / third-party (theme-invariant — same value light and dark) */
+  --lp-color-brand-discord: #5865f2;
+  --lp-color-brand-forum: #00aeef;
+  --lp-color-brand-github: #f0f0f0;
+
+  /* UI colours */
+  --lp-color-white: #fff;
+  --lp-color-callout-coming-soon: #ef1a73;
+  --lp-color-callout-review: #b636dd;
+  --lp-color-response-field-value: #3b82f6;
+  --lp-color-overlay-scrim: rgba(0, 0, 0, 0.5);
+  --lp-color-border-inverse-subtle: rgba(255, 255, 255, 0.4);
+
+  /* Missing referenced tokens (components reference these but they don't exist yet) */
+  --lp-color-text-primary: var(--hero-text);
+  --lp-color-text-secondary: var(--text);
+  --lp-color-text-muted: var(--muted-text);
+  --lp-color-icon-muted: #a1a1aa;
+  --lp-color-surface-dark: var(--card-background);
 }
 
 .dark {
@@ -64,6 +84,26 @@ F61067 - Razzmatazz Pink
   --border: #333333;
   --button-text: #ffffff;
   --background-highlight: rgba(255, 255, 255, 0.1);
+
+  /* Brand / third-party (theme-invariant — same value light and dark) */
+  --lp-color-brand-discord: #5865f2;
+  --lp-color-brand-forum: #00aeef;
+  --lp-color-brand-github: #f0f0f0;
+
+  /* UI colours */
+  --lp-color-white: #fff;
+  --lp-color-callout-coming-soon: #ef1a73;
+  --lp-color-callout-review: #b636dd;
+  --lp-color-response-field-value: #3b82f6;
+  --lp-color-overlay-scrim: rgba(0, 0, 0, 0.5);
+  --lp-color-border-inverse-subtle: rgba(255, 255, 255, 0.4);
+
+  /* Missing referenced tokens (dark values) */
+  --lp-color-text-primary: var(--hero-text);
+  --lp-color-text-secondary: var(--text);
+  --lp-color-text-muted: var(--muted-text);
+  --lp-color-icon-muted: #6b7280;
+  --lp-color-surface-dark: var(--card-background);
 }
 /* ============================================ */
 
