@@ -700,8 +700,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/image.jsx",
-      "resolvedPath": "snippets/components/display/image.jsx",
+      "rawPath": "/snippets/components/primitives/image.jsx",
+      "resolvedPath": "snippets/components/primitives/image.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

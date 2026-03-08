@@ -13,12 +13,12 @@ import { DownloadButton } from '/snippets/components/primitives/buttons.jsx'
 import { Subtitle, CopyText, CardTitleTextWithArrow, AccordionTitleWithArrow } from '/snippets/components/primitives/text.jsx'
 
 import { YouTubeVideo, Video, CardVideo, LinkedInEmbed, TitledVideo, ShowcaseVideo, YouTubeVideoData } from '/snippets/components/display/video.jsx'
-import { Image, LinkImage } from '/snippets/components/display/image.jsx'
+import { Image, LinkImage } from '/snippets/components/primitives/image.jsx'
 import { ScrollableDiagram } from '/snippets/components/display/zoomable-diagram.jsx'
 import { MarkdownEmbed, TwitterTimeline } from '/snippets/components/display/embed.jsx'
 import { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider } from '/snippets/components/display/frameMode.jsx'
 import { Quote, FrameQuote } from '/snippets/components/display/quote.jsx'
-import { SocialLinks } from '/snippets/components/display/socialLinks.jsx'
+import { SocialLinks } from '/snippets/components/primitives/socialLinks.jsx'
 import { CardCarousel } from '/snippets/components/display/CardCarousel.jsx'
 import { ShowcaseCards } from '/snippets/components/display/showcaseCards.jsx'
 
@@ -38,7 +38,7 @@ import { DynamicTable } from '/snippets/components/layout/table.jsx'
 import { AccordionLayout } from '/snippets/components/layout/text.jsx'
 
 import { CoinGeckoExchanges } from '/snippets/components/integrations/coingecko.jsx'
-import { ComingSoonCallout, PreviewCallout, ReviewCallout } from '/snippets/components/domain/SHARED/previewCallouts.jsx'
+import { ComingSoonCallout, PreviewCallout, ReviewCallout } from '/snippets/components/primitives/previewCallouts.jsx'
 import { GatewayOffChainWarning, GatewayOnChainWarning, GatewayOnChainTTestnetNote, OrchAddrNote, TestVideoDownload, FfmpegWarning } from '/v2/gateways/quickstart/components/callouts.jsx'
 import { QuickStartTabs, QuickStartSteps } from '/v2/gateways/quickstart/components/quickstartTabs.jsx'
 import { Starfield } from '/snippets/components/domain/SHARED/HeroGif.jsx'
@@ -557,7 +557,7 @@ Image components with Frame wrapper and optional linking.
   </Tab>
   <Tab title="Code">
 ```jsx
-import { Image, LinkImage } from "/snippets/components/display/image.jsx";
+import { Image, LinkImage } from "/snippets/components/primitives/image.jsx";
 
 <Image 
   src="/snippets/assets/media/images/Livepeer%20Stats.png" 
@@ -810,7 +810,7 @@ Displays a row of social media icon links for Livepeer with official brand color
   </Tab>
   <Tab title="Code">
 ```jsx
-import { SocialLinks } from "/snippets/components/display/socialLinks.jsx";
+import { SocialLinks } from "/snippets/components/primitives/socialLinks.jsx";
 
 <SocialLinks />
 <SocialLinks size={24} justify="flex-start" gap="1rem" />
@@ -1564,7 +1564,7 @@ Callouts for pages under construction or needing review.
   </Tab>
   <Tab title="Code">
 ```jsx
-import { PreviewCallout, ComingSoonCallout, ReviewCallout } from "/snippets/components/domain/SHARED/previewCallouts.jsx";
+import { PreviewCallout, ComingSoonCallout, ReviewCallout } from "/snippets/components/primitives/previewCallouts.jsx";
 
 <PreviewCallout />
 <ComingSoonCallout />

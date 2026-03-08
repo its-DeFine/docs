@@ -12,13 +12,13 @@ keywords:
 ---
 {/* codex-i18n: eyJraW5kIjoiY29kZXgtaTE4biIsInZlcnNpb24iOjEsInNvdXJjZVBhdGgiOiJ2Mi9yZXNvdXJjZXMvZG9jdW1lbnRhdGlvbi1ndWlkZS9jb21wb25lbnQtbGlicmFyeS9kaXNwbGF5Lm1keCIsInNvdXJjZVJvdXRlIjoidjIvcmVzb3VyY2VzL2RvY3VtZW50YXRpb24tZ3VpZGUvY29tcG9uZW50LWxpYnJhcnkvZGlzcGxheSIsInNvdXJjZUhhc2giOiJmMzQ5MjVhMTE4YmVlMjRiNGVmMTk4NDFkZWY2Y2RlODg1YTBkZDFjNWMyZDk1N2MzYzQxODU5OGQ3ZGJiYzU0IiwibGFuZ3VhZ2UiOiJjbiIsInByb3ZpZGVyIjoib3BlbnJvdXRlciIsIm1vZGVsIjoicXdlbi9xd2VuLXR1cmJvIiwiZ2VuZXJhdGVkQXQiOiIyMDI2LTAzLTAxVDEzOjM3OjEwLjk4MFoifQ== */}
 import { YouTubeVideo, Video, TitledVideo, ShowcaseVideo, CardVideo, LinkedInEmbed, YouTubeVideoData, YouTubeVideoDownload } from '/snippets/components/display/video.jsx'
-import { Image, LinkImage } from '/snippets/components/display/image.jsx'
+import { Image, LinkImage } from '/snippets/components/primitives/image.jsx'
 import { ScrollableDiagram } from '/snippets/components/display/zoomable-diagram.jsx'
 import { MarkdownEmbed, TwitterTimeline } from '/snippets/components/display/embed.jsx'
 import { Quote, FrameQuote } from '/snippets/components/display/quote.jsx'
 import { CardCarousel } from '/snippets/components/display/CardCarousel.jsx'
 import { ShowcaseCards } from '/snippets/components/display/showcaseCards.jsx'
-import { SocialLinks } from '/snippets/components/display/socialLinks.jsx'
+import { SocialLinks } from '/snippets/components/primitives/socialLinks.jsx'
 // frameMode components commented out - require a legacy theme dependency (components are immutable)
 // import { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider } from '/snippets/components/display/frameMode.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
@@ -324,7 +324,7 @@ import { YouTubeVideoData } from "/snippets/components/display/video.jsx";
 
 **导入：**
 ```jsx
-import { Image } from "/snippets/components/display/image.jsx";
+import { Image } from "/snippets/components/primitives/image.jsx";
 ```
 
 **属性：**
@@ -373,7 +373,7 @@ import { Image } from "/snippets/components/display/image.jsx";
 
 **导入:**
 ```jsx
-import { LinkImage } from "/snippets/components/display/image.jsx";
+import { LinkImage } from "/snippets/components/primitives/image.jsx";
 ```
 
 **属性:**
@@ -697,7 +697,7 @@ import { ScrollableDiagram } from "/snippets/components/display/zoomable-diagram
 
 **导入：**
 ```jsx
-import { SocialLinks } from "/snippets/components/display/socialLinks.jsx";
+import { SocialLinks } from "/snippets/components/primitives/socialLinks.jsx";
 ```
 
 **属性：**

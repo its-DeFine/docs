@@ -103,8 +103,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "/snippets/components/primitives/previewCallouts.jsx",
+      "resolvedPath": "snippets/components/primitives/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -114,8 +114,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "/snippets/components/primitives/previewCallouts.jsx",
+      "resolvedPath": "snippets/components/primitives/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -336,8 +336,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/image.jsx",
-      "resolvedPath": "snippets/components/display/image.jsx",
+      "rawPath": "/snippets/components/primitives/image.jsx",
+      "resolvedPath": "snippets/components/primitives/image.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -381,8 +381,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/socialLinks.jsx",
-      "resolvedPath": "snippets/components/display/socialLinks.jsx",
+      "rawPath": "/snippets/components/primitives/socialLinks.jsx",
+      "resolvedPath": "snippets/components/primitives/socialLinks.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -525,8 +525,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "/snippets/components/primitives/previewCallouts.jsx",
+      "resolvedPath": "snippets/components/primitives/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -736,8 +736,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/image.jsx",
-      "resolvedPath": "snippets/components/display/image.jsx",
+      "rawPath": "/snippets/components/primitives/image.jsx",
+      "resolvedPath": "snippets/components/primitives/image.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -790,8 +790,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/socialLinks.jsx",
-      "resolvedPath": "snippets/components/display/socialLinks.jsx",
+      "rawPath": "/snippets/components/primitives/socialLinks.jsx",
+      "resolvedPath": "snippets/components/primitives/socialLinks.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1072,6 +1072,15 @@ export const LINK_MAP = {
       "linkType": "import-path",
       "rawPath": "/snippets/components/primitives/layout.jsx",
       "resolvedPath": "snippets/components/primitives/layout.jsx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "import-path",
+      "linkType": "import-path",
+      "rawPath": "/snippets/components/primitives/spacer.jsx",
+      "resolvedPath": "snippets/components/primitives/spacer.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2692,8 +2701,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
-      "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "/snippets/components/primitives/previewCallouts.jsx",
+      "resolvedPath": "snippets/components/primitives/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

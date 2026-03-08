@@ -599,7 +599,8 @@ export const LINK_MAP = {
       "status": "missing",
       "movedCandidates": [
         "snippets/components/domain/examples/previewCallouts-examples.mdx",
-        "snippets/components/domain/SHARED/previewCallouts.jsx"
+        "snippets/components/_archive/previewCallouts.jsx",
+        "snippets/components/primitives/previewCallouts.jsx"
       ]
     },
     {
@@ -725,7 +726,8 @@ export const LINK_MAP = {
       "status": "missing",
       "movedCandidates": [
         "snippets/components/domain/examples/previewCallouts-examples.mdx",
-        "snippets/components/domain/SHARED/previewCallouts.jsx"
+        "snippets/components/_archive/previewCallouts.jsx",
+        "snippets/components/primitives/previewCallouts.jsx"
       ]
     }
   ],
@@ -790,7 +792,8 @@ export const LINK_MAP = {
       "status": "missing",
       "movedCandidates": [
         "snippets/components/domain/examples/previewCallouts-examples.mdx",
-        "snippets/components/domain/SHARED/previewCallouts.jsx"
+        "snippets/components/_archive/previewCallouts.jsx",
+        "snippets/components/primitives/previewCallouts.jsx"
       ]
     },
     {

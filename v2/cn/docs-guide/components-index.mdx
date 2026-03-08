@@ -114,6 +114,24 @@ import { FullWidthContainer } from "/snippets/components/primitives/containers.j
       </CodeGroup>
     </ResponseField>
   </Accordion>
+  <Accordion title="customCardTitle.jsx" icon="file-code">
+    <ResponseField name="CustomCardTitle" type="component">
+      **Props**: `icon`, `title`, `style` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { CustomCardTitle } from "/snippets/components/primitives/customCardTitle.jsx";
+
+<CustomCardTitle
+  icon={"<value>"}
+  title={"<value>"}
+  style={{}}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
   <Accordion title="divider.jsx" icon="file-code">
     <ResponseField name="CustomDivider" type="component">
       **Props**: `color`, `middleText`, `style` <br/>
@@ -188,6 +206,46 @@ import { LivepeerSVG } from "/snippets/components/primitives/icons.jsx";
       </CodeGroup>
     </ResponseField>
   </Accordion>
+  <Accordion title="image.jsx" icon="file-code">
+    <ResponseField name="Image" type="component">
+      **Props**: `src`, `alt`, `caption`, `icon`, `hint`, `fullwidth` <br/>
+      **Defaults**: `fullwidth=true`
+
+      <CodeGroup>
+```jsx lines Example
+import { Image } from "/snippets/components/primitives/image.jsx";
+
+<Image
+  src={"<value>"}
+  alt={"<value>"}
+  caption={"<value>"}
+  icon={"<value>"}
+  hint={"<value>"}
+  fullwidth={true}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="LinkImage" type="component">
+      **Props**: `src`, `alt`, `caption`, `icon`, `hint`, `href` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { LinkImage } from "/snippets/components/primitives/image.jsx";
+
+<LinkImage
+  src={"<value>"}
+  alt={"<value>"}
+  caption={"<value>"}
+  icon={"<value>"}
+  hint={"<value>"}
+  href={"<value>"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
   <Accordion title="layout.jsx" icon="file-code">
     <ResponseField name="FlexContainer" type="component">
       **Props**: `children`, `direction`, `gap`, `align`, `justify`, `wrap`, `style` <br/>
@@ -220,21 +278,6 @@ import { GridContainer } from "/snippets/components/primitives/layout.jsx";
   columns={[]}
   gap={"1rem"}
   style={{}}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="Spacer" type="component">
-      **Props**: `size`, `direction` <br/>
-      **Defaults**: `size="1rem"`, `direction="vertical"`
-
-      <CodeGroup>
-```jsx lines Example
-import { Spacer } from "/snippets/components/primitives/layout.jsx";
-
-<Spacer
-  size={"1rem"}
-  direction={"vertical"}
 />
 ```
       </CodeGroup>
@@ -372,6 +415,82 @@ import { TipWithArrow } from "/snippets/components/primitives/links.jsx";
   color={"<value>"}
   iconSize={16}
   arrowSize={16}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
+  <Accordion title="previewCallouts.jsx" icon="file-code">
+    <ResponseField name="ComingSoonCallout" type="component">
+      **Props**: `type` <br/>
+      **Defaults**: `type="page"`
+
+      <CodeGroup>
+```jsx lines Example
+import { ComingSoonCallout } from "/snippets/components/primitives/previewCallouts.jsx";
+
+<ComingSoonCallout
+  type={"page"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="PreviewCallout" type="component">
+      **Props**: No explicit props detected from signature. <br/>
+      **Defaults**: No explicit defaults detected.
+
+      <CodeGroup>
+```jsx lines Example
+import { PreviewCallout } from "/snippets/components/primitives/previewCallouts.jsx";
+
+<PreviewCallout />
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="ReviewCallout" type="component">
+      **Props**: No explicit props detected from signature. <br/>
+      **Defaults**: No explicit defaults detected.
+
+      <CodeGroup>
+```jsx lines Example
+import { ReviewCallout } from "/snippets/components/primitives/previewCallouts.jsx";
+
+<ReviewCallout />
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
+  <Accordion title="socialLinks.jsx" icon="file-code">
+    <ResponseField name="SocialLinks" type="component">
+      **Props**: `size`, `gap`, `justify`, `color` <br/>
+      **Defaults**: `size=20`, `gap="0.75rem"`, `justify="center"`
+
+      <CodeGroup>
+```jsx lines Example
+import { SocialLinks } from "/snippets/components/primitives/socialLinks.jsx";
+
+<SocialLinks
+  size={20}
+  gap={"0.75rem"}
+  justify={"center"}
+  color={"<value>"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
+  <Accordion title="spacer.jsx" icon="file-code">
+    <ResponseField name="Spacer" type="component">
+      **Props**: `size`, `direction` <br/>
+      **Defaults**: `size="1rem"`, `direction="vertical"`
+
+      <CodeGroup>
+```jsx lines Example
+import { Spacer } from "/snippets/components/primitives/spacer.jsx";
+
+<Spacer
+  size={"1rem"}
+  direction={"vertical"}
 />
 ```
       </CodeGroup>
@@ -1218,22 +1337,6 @@ import { TabsContainer } from "/snippets/components/display/containers.mdx";
     </ResponseField>
   </Accordion>
   <Accordion title="customCards.jsx" icon="file-code">
-    <ResponseField name="CustomCardTitle" type="component">
-      **Props**: `icon`, `title`, `style` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { CustomCardTitle } from "/snippets/components/display/customCards.jsx";
-
-<CustomCardTitle
-  icon={"<value>"}
-  title={"<value>"}
-  style={{}}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
     <ResponseField name="DisplayCard" type="component">
       **Props**: `icon`, `title`, `style`, `background`, `children` <br/>
       **Defaults**: `background='var(--card-background)'`
@@ -1493,46 +1596,6 @@ import { PageHeader } from "/snippets/components/display/frameMode.jsx";
       </CodeGroup>
     </ResponseField>
   </Accordion>
-  <Accordion title="image.jsx" icon="file-code">
-    <ResponseField name="Image" type="component">
-      **Props**: `src`, `alt`, `caption`, `icon`, `hint`, `fullwidth` <br/>
-      **Defaults**: `fullwidth=true`
-
-      <CodeGroup>
-```jsx lines Example
-import { Image } from "/snippets/components/display/image.jsx";
-
-<Image
-  src={"<value>"}
-  alt={"<value>"}
-  caption={"<value>"}
-  icon={"<value>"}
-  hint={"<value>"}
-  fullwidth={true}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="LinkImage" type="component">
-      **Props**: `src`, `alt`, `caption`, `icon`, `hint`, `href` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { LinkImage } from "/snippets/components/display/image.jsx";
-
-<LinkImage
-  src={"<value>"}
-  alt={"<value>"}
-  caption={"<value>"}
-  icon={"<value>"}
-  hint={"<value>"}
-  href={"<value>"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
   <Accordion title="quote.jsx" icon="file-code">
     <ResponseField name="FrameQuote" type="component">
       **Props**: `children`, `author`, `source`, `href`, `frame`, `align`, `borderColor`, `img`, `spacing` <br/>
@@ -1581,25 +1644,6 @@ import { ShowcaseCards } from "/snippets/components/display/showcaseCards.jsx";
   items={[]}
   limit={null}
   pageSize={10}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
-  <Accordion title="socialLinks.jsx" icon="file-code">
-    <ResponseField name="SocialLinks" type="component">
-      **Props**: `size`, `gap`, `justify`, `color` <br/>
-      **Defaults**: `size=20`, `gap="0.75rem"`, `justify="center"`
-
-      <CodeGroup>
-```jsx lines Example
-import { SocialLinks } from "/snippets/components/display/socialLinks.jsx";
-
-<SocialLinks
-  size={20}
-  gap={"0.75rem"}
-  justify={"center"}
-  color={"<value>"}
 />
 ```
       </CodeGroup>
@@ -1960,46 +2004,6 @@ import { RefCardContainer } from "/snippets/components/domain/SHARED/Portals.jsx
       </CodeGroup>
     </ResponseField>
   </Accordion>
-  <Accordion title="SHARED/previewCallouts.jsx" icon="file-code">
-    <ResponseField name="ComingSoonCallout" type="component">
-      **Props**: `type` <br/>
-      **Defaults**: `type="page"`
-
-      <CodeGroup>
-```jsx lines Example
-import { ComingSoonCallout } from "/snippets/components/domain/SHARED/previewCallouts.jsx";
-
-<ComingSoonCallout
-  type={"page"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="PreviewCallout" type="component">
-      **Props**: No explicit props detected from signature. <br/>
-      **Defaults**: No explicit defaults detected.
-
-      <CodeGroup>
-```jsx lines Example
-import { PreviewCallout } from "/snippets/components/domain/SHARED/previewCallouts.jsx";
-
-<PreviewCallout />
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="ReviewCallout" type="component">
-      **Props**: No explicit props detected from signature. <br/>
-      **Defaults**: No explicit defaults detected.
-
-      <CodeGroup>
-```jsx lines Example
-import { ReviewCallout } from "/snippets/components/domain/SHARED/previewCallouts.jsx";
-
-<ReviewCallout />
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
 </AccordionGroup>
 
 ## 查找表
@@ -2037,14 +2041,16 @@ import { ReviewCallout } from "/snippets/components/domain/SHARED/previewCallout
     { Category: "原始组件", Page: "primitives/containers.jsx", Component: "BorderedBox", Props: "children, variant=\"default\", padding=\"1rem\", borderRadius=\"8px\", style={}" },
     { Category: "原始组件", Page: "primitives/containers.jsx", Component: "CenteredContainer", Props: "children, maxWidth=\"800px\", padding=\"0\", style={}" },
     { Category: "原始组件", Page: "primitives/containers.jsx", Component: "FullWidthContainer", Props: "children, backgroundColor, style={}" },
+    { Category: "原始组件", Page: "primitives/customCardTitle.jsx", Component: "CustomCardTitle", Props: "icon, title, style" },
     { Category: "原始组件", Page: "primitives/divider.jsx", Component: "CustomDivider", Props: "color=\"var(--border)\", middleText=\"\", style={}" },
     { Category: "原始组件", Page: "primitives/icons.jsx", Component: "LivepeerIcon", Props: "size=16, color" },
     { Category: "原始组件", Page: "primitives/icons.jsx", Component: "LivepeerIconFlipped", Props: "none" },
     { Category: "原始组件", Page: "primitives/icons.jsx", Component: "LivepeerIconOld", Props: "none" },
     { Category: "原始组件", Page: "primitives/icons.jsx", Component: "LivepeerSVG", Props: "size=24, fill=\"var(--lp-color-white)\"" },
+    { Category: "原始组件", Page: "primitives/image.jsx", Component: "Image", Props: "src, alt, caption, icon, hint, fullwidth=true" },
+    { Category: "原始组件", Page: "primitives/image.jsx", Component: "LinkImage", Props: "src, alt, caption, icon, hint, href" },
     { Category: "原始组件", Page: "primitives/layout.jsx", Component: "FlexContainer", Props: "children, direction=\"row\", gap=\"1rem\", align=\"flex-start\", justify=\"flex-start\", wrap=false, style={}" },
     { Category: "原始组件", Page: "primitives/layout.jsx", Component: "GridContainer", Props: "children, columns, gap=\"1rem\", style={}" },
-    { Category: "原始组件", Page: "primitives/layout.jsx", Component: "Spacer", Props: "size=\"1rem\", direction=\"vertical\"" },
     { Category: "原始组件", Page: "primitives/links.jsx", Component: "BlinkingIcon", Props: "icon=\"terminal\", size=16, color" },
     { Category: "原始组件", Page: "primitives/links.jsx", Component: "BlinkingTerminal", Props: "none" },
     { Category: "原始组件", Page: "primitives/links.jsx", Component: "CustomCallout", Props: "children, icon=\"lightbulb\", color, iconSize=16, textSize=\"0.875rem\", textColor" },
@@ -2053,6 +2059,11 @@ import { ReviewCallout } from "/snippets/components/domain/SHARED/previewCallout
     { Category: "原始组件", Page: "primitives/links.jsx", Component: "GotoLink", Props: "label, relativePath, text=\"\", icon=\"arrow-turn-down-right\"" },
     { Category: "原始组件", Page: "primitives/links.jsx", Component: "LinkArrow", Props: "href, label, description, newline=true, borderColor" },
     { Category: "原始组件", Page: "primitives/links.jsx", Component: "TipWithArrow", Props: "children, icon=\"lightbulb\", arrowIcon=\"arrow-up-right\", color, iconSize=16, arrowSize=16" },
+    { Category: "原始组件", Page: "primitives/previewCallouts.jsx", Component: "ComingSoonCallout", Props: "type=\"page\"" },
+    { Category: "原始组件", Page: "primitives/previewCallouts.jsx", Component: "PreviewCallout", Props: "none" },
+    { Category: "原始组件", Page: "primitives/previewCallouts.jsx", Component: "ReviewCallout", Props: "none" },
+    { Category: "原始组件", Page: "primitives/socialLinks.jsx", Component: "SocialLinks", Props: "size=20, gap=\"0.75rem\", justify=\"center\", color" },
+    { Category: "原始组件", Page: "primitives/spacer.jsx", Component: "Spacer", Props: "size=\"1rem\", direction=\"vertical\"" },
     { Category: "原始组件", Page: "primitives/tables.jsx", Component: "StyledTable", Props: "children, variant=\"default\", style={}" },
     { Category: "原始组件", Page: "primitives/tables.jsx", Component: "TableCell", Props: "children, align=\"left\", header=false, style={}" },
     { Category: "原始组件", Page: "primitives/tables.jsx", Component: "TableRow", Props: "children, header=false, hover=false, style={}" },
@@ -2079,7 +2090,6 @@ import { ReviewCallout } from "/snippets/components/domain/SHARED/previewCallout
     { Category: "显示", Page: "display/containers.mdx", Component: "CalloutContainer", Props: "children, width=\"fit-content\", align=\"center\"" },
     { Category: "显示", Page: "display/containers.mdx", Component: "CardContentContainer", Props: "children, align, justify, gap=\"1rem\"" },
     { Category: "显示", Page: "display/containers.mdx", Component: "TabsContainer", Props: "children" },
-    { Category: "显示", Page: "display/customCards.jsx", Component: "CustomCardTitle", Props: "icon, title, style" },
     { Category: "显示", Page: "display/customCards.jsx", Component: "DisplayCard", Props: "icon, title, style, background=\"var(--card-background)\", children" },
     { Category: "显示", Page: "display/customCards.jsx", Component: "InlineImageCard", Props: "children, imgProps, imgStyle, cardProps, style" },
     { Category: "显示", Page: "display/customCards.jsx", Component: "WidthCard", Props: "width=\"80%\", children" },
@@ -2095,12 +2105,9 @@ import { ReviewCallout } from "/snippets/components/domain/SHARED/previewCallout
     { Category: "显示", Page: "display/frameMode.jsx", Component: "H6", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
     { Category: "显示", Page: "display/frameMode.jsx", Component: "P", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
     { Category: "显示", Page: "display/frameMode.jsx", Component: "PageHeader", Props: "title, subtitle, description, children, titleColor, subtitleColor, descriptionColor" },
-    { Category: "显示", Page: "display/image.jsx", Component: "Image", Props: "src, alt, caption, icon, hint, fullwidth=true" },
-    { Category: "显示", Page: "display/image.jsx", Component: "LinkImage", Props: "src, alt, caption, icon, hint, href" },
     { Category: "显示", Page: "display/quote.jsx", Component: "FrameQuote", Props: "children, author, source, href, frame=true, align=\"right\", borderColor, img, spacing=true" },
     { Category: "显示", Page: "display/quote.jsx", Component: "Quote", Props: "children" },
     { Category: "显示", Page: "display/showcaseCards.jsx", Component: "ShowcaseCards", Props: "items=[], limit=null, pageSize=10" },
-    { Category: "显示", Page: "display/socialLinks.jsx", Component: "SocialLinks", Props: "size=20, gap=\"0.75rem\", justify=\"center\", color" },
     { Category: "显示", Page: "display/video.jsx", Component: "CardVideo", Props: "embedUrl, title, style" },
     { Category: "显示", Page: "display/video.jsx", Component: "LinkedInEmbed", Props: "embedUrl, title=\"Embedded post\", hint=\"\", caption, height=\"399\"" },
     { Category: "显示", Page: "display/video.jsx", Component: "ShowcaseVideo", Props: "src, title, subtitle" },
@@ -2122,9 +2129,6 @@ import { ReviewCallout } from "/snippets/components/domain/SHARED/previewCallout
     { Category: "领域", Page: "domain/SHARED/Portals.jsx", Component: "PortalHeroContent", Props: "zIndex=true, subtitle=\"Build - Explore - Create\", subtitleIcon=\"/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg\", description, refCardLink, overview, divider=true, callout=null, titleColor, subtitleColor, children" },
     { Category: "领域", Page: "domain/SHARED/Portals.jsx", Component: "PortalSectionHeader", Props: "children, title, icon" },
     { Category: "领域", Page: "domain/SHARED/Portals.jsx", Component: "RefCardContainer", Props: "children" },
-    { Category: "领域", Page: "domain/SHARED/previewCallouts.jsx", Component: "ComingSoonCallout", Props: "type=\"page\"" },
-    { Category: "领域", Page: "domain/SHARED/previewCallouts.jsx", Component: "PreviewCallout", Props: "none" },
-    { Category: "领域", Page: "domain/SHARED/previewCallouts.jsx", Component: "ReviewCallout", Props: "none" },
   ]}
   searchPlaceholder="Search category, page, component, or props..."
   monospaceColumns={[1, 2, 3]}

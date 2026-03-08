@@ -24,7 +24,7 @@ import { ScrollableDiagram } from "/snippets/components/display/zoomable-diagram
 import { Quote, FrameQuote } from "/snippets/components/display/quote.jsx";
 import { H1, H2, PageHeader } from "/snippets/components/display/frameMode.jsx";
 import { ShowcaseCards } from "/snippets/components/display/showcaseCards.jsx";
-import { SocialLinks } from "/snippets/components/display/socialLinks.jsx";
+import { SocialLinks } from "/snippets/components/primitives/socialLinks.jsx";
 import { CardCarousel } from "/snippets/components/display/CardCarousel.jsx";
 ```
 

@@ -13,7 +13,7 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "/snippets/components/primitives/previewCallouts.jsx",
       "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
@@ -48,7 +48,7 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "/snippets/components/primitives/previewCallouts.jsx",
       "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
@@ -909,7 +909,7 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "/snippets/components/primitives/previewCallouts.jsx",
       "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
@@ -929,7 +929,7 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "/snippets/components/primitives/previewCallouts.jsx",
       "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
@@ -1039,7 +1039,7 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "/snippets/components/primitives/previewCallouts.jsx",
       "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",
@@ -1114,7 +1114,7 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/domain/SHARED/previewCallouts.jsx",
+      "rawPath": "/snippets/components/primitives/previewCallouts.jsx",
       "resolvedPath": "snippets/components/domain/SHARED/previewCallouts.jsx",
       "exists": true,
       "status": "ok",

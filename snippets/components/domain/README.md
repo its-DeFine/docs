@@ -59,7 +59,7 @@ import {
 import {
   ComingSoonCallout,
   PreviewCallout,
-} from "/snippets/components/domain/SHARED/previewCallouts.jsx";
+} from "/snippets/components/primitives/previewCallouts.jsx";
 ```
 
 ## Theme Support
