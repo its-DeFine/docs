@@ -38,7 +38,7 @@ Outputs:
 - Static findings auto-fixed: 0
 - Autofix edits applied: 0
 - Runtime/navigation failures (ignored): 3
-- Blocking WCAG/static issues (>= serious): 41
+- Blocking WCAG/static issues (at or above serious): 41
 - Browser audit completion: incomplete (339/342)
 
 ## Blocking Issues

@@ -37,7 +37,7 @@ Outputs:
 - Static findings auto-fixed: 9
 - Autofix edits applied: 9
 - Runtime/navigation failures: 0
-- Blocking issues (>= serious) + runtime failures: 0
+- Blocking issues (at or above serious) + runtime failures: 0
 
 ## Blocking Issues
 
