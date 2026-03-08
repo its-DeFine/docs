@@ -14,6 +14,7 @@ scope_in:
   - tests/run-pr-checks.js
   - tests/script-index.md
   - tests/unit/script-docs.test.js
+  - tests/unit/links-imports.test.js
   - tests/unit/style-guide.test.js
   - tools/scripts/validators/components/check-naming-conventions.js
   - tools/scripts/generate-docs-guide-components-index.js
