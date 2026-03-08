@@ -1,14 +1,14 @@
 # Visual Verification Report
 
 Generated: 2026-03-09 03:29:57 AEDT
-Branch: codex/788-e-01-archive-duplicate-scripts
+Branch: docs-v2 (promoted from codex/788-e-01-archive-duplicate-scripts)
 Base ref: docs-v2
 
 ## MDX Parse Fixes Applied
 
 | File | Line | Issue | Fix |
 |------|------|-------|-----|
-| `v2/about/resources/blockchain-contracts.mdx` | n/a | Prompt-reported parse error was not reproducible on this branch. `npx mintlify dev 2>&1 \| head -50` did not emit a file/line parser stack, so the file was validated directly with Mint's parser fallback and parsed clean. | No file change. Documented as not reproducible on current branch. |
+| `v2/about/resources/blockchain-contracts.mdx` | ~175-180 | Target-branch parser error. A plain fenced address block inside `BondingManager` was malformed as ```` ``` ```` followed immediately by ```` ```mermaid ```` which left the surrounding accordion in an unparseable state. | Replaced the stray ```` ```mermaid ```` with the plain closing fence the address block required. |
 | `v2/gateways/payments/payment-clearinghouse.mdx` | n/a | Prompt-reported parse error was not reproducible on this branch. `npx mintlify dev 2>&1 \| head -50` did not emit a file/line parser stack, so the file was validated directly with Mint's parser fallback and parsed clean. | No file change. Documented as not reproducible on current branch. |
 | `v2/orchestrators/advanced-setup/hosting-models.mdx` | ~254-256 | Active MDX blocker. Mint parser reported the next `<StyledStep>` opening tag inside the preceding markdown list context, so the close/open step boundary was still being interpreted as part of the list item. | Moved the `</StyledStep>` / next `<StyledStep>` boundary out of the list context by unindenting the next `<StyledStep title="Expose capabilities via gateways">`. |
 
