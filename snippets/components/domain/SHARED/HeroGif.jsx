@@ -1,6 +1,36 @@
 export const Starfield = ({ density = 1.1 }) => {
   const canvasRef = useRef(null);
 
+  const readThemeColor = (tokenName, fallback) => {
+    if (typeof window === "undefined") return fallback;
+    const value = getComputedStyle(document.documentElement)
+      .getPropertyValue(tokenName)
+      .trim();
+    return value || fallback;
+  };
+
+  const brightenHex = (hexColor, amount) => {
+    const normalized = String(hexColor || "").replace("#", "");
+    const expanded =
+      normalized.length === 3
+        ? normalized
+            .split("")
+            .map((char) => `${char}${char}`)
+            .join("")
+        : normalized;
+
+    if (!/^[0-9a-fA-F]{6}$/.test(expanded)) {
+      return hexColor;
+    }
+
+    const channels = expanded.match(/.{2}/g).map((chunk) => Number.parseInt(chunk, 16));
+    const adjusted = channels.map((channel) =>
+      Math.max(0, Math.min(255, Math.round(channel + (255 - channel) * amount)))
+    );
+
+    return `#${adjusted.map((channel) => channel.toString(16).padStart(2, "0")).join("")}`;
+  };
+
   // Detect theme mode
   const isDarkMode = () => {
     if (typeof window === "undefined") return false;
@@ -10,20 +40,24 @@ export const Starfield = ({ density = 1.1 }) => {
     );
   };
 
-  // Theme-aware color palettes - leaning toward primary green for each mode
-  const COLORS_LIGHT = [
-    "#5DD662", // Brighter primary green (more weight)
-    "#5DD662", // Brighter primary green (duplicate for higher probability)
-    "#7FE584", // Very bright green
-    "#A0F0A5", // Lightest bright accent
-  ];
+  const getColorPalette = () => {
+    const accent = readThemeColor("--accent", "#5DD662");
+    const accentDark = readThemeColor("--accent-dark", accent);
 
-  const COLORS_DARK = [
-    "#2b9a66", // Primary dark green (more weight)
-    "#2b9a66", // Primary dark green (duplicate for higher probability)
-    "#18794E", // Darker shade
-    "#3CB540", // Light green accent
-  ];
+    return isDarkMode()
+      ? [
+          accent,
+          accent,
+          accentDark,
+          brightenHex(accent, 0.18),
+        ]
+      : [
+          brightenHex(accent, 0.22),
+          brightenHex(accent, 0.22),
+          brightenHex(accent, 0.38),
+          brightenHex(accent, 0.52),
+        ];
+  };
 
   const SIZE_BUCKETS = [
     { scale: 0.3, weight: 0.65 },
@@ -52,8 +86,8 @@ export const Starfield = ({ density = 1.1 }) => {
     let stars = [];
     let tintedCache = new Map(); // key: color -> tinted ImageBitmap|canvas
 
-    // Select color palette based on theme
-    const COLORS = isDarkMode() ? COLORS_DARK : COLORS_LIGHT;
+    // Select color palette based on theme tokens so canvas tinting follows CSS theme state.
+    const COLORS = getColorPalette();
 
     // IMPORTANT: try no leading slash first in Mintlify
     const logo = new Image();
