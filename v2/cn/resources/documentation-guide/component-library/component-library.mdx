@@ -24,7 +24,7 @@ import { YouTubeVideoData } from '/snippets/components/data/videoData.jsx';
 import { Image, LinkImage } from '/snippets/components/primitives/image.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 import { MarkdownEmbed, TwitterTimeline } from '/snippets/components/data/embed.jsx'
-import { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider } from '/snippets/components/display/frameMode.jsx'
+import { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider } from '/snippets/components/page-structure/frameMode.jsx'
 import { Quote, FrameQuote } from '/snippets/components/content/quote.jsx'
 import { SocialLinks } from '/snippets/components/primitives/socialLinks.jsx'
 import { CardCarousel } from '/snippets/components/layout/cardCarousel.jsx'
@@ -49,7 +49,7 @@ import { CoinGeckoExchanges } from '/snippets/components/data/coingecko.jsx'
 import { ComingSoonCallout, PreviewCallout, ReviewCallout } from '/snippets/components/primitives/previewCallouts.jsx'
 import { GatewayOffChainWarning, GatewayOnChainWarning, GatewayOnChainTTestnetNote, OrchAddrNote, TestVideoDownload, FfmpegWarning } from '/snippets/components/domain/04_GATEWAYS/callouts.jsx'
 import { QuickStartTabs, QuickStartSteps } from '/snippets/components/domain/04_GATEWAYS/quickstartTabs.jsx'
-import { Starfield } from '/snippets/components/domain/SHARED/HeroGif.jsx'
+import { Starfield } from '/snippets/components/page-structure/heroGif.jsx'
 
 <Note>
 **Mintlify Global Components** - `React`, `Frame`, `Card`, `Icon`, `Steps`, `Step`, `Tabs`, `Tab`, `Note`, `Warning`, `Info`, `Tip`, `Accordion`, `Columns`, `CardGroup`, `CodeBlock`, `Expandable`, `Badge`, `Tooltip` and more are available globally. See the [Mintlify Cheat Sheet](#mintlify-built-ins-cheat-sheet) at the end.
@@ -677,7 +677,7 @@ import { LinkedInEmbed } from "/snippets/components/content/video.jsx";
   </Tab>
   <Tab title="Code">
 ```jsx
-import { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider } from "/snippets/components/display/frameMode.jsx";
+import { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider } from "/snippets/components/page-structure/frameMode.jsx";
 
 <PageHeader 
   title="Page Title" 
@@ -1676,7 +1676,7 @@ import { QuickStartTabs, QuickStartSteps } from "/snippets/components/domain/04_
 <Tabs>
   <Tab title="Code">
 ```jsx
-import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
+import { Starfield } from "/snippets/components/page-structure/heroGif.jsx";
 
 <Starfield density={1.1} />
 ```

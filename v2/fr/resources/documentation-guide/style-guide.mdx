@@ -333,7 +333,7 @@ Utilisez les titres Markdown standards (`#`, `##`, `###`, etc.) pour la plupart 
 Pour **les pages en mode cadre**, utilisez des composants d'en-tête personnalisés :
 
 ```jsx
-import { H1, H2, PageHeader } from "/snippets/components/display/frameMode.jsx";
+import { H1, H2, PageHeader } from "/snippets/components/page-structure/frameMode.jsx";
 
 <PageHeader>Main Title</PageHeader>
 <H1>Section Title</H1>
@@ -765,7 +765,7 @@ Mode Frame (`mode: frame` dans le frontmatter) supprime tous les styles par déf
 - Tous les styles doivent être personnalisés
 - Mintlify les composants fonctionnent toujours mais perdent les styles par défaut
 - Conservez les primitives de mise en page réactive dans `style.css` (`.frame-mode-container`, `.frame-mode-hero-full`, pagination des cadres)
-- Conserve la structure spécifique à la page dans les composants JSX partagés (par exemple `/snippets/components/domain/SHARED/Portals.jsx`)
+- Conserve la structure spécifique à la page dans les composants JSX partagés (par exemple `/snippets/components/page-structure/portals.jsx`)
 - N'utilisez pas directement des constantes de déblocage fixes dans les styles des composants (par exemple, une valeur codée en dur `96px`, `20px`, ou des largeurs fixes `%`)}
 - Préférez les variables CSS + les points de cassure pour le mode de disposition du cadre, et les propriétés CSS personnalisées (`var(--...)`) pour le thème
 

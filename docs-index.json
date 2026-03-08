@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-08T09:49:48.086Z",
+  "generated": "2026-03-08T09:56:21.385Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -396,7 +396,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 14,
-      "lastVerified": "2026-03-08T20:43:02+11:00",
+      "lastVerified": "2026-03-08T20:50:28+11:00",
       "headings": [
         {
           "level": 3,
@@ -10268,7 +10268,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 52,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-08T20:50:28+11:00",
       "headings": [
         {
           "level": 2,
@@ -10300,7 +10300,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 53,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-08T20:50:28+11:00",
       "headings": [
         {
           "level": 2,
@@ -10362,7 +10362,7 @@
       "headings": [
         {
           "level": 2,
-          "text": "<Icon icon=\"wand-magic-sparkles\" size={32} color={\"#2b9a66\"}/> Gateway Portal Jump Pad"
+          "text": "<Icon icon=\"wand-magic-sparkles\" size={32} color={\"var(--accent)\"}/> Gateway Portal Jump Pad"
         }
       ],
       "codeLanguages": []
@@ -13161,7 +13161,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 52,
-      "lastVerified": "2026-03-08T20:43:02+11:00",
+      "lastVerified": "2026-03-08T20:50:28+11:00",
       "headings": [
         {
           "level": 2,
@@ -15053,7 +15053,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 927,
-      "lastVerified": "2026-03-08T20:43:02+11:00",
+      "lastVerified": "2026-03-08T20:50:28+11:00",
       "headings": [
         {
           "level": 2,
@@ -15115,7 +15115,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3520,
-      "lastVerified": "2026-03-08T20:43:02+11:00",
+      "lastVerified": "2026-03-08T20:50:28+11:00",
       "headings": [
         {
           "level": 2,
@@ -15541,7 +15541,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1984,
-      "lastVerified": "2026-03-08T20:43:02+11:00",
+      "lastVerified": "2026-03-08T20:50:28+11:00",
       "headings": [
         {
           "level": 2,
@@ -15688,7 +15688,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1364,
-      "lastVerified": "2026-03-08T19:48:08+11:00",
+      "lastVerified": "2026-03-08T20:50:28+11:00",
       "headings": [
         {
           "level": 2,
@@ -15902,7 +15902,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 145,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-08T20:50:28+11:00",
       "headings": [
         {
           "level": 2,
@@ -17081,7 +17081,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 927,
-      "lastVerified": "2026-03-08T20:43:02+11:00",
+      "lastVerified": "2026-03-08T20:50:28+11:00",
       "headings": [
         {
           "level": 2,

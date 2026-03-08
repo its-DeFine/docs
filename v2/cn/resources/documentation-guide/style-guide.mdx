@@ -331,7 +331,7 @@ import { FlexContainer } from '/snippets/components/layout/layout.jsx';
 对于 **frame mode 页面**, 请使用自定义标题组件:
 
 ```jsx
-import { H1, H2, PageHeader } from "/snippets/components/display/frameMode.jsx";
+import { H1, H2, PageHeader } from "/snippets/components/page-structure/frameMode.jsx";
 
 <PageHeader>Main Title</PageHeader>
 <H1>Section Title</H1>
@@ -763,7 +763,7 @@ return <Accordion {...props}>{content}</Accordion>;
 - 所有样式必须自定义
 - Mintlify 组件仍然有效，但会失去默认样式
 - 保留响应式布局基本组件`style.css` (`.frame-mode-container`, `.frame-mode-hero-full`, 帧分页)
-- 在共享 JSX 组件中保持门户/页面特定结构（例如`/snippets/components/domain/SHARED/Portals.jsx`)
+- 在共享 JSX 组件中保持门户/页面特定结构（例如`/snippets/components/page-structure/portals.jsx`)
 - 不要在组件样式中直接使用固定的断开常量（例如硬编码`96px`，`20px`或固定`%` 宽度)
 - 优先使用 CSS 变量 + 断点进行帧模式布局，并使用 CSS 自定义属性 (`var(--...)`) 进行主题设置
 

@@ -333,7 +333,7 @@ Use encabezados estándar de Markdown (`#`, `##`, `###`, etc.) para la mayor par
 Para **páginas en modo de marco**, use componentes de encabezado personalizados:
 
 ```jsx
-import { H1, H2, PageHeader } from "/snippets/components/display/frameMode.jsx";
+import { H1, H2, PageHeader } from "/snippets/components/page-structure/frameMode.jsx";
 
 <PageHeader>Main Title</PageHeader>
 <H1>Section Title</H1>
@@ -765,7 +765,7 @@ Modo Frame (`mode: frame` en el frontmatter) elimina todo el estilo predetermina
 - Todo el estilo debe ser personalizado
 - Los componentes Mintlify aún funcionan pero pierden los estilos predeterminados
 - Mantenga las primitivas de diseño responsivo en `style.css` (`.frame-mode-container`, `.frame-mode-hero-full`, paginación de marco)
-- Mantenga la estructura específica de portal/página en componentes JSX compartidos (por ejemplo `/snippets/components/domain/SHARED/Portals.jsx`)
+- Mantenga la estructura específica de portal/página en componentes JSX compartidos (por ejemplo `/snippets/components/page-structure/portals.jsx`)
 - No use constantes de ruptura fijas directamente en los estilos de los componentes (por ejemplo, valores hardcodeados `96px`, `20px`, o fijas `%` anchuras)
 - Preferir variables de CSS + puntos de interrupción para el diseño en modo marco, y propiedades personalizadas de CSS (`var(--...)`) para la temática
 

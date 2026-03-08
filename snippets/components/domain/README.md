@@ -51,11 +51,11 @@ Components shared across multiple documentation sections.
 ### Usage
 
 ```jsx
-import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
+import { Starfield } from "/snippets/components/page-structure/heroGif.jsx";
 import {
   PortalHeroContent,
   HeroSectionContainer,
-} from "/snippets/components/domain/SHARED/Portals.jsx";
+} from "/snippets/components/page-structure/portals.jsx";
 import {
   ComingSoonCallout,
   PreviewCallout,

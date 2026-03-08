@@ -1597,6 +1597,333 @@ import { YouTubeVideoData } from "/snippets/components/data/videoData.jsx";
 Les composants de structure de page orchestrent des sections complètes, des traitements hero et la composition au niveau des routes.
 
 <AccordionGroup>
+  <Accordion title="frameMode.jsx" icon="file-code">
+    <ResponseField name="Divider" type="component">
+      **Props**: `color`, `margin`, `opacity` <br/>
+      **Defaults**: `margin="1.5rem 0"`, `opacity=0.2`
+
+      <CodeGroup>
+```jsx lines Example
+import { Divider } from "/snippets/components/page-structure/frameMode.jsx";
+
+<Divider
+  color={"<value>"}
+  margin={"1.5rem 0"}
+  opacity={0.2}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="H1" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
+      **Defaults**: `iconSize=32`, `align="left"`, `gap="0.75rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { H1 } from "/snippets/components/page-structure/frameMode.jsx";
+
+<H1
+  icon={"<value>"}
+  iconSize={32}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.75rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="H2" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
+      **Defaults**: `iconSize=28`, `align="left"`, `gap="0.75rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { H2 } from "/snippets/components/page-structure/frameMode.jsx";
+
+<H2
+  icon={"<value>"}
+  iconSize={28}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.75rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="H3" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
+      **Defaults**: `iconSize=24`, `align="left"`, `gap="0.5rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { H3 } from "/snippets/components/page-structure/frameMode.jsx";
+
+<H3
+  icon={"<value>"}
+  iconSize={24}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="H4" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
+      **Defaults**: `iconSize=20`, `align="left"`, `gap="0.5rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { H4 } from "/snippets/components/page-structure/frameMode.jsx";
+
+<H4
+  icon={"<value>"}
+  iconSize={20}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="H5" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
+      **Defaults**: `iconSize=18`, `align="left"`, `gap="0.5rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { H5 } from "/snippets/components/page-structure/frameMode.jsx";
+
+<H5
+  icon={"<value>"}
+  iconSize={18}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="H6" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
+      **Defaults**: `iconSize=16`, `align="left"`, `gap="0.5rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { H6 } from "/snippets/components/page-structure/frameMode.jsx";
+
+<H6
+  icon={"<value>"}
+  iconSize={16}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="P" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
+      **Defaults**: `iconSize=16`, `align="left"`, `gap="0.5rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { P } from "/snippets/components/page-structure/frameMode.jsx";
+
+<P
+  icon={"<value>"}
+  iconSize={16}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="PageHeader" type="component">
+      **Props**: `title`, `subtitle`, `description`, `children`, `titleColor`, `subtitleColor`, `descriptionColor` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { PageHeader } from "/snippets/components/page-structure/frameMode.jsx";
+
+<PageHeader
+  title={"<value>"}
+  subtitle={"<value>"}
+  description={"<value>"}
+  titleColor={"<value>"}
+  subtitleColor={"<value>"}
+  descriptionColor={"<value>"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
+  <Accordion title="heroGif.jsx" icon="file-code">
+    <ResponseField name="Starfield" type="component">
+      **Props**: `density` <br/>
+      **Defaults**: `density=1.1`
+
+      <CodeGroup>
+```jsx lines Example
+import { Starfield } from "/snippets/components/page-structure/heroGif.jsx";
+
+<Starfield
+  density={1.1}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
+  <Accordion title="portals.jsx" icon="file-code">
+    <ResponseField name="HeroContentContainer" type="component">
+      **Props**: `children` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { HeroContentContainer } from "/snippets/components/page-structure/portals.jsx";
+
+<HeroContentContainer />
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="HeroImageBackgroundComponent" type="component">
+      **Props**: `children` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { HeroImageBackgroundComponent } from "/snippets/components/page-structure/portals.jsx";
+
+<HeroImageBackgroundComponent />
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="HeroOverviewContent" type="component">
+      **Props**: `children` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { HeroOverviewContent } from "/snippets/components/page-structure/portals.jsx";
+
+<HeroOverviewContent />
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="HeroSectionContainer" type="component">
+      **Props**: `children`, `minHeight` <br/>
+      **Defaults**: `minHeight="fit-content"`
+
+      <CodeGroup>
+```jsx lines Example
+import { HeroSectionContainer } from "/snippets/components/page-structure/portals.jsx";
+
+<HeroSectionContainer
+  minHeight={"fit-content"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="LogoHeroContainer" type="component">
+      **Props**: `src`, `alt`, `width`, `margin`, `imgHeight`, `imgWidth`, `objectFit`, `children` <br/>
+      **Defaults**: `src="/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg"`, `alt="Livepeer Logo"`, `width="100%"`, `margin="1rem auto 0 auto"`, `imgHeight="20px"`, `imgWidth="auto"`, `objectFit="contain"`
+
+      <CodeGroup>
+```jsx lines Example
+import { LogoHeroContainer } from "/snippets/components/page-structure/portals.jsx";
+
+<LogoHeroContainer
+  src={"/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg"}
+  alt={"Livepeer Logo"}
+  width={"100%"}
+  margin={"1rem auto 0 auto"}
+  imgHeight={"20px"}
+  imgWidth={"auto"}
+  objectFit={"contain"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="PortalCardsHeader" type="component">
+      **Props**: `children`, `title` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { PortalCardsHeader } from "/snippets/components/page-structure/portals.jsx";
+
+<PortalCardsHeader
+  title={"<value>"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="PortalContentContainer" type="component">
+      **Props**: `children` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { PortalContentContainer } from "/snippets/components/page-structure/portals.jsx";
+
+<PortalContentContainer />
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="PortalHeroContent" type="component">
+      **Props**: `zIndex`, `subtitle`, `subtitleIcon`, `description`, `refCardLink`, `overview`, `divider`, `callout`, `titleColor`, `subtitleColor`, `children` <br/>
+      **Defaults**: `zIndex=true`, `subtitle="Build - Explore - Create"`, `subtitleIcon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg"`, `divider=true`, `callout=null`
+
+      <CodeGroup>
+```jsx lines Example
+import { PortalHeroContent } from "/snippets/components/page-structure/portals.jsx";
+
+<PortalHeroContent
+  zIndex={true}
+  subtitle={"Build - Explore - Create"}
+  subtitleIcon={"/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg"}
+  description={"<value>"}
+  refCardLink={"<value>"}
+  overview={"<value>"}
+  divider={true}
+  callout={null}
+  titleColor={"<value>"}
+  subtitleColor={"<value>"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="PortalSectionHeader" type="component">
+      **Props**: `children`, `title`, `icon` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { PortalSectionHeader } from "/snippets/components/page-structure/portals.jsx";
+
+<PortalSectionHeader
+  title={"<value>"}
+  icon={"<value>"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="RefCardContainer" type="component">
+      **Props**: `children` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { RefCardContainer } from "/snippets/components/page-structure/portals.jsx";
+
+<RefCardContainer />
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
 </AccordionGroup>
 
 ## Affichage
@@ -1667,169 +1994,6 @@ import { PdfEmbed } from "/snippets/components/display/embed.mdx";
       </CodeGroup>
     </ResponseField>
   </Accordion>
-  <Accordion title="frameMode.jsx" icon="file-code">
-    <ResponseField name="Divider" type="component">
-      **Props**: `color`, `margin`, `opacity` <br/>
-      **Defaults**: `margin="1.5rem 0"`, `opacity=0.2`
-
-      <CodeGroup>
-```jsx lines Example
-import { Divider } from "/snippets/components/display/frameMode.jsx";
-
-<Divider
-  color={"<value>"}
-  margin={"1.5rem 0"}
-  opacity={0.2}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="H1" type="component">
-      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
-      **Defaults**: `iconSize=32`, `align="left"`, `gap="0.75rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { H1 } from "/snippets/components/display/frameMode.jsx";
-
-<H1
-  icon={"<value>"}
-  iconSize={32}
-  iconColor={"<value>"}
-  align={"left"}
-  gap={"0.75rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="H2" type="component">
-      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
-      **Defaults**: `iconSize=28`, `align="left"`, `gap="0.75rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { H2 } from "/snippets/components/display/frameMode.jsx";
-
-<H2
-  icon={"<value>"}
-  iconSize={28}
-  iconColor={"<value>"}
-  align={"left"}
-  gap={"0.75rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="H3" type="component">
-      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
-      **Defaults**: `iconSize=24`, `align="left"`, `gap="0.5rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { H3 } from "/snippets/components/display/frameMode.jsx";
-
-<H3
-  icon={"<value>"}
-  iconSize={24}
-  iconColor={"<value>"}
-  align={"left"}
-  gap={"0.5rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="H4" type="component">
-      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
-      **Defaults**: `iconSize=20`, `align="left"`, `gap="0.5rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { H4 } from "/snippets/components/display/frameMode.jsx";
-
-<H4
-  icon={"<value>"}
-  iconSize={20}
-  iconColor={"<value>"}
-  align={"left"}
-  gap={"0.5rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="H5" type="component">
-      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
-      **Defaults**: `iconSize=18`, `align="left"`, `gap="0.5rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { H5 } from "/snippets/components/display/frameMode.jsx";
-
-<H5
-  icon={"<value>"}
-  iconSize={18}
-  iconColor={"<value>"}
-  align={"left"}
-  gap={"0.5rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="H6" type="component">
-      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
-      **Defaults**: `iconSize=16`, `align="left"`, `gap="0.5rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { H6 } from "/snippets/components/display/frameMode.jsx";
-
-<H6
-  icon={"<value>"}
-  iconSize={16}
-  iconColor={"<value>"}
-  align={"left"}
-  gap={"0.5rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="P" type="component">
-      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
-      **Defaults**: `iconSize=16`, `align="left"`, `gap="0.5rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { P } from "/snippets/components/display/frameMode.jsx";
-
-<P
-  icon={"<value>"}
-  iconSize={16}
-  iconColor={"<value>"}
-  align={"left"}
-  gap={"0.5rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="PageHeader" type="component">
-      **Props**: `title`, `subtitle`, `description`, `children`, `titleColor`, `subtitleColor`, `descriptionColor` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { PageHeader } from "/snippets/components/display/frameMode.jsx";
-
-<PageHeader
-  title={"<value>"}
-  subtitle={"<value>"}
-  description={"<value>"}
-  titleColor={"<value>"}
-  subtitleColor={"<value>"}
-  descriptionColor={"<value>"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
 </AccordionGroup>
 
 ## Intégrations
@@ -1842,170 +2006,6 @@ Les composants d’intégration relient les pages de documentation à des API ex
 Les composants de domaine regroupent des blocs d’interface spécifiques à une fonctionnalité utilisés par des domaines documentaires dédiés.
 
 <AccordionGroup>
-  <Accordion title="SHARED/HeroGif.jsx" icon="file-code">
-    <ResponseField name="Starfield" type="component">
-      **Props**: `density` <br/>
-      **Defaults**: `density=1.1`
-
-      <CodeGroup>
-```jsx lines Example
-import { Starfield } from "/snippets/components/domain/SHARED/HeroGif.jsx";
-
-<Starfield
-  density={1.1}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
-  <Accordion title="SHARED/Portals.jsx" icon="file-code">
-    <ResponseField name="HeroContentContainer" type="component">
-      **Props**: `children` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { HeroContentContainer } from "/snippets/components/domain/SHARED/Portals.jsx";
-
-<HeroContentContainer />
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="HeroImageBackgroundComponent" type="component">
-      **Props**: `children` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { HeroImageBackgroundComponent } from "/snippets/components/domain/SHARED/Portals.jsx";
-
-<HeroImageBackgroundComponent />
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="HeroOverviewContent" type="component">
-      **Props**: `children` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { HeroOverviewContent } from "/snippets/components/domain/SHARED/Portals.jsx";
-
-<HeroOverviewContent />
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="HeroSectionContainer" type="component">
-      **Props**: `children`, `minHeight` <br/>
-      **Defaults**: `minHeight="fit-content"`
-
-      <CodeGroup>
-```jsx lines Example
-import { HeroSectionContainer } from "/snippets/components/domain/SHARED/Portals.jsx";
-
-<HeroSectionContainer
-  minHeight={"fit-content"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="LogoHeroContainer" type="component">
-      **Props**: `src`, `alt`, `width`, `margin`, `imgHeight`, `imgWidth`, `objectFit`, `children` <br/>
-      **Defaults**: `src="/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg"`, `alt="Livepeer Logo"`, `width="100%"`, `margin="1rem auto 0 auto"`, `imgHeight="20px"`, `imgWidth="auto"`, `objectFit="contain"`
-
-      <CodeGroup>
-```jsx lines Example
-import { LogoHeroContainer } from "/snippets/components/domain/SHARED/Portals.jsx";
-
-<LogoHeroContainer
-  src={"/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg"}
-  alt={"Livepeer Logo"}
-  width={"100%"}
-  margin={"1rem auto 0 auto"}
-  imgHeight={"20px"}
-  imgWidth={"auto"}
-  objectFit={"contain"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="PortalCardsHeader" type="component">
-      **Props**: `children`, `title` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { PortalCardsHeader } from "/snippets/components/domain/SHARED/Portals.jsx";
-
-<PortalCardsHeader
-  title={"<value>"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="PortalContentContainer" type="component">
-      **Props**: `children` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { PortalContentContainer } from "/snippets/components/domain/SHARED/Portals.jsx";
-
-<PortalContentContainer />
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="PortalHeroContent" type="component">
-      **Props**: `zIndex`, `subtitle`, `subtitleIcon`, `description`, `refCardLink`, `overview`, `divider`, `callout`, `titleColor`, `subtitleColor`, `children` <br/>
-      **Defaults**: `zIndex=true`, `subtitle="Build - Explore - Create"`, `subtitleIcon="/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg"`, `divider=true`, `callout=null`
-
-      <CodeGroup>
-```jsx lines Example
-import { PortalHeroContent } from "/snippets/components/domain/SHARED/Portals.jsx";
-
-<PortalHeroContent
-  zIndex={true}
-  subtitle={"Build - Explore - Create"}
-  subtitleIcon={"/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg"}
-  description={"<value>"}
-  refCardLink={"<value>"}
-  overview={"<value>"}
-  divider={true}
-  callout={null}
-  titleColor={"<value>"}
-  subtitleColor={"<value>"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="PortalSectionHeader" type="component">
-      **Props**: `children`, `title`, `icon` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { PortalSectionHeader } from "/snippets/components/domain/SHARED/Portals.jsx";
-
-<PortalSectionHeader
-  title={"<value>"}
-  icon={"<value>"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="RefCardContainer" type="component">
-      **Props**: `children` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { RefCardContainer } from "/snippets/components/domain/SHARED/Portals.jsx";
-
-<RefCardContainer />
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
 </AccordionGroup>
 
 ## Tableau de recherche
@@ -2020,15 +2020,6 @@ Recherchez par catégorie, chemin de page ou nom de composant.
     { Category: "Affichage", Page: "display/containers.mdx", Component: "CardContentContainer", Props: "children, align, justify, gap=\"1rem\"" },
     { Category: "Affichage", Page: "display/containers.mdx", Component: "TabsContainer", Props: "children" },
     { Category: "Affichage", Page: "display/embed.mdx", Component: "PdfEmbed", Props: "title, src, height=\"700px\", width=\"100%\"" },
-    { Category: "Affichage", Page: "display/frameMode.jsx", Component: "Divider", Props: "color, margin=\"1.5rem 0\", opacity=0.2" },
-    { Category: "Affichage", Page: "display/frameMode.jsx", Component: "H1", Props: "children, icon, iconSize=32, iconColor, align=\"left\", gap=\"0.75rem\"" },
-    { Category: "Affichage", Page: "display/frameMode.jsx", Component: "H2", Props: "children, icon, iconSize=28, iconColor, align=\"left\", gap=\"0.75rem\"" },
-    { Category: "Affichage", Page: "display/frameMode.jsx", Component: "H3", Props: "children, icon, iconSize=24, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Affichage", Page: "display/frameMode.jsx", Component: "H4", Props: "children, icon, iconSize=20, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Affichage", Page: "display/frameMode.jsx", Component: "H5", Props: "children, icon, iconSize=18, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Affichage", Page: "display/frameMode.jsx", Component: "H6", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Affichage", Page: "display/frameMode.jsx", Component: "P", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Affichage", Page: "display/frameMode.jsx", Component: "PageHeader", Props: "title, subtitle, description, children, titleColor, subtitleColor, descriptionColor" },
     { Category: "Contenu", Page: "content/code.jsx", Component: "CodeComponent", Props: "filename=\"\", icon=\"terminal\", language=\"\", highlight=\"\", expandable=false, wrap=true, lines=true, codeString=\"\", placeholderValue=\"\"" },
     { Category: "Contenu", Page: "content/code.jsx", Component: "CodeSection", Props: "fields={}" },
     { Category: "Contenu", Page: "content/code.jsx", Component: "ComplexCodeBlock", Props: "filename, icon, language, highlight, codeString=\"\", placeholderValue=\"\", wrap=true, lines=true, preNote=null, postNote=null" },
@@ -2079,17 +2070,6 @@ Recherchez par catégorie, chemin de page ou nom de composant.
     { Category: "Disposition", Page: "layout/tables.jsx", Component: "TableCell", Props: "children, align=\"left\", header=false, style={}" },
     { Category: "Disposition", Page: "layout/tables.jsx", Component: "TableRow", Props: "children, header=false, hover=false, style={}" },
     { Category: "Disposition", Page: "layout/text.jsx", Component: "AccordionLayout", Props: "children" },
-    { Category: "Domaine", Page: "domain/SHARED/HeroGif.jsx", Component: "Starfield", Props: "density=1.1" },
-    { Category: "Domaine", Page: "domain/SHARED/Portals.jsx", Component: "HeroContentContainer", Props: "children" },
-    { Category: "Domaine", Page: "domain/SHARED/Portals.jsx", Component: "HeroImageBackgroundComponent", Props: "children" },
-    { Category: "Domaine", Page: "domain/SHARED/Portals.jsx", Component: "HeroOverviewContent", Props: "children" },
-    { Category: "Domaine", Page: "domain/SHARED/Portals.jsx", Component: "HeroSectionContainer", Props: "children, minHeight=\"fit-content\"" },
-    { Category: "Domaine", Page: "domain/SHARED/Portals.jsx", Component: "LogoHeroContainer", Props: "src=\"/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg\", alt=\"Livepeer Logo\", width=\"100%\", margin=\"1rem auto 0 auto\", imgHeight=\"20px\", imgWidth=\"auto\", objectFit=\"contain\", children" },
-    { Category: "Domaine", Page: "domain/SHARED/Portals.jsx", Component: "PortalCardsHeader", Props: "children, title" },
-    { Category: "Domaine", Page: "domain/SHARED/Portals.jsx", Component: "PortalContentContainer", Props: "children" },
-    { Category: "Domaine", Page: "domain/SHARED/Portals.jsx", Component: "PortalHeroContent", Props: "zIndex=true, subtitle=\"Build - Explore - Create\", subtitleIcon=\"/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg\", description, refCardLink, overview, divider=true, callout=null, titleColor, subtitleColor, children" },
-    { Category: "Domaine", Page: "domain/SHARED/Portals.jsx", Component: "PortalSectionHeader", Props: "children, title, icon" },
-    { Category: "Domaine", Page: "domain/SHARED/Portals.jsx", Component: "RefCardContainer", Props: "children" },
     { Category: "Données", Page: "data/coingecko.jsx", Component: "CoinGeckoExchanges", Props: "coinId=\"arbitrum\"" },
     { Category: "Données", Page: "data/data.jsx", Component: "BlogCard", Props: "title, content, href, author=\"Livepeer Team\", datePosted=null, excerpt=null, icon=\"book-open\", authorIcon=\"user-pen\", dateIcon=\"calendar\", cta=\"Read More\", img=null" },
     { Category: "Données", Page: "data/data.jsx", Component: "CardBlogDataLayout", Props: "items=[], limit" },
@@ -2131,6 +2111,26 @@ Recherchez par catégorie, chemin de page ou nom de composant.
     { Category: "Primitives", Page: "primitives/text.jsx", Component: "CardTitleTextWithArrow", Props: "children" },
     { Category: "Primitives", Page: "primitives/text.jsx", Component: "CopyText", Props: "text, label" },
     { Category: "Primitives", Page: "primitives/text.jsx", Component: "Subtitle", Props: "style={}, text, children" },
+    { Category: "Structure de page", Page: "page-structure/frameMode.jsx", Component: "Divider", Props: "color, margin=\"1.5rem 0\", opacity=0.2" },
+    { Category: "Structure de page", Page: "page-structure/frameMode.jsx", Component: "H1", Props: "children, icon, iconSize=32, iconColor, align=\"left\", gap=\"0.75rem\"" },
+    { Category: "Structure de page", Page: "page-structure/frameMode.jsx", Component: "H2", Props: "children, icon, iconSize=28, iconColor, align=\"left\", gap=\"0.75rem\"" },
+    { Category: "Structure de page", Page: "page-structure/frameMode.jsx", Component: "H3", Props: "children, icon, iconSize=24, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "Structure de page", Page: "page-structure/frameMode.jsx", Component: "H4", Props: "children, icon, iconSize=20, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "Structure de page", Page: "page-structure/frameMode.jsx", Component: "H5", Props: "children, icon, iconSize=18, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "Structure de page", Page: "page-structure/frameMode.jsx", Component: "H6", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "Structure de page", Page: "page-structure/frameMode.jsx", Component: "P", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "Structure de page", Page: "page-structure/frameMode.jsx", Component: "PageHeader", Props: "title, subtitle, description, children, titleColor, subtitleColor, descriptionColor" },
+    { Category: "Structure de page", Page: "page-structure/heroGif.jsx", Component: "Starfield", Props: "density=1.1" },
+    { Category: "Structure de page", Page: "page-structure/portals.jsx", Component: "HeroContentContainer", Props: "children" },
+    { Category: "Structure de page", Page: "page-structure/portals.jsx", Component: "HeroImageBackgroundComponent", Props: "children" },
+    { Category: "Structure de page", Page: "page-structure/portals.jsx", Component: "HeroOverviewContent", Props: "children" },
+    { Category: "Structure de page", Page: "page-structure/portals.jsx", Component: "HeroSectionContainer", Props: "children, minHeight=\"fit-content\"" },
+    { Category: "Structure de page", Page: "page-structure/portals.jsx", Component: "LogoHeroContainer", Props: "src=\"/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg\", alt=\"Livepeer Logo\", width=\"100%\", margin=\"1rem auto 0 auto\", imgHeight=\"20px\", imgWidth=\"auto\", objectFit=\"contain\", children" },
+    { Category: "Structure de page", Page: "page-structure/portals.jsx", Component: "PortalCardsHeader", Props: "children, title" },
+    { Category: "Structure de page", Page: "page-structure/portals.jsx", Component: "PortalContentContainer", Props: "children" },
+    { Category: "Structure de page", Page: "page-structure/portals.jsx", Component: "PortalHeroContent", Props: "zIndex=true, subtitle=\"Build - Explore - Create\", subtitleIcon=\"/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg\", description, refCardLink, overview, divider=true, callout=null, titleColor, subtitleColor, children" },
+    { Category: "Structure de page", Page: "page-structure/portals.jsx", Component: "PortalSectionHeader", Props: "children, title, icon" },
+    { Category: "Structure de page", Page: "page-structure/portals.jsx", Component: "RefCardContainer", Props: "children" },
   ]}
   searchPlaceholder="Search category, page, component, or props..."
   monospaceColumns={[1, 2, 3]}

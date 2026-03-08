@@ -12,6 +12,7 @@
     "snippets/components/",
     "snippets/data/",
     "snippets/pages/",
+    "snippets/snippetsWiki/",
     "snippets/snippetsWiki/componentLibrary/",
     ".githooks/pre-commit-no-deletions",
     "tests/integration/v2-link-audit.js",
