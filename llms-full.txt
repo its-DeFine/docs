@@ -1825,7 +1825,7 @@ r(t+1) = max(r(t) - Δ, r_min)
 
 where:
 
-```
+```text
 - S(t) = total circulating supply of LPT
 - B(t) = total bonded supply
 - β* = target bonding rate (e.g. 50%)
@@ -3052,6 +3052,9 @@ Livepeer today both honors and extends the original whitepaper’s vision. The c
 
 What began as a decentralized live streaming protocol has grown into a general platform for real-time media computing.
 
+The embedded whitepaper transcript is unavailable in this docs branch.
+Use the GitHub link above to read the full source document.
+
 ---
 
 # Livepeer Glossary
@@ -3164,13 +3167,13 @@ An abstraction layer on the livepeer protocol that provides tools and services f
 
 ### **Gateway**
 
-A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.\
-Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.\
+A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.
+Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.
 **Not** the same as hosted services like Studio or Daydream.
 
 ### **Orchestrator (GPU Node)**
 
-A supply-side operator that contributes **GPU resources** to the network.\
+A supply-side operator that contributes **GPU resources** to the network.
 Orchestrators receive jobs, perform transcoding or AI inference, and get paid via LPT rewards + ETH fees.
 
 ### **Transcoder (Worker)**
@@ -3183,7 +3186,7 @@ A token holder who stakes their LPT to an orchestrator to help secure the networ
 
 ### **Developer**
 
-Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.\
+Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.
 Developers only run gateways if they want direct protocol access.
 
 ### **Broadcaster (-> Gateway)**
@@ -3252,7 +3255,7 @@ not part of the address format.
 
 ### **DePIN**
 
-"Decentralized Physical Infrastructure Network."\
+"Decentralized Physical Infrastructure Network."
 A network where physical or computational resources (GPUs, bandwidth, storage) are coordinated through crypto-economic incentives.
 
 ### **LPT (Livepeer Token)**
@@ -3276,7 +3279,7 @@ In the context of Livepeer, it refers to the protocol layer that governs staking
 
 ### Off-chain
 
-Off-chain refers to the data and operations that are not recorded on the blockchain.\
+Off-chain refers to the data and operations that are not recorded on the blockchain.
 In the context of Livepeer, it refers to the network layer that performs video transcoding,
 AI inference, and job routing, including orchestrators and gateways.
 
@@ -3472,11 +3475,24 @@ There are 3 core functions of contracts in the Livepeer Protocol:
 
 That consist of **10 smart contracts** that work together to manage staking, payments, governance, and service discovery:
 
+{/\* 1. Controller \[Core]
+2\. BondingManager \[Core]
+3\. TicketBroker \[Core]
+4\. RoundsManager \[Core]
+5\. Minter \[Core]
+6\. ServiceRegistry \[Core]
+7\. MerkleSnapshot \[Core]
+8\. BondingVotes \[Core]
+7\. LivepeerToken \[Token]
+8\. Governor\[Governance]
+9\. LivepeerGovernor \[Governance]
+10\. Treasury \[Governance] \*/}
+
 ## Contract Interaction Architecture
 
 Here's how these contracts interact with each other:
 
-&#x20;FIX THIS DIAGRAM - unreadable&#x20;
+<Danger> FIX THIS DIAGRAM - unreadable </Danger>
 
 ```mermaid
 graph TB
@@ -3543,101 +3559,134 @@ They manage the staking, delegation, and reward distribution for orchestrators.
 They also manage the time-based progression of the protocol through rounds and the payment processing through a probabilistic micropayment system.
 The Controller serves as the central registry, enabling upgrades by updating implementation addresses
 
-&#x20;Maybe put in tab view for better layout&#x20;
+{/\* - Controller
 
-#### **Controller**:&#x20;
+* Bonding Manager
+* Rounds Manager
+* TicketBroker
+* Minter
+* ServiceRegistry
+  \------ \*/}
+
+<Danger> Maybe put in tab view for better layout </Danger>
+
+#### **Controller**: <Subtitle text="Contract Registry" />
 
 The [Controller](https://github.com/livepeer/protocol/blob/e8b6243c/deploy/deploy_contracts.ts) is the central registry for all protocol contracts.
 All protocol contracts check with the Controller for the addresses of other contracts they need to interact with.
 
-The Controller acts as the central registry for all other contract addresses in the protocol.
+<Accordion title="Controller">
+	The Controller acts as the central registry for all other contract addresses in the protocol.
 
+````
 It maintains a mapping of contract IDs to their addresses, enabling protocol upgrades by updating the registered implementation addresses.
 It uses [Keccak256](https://en.wikipedia.org/wiki/Keccak#Keccak-256) hashes of contract names as keys to store their addresses, enabling upgradeable architecture without changing the Controller address itself.
 
 **Address**:
-
+<LinkArrow label="See on Arbiscan" href="https://arbiscan.io/address/0xD8E8328501E9645d16Cf49539efC04f734606ee4" newline={false} />
 ```
 0xD8E8328501E9645d16Cf49539efC04f734606ee4
-```
+```jsx
 
 **Purpose**:
 
-* Central address registry for all protocol contracts
-* Enables contract upgrades while maintaining a stable entry point
-* Provides pause functionality for emergency situations
+- Central address registry for all protocol contracts
+- Enables contract upgrades while maintaining a stable entry point
+- Provides pause functionality for emergency situations
 
 **Key Operations**:
 
-* `getContract()` - Get address of a contract by name
-* `setContract()` - Set address of a contract by name
-* `pause()`/`unpause()` - Emergency pause for critical situations
+- `getContract()` - Get address of a contract by name
+- `setContract()` - Set address of a contract by name
+- `pause()`/`unpause()` - Emergency pause for critical situations
 
-#### **BondingManager**:&#x20;
+<Image src="https://media1.tenor.com/m/_vT9Qzw03N4AAAAd/sir-topham-hatt-topham.gif" alt="Controller" />
+{/* <iframe href="https://tenor.com/view/sir-topham-hatt-the-fat-controller-sir-toping-hat-happy-bald-gif-6999538172963206619"/> */}
+````
+
+</Accordion>
+
+#### **BondingManager**: <Subtitle text="Staking & Delegation" />
 
 The [BondingManager](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/bonding/BondingManager.sol) is the most critical contract managing the staking economy, orchestrator registration, and reward distribution.
 
-**Address**:
+<Accordion title="BondingManager">
+	**Address**:
+	<LinkArrow label="See on Arbiscan" href="https://arbiscan.io/address/0x0000000000000000000000000000000000000000" newline={false} />
+	```
+	0x0000000000000000000000000000000000000000
+	```mermaid
 
 ```
-0x0000000000000000000000000000000000000000
-```
-
 **Purpose**:
 
-* Manages the transcoder (orchestrator) pool as a sorted linked list
-* Handles bonding (staking) and delegation to orchestrators
-* Distributes inflationary rewards and fees
-* Manages unbonding periods and withdrawals
-* Tracks earnings and claims
+- Manages the transcoder (orchestrator) pool as a sorted linked list
+- Handles bonding (staking) and delegation to orchestrators
+- Distributes inflationary rewards and fees
+- Manages unbonding periods and withdrawals
+- Tracks earnings and claims
 
 **Key Operations**:
 
-* `Bond()` - Delegate stake to an orchestrator
-* `Transcoder()` - Register as an orchestrator with reward/fee parameters
-* `Unbond()` - Start withdrawal process (with lock period)
-* `Reward()` - Called by orchestrators to mint inflationary rewards
-* `ClaimEarnings()` - Claim accumulated rewards and fees
+- `Bond()` - Delegate stake to an orchestrator
+- `Transcoder()` - Register as an orchestrator with reward/fee parameters
+- `Unbond()` - Start withdrawal process (with lock period)
+- `Reward()` - Called by orchestrators to mint inflationary rewards
+- `ClaimEarnings()` - Claim accumulated rewards and fees
+```
 
-#### **TicketBroker**:&#x20;
+</Accordion>
+
+#### **TicketBroker**: <Subtitle text="Probabilistic Micropayments" />
 
 The [TicketBroker](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/ticket/TicketBroker.sol) manages the off-chain payment system using probabilistic micropayments for broadcaster-to-orchestrator payments.
 
-**Purpose**:
+<Accordion title="TicketBroker">
+	**Purpose**:
 
-* Holds broadcaster deposits and reserves for micropayments
-* Validates and settles winning payment tickets
-* Manages unlock/withdrawal periods for broadcasters
-* Tracks claimed reserves per orchestrator
+```
+- Holds broadcaster deposits and reserves for micropayments
+- Validates and settles winning payment tickets
+- Manages unlock/withdrawal periods for broadcasters
+- Tracks claimed reserves per orchestrator
 
 **Key Operations**:
 
-* `FundDepositAndReserve()` - Broadcaster deposits funds for payments
-* `RedeemWinningTicket()` - Orchestrator redeems a winning ticket
-* `Unlock()` - Start withdrawal process
-* `Withdraw()` - Complete withdrawal after unlock period
+- `FundDepositAndReserve()` - Broadcaster deposits funds for payments
+- `RedeemWinningTicket()` - Orchestrator redeems a winning ticket
+- `Unlock()` - Start withdrawal process
+- `Withdraw()` - Complete withdrawal after unlock period
+```
 
-#### **RoundsManager**:&#x20;
+</Accordion>
+
+#### **RoundsManager**: <Subtitle text="Protocol Time Management" />
 
 The [RoundsManager](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/RoundsManager.sol) manages the protocol's time-based round system where each round has a fixed block length.
 
-**Purpose**:
+<Accordion title="RoundsManager">
+	**Purpose**:
 
-* Defines protocol rounds (epochs) of fixed block length
-* Tracks round initialization and locking
-* Provides block hashes for ticket validation
-* Coordinates time-based protocol operations
+```
+- Defines protocol rounds (epochs) of fixed block length
+- Tracks round initialization and locking
+- Provides block hashes for ticket validation
+- Coordinates time-based protocol operations
 
 **Key Operations**:
 
-* `InitializeRound()` - Initialize new round
-* `CurrentRound()` - Get current round number
-* `BlockHashForRound()` - Get L1 block hash for ticket validation
+- `InitializeRound()` - Initialize new round
+- `CurrentRound()` - Get current round number
+- `BlockHashForRound()` - Get L1 block hash for ticket validation
+```
 
-#### **Minter**:&#x20;
+</Accordion>
+
+#### **Minter**: <Subtitle text="Token Inflation" />
 
 The [Minter](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/Minter.sol) controls the token supply inflation that rewards active orchestrators.
 
+<Accordion title="Minter">
 **Purpose**:
 
 * Manages LPT token inflation schedule
@@ -3650,129 +3699,242 @@ The [Minter](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/Minter
 * `CurrentMintableTokens()` - Calculate tokens to mint for rewards
 * `Inflation()`, `InflationChange()` - Query inflation parameters
 
-#### **ServiceRegistry**:&#x20;
+</Accordion>
+
+#### **ServiceRegistry**: <Subtitle text="Orchestrator Discovery" />
 
 The [ServiceRegistry](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/service/ServiceRegistry.sol) maps Ethereum addresses to service URIs for orchestrator discovery.
 
-**Purpose**:
+<Accordion title="ServiceRegistry">
+	**Purpose**:
 
-* Allows orchestrators to advertise their network endpoints
-* Enables broadcasters to discover and connect to orchestrators
-* Stores URI strings on-chain
+```
+- Allows orchestrators to advertise their network endpoints
+- Enables broadcasters to discover and connect to orchestrators
+- Stores URI strings on-chain
 
 **Key Operations**:
 
-* `SetServiceURI()` - Orchestrator registers their endpoint
-* `GetServiceURI()` - Query orchestrator's service URL
+- `SetServiceURI()` - Orchestrator registers their endpoint
+- `GetServiceURI()` - Query orchestrator's service URL
+```
+
+</Accordion>
 
 #### **MerkleSnapshot**
 
 [MerkleSnapshot](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/MerkleSnapshot.sol) creates a snapshot of the staking pool at a given round and generates a merkle root for verifiable delegation.
 
-**Purpose**:
+<Accordion title="MerkleSnapshot">
+	**Purpose**:
 
-* Creates a snapshot of the staking pool at a given round
-* Generates a merkle root for verifiable delegation
-* Used for delegator rewards and governance
+```
+- Creates a snapshot of the staking pool at a given round
+- Generates a merkle root for verifiable delegation
+- Used for delegator rewards and governance
 
 **Key Operations**:
 
-* `CreateSnapshot()` - Create snapshot at current round
-* `MerkleRoot()` - Get merkle root for a round
+- `CreateSnapshot()` - Create snapshot at current round
+- `MerkleRoot()` - Get merkle root for a round
+```
+
+</Accordion>
+
+<CustomDivider />
 
 ## Token & Utility Contracts
 
-Livepeer moved from the Ethereum mainnet to the Arbitrum One network in 2022 to increase transaction throughput and reduce fees.&#x20;
+<Tip>
+
+Livepeer moved from the Ethereum mainnet to the Arbitrum One network in 2022 to increase transaction throughput and reduce fees. <br/>
 
 On Ethereum mainnet, only the `LivepeerToken` and `BridgeMinter` contracts remain operational; all other contracts have migrated to Arbitrum One.
 
 This ensures the token has the higher security of the Ethereum mainnet while the network enjoys the higher throughput and lower fees of Arbitrum.
 
-#### **LivepeerToken (LPT)**:&#x20;
+</Tip>
 
-Ethereum Mainnet Only&#x20;
+#### **LivepeerToken (LPT)**: <Subtitle text="ERC20 Token" />
+
+<Badge color="green">Ethereum Mainnet Only </Badge>
 
 The [LivepeerToken](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/token/LivepeerToken.sol) is the native protocol token used for staking, payments, and governance based on the [ERC-20](https://eips.ethereum.org/EIPS/eip-20) standard.
 
-**Purpose**:
+<Accordion title="LivepeerToken">
+	**Purpose**:
 
-* ERC20 token for all economic activity in the network
-* Used for bonding/staking to orchestrators
-* Required for broadcaster deposits and payments
-* Governance voting weight
+```
+- ERC20 token for all economic activity in the network
+- Used for bonding/staking to orchestrators
+- Required for broadcaster deposits and payments
+- Governance voting weight
 
 **Key Operations**:
 
-* `Transfer()`, `BalanceOf()`, `TotalSupply()` - Standard ERC20 operations
-* `Approve()` - Required before bonding or funding deposits
+- `Transfer()`, `BalanceOf()`, `TotalSupply()` - Standard ERC20 operations
+- `Approve()` - Required before bonding or funding deposits
+```
 
-#### **BridgeMinter**:&#x20;
+</Accordion>
 
-Ethereum Mainnet Only&#x20;
+#### **BridgeMinter**: <Subtitle text="Token Bridge" />
+
+<Badge color="green">Ethereum Mainnet Only </Badge>
 
 The [BridgeMinter](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/token/BridgeMinter.sol) is a minting contract that mints LPT tokens on the Arbitrum One network when it receives a valid deposit from the Ethereum mainnet.
 
-**Purpose**:
+<Accordion title="BridgeMinter">
+	**Purpose**:
 
-* Mints LPT tokens on Arbitrum One when it receives a valid deposit from the Ethereum mainnet
+```
+- Mints LPT tokens on Arbitrum One when it receives a valid deposit from the Ethereum mainnet
+```
 
-#### **LivepeerTokenFaucet**:&#x20;
+</Accordion>
 
-Testnets Only&#x20;
+#### **LivepeerTokenFaucet**: <Subtitle text="Test Token Distribution" />
+
+<Badge color="surface">Testnets Only </Badge>
 
 The [LivepeerTokenFaucet](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/token/LivepeerTokenFaucet.sol) is used on testnets for distributing test LPT tokens.
 
-**Purpose**:
+<Accordion title="LivepeerTokenFaucet">
+	**Purpose**:
 
-* Provides test tokens on testnets
-* Rate-limited token requests
-* Development and testing support
+```
+- Provides test tokens on testnets
+- Rate-limited token requests
+- Development and testing support
+```
+
+</Accordion>
+
+<CustomDivider />
 
 ## Governance Contracts
 
-#### **Governor**:&#x20;
+#### **Governor**: <Subtitle text="Contract Upgrades" />
 
 [Governor](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/governance/Governor.sol) handles protocol upgrades through a multi-step transaction proposal and execution process.
 
-**Purpose**:
+<Accordion title="Governor">
+	**Purpose**:
 
-* Handles protocol upgrades through a multi-step transaction proposal and execution process
+```
+- Handles protocol upgrades through a multi-step transaction proposal and execution process
 
 **Key Operations**:
 
-* `Propose()` - Submit a new proposal
-* `Queue()` - Queue a proposal for execution
-* `Execute()` - Execute a queued proposal
+- `Propose()` - Submit a new proposal
+- `Queue()` - Queue a proposal for execution
+- `Execute()` - Execute a queued proposal
+```
 
-#### **LivepeerGovernor**:&#x20;
+</Accordion>
+
+#### **LivepeerGovernor**: <Subtitle text=" Protocol Governance" />
 
 The [LivepeerGovernor](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/governance/LivepeerGovernor.sol) implements on-chain governance for protocol upgrades and parameter changes.
 
-**Purpose**:
+<Accordion title="LivepeerGovernor">
+	**Purpose**:
 
-* On-chain voting on protocol proposals
-* Weighted by bonded stake
-* Implements governance mechanisms
+```
+- On-chain voting on protocol proposals
+- Weighted by bonded stake
+- Implements governance mechanisms
 
 **Key Operations**:
 
-* `CastVote()` - Vote on governance proposals
-* `CastVoteWithReason()` - Vote with explanation
+- `CastVote()` - Vote on governance proposals
+- `CastVoteWithReason()` - Vote with explanation
+```
 
-#### **Treasury**:&#x20;
+</Accordion>
+
+#### **Treasury**: <Subtitle text="On-chain Treasury Management" />
 
 [Treasury](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/governance/Treasury.sol) manages the on-chain treasury for funding and accounting.
 
-**Purpose**:
+<Accordion title="Treasury">
+	**Purpose**:
 
-* Manages protocol treasury for funding
-* Tracks allocations and expenditures
-* Funds Special Purpose Entities (SPEs)
+```
+- Manages protocol treasury for funding
+- Tracks allocations and expenditures
+- Funds Special Purpose Entities (SPEs)
 
 **Key Operations**:
 
-* `Deposit()` - Add funds to the treasury
-* `Withdraw()` - Allocate funds to recipients
+- `Deposit()` - Add funds to the treasury
+- `Withdraw()` - Allocate funds to recipients
+```
+
+</Accordion>
+
+{/\* ## Contract Interaction Architecture
+
+Here's how these contracts interact with each other:
+
+````mermaid
+graph TB
+    subgraph "Discovery Layer"
+        Controller["Controller<br/>Contract Registry"]
+        ServiceRegistry["ServiceRegistry<br/>URI Mapping"]
+    end
+
+    subgraph "Economic Layer"
+        LPT["LivepeerToken<br/>ERC20 Token"]
+        BondingManager["BondingManager<br/>Staking & Rewards"]
+        TicketBroker["TicketBroker<br/>Micropayments"]
+        Minter["Minter<br/>Token Inflation"]
+    end
+
+    subgraph "Time & Governance"
+        RoundsManager["RoundsManager<br/>Protocol Rounds"]
+        Governor["LivepeerGovernor<br/>Governance"]
+    end
+
+    subgraph "Participants"
+        Broadcaster["Broadcaster Node"]
+        Orchestrator["Orchestrator Node"]
+        Delegator["Token Holder"]
+    end
+
+    Controller -.->|"Address Lookup"| LPT
+    Controller -.->|"Address Lookup"| BondingManager
+    Controller -.->|"Address Lookup"| TicketBroker
+    Controller -.->|"Address Lookup"| RoundsManager
+    Controller -.->|"Address Lookup"| Minter
+    Controller -.->|"Address Lookup"| ServiceRegistry
+    Controller -.->|"Address Lookup"| Governor
+
+    Delegator -->|"Approve() LPT"| LPT
+    Delegator -->|"Bond(amount, orchestrator)"| BondingManager
+    BondingManager -->|"TransferFrom()"| LPT
+
+    Orchestrator -->|"Transcoder(cuts)"| BondingManager
+    Orchestrator -->|"SetServiceURI(url)"| ServiceRegistry
+    Orchestrator -->|"Reward()"| BondingManager
+    BondingManager -->|"CreateReward()"| Minter
+    Minter -->|"Mint() new LPT"| LPT
+
+    Broadcaster -->|"Approve() LPT"| LPT
+    Broadcaster -->|"FundDepositAndReserve()"| TicketBroker
+    TicketBroker -->|"TransferFrom()"| LPT
+
+    Orchestrator -->|"RedeemWinningTicket()"| TicketBroker
+    TicketBroker -->|"Transfer() to orchestrator"| LPT
+    TicketBroker -->|"Update claimedReserve"| BondingManager
+
+    RoundsManager -->|"Round data"| BondingManager
+    RoundsManager -->|"Block hashes"| TicketBroker
+
+    BondingManager -->|"Stake weight"| Governor
+    Delegator -->|"CastVote()"| Governor
+```  */}
+````
 
 ---
 
@@ -4956,7 +5118,7 @@ URL: https://docs.livepeer.org/v2/solutions/livepeer-studio/get-started/authenti
 
 Livepeer API uses API keys to verify and authorize requests. You can manage and review your API keys through Livepeer Studio. You need to pass your API key in the `Authorization` header with a `Bearer` prefix while sending a request.
 
-```
+```text
 Authorization: Bearer YOUR_API_KEY
 ```
 
@@ -5911,7 +6073,7 @@ The Livepeer Studio API is **REST**-based: resource-oriented URLs, JSON request 
 
 Use **API keys** to authenticate. Create and manage keys in [Livepeer Studio → Developers](https://livepeer.studio/dashboard/developers/api-keys). Send the key in the request header:
 
-```
+```text
 Authorization: Bearer YOUR_API_KEY
 ```
 
@@ -5945,7 +6107,7 @@ The Livepeer Studio API is organized around REST, has predictable resource-orien
 
 All API requests should be made to:
 
-```
+```text
 https://livepeer.studio/api
 ```
 
@@ -7624,7 +7786,7 @@ You are packaging a **server**, not just a model.
 
 Typical stack:
 
-```
+```text
 Python + FastAPI / Flask  (or gRPC)
 Torch / TensorRT / ONNX Runtime
 CUDA + cuDNN
@@ -7745,7 +7907,7 @@ URL: https://docs.livepeer.org/v2/developers/ai-pipelines/workload-fit
 
 Livepeer is optimised for **streaming, GPU-bound, low-latency inference**. It is not a general-purpose batch compute or file-processing network. Use this page to determine whether your workload is a good fit before you start building.
 
-```
+```text
 Start
  │
  ├── Is the workload STREAMING (frames / chunks / segments)?
@@ -7809,7 +7971,7 @@ These are some of the best-fit workloads on Livepeer today.
 
 ### Live captions for video streams
 
-```
+```text
 Mic / Video Audio
       ↓
 Gateway (WebRTC audio chunks)
@@ -7825,7 +7987,7 @@ Gateway → captions / overlays / APIs
 
 ### Multilingual live translation
 
-```
+```text
 Live Audio
       ↓
 ASR
@@ -7839,7 +8001,7 @@ Translated captions (real-time)
 
 ### Voice-driven avatars or agents
 
-```
+```text
 Live Audio
       ↓
 ASR
@@ -7853,7 +8015,7 @@ Video or avatar pipeline conditioning
 
 ### Live moderation and safety
 
-```
+```text
 Live Audio
       ↓
 ASR
@@ -8933,7 +9095,7 @@ The reference implementation of the Livepeer protocol in Go. This is the core no
 * **Good first issues:** Labelled `help wanted` and `good first issues` on the Issues page.
 * **Changelog rule:** Every PR must include an update to `CHANGELOG_PENDING.md` in the format `\#xxx @contributor`.
 
-```
+```text
 https://github.com/livepeer/go-livepeer
 ```
 
@@ -8946,7 +9108,7 @@ The web-based studio and API for broadcasting, video management, and Livepeer ne
 * **Contributing guide:** [github.com/livepeer/studio/blob/master/CONTRIBUTING.md](https://github.com/livepeer/studio/blob/master/CONTRIBUTING.md)
 * **Discussions:** Open a Discussion in the repo if you're unsure about an approach before opening a PR.
 
-```
+```text
 https://github.com/livepeer/studio
 ```
 
@@ -8957,7 +9119,7 @@ The AI runner processes inference jobs on the Livepeer network. It is a containe
 * **Contributing guide:** See `README.md` and the development documentation in the repo.
 * **Note:** The AI network is in its Beta phase. Report issues to the [Livepeer Discord](https://discord.gg/livepeer).
 
-```
+```text
 https://github.com/livepeer/ai-runner
 ```
 
@@ -8969,7 +9131,7 @@ An open-source ComfyUI custom node for running real-time media workflows, enabli
 * **Contributing guide:** See `README.md` in the repository.
 * **Deployment options:** Docker image, RunPod template, Tensordock via Python script, Ansible playbook.
 
-```
+```text
 https://github.com/livepeer/comfystream
 ```
 
@@ -8979,7 +9141,7 @@ The Livepeer media server library responsible for video transcoding operations.
 * **Contributing guide:** See `README.md` in the repository.
 * **Note:** GPU-specific testing requires Nvidia hardware and tags (`--tags=nvidia`).
 
-```
+```text
 https://github.com/livepeer/lpms
 ```
 
@@ -8988,7 +9150,7 @@ A React component library providing video UI primitives for building Livepeer-po
 * **Language:** TypeScript / React
 * **Contributing guide:** [Contributing docs](https://github.com/livepeer/ui-kit/blob/main/CONTRIBUTING.md) -- read before submitting a PR.
 
-```
+```text
 https://github.com/livepeer/ui-kit
 ```
 
@@ -8997,7 +9159,7 @@ The JavaScript and TypeScript client library for the Livepeer AI API, providing 
 * **Language:** TypeScript
 * **Use case:** Building AI-powered video applications with Livepeer's inference infrastructure.
 
-```
+```text
 https://github.com/livepeer/livepeer-ai-js
 ```
 
@@ -9006,7 +9168,7 @@ The Python client library for the Livepeer AI API.
 * **Language:** Python
 * **Use case:** Integrating Livepeer AI inference into Python applications and workflows.
 
-```
+```text
 https://github.com/livepeer/livepeer-ai-python
 ```
 
@@ -9016,7 +9178,7 @@ The Livepeer documentation repository, built on Mintlify with MDX content.
 * **Contributing guide:** See [Contribute to the Docs](/v2/resources/documentation-guide/contribute-to-the-docs) for the full workflow including pull request steps, review timeline, and style guidance.
 * **Good for:** Non-code contributors comfortable with Markdown or Git.
 
-```
+```text
 https://github.com/livepeer/docs
 ```
 
@@ -9197,6 +9359,9 @@ View Awesome Livepeer on Github
 
 Below is the README from Awesome Livepeer - a community-curated list of resources.
 
+The embedded README is unavailable in this docs branch.
+Use the GitHub repository link above to browse the latest Awesome Livepeer entries.
+
 ---
 
 # Livepeer Wiki
@@ -9204,11 +9369,8 @@ URL: https://docs.livepeer.org/v2/developers/technical-references/wiki
 
 View the Livepeer Wiki on Github
 
-Below is the README from the Livepeer Wiki.
-
-livepeer/wiki
-
-View on GitHub&#x20;
+The embedded wiki README is unavailable in this docs branch.
+Use the GitHub or DeepWiki links above to browse the current wiki content.
 
 ---
 
@@ -9371,6 +9533,9 @@ View Awesome Livepeer on Github
 
 Below is the README from Awesome Livepeer - a community-curated list of resources.
 
+The embedded README is unavailable in this docs branch.
+Use the GitHub repository link above to browse the latest Awesome Livepeer entries.
+
 ---
 
 # Livepeer Wiki
@@ -9378,11 +9543,8 @@ URL: https://docs.livepeer.org/v2/developers/technical-references/wiki
 
 View the Livepeer Wiki on Github
 
-Below is the README from the Livepeer Wiki.
-
-livepeer/wiki
-
-View on GitHub&#x20;
+The embedded wiki README is unavailable in this docs branch.
+Use the GitHub or DeepWiki links above to browse the current wiki content.
 
 ---
 
@@ -9487,7 +9649,7 @@ Community discussions and announcements
 
 ***
 
-*Last updated: 2026-02-16*\
+*Last updated: 2026-02-16*
 *For protocol changelog, see [Livepeer Releases](https://github.com/livepeer/go-livepeer/releases)*
 
 ---
@@ -9679,16 +9841,16 @@ communication of their application with the Livepeer GPU network (DePIN / Orches
 
 Gateways handle all service-level logic required to operate a scalable, low-latency AI video network:
 
-* **Job Intake**\
+* **Job Intake**
   They receive workloads from applications using Livepeer APIs, PyTrickle, or BYOC integrations.
 
-* **Capability & Model Matching**\
+* **Capability & Model Matching**
   Gateways determine which orchestrators support the required GPU, model, or pipeline.
 
-* **Routing & Scheduling**\
+* **Routing & Scheduling**
   They dispatch jobs to the optimal orchestrator based on performance, availability, and pricing.
 
-* **Marketplace Exposure**\
+* **Marketplace Exposure**
   Gateway operators can publish the services they offer, including supported models, pipelines, and pricing structures.
 
 Gateways do *not* perform GPU compute. Instead, they focus on coordination and service routing.
@@ -11327,7 +11489,7 @@ docker run -it \
 
 The keystore will be created in the Docker volume at:
 
-```
+```javascript
 /var/lib/docker/volumes/gateway-lpData/_data/arbitrum-one-mainnet/keystore/
 ```
 
@@ -11544,7 +11706,7 @@ Create Livepeer Gateway ETH account
 In this step we need to start the Gateway in order to create an Ethereum
 account.
 
-```
+```bash
 docker compose run -it gateway
 ```
 
@@ -11560,7 +11722,7 @@ exit the Livepeer docker instance.
 
 Using the previously created ETH password, create the eth-secret file
 
-```
+```javascript
 nano -p /var/lib/docker/volumes/gateway-lpData/_data/eth-secret.txt
 ```
 
@@ -11627,7 +11789,7 @@ livepeer_cli -host gateway -http 5935
 
 Create a file containing your Gateway Ethereum password
 
-```
+```text
 sudo mkdir /usr/local/bin/lptConfig
 sudo nano /usr/local/bin/lptConfig/node.txt
 ```
@@ -11636,13 +11798,13 @@ Enter your password and save the file
 
 Create a system service
 
-```
+```text
 sudo nano /etc/systemd/system/livepeer.service
 ```
 
 Paste and update the following startup script with your personal info:
 
-```
+```jsx
 [Unit]
 Description=Livepeer
 
@@ -11670,14 +11832,14 @@ WantedBy=default.target
 
 Start the system service
 
-```
+```text
 sudo systemctl daemon-reload
 sudo systemctl enable --now livepeer
 ```
 
 Open the Livepeer CLI
 
-```
+```text
 livepeer_cli -host 127.0.0.1 -http 5935
 ```
 
@@ -11713,7 +11875,7 @@ See&#x20;
 Development Setup
 For testing, use the devtool to create keys :
 
-```
+```text
 func CreateKey(keystoreDir string) string {
     keyStore := keystore.NewKeyStore(keystoreDir, keystore.StandardScryptN, keystore.StandardScryptP)
     account, err := keyStore.NewAccount(passphrase)
@@ -12109,7 +12271,7 @@ ID used to retrieve the HLS output.
 
 The transcoded HLS output will be available at:
 
-```
+```text
 http://localhost:8935/stream/stream.m3u8
 ```
 
@@ -12126,7 +12288,7 @@ broadcasting.
 
 The transcoded HLS output will be available at:
 
-```
+```text
 http://localhost:8935/stream/stream.m3u8
 ```
 
@@ -12373,7 +12535,7 @@ finish configuring the Gateway
 
 # Create a file containing your Gateway Ethereum password
 
-```
+```text
 sudo mkdir /usr/local/bin/lptConfig
 sudo nano /usr/local/bin/lptConfig/node.txt
 ```
@@ -12382,13 +12544,13 @@ Enter your password and save the file
 
 # Create a system service
 
-```
+```text
 sudo nano /etc/systemd/system/livepeer.service
 ```
 
 Paste and update the following startup script with your personal info:
 
-```
+```jsx
 [Unit]
 Description=Livepeer
 
@@ -12416,14 +12578,14 @@ WantedBy=default.target
 
 Start the system service
 
-```
+```text
 sudo systemctl daemon-reload
 sudo systemctl enable --now livepeer
 ```
 
 Open the Livepeer CLI
 
-```
+```text
 livepeer_cli -host 127.0.0.1 -http 5935
 ```
 
@@ -12481,13 +12643,13 @@ Use the following as a template, adding your personal info where needed (on-chai
 in the same directory as the Livepeer executable.
 
 ```bash icon="terminal" wrap lines
-livepeer.exe -network=offchain -gateway -cliAddr=127.0.0.1:5935 -monitor=true -v=6 -rtmpAddr=0.0.0.0:1935 -httpAddr=0.0.0.0:8935  
+livepeer.exe -network=offchain -gateway -cliAddr=127.0.0.1:5935 -monitor=true -v=6 -rtmpAddr=0.0.0.0:1935 -httpAddr=0.0.0.0:8935
 
 PAUSE
 ```
 
 ```bash icon="terminal" wrap lines
-  livepeer.exe  -network=arbitrum-one-mainnet -ethUrl=<YOUR_ARB_RPC_URL>  -ethAcctAddr=<YOUR_ETH_ADDRESS>  -ethPassword=<YOUR_PASSWORD>  -ethKeystorePath=<KEYSTORE_PATH> -gateway -cliAddr=127.0.0.1:5935 -rtmpAddr=0.0.0.0:1935 -httpAddr=0.0.0.0:8935 -maxPricePerUnit=300 -monitor=true -v=6  
+  livepeer.exe  -network=arbitrum-one-mainnet -ethUrl=<YOUR_ARB_RPC_URL>  -ethAcctAddr=<YOUR_ETH_ADDRESS>  -ethPassword=<YOUR_PASSWORD>  -ethKeystorePath=<KEYSTORE_PATH> -gateway -cliAddr=127.0.0.1:5935 -rtmpAddr=0.0.0.0:1935 -httpAddr=0.0.0.0:8935 -maxPricePerUnit=300 -monitor=true -v=6
 
 PAUSE
 ```
@@ -12567,6 +12729,9 @@ View the GWID repository on GitHub
 ### GWID Documentation
 
 Below is the current README from the GWID repository.
+
+The embedded GWID README is unavailable in this docs branch.
+Use the GitHub repository link above to review the current installation and deployment instructions.
 
 ---
 
@@ -13411,6 +13576,10 @@ For nodes that handle both orchestration and AI processing
 
 The box setup for local development demonstrates running a gateway that handles both types of processing.
 
+The embedded `box/box.md` excerpt is unavailable in this docs branch.
+Review the full example setup in the upstream repository:
+[livepeer/go-livepeer `box/box.md`](https://github.com/livepeer/go-livepeer/blob/master/box/box.md).
+
 ---
 
 # Pricing Configuration
@@ -14123,7 +14292,7 @@ flowchart LR
 
 ```
 
-```
+```text
 ```
 
 ---
@@ -14539,7 +14708,7 @@ Understanding how gateways earn money at the business layer, not the protocol la
 
 Gateways in Livepeer do not earn fees at the protocol level. Orchestrators earn protocol fees; gateways earn at the **business layer** - the margin between what you charge customers and what you pay orchestrators.
 
-```
+```text
 Customer pays Gateway → Gateway pays Orchestrator → Gateway keeps the margin
 ```
 
@@ -14754,7 +14923,7 @@ Looking for information on how gateways earn fees for services?
 
 Just want to get started?
 
-```
+```text
 ```
 
 ---
@@ -14908,7 +15077,7 @@ This is a significant barrier for most app developers. A clearinghouse absorbs a
 
 ## Architecture
 
-```
+```text
 App / Developer
       │  API Key (traditional auth)
       ▼
@@ -16285,16 +16454,8 @@ Livepeer’s pivot to real-time AI video means orchestrators find themselves run
 
 ---
 
-# Architecture
+# Orchestrator Architecture
 URL: https://docs.livepeer.org/v2/orchestrators/about-orchestrators/architecture
-
-***
-
-title: 'Orchestrator Architecture'
-sidebarTitle: 'Architecture'
-keywords: \["livepeer", "orchestrators", "about orchestrators", "orchestrator architecture", "orchestrator", "architecture"]
-og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
----------------------------------------------------------------
 
 Diagram: Orchestrator Architecture – the gateway assigns jobs to an orchestrator, which splits work to either a video transcoder process or an AI inference process running on its GPUs, then returns the result. Verification (for transcoding) and other coordination happen inside the orchestrator’s controller.
 
@@ -16990,7 +17151,7 @@ When you register as an orchestrator, you set two commission parameters:
 
 The percentage of LPT inflationary rewards **you keep** as the operator. Your delegators receive the remainder, proportional to their stake.
 
-```
+```text
 Orchestrator LPT = Round inflation share × rewardCut
 Delegator LPT    = Round inflation share × (1 - rewardCut) × (delegator stake / total stake)
 ```
@@ -17004,7 +17165,7 @@ Delegator LPT    = Round inflation share × (1 - rewardCut) × (delegator stake 
 
 The percentage of ETH fees from jobs that is **shared with delegators**. The remainder you keep.
 
-```
+```text
 Delegator ETH = Job fee revenue × feeShare × (delegator stake / total stake)
 Orchestrator ETH = Job fee revenue × (1 - feeShare)
 ```
@@ -17187,7 +17348,7 @@ Hosting AI models on a Livepeer orchestrator means running inference workloads o
 
 **Consumers never talk to orchestrators directly.** All traffic flows through gateways, which handle routing, auth, pricing, and QoS.
 
-```
+```text
 App / User
      ↓
 Gateway (routing, auth, pricing, QoS)
@@ -18408,13 +18569,13 @@ Delegation is not risk-free. Understand these before bonding:
 
 Your LPT reward per round from inflation:
 
-```
+```text
 Your share = Orchestrator's inflation reward × (1 - rewardCut) × (your stake / total orchestrator stake)
 ```
 
 Your ETH reward per round from fees:
 
-```
+```text
 Your share = Orchestrator's ETH fee revenue × (feeShare) × (your stake / total orchestrator stake)
 ```
 
@@ -23815,8 +23976,8 @@ Self-hosted video component with Frame wrapper.
 ```jsx
 
 
-<Video 
-  src="/snippets/assets/media/videos/HeroBackground.mp4" 
+<Video
+  src="/snippets/assets/media/videos/HeroBackground.mp4"
   title="Demo Video"
   author="Livepeer Team"
   autoPlay
@@ -23845,14 +24006,14 @@ Image components with Frame wrapper and optional linking.
 ```jsx
 
 
-<Image 
-  src="/snippets/assets/media/images/Livepeer%20Stats.png" 
+<Image
+  src="/snippets/assets/media/images/Livepeer%20Stats.png"
   alt="System Diagram"
   caption="Figure 1: Architecture"
 />
 
-<LinkImage 
-  src="/snippets/assets/media/images/GPUImg.webp" 
+<LinkImage
+  src="/snippets/assets/media/images/GPUImg.webp"
   alt="Preview"
   href="/snippets/assets/media/images/DelegatorImg.avif"
   caption="Click to view full size"
@@ -23930,8 +24091,8 @@ This is a paragraph with an icon.
 ```jsx
 
 
-<PageHeader 
-  title="Page Title" 
+<PageHeader
+  title="Page Title"
   subtitle="Page Subtitle"
   description="Page description"
 />
@@ -23998,7 +24159,7 @@ This is a framed quote with author attribution and source link.
   Simple quote text here.
 </Quote>
 
-<FrameQuote 
+<FrameQuote
   author="Author Name"
   source="Source Name"
   href="https://example.com"
@@ -24220,9 +24381,9 @@ Components for displaying API response fields and parameters.
 // ResponseFieldGroup is currently unavailable due to component bug
 // Use ResponseFieldExpandable or ResponseFieldAccordion instead
 
-<ValueResponseField 
-  name="apiKey" 
-  type="string" 
+<ValueResponseField
+  name="apiKey"
+  type="string"
   required
   description="Your API key for authentication"
 />
@@ -24636,7 +24797,7 @@ Components for Gateway quickstart documentation with tabbed and stepped layouts.
 ```jsx
 
 
-<QuickStartTabs 
+<QuickStartTabs
   offchainSteps={[
     { title: "Step 1", content: "Off-chain step content" }
   ]}
@@ -24735,10 +24896,10 @@ Horizontal card with arrow indicator.
   Content here.
 </Card>
 
-<Card 
-  title="Link Card" 
-  icon="arrow-right" 
-  href="/resources/documentation-guide/component-library" 
+<Card
+  title="Link Card"
+  icon="arrow-right"
+  href="/resources/documentation-guide/component-library"
   arrow
   horizontal
   cta="Learn More"
@@ -24940,9 +25101,9 @@ Interactive download button with lazy loading for performance optimization.
 ```jsx
 <DownloadButton downloadLink="https://example.com/file.pdf" />
 
-<DownloadButton 
-  label="Download PDF" 
-  downloadLink="https://example.com/file.pdf" 
+<DownloadButton
+  label="Download PDF"
+  downloadLink="https://example.com/file.pdf"
   icon="file-pdf"
   rightIcon="arrow-right"
   border={true}
@@ -25666,7 +25827,7 @@ Embeds a YouTube video with optional caption and author attribution. Displays a 
 ```jsx
 <YouTubeVideo embedUrl="https://www.youtube.com/embed/VIDEO_ID" />
 
-<YouTubeVideo 
+<YouTubeVideo
   embedUrl="https://www.youtube.com/embed/VIDEO_ID"
   author="Livepeer"
   title="Video Title"
@@ -25707,8 +25868,8 @@ Self-hosted video component with Frame wrapper. Displays a self-hosted video fil
 ```jsx
 <Video src="/snippets/assets/media/videos/HeroBackground.mp4" title="Demo Video" />
 
-<Video 
-  src="/snippets/assets/media/videos/HeroBackground.mp4" 
+<Video
+  src="/snippets/assets/media/videos/HeroBackground.mp4"
   autoPlay
   muted
   loop
@@ -25879,8 +26040,8 @@ Image component with Frame wrapper. Displays an image within a Frame component w
 **Examples:**
 
 ```jsx
-<Image 
-  src="/snippets/assets/media/images/Livepeer%20Stats.png" 
+<Image
+  src="/snippets/assets/media/images/Livepeer%20Stats.png"
   alt="System Diagram"
   caption="Figure 1: Architecture"
 />
@@ -25911,8 +26072,8 @@ Clickable image that opens in a new tab. Displays an image within a Frame compon
 **Examples:**
 
 ```jsx
-<LinkImage 
-  src="/snippets/assets/media/images/GPUImg.webp" 
+<LinkImage
+  src="/snippets/assets/media/images/GPUImg.webp"
   alt="Preview"
   href="/snippets/assets/media/images/DelegatorImg.avif"
   caption="Click to view full size"
@@ -26017,8 +26178,8 @@ Quote component with Frame wrapper, optional author, source, and image.
 "Livepeer enables decentralized video streaming at scale."
 
 ```jsx
-<FrameQuote 
-  author="Author Name" 
+<FrameQuote
+  author="Author Name"
   source="Source Name"
   href="https://example.com"
   align="center"
@@ -26195,7 +26356,7 @@ Full page header component with title, subtitle, description, and divider.
 **Examples:**
 
 ```jsx
-<PageHeader 
+<PageHeader
   title="Page Title"
   subtitle="Subtitle"
   description="Description"
@@ -27521,8 +27682,8 @@ All theme colors are defined as CSS Custom Properties in `style.css`:
 #### Inline Styles (Recommended)
 
 ```jsx
-<div style={{ 
-  color: "var(--accent)", 
+<div style={{
+  color: "var(--accent)",
   border: "1px solid var(--border)",
   background: "var(--card-background)"
 }}>
@@ -27722,12 +27883,12 @@ The Livepeer documentation uses a **three-layer styling framework** designed to 
     color: "var(--text)",
     padding: "1rem"
   };
-  
+
   const variantStyles = {
     default: { border: "1px solid var(--border)" },
     accent: { border: "1px solid var(--accent)" }
   };
-  
+
   return (
     <div style={{ ...baseStyle, ...variantStyles[variant] }}>
       Content
@@ -27977,8 +28138,8 @@ Our styling framework intentionally overrides some Mintlify default recommendati
 
 ### Override: "Use Tailwind classes"
 
-**Mintlify suggests**: Use Tailwind utility classes\
-**Our approach**: ❌ Don't use Tailwind - use component primitives\
+**Mintlify suggests**: Use Tailwind utility classes
+**Our approach**: ❌ Don't use Tailwind - use component primitives
 **Reason**: Tailwind classes in MDX create maintenance burden and reduce semantic meaning. Component primitives are more maintainable and self-documenting.
 
 **Example:**
@@ -27997,8 +28158,8 @@ Our styling framework intentionally overrides some Mintlify default recommendati
 
 ### Override: "Inline styles are fine for quick fixes"
 
-**Mintlify suggests**: Inline styles acceptable in MDX\
-**Our approach**: ❌ No inline styles in MDX, only in JSX components\
+**Mintlify suggests**: Inline styles acceptable in MDX
+**Our approach**: ❌ No inline styles in MDX, only in JSX components
 **Reason**: Consistency and maintainability. Inline styles in MDX make it harder to maintain theme consistency and create visual inconsistencies.
 
 **Example:**
@@ -28017,8 +28178,8 @@ Our styling framework intentionally overrides some Mintlify default recommendati
 
 ### Override: "Use global CSS for everything"
 
-**Mintlify suggests**: Put all styles in `style.css`\
-**Our approach**: ✅ Only theme variables and framework overrides in `style.css`\
+**Mintlify suggests**: Put all styles in `style.css`
+**Our approach**: ✅ Only theme variables and framework overrides in `style.css`
 **Reason**: Mintlify only allows one global CSS file. Putting everything there makes it unmaintainable. Component-specific styles belong in JSX components.
 
 **What goes in `style.css`:**
@@ -28036,8 +28197,8 @@ Our styling framework intentionally overrides some Mintlify default recommendati
 
 ### Override: "Component styles can be external"
 
-**Mintlify suggests**: External CSS files for components\
-**Our approach**: ❌ Styles must be within JSX component files\
+**Mintlify suggests**: External CSS files for components
+**Our approach**: ❌ Styles must be within JSX component files
 **Reason**: Mintlify doesn't support CSS imports in components reliably. Inline styles and `<style>` tags within components work consistently.
 
 **Pattern:**
@@ -28209,7 +28370,7 @@ return <Accordion {...props}>{content}</Accordion>;
 
 ```mdx
 {/* ❌ WRONG - MDX will still try to parse CustomCodeBlock */}
-{/* 
+{/*
 <CustomCodeBlock codeString="test" />
 */}
 
@@ -28489,7 +28650,7 @@ This deletion override also runs all other pre-commit checks.
 
 ### Example Error Output
 
-```
+```javascript
 ╔═══════════════════════════════════════════════════════════════╗
 ║  STYLE GUIDE VIOLATIONS DETECTED - COMMIT BLOCKED           ║
 ╚═══════════════════════════════════════════════════════════════╝
@@ -29098,7 +29259,7 @@ mint dev
 
 ### Project Structure
 
-```
+```text
 docs/
 ├── v2/                    # Main documentation pages (MDX)
 ├── snippets/              # Reusable components and data
@@ -29248,7 +29409,7 @@ We welcome contributions in many areas:
 
 ### Section Organization
 
-```
+```text
 v2/
 ├── home/                 # Home tab
 │   ├── mission-control.mdx
@@ -30074,7 +30235,7 @@ node tools/scripts/snippets/generate-seo.js --file=v2/home/mission-control.mdx
 
 **Output structure:**
 
-```
+```text
 output-dir/
 ├── ai-api.mdx           # Landing page with Base URLs + CardGroups
 ├── text-to-image.mdx    # openapi: post /text-to-image
@@ -30726,13 +30887,13 @@ An abstraction layer on the livepeer protocol that provides tools and services f
 
 ### **Gateway**
 
-A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.\
-Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.\
+A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.
+Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.
 **Not** the same as hosted services like Studio or Daydream.
 
 ### **Orchestrator (GPU Node)**
 
-A supply-side operator that contributes **GPU resources** to the network.\
+A supply-side operator that contributes **GPU resources** to the network.
 Orchestrators receive jobs, perform transcoding or AI inference, and get paid via LPT rewards + ETH fees.
 
 ### **Transcoder (Worker)**
@@ -30745,7 +30906,7 @@ A token holder who stakes their LPT to an orchestrator to help secure the networ
 
 ### **Developer**
 
-Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.\
+Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.
 Developers only run gateways if they want direct protocol access.
 
 ### **Broadcaster (-> Gateway)**
@@ -30838,7 +30999,7 @@ not part of the address format.
 
 ### **DePIN**
 
-"Decentralized Physical Infrastructure Network."\
+"Decentralized Physical Infrastructure Network."
 A network where physical or computational resources (GPUs, bandwidth, storage) are coordinated through crypto-economic incentives.
 
 ### **LPT (Livepeer Token)**
@@ -30862,7 +31023,7 @@ In the context of Livepeer, it refers to the protocol layer that governs staking
 
 ### Off-chain
 
-Off-chain refers to the data and operations that are not recorded on the blockchain.\
+Off-chain refers to the data and operations that are not recorded on the blockchain.
 In the context of Livepeer, it refers to the network layer that performs video transcoding,
 AI inference, and job routing, including orchestrators and gateways.
 
@@ -31264,13 +31425,13 @@ An abstraction layer on the livepeer protocol that provides tools and services f
 
 ### **Gateway**
 
-A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.\
-Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.\
+A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.
+Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.
 **Not** the same as hosted services like Studio or Daydream.
 
 ### **Orchestrator (GPU Node)**
 
-A supply-side operator that contributes **GPU resources** to the network.\
+A supply-side operator that contributes **GPU resources** to the network.
 Orchestrators receive jobs, perform transcoding or AI inference, and get paid via LPT rewards + ETH fees.
 
 ### **Transcoder (Worker)**
@@ -31283,7 +31444,7 @@ A token holder who stakes their LPT to an orchestrator to help secure the networ
 
 ### **Developer**
 
-Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.\
+Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.
 Developers only run gateways if they want direct protocol access.
 
 ### **Broadcaster (-> Gateway)**
@@ -31376,7 +31537,7 @@ not part of the address format.
 
 ### **DePIN**
 
-"Decentralized Physical Infrastructure Network."\
+"Decentralized Physical Infrastructure Network."
 A network where physical or computational resources (GPUs, bandwidth, storage) are coordinated through crypto-economic incentives.
 
 ### **LPT (Livepeer Token)**
@@ -31400,7 +31561,7 @@ In the context of Livepeer, it refers to the protocol layer that governs staking
 
 ### Off-chain
 
-Off-chain refers to the data and operations that are not recorded on the blockchain.\
+Off-chain refers to the data and operations that are not recorded on the blockchain.
 In the context of Livepeer, it refers to the network layer that performs video transcoding,
 AI inference, and job routing, including orchestrators and gateways.
 
@@ -31716,13 +31877,13 @@ An abstraction layer on the livepeer protocol that provides tools and services f
 
 ### **Gateway**
 
-A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.\
-Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.\
+A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.
+Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.
 **Not** the same as hosted services like Studio or Daydream.
 
 ### **Orchestrator (GPU Node)**
 
-A supply-side operator that contributes **GPU resources** to the network.\
+A supply-side operator that contributes **GPU resources** to the network.
 Orchestrators receive jobs, perform transcoding or AI inference, and get paid via LPT rewards + ETH fees.
 
 ### **Transcoder (Worker)**
@@ -31735,7 +31896,7 @@ A token holder who stakes their LPT to an orchestrator to help secure the networ
 
 ### **Developer**
 
-Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.\
+Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.
 Developers only run gateways if they want direct protocol access.
 
 ### **Broadcaster (-> Gateway)**
@@ -31828,7 +31989,7 @@ not part of the address format.
 
 ### **DePIN**
 
-"Decentralized Physical Infrastructure Network."\
+"Decentralized Physical Infrastructure Network."
 A network where physical or computational resources (GPUs, bandwidth, storage) are coordinated through crypto-economic incentives.
 
 ### **LPT (Livepeer Token)**
@@ -31852,7 +32013,7 @@ In the context of Livepeer, it refers to the protocol layer that governs staking
 
 ### Off-chain
 
-Off-chain refers to the data and operations that are not recorded on the blockchain.\
+Off-chain refers to the data and operations that are not recorded on the blockchain.
 In the context of Livepeer, it refers to the network layer that performs video transcoding,
 AI inference, and job routing, including orchestrators and gateways.
 
@@ -32168,13 +32329,13 @@ An abstraction layer on the livepeer protocol that provides tools and services f
 
 ### **Gateway**
 
-A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.\
-Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.\
+A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.
+Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.
 **Not** the same as hosted services like Studio or Daydream.
 
 ### **Orchestrator (GPU Node)**
 
-A supply-side operator that contributes **GPU resources** to the network.\
+A supply-side operator that contributes **GPU resources** to the network.
 Orchestrators receive jobs, perform transcoding or AI inference, and get paid via LPT rewards + ETH fees.
 
 ### **Transcoder (Worker)**
@@ -32187,7 +32348,7 @@ A token holder who stakes their LPT to an orchestrator to help secure the networ
 
 ### **Developer**
 
-Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.\
+Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.
 Developers only run gateways if they want direct protocol access.
 
 ### **Broadcaster (-> Gateway)**
@@ -32280,7 +32441,7 @@ not part of the address format.
 
 ### **DePIN**
 
-"Decentralized Physical Infrastructure Network."\
+"Decentralized Physical Infrastructure Network."
 A network where physical or computational resources (GPUs, bandwidth, storage) are coordinated through crypto-economic incentives.
 
 ### **LPT (Livepeer Token)**
@@ -32304,7 +32465,7 @@ In the context of Livepeer, it refers to the protocol layer that governs staking
 
 ### Off-chain
 
-Off-chain refers to the data and operations that are not recorded on the blockchain.\
+Off-chain refers to the data and operations that are not recorded on the blockchain.
 In the context of Livepeer, it refers to the network layer that performs video transcoding,
 AI inference, and job routing, including orchestrators and gateways.
 
@@ -32620,13 +32781,13 @@ An abstraction layer on the livepeer protocol that provides tools and services f
 
 ### **Gateway**
 
-A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.\
-Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.\
+A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.
+Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.
 **Not** the same as hosted services like Studio or Daydream.
 
 ### **Orchestrator (GPU Node)**
 
-A supply-side operator that contributes **GPU resources** to the network.\
+A supply-side operator that contributes **GPU resources** to the network.
 Orchestrators receive jobs, perform transcoding or AI inference, and get paid via LPT rewards + ETH fees.
 
 ### **Transcoder (Worker)**
@@ -32639,7 +32800,7 @@ A token holder who stakes their LPT to an orchestrator to help secure the networ
 
 ### **Developer**
 
-Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.\
+Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.
 Developers only run gateways if they want direct protocol access.
 
 ### **Broadcaster (-> Gateway)**
@@ -32732,7 +32893,7 @@ not part of the address format.
 
 ### **DePIN**
 
-"Decentralized Physical Infrastructure Network."\
+"Decentralized Physical Infrastructure Network."
 A network where physical or computational resources (GPUs, bandwidth, storage) are coordinated through crypto-economic incentives.
 
 ### **LPT (Livepeer Token)**
@@ -32756,7 +32917,7 @@ In the context of Livepeer, it refers to the protocol layer that governs staking
 
 ### Off-chain
 
-Off-chain refers to the data and operations that are not recorded on the blockchain.\
+Off-chain refers to the data and operations that are not recorded on the blockchain.
 In the context of Livepeer, it refers to the network layer that performs video transcoding,
 AI inference, and job routing, including orchestrators and gateways.
 
@@ -33072,13 +33233,13 @@ An abstraction layer on the livepeer protocol that provides tools and services f
 
 ### **Gateway**
 
-A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.\
-Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.\
+A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.
+Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.
 **Not** the same as hosted services like Studio or Daydream.
 
 ### **Orchestrator (GPU Node)**
 
-A supply-side operator that contributes **GPU resources** to the network.\
+A supply-side operator that contributes **GPU resources** to the network.
 Orchestrators receive jobs, perform transcoding or AI inference, and get paid via LPT rewards + ETH fees.
 
 ### **Transcoder (Worker)**
@@ -33091,7 +33252,7 @@ A token holder who stakes their LPT to an orchestrator to help secure the networ
 
 ### **Developer**
 
-Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.\
+Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.
 Developers only run gateways if they want direct protocol access.
 
 ### **Broadcaster (-> Gateway)**
@@ -33184,7 +33345,7 @@ not part of the address format.
 
 ### **DePIN**
 
-"Decentralized Physical Infrastructure Network."\
+"Decentralized Physical Infrastructure Network."
 A network where physical or computational resources (GPUs, bandwidth, storage) are coordinated through crypto-economic incentives.
 
 ### **LPT (Livepeer Token)**
@@ -33208,7 +33369,7 @@ In the context of Livepeer, it refers to the protocol layer that governs staking
 
 ### Off-chain
 
-Off-chain refers to the data and operations that are not recorded on the blockchain.\
+Off-chain refers to the data and operations that are not recorded on the blockchain.
 In the context of Livepeer, it refers to the network layer that performs video transcoding,
 AI inference, and job routing, including orchestrators and gateways.
 
@@ -33524,13 +33685,13 @@ An abstraction layer on the livepeer protocol that provides tools and services f
 
 ### **Gateway**
 
-A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.\
-Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.\
+A *gateway* is a Livepeer node operated by a user or organization to interact **directly with the Livepeer protocol**.
+Gateways submit jobs, route work to orchestrators, manage payment flows, and provide a direct interface to the network.
 **Not** the same as hosted services like Studio or Daydream.
 
 ### **Orchestrator (GPU Node)**
 
-A supply-side operator that contributes **GPU resources** to the network.\
+A supply-side operator that contributes **GPU resources** to the network.
 Orchestrators receive jobs, perform transcoding or AI inference, and get paid via LPT rewards + ETH fees.
 
 ### **Transcoder (Worker)**
@@ -33543,7 +33704,7 @@ A token holder who stakes their LPT to an orchestrator to help secure the networ
 
 ### **Developer**
 
-Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.\
+Anyone building applications *using* Livepeer, usually through **hosted services** (e.g., Studio, Daydream) or library SDKs.
 Developers only run gateways if they want direct protocol access.
 
 ### **Broadcaster (-> Gateway)**
@@ -33636,7 +33797,7 @@ not part of the address format.
 
 ### **DePIN**
 
-"Decentralized Physical Infrastructure Network."\
+"Decentralized Physical Infrastructure Network."
 A network where physical or computational resources (GPUs, bandwidth, storage) are coordinated through crypto-economic incentives.
 
 ### **LPT (Livepeer Token)**
@@ -33660,7 +33821,7 @@ In the context of Livepeer, it refers to the protocol layer that governs staking
 
 ### Off-chain
 
-Off-chain refers to the data and operations that are not recorded on the blockchain.\
+Off-chain refers to the data and operations that are not recorded on the blockchain.
 In the context of Livepeer, it refers to the network layer that performs video transcoding,
 AI inference, and job routing, including orchestrators and gateways.
 
@@ -33951,7 +34112,7 @@ Community discussions and announcements
 
 ***
 
-*Last updated: 2026-02-16*\
+*Last updated: 2026-02-16*
 *For protocol changelog, see [Livepeer Releases](https://github.com/livepeer/go-livepeer/releases)*
 
 ---
