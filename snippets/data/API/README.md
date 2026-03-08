@@ -90,7 +90,7 @@ lists.jsx │ ├── table.jsx │ └── video.jsx │ ├── content/
 components │ ├── code.jsx # Code blocks, syntax highlighting │ ├── embed.jsx #
 Embeds (iframe, external) │ ├── external-content.jsx # External content fetching
 │ ├── responseField.jsx # API response display │ └── zoomable-diagram.jsx │ ├──
-layout/ # Layout & structure components │ ├── steps.jsx │ ├── ListSteps.jsx │
+layout/ # Layout & structure components │ ├── steps.jsx │ ├── listSteps.jsx │
 └── GroupedResponseField.jsx │ ├── integrations/ # Third-party API integrations
 │ ├── coingecko.jsx │ └── release.jsx # GitHub releases │ ├── domain/ #
 Domain-specific (by section) │ ├── gateways/ │ │ ├── callouts.jsx │ │ └──

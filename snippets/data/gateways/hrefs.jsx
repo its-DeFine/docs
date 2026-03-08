@@ -598,7 +598,7 @@ export const LINK_MAP = {
       "exists": false,
       "status": "missing",
       "movedCandidates": [
-        "snippets/components/domain/examples/previewCallouts-examples.mdx",
+        "snippets/components/_archive/folders/domain-examples/previewCallouts-examples.mdx",
         "snippets/components/_archive/previewCallouts.jsx",
         "snippets/components/primitives/previewCallouts.jsx"
       ]
@@ -642,41 +642,37 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/run-a-gateway/remote-signers",
-      "resolvedPath": "v2/gateways/run-a-gateway/remote-signers",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/gateways/payments/remote-signers.mdx"
-      ]
-    },
-    {
-      "sourceType": "markdown-link",
-      "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/about-gateways/naap-platform",
-      "resolvedPath": "v2/gateways/about-gateways/naap-platform",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/gateways/payments/remote-signers",
+      "resolvedPath": "v2/gateways/payments/remote-signers.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/run-a-gateway/remote-signers",
-      "resolvedPath": "v2/gateways/run-a-gateway/remote-signers",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/gateways/payments/remote-signers.mdx"
-      ]
+      "rawPath": "/v2/gateways/gateway-tools/livepeer-tools",
+      "resolvedPath": "v2/gateways/gateway-tools/livepeer-tools.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/about-gateways/naap-platform",
-      "resolvedPath": "v2/gateways/about-gateways/naap-platform",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/gateways/payments/remote-signers",
+      "resolvedPath": "v2/gateways/payments/remote-signers.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
+    },
+    {
+      "sourceType": "markdown-link",
+      "linkType": "internal-rooted",
+      "rawPath": "/v2/gateways/gateway-tools/livepeer-tools",
+      "resolvedPath": "v2/gateways/gateway-tools/livepeer-tools.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -691,21 +687,19 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/run-a-gateway/remote-signers",
-      "resolvedPath": "v2/gateways/run-a-gateway/remote-signers",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "v2/gateways/payments/remote-signers.mdx"
-      ]
+      "rawPath": "/v2/gateways/payments/remote-signers",
+      "resolvedPath": "v2/gateways/payments/remote-signers.mdx",
+      "exists": true,
+      "status": "ok",
+      "movedCandidates": []
     },
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/gateways/about-gateways/naap-platform",
-      "resolvedPath": "v2/gateways/about-gateways/naap-platform",
-      "exists": false,
-      "status": "missing",
+      "rawPath": "/v2/gateways/gateway-tools/livepeer-tools",
+      "resolvedPath": "v2/gateways/gateway-tools/livepeer-tools.mdx",
+      "exists": true,
+      "status": "ok",
       "movedCandidates": []
     },
     {
@@ -716,19 +710,6 @@ export const LINK_MAP = {
       "exists": true,
       "status": "ok",
       "movedCandidates": []
-    },
-    {
-      "sourceType": "import-path",
-      "linkType": "import-path",
-      "rawPath": "/snippets/components/Callout.mdx",
-      "resolvedPath": "snippets/components/Callout.mdx",
-      "exists": false,
-      "status": "missing",
-      "movedCandidates": [
-        "snippets/components/domain/examples/previewCallouts-examples.mdx",
-        "snippets/components/_archive/previewCallouts.jsx",
-        "snippets/components/primitives/previewCallouts.jsx"
-      ]
     }
   ],
   "v2/gateways/payments/remote-signers.mdx": [
@@ -791,7 +772,7 @@ export const LINK_MAP = {
       "exists": false,
       "status": "missing",
       "movedCandidates": [
-        "snippets/components/domain/examples/previewCallouts-examples.mdx",
+        "snippets/components/_archive/folders/domain-examples/previewCallouts-examples.mdx",
         "snippets/components/_archive/previewCallouts.jsx",
         "snippets/components/primitives/previewCallouts.jsx"
       ]

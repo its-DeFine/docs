@@ -797,7 +797,7 @@ import { UpdateList } from "/snippets/components/layout/lists.jsx";
   <Accordion title="listSteps.jsx" icon="file-code">
     <ResponseField name="ListSteps" type="component">
       **Props**: `listItems`, `stepsConfig` <br/>
-      **Defaults**: None
+      **Defaults**: `stepsConfig={}`
 
       <CodeGroup>
 ```jsx lines Example
@@ -2052,7 +2052,7 @@ Busca por categoría, ruta de página o nombre de componente.
     { Category: "Diseño", Page: "layout/lists.jsx", Component: "StepList", Props: "listItems" },
     { Category: "Diseño", Page: "layout/lists.jsx", Component: "UpdateLinkList", Props: "listItems" },
     { Category: "Diseño", Page: "layout/lists.jsx", Component: "UpdateList", Props: "listItems" },
-    { Category: "Diseño", Page: "layout/listSteps.jsx", Component: "ListSteps", Props: "listItems, stepsConfig" },
+    { Category: "Diseño", Page: "layout/listSteps.jsx", Component: "ListSteps", Props: "listItems, stepsConfig={}" },
     { Category: "Diseño", Page: "layout/quadGrid.jsx", Component: "QuadGrid", Props: "children, icon=\"arrows-spin\", iconSize=50, iconColor=\"var(--accent)\", spinDuration=\"10s\"" },
     { Category: "Diseño", Page: "layout/searchTable.jsx", Component: "SearchTable", Props: "TableComponent=null, tableTitle=null, headerList=[], itemsList=[], monospaceColumns=[], margin, searchPlaceholder=\"Search...\", searchColumns=[], categoryColumn=\"Category\"" },
     { Category: "Diseño", Page: "layout/steps.jsx", Component: "StyledStep", Props: "title, icon, titleSize=\"h3\", children" },

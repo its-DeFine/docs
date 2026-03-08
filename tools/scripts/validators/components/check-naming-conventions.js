@@ -132,9 +132,17 @@ function parseArgs(argv) {
 function resolveRepoPath(inputPath) {
   const raw = String(inputPath || '').trim();
   const candidate = raw || DEFAULT_TARGET;
-  const absolute = path.isAbsolute(candidate)
+  let absolute = path.isAbsolute(candidate)
     ? path.resolve(candidate)
     : path.resolve(REPO_ROOT, candidate);
+
+  if (fs.existsSync(absolute)) {
+    const realPath = fs.realpathSync.native
+      ? fs.realpathSync.native(absolute)
+      : fs.realpathSync(absolute);
+    absolute = path.resolve(realPath);
+  }
+
   const relative = toPosix(path.relative(REPO_ROOT, absolute));
 
   if (relative === '..' || relative.startsWith('../')) {
