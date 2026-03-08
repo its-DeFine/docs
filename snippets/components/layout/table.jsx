@@ -43,7 +43,7 @@ export const DynamicTable = ({
             <tr
               style={{
                 backgroundColor: "var(--accent)",
-                color: "#fff", //DO NOT CHANGE
+                color: "var(--lp-color-white)",
               }}
             >
               {headerList.map((header, index) => (
@@ -54,7 +54,7 @@ export const DynamicTable = ({
                     textAlign: "left",
                     fontWeight: "600",
                     borderBottom: "2px solid var(--accent)",
-                    color: "#fff",
+                    color: "var(--lp-color-white)",
                   }}
                 >
                   {header}
@@ -69,7 +69,7 @@ export const DynamicTable = ({
                   key={rowIndex}
                   style={{
                     backgroundColor: "var(--accent)",
-                    color: "#fff",
+                    color: "var(--lp-color-white)",
                     borderBottom: "1px solid var(--accent)",
                   }}
                 >
@@ -78,7 +78,7 @@ export const DynamicTable = ({
                     style={{
                       padding: "8px 16px",
                       fontWeight: "700",
-                      color: "#fff",
+                      color: "var(--lp-color-white)",
                       letterSpacing: "0.01em",
                     }}
                   >

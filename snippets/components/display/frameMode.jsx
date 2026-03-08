@@ -124,7 +124,6 @@ const PageHeader = ({
 //             fontWeight: "bold",
 //             lineHeight: "1.2",
 //             marginBottom: "1rem",
-//             color: titleColor ?? ThemeData.light.heroText,
 //           }}
 //         >
 //           {title}
@@ -135,7 +134,6 @@ const PageHeader = ({
 //             style={{
 //               fontSize: "1.5rem",
 //               fontWeight: "500",
-//               color: subtitleColor ?? ThemeData.light.accent,
 //             }}
 //           >
 //             {subtitle}
@@ -147,7 +145,6 @@ const PageHeader = ({
 //             style={{
 //               fontSize: "1.1rem",
 //               marginTop: "1.5rem",
-//               color: descriptionColor ?? ThemeData.light.text,
 //             }}
 //           >
 //             {description}

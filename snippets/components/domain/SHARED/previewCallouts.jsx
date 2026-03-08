@@ -17,6 +17,7 @@ const ComingSoonCallout = ({ type = "page" }) => {
     alignItems: "center",
   };
   const linkStyle = {
+    // TODO: remove !important - specificity investigation needed.
     color: "var(--hero-text) !important",
     display: "inline-flex",
     alignItems: "center",
@@ -27,14 +28,18 @@ const ComingSoonCallout = ({ type = "page" }) => {
     fontSize: "1.2rem",
     fontWeight: "bold",
     fontStyle: "italic",
-    color: "#ef1a73",
+    color: "var(--lp-color-callout-coming-soon)",
   };
 
   return (
-    <Callout icon="" color="#ef1a73">
+    <Callout icon="" color="var(--lp-color-callout-coming-soon)">
       <div style={rowStyle}>
         <div style={{ flexShrink: 0 }}>
-          <Icon icon="cauldron" size={30} color="#ef1a73" />
+          <Icon
+            icon="cauldron"
+            size={30}
+            color="var(--lp-color-callout-coming-soon)"
+          />
         </div>
         <div style={colStyle}>
           <span style={titleStyle}>
@@ -61,7 +66,11 @@ const ComingSoonCallout = ({ type = "page" }) => {
           </span>
         </div>
         <div style={{ flexShrink: 0, paddingRight: "1.5rem" }}>
-          <Icon icon="cauldron" size={30} color="#ef1a73" />
+          <Icon
+            icon="cauldron"
+            size={30}
+            color="var(--lp-color-callout-coming-soon)"
+          />
         </div>
       </div>
     </Callout>
@@ -85,6 +94,7 @@ const PreviewCallout = () => {
     flex: 1,
   };
   const linkStyle = {
+    // TODO: remove !important - specificity investigation needed.
     color: "var(--hero-text) !important",
     display: "inline-flex",
     alignItems: "center",
@@ -95,13 +105,13 @@ const PreviewCallout = () => {
     fontSize: "1.2rem",
     fontWeight: "bold",
     fontStyle: "italic",
-    color: "#b636dd",
+    color: "var(--lp-color-callout-review)",
   };
   return (
-    <Callout icon="" color="#b636dd">
+    <Callout icon="" color="var(--lp-color-callout-review)">
       <div style={rowStyle}>
         <div style={{ flexShrink: 0 }}>
-          <Icon icon="tools" size={30} color="#b636dd" />
+          <Icon icon="tools" size={30} color="var(--lp-color-callout-review)" />
         </div>
         <div style={colStyle}>
           <span style={titleStyle}>
@@ -126,7 +136,7 @@ const PreviewCallout = () => {
           </span>
         </div>
         <div style={{ flexShrink: 0, paddingRight: "1.5rem" }}>
-          <Icon icon="tools" size={30} color="#b636dd" />
+          <Icon icon="tools" size={30} color="var(--lp-color-callout-review)" />
         </div>
       </div>
     </Callout>
@@ -135,7 +145,7 @@ const PreviewCallout = () => {
 
 const ReviewCallout = () => {
   return (
-    <Callout icon="help" color="#b636dd">
+    <Callout icon="help" color="var(--lp-color-callout-review)">
       <div style={{ fontSize: "1.0rem" }}>
         Technical Review Needed! <br />
         Get in touch if you can help

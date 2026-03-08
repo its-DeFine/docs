@@ -22,7 +22,7 @@ const ValueResponseField = ({
     ? [
         <span>
           <span style={{ color: "gray" }}>{label}: </span>
-          <span style={{ color: "#3b82f6" }}>{post[0]}</span>
+          <span style={{ color: "var(--lp-color-response-field-value)" }}>{post[0]}</span>
         </span>,
       ]
     : null;
@@ -31,8 +31,8 @@ const ValueResponseField = ({
     <div className={!line ? "vrf-noline" : undefined}>
       <style>{`
         .vrf-noline > .field {
-          border-bottom: none !important;
-          margin-bottom: -0.5rem !important;
+          border-bottom: none;
+          margin-bottom: -0.5rem;
           padding: 0;
         }
       `}</style>
@@ -61,8 +61,8 @@ const CustomResponseField = ({ description, ...props }) => {
     <div className={uniqueId}>
       <style>{`
         .${uniqueId} > .field {
-          border-bottom: none !important;
-          margin-bottom: -20px !important;
+          border-bottom: none;
+          margin-bottom: -20px;
         }
       `}</style>
       <ResponseField {...props}>{description}</ResponseField>

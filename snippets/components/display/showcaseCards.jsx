@@ -164,13 +164,13 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
       position: "absolute",
       top: "0",
       marginTop: "0.5rem",
-      background: "rgba(0, 0, 0, 0.5)",
+      background: "var(--lp-color-overlay-scrim)",
       color: "white",
       fontSize: "18px",
       fontWeight: "800",
       padding: "6px 16px",
       borderRadius: "6px",
-      border: "1px solid rgba(255, 255, 255, 0.5)",
+      border: "1px solid var(--lp-color-border-inverse-subtle)",
       ...style,
     };
     const logoStyle = {
@@ -182,7 +182,6 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
       alignSelf: "flex-end",
       opacity: 0.8,
       borderRadius: "6px",
-      // border: "1px solid rgba(255, 255, 255, 0.5)",
       margin: 0,
       padding: 0,
       marginBottom: "0.5rem",
@@ -198,7 +197,6 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
       justifySelf: "center",
       opacity: 1,
       borderRadius: "6px",
-      // border: "1px solid rgba(255, 255, 255, 0.5)",
       margin: 0,
       padding: 0,
       marginBottom: "0.5rem",
@@ -309,7 +307,7 @@ export const ShowcaseCards = ({ items = [], limit = null, pageSize = 10 }) => {
           iconType="solid"
           size={14}
           style={{ flexShrink: 0 }}
-          color="rgba(255,255,255,0.4)"
+          color="var(--lp-color-border-inverse-subtle)"
         />
       </div>
     );

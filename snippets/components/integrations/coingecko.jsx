@@ -128,7 +128,7 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
             <tr
               style={{
                 backgroundColor: "var(--accent)",
-                color: "#fff",
+                color: "var(--lp-color-white)",
               }}
             >
               <th
@@ -140,7 +140,7 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                   cursor: "pointer",
                   width: "220px",
                   maxWidth: "220px",
-                  color: "#fff",
+                  color: "var(--lp-color-white)",
                 }}
                 onClick={() => handleSort("name")}
                 title="Click to sort by name"
@@ -156,7 +156,7 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                   borderBottom: "2px solid var(--accent)",
                   width: "80px",
                   cursor: "pointer",
-                  color: "#fff",
+                  color: "var(--lp-color-white)",
                 }}
                 onClick={() => handleSort("type")}
                 title="Click to sort by type"
@@ -170,7 +170,7 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                   fontWeight: "600",
                   borderBottom: "2px solid var(--accent)",
                   width: "110px",
-                  color: "#fff",
+                  color: "var(--lp-color-white)",
                 }}
               >
                 Pair
@@ -182,7 +182,7 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                   fontWeight: "600",
                   borderBottom: "2px solid var(--accent)",
                   width: "100px",
-                  color: "#fff",
+                  color: "var(--lp-color-white)",
                 }}
               >
                 Trust
@@ -194,7 +194,7 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                   fontWeight: "600",
                   borderBottom: "2px solid var(--accent)",
                   width: "100px",
-                  color: "#fff",
+                  color: "var(--lp-color-white)",
                 }}
               >
                 Link

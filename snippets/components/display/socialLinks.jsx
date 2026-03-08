@@ -39,10 +39,10 @@ export const SocialLinks = ({
 
   // Brand colors
   const colors = {
-    discord: color ? color : "#5865F2",
+    discord: color ? color : "var(--lp-color-brand-discord)",
     twitter: color ? color : "var(--hero-text)",
-    github: color ? color : "#f0f0f0",
-    forum: color ? color : "#00AEEF",
+    github: color ? color : "var(--lp-color-brand-github)",
+    forum: color ? color : "var(--lp-color-brand-forum)",
     website: color ? color : "var(--accent)",
     blog: color ? color : "var(--accent)",
   };
@@ -51,8 +51,8 @@ export const SocialLinks = ({
     <>
       <style>{`
         .social-links a {
-          border: none !important;
-          border-bottom: none !important;
+          border: none;
+          border-bottom: none;
         }
       `}</style>
       <span
@@ -128,4 +128,3 @@ export const SocialLinks = ({
     </>
   );
 };
-

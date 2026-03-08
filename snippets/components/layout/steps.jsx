@@ -6,9 +6,9 @@
  * Uses scoped styles with a unique ID to avoid conflicts.
  *
  * @param {React.ReactNode} children - Step components to render
- * @param {string} [iconColor] - Background color for step icons (defaults to #18794E)
- * @param {string} [titleColor] - Color for step titles (defaults to #3CB540 light / #2b9a66 dark)
- * @param {string} [lineColor] - Color for the connecting line between steps (defaults to #3CB540 light / #2b9a66 dark)
+ * @param {string} [iconColor] - Background color for step icons (defaults to var(--accent-dark))
+ * @param {string} [titleColor] - Color for step titles (defaults to var(--accent))
+ * @param {string} [lineColor] - Color for the connecting line between steps (defaults to var(--accent))
  * @param {string} [iconSize="24px"] - Size of the step icons (currently unused in implementation)
  *
  * @example
@@ -27,12 +27,13 @@ export const StyledSteps = ({
   iconSize = "24px",
 }) => {
   const stepsId = `styled-steps-${Math.random().toString(36).substr(2, 9)}`;
-  const resolvedIconColor = iconColor || "var(--accent-dark, #18794E)";
+  const resolvedIconColor = iconColor || "var(--accent-dark)";
   const resolvedTitleColor = titleColor || "var(--accent)";
   const resolvedLineColor = lineColor || "var(--accent)";
 
   return (
     <>
+      {/* TODO: remove !important - specificity investigation needed. */}
       <style>{`
         #${stepsId} .steps > div > div.absolute > div {
           background-color: ${resolvedIconColor} !important;

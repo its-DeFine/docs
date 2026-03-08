@@ -339,7 +339,7 @@ export const PostCard = ({
       <div
         style={{
           height: 1,
-          backgroundColor: "rgba(255,255,255,0.1)",
+          backgroundColor: "var(--lp-color-border-inverse-subtle)",
           margin: "12px 0",
         }}
       />
@@ -364,7 +364,7 @@ export const PostCard = ({
         <div
           style={{
             fontSize: 11,
-            color: "rgba(255,255,255,0.5)",
+            color: "var(--lp-color-border-inverse-subtle)",
             textAlign: "center",
             marginTop: 10,
             marginBottom: 10,
@@ -500,7 +500,7 @@ export const DiscordAnnouncements = ({ items = [], limit }) => {
               width: "100%",
             }}
           >
-            <Icon icon="discord" color="#5965f3" />
+            <Icon icon="discord" color="var(--lp-color-brand-discord)" />
             <span style={{ fontWeight: 600, color: "var(--accent)" }}>
               Livepeer
               {/* {announcement.author} */}
@@ -519,6 +519,7 @@ export const DiscordAnnouncements = ({ items = [], limit }) => {
             <span
               style={{
                 fontSize: "0.875rem",
+                // TODO: remove !important - specificity investigation needed.
                 color: "var(--text) !important",
                 marginLeft: "auto",
               }}
