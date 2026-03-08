@@ -1,9 +1,9 @@
 ---
-title: "Markdown Embed Components Examples"
-description: "Examples of using MarkdownEmbed and EmbedMarkdown components"
+title: "Markdown Embed Component Examples"
+description: "Examples of using the MarkdownEmbed component"
 ---
 
-import { MarkdownEmbed, EmbedMarkdown } from "/snippets/components/display/embed.jsx";
+import { MarkdownEmbed } from "/snippets/components/display/embed.jsx";
 
 ## MarkdownEmbed
 
@@ -21,17 +21,11 @@ Embed external markdown content from a URL:
 
 <MarkdownEmbed url="https://raw.githubusercontent.com/livepeer/go-livepeer/master/CHANGELOG.md" />
 
-## EmbedMarkdown
-
-### Basic Usage (Alias)
-
-`EmbedMarkdown` is an alias for `MarkdownEmbed` and works identically:
-
-<EmbedMarkdown url="https://raw.githubusercontent.com/livepeer/awesome-livepeer/main/README.md" />
+## Additional Examples
 
 ### Embedding Contributing Guidelines
 
-<EmbedMarkdown url="https://raw.githubusercontent.com/livepeer/go-livepeer/master/CONTRIBUTING.md" />
+<MarkdownEmbed url="https://raw.githubusercontent.com/livepeer/go-livepeer/master/CONTRIBUTING.md" />
 
 ## Use Cases
 
@@ -111,4 +105,3 @@ Show the latest changes from your repository:
 <Frame>
   <MarkdownEmbed url="https://raw.githubusercontent.com/livepeer/protocol/master/README.md" />
 </Frame>
-

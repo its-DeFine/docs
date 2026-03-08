@@ -6,7 +6,7 @@ keywords: ["livepeer", "resources", "documentation guide", "snippets", "inventor
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
 
-import { CustomDivider } from "snippets/components/primitives/divider.jsx"
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
 
 ## Overview
 
@@ -28,7 +28,7 @@ The snippets folder contains:
 Custom React/JSX components organized by purpose:
 
 #### Primitives (`/snippets/components/primitives/`)
-- `buttons.jsx` - Button components (BasicBtn, DownloadButton)
+- `buttons.jsx` - Button components (DownloadButton)
 - `divider.jsx` - CustomDivider component
 - `icons.jsx` - Livepeer brand icons (LivepeerIcon, LivepeerSVG, etc.)
 - `links.jsx` - Link and navigation components (GotoLink, GotoCard, CustomCallout, etc.)
@@ -46,7 +46,7 @@ Custom React/JSX components organized by purpose:
 #### Display (`/snippets/components/display/`)
 - `video.jsx` - Video components (YouTubeVideo, CardVideo, LinkedInEmbed)
 - `image.jsx` - Image components (Image, LinkImage)
-- `embed.jsx` - Embed components (MarkdownEmbed, EmbedMarkdown)
+- `embed.jsx` - Embed components (MarkdownEmbed)
 - `zoomable-diagram.jsx` - ScrollableDiagram component
 - `quote.jsx` - Quote components (Quote, FrameQuote)
 - `frameMode.jsx` - Frame mode heading components (PageHeader, H1-H6, P, Divider)
@@ -143,7 +143,7 @@ Static assets including images, logos, and media:
 
 ### Styles (`/snippets/styles/`)
 
-- `themeStyles.jsx` - Theme styling definitions (deprecated - use CSS Custom Properties in `style.css` instead)
+- Legacy theme styling file - deprecated in favour of CSS Custom Properties in `style.css`
 
 ### SnippetsWiki (`/snippets/snippetsWiki/`)
 
@@ -181,7 +181,7 @@ import { CustomCodeBlock } from "/snippets/components/content/code.jsx";
 
 ```jsx
 // Import data files
-import { DOCKER_CODE } from "/snippets/data/gateways/code.jsx";
+import { GatewaySteps } from "/snippets/data/gateways.jsx";
 import { latestVersion } from "/snippets/automations/globals/globals.jsx";
 ```
 
@@ -189,7 +189,7 @@ import { latestVersion } from "/snippets/automations/globals/globals.jsx";
 
 ```jsx
 // Import MDX page modules
-import DockerOffChainTab from "/snippets/pages/04_GATEWAYS/run/quickstart/views/docker/dockerOffChainTab.mdx";
+import ProjectShowcase from "/snippets/pages/00_HOME/project-showcase.mdx";
 ```
 
 ## Automation
@@ -213,4 +213,3 @@ This script automatically generates a Tree structure listing all components in `
 - [Style Guide](./style-guide) - Styling and Mintlify gotchas
 - [Snippets Wiki](/snippets/snippetsWiki/index) - Internal snippets documentation
 - [Mintlify Behavior Guide](/snippets/snippetsWiki/mintlify-behaviour) - Mintlify-specific patterns
-

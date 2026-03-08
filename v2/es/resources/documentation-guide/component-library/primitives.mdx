@@ -17,8 +17,8 @@ keywords:
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { LivepeerIcon, LivepeerIconFlipped, LivepeerSVG, LivepeerIconOld } from '/snippets/components/primitives/icons.jsx'
 import { CustomCallout, GotoLink, GotoCard, TipWithArrow, LinkArrow } from '/snippets/components/primitives/links.jsx'
-// BlinkingIcon, BlinkingTerminal, DoubleIconLink commented out - require ThemeData (DEPRECATED per style guide - components are immutable)
-import { DownloadButton, BasicBtn } from '/snippets/components/primitives/buttons.jsx'
+// BlinkingIcon, BlinkingTerminal, DoubleIconLink commented out - require a legacy theme dependency (components are immutable)
+import { DownloadButton } from '/snippets/components/primitives/buttons.jsx'
 import { Subtitle, CopyText, CardTitleTextWithArrow, AccordionTitleWithArrow } from '/snippets/components/primitives/text.jsx'
 import { FlexContainer, GridContainer, Spacer } from '/snippets/components/primitives/layout.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/primitives/tables.jsx'
@@ -88,19 +88,6 @@ import { DownloadButton } from "/snippets/components/primitives/buttons.jsx";
 </Tabs>
 
 ---
-
-### BasicBtn
-
-Componente de marcador de posición para la funcionalidad básica del botón. Actualmente devuelve un div vacío.
-
-**Importar:**
-```jsx
-import { BasicBtn } from "/snippets/components/primitives/buttons.jsx";
-```
-
-**Props:** Ninguno
-
-**Nota:** Este es un componente de marcador de posición y actualmente no es funcional.
 
 <CustomDivider middleText="Icons & Branding" />
 
@@ -320,13 +307,13 @@ import { GotoCard } from "/snippets/components/primitives/links.jsx";
 
 ---
 
-{/* DoubleIconLink commented out - requires ThemeData (DEPRECATED per style guide - component is immutable) */}
+{/* DoubleIconLink commented out - requires a legacy theme dependency (component is immutable) */}
 {/*
 ### DoubleIconLink
 
 Link component with icons on both sides. Commonly used for external links like GitHub.
 
-**Note:** Currently unavailable - component requires ThemeData which is deprecated. See component-bugs.md for details.
+**Note:** Currently unavailable - component depends on legacy theme wiring. See component-bugs.md for details.
 */}
 
 ---
@@ -428,19 +415,19 @@ import { TipWithArrow } from "/snippets/components/primitives/links.jsx";
 
 ---
 
-{/* BlinkingIcon and BlinkingTerminal commented out - require ThemeData (DEPRECATED per style guide - components are immutable) */}
+{/* BlinkingIcon and BlinkingTerminal commented out - require a legacy theme dependency (components are immutable) */}
 {/*
 ### BlinkingIcon
 
 An icon with a smooth blinking animation (fades between full and 30% opacity). Animation cycles every 3 seconds.
 
-**Note:** Currently unavailable - component requires ThemeData which is deprecated. See component-bugs.md for details.
+**Note:** Currently unavailable - component depends on legacy theme wiring. See component-bugs.md for details.
 
 ### BlinkingTerminal
 
 Alias for `BlinkingIcon` (backwards compatibility). Use `BlinkingIcon` instead.
 
-**Note:** Currently unavailable - component requires ThemeData which is deprecated. See component-bugs.md for details.
+**Note:** Currently unavailable - component depends on legacy theme wiring. See component-bugs.md for details.
 */}
 
 ---

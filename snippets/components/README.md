@@ -26,7 +26,7 @@ components/
 
 | File          | Exports                                                                                                       | Description                    |
 | ------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| `buttons.jsx` | `BasicBtn`, `DownloadButton`                                                                                  | Button components              |
+| `buttons.jsx` | `DownloadButton`                                                                                              | Button components              |
 | `divider.jsx` | `CustomDivider`                                                                                               | Divider/separator              |
 | `icons.jsx`   | `LivepeerSVG`, `LivepeerIconOld`, `LivepeerIconFlipped`, `LivepeerIcon`                                       | Livepeer brand icons           |
 | `links.jsx`   | `CustomCallout`, `BlinkingIcon`, `BlinkingTerminal`, `DoubleIconLink`, `GotoLink`, `GotoCard`, `TipWithArrow` | Link and navigation components |
@@ -45,7 +45,7 @@ components/
 
 | File                   | Exports                                             | Description                 |
 | ---------------------- | --------------------------------------------------- | --------------------------- |
-| `embed.jsx`            | `MarkdownEmbed`, `EmbedMarkdown`                    | Markdown embed components   |
+| `embed.jsx`            | `MarkdownEmbed`                                     | Markdown embed components   |
 | `image.jsx`            | `Image`, `LinkImage`                                | Image display components    |
 | `video.jsx`            | `YouTubeVideo`, `YouTubeVideoDownload`, `CardVideo` | Video embed components      |
 | `zoomable-diagram.jsx` | `ScrollableDiagram`                                 | Zoomable/scrollable diagram |

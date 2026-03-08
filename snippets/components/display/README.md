@@ -6,7 +6,7 @@ Display components handle the presentation of media, embeds, quotes, and visual 
 
 | File                   | Exports                                             | Description                 |
 | ---------------------- | --------------------------------------------------- | --------------------------- |
-| `embed.jsx`            | `MarkdownEmbed`, `EmbedMarkdown`                    | Markdown embed components   |
+| `embed.jsx`            | `MarkdownEmbed`                                     | Markdown embed components   |
 | `image.jsx`            | `Image`, `LinkImage`                                | Image display components    |
 | `video.jsx`            | `YouTubeVideo`, `YouTubeVideoDownload`, `CardVideo` | Video embed components      |
 | `zoomable-diagram.jsx` | `ScrollableDiagram`                                 | Zoomable/scrollable diagram with controls |

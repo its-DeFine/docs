@@ -233,17 +233,10 @@ export const ColumnsBlogCardLayout = ({ items = [], cols = 2, limit }) => {
   );
 };
 
-export const BlogDataLayout = ({ items = [], limit }) => {
-  console.debug("blogdata items", items);
-  const displayItems = limit ? items.slice(0, limit) : items;
-  return (
-    <div>
-      {displayItems.map((props, idx) => (
-        <BlogCard key={props.href || idx} {...props} />
-      ))}
-    </div>
-  );
-};
+// ARCHIVED: duplicate of CardBlogDataLayout - see tasks/reports/archived-components-review.md
+// export const BlogDataLayout = ({ items = [], limit }) => (
+//   <CardBlogDataLayout items={items} limit={limit} />
+// );
 
 /**
  * PostCard - A card component for displaying forum posts or articles

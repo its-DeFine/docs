@@ -19,7 +19,7 @@ keywords:
 'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
 ---
 {/* codex-i18n: eyJraW5kIjoiY29kZXgtaTE4biIsInZlcnNpb24iOjEsInNvdXJjZVBhdGgiOiJ2Mi9yZXNvdXJjZXMvZG9jdW1lbnRhdGlvbi1ndWlkZS9zbmlwcGV0cy1pbnZlbnRvcnkubWR4Iiwic291cmNlUm91dGUiOiJ2Mi9yZXNvdXJjZXMvZG9jdW1lbnRhdGlvbi1ndWlkZS9zbmlwcGV0cy1pbnZlbnRvcnkiLCJzb3VyY2VIYXNoIjoiNjI0NDFjNTIxMTFmNDgxNTc5MzllZTU5NDM2Mzg1NTlhNGQyNGFkYTA5NzliYjg4YTU3ZjUwMzRhOTE1Y2MwNiIsImxhbmd1YWdlIjoiZnIiLCJwcm92aWRlciI6Im9wZW5yb3V0ZXIiLCJtb2RlbCI6InF3ZW4vcXdlbi10dXJibyIsImdlbmVyYXRlZEF0IjoiMjAyNi0wMy0wMVQxMjoyNDo1OC40MDRaIn0= */}
-import { CustomDivider } from "snippets/components/primitives/divider.jsx"
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
 
 ## Aperçu
 
@@ -41,7 +41,7 @@ Le dossier des extraits contient :
 Composants React/JSX personnalisés organisés par objectif :
 
 #### Primitifs (`/snippets/components/primitives/`)
-- `buttons.jsx` - Composants de bouton (BasicBtn, DownloadButton)
+- `buttons.jsx` - Composants de bouton (DownloadButton)
 - `divider.jsx` - Composant CustomDivider
 - `icons.jsx` - Livepeer icônes de marque (LivepeerIcon, LivepeerSVG, etc.)
 - `links.jsx` - Composants de lien et de navigation (GotoLink, GotoCard, CustomCallout, etc.)
@@ -59,7 +59,7 @@ Composants React/JSX personnalisés organisés par objectif :
 #### Afficher (`/snippets/components/display/`)
 - `video.jsx` - Composants vidéo (YouTubeVideo, CardVideo, LinkedInEmbed)
 - `image.jsx` - Composants image (Image, LinkImage)
-- `embed.jsx` - Composants intégrés (MarkdownEmbed, EmbedMarkdown)
+- `embed.jsx` - Composants intégrés (MarkdownEmbed)
 - `zoomable-diagram.jsx` - Composant ScrollableDiagram
 - `quote.jsx` - Composants de citation (Quote, FrameQuote)
 - `frameMode.jsx` - Composants d'en-tête en mode Frame (PageHeader, H1-H6, P, Divider)
@@ -156,7 +156,7 @@ Actifs statiques, y compris les images, les logos et les médias :
 
 ### Styles (`/snippets/styles/`)
 
-- `themeStyles.jsx` - Définitions du thème (obsolète - utilisez les propriétés CSS personnalisées dans `style.css` à la place)
+- Fichier hérité de styles de thème - obsolète; utilisez les propriétés CSS personnalisées de `style.css`
 
 ### SnippetsWiki (`/snippets/snippetsWiki/`)
 
@@ -194,7 +194,7 @@ import { CustomCodeBlock } from "/snippets/components/content/code.jsx";
 
 ```jsx
 // Import data files
-import { DOCKER_CODE } from "/snippets/data/gateways/code.jsx";
+import { GatewaySteps } from "/snippets/data/gateways.jsx";
 import { latestVersion } from "/snippets/automations/globals/globals.jsx";
 ```
 
@@ -202,7 +202,7 @@ import { latestVersion } from "/snippets/automations/globals/globals.jsx";
 
 ```jsx
 // Import MDX page modules
-import DockerOffChainTab from "/snippets/pages/04_GATEWAYS/run/quickstart/views/docker/dockerOffChainTab.mdx";
+import ProjectShowcase from "/snippets/pages/00_HOME/project-showcase.mdx";
 ```
 
 ## Automatisation
@@ -226,4 +226,3 @@ Ce script génère automatiquement une structure d'arbre listant tous les compos
 - [Guide de style](./style-guide) - Style et Mintlify des pièges
 - [Wiki des extraits](/snippets/snippetsWiki/index) - Documentation des extraits internes
 - [Guide du comportement Mintlify](/snippets/snippetsWiki/mintlify-behaviour) - Modèles spécifiques à Mintlify
-

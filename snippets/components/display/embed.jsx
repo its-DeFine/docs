@@ -24,30 +24,8 @@ export const MarkdownEmbed = ({ url }) => {
   return <Markdown>{content}</Markdown>
 }
 
-/**
- * EmbedMarkdown - Alias for MarkdownEmbed
- *
- * @description
- * Alternative name for MarkdownEmbed component. Fetches and renders markdown from a URL.
- *
- * @param {string} url - URL of the markdown file to fetch and display
- *
- * @example
- * <EmbedMarkdown url="https://example.com/content.md" />
- *
- * @author Alison Haire
- */
-export const EmbedMarkdown = ({ url }) => {
-  const [content, setContent] = useState('')
-
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.text())
-      .then(setContent)
-  }, [url])
-
-  return <Markdown>{content}</Markdown>
-}
+// ARCHIVED: duplicate of MarkdownEmbed - see tasks/reports/archived-components-review.md
+// export const EmbedMarkdown = ({ url }) => <MarkdownEmbed url={url} />
 
 export const TwitterTimeline = ({}) => {
   return (
@@ -75,29 +53,3 @@ export const TwitterTimeline = ({}) => {
     </div>
   )
 }
-
-//Doesnt work
-// export const TwitterTimeline = ({}) => {
-//   return (
-//     <a href="https://twitter.com/livepeer">
-//       <div
-//         style={{
-//           overflow: "hidden",
-//           height: "600px",
-//           border: "3px solid var(--accent)",
-//           borderRadius: "12px",
-//         }}
-//       >
-//         <iframe
-//           src="https://widgets.sociablekit.com/twitter-feed/iframe/25645137"
-//           style={{
-//             border: "none",
-//             width: "100%",
-//             height: "calc(600px + 240px)", // Container height + shift amount
-//             transform: "translateY(-240px)",
-//           }}
-//         />
-//       </div>
-//     </a>
-//   );
-// };

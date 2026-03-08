@@ -9,7 +9,7 @@ import { CustomCodeBlock, CodeComponent, ComplexCodeBlock, CodeSection } from '/
 import { ExternalContent } from '/snippets/components/content/external-content.jsx'
 import { ValueResponseField, CustomResponseField, ResponseFieldExpandable, ResponseFieldAccordion, ResponseFieldGroup } from '/snippets/components/content/responseField.jsx'
 import { LatestVersion } from '/snippets/components/content/release.jsx'
-import { BlogCard, PostCard, CardBlogDataLayout, ColumnsBlogCardLayout, BlogDataLayout, CardColumnsPostLayout, ForumLatestLayout, DiscordAnnouncements, LumaEvents } from '/snippets/components/content/data.jsx'
+import { BlogCard, PostCard, CardBlogDataLayout, ColumnsBlogCardLayout, CardColumnsPostLayout, ForumLatestLayout, DiscordAnnouncements, LumaEvents } from '/snippets/components/content/data.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 <Card title="Back to Component Library" icon="arrow-left" href="../component-library" arrow>
@@ -167,14 +167,14 @@ import { ExternalContent } from "/snippets/components/content/external-content.j
   </Tab>
   <Tab title="Code">
 ```jsx
-import MyContent from '/snippets/external/my-content.mdx'
+import WikiReadme from '/snippets/external/wiki-readme.mdx'
 
 <ExternalContent
-  repoName="livepeer/awesome-livepeer"
-  githubUrl="https://github.com/livepeer/awesome-livepeer"
+  repoName="livepeer/wiki"
+  githubUrl="https://github.com/livepeer/wiki"
   maxHeight="800px"
 >
-  <MyContent />
+  <WikiReadme />
 </ExternalContent>
 ```
   </Tab>

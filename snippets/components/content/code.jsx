@@ -261,7 +261,3 @@ export const ComplexCodeBlock = ({
 export const CodeSection = ({ fields = {} }) => {
   return <ComplexCodeBlock {...fields} />;
 };
-
-// export const CodeSection = ({ fields = {} }) => {
-//   return <ComplexCodeBlock {...fields} />;
-// };

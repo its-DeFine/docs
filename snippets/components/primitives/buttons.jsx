@@ -1,17 +1,5 @@
-/**
- * BasicBtn - Basic button component (placeholder)
- *
- * @description
- * Placeholder component for basic button functionality. Currently returns empty div.
- *
- * @example
- * <BasicBtn />
- *
- * @author Livepeer Documentation Team
- */
-export const BasicBtn = () => {
-  return <div></div>
-}
+// ARCHIVED: placeholder - see tasks/reports/archived-components-review.md
+// export const BasicBtn = () => <div></div>
 
 /**
  * DownloadButton - Interactive download button with lazy loading

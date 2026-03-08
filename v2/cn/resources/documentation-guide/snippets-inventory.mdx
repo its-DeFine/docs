@@ -17,7 +17,7 @@ keywords:
 'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
 ---
 {/* codex-i18n: eyJraW5kIjoiY29kZXgtaTE4biIsInZlcnNpb24iOjEsInNvdXJjZVBhdGgiOiJ2Mi9yZXNvdXJjZXMvZG9jdW1lbnRhdGlvbi1ndWlkZS9zbmlwcGV0cy1pbnZlbnRvcnkubWR4Iiwic291cmNlUm91dGUiOiJ2Mi9yZXNvdXJjZXMvZG9jdW1lbnRhdGlvbi1ndWlkZS9zbmlwcGV0cy1pbnZlbnRvcnkiLCJzb3VyY2VIYXNoIjoiNjI0NDFjNTIxMTFmNDgxNTc5MzllZTU5NDM2Mzg1NTlhNGQyNGFkYTA5NzliYjg4YTU3ZjUwMzRhOTE1Y2MwNiIsImxhbmd1YWdlIjoiY24iLCJwcm92aWRlciI6Im9wZW5yb3V0ZXIiLCJtb2RlbCI6InF3ZW4vcXdlbi10dXJibyIsImdlbmVyYXRlZEF0IjoiMjAyNi0wMy0wMVQxMjo1ODoxMS4xNDRaIn0= */}
-import { CustomDivider } from "snippets/components/primitives/divider.jsx"
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
 
 ## 概述
 
@@ -39,7 +39,7 @@ import { CustomDivider } from "snippets/components/primitives/divider.jsx"
 按用途组织的自定义 React/JSX 组件:
 
 #### 基础组件 (`/snippets/components/primitives/`)
-- `buttons.jsx` - 按钮组件 (BasicBtn, DownloadButton)
+- `buttons.jsx` - 按钮组件 (DownloadButton)
 - `divider.jsx` - 自定义分割线组件 (CustomDivider)
 - `icons.jsx` - Livepeer 品牌图标 (LivepeerIcon, LivepeerSVG, 等等)
 - `links.jsx` - 链接和导航组件 (GotoLink, GotoCard, CustomCallout, 等等)
@@ -57,7 +57,7 @@ import { CustomDivider } from "snippets/components/primitives/divider.jsx"
 #### 显示 (`/snippets/components/display/`)
 - `video.jsx` - 视频组件 (YouTubeVideo, CardVideo, LinkedInEmbed)
 - `image.jsx` - 图像组件 (Image, LinkImage)
-- `embed.jsx` - 嵌入组件 (MarkdownEmbed, EmbedMarkdown)
+- `embed.jsx` - 嵌入组件 (MarkdownEmbed)
 - `zoomable-diagram.jsx` - 可滚动图表组件 (ScrollableDiagram)
 - `quote.jsx` - 引用组件 (Quote, FrameQuote)
 - `frameMode.jsx` - 框架模式标题组件 (PageHeader, H1-H6, P, Divider)
@@ -154,7 +154,7 @@ import { CustomDivider } from "snippets/components/primitives/divider.jsx"
 
 ### 样式（`/snippets/styles/`)
 
-- `themeStyles.jsx` - 主题样式定义（已弃用 - 请使用 CSS 自定义属性在 `style.css` 中）
+- 旧版主题样式文件 - 已弃用，建议改用 `style.css` 中的 CSS 自定义属性
 
 ### SnippetsWiki (`/snippets/snippetsWiki/`)
 
@@ -192,7 +192,7 @@ import { CustomCodeBlock } from "/snippets/components/content/code.jsx";
 
 ```jsx
 // Import data files
-import { DOCKER_CODE } from "/snippets/data/gateways/code.jsx";
+import { GatewaySteps } from "/snippets/data/gateways.jsx";
 import { latestVersion } from "/snippets/automations/globals/globals.jsx";
 ```
 
@@ -200,7 +200,7 @@ import { latestVersion } from "/snippets/automations/globals/globals.jsx";
 
 ```jsx
 // Import MDX page modules
-import DockerOffChainTab from "/snippets/pages/04_GATEWAYS/run/quickstart/views/docker/dockerOffChainTab.mdx";
+import ProjectShowcase from "/snippets/pages/00_HOME/project-showcase.mdx";
 ```
 
 ## 自动化
@@ -224,4 +224,3 @@ import DockerOffChainTab from "/snippets/pages/04_GATEWAYS/run/quickstart/views/
 - [样式指南](./style-guide) - 样式和 Mintlify 的注意事项
 - [代码片段维基](/snippets/snippetsWiki/index) - 内部代码片段文档
 - [Mintlify 行为指南](/snippets/snippetsWiki/mintlify-behaviour) - Mintlify 特定的模式
-

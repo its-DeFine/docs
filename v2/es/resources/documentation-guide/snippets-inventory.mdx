@@ -19,7 +19,7 @@ keywords:
 'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
 ---
 {/* codex-i18n: eyJraW5kIjoiY29kZXgtaTE4biIsInZlcnNpb24iOjEsInNvdXJjZVBhdGgiOiJ2Mi9yZXNvdXJjZXMvZG9jdW1lbnRhdGlvbi1ndWlkZS9zbmlwcGV0cy1pbnZlbnRvcnkubWR4Iiwic291cmNlUm91dGUiOiJ2Mi9yZXNvdXJjZXMvZG9jdW1lbnRhdGlvbi1ndWlkZS9zbmlwcGV0cy1pbnZlbnRvcnkiLCJzb3VyY2VIYXNoIjoiNjI0NDFjNTIxMTFmNDgxNTc5MzllZTU5NDM2Mzg1NTlhNGQyNGFkYTA5NzliYjg4YTU3ZjUwMzRhOTE1Y2MwNiIsImxhbmd1YWdlIjoiZXMiLCJwcm92aWRlciI6Im9wZW5yb3V0ZXIiLCJtb2RlbCI6InF3ZW4vcXdlbi10dXJibyIsImdlbmVyYXRlZEF0IjoiMjAyNi0wMy0wMVQxMTo1Njo0NS4xODFaIn0= */}
-import { CustomDivider } from "snippets/components/primitives/divider.jsx"
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
 
 ## Visión general
 
@@ -41,7 +41,7 @@ La carpeta de fragmentos contiene:
 Componentes personalizados de React/JSX organizados por propósito:
 
 #### Primitivos (`/snippets/components/primitives/`)
-- `buttons.jsx` - Componentes de botón (BasicBtn, DownloadButton)
+- `buttons.jsx` - Componentes de botón (DownloadButton)
 - `divider.jsx` - Componente CustomDivider
 - `icons.jsx` - Iconos de marca Livepeer (LivepeerIcon, LivepeerSVG, etc.)
 - `links.jsx` - Componentes de enlace y navegación (GotoLink, GotoCard, CustomCallout, etc.)
@@ -59,7 +59,7 @@ Componentes personalizados de React/JSX organizados por propósito:
 #### Mostrar (`/snippets/components/display/`)
 - `video.jsx` - Componentes de video (YouTubeVideo, CardVideo, LinkedInEmbed)
 - `image.jsx` - Componentes de imagen (Image, LinkImage)
-- `embed.jsx` - Componentes incrustados (MarkdownEmbed, EmbedMarkdown)
+- `embed.jsx` - Componentes incrustados (MarkdownEmbed)
 - `zoomable-diagram.jsx` - Componente ScrollableDiagram
 - `quote.jsx` - Componentes de cita (Quote, FrameQuote)
 - `frameMode.jsx` - Componentes de encabezado en modo Frame (PageHeader, H1-H6, P, Divider)
@@ -156,7 +156,7 @@ Activos estáticos que incluyen imágenes, logotipos y medios:
 
 ### Estilos (`/snippets/styles/`)
 
-- `themeStyles.jsx` - Definiciones de estilo de tema (obsoleto - usar Propiedades CSS personalizadas en `style.css` en su lugar)
+- Archivo heredado de estilos de tema - obsoleto; use las propiedades CSS personalizadas de `style.css`
 
 ### SnippetsWiki (`/snippets/snippetsWiki/`)
 
@@ -194,7 +194,7 @@ import { CustomCodeBlock } from "/snippets/components/content/code.jsx";
 
 ```jsx
 // Import data files
-import { DOCKER_CODE } from "/snippets/data/gateways/code.jsx";
+import { GatewaySteps } from "/snippets/data/gateways.jsx";
 import { latestVersion } from "/snippets/automations/globals/globals.jsx";
 ```
 
@@ -202,7 +202,7 @@ import { latestVersion } from "/snippets/automations/globals/globals.jsx";
 
 ```jsx
 // Import MDX page modules
-import DockerOffChainTab from "/snippets/pages/04_GATEWAYS/run/quickstart/views/docker/dockerOffChainTab.mdx";
+import ProjectShowcase from "/snippets/pages/00_HOME/project-showcase.mdx";
 ```
 
 ## Automatización
@@ -226,4 +226,3 @@ Este script genera automáticamente una estructura de árbol que enumera todos l
 - [Guía de estilo](./style-guide) - Estilo y Mintlify consejos
 - [Wiki de fragmentos](/snippets/snippetsWiki/index) - Documentación de fragmentos internos
 - [Guía de comportamiento de Mintlify](/snippets/snippetsWiki/mintlify-behaviour) - Patrones específicos de Mintlify
-

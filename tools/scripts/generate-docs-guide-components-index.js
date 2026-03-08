@@ -22,12 +22,21 @@ const {
 
 const REPO_ROOT = process.cwd();
 const SOURCE_ROOT = 'snippets/components';
-const OUTPUT_PATHS = [
-  'docs-guide/indexes/components-index.mdx',
-  'v2/resources/documentation-guide/component-library/overview.mdx'
+const OUTPUT_TARGETS = [
+  { repoPath: 'docs-guide/indexes/components-index.mdx', locale: 'en' },
+  { repoPath: 'v2/resources/documentation-guide/component-library/overview.mdx', locale: 'en' },
+  { repoPath: 'v2/cn/docs-guide/components-index.mdx', locale: 'cn' },
+  { repoPath: 'v2/cn/docs-guide/indexes/components-index.mdx', locale: 'cn' },
+  { repoPath: 'v2/cn/resources/documentation-guide/component-library/overview.mdx', locale: 'cn' },
+  { repoPath: 'v2/es/docs-guide/components-index.mdx', locale: 'es' },
+  { repoPath: 'v2/es/docs-guide/indexes/components-index.mdx', locale: 'es' },
+  { repoPath: 'v2/es/resources/documentation-guide/component-library/overview.mdx', locale: 'es' },
+  { repoPath: 'v2/fr/docs-guide/components-index.mdx', locale: 'fr' },
+  { repoPath: 'v2/fr/docs-guide/indexes/components-index.mdx', locale: 'fr' },
+  { repoPath: 'v2/fr/resources/documentation-guide/component-library/overview.mdx', locale: 'fr' }
 ];
 
-const CATEGORY_METADATA = {
+const EN_CATEGORY_METADATA = {
   content: {
     title: 'Content',
     description: 'Content components provide code, data, and response-format helpers for documentation pages.'
@@ -82,12 +91,81 @@ const CATEGORY_ORDER = [
   'gateways'
 ];
 
-const FRONTMATTER_LINES = buildGeneratedFrontmatterLines({
-  title: 'Components Index',
-  sidebarTitle: 'Components Index',
-  description: 'Aggregate inventory of repository components from snippets/components, generated for docs-guide maintenance.',
-  keywords: ['livepeer', 'components index', 'aggregate inventory', 'repository', 'snippets']
-});
+const LOCALE_CONFIG = {
+  en: {
+    frontmatter: {
+      title: 'Components Index',
+      sidebarTitle: 'Components Index',
+      description: 'Aggregate inventory of repository components from snippets/components, generated for docs-guide maintenance.'
+    },
+    categoryMetadata: EN_CATEGORY_METADATA,
+    lookupHeading: 'Lookup Table',
+    lookupDescription: 'Search by category, page path, or component name.'
+  },
+  cn: {
+    frontmatter: {
+      title: '组件索引',
+      sidebarTitle: '组件索引',
+      description: '从 snippets/components 聚合仓库组件库存，用于 docs-guide 维护。'
+    },
+    categoryMetadata: {
+      content: { title: '内容', description: '内容组件为文档页面提供代码、数据和响应格式帮助。' },
+      display: { title: '显示', description: '显示组件处理媒体、嵌入、引用和视觉呈现模式。' },
+      domain: { title: '领域', description: '领域组件封装专用文档领域中使用的特定功能 UI 模块。' },
+      integrations: { title: '集成', description: '集成组件将文档页面连接到外部 API 和第三方数据集。' },
+      layout: { title: '布局', description: '布局组件提供可重用的结构原语，用于组织页面内容。' },
+      primitives: { title: '原始组件', description: '原始组件是整个文档系统中复用的基础 UI 构建块。' },
+      data: { title: '数据', description: '数据组件渲染结构化数据集、获取的内容和 API 驱动的文档界面。' },
+      'page-structure': { title: '页面结构', description: '页面结构组件编排整页区块、hero 处理和路由级组合。' },
+      groupedItems: { title: '分组项目', description: '分组项目组件打包相关组件集合，并作为共享集合维护。' },
+      gateways: { title: '网关', description: '网关组件支持文档系统中的遗留路由和迁移相关基础设施。' }
+    },
+    lookupHeading: '查找表',
+    lookupDescription: '按类别、页面路径或组件名称搜索。'
+  },
+  es: {
+    frontmatter: {
+      title: 'Índice de componentes',
+      sidebarTitle: 'Índice de componentes',
+      description: 'Inventario agregado de componentes del repositorio desde snippets/components, generado para el mantenimiento de docs-guide.'
+    },
+    categoryMetadata: {
+      content: { title: 'Contenido', description: 'Los componentes de contenido proporcionan código, datos y ayudantes de formato de respuesta para las páginas de documentación.' },
+      display: { title: 'Visualización', description: 'Los componentes de visualización gestionan medios, incrustaciones, citas y patrones de presentación visual.' },
+      domain: { title: 'Dominio', description: 'Los componentes de dominio agrupan bloques de interfaz específicos de funciones usados por dominios de documentación dedicados.' },
+      integrations: { title: 'Integraciones', description: 'Los componentes de integración conectan las páginas de documentación con API externas y conjuntos de datos de terceros.' },
+      layout: { title: 'Diseño', description: 'Los componentes de diseño proporcionan primitivas estructurales reutilizables para organizar el contenido de la página.' },
+      primitives: { title: 'Primitivas', description: 'Los componentes primitivos son bloques básicos de interfaz reutilizados en todo el sistema de documentación.' },
+      data: { title: 'Datos', description: 'Los componentes de datos renderizan conjuntos de datos estructurados, contenido obtenido y superficies de documentación impulsadas por API.' },
+      'page-structure': { title: 'Estructura de página', description: 'Los componentes de estructura de página orquestan secciones de página completas, tratamientos hero y composición a nivel de ruta.' },
+      groupedItems: { title: 'Elementos agrupados', description: 'Los componentes de elementos agrupados empaquetan conjuntos relacionados de componentes que se mantienen como una colección compartida.' },
+      gateways: { title: 'Puertas de enlace', description: 'Los componentes de gateways respaldan el enrutamiento heredado y la infraestructura específica de migración en el sistema de documentación.' }
+    },
+    lookupHeading: 'Tabla de búsqueda',
+    lookupDescription: 'Busca por categoría, ruta de página o nombre de componente.'
+  },
+  fr: {
+    frontmatter: {
+      title: 'Index des composants',
+      sidebarTitle: 'Index des composants',
+      description: 'Inventaire agrégé des composants du dépôt à partir de snippets/components, généré pour la maintenance du guide de documentation.'
+    },
+    categoryMetadata: {
+      content: { title: 'Contenu', description: 'Les composants de contenu fournissent du code, des données et des aides pour le format de réponse des pages de documentation.' },
+      display: { title: 'Affichage', description: 'Les composants d’affichage gèrent les médias, les intégrations, les citations et les motifs de présentation visuelle.' },
+      domain: { title: 'Domaine', description: 'Les composants de domaine regroupent des blocs d’interface spécifiques à une fonctionnalité utilisés par des domaines documentaires dédiés.' },
+      integrations: { title: 'Intégrations', description: 'Les composants d’intégration relient les pages de documentation à des API externes et à des jeux de données tiers.' },
+      layout: { title: 'Disposition', description: 'Les composants de disposition fournissent des primitives structurelles réutilisables pour organiser le contenu des pages.' },
+      primitives: { title: 'Primitives', description: 'Les composants primitifs sont des briques UI fondamentales réutilisées dans tout le système documentaire.' },
+      data: { title: 'Données', description: 'Les composants de données affichent des jeux de données structurés, du contenu récupéré et des surfaces documentaires pilotées par API.' },
+      'page-structure': { title: 'Structure de page', description: 'Les composants de structure de page orchestrent des sections complètes, des traitements hero et la composition au niveau des routes.' },
+      groupedItems: { title: 'Éléments groupés', description: 'Les composants d’éléments groupés empaquettent des ensembles liés de composants maintenus comme une collection partagée.' },
+      gateways: { title: 'Passerelles', description: 'Les composants de passerelles prennent en charge le routage historique et l’infrastructure spécifique aux migrations du système documentaire.' }
+    },
+    lookupHeading: 'Tableau de recherche',
+    lookupDescription: 'Recherchez par catégorie, chemin de page ou nom de composant.'
+  }
+};
 
 const GENERATED_DETAILS = {
   script: 'tools/scripts/generate-docs-guide-components-index.js',
@@ -106,6 +184,12 @@ function readFileSafe(repoPath) {
   } catch (_err) {
     return '';
   }
+}
+
+function extractCodexI18nComment(repoPath) {
+  const content = readFileSafe(repoPath);
+  const match = content.match(/\{\/\*\s*codex-i18n:[\s\S]*?\*\/\}/);
+  return match ? match[0] : '';
 }
 
 function sortAlpha(values) {
@@ -261,7 +345,7 @@ function getCategoryOrder(key) {
   return order === -1 ? Number.MAX_SAFE_INTEGER : order;
 }
 
-function discoverCategories() {
+function discoverCategories(categoryMetadata = EN_CATEGORY_METADATA) {
   const sourceRoot = path.join(REPO_ROOT, SOURCE_ROOT);
   if (!fs.existsSync(sourceRoot)) {
     return [];
@@ -282,9 +366,9 @@ function discoverCategories() {
     })
     .map((key) => ({
       key,
-      title: CATEGORY_METADATA[key]?.title || toTitleCase(key),
+      title: categoryMetadata[key]?.title || toTitleCase(key),
       description:
-        CATEGORY_METADATA[key]?.description ||
+        categoryMetadata[key]?.description ||
         `Components organized under the \`${key}\` category.`
     }));
 }
@@ -565,9 +649,9 @@ function serializeLookupRows(rows) {
   return lines.join('\n');
 }
 
-function buildInventory() {
+function buildInventory(categoryMetadata) {
   const inventory = [];
-  const categories = discoverCategories();
+  const categories = discoverCategories(categoryMetadata);
 
   categories.forEach((category) => {
     const files = walkCategoryFiles(category.key).map((repoPath) => {
@@ -585,8 +669,18 @@ function buildInventory() {
   return inventory;
 }
 
-function buildContent() {
-  const inventory = buildInventory();
+function buildFrontmatterLines(localeConfig) {
+  return buildGeneratedFrontmatterLines({
+    title: localeConfig.frontmatter.title,
+    sidebarTitle: localeConfig.frontmatter.sidebarTitle,
+    description: localeConfig.frontmatter.description,
+    keywords: ['livepeer', 'components index', 'aggregate inventory', 'repository', 'snippets']
+  });
+}
+
+function buildContent({ locale = 'en', repoPath }) {
+  const localeConfig = LOCALE_CONFIG[locale] || LOCALE_CONFIG.en;
+  const inventory = buildInventory(localeConfig.categoryMetadata);
   const lookupRows = [];
   const searchTableImportPath = resolveExistingRepoPath(
     [
@@ -597,7 +691,11 @@ function buildContent() {
     path.posix.join(SOURCE_ROOT, 'layout/SearchTable.jsx')
   );
 
-  const lines = [...FRONTMATTER_LINES, ''];
+  const lines = [...buildFrontmatterLines(localeConfig), ''];
+  const codexI18nComment = locale === 'en' ? '' : extractCodexI18nComment(repoPath);
+  if (codexI18nComment) {
+    lines.push(codexI18nComment);
+  }
   lines.push(`import { SearchTable } from "/${searchTableImportPath}";`);
   lines.push('import { DynamicTable } from "/snippets/components/layout/table.jsx";');
   lines.push('');
@@ -655,8 +753,8 @@ function buildContent() {
     return a.Component.localeCompare(b.Component, 'en', { sensitivity: 'base' });
   });
 
-  lines.push('## Lookup Table');
-  lines.push('Search by category, page path, or component name.');
+  lines.push(`## ${localeConfig.lookupHeading}`);
+  lines.push(localeConfig.lookupDescription);
   lines.push('');
   lines.push('<SearchTable');
   lines.push('  TableComponent={DynamicTable}');
@@ -691,16 +789,17 @@ function parseArgs(argv) {
 
 function main() {
   const args = parseArgs(process.argv.slice(2));
+  const results = [];
 
-  let content = '';
   try {
-    content = buildContent();
+    OUTPUT_TARGETS.forEach((target) => {
+      const content = buildContent(target);
+      results.push(writeIfChanged(target.repoPath, content, args.write));
+    });
   } catch (error) {
     console.error(`Failed to generate components indexes: ${error.message}`);
     process.exit(1);
   }
-
-  const results = OUTPUT_PATHS.map((outputPath) => writeIfChanged(outputPath, content, args.write));
 
   if (args.check) {
     const outdated = results.filter((result) => result.changed);

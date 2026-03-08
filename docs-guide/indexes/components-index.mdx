@@ -44,18 +44,6 @@ import { FocusableScrollRegions } from "/snippets/components/primitives/a11y.jsx
     </ResponseField>
   </Accordion>
   <Accordion title="buttons.jsx" icon="file-code">
-    <ResponseField name="BasicBtn" type="component">
-      **Props**: No explicit props detected from signature. <br/>
-      **Defaults**: No explicit defaults detected.
-
-      <CodeGroup>
-```jsx lines Example
-import { BasicBtn } from "/snippets/components/primitives/buttons.jsx";
-
-<BasicBtn />
-```
-      </CodeGroup>
-    </ResponseField>
     <ResponseField name="DownloadButton" type="component">
       **Props**: `label`, `icon`, `downloadLink`, `rightIcon`, `border` <br/>
       **Defaults**: `label='Download'`, `icon='download'`, `rightIcon=''`, `border=false`
@@ -867,21 +855,6 @@ import { BlogCard } from "/snippets/components/content/data.jsx";
 ```
       </CodeGroup>
     </ResponseField>
-    <ResponseField name="BlogDataLayout" type="component">
-      **Props**: `items`, `limit` <br/>
-      **Defaults**: `items=[]`
-
-      <CodeGroup>
-```jsx lines Example
-import { BlogDataLayout } from "/snippets/components/content/data.jsx";
-
-<BlogDataLayout
-  items={[]}
-  limit={0}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
     <ResponseField name="CardBlogDataLayout" type="component">
       **Props**: `items`, `limit` <br/>
       **Defaults**: `items=[]`
@@ -1162,6 +1135,18 @@ import { ValueResponseField } from "/snippets/components/content/responseField.j
   </Accordion>
 </AccordionGroup>
 
+## Data
+Data components render structured datasets, fetched content, and API-driven documentation surfaces.
+
+<AccordionGroup>
+</AccordionGroup>
+
+## Page Structure
+Page structure components orchestrate full-page sections, hero treatments, and route-level composition.
+
+<AccordionGroup>
+</AccordionGroup>
+
 ## Display
 Display components handle media, embeds, quotes, and visual presentation patterns.
 
@@ -1297,20 +1282,6 @@ import { WidthCard } from "/snippets/components/display/customCards.jsx";
     </ResponseField>
   </Accordion>
   <Accordion title="embed.jsx" icon="file-code">
-    <ResponseField name="EmbedMarkdown" type="component">
-      **Props**: `url` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { EmbedMarkdown } from "/snippets/components/display/embed.jsx";
-
-<EmbedMarkdown
-  url={"<value>"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
     <ResponseField name="MarkdownEmbed" type="component">
       **Props**: `url` <br/>
       **Defaults**: None
@@ -2042,7 +2013,6 @@ Search by category, page path, or component name.
     { Category: "Content", Page: "content/code.jsx", Component: "ComplexCodeBlock", Props: "filename, icon, language, highlight, codeString=\"\", placeholderValue=\"\", wrap=true, lines=true, preNote=null, postNote=null" },
     { Category: "Content", Page: "content/code.jsx", Component: "CustomCodeBlock", Props: "filename, icon, language, highlight, codeString=\"\", placeholderValue=\"\", wrap=true, lines=true, preNote=\"\", postNote=\"\", output=\"\"" },
     { Category: "Content", Page: "content/data.jsx", Component: "BlogCard", Props: "title, content, href, author=\"Livepeer Team\", datePosted=null, excerpt=null, icon=\"book-open\", authorIcon=\"user-pen\", dateIcon=\"calendar\", cta=\"Read More\", img=null" },
-    { Category: "Content", Page: "content/data.jsx", Component: "BlogDataLayout", Props: "items=[], limit" },
     { Category: "Content", Page: "content/data.jsx", Component: "CardBlogDataLayout", Props: "items=[], limit" },
     { Category: "Content", Page: "content/data.jsx", Component: "CardColumnsPostLayout", Props: "cols=2, items=[], limit" },
     { Category: "Content", Page: "content/data.jsx", Component: "CardInCardLayout", Props: "items=[], limit" },
@@ -2068,7 +2038,6 @@ Search by category, page path, or component name.
     { Category: "Display", Page: "display/customCards.jsx", Component: "DisplayCard", Props: "icon, title, style, background=\"var(--card-background)\", children" },
     { Category: "Display", Page: "display/customCards.jsx", Component: "InlineImageCard", Props: "children, imgProps, imgStyle, cardProps, style" },
     { Category: "Display", Page: "display/customCards.jsx", Component: "WidthCard", Props: "width=\"80%\", children" },
-    { Category: "Display", Page: "display/embed.jsx", Component: "EmbedMarkdown", Props: "url" },
     { Category: "Display", Page: "display/embed.jsx", Component: "MarkdownEmbed", Props: "url" },
     { Category: "Display", Page: "display/embed.jsx", Component: "TwitterTimeline", Props: "none" },
     { Category: "Display", Page: "display/embed.mdx", Component: "PdfEmbed", Props: "title, src, height=\"700px\", width=\"100%\"" },
@@ -2127,7 +2096,6 @@ Search by category, page path, or component name.
     { Category: "Layout", Page: "layout/table.jsx", Component: "DynamicTable", Props: "tableTitle=null, headerList=[], itemsList=[], monospaceColumns=[], margin" },
     { Category: "Layout", Page: "layout/text.jsx", Component: "AccordionLayout", Props: "children" },
     { Category: "Primitives", Page: "primitives/a11y.jsx", Component: "FocusableScrollRegions", Props: "selectors" },
-    { Category: "Primitives", Page: "primitives/buttons.jsx", Component: "BasicBtn", Props: "none" },
     { Category: "Primitives", Page: "primitives/buttons.jsx", Component: "DownloadButton", Props: "label=\"Download\", icon=\"download\", downloadLink, rightIcon=\"\", border=false" },
     { Category: "Primitives", Page: "primitives/containers.jsx", Component: "BorderedBox", Props: "children, variant=\"default\", padding=\"1rem\", borderRadius=\"8px\", style={}" },
     { Category: "Primitives", Page: "primitives/containers.jsx", Component: "CenteredContainer", Props: "children, maxWidth=\"800px\", padding=\"0\", style={}" },
