@@ -307,6 +307,49 @@ should_enforce_ai_stash_policy() {
     return 1
 }
 
+allow_manifest_migrate_r2_deletions() {
+    local deleted_files="$1"
+    local manifest_path="tasks/reports/media-audit/media-audit-manifest.json"
+
+    if [[ "$CURRENT_BRANCH" != codex/* ]]; then
+        return 1
+    fi
+
+    if [[ -z "$deleted_files" ]] || [[ ! -f "$manifest_path" ]]; then
+        return 1
+    fi
+
+    DELETED_FILES_INPUT="$deleted_files" node - <<'NODE'
+const fs = require('fs');
+
+const deletedFiles = String(process.env.DELETED_FILES_INPUT || '')
+  .split('\n')
+  .map((entry) => entry.trim())
+  .filter(Boolean);
+
+if (deletedFiles.length === 0) {
+  process.exit(1);
+}
+
+let manifest;
+try {
+  manifest = JSON.parse(fs.readFileSync('tasks/reports/media-audit/media-audit-manifest.json', 'utf8'));
+} catch (_error) {
+  process.exit(1);
+}
+
+const assets = Array.isArray(manifest && manifest.assets) ? manifest.assets : [];
+const allowed = new Set(
+  assets
+    .filter((asset) => asset && asset.migration_target === 'migrate_r2')
+    .map((asset) => String(asset.path || '').trim())
+    .filter(Boolean)
+);
+
+process.exit(deletedFiles.every((filePath) => allowed.has(filePath)) ? 0 : 1);
+NODE
+}
+
 if [ "$SKIP_ALL" = "1" ]; then
     echo -e "${YELLOW}⚠️  WARNING: All pre-commit checks bypassed (SKIP_ALL=1)${NC}"
     echo -e "${YELLOW}   This should only be used in emergencies.${NC}"
@@ -344,11 +387,24 @@ if [ -n "$ALLOWED_GENERATED_DELETIONS" ]; then
     echo "$ALLOWED_GENERATED_DELETIONS" | sed '/^$/d; s/^/  • /'
     echo ""
 fi
+ALLOWED_MANIFEST_DELETIONS=""
 
 if [ -n "$DELETED_FILES" ]; then
     if [ -n "$ALLOWED_GENERATED_DELETIONS" ]; then
         echo -e "${YELLOW}ℹ️  Allowing exempt generated deletions:${NC}"
-        echo "$ALLOWED_GENERATED_DELETIONS" | sed 's/^/  ↺ /'
+        echo "$ALLOWED_GENERATED_DELETIONS" | sed '/^$/d; s/^/  ↺ /'
+        echo ""
+    fi
+
+    if [ -n "$BLOCKED_DELETED_FILES" ] && allow_manifest_migrate_r2_deletions "$BLOCKED_DELETED_FILES"; then
+        ALLOWED_MANIFEST_DELETIONS="$BLOCKED_DELETED_FILES"
+        BLOCKED_DELETED_FILES=""
+        DELETED_FILES=""
+    fi
+
+    if [ -n "$ALLOWED_MANIFEST_DELETIONS" ]; then
+        echo -e "${YELLOW}ℹ️  Allowing manifest-approved media asset deletions:${NC}"
+        echo "$ALLOWED_MANIFEST_DELETIONS" | sed '/^$/d; s/^/  ↺ /'
         echo ""
     fi
 
@@ -365,7 +421,7 @@ if [ -n "$DELETED_FILES" ]; then
         echo -e "${RED}🚫 DELETIONS ARE NOT ALLOWED${NC}"
         echo ""
         echo "The following files are being deleted:"
-        echo "$BLOCKED_DELETED_FILES" | sed 's/^/  ❌ /'
+        echo "$BLOCKED_DELETED_FILES" | sed '/^$/d; s/^/  ❌ /'
         echo ""
         if [ -n "$(echo "$ALL_DELETED_FILES" | grep '^tasks/')" ]; then
             echo -e "${GREEN}ℹ️  Note: Deletions in tasks/ are allowed (AI-only working directory)${NC}"
@@ -373,6 +429,10 @@ if [ -n "$DELETED_FILES" ]; then
         fi
         if [ -n "$ALLOWED_GENERATED_DELETIONS" ]; then
             echo -e "${GREEN}ℹ️  Generated link maps and approved generated outputs are exempt from this block when safely regenerated or untracked.${NC}"
+            echo ""
+        fi
+        if [ -n "$ALLOWED_MANIFEST_DELETIONS" ]; then
+            echo -e "${GREEN}ℹ️  Manifest-approved migrate_r2 asset deletions are exempt from this block on codex branches.${NC}"
             echo ""
         fi
         echo -e "${YELLOW}📋 INSTRUCTIONS FOR AI AGENTS:${NC}"

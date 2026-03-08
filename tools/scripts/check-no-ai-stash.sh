@@ -50,14 +50,8 @@ while IFS= read -r line; do
     continue
   fi
 
-  # Any stash created on codex/* branches is blocked by policy.
-  if [[ "$line" == *"On codex/"* ]]; then
-    violations+=("$line")
-    continue
-  fi
-
-  # If currently on a codex branch, any stash tied to this branch is blocked.
-  if [[ "$branch" == codex/* ]] && [[ "$line" == *"On ${branch}:"* ]]; then
+  # Only stashes tied to the current branch should block this worktree.
+  if [[ -n "$branch" ]] && [[ "$line" == *"On ${branch}:"* ]]; then
     violations+=("$line")
     continue
   fi
