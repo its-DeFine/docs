@@ -34,41 +34,48 @@ else
   OUTPUT_FILE="$REPO_ROOT/snippets/snippetsWiki/componentLibrary/index.mdx"
 fi
 
-# Generate tree structure
-generate_tree() {
+# Generate tree structure from the live component directory instead of hardcoded folders.
+get_top_level_dirs() {
+    find "$COMPONENTS_DIR" -mindepth 1 -maxdepth 1 -type d \
+        ! -name "_archive" \
+        ! -name "examples" \
+        -print | sort
+}
+
+get_child_dirs() {
+    local dir="$1"
+    find "$dir" -mindepth 1 -maxdepth 1 -type d \
+        ! -name "_archive" \
+        ! -name "examples" \
+        -print | sort
+}
+
+get_component_files() {
+    local dir="$1"
+    find "$dir" -mindepth 1 -maxdepth 1 -type f \( \
+        -name "*.jsx" -o -name "*.tsx" -o -name "*.js" \
+    \) -print | sort
+}
+
+render_folder() {
     local dir="$1"
     local indent="$2"
-    
-    # Get subdirectories
-    for subdir in "$dir"/*/; do
-        if [ -d "$subdir" ]; then
-            local name=$(basename "$subdir")
-            # Skip examples folders
-            [[ "$name" == "examples" ]] && continue
-            
-            echo "${indent}<Tree.Folder name=\"$name\">"
-            
-            # List files in this directory
-            for file in "$subdir"*.{jsx,tsx,js}; do
-                if [ -f "$file" ]; then
-                    local filename=$(basename "$file")
-                    echo "${indent}    <Tree.File name=\"$filename\" />"
-                fi
-            done
-            
-            # Recurse into subdirectories (for domain folder)
-            if [ "$name" == "domain" ]; then
-                for domain_subdir in "$subdir"*/; do
-                    if [ -d "$domain_subdir" ]; then
-                        local domain_name=$(basename "$domain_subdir")
-                        echo "${indent}    <Tree.Folder name=\"$domain_name\" />"
-                    fi
-                done
-            fi
-            
-            echo "${indent}</Tree.Folder>"
-        fi
-    done
+    local name
+    name="$(basename "$dir")"
+
+    echo "${indent}<Tree.Folder name=\"$name\">"
+
+    while IFS= read -r file; do
+        [ -n "$file" ] || continue
+        echo "${indent}    <Tree.File name=\"$(basename "$file")\" />"
+    done < <(get_component_files "$dir")
+
+    while IFS= read -r child_dir; do
+        [ -n "$child_dir" ] || continue
+        render_folder "$child_dir" "${indent}    "
+    done < <(get_child_dirs "$dir")
+
+    echo "${indent}</Tree.Folder>"
 }
 
 # Build the new content
@@ -90,71 +97,10 @@ Below is the current list of components found under `snippets/components/`.
     <Tree.Folder name="components" defaultOpen>
 HEADER
 
-    # Enable nullglob so patterns with no matches expand to nothing
-    shopt -s nullglob
-
-    # Generate primitives
-    echo '        <Tree.Folder name="primitives">'
-    for file in "$COMPONENTS_DIR/primitives"/*.{jsx,tsx,js}; do
-        [ -f "$file" ] && echo "            <Tree.File name=\"$(basename "$file")\" />"
-    done
-    echo '        </Tree.Folder>'
-
-    # Generate layout
-    echo '        <Tree.Folder name="layout">'
-    for file in "$COMPONENTS_DIR/layout"/*.{jsx,tsx,js}; do
-        [ -f "$file" ] && echo "            <Tree.File name=\"$(basename "$file")\" />"
-    done
-    echo '        </Tree.Folder>'
-
-    # Generate display
-    echo '        <Tree.Folder name="display">'
-    for file in "$COMPONENTS_DIR/display"/*.{jsx,tsx,js}; do
-        [ -f "$file" ] && echo "            <Tree.File name=\"$(basename "$file")\" />"
-    done
-    echo '        </Tree.Folder>'
-
-    # Generate content
-    echo '        <Tree.Folder name="content">'
-    for file in "$COMPONENTS_DIR/content"/*.{jsx,tsx,js}; do
-        [ -f "$file" ] && echo "            <Tree.File name=\"$(basename "$file")\" />"
-    done
-    echo '        </Tree.Folder>'
-
-    # Generate integrations
-    echo '        <Tree.Folder name="integrations">'
-    for file in "$COMPONENTS_DIR/integrations"/*.{jsx,tsx,js}; do
-        [ -f "$file" ] && echo "            <Tree.File name=\"$(basename "$file")\" />"
-    done
-    echo '        </Tree.Folder>'
-
-    # Generate groupedItems
-    echo '        <Tree.Folder name="groupedItems">'
-    for file in "$COMPONENTS_DIR/groupedItems"/*.{jsx,tsx,js}; do
-        [ -f "$file" ] && echo "            <Tree.File name=\"$(basename "$file")\" />"
-    done
-    echo '        </Tree.Folder>'
-
-    # Generate domain folders
-    echo '        <Tree.Folder name="domain">'
-    for domain_dir in "$COMPONENTS_DIR/domain"/*/; do
-        if [ -d "$domain_dir" ]; then
-            echo "            <Tree.Folder name=\"$(basename "$domain_dir")\" />"
-        fi
-    done
-    echo '        </Tree.Folder>'
-
-    # Generate gateways (legacy)
-    if [ -d "$COMPONENTS_DIR/gateways" ]; then
-        echo '        <Tree.Folder name="gateways">'
-        for file in "$COMPONENTS_DIR/gateways"/*.{jsx,tsx,js}; do
-            [ -f "$file" ] && echo "            <Tree.File name=\"$(basename "$file")\" />"
-        done
-        echo '        </Tree.Folder>'
-    fi
-
-    # Reset nullglob
-    shopt -u nullglob
+    while IFS= read -r dir; do
+        [ -n "$dir" ] || continue
+        render_folder "$dir" "        "
+    done < <(get_top_level_dirs)
 
     cat << 'FOOTER'
     </Tree.Folder>
@@ -174,4 +120,3 @@ FOOTER
 # Run and save
 build_content > "$OUTPUT_FILE"
 echo "Updated $OUTPUT_FILE"
-

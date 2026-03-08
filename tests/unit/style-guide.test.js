@@ -265,14 +265,15 @@ function checkImportPaths(files, stagedOnly = false) {
 }
 
 /**
- * Check file naming conventions
+ * Check MDX file naming conventions.
+ * Component JSX naming is enforced by the dedicated component naming validator.
  */
 function checkFileNaming(files) {
-  files.filter(f => f.endsWith('.mdx') || f.endsWith('.jsx')).forEach(file => {
+  files.filter(f => f.endsWith('.mdx')).forEach(file => {
     const fileName = path.basename(file);
     
     // Check kebab-case for files
-    if (!/^[a-z0-9]+(-[a-z0-9]+)*\.(mdx|jsx)$/.test(fileName) && !fileName.includes('index')) {
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*\.mdx$/.test(fileName) && !fileName.includes('index')) {
       warnings.push({
         file,
         rule: 'File naming',

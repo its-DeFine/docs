@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-08T09:32:05.803Z",
+  "generated": "2026-03-08T03:24:03.489Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -14099,7 +14099,7 @@
         },
         {
           "level": 4,
-          "text": "Layer 3: MDX Files (`v2/**/*.mdx`)"
+          "text": "Layer 3: MDX Files (`v2/pages/**/*.mdx`)"
         },
         {
           "level": 3,
@@ -14753,7 +14753,6 @@
       ],
       "codeLanguages": [
         "bash",
-        "text",
         "markdown"
       ]
     },
@@ -15058,6 +15057,14 @@
       "headings": [
         {
           "level": 2,
+          "text": "Primitives"
+        },
+        {
+          "level": 2,
+          "text": "Layout"
+        },
+        {
+          "level": 2,
           "text": "Content"
         },
         {
@@ -15066,19 +15073,11 @@
         },
         {
           "level": 2,
-          "text": "Domain"
-        },
-        {
-          "level": 2,
           "text": "Integrations"
         },
         {
           "level": 2,
-          "text": "Layout"
-        },
-        {
-          "level": 2,
-          "text": "Primitives"
+          "text": "Domain"
         },
         {
           "level": 2,
@@ -17090,6 +17089,14 @@
       "headings": [
         {
           "level": 2,
+          "text": "Primitives"
+        },
+        {
+          "level": 2,
+          "text": "Layout"
+        },
+        {
+          "level": 2,
           "text": "Content"
         },
         {
@@ -17098,19 +17105,11 @@
         },
         {
           "level": 2,
-          "text": "Domain"
-        },
-        {
-          "level": 2,
           "text": "Integrations"
         },
         {
           "level": 2,
-          "text": "Layout"
-        },
-        {
-          "level": 2,
-          "text": "Primitives"
+          "text": "Domain"
         },
         {
           "level": 2,
@@ -17138,7 +17137,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3232,
+      "wordCount": 3252,
       "lastVerified": "2026-03-08T12:07:30+11:00",
       "headings": [
         {

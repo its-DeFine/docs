@@ -185,7 +185,7 @@ function detectHeaderMode(header) {
 }
 
 function getTagValue(header, tagName) {
-  const re = new RegExp(`\\${tagName}\\s+(.+)`);
+  const re = new RegExp(`\\${tagName}[ \\t]+([^\\n\\r]+)`);
   const match = header.match(re);
   return match ? match[1].trim() : '';
 }
@@ -230,6 +230,14 @@ function extractPrimaryUsage(header) {
     if (line && !line.startsWith('@')) return line;
   }
   return '';
+}
+
+function escapeTableCell(value) {
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\|/g, '\\|');
 }
 
 function validateTemplate(repoPath) {
@@ -479,9 +487,9 @@ function buildGroupIndexMarkdown(root) {
 
   const lines = ['## Script Index', '', '| Script | Summary | Usage | Owner |', '|---|---|---|---|'];
   rows.forEach((row) => {
-    const summary = row.summary.replace(/\|/g, '\\|');
-    const usage = row.usage.replace(/\|/g, '\\|');
-    const owner = row.owner.replace(/\|/g, '\\|');
+    const summary = escapeTableCell(row.summary);
+    const usage = escapeTableCell(row.usage);
+    const owner = escapeTableCell(row.owner);
     lines.push(`| \`${row.script}\` | ${summary} | \`${usage}\` | ${owner} |`);
   });
   return lines.join('\n');
@@ -534,7 +542,9 @@ function buildAggregateMarkdown() {
     lines.push('| Script | Summary | Usage | Owner |');
     lines.push('|---|---|---|---|');
     rows.forEach((row) => {
-      lines.push(`| \`${row.script}\` | ${row.summary} | \`${row.usage}\` | ${row.owner} |`);
+      lines.push(
+        `| \`${row.script}\` | ${escapeTableCell(row.summary)} | \`${escapeTableCell(row.usage)}\` | ${escapeTableCell(row.owner)} |`
+      );
     });
     lines.push('');
   }

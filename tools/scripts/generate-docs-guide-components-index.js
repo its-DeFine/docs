@@ -27,37 +27,59 @@ const OUTPUT_PATHS = [
   'v2/resources/documentation-guide/component-library/overview.mdx'
 ];
 
-const CATEGORIES = [
-  {
-    key: 'content',
+const CATEGORY_METADATA = {
+  content: {
     title: 'Content',
     description: 'Content components provide code, data, and response-format helpers for documentation pages.'
   },
-  {
-    key: 'display',
+  display: {
     title: 'Display',
     description: 'Display components handle media, embeds, quotes, and visual presentation patterns.'
   },
-  {
-    key: 'domain',
+  domain: {
     title: 'Domain',
     description: 'Domain components package feature-specific UI blocks used by dedicated documentation domains.'
   },
-  {
-    key: 'integrations',
+  integrations: {
     title: 'Integrations',
     description: 'Integration components connect docs pages to external APIs and third-party datasets.'
   },
-  {
-    key: 'layout',
+  layout: {
     title: 'Layout',
     description: 'Layout components provide reusable structure primitives for organizing page content.'
   },
-  {
-    key: 'primitives',
+  primitives: {
     title: 'Primitives',
     description: 'Primitive components are foundational UI building blocks reused across the docs system.'
+  },
+  data: {
+    title: 'Data',
+    description: 'Data components render structured datasets, fetched content, and API-driven documentation surfaces.'
+  },
+  'page-structure': {
+    title: 'Page Structure',
+    description: 'Page structure components orchestrate full-page sections, hero treatments, and route-level composition.'
+  },
+  groupedItems: {
+    title: 'Grouped Items',
+    description: 'Grouped item components package related component sets that are maintained as a shared collection.'
+  },
+  gateways: {
+    title: 'Gateways',
+    description: 'Gateway components support legacy routing and migration-specific infrastructure in the docs system.'
   }
+};
+const CATEGORY_ORDER = [
+  'primitives',
+  'layout',
+  'content',
+  'data',
+  'page-structure',
+  'display',
+  'integrations',
+  'domain',
+  'groupedItems',
+  'gateways'
 ];
 
 const FRONTMATTER_LINES = buildGeneratedFrontmatterLines({
@@ -224,6 +246,60 @@ function truncateText(value, limit = 90) {
   const text = compactWhitespace(value);
   if (text.length <= limit) return text;
   return `${text.slice(0, limit - 3)}...`;
+}
+
+function toTitleCase(value) {
+  return String(value || '')
+    .split(/[-_]/g)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(' ');
+}
+
+function getCategoryOrder(key) {
+  const order = CATEGORY_ORDER.indexOf(key);
+  return order === -1 ? Number.MAX_SAFE_INTEGER : order;
+}
+
+function discoverCategories() {
+  const sourceRoot = path.join(REPO_ROOT, SOURCE_ROOT);
+  if (!fs.existsSync(sourceRoot)) {
+    return [];
+  }
+
+  return fs
+    .readdirSync(sourceRoot, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory())
+    .map((entry) => entry.name)
+    .filter((name) => name !== '_archive' && name !== 'examples' && !name.startsWith('.'))
+    .sort((left, right) => {
+      const leftOrder = getCategoryOrder(left);
+      const rightOrder = getCategoryOrder(right);
+      if (leftOrder !== rightOrder) {
+        return leftOrder - rightOrder;
+      }
+      return left.localeCompare(right, 'en', { sensitivity: 'base' });
+    })
+    .map((key) => ({
+      key,
+      title: CATEGORY_METADATA[key]?.title || toTitleCase(key),
+      description:
+        CATEGORY_METADATA[key]?.description ||
+        `Components organized under the \`${key}\` category.`
+    }));
+}
+
+function resolveExistingRepoPath(candidates, fallback) {
+  const candidateList = Array.isArray(candidates) ? candidates : [candidates];
+
+  for (const candidate of candidateList) {
+    const repoPath = normalizeRepoPath(candidate);
+    if (fs.existsSync(path.join(REPO_ROOT, repoPath))) {
+      return repoPath;
+    }
+  }
+
+  return normalizeRepoPath(fallback || candidateList[0]);
 }
 
 function walkCategoryFiles(categoryKey) {
@@ -491,8 +567,9 @@ function serializeLookupRows(rows) {
 
 function buildInventory() {
   const inventory = [];
+  const categories = discoverCategories();
 
-  CATEGORIES.forEach((category) => {
+  categories.forEach((category) => {
     const files = walkCategoryFiles(category.key).map((repoPath) => {
       const components = buildComponentEntries(path.posix.join(SOURCE_ROOT, repoPath));
       return {
@@ -511,9 +588,17 @@ function buildInventory() {
 function buildContent() {
   const inventory = buildInventory();
   const lookupRows = [];
+  const searchTableImportPath = resolveExistingRepoPath(
+    [
+      path.posix.join(SOURCE_ROOT, 'layout/searchTable.jsx'),
+      path.posix.join(SOURCE_ROOT, 'layout/SearchTable.jsx'),
+      path.posix.join(SOURCE_ROOT, 'layout/search-table.jsx')
+    ],
+    path.posix.join(SOURCE_ROOT, 'layout/SearchTable.jsx')
+  );
 
   const lines = [...FRONTMATTER_LINES, ''];
-  lines.push('import { SearchTable } from "/snippets/components/layout/SearchTable.jsx";');
+  lines.push(`import { SearchTable } from "/${searchTableImportPath}";`);
   lines.push('import { DynamicTable } from "/snippets/components/layout/table.jsx";');
   lines.push('');
   buildGeneratedHiddenBannerLines(GENERATED_DETAILS).forEach((line) => lines.push(line));

@@ -2,13 +2,20 @@ task_id: 789
 branch: codex/789-phase2b-component-migration
 base_branch: docs-v2
 scope_in:
+  - .codex/locks-local/
   - .codex/task-contract.yaml
   - style.css
   - snippets/components/
   - snippets/data/
   - snippets/snippetsWiki/componentLibrary/
+  - tests/run-all.js
+  - tests/run-pr-checks.js
+  - tests/script-index.md
+  - tests/unit/script-docs.test.js
+  - tests/unit/style-guide.test.js
   - tools/scripts/validators/components/check-naming-conventions.js
   - tools/scripts/generate-docs-guide-components-index.js
+  - tools/scripts/snippets/update-component-library.sh
   - tools/script-index.md
   - docs-guide/indexes/scripts-index.mdx
   - docs-guide/indexes/components-index.mdx
