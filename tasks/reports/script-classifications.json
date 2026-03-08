@@ -400,6 +400,16 @@
     "dualmode": ""
   },
   {
+    "path": "tests/unit/repair-spelling.test.js",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tests/unit, tools/scripts/remediators/content",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Unit tests for repair-spelling.js \u2014 validates deterministic spelling fixes and exclusion ranges",
+    "pipeline": "manual \u2014 not yet in pipeline",
+    "dualmode": "--dry-run (validator) | --write (remediator)"
+  },
+  {
     "path": "tests/unit/repo-audit-pipeline.test.js",
     "category": "validator",
     "purpose": "qa:repo-health",
@@ -567,6 +577,16 @@
     "needs": "R-R16, R-R17",
     "purpose_statement": "Generated file banner template \u2014 provides standard banner text for auto-generated files",
     "pipeline": "indirect \u2014 library module",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/add-framework-headers.js",
+    "category": "generator",
+    "purpose": "governance:repo-health",
+    "scope": "full-repo",
+    "needs": "R-R14",
+    "purpose_statement": "Inserts or extends framework headers on all repo scripts from classification data.",
+    "pipeline": "manual \u2014 interactive developer tool, not suited for automated pipelines",
     "dualmode": ""
   },
   {
@@ -900,26 +920,6 @@
     "dualmode": ""
   },
   {
-    "path": "tools/scripts/download-linkedin-video.sh",
-    "category": "utility",
-    "purpose": "tooling:personal",
-    "scope": "tools/scripts",
-    "needs": "",
-    "purpose_statement": "Personal utility \u2014 downloads LinkedIn video by URL",
-    "pipeline": "manual \u2014 developer tool",
-    "dualmode": ""
-  },
-  {
-    "path": "tools/scripts/download-linkedin-with-cookies.sh",
-    "category": "utility",
-    "purpose": "tooling:personal",
-    "scope": "tools/scripts",
-    "needs": "",
-    "purpose_statement": "Personal utility \u2014 downloads LinkedIn video using browser cookies for auth",
-    "pipeline": "manual \u2014 developer tool",
-    "dualmode": ""
-  },
-  {
     "path": "tools/scripts/enforce-generated-file-banners.js",
     "category": "remediator",
     "purpose": "governance:index-management",
@@ -930,13 +930,13 @@
     "dualmode": "--check (enforcer) | default (remediator)"
   },
   {
-    "path": "tools/scripts/execute-phase1-worktree-plan.js",
-    "category": "utility",
-    "purpose": "tooling:personal",
-    "scope": "docs.json, tasks/reports/v1-v2-mapping-audit",
-    "needs": "",
-    "purpose_statement": "One-off migration tool \u2014 executed phase 1 worktree restructure plan (historical)",
-    "pipeline": "manual \u2014 developer tool",
+    "path": "tools/scripts/enforcers/pr/check-component-immutability.js",
+    "category": "enforcer",
+    "purpose": "governance:repo-health",
+    "scope": "changed",
+    "needs": "R-R10",
+    "purpose_statement": "Flags modifications to existing component files in PR context. New files allowed. Modifications require approval label.",
+    "pipeline": "PR (snippets/components/** scope)",
     "dualmode": ""
   },
   {
@@ -1290,6 +1290,16 @@
     "dualmode": ""
   },
   {
+    "path": "tools/scripts/remediators/content/repair-spelling.js",
+    "category": "remediator",
+    "purpose": "qa:content-quality",
+    "scope": "v2-content",
+    "needs": "R-R2",
+    "purpose_statement": "Auto-corrects spelling errors using the shared cspell configuration. Safe, dictionary-based corrections only.",
+    "pipeline": "P6 (on-demand)",
+    "dualmode": "--dry-run (validator: show corrections) | --write (remediator: apply corrections)"
+  },
+  {
     "path": "tools/scripts/repo-audit-orchestrator.js",
     "category": "orchestrator",
     "purpose": "infrastructure:pipeline-orchestration",
@@ -1460,16 +1470,6 @@
     "dualmode": ""
   },
   {
-    "path": "tools/scripts/transcribe-audio-to-mdx.js",
-    "category": "utility",
-    "purpose": "tooling:personal",
-    "scope": "tools/scripts, v2/internal/assets/transcripts",
-    "needs": "",
-    "purpose_statement": "Audio transcription tool \u2014 transcribes audio files to MDX format for docs content",
-    "pipeline": "manual \u2014 developer tool",
-    "dualmode": ""
-  },
-  {
     "path": "tools/scripts/validate-codex-task-contract.js",
     "category": "enforcer",
     "purpose": "governance:agent-governance",
@@ -1478,6 +1478,66 @@
     "purpose_statement": "Codex task contract enforcer \u2014 validates branch naming, task files, PR body, and issue state for codex branches",
     "pipeline": "P1 (commit), P2 (push), P3 (PR, Track B)",
     "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/validators/components/check-component-css.js",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "single-domain",
+    "needs": "R-R10",
+    "purpose_statement": "Validates component files use CSS custom properties only. No ThemeData, no hardcoded hex, no inline styles.",
+    "pipeline": "PR (snippets/components/** scope)",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/validators/components/check-component-docs.js",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "single-domain",
+    "needs": "R-R10",
+    "purpose_statement": "Validates component JSDoc coverage, prop documentation, and docs-entry coverage for exported components under snippets/components.",
+    "pipeline": "PR (snippets/components/** scope)",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/validators/content/check-description-quality.js",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tools/scripts/validators/content, v2",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Validates English v2 frontmatter descriptions for SEO length, boilerplate openings, and duplicate reuse",
+    "pipeline": "manual \u2014 diagnostic/investigation tool, run on-demand only",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/validators/content/check-double-headers.js",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tools/scripts/validators/content, v2, docs.json",
+    "needs": "1.12, 1.13",
+    "purpose_statement": "Detects duplicate body H1 headings and opening paragraphs that repeat frontmatter title or description content.",
+    "pipeline": "manual \u2014 validator, run on-demand only",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/validators/content/check-grammar-en-gb.js",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tools/scripts/validators/content, tools/script-index.md, tests/script-index.md, docs-guide/indexes/scripts-index.mdx, v2",
+    "needs": "SE-1-11, S-1.15",
+    "purpose_statement": "Deterministic UK English grammar checker for prose content with optional conservative autofix for safe rules.",
+    "pipeline": "manual/CI validator for English v2 docs and explicit content files",
+    "dualmode": "--check (default) | --fix (safe in-place rewrites)"
+  },
+  {
+    "path": "tools/scripts/validators/content/check-proper-nouns.js",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "v2, tools/scripts/validators/content, tests/config/spell-dict.json",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Detects and fixes incorrect proper noun capitalisation in prose while skipping code, frontmatter, URLs, and path-like tokens.",
+    "pipeline": "P6 (on-demand)",
+    "dualmode": "--check (default) | --fix"
   },
   {
     "path": "tools/scripts/verify-all-pages.js",
@@ -1527,6 +1587,46 @@
     "needs": "E-R1, R-R11",
     "purpose_statement": "WCAG repair shared logic \u2014 common repair functions used by WCAG audit fix mode",
     "pipeline": "manual \u2014 not yet in pipeline",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/utility/personal/download-linkedin-video.sh",
+    "category": "utility",
+    "purpose": "tooling:personal",
+    "scope": "tools/utility/personal, snippets/assets/media/videos",
+    "needs": "",
+    "purpose_statement": "Personal utility \u2014 downloads LinkedIn video by URL",
+    "pipeline": "manual \u2014 developer tool",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/utility/personal/download-linkedin-with-cookies.sh",
+    "category": "utility",
+    "purpose": "tooling:personal",
+    "scope": "tools/utility/personal, snippets/assets/media/videos",
+    "needs": "",
+    "purpose_statement": "Personal utility \u2014 downloads LinkedIn video using browser cookies for auth",
+    "pipeline": "manual \u2014 developer tool",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/utility/personal/execute-phase1-worktree-plan.js",
+    "category": "utility",
+    "purpose": "tooling:personal",
+    "scope": "tools/utility/personal, docs.json, tasks/reports/v1-v2-mapping-audit",
+    "needs": "",
+    "purpose_statement": "One-off migration tool \u2014 executed phase 1 worktree restructure plan (historical)",
+    "pipeline": "manual \u2014 developer tool",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/utility/personal/transcribe-audio-to-mdx.js",
+    "category": "utility",
+    "purpose": "tooling:personal",
+    "scope": "tools/utility/personal, v2/internal/assets/transcripts",
+    "needs": "",
+    "purpose_statement": "Audio transcription tool \u2014 transcribes audio files to MDX format for docs content",
+    "pipeline": "manual \u2014 developer tool",
     "dualmode": ""
   }
 ]
