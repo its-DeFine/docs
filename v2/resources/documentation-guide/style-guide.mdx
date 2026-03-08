@@ -264,7 +264,7 @@ export const MyComponent = ({ variant = "default" }) => {
 };
 ```
 
-#### Layer 3: MDX Files (`v2/pages/**/*.mdx`)
+#### Layer 3: MDX Files (`v2/**/*.mdx`)
 
 **Purpose**: Content only - **ZERO inline styles**
 
@@ -453,11 +453,11 @@ You can configure LaTeX rendering in `docs.json` under `styles.latex` to overrid
 
 ```mdx
 {/* ❌ Plain markdown link */}
-[Getting Started](/get-started)
+[Getting Started](/v2/home/get-started)
 
 {/* ✅ Custom component with better styling */}
 import { GotoLink } from '/snippets/components/primitives/links.jsx';
-<GotoLink label="Getting Started" relativePath="/get-started" icon="arrow-right" />
+<GotoLink label="Getting Started" relativePath="/v2/home/get-started" icon="arrow-right" />
 ```
 
 ```mdx
@@ -586,20 +586,20 @@ export const MyComponent = () => {
 
 ```jsx
 // ✅ Correct - absolute path from repo root
-import { MyComponent } from '/snippets/components/MyComponent.jsx';
+import { GotoLink } from '/snippets/components/primitives/links.jsx';
 
 // ❌ Wrong - relative paths don't work
-import { MyComponent } from '../components/MyComponent.jsx';
+// import { GotoLink } from '../components/primitives/links.jsx';
 ```
 
 #### 2. File Extensions Required
 
 ```jsx
 // ✅ Include extension
-import { Component } from '/snippets/Component.jsx';
+import { GotoLink } from '/snippets/components/primitives/links.jsx';
 
 // ❌ May not resolve
-import { Component } from '/snippets/Component';
+// import { GotoLink } from '/snippets/components/primitives/links';
 ```
 
 #### 3. Cannot Import into Component Files
@@ -621,11 +621,11 @@ export const MyComponent = () => {
 ```jsx
 // ✅ CORRECT
 // MyPage.mdx
-import { MyComponent } from '/snippets/components/MyComponent.jsx';
+import { GotoLink } from '/snippets/components/primitives/links.jsx';
 import { ThemeData } from '/snippets/styles/themeStyles.jsx';
 
-<MyComponent />
-// MyComponent can access ThemeData from parent scope
+<GotoLink label="Docs" relativePath="/v2/home/get-started" />
+// GotoLink can access ThemeData from parent scope
 ```
 
 #### 4. JSX Files Cannot Import Other JSX Files
@@ -644,10 +644,10 @@ When importing MDX files into other MDX files:
 
 ```mdx
 // Parent.mdx
-import { DOCKER_CODE } from '/snippets/data/gateways/code.jsx'
-import ChildView from '/snippets/pages/ChildView.mdx'
+import { CustomCodeBlock } from '/snippets/components/content/code.jsx'
+import ContainersGuide from '/snippets/components/display/containers.mdx'
 
-<ChildView />
+<ContainersGuide />
 ```
 
 ```mdx
@@ -763,10 +763,10 @@ Frame mode (`mode: frame` in frontmatter) removes all default Mintlify styling. 
 
 ```mdx
 // ✅ MyPage.mdx
-import { MyComponent } from '/snippets/components/MyComponent.jsx';
-import { DOCKER_CODE } from '/snippets/data/gateways/code.jsx';
+import { GotoLink } from '/snippets/components/primitives/links.jsx';
+import { CustomCodeBlock } from '/snippets/components/content/code.jsx';
 
-<MyComponent />
+<GotoLink label="Docs" relativePath="/v2/home/get-started" />
 ```
 
 ```jsx
