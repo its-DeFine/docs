@@ -104,7 +104,7 @@ This guide covers installing the Livepeer Gateway from source binary on Linux.
 You can use brew or curl to install `wget`
 
   <Expandable title=">_ Using brew">
-    Using [brew](https://brew.sh/) 
+    Using [brew](https://brew.sh/)
     ```bash lines icon="terminal" brew wrap
     # Install brew if not already installed
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -146,7 +146,7 @@ You can use brew or curl to install `wget`
           placeholderValue={latestVersion}
           language="bash"
           icon="terminal"
-        />  
+        />
         <Expandable title=">_ In case of version fetch issues">
         In case of fetch issues: Replace {'<VERSION>'} with the latest version number
         ```bash lines icon="terminal" wrap wget
@@ -252,7 +252,7 @@ You can use brew or curl to install `wget`
 
   </Tab>
 </Tabs>
-  **Output Example** 
+  **Output Example**
   ```bash icon="terminal" lines Off-Chain Gateway Example Output
     >_ livepeer -gateway
 
@@ -281,7 +281,7 @@ finish configuring the Gateway
 
 # Create a file containing your Gateway Ethereum password
 
-```
+```text
 sudo mkdir /usr/local/bin/lptConfig
 sudo nano /usr/local/bin/lptConfig/node.txt
 ```
@@ -292,13 +292,13 @@ Enter your password and save the file
 <StyledStep title="Create System Service">
 # Create a system service
 
-```
+```text
 sudo nano /etc/systemd/system/livepeer.service
 ```
 
 Paste and update the following startup script with your personal info:
 
-```
+```jsx
 [Unit]
 Description=Livepeer
 
@@ -326,14 +326,14 @@ WantedBy=default.target
 
 Start the system service
 
-```
+```text
 sudo systemctl daemon-reload
 sudo systemctl enable --now livepeer
 ```
 
 Open the Livepeer CLI
 
-```
+```text
 livepeer_cli -host 127.0.0.1 -http 5935
 ```
 

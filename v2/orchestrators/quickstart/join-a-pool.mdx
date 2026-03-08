@@ -15,13 +15,13 @@ import { DynamicTable } from '/snippets/components/layout/table.jsx'
 
 ## About Pools
 
-Joining a community-run pool is a low-lift way to get started with the Livepeer network. 
-Pools are run by experienced operators who manage the day-to-day operations of the network. 
+Joining a community-run pool is a low-lift way to get started with the Livepeer network.
+Pools are run by experienced operators who manage the day-to-day operations of the network.
 
 <Tip> Pools are not official Livepeer infrastructure. They are community-run and vary in terms of pricing, rewards, and management. Always research and choose a pool that best fits your needs.</Tip>
 
 Pool operators handle tasks such as staking, delegating, and managing the orchestrator node, so you don't need to have LPT or deal with on-chain actions.
-The trade-off is that you have less control over pricing, routing, and delegation decisions, and the revenue is shared with the pool operator. 
+The trade-off is that you have less control over pricing, routing, and delegation decisions, and the revenue is shared with the pool operator.
 
 <DynamicTable
     tableTitle="Pool vs Orchestrator Comparison"
@@ -44,7 +44,7 @@ The trade-off is that you have less control over pricing, routing, and delegatio
     <StyledStep title="Choose a Pool">
         Joining a pool is akin to entering an operational partnership, rather than being a permissionless protocol action.
 
-        <Note>             
+        <Note>
             There is currently no canonical directory of pools, discovery is off‑chain and social, similar to mining pools.
             One of the only public Orchestrator pools is the [Titan Node](https://titan-node.com/).
         </Note>
@@ -70,7 +70,7 @@ The trade-off is that you have less control over pricing, routing, and delegatio
             - What happens during downtime or network changes
             - On-chain identity and reputation
 
-            <br/> 
+            <br/>
            _**A legitimate orchestrator pool will clearly publish:**_
 
             1. **Whether it accepts external GPUs**
@@ -100,8 +100,8 @@ The trade-off is that you have less control over pricing, routing, and delegatio
         </Accordion>
     </StyledStep>
     <StyledStep title="Connect your GPU">
-        Once a pool is selected, the GPU must be connected to the orchestrator’s infrastructure. 
-        
+        Once a pool is selected, the GPU must be connected to the orchestrator’s infrastructure.
+
         There are three common connection models:
         <Accordion title="BYO Container (Preferred)" icon="cube">
            In this model, your GPU never runs protocol code. It only runs workloads dispatched by the orchestrator.
@@ -133,7 +133,7 @@ The trade-off is that you have less control over pricing, routing, and delegatio
             </Columns>
         </Accordion>
         <Accordion title="Bare Metal" icon="server">
-            The orchestrator will provide a remote access protocol (e.g. SSH) to connect to their infrastructure. 
+            The orchestrator will provide a remote access protocol (e.g. SSH) to connect to their infrastructure.
             The GPU owner is responsible for installing and managing the GPU driver and Livepeer software.
 
             **Best For:**
@@ -144,7 +144,7 @@ The trade-off is that you have less control over pricing, routing, and delegatio
             - You provision a Linux machine with the required GPU drivers
             - The orchestrator provides setup instructions or scripts
             - Secure access (SSH / VPN) is established
-            - The GPU is registered internally by the orchestrator 
+            - The GPU is registered internally by the orchestrator
 
             <Columns cols={2}>
                 <div>
@@ -168,7 +168,7 @@ The trade-off is that you have less control over pricing, routing, and delegatio
 
             **Best For:**
              - Flexible capacity providers
-             - Burst or on‑demand contributors  
+             - Burst or on‑demand contributors
 
              **Process:**
             - You launch a GPU instance on a cloud provider
@@ -193,7 +193,7 @@ The trade-off is that you have less control over pricing, routing, and delegatio
     </StyledStep>
     <StyledStep title="Orchestrator Aggregates Your GPU ">
         Once connected, your GPU becomes part of the orchestrator’s capacity pool.
-        
+
         Your GPU is not visible individually to the protocol.
 
         <Accordion title="Aggregation Details" icon="circle-nodes">
@@ -244,11 +244,11 @@ The trade-off is that you have less control over pricing, routing, and delegatio
         <Warning> There are no on-chain records of individual GPU contributions, so the pool's reputation and rewards are entirely dependent on the orchestrator's performance and reputation. </Warning>
 
         All rewards are earned _by the Orchestrator_ and distributed **off‑chain** to GPU contributors.
-        GPU owners _do not earn rewards on-chain_. 
+        GPU owners _do not earn rewards on-chain_.
         - Earnings are pooled and split
         - Payouts are made **off‑chain**
         - No on‑chain rewards for individual GPUs
-        
+
 
         <Accordion title="Reward Sources" icon="coins">
             1. Usage fees
@@ -302,7 +302,7 @@ A Pool has:
 - Rewards are aggregated then split
 - Operators advertise pool capacity, not single GPUs
 - GPU owners can join / leave without affecting the on-chain identity */}
-{/* 
+{/*
 _Benefits of a pool:_
 - **Easier to get started**: No need to stake, delegate, or manage your own node
 - **Lower risk**: Pools are run by experienced operators

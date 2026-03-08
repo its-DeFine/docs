@@ -56,8 +56,8 @@ All theme colors are defined as CSS Custom Properties in `style.css`:
 #### Inline Styles (Recommended)
 
 ```jsx
-<div style={{ 
-  color: "var(--accent)", 
+<div style={{
+  color: "var(--accent)",
   border: "1px solid var(--border)",
   background: "var(--card-background)"
 }}>
@@ -250,12 +250,12 @@ export const MyComponent = ({ variant = "default" }) => {
     color: "var(--text)",
     padding: "1rem"
   };
-  
+
   const variantStyles = {
     default: { border: "1px solid var(--border)" },
     accent: { border: "1px solid var(--accent)" }
   };
-  
+
   return (
     <div style={{ ...baseStyle, ...variantStyles[variant] }}>
       Content
@@ -502,8 +502,8 @@ Our styling framework intentionally overrides some Mintlify default recommendati
 
 ### Override: "Use Tailwind classes"
 
-**Mintlify suggests**: Use Tailwind utility classes  
-**Our approach**: ❌ Don't use Tailwind - use component primitives  
+**Mintlify suggests**: Use Tailwind utility classes
+**Our approach**: ❌ Don't use Tailwind - use component primitives
 **Reason**: Tailwind classes in MDX create maintenance burden and reduce semantic meaning. Component primitives are more maintainable and self-documenting.
 
 **Example:**
@@ -521,8 +521,8 @@ Our styling framework intentionally overrides some Mintlify default recommendati
 
 ### Override: "Inline styles are fine for quick fixes"
 
-**Mintlify suggests**: Inline styles acceptable in MDX  
-**Our approach**: ❌ No inline styles in MDX, only in JSX components  
+**Mintlify suggests**: Inline styles acceptable in MDX
+**Our approach**: ❌ No inline styles in MDX, only in JSX components
 **Reason**: Consistency and maintainability. Inline styles in MDX make it harder to maintain theme consistency and create visual inconsistencies.
 
 **Example:**
@@ -540,8 +540,8 @@ Our styling framework intentionally overrides some Mintlify default recommendati
 
 ### Override: "Use global CSS for everything"
 
-**Mintlify suggests**: Put all styles in `style.css`  
-**Our approach**: ✅ Only theme variables and framework overrides in `style.css`  
+**Mintlify suggests**: Put all styles in `style.css`
+**Our approach**: ✅ Only theme variables and framework overrides in `style.css`
 **Reason**: Mintlify only allows one global CSS file. Putting everything there makes it unmaintainable. Component-specific styles belong in JSX components.
 
 **What goes in `style.css`:**
@@ -557,8 +557,8 @@ Our styling framework intentionally overrides some Mintlify default recommendati
 
 ### Override: "Component styles can be external"
 
-**Mintlify suggests**: External CSS files for components  
-**Our approach**: ❌ Styles must be within JSX component files  
+**Mintlify suggests**: External CSS files for components
+**Our approach**: ❌ Styles must be within JSX component files
 **Reason**: Mintlify doesn't support CSS imports in components reliably. Inline styles and `<style>` tags within components work consistently.
 
 **Pattern:**
@@ -730,7 +730,7 @@ return <Accordion {...props}>{content}</Accordion>;
 
 ```mdx
 {/* ❌ WRONG - MDX will still try to parse CustomCodeBlock */}
-{/* 
+{/*
 <CustomCodeBlock codeString="test" />
 */}
 
@@ -1004,7 +1004,7 @@ This deletion override also runs all other pre-commit checks.
 
 ### Example Error Output
 
-```
+```javascript
 ╔═══════════════════════════════════════════════════════════════╗
 ║  STYLE GUIDE VIOLATIONS DETECTED - COMMIT BLOCKED           ║
 ╚═══════════════════════════════════════════════════════════════╝

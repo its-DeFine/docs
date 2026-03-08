@@ -95,7 +95,7 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 2. Generates SDKs for all configured APIs
 3. Creates pull requests with generated code
 
-**Manual execution:** 
+**Manual execution:**
 1. Go to Actions → SDK Generation
 2. Click "Run workflow"
 3. Optionally set `force: true` to regenerate even if no changes
@@ -125,7 +125,7 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 
 **Required secrets:** None
 
-**Output:** 
+**Output:**
 - PR comments with test results
 - Artifact: `v2-page-test-report.json`
 
@@ -578,7 +578,7 @@ node tools/scripts/snippets/generate-seo.js --file=v2/home/mission-control.mdx
 4. Outputs a **docs.json navigation snippet** ready to copy-paste
 
 **Output structure:**
-```
+```text
 output-dir/
 ├── ai-api.mdx           # Landing page with Base URLs + CardGroups
 ├── text-to-image.mdx    # openapi: post /text-to-image

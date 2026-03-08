@@ -22,7 +22,7 @@ import { CustomCodeBlock, CodeSection, ComplexCodeBlock, } from '/snippets/compo
 import { TipWithArrow, DoubleIconLink } from '/snippets/components/primitives/links.jsx';
 import { DownloadButton } from '/snippets/components/primitives/buttons.jsx';
 import { FlexContainer } from '/snippets/components/layout/layout.jsx';
-import { LatestVersion } from '/snippets/components/content/release.jsx';
+import { latestVersion } from '/snippets/automations/globals/globals.mdx';
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx';
 import { WidthCard } from '/snippets/components/layout/customCards.jsx';
 
@@ -37,6 +37,7 @@ import WindowsOnChainTab from './views/windows/windowsOnChainTab.mdx';
 {/* LAYOUT COMPOSABLE GROUPS */}
 import DockerSupport from './groups/docker/dockerSupport.mdx';
 import LinuxSupport from './groups/linux/linuxSupport.mdx';
+import MacSupport from './groups/linux/macSupport.mdx';
 
 
 <TipWithArrow>
@@ -44,16 +45,16 @@ import LinuxSupport from './groups/linux/linuxSupport.mdx';
   for your preferred OS. </span>
 </TipWithArrow>
 
-<WidthCard title="go-livepeer" href="https://github.com/livepeer/go-livepeer" icon="github" arrow horizontal> 
+<WidthCard title="go-livepeer" href="https://github.com/livepeer/go-livepeer" icon="github" arrow horizontal>
   <span> *Latest Version:* <Badge color="green">{latestVersion}</Badge> </span>
-</WidthCard> 
+</WidthCard>
 
 <CustomDivider style={{narginTop: "-1rem", marginBottom: "-1rem"}} />
 
 # Let's Go(-Livepeer) ! <Icon icon="face-grin-wink" size={26} />
 This page will get you up & running with a Livepeer Gateway Node for <Badge color="blue">Video</Badge> Transcoding & <Badge color="purple">AI</Badge> Pipeline service routing.
 
-*This guide includes:* 
+*This guide includes:*
 - Setup for <span><Icon icon="link" size={20}/> **on-chain _(production)_** and <Icon icon="floppy-disk" size={20}/> **off-chain _(local/dev)_** Livepeer Gateway nodes </span>
 - Installation guides for <span><Icon icon="docker" size={20} /> **Docker _(recommended)_** </span> and <span><Icon icon="laptop-code" size={20} /> **Pre-Built Binaries**. </span>
 
@@ -81,7 +82,7 @@ This page will get you up & running with a Livepeer Gateway Node for <Badge colo
       <Badge> MacOS <Icon icon="warning" size={12}/></Badge>
     </FlexContainer>
   </FlexContainer>
-  
+
   <br />
 
   <Accordion title="Docker Supported Hosts Details" icon="warning">
@@ -137,7 +138,7 @@ This page will get you up & running with a Livepeer Gateway Node for <Badge colo
 <View title="Linux" icon="linux" iconType="solid">
   ## <Icon icon="linux" iconType="solid" size={32} /> Linux Quickstart Guide
 
-  This guide covers building from source on Linux (Ubuntu/Debian) 
+  This guide covers building from source on Linux (Ubuntu/Debian)
   {/* & MacOS (video support only).  -> separate view -> macOS can't do dual gateway.*/}
 
   <Accordion title="Linux Supported Distributions & Required Packages" icon="info-circle">
@@ -280,7 +281,7 @@ Use this loop after both your gateway and orchestrator are online.
     Setup an Orchestrator.
   </Card>
 </Columns>
-{/* 
+{/*
 This page will have you running a Livepeer Gateway for video & AI trancoding in 10 minutes on Mac, Linux or Windows.
 
 It shows both off-chain (local) and on-chain (production) modes.

@@ -12,7 +12,7 @@ og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
    * Purpose of LPT
    * Security model
    * Inflation mechanics
-   * Not used for job payments (ETH is) 
+   * Not used for job payments (ETH is)
 
 BUT ONLY BRIEFLY -> DEFERS TO TOKEN TAB
 */}
@@ -26,7 +26,7 @@ import { DynamicTable } from '/snippets/components/layout/table.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 
 <div style={{ display: "flex", justifyContent: "center"}}>
-  <CardTitleTextWithArrow icon="hand-holding-dollar" horizontal href="https://www.livepeer.org/lpt"> Livepeer Token </CardTitleTextWithArrow> 
+  <CardTitleTextWithArrow icon="hand-holding-dollar" horizontal href="https://www.livepeer.org/lpt"> Livepeer Token </CardTitleTextWithArrow>
 </div>
 
 <div style={{ display: "flex", margin: "0 1rem" }}>
@@ -35,13 +35,13 @@ import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.
          _**Did you know?**_
       </span>
       Livepeer’s token distribution had no [ICO](https://messari.io/report/merkle-mine). <br/> <br/>
-      Instead, the initital 10 million LPT supply was distributed via a community [Merkle Mine](https://github.com/livepeer/merkle-mine), 
-      allowing a wide set of participants to claim tokens at network launch. 
+      Instead, the initital 10 million LPT supply was distributed via a community [Merkle Mine](https://github.com/livepeer/merkle-mine),
+      allowing a wide set of participants to claim tokens at network launch.
       <Icon icon="github" size={18}/> {" "} <LinkArrow label={<span style={{color: "var(--hero-text)"}}>View the github code</span>} href="https://github.com/livepeer/merkle-mine" newline={false} borderColor="var(--accent)" />
    </Tip>
 </div>
-{/* <Quote> 
-The **Livepeer Token (LPT)** is the staking and coordination token of the Livepeer protocol. LPT underpins protocol security, work selection, reward distribution, and decentralised governance incentivising optimal network service outcomes. 
+{/* <Quote>
+The **Livepeer Token (LPT)** is the staking and coordination token of the Livepeer protocol. LPT underpins protocol security, work selection, reward distribution, and decentralised governance incentivising optimal network service outcomes.
 </Quote> */}
 
 <CustomDivider style={{margin: 0, marginBottom: "-2rem" }} />
@@ -69,8 +69,8 @@ The Livepeer Token (LPT) has several key functions within the protocol:
 
 { /* The Livepeer Token (LPT) has several key functions within the protocol:
  - **Securing the network** through **staking** and **bonding**
-   - _Operators (Orchestrators) bond LPT to run transcoding services;_ 
-   - _Delegators stake LPT to support operators they trust._ 
+   - _Operators (Orchestrators) bond LPT to run transcoding services;_
+   - _Delegators stake LPT to support operators they trust._
  - **Rewarding participants** for their value-weighted contributions
    - _Staked LPT earns inflationary rewards (new LPT) and a share of ETH fees_
  - Enabling **participatory governance** and treasury management
@@ -138,7 +138,7 @@ This mechanism introduces meaningful opportunity cost for passivity, encouraging
    ```
 
    where:
-   ```
+   ```text
    - S(t) = total circulating supply of LPT
    - B(t) = total bonded supply
    - β* = target bonding rate (e.g. 50%)
@@ -256,7 +256,7 @@ Broadcaster → (PM tickets/segments) → Orchestrator → (tasks) → Transcode
 Delegators → (bonded LPT) → Orchestrator → (rewards/fees split back) → Delegators. */}
 
 
---- 
+---
 #REVIEW
 
 

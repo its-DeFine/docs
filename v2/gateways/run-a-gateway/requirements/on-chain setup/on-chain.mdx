@@ -448,7 +448,7 @@ Full Guide with alternative options for setting up an on-chain Gateway
             -ethAcctAddr=0xYOUR_WALLET_ADDRESS
         ```
         The keystore will be created in the Docker volume at:
-        ```
+        ```javascript
         /var/lib/docker/volumes/gateway-lpData/_data/arbitrum-one-mainnet/keystore/
         ```
         </Tab>
@@ -621,7 +621,7 @@ Full Guide with alternative options for setting up an on-chain Gateway
                 </Expandable>
 
         </Step>
-        
+
         <Step title="Create Password File">
             Create a password.txt file containing a (strong) password chosen by you.
             This password is used to decrypt the keystore file and access the private key.
@@ -729,7 +729,7 @@ Full Guide with alternative options for setting up an on-chain Gateway
         In this step we need to start the Gateway in order to create an Ethereum
         account.
 
-        ```
+        ```bash
         docker compose run -it gateway
         ```
 
@@ -745,7 +745,7 @@ Full Guide with alternative options for setting up an on-chain Gateway
 
         Using the previously created ETH password, create the eth-secret file
 
-        ```
+        ```javascript
         nano -p /var/lib/docker/volumes/gateway-lpData/_data/eth-secret.txt
         ```
 
@@ -820,7 +820,7 @@ Full Guide with alternative options for setting up an on-chain Gateway
 
             Create a file containing your Gateway Ethereum password
 
-            ```
+            ```text
             sudo mkdir /usr/local/bin/lptConfig
             sudo nano /usr/local/bin/lptConfig/node.txt
             ```
@@ -833,13 +833,13 @@ Full Guide with alternative options for setting up an on-chain Gateway
 
             Create a system service
 
-            ```
+            ```text
             sudo nano /etc/systemd/system/livepeer.service
             ```
 
             Paste and update the following startup script with your personal info:
 
-            ```
+            ```jsx
             [Unit]
             Description=Livepeer
 
@@ -867,14 +867,14 @@ Full Guide with alternative options for setting up an on-chain Gateway
 
             Start the system service
 
-            ```
+            ```text
             sudo systemctl daemon-reload
             sudo systemctl enable --now livepeer
             ```
 
             Open the Livepeer CLI
 
-            ```
+            ```text
             livepeer_cli -host 127.0.0.1 -http 5935
             ```
             </StyledStep>
@@ -922,7 +922,7 @@ Full Guide with alternative options for setting up an on-chain Gateway
         Development Setup
     For testing, use the devtool to create keys :
 
-    ```
+    ```text
     func CreateKey(keystoreDir string) string {
         keyStore := keystore.NewKeyStore(keystoreDir, keystore.StandardScryptN, keystore.StandardScryptP)
         account, err := keyStore.NewAccount(passphrase)

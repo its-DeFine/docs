@@ -13,8 +13,6 @@ og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 import { DoubleIconLink } from '/snippets/components/primitives/links.jsx'
-import { ExternalContent } from '/snippets/components/content/externalContent.jsx'
-import BoxConfig from '/snippets/external/box-additional-config.mdx'
 
 <Danger>
   This is way too long
@@ -419,10 +417,8 @@ For nodes that handle both orchestration and AI processing
 
 The box setup for local development demonstrates running a gateway that handles both types of processing.
 
-<ExternalContent
-  repoName="livepeer/go-livepeer - box/box.md"
-  githubUrl="https://github.com/livepeer/go-livepeer/blob/master/box/box.md"
-  maxHeight="800px"
->
-  <BoxConfig />
-</ExternalContent>
+<Note>
+  The embedded `box/box.md` excerpt is unavailable in this docs branch.
+  Review the full example setup in the upstream repository:
+  [livepeer/go-livepeer `box/box.md`](https://github.com/livepeer/go-livepeer/blob/master/box/box.md).
+</Note>

@@ -12,7 +12,7 @@ import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 {/* Livepeer is a decentralized infrastructure protocol, nodes including Gateways (formerly broadcasters), Orchestrators, and Transcoders, run the Livepeer network.
 The protocol uses smart contracts deployed on Ethereum Mainnet and Arbitrum Mainnet, with the native token LPT (Livepeer Token). Since the Confluence upgrade, the protocol primarily runs on Arbitrum Mainnet. */}
 
-{/* Use: 
+{/* Use:
 
 ## 1. C4 Model (Structure & Scope Clarity)
 
@@ -24,7 +24,7 @@ Created by Simon Brown, C4 forces you to explain a system at 4 zoom levels:
 * **Containers** – Major deployable components (nodes, APIs, services)
 *     -> The Network: Orchestrators, Gateways, Worker Nodes
 * **Components** – Internal modules
-*     -> The Protocol: Pricing logic, job verification, reward distribution 
+*     -> The Protocol: Pricing logic, job verification, reward distribution
 * **Code** – (optional deep dive)
 
 For something like Livepeer:
@@ -41,7 +41,7 @@ Open-participation, distributed infrastructure systems like Livepeer aren’t ju
 <Tip> Livepeer was one of the earliest DePIN (Decentralized Public Infrastructure Network) projects in the blockchain space, a blockchain use case that is only more relevant today as AI reshapes industries and the way we work, collaborate and communicate. </Tip>
 
 From a marketplace perspective, Livepeer has:
-- A **demand-side** agent (an app, platform, or operator) which brings video or AI jobs; 
+- A **demand-side** agent (an app, platform, or operator) which brings video or AI jobs;
 - A **supply-side** agent (Orchestrators and their GPU capacity, optionally backed by separate worker processes) which performs compute and other work;
 - A **protocol** which provides the governance, payment primitives and reward system to coordinate open participation and make the market viable at scale.
     {/* // - routing, measurement, and payment primitives to make that market viable at scale.  */}
@@ -88,8 +88,8 @@ These are the deployable, off-chain, operational actors in the network that are 
 - Job routing
 - Verification
 - Payment
-- AI inference 
-- Video Transcoding 
+- AI inference
+- Video Transcoding
 - Real-time AI Video Streaming
 
 ## Protocol vs Network
@@ -120,12 +120,12 @@ Actors are fundamental to describing how the network functions end-to-end.
 <QuadGrid icon="arrows-spin" iconSize={50}>
   <Card title="Orchestrators" icon="microchip" cta="Go to Orchestrators" href="/v2/orchestrators/orchestrators-portal">
     GPU nodes that perform transcoding / AI jobs, earn fees + staking rewards.
-   
+
     **Roles**: Perform Compute Operations, participate in governance
   </Card>
   <Card title="Gateways" icon="torii-gate" cta="Go to Gateways" href="/gateways/gateways-portal">
     Clients submitting jobs (video or AI) into the network. The users and builders of the network.
-    
+
     **Roles**: Submit jobs, route work, manage payment flows, connect to orchestrators
     {/* **Types**: Video Gateway, AI Gateway, Hybrid Gateway */}
   </Card>
@@ -136,7 +136,7 @@ Actors are fundamental to describing how the network functions end-to-end.
   </Card>
   <Card title="Platforms? Workers?" icon="laptop-code" cta="Go to Platforms" href="/developers/portal">
     Services built on top of the Livepeer network (not directly part of the network).
-    
+
     **Roles**: Build on top of the network, provide developer-friendly and end-user services
   </Card>
 </QuadGrid>
@@ -235,7 +235,7 @@ Additionally, actors can also be categorised by the role they play in the networ
 
   ## Network / Execution Actors
 
-  {/* 
+  {/*
   3. Actor / Role-Based Model (Economic & Governance Clarity)
   Define:
 

@@ -41,7 +41,7 @@ title: 'Docker Off-Chain Gateway Quickstart TAB VIEW'
           title="Recommended Flags"
           icon="file-circle-info"
           fields={CONFIG_FLAGS.offchain.optional}
-        />          
+        />
       </AccordionGroup>
       *See Example transcoding options json below:*
       <Accordion title="Transcoding Options Example" icon="brackets-curly">
@@ -93,7 +93,7 @@ title: 'Docker Off-Chain Gateway Quickstart TAB VIEW'
               - The stream name (test) becomes part of the HLS playback URL
         </Tab>
         <Tab title="AI" icon="user-robot">
-          To test AI functionality in Livepeer, you can make HTTP requests to the AI endpoints exposed by your gateway. 
+          To test AI functionality in Livepeer, you can make HTTP requests to the AI endpoints exposed by your gateway.
           The gateway routes these requests to orchestrators with AI workers for processing.
 
           <CustomCodeBlock
@@ -153,7 +153,7 @@ title: 'Docker Off-Chain Gateway Quickstart TAB VIEW'
     <Step title="Monitor Gateway">
       <Danger> Needs Review </Danger>
         The `-monitor=true` flag in the docker-compose.yml already has basic monitoring enabled which exposes metrics in Prometheus format at `http://localhost:8935/metrics`.
-        
+
         Metrics collected include:
         - Stream metrics (created, started, ended)
         - Transcoding metrics (success rate, latency)
@@ -180,7 +180,7 @@ title: 'Docker Off-Chain Gateway Quickstart TAB VIEW'
         *CLI Monitoring Commands*
 
         Check gateway status:
-        ```bash 
+        ```bash
         curl http://localhost:5935/status
         ```
 
@@ -198,17 +198,17 @@ title: 'Docker Off-Chain Gateway Quickstart TAB VIEW'
           livepeer_cli # livepeer_cli --host=localhost --http=5935
         ```
         ```bash Livepeer CLI Output
-        +-----------------------------------------------------------+  
-        | Welcome to livepeer-cli, your Livepeer command line tool  |  
-        +-----------------------------------------------------------+  
-          
-        What would you like to do? (default = stats)  
-        1. Get node status  
-        2. View protocol parameters  
-        3. List registered orchestrators  
-        4. Invoke "initialize round"  
-        5. Invoke "bond"    
-        ...  
+        +-----------------------------------------------------------+
+        | Welcome to livepeer-cli, your Livepeer command line tool  |
+        +-----------------------------------------------------------+
+
+        What would you like to do? (default = stats)
+        1. Get node status
+        2. View protocol parameters
+        3. List registered orchestrators
+        4. Invoke "initialize round"
+        5. Invoke "bond"
+        ...
         ```
         </Accordion>
         <Accordion title="AI-Specific Monitoring" icon="user-robot">
@@ -221,7 +221,7 @@ title: 'Docker Off-Chain Gateway Quickstart TAB VIEW'
         - Error events
 
         </Accordion>
-        <Accordion title="Enhanced Monitoring Options" icon="chart-line">    
+        <Accordion title="Enhanced Monitoring Options" icon="chart-line">
         *Enhanced Monitoring Options*
 
         Add to your Docker Compose for more monitoring:

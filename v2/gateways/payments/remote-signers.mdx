@@ -62,7 +62,7 @@ All payment handling for Live AI is encapsulated within the `LivePaymentSender` 
 
 **Session state** (nonce counters, fee accumulators, ticket validity windows) is managed using a **stateless forwarding** design:
 
-```
+```mermaid
 sequenceDiagram
     participant O as Orchestrator
     participant G as Gateway

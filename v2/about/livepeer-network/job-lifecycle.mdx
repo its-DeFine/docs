@@ -8,7 +8,7 @@ og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 
 import { DynamicTable } from "/snippets/components/layout/table.jsx"
 
-{/* 
+{/*
 This page describes:
 6. **Job Lifecycle**
 
@@ -26,22 +26,22 @@ This view describes the end-to-end “compute job” as a state machine. Because
 A minimal, source-grounded job lifecycle is:
 <Steps>
 <Step title="Ingest and segmentation">
-Ingest and segmentation: A Gateway receives an RTMP stream (docs provide explicit RTMP ingest examples) and produces segments to be processed. 
+Ingest and segmentation: A Gateway receives an RTMP stream (docs provide explicit RTMP ingest examples) and produces segments to be processed.
 </Step>
 <Step title="Discovery and selection">
-Discovery and selection: The Gateway selects an Orchestrator set according to the node software’s discovery logic; operational failures here appear as discovery errors and orchestrator swaps. 
+Discovery and selection: The Gateway selects an Orchestrator set according to the node software’s discovery logic; operational failures here appear as discovery errors and orchestrator swaps.
 </Step>
 <Step title="Price and session parameters">
-Price and session parameters: Orchestrators advertise a price per pixel (Wei denominated) to gateways off-chain; orchestrators may auto-adjust price to compensate for ticket redemption overhead when gas is high. 
+Price and session parameters: Orchestrators advertise a price per pixel (Wei denominated) to gateways off-chain; orchestrators may auto-adjust price to compensate for ticket redemption overhead when gas is high.
 </Step>
 <Step title="Segment dispatch and compute">
-Segment dispatch and compute: The Gateway uploads segments; the Orchestrator executes transcoding/AI compute locally or delegates to attached transcoder processes. 
+Segment dispatch and compute: The Gateway uploads segments; the Orchestrator executes transcoding/AI compute locally or delegates to attached transcoder processes.
 </Step>
 <Step title="Result return and verification">
-Result return and verification: Results are returned to the Gateway; verification may be performed (fast verification metrics exist and are explicitly named). Failures can trigger orchestrator swaps and retries. 
+Result return and verification: Results are returned to the Gateway; verification may be performed (fast verification metrics exist and are explicitly named). Failures can trigger orchestrator swaps and retries.
 </Step>
 <Step title="Continuous settlement">
-Continuous settlement: The Gateway sends probabilistic payment tickets; the Orchestrator redeems winning tickets and the system tracks redemption errors and redeemed value. 
+Continuous settlement: The Gateway sends probabilistic payment tickets; the Orchestrator redeems winning tickets and the system tracks redemption errors and redeemed value.
 </Step>
 <Step title="Periodic reward accounting">
 Periodic reward accounting: Each round, orchestrators may call reward() as an Arbitrum transaction distributing minted rewards to itself and its delegators.

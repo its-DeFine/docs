@@ -70,7 +70,7 @@ Think of the stream key as a password and the playback ID as a public URL slug.
 
 RTMP is the standard protocol for sending video from a broadcaster to an ingest server. OBS, hardware encoders, and most professional streaming tools support RTMP.
 
-```
+```text
 rtmp://rtmp.livepeer.com/live/{streamKey}
 ```
 
@@ -80,7 +80,7 @@ When you push video to this endpoint with your stream key, Livepeer ingests it, 
 
 HLS is the standard delivery format for live and on-demand video. It splits video into small segments and serves them over HTTP. Most players (browsers, mobile, smart TVs) support HLS natively.
 
-```
+```text
 https://livepeercdn.studio/hls/{playbackId}/index.m3u8
 ```
 
@@ -92,7 +92,7 @@ HLS introduces latency (typically 5-30 seconds) because viewers are buffering ah
 
 WebRTC is a browser standard for real-time audio and video communication. Livepeer supports WebRTC ingest via **WHIP** (WebRTC-HTTP Ingest Protocol), enabling sub-second latency streaming directly from a browser without OBS.
 
-```
+```text
 https://playback.livepeer.studio/webrtc/{streamKey}
 ```
 

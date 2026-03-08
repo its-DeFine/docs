@@ -20,7 +20,7 @@ og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 Full path: https://cdn.jsdelivr.net/gh/livepeer/wiki@master/WHITEPAPER.md
 
 </Info>
-<Note> 
+<Note>
 GitHub blocks iframe embedding due to X-Frame-Options security headers. This prevents their pages from being embedded in iframes on other sites.
 
 Alternative solutions:
@@ -36,18 +36,18 @@ Alternative solutions:
   <div>
     <p>The Most Reliable Approach: Use a Pre-Build Script</p>
     <p>The solution involves a script that runs automatically whenever you build or deploy your Mintlify documentation. This script downloads the latest version of the file from GitHub and puts it in your local repository.</p>
-    
+
     <h3>Step 1: Add a Fetch Script to Your Project</h3>
     <p>Create a simple script in your project root (e.g., fetch-whitepaper.sh for Linux/macOS or fetch-whitepaper.js if using Node.js).</p>
     <p>Using Node.js (more universal):</p>
-    
+
     ```javascript
     // fetch-whitepaper.js
     const fs = require('fs');
     const fetch = require('node-fetch');
     const url = 'https://raw.githubusercontent.com/livepeer/wiki/master/WHITEPAPER.md';
     const destination = './docs/files/WHITEPAPER.md';
-    
+
     fetch(url)
       .then(res => res.text())
       .then(body => {
@@ -56,10 +56,10 @@ Alternative solutions:
       })
       .catch(err => console.error('Error fetching whitepaper:', err));
     ```
-    
+
     <h3>Step 2: Update Your package.json Scripts</h3>
     <p>Modify your package.json file to run this script before the standard Mintlify build command:</p>
-    
+
     ```json
     {
       "scripts": {
@@ -69,20 +69,20 @@ Alternative solutions:
       }
     }
     ```
-    
+
     <h3>Step 3: Use the Local Import Method in MDX</h3>
     <p>Now, use the local import method in your MDX file. The script ensures the local file is always fresh before the build starts.</p>
-    
+
     ```mdx
     ---
     title: My Documentation Page
     ---
     import WhitepaperContent from './files/WHITEPAPER.md'
-    
+
     # Livepeer Whitepaper
     <WhitepaperContent />
     ```
-    
+
     <p>This method provides automatically rendered markdown that stays updated while respecting Mintlify's technical limitations during the build process.</p>
   </div>
 </Accordion>
@@ -99,7 +99,7 @@ Alternative solutions:
 Full path: https://cdn.jsdelivr.net/gh/livepeer/wiki@master/WHITEPAPER.md
 
 </Info>
-<Note> 
+<Note>
 GitHub blocks iframe embedding due to X-Frame-Options security headers. This prevents their pages from being embedded in iframes on other sites.
 
 Alternative solutions:
@@ -115,18 +115,18 @@ Alternative solutions:
   <div>
     <p>The Most Reliable Approach: Use a Pre-Build Script</p>
     <p>The solution involves a script that runs automatically whenever you build or deploy your Mintlify documentation. This script downloads the latest version of the file from GitHub and puts it in your local repository.</p>
-    
+
     <h3>Step 1: Add a Fetch Script to Your Project</h3>
     <p>Create a simple script in your project root (e.g., fetch-whitepaper.sh for Linux/macOS or fetch-whitepaper.js if using Node.js).</p>
     <p>Using Node.js (more universal):</p>
-    
+
     ```javascript
     // fetch-whitepaper.js
     const fs = require('fs');
     const fetch = require('node-fetch');
     const url = 'https://raw.githubusercontent.com/livepeer/wiki/master/WHITEPAPER.md';
     const destination = './docs/files/WHITEPAPER.md';
-    
+
     fetch(url)
       .then(res => res.text())
       .then(body => {
@@ -135,10 +135,10 @@ Alternative solutions:
       })
       .catch(err => console.error('Error fetching whitepaper:', err));
     ```
-    
+
     <h3>Step 2: Update Your package.json Scripts</h3>
     <p>Modify your package.json file to run this script before the standard Mintlify build command:</p>
-    
+
     ```json
     {
       "scripts": {
@@ -148,20 +148,20 @@ Alternative solutions:
       }
     }
     ```
-    
+
     <h3>Step 3: Use the Local Import Method in MDX</h3>
     <p>Now, use the local import method in your MDX file. The script ensures the local file is always fresh before the build starts.</p>
-    
+
     ```mdx
     ---
     title: My Documentation Page
     ---
     import WhitepaperContent from './files/WHITEPAPER.md'
-    
+
     # Livepeer Whitepaper
     <WhitepaperContent />
     ```
-    
+
     <p>This method provides automatically rendered markdown that stays updated while respecting Mintlify's technical limitations during the build process.</p>
   </div>
 </Accordion>

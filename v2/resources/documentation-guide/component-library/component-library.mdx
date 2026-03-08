@@ -244,7 +244,7 @@ Navigation components for internal links.
 <Tabs>
   <Tab title="Live Example">
     <GotoLink label="Getting Started" relativePath="/get-started" icon="arrow-right" />
-    
+
     <GotoCard
       label="API Reference"
       relativePath="/api/reference"
@@ -276,7 +276,7 @@ import { GotoLink, GotoCard } from "/snippets/components/primitives/links.jsx";
     | `relativePath` | `string` | required | Relative URL path |
     | `text` | `string` | `""` | Text before the link |
     | `icon` | `string` | `"arrow-turn-down-right"` | Icon name |
-    
+
     **GotoCard:**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
@@ -407,19 +407,19 @@ import { Subtitle, CopyText, CardTitleTextWithArrow, AccordionTitleWithArrow } f
     | `text` | `string` | - | Subtitle text |
     | `children` | `ReactNode` | - | Alternative content |
     | `style` | `object` | `{}` | Custom styles |
-    
+
     **CopyText:**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
     | `text` | `string` | required | Text to display and copy |
     | `label` | `string` | - | Optional label |
-    
+
     **CardTitleTextWithArrow:**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
     | `children` | `ReactNode` | required | Title text |
     | All Card props | - | - | Accepts all Card component props |
-    
+
     **AccordionTitleWithArrow:**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
@@ -456,7 +456,7 @@ import { LivepeerSVG, LivepeerIconOld } from "/snippets/components/primitives/ic
     |------|------|---------|-------------|
     | `size` | `number` | `24` | Icon size in pixels |
     | All SVG props | - | - | Accepts standard SVG props |
-    
+
     **LivepeerIconOld:**
     | Prop | Type | Description |
     |------|------|-------------|
@@ -518,8 +518,8 @@ Self-hosted video component with Frame wrapper.
 ```jsx
 import { Video } from "/snippets/components/content/video.jsx";
 
-<Video 
-  src="/snippets/assets/media/videos/HeroBackground.mp4" 
+<Video
+  src="/snippets/assets/media/videos/HeroBackground.mp4"
   title="Demo Video"
   author="Livepeer Team"
   autoPlay
@@ -550,8 +550,8 @@ Image components with Frame wrapper and optional linking.
 
 <Tabs>
   <Tab title="Live Example">
-    <Image 
-      src="/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg" 
+    <Image
+      src="/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
       alt="Livepeer Logo"
       caption="The Livepeer Documentation Logo"
     />
@@ -560,14 +560,14 @@ Image components with Frame wrapper and optional linking.
 ```jsx
 import { Image, LinkImage } from "/snippets/components/primitives/image.jsx";
 
-<Image 
-  src="/snippets/assets/media/images/Livepeer%20Stats.png" 
+<Image
+  src="/snippets/assets/media/images/Livepeer%20Stats.png"
   alt="System Diagram"
   caption="Figure 1: Architecture"
 />
 
-<LinkImage 
-  src="/snippets/assets/media/images/GPUImg.webp" 
+<LinkImage
+  src="/snippets/assets/media/images/GPUImg.webp"
   alt="Preview"
   href="/snippets/assets/media/images/DelegatorImg.avif"
   caption="Click to view full size"
@@ -595,8 +595,17 @@ Interactive diagram viewer with zoom controls (25%-200%) and pan support.
 <Tabs>
   <Tab title="Live Example">
     <ScrollableDiagram title="Example Diagram" maxHeight="300px">
-      <div style={{ 
-        width: "800px", height: "400px", background: "linear-gradient(135deg, var(--accent) 0%, #0066ff 100%)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontSize: "24px", fontWeight: "bold", borderRadius: "8px"
+      <div style={{
+        width: "800px",
+        height: "400px",
+        background: "linear-gradient(135deg, var(--accent) 0%, #0066ff 100%)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        color: "white",
+        fontSize: "24px",
+        fontWeight: "bold",
+        borderRadius: "8px"
       }}>
         Large Diagram Content - Scroll and Zoom!
       </div>
@@ -659,8 +668,8 @@ Custom heading and text components for Mintlify frame mode. These components pro
 
 <Tabs>
   <Tab title="Live Example">
-    <PageHeader 
-      title="Page Title" 
+    <PageHeader
+      title="Page Title"
       subtitle="Page Subtitle"
       description="This is a description of the page content"
     />
@@ -674,8 +683,8 @@ Custom heading and text components for Mintlify frame mode. These components pro
 ```jsx
 import { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider } from "/snippets/components/page-structure/frameMode.jsx";
 
-<PageHeader 
-  title="Page Title" 
+<PageHeader
+  title="Page Title"
   subtitle="Page Subtitle"
   description="Page description"
 />
@@ -698,7 +707,7 @@ import { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider } from "/snippets/compon
     | `subtitleColor` | `string` | `"var(--accent)"` | Subtitle color |
     | `descriptionColor` | `string` | - | Description color |
     | `children` | `ReactNode` | - | Additional content |
-    
+
     **H1-H6 (all heading components):**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
@@ -708,7 +717,7 @@ import { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider } from "/snippets/compon
     | `iconColor` | `string` | `"var(--accent)"` | Icon color |
     | `align` | `"left" \| "center" \| "right"` | `"left"` | Text alignment |
     | `gap` | `string` | `"0.5rem"` | Gap between icon and text |
-    
+
     **P (Paragraph):**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
@@ -718,7 +727,7 @@ import { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider } from "/snippets/compon
     | `iconColor` | `string` | `"var(--p-icon-color)"` | Icon color |
     | `align` | `string` | `"left"` | Text alignment |
     | `gap` | `string` | `"0.5rem"` | Gap between icon and text |
-    
+
     **Divider:**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
@@ -739,8 +748,8 @@ Quote components for displaying testimonials, citations, and highlighted text.
     <Quote>
       This is a simple quote without attribution.
     </Quote>
-    
-    <FrameQuote 
+
+    <FrameQuote
       author="John Doe"
       source="Livepeer Blog"
       href="https://livepeer.org/blog"
@@ -757,7 +766,7 @@ import { Quote, FrameQuote } from "/snippets/components/content/quote.jsx";
   Simple quote text here.
 </Quote>
 
-<FrameQuote 
+<FrameQuote
   author="Author Name"
   source="Source Name"
   href="https://example.com"
@@ -773,7 +782,7 @@ import { Quote, FrameQuote } from "/snippets/components/content/quote.jsx";
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
     | `children` | `ReactNode` | required | Quote content |
-    
+
     **FrameQuote:**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
@@ -890,7 +899,7 @@ const showcaseItems = [
     | `items` | `Array<Object>` | `[]` | Array of showcase item objects |
     | `limit` | `number \| null` | `null` | Maximum items to display |
     | `pageSize` | `number` | `10` | Items per page |
-    
+
     **Item Object Properties:**
     | Property | Type | Description |
     |----------|------|-------------|
@@ -1081,9 +1090,9 @@ import { ResponseFieldGroup, ValueResponseField } from "/snippets/components/con
 // ResponseFieldGroup is currently unavailable due to component bug
 // Use ResponseFieldExpandable or ResponseFieldAccordion instead
 
-<ValueResponseField 
-  name="apiKey" 
-  type="string" 
+<ValueResponseField
+  name="apiKey"
+  type="string"
   required
   description="Your API key for authentication"
 />
@@ -1091,9 +1100,9 @@ import { ResponseFieldGroup, ValueResponseField } from "/snippets/components/con
   </Tab>
   <Tab title="Props">
     **Note:** ResponseFieldGroup is currently unavailable due to component bug. Use ResponseFieldExpandable or ResponseFieldAccordion instead.
-    
+
     **ResponseFieldExpandable / ResponseFieldAccordion:**
-    
+
     **ValueResponseField:**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
@@ -1119,7 +1128,7 @@ Additional code block components with placeholder replacement and note support.
       codeString="const API_KEY = '{PLACEHOLDER}';"
       placeholderValue="your-api-key-here"
     />
-    
+
     <ComplexCodeBlock
       filename="setup.sh"
       language="bash"
@@ -1168,7 +1177,7 @@ import { CodeComponent, ComplexCodeBlock, CodeSection } from "/snippets/componen
     | `lines` | `boolean` | `true` | Show line numbers |
     | `codeString` | `string` | `""` | Code content |
     | `placeholderValue` | `string` | `""` | Replace {PLACEHOLDER} |
-    
+
     **ComplexCodeBlock:**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
@@ -1182,7 +1191,7 @@ import { CodeComponent, ComplexCodeBlock, CodeSection } from "/snippets/componen
     | `lines` | `boolean` | `true` | Show line numbers |
     | `preNote` | `ReactNode` | `null` | Note before code |
     | `postNote` | `ReactNode` | `null` | Note after code |
-    
+
     **CodeSection:**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
@@ -1281,7 +1290,7 @@ import { StyledSteps, StyledStep } from "/snippets/components/layout/steps.jsx";
     | `iconColor` | `string` | `"var(--accent-dark)"` | Icon background color |
     | `titleColor` | `string` | `"var(--accent)"` | Title text color |
     | `lineColor` | `string` | `"var(--accent)"` | Connecting line color |
-    
+
     **StyledStep:**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
@@ -1347,7 +1356,7 @@ Various list components for displaying structured content.
       { title: "Install", icon: "download", content: "Run npm install" },
       { title: "Configure", icon: "gear", content: "Set up your config" }
     ]} />
-    
+
     <UpdateLinkList listItems={[
       { title: "New Feature", icon: "star", content: "Check out our new feature", link: "/features/new" }
     ]} />
@@ -1378,7 +1387,7 @@ import { StepList, StepLinkList, UpdateLinkList } from "/snippets/components/lay
     | `listItems[].title` | `string` | required | Step title |
     | `listItems[].icon` | `string` | - | Step icon |
     | `listItems[].content` | `ReactNode` | required | Step content |
-    
+
     **StepLinkList:**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
@@ -1387,7 +1396,7 @@ import { StepList, StepLinkList, UpdateLinkList } from "/snippets/components/lay
     | `listItems[].icon` | `string` | - | Step icon |
     | `listItems[].content` | `string` | required | Link label text |
     | `listItems[].link` | `string` | required | Relative path for link |
-    
+
     **UpdateLinkList:**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
@@ -1396,7 +1405,7 @@ import { StepList, StepLinkList, UpdateLinkList } from "/snippets/components/lay
     | `listItems[].icon` | `string` | - | Optional icon |
     | `listItems[].content` | `ReactNode` | required | Update content |
     | `listItems[].link` | `string` | required | Relative path for link |
-    
+
     **Note:** BasicList and IconList are placeholder components that currently return empty fragments.
   </Tab>
 </Tabs>
@@ -1569,7 +1578,7 @@ import { PreviewCallout, ComingSoonCallout, ReviewCallout } from "/snippets/comp
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
     | `type` | `"page" \| "tab"` | `"page"` | Callout type |
-    
+
     **PreviewCallout & ReviewCallout:** No props
   </Tab>
 </Tabs>
@@ -1591,7 +1600,7 @@ Specialized callout components for Gateway documentation.
   </Tab>
   <Tab title="Code">
 ```jsx
-import { 
+import {
   GatewayOffChainWarning,
   GatewayOnChainWarning,
   GatewayOnChainTTestnetNote,
@@ -1615,7 +1624,7 @@ import {
     | Prop | Type | Description |
     |------|------|-------------|
     | No props | - | These components have no props |
-    
+
     **TestVideoDownload:**
     | Prop | Type | Description |
     |------|------|-------------|
@@ -1634,7 +1643,7 @@ Components for Gateway quickstart documentation with tabbed and stepped layouts.
 ```jsx
 import { QuickStartTabs, QuickStartSteps } from "/v2/gateways/quickstart/components/quickstartTabs.jsx";
 
-<QuickStartTabs 
+<QuickStartTabs
   offchainSteps={[
     { title: "Step 1", content: "Off-chain step content" }
   ]}
@@ -1654,7 +1663,7 @@ import { QuickStartTabs, QuickStartSteps } from "/v2/gateways/quickstart/compone
     |------|------|---------|-------------|
     | `offchainSteps` | `Array<Object>` | required | Steps for off-chain setup |
     | `onchainSteps` | `Array<Object>` | required | Steps for on-chain setup |
-    
+
     **QuickStartSteps:**
     | Prop | Type | Default | Description |
     |------|------|---------|-------------|
@@ -1723,7 +1732,7 @@ These components are provided globally by Mintlify and don't need to be imported
       <Card title="Card 2">Content 2</Card>
       <Card title="Card 3">Content 3</Card>
     </Columns>
-    
+
     <CardGroup cols={2}>
       <Card title="Group Card 1" href="#">Link card</Card>
       <Card title="Group Card 2" href="#">Link card</Card>
@@ -1753,7 +1762,7 @@ These components are provided globally by Mintlify and don't need to be imported
     <Card title="Basic Card" icon="rocket">
       Card with icon and content.
     </Card>
-    
+
     <Card title="Link Card" icon="arrow-right" href="#" arrow horizontal>
       Horizontal card with arrow indicator.
     </Card>
@@ -1764,10 +1773,10 @@ These components are provided globally by Mintlify and don't need to be imported
   Content here.
 </Card>
 
-<Card 
-  title="Link Card" 
-  icon="arrow-right" 
-  href="/resources/documentation-guide/component-library" 
+<Card
+  title="Link Card"
+  icon="arrow-right"
+  href="/resources/documentation-guide/component-library"
   arrow
   horizontal
   cta="Learn More"
@@ -1847,7 +1856,7 @@ These components are provided globally by Mintlify and don't need to be imported
     <Accordion title="Click to expand">
       This content is hidden by default.
     </Accordion>
-    
+
     <Expandable title="More details">
       Additional information here.
     </Expandable>

@@ -23,16 +23,16 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
 
 <Tab title="On-Chain Gateway" icon="link">
     This guide will set up a Livepeer Gateway on the [Arbitrum One Mainnet](https://arbitrum.io/).
-    
+
     <Accordion title="Looking for a 'testnet'?" icon="info-circle">
         While Livepeer contracts are deployed to Arbitrum Testnet, there is currently no reliable Orchestrator services on this chain.
-        
+
         <Note>
         If you would like to use the [Aribtum Testnet](#arbitrum-testnet) for testing, you will need to run your own Orchestrator node there to connect to.
         </Note>
 
-        There are conversations underway to enable a public "testnet" in the future. 
-        
+        There are conversations underway to enable a public "testnet" in the future.
+
         Follow & contribute to the discussion on the
         <Icon icon="arrow-up-right" color="#2d9a67" /> [Discord](https://discord.gg/livepeer) and
         <Icon icon="arrow-up-right" color="#2d9a67" /> [Forum](https://forum.livepeer.org)
@@ -83,7 +83,7 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
         </AccordionGroup>
 
         *See Configuration File Examples below:*
-        <AccordionGroup>          
+        <AccordionGroup>
           <Accordion title="Transcoding Options Example" icon="brackets-curly">
             <CustomCodeBlock
                 codeString={CONFIG_FILES.video.transcodingOptionsJson}
@@ -125,7 +125,7 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
           preNote="Verify Orchestrator discovery:"
         />
 
-        <Note> 
+        <Note>
           - On-chain discovery requires ETH in your gateway account for transactions
           - The gateway will show "No orchestrator specified; transcoding will not happen" if discovery fails
         </Note>
@@ -134,10 +134,10 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
       </Step>
       <Step title="Test Gateway">
         <Accordion title="Verify Configuration" icon="tools">
-            *Verify Ethereum connection  
-        docker logs dual-gateway | grep -i "ethereum\|eth\|blockchain"  
-                
-            Check account address  
+            *Verify Ethereum connection
+        docker logs dual-gateway | grep -i "ethereum\|eth\|blockchain"
+
+            Check account address
             curl http://localhost:5935/status | jq '.eth.accountAddr'
         </Accordion>
         <Accordion title="Basic Connectivity Tests" icon="wifi">
@@ -170,7 +170,7 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
         <Accordion title="Payment Tests" icon="hand-holding-dollar">
             *Payment Tests:*
 
-            For on-chain gateways, test the payment system: 
+            For on-chain gateways, test the payment system:
             {/* The payment system uses probabilistic micropayments with tickets. */}
             <CustomCodeBlock
                 {...BASH_CODE.onchain.checkCurrentRound}
@@ -198,16 +198,16 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
             </Accordion>
         <Accordion title="Video Ingest Tests" icon="camera-movie">
             *Video Tests:*
-                {/* 
+                {/*
                 Video Transcoding Tests
                 Test both RTMP and HTTP ingest methods:
-                # RTMP stream (requires FFmpeg)  
-                ffmpeg -re -i test-video.mp4 -c copy -f flv rtmp://localhost:1935/stream/test-key  
-                
-                # HTTP segment push  
-                curl -X PUT http://localhost:8935/live/test/0.ts --data-binary @test-segment.ts  
-                
-                # Verify HLS output  
+                # RTMP stream (requires FFmpeg)
+                ffmpeg -re -i test-video.mp4 -c copy -f flv rtmp://localhost:1935/stream/test-key
+
+                # HTTP segment push
+                curl -X PUT http://localhost:8935/live/test/0.ts --data-binary @test-segment.ts
+
+                # Verify HLS output
                 curl http://localhost:8935/hls/test-key/index.m3u8 */}
               <TestVideoDownload>
                 <DownloadButton
@@ -226,15 +226,15 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
                 {...BASH_CODE.testHTTPingest}
                 />
 
-                {/* 7. 
+                {/* 7.
                 Test Stream Verification
                 Use the built-in test pattern for verification:
 
-                # Generate test pattern  
-                ffmpeg -re -f lavfi -i testsrc=size=1280x720:rate=30,format=yuv420p \  
-                -c:v libx264 -b:v 1000k -f flv rtmp://localhost:1935/stream/test-key  
-                
-                # Monitor transcoding  
+                # Generate test pattern
+                ffmpeg -re -f lavfi -i testsrc=size=1280x720:rate=30,format=yuv420p \
+                -c:v libx264 -b:v 1000k -f flv rtmp://localhost:1935/stream/test-key
+
+                # Monitor transcoding
                 curl http://localhost:8935/hls/test-key/index.m3u8 */}
 
 
@@ -268,9 +268,9 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
                 - Payment errors: Verify ETH balance and gas settings
                 - AI failures: Ensure `-aiServiceRegistry` is set for on-chain AI
                 - Connection timeouts: Check firewall and network settings
-                
+
                 **Notes**
-                
+
                 - On-chain tests require ETH in the gateway account for transactions
                 - Test on a testnet first (e.g., arbitrum-one-goerli) before using mainnet
                 - Monitor gas costs during testing
@@ -280,7 +280,7 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
       </Step>
       <Step title="Monitor Gateway">
           The `-monitor=true` flag in the docker-compose.yml already has basic monitoring enabled which exposes metrics in Prometheus format at `http://localhost:8935/metrics`.
-          
+
           Metrics collected include:
           - Stream metrics (created, started, ended)
           - Transcoding metrics (success rate, latency)
@@ -307,7 +307,7 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
           *CLI Monitoring Commands*
 
           Check gateway status:
-          ```bash 
+          ```bash
           curl http://localhost:5935/status
           ```
 
@@ -325,17 +325,17 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
             livepeer_cli # livepeer_cli --host=localhost --http=5935
           ```
           ```bash Livepeer CLI Output
-          +-----------------------------------------------------------+  
-          | Welcome to livepeer-cli, your Livepeer command line tool  |  
-          +-----------------------------------------------------------+  
-            
-          What would you like to do? (default = stats)  
-          1. Get node status  
-          2. View protocol parameters  
-          3. List registered orchestrators  
-          4. Invoke "initialize round"  
-          5. Invoke "bond"    
-          ...  
+          +-----------------------------------------------------------+
+          | Welcome to livepeer-cli, your Livepeer command line tool  |
+          +-----------------------------------------------------------+
+
+          What would you like to do? (default = stats)
+          1. Get node status
+          2. View protocol parameters
+          3. List registered orchestrators
+          4. Invoke "initialize round"
+          5. Invoke "bond"
+          ...
           ```
           </Accordion>
           <Accordion title="AI-Specific Monitoring" icon="user-robot">
@@ -348,7 +348,7 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
           - Error events
 
           </Accordion>
-          <Accordion title="Enhanced Monitoring Options" icon="chart-line">    
+          <Accordion title="Enhanced Monitoring Options" icon="chart-line">
           *Enhanced Monitoring Options*
 
           Add to your Docker Compose for more monitoring:
@@ -387,7 +387,7 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
         <Expandable title="Connecting to Orchestrators">
           The Gateway needs to connect to at least one orchestrator for services.
 
-          If you're running your own Orchestrator, you can use this by setting the `-orchAddr` flag. 
+          If you're running your own Orchestrator, you can use this by setting the `-orchAddr` flag.
           For on-chain mode, orchestrator discovery happens automatically but you need to ensure your gateway has ETH for transactions.
         </Expandable>
 
@@ -398,16 +398,16 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
 
         <Expandable title="Automatic Orchestrator Discovery System">
           When you start an on-chain gateway (`-network arbitrum-one-mainnet`), it automatically creates a `DBOrchestratorPoolCache` that polls the blockchain for registered Orchestrators.
-          
+
           Unlike off-chain mode where you specify `-orchAddr`, on-chain gateways:
 
           - Discover all public orchestrators automatically
           - Update the list periodically (every 25 minutes)
           - Handle failures by trying alternative orchestrators
-          
+
 
           *Orchestrator Discovery Initialisation*
-          The discovery process queries the BondingManager smart contract to get all registered orchestrators with different validation rules 
+          The discovery process queries the BondingManager smart contract to get all registered orchestrators with different validation rules
           for different node types - transcoders require explicit orchestrator addresses while gateways can operate with or without them.
 
 
@@ -426,7 +426,7 @@ title: 'Docker On-Chain Gateway Quickstart TAB VIEW'
           - Filters by price limits (-maxPricePerUnit for video, -maxPricePerCapability for AI)
           - Selects based on performance and availability
 
-                  {/* 2. Blockchain Orchestrator Pool Query   
+                  {/* 2. Blockchain Orchestrator Pool Query
 
                    3. Error Handling and Validation */}
 
