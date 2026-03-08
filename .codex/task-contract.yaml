@@ -1,34 +1,44 @@
-task_id: 788
-branch: codex/788-e-05-silo-personal-utility-scripts
+task_id: 789
+branch: codex/789-phase2b-component-migration
 base_branch: docs-v2
 scope_in:
   - .codex/task-contract.yaml
-  - .lpdignore
-  - tools/scripts/download-linkedin-video.sh
-  - tools/scripts/download-linkedin-with-cookies.sh
-  - tools/scripts/transcribe-audio-to-mdx.js
-  - tools/scripts/execute-phase1-worktree-plan.js
-  - tools/utility/personal/
+  - style.css
+  - snippets/components/
+  - snippets/data/
+  - snippets/snippetsWiki/componentLibrary/
+  - tools/scripts/validators/components/check-naming-conventions.js
+  - tools/scripts/generate-docs-guide-components-index.js
   - tools/script-index.md
   - docs-guide/indexes/scripts-index.mdx
-  - docs-guide/lpd.mdx
+  - docs-guide/indexes/components-index.mdx
   - docs-guide/scripts-index.md
-  - tests/PR-CI-TESTS-AND-SCRIPT-RUN-MATRIX.md
-  - v2/index.mdx
-  - v2/cn/index.mdx
-  - v2/es/index.mdx
-  - v2/fr/index.mdx
-  - v2/internal/assets/transcripts/a16z/README.md
+  - docs-guide/
   - docs-index.json
-  - .githooks/script-index.md
-  - .github/script-index.md
-  - tests/script-index.md
-  - tasks/scripts/script-index.md
+  - v2/
+  - tasks/reports/component-governance-audit.md
+  - tasks/reports/migration-impact-report.md
+  - tasks/reports/colour-remediation-report.md
+  - tasks/reports/style-css-token-audit.md
+  - tasks/reports/defensive-rendering-remediation-report.md
+  - tasks/reports/archived-components-review.md
 scope_out: []
 allowed_generated:
   - .codex/pr-body.generated.md
+  - docs-guide/indexes/components-index.mdx
+  - v2/resources/documentation-guide/component-library/overview.mdx
+  - docs-index.json
+  - snippets/data/
+  - snippets/snippetsWiki/componentLibrary/index.mdx
 acceptance_checks:
+  - bash lpd hooks status
+  - node tests/run-all.js --skip-browser
+  - node tests/integration/v2-link-audit.js --full --write-links --strict --report /tmp/livepeer-phase2b-link-audit.md --report-json /tmp/livepeer-phase2b-link-audit.json
+  - MINT_BASE_URL=http://localhost:3000 node tools/scripts/test-v2-pages.js
   - node tests/run-pr-checks.js --base-ref docs-v2
+  - node tools/scripts/validate-codex-task-contract.js --branch codex/789-phase2b-component-migration --require-pr-body
 risk_flags:
-  - workflow-governance
+  - component-migration
+  - generated-artifacts
+  - browser-regression
 follow_up_issues: []
