@@ -18,10 +18,10 @@ import { YouTubeVideo, Video, TitledVideo, ShowcaseVideo, CardVideo, LinkedInEmb
 import { YouTubeVideoData } from '/snippets/components/data/videoData.jsx';
 import { Image, LinkImage } from '/snippets/components/primitives/image.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
-import { MarkdownEmbed, TwitterTimeline } from '/snippets/components/display/embed.jsx'
+import { MarkdownEmbed, TwitterTimeline } from '/snippets/components/data/embed.jsx'
 import { Quote, FrameQuote } from '/snippets/components/content/quote.jsx'
 import { CardCarousel } from '/snippets/components/layout/cardCarousel.jsx'
-import { ShowcaseCards } from '/snippets/components/display/showcaseCards.jsx'
+import { ShowcaseCards } from '/snippets/components/data/showcaseCards.jsx'
 import { SocialLinks } from '/snippets/components/primitives/socialLinks.jsx'
 // frameMode components commented out - require a legacy theme dependency (components are immutable)
 // import { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider } from '/snippets/components/display/frameMode.jsx'
@@ -424,7 +424,7 @@ Recupera y renderiza contenido de markdown desde una URL. Recupera dinámicament
 
 **Importar:**
 ```jsx
-import { MarkdownEmbed } from "/snippets/components/display/embed.jsx";
+import { MarkdownEmbed } from "/snippets/components/data/embed.jsx";
 ```
 
 **Props:**
@@ -451,7 +451,7 @@ Incorpora una línea de tiempo de Twitter/X mediante un widget de iframe.
 
 **Importar:**
 ```jsx
-import { TwitterTimeline } from "/snippets/components/display/embed.jsx";
+import { TwitterTimeline } from "/snippets/components/data/embed.jsx";
 ```
 
 **Props:**Ninguno (usa una URL de widget predeterminada)
@@ -594,7 +594,7 @@ Componente de tarjetas de presentación interactivas con búsqueda, filtrado y p
 
 **Importar:**
 ```jsx
-import { ShowcaseCards } from "/snippets/components/display/showcaseCards.jsx";
+import { ShowcaseCards } from "/snippets/components/data/showcaseCards.jsx";
 ```
 
 **Props:**

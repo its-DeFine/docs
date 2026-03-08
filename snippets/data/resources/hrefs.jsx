@@ -363,8 +363,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/embed.jsx",
-      "resolvedPath": "snippets/components/display/embed.jsx",
+      "rawPath": "/snippets/components/data/embed.jsx",
+      "resolvedPath": "snippets/components/data/embed.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -408,8 +408,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/showcaseCards.jsx",
-      "resolvedPath": "snippets/components/display/showcaseCards.jsx",
+      "rawPath": "/snippets/components/data/showcaseCards.jsx",
+      "resolvedPath": "snippets/components/data/showcaseCards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -453,8 +453,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/content/data.jsx",
-      "resolvedPath": "snippets/components/content/data.jsx",
+      "rawPath": "/snippets/components/data/data.jsx",
+      "resolvedPath": "snippets/components/data/data.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -525,8 +525,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/integrations/coingecko.jsx",
-      "resolvedPath": "snippets/components/integrations/coingecko.jsx",
+      "rawPath": "/snippets/components/data/coingecko.jsx",
+      "resolvedPath": "snippets/components/data/coingecko.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -626,8 +626,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/content/data.jsx",
-      "resolvedPath": "snippets/components/content/data.jsx",
+      "rawPath": "/snippets/components/data/data.jsx",
+      "resolvedPath": "snippets/components/data/data.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -772,8 +772,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/embed.jsx",
-      "resolvedPath": "snippets/components/display/embed.jsx",
+      "rawPath": "/snippets/components/data/embed.jsx",
+      "resolvedPath": "snippets/components/data/embed.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -799,8 +799,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/showcaseCards.jsx",
-      "resolvedPath": "snippets/components/display/showcaseCards.jsx",
+      "rawPath": "/snippets/components/data/showcaseCards.jsx",
+      "resolvedPath": "snippets/components/data/showcaseCards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -884,8 +884,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/integrations/coingecko.jsx",
-      "resolvedPath": "snippets/components/integrations/coingecko.jsx",
+      "rawPath": "/snippets/components/data/coingecko.jsx",
+      "resolvedPath": "snippets/components/data/coingecko.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -2890,8 +2890,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/showcaseCards.jsx",
-      "resolvedPath": "snippets/components/display/showcaseCards.jsx",
+      "rawPath": "/snippets/components/data/showcaseCards.jsx",
+      "resolvedPath": "snippets/components/data/showcaseCards.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

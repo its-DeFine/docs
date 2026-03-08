@@ -1020,164 +1020,6 @@ import { CustomCodeBlock } from "/snippets/components/content/code.jsx";
       </CodeGroup>
     </ResponseField>
   </Accordion>
-  <Accordion title="data.jsx" icon="file-code">
-    <ResponseField name="BlogCard" type="component">
-      **Props**: `title`, `content`, `href`, `author`, `datePosted`, `excerpt`, `icon`, `authorIcon`, `dateIcon`, `cta`, `img` <br/>
-      **Defaults**: `author="Livepeer Team"`, `datePosted=null`, `excerpt=null`, `icon="book-open"`, `authorIcon="user-pen"`, `dateIcon="calendar"`, `cta="Read More"`, `img=null`
-
-      <CodeGroup>
-```jsx lines Example
-import { BlogCard } from "/snippets/components/content/data.jsx";
-
-<BlogCard
-  title={"<value>"}
-  content={"<value>"}
-  href={"<value>"}
-  author={"Livepeer Team"}
-  datePosted={null}
-  excerpt={null}
-  icon={"book-open"}
-  authorIcon={"user-pen"}
-  dateIcon={"calendar"}
-  cta={"Read More"}
-  img={null}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="CardBlogDataLayout" type="component">
-      **Props**: `items`, `limit` <br/>
-      **Defaults**: `items=[]`
-
-      <CodeGroup>
-```jsx lines Example
-import { CardBlogDataLayout } from "/snippets/components/content/data.jsx";
-
-<CardBlogDataLayout
-  items={[]}
-  limit={0}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="CardColumnsPostLayout" type="component">
-      **Props**: `cols`, `items`, `limit` <br/>
-      **Defaults**: `cols=2`, `items=[]`
-
-      <CodeGroup>
-```jsx lines Example
-import { CardColumnsPostLayout } from "/snippets/components/content/data.jsx";
-
-<CardColumnsPostLayout
-  cols={2}
-  items={[]}
-  limit={0}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="CardInCardLayout" type="component">
-      **Props**: `items`, `limit` <br/>
-      **Defaults**: `items=[]`
-
-      <CodeGroup>
-```jsx lines Example
-import { CardInCardLayout } from "/snippets/components/content/data.jsx";
-
-<CardInCardLayout
-  items={[]}
-  limit={0}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="ColumnsBlogCardLayout" type="component">
-      **Props**: `items`, `cols`, `limit` <br/>
-      **Defaults**: `items=[]`, `cols=2`
-
-      <CodeGroup>
-```jsx lines Example
-import { ColumnsBlogCardLayout } from "/snippets/components/content/data.jsx";
-
-<ColumnsBlogCardLayout
-  items={[]}
-  cols={2}
-  limit={0}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="DiscordAnnouncements" type="component">
-      **Props**: `items`, `limit` <br/>
-      **Defaults**: `items=[]`
-
-      <CodeGroup>
-```jsx lines Example
-import { DiscordAnnouncements } from "/snippets/components/content/data.jsx";
-
-<DiscordAnnouncements
-  items={[]}
-  limit={0}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="ForumLatestLayout" type="component">
-      **Props**: `items`, `limit` <br/>
-      **Defaults**: `items=[]`
-
-      <CodeGroup>
-```jsx lines Example
-import { ForumLatestLayout } from "/snippets/components/content/data.jsx";
-
-<ForumLatestLayout
-  items={[]}
-  limit={0}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="LumaEvents" type="component">
-      **Props**: `data`, `limit`, `type` <br/>
-      **Defaults**: `type="upcoming"`
-
-      <CodeGroup>
-```jsx lines Example
-import { LumaEvents } from "/snippets/components/content/data.jsx";
-
-<LumaEvents
-  data={{}}
-  limit={0}
-  type={"upcoming"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="PostCard" type="component">
-      **Props**: `title`, `content`, `href`, `author`, `datePosted`, `replyCount`, `icon`, `authorIcon`, `dateIcon`, `cta`, `img` <br/>
-      **Defaults**: `author="Unknown"`, `datePosted=null`, `replyCount=null`, `icon="book-open"`, `authorIcon="user-pen"`, `dateIcon="calendar"`, `cta="Read More"`, `img=null`
-
-      <CodeGroup>
-```jsx lines Example
-import { PostCard } from "/snippets/components/content/data.jsx";
-
-<PostCard
-  title={"<value>"}
-  content={"<value>"}
-  href={"<value>"}
-  author={"Unknown"}
-  datePosted={null}
-  replyCount={null}
-  icon={"book-open"}
-  authorIcon={"user-pen"}
-  dateIcon={"calendar"}
-  cta={"Read More"}
-  img={null}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
   <Accordion title="externalContent.jsx" icon="file-code">
     <ResponseField name="ExternalContent" type="component">
       **Props**: `repoName`, `githubUrl`, `maxHeight`, `icon`, `children` <br/>
@@ -1511,6 +1353,226 @@ import { ScrollableDiagram } from "/snippets/components/content/zoomableDiagram.
 Los componentes de datos renderizan conjuntos de datos estructurados, contenido obtenido y superficies de documentación impulsadas por API.
 
 <AccordionGroup>
+  <Accordion title="coingecko.jsx" icon="file-code">
+    <ResponseField name="CoinGeckoExchanges" type="component">
+      **Props**: `coinId` <br/>
+      **Defaults**: `coinId="arbitrum"`
+
+      <CodeGroup>
+```jsx lines Example
+import { CoinGeckoExchanges } from "/snippets/components/data/coingecko.jsx";
+
+<CoinGeckoExchanges
+  coinId={"arbitrum"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
+  <Accordion title="data.jsx" icon="file-code">
+    <ResponseField name="BlogCard" type="component">
+      **Props**: `title`, `content`, `href`, `author`, `datePosted`, `excerpt`, `icon`, `authorIcon`, `dateIcon`, `cta`, `img` <br/>
+      **Defaults**: `author="Livepeer Team"`, `datePosted=null`, `excerpt=null`, `icon="book-open"`, `authorIcon="user-pen"`, `dateIcon="calendar"`, `cta="Read More"`, `img=null`
+
+      <CodeGroup>
+```jsx lines Example
+import { BlogCard } from "/snippets/components/data/data.jsx";
+
+<BlogCard
+  title={"<value>"}
+  content={"<value>"}
+  href={"<value>"}
+  author={"Livepeer Team"}
+  datePosted={null}
+  excerpt={null}
+  icon={"book-open"}
+  authorIcon={"user-pen"}
+  dateIcon={"calendar"}
+  cta={"Read More"}
+  img={null}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="CardBlogDataLayout" type="component">
+      **Props**: `items`, `limit` <br/>
+      **Defaults**: `items=[]`
+
+      <CodeGroup>
+```jsx lines Example
+import { CardBlogDataLayout } from "/snippets/components/data/data.jsx";
+
+<CardBlogDataLayout
+  items={[]}
+  limit={0}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="CardColumnsPostLayout" type="component">
+      **Props**: `cols`, `items`, `limit` <br/>
+      **Defaults**: `cols=2`, `items=[]`
+
+      <CodeGroup>
+```jsx lines Example
+import { CardColumnsPostLayout } from "/snippets/components/data/data.jsx";
+
+<CardColumnsPostLayout
+  cols={2}
+  items={[]}
+  limit={0}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="CardInCardLayout" type="component">
+      **Props**: `items`, `limit` <br/>
+      **Defaults**: `items=[]`
+
+      <CodeGroup>
+```jsx lines Example
+import { CardInCardLayout } from "/snippets/components/data/data.jsx";
+
+<CardInCardLayout
+  items={[]}
+  limit={0}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="ColumnsBlogCardLayout" type="component">
+      **Props**: `items`, `cols`, `limit` <br/>
+      **Defaults**: `items=[]`, `cols=2`
+
+      <CodeGroup>
+```jsx lines Example
+import { ColumnsBlogCardLayout } from "/snippets/components/data/data.jsx";
+
+<ColumnsBlogCardLayout
+  items={[]}
+  cols={2}
+  limit={0}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="DiscordAnnouncements" type="component">
+      **Props**: `items`, `limit` <br/>
+      **Defaults**: `items=[]`
+
+      <CodeGroup>
+```jsx lines Example
+import { DiscordAnnouncements } from "/snippets/components/data/data.jsx";
+
+<DiscordAnnouncements
+  items={[]}
+  limit={0}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="ForumLatestLayout" type="component">
+      **Props**: `items`, `limit` <br/>
+      **Defaults**: `items=[]`
+
+      <CodeGroup>
+```jsx lines Example
+import { ForumLatestLayout } from "/snippets/components/data/data.jsx";
+
+<ForumLatestLayout
+  items={[]}
+  limit={0}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="LumaEvents" type="component">
+      **Props**: `data`, `limit`, `type` <br/>
+      **Defaults**: `type="upcoming"`
+
+      <CodeGroup>
+```jsx lines Example
+import { LumaEvents } from "/snippets/components/data/data.jsx";
+
+<LumaEvents
+  data={{}}
+  limit={0}
+  type={"upcoming"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="PostCard" type="component">
+      **Props**: `title`, `content`, `href`, `author`, `datePosted`, `replyCount`, `icon`, `authorIcon`, `dateIcon`, `cta`, `img` <br/>
+      **Defaults**: `author="Unknown"`, `datePosted=null`, `replyCount=null`, `icon="book-open"`, `authorIcon="user-pen"`, `dateIcon="calendar"`, `cta="Read More"`, `img=null`
+
+      <CodeGroup>
+```jsx lines Example
+import { PostCard } from "/snippets/components/data/data.jsx";
+
+<PostCard
+  title={"<value>"}
+  content={"<value>"}
+  href={"<value>"}
+  author={"Unknown"}
+  datePosted={null}
+  replyCount={null}
+  icon={"book-open"}
+  authorIcon={"user-pen"}
+  dateIcon={"calendar"}
+  cta={"Read More"}
+  img={null}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
+  <Accordion title="embed.jsx" icon="file-code">
+    <ResponseField name="MarkdownEmbed" type="component">
+      **Props**: `url` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { MarkdownEmbed } from "/snippets/components/data/embed.jsx";
+
+<MarkdownEmbed
+  url={"<value>"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="TwitterTimeline" type="component">
+      **Props**: No explicit props detected from signature. <br/>
+      **Defaults**: No explicit defaults detected.
+
+      <CodeGroup>
+```jsx lines Example
+import { TwitterTimeline } from "/snippets/components/data/embed.jsx";
+
+<TwitterTimeline />
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
+  <Accordion title="showcaseCards.jsx" icon="file-code">
+    <ResponseField name="ShowcaseCards" type="component">
+      **Props**: `items`, `limit`, `pageSize` <br/>
+      **Defaults**: `items=[]`, `limit=null`, `pageSize=10`
+
+      <CodeGroup>
+```jsx lines Example
+import { ShowcaseCards } from "/snippets/components/data/showcaseCards.jsx";
+
+<ShowcaseCards
+  items={[]}
+  limit={null}
+  pageSize={10}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
   <Accordion title="videoData.jsx" icon="file-code">
     <ResponseField name="YouTubeVideoData" type="component">
       **Props**: `items`, `limit`, `cols` <br/>
@@ -1582,34 +1644,6 @@ import { CardContentContainer } from "/snippets/components/display/containers.md
 import { TabsContainer } from "/snippets/components/display/containers.mdx";
 
 <TabsContainer />
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
-  <Accordion title="embed.jsx" icon="file-code">
-    <ResponseField name="MarkdownEmbed" type="component">
-      **Props**: `url` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { MarkdownEmbed } from "/snippets/components/display/embed.jsx";
-
-<MarkdownEmbed
-  url={"<value>"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="TwitterTimeline" type="component">
-      **Props**: No explicit props detected from signature. <br/>
-      **Defaults**: No explicit defaults detected.
-
-      <CodeGroup>
-```jsx lines Example
-import { TwitterTimeline } from "/snippets/components/display/embed.jsx";
-
-<TwitterTimeline />
 ```
       </CodeGroup>
     </ResponseField>
@@ -1796,46 +1830,12 @@ import { PageHeader } from "/snippets/components/display/frameMode.jsx";
       </CodeGroup>
     </ResponseField>
   </Accordion>
-  <Accordion title="showcaseCards.jsx" icon="file-code">
-    <ResponseField name="ShowcaseCards" type="component">
-      **Props**: `items`, `limit`, `pageSize` <br/>
-      **Defaults**: `items=[]`, `limit=null`, `pageSize=10`
-
-      <CodeGroup>
-```jsx lines Example
-import { ShowcaseCards } from "/snippets/components/display/showcaseCards.jsx";
-
-<ShowcaseCards
-  items={[]}
-  limit={null}
-  pageSize={10}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
 </AccordionGroup>
 
 ## Integraciones
 Los componentes de integración conectan las páginas de documentación con API externas y conjuntos de datos de terceros.
 
 <AccordionGroup>
-  <Accordion title="coingecko.jsx" icon="file-code">
-    <ResponseField name="CoinGeckoExchanges" type="component">
-      **Props**: `coinId` <br/>
-      **Defaults**: `coinId="arbitrum"`
-
-      <CodeGroup>
-```jsx lines Example
-import { CoinGeckoExchanges } from "/snippets/components/integrations/coingecko.jsx";
-
-<CoinGeckoExchanges
-  coinId={"arbitrum"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
 </AccordionGroup>
 
 ## Dominio
@@ -2020,15 +2020,6 @@ Busca por categoría, ruta de página o nombre de componente.
     { Category: "Contenido", Page: "content/code.jsx", Component: "CodeSection", Props: "fields={}" },
     { Category: "Contenido", Page: "content/code.jsx", Component: "ComplexCodeBlock", Props: "filename, icon, language, highlight, codeString=\"\", placeholderValue=\"\", wrap=true, lines=true, preNote=null, postNote=null" },
     { Category: "Contenido", Page: "content/code.jsx", Component: "CustomCodeBlock", Props: "filename, icon, language, highlight, codeString=\"\", placeholderValue=\"\", wrap=true, lines=true, preNote=\"\", postNote=\"\", output=\"\"" },
-    { Category: "Contenido", Page: "content/data.jsx", Component: "BlogCard", Props: "title, content, href, author=\"Livepeer Team\", datePosted=null, excerpt=null, icon=\"book-open\", authorIcon=\"user-pen\", dateIcon=\"calendar\", cta=\"Read More\", img=null" },
-    { Category: "Contenido", Page: "content/data.jsx", Component: "CardBlogDataLayout", Props: "items=[], limit" },
-    { Category: "Contenido", Page: "content/data.jsx", Component: "CardColumnsPostLayout", Props: "cols=2, items=[], limit" },
-    { Category: "Contenido", Page: "content/data.jsx", Component: "CardInCardLayout", Props: "items=[], limit" },
-    { Category: "Contenido", Page: "content/data.jsx", Component: "ColumnsBlogCardLayout", Props: "items=[], cols=2, limit" },
-    { Category: "Contenido", Page: "content/data.jsx", Component: "DiscordAnnouncements", Props: "items=[], limit" },
-    { Category: "Contenido", Page: "content/data.jsx", Component: "ForumLatestLayout", Props: "items=[], limit" },
-    { Category: "Contenido", Page: "content/data.jsx", Component: "LumaEvents", Props: "data, limit, type=\"upcoming\"" },
-    { Category: "Contenido", Page: "content/data.jsx", Component: "PostCard", Props: "title, content, href, author=\"Unknown\", datePosted=null, replyCount=null, icon=\"book-open\", authorIcon=\"user-pen\", dateIcon=\"calendar\", cta=\"Read More\", img=null" },
     { Category: "Contenido", Page: "content/externalContent.jsx", Component: "ExternalContent", Props: "repoName, githubUrl, maxHeight=\"1000px\", icon=\"github\", children" },
     { Category: "Contenido", Page: "content/math.jsx", Component: "MathBlock", Props: "latex, className=\"\", ariaLabel" },
     { Category: "Contenido", Page: "content/math.jsx", Component: "MathInline", Props: "latex, className=\"\", ariaLabel" },
@@ -2048,6 +2039,19 @@ Busca por categoría, ruta de página o nombre de componente.
     { Category: "Contenido", Page: "content/video.jsx", Component: "YouTubeVideo", Props: "embedUrl, title=\"\", author=\"\", hint=\"\", caption" },
     { Category: "Contenido", Page: "content/video.jsx", Component: "YouTubeVideoDownload", Props: "embedUrl, title, hint, caption=\"\"" },
     { Category: "Contenido", Page: "content/zoomableDiagram.jsx", Component: "ScrollableDiagram", Props: "children, title=\"\", maxHeight=\"500px\", minWidth=\"100%\", showControls=false" },
+    { Category: "Datos", Page: "data/coingecko.jsx", Component: "CoinGeckoExchanges", Props: "coinId=\"arbitrum\"" },
+    { Category: "Datos", Page: "data/data.jsx", Component: "BlogCard", Props: "title, content, href, author=\"Livepeer Team\", datePosted=null, excerpt=null, icon=\"book-open\", authorIcon=\"user-pen\", dateIcon=\"calendar\", cta=\"Read More\", img=null" },
+    { Category: "Datos", Page: "data/data.jsx", Component: "CardBlogDataLayout", Props: "items=[], limit" },
+    { Category: "Datos", Page: "data/data.jsx", Component: "CardColumnsPostLayout", Props: "cols=2, items=[], limit" },
+    { Category: "Datos", Page: "data/data.jsx", Component: "CardInCardLayout", Props: "items=[], limit" },
+    { Category: "Datos", Page: "data/data.jsx", Component: "ColumnsBlogCardLayout", Props: "items=[], cols=2, limit" },
+    { Category: "Datos", Page: "data/data.jsx", Component: "DiscordAnnouncements", Props: "items=[], limit" },
+    { Category: "Datos", Page: "data/data.jsx", Component: "ForumLatestLayout", Props: "items=[], limit" },
+    { Category: "Datos", Page: "data/data.jsx", Component: "LumaEvents", Props: "data, limit, type=\"upcoming\"" },
+    { Category: "Datos", Page: "data/data.jsx", Component: "PostCard", Props: "title, content, href, author=\"Unknown\", datePosted=null, replyCount=null, icon=\"book-open\", authorIcon=\"user-pen\", dateIcon=\"calendar\", cta=\"Read More\", img=null" },
+    { Category: "Datos", Page: "data/embed.jsx", Component: "MarkdownEmbed", Props: "url" },
+    { Category: "Datos", Page: "data/embed.jsx", Component: "TwitterTimeline", Props: "none" },
+    { Category: "Datos", Page: "data/showcaseCards.jsx", Component: "ShowcaseCards", Props: "items=[], limit=null, pageSize=10" },
     { Category: "Datos", Page: "data/videoData.jsx", Component: "YouTubeVideoData", Props: "items=[], limit, cols=2" },
     { Category: "Diseño", Page: "layout/api-base-urls-table.mdx", Component: "ApiBaseUrlsTable", Props: "urls" },
     { Category: "Diseño", Page: "layout/cardCarousel.jsx", Component: "CardCarousel", Props: "children, visibleCount=3, gap=\"1.5rem\", showDots=true, style" },
@@ -2087,7 +2091,6 @@ Busca por categoría, ruta de página o nombre de componente.
     { Category: "Dominio", Page: "domain/SHARED/Portals.jsx", Component: "PortalHeroContent", Props: "zIndex=true, subtitle=\"Build - Explore - Create\", subtitleIcon=\"/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg\", description, refCardLink, overview, divider=true, callout=null, titleColor, subtitleColor, children" },
     { Category: "Dominio", Page: "domain/SHARED/Portals.jsx", Component: "PortalSectionHeader", Props: "children, title, icon" },
     { Category: "Dominio", Page: "domain/SHARED/Portals.jsx", Component: "RefCardContainer", Props: "children" },
-    { Category: "Integraciones", Page: "integrations/coingecko.jsx", Component: "CoinGeckoExchanges", Props: "coinId=\"arbitrum\"" },
     { Category: "Primitivas", Page: "primitives/a11y.jsx", Component: "FocusableScrollRegions", Props: "selectors" },
     { Category: "Primitivas", Page: "primitives/buttons.jsx", Component: "DownloadButton", Props: "label=\"Download\", icon=\"download\", downloadLink, rightIcon=\"\", border=false" },
     { Category: "Primitivas", Page: "primitives/customCardTitle.jsx", Component: "CustomCardTitle", Props: "icon, title, style" },
@@ -2118,8 +2121,6 @@ Busca por categoría, ruta de página o nombre de componente.
     { Category: "Visualización", Page: "display/containers.mdx", Component: "CalloutContainer", Props: "children, width=\"fit-content\", align=\"center\"" },
     { Category: "Visualización", Page: "display/containers.mdx", Component: "CardContentContainer", Props: "children, align, justify, gap=\"1rem\"" },
     { Category: "Visualización", Page: "display/containers.mdx", Component: "TabsContainer", Props: "children" },
-    { Category: "Visualización", Page: "display/embed.jsx", Component: "MarkdownEmbed", Props: "url" },
-    { Category: "Visualización", Page: "display/embed.jsx", Component: "TwitterTimeline", Props: "none" },
     { Category: "Visualización", Page: "display/embed.mdx", Component: "PdfEmbed", Props: "title, src, height=\"700px\", width=\"100%\"" },
     { Category: "Visualización", Page: "display/frameMode.jsx", Component: "Divider", Props: "color, margin=\"1.5rem 0\", opacity=0.2" },
     { Category: "Visualización", Page: "display/frameMode.jsx", Component: "H1", Props: "children, icon, iconSize=32, iconColor, align=\"left\", gap=\"0.75rem\"" },
@@ -2130,7 +2131,6 @@ Busca por categoría, ruta de página o nombre de componente.
     { Category: "Visualización", Page: "display/frameMode.jsx", Component: "H6", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
     { Category: "Visualización", Page: "display/frameMode.jsx", Component: "P", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
     { Category: "Visualización", Page: "display/frameMode.jsx", Component: "PageHeader", Props: "title, subtitle, description, children, titleColor, subtitleColor, descriptionColor" },
-    { Category: "Visualización", Page: "display/showcaseCards.jsx", Component: "ShowcaseCards", Props: "items=[], limit=null, pageSize=10" },
   ]}
   searchPlaceholder="Search category, page, component, or props..."
   monospaceColumns={[1, 2, 3]}

@@ -16,18 +16,18 @@ import { YouTubeVideo, Video, CardVideo, LinkedInEmbed, TitledVideo, ShowcaseVid
 import { YouTubeVideoData } from '/snippets/components/data/videoData.jsx';
 import { Image, LinkImage } from '/snippets/components/primitives/image.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
-import { MarkdownEmbed, TwitterTimeline } from '/snippets/components/display/embed.jsx'
+import { MarkdownEmbed, TwitterTimeline } from '/snippets/components/data/embed.jsx'
 import { PageHeader, H1, H2, H3, H4, H5, H6, P, Divider } from '/snippets/components/display/frameMode.jsx'
 import { Quote, FrameQuote } from '/snippets/components/content/quote.jsx'
 import { SocialLinks } from '/snippets/components/primitives/socialLinks.jsx'
 import { CardCarousel } from '/snippets/components/layout/cardCarousel.jsx'
-import { ShowcaseCards } from '/snippets/components/display/showcaseCards.jsx'
+import { ShowcaseCards } from '/snippets/components/data/showcaseCards.jsx'
 
 import { CustomCodeBlock, CodeComponent, ComplexCodeBlock, CodeSection } from '/snippets/components/content/code.jsx'
 import { ExternalContent } from '/snippets/components/content/externalContent.jsx'
 import { LatestVersion } from '/snippets/components/content/release.jsx'
 import { ValueResponseField, CustomResponseField, ResponseFieldExpandable, ResponseFieldAccordion } from '/snippets/components/content/responseField.jsx'
-import { PostCard, CardColumnsPostLayout, BlogCard, CardBlogDataLayout } from '/snippets/components/content/data.jsx'
+import { PostCard, CardColumnsPostLayout, BlogCard, CardBlogDataLayout } from '/snippets/components/data/data.jsx'
 // ResponseFieldGroup commented out - component bug: Expandable is not defined
 
 import { ScrollBox } from '/snippets/components/layout/cards.jsx'
@@ -38,7 +38,7 @@ import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { DynamicTable } from '/snippets/components/layout/table.jsx'
 import { AccordionLayout } from '/snippets/components/layout/text.jsx'
 
-import { CoinGeckoExchanges } from '/snippets/components/integrations/coingecko.jsx'
+import { CoinGeckoExchanges } from '/snippets/components/data/coingecko.jsx'
 import { ComingSoonCallout, PreviewCallout, ReviewCallout } from '/snippets/components/primitives/previewCallouts.jsx'
 import { GatewayOffChainWarning, GatewayOnChainWarning, GatewayOnChainTTestnetNote, OrchAddrNote, TestVideoDownload, FfmpegWarning } from '/v2/gateways/quickstart/components/callouts.jsx'
 import { QuickStartTabs, QuickStartSteps } from '/v2/gateways/quickstart/components/quickstartTabs.jsx'
@@ -865,7 +865,7 @@ A sophisticated card showcase component with search, filtering, and pagination f
 <Tabs>
   <Tab title="Code">
 ```jsx
-import { ShowcaseCards } from "/snippets/components/display/showcaseCards.jsx";
+import { ShowcaseCards } from "/snippets/components/data/showcaseCards.jsx";
 
 const showcaseItems = [
   {
@@ -919,7 +919,7 @@ Embeds a Twitter/X timeline feed using an iframe.
   </Tab>
   <Tab title="Code">
 ```jsx
-import { TwitterTimeline } from "/snippets/components/display/embed.jsx";
+import { TwitterTimeline } from "/snippets/components/data/embed.jsx";
 
 <TwitterTimeline />
 ```
@@ -1526,7 +1526,7 @@ Fetches and displays exchanges supporting a coin from CoinGecko API.
   </Tab>
   <Tab title="Code">
 ```jsx
-import { CoinGeckoExchanges } from "/snippets/components/integrations/coingecko.jsx";
+import { CoinGeckoExchanges } from "/snippets/components/data/coingecko.jsx";
 
 <CoinGeckoExchanges coinId="livepeer" />
 <CoinGeckoExchanges coinId="ethereum" />

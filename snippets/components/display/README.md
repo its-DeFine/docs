@@ -23,7 +23,7 @@ import { YouTubeVideo } from "/snippets/components/content/video.jsx";
 import { ScrollableDiagram } from "/snippets/components/content/zoomableDiagram.jsx";
 import { Quote, FrameQuote } from "/snippets/components/content/quote.jsx";
 import { H1, H2, PageHeader } from "/snippets/components/display/frameMode.jsx";
-import { ShowcaseCards } from "/snippets/components/display/showcaseCards.jsx";
+import { ShowcaseCards } from "/snippets/components/data/showcaseCards.jsx";
 import { SocialLinks } from "/snippets/components/primitives/socialLinks.jsx";
 import { CardCarousel } from "/snippets/components/layout/cardCarousel.jsx";
 ```

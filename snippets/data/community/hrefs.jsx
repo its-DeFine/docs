@@ -983,8 +983,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/content/data.jsx",
-      "resolvedPath": "snippets/components/content/data.jsx",
+      "rawPath": "/snippets/components/data/data.jsx",
+      "resolvedPath": "snippets/components/data/data.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1140,8 +1140,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/content/data.jsx",
-      "resolvedPath": "snippets/components/content/data.jsx",
+      "rawPath": "/snippets/components/data/data.jsx",
+      "resolvedPath": "snippets/components/data/data.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1149,8 +1149,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/display/embed.jsx",
-      "resolvedPath": "snippets/components/display/embed.jsx",
+      "rawPath": "/snippets/components/data/embed.jsx",
+      "resolvedPath": "snippets/components/data/embed.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1250,8 +1250,8 @@ export const LINK_MAP = {
     {
       "sourceType": "import-path",
       "linkType": "import-path",
-      "rawPath": "/snippets/components/content/data.jsx",
-      "resolvedPath": "snippets/components/content/data.jsx",
+      "rawPath": "/snippets/components/data/data.jsx",
+      "resolvedPath": "snippets/components/data/data.jsx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

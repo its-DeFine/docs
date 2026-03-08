@@ -11,7 +11,7 @@ Integration components connect to external APIs and services.
 ## Usage
 
 ```jsx
-import { CoinGeckoExchanges } from "/snippets/components/integrations/coingecko.jsx";
+import { CoinGeckoExchanges } from "/snippets/components/data/coingecko.jsx";
 ```
 
 ## Theme Support
