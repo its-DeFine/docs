@@ -263,7 +263,7 @@ Livepeer is uniquely positioned to serve this need.
 As video becomes the dominant interface for the internet and AI transforms how it’s created, processed,
 and experienced, the underlying infrastructure needs AI-native, real-time, performant systems that meet this demand.
 
-Listen to early Livepeer advocate, [Shannon Wells]("https://www.linkedin.com/in/shannon-wells/"), discuss how Livepeer is becoming the real-time media substrate of the new, AI-powered internet.
+Listen to early Livepeer advocate, [Shannon Wells](https://www.linkedin.com/in/shannon-wells/), discuss how Livepeer is becoming the real-time media substrate of the new, AI-powered internet.
 
 ## The Livepeer Advantage
 
@@ -9417,7 +9417,7 @@ This changelog tracks significant updates to the Livepeer documentation. For pro
 ## Documentation Governance and Contribution Workflow
 
 * Added comprehensive [contribution guide](../documentation-guide/contribute-to-the-docs) with step-by-step PR workflow
-* Created [governance documentation](../../internal/governance) covering review process, ownership, and ticketing
+* Created [governance documentation](../../internal/overview/governance) covering review process, ownership, and ticketing
 * Updated CODEOWNERS with section-specific ownership
 * Added PR template for documentation contributions
 * Established review SLAs and process
@@ -14846,7 +14846,7 @@ Your gateway must maintain a funded deposit in the `TicketBroker` contract. This
 
 Each ticket must be signed with your gateway's Ethereum private key. By default this key lives inside the same `go-livepeer` process handling untrusted media — a security risk if a malicious input were to exploit a vulnerability.
 
-**Security concern:** A compromised gateway process could expose your signing key and drain your ETH deposit. For production deployments, consider using a [Remote Signer](/v2/gateways/run-a-gateway/remote-signers) to isolate signing from media handling.
+**Security concern:** A compromised gateway process could expose your signing key and drain your ETH deposit. For production deployments, consider using a [Remote Signer](/v2/gateways/payments/remote-signers) to isolate signing from media handling.
 
 ### 3. Ticket Parameters and Session State
 
@@ -14891,9 +14891,9 @@ Delegate all payment management to a third-party operator.
 # Payment Clearinghouses
 URL: https://docs.livepeer.org/v2/gateways/payments/payment-clearinghouse
 
-A **payment clearinghouse** is a third-party service that takes on the Ethereum-related responsibilities of operating a Livepeer gateway — holding ETH, running a [Remote Signer](/v2/gateways/run-a-gateway/remote-signers), managing PM settlement, and handling orchestrator payments — while settling with gateway operators and app developers in a traditional currency or alternative payment method.
+A **payment clearinghouse** is a third-party service that takes on the Ethereum-related responsibilities of operating a Livepeer gateway — holding ETH, running a [Remote Signer](/v2/gateways/payments/remote-signers), managing PM settlement, and handling orchestrator payments — while settling with gateway operators and app developers in a traditional currency or alternative payment method.
 
-The underlying protocol for clearinghouses is implemented and in production use. No public clearinghouse service is operating at general availability as of early 2026 — see the [NaaP Platform](/v2/gateways/about-gateways/naap-platform) for the emerging managed access layer.
+The underlying protocol for clearinghouses is implemented and in production use. No public clearinghouse service is operating at general availability as of early 2026. For the current managed access and observability surface, see [Livepeer Tools](/v2/gateways/gateway-tools/livepeer-tools).
 
 ## Why Clearinghouses Exist
 
@@ -14956,11 +14956,11 @@ A clearinghouse **is** a remote signer plus:
 * Fiat or alternative currency billing
 * Potentially orchestrator discovery and geo-matching
 
-The [Remote Signer](/v2/gateways/run-a-gateway/remote-signers) is the technical primitive. A clearinghouse layers commercial and operational services on top.
+The [Remote Signer](/v2/gateways/payments/remote-signers) is the technical primitive. A clearinghouse layers commercial and operational services on top.
 
 ## Current Status and NaaP
 
-The Livepeer Foundation's [NaaP Platform](/v2/gateways/about-gateways/naap-platform) is the emerging managed access layer for the network and is expected to provide clearinghouse-adjacent capabilities including API key issuance and network observability. NaaP is targeting an MVP launch in 2026.
+The Livepeer Foundation's managed access surface is currently best represented by [Livepeer Tools](/v2/gateways/gateway-tools/livepeer-tools), which provides the current network-facing observability layer while clearinghouse-adjacent workflows continue to evolve.
 
 Independent clearinghouse operators may also emerge through the network's open infrastructure model.
 
@@ -14968,7 +14968,7 @@ Independent clearinghouse operators may also emerge through the network's open i
 
 The technical building block underlying clearinghouse payment infrastructure.
 
-The Foundation's managed network access and observability platform.
+The current managed network access and observability surface.
 
 ---
 
@@ -21235,15 +21235,6 @@ If you want to propose improvements to gateway infrastructure or economics, GovW
 # Trending Topics
 URL: https://docs.livepeer.org/v2/community/livepeer-community/trending-topics
 
-PostCard,
-BlogCard,
-CardBlogDataLayout,
-CardColumnsPostLayout,
-ColumnsBlogCardLayout,
-ForumLatestLayout,
-DiscordAnnouncements,
-} from '/snippets/components/content/data.jsx'
-
 Uses automations to pull in the latest youtube videos, forum posts and blogs
 
 ## &#x20;Videos
@@ -21948,6 +21939,731 @@ URL: https://docs.livepeer.org/v2/resources/documentation-guide/component-librar
 **Run when**: Components are added, removed, renamed, or their exported signatures change under `snippets/components`.&#x20;
 **Important**: Do not manually edit this file; run `node tools/scripts/generate-docs-guide-components-index.js --write`.&#x20;
 
+## Primitives
+
+Primitive components are foundational UI building blocks reused across the docs system.
+
+**Props**: `selectors`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<FocusableScrollRegions
+  selectors={"<value>"}
+/>
+```
+
+**Props**: `label`, `icon`, `downloadLink`, `rightIcon`, `border`&#x20;
+**Defaults**: `label='Download'`, `icon='download'`, `rightIcon=''`, `border=false`
+
+```jsx lines Example
+
+
+<DownloadButton
+  label={'Download'}
+  icon={'download'}
+  downloadLink={"<value>"}
+  rightIcon={''}
+  border={false}
+/>
+```
+
+**Props**: `icon`, `title`, `style`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<CustomCardTitle
+  icon={"<value>"}
+  title={"<value>"}
+  style={{}}
+/>
+```
+
+**Props**: `color`, `middleText`, `style`&#x20;
+**Defaults**: `color="var(--border)"`, `middleText=""`, `style={}`
+
+```jsx lines Example
+
+
+<CustomDivider
+  color={"var(--border)"}
+  middleText={""}
+  style={{}}
+/>
+```
+
+**Props**: `size`, `color`&#x20;
+**Defaults**: `size=16`
+
+```jsx lines Example
+
+
+<LivepeerIcon
+  size={16}
+  color={"<value>"}
+/>
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<LivepeerIconFlipped />
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<LivepeerIconOld />
+```
+
+**Props**: `size`, `fill`&#x20;
+**Defaults**: `size=24`, `fill="var(--lp-color-white)"`
+
+```jsx lines Example
+
+
+<LivepeerSVG
+  size={24}
+  fill={"var(--lp-color-white)"}
+/>
+```
+
+**Props**: `src`, `alt`, `caption`, `icon`, `hint`, `fullwidth`&#x20;
+**Defaults**: `fullwidth=true`
+
+```jsx lines Example
+
+
+<Image
+  src={"<value>"}
+  alt={"<value>"}
+  caption={"<value>"}
+  icon={"<value>"}
+  hint={"<value>"}
+  fullwidth={true}
+/>
+```
+
+**Props**: `src`, `alt`, `caption`, `icon`, `hint`, `href`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<LinkImage
+  src={"<value>"}
+  alt={"<value>"}
+  caption={"<value>"}
+  icon={"<value>"}
+  hint={"<value>"}
+  href={"<value>"}
+/>
+```
+
+**Props**: `icon`, `size`, `color`&#x20;
+**Defaults**: `icon="terminal"`, `size=16`
+
+```jsx lines Example
+
+
+<BlinkingIcon
+  icon={"terminal"}
+  size={16}
+  color={"<value>"}
+/>
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<BlinkingTerminal />
+```
+
+**Props**: `children`, `icon`, `color`, `iconSize`, `textSize`, `textColor`&#x20;
+**Defaults**: `icon="lightbulb"`, `iconSize=16`, `textSize="0.875rem"`
+
+```jsx lines Example
+
+
+<CustomCallout
+  icon={"lightbulb"}
+  color={"<value>"}
+  iconSize={16}
+  textSize={"0.875rem"}
+  textColor={"<value>"}
+/>
+```
+
+**Props**: `label`, `href`, `text`, `iconLeft`, `iconRight`&#x20;
+**Defaults**: `label=""`, `href="#"`, `text=""`, `iconLeft="github"`, `iconRight="arrow-up-right"`
+
+```jsx lines Example
+
+
+<DoubleIconLink
+  label={""}
+  href={"#"}
+  text={""}
+  iconLeft={"github"}
+  iconRight={"arrow-up-right"}
+/>
+```
+
+**Props**: `label`, `relativePath`, `icon`, `text`, `cta`&#x20;
+**Defaults**: `cta=""`
+
+```jsx lines Example
+
+
+<GotoCard
+  label={"<value>"}
+  relativePath={"<value>"}
+  icon={"<value>"}
+  text={"<value>"}
+  cta={""}
+/>
+```
+
+**Props**: `label`, `relativePath`, `text`, `icon`&#x20;
+**Defaults**: `text=""`, `icon="arrow-turn-down-right"`
+
+```jsx lines Example
+
+
+<GotoLink
+  label={"<value>"}
+  relativePath={"<value>"}
+  text={""}
+  icon={"arrow-turn-down-right"}
+/>
+```
+
+**Props**: `href`, `label`, `description`, `newline`, `borderColor`&#x20;
+**Defaults**: `newline=true`
+
+```jsx lines Example
+
+
+<LinkArrow
+  href={"<value>"}
+  label={"<value>"}
+  description={"<value>"}
+  newline={true}
+  borderColor={"<value>"}
+/>
+```
+
+**Props**: `children`, `icon`, `arrowIcon`, `color`, `iconSize`, `arrowSize`&#x20;
+**Defaults**: `icon="lightbulb"`, `arrowIcon="arrow-up-right"`, `iconSize=16`, `arrowSize=16`
+
+```jsx lines Example
+
+
+<TipWithArrow
+  icon={"lightbulb"}
+  arrowIcon={"arrow-up-right"}
+  color={"<value>"}
+  iconSize={16}
+  arrowSize={16}
+/>
+```
+
+**Props**: `type`&#x20;
+**Defaults**: `type="page"`
+
+```jsx lines Example
+
+
+<ComingSoonCallout
+  type={"page"}
+/>
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<PreviewCallout />
+```
+
+**Props**: No explicit props detected from signature.&#x20;
+**Defaults**: No explicit defaults detected.
+
+```jsx lines Example
+
+
+<ReviewCallout />
+```
+
+**Props**: `size`, `gap`, `justify`, `color`&#x20;
+**Defaults**: `size=20`, `gap="0.75rem"`, `justify="center"`
+
+```jsx lines Example
+
+
+<SocialLinks
+  size={20}
+  gap={"0.75rem"}
+  justify={"center"}
+  color={"<value>"}
+/>
+```
+
+**Props**: `size`, `direction`&#x20;
+**Defaults**: `size="1rem"`, `direction="vertical"`
+
+```jsx lines Example
+
+
+<Spacer
+  size={"1rem"}
+  direction={"vertical"}
+/>
+```
+
+**Props**: `text`, `children`, `color`&#x20;
+**Defaults**: `color="var(--text)"`
+
+```jsx lines Example
+
+
+<AccordionTitleWithArrow
+  text={"<value>"}
+  color={"var(--text)"}
+/>
+```
+
+**Props**: `children`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<CardTitleTextWithArrow />
+```
+
+**Props**: `text`, `label`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<CopyText
+  text={"<value>"}
+  label={"<value>"}
+/>
+```
+
+**Props**: `style`, `text`, `children`&#x20;
+**Defaults**: `style={}`
+
+```jsx lines Example
+
+
+<Subtitle
+  style={{}}
+  text={"<value>"}
+/>
+```
+
+## Layout
+
+Layout components provide reusable structure primitives for organizing page content.
+
+**Props**: `urls`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<ApiBaseUrlsTable
+  urls={"<value>"}
+/>
+```
+
+**Props**: `children`, `visibleCount`, `gap`, `showDots`, `style`&#x20;
+**Defaults**: `visibleCount=3`, `gap="1.5rem"`, `showDots=true`
+
+```jsx lines Example
+
+
+<CardCarousel
+  visibleCount={3}
+  gap={"1.5rem"}
+  showDots={true}
+  style={{}}
+/>
+```
+
+**Props**: `children`, `maxHeight`, `showHint`, `ariaLabel`, `style`&#x20;
+**Defaults**: `maxHeight=300`, `showHint=true`, `ariaLabel="Scrollable content"`
+
+```jsx lines Example
+
+
+<ScrollBox
+  maxHeight={300}
+  showHint={true}
+  ariaLabel={"Scrollable content"}
+  style={{}}
+/>
+```
+
+**Props**: `children`, `variant`, `padding`, `borderRadius`, `style`&#x20;
+**Defaults**: `variant="default"`, `padding="1rem"`, `borderRadius="8px"`, `style={}`
+
+```jsx lines Example
+
+
+<BorderedBox
+  variant={"default"}
+  padding={"1rem"}
+  borderRadius={"8px"}
+  style={{}}
+/>
+```
+
+**Props**: `children`, `width`, `align`&#x20;
+**Defaults**: `width="fit-content"`, `align="center"`
+
+```jsx lines Example
+
+
+<CalloutContainer
+  width={"fit-content"}
+  align={"center"}
+/>
+```
+
+**Props**: `children`, `align`, `justify`, `gap`&#x20;
+**Defaults**: `gap="1rem"`
+
+```jsx lines Example
+
+
+<CardContentContainer
+  align={"<value>"}
+  justify={"<value>"}
+  gap={"1rem"}
+/>
+```
+
+**Props**: `children`, `maxWidth`, `padding`, `style`&#x20;
+**Defaults**: `maxWidth="800px"`, `padding="0"`, `style={}`
+
+```jsx lines Example
+
+
+<CenteredContainer
+  maxWidth={"800px"}
+  padding={"0"}
+  style={{}}
+/>
+```
+
+**Props**: `children`, `backgroundColor`, `style`&#x20;
+**Defaults**: `style={}`
+
+```jsx lines Example
+
+
+<FullWidthContainer
+  backgroundColor={"<value>"}
+  style={{}}
+/>
+```
+
+**Props**: `children`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<TabsContainer />
+```
+
+**Props**: `icon`, `title`, `style`, `background`, `children`&#x20;
+**Defaults**: `background='var(--card-background)'`
+
+```jsx lines Example
+
+
+<DisplayCard
+  icon={"<value>"}
+  title={"<value>"}
+  style={{}}
+  background={'var(--card-background)'}
+/>
+```
+
+**Props**: `children`, `imgProps`, `imgStyle`, `cardProps`, `style`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<InlineImageCard
+  imgProps={{}}
+  imgStyle={{}}
+  cardProps={{}}
+  style={{}}
+/>
+```
+
+**Props**: `width`, `children`&#x20;
+**Defaults**: `width='80%'`
+
+```jsx lines Example
+
+
+<WidthCard
+  width={'80%'}
+/>
+```
+
+**Props**: `children`, `direction`, `gap`, `align`, `justify`, `wrap`, `style`&#x20;
+**Defaults**: `direction="row"`, `gap="1rem"`, `align="flex-start"`, `justify="flex-start"`, `wrap=false`, `style={}`
+
+```jsx lines Example
+
+
+<FlexContainer
+  direction={"row"}
+  gap={"1rem"}
+  align={"flex-start"}
+  justify={"flex-start"}
+  wrap={false}
+  style={{}}
+/>
+```
+
+**Props**: `children`, `columns`, `gap`, `style`&#x20;
+**Defaults**: `gap="1rem"`, `style={}`
+
+```jsx lines Example
+
+
+<GridContainer
+  columns={[]}
+  gap={"1rem"}
+  style={{}}
+/>
+```
+
+**Props**: `listItems`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<BasicList
+  listItems={[]}
+/>
+```
+
+**Props**: `listItems`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<IconList
+  listItems={[]}
+/>
+```
+
+**Props**: `listItems`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<StepLinkList
+  listItems={[]}
+/>
+```
+
+**Props**: `listItems`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<StepList
+  listItems={[]}
+/>
+```
+
+**Props**: `listItems`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<UpdateLinkList
+  listItems={[]}
+/>
+```
+
+**Props**: `listItems`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<UpdateList
+  listItems={[]}
+/>
+```
+
+**Props**: `listItems`, `stepsConfig`&#x20;
+**Defaults**: `stepsConfig={}`
+
+```jsx lines Example
+
+
+<ListSteps
+  listItems={[]}
+  stepsConfig={{}}
+/>
+```
+
+**Props**: `children`, `icon`, `iconSize`, `iconColor`, `spinDuration`&#x20;
+**Defaults**: `icon="arrows-spin"`, `iconSize=50`, `iconColor="var(--accent)"`, `spinDuration="10s"`
+
+```jsx lines Example
+
+
+<QuadGrid
+  icon={"arrows-spin"}
+  iconSize={50}
+  iconColor={"var(--accent)"}
+  spinDuration={"10s"}
+/>
+```
+
+**Props**: `TableComponent`, `tableTitle`, `headerList`, `itemsList`, `monospaceColumns`, `margin`, `searchPlaceholder`, `searchColumns`, `categoryColumn`&#x20;
+**Defaults**: `TableComponent=null`, `tableTitle=null`, `headerList=[]`, `itemsList=[]`, `monospaceColumns=[]`, `searchPlaceholder='Search...'`, `searchColumns=[]`, `categoryColumn='Category'`
+
+```jsx lines Example
+
+
+<SearchTable
+  TableComponent={null}
+  tableTitle={null}
+  headerList={[]}
+  itemsList={[]}
+  monospaceColumns={[]}
+  margin={"<value>"}
+  searchPlaceholder={'Search...'}
+  searchColumns={[]}
+  categoryColumn={'Category'}
+/>
+```
+
+**Props**: `title`, `icon`, `titleSize`, `children`&#x20;
+**Defaults**: `titleSize="h3"`
+
+```jsx lines Example
+
+
+<StyledStep
+  title={"<value>"}
+  icon={"<value>"}
+  titleSize={"h3"}
+/>
+```
+
+**Props**: `children`, `iconColor`, `titleColor`, `lineColor`, `iconSize`&#x20;
+**Defaults**: `iconSize="24px"`
+
+```jsx lines Example
+
+
+<StyledSteps
+  iconColor={"<value>"}
+  titleColor={"<value>"}
+  lineColor={"<value>"}
+  iconSize={"24px"}
+/>
+```
+
+**Props**: `tableTitle`, `headerList`, `itemsList`, `monospaceColumns`, `margin`&#x20;
+**Defaults**: `tableTitle=null`, `headerList=[]`, `itemsList=[]`, `monospaceColumns=[]`
+
+```jsx lines Example
+
+
+<DynamicTable
+  tableTitle={null}
+  headerList={[]}
+  itemsList={[]}
+  monospaceColumns={[]}
+  margin={"<value>"}
+/>
+```
+
+**Props**: `children`, `variant`, `style`&#x20;
+**Defaults**: `variant="default"`, `style={}`
+
+```jsx lines Example
+
+
+<StyledTable
+  variant={"default"}
+  style={{}}
+/>
+```
+
+**Props**: `children`, `align`, `header`, `style`&#x20;
+**Defaults**: `align="left"`, `header=false`, `style={}`
+
+```jsx lines Example
+
+
+<TableCell
+  align={"left"}
+  header={false}
+  style={{}}
+/>
+```
+
+**Props**: `children`, `header`, `hover`, `style`&#x20;
+**Defaults**: `header=false`, `hover=false`, `style={}`
+
+```jsx lines Example
+
+
+<TableRow
+  header={false}
+  hover={false}
+  style={{}}
+/>
+```
+
+**Props**: `children`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<AccordionLayout />
+```
+
 ## Content
 
 Content components provide code, data, and response-format helpers for documentation pages.
@@ -22023,6 +22739,277 @@ Content components provide code, data, and response-format helpers for documenta
 />
 ```
 
+**Props**: `repoName`, `githubUrl`, `maxHeight`, `icon`, `children`&#x20;
+**Defaults**: `maxHeight="1000px"`, `icon="github"`
+
+```jsx lines Example
+
+
+<ExternalContent
+  repoName={"<value>"}
+  githubUrl={"<value>"}
+  maxHeight={"1000px"}
+  icon={"github"}
+/>
+```
+
+**Props**: `latex`, `className`, `ariaLabel`&#x20;
+**Defaults**: `className=""`
+
+```jsx lines Example
+
+
+<MathBlock
+  latex={"<value>"}
+  className={""}
+  ariaLabel={"<value>"}
+/>
+```
+
+**Props**: `latex`, `className`, `ariaLabel`&#x20;
+**Defaults**: `className=""`
+
+```jsx lines Example
+
+
+<MathInline
+  latex={"<value>"}
+  className={""}
+  ariaLabel={"<value>"}
+/>
+```
+
+**Props**: `children`, `author`, `source`, `href`, `frame`, `align`, `borderColor`, `img`, `spacing`&#x20;
+**Defaults**: `frame=true`, `align='right'`, `spacing=true`
+
+```jsx lines Example
+
+
+<FrameQuote
+  author={"<value>"}
+  source={"<value>"}
+  href={"<value>"}
+  frame={true}
+  align={'right'}
+  borderColor={"<value>"}
+  img={"<value>"}
+  spacing={true}
+/>
+```
+
+**Props**: `children`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<Quote />
+```
+
+**Props**: `version`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<LatestVersion
+  version={"<value>"}
+/>
+```
+
+**Props**: `description`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<CustomResponseField
+  description={"<value>"}
+/>
+```
+
+**Props**: `fields`&#x20;
+**Defaults**: `fields={}`
+
+```jsx lines Example
+
+
+<ResponseFieldAccordion
+  fields={{}}
+/>
+```
+
+**Props**: `fields`&#x20;
+**Defaults**: `fields={}`
+
+```jsx lines Example
+
+
+<ResponseFieldExpandable
+  fields={{}}
+/>
+```
+
+**Props**: `component`, `fields`&#x20;
+**Defaults**: `component="accordion"`, `fields={}`
+
+```jsx lines Example
+
+
+<ResponseFieldGroup
+  component={"accordion"}
+  fields={{}}
+/>
+```
+
+**Props**: `description`, `post`, `label`, `line`, `children`&#x20;
+**Defaults**: `post=null`, `label="value"`, `line=true`
+
+```jsx lines Example
+
+
+<ValueResponseField
+  description={"<value>"}
+  post={null}
+  label={"value"}
+  line={true}
+/>
+```
+
+**Props**: `embedUrl`, `title`, `style`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<CardVideo
+  embedUrl={"<value>"}
+  title={"<value>"}
+  style={{}}
+/>
+```
+
+**Props**: `embedUrl`, `title`, `hint`, `caption`, `height`&#x20;
+**Defaults**: `title="Embedded post"`, `hint=""`, `height="399"`
+
+```jsx lines Example
+
+
+<LinkedInEmbed
+  embedUrl={"<value>"}
+  title={"Embedded post"}
+  hint={""}
+  caption={"<value>"}
+  height={"399"}
+/>
+```
+
+**Props**: `src`, `title`, `subtitle`&#x20;
+**Defaults**: None
+
+```jsx lines Example
+
+
+<ShowcaseVideo
+  src={"<value>"}
+  title={"<value>"}
+  subtitle={"<value>"}
+/>
+```
+
+**Props**: `src`, `title`, `subtitle`, `arrow`, `borderRadius`, `style`&#x20;
+**Defaults**: `arrow=false`, `borderRadius="12px"`, `style={}`
+
+```jsx lines Example
+
+
+<TitledVideo
+  src={"<value>"}
+  title={"<value>"}
+  subtitle={"<value>"}
+  arrow={false}
+  borderRadius={"12px"}
+  style={{}}
+/>
+```
+
+**Props**: `src`, `title`, `author`, `caption`, `href`, `controls`, `autoPlay`, `loop`, `muted`, `children`&#x20;
+**Defaults**: `title=""`, `author=""`, `href=""`, `controls=true`, `autoPlay=false`, `loop=false`, `muted=false`
+
+```jsx lines Example
+
+
+<Video
+  src={"<value>"}
+  title={""}
+  author={""}
+  caption={"<value>"}
+  href={""}
+  controls={true}
+  autoPlay={false}
+  loop={false}
+  muted={false}
+/>
+```
+
+**Props**: `embedUrl`, `title`, `author`, `hint`, `caption`&#x20;
+**Defaults**: `title=""`, `author=""`, `hint=""`
+
+```jsx lines Example
+
+
+<YouTubeVideo
+  embedUrl={"<value>"}
+  title={""}
+  author={""}
+  hint={""}
+  caption={"<value>"}
+/>
+```
+
+**Props**: `embedUrl`, `title`, `hint`, `caption`&#x20;
+**Defaults**: `caption=""`
+
+```jsx lines Example
+
+
+<YouTubeVideoDownload
+  embedUrl={"<value>"}
+  title={"<value>"}
+  hint={"<value>"}
+  caption={""}
+/>
+```
+
+**Props**: `children`, `title`, `maxHeight`, `minWidth`, `showControls`&#x20;
+**Defaults**: `title=""`, `maxHeight="500px"`, `minWidth="100%"`, `showControls=false`
+
+```jsx lines Example
+
+
+<ScrollableDiagram
+  title={""}
+  maxHeight={"500px"}
+  minWidth={"100%"}
+  showControls={false}
+/>
+```
+
+## Data
+
+Data components render structured datasets, fetched content, and API-driven documentation surfaces.
+
+**Props**: `coinId`&#x20;
+**Defaults**: `coinId="arbitrum"`
+
+```jsx lines Example
+
+
+<CoinGeckoExchanges
+  coinId={"arbitrum"}
+/>
+```
+
 **Props**: `title`, `content`, `href`, `author`, `datePosted`, `excerpt`, `icon`, `authorIcon`, `dateIcon`, `cta`, `img`&#x20;
 **Defaults**: `author="Livepeer Team"`, `datePosted=null`, `excerpt=null`, `icon="book-open"`, `authorIcon="user-pen"`, `dateIcon="calendar"`, `cta="Read More"`, `img=null`
 
@@ -22041,18 +23028,6 @@ Content components provide code, data, and response-format helpers for documenta
   dateIcon={"calendar"}
   cta={"Read More"}
   img={null}
-/>
-```
-
-**Props**: `items`, `limit`&#x20;
-**Defaults**: `items=[]`
-
-```jsx lines Example
-
-
-<BlogDataLayout
-  items={[]}
-  limit={0}
 />
 ```
 
@@ -22164,231 +23139,6 @@ Content components provide code, data, and response-format helpers for documenta
 />
 ```
 
-**Props**: `repoName`, `githubUrl`, `maxHeight`, `icon`, `children`&#x20;
-**Defaults**: `maxHeight="1000px"`, `icon="github"`
-
-```jsx lines Example
-
-
-<ExternalContent
-  repoName={"<value>"}
-  githubUrl={"<value>"}
-  maxHeight={"1000px"}
-  icon={"github"}
-/>
-```
-
-**Props**: `latex`, `className`, `ariaLabel`&#x20;
-**Defaults**: `className=""`
-
-```jsx lines Example
-
-
-<MathBlock
-  latex={"<value>"}
-  className={""}
-  ariaLabel={"<value>"}
-/>
-```
-
-**Props**: `latex`, `className`, `ariaLabel`&#x20;
-**Defaults**: `className=""`
-
-```jsx lines Example
-
-
-<MathInline
-  latex={"<value>"}
-  className={""}
-  ariaLabel={"<value>"}
-/>
-```
-
-**Props**: `version`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<LatestVersion
-  version={"<value>"}
-/>
-```
-
-**Props**: `description`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<CustomResponseField
-  description={"<value>"}
-/>
-```
-
-**Props**: `fields`&#x20;
-**Defaults**: `fields={}`
-
-```jsx lines Example
-
-
-<ResponseFieldAccordion
-  fields={{}}
-/>
-```
-
-**Props**: `fields`&#x20;
-**Defaults**: `fields={}`
-
-```jsx lines Example
-
-
-<ResponseFieldExpandable
-  fields={{}}
-/>
-```
-
-**Props**: `component`, `fields`&#x20;
-**Defaults**: `component="accordion"`, `fields={}`
-
-```jsx lines Example
-
-
-<ResponseFieldGroup
-  component={"accordion"}
-  fields={{}}
-/>
-```
-
-**Props**: `description`, `post`, `label`, `line`, `children`&#x20;
-**Defaults**: `post=null`, `label="value"`, `line=true`
-
-```jsx lines Example
-
-
-<ValueResponseField
-  description={"<value>"}
-  post={null}
-  label={"value"}
-  line={true}
-/>
-```
-
-## Display
-
-Display components handle media, embeds, quotes, and visual presentation patterns.
-
-**Props**: `children`, `visibleCount`, `gap`, `showDots`, `style`&#x20;
-**Defaults**: `visibleCount=3`, `gap="1.5rem"`, `showDots=true`
-
-```jsx lines Example
-
-
-<CardCarousel
-  visibleCount={3}
-  gap={"1.5rem"}
-  showDots={true}
-  style={{}}
-/>
-```
-
-**Props**: `children`, `width`, `align`&#x20;
-**Defaults**: `width="fit-content"`, `align="center"`
-
-```jsx lines Example
-
-
-<CalloutContainer
-  width={"fit-content"}
-  align={"center"}
-/>
-```
-
-**Props**: `children`, `align`, `justify`, `gap`&#x20;
-**Defaults**: `gap="1rem"`
-
-```jsx lines Example
-
-
-<CardContentContainer
-  align={"<value>"}
-  justify={"<value>"}
-  gap={"1rem"}
-/>
-```
-
-**Props**: `children`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<TabsContainer />
-```
-
-**Props**: `icon`, `title`, `style`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<CustomCardTitle
-  icon={"<value>"}
-  title={"<value>"}
-  style={{}}
-/>
-```
-
-**Props**: `icon`, `title`, `style`, `background`, `children`&#x20;
-**Defaults**: `background='var(--card-background)'`
-
-```jsx lines Example
-
-
-<DisplayCard
-  icon={"<value>"}
-  title={"<value>"}
-  style={{}}
-  background={'var(--card-background)'}
-/>
-```
-
-**Props**: `children`, `imgProps`, `imgStyle`, `cardProps`, `style`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<InlineImageCard
-  imgProps={{}}
-  imgStyle={{}}
-  cardProps={{}}
-  style={{}}
-/>
-```
-
-**Props**: `width`, `children`&#x20;
-**Defaults**: `width='80%'`
-
-```jsx lines Example
-
-
-<WidthCard
-  width={'80%'}
-/>
-```
-
-**Props**: `url`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<EmbedMarkdown
-  url={"<value>"}
-/>
-```
-
 **Props**: `url`&#x20;
 **Defaults**: None
 
@@ -22397,6 +23147,20 @@ Display components handle media, embeds, quotes, and visual presentation pattern
 
 <MarkdownEmbed
   url={"<value>"}
+/>
+```
+
+**Props**: `title`, `src`, `height`, `width`&#x20;
+**Defaults**: `height='700px'`, `width='100%'`
+
+```jsx lines Example
+
+
+<PdfEmbed
+  title={"<value>"}
+  src={"<value>"}
+  height={'700px'}
+  width={'100%'}
 />
 ```
 
@@ -22409,19 +23173,35 @@ Display components handle media, embeds, quotes, and visual presentation pattern
 <TwitterTimeline />
 ```
 
-**Props**: `title`, `src`, `height`, `width`&#x20;
-**Defaults**: `height="700px"`, `width="100%"`
+**Props**: `items`, `limit`, `pageSize`&#x20;
+**Defaults**: `items=[]`, `limit=null`, `pageSize=10`
 
 ```jsx lines Example
 
 
-<PdfEmbed
-  title={"<value>"}
-  src={"<value>"}
-  height={"700px"}
-  width={"100%"}
+<ShowcaseCards
+  items={[]}
+  limit={null}
+  pageSize={10}
 />
 ```
+
+**Props**: `items`, `limit`, `cols`&#x20;
+**Defaults**: `items=[]`, `cols=2`
+
+```jsx lines Example
+
+
+<YouTubeVideoData
+  items={[]}
+  limit={0}
+  cols={2}
+/>
+```
+
+## Page Structure
+
+Page structure components orchestrate full-page sections, hero treatments, and route-level composition.
 
 **Props**: `color`, `margin`, `opacity`&#x20;
 **Defaults**: `margin="1.5rem 0"`, `opacity=0.2`
@@ -22557,228 +23337,6 @@ Display components handle media, embeds, quotes, and visual presentation pattern
 />
 ```
 
-**Props**: `src`, `alt`, `caption`, `icon`, `hint`, `fullwidth`&#x20;
-**Defaults**: `fullwidth=true`
-
-```jsx lines Example
-
-
-<Image
-  src={"<value>"}
-  alt={"<value>"}
-  caption={"<value>"}
-  icon={"<value>"}
-  hint={"<value>"}
-  fullwidth={true}
-/>
-```
-
-**Props**: `src`, `alt`, `caption`, `icon`, `hint`, `href`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<LinkImage
-  src={"<value>"}
-  alt={"<value>"}
-  caption={"<value>"}
-  icon={"<value>"}
-  hint={"<value>"}
-  href={"<value>"}
-/>
-```
-
-**Props**: `children`, `author`, `source`, `href`, `frame`, `align`, `borderColor`, `img`, `spacing`&#x20;
-**Defaults**: `frame=true`, `align='right'`, `spacing=true`
-
-```jsx lines Example
-
-
-<FrameQuote
-  author={"<value>"}
-  source={"<value>"}
-  href={"<value>"}
-  frame={true}
-  align={'right'}
-  borderColor={"<value>"}
-  img={"<value>"}
-  spacing={true}
-/>
-```
-
-**Props**: `children`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<Quote />
-```
-
-**Props**: `items`, `limit`, `pageSize`&#x20;
-**Defaults**: `items=[]`, `limit=null`, `pageSize=10`
-
-```jsx lines Example
-
-
-<ShowcaseCards
-  items={[]}
-  limit={null}
-  pageSize={10}
-/>
-```
-
-**Props**: `size`, `gap`, `justify`, `color`&#x20;
-**Defaults**: `size=20`, `gap="0.75rem"`, `justify="center"`
-
-```jsx lines Example
-
-
-<SocialLinks
-  size={20}
-  gap={"0.75rem"}
-  justify={"center"}
-  color={"<value>"}
-/>
-```
-
-**Props**: `embedUrl`, `title`, `style`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<CardVideo
-  embedUrl={"<value>"}
-  title={"<value>"}
-  style={{}}
-/>
-```
-
-**Props**: `embedUrl`, `title`, `hint`, `caption`, `height`&#x20;
-**Defaults**: `title="Embedded post"`, `hint=""`, `height="399"`
-
-```jsx lines Example
-
-
-<LinkedInEmbed
-  embedUrl={"<value>"}
-  title={"Embedded post"}
-  hint={""}
-  caption={"<value>"}
-  height={"399"}
-/>
-```
-
-**Props**: `src`, `title`, `subtitle`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<ShowcaseVideo
-  src={"<value>"}
-  title={"<value>"}
-  subtitle={"<value>"}
-/>
-```
-
-**Props**: `src`, `title`, `subtitle`, `arrow`, `borderRadius`, `style`&#x20;
-**Defaults**: `arrow=false`, `borderRadius="12px"`, `style={}`
-
-```jsx lines Example
-
-
-<TitledVideo
-  src={"<value>"}
-  title={"<value>"}
-  subtitle={"<value>"}
-  arrow={false}
-  borderRadius={"12px"}
-  style={{}}
-/>
-```
-
-**Props**: `src`, `title`, `author`, `caption`, `href`, `controls`, `autoPlay`, `loop`, `muted`, `children`&#x20;
-**Defaults**: `title=""`, `author=""`, `href=""`, `controls=true`, `autoPlay=false`, `loop=false`, `muted=false`
-
-```jsx lines Example
-
-
-<Video
-  src={"<value>"}
-  title={""}
-  author={""}
-  caption={"<value>"}
-  href={""}
-  controls={true}
-  autoPlay={false}
-  loop={false}
-  muted={false}
-/>
-```
-
-**Props**: `embedUrl`, `title`, `author`, `hint`, `caption`&#x20;
-**Defaults**: `title=""`, `author=""`, `hint=""`
-
-```jsx lines Example
-
-
-<YouTubeVideo
-  embedUrl={"<value>"}
-  title={""}
-  author={""}
-  hint={""}
-  caption={"<value>"}
-/>
-```
-
-**Props**: `items`, `limit`, `cols`&#x20;
-**Defaults**: `items=[]`, `cols=2`
-
-```jsx lines Example
-
-
-<YouTubeVideoData
-  items={[]}
-  limit={0}
-  cols={2}
-/>
-```
-
-**Props**: `embedUrl`, `title`, `hint`, `caption`&#x20;
-**Defaults**: `caption=""`
-
-```jsx lines Example
-
-
-<YouTubeVideoDownload
-  embedUrl={"<value>"}
-  title={"<value>"}
-  hint={"<value>"}
-  caption={""}
-/>
-```
-
-**Props**: `children`, `title`, `maxHeight`, `minWidth`, `showControls`&#x20;
-**Defaults**: `title=""`, `maxHeight="500px"`, `minWidth="100%"`, `showControls=false`
-
-```jsx lines Example
-
-
-<ScrollableDiagram
-  title={""}
-  maxHeight={"500px"}
-  minWidth={"100%"}
-  showControls={false}
-/>
-```
-
-## Domain
-
-Domain components package feature-specific UI blocks used by dedicated documentation domains.
-
 **Props**: `density`&#x20;
 **Defaults**: `density=1.1`
 
@@ -22904,608 +23462,6 @@ Domain components package feature-specific UI blocks used by dedicated documenta
 
 
 <RefCardContainer />
-```
-
-**Props**: `type`&#x20;
-**Defaults**: `type="page"`
-
-```jsx lines Example
-
-
-<ComingSoonCallout
-  type={"page"}
-/>
-```
-
-**Props**: No explicit props detected from signature.&#x20;
-**Defaults**: No explicit defaults detected.
-
-```jsx lines Example
-
-
-<PreviewCallout />
-```
-
-**Props**: No explicit props detected from signature.&#x20;
-**Defaults**: No explicit defaults detected.
-
-```jsx lines Example
-
-
-<ReviewCallout />
-```
-
-## Integrations
-
-Integration components connect docs pages to external APIs and third-party datasets.
-
-**Props**: `coinId`&#x20;
-**Defaults**: `coinId="arbitrum"`
-
-```jsx lines Example
-
-
-<CoinGeckoExchanges
-  coinId={"arbitrum"}
-/>
-```
-
-## Layout
-
-Layout components provide reusable structure primitives for organizing page content.
-
-**Props**: `urls`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<ApiBaseUrlsTable
-  urls={"<value>"}
-/>
-```
-
-**Props**: `children`, `maxHeight`, `showHint`, `ariaLabel`, `style`&#x20;
-**Defaults**: `maxHeight=300`, `showHint=true`, `ariaLabel="Scrollable content"`
-
-```jsx lines Example
-
-
-<ScrollBox
-  maxHeight={300}
-  showHint={true}
-  ariaLabel={"Scrollable content"}
-  style={{}}
-/>
-```
-
-**Props**: `listItems`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<BasicList
-  listItems={[]}
-/>
-```
-
-**Props**: `listItems`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<IconList
-  listItems={[]}
-/>
-```
-
-**Props**: `listItems`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<StepLinkList
-  listItems={[]}
-/>
-```
-
-**Props**: `listItems`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<StepList
-  listItems={[]}
-/>
-```
-
-**Props**: `listItems`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<UpdateLinkList
-  listItems={[]}
-/>
-```
-
-**Props**: `listItems`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<UpdateList
-  listItems={[]}
-/>
-```
-
-**Props**: `listItems`, `stepsConfig`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<ListSteps
-  listItems={[]}
-  stepsConfig={{}}
-/>
-```
-
-**Props**: `children`, `icon`, `iconSize`, `iconColor`, `spinDuration`&#x20;
-**Defaults**: `icon="arrows-spin"`, `iconSize=50`, `iconColor="var(--accent)"`, `spinDuration="10s"`
-
-```jsx lines Example
-
-
-<QuadGrid
-  icon={"arrows-spin"}
-  iconSize={50}
-  iconColor={"var(--accent)"}
-  spinDuration={"10s"}
-/>
-```
-
-**Props**: `TableComponent`, `tableTitle`, `headerList`, `itemsList`, `monospaceColumns`, `margin`, `searchPlaceholder`, `searchColumns`, `categoryColumn`&#x20;
-**Defaults**: `TableComponent=null`, `tableTitle=null`, `headerList=[]`, `itemsList=[]`, `monospaceColumns=[]`, `searchPlaceholder='Search...'`, `searchColumns=[]`, `categoryColumn='Category'`
-
-```jsx lines Example
-
-
-<SearchTable
-  TableComponent={null}
-  tableTitle={null}
-  headerList={[]}
-  itemsList={[]}
-  monospaceColumns={[]}
-  margin={"<value>"}
-  searchPlaceholder={'Search...'}
-  searchColumns={[]}
-  categoryColumn={'Category'}
-/>
-```
-
-**Props**: `title`, `icon`, `titleSize`, `children`&#x20;
-**Defaults**: `titleSize="h3"`
-
-```jsx lines Example
-
-
-<StyledStep
-  title={"<value>"}
-  icon={"<value>"}
-  titleSize={"h3"}
-/>
-```
-
-**Props**: `children`, `iconColor`, `titleColor`, `lineColor`, `iconSize`&#x20;
-**Defaults**: `iconSize="24px"`
-
-```jsx lines Example
-
-
-<StyledSteps
-  iconColor={"<value>"}
-  titleColor={"<value>"}
-  lineColor={"<value>"}
-  iconSize={"24px"}
-/>
-```
-
-**Props**: `tableTitle`, `headerList`, `itemsList`, `monospaceColumns`, `margin`&#x20;
-**Defaults**: `tableTitle=null`, `headerList=[]`, `itemsList=[]`, `monospaceColumns=[]`
-
-```jsx lines Example
-
-
-<DynamicTable
-  tableTitle={null}
-  headerList={[]}
-  itemsList={[]}
-  monospaceColumns={[]}
-  margin={"<value>"}
-/>
-```
-
-**Props**: `children`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<AccordionLayout />
-```
-
-## Primitives
-
-Primitive components are foundational UI building blocks reused across the docs system.
-
-**Props**: `selectors`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<FocusableScrollRegions
-  selectors={"<value>"}
-/>
-```
-
-**Props**: No explicit props detected from signature.&#x20;
-**Defaults**: No explicit defaults detected.
-
-```jsx lines Example
-
-
-<BasicBtn />
-```
-
-**Props**: `label`, `icon`, `downloadLink`, `rightIcon`, `border`&#x20;
-**Defaults**: `label='Download'`, `icon='download'`, `rightIcon=''`, `border=false`
-
-```jsx lines Example
-
-
-<DownloadButton
-  label={'Download'}
-  icon={'download'}
-  downloadLink={"<value>"}
-  rightIcon={''}
-  border={false}
-/>
-```
-
-**Props**: `children`, `variant`, `padding`, `borderRadius`, `style`&#x20;
-**Defaults**: `variant="default"`, `padding="1rem"`, `borderRadius="8px"`, `style={}`
-
-```jsx lines Example
-
-
-<BorderedBox
-  variant={"default"}
-  padding={"1rem"}
-  borderRadius={"8px"}
-  style={{}}
-/>
-```
-
-**Props**: `children`, `maxWidth`, `padding`, `style`&#x20;
-**Defaults**: `maxWidth="800px"`, `padding="0"`, `style={}`
-
-```jsx lines Example
-
-
-<CenteredContainer
-  maxWidth={"800px"}
-  padding={"0"}
-  style={{}}
-/>
-```
-
-**Props**: `children`, `backgroundColor`, `style`&#x20;
-**Defaults**: `style={}`
-
-```jsx lines Example
-
-
-<FullWidthContainer
-  backgroundColor={"<value>"}
-  style={{}}
-/>
-```
-
-**Props**: `color`, `middleText`, `style`&#x20;
-**Defaults**: `color="var(--border)"`, `middleText=""`, `style={}`
-
-```jsx lines Example
-
-
-<CustomDivider
-  color={"var(--border)"}
-  middleText={""}
-  style={{}}
-/>
-```
-
-**Props**: `size`, `color`&#x20;
-**Defaults**: `size=16`
-
-```jsx lines Example
-
-
-<LivepeerIcon
-  size={16}
-  color={"<value>"}
-/>
-```
-
-**Props**: No explicit props detected from signature.&#x20;
-**Defaults**: No explicit defaults detected.
-
-```jsx lines Example
-
-
-<LivepeerIconFlipped />
-```
-
-**Props**: No explicit props detected from signature.&#x20;
-**Defaults**: No explicit defaults detected.
-
-```jsx lines Example
-
-
-<LivepeerIconOld />
-```
-
-**Props**: `size`&#x20;
-**Defaults**: `size=24`
-
-```jsx lines Example
-
-
-<LivepeerSVG
-  size={24}
-/>
-```
-
-**Props**: `children`, `direction`, `gap`, `align`, `justify`, `wrap`, `style`&#x20;
-**Defaults**: `direction="row"`, `gap="1rem"`, `align="flex-start"`, `justify="flex-start"`, `wrap=false`, `style={}`
-
-```jsx lines Example
-
-
-<FlexContainer
-  direction={"row"}
-  gap={"1rem"}
-  align={"flex-start"}
-  justify={"flex-start"}
-  wrap={false}
-  style={{}}
-/>
-```
-
-**Props**: `children`, `columns`, `gap`, `style`&#x20;
-**Defaults**: `gap="1rem"`, `style={}`
-
-```jsx lines Example
-
-
-<GridContainer
-  columns={[]}
-  gap={"1rem"}
-  style={{}}
-/>
-```
-
-**Props**: `size`, `direction`&#x20;
-**Defaults**: `size="1rem"`, `direction="vertical"`
-
-```jsx lines Example
-
-
-<Spacer
-  size={"1rem"}
-  direction={"vertical"}
-/>
-```
-
-**Props**: `icon`, `size`, `color`&#x20;
-**Defaults**: `icon="terminal"`, `size=16`
-
-```jsx lines Example
-
-
-<BlinkingIcon
-  icon={"terminal"}
-  size={16}
-  color={"<value>"}
-/>
-```
-
-**Props**: No explicit props detected from signature.&#x20;
-**Defaults**: No explicit defaults detected.
-
-```jsx lines Example
-
-
-<BlinkingTerminal />
-```
-
-**Props**: `children`, `icon`, `color`, `iconSize`, `textSize`, `textColor`&#x20;
-**Defaults**: `icon="lightbulb"`, `iconSize=16`, `textSize="0.875rem"`
-
-```jsx lines Example
-
-
-<CustomCallout
-  icon={"lightbulb"}
-  color={"<value>"}
-  iconSize={16}
-  textSize={"0.875rem"}
-  textColor={"<value>"}
-/>
-```
-
-**Props**: `label`, `href`, `text`, `iconLeft`, `iconRight`&#x20;
-**Defaults**: `label=""`, `href="#"`, `text=""`, `iconLeft="github"`, `iconRight="arrow-up-right"`
-
-```jsx lines Example
-
-
-<DoubleIconLink
-  label={""}
-  href={"#"}
-  text={""}
-  iconLeft={"github"}
-  iconRight={"arrow-up-right"}
-/>
-```
-
-**Props**: `label`, `relativePath`, `icon`, `text`, `cta`&#x20;
-**Defaults**: `cta=""`
-
-```jsx lines Example
-
-
-<GotoCard
-  label={"<value>"}
-  relativePath={"<value>"}
-  icon={"<value>"}
-  text={"<value>"}
-  cta={""}
-/>
-```
-
-**Props**: `label`, `relativePath`, `text`, `icon`&#x20;
-**Defaults**: `text=""`, `icon="arrow-turn-down-right"`
-
-```jsx lines Example
-
-
-<GotoLink
-  label={"<value>"}
-  relativePath={"<value>"}
-  text={""}
-  icon={"arrow-turn-down-right"}
-/>
-```
-
-**Props**: `href`, `label`, `description`, `newline`, `borderColor`&#x20;
-**Defaults**: `newline=true`
-
-```jsx lines Example
-
-
-<LinkArrow
-  href={"<value>"}
-  label={"<value>"}
-  description={"<value>"}
-  newline={true}
-  borderColor={"<value>"}
-/>
-```
-
-**Props**: `children`, `icon`, `arrowIcon`, `color`, `iconSize`, `arrowSize`&#x20;
-**Defaults**: `icon="lightbulb"`, `arrowIcon="arrow-up-right"`, `iconSize=16`, `arrowSize=16`
-
-```jsx lines Example
-
-
-<TipWithArrow
-  icon={"lightbulb"}
-  arrowIcon={"arrow-up-right"}
-  color={"<value>"}
-  iconSize={16}
-  arrowSize={16}
-/>
-```
-
-**Props**: `children`, `variant`, `style`&#x20;
-**Defaults**: `variant="default"`, `style={}`
-
-```jsx lines Example
-
-
-<StyledTable
-  variant={"default"}
-  style={{}}
-/>
-```
-
-**Props**: `children`, `align`, `header`, `style`&#x20;
-**Defaults**: `align="left"`, `header=false`, `style={}`
-
-```jsx lines Example
-
-
-<TableCell
-  align={"left"}
-  header={false}
-  style={{}}
-/>
-```
-
-**Props**: `children`, `header`, `hover`, `style`&#x20;
-**Defaults**: `header=false`, `hover=false`, `style={}`
-
-```jsx lines Example
-
-
-<TableRow
-  header={false}
-  hover={false}
-  style={{}}
-/>
-```
-
-**Props**: `text`, `children`, `color`&#x20;
-**Defaults**: `color="var(--text)"`
-
-```jsx lines Example
-
-
-<AccordionTitleWithArrow
-  text={"<value>"}
-  color={"var(--text)"}
-/>
-```
-
-**Props**: `children`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<CardTitleTextWithArrow />
-```
-
-**Props**: `text`, `label`&#x20;
-**Defaults**: None
-
-```jsx lines Example
-
-
-<CopyText
-  text={"<value>"}
-  label={"<value>"}
-/>
-```
-
-**Props**: `style`, `text`, `children`&#x20;
-**Defaults**: `style={}`
-
-```jsx lines Example
-
-
-<Subtitle
-  style={{}}
-  text={"<value>"}
-/>
 ```
 
 ## Lookup Table
@@ -23797,22 +23753,6 @@ Accordion Title with Arrow
 | `text` | `string` | - | Title text (optional if `children` provided) |
 | `children` | `ReactNode` | - | Alternative to `text` |
 | `color` | `string` | `"var(--text)"` | Text color |
-
-***
-
-### BasicBtn
-
-A basic button component (placeholder).
-
-```jsx
-
-
-<BasicBtn />
-```
-
-| Prop | Type | Description |
-|------|------|-------------|
-| No props | - | Placeholder component |
 
 ***
 
@@ -24952,11 +24892,10 @@ We've added support for AI-powered video generation!
 | Category | Import Path |
 |----------|-------------|
 | Primitives | `/snippets/components/primitives/` |
-| Display | `/snippets/components/display/` |
+| Data | `/snippets/components/data/` |
 | Content | `/snippets/components/content/` |
 | Layout | `/snippets/components/layout/` |
-| Integrations | `/snippets/components/integrations/` |
-| Domain | `/snippets/components/domain/` |
+| Page Structure | `/snippets/components/page-structure/` |
 
 ### Global Components (No Import Needed)
 
@@ -24971,7 +24910,7 @@ Found a bug or want to add a new component? Contribute on GitHub!
 # Primitives
 URL: https://docs.livepeer.org/v2/resources/documentation-guide/component-library/primitives
 
-// BlinkingIcon, BlinkingTerminal, DoubleIconLink commented out - require ThemeData (DEPRECATED per style guide - components are immutable)
+// BlinkingIcon, BlinkingTerminal, DoubleIconLink commented out - require a legacy theme dependency (components are immutable)
 
 Return to the main component library index
 
@@ -25011,19 +24950,6 @@ Interactive download button with lazy loading for performance optimization.
 ```
 
 ***
-
-### BasicBtn
-
-Placeholder component for basic button functionality. Currently returns empty div.
-
-**Import:**
-
-```jsx
-```
-
-**Props:** None
-
-**Note:** This is a placeholder component and currently non-functional.
 
 ## Icons & Branding
 
@@ -25709,8 +25635,8 @@ Continue to Display Components →
 # Display Components
 URL: https://docs.livepeer.org/v2/resources/documentation-guide/component-library/display
 
-// frameMode components commented out - require ThemeData (DEPRECATED per style guide - components are immutable)
-// import  from '/snippets/components/display/frameMode.jsx'
+// frameMode components commented out - require a legacy theme dependency (components are immutable)
+// import  from '/snippets/components/page-structure/frameMode.jsx'
 
 Return to the main component library index
 
@@ -26014,17 +25940,6 @@ Fetches and renders markdown content from a URL. Dynamically fetches markdown co
 
 ```jsx
 <MarkdownEmbed url="https://raw.githubusercontent.com/user/repo/main/README.md" />
-```
-
-***
-
-### EmbedMarkdown
-
-Alias for `MarkdownEmbed`. Alternative name for the same component.
-
-**Import:**
-
-```jsx
 ```
 
 ***
@@ -26509,11 +26424,11 @@ Link to GitHub source
 
 
 <ExternalContent
-  repoName="livepeer/awesome-livepeer"
-  githubUrl="https://github.com/livepeer/awesome-livepeer"
+  repoName="livepeer/wiki"
+  githubUrl="https://github.com/livepeer/wiki"
   maxHeight="800px"
 >
-  <MyContent />
+  <WikiReadme />
 </ExternalContent>
 ```
 
@@ -28318,7 +28233,7 @@ Frame mode (`mode: frame` in frontmatter) removes all default Mintlify styling. 
 * All styling must be custom
 * Mintlify components still work but lose default styles
 * Keep responsive layout primitives in `style.css` (`.frame-mode-container`, `.frame-mode-hero-full`, frame pagination)
-* Keep portal/page-specific structure in shared JSX components (for example `/snippets/components/domain/SHARED/Portals.jsx`)
+* Keep portal/page-specific structure in shared JSX components (for example `/snippets/components/page-structure/portals.jsx`)
 * Do not use fixed breakout constants directly in component styles (for example hardcoded `96px`, `20px`, or fixed `%` widths)
 * Prefer CSS variables + breakpoints for frame mode layout, and CSS custom properties (`var(--...)`) for theming
 
@@ -28698,11 +28613,11 @@ The snippets folder contains:
 
 ### Components (`/snippets/components/`)
 
-Custom React/JSX components organized by purpose:
+Custom React/JSX components organized by purpose. The active library now uses five production categories plus `_archive/` for preserved legacy modules under review.
 
 #### Primitives (`/snippets/components/primitives/`)
 
-* `buttons.jsx` - Button components (BasicBtn, DownloadButton)
+* `buttons.jsx` - Button components (DownloadButton)
 * `divider.jsx` - CustomDivider component
 * `icons.jsx` - Livepeer brand icons (LivepeerIcon, LivepeerSVG, etc.)
 * `links.jsx` - Link and navigation components (GotoLink, GotoCard, CustomCallout, etc.)
@@ -28712,46 +28627,40 @@ Custom React/JSX components organized by purpose:
 
 * `cards.jsx` - Card layout components (PostCard, BlogCard, ScrollBox)
 * `lists.jsx` - List components (BasicList, IconList, StepList, etc.)
-* `ListSteps.jsx` - ListSteps component for rendering lists as steps
+* `listSteps.jsx` - ListSteps component for rendering lists as steps
 * `steps.jsx` - Styled step components (StyledSteps, StyledStep)
 * `table.jsx` - DynamicTable component
 * `quadGrid.jsx` - QuadGrid layout component
 * `text.jsx` - Text layout components (AccordionLayout)
 
-#### Display (`/snippets/components/display/`)
-
-* `video.jsx` - Video components (YouTubeVideo, CardVideo, LinkedInEmbed)
-* `image.jsx` - Image components (Image, LinkImage)
-* `embed.jsx` - Embed components (MarkdownEmbed, EmbedMarkdown)
-* `zoomable-diagram.jsx` - ScrollableDiagram component
-* `quote.jsx` - Quote components (Quote, FrameQuote)
-* `frameMode.jsx` - Frame mode heading components (PageHeader, H1-H6, P, Divider)
-* `showcaseCards.jsx` - ShowcaseCards component
-* `socialLinks.jsx` - SocialLinks component
-* `CardCarousel.jsx` - CardCarousel component
-
 #### Content (`/snippets/components/content/`)
 
 * `code.jsx` - Code display components (CustomCodeBlock, CodeComponent, ComplexCodeBlock)
-* `external-content.jsx` - ExternalContent component for loading external docs
+* `externalContent.jsx` - ExternalContent component for loading external docs
+* `math.jsx` - MathInline and MathBlock helpers
+* `quote.jsx` - Quote and FrameQuote components
 * `release.jsx` - LatestVersion component
 * `responseField.jsx` - API response field components (ResponseFieldGroup, ValueResponseField, etc.)
+* `video.jsx` - Video, embed, and download components
+* `zoomableDiagram.jsx` - ScrollableDiagram component
 
-#### Integrations (`/snippets/components/integrations/`)
+#### Data (`/snippets/components/data/`)
 
 * `coingecko.jsx` - CoinGeckoExchanges component
+* `data.jsx` - Blog, forum, events, and social feed layouts
+* `embed.jsx` - MarkdownEmbed, TwitterTimeline, and PdfEmbed components
+* `showcaseCards.jsx` - ShowcaseCards component
+* `videoData.jsx` - YouTubeVideoData helper component
 
-#### Domain (`/snippets/components/domain/`)
+#### Page Structure (`/snippets/components/page-structure/`)
 
-Domain-specific components organized by documentation section:
+* `frameMode.jsx` - Frame mode heading and typography components
+* `heroGif.jsx` - Starfield animation component
+* `portals.jsx` - Portal page layout components
 
-* `04_GATEWAYS/` - Gateway-specific components
-  * `callouts.jsx` - Gateway warning/note callouts
-  * `quickstartTabs.jsx` - Gateway quickstart UI components
-* `SHARED/` - Shared components across domains
-  * `HeroGif.jsx` - Starfield animation component
-  * `Portals.jsx` - Portal page layout components
-  * `previewCallouts.jsx` - Preview/coming soon callouts
+#### Archive (`/snippets/components/_archive/`)
+
+* Preserved legacy source files and retired folders kept for migration review only
 
 ### Data (`/snippets/data/`)
 
@@ -28822,7 +28731,7 @@ Static assets including images, logos, and media:
 
 ### Styles (`/snippets/styles/`)
 
-* `themeStyles.jsx` - Theme styling definitions (deprecated - use CSS Custom Properties in `style.css` instead)
+* Legacy theme styling file - deprecated in favour of CSS Custom Properties in `style.css`
 
 ### SnippetsWiki (`/snippets/snippetsWiki/`)
 
@@ -28837,7 +28746,7 @@ Internal documentation about the snippets system:
 
 ## File Count Summary
 
-* **Components**: ~50+ JSX/TSX files across 6 categories
+* **Components**: ~50+ JSX/TSX files across 5 active categories, plus `_archive/` for migration review
 * **Data Files**: ~20+ JSX/MDX files
 * **Page Modules**: ~20+ MDX files
 * **Scripts**: ~10+ shell/JS scripts
@@ -33972,7 +33881,7 @@ This changelog tracks significant updates to the Livepeer documentation. For pro
 ## Documentation Governance and Contribution Workflow
 
 * Added comprehensive [contribution guide](../documentation-guide/contribute-to-the-docs) with step-by-step PR workflow
-* Created [governance documentation](../../internal/governance) covering review process, ownership, and ticketing
+* Created [governance documentation](../../internal/overview/governance) covering review process, ownership, and ticketing
 * Updated CODEOWNERS with section-specific ownership
 * Added PR template for documentation contributions
 * Established review SLAs and process
