@@ -22,6 +22,7 @@ scope_in:
   - tools/scripts/validators/components/check-naming-conventions.js
   - tools/scripts/validators/components/check-component-docs.js
   - tools/scripts/generate-docs-guide-components-index.js
+  - tools/scripts/dev/
   - tools/scripts/snippets/update-component-library.sh
   - tools/script-index.md
   - docs-guide/indexes/scripts-index.mdx

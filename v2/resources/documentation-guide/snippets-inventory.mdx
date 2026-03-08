@@ -25,7 +25,7 @@ The snippets folder contains:
 
 ### Components (`/snippets/components/`)
 
-Custom React/JSX components organized by purpose:
+Custom React/JSX components organized by purpose. The active library now uses five production categories plus `_archive/` for preserved legacy modules under review.
 
 #### Primitives (`/snippets/components/primitives/`)
 - `buttons.jsx` - Button components (DownloadButton)
@@ -43,36 +43,30 @@ Custom React/JSX components organized by purpose:
 - `quadGrid.jsx` - QuadGrid layout component
 - `text.jsx` - Text layout components (AccordionLayout)
 
-#### Display (`/snippets/components/display/`)
-- `video.jsx` - Video components (YouTubeVideo, CardVideo, LinkedInEmbed)
-- `image.jsx` - Image components (Image, LinkImage)
-- `embed.jsx` - Embed components (MarkdownEmbed)
-- `zoomable-diagram.jsx` - ScrollableDiagram component
-- `quote.jsx` - Quote components (Quote, FrameQuote)
-- `frameMode.jsx` - Frame mode heading components (PageHeader, H1-H6, P, Divider)
-- `showcaseCards.jsx` - ShowcaseCards component
-- `socialLinks.jsx` - SocialLinks component
-- `CardCarousel.jsx` - CardCarousel component
-
 #### Content (`/snippets/components/content/`)
 - `code.jsx` - Code display components (CustomCodeBlock, CodeComponent, ComplexCodeBlock)
-- `external-content.jsx` - ExternalContent component for loading external docs
+- `externalContent.jsx` - ExternalContent component for loading external docs
+- `math.jsx` - MathInline and MathBlock helpers
+- `quote.jsx` - Quote and FrameQuote components
 - `release.jsx` - LatestVersion component
 - `responseField.jsx` - API response field components (ResponseFieldGroup, ValueResponseField, etc.)
+- `video.jsx` - Video, embed, and download components
+- `zoomableDiagram.jsx` - ScrollableDiagram component
 
-#### Integrations (`/snippets/components/integrations/`)
+#### Data (`/snippets/components/data/`)
 - `coingecko.jsx` - CoinGeckoExchanges component
+- `data.jsx` - Blog, forum, events, and social feed layouts
+- `embed.jsx` - MarkdownEmbed, TwitterTimeline, and PdfEmbed components
+- `showcaseCards.jsx` - ShowcaseCards component
+- `videoData.jsx` - YouTubeVideoData helper component
 
-#### Domain (`/snippets/components/domain/`)
-Domain-specific components organized by documentation section:
+#### Page Structure (`/snippets/components/page-structure/`)
+- `frameMode.jsx` - Frame mode heading and typography components
+- `heroGif.jsx` - Starfield animation component
+- `portals.jsx` - Portal page layout components
 
-- `04_GATEWAYS/` - Gateway-specific components
-  - `callouts.jsx` - Gateway warning/note callouts
-  - `quickstartTabs.jsx` - Gateway quickstart UI components
-- `SHARED/` - Shared components across domains
-  - `HeroGif.jsx` - Starfield animation component
-  - `Portals.jsx` - Portal page layout components
-  - `previewCallouts.jsx` - Preview/coming soon callouts
+#### Archive (`/snippets/components/_archive/`)
+- Preserved legacy source files and retired folders kept for migration review only
 
 ### Data (`/snippets/data/`)
 
@@ -158,7 +152,7 @@ Internal documentation about the snippets system:
 
 ## File Count Summary
 
-- **Components**: ~50+ JSX/TSX files across 6 categories
+- **Components**: ~50+ JSX/TSX files across 5 active categories, plus `_archive/` for migration review
 - **Data Files**: ~20+ JSX/MDX files
 - **Page Modules**: ~20+ MDX files
 - **Scripts**: ~10+ shell/JS scripts

@@ -38,7 +38,7 @@ Le dossier des extraits contient :
 
 ### Composants (`/snippets/components/`)
 
-Composants React/JSX personnalisés organisés par objectif :
+Composants React/JSX personnalisés organisés par objectif. La bibliothèque active utilise désormais 5 catégories de production, plus `_archive/` pour les modules historiques conservés pendant la revue de migration.
 
 #### Primitifs (`/snippets/components/primitives/`)
 - `buttons.jsx` - Composants de bouton (DownloadButton)
@@ -56,36 +56,30 @@ Composants React/JSX personnalisés organisés par objectif :
 - `quadGrid.jsx` - Composant de mise en page QuadGrid
 - `text.jsx` - Composants de mise en page de texte (AccordionLayout)
 
-#### Afficher (`/snippets/components/display/`)
-- `video.jsx` - Composants vidéo (YouTubeVideo, CardVideo, LinkedInEmbed)
-- `image.jsx` - Composants image (Image, LinkImage)
-- `embed.jsx` - Composants intégrés (MarkdownEmbed)
-- `zoomable-diagram.jsx` - Composant ScrollableDiagram
-- `quote.jsx` - Composants de citation (Quote, FrameQuote)
-- `frameMode.jsx` - Composants d'en-tête en mode Frame (PageHeader, H1-H6, P, Divider)
-- `showcaseCards.jsx` - Composant ShowcaseCards
-- `socialLinks.jsx` - Composant SocialLinks
-- `CardCarousel.jsx` - Composant CardCarousel
-
 #### Contenu (`/snippets/components/content/`)
 - `code.jsx` - Composants d'affichage de code (CustomCodeBlock, CodeComponent, ComplexCodeBlock)
-- `external-content.jsx` - Composant ExternalContent pour charger des documents externes
+- `externalContent.jsx` - Composant ExternalContent pour charger des documents externes
+- `math.jsx` - Utilitaires MathInline et MathBlock
+- `quote.jsx` - Composants Quote et FrameQuote
 - `release.jsx` - Composant LatestVersion
 - `responseField.jsx` - Composants de champs de réponse d'API (ResponseFieldGroup, ValueResponseField, etc.)
+- `video.jsx` - Composants vidéo, d'intégration et de téléchargement
+- `zoomableDiagram.jsx` - Composant ScrollableDiagram
 
-#### Intégrations (`/snippets/components/integrations/`)
+#### Données (`/snippets/components/data/`)
 - `coingecko.jsx` - Composant CoinGeckoExchanges
+- `data.jsx` - Mises en page pour blog, forum, événements et flux sociaux
+- `embed.jsx` - Composants MarkdownEmbed, TwitterTimeline et PdfEmbed
+- `showcaseCards.jsx` - Composant ShowcaseCards
+- `videoData.jsx` - Composant auxiliaire YouTubeVideoData
 
-#### Domaine (`/snippets/components/domain/`)
-Composants spécifiques au domaine organisés par section de documentation :
+#### Structure de page (`/snippets/components/page-structure/`)
+- `frameMode.jsx` - Composants d'en-tête et de typographie en mode Frame
+- `heroGif.jsx` - Composant d'animation de champ d'étoiles
+- `portals.jsx` - Composants de mise en page pour les pages portail
 
-- `04_GATEWAYS/` - Composants spécifiques au portail
-  - `callouts.jsx` - Avertissements/notes du portail
-  - `quickstartTabs.jsx` - Composants d'interface utilisateur de démarrage rapide du portail
-- `SHARED/` - Composants partagés entre les domaines
-  - `HeroGif.jsx` - Composant d'animation de champ d'étoiles
-  - `Portals.jsx` - Composants de mise en page de la page d'accueil
-  - `previewCallouts.jsx` - Appels d'offre de prévisualisation/à venir
+#### Archive (`/snippets/components/_archive/`)
+- Code historique et dossiers retirés conservés uniquement pour la revue de migration
 
 ### Données (`/snippets/data/`)
 
@@ -171,7 +165,7 @@ Documentation interne sur le système des extraits :
 
 ## Résumé du nombre de fichiers
 
-- **Composants**: ~50+ fichiers JSX/TSX répartis en 6 catégories
+- **Composants**: ~50+ fichiers JSX/TSX répartis en 5 catégories actives, plus `_archive/` pour la revue de migration
 - **Fichiers de données**: ~20+ fichiers JSX/MDX
 - **Modules de page**: ~20+ fichiers MDX
 - **Scripts**: ~10+ scripts shell/JS
