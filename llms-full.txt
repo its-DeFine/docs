@@ -3584,9 +3584,9 @@ It uses [Keccak256](https://en.wikipedia.org/wiki/Keccak#Keccak-256) hashes of c
 
 **Address**:
 <LinkArrow label="See on Arbiscan" href="https://arbiscan.io/address/0xD8E8328501E9645d16Cf49539efC04f734606ee4" newline={false} />
-```
-0xD8E8328501E9645d16Cf49539efC04f734606ee4
-```jsx
+	```text
+	0xD8E8328501E9645d16Cf49539efC04f734606ee4
+	```
 
 **Purpose**:
 
