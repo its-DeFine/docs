@@ -1,4 +1,9 @@
 export const Quote = ({ children }) => {
+  if (children == null) {
+    console.warn("[Quote] Missing children");
+    return null;
+  }
+
   const quoteStyle = {
     fontSize: '1rem',
     textAlign: 'center',

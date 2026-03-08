@@ -16,6 +16,11 @@ export const DisplayCard = ({
   background = 'var(--card-background)',
   children,
 }) => {
+  if (!title) {
+    console.warn("[DisplayCard] Missing required prop: title");
+    return null;
+  }
+
   const cardStyle = {
     display: 'flex',
     flexDirection: 'column',
@@ -80,6 +85,11 @@ export const InlineImageCard = ({
   cardProps,
   style,
 }) => {
+  if (!imgProps?.src) {
+    console.warn("[InlineImageCard] Missing required prop: imgProps.src");
+    return null;
+  }
+
   return (
     <Card {...cardProps}>
       <div

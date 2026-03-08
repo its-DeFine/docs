@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-08T10:15:20.172Z",
+  "generated": "2026-03-08T10:30:25.852Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -12592,7 +12592,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 404,
-      "lastVerified": "2026-03-04T01:00:46+11:00",
+      "lastVerified": "2026-03-08T21:15:13+11:00",
       "headings": [
         {
           "level": 2,
@@ -15053,7 +15053,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 889,
-      "lastVerified": "2026-03-08T20:56:17+11:00",
+      "lastVerified": "2026-03-08T21:15:13+11:00",
       "headings": [
         {
           "level": 2,
@@ -15103,7 +15103,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3517,
-      "lastVerified": "2026-03-08T20:56:17+11:00",
+      "lastVerified": "2026-03-08T21:15:13+11:00",
       "headings": [
         {
           "level": 2,
@@ -16506,7 +16506,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 933,
-      "lastVerified": "2026-03-08T20:43:02+11:00",
+      "lastVerified": "2026-03-08T21:15:13+11:00",
       "headings": [
         {
           "level": 2,
@@ -16704,7 +16704,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3668,
-      "lastVerified": "2026-03-08T20:43:02+11:00",
+      "lastVerified": "2026-03-08T21:15:13+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -16941,7 +16941,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2194,
-      "lastVerified": "2026-03-07T18:52:50+11:00",
+      "lastVerified": "2026-03-08T21:15:13+11:00",
       "headings": [
         {
           "level": 2,
@@ -17069,7 +17069,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 889,
-      "lastVerified": "2026-03-08T20:56:17+11:00",
+      "lastVerified": "2026-03-08T21:15:13+11:00",
       "headings": [
         {
           "level": 2,
@@ -17118,7 +17118,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3252,
-      "lastVerified": "2026-03-08T14:27:37+11:00",
+      "lastVerified": "2026-03-08T21:15:13+11:00",
       "headings": [
         {
           "level": 2,

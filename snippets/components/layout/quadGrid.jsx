@@ -7,6 +7,10 @@ export const QuadGrid = ({
   iconColor = "var(--accent)",
   spinDuration = "10s",
 }) => {
+  if (children == null) {
+    console.warn("[QuadGrid] Missing children");
+    return null;
+  }
 
   return (
     <div style={{ position: "relative" }}>
@@ -38,4 +42,3 @@ export const QuadGrid = ({
     </div>
   );
 };
-

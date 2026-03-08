@@ -25,6 +25,11 @@ export const BorderedBox = ({
   borderRadius = "8px",
   style = {},
 }) => {
+  if (children == null) {
+    console.warn("[BorderedBox] Missing children");
+    return null;
+  }
+
   const variants = {
     default: {
       border: "1px solid var(--border)",
@@ -115,6 +120,11 @@ export const FullWidthContainer = ({
   backgroundColor,
   style = {},
 }) => {
+  if (children == null) {
+    console.warn("[FullWidthContainer] Missing children");
+    return null;
+  }
+
   return (
     <div
       style={{
@@ -149,17 +159,18 @@ export const FullWidthContainer = ({
  *
  * @author Livepeer Documentation Team
  */
-export const TabsContainer = ({ children }) => (
-  <div
-    style={{
-      border: "1px solid var(--accent)",
-      borderRadius: "12px",
-      padding: "1rem",
-    }}
-  >
-    <Tabs>{children}</Tabs>
-  </div>
-);
+export const TabsContainer = ({ children }) =>
+  children == null ? null : (
+    <div
+      style={{
+        border: "1px solid var(--accent)",
+        borderRadius: "12px",
+        padding: "1rem",
+      }}
+    >
+      <Tabs>{children}</Tabs>
+    </div>
+  );
 
 /**
  * CardContentContainer - Vertical flex container for card body content
@@ -185,19 +196,20 @@ export const CardContentContainer = ({
   align,
   justify,
   gap = "1rem",
-}) => (
-  <div
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      gap: gap,
-      ...(align ? { alignItems: align } : {}),
-      ...(justify ? { justifyContent: justify } : {}),
-    }}
-  >
-    {children}
-  </div>
-);
+}) =>
+  children == null ? null : (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: gap,
+        ...(align ? { alignItems: align } : {}),
+        ...(justify ? { justifyContent: justify } : {}),
+      }}
+    >
+      {children}
+    </div>
+  );
 
 /**
  * CalloutContainer - Flex wrapper for grouped callout content
@@ -221,16 +233,17 @@ export const CalloutContainer = ({
   children,
   width = "fit-content",
   align = "center",
-}) => (
-  <div
-    style={{
-      display: "flex",
-      flexDirection: "column",
-      gap: "1rem",
-      width: width,
-      alignItems: align,
-    }}
-  >
-    {children}
-  </div>
-);
+}) =>
+  children == null ? null : (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "1rem",
+        width: width,
+        alignItems: align,
+      }}
+    >
+      {children}
+    </div>
+  );

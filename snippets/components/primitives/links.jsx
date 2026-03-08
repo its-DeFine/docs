@@ -19,6 +19,23 @@
  *
  * @author Livepeer Documentation Team
  */
+const isNonEmptyString = (value) =>
+  typeof value === "string" && value.trim().length > 0;
+
+const normalizeIconName = (value, fallback) =>
+  isNonEmptyString(value) ? value.trim() : fallback;
+
+const normalizeIconSize = (value, fallback) => {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : fallback;
+};
+
+const getAlphaColor = (value, alpha) => {
+  const resolvedValue = isNonEmptyString(value) ? value.trim() : "var(--accent)";
+  const percentage = Math.max(0, Math.min(100, Math.round(alpha * 100)));
+  return `color-mix(in srgb, ${resolvedValue} ${percentage}%, transparent)`;
+};
+
 const CustomCallout = ({
   children,
   icon = "lightbulb",
@@ -27,17 +44,12 @@ const CustomCallout = ({
   textSize = "0.875rem",
   textColor,
 }) => {
-  // Use theme accent if no color specified
-  const resolvedColor = color || "var(--accent)";
-  const resolvedTextColor = textColor || resolvedColor;
-
-  // Convert hex to rgba for proper opacity
-  const hexToRgba = (hex, alpha) => {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
-    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-  };
+  const resolvedColor = isNonEmptyString(color) ? color.trim() : "var(--accent)";
+  const resolvedTextColor = isNonEmptyString(textColor)
+    ? textColor.trim()
+    : resolvedColor;
+  const resolvedIcon = normalizeIconName(icon, "lightbulb");
+  const resolvedIconSize = normalizeIconSize(iconSize, 16);
 
   return (
     <>
@@ -48,15 +60,21 @@ const CustomCallout = ({
           gap: "12px",
           padding: "16px 20px",
           borderRadius: "16px",
-          border: `1px solid ${hexToRgba(resolvedColor, 0.2)}`,
-          backgroundColor: hexToRgba(resolvedColor, 0.1),
+          border: `1px solid ${getAlphaColor(resolvedColor, 0.2)}`,
+          backgroundColor: getAlphaColor(resolvedColor, 0.1),
           marginTop: "16px",
           marginBottom: "16px",
           overflow: "hidden",
         }}
       >
-        <div style={{ marginTop: "2px", width: iconSize, flexShrink: 0 }}>
-          <Icon icon={icon} size={iconSize} color={resolvedColor} />
+        <div
+          style={{ marginTop: "2px", width: resolvedIconSize, flexShrink: 0 }}
+        >
+          <Icon
+            icon={resolvedIcon}
+            size={resolvedIconSize}
+            color={resolvedColor}
+          />
         </div>
         <div
           style={{
@@ -91,6 +109,9 @@ const CustomCallout = ({
  */
 const BlinkingIcon = ({ icon = "terminal", size = 16, color }) => {
   const resolvedColor = color || "var(--accent)";
+  const resolvedIcon = normalizeIconName(icon, "terminal");
+  const resolvedSize = normalizeIconSize(size, 16);
+
   return (
     <>
       <style>{`
@@ -105,7 +126,7 @@ const BlinkingIcon = ({ icon = "terminal", size = 16, color }) => {
           animation: "blink 3s ease-in-out infinite",
         }}
       >
-        <Icon icon={icon} size={size} color={resolvedColor} />
+        <Icon icon={resolvedIcon} size={resolvedSize} color={resolvedColor} />
       </span>
     </>
   );
@@ -272,16 +293,11 @@ const TipWithArrow = ({
   iconSize = 16,
   arrowSize = 16,
 }) => {
-  // Use theme accent if no color specified
-  const resolvedColor = color || "var(--accent)";
-
-  // Convert hex to rgba for proper opacity
-  const hexToRgba = (hex, alpha) => {
-    const r = parseInt(hex.slice(1, 3), 16);
-    const g = parseInt(hex.slice(3, 5), 16);
-    const b = parseInt(hex.slice(5, 7), 16);
-    return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-  };
+  const resolvedColor = isNonEmptyString(color) ? color.trim() : "var(--accent)";
+  const resolvedIcon = normalizeIconName(icon, "lightbulb");
+  const resolvedArrowIcon = normalizeIconName(arrowIcon, "arrow-up-right");
+  const resolvedIconSize = normalizeIconSize(iconSize, 16);
+  const resolvedArrowSize = normalizeIconSize(arrowSize, 16);
 
   return (
     <>
@@ -294,15 +310,21 @@ const TipWithArrow = ({
           padding: "16px 20px",
           paddingRight: "48px", // Extra space for the arrow
           borderRadius: "16px",
-          border: `1px solid ${hexToRgba(resolvedColor, 0.2)}`,
-          backgroundColor: hexToRgba(resolvedColor, 0.1),
+          border: `1px solid ${getAlphaColor(resolvedColor, 0.2)}`,
+          backgroundColor: getAlphaColor(resolvedColor, 0.1),
           marginTop: "16px",
           marginBottom: "16px",
           overflow: "hidden",
         }}
       >
-        <div style={{ marginTop: "2px", width: iconSize, flexShrink: 0 }}>
-          <Icon icon={icon} size={iconSize} color={resolvedColor} />
+        <div
+          style={{ marginTop: "2px", width: resolvedIconSize, flexShrink: 0 }}
+        >
+          <Icon
+            icon={resolvedIcon}
+            size={resolvedIconSize}
+            color={resolvedColor}
+          />
         </div>
         <div
           style={{
@@ -322,7 +344,11 @@ const TipWithArrow = ({
             opacity: 0.6,
           }}
         >
-          <Icon icon={arrowIcon} size={arrowSize} color={resolvedColor} />
+          <Icon
+            icon={resolvedArrowIcon}
+            size={resolvedArrowSize}
+            color={resolvedColor}
+          />
         </div>
       </div>
     </>
@@ -336,6 +362,11 @@ const LinkArrow = ({
   newline = true,
   borderColor,
 }) => {
+  if (!href || !label) {
+    console.warn("[LinkArrow] Missing required props: href and label");
+    return null;
+  }
+
   const linkArrowStyle = {
     display: "inline-flex",
     alignItems: "center",
@@ -348,7 +379,7 @@ const LinkArrow = ({
     <>
       {newline && <br />}
       <span style={linkArrowStyle}>
-        <a href={href} target="_blank">
+        <a href={href} target="_blank" rel="noopener noreferrer">
           {label}
         </a>
         <Icon icon="arrow-up-right" size={14} color="var(--accent)" />

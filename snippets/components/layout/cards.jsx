@@ -26,6 +26,11 @@ export const ScrollBox = ({
   ariaLabel = "Scrollable content",
   style,
 }) => {
+  if (children == null) {
+    console.warn("[ScrollBox] Missing children");
+    return null;
+  }
+
   const contentRef = useRef(null);
   const [isOverflowing, setIsOverflowing] = useState(false);
 

@@ -20,10 +20,16 @@
  *
  * @author Livepeer Documentation Team
  */
-export const ListSteps = (listItems, stepsConfig) => {
+export const ListSteps = ({ listItems, stepsConfig = {} }) => {
+  const safeItems = Array.isArray(listItems) ? listItems : [];
+  if (safeItems.length === 0) {
+    console.warn("[ListSteps] Missing required prop: listItems");
+    return null;
+  }
+
   return (
     <Steps {...stepsConfig}>
-      {listItems.map(({ title, icon, children, ...props }, idx) => (
+      {safeItems.map(({ title, icon, children, ...props }, idx) => (
         <Step key={idx} title={title} icon={icon} {...props}>
           {children}
         </Step>

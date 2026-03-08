@@ -468,12 +468,16 @@ export const YouTubeVideoDownload = ({
  * @author Livepeer Documentation Team
  */
 export const CardVideo = ({ embedUrl, title, style }) => {
-  console.log("Props:", { embedUrl, title }); // Add this
+  if (!embedUrl || !title) {
+    console.warn("[CardVideo] Missing required props: embedUrl or title");
+    return null;
+  }
+
   return (
     <Card>
       <iframe
         className="w-full aspect-video rounded-xl"
-        style={{ aspectRatio: "16/9", ...style }}
+        style={{ aspectRatio: "16/9", ...(style || {}) }}
         src={embedUrl}
         title={title}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

@@ -1,4 +1,9 @@
 export const AccordionLayout = ({ children }) => {
+  if (children == null) {
+    console.warn("[AccordionLayout] Missing children");
+    return null;
+  }
+
   return (
     <div
       style={{

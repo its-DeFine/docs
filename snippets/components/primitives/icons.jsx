@@ -51,10 +51,12 @@ export const LivepeerSVG = ({
  * @author Livepeer Documentation Team
  */
 export const LivepeerIconOld = ({ ...props }) => {
+  const iconProps = props && typeof props === "object" ? props : {};
+
   return (
     <Icon
       icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg"
-      {...props}
+      {...iconProps}
     />
   );
 };
@@ -74,11 +76,13 @@ export const LivepeerIconOld = ({ ...props }) => {
  * @author Livepeer Documentation Team
  */
 export const LivepeerIconFlipped = ({ ...props }) => {
+  const iconProps = props && typeof props === "object" ? props : {};
+
   return (
     <span style={{ display: "inline-block", transform: "scaleX(-1)" }}>
       <Icon
         icon="/snippets/assets/logos/Livepeer-Logo-Symbol-Light.svg"
-        {...props}
+        {...iconProps}
       />
     </span>
   );
@@ -102,12 +106,16 @@ export const LivepeerIconFlipped = ({ ...props }) => {
  * @author Livepeer Documentation Team
  */
 export const LivepeerIcon = ({ size = 16, color, ...props }) => {
+  const resolvedColor =
+    typeof color === "string" && color.trim()
+      ? color.trim()
+      : "var(--livepeer-icon-color, var(--lp-color-icon-muted))";
+
   return (
     <span
       style={{
         display: "inline-flex",
-        color:
-          color || "var(--livepeer-icon-color, var(--lp-color-icon-muted))",
+        color: resolvedColor,
       }}
       className="livepeer-icon"
     >

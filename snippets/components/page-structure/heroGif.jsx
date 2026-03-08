@@ -79,15 +79,34 @@ export const Starfield = ({ density = 1.1 }) => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (
+      !canvas ||
+      typeof window === "undefined" ||
+      typeof document === "undefined" ||
+      typeof Image === "undefined"
+    ) {
+      return;
+    }
+
     const ctx = canvas.getContext("2d");
+    if (!ctx) {
+      console.warn("[Starfield] Canvas 2D context unavailable");
+      return;
+    }
 
     let rafId;
     let stars = [];
     let tintedCache = new Map(); // key: color -> tinted ImageBitmap|canvas
+    let cancelled = false;
 
     // Select color palette based on theme tokens so canvas tinting follows CSS theme state.
-    const COLORS = getColorPalette();
+    const COLORS = Array.isArray(getColorPalette())
+      ? getColorPalette().filter(Boolean)
+      : [];
+    if (COLORS.length === 0) {
+      console.warn("[Starfield] Missing color palette");
+      return;
+    }
 
     // IMPORTANT: try no leading slash first in Mintlify
     const logo = new Image();
@@ -98,6 +117,9 @@ export const Starfield = ({ density = 1.1 }) => {
 
       const off = document.createElement("canvas");
       const octx = off.getContext("2d");
+      if (!octx) {
+        return null;
+      }
 
       const base = 32; // base logo render size in px (scaled per star)
       off.width = base;
@@ -120,6 +142,9 @@ export const Starfield = ({ density = 1.1 }) => {
     const resize = () => {
       const dpr = window.devicePixelRatio || 1;
       const rect = canvas.getBoundingClientRect();
+      if (!rect.width || !rect.height) {
+        return;
+      }
       canvas.width = rect.width * dpr;
       canvas.height = rect.height * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -154,6 +179,9 @@ export const Starfield = ({ density = 1.1 }) => {
         ctx.globalAlpha = Math.max(0, Math.min(1, alpha));
 
         const tinted = makeTinted(s.color);
+        if (!tinted) {
+          continue;
+        }
 
         ctx.save();
         ctx.translate(s.x, s.y);
@@ -166,16 +194,26 @@ export const Starfield = ({ density = 1.1 }) => {
     };
 
     logo.onload = () => {
+      if (cancelled) {
+        return;
+      }
       resize();
       draw();
       window.addEventListener("resize", resize);
     };
 
+    logo.onerror = () => {
+      console.warn("[Starfield] Failed to load logo asset");
+    };
+
     return () => {
+      cancelled = true;
       cancelAnimationFrame(rafId);
       window.removeEventListener("resize", resize);
+      logo.onload = null;
+      logo.onerror = null;
     };
-  }, []);
+  }, [density]);
 
   return (
     <canvas

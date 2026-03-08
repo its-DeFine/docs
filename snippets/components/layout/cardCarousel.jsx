@@ -31,6 +31,12 @@ export const CardCarousel = ({
     }
     return [children];
   }, [children]);
+
+  if (cards.length === 0) {
+    console.warn("[CardCarousel] Missing children");
+    return null;
+  }
+
   const total = cards.length;
   const count = Math.max(1, Math.min(visibleCount, total || 1));
   const pageCount = Math.max(1, Math.ceil(total / count));

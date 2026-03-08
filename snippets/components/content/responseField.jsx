@@ -18,6 +18,14 @@ const ValueResponseField = ({
   children,
   ...props
 }) => {
+  const hasDescription =
+    typeof description === "function" || description != null || children != null;
+
+  if (!hasDescription) {
+    console.warn("[ValueResponseField] Missing required prop: description");
+    return null;
+  }
+
   const value = post
     ? [
         <span>
@@ -72,6 +80,10 @@ const CustomResponseField = ({ description, ...props }) => {
 
 const ResponseFieldExpandable = ({ fields = {}, ...props }) => {
   const fieldsArray = Array.isArray(fields) ? fields : Object.values(fields);
+  if (fieldsArray.length === 0) {
+    return null;
+  }
+
   return (
     <Expandable {...props}>
       {fieldsArray.map((field, index) => (
@@ -83,6 +95,11 @@ const ResponseFieldExpandable = ({ fields = {}, ...props }) => {
 
 const ResponseFieldAccordion = ({ fields = {}, ...props }) => {
   const fieldsArray = Array.isArray(fields) ? fields : Object.values(fields);
+  if (fieldsArray.length === 0) {
+    console.warn("[ResponseFieldAccordion] Missing or invalid fields");
+    return null;
+  }
+
   return (
     <Accordion {...props}>
       {fieldsArray.map((field, index) => (
@@ -99,6 +116,11 @@ const ResponseFieldGroup = ({
   ...props
 }) => {
   const fieldsArray = Array.isArray(fields) ? fields : Object.values(fields);
+  if (fieldsArray.length === 0) {
+    console.warn("[ResponseFieldGroup] Missing or invalid fields");
+    return null;
+  }
+
   const componentMap = {
     expandable: Expandable,
     accordion: Accordion,

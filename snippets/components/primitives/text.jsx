@@ -1,4 +1,9 @@
 export const Subtitle = ({ style = {}, text, children }) => {
+  if (text == null && children == null) {
+    console.warn("[Subtitle] Missing required prop: text");
+    return null;
+  }
+
   return (
     <>
       <span
@@ -23,8 +28,15 @@ export const Subtitle = ({ style = {}, text, children }) => {
  * @param {string} [label] - Optional label before the text
  */
 export const CopyText = ({ text, label }) => {
+  if (typeof text !== "string" || text.length === 0) {
+    console.warn("[CopyText] Missing required prop: text");
+    return null;
+  }
+
   const handleCopy = () => {
-    navigator.clipboard.writeText(text);
+    if (typeof navigator !== "undefined" && navigator.clipboard?.writeText) {
+      navigator.clipboard.writeText(text);
+    }
   };
 
   return (
@@ -128,6 +140,11 @@ export const AccordionTitleWithArrow = ({
   color = "var(--text)",
 }) => {
   const label = text ?? children;
+  if (label == null) {
+    console.warn("[AccordionTitleWithArrow] Missing required prop: text");
+    return null;
+  }
+
   return (
     <span
       style={{

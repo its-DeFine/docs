@@ -37,6 +37,11 @@
  * @author Alison Haire
  */
 const HeroSectionContainer = ({ children, minHeight = "fit-content" }) => {
+  if (children == null) {
+    console.warn("[HeroSectionContainer] Missing children");
+    return null;
+  }
+
   return (
     <div
       className="frame-mode-hero-full"
@@ -66,6 +71,11 @@ const HeroSectionContainer = ({ children, minHeight = "fit-content" }) => {
  * @author Alison Haire
  */
 const HeroImageBackgroundComponent = ({ children }) => {
+  if (children == null) {
+    console.warn("[HeroImageBackgroundComponent] Missing children");
+    return null;
+  }
+
   return (
     <div
       style={{
@@ -98,6 +108,11 @@ const HeroImageBackgroundComponent = ({ children }) => {
  * @author Alison Haire
  */
 const HeroContentContainer = ({ children }) => {
+  if (children == null) {
+    console.warn("[HeroContentContainer] Missing children");
+    return null;
+  }
+
   return (
     <div
       className="frame-mode-container"
@@ -115,6 +130,11 @@ const HeroContentContainer = ({ children }) => {
 
 //unused
 const HeroOverviewContent = ({ children }) => {
+  if (children == null) {
+    console.warn("[HeroOverviewContent] Missing children");
+    return null;
+  }
+
   return (
     <div
       style={{
@@ -150,6 +170,11 @@ const HeroOverviewContent = ({ children }) => {
  * @author Alison Haire
  */
 const PortalContentContainer = ({ children }) => {
+    if (children == null) {
+        console.warn("[PortalContentContainer] Missing children");
+        return null;
+    }
+
     return (
         <div className="frame-mode-container">
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>   
@@ -312,6 +337,11 @@ const PortalHeroContent = ({
 };
 
 const PortalCardsHeader = ({ children, title }) => {
+    if (!title && children == null) {
+        console.warn("[PortalCardsHeader] Missing required prop: title");
+        return null;
+    }
+
     return (
     <div style={{ alignContent: "center", justifyContent: "center" }}>
         <H2 icon="signs-post" iconSize={32} >
@@ -329,6 +359,11 @@ const PortalCardsHeader = ({ children, title }) => {
 };
 
 const PortalSectionHeader = ({ children, title, icon }) => {
+    if (!title && children == null) {
+        console.warn("[PortalSectionHeader] Missing required prop: title");
+        return null;
+    }
+
     return (
     <div style={{ alignContent: "center", justifyContent: "center", gap: "1rem 0" }}>
         <H3 icon={icon} iconSize={32} >
@@ -406,6 +441,11 @@ const LogoHeroContainer = ({
 };
 
 const RefCardContainer = ({ children }) => {
+  if (children == null) {
+    console.warn("[RefCardContainer] Missing children");
+    return null;
+  }
+
   return (
     <div
       style={{

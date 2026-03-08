@@ -39,6 +39,11 @@ const PageHeader = ({
   subtitleColor,
   descriptionColor,
 }) => {
+  if (!title && !subtitle && !description && children == null) {
+    console.warn("[PageHeader] Missing heading content");
+    return null;
+  }
+
   return (
     <div
       style={{
@@ -169,6 +174,11 @@ const H1 = ({
   align = "left",
   gap = "0.75rem",
 }) => {
+  if (children == null && !icon) {
+    console.warn("[H1] Missing heading content");
+    return null;
+  }
+
   const resolvedIconColor = iconColor || "var(--accent)";
 
   const containerStyle = {

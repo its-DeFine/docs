@@ -50,10 +50,14 @@ export const IconList = ({ listItems: array }) => {
  * @author Livepeer Documentation Team
  */
 export const StepList = ({ listItems }) => {
-  console.log("listItems", listItems);
+  const safeItems = Array.isArray(listItems) ? listItems : [];
+  if (safeItems.length === 0) {
+    return null;
+  }
+
   return (
     <Steps>
-      {listItems.map(({ title, icon, content }, idx) => (
+      {safeItems.map(({ title, icon, content }, idx) => (
         <Step key={idx} title={title} icon={icon}>
           {content}
         </Step>
@@ -84,10 +88,15 @@ export const StepList = ({ listItems }) => {
  * @author Livepeer Documentation Team
  */
 export const StepLinkList = ({ listItems }) => {
-  console.log("listItems", listItems);
+  const safeItems = Array.isArray(listItems) ? listItems : [];
+  if (safeItems.length === 0) {
+    console.warn("[StepLinkList] Missing or invalid listItems");
+    return null;
+  }
+
   return (
     <Steps>
-      {listItems.map(({ title, icon, content, link }, idx) => (
+      {safeItems.map(({ title, icon, content, link }, idx) => (
         <Step key={idx} title={title} icon={icon}>
           <GotoLink label={content} relativePath={link} />
         </Step>
@@ -107,13 +116,29 @@ export const StepLinkList = ({ listItems }) => {
  * @author Livepeer Documentation Team
  */
 export const UpdateList = ({ listItems: array }) => {
+  const safeItems = Array.isArray(array) ? array : [];
+  if (safeItems.length === 0) {
+    console.warn("[UpdateList] Missing or invalid listItems");
+    return null;
+  }
+
   return (
-    <Update label="New Users">
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        Learn what Livepeer is and how it can benefit you
-        <Icon icon="new" /> [About Livepeer](../../01_about/about-home/)
-      </div>
-    </Update>
+    <>
+      {safeItems.map(({ title, content, link, icon }, idx) => (
+        <Update key={title || idx} label={title || "Update"}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+            {content}
+            {link ? (
+              <GotoLink
+                label={title || "Learn more"}
+                relativePath={link}
+                icon={icon || "arrow-turn-down-right"}
+              />
+            ) : null}
+          </div>
+        </Update>
+      ))}
+    </>
   );
 };
 
@@ -139,9 +164,14 @@ export const UpdateList = ({ listItems: array }) => {
  * @author Livepeer Documentation Team
  */
 export const UpdateLinkList = ({ listItems: array }) => {
+  const safeItems = Array.isArray(array) ? array : [];
+  if (safeItems.length === 0) {
+    return null;
+  }
+
   return (
     <>
-      {array.map(({ title, icon, content, link }, idx) => (
+      {safeItems.map(({ title, icon, content, link }, idx) => (
         <Update key={idx} label={title}>
           <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
             {content}

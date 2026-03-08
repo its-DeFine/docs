@@ -201,9 +201,10 @@ export const BlogCard = ({
  * @author Livepeer Documentation Team
  */
 export const CardBlogDataLayout = ({ items = [], limit }) => {
-  console.debug("items", items);
-  const displayItems = limit ? items.slice(0, limit) : items;
-  if (!displayItems || displayItems.length === 0) {
+  const safeItems = Array.isArray(items) ? items : [];
+  const displayItems = limit ? safeItems.slice(0, limit) : safeItems;
+
+  if (displayItems.length === 0) {
     return (
       <Note>
         <p style={{ color: "var(--text-secondary)", textAlign: "center" }}>
@@ -215,19 +216,24 @@ export const CardBlogDataLayout = ({ items = [], limit }) => {
   return (
     <div>
       {displayItems.map((props, idx) => (
-        <BlogCard key={props.href || idx} {...props} />
+        <BlogCard key={props?.href || idx} {...props} />
       ))}
     </div>
   );
 };
 
 export const ColumnsBlogCardLayout = ({ items = [], cols = 2, limit }) => {
-  console.debug("items", items);
-  const displayItems = limit ? items.slice(0, limit) : items;
+  const safeItems = Array.isArray(items) ? items : [];
+  const displayItems = limit ? safeItems.slice(0, limit) : safeItems;
+
+  if (displayItems.length === 0) {
+    return null;
+  }
+
   return (
     <Columns cols={cols}>
       {displayItems.map((props, idx) => (
-        <BlogCard key={props.href || idx} {...props} />
+        <BlogCard key={props?.href || idx} {...props} />
       ))}
     </Columns>
   );
@@ -281,9 +287,13 @@ export const PostCard = ({
   cta = "Read More",
   img = null,
 }) => {
-  console.debug("item", title, content, href, img);
-  // Show hint if content is likely to overflow (>500 chars as proxy)
-  const showScrollHint = content && content.length > 500;
+  const contentHtml = typeof content === "string" ? content : "";
+  const showScrollHint = contentHtml.length > 500;
+
+  if (!title || !href) {
+    console.warn("[PostCard] Missing required props: title or href");
+    return null;
+  }
 
   // FIX STYLES
   return (
@@ -358,7 +368,7 @@ export const PostCard = ({
           const hint = el.nextSibling;
           if (hint) hint.style.display = atBottom ? "none" : "block";
         }}
-        dangerouslySetInnerHTML={{ __html: content }}
+        dangerouslySetInnerHTML={{ __html: contentHtml }}
       />
       {showScrollHint && (
         <div
@@ -397,13 +407,18 @@ export const PostCard = ({
  * @author Livepeer Documentation Team
  */
 export const CardColumnsPostLayout = ({ cols = 2, items = [], limit }) => {
-  const displayItems = limit ? items.slice(0, limit) : items;
+  const safeItems = Array.isArray(items) ? items : [];
+  const displayItems = limit ? safeItems.slice(0, limit) : safeItems;
+
+  if (displayItems.length === 0) {
+    return null;
+  }
 
   return (
     <>
       <Columns cols={cols}>
         {displayItems.map((props, idx) => (
-          <PostCard key={props.href || idx} {...props} />
+          <PostCard key={props?.href || idx} {...props} />
         ))}
       </Columns>
     </>
@@ -411,13 +426,20 @@ export const CardColumnsPostLayout = ({ cols = 2, items = [], limit }) => {
 };
 
 export const CardInCardLayout = ({ items = [], limit }) => {
+  const safeItems = Array.isArray(items) ? items : [];
+
+  if (safeItems.length === 0) {
+    console.warn("[CardInCardLayout] Missing or invalid items");
+    return null;
+  }
+
   return (
     <Card
       img="/snippets/automations/forum/Hero_Livepeer_Forum.png"
       href="https://forum.livepeer.org"
       arrow={false}
     >
-      <CardColumnsPostLayout cols={2} items={forumData} limit={2} />
+      <CardColumnsPostLayout cols={2} items={safeItems} limit={limit ?? 2} />
     </Card>
   );
 };

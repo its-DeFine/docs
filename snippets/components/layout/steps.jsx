@@ -26,6 +26,11 @@ export const StyledSteps = ({
   lineColor,
   iconSize = "24px",
 }) => {
+  if (children == null) {
+    console.warn("[StyledSteps] Missing children");
+    return null;
+  }
+
   const stepsId = `styled-steps-${Math.random().toString(36).substr(2, 9)}`;
   const resolvedIconColor = iconColor || "var(--accent-dark)";
   const resolvedTitleColor = titleColor || "var(--accent)";

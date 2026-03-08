@@ -30,6 +30,11 @@ export const FlexContainer = ({
   wrap = false,
   style = {},
 }) => {
+  if (children == null) {
+    console.warn("[FlexContainer] Missing children");
+    return null;
+  }
+
   return (
     <div
       style={{
@@ -74,6 +79,11 @@ export const GridContainer = ({
   gap = "1rem",
   style = {},
 }) => {
+  if (children == null) {
+    console.warn("[GridContainer] Missing children");
+    return null;
+  }
+
   const gridTemplateColumns = columns
     ? typeof columns === "number"
       ? `repeat(${columns}, 1fr)`

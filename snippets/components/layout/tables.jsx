@@ -22,6 +22,11 @@
  * @author Livepeer Documentation Team
  */
 export const StyledTable = ({ children, variant = "default", style = {} }) => {
+  if (children == null) {
+    console.warn("[StyledTable] Missing children");
+    return null;
+  }
+
   const variants = {
     default: {
       border: "1px solid var(--border)",

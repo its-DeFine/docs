@@ -95,6 +95,7 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
         return sortOrder === "asc" ? comparison : -comparison;
       })
     : exchanges; // If no sort selected, use original API order
+  const safeExchanges = Array.isArray(sortedExchanges) ? sortedExchanges : [];
 
   const handleSort = (column) => {
     if (sortBy === column) {
@@ -114,6 +115,10 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
     if (trustScore === "red") return "#ef4444"; // red
     return "#fbbf24"; // default yellow
   };
+
+  if (safeExchanges.length === 0) {
+    return <div>No exchanges found for this coin.</div>;
+  }
 
   return (
     <div style={{ overflowX: "auto" }}>
@@ -202,9 +207,9 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
             </tr>
           </thead>
           <tbody>
-            {sortedExchanges.map((exchange, index) => (
+            {safeExchanges.map((exchange, index) => (
               <tr
-                key={index}
+                key={exchange?.url || exchange?.name || index}
                 style={{
                   borderBottom: "1px solid var(--border)",
                 }}
@@ -219,11 +224,11 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  {exchange.name}
+                  {exchange?.name || "Unknown"}
                 </td>
                 <td style={{ padding: "10px 16px", textAlign: "center" }}>
-                  <Badge color={exchange.type === "DEX" ? "purple" : "blue"}>
-                    {exchange.type}
+                  <Badge color={exchange?.type === "DEX" ? "purple" : "blue"}>
+                    {exchange?.type || "Unknown"}
                   </Badge>
                 </td>
                 <td
@@ -238,18 +243,18 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  {exchange.tradingPair}
+                  {exchange?.tradingPair || "N/A"}
                 </td>
                 <td style={{ padding: "10px 16px", textAlign: "center" }}>
                   <Icon
                     icon="circle"
                     iconType="solid"
-                    color={getTrustScoreColor(exchange.trustScore)}
+                    color={getTrustScoreColor(exchange?.trustScore)}
                   />
                 </td>
                 <td style={{ padding: "10px 16px", textAlign: "center" }}>
                   <a
-                    href={exchange.url}
+                    href={exchange?.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{

@@ -11,22 +11,28 @@ export const SearchTable = ({
 }) => {
   const [query, setQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
-  const activeColumns = searchColumns.length ? searchColumns : headerList;
+  const safeHeaderList = Array.isArray(headerList) ? headerList : [];
+  const safeItemsList = Array.isArray(itemsList) ? itemsList : [];
+  const safeMonospaceColumns = Array.isArray(monospaceColumns)
+    ? monospaceColumns
+    : [];
+  const safeSearchColumns = Array.isArray(searchColumns) ? searchColumns : [];
+  const activeColumns = safeSearchColumns.length ? safeSearchColumns : safeHeaderList;
   const normalizedQuery = query.trim().toLowerCase();
 
-  const categories = [...new Set(itemsList.map((item) => String(item[categoryColumn] || '')).filter(Boolean))]
+  const categories = [...new Set(safeItemsList.map((item) => String(item?.[categoryColumn] || '')).filter(Boolean))]
     .sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
 
   const categoryFilteredItems =
     selectedCategory === 'All'
-      ? itemsList
-      : itemsList.filter((item) => String(item[categoryColumn] || '') === selectedCategory);
+      ? safeItemsList
+      : safeItemsList.filter((item) => String(item?.[categoryColumn] || '') === selectedCategory);
 
   const searchedItems = !normalizedQuery
     ? categoryFilteredItems
     : categoryFilteredItems.filter((item) =>
         activeColumns.some((column) => {
-          const value = item[column] ?? item[String(column).toLowerCase()] ?? '';
+          const value = item?.[column] ?? item?.[String(column).toLowerCase()] ?? '';
           return String(value).toLowerCase().includes(normalizedQuery);
         })
       );
@@ -34,7 +40,7 @@ export const SearchTable = ({
   const withSeparators = [];
   let lastCategory = '';
   searchedItems.forEach((item) => {
-    const category = String(item[categoryColumn] || '');
+    const category = String(item?.[categoryColumn] || '');
     if (category && category !== lastCategory) {
       withSeparators.push({ __separator: true, [categoryColumn]: category });
       lastCategory = category;
@@ -92,12 +98,12 @@ export const SearchTable = ({
         </select>
       </div>
 
-      {TableComponent ? (
+      {typeof TableComponent === 'function' ? (
         <TableComponent
           tableTitle={tableTitle}
-          headerList={headerList}
+          headerList={safeHeaderList}
           itemsList={withSeparators}
-          monospaceColumns={monospaceColumns}
+          monospaceColumns={safeMonospaceColumns}
           margin={margin}
         />
       ) : (
