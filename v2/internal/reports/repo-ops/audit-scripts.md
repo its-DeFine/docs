@@ -5,8 +5,8 @@ description: 'Generated script inventory audit report from tools/scripts/audit-s
 keywords: ["livepeer","internal","reports","repo-ops","audit-scripts"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
-Last Generated (UTC ISO): `2026-03-09T04:50:57.188Z`
-Last Generated (UTC Human): `March 09, 2026 04:50 UTC`
+Last Generated (UTC ISO): `2026-03-09T09:41:26.509Z`
+Last Generated (UTC Human): `March 09, 2026 09:41 UTC`
 Generator Script: `tools/scripts/audit-scripts.js`
 What It Does: Generated script inventory audit report from tools/scripts/audit-scripts.js.
 Audited Scope: `tools/scripts, tasks/README.md, tasks/reports, tests/unit/script-docs.test.js, tests/README.md`
@@ -14,16 +14,16 @@ Outputs:
 - _Not documented in script header._
 # SCRIPT_AUDIT
 
-Generated: 2026-03-09T04:26:22.862Z
+Generated: 2026-03-09T07:12:34.430Z
 
 ## Rules Source
 - `tests/unit/script-docs.test.js`
 - `tests/README.md`
 
 ## Summary
-- Total scripts: 187
-- Template compliant: 15
-- Template non-compliant: 172
+- Total scripts: 172
+- Template compliant: 172
+- Template non-compliant: 0
 - Exact overlap clusters: 0
 - Near overlap clusters: 0
 
@@ -37,823 +37,115 @@ _Tabular data omitted in the published page. Use the repository report artifact 
 
 ## Template Compliance Failures
 
-### `.githooks/install.sh`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `.githooks/pre-commit`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `.githooks/pre-commit-no-deletions`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `.githooks/pre-push`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `.githooks/server-manager.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `.githooks/verify-browser.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `.githooks/verify.sh`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `.github/scripts/fetch-forum-data.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `.github/scripts/fetch-ghost-blog-data.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `.github/scripts/fetch-youtube-data.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `.github/scripts/project-showcase-sync.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `lpd`
-- Missing tags: @summary, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `snippets/automations/youtube/filterVideos.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tasks/scripts/audit-minimal.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tasks/scripts/audit-python.py`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tasks/scripts/run-audit-now.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tasks/scripts/test-audit.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/integration/browser.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/integration/domain-pages-audit.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/integration/openapi-reference-audit.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/integration/v2-link-audit.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/integration/v2-link-audit.selftest.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/integration/v2-wcag-audit.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/integration/v2-wcag-audit.selftest.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/run-all.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/run-pr-checks.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/codex-commit.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/codex-safe-merge-with-stash.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/codex-skill-sync.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/create-codex-pr.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/docs-guide-sot.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/docs-navigation.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/docs-usefulness-accuracy-verifier.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/links-imports.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/lpd-scoped-mint-dev.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/mdx-guards.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/mdx.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/openapi-reference-audit.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/openapi-rolling-issue.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/quality.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/repair-spelling.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/repo-audit-pipeline.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/script-docs.test.js`
-- Missing tags: none
-- Empty/placeholder tags: @summary
-
-### `tests/unit/spelling.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/style-guide.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/v2-link-audit.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/v2-wcag-audit.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/unit/validate-codex-task-contract.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/utils/file-walker.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/utils/mdx-parser.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/utils/mintignore.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/utils/openapi-rolling-issue.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tests/utils/spell-checker.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/config/v2-internal-report-pages.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-index-utils.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/accuracy-verifier.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/config-validator.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/journey-check.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/llm-evaluator.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/prompts/changelog.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/prompts/concept.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/prompts/faq.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/prompts/glossary.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/prompts/how_to.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/prompts/index.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/prompts/landing.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/prompts/overview.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/prompts/reference.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/prompts/troubleshooting.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/prompts/tutorial.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/quality-gate.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/rubric-loader.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/rule-evaluators.js`
-- Missing tags: @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/docs-usefulness/scoring.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/lib/generated-file-banners.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/audit-all-pages-simple.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/audit-all-pages.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/audit-all-v2-pages.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/audit-component-usage.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/audit-scripts.js`
-- Missing tags: none
-- Empty/placeholder tags: @summary
-
-### `tools/scripts/audit-tasks-folders.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/audit-v1-to-v2-mapping.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/audit-v2-usefulness.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/check-codex-pr-overlap.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/check-component-errors.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/check-no-ai-stash.sh`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/cleanup-quarantine-manager.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/codex-commit.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/codex-safe-merge-with-stash.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/codex/lock-release.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/codex/task-finalize.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/codex/task-preflight.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/codex/validate-locks.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/convert-rss-to-mdx.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/create-codex-pr.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/cross-agent-packager.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/debug-mint-dev.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/dev/add-callouts.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/dev/batch-update-og-image.sh`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/dev/ensure-mint-watcher-patch.sh`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/dev/generate-mint-dev-scope.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/dev/replace-og-image.py`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/dev/seo-generator-safe.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/dev/test-add-callouts.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/dev/test-seo-generator.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/dev/update-all-og-images.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/dev/update-og-image.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/docs-quality-and-freshness-audit.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/enforce-generated-file-banners.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/enforcers/pr/check-component-immutability.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/final-verification.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/find-correct-url.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/generate-ai-sitemap.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/generate-docs-guide-components-index.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/generate-docs-guide-indexes.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/generate-docs-guide-pages-index.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/generate-docs-index.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/generate-llms-files.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/generate-pages-index.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/generate-localized-docs-json.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/lib/common.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/lib/config.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/lib/docs-json-localizer.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/lib/docs-routes.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/lib/frontmatter.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/lib/mdx-parser.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/lib/mdx-translate.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/lib/path-utils.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/lib/provenance.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/lib/provider-mock.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/lib/provider-openrouter.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/lib/providers.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/test-mintlify-version-language-toggle.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/test/cli-guardrails.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/test/docs-json-localizer.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/test/frontmatter.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/test/mdx-translate.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/test/provenance.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/test/provider-openrouter.test.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/i18n/translate-docs.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/inspect-page.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/inspect-video-page.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/mint-dev.sh`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/publish-v2-internal-reports.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/remediators/content/repair-spelling.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/repo-audit-orchestrator.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/script-footprint-and-usage-audit.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/snippets/fetch-external-docs.sh`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/snippets/fetch-lpt-exchanges.sh`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/snippets/fetch-openapi-specs.sh`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/snippets/generate-api-docs.sh`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/snippets/generate-data/scripts/generate-glossary.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/snippets/generate-data/scripts/terminology-search.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/snippets/generate-seo.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/snippets/test-scripts.sh`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/snippets/update-component-library.sh`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/style-and-language-homogenizer-en-gb.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/sync-codex-skills.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/test-all-pages-browser.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/test-all-pages-comprehensive.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/test-v2-pages.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/test-youtube-pages.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/validate-codex-task-contract.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/validators/content/check-description-quality.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/validators/content/check-double-headers.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/validators/content/check-grammar-en-gb.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/validators/content/check-proper-nouns.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/verify-all-pages.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/verify-pages.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/verify-pay-orc-gate-finalize.sh`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/verify/.verify-large-change.sh`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
-### `tools/scripts/wcag-repair-common.js`
-- Missing tags: @summary, @inputs, @outputs, @exit-codes, @examples, @notes
-- Empty/placeholder tags: none
-
+All discovered scripts meet the required script template rules.
 
 ## Usage Detail
 
 ### `.githooks/install.sh`
-- Purpose: Utility script for install.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Installs git hooks by setting core.hooksPath to .githooks/
+- Template compliance: PASS
 - Role tags: hook
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `.githooks/pre-commit`
-- Purpose: Utility script for pre commit.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: hook
+- Purpose: Pre-commit hook orchestrator — runs structural checks, unit tests, codex validation, and docs-index freshness check before allowing commit
+- Template compliance: PASS
+- Role tags: enforcement, generator, hook
 - Run-context tags: pre-commit
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `.githooks/pre-commit-no-deletions`
-- Purpose: Utility script for pre commit no deletions.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Variant pre-commit hook that blocks file deletions (safety net for content preservation)
+- Template compliance: PASS
 - Role tags: hook
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `.githooks/pre-push`
-- Purpose: Utility script for pre push.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Pre-push hook — blocks push if AI stash files present, codex locks stale, or task contract invalid
+- Template compliance: PASS
 - Role tags: hook
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `.githooks/server-manager.js`
-- Purpose: Utility script for server manager.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: hook
+- Purpose: Manages Mintlify dev server lifecycle for browser tests (start/stop/health-check)
+- Template compliance: PASS
+- Role tags: enforcement, hook
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `.githooks/verify-browser.js`
-- Purpose: Utility script for verify browser.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Verifies browser availability for Puppeteer-based integration tests
+- Template compliance: PASS
 - Role tags: enforcement, hook
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `.githooks/verify.sh`
-- Purpose: Utility script for verify.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Pre-commit sub-hook — verifies file-walker is available and runs structural checks on staged files
+- Template compliance: PASS
 - Role tags: enforcement, hook
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `.github/scripts/fetch-forum-data.js`
-- Purpose: Utility script for fetch forum data.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Fetches latest topics and posts from Livepeer Forum API, writes to snippets/automations/forum/
+- Template compliance: PASS
 - Role tags: ci, sync
 - Run-context tags: scheduled, workflow-dispatch
 - Used by:
   - workflow: .github/workflows/update-forum-data.yml#Update Forum Data > update-forum-data > Fetch and process forum data (when: scheduled, workflow-dispatch)
 
 ### `.github/scripts/fetch-ghost-blog-data.js`
-- Purpose: Utility script for fetch ghost blog data.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Fetches blog posts from Ghost CMS API, writes to snippets/automations/blog/
+- Template compliance: PASS
 - Role tags: ci, sync
 - Run-context tags: scheduled, workflow-dispatch
 - Used by:
   - workflow: .github/workflows/update-ghost-blog-data.yml#Update Ghost Blog Data > update-ghost-data > Fetch and process Ghost blog data (when: scheduled, workflow-dispatch)
 
 ### `.github/scripts/fetch-youtube-data.js`
-- Purpose: Utility script for fetch youtube data.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Fetches video data from YouTube Data API, writes to snippets/automations/youtube/
+- Template compliance: PASS
 - Role tags: ci, sync
 - Run-context tags: scheduled, workflow-dispatch
 - Used by:
   - workflow: .github/workflows/update-youtube-data.yml#Update YouTube Data > update-youtube > Fetch and process YouTube videos (when: scheduled, workflow-dispatch)
 
 ### `.github/scripts/project-showcase-sync.js`
-- Purpose: Utility script for project showcase sync.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Fetches project showcase data from external source, writes to snippets/automations/showcase/
+- Template compliance: PASS
 - Role tags: ci, sync
 - Run-context tags: scheduled, workflow-dispatch
 - Used by:
   - workflow: .github/workflows/project-showcase-sync.yml#Project Showcase Sync > sync-showcase > Run project showcase sync (when: scheduled, workflow-dispatch)
 
 ### `lpd`
-- Purpose: Utility script for lpd.
-- Template compliance: FAIL (missing @summary, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Developer CLI orchestrator — unified command surface for setup, dev server, testing, hooks, and script execution across all repo domains
+- Template compliance: PASS
 - Role tags: runner
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `snippets/automations/youtube/filterVideos.js`
-- Purpose: Utility script for filterVideos.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tasks/scripts/audit-minimal.js`
-- Purpose: Utility script for audit minimal.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit
+- Purpose: YouTube video filter — post-processes fetched YouTube data to filter/sort videos for display
+- Template compliance: PASS
+- Role tags: sync
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tasks/scripts/audit-python.py`
-- Purpose: Utility script for audit python.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tasks/scripts/run-audit-now.js`
-- Purpose: Utility script for run audit now.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit, runner
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tasks/scripts/test-audit.js`
-- Purpose: Utility script for test audit.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit
+- Purpose: Python audit utility — runs Python-based audit checks (alternative to Node auditors)
+- Template compliance: PASS
+- Role tags: audit, enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tests/integration/browser.test.js`
-- Purpose: Utility script for browser test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Puppeteer browser integration test — renders pages from docs.json and checks for console errors, load failures, and visual regressions
+- Template compliance: PASS
 - Role tags: ci, enforcement, test
 - Run-context tags: manual, npm-script, pr, push
 - Used by:
@@ -863,8 +155,8 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Run Browser Tests (All Pages) (when: npm-script, pr, push)
 
 ### `tests/integration/domain-pages-audit.js`
-- Purpose: Utility script for domain pages audit.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Audits deployed docs page HTTP status codes (v1, v2, or both) and emits a stable JSON report
+- Template compliance: PASS
 - Role tags: audit, test
 - Run-context tags: manual, npm-script
 - Used by:
@@ -874,8 +166,8 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - package-script: tests/package.json#scripts.test:domain:v2 (when: manual, npm-script)
 
 ### `tests/integration/openapi-reference-audit.js`
-- Purpose: Utility script for openapi reference audit.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Comprehensive OpenAPI spec validation — checks references, schemas, examples. Supports --strict (validate), --fix (repair), and report modes.
+- Template compliance: PASS
 - Role tags: audit, ci, enforcement, test
 - Run-context tags: manual, npm-script, pr, push, scheduled, workflow-dispatch
 - Used by:
@@ -885,9 +177,9 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - workflow: .github/workflows/openapi-reference-validation.yml#OpenAPI Reference Validation > audit > Run strict OpenAPI audit (initial) (when: pr, push, scheduled, workflow-dispatch)
 
 ### `tests/integration/v2-link-audit.js`
-- Purpose: Utility script for v2 link audit.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit, ci, test
+- Purpose: Comprehensive V2 MDX link audit — checks internal links, external links, anchor refs. Supports --staged, --full, --strict, --write-links modes.
+- Template compliance: PASS
+- Role tags: audit, ci, enforcement, test
 - Run-context tags: manual, npm-script, scheduled, workflow-dispatch
 - Used by:
   - package-script: tests/package.json#scripts.test:link-audit (when: manual, npm-script)
@@ -896,17 +188,17 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - workflow: .github/workflows/v2-external-link-audit.yml#V2 External Link Audit (Advisory) > v2-external-link-audit > Run V2 external link audit (advisory) (when: scheduled, workflow-dispatch)
 
 ### `tests/integration/v2-link-audit.selftest.js`
-- Purpose: Utility script for v2 link audit selftest.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit, test
+- Purpose: Self-test suite for v2-link-audit.js — validates audit logic against known fixtures
+- Template compliance: PASS
+- Role tags: audit, enforcement, fixture, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:link-audit:selftest (when: manual, npm-script)
 
 ### `tests/integration/v2-wcag-audit.js`
-- Purpose: Utility script for v2 wcag audit.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit, test
+- Purpose: WCAG accessibility audit for v2 pages — checks heading hierarchy, alt text, ARIA. Supports --fix mode for auto-repair.
+- Template compliance: PASS
+- Role tags: audit, enforcement, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:wcag (when: manual, npm-script)
@@ -914,416 +206,404 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - package-script: tests/package.json#scripts.test:wcag:staged (when: manual, npm-script)
 
 ### `tests/integration/v2-wcag-audit.selftest.js`
-- Purpose: Utility script for v2 wcag audit selftest.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit, test
+- Purpose: Self-test suite for v2-wcag-audit.js — validates WCAG audit logic against known fixtures
+- Template compliance: PASS
+- Role tags: audit, enforcement, fixture, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:wcag:selftest (when: manual, npm-script)
 
-### `tests/run-all 2.js`
-- Purpose: Utility script for tests/run-all.js.
-- Template compliance: PASS
-- Role tags: runner, test
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
 ### `tests/run-all.js`
-- Purpose: Utility script for run all.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Test orchestrator — dispatches all unit test suites. Called by pre-commit hook and npm test.
+- Template compliance: PASS
 - Role tags: enforcement, hook, runner, test
 - Run-context tags: manual, npm-script, pre-commit
 - Used by:
-  - hook: .githooks/pre-commit#line 629 (when: pre-commit)
+  - hook: .githooks/pre-commit#line 855 (when: pre-commit)
   - package-script: tests/package.json#scripts.test (when: manual, npm-script)
   - package-script: tools/package.json#scripts.test (when: manual, npm-script)
 
 ### `tests/run-pr-checks.js`
-- Purpose: Utility script for run pr checks.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: ci, enforcement, runner, test
+- Purpose: PR orchestrator — runs changed-file scoped validation checks for pull request CI. Dispatches per-file validators based on PR diff.
+- Template compliance: PASS
+- Role tags: ci, enforcement, runner, sync, test
 - Run-context tags: manual, npm-script, pr, push
 - Used by:
   - package-script: tests/package.json#scripts.test:pr (when: manual, npm-script)
   - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Run PR Changed-File Checks (when: npm-script, pr, push)
 
 ### `tests/unit/codex-commit.test.js`
-- Purpose: Utility script for codex commit test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Tests codex-commit.js — validates commit message generation and contract compliance
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tests/unit/codex-safe-merge-with-stash.test.js`
-- Purpose: Utility script for codex safe merge with stash test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Tests codex-safe-merge-with-stash.js — validates safe merge logic with stash handling
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tests/unit/codex-skill-sync.test.js`
-- Purpose: Utility script for codex skill sync test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: sync, test
+- Purpose: Tests sync-codex-skills.js — validates skill file synchronisation between sources
+- Template compliance: PASS
+- Role tags: enforcement, sync, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:codex-skills-sync (when: manual, npm-script)
 
 ### `tests/unit/create-codex-pr.test.js`
-- Purpose: Utility script for create codex pr test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: generator, test
+- Purpose: Tests create-codex-pr.js — validates PR creation logic and branch naming
+- Template compliance: PASS
+- Role tags: enforcement, generator, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:codex-pr-create (when: manual, npm-script)
 
 ### `tests/unit/docs-guide-sot.test.js`
-- Purpose: Utility script for docs guide sot test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+- Purpose: Validates docs-guide source-of-truth coverage, README pointers, and generated index freshness
+- Template compliance: PASS
+- Role tags: ci, enforcement, generator, test
+- Run-context tags: manual, npm-script, pr, push
+- Used by:
+  - package-script: tests/package.json#scripts.test:docs-guide (when: manual, npm-script)
+  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Run Docs-Guide SoT Check (Advisory) (when: npm-script, pr, push)
 
 ### `tests/unit/docs-navigation.test.js`
-- Purpose: Utility script for docs navigation test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: ci, test
+- Purpose: Validates docs.json page-entry syntax, reports missing routes, warns on orphaned canonical v2 pages, suggests remaps, and optionally applies approved remaps
+- Template compliance: PASS
+- Role tags: audit, ci, enforcement, test
 - Run-context tags: manual, npm-script, workflow-dispatch
 - Used by:
   - package-script: tests/package.json#scripts.test:docs-nav (when: manual, npm-script)
   - package-script: tests/package.json#scripts.test:docs-nav:write (when: manual, npm-script)
   - workflow: .github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Validate docs.json navigation (when: workflow-dispatch)
 
-### `tests/unit/docs-usefulness-accuracy-verifier.test.js`
-- Purpose: Utility script for docs usefulness accuracy verifier test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
 ### `tests/unit/links-imports.test.js`
-- Purpose: Utility script for links imports test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Validates MDX internal links and snippet import paths are resolvable
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:links (when: manual, npm-script)
   - package-script: tools/package.json#scripts.test:links (when: manual, npm-script)
 
 ### `tests/unit/lpd-scoped-mint-dev.test.js`
-- Purpose: Utility script for lpd scoped mint dev test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Tests lpd scoped mint-dev functionality — validates dev server scope filtering
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tests/unit/mdx-guards.test.js`
-- Purpose: Utility script for mdx guards test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Enforces MDX guardrails — globals imports, math delimiters, markdown table line breaks
+- Template compliance: PASS
 - Role tags: enforcement, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:mdx:guards (when: manual, npm-script)
 
 ### `tests/unit/mdx.test.js`
-- Purpose: Utility script for mdx test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Validates MDX syntax and structure — checks for parse errors, invalid JSX, broken components
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:mdx (when: manual, npm-script)
   - package-script: tools/package.json#scripts.test:mdx (when: manual, npm-script)
 
+### `tests/unit/migrate-assets-to-branch.test.js`
+- Purpose: Unit tests for migrate-assets-to-branch.js — validates CLI defaults, ambiguous basename detection, deterministic rewrites, and end-to-end branch migration in a temp git repo
+- Template compliance: PASS
+- Role tags: enforcement, test
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
 ### `tests/unit/openapi-reference-audit.test.js`
-- Purpose: Utility script for openapi reference audit test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Unit tests for openapi-reference-audit.js — tests individual audit rules and fix logic
+- Template compliance: PASS
 - Role tags: audit, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tests/unit/openapi-rolling-issue.test.js`
-- Purpose: Utility script for openapi rolling issue test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Tests OpenAPI rolling issue tracker — validates issue creation and dedup logic
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:openapi:issue (when: manual, npm-script)
 
 ### `tests/unit/quality.test.js`
-- Purpose: Utility script for quality test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Content quality checks — validates frontmatter completeness, thin content detection, placeholder flagging
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:quality (when: manual, npm-script)
   - package-script: tools/package.json#scripts.test:quality (when: manual, npm-script)
 
 ### `tests/unit/repair-spelling.test.js`
-- Purpose: Utility script for repair spelling test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Unit tests for repair-spelling.js — validates deterministic spelling fixes and exclusion ranges
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tests/unit/repo-audit-pipeline.test.js`
-- Purpose: Utility script for repo audit pipeline test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit, test
+- Purpose: Tests repo-audit-orchestrator.js pipeline — validates mode/scope combinations and report output
+- Template compliance: PASS
+- Role tags: audit, enforcement, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:repo-audit (when: manual, npm-script)
 
 ### `tests/unit/script-docs.test.js`
-- Purpose: Utility script for script docs test.
-- Template compliance: FAIL (empty @summary)
-- Role tags: test
+- Purpose: Enforces script header schema, keeps group script indexes in sync, and builds aggregate script index
+- Template compliance: PASS
+- Role tags: enforcement, generator, sync, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:scripts (when: manual, npm-script)
 
 ### `tests/unit/spelling.test.js`
-- Purpose: Utility script for spelling test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Spelling check — validates content against custom dictionary with en-GB rules
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:spell (when: manual, npm-script)
   - package-script: tools/package.json#scripts.test:spell (when: manual, npm-script)
 
 ### `tests/unit/style-guide.test.js`
-- Purpose: Utility script for style guide test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Style guide compliance — checks en-GB conventions, heading case, formatting rules
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:style (when: manual, npm-script)
   - package-script: tools/package.json#scripts.test:style (when: manual, npm-script)
 
 ### `tests/unit/usefulness-journey.test.js`
-- Purpose: Validate journey completeness evaluation and journey-config guardrails for usefulness scoring.
+- Purpose: Tests journey-check evaluation logic against fixture pages.
 - Template compliance: PASS
-- Role tags: enforcement, test
+- Role tags: enforcement, fixture, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tests/unit/usefulness-rubric.test.js`
-- Purpose: Validate usefulness rubric loading, rule evaluator coverage, argument deprecations, route precedence, and score divergence behavior.
+- Purpose: Tests rubric-based scoring logic against fixture pages.
 - Template compliance: PASS
-- Role tags: enforcement, test
+- Role tags: fixture, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tests/unit/v2-link-audit.test.js`
-- Purpose: Utility script for v2 link audit test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit, test
+- Purpose: Unit tests for v2-link-audit.js — tests individual link checking rules
+- Template compliance: PASS
+- Role tags: audit, enforcement, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:link-audit:unit (when: manual, npm-script)
 
 ### `tests/unit/v2-wcag-audit.test.js`
-- Purpose: Utility script for v2 wcag audit test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Unit tests for v2-wcag-audit.js — tests individual WCAG rules
+- Template compliance: PASS
 - Role tags: audit, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:wcag:unit (when: manual, npm-script)
 
 ### `tests/unit/validate-codex-task-contract.test.js`
-- Purpose: Utility script for validate codex task contract test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Tests validate-codex-task-contract.js — validates contract checking logic
+- Template compliance: PASS
 - Role tags: enforcement, test
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:codex-task-contract (when: manual, npm-script)
 
 ### `tests/utils/file-walker.js`
-- Purpose: Utility script for file walker.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: File tree walker — recursively finds files matching patterns. Used by pre-commit hook and validators.
+- Template compliance: PASS
 - Role tags: enforcement, hook, test
 - Run-context tags: pre-commit
 - Used by:
-  - hook: .githooks/pre-commit#line 58 (when: pre-commit)
+  - hook: .githooks/pre-commit#line 60 (when: pre-commit)
   - hook: .githooks/verify.sh#line 33 (when: manual)
 
 ### `tests/utils/mdx-parser.js`
-- Purpose: Utility script for mdx parser.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: MDX parser utility — extracts frontmatter, components, content blocks from MDX files
+- Template compliance: PASS
 - Role tags: test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tests/utils/mintignore.js`
-- Purpose: Utility script for mintignore.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Mintignore utility — reads .mintignore patterns and filters file lists
+- Template compliance: PASS
 - Role tags: test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tests/utils/openapi-rolling-issue.js`
-- Purpose: Utility script for openapi rolling issue.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: OpenAPI rolling issue utility — creates/updates GitHub issues for persistent OpenAPI audit findings
+- Template compliance: PASS
+- Role tags: audit, generator, sync, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tests/utils/spell-checker.js`
-- Purpose: Utility script for spell checker.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Spell checker utility — checks text against custom dictionary with en-GB locale support
+- Template compliance: PASS
 - Role tags: enforcement, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/config/v2-internal-report-pages.js`
-- Purpose: Utility script for v2 internal report pages.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Configuration data — list of internal report page paths for publish-v2-internal-reports.js
+- Template compliance: PASS
 - Role tags: audit
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-index-utils.js`
-- Purpose: Utility script for docs index utils.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Shared utilities for docs-index.json generation — path resolution, frontmatter extraction, index merging
+- Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/lib/docs-usefulness/accuracy-verifier.js`
-- Purpose: Utility script for accuracy verifier.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
 ### `tools/lib/docs-usefulness/config-validator.js`
-- Purpose: Utility script for config validator.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
+- Purpose: Validates docs-usefulness config structure and field completeness.
+- Template compliance: PASS
+- Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/journey-check.js`
-- Purpose: Utility script for journey check.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Evaluates docs pages against user journey completeness criteria.
+- Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/llm-evaluator.js`
-- Purpose: Utility script for llm evaluator.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Wraps LLM API calls for rubric-based page quality evaluation.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/changelog.js`
-- Purpose: Utility script for changelog.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: LLM prompt template for changelog page-type usefulness evaluation.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/concept.js`
-- Purpose: Utility script for concept.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: LLM prompt template for concept page-type usefulness evaluation.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/faq.js`
-- Purpose: Utility script for faq.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: LLM prompt template for faq page-type usefulness evaluation.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/glossary.js`
-- Purpose: Utility script for glossary.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: LLM prompt template for glossary page-type usefulness evaluation.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/how_to.js`
-- Purpose: Utility script for how to.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: LLM prompt template for how_to page-type usefulness evaluation.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/index.js`
-- Purpose: Utility script for index.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: LLM prompt template for index page-type usefulness evaluation.
+- Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/landing.js`
-- Purpose: Utility script for landing.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: LLM prompt template for landing page-type usefulness evaluation.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/overview.js`
-- Purpose: Utility script for overview.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: LLM prompt template for overview page-type usefulness evaluation.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/reference.js`
-- Purpose: Utility script for reference.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: LLM prompt template for reference page-type usefulness evaluation.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/troubleshooting.js`
-- Purpose: Utility script for troubleshooting.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: LLM prompt template for troubleshooting page-type usefulness evaluation.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/tutorial.js`
-- Purpose: Utility script for tutorial.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: LLM prompt template for tutorial page-type usefulness evaluation.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/quality-gate.js`
-- Purpose: Utility script for quality gate.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Applies pass/fail thresholds to usefulness scores.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/rubric-loader.js`
-- Purpose: Utility script for rubric loader.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Loads and parses rubric YAML/JSON for page-type scoring rules.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/rule-evaluators.js`
-- Purpose: Utility script for rule evaluators.
-- Template compliance: FAIL (missing @script, @summary, @owner, @scope, @usage, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Evaluates individual rubric rules against page content.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/scoring.js`
-- Purpose: Utility script for scoring.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Aggregates rule scores into a final usefulness score per page.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/generated-file-banners.js`
-- Purpose: Utility script for generated file banners.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Generated file banner template — provides standard banner text for auto-generated files
+- Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
@@ -1331,100 +611,79 @@ _Tabular data omitted in the published page. Use the repository report artifact 
 ### `tools/scripts/add-framework-headers.js`
 - Purpose: Insert or verify governance framework metadata headers from classification JSON.
 - Template compliance: PASS
-- Role tags: enforcement
+- Role tags: enforcement, generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/scripts/assign-purpose-metadata.js`
-- Purpose: Assign purpose and audience frontmatter metadata for docs.json EN-routable v2 pages using deterministic rules with optional LLM classification for unclassified pages.
+### `tools/scripts/add-pagetype-mechanical.js`
+- Purpose: Mechanically assigns pageType frontmatter to eligible v2 MDX pages.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/scripts/audit-all-pages-simple.js`
-- Purpose: Utility script for audit all pages simple.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tools/scripts/audit-all-pages.js`
-- Purpose: Utility script for audit all pages.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tools/scripts/audit-all-v2-pages.js`
-- Purpose: Utility script for audit all v2 pages.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit
+### `tools/scripts/assign-purpose-metadata.js`
+- Purpose: Purpose metadata assigner — fills purpose and audience frontmatter for routable v2 pages
+- Template compliance: PASS
+- Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/audit-component-usage.js`
-- Purpose: Utility script for audit component usage.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Component usage auditor — scans pages for component usage patterns and reports statistics
+- Template compliance: PASS
 - Role tags: audit, ci
 - Run-context tags: scheduled, workflow-dispatch
 - Used by:
   - workflow: .github/workflows/content-health.yml#Content Health Check > content-health > Component usage audit (when: scheduled, workflow-dispatch)
 
-### `tools/scripts/audit-scripts.js`
-- Purpose: Utility script for audit scripts.
-- Template compliance: FAIL (empty @summary)
+### `tools/scripts/audit-media-assets.js`
+- Purpose: Audits repo media assets, references, ignore leakage, and externalized asset branch inventory.
+- Template compliance: PASS
 - Role tags: audit
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/scripts/audit-scripts.js`
+- Purpose: Script auditor — analyses all repo scripts, categorises usage/overlap, generates SCRIPT_AUDIT reports
+- Template compliance: PASS
+- Role tags: audit, generator
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tools/package.json#scripts.audit:scripts (when: manual, npm-script)
 
 ### `tools/scripts/audit-tasks-folders.js`
-- Purpose: Utility script for audit tasks folders.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tools/scripts/audit-v1-to-v2-mapping.js`
-- Purpose: Utility script for audit v1 to v2 mapping.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit
+- Purpose: Tasks folder auditor — checks tasks/ structure, normalises report locations, applies recommendations with conflict-safe moves
+- Template compliance: PASS
+- Role tags: audit, enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/audit-v2-usefulness.js`
-- Purpose: Utility script for audit v2 usefulness.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Usefulness auditor — scores v2 MDX pages on human and agent usefulness with source-weighted 2026 accuracy verification
+- Template compliance: PASS
 - Role tags: audit
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/check-codex-pr-overlap.js`
-- Purpose: Utility script for check codex pr overlap.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: PR enforcer — checks for conflicting codex PRs targeting the same files/branches
+- Template compliance: PASS
 - Role tags: ci, enforcement
 - Run-context tags: pr
 - Used by:
   - workflow: .github/workflows/codex-governance.yml#Codex Governance > codex-governance > Check codex PR overlap (when: pr)
 
-### `tools/scripts/check-component-errors.js`
-- Purpose: Utility script for check component errors.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: enforcement
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
 ### `tools/scripts/check-no-ai-stash.sh`
-- Purpose: Utility script for check no ai stash.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: AI stash enforcer — blocks push if AI temporary/stash files are present in working tree
+- Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/cleanup-quarantine-manager.js`
-- Purpose: Utility script for cleanup quarantine manager.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Quarantine manager — classifies files for quarantine (default) or applies quarantine moves (--apply)
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual, npm-script
 - Used by:
@@ -1432,49 +691,49 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - package-script: tools/package.json#scripts.cleanup:quarantine (when: manual, npm-script)
 
 ### `tools/scripts/codex-commit.js`
-- Purpose: Utility script for codex commit.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
+- Purpose: Codex commit helper — audits codex branch state and generates compliant commit messages
+- Template compliance: PASS
+- Role tags: audit, generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/codex-safe-merge-with-stash.js`
-- Purpose: Utility script for codex safe merge with stash.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Codex merge utility — safely merges branches with stash handling to avoid codex conflicts
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/codex/lock-release.js`
-- Purpose: Utility script for lock release.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Codex lock release utility — releases stale codex lock files
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/codex/task-finalize.js`
-- Purpose: Utility script for task finalize.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
+- Purpose: Codex task finaliser — enforces task completion requirements before closing
+- Template compliance: PASS
+- Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/codex/task-preflight.js`
-- Purpose: Utility script for task preflight.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
+- Purpose: Codex task preflight — generates task setup files and validates preconditions
+- Template compliance: PASS
+- Role tags: enforcement, generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/codex/validate-locks.js`
-- Purpose: Utility script for validate locks.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Codex lock validator — checks for stale or conflicting lock files before push
+- Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/component-layout-governance.js`
-- Purpose: Validate v2 English docs against component-layout contracts by page type.
+- Purpose: Component layout governance validator — checks v2 page layouts against approved component contracts
 - Template compliance: PASS
 - Role tags: ci, enforcement
 - Run-context tags: manual, npm-script, scheduled, workflow-dispatch
@@ -1483,146 +742,139 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - workflow: .github/workflows/content-health.yml#Content Health Check > content-health > Component layout governance (when: scheduled, workflow-dispatch)
 
 ### `tools/scripts/convert-rss-to-mdx.js`
-- Purpose: Utility script for convert rss to mdx.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: RSS-to-MDX converter — imports RSS feed items and converts to MDX page format
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/create-codex-pr.js`
-- Purpose: Utility script for create codex pr.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Codex PR creator — generates codex PR with correct branch naming, labels, and body template
+- Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tools/package.json#scripts.codex:pr (when: manual, npm-script)
 
 ### `tools/scripts/cross-agent-packager.js`
-- Purpose: Utility script for cross agent packager.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
+- Purpose: Cross-agent packager — bundles audit reports and repo state into agent-consumable packages
+- Template compliance: PASS
+- Role tags: audit, generator
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tools/package.json#scripts.pack:agents (when: manual, npm-script)
 
 ### `tools/scripts/debug-mint-dev.js`
-- Purpose: Utility script for debug mint dev.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Mintlify dev debugger — diagnostic tool for troubleshooting mint dev server issues
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/dev/add-callouts.js`
-- Purpose: Utility script for add callouts.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Callout inserter — adds Note/Tip/Warning callout components to MDX files based on content patterns
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/dev/batch-update-og-image.sh`
-- Purpose: Utility script for batch update og image.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Batch OG image updater — updates og:image meta tags across multiple pages
+- Template compliance: PASS
 - Role tags: sync
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/dev/ensure-mint-watcher-patch.sh`
-- Purpose: Utility script for ensure mint watcher patch.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Mint watcher patcher — applies patch to fix Mintlify file watcher issues in dev mode
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/dev/generate-mint-dev-scope.js`
-- Purpose: Utility script for generate mint dev scope.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Mint dev scope generator — creates a scoped docs.json for running mint dev on a subset of pages
+- Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/dev/replace-og-image.py`
-- Purpose: Utility script for replace og image.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: OG image replacer — replaces og:image path in a single page frontmatter
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/dev/seo-generator-safe.js`
-- Purpose: Utility script for seo generator safe.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Safe SEO generator — generates SEO metadata with dry-run and rollback safety
+- Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/dev/test-add-callouts.js`
-- Purpose: Utility script for test add callouts.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
+- Purpose: Test for add-callouts.js — validates callout insertion logic against fixtures
+- Template compliance: PASS
+- Role tags: enforcement, fixture
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/dev/test-seo-generator.js`
-- Purpose: Utility script for test seo generator.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: generator
+- Purpose: Test for seo-generator — validates SEO generation logic
+- Template compliance: PASS
+- Role tags: enforcement, generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/dev/update-all-og-images.js`
-- Purpose: Utility script for update all og images.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Bulk OG image updater — updates og:image across all v2 pages
+- Template compliance: PASS
 - Role tags: sync
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/dev/update-og-image.js`
-- Purpose: Utility script for update og image.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Single OG image updater — updates og:image for one page
+- Template compliance: PASS
 - Role tags: sync
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/docs-quality-and-freshness-audit.js`
-- Purpose: Utility script for docs quality and freshness audit.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: audit, ci
+- Purpose: Content freshness audit — checks for TODO/TBD/Coming Soon markers, thin pages, stale content
+- Template compliance: PASS
+- Role tags: audit, ci, enforcement
 - Run-context tags: manual, npm-script, scheduled, workflow-dispatch
 - Used by:
   - package-script: tools/package.json#scripts.audit:docs-quality (when: manual, npm-script)
   - workflow: .github/workflows/content-health.yml#Content Health Check > content-health > Content quality audit (when: scheduled, workflow-dispatch)
 
 ### `tools/scripts/enforce-generated-file-banners.js`
-- Purpose: Utility script for enforce generated file banners.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Generated file banner enforcer — checks (--check) or writes (default) "do not edit" banners on generated files
+- Template compliance: PASS
 - Role tags: enforcement, generator
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tests/package.json#scripts.test:generated-banners (when: manual, npm-script)
 
 ### `tools/scripts/enforcers/pr/check-component-immutability.js`
-- Purpose: Utility script for check component immutability.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Flags modifications to existing component files in PR context. New files allowed. Modifications require approval label.
+- Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/scripts/final-verification.js`
-- Purpose: Utility script for final verification.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tools/scripts/find-correct-url.js`
-- Purpose: Utility script for find correct url.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
+### `tools/scripts/enforcers/pr/check-pr-template.js`
+- Purpose: Enforces that PR descriptions include required change and rationale sections before merge
+- Template compliance: PASS
+- Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/generate-ai-sitemap.js`
-- Purpose: Utility script for generate ai sitemap.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: AI sitemap generator — produces AI-optimised sitemap files. Dual-mode: --check (enforcer) / --write (generator).
+- Template compliance: PASS
 - Role tags: ci, enforcement, generator
 - Run-context tags: pr, push, workflow-dispatch
 - Used by:
@@ -1630,50 +882,50 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - workflow: .github/workflows/verify-ai-sitemap.yml#Verify AI Sitemap > verify-ai-sitemap > Verify AI sitemap output (when: pr, push)
 
 ### `tools/scripts/generate-content-gap-reconciliation.js`
-- Purpose: Generate IA reconciliation CSV and summary from blueprint and v2 MDX coverage.
+- Purpose: Content-gap reconciliation generator — compares blueprint coverage against v2 MDX and writes reconciliation artefacts
 - Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/generate-docs-guide-components-index.js`
-- Purpose: Utility script for generate docs guide components index.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Generates the docs-guide component library index page
+- Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/generate-docs-guide-indexes.js`
-- Purpose: Utility script for generate docs guide indexes.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Generates docs-guide workflow/template indexes and optionally verifies freshness
+- Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tools/package.json#scripts.docs-guide:indexes (when: manual, npm-script)
 
 ### `tools/scripts/generate-docs-guide-pages-index.js`
-- Purpose: Utility script for generate docs guide pages index.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Generates the docs-guide pages index
+- Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/generate-docs-index.js`
-- Purpose: Utility script for generate docs index.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Docs index generator — produces docs-index.json from v2 frontmatter and docs.json. Dual-mode: --check (enforcer) / --write (generator). Most-called script in the repo.
+- Template compliance: PASS
 - Role tags: ci, enforcement, generator, hook
 - Run-context tags: pr, pre-commit, push, workflow-dispatch
 - Used by:
-  - hook: .githooks/pre-commit#line 655 (when: pre-commit)
-  - hook: .githooks/pre-commit#line 659 (when: pre-commit)
-  - hook: .githooks/pre-commit#line 664 (when: pre-commit)
+  - hook: .githooks/pre-commit#line 881 (when: pre-commit)
+  - hook: .githooks/pre-commit#line 885 (when: pre-commit)
+  - hook: .githooks/pre-commit#line 890 (when: pre-commit)
   - workflow: .github/workflows/check-docs-index.yml#Check Docs Index > docs-index-check > Verify docs-index.json is current (when: pr, push, workflow-dispatch)
   - workflow: .github/workflows/generate-docs-index.yml#Generate Docs Index > generate-docs-index > Generate docs index (when: push, workflow-dispatch)
   - workflow: .github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Regenerate docs-index.json (when: workflow-dispatch)
 
 ### `tools/scripts/generate-llms-files.js`
-- Purpose: Utility script for generate llms files.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: LLMs file generator — produces llms.txt and llms-full.txt for AI consumption. Dual-mode: --check / --write.
+- Template compliance: PASS
 - Role tags: ci, enforcement, generator
 - Run-context tags: pr, push, workflow-dispatch
 - Used by:
@@ -1681,8 +933,8 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - workflow: .github/workflows/verify-llms-files.yml#Verify llms.txt Files > verify-llms-files > Verify llms outputs (when: pr, push)
 
 ### `tools/scripts/generate-pages-index.js`
-- Purpose: Utility script for generate pages index.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Pages index generator — generates and verifies section-style index.mdx files for v2 docs folders plus root aggregate index
+- Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual, npm-script
 - Used by:
@@ -1691,158 +943,158 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - package-script: tests/package.json#scripts.test:pages-index:write (when: manual, npm-script)
 
 ### `tools/scripts/i18n/generate-localized-docs-json.js`
-- Purpose: Utility script for generate localized docs json.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: ci, generator
+- Purpose: Locale docs.json generator — produces localised docs.json variants from route-map and source docs.json
+- Template compliance: PASS
+- Role tags: ci, generator, sync
 - Run-context tags: manual, npm-script, workflow-dispatch
 - Used by:
   - package-script: tools/package.json#scripts.i18n:docs-json (when: manual, npm-script)
   - workflow: .github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Update docs.json localized language nodes (when: workflow-dispatch)
 
 ### `tools/scripts/i18n/lib/common.js`
-- Purpose: Utility script for common.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: i18n shared utilities — common helper functions for translation pipeline
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/lib/config.js`
-- Purpose: Utility script for config.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: i18n configuration — language codes, locale paths, translation settings
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/lib/docs-json-localizer.js`
-- Purpose: Utility script for docs json localizer.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: docs.json localiser engine — transforms docs.json navigation for locale variants
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/lib/docs-routes.js`
-- Purpose: Utility script for docs routes.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: docs route resolver — maps page paths to locale-aware routes
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/lib/frontmatter.js`
-- Purpose: Utility script for frontmatter.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Frontmatter parser/writer — reads and writes MDX frontmatter for translation
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/lib/mdx-parser.js`
-- Purpose: Utility script for mdx parser.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: MDX parser for i18n — extracts translatable content blocks from MDX
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/lib/mdx-translate.js`
-- Purpose: Utility script for mdx translate.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: MDX translation engine — applies translations to MDX content blocks
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/lib/path-utils.js`
-- Purpose: Utility script for path utils.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Path utilities for i18n — locale-aware path resolution and mapping
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/lib/provenance.js`
-- Purpose: Utility script for provenance.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Translation provenance tracker — records source, timestamp, and provider for each translated segment
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/lib/provider-mock.js`
-- Purpose: Utility script for provider mock.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Mock translation provider — returns placeholder translations for testing without API calls
+- Template compliance: PASS
 - Role tags: fixture
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/lib/provider-openrouter.js`
-- Purpose: Utility script for provider openrouter.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: OpenRouter translation provider — calls OpenRouter API for actual translations
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/lib/providers.js`
-- Purpose: Utility script for providers.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
+- Purpose: Provider registry — selects translation provider (OpenRouter or mock) based on configuration
+- Template compliance: PASS
+- Role tags: fixture
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/test-mintlify-version-language-toggle.js`
-- Purpose: Utility script for test mintlify version language toggle.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
+- Purpose: Mintlify language toggle checker — validates Mintlify version supports language toggle feature
+- Template compliance: PASS
+- Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/test/cli-guardrails.test.js`
-- Purpose: Utility script for cli guardrails test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Tests i18n CLI guardrails — validates argument validation and safety checks
+- Template compliance: PASS
 - Role tags: enforcement, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/test/docs-json-localizer.test.js`
-- Purpose: Utility script for docs json localizer test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Tests docs-json-localizer — validates locale docs.json transformation logic
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/test/frontmatter.test.js`
-- Purpose: Utility script for frontmatter test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Tests frontmatter parser — validates frontmatter read/write roundtrip
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/test/mdx-translate.test.js`
-- Purpose: Utility script for mdx translate test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Tests MDX translation — validates content block translation logic
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/test/provenance.test.js`
-- Purpose: Utility script for provenance test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Tests provenance tracker — validates translation provenance recording
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/test/provider-openrouter.test.js`
-- Purpose: Utility script for provider openrouter test.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: test
+- Purpose: Tests OpenRouter provider — validates API call logic and response parsing
+- Template compliance: PASS
+- Role tags: enforcement, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/i18n/translate-docs.js`
-- Purpose: Utility script for translate docs.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: ci
+- Purpose: Translation generator — translates v2 MDX pages to target languages via OpenRouter API
+- Template compliance: PASS
+- Role tags: ci, generator, sync
 - Run-context tags: manual, npm-script, workflow-dispatch
 - Used by:
   - package-script: tools/package.json#scripts.i18n:translate (when: manual, npm-script)
   - workflow: .github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Run translation generation (when: workflow-dispatch)
 
 ### `tools/scripts/i18n/validate-generated.js`
-- Purpose: Validate generated localized MDX files parse cleanly and exist for successful route-map entries.
+- Purpose: Generated localisation validator — checks generated translated MDX files and route-map outputs for integrity
 - Template compliance: PASS
 - Role tags: ci, enforcement, generator
 - Run-context tags: manual, npm-script, workflow-dispatch
@@ -1850,23 +1102,9 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - package-script: tools/package.json#scripts.i18n:validate (when: manual, npm-script)
   - workflow: .github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Validate generated localized MDX (when: workflow-dispatch)
 
-### `tools/scripts/inspect-page.js`
-- Purpose: Utility script for inspect page.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tools/scripts/inspect-video-page.js`
-- Purpose: Utility script for inspect video page.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
 ### `tools/scripts/mint-dev.sh`
-- Purpose: Utility script for mint dev.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Mintlify dev server launcher — starts mint dev with correct configuration
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
@@ -1874,27 +1112,34 @@ _Tabular data omitted in the published page. Use the repository report artifact 
 ### `tools/scripts/new-script.js`
 - Purpose: ' + params.summary,
 - Template compliance: PASS
-- Role tags: helper
+- Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/publish-v2-internal-reports.js`
-- Purpose: Utility script for publish v2 internal reports.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Report publisher — publishes v2 internal audit reports to configured output locations
+- Template compliance: PASS
+- Role tags: audit
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/scripts/remediators/assets/migrate-assets-to-branch.js`
+- Purpose: Reads the media-audit manifest and migrates flagged assets to the
+- Template compliance: PASS
 - Role tags: audit
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/remediators/content/repair-spelling.js`
-- Purpose: Utility script for repair spelling.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Auto-corrects spelling errors using the shared cspell configuration. Safe, dictionary-based corrections only.
+- Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/repo-audit-orchestrator.js`
-- Purpose: Utility script for repo audit orchestrator.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Repo audit orchestrator — dispatches all static analysis validators in sequence. Supports --mode (static/full), --scope (full/changed), --quarantine, --agent-pack.
+- Template compliance: PASS
 - Role tags: audit
 - Run-context tags: manual, npm-script
 - Used by:
@@ -1905,16 +1150,16 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - package-script: tools/package.json#scripts.audit:repo:quarantine (when: manual, npm-script)
 
 ### `tools/scripts/script-footprint-and-usage-audit.js`
-- Purpose: Utility script for script footprint and usage audit.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Script footprint auditor — analyses script file sizes, dependencies, and usage patterns across the repo
+- Template compliance: PASS
 - Role tags: audit
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/snippets/fetch-external-docs.sh`
-- Purpose: Utility script for fetch external docs.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: ci, enforcement, sync
+- Purpose: External docs fetcher — pulls doc fragments from external GitHub repos into snippets/data/ for inclusion in builds
+- Template compliance: PASS
+- Role tags: ci, enforcement, generator, sync
 - Run-context tags: manual, npm-script, pr, push
 - Used by:
   - package-script: tools/package.json#scripts.fetch-docs (when: manual, npm-script)
@@ -1924,43 +1169,43 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - workflow: .github/workflows/test-v2-pages.yml#Docs CI - V2 Browser Sweep > test-pages > Fetch external snippets (when: pr, push)
 
 ### `tools/scripts/snippets/fetch-lpt-exchanges.sh`
-- Purpose: Utility script for fetch lpt exchanges.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: LPT exchange data fetcher — pulls exchange listing data for LPT token pages
+- Template compliance: PASS
 - Role tags: sync
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/snippets/fetch-openapi-specs.sh`
-- Purpose: Utility script for fetch openapi specs.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: OpenAPI spec fetcher — pulls latest OpenAPI specs from Livepeer services for reference pages
+- Template compliance: PASS
 - Role tags: sync
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/snippets/generate-api-docs.sh`
-- Purpose: Utility script for generate api docs.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: API docs generator — generates API reference pages from OpenAPI specs
+- Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/snippets/generate-data/scripts/generate-glossary.js`
-- Purpose: Utility script for generate glossary.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Glossary generator — produces glossary data file from terminology sources
+- Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/snippets/generate-data/scripts/terminology-search.js`
-- Purpose: Utility script for terminology search.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Terminology search — searches glossary/terminology data for definitions
+- Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/snippets/generate-seo.js`
-- Purpose: Utility script for generate seo.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: SEO generator — generates SEO metadata (title, description, keywords) for v2 pages from content analysis
+- Template compliance: PASS
 - Role tags: ci, generator
 - Run-context tags: manual, npm-script, workflow-dispatch
 - Used by:
@@ -1969,22 +1214,22 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - workflow: .github/workflows/seo-refresh.yml#SEO Metadata Refresh > seo > Generate SEO metadata (when: workflow-dispatch)
 
 ### `tools/scripts/snippets/test-scripts.sh`
-- Purpose: Utility script for test scripts.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
+- Purpose: Snippet test runner — runs basic validation on snippet scripts
+- Template compliance: PASS
+- Role tags: enforcement, runner
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/snippets/update-component-library.sh`
-- Purpose: Utility script for update component library.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Component library updater — syncs component library documentation from source
+- Template compliance: PASS
 - Role tags: sync
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/style-and-language-homogenizer-en-gb.js`
-- Purpose: Utility script for style and language homogenizer en gb.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: EN-GB style homogeniser — finds and fixes American English spellings, style guide violations, and formatting inconsistencies across v2 content
+- Template compliance: PASS
 - Role tags: ci
 - Run-context tags: manual, npm-script, workflow-dispatch
 - Used by:
@@ -1992,51 +1237,30 @@ _Tabular data omitted in the published page. Use the repository report artifact 
   - workflow: .github/workflows/style-homogenise.yml#EN-GB Style Homogenisation > homogenise > Run style homogeniser (when: workflow-dispatch)
 
 ### `tools/scripts/sync-codex-skills.js`
-- Purpose: Utility script for sync codex skills.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: sync
+- Purpose: Codex skills sync — synchronises skill definition files between local and remote sources. Supports --check mode.
+- Template compliance: PASS
+- Role tags: enforcement, sync
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tools/package.json#scripts.skills:sync:codex (when: manual, npm-script)
   - package-script: tools/package.json#scripts.skills:sync:codex:check (when: manual, npm-script)
 
-### `tools/scripts/test-all-pages-browser.js`
-- Purpose: Utility script for test all pages browser.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tools/scripts/test-all-pages-comprehensive.js`
-- Purpose: Utility script for test all pages comprehensive.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
 ### `tools/scripts/test-v2-pages.js`
-- Purpose: Utility script for test v2 pages.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
+- Purpose: V2 page tester — validates v2 pages via Puppeteer browser rendering
+- Template compliance: PASS
+- Role tags: enforcement
 - Run-context tags: manual, npm-script
 - Used by:
   - package-script: tools/package.json#scripts.test:all-pages (when: manual, npm-script)
   - package-script: tools/package.json#scripts.test:v2-pages (when: manual, npm-script)
 
-### `tools/scripts/test-youtube-pages.js`
-- Purpose: Utility script for test youtube pages.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
 ### `tools/scripts/validate-codex-task-contract.js`
-- Purpose: Utility script for validate codex task contract.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Codex task contract enforcer — validates branch naming, task files, PR body, and issue state for codex branches
+- Template compliance: PASS
 - Role tags: ci, enforcement, hook
 - Run-context tags: pr, pre-commit
 - Used by:
-  - hook: .githooks/pre-commit#line 149 (when: pre-commit)
+  - hook: .githooks/pre-commit#line 287 (when: pre-commit)
   - workflow: .github/workflows/codex-governance.yml#Codex Governance > codex-governance > Validate codex task contract + issue readiness + PR body (when: pr)
 
 ### `tools/scripts/validators/components/check-component-css.js`
@@ -2053,94 +1277,80 @@ _Tabular data omitted in the published page. Use the repository report artifact 
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
+### `tools/scripts/validators/components/check-naming-conventions.js`
+- Purpose: Validates active component filenames against strict camelCase file naming and PascalCase exports under snippets/components.
+- Template compliance: PASS
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/scripts/validators/content/check-anchor-usage.js`
+- Purpose: Validates same-page anchor links in maintained v2 MDX files against heading IDs on the same page
+- Template compliance: PASS
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
 ### `tools/scripts/validators/content/check-description-quality.js`
-- Purpose: Utility script for check description quality.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Validates English v2 frontmatter descriptions for SEO length, boilerplate openings, and duplicate reuse
+- Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/validators/content/check-double-headers.js`
-- Purpose: Utility script for check double headers.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Detects duplicate body H1 headings and opening paragraphs that repeat frontmatter title or description content.
+- Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/validators/content/check-grammar-en-gb.js`
-- Purpose: Utility script for check grammar en gb.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Deterministic UK English grammar checker for prose content with optional conservative autofix for safe rules.
+- Template compliance: PASS
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/scripts/validators/content/check-page-endings.js`
+- Purpose: Validates that English v2 MDX pages end with an approved navigational or closing element
+- Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/validators/content/check-proper-nouns.js`
-- Purpose: Utility script for check proper nouns.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Detects and fixes incorrect proper noun capitalisation in prose while skipping code, frontmatter, URLs, and path-like tokens.
+- Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
-### `tools/scripts/verify-all-pages.js`
-- Purpose: Utility script for verify all pages.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: enforcement
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tools/scripts/verify-pages.js`
-- Purpose: Utility script for verify pages.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+### `tools/scripts/validators/governance/check-agent-docs-freshness.js`
+- Purpose: Validates that required agent governance docs exist and have been touched within a freshness threshold
+- Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/verify-pay-orc-gate-finalize.sh`
-- Purpose: Utility script for verify pay orc gate finalize.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Payment/orchestrator gate verifier — checks payment and orchestrator documentation gate conditions
+- Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/verify/.verify-large-change.sh`
-- Purpose: Utility script for verify large change.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
+- Purpose: Large change verifier — blocks or warns when a commit touches an unusually large number of files
+- Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/wcag-repair-common.js`
-- Purpose: Utility script for wcag repair common.
-- Template compliance: FAIL (missing @summary, @inputs, @outputs, @exit-codes, @examples, @notes)
-- Role tags: helper
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tools/utility/personal/download-linkedin-video.sh`
-- Purpose: Utility script for tools/utility/personal/download-linkedin-video.sh.
+- Purpose: WCAG repair shared logic — common repair functions used by WCAG audit fix mode
 - Template compliance: PASS
-- Role tags: helper
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tools/utility/personal/download-linkedin-with-cookies.sh`
-- Purpose: Utility script for tools/utility/personal/download-linkedin-with-cookies.sh.
-- Template compliance: PASS
-- Role tags: helper
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tools/utility/personal/execute-phase1-worktree-plan.js`
-- Purpose: Execute Phase 1 action-plan artifacts and route fixes inside the current docs-v2 worktree only.
-- Template compliance: PASS
-- Role tags: helper
-- Run-context tags: manual
-- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
-
-### `tools/utility/personal/transcribe-audio-to-mdx.js`
-- Purpose: Download audio from URL, chunk with ffmpeg, transcribe via OpenRouter, and write an MDX transcript page.
-- Template compliance: PASS
-- Role tags: helper
+- Role tags: audit
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 

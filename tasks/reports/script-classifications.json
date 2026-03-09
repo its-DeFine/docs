@@ -540,16 +540,6 @@
     "dualmode": ""
   },
   {
-    "path": "tools/lib/docs-usefulness/accuracy-verifier.js",
-    "category": "utility",
-    "purpose": "qa:content-quality",
-    "scope": "full-repo",
-    "needs": "E-R1, R-R11",
-    "purpose_statement": "Accuracy verification engine \u2014 scores page accuracy against source-weighted 2026 rules",
-    "pipeline": "indirect \u2014 library module",
-    "dualmode": ""
-  },
-  {
     "path": "tools/lib/docs-usefulness/scoring.js",
     "category": "utility",
     "purpose": "qa:content-quality",
