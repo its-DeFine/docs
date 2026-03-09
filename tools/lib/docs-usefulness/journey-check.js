@@ -3,12 +3,12 @@
  * @script            journey-check
  * @category          utility
  * @purpose           qa:content-quality
- * @scope             tools/lib/docs-usefulness, tools/config
+ * @scope             single-domain
  * @owner             docs
- * @needs             E-R1, R-R11
- * @purpose-statement Usefulness journey checker — evaluates journey completeness, purpose fit, and next-step linkage from page scores
- * @pipeline          indirect — library module imported by other scripts, not invoked directly
- * @usage             node tools/lib/docs-usefulness/journey-check.js [flags]
+ * @needs             R-R14, R-C6
+ * @purpose-statement Evaluates docs pages against user journey completeness criteria.
+ * @pipeline          indirect — library module
+ * @usage             const { checkJourney } = require('../lib/docs-usefulness/journey-check');
  */
 
 const { minimatch } = require('minimatch');

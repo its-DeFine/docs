@@ -3,12 +3,12 @@
  * @script            llm-evaluator
  * @category          utility
  * @purpose           qa:content-quality
- * @scope             tools/lib/docs-usefulness, tools/config, .cache/llm-usefulness
+ * @scope             single-domain
  * @owner             docs
- * @needs             E-R1, R-R11
- * @purpose-statement Usefulness LLM evaluator — runs cached OpenRouter-based rubric checks with tier and budget controls
- * @pipeline          indirect — library module imported by other scripts, not invoked directly
- * @usage             node tools/lib/docs-usefulness/llm-evaluator.js [flags]
+ * @needs             R-R14
+ * @purpose-statement Wraps LLM API calls for rubric-based page quality evaluation.
+ * @pipeline          indirect — library module
+ * @usage             const { evaluate } = require('../lib/docs-usefulness/llm-evaluator');
  */
 
 const fs = require('fs');

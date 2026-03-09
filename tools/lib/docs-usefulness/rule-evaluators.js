@@ -3,12 +3,12 @@
  * @script            rule-evaluators
  * @category          utility
  * @purpose           qa:content-quality
- * @scope             tools/lib/docs-usefulness
+ * @scope             single-domain
  * @owner             docs
- * @needs             E-R1, R-R11
- * @purpose-statement Usefulness rule evaluators — implement deterministic tier-1 scoring rules for page analysis
- * @pipeline          indirect — library module imported by other scripts, not invoked directly
- * @usage             node tools/lib/docs-usefulness/rule-evaluators.js [flags]
+ * @needs             R-R14
+ * @purpose-statement Evaluates individual rubric rules against page content.
+ * @pipeline          indirect — library module
+ * @usage             const { evaluateRule } = require('../lib/docs-usefulness/rule-evaluators');
  */
 
 function toText(value) {

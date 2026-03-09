@@ -1,14 +1,14 @@
 'use strict';
 /**
- * @script            index
+ * @script            prompts/index
  * @category          utility
  * @purpose           qa:content-quality
- * @scope             tools/lib/docs-usefulness/prompts
+ * @scope             single-domain
  * @owner             docs
- * @needs             E-R1, R-R11
- * @purpose-statement Usefulness prompt registry — aggregates purpose-specific LLM prompt modules
- * @pipeline          indirect — library module imported by other scripts, not invoked directly
- * @usage             node tools/lib/docs-usefulness/prompts/index.js [flags]
+ * @needs             R-R14
+ * @purpose-statement LLM prompt template for index page-type usefulness evaluation.
+ * @pipeline          indirect — library module, pre-commit, ci
+ * @usage             const { getPrompt } = require('../lib/docs-usefulness/prompts/index');
  */
 
 const landing = require('./landing');

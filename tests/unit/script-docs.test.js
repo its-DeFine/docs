@@ -48,7 +48,8 @@ const FRAMEWORK_REQUIRED_TAGS = [
   '@owner',
   '@needs',
   '@purpose-statement',
-  '@pipeline'
+  '@pipeline',
+  '@usage'
 ];
 const FRAMEWORK_INLINE_REQUIRED_TAGS = FRAMEWORK_REQUIRED_TAGS;
 const PLACEHOLDER_PATTERNS = [
@@ -64,7 +65,8 @@ const PLACEHOLDER_PATTERNS = [
 ];
 
 const SCRIPT_EXTENSIONS = new Set(['.js', '.cjs', '.mjs', '.ts', '.tsx', '.sh', '.bash', '.py']);
-const SCOPED_ROOTS = ['.githooks', '.github/scripts', 'tests', 'tools/scripts', 'tasks/scripts'];
+const VALIDATION_ROOTS = ['.githooks', '.github/scripts', 'tests', 'tools/scripts', 'tasks/scripts', 'tools/lib/docs-usefulness'];
+const INDEXED_ROOTS = ['.githooks', '.github/scripts', 'tests', 'tools/scripts'];
 
 const GROUP_INDEX_MAP = [
   { root: '.githooks', index: '.githooks/script-index.md' },
@@ -84,7 +86,7 @@ const AGGREGATE_FRONTMATTER_LINES = buildGeneratedFrontmatterLines({
 const AGGREGATE_DETAILS = {
   script: 'tests/unit/script-docs.test.js',
   purpose: 'Enforce script header schema, keep group script indexes in sync, and build aggregate script index.',
-  runWhen: 'Scripts are added, removed, renamed, or script metadata changes in scoped roots.',
+  runWhen: 'Script metadata changes in validation roots or script changes in indexed roots.',
   runCommand: 'node tests/unit/script-docs.test.js --write --rebuild-indexes'
 };
 
@@ -148,12 +150,24 @@ function walkFiles(dirPath, out = []) {
   return out;
 }
 
-function getAllScopedScripts() {
+function isWithinRoots(filePath, roots) {
+  return roots.some((root) => filePath === root || filePath.startsWith(`${root}/`));
+}
+
+function getScriptsForRoots(roots) {
   const scripts = [];
-  for (const root of SCOPED_ROOTS) {
+  for (const root of roots) {
     walkFiles(root, scripts);
   }
   return [...new Set(scripts)].filter(isScriptFile).sort();
+}
+
+function getAllValidationScripts() {
+  return getScriptsForRoots(VALIDATION_ROOTS);
+}
+
+function getAllIndexedScripts() {
+  return getScriptsForRoots(INDEXED_ROOTS);
 }
 
 function getStagedAddedScripts() {
@@ -169,7 +183,7 @@ function getStagedAddedScripts() {
     .map((line) => line.trim())
     .filter(Boolean)
     .map(normalizeRepoPath)
-    .filter((file) => SCOPED_ROOTS.some((root) => file === root || file.startsWith(`${root}/`)))
+    .filter((file) => isWithinRoots(file, VALIDATION_ROOTS))
     .filter(isScriptFile);
 }
 
@@ -262,12 +276,6 @@ function validateTemplate(repoPath) {
     const sectionLines = getSectionLines(header, tag);
     const meaningful = sectionLines.filter((line) => !isPlaceholderValue(line));
     if (meaningful.length === 0) empty.push(tag);
-  }
-
-  // Framework headers encode usage inline; when present, enforce non-placeholder content.
-  if (mode === 'framework' && !missing.includes('@usage')) {
-    const usage = getTagValue(header, '@usage');
-    if (usage && isPlaceholderValue(usage)) empty.push('@usage');
   }
 
   const summary =
@@ -463,7 +471,7 @@ function ensureIndexFile(indexPath) {
 }
 
 function scriptsForGroup(root) {
-  return getAllScopedScripts().filter((file) => file === root || file.startsWith(`${root}/`));
+  return getAllIndexedScripts().filter((file) => file === root || file.startsWith(`${root}/`));
 }
 
 function buildGroupRows(root) {
@@ -594,10 +602,10 @@ function runTests(options = {}) {
   const autofilledScripts = [];
   const backfilledScripts = [];
 
-  const scopedScripts = getAllScopedScripts();
+  const validationScripts = getAllValidationScripts();
   const stagedAddedScripts = getStagedAddedScripts();
   const explicitTargets = [...new Set(files.map(normalizeRepoPath))]
-    .filter((file) => SCOPED_ROOTS.some((root) => file === root || file.startsWith(`${root}/`)))
+    .filter((file) => isWithinRoots(file, VALIDATION_ROOTS))
     .filter(isScriptFile);
 
   if (autofill) {
@@ -607,7 +615,7 @@ function runTests(options = {}) {
   }
 
   if (backfillExisting) {
-    for (const scriptPath of scopedScripts) {
+    for (const scriptPath of validationScripts) {
       if (injectTemplate(scriptPath, false)) backfilledScripts.push(scriptPath);
     }
   }
@@ -615,7 +623,7 @@ function runTests(options = {}) {
   const enforceTargets = explicitTargets.length > 0
     ? explicitTargets
     : enforceExisting
-      ? scopedScripts
+      ? validationScripts
       : stagedOnly
         ? stagedAddedScripts
         : [];
@@ -635,7 +643,7 @@ function runTests(options = {}) {
     const indexTargets = rebuildIndexes || checkIndexes
       ? GROUP_INDEX_MAP
       : GROUP_INDEX_MAP.filter((g) => {
-          const candidates = stagedOnly ? stagedAddedScripts : scopedScripts;
+          const candidates = stagedOnly ? stagedAddedScripts : validationScripts;
           return candidates.some((f) => f === g.root || f.startsWith(`${g.root}/`));
         });
 

@@ -3,12 +3,12 @@
  * @script            config-validator
  * @category          utility
  * @purpose           qa:content-quality
- * @scope             tools/lib/docs-usefulness, tools/config
+ * @scope             single-domain
  * @owner             docs
- * @needs             E-R1, R-R11
- * @purpose-statement Usefulness config validator — validates rubric, journey, audience, and LLM-tier configuration integrity
- * @pipeline          indirect — library module imported by other scripts, not invoked directly
- * @usage             node tools/lib/docs-usefulness/config-validator.js [flags]
+ * @needs             R-R14, R-C6
+ * @purpose-statement Validates docs-usefulness config structure and field completeness.
+ * @pipeline          indirect — library module
+ * @usage             const { validateConfig } = require('../lib/docs-usefulness/config-validator');
  */
 
 const {

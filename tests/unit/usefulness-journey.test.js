@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
  * @script            usefulness-journey.test
- * @category          validator
+ * @category          utility
  * @purpose           qa:content-quality
- * @scope             tests/unit, tools/lib/docs-usefulness, tools/config
+ * @scope             full-repo
  * @owner             docs
- * @needs             E-R1, R-R11
- * @purpose-statement Usefulness journey tests — validate journey completeness evaluation and configuration guardrails
- * @pipeline          manual — not yet in pipeline
- * @usage             node tests/unit/usefulness-journey.test.js [flags]
+ * @needs             R-R14, R-C6
+ * @purpose-statement Tests journey-check evaluation logic against fixture pages.
+ * @pipeline          manual, ci
+ * @usage             node tests/unit/usefulness-journey.test.js
  */
 
 'use strict';

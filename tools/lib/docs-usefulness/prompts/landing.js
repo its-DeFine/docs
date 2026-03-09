@@ -1,14 +1,14 @@
 'use strict';
 /**
- * @script            landing
+ * @script            prompts/landing
  * @category          utility
  * @purpose           qa:content-quality
- * @scope             tools/lib/docs-usefulness/prompts
+ * @scope             single-domain
  * @owner             docs
- * @needs             E-R1, R-R11
- * @purpose-statement Landing usefulness prompts — define LLM prompt templates for landing page scoring
- * @pipeline          indirect — library module imported by other scripts, not invoked directly
- * @usage             node tools/lib/docs-usefulness/prompts/landing.js [flags]
+ * @needs             R-R14
+ * @purpose-statement LLM prompt template for landing page-type usefulness evaluation.
+ * @pipeline          indirect — library module
+ * @usage             const { getPrompt } = require('../lib/docs-usefulness/prompts/landing');
  */
 
 const SYSTEM_BASE = 'You are a documentation quality evaluator for Livepeer docs. Return ONLY JSON: {"score":0-100,"pass":true/false,"reasoning":"one sentence"}.';

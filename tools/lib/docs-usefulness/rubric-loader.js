@@ -3,12 +3,12 @@
  * @script            rubric-loader
  * @category          utility
  * @purpose           qa:content-quality
- * @scope             tools/lib/docs-usefulness, tools/config
+ * @scope             single-domain
  * @owner             docs
- * @needs             E-R1, R-R11
- * @purpose-statement Usefulness rubric loader — loads rubric, journey, audience, and LLM-tier configuration data
- * @pipeline          indirect — library module imported by other scripts, not invoked directly
- * @usage             node tools/lib/docs-usefulness/rubric-loader.js [flags]
+ * @needs             R-R14
+ * @purpose-statement Loads and parses rubric YAML/JSON for page-type scoring rules.
+ * @pipeline          indirect — library module
+ * @usage             const { loadRubric } = require('../lib/docs-usefulness/rubric-loader');
  */
 
 const fs = require('fs');

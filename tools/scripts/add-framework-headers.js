@@ -9,9 +9,7 @@
  * @needs            R-R14
  * @purpose-statement Inserts or extends framework headers on all repo scripts from classification data.
  * @pipeline         manual — interactive developer tool, not suited for automated pipelines
- *
- * @usage
- *   node tools/scripts/add-framework-headers.js --data script-classifications.json --dry-run
+ * @usage            node tools/scripts/add-framework-headers.js --data script-classifications.json --dry-run
  *
  * @inputs
  *   --data <path> --dry-run|--write|--verify [--filter <prefix>] [--exclude-subdirs] [--force]

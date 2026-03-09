@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
  * @script            usefulness-rubric.test
- * @category          validator
+ * @category          utility
  * @purpose           qa:content-quality
- * @scope             tests/unit, tools/lib/docs-usefulness, tools/scripts, tools/config
+ * @scope             full-repo
  * @owner             docs
- * @needs             E-R1, R-R11
- * @purpose-statement Usefulness rubric tests — validate rubric loading, evaluator coverage, route precedence, and score divergence behaviour
- * @pipeline          manual — not yet in pipeline
- * @usage             node tests/unit/usefulness-rubric.test.js [flags]
+ * @needs             R-R14, R-C6
+ * @purpose-statement Tests rubric-based scoring logic against fixture pages.
+ * @pipeline          manual, ci
+ * @usage             node tests/unit/usefulness-rubric.test.js
  */
 
 'use strict';

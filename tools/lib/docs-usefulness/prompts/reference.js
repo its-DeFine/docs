@@ -1,14 +1,14 @@
 'use strict';
 /**
- * @script            reference
+ * @script            prompts/reference
  * @category          utility
  * @purpose           qa:content-quality
- * @scope             tools/lib/docs-usefulness/prompts
+ * @scope             single-domain
  * @owner             docs
- * @needs             E-R1, R-R11
- * @purpose-statement Reference usefulness prompts — define LLM prompt templates for reference page scoring
- * @pipeline          indirect — library module imported by other scripts, not invoked directly
- * @usage             node tools/lib/docs-usefulness/prompts/reference.js [flags]
+ * @needs             R-R14
+ * @purpose-statement LLM prompt template for reference page-type usefulness evaluation.
+ * @pipeline          indirect — library module
+ * @usage             const { getPrompt } = require('../lib/docs-usefulness/prompts/reference');
  */
 
 const SYSTEM_BASE = 'You are a documentation quality evaluator for Livepeer docs. Return ONLY JSON: {"score":0-100,"pass":true/false,"reasoning":"one sentence"}.';

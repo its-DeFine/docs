@@ -8,8 +8,7 @@
  * @needs     R-R10
  * @purpose-statement  Validates component files use CSS custom properties only. No ThemeData, no hardcoded hex, no inline styles.
  * @pipeline  PR (snippets/components/** scope)
- * @usage
- *   node tools/scripts/validators/components/check-component-css.js [--path snippets/components/] [--fix]
+ * @usage     node tools/scripts/validators/components/check-component-css.js [--path snippets/components/] [--fix]
  *
  * @summary Validates component files use CSS custom properties only. No ThemeData, no hardcoded hex, no inline styles.
  *

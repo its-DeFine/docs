@@ -9,14 +9,14 @@ keywords: ['livepeer', 'scripts index', 'aggregate inventory', 'repository', 'sc
 generated-file-banner: generated-file-banner:v1
 Generation Script: tests/unit/script-docs.test.js
 Purpose: Enforce script header schema, keep group script indexes in sync, and build aggregate script index.
-Run when: Scripts are added, removed, renamed, or script metadata changes in scoped roots.
+Run when: Script metadata changes in validation roots or script changes in indexed roots.
 Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 */}
 
 <Note>
 **Generation Script**: This file is generated from script(s): `tests/unit/script-docs.test.js`. <br/>
 **Purpose**: Enforce script header schema, keep group script indexes in sync, and build aggregate script index. <br/>
-**Run when**: Scripts are added, removed, renamed, or script metadata changes in scoped roots. <br/>
+**Run when**: Script metadata changes in validation roots or script changes in indexed roots. <br/>
 **Important**: Do not manually edit this file; run `node tests/unit/script-docs.test.js --write --rebuild-indexes`. <br/>
 </Note>
 
@@ -73,8 +73,8 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tests/unit/script-docs.test.js` | Enforces script header schema, keeps group script indexes in sync, and builds aggregate script index | `node tests/unit/script-docs.test.js [flags]` | docs |
 | `tests/unit/spelling.test.js` | Spelling check — validates content against custom dictionary with en-GB rules | `node tests/unit/spelling.test.js [flags]` | docs |
 | `tests/unit/style-guide.test.js` | Style guide compliance — checks en-GB conventions, heading case, formatting rules | `node tests/unit/style-guide.test.js [flags]` | docs |
-| `tests/unit/usefulness-journey.test.js` | Usefulness journey tests — validate journey completeness evaluation and configuration guardrails | `node tests/unit/usefulness-journey.test.js [flags]` | docs |
-| `tests/unit/usefulness-rubric.test.js` | Usefulness rubric tests — validate rubric loading, evaluator coverage, route precedence, and score divergence behaviour | `node tests/unit/usefulness-rubric.test.js [flags]` | docs |
+| `tests/unit/usefulness-journey.test.js` | Tests journey-check evaluation logic against fixture pages. | `node tests/unit/usefulness-journey.test.js` | docs |
+| `tests/unit/usefulness-rubric.test.js` | Tests rubric-based scoring logic against fixture pages. | `node tests/unit/usefulness-rubric.test.js` | docs |
 | `tests/unit/v2-link-audit.test.js` | Unit tests for v2-link-audit.js — tests individual link checking rules | `node tests/unit/v2-link-audit.test.js [flags]` | docs |
 | `tests/unit/v2-wcag-audit.test.js` | Unit tests for v2-wcag-audit.js — tests individual WCAG rules | `node tests/unit/v2-wcag-audit.test.js [flags]` | docs |
 | `tests/unit/validate-codex-task-contract.test.js` | Tests validate-codex-task-contract.js — validates contract checking logic | `node tests/unit/validate-codex-task-contract.test.js [flags]` | docs |
