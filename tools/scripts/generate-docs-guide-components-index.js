@@ -674,6 +674,7 @@ function buildFrontmatterLines(localeConfig) {
     title: localeConfig.frontmatter.title,
     sidebarTitle: localeConfig.frontmatter.sidebarTitle,
     description: localeConfig.frontmatter.description,
+    pageType: 'overview',
     keywords: ['livepeer', 'components index', 'aggregate inventory', 'repository', 'snippets']
   });
 }
