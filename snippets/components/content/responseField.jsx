@@ -24,7 +24,7 @@
  * @param {string} [label="value"] - Label text rendered by the component.
  * @param {boolean} [line=true] - Boolean flag that controls component behaviour.
  * @param {React.ReactNode} children - Content rendered inside the component.
- * @param {object} [props] - Additional props forwarded to ResponseField.
+ * @param {...Object} props - Additional props spread to the root element.
  *
  * @example
  * <ValueResponseField description="Example" />
@@ -103,7 +103,7 @@ const expandableCode = () => {
  * @lastMeaningfulChange 2026-03-08
  *
  * @param {React.ReactNode} description - Primary content rendered by the component.
- * @param {object} [props] - Additional props forwarded to ResponseField.
+ * @param {...Object} props - Additional props spread to the root element.
  *
  * @example
  * <CustomResponseField description="Example" />
@@ -144,7 +144,7 @@ const CustomResponseField = ({ description, ...props }) => {
  * @lastMeaningfulChange 2026-03-08
  *
  * @param {object} [fields={}] - Fields used by the component.
- * @param {object} [props] - Additional props forwarded to Expandable.
+ * @param {...Object} props - Additional props spread to the root element.
  *
  * @example
  * <ResponseFieldExpandable />
@@ -184,7 +184,7 @@ const ResponseFieldExpandable = ({ fields = {}, ...props }) => {
  * @lastMeaningfulChange 2026-03-08
  *
  * @param {object} [fields={}] - Fields used by the component.
- * @param {object} [props] - Additional props forwarded to Accordion.
+ * @param {...Object} props - Additional props spread to the root element.
  *
  * @example
  * <ResponseFieldAccordion />
@@ -227,7 +227,7 @@ const ResponseFieldAccordion = ({ fields = {}, ...props }) => {
  *
  * @param {string} [component="accordion"] - Component used by the component.
  * @param {object} [fields={}] - Fields used by the component.
- * @param {object} [props] - Additional props forwarded to the selected wrapper component.
+ * @param {...Object} props - Additional props spread to the root element.
  *
  * @example
  * <ResponseFieldGroup />

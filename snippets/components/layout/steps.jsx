@@ -3,29 +3,33 @@
  * @category layout
  * @tier composite
  * @status stable
- * @description Wraps Mintlify Steps with wrapper-scoped CSS variables for icon, title, and connector styling.
- * @contentAffinity tutorial
+ * @description Wrapper for custom-styled step sequences with configurable colours.
+ * @contentAffinity tutorial, how_to
  * @owner @livepeer/docs-team
  * @dependencies StyledStep
- * @usedIn v2/developers/ai-pipelines/byoc.mdx, v2/lpt/delegation/getting-started.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
- * @breakingChangeRisk low
+ * @usedIn v2/cn/docs-guide/components-index.mdx, v2/cn/docs-guide/indexes/components-index.mdx,
+ *   v2/cn/gateways/run-a-gateway/configure/ai-configuration.mdx,
+ *   v2/cn/gateways/run-a-gateway/connect/discover-offerings.mdx,
+ *   v2/cn/gateways/run-a-gateway/install/docker-install.mdx,
+ *   v2/cn/gateways/run-a-gateway/install/linux-install.mdx,
+ *   v2/cn/gateways/run-a-gateway/install/windows-install.mdx,
+ *   v2/cn/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx,
+ *   v2/cn/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx,
+ *   v2/cn/gateways/run-a-gateway/requirements/setup.mdx
+ * @breakingChangeRisk high
  * @decision KEEP
  * @dataSource none
  * @duplicates none
  * @lastMeaningfulChange 2026-03-10
  *
- * @param {React.ReactNode} children - Step components to render.
- * @param {string} [iconColor] - Background color for step icons.
- * @param {string} [titleColor] - Color for step titles.
- * @param {string} [lineColor] - Color for the connecting line between steps.
- * @param {string} [iconSize="24px"] - Size token reserved for step icons.
+ * @param {React.ReactNode} children - Step components rendered inside the sequence.
+ * @param {string} [iconColor] - Background colour applied to step icons.
+ * @param {string} [titleColor] - Colour applied to step titles.
+ * @param {string} [lineColor] - Colour applied to connector lines between steps.
+ * @param {string} [iconSize="24px"] - Icon size value accepted by the component.
  *
  * @example
- * <StyledSteps iconColor="#ff0000" titleColor="#00ff00" lineColor="#0000ff">
- *   <StyledStep title="First Step" icon="check">Content here</StyledStep>
- *   <StyledStep title="Second Step" icon="arrow-right">More content</StyledStep>
- * </StyledSteps>
+ * <StyledSteps><StyledStep>Step 1</StyledStep></StyledSteps>
  */
 export const StyledSteps = ({
   children,
@@ -53,29 +57,34 @@ export const StyledSteps = ({
 /**
  * @component StyledStep
  * @category layout
- * @tier composite
+ * @tier primitive
  * @status stable
- * @description Wraps Mintlify Step to keep title sizing consistent inside StyledSteps flows.
- * @contentAffinity tutorial
+ * @description Individual step item within a StyledSteps sequence.
+ * @contentAffinity tutorial, how_to
  * @owner @livepeer/docs-team
- * @dependencies StyledSteps
- * @usedIn v2/developers/ai-pipelines/byoc.mdx, v2/lpt/delegation/getting-started.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
- * @breakingChangeRisk low
+ * @dependencies none
+ * @usedIn v2/cn/docs-guide/components-index.mdx, v2/cn/docs-guide/indexes/components-index.mdx,
+ *   v2/cn/gateways/run-a-gateway/configure/ai-configuration.mdx,
+ *   v2/cn/gateways/run-a-gateway/connect/discover-offerings.mdx,
+ *   v2/cn/gateways/run-a-gateway/install/docker-install.mdx,
+ *   v2/cn/gateways/run-a-gateway/install/linux-install.mdx,
+ *   v2/cn/gateways/run-a-gateway/install/windows-install.mdx,
+ *   v2/cn/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx,
+ *   v2/cn/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx,
+ *   v2/cn/gateways/run-a-gateway/requirements/setup.mdx
+ * @breakingChangeRisk high
  * @decision KEEP
  * @dataSource none
  * @duplicates none
  * @lastMeaningfulChange 2026-03-10
  *
- * @param {string} title - Title text rendered for the step.
- * @param {string} icon - Icon name rendered for the step marker.
- * @param {string} [titleSize="h3"] - Heading size passed through to Step.
- * @param {React.ReactNode} children - Content rendered inside the step body.
+ * @param {string} title - Step title text.
+ * @param {string} icon - Icon name passed to the step item.
+ * @param {string} [titleSize="h3"] - Heading size used for the step title.
+ * @param {React.ReactNode} children - Step body content.
  *
  * @example
- * <StyledStep title="Installation" icon="download" titleSize="h2">
- *   Run npm install to get started
- * </StyledStep>
+ * <StyledStep title="Step 1">Content</StyledStep>
  */
 export const StyledStep = ({ title, icon, titleSize = "h3", children }) => {
   return (
