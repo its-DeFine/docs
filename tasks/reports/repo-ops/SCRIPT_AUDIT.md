@@ -1,14 +1,14 @@
 # SCRIPT_AUDIT
 
-Generated: 2026-03-09T07:07:29.783Z
+Generated: 2026-03-09T07:12:34.430Z
 
 ## Rules Source
 - `tests/unit/script-docs.test.js`
 - `tests/README.md`
 
 ## Summary
-- Total scripts: 168
-- Template compliant: 168
+- Total scripts: 172
+- Template compliant: 172
 - Template non-compliant: 0
 - Exact overlap clusters: 0
 - Near overlap clusters: 0
@@ -19,12 +19,12 @@ Generated: 2026-03-09T07:07:29.783Z
 |---|---:|
 | `audit` | 27 |
 | `ci` | 24 |
-| `enforcement` | 76 |
+| `enforcement` | 80 |
 | `fixture` | 7 |
 | `generator` | 36 |
 | `helper` | 36 |
 | `hook` | 11 |
-| `manual` | 156 |
+| `manual` | 160 |
 | `npm-script` | 43 |
 | `pr` | 10 |
 | `pre-commit` | 5 |
@@ -113,10 +113,10 @@ Generated: 2026-03-09T07:07:29.783Z
 | `tools/lib/docs-usefulness/scoring.js` | Aggregates rule scores into a final usefulness score per page. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/lib/generated-file-banners.js` | Generated file banner template — provides standard banner text for auto-generated files | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/add-framework-headers.js` | Insert or verify governance framework metadata headers from classification JSON. | PASS | enforcement, generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/scripts/add-pagetype-mechanical.js` | Mechanically assign pageType frontmatter to eligible v2 MDX pages. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/scripts/add-pagetype-mechanical.js` | Mechanically assigns pageType frontmatter to eligible v2 MDX pages. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/assign-purpose-metadata.js` | Purpose metadata assigner — fills purpose and audience frontmatter for routable v2 pages | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/audit-component-usage.js` | Component usage auditor — scans pages for component usage patterns and reports statistics | PASS | audit, ci | scheduled, workflow-dispatch | workflow:.github/workflows/content-health.yml#Content Health Check > content-health > Component usage audit [scheduled,workflow-dispatch] |
-| `tools/scripts/audit-media-assets.js` | Audit repo media assets, references, ignore leakage, and externalized asset branch inventory. | PASS | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/scripts/audit-media-assets.js` | Audits repo media assets, references, ignore leakage, and externalized asset branch inventory. | PASS | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/audit-scripts.js` | Script auditor — analyses all repo scripts, categorises usage/overlap, generates SCRIPT_AUDIT reports | PASS | audit, generator | manual, npm-script | package-script:tools/package.json#scripts.audit:scripts [manual,npm-script] |
 | `tools/scripts/audit-tasks-folders.js` | Tasks folder auditor — checks tasks/ structure, normalises report locations, applies recommendations with conflict-safe moves | PASS | audit, enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/audit-v2-usefulness.js` | Usefulness auditor — scores v2 MDX pages on human and agent usefulness with source-weighted 2026 accuracy verification | PASS | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -147,6 +147,7 @@ Generated: 2026-03-09T07:07:29.783Z
 | `tools/scripts/docs-quality-and-freshness-audit.js` | Content freshness audit — checks for TODO/TBD/Coming Soon markers, thin pages, stale content | PASS | audit, ci, enforcement | manual, npm-script, scheduled, workflow-dispatch | package-script:tools/package.json#scripts.audit:docs-quality [manual,npm-script] \| workflow:.github/workflows/content-health.yml#Content Health Check > content-health > Content quality audit [scheduled,workflow-dispatch] |
 | `tools/scripts/enforce-generated-file-banners.js` | Generated file banner enforcer — checks (--check) or writes (default) "do not edit" banners on generated files | PASS | enforcement, generator | manual, npm-script | package-script:tests/package.json#scripts.test:generated-banners [manual,npm-script] |
 | `tools/scripts/enforcers/pr/check-component-immutability.js` | Flags modifications to existing component files in PR context. New files allowed. Modifications require approval label. | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/scripts/enforcers/pr/check-pr-template.js` | Enforces that PR descriptions include required change and rationale sections before merge | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/generate-ai-sitemap.js` | AI sitemap generator — produces AI-optimised sitemap files. Dual-mode: --check (enforcer) / --write (generator). | PASS | ci, enforcement, generator | pr, push, workflow-dispatch | workflow:.github/workflows/generate-ai-sitemap.yml#Generate AI Sitemap > generate-ai-sitemap > Generate AI sitemap [push,workflow-dispatch] \| workflow:.github/workflows/verify-ai-sitemap.yml#Verify AI Sitemap > verify-ai-sitemap > Verify AI sitemap output [pr,push] |
 | `tools/scripts/generate-content-gap-reconciliation.js` | Content-gap reconciliation generator — compares blueprint coverage against v2 MDX and writes reconciliation artefacts | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/generate-docs-guide-components-index.js` | Generates the docs-guide component library index page | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -200,10 +201,13 @@ Generated: 2026-03-09T07:07:29.783Z
 | `tools/scripts/validators/components/check-component-css.js` | Validates component files use CSS custom properties only. No ThemeData, no hardcoded hex, no inline styles. | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/validators/components/check-component-docs.js` | Validate component JSDoc coverage, prop documentation, and docs-entry coverage for snippets/components exports. | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/validators/components/check-naming-conventions.js` | Validates active component filenames against strict camelCase file naming and PascalCase exports under snippets/components. | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/scripts/validators/content/check-anchor-usage.js` | Validates same-page anchor links in maintained v2 MDX files against heading IDs on the same page | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/validators/content/check-description-quality.js` | Validates English v2 frontmatter descriptions for SEO length, boilerplate openings, and duplicate reuse | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/validators/content/check-double-headers.js` | Detects duplicate body H1 headings and opening paragraphs that repeat frontmatter title or description content. | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/validators/content/check-grammar-en-gb.js` | Deterministic UK English grammar checker for prose content with optional conservative autofix for safe rules. | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/scripts/validators/content/check-page-endings.js` | Validates that English v2 MDX pages end with an approved navigational or closing element | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/validators/content/check-proper-nouns.js` | Detects and fixes incorrect proper noun capitalisation in prose while skipping code, frontmatter, URLs, and path-like tokens. | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/scripts/validators/governance/check-agent-docs-freshness.js` | Validates that required agent governance docs exist and have been touched within a freshness threshold | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/verify-pay-orc-gate-finalize.sh` | Payment/orchestrator gate verifier — checks payment and orchestrator documentation gate conditions | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/verify/.verify-large-change.sh` | Large change verifier — blocks or warns when a commit touches an unusually large number of files | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/wcag-repair-common.js` | WCAG repair shared logic — common repair functions used by WCAG audit fix mode | PASS | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -789,7 +793,7 @@ All discovered scripts meet the required script template rules.
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/scripts/add-pagetype-mechanical.js`
-- Purpose: Mechanically assign pageType frontmatter to eligible v2 MDX pages.
+- Purpose: Mechanically assigns pageType frontmatter to eligible v2 MDX pages.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
@@ -811,7 +815,7 @@ All discovered scripts meet the required script template rules.
   - workflow: .github/workflows/content-health.yml#Content Health Check > content-health > Component usage audit (when: scheduled, workflow-dispatch)
 
 ### `tools/scripts/audit-media-assets.js`
-- Purpose: Audit repo media assets, references, ignore leakage, and externalized asset branch inventory.
+- Purpose: Audits repo media assets, references, ignore leakage, and externalized asset branch inventory.
 - Template compliance: PASS
 - Role tags: audit
 - Run-context tags: manual
@@ -1033,6 +1037,13 @@ All discovered scripts meet the required script template rules.
 
 ### `tools/scripts/enforcers/pr/check-component-immutability.js`
 - Purpose: Flags modifications to existing component files in PR context. New files allowed. Modifications require approval label.
+- Template compliance: PASS
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/scripts/enforcers/pr/check-pr-template.js`
+- Purpose: Enforces that PR descriptions include required change and rationale sections before merge
 - Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual
@@ -1450,6 +1461,13 @@ All discovered scripts meet the required script template rules.
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
+### `tools/scripts/validators/content/check-anchor-usage.js`
+- Purpose: Validates same-page anchor links in maintained v2 MDX files against heading IDs on the same page
+- Template compliance: PASS
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
 ### `tools/scripts/validators/content/check-description-quality.js`
 - Purpose: Validates English v2 frontmatter descriptions for SEO length, boilerplate openings, and duplicate reuse
 - Template compliance: PASS
@@ -1471,8 +1489,22 @@ All discovered scripts meet the required script template rules.
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
+### `tools/scripts/validators/content/check-page-endings.js`
+- Purpose: Validates that English v2 MDX pages end with an approved navigational or closing element
+- Template compliance: PASS
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
 ### `tools/scripts/validators/content/check-proper-nouns.js`
 - Purpose: Detects and fixes incorrect proper noun capitalisation in prose while skipping code, frontmatter, URLs, and path-like tokens.
+- Template compliance: PASS
+- Role tags: enforcement
+- Run-context tags: manual
+- Used by: Manual/on-demand (no direct hook/workflow/package reference found)
+
+### `tools/scripts/validators/governance/check-agent-docs-freshness.js`
+- Purpose: Validates that required agent governance docs exist and have been touched within a freshness threshold
 - Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual

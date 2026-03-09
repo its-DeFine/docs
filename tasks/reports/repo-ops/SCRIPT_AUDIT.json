@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-09T07:07:29.783Z",
+  "generatedAt": "2026-03-09T07:12:34.430Z",
   "repoRoot": "/Users/alisonhaire/Documents/Livepeer/livepeer-docs-codex-classifications-fix",
   "options": {
     "format": "both",
@@ -11,13 +11,13 @@
     "tests/README.md"
   ],
   "summary": {
-    "totalScripts": 168,
-    "templateCompliant": 168,
+    "totalScripts": 172,
+    "templateCompliant": 172,
     "templateNonCompliant": 0,
     "categoryCounts": {
       "hook": 11,
-      "manual": 156,
-      "enforcement": 76,
+      "manual": 160,
+      "enforcement": 80,
       "generator": 36,
       "pre-commit": 5,
       "ci": 24,
@@ -35,7 +35,7 @@
     },
     "roleTagCounts": {
       "hook": 11,
-      "enforcement": 76,
+      "enforcement": 80,
       "generator": 36,
       "ci": 24,
       "sync": 19,
@@ -46,7 +46,7 @@
       "helper": 36
     },
     "runContextTagCounts": {
-      "manual": 156,
+      "manual": 160,
       "pre-commit": 5,
       "scheduled": 9,
       "workflow-dispatch": 18,
@@ -3413,7 +3413,7 @@
     },
     {
       "path": "tools/scripts/add-pagetype-mechanical.js",
-      "purpose": "Mechanically assign pageType frontmatter to eligible v2 MDX pages.",
+      "purpose": "Mechanically assigns pageType frontmatter to eligible v2 MDX pages.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3427,7 +3427,7 @@
         "scriptTag": "add-pagetype-mechanical",
         "ownerTag": "docs",
         "scopeTag": "tools/scripts, v2, tasks/reports",
-        "usageTag": "*   node tools/scripts/add-pagetype-mechanical.js [--dry-run]"
+        "usageTag": "node tools/scripts/add-pagetype-mechanical.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -3527,7 +3527,7 @@
     },
     {
       "path": "tools/scripts/audit-media-assets.js",
-      "purpose": "Audit repo media assets, references, ignore leakage, and externalized asset branch inventory.",
+      "purpose": "Audits repo media assets, references, ignore leakage, and externalized asset branch inventory.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3541,7 +3541,7 @@
         "scriptTag": "audit-media-assets",
         "ownerTag": "docs",
         "scopeTag": "tools/scripts, tasks/reports/media-audit",
-        "usageTag": "*   node tools/scripts/audit-media-assets.js [--manifest <path>] [--summary <path>] [--assets-branch-ref <ref>] [--check-staged]"
+        "usageTag": "node tools/scripts/audit-media-assets.js [flags]"
       },
       "categories": {
         "roleTags": [
@@ -4701,6 +4701,39 @@
         "ownerTag": "docs",
         "scopeTag": "changed",
         "usageTag": "node tools/scripts/enforcers/pr/check-component-immutability.js --base-ref main"
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:enforcement via @category enforcer",
+          "role:enforcement via keyword or gating context",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/scripts/enforcers/pr/check-pr-template.js",
+      "purpose": "Enforces that PR descriptions include required change and rationale sections before merge",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "check-pr-template",
+        "ownerTag": "docs",
+        "scopeTag": "tools/scripts/enforcers/pr, .github/pull_request_template.md, .github/pull-request-template-v2.md",
+        "usageTag": "PR_BODY=\"...\" node tools/scripts/enforcers/pr/check-pr-template.js"
       },
       "categories": {
         "roleTags": [
@@ -7075,6 +7108,38 @@
       "usedBy": []
     },
     {
+      "path": "tools/scripts/validators/content/check-anchor-usage.js",
+      "purpose": "Validates same-page anchor links in maintained v2 MDX files against heading IDs on the same page",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "check-anchor-usage",
+        "ownerTag": "docs",
+        "scopeTag": "tools/scripts/validators/content, v2",
+        "usageTag": "node tools/scripts/validators/content/check-anchor-usage.js [--json] [--scope <glob>]"
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
       "path": "tools/scripts/validators/content/check-description-quality.js",
       "purpose": "Validates English v2 frontmatter descriptions for SEO length, boilerplate openings, and duplicate reuse",
       "templateCompliance": {
@@ -7171,6 +7236,38 @@
       "usedBy": []
     },
     {
+      "path": "tools/scripts/validators/content/check-page-endings.js",
+      "purpose": "Validates that English v2 MDX pages end with an approved navigational or closing element",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "check-page-endings",
+        "ownerTag": "docs",
+        "scopeTag": "tools/scripts/validators/content, v2",
+        "usageTag": "node tools/scripts/validators/content/check-page-endings.js [--fix] [--json]"
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
       "path": "tools/scripts/validators/content/check-proper-nouns.js",
       "purpose": "Detects and fixes incorrect proper noun capitalisation in prose while skipping code, frontmatter, URLs, and path-like tokens.",
       "templateCompliance": {
@@ -7187,6 +7284,38 @@
         "ownerTag": "docs",
         "scopeTag": "v2, tools/scripts/validators/content, tests/config/spell-dict.json",
         "usageTag": "node tools/scripts/validators/content/check-proper-nouns.js [--file <path[,path...]>] [--fix]"
+      },
+      "categories": {
+        "roleTags": [
+          "enforcement"
+        ],
+        "runContextTags": [
+          "manual"
+        ],
+        "evidence": [
+          "role:enforcement via keyword or gating context",
+          "run-context:manual due to no direct invocation mapping"
+        ]
+      },
+      "usedBy": []
+    },
+    {
+      "path": "tools/scripts/validators/governance/check-agent-docs-freshness.js",
+      "purpose": "Validates that required agent governance docs exist and have been touched within a freshness threshold",
+      "templateCompliance": {
+        "valid": true,
+        "missingTags": [],
+        "emptyTags": [],
+        "rulesSource": [
+          "tests/unit/script-docs.test.js",
+          "tests/README.md"
+        ]
+      },
+      "metadata": {
+        "scriptTag": "check-agent-docs-freshness",
+        "ownerTag": "docs",
+        "scopeTag": "tools/scripts/validators/governance, .github, ai-tools/ai-skills, contribute",
+        "usageTag": "node tools/scripts/validators/governance/check-agent-docs-freshness.js [--threshold <days>] [--json]"
       },
       "categories": {
         "roleTags": [
