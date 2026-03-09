@@ -44,8 +44,6 @@ const GENERATED_AFFECTING_PREFIXES = [
 ];
 const GENERATED_AFFECTING_EXACT = new Set([
   'tests/unit/script-docs.test.js',
-  'tests/script-index.md',
-  'tools/script-index.md',
   'v2/index.mdx',
   'v2/resources/documentation-guide/component-library/overview.mdx'
 ]);
@@ -164,8 +162,9 @@ function partitionFiles(changedFiles) {
   };
 }
 
-function rowResult(status) {
+function rowResult(status, advisory = false) {
   if (status === 'passed') return '✅ Pass';
+  if (status === 'failed' && advisory) return '⚠️ Advisory';
   if (status === 'failed') return '❌ Fail';
   return '⏭️ Skipped';
 }
@@ -355,6 +354,71 @@ function runDocsNavigationCheck() {
   };
 }
 
+function runAnchorUsageCheck() {
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'anchor-usage-check-'));
+  const outputPath = path.join(tmpDir, 'anchor-usage.json');
+  const cmd = spawnSync('sh', ['-c', `node tools/scripts/validators/content/check-anchor-usage.js --json > "${outputPath}"`], {
+    cwd: REPO_ROOT,
+    encoding: 'utf8'
+  });
+
+  if (cmd.stderr) process.stderr.write(cmd.stderr);
+
+  if (cmd.error) {
+    fs.rmSync(tmpDir, { recursive: true, force: true });
+    console.warn(`⚠️ Advisory anchor usage check failed to run cleanly: ${cmd.error.message}`);
+    return {
+      label: 'Anchor Usage',
+      status: 'failed',
+      advisory: true,
+      files: 1,
+      errors: 1,
+      warnings: 0
+    };
+  }
+
+  let payload = null;
+  if (fs.existsSync(outputPath)) {
+    try {
+      payload = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+    } catch (error) {
+      console.warn(`⚠️ Advisory anchor usage output could not be parsed: ${error.message}`);
+    }
+  }
+  fs.rmSync(tmpDir, { recursive: true, force: true });
+
+  if (!payload || !payload.summary) {
+    return {
+      label: 'Anchor Usage',
+      status: 'failed',
+      advisory: true,
+      files: 1,
+      errors: 1,
+      warnings: 0
+    };
+  }
+
+  const summary = payload.summary;
+  const files = Number(summary.filesScanned) || 0;
+  const errors = Number(summary.errors) || 0;
+  const warnings = Number(summary.warnings) || 0;
+
+  if (errors > 0 || warnings > 0) {
+    console.warn(`⚠️ Advisory anchor usage findings: ${errors} errors, ${warnings} warnings.`);
+  } else {
+    console.log('✅ Anchor usage check passed.');
+  }
+
+  return {
+    label: 'Anchor Usage',
+    status: errors === 0 && cmd.status === 0 ? 'passed' : 'failed',
+    advisory: true,
+    files,
+    errors,
+    warnings
+  };
+}
+
 function runDocsJsonRedirectGuard(baseRef, changedFiles) {
   if (!changedFiles.includes('docs.json')) {
     return { label: 'docs.json /redirect Guard', status: 'skipped', files: 0, errors: 0, warnings: 0 };
@@ -524,6 +588,7 @@ async function main() {
   checks.push(runMdxComponentScopeCheck(groups.componentJsx, groups.docsMdxAbs));
   checks.push(runGlobalCheck('MDX Guardrails', mdxGuardsTests.runTests));
   checks.push(runDocsNavigationCheck());
+  checks.push(runAnchorUsageCheck());
   checks.push(runDocsJsonRedirectGuard(args.baseRef, changedFiles));
   checks.push(runGeneratedBannerCheck(changedFiles));
   checks.push(runCodexTaskContractCheck(currentBranch, changedFiles, args.baseRef));
@@ -538,7 +603,7 @@ async function main() {
   console.log('============================================================');
   checks.forEach((check) => {
     console.log(
-      `${rowResult(check.status)} ${check.label} (files: ${check.files}, errors: ${check.errors}, warnings: ${check.warnings})`
+      `${rowResult(check.status, check.advisory)} ${check.label} (files: ${check.files}, errors: ${check.errors}, warnings: ${check.warnings})`
     );
   });
 
@@ -549,12 +614,12 @@ async function main() {
     '|---|---:|---|---:|---:|',
     ...checks.map(
       (check) =>
-        `| ${check.label} | ${check.files} | ${rowResult(check.status)} | ${check.errors} | ${check.warnings} |`
+        `| ${check.label} | ${check.files} | ${rowResult(check.status, check.advisory)} | ${check.errors} | ${check.warnings} |`
     ),
     ''
   ]);
 
-  const failed = checks.filter((check) => check.status === 'failed');
+  const failed = checks.filter((check) => check.status === 'failed' && !check.advisory);
   if (failed.length > 0) {
     console.error(`\n❌ ${failed.length} changed-file check(s) failed`);
     process.exit(1);
