@@ -3,9 +3,9 @@
   "summary": {
     "filesScanned": 1459,
     "anchorsScanned": 137,
-    "headingIds": 8125,
+    "headingIds": 8135,
     "errors": 100,
-    "warnings": 8096
+    "warnings": 8106
   },
   "findings": [
     {
@@ -5589,7 +5589,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 121,
+      "line": 119,
       "anchor": "#guides-and-tools",
       "heading": "Guides And Tools"
     },
@@ -5597,7 +5597,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 127,
+      "line": 125,
       "anchor": "#quickstart",
       "heading": "Quickstart"
     },
@@ -5605,7 +5605,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 129,
+      "line": 127,
       "anchor": "#ai",
       "heading": "Ai"
     },
@@ -5613,7 +5613,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 133,
+      "line": 131,
       "anchor": "#video",
       "heading": "Video"
     },
@@ -5621,7 +5621,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 137,
+      "line": 135,
       "anchor": "#technical-references",
       "heading": "Technical References"
     },
@@ -5629,7 +5629,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 144,
+      "line": 142,
       "anchor": "#x-deprecated",
       "heading": "X Deprecated"
     },
@@ -5637,7 +5637,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 150,
+      "line": 148,
       "anchor": "#builder-opportunities-1",
       "heading": "Builder Opportunities"
     },
@@ -5645,7 +5645,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 154,
+      "line": 152,
       "anchor": "#x-unstaged",
       "heading": "X Unstaged"
     },
@@ -5653,7 +5653,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 157,
+      "line": 155,
       "anchor": "#developer-tools-1",
       "heading": "Developer Tools"
     },
@@ -5661,7 +5661,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 163,
+      "line": 161,
       "anchor": "#docs-guide",
       "heading": "Docs Guide"
     },
@@ -5669,7 +5669,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 176,
+      "line": 174,
       "anchor": "#feature-guides",
       "heading": "Feature Guides"
     },
@@ -5677,7 +5677,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 183,
+      "line": 181,
       "anchor": "#indexes",
       "heading": "Indexes"
     },
@@ -5685,7 +5685,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 189,
+      "line": 187,
       "anchor": "#quality-testing",
       "heading": "Quality Testing"
     },
@@ -5693,7 +5693,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 192,
+      "line": 190,
       "anchor": "#gateways",
       "heading": "Gateways"
     },
@@ -5701,7 +5701,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 195,
+      "line": 193,
       "anchor": "#about-1",
       "heading": "About"
     },
@@ -5709,7 +5709,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 201,
+      "line": 199,
       "anchor": "#about-gateways",
       "heading": "About Gateways"
     },
@@ -5717,7 +5717,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 207,
+      "line": 205,
       "anchor": "#gateway-tools",
       "heading": "Gateway Tools"
     },
@@ -5725,7 +5725,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 211,
+      "line": 209,
       "anchor": "#guides-and-resources-1",
       "heading": "Guides And Resources"
     },
@@ -5733,7 +5733,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 215,
+      "line": 213,
       "anchor": "#quickstart-1",
       "heading": "Quickstart"
     },
@@ -5741,7 +5741,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 219,
+      "line": 217,
       "anchor": "#references",
       "heading": "References"
     },
@@ -5749,7 +5749,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 227,
+      "line": 225,
       "anchor": "#api-reference",
       "heading": "Api Reference"
     },
@@ -5757,7 +5757,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 229,
+      "line": 227,
       "anchor": "#ai-api",
       "heading": "AI API"
     },
@@ -5765,7 +5765,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 245,
+      "line": 243,
       "anchor": "#cli-http",
       "heading": "CLI HTTP"
     },
@@ -5773,7 +5773,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 256,
+      "line": 254,
       "anchor": "#run-a-gateway",
       "heading": "Run A Gateway"
     },
@@ -5781,7 +5781,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 260,
+      "line": 258,
       "anchor": "#configure",
       "heading": "Configure"
     },
@@ -5789,7 +5789,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 267,
+      "line": 265,
       "anchor": "#connect",
       "heading": "Connect"
     },
@@ -5797,7 +5797,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 272,
+      "line": 270,
       "anchor": "#install",
       "heading": "Install"
     },
@@ -5805,7 +5805,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 279,
+      "line": 277,
       "anchor": "#monitor",
       "heading": "Monitor"
     },
@@ -5813,7 +5813,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 282,
+      "line": 280,
       "anchor": "#requirements",
       "heading": "Requirements"
     },
@@ -5821,7 +5821,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 285,
+      "line": 283,
       "anchor": "#on-chain-setup",
       "heading": "On Chain Setup"
     },
@@ -5829,7 +5829,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 289,
+      "line": 287,
       "anchor": "#using-gateways",
       "heading": "Using Gateways"
     },
@@ -5837,7 +5837,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 293,
+      "line": 291,
       "anchor": "#gateway-providers",
       "heading": "Gateway Providers"
     },
@@ -5845,7 +5845,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 298,
+      "line": 296,
       "anchor": "#home",
       "heading": "Home"
     },
@@ -5853,7 +5853,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 303,
+      "line": 301,
       "anchor": "#about-livepeer",
       "heading": "About Livepeer"
     },
@@ -5861,7 +5861,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 310,
+      "line": 308,
       "anchor": "#solutions",
       "heading": "Solutions"
     },
@@ -5869,7 +5869,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 315,
+      "line": 313,
       "anchor": "#lpt",
       "heading": "Lpt"
     },
@@ -5877,7 +5877,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 318,
+      "line": 316,
       "anchor": "#about-2",
       "heading": "About"
     },
@@ -5885,7 +5885,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 324,
+      "line": 322,
       "anchor": "#delegation",
       "heading": "Delegation"
     },
@@ -5893,7 +5893,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 329,
+      "line": 327,
       "anchor": "#governance",
       "heading": "Governance"
     },
@@ -5901,7 +5901,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 334,
+      "line": 332,
       "anchor": "#resources-1",
       "heading": "Resources"
     },
@@ -5909,7 +5909,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 338,
+      "line": 336,
       "anchor": "#treasury",
       "heading": "Treasury"
     },
@@ -5917,7 +5917,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 343,
+      "line": 341,
       "anchor": "#orchestrators",
       "heading": "Orchestrators"
     },
@@ -5925,7 +5925,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 346,
+      "line": 344,
       "anchor": "#about-orchestrators",
       "heading": "About Orchestrators"
     },
@@ -5933,7 +5933,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 352,
+      "line": 350,
       "anchor": "#advanced-setup",
       "heading": "Advanced Setup"
     },
@@ -5941,7 +5941,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 358,
+      "line": 356,
       "anchor": "#orchestrator-tools-and-resources",
       "heading": "Orchestrator Tools And Resources"
     },
@@ -5949,7 +5949,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 365,
+      "line": 363,
       "anchor": "#quickstart-2",
       "heading": "Quickstart"
     },
@@ -5957,7 +5957,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 370,
+      "line": 368,
       "anchor": "#references-1",
       "heading": "References"
     },
@@ -5965,7 +5965,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 374,
+      "line": 372,
       "anchor": "#setting-up-an-orchestrator",
       "heading": "Setting Up An Orchestrator"
     },
@@ -5973,7 +5973,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 380,
+      "line": 378,
       "anchor": "#setting-up-an-orchestrator-1",
       "heading": "Setting Up An Orchestrator"
     },
@@ -5981,7 +5981,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 383,
+      "line": 381,
       "anchor": "#resources-2",
       "heading": "Resources"
     },
@@ -5989,7 +5989,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 388,
+      "line": 386,
       "anchor": "#changelog",
       "heading": "Changelog"
     },
@@ -5997,7 +5997,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 392,
+      "line": 390,
       "anchor": "#documentation-guide",
       "heading": "Documentation Guide"
     },
@@ -6005,7 +6005,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 401,
+      "line": 399,
       "anchor": "#component-library",
       "heading": "Component Library"
     },
@@ -6013,7 +6013,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 411,
+      "line": 409,
       "anchor": "#solutions-1",
       "heading": "Solutions"
     },
@@ -6021,7 +6021,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 416,
+      "line": 414,
       "anchor": "#daydream",
       "heading": "Daydream"
     },
@@ -6029,7 +6029,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 419,
+      "line": 417,
       "anchor": "#embody",
       "heading": "Embody"
     },
@@ -6037,7 +6037,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 422,
+      "line": 420,
       "anchor": "#frameworks",
       "heading": "Frameworks"
     },
@@ -6045,7 +6045,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 425,
+      "line": 423,
       "anchor": "#livepeer-studio",
       "heading": "Livepeer Studio"
     },
@@ -6053,7 +6053,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 431,
+      "line": 429,
       "anchor": "#access-control",
       "heading": "Access Control"
     },
@@ -6061,7 +6061,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 436,
+      "line": 434,
       "anchor": "#analytics",
       "heading": "Analytics"
     },
@@ -6069,7 +6069,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 441,
+      "line": 439,
       "anchor": "#api-reference-1",
       "heading": "Api Reference"
     },
@@ -6077,7 +6077,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 443,
+      "line": 441,
       "anchor": "#assets",
       "heading": "Assets"
     },
@@ -6085,7 +6085,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 452,
+      "line": 450,
       "anchor": "#multistream",
       "heading": "Multistream"
     },
@@ -6093,7 +6093,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 460,
+      "line": 458,
       "anchor": "#playback",
       "heading": "Playback"
     },
@@ -6101,7 +6101,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 464,
+      "line": 462,
       "anchor": "#rooms",
       "heading": "Rooms"
     },
@@ -6109,7 +6109,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 476,
+      "line": 474,
       "anchor": "#sessions",
       "heading": "Sessions"
     },
@@ -6117,7 +6117,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 482,
+      "line": 480,
       "anchor": "#signing-keys",
       "heading": "Signing Keys"
     },
@@ -6125,7 +6125,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 490,
+      "line": 488,
       "anchor": "#streams",
       "heading": "Streams"
     },
@@ -6133,7 +6133,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 503,
+      "line": 501,
       "anchor": "#tasks",
       "heading": "Tasks"
     },
@@ -6141,7 +6141,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 508,
+      "line": 506,
       "anchor": "#transcode",
       "heading": "Transcode"
     },
@@ -6149,7 +6149,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 512,
+      "line": 510,
       "anchor": "#viewership",
       "heading": "Viewership"
     },
@@ -6157,7 +6157,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 520,
+      "line": 518,
       "anchor": "#webhooks",
       "heading": "Webhooks"
     },
@@ -6165,7 +6165,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 528,
+      "line": 526,
       "anchor": "#get-started",
       "heading": "Get Started"
     },
@@ -6173,7 +6173,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 533,
+      "line": 531,
       "anchor": "#livestream",
       "heading": "Livestream"
     },
@@ -6181,7 +6181,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 544,
+      "line": 542,
       "anchor": "#reference",
       "heading": "Reference"
     },
@@ -6189,7 +6189,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 550,
+      "line": 548,
       "anchor": "#video-on-demand",
       "heading": "Video On Demand"
     },
@@ -6197,7 +6197,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 558,
+      "line": 556,
       "anchor": "#streamplace",
       "heading": "Streamplace"
     },
@@ -6205,7 +6205,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/cn/index.mdx",
-      "line": 561,
+      "line": 559,
       "anchor": "#introduction",
       "heading": "Introduction"
     },
@@ -18020,7 +18020,15 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/docs-guide/components-index.mdx",
-      "line": 1990,
+      "line": 1827,
+      "anchor": "#visualizaci-n",
+      "heading": "Visualización"
+    },
+    {
+      "type": "unlinked-heading-id",
+      "severity": "warning",
+      "file": "v2/es/docs-guide/components-index.mdx",
+      "line": 1996,
       "anchor": "#tabla-de-b-squeda",
       "heading": "Tabla de búsqueda"
     },
@@ -18396,7 +18404,15 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/docs-guide/indexes/components-index.mdx",
-      "line": 1990,
+      "line": 1827,
+      "anchor": "#visualizaci-n",
+      "heading": "Visualización"
+    },
+    {
+      "type": "unlinked-heading-id",
+      "severity": "warning",
+      "file": "v2/es/docs-guide/indexes/components-index.mdx",
+      "line": 1996,
       "anchor": "#tabla-de-b-squeda",
       "heading": "Tabla de búsqueda"
     },
@@ -21165,7 +21181,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 120,
+      "line": 118,
       "anchor": "#guides-and-tools",
       "heading": "Guides And Tools"
     },
@@ -21173,7 +21189,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 126,
+      "line": 124,
       "anchor": "#livepeer-real-time-video",
       "heading": "Livepeer Real Time Video"
     },
@@ -21181,7 +21197,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 128,
+      "line": 126,
       "anchor": "#video-streaming-on-livepeer",
       "heading": "Video Streaming On Livepeer"
     },
@@ -21189,7 +21205,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 131,
+      "line": 129,
       "anchor": "#quickstart",
       "heading": "Quickstart"
     },
@@ -21197,7 +21213,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 133,
+      "line": 131,
       "anchor": "#ai",
       "heading": "Ai"
     },
@@ -21205,7 +21221,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 137,
+      "line": 135,
       "anchor": "#video",
       "heading": "Video"
     },
@@ -21213,7 +21229,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 141,
+      "line": 139,
       "anchor": "#technical-references",
       "heading": "Technical References"
     },
@@ -21221,7 +21237,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 148,
+      "line": 146,
       "anchor": "#x-deprecated",
       "heading": "X Deprecated"
     },
@@ -21229,7 +21245,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 154,
+      "line": 152,
       "anchor": "#builder-opportunities-1",
       "heading": "Builder Opportunities"
     },
@@ -21237,7 +21253,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 158,
+      "line": 156,
       "anchor": "#x-unstaged",
       "heading": "X Unstaged"
     },
@@ -21245,7 +21261,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 161,
+      "line": 159,
       "anchor": "#docs-guide",
       "heading": "Docs Guide"
     },
@@ -21253,7 +21269,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 174,
+      "line": 172,
       "anchor": "#feature-guides",
       "heading": "Feature Guides"
     },
@@ -21261,7 +21277,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 180,
+      "line": 178,
       "anchor": "#indexes",
       "heading": "Indexes"
     },
@@ -21269,7 +21285,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 186,
+      "line": 184,
       "anchor": "#gateways",
       "heading": "Gateways"
     },
@@ -21277,7 +21293,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 189,
+      "line": 187,
       "anchor": "#about-1",
       "heading": "About"
     },
@@ -21285,7 +21301,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 194,
+      "line": 192,
       "anchor": "#about-gateways",
       "heading": "About Gateways"
     },
@@ -21293,7 +21309,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 200,
+      "line": 198,
       "anchor": "#gateway-tools",
       "heading": "Gateway Tools"
     },
@@ -21301,7 +21317,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 204,
+      "line": 202,
       "anchor": "#guides-and-resources-1",
       "heading": "Guides And Resources"
     },
@@ -21309,7 +21325,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 209,
+      "line": 207,
       "anchor": "#quickstart-1",
       "heading": "Quickstart"
     },
@@ -21317,7 +21333,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 213,
+      "line": 211,
       "anchor": "#references",
       "heading": "References"
     },
@@ -21325,7 +21341,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 221,
+      "line": 219,
       "anchor": "#api-reference",
       "heading": "Api Reference"
     },
@@ -21333,7 +21349,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 223,
+      "line": 221,
       "anchor": "#ai-api",
       "heading": "AI API"
     },
@@ -21341,7 +21357,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 239,
+      "line": 237,
       "anchor": "#cli-http",
       "heading": "CLI HTTP"
     },
@@ -21349,7 +21365,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 250,
+      "line": 248,
       "anchor": "#run-a-gateway",
       "heading": "Run A Gateway"
     },
@@ -21357,7 +21373,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 254,
+      "line": 252,
       "anchor": "#configure",
       "heading": "Configure"
     },
@@ -21365,7 +21381,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 261,
+      "line": 259,
       "anchor": "#connect",
       "heading": "Connect"
     },
@@ -21373,7 +21389,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 266,
+      "line": 264,
       "anchor": "#install",
       "heading": "Install"
     },
@@ -21381,7 +21397,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 273,
+      "line": 271,
       "anchor": "#monitor",
       "heading": "Monitor"
     },
@@ -21389,7 +21405,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 276,
+      "line": 274,
       "anchor": "#requirements",
       "heading": "Requirements"
     },
@@ -21397,7 +21413,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 279,
+      "line": 277,
       "anchor": "#on-chain-setup",
       "heading": "On Chain Setup"
     },
@@ -21405,7 +21421,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 283,
+      "line": 281,
       "anchor": "#using-gateways",
       "heading": "Using Gateways"
     },
@@ -21413,7 +21429,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 287,
+      "line": 285,
       "anchor": "#gateway-providers",
       "heading": "Gateway Providers"
     },
@@ -21421,7 +21437,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 292,
+      "line": 290,
       "anchor": "#home",
       "heading": "Home"
     },
@@ -21429,7 +21445,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 297,
+      "line": 295,
       "anchor": "#about-livepeer",
       "heading": "About Livepeer"
     },
@@ -21437,7 +21453,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 304,
+      "line": 302,
       "anchor": "#solutions",
       "heading": "Solutions"
     },
@@ -21445,7 +21461,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 309,
+      "line": 307,
       "anchor": "#lpt",
       "heading": "Lpt"
     },
@@ -21453,7 +21469,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 312,
+      "line": 310,
       "anchor": "#about-2",
       "heading": "About"
     },
@@ -21461,7 +21477,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 318,
+      "line": 316,
       "anchor": "#delegation",
       "heading": "Delegation"
     },
@@ -21469,7 +21485,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 323,
+      "line": 321,
       "anchor": "#governance",
       "heading": "Governance"
     },
@@ -21477,7 +21493,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 328,
+      "line": 326,
       "anchor": "#resources-1",
       "heading": "Resources"
     },
@@ -21485,7 +21501,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 332,
+      "line": 330,
       "anchor": "#treasury",
       "heading": "Treasury"
     },
@@ -21493,7 +21509,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 337,
+      "line": 335,
       "anchor": "#orchestrators",
       "heading": "Orchestrators"
     },
@@ -21501,7 +21517,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 340,
+      "line": 338,
       "anchor": "#about-orchestrators",
       "heading": "About Orchestrators"
     },
@@ -21509,7 +21525,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 346,
+      "line": 344,
       "anchor": "#advanced-setup",
       "heading": "Advanced Setup"
     },
@@ -21517,7 +21533,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 353,
+      "line": 351,
       "anchor": "#orchestrator-tools-and-resources",
       "heading": "Orchestrator Tools And Resources"
     },
@@ -21525,7 +21541,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 360,
+      "line": 358,
       "anchor": "#quickstart-2",
       "heading": "Quickstart"
     },
@@ -21533,7 +21549,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 365,
+      "line": 363,
       "anchor": "#references-1",
       "heading": "References"
     },
@@ -21541,7 +21557,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 369,
+      "line": 367,
       "anchor": "#setting-up-an-orchestrator",
       "heading": "Setting Up An Orchestrator"
     },
@@ -21549,7 +21565,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 375,
+      "line": 373,
       "anchor": "#setting-up-an-orchestrator-1",
       "heading": "Setting Up An Orchestrator"
     },
@@ -21557,7 +21573,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 378,
+      "line": 376,
       "anchor": "#resources-2",
       "heading": "Resources"
     },
@@ -21565,7 +21581,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 383,
+      "line": 381,
       "anchor": "#changelog",
       "heading": "Changelog"
     },
@@ -21573,7 +21589,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 387,
+      "line": 385,
       "anchor": "#documentation-guide",
       "heading": "Documentation Guide"
     },
@@ -21581,7 +21597,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 396,
+      "line": 394,
       "anchor": "#component-library",
       "heading": "Component Library"
     },
@@ -21589,7 +21605,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 406,
+      "line": 404,
       "anchor": "#solutions-1",
       "heading": "Solutions"
     },
@@ -21597,7 +21613,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 411,
+      "line": 409,
       "anchor": "#daydream",
       "heading": "Daydream"
     },
@@ -21605,7 +21621,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 414,
+      "line": 412,
       "anchor": "#embody",
       "heading": "Embody"
     },
@@ -21613,7 +21629,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 417,
+      "line": 415,
       "anchor": "#frameworks",
       "heading": "Frameworks"
     },
@@ -21621,7 +21637,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 420,
+      "line": 418,
       "anchor": "#livepeer-studio",
       "heading": "Livepeer Studio"
     },
@@ -21629,7 +21645,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 426,
+      "line": 424,
       "anchor": "#access-control",
       "heading": "Access Control"
     },
@@ -21637,7 +21653,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 431,
+      "line": 429,
       "anchor": "#analytics",
       "heading": "Analytics"
     },
@@ -21645,7 +21661,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 436,
+      "line": 434,
       "anchor": "#api-reference-1",
       "heading": "Api Reference"
     },
@@ -21653,7 +21669,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 438,
+      "line": 436,
       "anchor": "#assets",
       "heading": "Assets"
     },
@@ -21661,7 +21677,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 447,
+      "line": 445,
       "anchor": "#multistream",
       "heading": "Multistream"
     },
@@ -21669,7 +21685,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 455,
+      "line": 453,
       "anchor": "#playback",
       "heading": "Playback"
     },
@@ -21677,7 +21693,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 459,
+      "line": 457,
       "anchor": "#rooms",
       "heading": "Rooms"
     },
@@ -21685,7 +21701,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 471,
+      "line": 469,
       "anchor": "#sessions",
       "heading": "Sessions"
     },
@@ -21693,7 +21709,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 477,
+      "line": 475,
       "anchor": "#signing-keys",
       "heading": "Signing Keys"
     },
@@ -21701,7 +21717,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 485,
+      "line": 483,
       "anchor": "#streams",
       "heading": "Streams"
     },
@@ -21709,7 +21725,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 498,
+      "line": 496,
       "anchor": "#tasks",
       "heading": "Tasks"
     },
@@ -21717,7 +21733,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 503,
+      "line": 501,
       "anchor": "#transcode",
       "heading": "Transcode"
     },
@@ -21725,7 +21741,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 507,
+      "line": 505,
       "anchor": "#viewership",
       "heading": "Viewership"
     },
@@ -21733,7 +21749,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 515,
+      "line": 513,
       "anchor": "#webhooks",
       "heading": "Webhooks"
     },
@@ -21741,7 +21757,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 523,
+      "line": 521,
       "anchor": "#get-started",
       "heading": "Get Started"
     },
@@ -21749,7 +21765,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 528,
+      "line": 526,
       "anchor": "#livestream",
       "heading": "Livestream"
     },
@@ -21757,7 +21773,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 539,
+      "line": 537,
       "anchor": "#reference",
       "heading": "Reference"
     },
@@ -21765,7 +21781,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 545,
+      "line": 543,
       "anchor": "#video-on-demand",
       "heading": "Video On Demand"
     },
@@ -21773,7 +21789,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 553,
+      "line": 551,
       "anchor": "#streamplace",
       "heading": "Streamplace"
     },
@@ -21781,7 +21797,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/index.mdx",
-      "line": 556,
+      "line": 554,
       "anchor": "#introduction",
       "heading": "Introduction"
     },
@@ -25652,7 +25668,15 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/es/resources/documentation-guide/component-library/overview.mdx",
-      "line": 1990,
+      "line": 1827,
+      "anchor": "#visualizaci-n",
+      "heading": "Visualización"
+    },
+    {
+      "type": "unlinked-heading-id",
+      "severity": "warning",
+      "file": "v2/es/resources/documentation-guide/component-library/overview.mdx",
+      "line": 1996,
       "anchor": "#tabla-de-b-squeda",
       "heading": "Tabla de búsqueda"
     },
@@ -34453,7 +34477,15 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/fr/docs-guide/components-index.mdx",
-      "line": 1990,
+      "line": 1827,
+      "anchor": "#affichage",
+      "heading": "Affichage"
+    },
+    {
+      "type": "unlinked-heading-id",
+      "severity": "warning",
+      "file": "v2/fr/docs-guide/components-index.mdx",
+      "line": 1996,
       "anchor": "#tableau-de-recherche",
       "heading": "Tableau de recherche"
     },
@@ -34893,7 +34925,15 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/fr/docs-guide/indexes/components-index.mdx",
-      "line": 1990,
+      "line": 1827,
+      "anchor": "#affichage",
+      "heading": "Affichage"
+    },
+    {
+      "type": "unlinked-heading-id",
+      "severity": "warning",
+      "file": "v2/fr/docs-guide/indexes/components-index.mdx",
+      "line": 1996,
       "anchor": "#tableau-de-recherche",
       "heading": "Tableau de recherche"
     },
@@ -42276,7 +42316,15 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/fr/resources/documentation-guide/component-library/overview.mdx",
-      "line": 1990,
+      "line": 1827,
+      "anchor": "#affichage",
+      "heading": "Affichage"
+    },
+    {
+      "type": "unlinked-heading-id",
+      "severity": "warning",
+      "file": "v2/fr/resources/documentation-guide/component-library/overview.mdx",
+      "line": 1996,
       "anchor": "#tableau-de-recherche",
       "heading": "Tableau de recherche"
     },
@@ -51592,7 +51640,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 175,
+      "line": 173,
       "anchor": "#guides-and-tools",
       "heading": "Guides And Tools"
     },
@@ -51600,7 +51648,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 181,
+      "line": 179,
       "anchor": "#quickstart",
       "heading": "Quickstart"
     },
@@ -51608,7 +51656,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 183,
+      "line": 181,
       "anchor": "#ai",
       "heading": "Ai"
     },
@@ -51616,7 +51664,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 187,
+      "line": 185,
       "anchor": "#video",
       "heading": "Video"
     },
@@ -51624,7 +51672,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 191,
+      "line": 189,
       "anchor": "#technical-references",
       "heading": "Technical References"
     },
@@ -51632,7 +51680,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 198,
+      "line": 196,
       "anchor": "#x-deprecated-1",
       "heading": "X Deprecated"
     },
@@ -51640,7 +51688,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 204,
+      "line": 202,
       "anchor": "#builder-opportunities-1",
       "heading": "Builder Opportunities"
     },
@@ -51648,7 +51696,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 208,
+      "line": 206,
       "anchor": "#x-unstaged",
       "heading": "X Unstaged"
     },
@@ -51656,7 +51704,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 211,
+      "line": 209,
       "anchor": "#developer-tools-1",
       "heading": "Developer Tools"
     },
@@ -51664,7 +51712,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 217,
+      "line": 215,
       "anchor": "#docs-guide",
       "heading": "Docs Guide"
     },
@@ -51672,7 +51720,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 230,
+      "line": 228,
       "anchor": "#feature-guides",
       "heading": "Feature Guides"
     },
@@ -51680,7 +51728,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 237,
+      "line": 235,
       "anchor": "#indexes",
       "heading": "Indexes"
     },
@@ -51688,7 +51736,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 243,
+      "line": 241,
       "anchor": "#quality-testing",
       "heading": "Quality Testing"
     },
@@ -51696,7 +51744,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 246,
+      "line": 244,
       "anchor": "#gateways",
       "heading": "Gateways"
     },
@@ -51704,7 +51752,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 249,
+      "line": 247,
       "anchor": "#about-2",
       "heading": "About"
     },
@@ -51712,7 +51760,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 255,
+      "line": 253,
       "anchor": "#about-gateways",
       "heading": "About Gateways"
     },
@@ -51720,7 +51768,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 261,
+      "line": 259,
       "anchor": "#gateway-tools",
       "heading": "Gateway Tools"
     },
@@ -51728,7 +51776,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 265,
+      "line": 263,
       "anchor": "#guides-and-resources-1",
       "heading": "Guides And Resources"
     },
@@ -51736,7 +51784,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 269,
+      "line": 267,
       "anchor": "#quickstart-1",
       "heading": "Quickstart"
     },
@@ -51744,7 +51792,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 273,
+      "line": 271,
       "anchor": "#references",
       "heading": "References"
     },
@@ -51752,7 +51800,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 281,
+      "line": 279,
       "anchor": "#api-reference",
       "heading": "Api Reference"
     },
@@ -51760,7 +51808,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 283,
+      "line": 281,
       "anchor": "#ai-api",
       "heading": "AI API"
     },
@@ -51768,7 +51816,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 299,
+      "line": 297,
       "anchor": "#cli-http",
       "heading": "CLI HTTP"
     },
@@ -51776,7 +51824,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 310,
+      "line": 308,
       "anchor": "#run-a-gateway",
       "heading": "Run A Gateway"
     },
@@ -51784,7 +51832,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 314,
+      "line": 312,
       "anchor": "#configure",
       "heading": "Configure"
     },
@@ -51792,7 +51840,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 321,
+      "line": 319,
       "anchor": "#connect",
       "heading": "Connect"
     },
@@ -51800,7 +51848,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 326,
+      "line": 324,
       "anchor": "#install",
       "heading": "Install"
     },
@@ -51808,7 +51856,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 333,
+      "line": 331,
       "anchor": "#monitor",
       "heading": "Monitor"
     },
@@ -51816,7 +51864,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 336,
+      "line": 334,
       "anchor": "#requirements",
       "heading": "Requirements"
     },
@@ -51824,7 +51872,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 339,
+      "line": 337,
       "anchor": "#on-chain-setup",
       "heading": "On Chain Setup"
     },
@@ -51832,7 +51880,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 343,
+      "line": 341,
       "anchor": "#using-gateways",
       "heading": "Using Gateways"
     },
@@ -51840,7 +51888,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 347,
+      "line": 345,
       "anchor": "#gateway-providers",
       "heading": "Gateway Providers"
     },
@@ -51848,7 +51896,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 352,
+      "line": 350,
       "anchor": "#home",
       "heading": "Home"
     },
@@ -51856,7 +51904,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 357,
+      "line": 355,
       "anchor": "#about-livepeer",
       "heading": "About Livepeer"
     },
@@ -51864,7 +51912,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 364,
+      "line": 362,
       "anchor": "#solutions",
       "heading": "Solutions"
     },
@@ -51872,7 +51920,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 369,
+      "line": 367,
       "anchor": "#lpt",
       "heading": "Lpt"
     },
@@ -51880,7 +51928,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 372,
+      "line": 370,
       "anchor": "#about-3",
       "heading": "About"
     },
@@ -51888,7 +51936,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 378,
+      "line": 376,
       "anchor": "#delegation",
       "heading": "Delegation"
     },
@@ -51896,7 +51944,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 383,
+      "line": 381,
       "anchor": "#governance",
       "heading": "Governance"
     },
@@ -51904,7 +51952,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 388,
+      "line": 386,
       "anchor": "#resources-2",
       "heading": "Resources"
     },
@@ -51912,7 +51960,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 392,
+      "line": 390,
       "anchor": "#treasury",
       "heading": "Treasury"
     },
@@ -51920,7 +51968,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 397,
+      "line": 395,
       "anchor": "#orchestrators",
       "heading": "Orchestrators"
     },
@@ -51928,7 +51976,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 400,
+      "line": 398,
       "anchor": "#about-orchestrators",
       "heading": "About Orchestrators"
     },
@@ -51936,7 +51984,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 406,
+      "line": 404,
       "anchor": "#advanced-setup",
       "heading": "Advanced Setup"
     },
@@ -51944,7 +51992,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 412,
+      "line": 410,
       "anchor": "#orchestrator-tools-and-resources",
       "heading": "Orchestrator Tools And Resources"
     },
@@ -51952,7 +52000,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 419,
+      "line": 417,
       "anchor": "#quickstart-2",
       "heading": "Quickstart"
     },
@@ -51960,7 +52008,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 424,
+      "line": 422,
       "anchor": "#references-1",
       "heading": "References"
     },
@@ -51968,7 +52016,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 428,
+      "line": 426,
       "anchor": "#setting-up-an-orchestrator",
       "heading": "Setting Up An Orchestrator"
     },
@@ -51976,7 +52024,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 434,
+      "line": 432,
       "anchor": "#setting-up-an-orchestrator-1",
       "heading": "Setting Up An Orchestrator"
     },
@@ -51984,7 +52032,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 437,
+      "line": 435,
       "anchor": "#resources-3",
       "heading": "Resources"
     },
@@ -51992,7 +52040,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 442,
+      "line": 440,
       "anchor": "#changelog",
       "heading": "Changelog"
     },
@@ -52000,7 +52048,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 446,
+      "line": 444,
       "anchor": "#documentation-guide",
       "heading": "Documentation Guide"
     },
@@ -52008,7 +52056,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 455,
+      "line": 453,
       "anchor": "#component-library",
       "heading": "Component Library"
     },
@@ -52016,7 +52064,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 465,
+      "line": 463,
       "anchor": "#solutions-1",
       "heading": "Solutions"
     },
@@ -52024,7 +52072,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 470,
+      "line": 468,
       "anchor": "#daydream",
       "heading": "Daydream"
     },
@@ -52032,7 +52080,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 473,
+      "line": 471,
       "anchor": "#embody",
       "heading": "Embody"
     },
@@ -52040,7 +52088,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 476,
+      "line": 474,
       "anchor": "#frameworks",
       "heading": "Frameworks"
     },
@@ -52048,7 +52096,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 479,
+      "line": 477,
       "anchor": "#livepeer-studio",
       "heading": "Livepeer Studio"
     },
@@ -52056,7 +52104,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 485,
+      "line": 483,
       "anchor": "#access-control",
       "heading": "Access Control"
     },
@@ -52064,7 +52112,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 490,
+      "line": 488,
       "anchor": "#analytics",
       "heading": "Analytics"
     },
@@ -52072,7 +52120,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 495,
+      "line": 493,
       "anchor": "#api-reference-1",
       "heading": "Api Reference"
     },
@@ -52080,7 +52128,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 497,
+      "line": 495,
       "anchor": "#assets",
       "heading": "Assets"
     },
@@ -52088,7 +52136,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 506,
+      "line": 504,
       "anchor": "#multistream",
       "heading": "Multistream"
     },
@@ -52096,7 +52144,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 514,
+      "line": 512,
       "anchor": "#playback",
       "heading": "Playback"
     },
@@ -52104,7 +52152,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 518,
+      "line": 516,
       "anchor": "#rooms",
       "heading": "Rooms"
     },
@@ -52112,7 +52160,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 530,
+      "line": 528,
       "anchor": "#sessions",
       "heading": "Sessions"
     },
@@ -52120,7 +52168,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 536,
+      "line": 534,
       "anchor": "#signing-keys",
       "heading": "Signing Keys"
     },
@@ -52128,7 +52176,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 544,
+      "line": 542,
       "anchor": "#streams",
       "heading": "Streams"
     },
@@ -52136,7 +52184,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 557,
+      "line": 555,
       "anchor": "#tasks",
       "heading": "Tasks"
     },
@@ -52144,7 +52192,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 562,
+      "line": 560,
       "anchor": "#transcode",
       "heading": "Transcode"
     },
@@ -52152,7 +52200,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 566,
+      "line": 564,
       "anchor": "#viewership",
       "heading": "Viewership"
     },
@@ -52160,7 +52208,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 574,
+      "line": 572,
       "anchor": "#webhooks",
       "heading": "Webhooks"
     },
@@ -52168,7 +52216,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 582,
+      "line": 580,
       "anchor": "#get-started",
       "heading": "Get Started"
     },
@@ -52176,7 +52224,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 587,
+      "line": 585,
       "anchor": "#livestream",
       "heading": "Livestream"
     },
@@ -52184,7 +52232,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 598,
+      "line": 596,
       "anchor": "#reference",
       "heading": "Reference"
     },
@@ -52192,7 +52240,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 604,
+      "line": 602,
       "anchor": "#video-on-demand",
       "heading": "Video On Demand"
     },
@@ -52200,7 +52248,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 612,
+      "line": 610,
       "anchor": "#streamplace",
       "heading": "Streamplace"
     },
@@ -52208,7 +52256,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 615,
+      "line": 613,
       "anchor": "#introduction",
       "heading": "Introduction"
     },
@@ -52216,7 +52264,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 622,
+      "line": 620,
       "anchor": "#community-1",
       "heading": "Community"
     },
@@ -52224,7 +52272,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 626,
+      "line": 624,
       "anchor": "#move-me",
       "heading": "Move Me"
     },
@@ -52232,7 +52280,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 628,
+      "line": 626,
       "anchor": "#livepeer-hubs",
       "heading": "Livepeer Hubs"
     },
@@ -52240,7 +52288,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 632,
+      "line": 630,
       "anchor": "#livepeer-partners",
       "heading": "Livepeer Partners"
     },
@@ -52248,7 +52296,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 636,
+      "line": 634,
       "anchor": "#livepeer-community-1",
       "heading": "Livepeer Community"
     },
@@ -52256,7 +52304,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 643,
+      "line": 641,
       "anchor": "#livepeer-connect-1",
       "heading": "Livepeer Connect"
     },
@@ -52264,7 +52312,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 648,
+      "line": 646,
       "anchor": "#livepeer-contribute-1",
       "heading": "Livepeer Contribute"
     },
@@ -52272,7 +52320,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 653,
+      "line": 651,
       "anchor": "#resources-4",
       "heading": "Resources"
     },
@@ -52280,7 +52328,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 658,
+      "line": 656,
       "anchor": "#developers-1",
       "heading": "Developers"
     },
@@ -52288,7 +52336,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 665,
+      "line": 663,
       "anchor": "#ai-inference-on-livepeer",
       "heading": "Ai Inference On Livepeer"
     },
@@ -52296,7 +52344,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 669,
+      "line": 667,
       "anchor": "#ai-pipelines-1",
       "heading": "Ai Pipelines"
     },
@@ -52304,7 +52352,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 676,
+      "line": 674,
       "anchor": "#builder-opportunities-2",
       "heading": "Builder Opportunities"
     },
@@ -52312,7 +52360,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 684,
+      "line": 682,
       "anchor": "#building-on-livepeer",
       "heading": "Building On Livepeer"
     },
@@ -52320,7 +52368,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 686,
+      "line": 684,
       "anchor": "#quick-starts",
       "heading": "Quick Starts"
     },
@@ -52328,7 +52376,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 689,
+      "line": 687,
       "anchor": "#developer-platforms",
       "heading": "Developer Platforms"
     },
@@ -52336,7 +52384,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 692,
+      "line": 690,
       "anchor": "#all-ecosystem",
       "heading": "All Ecosystem"
     },
@@ -52344,7 +52392,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 695,
+      "line": 693,
       "anchor": "#daydream-1",
       "heading": "Daydream"
     },
@@ -52352,7 +52400,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 698,
+      "line": 696,
       "anchor": "#frameworks-1",
       "heading": "Frameworks"
     },
@@ -52360,7 +52408,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 701,
+      "line": 699,
       "anchor": "#livepeer-studio-1",
       "heading": "Livepeer Studio"
     },
@@ -52368,7 +52416,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 704,
+      "line": 702,
       "anchor": "#streamplace-1",
       "heading": "Streamplace"
     },
@@ -52376,7 +52424,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 712,
+      "line": 710,
       "anchor": "#developer-tools-2",
       "heading": "Developer Tools"
     },
@@ -52384,7 +52432,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 720,
+      "line": 718,
       "anchor": "#guides-1",
       "heading": "Guides"
     },
@@ -52392,7 +52440,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 723,
+      "line": 721,
       "anchor": "#guides-and-resources-2",
       "heading": "Guides And Resources"
     },
@@ -52400,7 +52448,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 729,
+      "line": 727,
       "anchor": "#guides-and-tools-1",
       "heading": "Guides And Tools"
     },
@@ -52408,7 +52456,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 735,
+      "line": 733,
       "anchor": "#livepeer-real-time-video",
       "heading": "Livepeer Real Time Video"
     },
@@ -52416,7 +52464,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 738,
+      "line": 736,
       "anchor": "#video-streaming-on-livepeer",
       "heading": "Video Streaming On Livepeer"
     },
@@ -52424,7 +52472,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 744,
+      "line": 742,
       "anchor": "#moved-to-about-livepeer-protocol",
       "heading": "Moved To About Livepeer Protocol"
     },
@@ -52432,7 +52480,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 749,
+      "line": 747,
       "anchor": "#livepeer-actors-1",
       "heading": "Livepeer Actors"
     },
@@ -52440,7 +52488,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 756,
+      "line": 754,
       "anchor": "#livepeer-protocol-3",
       "heading": "Livepeer Protocol"
     },
@@ -52448,7 +52496,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 761,
+      "line": 759,
       "anchor": "#quickstart-3",
       "heading": "Quickstart"
     },
@@ -52456,7 +52504,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 763,
+      "line": 761,
       "anchor": "#ai-1",
       "heading": "Ai"
     },
@@ -52464,7 +52512,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 767,
+      "line": 765,
       "anchor": "#video-1",
       "heading": "Video"
     },
@@ -52472,7 +52520,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 772,
+      "line": 770,
       "anchor": "#technical-references-1",
       "heading": "Technical References"
     },
@@ -52480,7 +52528,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 779,
+      "line": 777,
       "anchor": "#x-deprecated-2",
       "heading": "X Deprecated"
     },
@@ -52488,7 +52536,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 781,
+      "line": 779,
       "anchor": "#builder-opportunities-3",
       "heading": "Builder Opportunities"
     },
@@ -52496,7 +52544,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 785,
+      "line": 783,
       "anchor": "#x-unstaged-1",
       "heading": "X Unstaged"
     },
@@ -52504,7 +52552,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 788,
+      "line": 786,
       "anchor": "#developer-tools-3",
       "heading": "Developer Tools"
     },
@@ -52512,7 +52560,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 794,
+      "line": 792,
       "anchor": "#es",
       "heading": "Es"
     },
@@ -52520,7 +52568,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 795,
+      "line": 793,
       "anchor": "#about-4",
       "heading": "About"
     },
@@ -52528,7 +52576,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 801,
+      "line": 799,
       "anchor": "#livepeer-network-2",
       "heading": "Livepeer Network"
     },
@@ -52536,7 +52584,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 809,
+      "line": 807,
       "anchor": "#livepeer-protocol-4",
       "heading": "Livepeer Protocol"
     },
@@ -52544,7 +52592,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 818,
+      "line": 816,
       "anchor": "#resources-5",
       "heading": "Resources"
     },
@@ -52552,7 +52600,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 825,
+      "line": 823,
       "anchor": "#community-2",
       "heading": "Community"
     },
@@ -52560,7 +52608,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 828,
+      "line": 826,
       "anchor": "#livepeer-community-2",
       "heading": "Livepeer Community"
     },
@@ -52568,7 +52616,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 834,
+      "line": 832,
       "anchor": "#livepeer-connect-2",
       "heading": "Livepeer Connect"
     },
@@ -52576,7 +52624,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 839,
+      "line": 837,
       "anchor": "#livepeer-contribute-2",
       "heading": "Livepeer Contribute"
     },
@@ -52584,7 +52632,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 844,
+      "line": 842,
       "anchor": "#contribute-1",
       "heading": "Contribute"
     },
@@ -52592,7 +52640,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 846,
+      "line": 844,
       "anchor": "#contributing-1",
       "heading": "CONTRIBUTING"
     },
@@ -52600,7 +52648,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 851,
+      "line": 849,
       "anchor": "#developers-2",
       "heading": "Developers"
     },
@@ -52608,7 +52656,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 858,
+      "line": 856,
       "anchor": "#ai-pipelines-2",
       "heading": "Ai Pipelines"
     },
@@ -52616,7 +52664,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 863,
+      "line": 861,
       "anchor": "#builder-opportunities-4",
       "heading": "Builder Opportunities"
     },
@@ -52624,7 +52672,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 872,
+      "line": 870,
       "anchor": "#developer-tools-4",
       "heading": "Developer Tools"
     },
@@ -52632,7 +52680,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 878,
+      "line": 876,
       "anchor": "#guides-2",
       "heading": "Guides"
     },
@@ -52640,7 +52688,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 881,
+      "line": 879,
       "anchor": "#guides-and-resources-3",
       "heading": "Guides And Resources"
     },
@@ -52648,7 +52696,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 889,
+      "line": 885,
       "anchor": "#guides-and-tools-2",
       "heading": "Guides And Tools"
     },
@@ -52656,7 +52704,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 895,
+      "line": 891,
       "anchor": "#livepeer-real-time-video-1",
       "heading": "Livepeer Real Time Video"
     },
@@ -52664,7 +52712,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 897,
+      "line": 893,
       "anchor": "#video-streaming-on-livepeer-1",
       "heading": "Video Streaming On Livepeer"
     },
@@ -52672,7 +52720,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 900,
+      "line": 896,
       "anchor": "#quickstart-4",
       "heading": "Quickstart"
     },
@@ -52680,7 +52728,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 902,
+      "line": 898,
       "anchor": "#ai-2",
       "heading": "Ai"
     },
@@ -52688,7 +52736,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 906,
+      "line": 902,
       "anchor": "#video-2",
       "heading": "Video"
     },
@@ -52696,7 +52744,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 910,
+      "line": 906,
       "anchor": "#technical-references-2",
       "heading": "Technical References"
     },
@@ -52704,7 +52752,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 917,
+      "line": 913,
       "anchor": "#x-deprecated-3",
       "heading": "X Deprecated"
     },
@@ -52712,7 +52760,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 923,
+      "line": 919,
       "anchor": "#builder-opportunities-5",
       "heading": "Builder Opportunities"
     },
@@ -52720,7 +52768,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 927,
+      "line": 923,
       "anchor": "#x-unstaged-2",
       "heading": "X Unstaged"
     },
@@ -52728,7 +52776,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 930,
+      "line": 926,
       "anchor": "#docs-guide-1",
       "heading": "Docs Guide"
     },
@@ -52736,7 +52784,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 943,
+      "line": 939,
       "anchor": "#feature-guides-1",
       "heading": "Feature Guides"
     },
@@ -52744,7 +52792,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 949,
+      "line": 945,
       "anchor": "#indexes-1",
       "heading": "Indexes"
     },
@@ -52752,7 +52800,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 955,
+      "line": 951,
       "anchor": "#gateways-1",
       "heading": "Gateways"
     },
@@ -52760,7 +52808,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 958,
+      "line": 954,
       "anchor": "#about-5",
       "heading": "About"
     },
@@ -52768,7 +52816,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 963,
+      "line": 959,
       "anchor": "#about-gateways-1",
       "heading": "About Gateways"
     },
@@ -52776,7 +52824,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 969,
+      "line": 965,
       "anchor": "#gateway-tools-1",
       "heading": "Gateway Tools"
     },
@@ -52784,7 +52832,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 973,
+      "line": 969,
       "anchor": "#guides-and-resources-4",
       "heading": "Guides And Resources"
     },
@@ -52792,7 +52840,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 978,
+      "line": 974,
       "anchor": "#quickstart-5",
       "heading": "Quickstart"
     },
@@ -52800,7 +52848,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 982,
+      "line": 978,
       "anchor": "#references-2",
       "heading": "References"
     },
@@ -52808,7 +52856,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 990,
+      "line": 986,
       "anchor": "#api-reference-2",
       "heading": "Api Reference"
     },
@@ -52816,7 +52864,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 992,
+      "line": 988,
       "anchor": "#ai-api-1",
       "heading": "AI API"
     },
@@ -52824,7 +52872,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1008,
+      "line": 1004,
       "anchor": "#cli-http-1",
       "heading": "CLI HTTP"
     },
@@ -52832,7 +52880,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1019,
+      "line": 1015,
       "anchor": "#run-a-gateway-1",
       "heading": "Run A Gateway"
     },
@@ -52840,7 +52888,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1023,
+      "line": 1019,
       "anchor": "#configure-1",
       "heading": "Configure"
     },
@@ -52848,7 +52896,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1030,
+      "line": 1026,
       "anchor": "#connect-1",
       "heading": "Connect"
     },
@@ -52856,7 +52904,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1035,
+      "line": 1031,
       "anchor": "#install-1",
       "heading": "Install"
     },
@@ -52864,7 +52912,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1042,
+      "line": 1038,
       "anchor": "#monitor-1",
       "heading": "Monitor"
     },
@@ -52872,7 +52920,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1045,
+      "line": 1041,
       "anchor": "#requirements-1",
       "heading": "Requirements"
     },
@@ -52880,7 +52928,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1048,
+      "line": 1044,
       "anchor": "#on-chain-setup-1",
       "heading": "On Chain Setup"
     },
@@ -52888,7 +52936,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1052,
+      "line": 1048,
       "anchor": "#using-gateways-1",
       "heading": "Using Gateways"
     },
@@ -52896,7 +52944,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1056,
+      "line": 1052,
       "anchor": "#gateway-providers-1",
       "heading": "Gateway Providers"
     },
@@ -52904,7 +52952,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1061,
+      "line": 1057,
       "anchor": "#home-1",
       "heading": "Home"
     },
@@ -52912,7 +52960,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1066,
+      "line": 1062,
       "anchor": "#about-livepeer-1",
       "heading": "About Livepeer"
     },
@@ -52920,7 +52968,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1073,
+      "line": 1069,
       "anchor": "#solutions-2",
       "heading": "Solutions"
     },
@@ -52928,7 +52976,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1078,
+      "line": 1074,
       "anchor": "#lpt-1",
       "heading": "Lpt"
     },
@@ -52936,7 +52984,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1081,
+      "line": 1077,
       "anchor": "#about-6",
       "heading": "About"
     },
@@ -52944,7 +52992,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1087,
+      "line": 1083,
       "anchor": "#delegation-1",
       "heading": "Delegation"
     },
@@ -52952,7 +53000,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1092,
+      "line": 1088,
       "anchor": "#governance-1",
       "heading": "Governance"
     },
@@ -52960,7 +53008,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1097,
+      "line": 1093,
       "anchor": "#resources-6",
       "heading": "Resources"
     },
@@ -52968,7 +53016,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1101,
+      "line": 1097,
       "anchor": "#treasury-1",
       "heading": "Treasury"
     },
@@ -52976,7 +53024,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1106,
+      "line": 1102,
       "anchor": "#orchestrators-1",
       "heading": "Orchestrators"
     },
@@ -52984,7 +53032,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1109,
+      "line": 1105,
       "anchor": "#about-orchestrators-1",
       "heading": "About Orchestrators"
     },
@@ -52992,7 +53040,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1115,
+      "line": 1111,
       "anchor": "#advanced-setup-1",
       "heading": "Advanced Setup"
     },
@@ -53000,7 +53048,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1122,
+      "line": 1118,
       "anchor": "#orchestrator-tools-and-resources-1",
       "heading": "Orchestrator Tools And Resources"
     },
@@ -53008,7 +53056,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1129,
+      "line": 1125,
       "anchor": "#quickstart-6",
       "heading": "Quickstart"
     },
@@ -53016,7 +53064,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1134,
+      "line": 1130,
       "anchor": "#references-3",
       "heading": "References"
     },
@@ -53024,7 +53072,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1138,
+      "line": 1134,
       "anchor": "#setting-up-an-orchestrator-2",
       "heading": "Setting Up An Orchestrator"
     },
@@ -53032,7 +53080,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1144,
+      "line": 1140,
       "anchor": "#setting-up-an-orchestrator-3",
       "heading": "Setting Up An Orchestrator"
     },
@@ -53040,7 +53088,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1147,
+      "line": 1143,
       "anchor": "#resources-7",
       "heading": "Resources"
     },
@@ -53048,7 +53096,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1152,
+      "line": 1148,
       "anchor": "#changelog-1",
       "heading": "Changelog"
     },
@@ -53056,7 +53104,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1156,
+      "line": 1152,
       "anchor": "#documentation-guide-1",
       "heading": "Documentation Guide"
     },
@@ -53064,7 +53112,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1165,
+      "line": 1161,
       "anchor": "#component-library-1",
       "heading": "Component Library"
     },
@@ -53072,7 +53120,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1175,
+      "line": 1171,
       "anchor": "#solutions-3",
       "heading": "Solutions"
     },
@@ -53080,7 +53128,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1180,
+      "line": 1176,
       "anchor": "#daydream-2",
       "heading": "Daydream"
     },
@@ -53088,7 +53136,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1183,
+      "line": 1179,
       "anchor": "#embody-1",
       "heading": "Embody"
     },
@@ -53096,7 +53144,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1186,
+      "line": 1182,
       "anchor": "#frameworks-2",
       "heading": "Frameworks"
     },
@@ -53104,7 +53152,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1189,
+      "line": 1185,
       "anchor": "#livepeer-studio-2",
       "heading": "Livepeer Studio"
     },
@@ -53112,7 +53160,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1195,
+      "line": 1191,
       "anchor": "#access-control-1",
       "heading": "Access Control"
     },
@@ -53120,7 +53168,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1200,
+      "line": 1196,
       "anchor": "#analytics-1",
       "heading": "Analytics"
     },
@@ -53128,7 +53176,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1205,
+      "line": 1201,
       "anchor": "#api-reference-3",
       "heading": "Api Reference"
     },
@@ -53136,7 +53184,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1207,
+      "line": 1203,
       "anchor": "#assets-1",
       "heading": "Assets"
     },
@@ -53144,7 +53192,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1216,
+      "line": 1212,
       "anchor": "#multistream-1",
       "heading": "Multistream"
     },
@@ -53152,7 +53200,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1224,
+      "line": 1220,
       "anchor": "#playback-1",
       "heading": "Playback"
     },
@@ -53160,7 +53208,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1228,
+      "line": 1224,
       "anchor": "#rooms-1",
       "heading": "Rooms"
     },
@@ -53168,7 +53216,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1240,
+      "line": 1236,
       "anchor": "#sessions-1",
       "heading": "Sessions"
     },
@@ -53176,7 +53224,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1246,
+      "line": 1242,
       "anchor": "#signing-keys-1",
       "heading": "Signing Keys"
     },
@@ -53184,7 +53232,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1254,
+      "line": 1250,
       "anchor": "#streams-1",
       "heading": "Streams"
     },
@@ -53192,7 +53240,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1267,
+      "line": 1263,
       "anchor": "#tasks-1",
       "heading": "Tasks"
     },
@@ -53200,7 +53248,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1272,
+      "line": 1268,
       "anchor": "#transcode-1",
       "heading": "Transcode"
     },
@@ -53208,7 +53256,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1276,
+      "line": 1272,
       "anchor": "#viewership-1",
       "heading": "Viewership"
     },
@@ -53216,7 +53264,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1284,
+      "line": 1280,
       "anchor": "#webhooks-1",
       "heading": "Webhooks"
     },
@@ -53224,7 +53272,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1292,
+      "line": 1288,
       "anchor": "#get-started-1",
       "heading": "Get Started"
     },
@@ -53232,7 +53280,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1297,
+      "line": 1293,
       "anchor": "#livestream-1",
       "heading": "Livestream"
     },
@@ -53240,7 +53288,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1308,
+      "line": 1304,
       "anchor": "#reference-1",
       "heading": "Reference"
     },
@@ -53248,7 +53296,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1314,
+      "line": 1310,
       "anchor": "#video-on-demand-1",
       "heading": "Video On Demand"
     },
@@ -53256,7 +53304,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1322,
+      "line": 1318,
       "anchor": "#streamplace-2",
       "heading": "Streamplace"
     },
@@ -53264,7 +53312,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1325,
+      "line": 1321,
       "anchor": "#introduction-1",
       "heading": "Introduction"
     },
@@ -53272,7 +53320,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1332,
+      "line": 1328,
       "anchor": "#fr",
       "heading": "Fr"
     },
@@ -53280,7 +53328,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1333,
+      "line": 1329,
       "anchor": "#about-7",
       "heading": "About"
     },
@@ -53288,7 +53336,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1339,
+      "line": 1335,
       "anchor": "#livepeer-network-3",
       "heading": "Livepeer Network"
     },
@@ -53296,7 +53344,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1347,
+      "line": 1343,
       "anchor": "#livepeer-protocol-5",
       "heading": "Livepeer Protocol"
     },
@@ -53304,7 +53352,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1356,
+      "line": 1352,
       "anchor": "#resources-8",
       "heading": "Resources"
     },
@@ -53312,7 +53360,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1363,
+      "line": 1359,
       "anchor": "#community-3",
       "heading": "Community"
     },
@@ -53320,7 +53368,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1366,
+      "line": 1362,
       "anchor": "#livepeer-community-3",
       "heading": "Livepeer Community"
     },
@@ -53328,7 +53376,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1372,
+      "line": 1368,
       "anchor": "#livepeer-connect-3",
       "heading": "Livepeer Connect"
     },
@@ -53336,7 +53384,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1377,
+      "line": 1373,
       "anchor": "#livepeer-contribute-3",
       "heading": "Livepeer Contribute"
     },
@@ -53344,7 +53392,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1382,
+      "line": 1378,
       "anchor": "#contribute-2",
       "heading": "Contribute"
     },
@@ -53352,7 +53400,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1384,
+      "line": 1380,
       "anchor": "#contributing-2",
       "heading": "CONTRIBUTING"
     },
@@ -53360,7 +53408,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1389,
+      "line": 1385,
       "anchor": "#developers-3",
       "heading": "Developers"
     },
@@ -53368,7 +53416,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1396,
+      "line": 1392,
       "anchor": "#ai-pipelines-3",
       "heading": "Ai Pipelines"
     },
@@ -53376,7 +53424,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1401,
+      "line": 1397,
       "anchor": "#builder-opportunities-6",
       "heading": "Builder Opportunities"
     },
@@ -53384,7 +53432,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1410,
+      "line": 1406,
       "anchor": "#developer-tools-5",
       "heading": "Developer Tools"
     },
@@ -53392,7 +53440,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1416,
+      "line": 1412,
       "anchor": "#guides-3",
       "heading": "Guides"
     },
@@ -53400,7 +53448,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1419,
+      "line": 1415,
       "anchor": "#guides-and-resources-5",
       "heading": "Guides And Resources"
     },
@@ -53408,7 +53456,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1425,
+      "line": 1421,
       "anchor": "#guides-and-tools-3",
       "heading": "Guides And Tools"
     },
@@ -53416,7 +53464,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1430,
+      "line": 1426,
       "anchor": "#quickstart-7",
       "heading": "Quickstart"
     },
@@ -53424,7 +53472,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1432,
+      "line": 1428,
       "anchor": "#ai-3",
       "heading": "Ai"
     },
@@ -53432,7 +53480,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1436,
+      "line": 1432,
       "anchor": "#video-3",
       "heading": "Video"
     },
@@ -53440,7 +53488,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1440,
+      "line": 1436,
       "anchor": "#technical-references-3",
       "heading": "Technical References"
     },
@@ -53448,7 +53496,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1447,
+      "line": 1443,
       "anchor": "#x-deprecated-4",
       "heading": "X Deprecated"
     },
@@ -53456,7 +53504,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1453,
+      "line": 1449,
       "anchor": "#builder-opportunities-7",
       "heading": "Builder Opportunities"
     },
@@ -53464,7 +53512,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1457,
+      "line": 1453,
       "anchor": "#x-unstaged-3",
       "heading": "X Unstaged"
     },
@@ -53472,7 +53520,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1460,
+      "line": 1456,
       "anchor": "#developer-tools-6",
       "heading": "Developer Tools"
     },
@@ -53480,7 +53528,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1466,
+      "line": 1462,
       "anchor": "#docs-guide-2",
       "heading": "Docs Guide"
     },
@@ -53488,7 +53536,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1483,
+      "line": 1479,
       "anchor": "#feature-guides-2",
       "heading": "Feature Guides"
     },
@@ -53496,7 +53544,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1490,
+      "line": 1486,
       "anchor": "#indexes-2",
       "heading": "Indexes"
     },
@@ -53504,7 +53552,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1496,
+      "line": 1492,
       "anchor": "#quality-testing-1",
       "heading": "Quality Testing"
     },
@@ -53512,7 +53560,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1499,
+      "line": 1495,
       "anchor": "#gateways-2",
       "heading": "Gateways"
     },
@@ -53520,7 +53568,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1502,
+      "line": 1498,
       "anchor": "#about-8",
       "heading": "About"
     },
@@ -53528,7 +53576,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1508,
+      "line": 1504,
       "anchor": "#about-gateways-2",
       "heading": "About Gateways"
     },
@@ -53536,7 +53584,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1514,
+      "line": 1510,
       "anchor": "#gateway-tools-2",
       "heading": "Gateway Tools"
     },
@@ -53544,7 +53592,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1518,
+      "line": 1514,
       "anchor": "#guides-and-resources-6",
       "heading": "Guides And Resources"
     },
@@ -53552,7 +53600,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1523,
+      "line": 1519,
       "anchor": "#quickstart-8",
       "heading": "Quickstart"
     },
@@ -53560,7 +53608,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1527,
+      "line": 1523,
       "anchor": "#references-4",
       "heading": "References"
     },
@@ -53568,7 +53616,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1535,
+      "line": 1531,
       "anchor": "#api-reference-4",
       "heading": "Api Reference"
     },
@@ -53576,7 +53624,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1537,
+      "line": 1533,
       "anchor": "#ai-api-2",
       "heading": "AI API"
     },
@@ -53584,7 +53632,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1553,
+      "line": 1549,
       "anchor": "#cli-http-2",
       "heading": "CLI HTTP"
     },
@@ -53592,7 +53640,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1564,
+      "line": 1560,
       "anchor": "#run-a-gateway-2",
       "heading": "Run A Gateway"
     },
@@ -53600,7 +53648,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1568,
+      "line": 1564,
       "anchor": "#configure-2",
       "heading": "Configure"
     },
@@ -53608,7 +53656,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1575,
+      "line": 1571,
       "anchor": "#connect-2",
       "heading": "Connect"
     },
@@ -53616,7 +53664,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1580,
+      "line": 1576,
       "anchor": "#install-2",
       "heading": "Install"
     },
@@ -53624,7 +53672,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1587,
+      "line": 1583,
       "anchor": "#monitor-2",
       "heading": "Monitor"
     },
@@ -53632,7 +53680,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1590,
+      "line": 1586,
       "anchor": "#requirements-2",
       "heading": "Requirements"
     },
@@ -53640,7 +53688,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1593,
+      "line": 1589,
       "anchor": "#on-chain-setup-2",
       "heading": "On Chain Setup"
     },
@@ -53648,7 +53696,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1597,
+      "line": 1593,
       "anchor": "#using-gateways-2",
       "heading": "Using Gateways"
     },
@@ -53656,7 +53704,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1601,
+      "line": 1597,
       "anchor": "#gateway-providers-2",
       "heading": "Gateway Providers"
     },
@@ -53664,7 +53712,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1606,
+      "line": 1602,
       "anchor": "#home-2",
       "heading": "Home"
     },
@@ -53672,7 +53720,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1611,
+      "line": 1607,
       "anchor": "#about-livepeer-2",
       "heading": "About Livepeer"
     },
@@ -53680,7 +53728,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1618,
+      "line": 1614,
       "anchor": "#solutions-4",
       "heading": "Solutions"
     },
@@ -53688,7 +53736,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1623,
+      "line": 1619,
       "anchor": "#lpt-2",
       "heading": "Lpt"
     },
@@ -53696,7 +53744,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1626,
+      "line": 1622,
       "anchor": "#about-9",
       "heading": "About"
     },
@@ -53704,7 +53752,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1632,
+      "line": 1628,
       "anchor": "#delegation-2",
       "heading": "Delegation"
     },
@@ -53712,7 +53760,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1637,
+      "line": 1633,
       "anchor": "#governance-2",
       "heading": "Governance"
     },
@@ -53720,7 +53768,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1642,
+      "line": 1638,
       "anchor": "#resources-9",
       "heading": "Resources"
     },
@@ -53728,7 +53776,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1646,
+      "line": 1642,
       "anchor": "#treasury-2",
       "heading": "Treasury"
     },
@@ -53736,7 +53784,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1651,
+      "line": 1647,
       "anchor": "#orchestrators-2",
       "heading": "Orchestrators"
     },
@@ -53744,7 +53792,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1654,
+      "line": 1650,
       "anchor": "#about-orchestrators-2",
       "heading": "About Orchestrators"
     },
@@ -53752,7 +53800,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1660,
+      "line": 1656,
       "anchor": "#advanced-setup-2",
       "heading": "Advanced Setup"
     },
@@ -53760,7 +53808,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1667,
+      "line": 1663,
       "anchor": "#orchestrator-tools-and-resources-2",
       "heading": "Orchestrator Tools And Resources"
     },
@@ -53768,7 +53816,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1674,
+      "line": 1670,
       "anchor": "#quickstart-9",
       "heading": "Quickstart"
     },
@@ -53776,7 +53824,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1679,
+      "line": 1675,
       "anchor": "#references-5",
       "heading": "References"
     },
@@ -53784,7 +53832,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1683,
+      "line": 1679,
       "anchor": "#setting-up-an-orchestrator-4",
       "heading": "Setting Up An Orchestrator"
     },
@@ -53792,7 +53840,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1689,
+      "line": 1685,
       "anchor": "#setting-up-an-orchestrator-5",
       "heading": "Setting Up An Orchestrator"
     },
@@ -53800,7 +53848,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1692,
+      "line": 1688,
       "anchor": "#resources-10",
       "heading": "Resources"
     },
@@ -53808,7 +53856,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1697,
+      "line": 1693,
       "anchor": "#changelog-2",
       "heading": "Changelog"
     },
@@ -53816,7 +53864,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1701,
+      "line": 1697,
       "anchor": "#documentation-guide-2",
       "heading": "Documentation Guide"
     },
@@ -53824,7 +53872,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1710,
+      "line": 1706,
       "anchor": "#component-library-2",
       "heading": "Component Library"
     },
@@ -53832,7 +53880,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1720,
+      "line": 1716,
       "anchor": "#solutions-5",
       "heading": "Solutions"
     },
@@ -53840,7 +53888,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1725,
+      "line": 1721,
       "anchor": "#daydream-3",
       "heading": "Daydream"
     },
@@ -53848,7 +53896,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1728,
+      "line": 1724,
       "anchor": "#embody-2",
       "heading": "Embody"
     },
@@ -53856,7 +53904,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1731,
+      "line": 1727,
       "anchor": "#frameworks-3",
       "heading": "Frameworks"
     },
@@ -53864,7 +53912,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1734,
+      "line": 1730,
       "anchor": "#livepeer-studio-3",
       "heading": "Livepeer Studio"
     },
@@ -53872,7 +53920,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1740,
+      "line": 1736,
       "anchor": "#access-control-2",
       "heading": "Access Control"
     },
@@ -53880,7 +53928,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1745,
+      "line": 1741,
       "anchor": "#analytics-2",
       "heading": "Analytics"
     },
@@ -53888,7 +53936,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1750,
+      "line": 1746,
       "anchor": "#api-reference-5",
       "heading": "Api Reference"
     },
@@ -53896,7 +53944,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1752,
+      "line": 1748,
       "anchor": "#assets-2",
       "heading": "Assets"
     },
@@ -53904,7 +53952,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1761,
+      "line": 1757,
       "anchor": "#multistream-2",
       "heading": "Multistream"
     },
@@ -53912,7 +53960,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1769,
+      "line": 1765,
       "anchor": "#playback-2",
       "heading": "Playback"
     },
@@ -53920,7 +53968,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1773,
+      "line": 1769,
       "anchor": "#rooms-2",
       "heading": "Rooms"
     },
@@ -53928,7 +53976,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1785,
+      "line": 1781,
       "anchor": "#sessions-2",
       "heading": "Sessions"
     },
@@ -53936,7 +53984,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1791,
+      "line": 1787,
       "anchor": "#signing-keys-2",
       "heading": "Signing Keys"
     },
@@ -53944,7 +53992,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1799,
+      "line": 1795,
       "anchor": "#streams-2",
       "heading": "Streams"
     },
@@ -53952,7 +54000,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1812,
+      "line": 1808,
       "anchor": "#tasks-2",
       "heading": "Tasks"
     },
@@ -53960,7 +54008,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1817,
+      "line": 1813,
       "anchor": "#transcode-2",
       "heading": "Transcode"
     },
@@ -53968,7 +54016,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1821,
+      "line": 1817,
       "anchor": "#viewership-2",
       "heading": "Viewership"
     },
@@ -53976,7 +54024,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1829,
+      "line": 1825,
       "anchor": "#webhooks-2",
       "heading": "Webhooks"
     },
@@ -53984,7 +54032,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1837,
+      "line": 1833,
       "anchor": "#get-started-2",
       "heading": "Get Started"
     },
@@ -53992,7 +54040,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1842,
+      "line": 1838,
       "anchor": "#livestream-2",
       "heading": "Livestream"
     },
@@ -54000,7 +54048,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1853,
+      "line": 1849,
       "anchor": "#reference-2",
       "heading": "Reference"
     },
@@ -54008,7 +54056,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1859,
+      "line": 1855,
       "anchor": "#video-on-demand-2",
       "heading": "Video On Demand"
     },
@@ -54016,7 +54064,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1867,
+      "line": 1863,
       "anchor": "#streamplace-3",
       "heading": "Streamplace"
     },
@@ -54024,7 +54072,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1870,
+      "line": 1866,
       "anchor": "#introduction-2",
       "heading": "Introduction"
     },
@@ -54032,7 +54080,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1877,
+      "line": 1873,
       "anchor": "#gateways-3",
       "heading": "Gateways"
     },
@@ -54040,7 +54088,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1880,
+      "line": 1876,
       "anchor": "#contextdata",
       "heading": "Contextdata"
     },
@@ -54048,7 +54096,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1884,
+      "line": 1880,
       "anchor": "#about-10",
       "heading": "About"
     },
@@ -54056,7 +54104,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1892,
+      "line": 1888,
       "anchor": "#gateway-tools-3",
       "heading": "Gateway Tools"
     },
@@ -54064,7 +54112,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1897,
+      "line": 1893,
       "anchor": "#guides-and-resources-7",
       "heading": "Guides And Resources"
     },
@@ -54072,7 +54120,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1902,
+      "line": 1898,
       "anchor": "#gateway-job-pipelines",
       "heading": "Gateway Job Pipelines"
     },
@@ -54080,7 +54128,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1906,
+      "line": 1902,
       "anchor": "#payments",
       "heading": "Payments"
     },
@@ -54088,7 +54136,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1912,
+      "line": 1908,
       "anchor": "#quickstart-10",
       "heading": "Quickstart"
     },
@@ -54096,7 +54144,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1916,
+      "line": 1912,
       "anchor": "#groups",
       "heading": "Groups"
     },
@@ -54104,7 +54152,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1918,
+      "line": 1914,
       "anchor": "#docker",
       "heading": "Docker"
     },
@@ -54112,7 +54160,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1921,
+      "line": 1917,
       "anchor": "#linux",
       "heading": "Linux"
     },
@@ -54120,7 +54168,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1925,
+      "line": 1921,
       "anchor": "#views",
       "heading": "Views"
     },
@@ -54128,7 +54176,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1927,
+      "line": 1923,
       "anchor": "#docker-1",
       "heading": "Docker"
     },
@@ -54136,7 +54184,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1931,
+      "line": 1927,
       "anchor": "#linux-1",
       "heading": "Linux"
     },
@@ -54144,7 +54192,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1935,
+      "line": 1931,
       "anchor": "#windows",
       "heading": "Windows"
     },
@@ -54152,7 +54200,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1939,
+      "line": 1935,
       "anchor": "#references-6",
       "heading": "References"
     },
@@ -54160,7 +54208,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1949,
+      "line": 1945,
       "anchor": "#api-reference-6",
       "heading": "Api Reference"
     },
@@ -54168,7 +54216,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1956,
+      "line": 1952,
       "anchor": "#ai-api-3",
       "heading": "AI API"
     },
@@ -54176,7 +54224,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1972,
+      "line": 1968,
       "anchor": "#ai-worker",
       "heading": "AI Worker"
     },
@@ -54184,7 +54232,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1975,
+      "line": 1971,
       "anchor": "#cli-http-3",
       "heading": "CLI HTTP"
     },
@@ -54192,7 +54240,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1990,
+      "line": 1986,
       "anchor": "#go-livepeer",
       "heading": "Go Livepeer"
     },
@@ -54200,7 +54248,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 1996,
+      "line": 1992,
       "anchor": "#run-a-gateway-3",
       "heading": "Run A Gateway"
     },
@@ -54208,7 +54256,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2002,
+      "line": 1998,
       "anchor": "#configure-3",
       "heading": "Configure"
     },
@@ -54216,7 +54264,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2012,
+      "line": 2008,
       "anchor": "#connect-3",
       "heading": "Connect"
     },
@@ -54224,7 +54272,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2017,
+      "line": 2013,
       "anchor": "#install-3",
       "heading": "Install"
     },
@@ -54232,7 +54280,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2024,
+      "line": 2020,
       "anchor": "#monitor-3",
       "heading": "Monitor"
     },
@@ -54240,7 +54288,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2027,
+      "line": 2023,
       "anchor": "#publish",
       "heading": "Publish"
     },
@@ -54248,7 +54296,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2030,
+      "line": 2026,
       "anchor": "#requirements-3",
       "heading": "Requirements"
     },
@@ -54256,7 +54304,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2033,
+      "line": 2029,
       "anchor": "#on-chain-setup-3",
       "heading": "On Chain Setup"
     },
@@ -54264,7 +54312,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2038,
+      "line": 2034,
       "anchor": "#v1",
       "heading": "V1"
     },
@@ -54272,7 +54320,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2041,
+      "line": 2037,
       "anchor": "#using-gateways-3",
       "heading": "Using Gateways"
     },
@@ -54280,7 +54328,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2045,
+      "line": 2041,
       "anchor": "#gateway-providers-3",
       "heading": "Gateway Providers"
     },
@@ -54288,7 +54336,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2050,
+      "line": 2046,
       "anchor": "#home-3",
       "heading": "Home"
     },
@@ -54296,7 +54344,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2056,
+      "line": 2052,
       "anchor": "#about-livepeer-3",
       "heading": "About Livepeer"
     },
@@ -54304,7 +54352,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2063,
+      "line": 2059,
       "anchor": "#get-started-3",
       "heading": "Get Started"
     },
@@ -54312,7 +54360,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2069,
+      "line": 2065,
       "anchor": "#solutions-6",
       "heading": "Solutions"
     },
@@ -54320,7 +54368,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2075,
+      "line": 2071,
       "anchor": "#internal",
       "heading": "Internal"
     },
@@ -54328,7 +54376,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2085,
+      "line": 2081,
       "anchor": "#assets-3",
       "heading": "Assets"
     },
@@ -54336,7 +54384,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2087,
+      "line": 2083,
       "anchor": "#transcripts",
       "heading": "Transcripts"
     },
@@ -54344,7 +54392,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2090,
+      "line": 2086,
       "anchor": "#a16z",
       "heading": "A16z"
     },
@@ -54352,7 +54400,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2094,
+      "line": 2090,
       "anchor": "#layout-components-scripts-styling",
       "heading": "Layout Components Scripts Styling"
     },
@@ -54360,7 +54408,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2098,
+      "line": 2094,
       "anchor": "#overview",
       "heading": "Overview"
     },
@@ -54368,7 +54416,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2105,
+      "line": 2101,
       "anchor": "#reports",
       "heading": "Reports"
     },
@@ -54376,7 +54424,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2107,
+      "line": 2103,
       "anchor": "#navigation-links",
       "heading": "Navigation Links"
     },
@@ -54384,7 +54432,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2111,
+      "line": 2107,
       "anchor": "#page-audits",
       "heading": "Page Audits"
     },
@@ -54392,7 +54440,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2118,
+      "line": 2114,
       "anchor": "#quality-accessibility",
       "heading": "Quality Accessibility"
     },
@@ -54400,7 +54448,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2123,
+      "line": 2119,
       "anchor": "#repo-ops",
       "heading": "Repo Ops"
     },
@@ -54408,7 +54456,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2154,
+      "line": 2150,
       "anchor": "#rfp",
       "heading": "Rfp"
     },
@@ -54416,7 +54464,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2161,
+      "line": 2157,
       "anchor": "#reports-1",
       "heading": "Reports"
     },
@@ -54424,7 +54472,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2164,
+      "line": 2160,
       "anchor": "#lpt-3",
       "heading": "Lpt"
     },
@@ -54432,7 +54480,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2167,
+      "line": 2163,
       "anchor": "#about-11",
       "heading": "About"
     },
@@ -54440,7 +54488,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2173,
+      "line": 2169,
       "anchor": "#delegation-3",
       "heading": "Delegation"
     },
@@ -54448,7 +54496,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2180,
+      "line": 2176,
       "anchor": "#governance-3",
       "heading": "Governance"
     },
@@ -54456,7 +54504,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2185,
+      "line": 2181,
       "anchor": "#resources-11",
       "heading": "Resources"
     },
@@ -54464,7 +54512,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2190,
+      "line": 2186,
       "anchor": "#treasury-3",
       "heading": "Treasury"
     },
@@ -54472,7 +54520,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2195,
+      "line": 2191,
       "anchor": "#orchestrators-3",
       "heading": "Orchestrators"
     },
@@ -54480,7 +54528,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2200,
+      "line": 2196,
       "anchor": "#about-orchestrators-3",
       "heading": "About Orchestrators"
     },
@@ -54488,7 +54536,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2208,
+      "line": 2204,
       "anchor": "#advanced-setup-3",
       "heading": "Advanced Setup"
     },
@@ -54496,7 +54544,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2216,
+      "line": 2212,
       "anchor": "#orchestrator-tools-and-resources-3",
       "heading": "Orchestrator Tools And Resources"
     },
@@ -54504,7 +54552,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2223,
+      "line": 2219,
       "anchor": "#quickstart-11",
       "heading": "Quickstart"
     },
@@ -54512,7 +54560,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2230,
+      "line": 2226,
       "anchor": "#references-7",
       "heading": "References"
     },
@@ -54520,7 +54568,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2234,
+      "line": 2230,
       "anchor": "#setting-up-an-orchestrator-6",
       "heading": "Setting Up An Orchestrator"
     },
@@ -54528,7 +54576,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2246,
+      "line": 2242,
       "anchor": "#setting-up-an-orchestrator-7",
       "heading": "Setting Up An Orchestrator"
     },
@@ -54536,7 +54584,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2249,
+      "line": 2245,
       "anchor": "#resources-12",
       "heading": "Resources"
     },
@@ -54544,7 +54592,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2254,
+      "line": 2250,
       "anchor": "#changelog-3",
       "heading": "Changelog"
     },
@@ -54552,7 +54600,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2258,
+      "line": 2254,
       "anchor": "#concepts-1",
       "heading": "Concepts"
     },
@@ -54560,7 +54608,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2262,
+      "line": 2258,
       "anchor": "#documentation-guide-3",
       "heading": "Documentation Guide"
     },
@@ -54568,7 +54616,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2272,
+      "line": 2268,
       "anchor": "#component-library-3",
       "heading": "Component Library"
     },
@@ -54576,7 +54624,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2282,
+      "line": 2278,
       "anchor": "#lpt-4",
       "heading": "Lpt"
     },
@@ -54584,7 +54632,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2285,
+      "line": 2281,
       "anchor": "#references-8",
       "heading": "References"
     },
@@ -54592,7 +54640,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2288,
+      "line": 2284,
       "anchor": "#resources-13",
       "heading": "Resources"
     },
@@ -54600,7 +54648,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2291,
+      "line": 2287,
       "anchor": "#solutions-7",
       "heading": "Solutions"
     },
@@ -54608,7 +54656,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2296,
+      "line": 2292,
       "anchor": "#daydream-4",
       "heading": "Daydream"
     },
@@ -54616,7 +54664,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2301,
+      "line": 2297,
       "anchor": "#embody-3",
       "heading": "Embody"
     },
@@ -54624,7 +54672,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2304,
+      "line": 2300,
       "anchor": "#frameworks-4",
       "heading": "Frameworks"
     },
@@ -54632,7 +54680,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2309,
+      "line": 2305,
       "anchor": "#livepeer-studio-4",
       "heading": "Livepeer Studio"
     },
@@ -54640,7 +54688,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2316,
+      "line": 2312,
       "anchor": "#access-control-3",
       "heading": "Access Control"
     },
@@ -54648,7 +54696,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2321,
+      "line": 2317,
       "anchor": "#analytics-3",
       "heading": "Analytics"
     },
@@ -54656,7 +54704,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2326,
+      "line": 2322,
       "anchor": "#api-reference-7",
       "heading": "Api Reference"
     },
@@ -54664,7 +54712,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2328,
+      "line": 2324,
       "anchor": "#assets-4",
       "heading": "Assets"
     },
@@ -54672,7 +54720,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2337,
+      "line": 2333,
       "anchor": "#multistream-3",
       "heading": "Multistream"
     },
@@ -54680,7 +54728,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2345,
+      "line": 2341,
       "anchor": "#playback-3",
       "heading": "Playback"
     },
@@ -54688,7 +54736,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2349,
+      "line": 2345,
       "anchor": "#rooms-3",
       "heading": "Rooms"
     },
@@ -54696,7 +54744,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2361,
+      "line": 2357,
       "anchor": "#sessions-3",
       "heading": "Sessions"
     },
@@ -54704,7 +54752,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2367,
+      "line": 2363,
       "anchor": "#signing-keys-3",
       "heading": "Signing Keys"
     },
@@ -54712,7 +54760,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2375,
+      "line": 2371,
       "anchor": "#streams-3",
       "heading": "Streams"
     },
@@ -54720,7 +54768,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2388,
+      "line": 2384,
       "anchor": "#tasks-3",
       "heading": "Tasks"
     },
@@ -54728,7 +54776,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2393,
+      "line": 2389,
       "anchor": "#transcode-3",
       "heading": "Transcode"
     },
@@ -54736,7 +54784,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2397,
+      "line": 2393,
       "anchor": "#viewership-3",
       "heading": "Viewership"
     },
@@ -54744,7 +54792,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2405,
+      "line": 2401,
       "anchor": "#webhooks-3",
       "heading": "Webhooks"
     },
@@ -54752,7 +54800,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2413,
+      "line": 2409,
       "anchor": "#get-started-4",
       "heading": "Get Started"
     },
@@ -54760,7 +54808,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2418,
+      "line": 2414,
       "anchor": "#livestream-3",
       "heading": "Livestream"
     },
@@ -54768,7 +54816,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2429,
+      "line": 2425,
       "anchor": "#reference-3",
       "heading": "Reference"
     },
@@ -54776,7 +54824,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2435,
+      "line": 2431,
       "anchor": "#video-on-demand-3",
       "heading": "Video On Demand"
     },
@@ -54784,7 +54832,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2443,
+      "line": 2439,
       "anchor": "#streamplace-4",
       "heading": "Streamplace"
     },
@@ -54792,7 +54840,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2446,
+      "line": 2442,
       "anchor": "#introduction-3",
       "heading": "Introduction"
     },
@@ -54800,7 +54848,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2453,
+      "line": 2449,
       "anchor": "#x-deprecated-5",
       "heading": "X Deprecated"
     },
@@ -54808,7 +54856,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2455,
+      "line": 2451,
       "anchor": "#developer-platforms-1",
       "heading": "Developer Platforms"
     },
@@ -54816,7 +54864,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2458,
+      "line": 2454,
       "anchor": "#daydream-5",
       "heading": "Daydream"
     },
@@ -54824,7 +54872,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2461,
+      "line": 2457,
       "anchor": "#frameworks-5",
       "heading": "Frameworks"
     },
@@ -54832,7 +54880,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2464,
+      "line": 2460,
       "anchor": "#streamplace-5",
       "heading": "Streamplace"
     },
@@ -54840,7 +54888,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2467,
+      "line": 2463,
       "anchor": "#x-archived",
       "heading": "X Archived"
     },
@@ -54848,7 +54896,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2470,
+      "line": 2466,
       "anchor": "#x-deprecated-6",
       "heading": "X Deprecated"
     },
@@ -54856,7 +54904,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2471,
+      "line": 2467,
       "anchor": "#about-livepeer-4",
       "heading": "About Livepeer"
     },
@@ -54864,7 +54912,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2473,
+      "line": 2469,
       "anchor": "#moved",
       "heading": "Moved"
     },
@@ -54872,7 +54920,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2479,
+      "line": 2475,
       "anchor": "#gateways-4",
       "heading": "Gateways"
     },
@@ -54880,7 +54928,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2481,
+      "line": 2477,
       "anchor": "#future",
       "heading": "Future"
     },
@@ -54888,7 +54936,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2485,
+      "line": 2481,
       "anchor": "#references-9",
       "heading": "References"
     },
@@ -54896,7 +54944,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2488,
+      "line": 2484,
       "anchor": "#unmatched",
       "heading": "Unmatched"
     },
@@ -54904,7 +54952,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2490,
+      "line": 2486,
       "anchor": "#gateways-5",
       "heading": "Gateways"
     },
@@ -54912,7 +54960,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2492,
+      "line": 2488,
       "anchor": "#context-data",
       "heading": "Context Data"
     },
@@ -54920,7 +54968,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2495,
+      "line": 2491,
       "anchor": "#tests-to-delete",
       "heading": "Tests To Delete"
     },
@@ -54928,7 +54976,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2502,
+      "line": 2498,
       "anchor": "#run-a-gateway-4",
       "heading": "Run A Gateway"
     },
@@ -54936,7 +54984,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2504,
+      "line": 2500,
       "anchor": "#quickstart-12",
       "heading": "Quickstart"
     },
@@ -54944,7 +54992,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2507,
+      "line": 2503,
       "anchor": "#using-gateways-4",
       "heading": "Using Gateways"
     },
@@ -54952,7 +55000,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2509,
+      "line": 2505,
       "anchor": "#gateway-providers-4",
       "heading": "Gateway Providers"
     },
@@ -54960,7 +55008,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2514,
+      "line": 2510,
       "anchor": "#internal-1",
       "heading": "Internal"
     },
@@ -54968,7 +55016,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2519,
+      "line": 2515,
       "anchor": "#x-experimental",
       "heading": "X Experimental"
     },
@@ -54976,7 +55024,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/index.mdx",
-      "line": 2523,
+      "line": 2519,
       "anchor": "#x-notes",
       "heading": "X Notes"
     },
@@ -58400,7 +58448,15 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 170,
+      "line": 172,
+      "anchor": "#pipeline-freshness-monitor",
+      "heading": "Pipeline Freshness Monitor"
+    },
+    {
+      "type": "unlinked-heading-id",
+      "severity": "warning",
+      "file": "v2/resources/documentation-guide/automations-workflows.mdx",
+      "line": 193,
       "anchor": "#discord-issue-intake-phase-1",
       "heading": "Discord Issue Intake (Phase 1)"
     },
@@ -58408,7 +58464,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 211,
+      "line": 234,
       "anchor": "#issue-auto-label",
       "heading": "Issue Auto Label"
     },
@@ -58416,7 +58472,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 242,
+      "line": 265,
       "anchor": "#docs-v2-issue-indexer",
       "heading": "Docs v2 Issue Indexer"
     },
@@ -58424,15 +58480,15 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 281,
-      "anchor": "#data-fetching-workflows-github-actions-n8n-available",
-      "heading": "Data Fetching Workflows (GitHub Actions & n8n Available)"
+      "line": 304,
+      "anchor": "#data-fetching-workflows-github-actions-canonical",
+      "heading": "Data Fetching Workflows (GitHub Actions Canonical)"
     },
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 285,
+      "line": 308,
       "anchor": "#update-forum-data",
       "heading": "Update Forum Data"
     },
@@ -58440,7 +58496,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 310,
+      "line": 333,
       "anchor": "#update-ghost-blog-data",
       "heading": "Update Ghost Blog Data"
     },
@@ -58448,7 +58504,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 334,
+      "line": 357,
       "anchor": "#update-youtube-data",
       "heading": "Update YouTube Data"
     },
@@ -58456,7 +58512,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 359,
+      "line": 382,
       "anchor": "#n8n-automation-workflows",
       "heading": "n8n Automation Workflows"
     },
@@ -58464,7 +58520,15 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 367,
+      "line": 390,
+      "anchor": "#repo-tracked-n8n-workflows-still-in-scope",
+      "heading": "Repo-tracked n8n workflows still in scope"
+    },
+    {
+      "type": "unlinked-heading-id",
+      "severity": "warning",
+      "file": "v2/resources/documentation-guide/automations-workflows.mdx",
+      "line": 400,
       "anchor": "#active-n8n-workflows",
       "heading": "Active n8n Workflows"
     },
@@ -58472,7 +58536,15 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 369,
+      "line": 402,
+      "anchor": "#discord-announcements-to-mintlify",
+      "heading": "Discord Announcements to Mintlify"
+    },
+    {
+      "type": "unlinked-heading-id",
+      "severity": "warning",
+      "file": "v2/resources/documentation-guide/automations-workflows.mdx",
+      "line": 419,
       "anchor": "#luma-events-to-mintlify",
       "heading": "Luma Events to Mintlify"
     },
@@ -58480,15 +58552,15 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 399,
-      "anchor": "#showcase-project-pipeline",
-      "heading": "Showcase Project Pipeline"
+      "line": 449,
+      "anchor": "#showcase-overlap-needs-human-review",
+      "heading": "Showcase Overlap (Needs Human Review)"
     },
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 438,
+      "line": 460,
       "anchor": "#discord-issue-intake-phase-1-1",
       "heading": "Discord Issue Intake (Phase 1)"
     },
@@ -58496,15 +58568,15 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 475,
-      "anchor": "#additional-n8n-workflows-alternative-to-github-actions",
-      "heading": "Additional n8n Workflows (Alternative to GitHub Actions)"
+      "line": 497,
+      "anchor": "#archived-superseded-n8n-workflows",
+      "heading": "Archived Superseded n8n Workflows"
     },
     {
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 491,
+      "line": 511,
       "anchor": "#utility-workflows",
       "heading": "Utility Workflows"
     },
@@ -58512,7 +58584,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 493,
+      "line": 513,
       "anchor": "#mp4-to-gif-converter",
       "heading": "MP4 to GIF Converter"
     },
@@ -58520,7 +58592,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 525,
+      "line": 545,
       "anchor": "#scripts",
       "heading": "Scripts"
     },
@@ -58528,7 +58600,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 529,
+      "line": 549,
       "anchor": "#content-generation-scripts",
       "heading": "Content Generation Scripts"
     },
@@ -58536,7 +58608,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 531,
+      "line": 551,
       "anchor": "#generate-seo-metadata",
       "heading": "Generate SEO Metadata"
     },
@@ -58544,7 +58616,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 564,
+      "line": 584,
       "anchor": "#generate-api-documentation",
       "heading": "Generate API Documentation"
     },
@@ -58552,7 +58624,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 603,
+      "line": 623,
       "anchor": "#update-component-library",
       "heading": "Update Component Library"
     },
@@ -58560,7 +58632,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 628,
+      "line": 648,
       "anchor": "#data-fetching-scripts",
       "heading": "Data Fetching Scripts"
     },
@@ -58568,7 +58640,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 630,
+      "line": 650,
       "anchor": "#fetch-openapi-specs",
       "heading": "Fetch OpenAPI Specs"
     },
@@ -58576,7 +58648,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 651,
+      "line": 671,
       "anchor": "#fetch-external-documentation",
       "heading": "Fetch External Documentation"
     },
@@ -58584,7 +58656,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 681,
+      "line": 701,
       "anchor": "#fetch-lpt-exchanges",
       "heading": "Fetch LPT Exchanges"
     },
@@ -58592,7 +58664,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 704,
+      "line": 724,
       "anchor": "#testing-scripts",
       "heading": "Testing Scripts"
     },
@@ -58600,7 +58672,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 706,
+      "line": 726,
       "anchor": "#v2-browser-sweep-script-test-v2-pages",
       "heading": "V2 Browser Sweep Script (test:v2-pages)"
     },
@@ -58608,7 +58680,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 739,
+      "line": 759,
       "anchor": "#github-scripts-used-by-workflows",
       "heading": "GitHub Scripts (Used by Workflows)"
     },
@@ -58616,7 +58688,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 749,
+      "line": 769,
       "anchor": "#pre-commit-hooks",
       "heading": "Pre-commit Hooks"
     },
@@ -58624,7 +58696,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 753,
+      "line": 773,
       "anchor": "#installation",
       "heading": "Installation"
     },
@@ -58632,7 +58704,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 767,
+      "line": 787,
       "anchor": "#what-gets-checked",
       "heading": "What Gets Checked"
     },
@@ -58640,7 +58712,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 769,
+      "line": 789,
       "anchor": "#style-guide-compliance",
       "heading": "Style Guide Compliance"
     },
@@ -58648,7 +58720,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 779,
+      "line": 799,
       "anchor": "#verification-scripts",
       "heading": "Verification Scripts"
     },
@@ -58656,7 +58728,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 791,
+      "line": 811,
       "anchor": "#what-happens-on-violation",
       "heading": "What Happens on Violation"
     },
@@ -58664,7 +58736,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 799,
+      "line": 819,
       "anchor": "#browser-validation",
       "heading": "Browser Validation"
     },
@@ -58672,7 +58744,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 810,
+      "line": 830,
       "anchor": "#bypassing-hooks-not-recommended",
       "heading": "Bypassing Hooks (Not Recommended)"
     },
@@ -58680,7 +58752,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 845,
+      "line": 865,
       "anchor": "#running-automations",
       "heading": "Running Automations"
     },
@@ -58688,7 +58760,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 847,
+      "line": 867,
       "anchor": "#manual-execution",
       "heading": "Manual Execution"
     },
@@ -58696,7 +58768,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 849,
+      "line": 869,
       "anchor": "#github-actions",
       "heading": "GitHub Actions"
     },
@@ -58704,7 +58776,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 857,
+      "line": 877,
       "anchor": "#scripts-1",
       "heading": "Scripts"
     },
@@ -58712,7 +58784,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 868,
+      "line": 888,
       "anchor": "#n8n-workflows",
       "heading": "n8n Workflows"
     },
@@ -58720,7 +58792,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 875,
+      "line": 895,
       "anchor": "#scheduled-execution",
       "heading": "Scheduled Execution"
     },
@@ -58728,7 +58800,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 880,
+      "line": 900,
       "anchor": "#monitoring",
       "heading": "Monitoring"
     },
@@ -58736,7 +58808,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 888,
+      "line": 908,
       "anchor": "#troubleshooting",
       "heading": "Troubleshooting"
     },
@@ -58744,7 +58816,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 890,
+      "line": 910,
       "anchor": "#github-actions-not-running",
       "heading": "GitHub Actions Not Running"
     },
@@ -58752,7 +58824,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 900,
+      "line": 920,
       "anchor": "#scripts-failing",
       "heading": "Scripts Failing"
     },
@@ -58760,7 +58832,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 911,
+      "line": 931,
       "anchor": "#pre-commit-hook-not-running",
       "heading": "Pre-commit Hook Not Running"
     },
@@ -58768,7 +58840,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 921,
+      "line": 941,
       "anchor": "#n8n-workflow-issues",
       "heading": "n8n Workflow Issues"
     },
@@ -58776,7 +58848,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 932,
+      "line": 952,
       "anchor": "#missing-secrets-keys",
       "heading": "Missing Secrets/Keys"
     },
@@ -58784,7 +58856,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 944,
+      "line": 964,
       "anchor": "#best-practices",
       "heading": "Best Practices"
     },
@@ -58792,7 +58864,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 946,
+      "line": 966,
       "anchor": "#when-to-use-what",
       "heading": "When to Use What"
     },
@@ -58800,7 +58872,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 971,
+      "line": 991,
       "anchor": "#keeping-automations-updated",
       "heading": "Keeping Automations Updated"
     },
@@ -58808,7 +58880,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 978,
+      "line": 998,
       "anchor": "#security-considerations",
       "heading": "Security Considerations"
     },
@@ -58816,7 +58888,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 987,
+      "line": 1007,
       "anchor": "#related-documentation",
       "heading": "Related Documentation"
     },
@@ -58824,7 +58896,7 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/automations-workflows.mdx",
-      "line": 997,
+      "line": 1017,
       "anchor": "#getting-help",
       "heading": "Getting Help"
     },
@@ -59904,7 +59976,15 @@
       "type": "unlinked-heading-id",
       "severity": "warning",
       "file": "v2/resources/documentation-guide/component-library/overview.mdx",
-      "line": 1989,
+      "line": 1826,
+      "anchor": "#display",
+      "heading": "Display"
+    },
+    {
+      "type": "unlinked-heading-id",
+      "severity": "warning",
+      "file": "v2/resources/documentation-guide/component-library/overview.mdx",
+      "line": 1995,
       "anchor": "#lookup-table",
       "heading": "Lookup Table"
     },

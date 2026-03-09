@@ -1658,169 +1658,6 @@ import { YouTubeVideoData } from "/snippets/components/data/videoData.jsx";
 Les composants de structure de page orchestrent des sections complètes, des traitements hero et la composition au niveau des routes.
 
 <AccordionGroup>
-  <Accordion title="frame-mode.jsx" icon="file-code">
-    <ResponseField name="Divider" type="component">
-      **Props**: `color`, `margin`, `opacity` <br/>
-      **Defaults**: `margin="1.5rem 0"`, `opacity=0.2`
-
-      <CodeGroup>
-```jsx lines Example
-import { Divider } from "/snippets/components/display/frame-mode.jsx";
-
-<Divider
-  color={"<value>"}
-  margin={"1.5rem 0"}
-  opacity={0.2}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="H1" type="component">
-      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
-      **Defaults**: `iconSize=32`, `align="left"`, `gap="0.75rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { H1 } from "/snippets/components/display/frame-mode.jsx";
-
-<H1
-  icon={"<value>"}
-  iconSize={32}
-  iconColor={"<value>"}
-  align={"left"}
-  gap={"0.75rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="H2" type="component">
-      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
-      **Defaults**: `iconSize=28`, `align="left"`, `gap="0.75rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { H2 } from "/snippets/components/display/frame-mode.jsx";
-
-<H2
-  icon={"<value>"}
-  iconSize={28}
-  iconColor={"<value>"}
-  align={"left"}
-  gap={"0.75rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="H3" type="component">
-      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
-      **Defaults**: `iconSize=24`, `align="left"`, `gap="0.5rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { H3 } from "/snippets/components/display/frame-mode.jsx";
-
-<H3
-  icon={"<value>"}
-  iconSize={24}
-  iconColor={"<value>"}
-  align={"left"}
-  gap={"0.5rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="H4" type="component">
-      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
-      **Defaults**: `iconSize=20`, `align="left"`, `gap="0.5rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { H4 } from "/snippets/components/display/frame-mode.jsx";
-
-<H4
-  icon={"<value>"}
-  iconSize={20}
-  iconColor={"<value>"}
-  align={"left"}
-  gap={"0.5rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="H5" type="component">
-      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
-      **Defaults**: `iconSize=18`, `align="left"`, `gap="0.5rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { H5 } from "/snippets/components/display/frame-mode.jsx";
-
-<H5
-  icon={"<value>"}
-  iconSize={18}
-  iconColor={"<value>"}
-  align={"left"}
-  gap={"0.5rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="H6" type="component">
-      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
-      **Defaults**: `iconSize=16`, `align="left"`, `gap="0.5rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { H6 } from "/snippets/components/display/frame-mode.jsx";
-
-<H6
-  icon={"<value>"}
-  iconSize={16}
-  iconColor={"<value>"}
-  align={"left"}
-  gap={"0.5rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="P" type="component">
-      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
-      **Defaults**: `iconSize=16`, `align="left"`, `gap="0.5rem"`
-
-      <CodeGroup>
-```jsx lines Example
-import { P } from "/snippets/components/display/frame-mode.jsx";
-
-<P
-  icon={"<value>"}
-  iconSize={16}
-  iconColor={"<value>"}
-  align={"left"}
-  gap={"0.5rem"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-    <ResponseField name="PageHeader" type="component">
-      **Props**: `title`, `subtitle`, `description`, `children`, `titleColor`, `subtitleColor`, `descriptionColor` <br/>
-      **Defaults**: None
-
-      <CodeGroup>
-```jsx lines Example
-import { PageHeader } from "/snippets/components/display/frame-mode.jsx";
-
-<PageHeader
-  title={"<value>"}
-  subtitle={"<value>"}
-  description={"<value>"}
-  titleColor={"<value>"}
-  subtitleColor={"<value>"}
-  descriptionColor={"<value>"}
-/>
-```
-      </CodeGroup>
-    </ResponseField>
-  </Accordion>
   <Accordion title="heroGif.jsx" icon="file-code">
     <ResponseField name="Starfield" type="component">
       **Props**: `density` <br/>
@@ -1987,6 +1824,175 @@ import { RefCardContainer } from "/snippets/components/page-structure/portals.js
   </Accordion>
 </AccordionGroup>
 
+## Affichage
+Les composants d’affichage gèrent les médias, les intégrations, les citations et les motifs de présentation visuelle.
+
+<AccordionGroup>
+  <Accordion title="frame-mode.jsx" icon="file-code">
+    <ResponseField name="Divider" type="component">
+      **Props**: `color`, `margin`, `opacity` <br/>
+      **Defaults**: `margin="1.5rem 0"`, `opacity=0.2`
+
+      <CodeGroup>
+```jsx lines Example
+import { Divider } from "/snippets/components/display/frame-mode.jsx";
+
+<Divider
+  color={"<value>"}
+  margin={"1.5rem 0"}
+  opacity={0.2}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="H1" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
+      **Defaults**: `iconSize=32`, `align="left"`, `gap="0.75rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { H1 } from "/snippets/components/display/frame-mode.jsx";
+
+<H1
+  icon={"<value>"}
+  iconSize={32}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.75rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="H2" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
+      **Defaults**: `iconSize=28`, `align="left"`, `gap="0.75rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { H2 } from "/snippets/components/display/frame-mode.jsx";
+
+<H2
+  icon={"<value>"}
+  iconSize={28}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.75rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="H3" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
+      **Defaults**: `iconSize=24`, `align="left"`, `gap="0.5rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { H3 } from "/snippets/components/display/frame-mode.jsx";
+
+<H3
+  icon={"<value>"}
+  iconSize={24}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="H4" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
+      **Defaults**: `iconSize=20`, `align="left"`, `gap="0.5rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { H4 } from "/snippets/components/display/frame-mode.jsx";
+
+<H4
+  icon={"<value>"}
+  iconSize={20}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="H5" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
+      **Defaults**: `iconSize=18`, `align="left"`, `gap="0.5rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { H5 } from "/snippets/components/display/frame-mode.jsx";
+
+<H5
+  icon={"<value>"}
+  iconSize={18}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="H6" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
+      **Defaults**: `iconSize=16`, `align="left"`, `gap="0.5rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { H6 } from "/snippets/components/display/frame-mode.jsx";
+
+<H6
+  icon={"<value>"}
+  iconSize={16}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="P" type="component">
+      **Props**: `children`, `icon`, `iconSize`, `iconColor`, `align`, `gap` <br/>
+      **Defaults**: `iconSize=16`, `align="left"`, `gap="0.5rem"`
+
+      <CodeGroup>
+```jsx lines Example
+import { P } from "/snippets/components/display/frame-mode.jsx";
+
+<P
+  icon={"<value>"}
+  iconSize={16}
+  iconColor={"<value>"}
+  align={"left"}
+  gap={"0.5rem"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+    <ResponseField name="PageHeader" type="component">
+      **Props**: `title`, `subtitle`, `description`, `children`, `titleColor`, `subtitleColor`, `descriptionColor` <br/>
+      **Defaults**: None
+
+      <CodeGroup>
+```jsx lines Example
+import { PageHeader } from "/snippets/components/display/frame-mode.jsx";
+
+<PageHeader
+  title={"<value>"}
+  subtitle={"<value>"}
+  description={"<value>"}
+  titleColor={"<value>"}
+  subtitleColor={"<value>"}
+  descriptionColor={"<value>"}
+/>
+```
+      </CodeGroup>
+    </ResponseField>
+  </Accordion>
+</AccordionGroup>
+
 ## Tableau de recherche
 Recherchez par catégorie, chemin de page ou nom de composant.
 
@@ -1995,6 +2001,15 @@ Recherchez par catégorie, chemin de page ou nom de composant.
   tableTitle="Component Lookup"
   headerList={["Category", "Page", "Component", "Props"]}
   itemsList={[
+    { Category: "Affichage", Page: "display/frame-mode.jsx", Component: "Divider", Props: "color, margin=\"1.5rem 0\", opacity=0.2" },
+    { Category: "Affichage", Page: "display/frame-mode.jsx", Component: "H1", Props: "children, icon, iconSize=32, iconColor, align=\"left\", gap=\"0.75rem\"" },
+    { Category: "Affichage", Page: "display/frame-mode.jsx", Component: "H2", Props: "children, icon, iconSize=28, iconColor, align=\"left\", gap=\"0.75rem\"" },
+    { Category: "Affichage", Page: "display/frame-mode.jsx", Component: "H3", Props: "children, icon, iconSize=24, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "Affichage", Page: "display/frame-mode.jsx", Component: "H4", Props: "children, icon, iconSize=20, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "Affichage", Page: "display/frame-mode.jsx", Component: "H5", Props: "children, icon, iconSize=18, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "Affichage", Page: "display/frame-mode.jsx", Component: "H6", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "Affichage", Page: "display/frame-mode.jsx", Component: "P", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "Affichage", Page: "display/frame-mode.jsx", Component: "PageHeader", Props: "title, subtitle, description, children, titleColor, subtitleColor, descriptionColor" },
     { Category: "Contenu", Page: "content/code.jsx", Component: "CodeComponent", Props: "filename=\"\", icon=\"terminal\", language=\"\", highlight=\"\", expandable=false, wrap=true, lines=true, codeString=\"\", placeholderValue=\"\"" },
     { Category: "Contenu", Page: "content/code.jsx", Component: "CodeSection", Props: "fields={}" },
     { Category: "Contenu", Page: "content/code.jsx", Component: "ComplexCodeBlock", Props: "filename, icon, language, highlight, codeString=\"\", placeholderValue=\"\", wrap=true, lines=true, preNote=null, postNote=null" },
@@ -2090,15 +2105,6 @@ Recherchez par catégorie, chemin de page ou nom de composant.
     { Category: "Primitives", Page: "primitives/text.jsx", Component: "CardTitleTextWithArrow", Props: "children" },
     { Category: "Primitives", Page: "primitives/text.jsx", Component: "CopyText", Props: "text, label" },
     { Category: "Primitives", Page: "primitives/text.jsx", Component: "Subtitle", Props: "style={}, text, children" },
-    { Category: "Structure de page", Page: "display/frame-mode.jsx", Component: "Divider", Props: "color, margin=\"1.5rem 0\", opacity=0.2" },
-    { Category: "Structure de page", Page: "display/frame-mode.jsx", Component: "H1", Props: "children, icon, iconSize=32, iconColor, align=\"left\", gap=\"0.75rem\"" },
-    { Category: "Structure de page", Page: "display/frame-mode.jsx", Component: "H2", Props: "children, icon, iconSize=28, iconColor, align=\"left\", gap=\"0.75rem\"" },
-    { Category: "Structure de page", Page: "display/frame-mode.jsx", Component: "H3", Props: "children, icon, iconSize=24, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Structure de page", Page: "display/frame-mode.jsx", Component: "H4", Props: "children, icon, iconSize=20, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Structure de page", Page: "display/frame-mode.jsx", Component: "H5", Props: "children, icon, iconSize=18, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Structure de page", Page: "display/frame-mode.jsx", Component: "H6", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Structure de page", Page: "display/frame-mode.jsx", Component: "P", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Structure de page", Page: "display/frame-mode.jsx", Component: "PageHeader", Props: "title, subtitle, description, children, titleColor, subtitleColor, descriptionColor" },
     { Category: "Structure de page", Page: "page-structure/heroGif.jsx", Component: "Starfield", Props: "density=1.1" },
     { Category: "Structure de page", Page: "page-structure/portals.jsx", Component: "HeroContentContainer", Props: "children" },
     { Category: "Structure de page", Page: "page-structure/portals.jsx", Component: "HeroImageBackgroundComponent", Props: "children" },

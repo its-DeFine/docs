@@ -10,7 +10,7 @@
  * @pipeline          manual, ci
  * @usage             node tools/scripts/validators/content/check-anchor-usage.js [--json] [--scope <glob>]
  */
-// Baseline 2026-03-09: 100 errors, 8096 warnings - wired as advisory until debt cleared
+// Baseline 2026-03-09: 100 errors, 8106 warnings - wired as advisory until debt cleared
 // Promote to blocking once error count reaches 0
 
 const fs = require('fs');

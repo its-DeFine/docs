@@ -32,7 +32,7 @@ Run command: node tools/scripts/generate-docs-guide-indexes.js --write
 |---|---|---|---|---|---|---|
 | Auto Assign Docs Reviewers | `.github/workflows/auto-assign-docs-reviewers.yml` | pull_request | Auto Assign Docs Reviewers | blocking by default (subject to branch protection) | PR comments/metadata | docs |
 | Check Broken Links | `.github/workflows/broken-links.yml` | pull_request | Check Broken Links | advisory or partial-advisory | step summary | docs |
-| build-review-assets.yml | `.github/workflows/build-review-assets.yml` | unknown | build-review-assets.yml | blocking by default (subject to branch protection) | workflow logs | docs |
+| Build Review Assets | `.github/workflows/build-review-assets.yml` | workflow_dispatch | Build Review Assets | blocking by default (subject to branch protection) | workflow logs | docs |
 | Check Docs Index | `.github/workflows/check-docs-index.yml` | pull_request, push, workflow_dispatch | Check Docs Index | blocking by default (subject to branch protection) | workflow logs | docs |
 | Close Linked Issues (docs-v2 Merge) | `.github/workflows/close-linked-issues-docs-v2.yml` | pull_request | Close Linked Issues (docs-v2 Merge) | blocking by default (subject to branch protection) | workflow logs | docs |
 | Codex Governance | `.github/workflows/codex-governance.yml` | pull_request | Codex Governance | blocking by default (subject to branch protection) | workflow logs | docs |
@@ -43,7 +43,7 @@ Run command: node tools/scripts/generate-docs-guide-indexes.js --write
 | Generate AI Sitemap | `.github/workflows/generate-ai-sitemap.yml` | push, workflow_dispatch | Generate AI Sitemap | blocking by default (subject to branch protection) | repository commits | docs |
 | Generate Docs Index | `.github/workflows/generate-docs-index.yml` | push, workflow_dispatch | Generate Docs Index | blocking by default (subject to branch protection) | repository commits | docs |
 | Generate llms.txt | `.github/workflows/generate-llms-files.yml` | push, workflow_dispatch | Generate llms.txt | blocking by default (subject to branch protection) | repository commits | docs |
-| generate-review-table.yml | `.github/workflows/generate-review-table.yml` | unknown | generate-review-table.yml | blocking by default (subject to branch protection) | workflow logs | docs |
+| Generate Review Table | `.github/workflows/generate-review-table.yml` | workflow_dispatch | Generate Review Table | blocking by default (subject to branch protection) | workflow logs | docs |
 | Issue Auto Label | `.github/workflows/issue-auto-label.yml` | pull_request, push | Issue Auto Label | blocking by default (subject to branch protection) | workflow logs | docs |
 | OpenAPI Reference Validation | `.github/workflows/openapi-reference-validation.yml` | pull_request, push, schedule, workflow_dispatch | OpenAPI Reference Validation | blocking by default (subject to branch protection) | artifact upload, step summary, PR comments/metadata | docs |
 | Project Showcase Sync | `.github/workflows/project-showcase-sync.yml` | repository_dispatch, schedule, workflow_dispatch | Project Showcase Sync | blocking by default (subject to branch protection) | workflow logs | docs |
@@ -59,7 +59,7 @@ Run command: node tools/scripts/generate-docs-guide-indexes.js --write
 | Update Forum Data | `.github/workflows/update-forum-data.yml` | schedule, workflow_dispatch | Update Forum Data | blocking by default (subject to branch protection) | repository commits | docs |
 | Update Ghost Blog Data | `.github/workflows/update-ghost-blog-data.yml` | schedule, workflow_dispatch | Update Ghost Blog Data | blocking by default (subject to branch protection) | repository commits | docs |
 | Update Livepeer Release Version | `.github/workflows/update-livepeer-release.yml` | schedule, workflow_dispatch | Update Livepeer Release Version | blocking by default (subject to branch protection) | repository commits | docs |
-| update-review-template.yml | `.github/workflows/update-review-template.yml` | unknown | update-review-template.yml | blocking by default (subject to branch protection) | workflow logs | docs |
+| Update Review Template | `.github/workflows/update-review-template.yml` | workflow_dispatch | Update Review Template | blocking by default (subject to branch protection) | workflow logs | docs |
 | Update YouTube Data | `.github/workflows/update-youtube-data.yml` | schedule, workflow_dispatch | Update YouTube Data | blocking by default (subject to branch protection) | repository commits | docs |
 | V2 External Link Audit (Advisory) | `.github/workflows/v2-external-link-audit.yml` | schedule, workflow_dispatch | V2 External Link Audit (Advisory) | advisory or partial-advisory | artifact upload, step summary | docs |
 | Verify AI Sitemap | `.github/workflows/verify-ai-sitemap.yml` | pull_request, push | Verify AI Sitemap | blocking by default (subject to branch protection) | workflow logs | docs |
