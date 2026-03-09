@@ -1,32 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script audit-media-assets
- * @summary Audit repo media assets, references, ignore leakage, and externalized asset branch inventory.
- * @owner docs
- * @scope tools/scripts, tasks/reports/media-audit
- *
- * @usage
- *   node tools/scripts/audit-media-assets.js [--manifest <path>] [--summary <path>] [--assets-branch-ref <ref>] [--check-staged]
- *
- * @inputs
- *   --manifest <path> (default: tasks/reports/media-audit/media-audit-manifest.json)
- *   --summary <path> (default: tasks/reports/media-audit/media-audit-summary.md)
- *   --assets-branch-ref <ref> (default: origin/docs-v2-assets)
- *   --check-staged (default: false)
- *
- * @outputs
- *   - Writes a JSON manifest and Markdown summary under tasks/reports/media-audit unless ALREADY_RESOLVED short-circuits to summary-only
- *
- * @exit-codes
- *   0 = audit completed successfully
- *   1 = invalid args or git/audit failure
- *
- * @examples
- *   node tools/scripts/audit-media-assets.js
- *   node tools/scripts/audit-media-assets.js --assets-branch-ref origin/docs-v2-assets --check-staged
- *
- * @notes
- *   Uses fs.statSync byte sizes, auto-fetches missing origin/<branch> refs without checkout, and scans only MDX/JSX sources for reference status
+ * @script            audit-media-assets
+ * @category          utility
+ * @purpose           governance:repo-health
+ * @scope             tools/scripts, tasks/reports/media-audit
+ * @owner             docs
+ * @needs             R-R14
+ * @purpose-statement Audits repo media assets, references, ignore leakage, and externalized asset branch inventory.
+ * @pipeline          manual — diagnostic/investigation tool, run on-demand only
+ * @usage             node tools/scripts/audit-media-assets.js [flags]
  */
 
 const fs = require('fs')

@@ -600,6 +600,16 @@
     "dualmode": ""
   },
   {
+    "path": "tools/scripts/add-pagetype-mechanical.js",
+    "category": "remediator",
+    "purpose": "qa:content-quality",
+    "scope": "tools/scripts, v2, tasks/reports",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Mechanically assigns pageType frontmatter to eligible v2 MDX pages.",
+    "pipeline": "manual \u2014 deterministic metadata rollout utility for v2 docs",
+    "dualmode": ""
+  },
+  {
     "path": "tools/scripts/audit-all-pages-simple.js",
     "category": "validator",
     "purpose": "qa:content-quality",
@@ -637,6 +647,16 @@
     "needs": "E-C1, R-R14",
     "purpose_statement": "Component usage auditor \u2014 scans pages for component usage patterns and reports statistics",
     "pipeline": "manual \u2014 not yet in pipeline",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/audit-media-assets.js",
+    "category": "utility",
+    "purpose": "governance:repo-health",
+    "scope": "tools/scripts, tasks/reports/media-audit",
+    "needs": "R-R14",
+    "purpose_statement": "Audits repo media assets, references, ignore leakage, and externalized asset branch inventory.",
+    "pipeline": "manual \u2014 diagnostic/investigation tool, run on-demand only",
     "dualmode": ""
   },
   {

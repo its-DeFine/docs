@@ -89,10 +89,10 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | Script | Summary | Usage | Owner |
 |---|---|---|---|
 | `tools/scripts/add-framework-headers.js` | Insert or verify governance framework metadata headers from classification JSON. | `node tools/scripts/add-framework-headers.js --data script-classifications.json --dry-run` | docs |
-| `tools/scripts/add-pagetype-mechanical.js` | Mechanically assign pageType frontmatter to eligible v2 MDX pages. | `node tools/scripts/add-pagetype-mechanical.js [--dry-run]` | docs |
+| `tools/scripts/add-pagetype-mechanical.js` | Mechanically assigns pageType frontmatter to eligible v2 MDX pages. | `node tools/scripts/add-pagetype-mechanical.js [flags]` | docs |
 | `tools/scripts/assign-purpose-metadata.js` | Purpose metadata assigner — fills purpose and audience frontmatter for routable v2 pages | `node tools/scripts/assign-purpose-metadata.js [flags]` | docs |
 | `tools/scripts/audit-component-usage.js` | Component usage auditor — scans pages for component usage patterns and reports statistics | `node tools/scripts/audit-component-usage.js [flags]` | docs |
-| `tools/scripts/audit-media-assets.js` | Audit repo media assets, references, ignore leakage, and externalized asset branch inventory. | `node tools/scripts/audit-media-assets.js [--manifest &lt;path&gt;] [--summary &lt;path&gt;] [--assets-branch-ref &lt;ref&gt;] [--check-staged]` | docs |
+| `tools/scripts/audit-media-assets.js` | Audits repo media assets, references, ignore leakage, and externalized asset branch inventory. | `node tools/scripts/audit-media-assets.js [flags]` | docs |
 | `tools/scripts/audit-scripts.js` | Script auditor — analyses all repo scripts, categorises usage/overlap, generates SCRIPT_AUDIT reports | `node tools/scripts/audit-scripts.js [flags]` | docs |
 | `tools/scripts/audit-tasks-folders.js` | Tasks folder auditor — checks tasks/ structure, normalises report locations, applies recommendations with conflict-safe moves | `node tools/scripts/audit-tasks-folders.js [flags]` | docs |
 | `tools/scripts/audit-v2-usefulness.js` | Usefulness auditor — scores v2 MDX pages on human and agent usefulness with source-weighted 2026 accuracy verification | `node tools/scripts/audit-v2-usefulness.js [flags]` | docs |

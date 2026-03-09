@@ -1,31 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script add-pagetype-mechanical
- * @summary Mechanically assign pageType frontmatter to eligible v2 MDX pages.
- * @owner docs
- * @scope tools/scripts, v2, tasks/reports
- * @pipeline manual — deterministic metadata rollout utility for v2 docs
- *
- * @usage
- *   node tools/scripts/add-pagetype-mechanical.js [--dry-run]
- *
- * @inputs
- *   --dry-run Report classifications and Phase 2 candidates without writing files.
- *
- * @outputs
- *   - Updated `pageType` frontmatter for mechanically classifiable English v2 MDX pages unless `--dry-run`.
- *   - Console summary including already typed and Phase 2 candidate counts.
- *
- * @exit-codes
- *   0 = completed
- *   1 = invalid args or runtime failure
- *
- * @examples
- *   node tools/scripts/add-pagetype-mechanical.js
- *   node tools/scripts/add-pagetype-mechanical.js --dry-run
- *
- * @notes
- *   Excludes locale trees, views/groups, and any `v2/x-*` path segment to match repo-wide docs validation scope.
+ * @script            add-pagetype-mechanical
+ * @category          remediator
+ * @purpose           qa:content-quality
+ * @scope             tools/scripts, v2, tasks/reports
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Mechanically assigns pageType frontmatter to eligible v2 MDX pages.
+ * @pipeline          manual — deterministic metadata rollout utility for v2 docs
+ * @usage             node tools/scripts/add-pagetype-mechanical.js [flags]
  */
 
 'use strict';

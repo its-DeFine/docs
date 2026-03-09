@@ -1,21 +1,30 @@
 task_id: 20260309
-branch: codex/20260309-n8n-space-path-mopup
+branch: codex/20260309-headers-scripts-framework-headers
 base_branch: docs-v2
 scope_in:
   - .codex/task-contract.yaml
-  - snippets/automations/scripts/n8n/project-showcase-application-workflow.json
-  - snippets/assets/scripts/n8n/README-project-showcase-application-workflow.md
-scope_out: []
+  - tasks/reports/script-classifications.json
+  - tools/scripts/add-pagetype-mechanical.js
+  - tools/scripts/audit-media-assets.js
+scope_out:
+  - tools/scripts/archive
 allowed_generated:
   - .codex/pr-body.generated.md
+  - tools/script-index.md
+  - docs-guide/indexes/scripts-index.mdx
 acceptance_checks:
   - >-
     node tools/scripts/validate-codex-task-contract.js --branch
-    codex/20260309-n8n-space-path-mopup --validate-contract-only
-  - rg -n --fixed-strings 'Project Showcase Application Workflow.json' .
-  - ls -1 snippets/automations/scripts/n8n
+    codex/20260309-headers-scripts-framework-headers --validate-contract-only
+  - node tests/unit/script-docs.test.js --enforce-existing --write --rebuild-indexes
+  - >-
+    bash -lc 'grep "@script" tools/scripts/validate-codex-task-contract.js &&
+    grep "@script" tools/scripts/generate-pages-index.js &&
+    grep "@script" tools/scripts/audit-scripts.js &&
+    grep "@script" tools/scripts/i18n/validate-generated.js'
+  - bash -lc 'cd tests && node run-all.js 2>&1 | tail -10'
   - git diff --check
-  - node tests/run-pr-checks.js --base-ref docs-v2
 risk_flags:
-  - path-normalization
+  - broad-script-governance
+  - generated-index-refresh
 follow_up_issues: []
