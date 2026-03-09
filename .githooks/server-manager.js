@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             E-C6, F-C1
  * @purpose-statement Manages Mintlify dev server lifecycle for browser tests (start/stop/health-check)
- * @pipeline          manual — developer tool
+ * @pipeline          indirect — legacy browser-validation module imported by .githooks/verify-browser.js
  * @usage             node .githooks/server-manager.js [flags]
  */
 /**

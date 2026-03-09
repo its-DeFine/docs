@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             R-R27, R-R30
  * @purpose-statement Codex task preflight — generates task setup files and validates preconditions
- * @pipeline          manual — interactive developer tool, not suited for automated pipelines
+ * @pipeline          manual — codex setup tool referenced by .githooks/pre-commit guidance, not auto-executed
  * @usage             node tools/scripts/codex/task-preflight.js [flags]
  */
 
