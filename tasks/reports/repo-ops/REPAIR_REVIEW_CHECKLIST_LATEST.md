@@ -1,19 +1,19 @@
 # Governance Repair Review Checklist
 
-Generated: 2026-03-09T19:25:54.447Z
+Generated: 2026-03-09T21:40:18.024Z
 Source mode: dry-run-plan
 
 ## Summary
 
-- Total safe fixes in dry-run: 322
-- Tier 1 JSON sync: 168
-- Tier 2 header completion: 81
-- Tier 3 pipeline corrections: 73
+- Total safe fixes in dry-run: 265
+- Tier 1 JSON sync: 210
+- Tier 2 header completion: 0
+- Tier 3 pipeline corrections: 55
 - Judgement-field autofill scripts: 0
 - Judgement-field autofill fields: 0
-- Pipeline correction scripts: 73
+- Pipeline correction scripts: 55
 - Pipeline drop-risk scripts: 0
-- Needs human count from repair plan: 202
+- Needs human count from repair plan: 168
 
 ## Judgement Field Autofills
 
@@ -31,17 +31,54 @@ Source mode: dry-run-plan
 
 ## Pipeline Corrections
 
-- Scripts to review: 73
+- Scripts to review: 55
 - Detected multi-pipeline scripts: 1
-- Proposed multi-pipeline scripts: 1
+- Proposed multi-pipeline scripts: 2
 
 | Risk | Count |
 | --- | ---: |
 | drops-detected-pipelines | 0 |
-| aligns-to-detected-pipelines | 4 |
-| broadens-claim | 0 |
-| label-normalization-only | 69 |
+| aligns-to-detected-pipelines | 1 |
+| broadens-claim | 1 |
+| label-normalization-only | 53 |
 | review | 0 |
+
+### .githooks/verify-browser.js
+
+- Trigger group: Manual
+- [ ] Risk: label-normalization-only
+- Current: manual — legacy browser validator invoked by .githooks/verify.sh when run directly
+- Proposed: manual — developer tool
+- Detected: manual (none)
+- Verification: MATCH
+- Current codes: manual
+- Proposed codes: manual
+- Detected codes: manual
+
+### .githooks/verify.sh
+
+- Trigger group: Manual
+- [ ] Risk: label-normalization-only
+- Current: manual — legacy pre-commit sub-hook retained for on-demand verification
+- Proposed: manual — developer tool
+- Detected: manual (none)
+- Verification: MATCH
+- Current codes: manual
+- Proposed codes: manual
+- Detected codes: manual
+
+### tests/run-all.js
+
+- Trigger group: P1
+- [ ] Risk: broadens-claim
+- Current: P1 (commit, orchestrator)
+- Proposed: P1, P2, P3
+- Detected: P1 (pre-commit); manual (npm script: test); manual (npm script: test)
+- Verification: MATCH
+- Current codes: P1
+- Proposed codes: P1, P2, P3
+- Detected codes: P1
+- Added beyond detected pipelines: P2, P3
 
 ### tools/lib/docs-index-utils.js
 
@@ -49,31 +86,7 @@ Source mode: dry-run-plan
 - [ ] Risk: label-normalization-only
 - Current: indirect — library module imported by other scripts, not invoked directly
 - Proposed: indirect — library module
-- Detected: indirect via tools/notion/sync-v2-en-canonical.js; indirect via tools/scripts/apply-content-gap-reconciliation.js; indirect via tools/scripts/generate-ai-sitemap.js; indirect via tools/scripts/generate-content-gap-reconciliation.js; indirect via tools/scripts/generate-docs-index.js
-- Verification: MATCH
-- Current codes: indirect
-- Proposed codes: indirect
-- Detected codes: indirect
-
-### tools/lib/docs-usefulness/accuracy-verifier.js
-
-- Trigger group: Indirect
-- [ ] Risk: label-normalization-only
-- Current: indirect — library module imported by other scripts, not invoked directly
-- Proposed: indirect — library module
-- Detected: indirect via tests/unit/docs-usefulness-accuracy-verifier.test.js
-- Verification: MATCH
-- Current codes: indirect
-- Proposed codes: indirect
-- Detected codes: indirect
-
-### tools/lib/docs-usefulness/scoring.js
-
-- Trigger group: Indirect
-- [ ] Risk: label-normalization-only
-- Current: indirect — library module imported by other scripts, not invoked directly
-- Proposed: indirect — library module
-- Detected: indirect via tests/unit/docs-usefulness-accuracy-verifier.test.js; indirect via tests/unit/usefulness-rubric.test.js; indirect via tools/notion/sync-v2-en-canonical.js; indirect via tools/scripts/assign-purpose-metadata.js; indirect via tools/scripts/audit-v2-usefulness.js
+- Detected: indirect via tools/notion/sync-v2-en-canonical.js; indirect via tools/scripts/generate-ai-sitemap.js; indirect via tools/scripts/generate-content-gap-reconciliation.js; indirect via tools/scripts/generate-docs-index.js
 - Verification: MATCH
 - Current codes: indirect
 - Proposed codes: indirect
@@ -91,79 +104,7 @@ Source mode: dry-run-plan
 - Proposed codes: indirect
 - Detected codes: indirect
 
-### tools/scripts/audit-all-pages-simple.js
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — diagnostic/investigation tool, run on-demand only
-- Proposed: manual — not yet in pipeline
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
-### tools/scripts/audit-all-pages.js
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — diagnostic/investigation tool, run on-demand only
-- Proposed: manual — not yet in pipeline
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
-### tools/scripts/audit-all-v2-pages.js
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — diagnostic/investigation tool, run on-demand only
-- Proposed: manual — not yet in pipeline
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
 ### tools/scripts/audit-tasks-folders.js
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — diagnostic/investigation tool, run on-demand only
-- Proposed: manual — not yet in pipeline
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
-### tools/scripts/audit-v1-to-v2-mapping.js
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — diagnostic/investigation tool, run on-demand only
-- Proposed: manual — not yet in pipeline
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
-### tools/scripts/check-codex-pr-overlap.js
-
-- Trigger group: P3
-- [ ] Risk: aligns-to-detected-pipelines
-- Current: manual — diagnostic/investigation tool, run on-demand only
-- Proposed: P3 (PR, Track B)
-- Detected: P3 (Codex Governance)
-- Verification: MISMATCH:undeclared automation P3
-- Current codes: manual
-- Proposed codes: P3
-- Detected codes: P3
-
-### tools/scripts/check-component-errors.js
 
 - Trigger group: Manual
 - [ ] Risk: label-normalization-only
@@ -191,32 +132,8 @@ Source mode: dry-run-plan
 
 - Trigger group: Manual
 - [ ] Risk: label-normalization-only
-- Current: manual — interactive developer tool, not suited for automated pipelines
+- Current: manual — compatibility shim only
 - Proposed: manual — developer tool
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
-### tools/scripts/codex/lock-release.js
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — interactive developer tool, not suited for automated pipelines
-- Proposed: manual — developer tool
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
-### tools/scripts/codex/task-finalize.js
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — interactive developer tool, not suited for automated pipelines
-- Proposed: manual — not yet in pipeline
 - Detected: manual (none)
 - Verification: MATCH
 - Current codes: manual
@@ -331,37 +248,25 @@ Source mode: dry-run-plan
 - Proposed codes: manual
 - Detected codes: manual
 
-### tools/scripts/final-verification.js
+### tools/scripts/enforce-generated-file-banners.js
 
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — diagnostic/investigation tool, run on-demand only
-- Proposed: manual — developer tool
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
-### tools/scripts/find-correct-url.js
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
+- Trigger group: P1
+- [ ] Risk: aligns-to-detected-pipelines
 - Current: manual — interactive developer tool, not suited for automated pipelines
-- Proposed: manual — developer tool
-- Detected: manual (none)
-- Verification: MATCH
+- Proposed: P1, P3
+- Detected: P1 (pre-commit); P3 via run-pr-checks; indirect via .githooks/pre-commit; indirect via tests/run-pr-checks.js; manual (npm script: test:generated-banners)
+- Verification: MISMATCH:undeclared automation P1, P3
 - Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
+- Proposed codes: P1, P3
+- Detected codes: P1, P3
 
-### tools/scripts/generate-docs-guide-components-index.js
+### tools/scripts/generate-component-governance-remediation-reports.js
 
 - Trigger group: Manual
 - [ ] Risk: label-normalization-only
 - Current: manual
-- Proposed: manual — not yet in pipeline
-- Detected: manual (none)
+- Proposed: manual — report generation
+- Detected: manual (npm script: report:component-governance-remediation)
 - Verification: MATCH
 - Current codes: manual
 - Proposed codes: manual
@@ -493,7 +398,7 @@ Source mode: dry-run-plan
 - [ ] Risk: label-normalization-only
 - Current: indirect — library module imported by other scripts, not invoked directly
 - Proposed: indirect — library module
-- Detected: indirect via tools/scripts/enforce-generated-file-banners.js; indirect via tools/scripts/i18n/lib/docs-routes.js; indirect via tools/scripts/i18n/test/provenance.test.js; indirect via tools/scripts/i18n/translate-docs.js; indirect via tools/scripts/i18n/validate-generated.js
+- Detected: indirect via tools/scripts/enforce-generated-file-banners.js; indirect via tools/scripts/generate-component-docs.js; indirect via tools/scripts/i18n/lib/docs-routes.js; indirect via tools/scripts/i18n/test/provenance.test.js; indirect via tools/scripts/i18n/translate-docs.js; indirect via tools/scripts/i18n/validate-generated.js
 - Verification: MATCH
 - Current codes: indirect
 - Proposed codes: indirect
@@ -619,30 +524,6 @@ Source mode: dry-run-plan
 - Proposed codes: manual
 - Detected codes: manual
 
-### tools/scripts/inspect-page.js
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — diagnostic/investigation tool, run on-demand only
-- Proposed: manual — developer tool
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
-### tools/scripts/inspect-video-page.js
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — diagnostic/investigation tool, run on-demand only
-- Proposed: manual — developer tool
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
 ### tools/scripts/mint-dev.sh
 
 - Trigger group: Manual
@@ -751,18 +632,6 @@ Source mode: dry-run-plan
 - Proposed codes: manual
 - Detected codes: manual
 
-### tools/scripts/snippets/generate-seo.js
-
-- Trigger group: P6
-- [ ] Risk: aligns-to-detected-pipelines
-- Current: manual — interactive developer tool, not suited for automated pipelines
-- Proposed: P6 (on-demand, SEO refresh)
-- Detected: P6 (SEO Metadata Refresh); manual (npm script: generate-seo); manual (npm script: generate-seo:dry-run)
-- Verification: MISMATCH:undeclared automation P6
-- Current codes: manual
-- Proposed codes: P6
-- Detected codes: P6
-
 ### tools/scripts/snippets/test-scripts.sh
 
 - Trigger group: Manual
@@ -774,30 +643,6 @@ Source mode: dry-run-plan
 - Current codes: manual
 - Proposed codes: manual
 - Detected codes: manual
-
-### tools/scripts/snippets/update-component-library.sh
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — interactive developer tool, not suited for automated pipelines
-- Proposed: manual — not yet in pipeline
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
-### tools/scripts/style-and-language-homogenizer-en-gb.js
-
-- Trigger group: P6
-- [ ] Risk: aligns-to-detected-pipelines
-- Current: manual — interactive developer tool, not suited for automated pipelines
-- Proposed: P6 (on-demand, repair)
-- Detected: P6 (EN-GB Style Homogenisation); manual (npm script: audit:language-en-gb)
-- Verification: MISMATCH:undeclared automation P6
-- Current codes: manual
-- Proposed codes: P6
-- Detected codes: P6
 
 ### tools/scripts/sync-codex-skills.js
 
@@ -811,71 +656,11 @@ Source mode: dry-run-plan
 - Proposed codes: manual
 - Detected codes: manual
 
-### tools/scripts/test-all-pages-browser.js
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — diagnostic/investigation tool, run on-demand only
-- Proposed: manual — developer tool
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
-### tools/scripts/test-all-pages-comprehensive.js
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — diagnostic/investigation tool, run on-demand only
-- Proposed: manual — developer tool
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
-### tools/scripts/test-youtube-pages.js
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — diagnostic/investigation tool, run on-demand only
-- Proposed: manual — developer tool
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
-### tools/scripts/validate-codex-task-contract.js
-
-- Trigger group: P1
-- [ ] Risk: aligns-to-detected-pipelines
-- Current: manual — diagnostic/investigation tool, run on-demand only
-- Proposed: P1 (commit), P2 (push), P3 (PR, Track B)
-- Detected: P1 (pre-commit); P2 (pre-push); P3 (Codex Governance); indirect via .githooks/pre-commit; indirect via .githooks/pre-push
-- Verification: MISMATCH:undeclared automation P1, P2, P3
-- Current codes: manual
-- Proposed codes: P1, P2, P3
-- Detected codes: P1, P2, P3
-
 ### tools/scripts/verify-all-pages.js
 
 - Trigger group: Manual
 - [ ] Risk: label-normalization-only
-- Current: manual — diagnostic/investigation tool, run on-demand only
-- Proposed: manual — not yet in pipeline
-- Detected: manual (none)
-- Verification: MATCH
-- Current codes: manual
-- Proposed codes: manual
-- Detected codes: manual
-
-### tools/scripts/verify-pages.js
-
-- Trigger group: Manual
-- [ ] Risk: label-normalization-only
-- Current: manual — diagnostic/investigation tool, run on-demand only
+- Current: manual
 - Proposed: manual — not yet in pipeline
 - Detected: manual (none)
 - Verification: MATCH

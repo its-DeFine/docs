@@ -14,7 +14,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
-const yaml = require('js-yaml');
+const yaml = require('../../../lib/load-js-yaml');
 const {
   AGGREGATE_INDEX_PATH,
   CATEGORY_ENUM,
