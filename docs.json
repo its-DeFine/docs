@@ -2080,7 +2080,6 @@
                         "icon": "house-heart",
                         "pages": [
                           "v2/home/mission-control",
-                          "v2/home/get-started",
                           "v2/home/primer"
                         ]
                       },
@@ -2168,8 +2167,7 @@
                           "v2/about/resources/livepeer-whitepaper",
                           "v2/about/resources/livepeer-glossary",
                           "v2/about/resources/blockchain-contracts",
-                          "v2/about/resources/technical-roadmap",
-                          "v2/about/resources/gateways-vs-orchestrators"
+                          "v2/about/resources/technical-roadmap"
                         ]
                       }
                     ]
@@ -3092,11 +3090,10 @@
                               "v2/resources/documentation-guide/component-library/overview",
                               "v2/resources/documentation-guide/component-library/component-library",
                               "v2/resources/documentation-guide/component-library/primitives",
-                              "v2/resources/documentation-guide/component-library/display",
-                              "v2/resources/documentation-guide/component-library/content",
                               "v2/resources/documentation-guide/component-library/layout",
-                              "v2/resources/documentation-guide/component-library/integrations",
-                              "v2/resources/documentation-guide/component-library/domain"
+                              "v2/resources/documentation-guide/component-library/content",
+                              "v2/resources/documentation-guide/component-library/data",
+                              "v2/resources/documentation-guide/component-library/page-structure"
                             ]
                           }
                         ]
@@ -3119,7 +3116,7 @@
                         "group": "Gateway References",
                         "icon": "wand-magic-sparkles",
                         "pages": [
-                          "v2/gateways/guides-and-resources/gateway-job-pipelines/overview"
+                          "v2/gateways/guides-and-tools/gateway-job-pipelines/overview"
                         ]
                       },
                       {

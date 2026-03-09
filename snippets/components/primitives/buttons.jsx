@@ -1,36 +1,47 @@
-// ARCHIVED: placeholder - see tasks/reports/archived-components-review.md
-// export const BasicBtn = () => <div></div>
+/**
+ * @component BasicBtn
+ * @category primitives
+ * @tier primitive
+ * @status stable
+ * @description Basic Btn primitive used in authored documentation and component-library examples.
+ * @contentAffinity universal
+ * @owner docs
+ * @dependencies DownloadButton
+ * @usedIn none
+ * @breakingChangeRisk low
+ * @decision KEEP
+ * @dataSource none
+ * @duplicates none
+ * @lastMeaningfulChange 2026-03-03
+ * @example
+ * <BasicBtn />
+ */
+export const BasicBtn = () => {
+  return <div></div>
+}
 
 /**
  * @component DownloadButton
  * @category primitives
  * @tier primitive
  * @status stable
- * @description A download button that uses IntersectionObserver for lazy rendering. Only renders
- *   the full button when it becomes visible in the viewport. Supports custom icons, labels, and
- *   optional border styling
- * @contentAffinity how_to
- * @owner @livepeer/docs-team
- * @dependencies none
- * @usedIn v2/gateways/quickstart/gateway-setup.mdx
- *   v2/gateways/run-a-gateway/install/linux-install.mdx, v2/internal/overview/docs-philosophy.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
- *   v2/resources/documentation-guide/component-library/primitives.mdx, v2/resources/media-kit.mdx
+ * @description Download Button primitive used in authored documentation and component-library examples.
+ * @contentAffinity universal
+ * @owner docs
+ * @dependencies BasicBtn
+ * @usedIn v2/cn/gateways/quickstart/gateway-setup.mdx, v2/cn/gateways/run-a-gateway/install/linux-install.mdx, v2/es/gateways/quickstart/gateway-setup.mdx, v2/es/gateways/run-a-gateway/install/linux-install.mdx, v2/fr/gateways/quickstart/gateway-setup.mdx, v2/fr/gateways/run-a-gateway/install/linux-install.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/run-a-gateway/install/linux-install.mdx, v2/internal/overview/docs-philosophy.mdx, v2/resources/media-kit.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
- * @param {string} [label='Download'] - Label text rendered by the component.
- * @param {string} [icon='download'] - Icon configuration used by the component.
- * @param {string} downloadLink - Download link used by the component.
- * @param {string} [rightIcon=''] - Right icon used by the component.
- * @param {boolean} [border=false] - Boolean flag that controls component behaviour.
- *
+ * @lastMeaningfulChange 2026-03-03
+ * @param {string} [label='Download'] - label prop.
+ * @param {string} [icon='download'] - icon prop.
+ * @param {any} downloadLink - download Link prop.
+ * @param {string} [rightIcon=''] - right Icon prop.
+ * @param {boolean} [border=false] - border prop.
  * @example
- * <DownloadButton downloadLink="value" />
+ * <DownloadButton downloadLink="example" />
  */
 export const DownloadButton = ({
   label = 'Download',

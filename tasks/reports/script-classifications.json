@@ -150,16 +150,6 @@
     "dualmode": "dual-mode (document flags)"
   },
   {
-    "path": "tests/integration/mdx-component-runtime-smoke.js",
-    "category": "validator",
-    "purpose": "qa:content-quality",
-    "scope": "tests/integration, .githooks/server-manager.js, tests/run-pr-checks.js",
-    "needs": "E-R1, R-R29",
-    "purpose_statement": "Smoke-tests sentinel MDX routes for runtime component failures, focused on page-killing render errors from MDX-imported JSX modules.",
-    "pipeline": "P3 (PR changed-file scope) and manual local verification",
-    "dualmode": ""
-  },
-  {
     "path": "tests/integration/domain-pages-audit.js",
     "category": "validator",
     "purpose": "qa:repo-health",
@@ -167,6 +157,16 @@
     "needs": "E-C1, R-R14",
     "purpose_statement": "Audits deployed docs page HTTP status codes (v1, v2, or both) and emits a stable JSON report",
     "pipeline": "manual — not yet in pipeline",
+    "dualmode": ""
+  },
+  {
+    "path": "tests/integration/mdx-component-runtime-smoke.js",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tests/integration, .githooks/server-manager.js, tests/run-pr-checks.js",
+    "needs": "E-R1, R-R29",
+    "purpose_statement": "Smoke-tests sentinel MDX routes for runtime component failures, focused on page-killing render errors from MDX-imported JSX modules.",
+    "pipeline": "P3 (PR changed-file scope) and manual local verification",
     "dualmode": ""
   },
   {
@@ -270,6 +270,36 @@
     "dualmode": "dual-mode (document flags)"
   },
   {
+    "path": "tests/unit/component-governance-generators.test.js",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tests",
+    "needs": "R-R10",
+    "purpose_statement": "Verifies component governance generators produce coherent registry, usage-map, and docs outputs.",
+    "pipeline": "P1 (commit, via run-all)",
+    "dualmode": ""
+  },
+  {
+    "path": "tests/unit/component-governance-utils.test.js",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tests",
+    "needs": "R-R10",
+    "purpose_statement": "Verifies shared component governance utility parsing, scanning, and archive exclusion behavior.",
+    "pipeline": "P1 (commit, via run-all)",
+    "dualmode": ""
+  },
+  {
+    "path": "tests/unit/components/TEMPLATE.test.js",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tests",
+    "needs": "R-R10",
+    "purpose_statement": "Template for category-scoped component unit tests.",
+    "pipeline": "P1 (commit, via run-all when adopted)",
+    "dualmode": ""
+  },
+  {
     "path": "tests/unit/create-codex-pr.test.js",
     "category": "generator",
     "purpose": "governance:agent-governance",
@@ -325,8 +355,8 @@
     "purpose": "qa:content-quality",
     "scope": "tests/unit, tests/integration",
     "needs": "E-R1, R-R29",
-    "purpose_statement": "Unit tests for the MDX runtime smoke helpers \u2014 covers arg parsing, sentinel route selection, trigger logic, and failure classification.",
-    "pipeline": "manual \u2014 targeted smoke helper coverage",
+    "purpose_statement": "Unit tests for the MDX runtime smoke helpers — covers arg parsing, sentinel route selection, trigger logic, and failure classification.",
+    "pipeline": "manual — targeted smoke helper coverage",
     "dualmode": ""
   },
   {
@@ -335,8 +365,8 @@
     "purpose": "qa:repo-health",
     "scope": "tests/unit, tools/scripts/validators/components",
     "needs": "R-R10, R-R29",
-    "purpose_statement": "Unit tests for the MDX-facing component scope validator \u2014 covers unsafe private helpers, safe inline logic, and imported helper patterns.",
-    "pipeline": "manual \u2014 targeted validator unit coverage",
+    "purpose_statement": "Unit tests for the MDX-facing component scope validator — covers unsafe private helpers, safe inline logic, and imported helper patterns.",
+    "pipeline": "manual — targeted validator unit coverage",
     "dualmode": ""
   },
   {
@@ -348,6 +378,16 @@
     "purpose_statement": "Enforces MDX guardrails — globals imports, math delimiters, markdown table line breaks",
     "pipeline": "P1 (commit, via run-all)",
     "dualmode": "dual-mode (document flags)"
+  },
+  {
+    "path": "tests/unit/mdx-safe-markdown.test.js",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tests/unit, tests/fixtures/mdx-safe-markdown, tools/lib, tools/scripts/remediators/content, tools/scripts/validators/content",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Fixture-driven unit tests for repo-wide MDX-safe markdown repair and validation helpers.",
+    "pipeline": "P1 (commit, via run-all)",
+    "dualmode": ""
   },
   {
     "path": "tests/unit/mdx.test.js",
@@ -960,13 +1000,33 @@
     "dualmode": "--check (enforcer) | --write (generator)"
   },
   {
+    "path": "tools/scripts/generate-component-docs.js",
+    "category": "generator",
+    "purpose": "governance:index-management",
+    "scope": "generated-output",
+    "needs": "R-R10",
+    "purpose_statement": "Generates published component library MDX pages from the registry.",
+    "pipeline": "P6 (on-demand)",
+    "dualmode": ""
+  },
+  {
     "path": "tools/scripts/generate-component-governance-remediation-reports.js",
     "category": "generator",
-    "purpose": "governance:repo-health",
+    "purpose": "qa:repo-health",
     "scope": "tools/scripts, tasks/reports, snippets/components, v2, style.css",
-    "needs": "R-R14",
-    "purpose_statement": "Generate Phase 2a remediation reports from the approved component-governance audit and live repo state.",
-    "pipeline": "manual - reporting utility",
+    "needs": "R-R10, R-R29",
+    "purpose_statement": "Generates component-governance remediation reports from the approved audit and live repo state, including defensive-rendering guidance for MDX-facing components.",
+    "pipeline": "manual — report generation",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/generate-component-registry.js",
+    "category": "generator",
+    "purpose": "governance:index-management",
+    "scope": "single-domain",
+    "needs": "R-R10",
+    "purpose_statement": "Parses JSDoc from all component exports and produces component-registry.json.",
+    "pipeline": "P1 (commit — auto-regenerated when components are staged)",
     "dualmode": ""
   },
   {
@@ -977,16 +1037,6 @@
     "needs": "R-R16, R-R17",
     "purpose_statement": "Content-gap reconciliation generator — compares blueprint coverage against v2 MDX and writes reconciliation artefacts",
     "pipeline": "manual — not yet in pipeline",
-    "dualmode": ""
-  },
-  {
-    "path": "tools/scripts/generate-component-governance-remediation-reports.js",
-    "category": "generator",
-    "purpose": "qa:repo-health",
-    "scope": "tools/scripts, tasks/reports, snippets/components, v2, style.css",
-    "needs": "R-R10, R-R29",
-    "purpose_statement": "Generates component-governance remediation reports from the approved audit and live repo state, including defensive-rendering guidance for MDX-facing components.",
-    "pipeline": "manual \u2014 report generation",
     "dualmode": ""
   },
   {
@@ -1310,6 +1360,16 @@
     "dualmode": "--dry-run (show what would change) | --write (execute migration)"
   },
   {
+    "path": "tools/scripts/remediators/content/repair-mdx-safe-markdown.js",
+    "category": "remediator",
+    "purpose": "qa:content-quality",
+    "scope": "tools/scripts/remediators/content, first-party markdown/mdx files",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Auto-repairs deterministic MDX-unsafe markdown patterns across first-party markdown and MDX content.",
+    "pipeline": "P6 (on-demand, pre-commit autofix)",
+    "dualmode": "--dry-run (validator) | --write (remediator)"
+  },
+  {
     "path": "tools/scripts/remediators/content/repair-spelling.js",
     "category": "remediator",
     "purpose": "qa:content-quality",
@@ -1327,6 +1387,16 @@
     "needs": "R-R29",
     "purpose_statement": "Repo audit orchestrator — dispatches all static analysis validators in sequence. Supports --mode (static/full), --scope (full/changed), --quarantine, --agent-pack.",
     "pipeline": "P6 (on-demand, health audit)",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/scan-component-imports.js",
+    "category": "generator",
+    "purpose": "governance:index-management",
+    "scope": "full-repo",
+    "needs": "R-R10",
+    "purpose_statement": "Scans MDX imports to produce component-usage-map.json and detect @usedIn drift.",
+    "pipeline": "P6 (on-demand)",
     "dualmode": ""
   },
   {
@@ -1490,16 +1560,6 @@
     "dualmode": ""
   },
   {
-    "path": "tools/scripts/validators/components/check-naming-conventions.js",
-    "category": "validator",
-    "purpose": "qa:repo-health",
-    "scope": "tools/scripts/validators/components, tests/run-all.js, tests/run-pr-checks.js, snippets/components",
-    "needs": "R-R10",
-    "purpose_statement": "Validates active component filenames against strict camelCase file naming and PascalCase exports under snippets/components.",
-    "pipeline": "PR/manual validator for snippets/components/** scope",
-    "dualmode": ""
-  },
-  {
     "path": "tools/scripts/validators/components/check-mdx-component-scope.js",
     "category": "validator",
     "purpose": "qa:repo-health",
@@ -1507,6 +1567,16 @@
     "needs": "R-R10, R-R29",
     "purpose_statement": "Validates MDX-facing component modules do not depend on private file-scope helper bindings from exported components.",
     "pipeline": "P1/P3 (commit staged scope and PR changed-file scope)",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/validators/components/check-naming-conventions.js",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tools/scripts/validators/components, tests/run-all.js, tests/run-pr-checks.js, snippets/components",
+    "needs": "R-R10",
+    "purpose_statement": "Validates active component filenames against strict camelCase file naming and PascalCase exports under snippets/components.",
+    "pipeline": "PR/manual validator for snippets/components/** scope",
     "dualmode": ""
   },
   {
@@ -1550,6 +1620,16 @@
     "dualmode": "--check (default) | --fix (safe in-place rewrites)"
   },
   {
+    "path": "tools/scripts/validators/content/check-mdx-safe-markdown.js",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tools/scripts/validators/content, first-party markdown/mdx files",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Validates first-party markdown and MDX content for repo-wide MDX-safe syntax, including parse failures and deterministic unsafe patterns.",
+    "pipeline": "P1 (commit, PR, via run-all)",
+    "dualmode": "--staged (changed-file scope) | --files (explicit scope) | default full-repo"
+  },
+  {
     "path": "tools/scripts/validators/content/check-page-endings.js",
     "category": "validator",
     "purpose": "qa:content-quality",
@@ -1577,6 +1657,16 @@
     "needs": "R-R14, R-R18",
     "purpose_statement": "Validates that required agent governance docs exist and have been touched within a freshness threshold",
     "pipeline": "manual, ci",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/verify-all-pages.js",
+    "category": "enforcer",
+    "purpose": "qa:repo-health",
+    "scope": "tools/scripts",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Page verifier — checks all pages in docs.json resolve to valid files",
+    "pipeline": "manual — not yet in pipeline",
     "dualmode": ""
   },
   {

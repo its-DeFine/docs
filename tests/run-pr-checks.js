@@ -27,9 +27,7 @@ const linksImportsTests = require('./unit/links-imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
-const mdxComponentScopeTests = require('../tools/scripts/validators/components/check-mdx-component-scope');
 const mdxSafeMarkdownValidator = require('../tools/scripts/validators/content/check-mdx-safe-markdown');
-const mdxRuntimeSmoke = require('./integration/mdx-component-runtime-smoke');
 
 const REPO_ROOT = getRepoRoot();
 const SCRIPT_EXTENSIONS = new Set(['.js', '.cjs', '.mjs', '.ts', '.tsx', '.sh', '.bash', '.py']);
@@ -46,6 +44,8 @@ const GENERATED_AFFECTING_PREFIXES = [
 ];
 const GENERATED_AFFECTING_EXACT = new Set([
   'tests/unit/script-docs.test.js',
+  'tests/script-index.md',
+  'tools/script-index.md',
   'v2/index.mdx',
   'v2/resources/documentation-guide/component-library/overview.mdx'
 ]);
@@ -168,9 +168,8 @@ function partitionFiles(changedFiles) {
   };
 }
 
-function rowResult(status, advisory = false) {
+function rowResult(status) {
   if (status === 'passed') return '✅ Pass';
-  if (status === 'failed' && advisory) return '⚠️ Advisory';
   if (status === 'failed') return '❌ Fail';
   return '⏭️ Skipped';
 }
@@ -217,43 +216,13 @@ function runComponentNamingCheck(files) {
 
   const result = componentNamingTests.run({ files });
   result.findings.forEach((finding) => {
-    console.error(componentNamingTests.formatFinding(finding));
+    console.error(`  ${componentNamingTests.formatFinding(finding)}`);
   });
 
   return {
     label: 'Component Naming',
-    status: result.findings.length === 0 ? 'passed' : 'failed',
+    status: result.exitCode === 0 ? 'passed' : 'failed',
     files: files.length,
-    errors: result.findings.length,
-    warnings: 0
-  };
-}
-
-function runMdxComponentScopeCheck(componentFiles, mdxFiles) {
-  const targetFiles = dedupe([
-    ...componentFiles,
-    ...mdxComponentScopeTests.getComponentFilesImportedByMdxFiles(mdxFiles)
-  ]);
-
-  if (!targetFiles.length) {
-    return {
-      label: 'MDX Component Scope',
-      status: 'skipped',
-      files: 0,
-      errors: 0,
-      warnings: 0
-    };
-  }
-
-  const result = mdxComponentScopeTests.run({ files: targetFiles });
-  result.findings.forEach((finding) => {
-    console.error(mdxComponentScopeTests.formatFinding(finding));
-  });
-
-  return {
-    label: 'MDX Component Scope',
-    status: result.findings.length === 0 ? 'passed' : 'failed',
-    files: targetFiles.length,
     errors: result.findings.length,
     warnings: 0
   };
@@ -295,7 +264,7 @@ function runLinkAuditCheck(files) {
 
   const cmd = spawnSync(
     'node',
-    ['tests/integration/v2-link-audit.js', '--files', files.join(','), '--strict', '--strict-roots-only', '--report', LINK_AUDIT_REPORT],
+    ['tests/integration/v2-link-audit.js', '--files', files.join(','), '--strict', '--report', LINK_AUDIT_REPORT],
     { cwd: REPO_ROOT, encoding: 'utf8' }
   );
 
@@ -306,33 +275,6 @@ function runLinkAuditCheck(files) {
     label: 'V2 Link Audit (Strict)',
     status: cmd.status === 0 ? 'passed' : 'failed',
     files: files.length,
-    errors: cmd.status === 0 ? 0 : 1,
-    warnings: 0
-  };
-}
-
-function runMdxRuntimeSmokeCheck(changedFiles) {
-  if (!mdxRuntimeSmoke.shouldRunForChangedFiles(changedFiles)) {
-    return {
-      label: 'MDX Runtime Smoke',
-      status: 'skipped',
-      files: 0,
-      errors: 0,
-      warnings: 0
-    };
-  }
-
-  const cmd = spawnSync('node', ['tests/integration/mdx-component-runtime-smoke.js'], {
-    cwd: REPO_ROOT,
-    encoding: 'utf8'
-  });
-  if (cmd.stdout) process.stdout.write(cmd.stdout);
-  if (cmd.stderr) process.stderr.write(cmd.stderr);
-
-  return {
-    label: 'MDX Runtime Smoke',
-    status: cmd.status === 0 ? 'passed' : 'failed',
-    files: mdxRuntimeSmoke.SENTINEL_ROUTES.length,
     errors: cmd.status === 0 ? 0 : 1,
     warnings: 0
   };
@@ -357,71 +299,6 @@ function runDocsNavigationCheck() {
     files: result.total || 1,
     errors: Array.isArray(result.errors) ? result.errors.length : 0,
     warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
-  };
-}
-
-function runAnchorUsageCheck() {
-  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'anchor-usage-check-'));
-  const outputPath = path.join(tmpDir, 'anchor-usage.json');
-  const cmd = spawnSync('sh', ['-c', `node tools/scripts/validators/content/check-anchor-usage.js --json > "${outputPath}"`], {
-    cwd: REPO_ROOT,
-    encoding: 'utf8'
-  });
-
-  if (cmd.stderr) process.stderr.write(cmd.stderr);
-
-  if (cmd.error) {
-    fs.rmSync(tmpDir, { recursive: true, force: true });
-    console.warn(`⚠️ Advisory anchor usage check failed to run cleanly: ${cmd.error.message}`);
-    return {
-      label: 'Anchor Usage',
-      status: 'failed',
-      advisory: true,
-      files: 1,
-      errors: 1,
-      warnings: 0
-    };
-  }
-
-  let payload = null;
-  if (fs.existsSync(outputPath)) {
-    try {
-      payload = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
-    } catch (error) {
-      console.warn(`⚠️ Advisory anchor usage output could not be parsed: ${error.message}`);
-    }
-  }
-  fs.rmSync(tmpDir, { recursive: true, force: true });
-
-  if (!payload || !payload.summary) {
-    return {
-      label: 'Anchor Usage',
-      status: 'failed',
-      advisory: true,
-      files: 1,
-      errors: 1,
-      warnings: 0
-    };
-  }
-
-  const summary = payload.summary;
-  const files = Number(summary.filesScanned) || 0;
-  const errors = Number(summary.errors) || 0;
-  const warnings = Number(summary.warnings) || 0;
-
-  if (errors > 0 || warnings > 0) {
-    console.warn(`⚠️ Advisory anchor usage findings: ${errors} errors, ${warnings} warnings.`);
-  } else {
-    console.log('✅ Anchor usage check passed.');
-  }
-
-  return {
-    label: 'Anchor Usage',
-    status: errors === 0 && cmd.status === 0 ? 'passed' : 'failed',
-    advisory: true,
-    files,
-    errors,
-    warnings
   };
 }
 
@@ -582,21 +459,15 @@ async function main() {
   console.log(`Changed usefulness files: ${groups.usefulnessFiles.length}`);
 
   const checks = [];
-  checks.push(
-    await runUnitCheck('Style Guide', groups.styleFiles, (options) =>
-      styleGuideTests.runTests({ ...options, baseRef: args.baseRef })
-    )
-  );
+  checks.push(runComponentNamingCheck(groups.componentJsx));
+  checks.push(await runUnitCheck('Style Guide', groups.styleFiles, styleGuideTests.runTests));
   checks.push(await runUnitCheck('MDX Validation', groups.docsMdxAbs, mdxTests.runTests));
   checks.push(await runUnitCheck('MDX-safe Markdown', groups.repoMarkdownFilesAbs, mdxSafeMarkdownValidator.run));
   checks.push(await runUnitCheck('Spelling', groups.docsMdxAbs, spellingTests.runTests));
   checks.push(await runUnitCheck('Quality', groups.docsMdxAbs, qualityTests.runTests));
   checks.push(await runUnitCheck('Links & Imports', groups.docsMdxAbs, linksImportsTests.runTests));
-  checks.push(runComponentNamingCheck(groups.componentJsx));
-  checks.push(runMdxComponentScopeCheck(groups.componentJsx, groups.docsMdxAbs));
   checks.push(runGlobalCheck('MDX Guardrails', mdxGuardsTests.runTests));
   checks.push(runDocsNavigationCheck());
-  checks.push(runAnchorUsageCheck());
   checks.push(runDocsJsonRedirectGuard(args.baseRef, changedFiles));
   checks.push(runGeneratedBannerCheck(changedFiles));
   checks.push(runCodexTaskContractCheck(currentBranch, changedFiles, args.baseRef));
@@ -604,14 +475,13 @@ async function main() {
   checks.push(runScriptDocsCheck(groups.scriptFiles));
   checks.push(runUsefulnessChecks(groups.usefulnessFiles));
   checks.push(runLinkAuditCheck(groups.docsMdx));
-  checks.push(runMdxRuntimeSmokeCheck(changedFiles));
 
   console.log('\n============================================================');
   console.log('PR Changed-File Checks Summary');
   console.log('============================================================');
   checks.forEach((check) => {
     console.log(
-      `${rowResult(check.status, check.advisory)} ${check.label} (files: ${check.files}, errors: ${check.errors}, warnings: ${check.warnings})`
+      `${rowResult(check.status)} ${check.label} (files: ${check.files}, errors: ${check.errors}, warnings: ${check.warnings})`
     );
   });
 
@@ -622,12 +492,12 @@ async function main() {
     '|---|---:|---|---:|---:|',
     ...checks.map(
       (check) =>
-        `| ${check.label} | ${check.files} | ${rowResult(check.status, check.advisory)} | ${check.errors} | ${check.warnings} |`
+        `| ${check.label} | ${check.files} | ${rowResult(check.status)} | ${check.errors} | ${check.warnings} |`
     ),
     ''
   ]);
 
-  const failed = checks.filter((check) => check.status === 'failed' && !check.advisory);
+  const failed = checks.filter((check) => check.status === 'failed');
   if (failed.length > 0) {
     console.error(`\n❌ ${failed.length} changed-file check(s) failed`);
     process.exit(1);

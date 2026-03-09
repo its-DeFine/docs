@@ -10,16 +10,16 @@ Content components handle code display, external content loading, and data prese
 | `external-content.jsx` | `ExternalContent`                                                                                                      | External content loader (GitHub repos) |
 | `math.jsx`             | `MathInline`, `MathBlock`                                                                                              | Math wrapper components (no deps) |
 | `release.jsx`          | `LatestVersion`                                                                                                        | Version display component     |
-| `responseField.jsx`    | `ValueResponseField`, `CustomResponseField`, `ResponseFieldExpandable`, `ResponseFieldAccordion`, `ResponseFieldGroup` | API response field components |
+| `response-field.jsx`    | `ValueResponseField`, `CustomResponseField`, `ResponseFieldExpandable`, `ResponseFieldAccordion`, `ResponseFieldGroup` | API response field components |
 
 ## Usage
 
 ```jsx
 import { CustomCodeBlock, CodeComponent } from "/snippets/components/content/code.jsx";
-import { ExternalContent } from "/snippets/components/content/externalContent.jsx";
-import { MathInline, MathBlock } from "/snippets/components/content/math.jsx";
-import { LatestVersion } from "/snippets/components/content/release.jsx";
-import { ResponseFieldExpandable } from "/snippets/components/content/responseField.jsx";
+import { ExternalContent } from "/snippets/components/content/external-content.jsx";
+import { MathInline, MathBlock } from "/snippets/components/primitives/math.jsx";
+import { LatestVersion } from "/snippets/components/data/release.jsx";
+import { ResponseFieldExpandable } from "/snippets/components/content/response-field.jsx";
 ```
 
 ## Theme Support
@@ -51,7 +51,7 @@ See the `examples/` folder for runnable MDX examples of each component.
 ### Math Example
 
 ```mdx
-import { MathInline, MathBlock } from "/snippets/components/content/math.jsx";
+import { MathInline, MathBlock } from "/snippets/components/primitives/math.jsx";
 
 Inline: <MathInline latex={String.raw`V_i = \frac{B_i}{B_T}`} />
 

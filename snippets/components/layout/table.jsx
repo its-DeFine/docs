@@ -1,43 +1,25 @@
 /**
  * @component DynamicTable
  * @category layout
- * @tier pattern
+ * @tier composite
  * @status stable
- * @description DynamicTable - A reusable table component with site-consistent styling
- * @contentAffinity concept
- * @owner @livepeer/docs-team
+ * @description Dynamic Table layout component for arranging documentation content without MDX inline styles.
+ * @contentAffinity overview, tutorial, reference
+ * @owner docs
  * @dependencies none
- * @usedIn v2/about/livepeer-network/interfaces.mdx, v2/about/livepeer-network/job-lifecycle.mdx
- *   v2/about/livepeer-network/marketplace.mdx, v2/about/livepeer-network/technical-architecture.mdx
- *   v2/about/livepeer-protocol/core-mechanisms.mdx, v2/about/livepeer-protocol/livepeer-token.mdx
- *   v2/about/livepeer-protocol/overview.mdx, v2/about/livepeer-protocol/technical-architecture.mdx
- *   v2/about/livepeer-protocol/treasury.mdx, v2/developers/ai-inference-on-livepeer/overview.mdx
- *   v2/developers/ai-inference-on-livepeer/workload-fit.mdx, v2/developers/ai-pipelines/byoc.mdx
- *   v2/developers/ai-pipelines/comfystream.mdx, v2/developers/ai-pipelines/model-support.mdx
- *   v2/developers/ai-pipelines/workload-fit.mdx
- *   v2/gateways/guides-and-resources/gateway-job-pipelines/overview.mdx
- *   v2/gateways/run-a-gateway/configure/pricing-configuration.mdx
- *   v2/gateways/run-a-gateway/configure/video-configuration-view.mdx
- *   v2/gateways/run-a-gateway/configure/video-configuration.mdx
- *   v2/orchestrators/advanced-setup/hosting-models.mdx, v2/orchestrators/quickstart/join-a-pool.mdx
- *   v2/orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/layout.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @usedIn v2/about/livepeer-network/interfaces.mdx, v2/about/livepeer-network/job-lifecycle.mdx, v2/about/livepeer-network/marketplace.mdx, v2/about/livepeer-network/technical-architecture.mdx, v2/about/livepeer-protocol/core-mechanisms.mdx, v2/about/livepeer-protocol/livepeer-token.mdx, v2/about/livepeer-protocol/overview.mdx, v2/about/livepeer-protocol/technical-architecture.mdx, v2/about/livepeer-protocol/treasury.mdx, v2/cn/about/livepeer-network/interfaces.mdx, v2/cn/about/livepeer-network/job-lifecycle.mdx, v2/cn/about/livepeer-network/marketplace.mdx, v2/cn/about/livepeer-network/technical-architecture.mdx, v2/cn/about/livepeer-protocol/core-mechanisms.mdx, v2/cn/about/livepeer-protocol/livepeer-token.mdx, v2/cn/about/livepeer-protocol/overview.mdx, v2/cn/about/livepeer-protocol/technical-architecture.mdx, v2/cn/about/livepeer-protocol/treasury.mdx, v2/cn/developers/ai-pipelines/byoc.mdx, v2/cn/developers/ai-pipelines/comfystream.mdx, v2/cn/developers/ai-pipelines/overview.mdx, v2/cn/docs-guide/components-index.mdx, v2/cn/docs-guide/indexes/components-index.mdx, v2/cn/docs-guide/lpd.mdx, v2/cn/gateways/run-a-gateway/configure/pricing-configuration.mdx, v2/cn/gateways/run-a-gateway/configure/video-configuration.mdx, v2/cn/orchestrators/quickstart/join-a-pool.mdx, v2/cn/orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx, v2/developers/ai-inference-on-livepeer/overview.mdx, v2/developers/ai-inference-on-livepeer/workload-fit.mdx, v2/developers/ai-pipelines/byoc.mdx, v2/developers/ai-pipelines/comfystream.mdx, v2/developers/ai-pipelines/model-support.mdx, v2/developers/ai-pipelines/workload-fit.mdx, v2/es/about/livepeer-network/interfaces.mdx, v2/es/about/livepeer-network/job-lifecycle.mdx, v2/es/about/livepeer-network/marketplace.mdx, v2/es/about/livepeer-network/technical-architecture.mdx, v2/es/about/livepeer-protocol/core-mechanisms.mdx, v2/es/about/livepeer-protocol/livepeer-token.mdx, v2/es/about/livepeer-protocol/overview.mdx, v2/es/about/livepeer-protocol/technical-architecture.mdx, v2/es/about/livepeer-protocol/treasury.mdx, v2/es/developers/ai-pipelines/byoc.mdx, v2/es/developers/ai-pipelines/comfystream.mdx, v2/es/developers/ai-pipelines/overview.mdx, v2/es/docs-guide/components-index.mdx, v2/es/docs-guide/indexes/components-index.mdx, v2/es/docs-guide/lpd.mdx, v2/es/gateways/run-a-gateway/configure/pricing-configuration.mdx, v2/es/gateways/run-a-gateway/configure/video-configuration.mdx, v2/es/orchestrators/quickstart/join-a-pool.mdx, v2/es/orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx, v2/fr/about/livepeer-network/interfaces.mdx, v2/fr/about/livepeer-network/job-lifecycle.mdx, v2/fr/about/livepeer-network/marketplace.mdx, v2/fr/about/livepeer-network/technical-architecture.mdx, v2/fr/about/livepeer-protocol/core-mechanisms.mdx, v2/fr/about/livepeer-protocol/livepeer-token.mdx, v2/fr/about/livepeer-protocol/overview.mdx, v2/fr/about/livepeer-protocol/technical-architecture.mdx, v2/fr/about/livepeer-protocol/treasury.mdx, v2/fr/developers/ai-pipelines/byoc.mdx, v2/fr/developers/ai-pipelines/comfystream.mdx, v2/fr/developers/ai-pipelines/overview.mdx, v2/fr/docs-guide/components-index.mdx, v2/fr/docs-guide/indexes/components-index.mdx, v2/fr/docs-guide/lpd.mdx, v2/fr/gateways/run-a-gateway/configure/pricing-configuration.mdx, v2/fr/gateways/run-a-gateway/configure/video-configuration.mdx, v2/fr/orchestrators/quickstart/join-a-pool.mdx, v2/fr/orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx, v2/gateways/guides-and-resources/gateway-job-pipelines/overview.mdx, v2/gateways/run-a-gateway/configure/pricing-configuration.mdx, v2/gateways/run-a-gateway/configure/video-configuration-view.mdx, v2/gateways/run-a-gateway/configure/video-configuration.mdx, v2/orchestrators/advanced-setup/hosting-models.mdx, v2/orchestrators/quickstart/join-a-pool.mdx, v2/orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
- * @param {React.ReactNode} [tableTitle=null] - Table title used by the component.
- * @param {Array} [headerList=[]] - Collection data rendered by the component.
- * @param {Array} [itemsList=[]] - Collection data rendered by the component.
- * @param {Array} [monospaceColumns=[]] - Collection data rendered by the component.
- * @param {string} margin - Margin used by the component.
- *
+ * @lastMeaningfulChange 2026-03-03
+ * @param {any} [tableTitle=null] - table Title prop.
+ * @param {Array} [headerList=[]] - header List prop.
+ * @param {Array} [itemsList=[]] - items List prop.
+ * @param {Array} [monospaceColumns=[]] - monospace Columns prop.
+ * @param {any} margin - margin prop.
  * @example
- * <DynamicTable margin="value" />
+ * <DynamicTable margin="example" />
  */
 export const DynamicTable = ({
   tableTitle = null,
@@ -75,7 +57,7 @@ export const DynamicTable = ({
             <tr
               style={{
                 backgroundColor: "var(--accent)",
-                color: "var(--lp-color-white)",
+                color: "var(--lp-color-on-accent)",
               }}
             >
               {headerList.map((header, index) => (
@@ -86,7 +68,7 @@ export const DynamicTable = ({
                     textAlign: "left",
                     fontWeight: "600",
                     borderBottom: "2px solid var(--accent)",
-                    color: "var(--lp-color-white)",
+                    color: "var(--lp-color-on-accent)",
                   }}
                 >
                   {header}
@@ -101,16 +83,16 @@ export const DynamicTable = ({
                   key={rowIndex}
                   style={{
                     backgroundColor: "var(--accent)",
-                    color: "var(--lp-color-white)",
+                    color: "var(--lp-color-on-accent)",
                     borderBottom: "1px solid var(--accent)",
                   }}
                 >
                   <td
                     colSpan={headerList.length}
-                    style={{
-                      padding: "8px 16px",
-                      fontWeight: "700",
-                      color: "var(--lp-color-white)",
+                  style={{
+                    padding: "8px 16px",
+                    fontWeight: "700",
+                      color: "var(--lp-color-on-accent)",
                       letterSpacing: "0.01em",
                     }}
                   >

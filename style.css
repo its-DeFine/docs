@@ -36,62 +36,104 @@ F61067 - Razzmatazz Pink
 
 /* ============================================
    GLOBAL THEME VARIABLES
-   Matches ThemeData from snippets/styles/themeStyles.jsx
+   Component governance source of truth
    ============================================ */
 
 :root {
-  /* Light Mode Colors */
-  --accent: #3cb540;
-  --accent-dark: #18794e;
-  --hero-text: #181c18;
-  --text: #717571;
-  --muted-text: #9ca3af;
-  --background: #ffffff;
-  --card-background: #f9fafb;
-  --border: #e5e7eb;
-  --button-text: #ffffff;
+  --lp-color-accent: #3cb540;
+  --lp-color-accent-strong: #18794e;
+  --lp-color-accent-soft: #6bbf59;
+  --lp-color-accent-bright: #5dd662;
+  --lp-color-accent-brightest: #a0f0a5;
+  --lp-color-text-primary: #181c18;
+  --lp-color-text-secondary: #717571;
+  --lp-color-text-muted: #9ca3af;
+  --lp-color-bg-page: #ffffff;
+  --lp-color-bg-card: #f9fafb;
+  --lp-color-bg-elevated: #f3f6f4;
+  --lp-color-bg-subtle: rgba(24, 28, 24, 0.04);
+  --lp-color-bg-overlay: rgba(12, 12, 12, 0.5);
+  --lp-color-border-default: #e5e7eb;
+  --lp-color-border-strong: rgba(24, 28, 24, 0.18);
+  --lp-color-border-inverse: rgba(255, 255, 255, 0.5);
+  --lp-color-on-accent: #ffffff;
+  --lp-color-link: #18794e;
+  --lp-color-link-hover: #004225;
   --lp-color-brand-discord: #5865f2;
   --lp-color-brand-forum: #00aeef;
-  --lp-color-brand-github: #f0f0f0;
-  --lp-color-white: #fff;
-  --lp-color-callout-coming-soon: #ef1a73;
-  --lp-color-callout-review: #b636dd;
-  --lp-color-response-field-value: #3b82f6;
-  --lp-color-overlay-scrim: rgba(0, 0, 0, 0.5);
-  --lp-color-border-inverse-subtle: rgba(255, 255, 255, 0.4);
-  --lp-color-text-primary: var(--hero-text);
-  --lp-color-text-secondary: var(--text);
-  --lp-color-text-muted: var(--muted-text);
-  --lp-color-icon-muted: #a1a1aa;
-  --lp-color-surface-dark: var(--card-background);
+  --lp-color-brand-github: #181c18;
+  --lp-color-brand-x: #181c18;
+  --lp-color-brand-preview: #b636dd;
+  --lp-color-brand-coming-soon: #ef1a73;
+  --lp-color-status-good: #22c55e;
+  --lp-color-status-warn: #fbbf24;
+  --lp-color-status-bad: #ef4444;
+  --lp-spacing-1: 0.25rem;
+  --lp-spacing-2: 0.5rem;
+  --lp-spacing-3: 0.75rem;
+  --lp-spacing-4: 1rem;
+  --lp-spacing-6: 1.5rem;
+  --lp-spacing-8: 2rem;
+  --lp-font-sans: "Inter", "Segoe UI", sans-serif;
+  --lp-font-mono: "SFMono-Regular", "SF Mono", "Menlo", monospace;
+  --lp-radius-sm: 0.25rem;
+  --lp-radius-md: 0.5rem;
+  --lp-radius-lg: 0.75rem;
+  --lp-shadow-card: 0 8px 24px rgba(24, 28, 24, 0.08);
+  --lp-z-base: 1;
+  --lp-z-overlay: 10;
+  --lp-z-modal: 50;
+
+  /* Legacy aliases maintained during migration */
+  --accent: var(--lp-color-accent);
+  --accent-dark: var(--lp-color-accent-strong);
+  --hero-text: var(--lp-color-text-primary);
+  --text: var(--lp-color-text-secondary);
+  --text-secondary: var(--lp-color-text-secondary);
+  --muted-text: var(--lp-color-text-muted);
+  --background: var(--lp-color-bg-page);
+  --card-background: var(--lp-color-bg-card);
+  --background-highlight: var(--lp-color-bg-subtle);
+  --border: var(--lp-color-border-default);
+  --button-text: var(--lp-color-on-accent);
+  --page-header-description-color: var(--lp-color-text-secondary);
 }
 
 .dark {
-  /* Dark Mode Colors */
-  --accent: #2b9a66;
-  --accent-dark: #18794e;
-  --hero-text: #e0e4e0;
-  --text: #a0a4a0;
-  --muted-text: #6b7280;
-  --background: #0d0d0d;
-  --card-background: #1a1a1a;
-  --border: #333333;
-  --button-text: #ffffff;
-  --background-highlight: rgba(255, 255, 255, 0.1);
-  --lp-color-brand-discord: #5865f2;
-  --lp-color-brand-forum: #00aeef;
+  --lp-color-accent: #2b9a66;
+  --lp-color-accent-strong: #18794e;
+  --lp-color-accent-soft: #3cb540;
+  --lp-color-accent-bright: #5dd662;
+  --lp-color-accent-brightest: #7fe584;
+  --lp-color-text-primary: #e0e4e0;
+  --lp-color-text-secondary: #a0a4a0;
+  --lp-color-text-muted: #6b7280;
+  --lp-color-bg-page: #0d0d0d;
+  --lp-color-bg-card: #1a1a1a;
+  --lp-color-bg-elevated: #141a16;
+  --lp-color-bg-subtle: rgba(255, 255, 255, 0.1);
+  --lp-color-bg-overlay: rgba(0, 0, 0, 0.5);
+  --lp-color-border-default: #333333;
+  --lp-color-border-strong: rgba(255, 255, 255, 0.3);
+  --lp-color-border-inverse: rgba(255, 255, 255, 0.5);
+  --lp-color-on-accent: #ffffff;
+  --lp-color-link: #5dd662;
+  --lp-color-link-hover: #a0f0a5;
   --lp-color-brand-github: #f0f0f0;
-  --lp-color-white: #fff;
-  --lp-color-callout-coming-soon: #ef1a73;
-  --lp-color-callout-review: #b636dd;
-  --lp-color-response-field-value: #3b82f6;
-  --lp-color-overlay-scrim: rgba(0, 0, 0, 0.5);
-  --lp-color-border-inverse-subtle: rgba(255, 255, 255, 0.4);
-  --lp-color-text-primary: var(--hero-text);
-  --lp-color-text-secondary: var(--text);
-  --lp-color-text-muted: var(--muted-text);
-  --lp-color-icon-muted: #6b7280;
-  --lp-color-surface-dark: var(--card-background);
+
+  /* Legacy aliases maintained during migration */
+  --accent: var(--lp-color-accent);
+  --accent-dark: var(--lp-color-accent-strong);
+  --hero-text: var(--lp-color-text-primary);
+  --text: var(--lp-color-text-secondary);
+  --text-secondary: var(--lp-color-text-secondary);
+  --muted-text: var(--lp-color-text-muted);
+  --background: var(--lp-color-bg-page);
+  --card-background: var(--lp-color-bg-card);
+  --background-highlight: var(--lp-color-bg-subtle);
+  --border: var(--lp-color-border-default);
+  --button-text: var(--lp-color-on-accent);
+  --page-header-description-color: var(--lp-color-text-secondary);
 }
 /* ============================================ */
 
@@ -129,6 +171,12 @@ img[alt="light logo"] {
 a.nav-tabs-item[href="/pages/08_help/README"] {
   color: rgba(255, 90, 90, 0.342) !important;
 } */
+
+/* Make the nav-tabs container full width */
+.nav-tabs {
+  width: 100%;
+  justify-content: flex-start;
+}
 
 /* Make the nav-tabs container full width */
 .nav-tabs {
@@ -312,19 +360,6 @@ body
   background-color: #18794e !important;
 } */
 
-/* StyledSteps wrapper-scoped overrides */
-[data-lp-styled-steps] .steps > div > div.absolute > div {
-  background-color: var(--lp-styled-steps-icon-color);
-}
-
-[data-lp-styled-steps] .steps > div > div.w-full > p {
-  color: var(--lp-styled-steps-title-color);
-}
-
-[data-lp-styled-steps] .steps > div > div.absolute.w-px {
-  background-color: var(--lp-styled-steps-line-color);
-}
-
 /* Step List Color Titles */
 #content
   > div.steps.ml-3\.5.mt-10.mb-6
@@ -443,6 +478,15 @@ img[alt="US"][src*="flags/US.svg"]::before {
     margin-left: 0;
     margin-right: 0;
   }
+}
+
+#starfield {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Target the card content container */

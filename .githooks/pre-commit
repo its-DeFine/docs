@@ -20,7 +20,6 @@
 #   SKIP_STYLE_CHECK=1     - Skip style guide compliance checks
 #   SKIP_VERIFICATION=1    - Skip verification scripts
 #   SKIP_TESTS=1           - Skip test suite
-#   SKIP_WCAG_AUDIT=1      - Skip staged WCAG browser audit while keeping other staged checks enabled
 #   SKIP_ALL=1             - Skip all checks (use with extreme caution)
 #
 # Human-only override flags:
@@ -44,7 +43,6 @@ SKIP_STRUCTURE_CHECK=${SKIP_STRUCTURE_CHECK:-0}
 SKIP_STYLE_CHECK=${SKIP_STYLE_CHECK:-0}
 SKIP_VERIFICATION=${SKIP_VERIFICATION:-0}
 SKIP_TESTS=${SKIP_TESTS:-0}
-SKIP_WCAG_AUDIT=${SKIP_WCAG_AUDIT:-0}
 SKIP_ALL=${SKIP_ALL:-0}
 ALLOW_DELETIONS=${ALLOW_DELETIONS:-0}
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD 2>/dev/null || echo "")
@@ -65,7 +63,6 @@ get_staged_docs_pages() {
 }
 
 STAGED_DOCS_PAGES=$(get_staged_docs_pages)
-STAGED_DOCS_PAGES_CSV=$(printf "%s" "$STAGED_DOCS_PAGES" | paste -sd, -)
 # pre-commit hooks do not receive commit args directly. Detect trailer usage
 # from the parent git commit command.
 PARENT_GIT_CMD=$(ps -o command= -p "$PPID" 2>/dev/null || true)
@@ -78,141 +75,6 @@ has_human_override_trailer() {
             ;;
     esac
     return 1
-}
-
-staged_added_lines_match() {
-    local file="$1"
-    local pattern="$2"
-
-    git diff --cached --unified=0 -- "$file" 2>/dev/null | grep -Eq "^\+[^+].*(${pattern})"
-}
-
-get_contract_allowed_generated() {
-    local contract_path=".codex/task-contract.yaml"
-    if [ ! -f "$contract_path" ]; then
-        return 0
-    fi
-
-    awk '
-        /^allowed_generated:[[:space:]]*$/ { in_block = 1; next }
-        in_block && /^[^[:space:]-]/ { in_block = 0 }
-        in_block && /^[[:space:]]*-[[:space:]]*/ {
-            line = $0
-            sub(/^[[:space:]]*-[[:space:]]*/, "", line)
-            print line
-        }
-    ' "$contract_path"
-}
-
-path_in_allowed_generated() {
-    local target="$1"
-    local entry=""
-
-    while IFS= read -r entry; do
-        [ -z "$entry" ] && continue
-        if [ "$target" = "$entry" ]; then
-            return 0
-        fi
-        case "$entry" in
-            */)
-                if [[ "$target" == "$entry"* ]]; then
-                    return 0
-                fi
-                ;;
-            *)
-                if [[ "$target" == "$entry/"* ]]; then
-                    return 0
-                fi
-                ;;
-        esac
-    done < <(get_contract_allowed_generated)
-
-    return 1
-}
-
-is_repo_generated_untrack_allowlisted() {
-    local file="$1"
-
-    case "$file" in
-        docs-index.json|llms-full.txt|tools/scripts/snippets/generate-data/data/discovered-terms.json|tools/scripts/snippets/generate-data/data/glossary-terms.json)
-            return 0
-            ;;
-    esac
-
-    return 1
-}
-
-is_allowed_generated_untrack() {
-    local file="$1"
-
-    if [ ! -e "$file" ]; then
-        return 1
-    fi
-
-    if ! git check-ignore -q -- "$file"; then
-        return 1
-    fi
-
-    if is_repo_generated_untrack_allowlisted "$file"; then
-        return 0
-    fi
-
-    if [[ "$CURRENT_BRANCH" == codex/* ]] && path_in_allowed_generated "$file"; then
-        return 0
-    fi
-
-    return 1
-}
-
-head_blob_for_path() {
-    local file="$1"
-    git rev-parse "HEAD:${file}" 2>/dev/null || true
-}
-
-has_surviving_index_blob_match() {
-    local blob="$1"
-    local deleted_file="$2"
-    local matches=""
-
-    matches=$(git ls-files -s | awk -v blob="$blob" '$2 == blob { print $4 }')
-    while IFS= read -r match; do
-        if [[ -n "$match" && "$match" != "$deleted_file" ]]; then
-            return 0
-        fi
-    done <<< "$matches"
-
-    return 1
-}
-
-is_safe_duplicate_deletion() {
-    local file="$1"
-    local head_blob=""
-
-    head_blob=$(head_blob_for_path "$file")
-    if [[ -z "$head_blob" ]]; then
-        return 1
-    fi
-
-    has_surviving_index_blob_match "$head_blob" "$file"
-}
-
-partition_deleted_files() {
-    local deleted_list="$1"
-    ALLOWED_GENERATED_DELETIONS=""
-    SAFE_DUPLICATE_DELETIONS=""
-    BLOCKED_DELETED_FILES=""
-
-    while IFS= read -r file; do
-        [ -z "$file" ] && continue
-
-        if is_allowed_generated_untrack "$file"; then
-            ALLOWED_GENERATED_DELETIONS="${ALLOWED_GENERATED_DELETIONS}${file}"$'\n'
-        elif is_safe_duplicate_deletion "$file"; then
-            SAFE_DUPLICATE_DELETIONS="${SAFE_DUPLICATE_DELETIONS}${file}"$'\n'
-        else
-            BLOCKED_DELETED_FILES="${BLOCKED_DELETED_FILES}${file}"$'\n'
-        fi
-    done <<< "$deleted_list"
 }
 
 is_codex_session() {
@@ -350,47 +212,46 @@ should_enforce_ai_stash_policy() {
     return 1
 }
 
-allow_manifest_migrate_asset_deletions() {
-    local deleted_files="$1"
-    local manifest_path="tasks/reports/media-audit/media-audit-manifest.json"
+get_git_blob_ref() {
+    local object_ref="$1"
+    git rev-parse --verify "$object_ref" 2>/dev/null || true
+}
 
-    if [[ "$CURRENT_BRANCH" != codex/* ]]; then
+get_archive_followup_target() {
+    local file_path="$1"
+
+    if [[ "$file_path" != v2/* ]]; then
         return 1
     fi
 
-    if [[ -z "$deleted_files" ]] || [[ ! -f "$manifest_path" ]]; then
+    if [[ "$file_path" == v2/x-archived/* ]]; then
         return 1
     fi
 
-    DELETED_FILES_INPUT="$deleted_files" node - <<'NODE'
-const fs = require('fs');
-
-const deletedFiles = String(process.env.DELETED_FILES_INPUT || '')
-  .split('\n')
-  .map((entry) => entry.trim())
-  .filter(Boolean);
-
-if (deletedFiles.length === 0) {
-  process.exit(1);
+    printf 'v2/x-archived/%s\n' "${file_path#v2/}"
 }
 
-let manifest;
-try {
-  manifest = JSON.parse(fs.readFileSync('tasks/reports/media-audit/media-audit-manifest.json', 'utf8'));
-} catch (_error) {
-  process.exit(1);
-}
+is_allowed_archive_followup_delete() {
+    local file_path="$1"
+    local archive_path=""
+    local source_blob=""
+    local archive_blob=""
 
-const assets = Array.isArray(manifest && manifest.assets) ? manifest.assets : [];
-const allowed = new Set(
-  assets
-    .filter((asset) => asset && typeof asset.migration_target === 'string' && asset.migration_target.startsWith('migrate_'))
-    .map((asset) => String(asset.path || '').trim())
-    .filter(Boolean)
-);
+    archive_path=$(get_archive_followup_target "$file_path") || return 1
+    source_blob=$(get_git_blob_ref "HEAD:$file_path")
+    if [ -z "$source_blob" ]; then
+        return 1
+    fi
 
-process.exit(deletedFiles.every((filePath) => allowed.has(filePath)) ? 0 : 1);
-NODE
+    archive_blob=$(get_git_blob_ref ":$archive_path")
+    if [ -z "$archive_blob" ]; then
+        archive_blob=$(get_git_blob_ref "HEAD:$archive_path")
+    fi
+    if [ -z "$archive_blob" ]; then
+        return 1
+    fi
+
+    [ "$source_blob" = "$archive_blob" ]
 }
 
 if [ "$SKIP_ALL" = "1" ]; then
@@ -416,51 +277,32 @@ fi
 # Check for file deletions (BLOCKED - requires human override)
 # NOTE: Deletions in tasks/ are allowed (AI-only working directory)
 ALL_DELETED_FILES=$(git diff --cached --name-only --diff-filter=D || true)
-DELETED_FILES_INPUT=$(echo "$ALL_DELETED_FILES" | grep -v '^tasks/' || true)
-ALLOWED_LINK_MAP_DELETIONS=$(echo "$DELETED_FILES_INPUT" | grep -E '^snippets/data/[^/]+/hrefs\.jsx$' || true)
-REMAINING_DELETED_FILES=$(echo "$DELETED_FILES_INPUT" | grep -Ev '^snippets/data/[^/]+/hrefs\.jsx$' || true)
-partition_deleted_files "$REMAINING_DELETED_FILES"
-if [ -n "$ALLOWED_LINK_MAP_DELETIONS" ]; then
-    ALLOWED_GENERATED_DELETIONS="${ALLOWED_LINK_MAP_DELETIONS}"$'\n'"${ALLOWED_GENERATED_DELETIONS}"
-fi
-DELETED_FILES=$(printf '%s' "$BLOCKED_DELETED_FILES")
-
-if [ -n "$ALLOWED_GENERATED_DELETIONS" ]; then
-    echo -e "${GREEN}✓ Allowed generated file untracking detected:${NC}"
-    echo "$ALLOWED_GENERATED_DELETIONS" | sed '/^$/d; s/^/  • /'
-    echo ""
-fi
-if [ -n "$SAFE_DUPLICATE_DELETIONS" ]; then
-    echo -e "${YELLOW}ℹ️  Allowing duplicate-content deletions with surviving canonical files:${NC}"
-    echo "$SAFE_DUPLICATE_DELETIONS" | sed '/^$/d; s/^/  • /'
-    echo ""
-fi
-ALLOWED_MANIFEST_DELETIONS=""
+DELETED_FILES=$(echo "$ALL_DELETED_FILES" | grep -v '^tasks/' || true)
+ALLOWED_ARCHIVE_DELETIONS=""
 
 if [ -n "$DELETED_FILES" ]; then
-    if [ -n "$ALLOWED_GENERATED_DELETIONS" ]; then
-        echo -e "${YELLOW}ℹ️  Allowing exempt generated deletions:${NC}"
-        echo "$ALLOWED_GENERATED_DELETIONS" | sed '/^$/d; s/^/  ↺ /'
-        echo ""
-    fi
+    FILTERED_DELETED_FILES=""
+    while IFS= read -r deleted_file; do
+        if [ -z "$deleted_file" ]; then
+            continue
+        fi
 
-    if [ -n "$BLOCKED_DELETED_FILES" ] && allow_manifest_migrate_asset_deletions "$BLOCKED_DELETED_FILES"; then
-        ALLOWED_MANIFEST_DELETIONS="$BLOCKED_DELETED_FILES"
-        BLOCKED_DELETED_FILES=""
-        DELETED_FILES=""
-    fi
+        if is_allowed_archive_followup_delete "$deleted_file"; then
+            ALLOWED_ARCHIVE_DELETIONS="${ALLOWED_ARCHIVE_DELETIONS}${deleted_file}"$'\n'
+            continue
+        fi
 
-    if [ -n "$ALLOWED_MANIFEST_DELETIONS" ]; then
-        echo -e "${YELLOW}ℹ️  Allowing manifest-approved media asset deletions:${NC}"
-        echo "$ALLOWED_MANIFEST_DELETIONS" | sed '/^$/d; s/^/  ↺ /'
-        echo ""
-    fi
+        FILTERED_DELETED_FILES="${FILTERED_DELETED_FILES}${deleted_file}"$'\n'
+    done <<< "$DELETED_FILES"
+    DELETED_FILES=$(printf '%s' "$FILTERED_DELETED_FILES")
+fi
 
+if [ -n "$DELETED_FILES" ]; then
     if [ "$ALLOW_DELETIONS" != "1" ] && has_human_override_trailer "allow-deletions"; then
         ALLOW_DELETIONS=1
     fi
 
-    if [ -n "$BLOCKED_DELETED_FILES" ] && [ "$ALLOW_DELETIONS" != "1" ]; then
+    if [ "$ALLOW_DELETIONS" != "1" ]; then
         VIOLATIONS=$((VIOLATIONS + 1))
         echo -e "${RED}╔═══════════════════════════════════════════════════════════════╗${NC}"
         echo -e "${RED}║  ❌ FILE DELETIONS DETECTED - COMMIT BLOCKED                 ║${NC}"
@@ -469,18 +311,10 @@ if [ -n "$DELETED_FILES" ]; then
         echo -e "${RED}🚫 DELETIONS ARE NOT ALLOWED${NC}"
         echo ""
         echo "The following files are being deleted:"
-        echo "$BLOCKED_DELETED_FILES" | sed '/^$/d; s/^/  ❌ /'
+        echo "$DELETED_FILES" | sed 's/^/  ❌ /'
         echo ""
         if [ -n "$(echo "$ALL_DELETED_FILES" | grep '^tasks/')" ]; then
             echo -e "${GREEN}ℹ️  Note: Deletions in tasks/ are allowed (AI-only working directory)${NC}"
-            echo ""
-        fi
-        if [ -n "$ALLOWED_GENERATED_DELETIONS" ]; then
-            echo -e "${GREEN}ℹ️  Generated link maps and approved generated outputs are exempt from this block when safely regenerated or untracked.${NC}"
-            echo ""
-        fi
-        if [ -n "$ALLOWED_MANIFEST_DELETIONS" ]; then
-            echo -e "${GREEN}ℹ️  Manifest-approved migrate_* asset deletions are exempt from this block on codex branches.${NC}"
             echo ""
         fi
         echo -e "${YELLOW}📋 INSTRUCTIONS FOR AI AGENTS:${NC}"
@@ -518,10 +352,15 @@ if [ -n "$DELETED_FILES" ]; then
         echo -e "${RED}⚠️  HUMAN OVERRIDE: Use --trailer \"allow-deletions=true\" to allow deletions${NC}"
         echo -e "${RED}   (AIs must NEVER use this flag - deletions are dangerous!)${NC}"
         echo ""
-    elif [ -n "$BLOCKED_DELETED_FILES" ]; then
+    else
         echo -e "${YELLOW}⚠️  WARNING: File deletions allowed (human override detected)${NC}"
         echo -e "${YELLOW}   Make sure deletions are intentional and files are backed up!${NC}"
     fi
+fi
+
+if [ -n "$ALLOWED_ARCHIVE_DELETIONS" ]; then
+    echo -e "${GREEN}ℹ️  Allowed archive follow-up deletions:${NC}"
+    echo "$ALLOWED_ARCHIVE_DELETIONS" | sed '/^$/d; s/^/  ↪ /'
 fi
 
 # Check for .allowlist file changes (BLOCKED for AIs, requires human override)
@@ -743,7 +582,7 @@ else
             fi
             continue
         fi
-        if staged_added_lines_match "$file" "ThemeData|themeStyles\\.jsx"; then
+        if grep -q "ThemeData\|themeStyles\.jsx" "$file" 2>/dev/null; then
             WARNINGS+=("❌ $file: Uses deprecated ThemeData - use CSS Custom Properties instead")
             VIOLATIONS=$((VIOLATIONS + 1))
         fi
@@ -826,6 +665,13 @@ else
     echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
     echo -e "${YELLOW}Skipping legacy verify.sh in pre-commit (staged-only fast mode).${NC}"
     echo -e "${YELLOW}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${NC}"
+    echo "Checking generated file banners..."
+    if node tools/scripts/enforce-generated-file-banners.js --check --staged; then
+        echo -e "${GREEN}✓ Generated file banner check passed${NC}"
+    else
+        echo "Generated file banners missing or incorrect. Run: node tools/scripts/enforce-generated-file-banners.js --write"
+        exit 1
+    fi
 fi
 
 run_node_check() {
@@ -844,6 +690,34 @@ run_node_check() {
     echo -e "${RED}❌ ${label} failed${NC}"
     return 1
 }
+
+# Component governance checks
+if [ "$SKIP_TESTS" != "1" ]; then
+    STAGED_COMPONENTS=$(git diff --cached --name-only --diff-filter=ACM -- 'snippets/components/**/*.jsx' | grep -v '_archive/' || true)
+    if [ -n "$STAGED_COMPONENTS" ]; then
+        run_node_check \
+          "Running component JSDoc validation (staged)..." \
+          "❌ Component JSDoc validation failed" \
+          tools/scripts/validators/components/check-component-docs.js --staged
+
+        run_node_check \
+          "Running component styling validation (staged)..." \
+          "❌ Component styling validation failed" \
+          tools/scripts/validators/components/check-component-css.js --staged
+
+        if [ $VIOLATIONS -eq 0 ]; then
+            echo -e "${YELLOW}Regenerating component registry...${NC}"
+            if node tools/scripts/generate-component-registry.js 2>&1; then
+                git add docs-guide/component-registry.json docs-guide/component-registry-schema.json 2>/dev/null
+                echo -e "${GREEN}✓ Component registry regenerated${NC}"
+            else
+                VIOLATIONS=$((VIOLATIONS + 1))
+                WARNINGS+=("❌ Component registry generation failed")
+                echo -e "${RED}❌ Component registry generation failed${NC}"
+            fi
+        fi
+    fi
+fi
 
 # Run test suite (fast mode for pre-commit)
 if [ "$SKIP_TESTS" = "1" ]; then
@@ -920,16 +794,14 @@ else
                 run_node_check \
                   "Running staged V2 link audit..." \
                   "❌ Staged V2 link audit failed - see /tmp/livepeer-link-audit-precommit.md" \
-                  tests/integration/v2-link-audit.js --staged --strict --strict-roots-only --report /tmp/livepeer-link-audit-precommit.md
+                  tests/integration/v2-link-audit.js --staged --strict --report /tmp/livepeer-link-audit-precommit.md
             fi
 
-            if [ "$SKIP_WCAG_AUDIT" = "1" ]; then
-                echo -e "${YELLOW}⚠️  Staged V2 WCAG accessibility audit bypassed (SKIP_WCAG_AUDIT=1)${NC}"
-            elif [ -f "tests/integration/v2-wcag-audit.js" ]; then
+            if [ -f "tests/integration/v2-wcag-audit.js" ]; then
                 run_node_check \
                   "Running staged V2 WCAG accessibility audit..." \
                   "❌ Staged V2 WCAG accessibility audit failed - see /tmp/livepeer-wcag-audit-precommit.md" \
-                  tests/integration/v2-wcag-audit.js --files "$STAGED_DOCS_PAGES_CSV" --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json
+                  tests/integration/v2-wcag-audit.js --staged --fix --stage --max-pages 10 --fail-impact serious --report /tmp/livepeer-wcag-audit-precommit.md --report-json /tmp/livepeer-wcag-audit-precommit.json
             fi
         else
             echo -e "${GREEN}✓ No staged docs pages, skipping link audit and WCAG audit${NC}"

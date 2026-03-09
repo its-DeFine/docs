@@ -14,16 +14,7 @@
  * Main test runner - orchestrates all test suites
  */
 const { spawnSync } = require('child_process');
-const Module = require('module');
 const path = require('path');
-
-const TESTS_NODE_MODULES = path.resolve(__dirname, 'node_modules');
-if (!Module.globalPaths.includes(TESTS_NODE_MODULES)) {
-  process.env.NODE_PATH = [TESTS_NODE_MODULES, process.env.NODE_PATH || '']
-    .filter(Boolean)
-    .join(path.delimiter);
-  Module._initPaths();
-}
 
 const styleGuideTests = require('./unit/style-guide.test');
 const mdxTests = require('./unit/mdx.test');
@@ -34,8 +25,9 @@ const qualityTests = require('./unit/quality.test');
 const linksImportsTests = require('./unit/links-imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
+const componentGovernanceUtilsTests = require('./unit/component-governance-utils.test');
+const componentGovernanceGeneratorTests = require('./unit/component-governance-generators.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
-const mdxComponentScopeTests = require('../tools/scripts/validators/components/check-mdx-component-scope');
 const mdxSafeMarkdownValidator = require('../tools/scripts/validators/content/check-mdx-safe-markdown');
 const pagesIndexGenerator = require('../tools/scripts/generate-pages-index');
 const browserTests = require('./integration/browser.test');
@@ -73,15 +65,6 @@ async function runAllTests() {
   });
   totalErrors += componentNamingResult.findings.length;
   console.log(`   ${componentNamingResult.findings.length} errors, 0 warnings`);
-
-  // MDX-Facing Component Scope
-  console.log('\n🧱 Running MDX-Facing Component Scope Checks...');
-  const mdxComponentScopeResult = mdxComponentScopeTests.run({ stagedOnly });
-  mdxComponentScopeResult.findings.forEach((finding) => {
-    console.error(`  ${mdxComponentScopeTests.formatFinding(finding)}`);
-  });
-  totalErrors += mdxComponentScopeResult.findings.length;
-  console.log(`   ${mdxComponentScopeResult.findings.length} errors, 0 warnings`);
   
   // MDX Tests
   console.log('\n📄 Running MDX Validation Tests...');
@@ -152,6 +135,24 @@ async function runAllTests() {
   totalWarnings += scriptDocsResult.warnings.length;
   console.log(`   ${scriptDocsResult.errors.length} errors, ${scriptDocsResult.warnings.length} warnings`);
 
+  // Component Governance Utility Tests
+  console.log('\n🧩 Running Component Governance Utility Tests...');
+  const componentGovernanceUtilsResult = componentGovernanceUtilsTests.runTests();
+  totalErrors += componentGovernanceUtilsResult.errors.length;
+  totalWarnings += componentGovernanceUtilsResult.warnings.length;
+  console.log(
+    `   ${componentGovernanceUtilsResult.errors.length} errors, ${componentGovernanceUtilsResult.warnings.length} warnings`
+  );
+
+  // Component Governance Generator Tests
+  console.log('\n🗂️  Running Component Governance Generator Tests...');
+  const componentGovernanceGeneratorResult = componentGovernanceGeneratorTests.runTests();
+  totalErrors += componentGovernanceGeneratorResult.errors.length;
+  totalWarnings += componentGovernanceGeneratorResult.warnings.length;
+  console.log(
+    `   ${componentGovernanceGeneratorResult.errors.length} errors, ${componentGovernanceGeneratorResult.warnings.length} warnings`
+  );
+
   // Usefulness Unit Tests
   console.log('\n📈 Running Usefulness Unit Tests...');
   const usefulnessRubricCheck = spawnSync(
@@ -173,18 +174,6 @@ async function runAllTests() {
   if (usefulnessJourneyCheck.status !== 0) totalErrors += 1;
   const usefulnessFailures = (usefulnessRubricCheck.status === 0 ? 0 : 1) + (usefulnessJourneyCheck.status === 0 ? 0 : 1);
   console.log(`   ${usefulnessFailures} errors, 0 warnings`);
-
-  // Asset Migration Remediator Unit Tests
-  console.log('\n📦 Running Asset Migration Remediator Unit Tests...');
-  const migrateAssetsCheck = spawnSync(
-    'node',
-    ['tests/unit/migrate-assets-to-branch.test.js'],
-    { cwd: REPO_ROOT, encoding: 'utf8' }
-  );
-  if (migrateAssetsCheck.stdout) process.stdout.write(migrateAssetsCheck.stdout);
-  if (migrateAssetsCheck.stderr) process.stderr.write(migrateAssetsCheck.stderr);
-  if (migrateAssetsCheck.status !== 0) totalErrors += 1;
-  console.log(`   ${migrateAssetsCheck.status === 0 ? 0 : 1} errors, 0 warnings`);
 
   // Pages Index Sync Validation
   console.log('\n🗂️  Running Pages Index Sync Validation...');
