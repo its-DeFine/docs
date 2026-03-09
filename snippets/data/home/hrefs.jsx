@@ -883,11 +883,11 @@ export const LINK_MAP = {
     },
     {
       "sourceType": "jsx-attr",
-      "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/media/videos/livepeer-founders-post.mp4",
-      "resolvedPath": "snippets/assets/media/videos/livepeer-founders-post.mp4",
-      "exists": true,
-      "status": "ok",
+      "linkType": "external-https",
+      "rawPath": "https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/livepeer-founders-post.mp4",
+      "resolvedPath": null,
+      "exists": null,
+      "status": "🟡 untested-external",
       "movedCandidates": []
     },
     {
@@ -1169,8 +1169,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/orchestrators/quickstart/overview",
-      "resolvedPath": "v2/orchestrators/quickstart/overview.mdx",
+      "rawPath": "/v2/orchestrators/get-started/setup-paths",
+      "resolvedPath": "v2/orchestrators/get-started/setup-paths.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

@@ -821,8 +821,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/orchestrators/quickstart/orchestrator-setup",
-      "resolvedPath": "v2/orchestrators/quickstart/orchestrator-setup.mdx",
+      "rawPath": "/v2/orchestrators/get-started/quickstart-views/orchestrator-setup",
+      "resolvedPath": "v2/orchestrators/get-started/quickstart-views/orchestrator-setup.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1745,8 +1745,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/orchestrators/setting-up-an-orchestrator/install-go-livepeer#install-using-a-binary-release",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "/orchestrators/setup/install-go-livepeer#install-using-a-binary-release",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1781,8 +1781,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/orchestrators/setting-up-an-orchestrator/install-go-livepeer#install-using-a-binary-release",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "/orchestrators/setup/install-go-livepeer#install-using-a-binary-release",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -3822,7 +3822,7 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "external-https",
-      "rawPath": "https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/overview",
+      "rawPath": "https://docs.livepeer.org/v2/orchestrators/setup/setup-guide",
       "resolvedPath": null,
       "exists": null,
       "status": "🟡 untested-external",

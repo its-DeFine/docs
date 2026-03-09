@@ -10,7 +10,7 @@ keywords:
 'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
 ---
 {/* codex-i18n: eyJraW5kIjoiY29kZXgtaTE4biIsInZlcnNpb24iOjEsInNvdXJjZVBhdGgiOiJ2Mi9vcmNoZXN0cmF0b3JzL3JlZmVyZW5jZXMvZmFxLm1keCIsInNvdXJjZVJvdXRlIjoidjIvb3JjaGVzdHJhdG9ycy9yZWZlcmVuY2VzL2ZhcSIsInNvdXJjZUhhc2giOiI2ZWNmMjJjM2RjMjZkYzJlZmUwZjRmODY5N2FiYTJmNzBmNzA3NzY4N2FlMjIyYzEzODYyZDcxN2IyMmQ5NWUyIiwibGFuZ3VhZ2UiOiJlcyIsInByb3ZpZGVyIjoib3BlbnJvdXRlciIsIm1vZGVsIjoicXdlbi9xd2VuLXR1cmJvIiwiZ2VuZXJhdGVkQXQiOiIyMDI2LTAyLTI3VDE0OjI0OjE4LjI1MFoifQ== */}
-Preguntas frecuentes sobre orquestadores, staking, recompensas y operaciones. Para instalación y configuración, consulte [Instalar go-livepeer](../setting-up-an-orchestrator/install-go-livepeer) y [Agregue su GPU](../quickstart/orchestrator-setup).
+Preguntas frecuentes sobre orquestadores, staking, recompensas y operaciones. Para instalación y configuración, consulte [Instalar go-livepeer](/v2/orchestrators/setup/install-go-livepeer) y [Agregue su GPU](/v2/orchestrators/get-started/quickstart-views/orchestrator-setup).
 
 ## ¿Qué es un orquestador?
 
@@ -26,7 +26,7 @@ Un **orquestador** es un participante de la red vinculado que: apuesta LPT a tra
 1. **LPT de inflación** - Minted cada ronda y distribuido al stake vinculado. Debes llamar a **reward()** cada ronda para reclamar. Tu parte depende de tu stake y tu **corte de recompensa** (el resto va a los delegadores).
 2. **ETH tarifas** - Pagado por el trabajo mediante tickets probabilísticos. Los tickets ganadores se redimen en Arbitrum. Tu **comisión** establece cuánto ETH compartes con los delegadores.
 
-Ver [Recompensas y tarifas](../advanced-setup/rewards-and-fees).
+Ver [Recompensas y tarifas](/v2/orchestrators/advanced/rewards-and-fees).
 
 ## ¿Qué es el riesgo de slashing?
 
@@ -34,7 +34,7 @@ El slashing puede ocurrir por firmar dos veces, presentar pruebas de transcodifi
 
 ## ¿Qué es un pool?
 
-Un**pool** es un orchestrador (una identidad en cadena, un stake) respaldado por**muchas GPUs**, a menudo de diferentes propietarios. El operador ejecuta el nodo y distribuye las ganancias a los contribuyentes de GPUs**off-chain**. Ver [Únete a un pool](../quickstart/join-a-pool) y [Ejecuta un pool](../advanced-setup/run-a-pool).
+Un**pool** es un orchestrador (una identidad en cadena, un stake) respaldado por**muchas GPUs**, a menudo de diferentes propietarios. El operador ejecuta el nodo y distribuye las ganancias a los contribuyentes de GPUs**off-chain**. Ver [Únete a un pool](/v2/orchestrators/guides/join-a-pool) y [Ejecuta un pool](/v2/orchestrators/advanced/run-a-pool).
 
 ## ¿Qué debo monitorear?
 
@@ -42,7 +42,7 @@ Un**pool** es un orchestrador (una identidad en cadena, un stake) respaldado por
 - **Nodo:**Uso de GPU, tasa de éxito de segmento/trabajo, latencia (métricas de Prometheus en `:7935/metrics`cuando `-monitor=true`)
 - **Economía:**Tasa de redención de tickets, recompensas LPT, tarifas ETH.
 
-Ver [Estadísticas y monitoreo del orquestador](../setting-up-an-orchestrator/orchestrator-stats).
+Ver [Estadísticas y monitoreo del orquestador](/v2/orchestrators/setup/orchestrator-stats).
 
 ## Solución de problemas
 
@@ -51,13 +51,13 @@ Ver [Estadísticas y monitoreo del orquestador](../setting-up-an-orchestrator/or
 - **GPU no detectada:** Ejecutar `nvidia-smi`; asegurarse de que Docker tenga `--gpus all` si se usan contenedores; compruebe la versión de CUDA/controlador.
 - **Errores de RPC:** Use un RPC Arbitrum estable; los puntos finales inestables pueden causar transacciones fallidas y llamadas de recompensa perdidas.
 
-Para más información, consulte[Instalar go-livepeer](../setting-up-an-orchestrator/install-go-livepeer), [Conéctate a Arbitrum](../setting-up-an-orchestrator/connect-to-arbitrum), y [banderas de CLI](./cli-flags).
+Para más información, consulte[Instalar go-livepeer](/v2/orchestrators/setup/install-go-livepeer), [Conéctate a Arbitrum](/v2/orchestrators/setup/connect-to-arbitrum), y [banderas de CLI](./cli-flags).
 
 ## Ver también
 
 <Columns cols={2}>
   <Card title="CLI flags" icon="terminal" href="./cli-flags" arrow />
-  <Card title="Rewards and fees" icon="coins" href="../advanced-setup/rewards-and-fees" arrow />
-  <Card title="Staking LPT" icon="coins" href="../advanced-setup/staking-LPT" arrow />
-  <Card title="Orchestrator stats" icon="chart-line" href="../setting-up-an-orchestrator/orchestrator-stats" arrow />
+  <Card title="Rewards and fees" icon="coins" href="/v2/orchestrators/advanced/rewards-and-fees" arrow />
+  <Card title="Staking LPT" icon="coins" href="/v2/orchestrators/advanced/staking-LPT" arrow />
+  <Card title="Orchestrator stats" icon="chart-line" href="/v2/orchestrators/setup/orchestrator-stats" arrow />
 </Columns>

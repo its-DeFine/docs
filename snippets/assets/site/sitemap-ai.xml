@@ -1961,28 +1961,28 @@
     <ai:category>NOTES_V2.md</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/about-orchestrators/architecture</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/concepts/architecture</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>44</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/about-orchestrators/economics</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/concepts/economics</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>274</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/about-orchestrators/orchestrator-functions</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/concepts/functions</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>284</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/about-orchestrators/overview</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/concepts/overview</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>overview</ai:contentType>
     <ai:wordCount>347</ai:wordCount>
@@ -1996,42 +1996,42 @@
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/advanced-setup/ai-pipelines</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/advanced/ai-pipelines</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>129</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/advanced-setup/delegation</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/advanced/delegation</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>141</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/advanced-setup/rewards-and-fees</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/advanced/rewards-and-fees</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>179</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/advanced-setup/run-a-pool</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/advanced/run-a-pool</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>177</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/advanced-setup/staking-LPT</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/advanced/staking-LPT</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>182</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/orchestrator-tools-and-resources/community-pools</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/resources/community-pools</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>70</ai:wordCount>
@@ -2045,7 +2045,7 @@
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/orchestrator-tools-and-resources/orchestrator-guides</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/guides/guides</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount></ai:wordCount>
@@ -2059,7 +2059,7 @@
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/orchestrator-tools-and-resources/orchestrator-tools</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/guides/tooling</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>30</ai:wordCount>
@@ -2073,112 +2073,112 @@
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/quickstart/join-a-pool</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/guides/join-a-pool</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>quickstart</ai:contentType>
     <ai:wordCount>986</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/quickstart/orchestrator-setup</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/get-started/quickstart-views/orchestrator-setup</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>quickstart</ai:contentType>
     <ai:wordCount>384</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/quickstart/overview</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/get-started/setup-paths</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>quickstart</ai:contentType>
     <ai:wordCount>227</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/references/cli-flags</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/resources/cli-flags</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>reference</ai:contentType>
     <ai:wordCount>113</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/references/faq</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/resources/faq</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>reference</ai:contentType>
     <ai:wordCount>398</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/setup/connect-to-arbitrum</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>64</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/data-centre-setup</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/setup/data-centre-setup</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>3</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/setup/data-centres-and-large-scale-hardware-providers</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>6</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/enterprise-and-data-centres</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/setup/enterprise-and-data-centres</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>3</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/hardware-requirements</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/setup/hardware-requirements</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>145</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/setup/install-go-livepeer</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>296</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/orch-config</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/setup/orch-config</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>32</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/setup/orchestrator-stats</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>169</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/overview</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/setup/setup-guide</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>overview</ai:contentType>
     <ai:wordCount>78</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/publish-offerings</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/setup/publish-offerings</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>page</ai:contentType>
     <ai:wordCount>58</ai:wordCount>
     <ai:category>orchestrators</ai:category>
   </url>
   <url>
-    <loc>https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer</loc>
+    <loc>https://docs.livepeer.org/v2/orchestrators/get-started/quickstart</loc>
     <lastmod>2026-02-25T05:29:12+11:00</lastmod>
     <ai:contentType>quickstart</ai:contentType>
     <ai:wordCount>209</ai:wordCount>
