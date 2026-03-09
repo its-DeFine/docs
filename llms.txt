@@ -456,15 +456,18 @@
 
 ## GPU Nodes
 
-### GPU Nodes / Orchestrator Knowledge Hub
+### GPU Nodes / Hub
 
 - [Orchestrator Home Portal](https://docs.livepeer.org/v2/orchestrators/orchestrators-portal): Welcome To The Orchestrator Portal: Explore, Earn, Operate
 - [Orchestrator Journey](https://docs.livepeer.org/v2/orchestrators/orchestrator-journey): Choose your path as a Livepeer orchestrator - run a full go-livepeer node or use a lightweight split setup
-- [Orchestrator Explainer](https://docs.livepeer.org/v2/orchestrators/about-orchestrators/overview): Learn what orchestrators are, how they earn, and which setup path fits your GPU resources and goals.
-- [Orchestrator Functions](https://docs.livepeer.org/v2/orchestrators/about-orchestrators/orchestrator-functions): Learn what orchestrators do across compute, AI inference, staking, delegation, and governance on the Livepeer network.
-- [Orchestrator Architecture](https://docs.livepeer.org/v2/orchestrators/about-orchestrators/architecture): See how gateways, orchestrator controllers, and GPU workers interact to process transcoding and AI jobs.
-- [Orchestrator Economics](https://docs.livepeer.org/v2/orchestrators/about-orchestrators/economics): Understand orchestrator revenue, costs, staking, fees, and incentives across Livepeer network participation.
-- [Types of Orchestrator Jobs](https://docs.livepeer.org/v2/orchestrators/about-orchestrators/job-types): Understand the differences between transcoding, realtime AI, and batch AI orchestrator configurations.
+
+### GPU Nodes / Concepts
+
+- [Orchestrator Explainer](https://docs.livepeer.org/v2/orchestrators/concepts/overview): Learn what orchestrators are, how they earn, and which setup path fits your GPU resources and goals.
+- [Orchestrator Functions](https://docs.livepeer.org/v2/orchestrators/concepts/functions): Learn what orchestrators do across compute, AI inference, staking, delegation, and governance on the Livepeer network.
+- [Orchestrator Architecture](https://docs.livepeer.org/v2/orchestrators/concepts/architecture): See how gateways, orchestrator controllers, and GPU workers interact to process transcoding and AI jobs.
+- [Orchestrator Economics](https://docs.livepeer.org/v2/orchestrators/concepts/economics): Understand orchestrator revenue, costs, staking, fees, and incentives across Livepeer network participation.
+- [Types of Orchestrator Jobs](https://docs.livepeer.org/v2/orchestrators/concepts/job-types): Understand the differences between transcoding, realtime AI, and batch AI orchestrator configurations.
 
 ### GPU Nodes / Quickstart ⚡
 

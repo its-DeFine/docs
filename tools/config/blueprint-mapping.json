@@ -60,8 +60,8 @@
   },
   "GPU NODES": {
     "GPU Nodes Portal": "v2/orchestrators/orchestrators-portal.mdx",
-    "What is an Orchestrator?": "v2/orchestrators/about-orchestrators/overview.mdx",
-    "Orchestrator Requirements & Economics": "v2/orchestrators/about-orchestrators/economics.mdx",
+    "What is an Orchestrator?": "v2/orchestrators/concepts/overview.mdx",
+    "Orchestrator Requirements & Economics": "v2/orchestrators/concepts/economics.mdx",
     "Join a Pool": "v2/orchestrators/quickstart/join-a-pool.mdx",
     "Orchestrator Quickstart": "v2/orchestrators/quickstart/orchestrator-setup.mdx",
     "Configuring AI on Your Orchestrator": "v2/orchestrators/advanced-setup/ai-pipelines.mdx",

@@ -2786,16 +2786,22 @@
                     "icon": "microchip",
                     "groups": [
                       {
-                        "group": "Orchestrator Knowledge Hub",
+                        "group": "Hub",
                         "icon": "graduation-cap",
                         "pages": [
                           "v2/orchestrators/orchestrators-portal",
-                          "v2/orchestrators/orchestrator-journey",
-                          "v2/orchestrators/about-orchestrators/overview",
-                          "v2/orchestrators/about-orchestrators/orchestrator-functions",
-                          "v2/orchestrators/about-orchestrators/architecture",
-                          "v2/orchestrators/about-orchestrators/economics",
-                          "v2/orchestrators/about-orchestrators/job-types"
+                          "v2/orchestrators/orchestrator-journey"
+                        ]
+                      },
+                      {
+                        "group": "Concepts",
+                        "icon": "book-open",
+                        "pages": [
+                          "v2/orchestrators/concepts/overview",
+                          "v2/orchestrators/concepts/architecture",
+                          "v2/orchestrators/concepts/economics",
+                          "v2/orchestrators/concepts/functions",
+                          "v2/orchestrators/concepts/job-types"
                         ]
                       },
                       {

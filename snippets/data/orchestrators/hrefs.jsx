@@ -1,6 +1,6 @@
 export const LINK_MAP = {
-  "v2/orchestrators/about-orchestrators/architecture.mdx": [],
-  "v2/orchestrators/about-orchestrators/economics.mdx": [
+  "v2/orchestrators/concepts/architecture.mdx": [],
+  "v2/orchestrators/concepts/economics.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -20,7 +20,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/orchestrators/about-orchestrators/job-types.mdx": [
+  "v2/orchestrators/concepts/job-types.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -66,7 +66,7 @@ export const LINK_MAP = {
       ]
     }
   ],
-  "v2/orchestrators/about-orchestrators/orchestrator-functions.mdx": [
+  "v2/orchestrators/concepts/functions.mdx": [
     {
       "sourceType": "import-path",
       "linkType": "import-path",
@@ -77,7 +77,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/orchestrators/about-orchestrators/overview.mdx": [
+  "v2/orchestrators/concepts/overview.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
@@ -322,8 +322,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../about-orchestrators/economics",
-      "resolvedPath": "v2/orchestrators/about-orchestrators/economics.mdx",
+      "rawPath": "../concepts/economics",
+      "resolvedPath": "v2/orchestrators/concepts/economics.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -729,8 +729,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "./about-orchestrators/overview",
-      "resolvedPath": "v2/orchestrators/about-orchestrators/overview.mdx",
+      "rawPath": "./concepts/overview",
+      "resolvedPath": "v2/orchestrators/concepts/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1256,8 +1256,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../about-orchestrators/overview",
-      "resolvedPath": "v2/orchestrators/about-orchestrators/overview.mdx",
+      "rawPath": "../concepts/overview",
+      "resolvedPath": "v2/orchestrators/concepts/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
