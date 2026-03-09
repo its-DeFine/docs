@@ -13,9 +13,7 @@
  *   v2/gateways/run-a-gateway/install/linux-install.mdx
  *   v2/gateways/run-a-gateway/install/windows-install.mdx
  *   v2/orchestrators/orchestrators-portal.mdx, v2/orchestrators/quickstart/orchestrator-setup.mdx
- *   v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx
  *   v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx
- *   v2/orchestrators/setting-up-an-orchestrator/orch-config.mdx
  *   v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx
  *   v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx
  *   v2/resources/documentation-guide/component-library/component-library.mdx

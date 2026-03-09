@@ -2880,10 +2880,7 @@
                         "icon": "laptop-file",
                         "pages": [
                           "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
-                          "v2/orchestrators/orchestrator-tools-and-resources/community-pools",
-                          "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-guides",
-                          "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-resources",
-                          "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help"
+                          "v2/orchestrators/orchestrator-tools-and-resources/community-pools"
                         ]
                       },
                       {

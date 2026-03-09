@@ -520,9 +520,6 @@
 
 - [Orchestrator Tools](https://docs.livepeer.org/v2/orchestrators/orchestrator-tools-and-resources/orchestrator-tools): Find official and community tools, dashboards, and helper resources for operating Livepeer orchestrators.
 - [Community Orchestrator Pools](https://docs.livepeer.org/v2/orchestrators/orchestrator-tools-and-resources/community-pools): Compare community orchestrator pools, how they work, and what to review before joining one.
-- [Orchestrator Guides](https://docs.livepeer.org/v2/orchestrators/orchestrator-tools-and-resources/orchestrator-guides)
-- [Orchestrator Resources](https://docs.livepeer.org/v2/orchestrators/orchestrator-tools-and-resources/orchestrator-resources)
-- [Orchestrator Community & Help](https://docs.livepeer.org/v2/orchestrators/orchestrator-tools-and-resources/orchestrator-community-and-help)
 
 ### GPU Nodes / Technical References / Orchestrators
 
