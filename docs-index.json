@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-09T19:26:53.505Z",
+  "generated": "2026-03-09T20:06:08.057Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -14157,7 +14157,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 737,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -14549,7 +14549,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3938,
-      "lastVerified": "2026-03-09T22:26:04+11:00",
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -14832,7 +14832,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 165,
-      "lastVerified": "2026-03-10T05:09:37+11:00",
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -14867,7 +14867,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 193,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -14899,7 +14899,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1412,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -15057,7 +15057,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1507,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -15215,7 +15215,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1301,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -15349,7 +15349,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 958,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -15455,7 +15455,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1373,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -16266,6 +16266,51 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/internal/overview/governance-pipeline",
+      "title": "Governance Pipeline",
+      "description": "How the script governance system detects drift, auto-repairs safe issues, and surfaces items needing human attention.",
+      "section": "internal",
+      "tags": [
+        "internal",
+        "overview",
+        "governance-pipeline"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 755,
+      "lastVerified": "2026-03-09T19:54:46.469Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Overview"
+        },
+        {
+          "level": 2,
+          "text": "Trigger Chain"
+        },
+        {
+          "level": 2,
+          "text": "Auto-Fixed vs Needs Human"
+        },
+        {
+          "level": 2,
+          "text": "Commands"
+        },
+        {
+          "level": 2,
+          "text": "Adding a New Script"
+        },
+        {
+          "level": 2,
+          "text": "The 9-Field Header Schema"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
       "url": "https://docs.livepeer.org/v2/internal/rfp/aims",
       "title": "RFP Aims Implementation",
       "description": "This page articulates the philosophical framework that underpinned the v2 engagement and demonstrates how the RFP's three overarching themes for **stakeholder-focused**, **AI-first**, and **future-proofed** documentation, were delivered across every layer of the system.",
@@ -16521,7 +16566,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2182,
-      "lastVerified": "2026-03-09T22:26:04+11:00",
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -16649,7 +16694,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3251,
-      "lastVerified": "2026-03-10T05:09:37+11:00",
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -16695,8 +16740,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3993,
-      "lastVerified": "2026-03-10T05:36:31+11:00",
+      "wordCount": 4073,
+      "lastVerified": "2026-03-10T06:42:22+11:00",
       "headings": [
         {
           "level": 2,
@@ -16755,8 +16800,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 933,
-      "lastVerified": "2026-03-09T21:53:01+11:00",
+      "wordCount": 986,
+      "lastVerified": "2026-03-10T06:46:12+11:00",
       "headings": [],
       "codeLanguages": []
     },
