@@ -16,18 +16,23 @@ const path = require('path');
 const { execFileSync } = require('child_process');
 const yaml = require('js-yaml');
 const {
+  AGGREGATE_INDEX_PATH,
   CATEGORY_ENUM,
   CLASSIFICATION_DATA_PATH,
   DISCOVERY_ROOTS,
   FRAMEWORK_FIELDS,
+  GOVERNED_ROOTS,
+  GROUP_INDEX_PATHS,
   GROUP_LABELS,
   GROUP_ORDER,
+  LEGACY_AGGREGATE_INDEX_PATH,
   PIPELINE_ORDER,
   PURPOSE_ENUM,
   REQUIRED_FRAMEWORK_KEYS,
   SCOPE_ENUM,
   SCRIPT_EXTENSIONS,
   isDiscoveredScriptPath,
+  isWithinRoots,
   normalizeRepoPath,
   parseDeclaredPipelines
 } = require('../../../lib/script-governance-config');
@@ -46,6 +51,7 @@ const REPO_ROOT_POSIX = normalizeRepoPath(REPO_ROOT);
 const REPO_ROOT_LOOSE = REPO_ROOT_POSIX.replace(/^\/+/, '');
 const SPECIAL_CALLERS = new Set(['.githooks/pre-commit', '.githooks/pre-push', 'tests/run-all.js', 'tests/run-pr-checks.js']);
 const PACKAGE_JSON_PATHS = ['tools/package.json', 'tests/package.json'];
+const INDEX_TARGETS = [...GROUP_INDEX_PATHS, AGGREGATE_INDEX_PATH, LEGACY_AGGREGATE_INDEX_PATH];
 const WRITE_CALL_RE = /\b(?:fs\.)?(writeFileSync|writeFile|appendFileSync|appendFile|mkdirSync|mkdir|createWriteStream|writeJson)\s*\(([\s\S]{0,220}?)\)/g;
 const STRING_RE = /(['"`])((?:\\.|(?!\1).)*)\1/g;
 const CONST_RE = /^\s*const\s+([A-Za-z0-9_]+)\s*=\s*(.+?);\s*$/gm;
@@ -68,12 +74,14 @@ const AUTOMATED_PIPELINES = new Set(['P1', 'P2', 'P3', 'P5', 'P6']);
 
 function usage() {
   console.log(
-    'Usage: node tools/scripts/validators/governance/audit-script-inventory.js [--json] [--md] [--output <dir>] [--verbose]'
+    'Usage: node tools/scripts/validators/governance/audit-script-inventory.js [--fix] [--dry-run] [--json] [--md] [--output <dir>] [--verbose]'
   );
 }
 
 function parseArgs(argv) {
   const args = {
+    fix: false,
+    dryRun: false,
     json: false,
     md: false,
     verbose: false,
@@ -88,6 +96,15 @@ function parseArgs(argv) {
     }
     if (token === '--md') {
       args.md = true;
+      continue;
+    }
+    if (token === '--fix') {
+      args.fix = true;
+      continue;
+    }
+    if (token === '--dry-run') {
+      args.dryRun = true;
+      args.fix = true;
       continue;
     }
     if (token === '--verbose') {
@@ -128,6 +145,14 @@ function readRepoFile(repoPath, warnings) {
     return fs.readFileSync(path.join(REPO_ROOT, repoPath), 'utf8');
   } catch (error) {
     warnings.push(`Could not read ${repoPath}: ${error.message}`);
+    return '';
+  }
+}
+
+function readRepoFileOptional(repoPath) {
+  try {
+    return fs.readFileSync(path.join(REPO_ROOT, repoPath), 'utf8');
+  } catch (_error) {
     return '';
   }
 }
@@ -826,11 +851,671 @@ function escapeMarkdownCell(value) {
   return String(value || '').replace(/\|/g, '\\|').replace(/\n/g, '<br />');
 }
 
+function countTruthyFrameworkFields(values) {
+  return FRAMEWORK_FIELDS.filter((field) => String(values[field.key] || '').trim()).length;
+}
+
+function detectShebang(content) {
+  const match = String(content || '').match(/^#![^\r\n]*/);
+  if (!match) return 'none';
+
+  const line = match[0].toLowerCase();
+  if (line.includes('node')) return 'node';
+  if (line.includes('python')) return 'python';
+  if (line.includes('bash') || /\bsh\b/.test(line)) return 'bash';
+  return 'unknown';
+}
+
+function inferFileKind(repoPath, content) {
+  const ext = path.extname(repoPath).toLowerCase();
+  const shebang = detectShebang(content);
+  const extensionless = ext === '';
+  const inHooks = repoPath === '.githooks' || repoPath.startsWith('.githooks/');
+
+  if (['.js', '.cjs', '.mjs', '.ts', '.tsx'].includes(ext)) {
+    return { commentStyle: 'jsdoc', command: 'node' };
+  }
+  if (['.sh', '.bash'].includes(ext)) {
+    return { commentStyle: 'hash', command: 'bash' };
+  }
+  if (ext === '.py') {
+    return { commentStyle: 'hash', command: 'python3' };
+  }
+
+  if (extensionless || inHooks) {
+    if (shebang === 'node') return { commentStyle: 'jsdoc', command: 'node' };
+    if (shebang === 'python') return { commentStyle: 'hash', command: 'python3' };
+    return { commentStyle: 'hash', command: 'bash' };
+  }
+
+  if (shebang === 'node') return { commentStyle: 'jsdoc', command: 'node' };
+  if (shebang === 'python') return { commentStyle: 'hash', command: 'python3' };
+  return { commentStyle: 'hash', command: 'bash' };
+}
+
+function findInsertionPoint(content) {
+  const text = String(content || '');
+  let index = 0;
+
+  const shebangMatch = text.match(/^(#![^\r\n]*(?:\r?\n|$))/);
+  if (shebangMatch) {
+    index = shebangMatch[0].length;
+  }
+
+  let cursor = index;
+  const blankMatch = text.slice(cursor).match(/^(?:[ \t]*\r?\n)*/);
+  if (blankMatch) {
+    cursor += blankMatch[0].length;
+  }
+
+  const strictMatch = text
+    .slice(cursor)
+    .match(/^[ \t]*(?:'use strict'|"use strict")[ \t]*;?[ \t]*(?:\r?\n|$)/);
+  if (strictMatch) {
+    cursor += strictMatch[0].length;
+  }
+
+  return cursor;
+}
+
+function extractTopHeader(content) {
+  const text = String(content || '');
+  let start = 0;
+
+  const shebangMatch = text.match(/^(#![^\r\n]*(?:\r?\n|$))/);
+  if (shebangMatch) {
+    start = shebangMatch[0].length;
+  }
+
+  const leadingBlankMatch = text.slice(start).match(/^(?:[ \t]*\r?\n)*/);
+  if (leadingBlankMatch) {
+    start += leadingBlankMatch[0].length;
+  }
+
+  const afterStart = text.slice(start);
+  if (afterStart.startsWith('/**')) {
+    const closeIdx = afterStart.indexOf('*/');
+    if (closeIdx !== -1) {
+      let end = start + closeIdx + 2;
+      const trailingNewline = text.slice(end).match(/^\r?\n/);
+      if (trailingNewline) end += trailingNewline[0].length;
+      return {
+        style: 'jsdoc',
+        start,
+        end,
+        text: text.slice(start, end)
+      };
+    }
+  }
+
+  let cursor = start;
+  let sawTagLine = false;
+  let sawAnyHeaderLine = false;
+
+  while (cursor < text.length) {
+    const lineEnd = text.indexOf('\n', cursor);
+    const nextCursor = lineEnd === -1 ? text.length : lineEnd + 1;
+    const line = text.slice(cursor, lineEnd === -1 ? text.length : lineEnd);
+    const trimmed = line.trim();
+
+    if (!trimmed) {
+      if (!sawAnyHeaderLine) break;
+      cursor = nextCursor;
+      continue;
+    }
+
+    if (!trimmed.startsWith('#')) {
+      break;
+    }
+
+    const isTag = /^#\s*@[\w-]+/.test(trimmed);
+    const isContinuation = /^#(?:\s{2,}\S.*|\s*)$/.test(trimmed);
+
+    if (!sawTagLine) {
+      if (!isTag) break;
+      sawTagLine = true;
+      sawAnyHeaderLine = true;
+      cursor = nextCursor;
+      continue;
+    }
+
+    if (isTag || isContinuation) {
+      sawAnyHeaderLine = true;
+      cursor = nextCursor;
+      continue;
+    }
+
+    break;
+  }
+
+  if (sawTagLine) {
+    return {
+      style: 'hash',
+      start,
+      end: cursor,
+      text: text.slice(start, cursor)
+    };
+  }
+
+  return null;
+}
+
+function parseTagMap(headerText) {
+  const tags = {};
+  String(headerText || '')
+    .split(/\r?\n/)
+    .forEach((line) => {
+      const cleaned = String(line || '')
+        .trim()
+        .replace(/^\/\*\*?/, '')
+        .replace(/\*\/$/, '')
+        .replace(/^\*\s?/, '')
+        .replace(/^#\s?/, '')
+        .trim();
+
+      const match = cleaned.match(/^@([a-z0-9-]+)\s+(.+)$/i);
+      if (!match) return;
+      const tagName = match[1].toLowerCase();
+      const value = String(match[2] || '').trim();
+      if (!(tagName in tags)) {
+        tags[tagName] = value;
+      }
+    });
+  return tags;
+}
+
+function defaultScriptName(repoPath) {
+  const ext = path.extname(repoPath);
+  return ext ? path.basename(repoPath, ext) : path.basename(repoPath);
+}
+
+function defaultUsage(repoPath, command) {
+  return `${command || 'node'} ${repoPath} [flags]`;
+}
+
+function formatTagLines(entries, prefix) {
+  const maxTagLen = entries.reduce((max, [tag]) => Math.max(max, tag.length), 0);
+  return entries.map(([tag, value]) => `${prefix}${tag}${' '.repeat(maxTagLen - tag.length + 1)}${value}`);
+}
+
+function buildFrameworkHeaderText(kind, values) {
+  const entries = [
+    ['@script', values.script],
+    ['@category', values.category],
+    ['@purpose', values.purpose],
+    ['@scope', values.scope],
+    ['@owner', values.owner],
+    ['@needs', values.needs],
+    ['@purpose-statement', values.purpose_statement],
+    ['@pipeline', values.pipeline_declared]
+  ];
+
+  if (values.dualmode) {
+    entries.push(['@dualmode', values.dualmode]);
+  }
+  entries.push(['@usage', values.usage]);
+
+  if (kind.commentStyle === 'hash') {
+    return [...formatTagLines(entries, '# '), ''].join('\n');
+  }
+
+  return ['/**', ...formatTagLines(entries, ' * '), ' */', ''].join('\n');
+}
+
+function makeReplacementContent(content, headerInfo, headerText, replaceExistingHeader) {
+  const text = String(content || '');
+  if (headerInfo && replaceExistingHeader) {
+    return text.slice(0, headerInfo.start) + headerText + text.slice(headerInfo.end);
+  }
+
+  const insertAt = findInsertionPoint(text);
+  return text.slice(0, insertAt) + headerText + text.slice(insertAt);
+}
+
+function runNodeCommand(args) {
+  return spawnSync('node', args, {
+    cwd: REPO_ROOT,
+    encoding: 'utf8'
+  });
+}
+
+function writeRepoFile(repoPath, content) {
+  const absPath = path.join(REPO_ROOT, repoPath);
+  ensureDirectory(path.dirname(absPath));
+  fs.writeFileSync(absPath, content, 'utf8');
+}
+
+function snapshotFiles(repoPaths) {
+  const snapshot = new Map();
+  repoPaths.forEach((repoPath) => {
+    const absPath = path.join(REPO_ROOT, repoPath);
+    if (!fs.existsSync(absPath)) {
+      snapshot.set(repoPath, null);
+      return;
+    }
+    snapshot.set(repoPath, fs.readFileSync(absPath, 'utf8'));
+  });
+  return snapshot;
+}
+
+function detectChangedFiles(snapshot) {
+  const changed = [];
+  snapshot.forEach((before, repoPath) => {
+    const absPath = path.join(REPO_ROOT, repoPath);
+    const exists = fs.existsSync(absPath);
+    const after = exists ? fs.readFileSync(absPath, 'utf8') : null;
+    if (before !== after) {
+      changed.push(repoPath);
+    }
+  });
+  return changed.sort();
+}
+
+function sumFixCounts(fixes) {
+  return Object.entries(fixes).reduce((total, [key, value]) => {
+    if (key === 'files_modified' || key === 'planned_files' || key === 'needs_human' || key === 'indexes_regenerated') {
+      return total;
+    }
+    return total + (Number.isFinite(Number(value)) ? Number(value) : 0);
+  }, 0);
+}
+
+function incrementCount(fixes, key, amount = 1) {
+  fixes[key] = (fixes[key] || 0) + amount;
+}
+
+function sortClassificationRows(rows) {
+  return rows
+    .filter((row) => row && typeof row === 'object' && !Array.isArray(row))
+    .map((row) => ({
+      path: normalizeRepoPath(String(row.path || '').trim()),
+      ...(row.script ? { script: String(row.script).trim() } : {}),
+      ...(row.category ? { category: String(row.category).trim() } : {}),
+      ...(row.purpose ? { purpose: String(row.purpose).trim() } : {}),
+      ...(row.scope ? { scope: String(row.scope).trim() } : {}),
+      ...(row.needs ? { needs: String(row.needs).trim() } : {}),
+      ...(row.purpose_statement ? { purpose_statement: String(row.purpose_statement).trim() } : {}),
+      ...(row.pipeline ? { pipeline: String(row.pipeline).trim() } : {}),
+      ...(row.dualmode ? { dualmode: String(row.dualmode).trim() } : {})
+    }))
+    .filter((row) => row.path)
+    .sort((left, right) => left.path.localeCompare(right.path));
+}
+
+function normalizeComparableValue(value) {
+  return String(value || '').trim();
+}
+
+function toOrderedPipelineList(input) {
+  const pipelines = input instanceof Set ? [...input] : [...parseDeclaredPipelines(input)];
+  return pipelines
+    .filter(Boolean)
+    .sort((left, right) => PIPELINE_ORDER.indexOf(left) - PIPELINE_ORDER.indexOf(right));
+}
+
+function pipelineSetIsSuperset(candidate, detected) {
+  const candidateSet = new Set(candidate);
+  return detected.every((value) => candidateSet.has(value));
+}
+
+function selectSafePipelineProposal(scriptInfo, classificationRow, existingTags = {}) {
+  const row = classificationRow || {};
+  const currentPipeline = scriptInfo.pipeline_declared || existingTags.pipeline || '';
+  const candidatePipeline = row.pipeline || '';
+  const detectedPipelines = toOrderedPipelineList(scriptInfo.actual_pipeline_set);
+  const candidatePipelines = toOrderedPipelineList(candidatePipeline);
+  const safeToApply = (
+    normalizeComparableValue(candidatePipeline) &&
+    normalizeComparableValue(candidatePipeline) !== normalizeComparableValue(currentPipeline) &&
+    candidatePipelines.length > 0 &&
+    pipelineSetIsSuperset(candidatePipelines, detectedPipelines)
+  );
+
+  return {
+    current: currentPipeline,
+    candidate: candidatePipeline,
+    detected: detectedPipelines,
+    safe_to_apply: safeToApply,
+    needs_human: scriptInfo.pipeline_verified !== 'MATCH' && !safeToApply,
+    value: safeToApply ? candidatePipeline : currentPipeline
+  };
+}
+
+function buildManagedScriptInfoMap(report) {
+  return new Map(
+    report.scripts
+      .filter((script) => isWithinRoots(script.path, GOVERNED_ROOTS))
+      .map((script) => [script.path, script])
+  );
+}
+
+function makeClassificationCandidate(scriptInfo) {
+  if (!scriptInfo.category_valid || !scriptInfo.purpose_valid || !scriptInfo.scope_valid) {
+    return null;
+  }
+
+  const candidate = {
+    path: scriptInfo.path,
+    script: scriptInfo.script || defaultScriptName(scriptInfo.path),
+    category: scriptInfo.category,
+    purpose: scriptInfo.purpose,
+    scope: scriptInfo.scope
+  };
+
+  if (scriptInfo.needs) candidate.needs = scriptInfo.needs;
+  if (scriptInfo.purpose_statement) candidate.purpose_statement = scriptInfo.purpose_statement;
+  if (scriptInfo.pipeline_declared) candidate.pipeline = scriptInfo.pipeline_declared;
+  if (scriptInfo.dualmode) candidate.dualmode = scriptInfo.dualmode;
+  return candidate;
+}
+
+function buildProjectedHeaderState(scriptInfo, classificationRow, content) {
+  const kind = inferFileKind(scriptInfo.path, content);
+  const headerInfo = extractTopHeader(content);
+  const existingTags = headerInfo ? parseTagMap(headerInfo.text) : {};
+  const hasFrameworkHeader = Boolean(existingTags.category || existingTags.purpose || existingTags['purpose-statement']);
+  const pipelineDecision = selectSafePipelineProposal(scriptInfo, classificationRow, existingTags);
+
+  const projected = {
+    script: scriptInfo.script || existingTags.script || defaultScriptName(scriptInfo.path),
+    category: scriptInfo.category || existingTags.category || '',
+    purpose: scriptInfo.purpose || existingTags.purpose || '',
+    scope: scriptInfo.scope || existingTags.scope || '',
+    owner: scriptInfo.owner || existingTags.owner || 'docs',
+    needs: scriptInfo.needs || existingTags.needs || '',
+    purpose_statement: scriptInfo.purpose_statement || existingTags['purpose-statement'] || '',
+    pipeline_declared: pipelineDecision.value,
+    dualmode: scriptInfo.dualmode || existingTags.dualmode || '',
+    usage: scriptInfo.usage || existingTags.usage || defaultUsage(scriptInfo.path, kind.command),
+    has_framework_header: true,
+    kind,
+    headerInfo,
+    existingTags,
+    replaceExistingHeader: Boolean(headerInfo && hasFrameworkHeader)
+  };
+
+  const headerText = buildFrameworkHeaderText(kind, projected);
+  const nextContent = makeReplacementContent(content, headerInfo, headerText, projected.replaceExistingHeader);
+
+  return {
+    projected,
+    headerText,
+    nextContent,
+    existingTags,
+    headerInfo,
+    hasFrameworkHeader,
+    pipeline_decision: pipelineDecision
+  };
+}
+
+function buildNeedsHumanEntry(pathName, projectedValues, hasClassificationRow, options = {}) {
+  const missing = [];
+
+  if (!projectedValues.category || !CATEGORY_ENUM.includes(projectedValues.category)) missing.push('@category');
+  if (!projectedValues.purpose || !PURPOSE_ENUM.includes(projectedValues.purpose)) missing.push('@purpose');
+  if (!projectedValues.scope || !SCOPE_ENUM.includes(projectedValues.scope)) missing.push('@scope');
+  if (!projectedValues.needs) missing.push('@needs');
+  if (!projectedValues.purpose_statement) missing.push('@purpose-statement');
+  if (!projectedValues.pipeline_declared || options.pipelineNeedsHuman) missing.push('@pipeline');
+  if (!hasClassificationRow) missing.push('classification-row');
+
+  if (missing.length === 0) return null;
+  return {
+    path: pathName,
+    missing
+  };
+}
+
+function buildProjectedScriptInfo(scriptInfo, projectedValues, classificationRow, hasClassificationRow) {
+  const pipelineCheck = verifyPipelineClaim(projectedValues.pipeline_declared, scriptInfo.triggers);
+  const projected = {
+    ...scriptInfo,
+    script: projectedValues.script,
+    category: projectedValues.category,
+    purpose: projectedValues.purpose,
+    scope: projectedValues.scope,
+    owner: projectedValues.owner,
+    needs: projectedValues.needs,
+    purpose_statement: projectedValues.purpose_statement,
+    pipeline_declared: projectedValues.pipeline_declared,
+    dualmode: projectedValues.dualmode,
+    usage: projectedValues.usage,
+    has_framework_header: projectedValues.has_framework_header,
+    header_field_count: countTruthyFrameworkFields(projectedValues),
+    category_valid: projectedValues.category ? CATEGORY_ENUM.includes(projectedValues.category) : false,
+    purpose_valid: projectedValues.purpose ? PURPOSE_ENUM.includes(projectedValues.purpose) : false,
+    scope_valid: projectedValues.scope ? SCOPE_ENUM.includes(projectedValues.scope) : false,
+    in_json: hasClassificationRow,
+    category_match: hasClassificationRow ? classificationRow.category === projectedValues.category : 'N/A',
+    purpose_match: hasClassificationRow ? classificationRow.purpose === projectedValues.purpose : 'N/A',
+    pipeline_verified: pipelineCheck.pipeline_verified,
+    declared_pipeline_set: pipelineCheck.declared,
+    actual_pipeline_set: pipelineCheck.actual
+  };
+
+  projected.grade = determineGrade(projected);
+  projected.flags = buildFlags(projected);
+  projected.trigger_group = determineGroup(projected);
+  return projected;
+}
+
+function buildProjectedSummary(report, projectedScripts, nextRows, phantomCount) {
+  return {
+    total_scripts: projectedScripts.length,
+    grade_distribution: {
+      A: projectedScripts.filter((script) => script.grade === 'A').length,
+      B: projectedScripts.filter((script) => script.grade === 'B').length,
+      C: projectedScripts.filter((script) => script.grade === 'C').length,
+      F: projectedScripts.filter((script) => script.grade === 'F').length
+    },
+    pipeline_verification: {
+      MATCH: projectedScripts.filter((script) => script.pipeline_verified === 'MATCH').length,
+      MISMATCH: projectedScripts.filter((script) => script.pipeline_verified.startsWith('MISMATCH:')).length,
+      MISSING: projectedScripts.filter((script) => script.pipeline_verified === 'MISSING').length
+    },
+    classification_sync: {
+      in_json: projectedScripts.filter((script) => nextRows.some((row) => row.path === script.path)).length,
+      not_in_json: projectedScripts.filter((script) => !nextRows.some((row) => row.path === script.path)).length,
+      phantom: phantomCount
+    }
+  };
+}
+
+function buildRepairPlan(report, options = {}) {
+  const dryRun = options.dryRun === true;
+  const rowMap = new Map(report.classification_rows.map((row) => [row.path, { ...row }]));
+  const fixes = {
+    json_phantoms_removed: 0,
+    json_entries_added: 0,
+    json_entries_updated: 0,
+    headers_category_added: 0,
+    headers_purpose_added: 0,
+    headers_owner_added: 0,
+    headers_script_added: 0,
+    headers_usage_added: 0,
+    headers_scope_added: 0,
+    headers_needs_added: 0,
+    headers_purpose_statement_added: 0,
+    headers_pipeline_corrected: 0,
+    indexes_regenerated: false
+  };
+
+  const headerUpdates = [];
+  const needsHuman = [];
+  const managedScriptMap = buildManagedScriptInfoMap(report);
+  const liveManagedPaths = [...managedScriptMap.keys()].sort();
+
+  for (const [rowPath] of [...rowMap.entries()]) {
+    if (!isWithinRoots(rowPath, GOVERNED_ROOTS)) continue;
+    if (managedScriptMap.has(rowPath)) continue;
+    rowMap.delete(rowPath);
+    incrementCount(fixes, 'json_phantoms_removed');
+  }
+
+  liveManagedPaths.forEach((scriptPath) => {
+    const scriptInfo = managedScriptMap.get(scriptPath);
+    const content = readRepoFileOptional(scriptPath);
+    const existingRow = rowMap.get(scriptPath) || null;
+    let nextRow = existingRow ? { ...existingRow } : null;
+
+    if (!nextRow) {
+      const candidate = makeClassificationCandidate(scriptInfo);
+      if (candidate) {
+        nextRow = candidate;
+        rowMap.set(scriptPath, nextRow);
+        incrementCount(fixes, 'json_entries_added');
+      }
+    } else {
+      let rowChanged = false;
+      const inferredScript = nextRow.script || scriptInfo.script || defaultScriptName(scriptPath);
+      if (!nextRow.script && inferredScript) {
+        nextRow.script = inferredScript;
+        rowChanged = true;
+      }
+      if (!nextRow.scope && scriptInfo.scope_valid) {
+        nextRow.scope = scriptInfo.scope;
+        rowChanged = true;
+      }
+      if (!nextRow.needs && scriptInfo.needs) {
+        nextRow.needs = scriptInfo.needs;
+        rowChanged = true;
+      }
+      if (!nextRow.purpose_statement && scriptInfo.purpose_statement) {
+        nextRow.purpose_statement = scriptInfo.purpose_statement;
+        rowChanged = true;
+      }
+      if (!nextRow.pipeline && scriptInfo.pipeline_declared) {
+        nextRow.pipeline = scriptInfo.pipeline_declared;
+        rowChanged = true;
+      }
+      if (!nextRow.dualmode && scriptInfo.dualmode) {
+        nextRow.dualmode = scriptInfo.dualmode;
+        rowChanged = true;
+      }
+      if (rowChanged) {
+        rowMap.set(scriptPath, nextRow);
+        incrementCount(fixes, 'json_entries_updated');
+      }
+    }
+
+    const headerState = buildProjectedHeaderState(scriptInfo, nextRow, content);
+    const projectedValues = headerState.projected;
+
+    if (!scriptInfo.category && projectedValues.category) incrementCount(fixes, 'headers_category_added');
+    if (!scriptInfo.purpose && projectedValues.purpose) incrementCount(fixes, 'headers_purpose_added');
+    if (!scriptInfo.owner && projectedValues.owner) incrementCount(fixes, 'headers_owner_added');
+    if (!scriptInfo.script && projectedValues.script) incrementCount(fixes, 'headers_script_added');
+    if (!scriptInfo.usage && projectedValues.usage) incrementCount(fixes, 'headers_usage_added');
+    if (!scriptInfo.scope && projectedValues.scope) incrementCount(fixes, 'headers_scope_added');
+    if (!scriptInfo.needs && projectedValues.needs) incrementCount(fixes, 'headers_needs_added');
+    if (!scriptInfo.purpose_statement && projectedValues.purpose_statement) incrementCount(fixes, 'headers_purpose_statement_added');
+    if (headerState.pipeline_decision.safe_to_apply) {
+      incrementCount(fixes, 'headers_pipeline_corrected');
+    }
+
+    if (headerState.nextContent !== content) {
+      headerUpdates.push({
+        path: scriptPath,
+        content: headerState.nextContent
+      });
+    }
+
+    const needsHumanEntry = buildNeedsHumanEntry(scriptPath, projectedValues, Boolean(nextRow), {
+      pipelineNeedsHuman: headerState.pipeline_decision.needs_human
+    });
+    if (needsHumanEntry) {
+      needsHuman.push(needsHumanEntry);
+    }
+  });
+
+  const nextRows = sortClassificationRows([...rowMap.values()]);
+  const currentRowsJson = `${JSON.stringify(sortClassificationRows(report.classification_rows), null, 2)}\n`;
+  const nextRowsJson = `${JSON.stringify(nextRows, null, 2)}\n`;
+  const classificationChanged = currentRowsJson !== nextRowsJson;
+
+  const projectedScripts = report.scripts.map((scriptInfo) => {
+    if (!isWithinRoots(scriptInfo.path, GOVERNED_ROOTS)) return scriptInfo;
+    const classificationRow = rowMap.get(scriptInfo.path) || null;
+    const content = readRepoFileOptional(scriptInfo.path);
+    const { projected } = buildProjectedHeaderState(scriptInfo, classificationRow, content);
+    return buildProjectedScriptInfo(scriptInfo, projected, classificationRow, Boolean(classificationRow));
+  });
+
+  const projectedSummary = buildProjectedSummary(report, projectedScripts, nextRows, 0);
+  const plannedFiles = new Set(headerUpdates.map((entry) => entry.path));
+  if (classificationChanged) plannedFiles.add(CLASSIFICATION_DATA_PATH);
+  if (headerUpdates.length > 0 || classificationChanged) {
+    INDEX_TARGETS.forEach((entry) => plannedFiles.add(entry));
+    fixes.indexes_regenerated = true;
+  }
+
+  fixes.total_fixes = sumFixCounts(fixes);
+
+  return {
+    mode: dryRun ? 'dry-run' : 'fix',
+    fixes,
+    header_updates: headerUpdates,
+    classification_changed: classificationChanged,
+    classification_content: nextRowsJson,
+    classification_rows: nextRows,
+    needs_human: needsHuman.sort((left, right) => left.path.localeCompare(right.path)),
+    planned_files: [...plannedFiles].sort(),
+    projected_summary: projectedSummary
+  };
+}
+
+function applyRepairPlan(plan) {
+  const modifiedFiles = new Set();
+
+  plan.header_updates.forEach((update) => {
+    writeRepoFile(update.path, update.content);
+    modifiedFiles.add(update.path);
+  });
+
+  if (plan.classification_changed) {
+    writeRepoFile(CLASSIFICATION_DATA_PATH, plan.classification_content);
+    modifiedFiles.add(CLASSIFICATION_DATA_PATH);
+  }
+
+  const indexSnapshot = snapshotFiles(INDEX_TARGETS);
+  if (plan.header_updates.length > 0 || plan.classification_changed) {
+    const result = runNodeCommand(['tests/unit/script-docs.test.js', '--write', '--rebuild-indexes']);
+    if (result.status !== 0) {
+      throw new Error(result.stderr || result.stdout || 'Failed to rebuild script indexes.');
+    }
+  }
+  const changedIndexes = detectChangedFiles(indexSnapshot);
+  changedIndexes.forEach((repoPath) => modifiedFiles.add(repoPath));
+
+  plan.fixes.indexes_regenerated = changedIndexes.length > 0;
+  plan.fixes.total_fixes = sumFixCounts(plan.fixes);
+
+  return {
+    changed_indexes: changedIndexes,
+    files_modified: [...modifiedFiles].sort()
+  };
+}
+
+function buildRepairPayload(plan, applied) {
+  return {
+    mode: plan.mode,
+    dry_run: plan.mode === 'dry-run',
+    fixes: {
+      ...plan.fixes,
+      files_modified: applied.files_modified,
+      planned_files: plan.planned_files
+    },
+    needs_human: plan.needs_human,
+    projected_summary: plan.projected_summary
+  };
+}
+
 function buildMarkdownReport(report) {
   const lines = [];
   lines.push('# Full Script Inventory Audit');
   lines.push('');
   lines.push(`Generated: ${report.generated_at}`);
+  lines.push(`Mode: ${report.mode || 'audit'}`);
   lines.push(`Scan roots: ${DISCOVERY_ROOTS.join(', ')}`);
   lines.push('');
   lines.push('## Summary');
@@ -846,6 +1531,16 @@ function buildMarkdownReport(report) {
   lines.push(`Classification JSON sync: In JSON ${report.summary.classification_sync.in_json} | Not in JSON ${report.summary.classification_sync.not_in_json} | Phantom ${report.summary.classification_sync.phantom}`);
   lines.push(`Output chain summary: ${report.summary.output_chain_count} chains detected`);
   lines.push('');
+
+  if (report.repair) {
+    lines.push('## Repair');
+    lines.push('');
+    lines.push(`- Mode: ${report.repair.mode}`);
+    lines.push(`- Total fixes: ${report.repair.fixes?.total_fixes || 0}`);
+    lines.push(`- Files modified: ${(report.repair.fixes?.files_modified || []).length}`);
+    lines.push(`- Needs human: ${(report.repair.needs_human || []).length}`);
+    lines.push('');
+  }
 
   GROUP_ORDER.forEach((group) => {
     const entries = report.groups[group]?.scripts || [];
@@ -908,6 +1603,15 @@ function buildMarkdownReport(report) {
   }
   lines.push('');
 
+  if (report.repair?.needs_human?.length) {
+    lines.push('## Needs Human');
+    lines.push('');
+    report.repair.needs_human.forEach((entry) => {
+      lines.push(`- ${entry.path}: ${entry.missing.join(', ')}`);
+    });
+    lines.push('');
+  }
+
   if (report.warnings.length > 0) {
     lines.push('## Warnings');
     lines.push('');
@@ -919,7 +1623,7 @@ function buildMarkdownReport(report) {
 }
 
 function buildSummaryLines(report) {
-  return [
+  const lines = [
     `Total scripts discovered: ${report.summary.total_scripts}`,
     ...GROUP_ORDER.map((group) => `${GROUP_LABELS[group]}: ${report.summary.by_trigger[group] || 0}`),
     `Grade distribution: A ${report.summary.grade_distribution.A} | B ${report.summary.grade_distribution.B} | C ${report.summary.grade_distribution.C} | F ${report.summary.grade_distribution.F}`,
@@ -927,6 +1631,13 @@ function buildSummaryLines(report) {
     `Classification JSON sync: In JSON ${report.summary.classification_sync.in_json} | Not in JSON ${report.summary.classification_sync.not_in_json} | Phantom ${report.summary.classification_sync.phantom}`,
     `Output chain summary: ${report.summary.output_chain_count} chains detected`
   ];
+
+  if (report.repair) {
+    lines.push(`Repair total fixes: ${report.repair.fixes?.total_fixes || 0}`);
+    lines.push(`Needs human items: ${(report.repair.needs_human || []).length}`);
+  }
+
+  return lines;
 }
 
 function runAudit(options) {
@@ -949,6 +1660,7 @@ function runAudit(options) {
   });
 
   const phantomJsonEntries = classificationRows
+    .filter((row) => isWithinRoots(row.path, GOVERNED_ROOTS))
     .filter((row) => row.path && !trackedFiles.includes(row.path) && !fs.existsSync(path.join(REPO_ROOT, row.path)))
     .map((row) => ({ ...row, phantom: true }))
     .sort((left, right) => left.path.localeCompare(right.path));
@@ -1058,13 +1770,45 @@ function runAudit(options) {
 
   return {
     generated_at: new Date().toISOString(),
+    mode: options.fix ? (options.dryRun ? 'dry-run' : 'fix') : 'audit',
     output_dir: normalizeRepoPath(path.relative(REPO_ROOT, path.resolve(REPO_ROOT, options.outputDir))),
     summary,
     groups,
     scripts,
     discrepancies,
     outputChains: outputChains.sort((left, right) => `${left.producer}|${left.output}|${left.consumer}`.localeCompare(`${right.producer}|${right.output}|${right.consumer}`)),
-    warnings
+    warnings,
+    tracked_files: trackedFiles,
+    classification_rows: classificationRows
+  };
+}
+
+function runAuditWithOptionalRepair(options) {
+  const baseReport = runAudit({ ...options, fix: false, dryRun: false });
+  if (!options.fix) {
+    return baseReport;
+  }
+
+  const plan = buildRepairPlan(baseReport, { dryRun: options.dryRun });
+  if (options.dryRun) {
+    return {
+      ...baseReport,
+      mode: 'dry-run',
+      repair: buildRepairPayload(plan, {
+        files_modified: [],
+        changed_indexes: []
+      }),
+      projected_summary: plan.projected_summary
+    };
+  }
+
+  const applied = applyRepairPlan(plan);
+  const postReport = runAudit({ ...options, fix: false, dryRun: false });
+  return {
+    ...postReport,
+    mode: 'fix',
+    repair: buildRepairPayload(plan, applied),
+    pre_repair_summary: baseReport.summary
   };
 }
 
@@ -1095,12 +1839,31 @@ function main() {
     process.exit(0);
   }
 
-  const report = runAudit(options);
-  writeReportFiles(report, options);
+  try {
+    const report = runAuditWithOptionalRepair(options);
+    writeReportFiles(report, options);
 
-  if (options.printSummary || options.verbose) {
-    buildSummaryLines(report).forEach((line) => console.log(line));
+    if (options.printSummary || options.verbose) {
+      buildSummaryLines(report).forEach((line) => console.log(line));
+    }
+  } catch (error) {
+    console.error(`audit-script-inventory failed: ${error.message}`);
+    process.exit(1);
   }
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  buildMarkdownReport,
+  buildNeedsHumanEntry,
+  buildProjectedHeaderState,
+  buildRepairPlan,
+  buildSummaryLines,
+  parseArgs,
+  selectSafePipelineProposal,
+  runAudit,
+  runAuditWithOptionalRepair
+};
