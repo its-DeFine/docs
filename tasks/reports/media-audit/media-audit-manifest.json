@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-03-08T16:44:36.619Z",
+  "generated_at": "2026-03-09T10:32:51.949Z",
   "baseline": {
-    "snippets_assets_total": "331M",
-    "video_gif_count": 15,
+    "snippets_assets_total": "61M",
+    "video_gif_count": 5,
     "large_image_count": 0,
     "notion_backups_tracked_count": 0,
     "already_resolved": false,
     "commands": [
       {
         "command": "du -sh snippets/assets/",
-        "stdout": "331M\tsnippets/assets/\n"
+        "stdout": " 61M\tsnippets/assets/\n"
       },
       {
         "command": "find snippets/assets -type f \\( -name '*.mp4' -o -name '*.mov' -o -name '*.gif' -o -name '*.webm' \\) | wc -l",
-        "stdout": "      15\n"
+        "stdout": "       5\n"
       },
       {
         "command": "find snippets/assets -type f \\( -name '*.png' -o -name '*.jpg' -o -name '*.jpeg' \\) -size +5M | wc -l",
@@ -27,7 +27,7 @@
   },
   "assets": [
     {
-      "path": "snippets/assets/domain/00_HOME/Building the Decentralized Generative AI Tech Stack.png",
+      "path": "snippets/assets/domain/00_HOME/building-decentralized-generative-ai-tech-stack.png",
       "size_bytes": 1855539,
       "extension": "png",
       "category": "image",
@@ -36,27 +36,6 @@
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
-    },
-    {
-      "path": "snippets/assets/domain/00_HOME/Eric Shreck Gif.gif",
-      "size_bytes": 70555282,
-      "extension": "gif",
-      "category": "gif",
-      "reference_status": "referenced",
-      "migration_target": "migrate_cloudinary",
-      "mdx_references": [
-        "snippets/data/home/hrefs.jsx",
-        "v2/cn/home/mission-control.mdx",
-        "v2/cn/home/primer.mdx",
-        "v2/es/home/mission-control.mdx",
-        "v2/es/home/primer.mdx",
-        "v2/fr/home/mission-control.mdx",
-        "v2/fr/home/primer.mdx",
-        "v2/home/mission-control.mdx",
-        "v2/home/primer.mdx"
-      ],
-      "gitignore_leakage": false,
-      "assets_branch_reference": true
     },
     {
       "path": "snippets/assets/domain/00_HOME/evolution.png",
@@ -382,19 +361,8 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/00_HOME/Introducing Livepeer Cascade - A Vision For Livepeer’s Future in the Age of Real-Time AI Video.png",
+      "path": "snippets/assets/domain/00_HOME/introducing-livepeer-cascade.png",
       "size_bytes": 1922117,
-      "extension": "png",
-      "category": "image",
-      "reference_status": "unreferenced",
-      "migration_target": "keep",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "snippets/assets/domain/00_HOME/livepeer logo.png",
-      "size_bytes": 9631,
       "extension": "png",
       "category": "image",
       "reference_status": "unreferenced",
@@ -422,6 +390,19 @@
       "reference_status": "unreferenced",
       "migration_target": "keep",
       "mdx_references": [],
+      "gitignore_leakage": false,
+      "assets_branch_reference": false
+    },
+    {
+      "path": "snippets/assets/domain/00_HOME/livepeer-logo.png",
+      "size_bytes": 9631,
+      "extension": "png",
+      "category": "image",
+      "reference_status": "referenced",
+      "migration_target": "keep",
+      "mdx_references": [
+        "snippets/components/_archive/folders/display-examples/image-examples.mdx"
+      ],
       "gitignore_leakage": false,
       "assets_branch_reference": false
     },
@@ -471,7 +452,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_90_Youtube.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_90_Youtube.png",
       "size_bytes": 22459,
       "extension": "png",
       "category": "image",
@@ -482,7 +463,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Blogging.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Blogging.png",
       "size_bytes": 23302,
       "extension": "png",
       "category": "image",
@@ -493,7 +474,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Calendar.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Calendar.png",
       "size_bytes": 23642,
       "extension": "png",
       "category": "image",
@@ -504,7 +485,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Discord.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Discord.png",
       "size_bytes": 4205048,
       "extension": "png",
       "category": "image",
@@ -515,7 +496,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Events.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Events.png",
       "size_bytes": 42337,
       "extension": "png",
       "category": "image",
@@ -526,7 +507,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Follow.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Follow.png",
       "size_bytes": 39876,
       "extension": "png",
       "category": "image",
@@ -537,7 +518,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Forum.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Forum.png",
       "size_bytes": 32458,
       "extension": "png",
       "category": "image",
@@ -548,7 +529,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Github.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Github.png",
       "size_bytes": 29864,
       "extension": "png",
       "category": "image",
@@ -559,7 +540,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_LinkedIn.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_LinkedIn.png",
       "size_bytes": 4157537,
       "extension": "png",
       "category": "image",
@@ -570,7 +551,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Medium.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Medium.png",
       "size_bytes": 25271,
       "extension": "png",
       "category": "image",
@@ -581,7 +562,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Meeting.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Meeting.png",
       "size_bytes": 33375,
       "extension": "png",
       "category": "image",
@@ -592,7 +573,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Newsletter.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Newsletter.png",
       "size_bytes": 24830,
       "extension": "png",
       "category": "image",
@@ -603,7 +584,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Reddit.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Reddit.png",
       "size_bytes": 31064,
       "extension": "png",
       "category": "image",
@@ -614,7 +595,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Telegram.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Telegram.png",
       "size_bytes": 4271355,
       "extension": "png",
       "category": "image",
@@ -625,7 +606,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Telegran.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Telegran.png",
       "size_bytes": 27361,
       "extension": "png",
       "category": "image",
@@ -636,18 +617,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_X (1).png",
-      "size_bytes": 31595,
-      "extension": "png",
-      "category": "image",
-      "reference_status": "unreferenced",
-      "migration_target": "keep",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_X.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_X.png",
       "size_bytes": 4116182,
       "extension": "png",
       "category": "image",
@@ -658,7 +628,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Yotube.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Yotube.png",
       "size_bytes": 21987,
       "extension": "png",
       "category": "image",
@@ -669,7 +639,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/02_COMMUNITY/Hero Images/Hero_Youtube.png",
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/Hero_Youtube.png",
       "size_bytes": 4220788,
       "extension": "png",
       "category": "image",
@@ -680,16 +650,13 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/04_GATEWAYS/test-video.mp4",
-      "size_bytes": 11829048,
-      "extension": "mp4",
-      "category": "video",
-      "reference_status": "referenced",
-      "migration_target": "migrate_r2",
-      "mdx_references": [
-        "v2/gateways/quickstart/views/docker/dockerOffChainTab.mdx",
-        "v2/gateways/quickstart/views/docker/dockerOnChainTab.mdx"
-      ],
+      "path": "snippets/assets/domain/02_COMMUNITY/hero-images/hero-x-1.png",
+      "size_bytes": 31595,
+      "extension": "png",
+      "category": "image",
+      "reference_status": "unreferenced",
+      "migration_target": "keep",
+      "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
     },
@@ -749,23 +716,6 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/domain/10_PRODUCTS/Embody/Videos/arealiensreal.mp4",
-      "size_bytes": 11880277,
-      "extension": "mp4",
-      "category": "video",
-      "reference_status": "referenced",
-      "migration_target": "migrate_r2",
-      "mdx_references": [
-        "snippets/data/solutions/hrefs.jsx",
-        "v2/cn/solutions/embody/overview.mdx",
-        "v2/es/solutions/embody/overview.mdx",
-        "v2/fr/solutions/embody/overview.mdx",
-        "v2/solutions/embody/overview.mdx"
-      ],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
       "path": "snippets/assets/favicon.png",
       "size_bytes": 12462,
       "extension": "png",
@@ -786,19 +736,6 @@
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
-    },
-    {
-      "path": "snippets/assets/media/gifs/daydream.gif",
-      "size_bytes": 92239994,
-      "extension": "gif",
-      "category": "gif",
-      "reference_status": "referenced",
-      "migration_target": "migrate_cloudinary",
-      "mdx_references": [
-        "v2/x-archived/p1-cleanup/showcaseDataOld.jsx"
-      ],
-      "gitignore_leakage": false,
-      "assets_branch_reference": true
     },
     {
       "path": "snippets/assets/media/heros/hero_about.png",
@@ -1032,29 +969,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/media/icons/home-house.gif",
-      "size_bytes": 1117207,
-      "extension": "gif",
-      "category": "gif",
-      "reference_status": "unreferenced",
-      "migration_target": "migrate_cloudinary",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "snippets/assets/media/icons/smart-house.gif",
-      "size_bytes": 1800244,
-      "extension": "gif",
-      "category": "gif",
-      "reference_status": "unreferenced",
-      "migration_target": "migrate_cloudinary",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "snippets/assets/media/images/GPU callout.png",
+      "path": "snippets/assets/media/images/gpu-callout.png",
       "size_bytes": 665512,
       "extension": "png",
       "category": "image",
@@ -1085,7 +1000,7 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/media/images/Livepeer Stats.png",
+      "path": "snippets/assets/media/images/livepeer-stats.png",
       "size_bytes": 298069,
       "extension": "png",
       "category": "image",
@@ -1129,24 +1044,6 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/media/videos/daydream.mp4",
-      "size_bytes": 31365183,
-      "extension": "mp4",
-      "category": "video",
-      "reference_status": "referenced",
-      "migration_target": "migrate_r2",
-      "mdx_references": [
-        "snippets/components/_archive/video.jsx",
-        "snippets/data/resources/hrefs.jsx",
-        "v2/cn/resources/documentation-guide/component-library/display.mdx",
-        "v2/es/resources/documentation-guide/component-library/display.mdx",
-        "v2/fr/resources/documentation-guide/component-library/display.mdx",
-        "v2/resources/documentation-guide/component-library/display.mdx"
-      ],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
       "path": "snippets/assets/media/videos/Embody.mp4",
       "size_bytes": 3251318,
       "extension": "mp4",
@@ -1169,27 +1066,6 @@
       "assets_branch_reference": false
     },
     {
-      "path": "snippets/assets/media/videos/HeroBackground.mp4",
-      "size_bytes": 47153588,
-      "extension": "mp4",
-      "category": "video",
-      "reference_status": "referenced",
-      "migration_target": "migrate_r2",
-      "mdx_references": [
-        "snippets/data/resources/hrefs.jsx",
-        "v2/cn/resources/documentation-guide/component-library/component-library.mdx",
-        "v2/cn/resources/documentation-guide/component-library/display.mdx",
-        "v2/es/resources/documentation-guide/component-library/component-library.mdx",
-        "v2/es/resources/documentation-guide/component-library/display.mdx",
-        "v2/fr/resources/documentation-guide/component-library/component-library.mdx",
-        "v2/fr/resources/documentation-guide/component-library/display.mdx",
-        "v2/resources/documentation-guide/component-library/component-library.mdx",
-        "v2/resources/documentation-guide/component-library/display.mdx"
-      ],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
       "path": "snippets/assets/media/videos/livepeer-founders-post.mp4",
       "size_bytes": 3344652,
       "extension": "mp4",
@@ -1197,6 +1073,8 @@
       "reference_status": "referenced",
       "migration_target": "keep",
       "mdx_references": [
+        "snippets/components/_archive/video.jsx",
+        "snippets/components/content/video.jsx",
         "snippets/data/home/hrefs.jsx",
         "snippets/data/resources/hrefs.jsx",
         "v2/cn/home/about-livepeer/vision.mdx",
@@ -1209,29 +1087,7 @@
         "v2/resources/documentation-guide/component-library/display.mdx"
       ],
       "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "snippets/assets/media/videos/LivepeerStudio.mp4",
-      "size_bytes": 10327462,
-      "extension": "mp4",
-      "category": "video",
-      "reference_status": "unreferenced",
-      "migration_target": "migrate_r2",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "snippets/assets/media/videos/nytv.live.mp4",
-      "size_bytes": 5549779,
-      "extension": "mp4",
-      "category": "video",
-      "reference_status": "unreferenced",
-      "migration_target": "migrate_r2",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
+      "assets_branch_reference": true
     },
     {
       "path": "snippets/assets/media/videos/nytvlivepromo.mp4",
@@ -1359,39 +1215,6 @@
       "assets_branch_reference": false
     },
     {
-      "path": "tasks/context_data/ABOUT/CONTEXT DATA/Protocol/Core Mechanisms.pdf",
-      "size_bytes": 81564,
-      "extension": "pdf",
-      "category": "pdf",
-      "reference_status": "unreferenced",
-      "migration_target": "keep",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "tasks/context_data/ABOUT/CONTEXT DATA/Protocol/Livepeer Protocol Core Mechanisms (2026).pdf",
-      "size_bytes": 83506,
-      "extension": "pdf",
-      "category": "pdf",
-      "reference_status": "unreferenced",
-      "migration_target": "keep",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "tasks/context_data/ABOUT/CONTEXT DATA/Protocol/OverviewReport.pdf",
-      "size_bytes": 868833,
-      "extension": "pdf",
-      "category": "pdf",
-      "reference_status": "unreferenced",
-      "migration_target": "keep",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
       "path": "v1/images/ai/ai-serviceregistry-explorer-page.png",
       "size_bytes": 84247,
       "extension": "png",
@@ -1413,19 +1236,6 @@
       "migration_target": "keep",
       "mdx_references": [
         "v1/ai/orchestrators/onchain.mdx"
-      ],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "v1/images/ai/cool-cat-hat-moving.gif",
-      "size_bytes": 3375480,
-      "extension": "gif",
-      "category": "gif",
-      "reference_status": "referenced",
-      "migration_target": "migrate_cloudinary",
-      "mdx_references": [
-        "v1/ai/pipelines/image-to-video.mdx"
       ],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -2264,67 +2074,12 @@
       "assets_branch_reference": false
     },
     {
-      "path": "v2/community/_contextData_/FAQ - Livepeer Forum.pdf",
+      "path": "v2/community/_contextData_/faq-livepeer-forum.pdf",
       "size_bytes": 118541,
       "extension": "pdf",
       "category": "pdf",
       "reference_status": "unreferenced",
       "migration_target": "keep",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "v2/home/_contextData_/Industry Verticals.pdf",
-      "size_bytes": 93057,
-      "extension": "pdf",
-      "category": "pdf",
-      "reference_status": "unreferenced",
-      "migration_target": "keep",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "v2/home/_contextData_/Livepeer 2026 Technical & Product Overview (Internal Long Report).pdf",
-      "size_bytes": 246147,
-      "extension": "pdf",
-      "category": "pdf",
-      "reference_status": "unreferenced",
-      "migration_target": "keep",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "v2/home/_contextData_/Livepeer Ecosystem Overview.pdf",
-      "size_bytes": 148423,
-      "extension": "pdf",
-      "category": "pdf",
-      "reference_status": "unreferenced",
-      "migration_target": "keep",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "v2/home/_contextData_/Livepeer Ecosystem.pdf",
-      "size_bytes": 138914,
-      "extension": "pdf",
-      "category": "pdf",
-      "reference_status": "unreferenced",
-      "migration_target": "keep",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "v2/home/_contextData_/Livepeer TAM_Shannon.pdf",
-      "size_bytes": 1271513,
-      "extension": "pdf",
-      "category": "pdf",
-      "reference_status": "unreferenced",
-      "migration_target": "migrate_github_releases",
       "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
@@ -2338,53 +2093,10 @@
       "migration_target": "keep",
       "mdx_references": [
         "snippets/data/internal/hrefs.jsx",
+        "v2/internal/docs-philosophy.mdx",
         "v2/internal/overview/docs-philosophy.mdx",
         "v2/internal/rfp/aims.mdx"
       ],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "v2/lpt/_contextData_/Livepeer Token Portal.pdf",
-      "size_bytes": 144847,
-      "extension": "pdf",
-      "category": "pdf",
-      "reference_status": "unreferenced",
-      "migration_target": "keep",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "v2/lpt/_contextData_/LPT-overview.pdf",
-      "size_bytes": 115448,
-      "extension": "pdf",
-      "category": "pdf",
-      "reference_status": "unreferenced",
-      "migration_target": "keep",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "v2/orchestrators/_context_data_/Canonical Flow_ Joining An Orchestrator Pool.pdf",
-      "size_bytes": 25681,
-      "extension": "pdf",
-      "category": "pdf",
-      "reference_status": "unreferenced",
-      "migration_target": "keep",
-      "mdx_references": [],
-      "gitignore_leakage": false,
-      "assets_branch_reference": false
-    },
-    {
-      "path": "v2/orchestrators/_context_data_/Orchestrator Functions and Services.pdf",
-      "size_bytes": 170854,
-      "extension": "pdf",
-      "category": "pdf",
-      "reference_status": "unreferenced",
-      "migration_target": "keep",
-      "mdx_references": [],
       "gitignore_leakage": false,
       "assets_branch_reference": false
     }
@@ -2392,6 +2104,12 @@
   "assets_branch": {
     "ref": "origin/docs-v2-assets",
     "recent_commits": [
+      "a1da9730 chore(assets): migrate legacy tasks/plan binaries from docs-v2 [TASKS-ASSETS]",
+      "005e82c5 chore(assets): [BLOCK-BAK] migrate .bak files from docs-v2 for safekeeping",
+      "acbf8d55 chore(assets): sync latest orchestrator context plan",
+      "b706e604 chore(assets): migrate context_data from docs-v2 branch",
+      "8b247199 chore(assets): sync migrate_cloudinary assets from docs-v2",
+      "d26624c2 docs(assets): add media migration README with CDN path",
       "af7e8ef8 Clarify purpose of docs-v2-assets branch",
       "b0fac23c Trim docs-v2-assets branch to asset-only content",
       "8caba753 Merge branch 'docs-v2-dev' into docs-v2",
@@ -2405,13 +2123,7 @@
       "d2875b87 Restructure (#755)",
       "dc6a50a0 commitMessage: `chore: create Discord announcements file from workflow - ${new Date().toISOString()}`",
       "ac859515 Update README.md",
-      "c29e8045 Merge fork updates: Enhanced hooks, structure improvements, and upstream sync (#754)",
-      "450acea5 Update forum data - 2026-02-17T14:00:40.875-05:00",
-      "b1337550 Update forum data - 2026-02-16T14:00:40.753-05:00",
-      "223babc6 Merge docs-v2-preview updates from fork (#753)",
-      "4e592a12 Docs v2 preview updates from fork (#752)",
-      "e1c5dedd updating assets",
-      "12222a09 Update forum data - 2026-02-15T14:00:41.020-05:00"
+      "c29e8045 Merge fork updates: Enhanced hooks, structure improvements, and upstream sync (#754)"
     ],
     "files": [
       {
@@ -2433,6 +2145,7 @@
         "size_bytes": 2143,
         "referenced_in_docs_v2": true,
         "mdx_references": [
+          "docs-guide/governance-guides/component-governance.mdx",
           "snippets/data/developers/hrefs.jsx",
           "snippets/data/internal/hrefs.jsx",
           "snippets/data/resources/hrefs.jsx",
@@ -2510,97 +2223,14 @@
       {
         "path": ".github/README.md",
         "size_bytes": 620,
-        "referenced_in_docs_v2": true,
-        "mdx_references": [
-          "docs-guide/README.mdx",
-          "docs-guide/feature-guides/architecture-map.mdx",
-          "docs-guide/feature-guides/content-system.mdx",
-          "docs-guide/feature-guides/feature-map.mdx",
-          "docs-guide/feature-guides/visual-explainer-workflows.mdx",
-          "docs-guide/source-of-truth-policy.mdx",
-          "snippets/components/_archive/embed.jsx",
-          "snippets/components/_archive/folders/display-examples/embed-examples.mdx",
-          "snippets/data/developers/hrefs.jsx",
-          "snippets/data/gateways/hrefs.jsx",
-          "snippets/data/home/hrefs.jsx",
-          "snippets/data/resources/hrefs.jsx",
-          "snippets/data/unknown/hrefs.jsx",
-          "tools/scripts/snippets/README.mdx",
-          "v1/ai/contributors/guides/add-model.mdx",
-          "v1/ai/contributors/guides/add-pipeline.mdx",
-          "v1/ai/pipelines/text-to-speech.mdx",
-          "v2/cn/developers/builder-opportunities/oss-contributions.mdx",
-          "v2/cn/developers/quickstart/ai/ai-jobs.mdx",
-          "v2/cn/docs-guide/README.mdx",
-          "v2/cn/docs-guide/feature-guides/architecture-map.mdx",
-          "v2/cn/docs-guide/feature-guides/content-system.mdx",
-          "v2/cn/docs-guide/feature-guides/feature-map.mdx",
-          "v2/cn/docs-guide/feature-map.mdx",
-          "v2/cn/docs-guide/indexes/pages-index.mdx",
-          "v2/cn/docs-guide/pages-index.mdx",
-          "v2/cn/docs-guide/source-of-truth-policy.mdx",
-          "v2/cn/gateways/about-gateways/gateway-explainer.mdx",
-          "v2/cn/gateways/about/explainer.mdx",
-          "v2/cn/gateways/run-a-gateway/install/community-projects.mdx",
-          "v2/cn/index.mdx",
-          "v2/cn/resources/documentation-guide/automations-workflows.mdx",
-          "v2/cn/resources/documentation-guide/component-library/display.mdx",
-          "v2/cn/resources/documentation-guide/snippets-inventory.mdx",
-          "v2/developers/builder-opportunities/oss-contributions.mdx",
-          "v2/developers/index.mdx",
-          "v2/developers/quickstart/ai/ai-jobs.mdx",
-          "v2/es/developers/builder-opportunities/oss-contributions.mdx",
-          "v2/es/developers/quickstart/ai/ai-jobs.mdx",
-          "v2/es/docs-guide/README.mdx",
-          "v2/es/docs-guide/architecture-map.mdx",
-          "v2/es/docs-guide/feature-guides/content-system.mdx",
-          "v2/es/docs-guide/feature-guides/feature-map.mdx",
-          "v2/es/docs-guide/feature-map.mdx",
-          "v2/es/docs-guide/indexes/pages-index.mdx",
-          "v2/es/docs-guide/pages-index.mdx",
-          "v2/es/docs-guide/source-of-truth-policy.mdx",
-          "v2/es/gateways/about-gateways/gateway-explainer.mdx",
-          "v2/es/gateways/about/explainer.mdx",
-          "v2/es/gateways/run-a-gateway/install/community-projects.mdx",
-          "v2/es/index.mdx",
-          "v2/es/resources/documentation-guide/automations-workflows.mdx",
-          "v2/es/resources/documentation-guide/component-library/display.mdx",
-          "v2/es/resources/documentation-guide/snippets-inventory.mdx",
-          "v2/fr/developers/builder-opportunities/oss-contributions.mdx",
-          "v2/fr/developers/quickstart/ai/ai-jobs.mdx",
-          "v2/fr/docs-guide/README.mdx",
-          "v2/fr/docs-guide/architecture-map.mdx",
-          "v2/fr/docs-guide/feature-guides/architecture-map.mdx",
-          "v2/fr/docs-guide/feature-guides/content-system.mdx",
-          "v2/fr/docs-guide/feature-guides/feature-map.mdx",
-          "v2/fr/docs-guide/feature-map.mdx",
-          "v2/fr/docs-guide/indexes/pages-index.mdx",
-          "v2/fr/docs-guide/pages-index.mdx",
-          "v2/fr/docs-guide/source-of-truth-policy.mdx",
-          "v2/fr/gateways/about-gateways/gateway-explainer.mdx",
-          "v2/fr/gateways/about/explainer.mdx",
-          "v2/fr/gateways/run-a-gateway/install/community-projects.mdx",
-          "v2/fr/index.mdx",
-          "v2/fr/resources/documentation-guide/automations-workflows.mdx",
-          "v2/fr/resources/documentation-guide/component-library/display.mdx",
-          "v2/fr/resources/documentation-guide/snippets-inventory.mdx",
-          "v2/gateways/about/explainer.mdx",
-          "v2/gateways/run-a-gateway/install/community-projects.mdx",
-          "v2/index.mdx",
-          "v2/internal/index.mdx",
-          "v2/internal/rfp/aims.mdx",
-          "v2/resources/documentation-guide/automations-workflows.mdx",
-          "v2/resources/documentation-guide/component-library/display.mdx",
-          "v2/resources/documentation-guide/snippets-inventory.mdx"
-        ]
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
       },
       {
         "path": ".github/scripts/embed-table.js",
         "size_bytes": 0,
-        "referenced_in_docs_v2": true,
-        "mdx_references": [
-          "docs-guide/indexes/scripts-index.mdx"
-        ]
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
       },
       {
         "path": ".github/scripts/fetch-forum-data.js",
@@ -2641,18 +2271,14 @@
       {
         "path": ".github/scripts/gen-table.js",
         "size_bytes": 0,
-        "referenced_in_docs_v2": true,
-        "mdx_references": [
-          "docs-guide/indexes/scripts-index.mdx"
-        ]
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
       },
       {
         "path": ".github/scripts/gen-textareas.js",
         "size_bytes": 0,
-        "referenced_in_docs_v2": true,
-        "mdx_references": [
-          "docs-guide/indexes/scripts-index.mdx"
-        ]
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
       },
       {
         "path": ".github/workflows/auto-assign-docs-reviewers.yml",
@@ -2892,6 +2518,651 @@
       {
         "path": ".nojekyll",
         "size_bytes": 0,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/00-NAV-AND-PAGE-INDEX.md",
+        "size_bytes": 4133,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/ABOUT-SECTION-COPY-REVIEW.md",
+        "size_bytes": 21975,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/ABOUT-SECTION-STYLE-GUIDE.md",
+        "size_bytes": 11002,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/livepeer_docs_rebuild.md",
+        "size_bytes": 7216,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/livepeer_ia_protocol_report.md",
+        "size_bytes": 6446,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Network/livepeer_interfaces.md",
+        "size_bytes": 4469,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Network/livepeer_job_lifecycle.md",
+        "size_bytes": 4342,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Network/livepeer_marketplace.md",
+        "size_bytes": 5117,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Network/livepeer_network_actors.md",
+        "size_bytes": 4838,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Network/livepeer_network_overview.md",
+        "size_bytes": 5334,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Network/livepeer_technical_stack.md",
+        "size_bytes": 4302,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Protocol/Core Mechanisms.pdf",
+        "size_bytes": 81564,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Protocol/deep-research-report (1).md",
+        "size_bytes": 26016,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Protocol/deep-research-report (2).md",
+        "size_bytes": 21757,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Protocol/deep-research-report.md",
+        "size_bytes": 32981,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Protocol/Livepeer Protocol Core Mechanisms (2026).pdf",
+        "size_bytes": 83506,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Protocol/livepeer_core_mechanisms.md",
+        "size_bytes": 6732,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Protocol/livepeer_governance_model.md",
+        "size_bytes": 5861,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Protocol/livepeer_protocol_economics.md",
+        "size_bytes": 5686,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Protocol/livepeer_technical_architecture.md",
+        "size_bytes": 6270,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Protocol/livepeer_token.md",
+        "size_bytes": 5629,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Protocol/livepeer_treasury.md",
+        "size_bytes": 5024,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Protocol/OverviewReport.pdf",
+        "size_bytes": 868833,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ABOUT/CONTEXT DATA/Resources_References/livepeer_about_section_references.md",
+        "size_bytes": 3890,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/00-NAV-AND-PAGE-INDEX.md",
+        "size_bytes": 4819,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/ai_pipelines_overview.md",
+        "size_bytes": 3390,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/byoc_pipeline_guide.md",
+        "size_bytes": 3350,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/comfy_stream_integration.md",
+        "size_bytes": 2825,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/contribution_guide.md",
+        "size_bytes": 2893,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/developer_guides_index.md",
+        "size_bytes": 2435,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/developer_help.md",
+        "size_bytes": 2264,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/developer_programs.md",
+        "size_bytes": 2087,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/developer_resources.md",
+        "size_bytes": 2629,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/livepeer_ai_quickstart.md",
+        "size_bytes": 2744,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/livepeer_developer_guide.md",
+        "size_bytes": 4208,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/livepeer_developer_journey.md",
+        "size_bytes": 4470,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/livepeer_developer_partners.md",
+        "size_bytes": 3793,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/livepeer_developer_section_planning.md",
+        "size_bytes": 3295,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/livepeer_rfps.md",
+        "size_bytes": 2724,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/CONTEXT DATA/livepeer_video_streaming_quickstart.md",
+        "size_bytes": 2450,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/DEVELOPERS-SECTION-COPY-REVIEW.md",
+        "size_bytes": 6930,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/DEVELOPERS/DEVELOPERS-SECTION-STYLE-GUIDE.md",
+        "size_bytes": 3751,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/lptoken_about_mechanics.md",
+        "size_bytes": 9538,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/lptoken_about_purpose.md",
+        "size_bytes": 5145,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/lptoken_about_tokenomics.md",
+        "size_bytes": 5633,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/lptoken_delegation_overview.md",
+        "size_bytes": 4623,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/lptoken_token_portal.md",
+        "size_bytes": 4350,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/lptoken_treasury_overview.md",
+        "size_bytes": 203,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/new/about_mechanics.md",
+        "size_bytes": 3811,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/new/about_overview.md",
+        "size_bytes": 4238,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/new/about_purpose.md",
+        "size_bytes": 4695,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/new/about_token_portal.md",
+        "size_bytes": 3985,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/new/about_tokenomics.md",
+        "size_bytes": 4173,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/new/delegation_about_delegators.md",
+        "size_bytes": 6052,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/new/delegation_delegation_guide.md",
+        "size_bytes": 4858,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/new/delegation_overview.md",
+        "size_bytes": 5130,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/new/governance_model.md",
+        "size_bytes": 4720,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/new/governance_overview.md",
+        "size_bytes": 4417,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/new/governance_processes.md",
+        "size_bytes": 5014,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/new/treasury_allocations.md",
+        "size_bytes": 4849,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/new/treasury_overview.md",
+        "size_bytes": 3941,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/new/treasury_proposals.md",
+        "size_bytes": 4567,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/LPTOKEN/ptoken_about_purpose.md",
+        "size_bytes": 5024,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/00-V1-TO-V2-IA-MAPPING-AND-RECOMMENDATIONS.md",
+        "size_bytes": 18772,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/01-ORCHESTRATORS-COPY-REVIEW-AND-RECOMMENDATIONS.md",
+        "size_bytes": 24529,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/05_orchestrators_about_orchestrators_economics.md",
+        "size_bytes": 11700,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/05_orchestrators_advanced_setup_ai_pipelines.md",
+        "size_bytes": 9243,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/05_orchestrators_advanced_setup_delegation.md",
+        "size_bytes": 8689,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/05_orchestrators_advanced_setup_run_a_pool.md",
+        "size_bytes": 9367,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/05_orchestrators_advanced_setup_staking_lpt (1).md",
+        "size_bytes": 4385,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/05_orchestrators_advanced_setup_staking_lpt.md",
+        "size_bytes": 4298,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/05_orchestrators_quickstart_orchestrator_setup.md",
+        "size_bytes": 5085,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/05_orchestrators_references_faq.md",
+        "size_bytes": 5928,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/join_a_pool.md",
+        "size_bytes": 4562,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrator_architecture_draft_mdx (1).md",
+        "size_bytes": 11350,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrator_architecture_draft_mdx.md",
+        "size_bytes": 11350,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrator_configuration.md",
+        "size_bytes": 3485,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrator_economics.md",
+        "size_bytes": 10094,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrator_functions (1).md",
+        "size_bytes": 5382,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrator_functions.md",
+        "size_bytes": 5382,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrator_hardware_requirements.md",
+        "size_bytes": 4561,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrator_ia_setup.md",
+        "size_bytes": 1138,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrator_installation.md",
+        "size_bytes": 3339,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrator_network_integration.md",
+        "size_bytes": 2750,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrator_overview.md",
+        "size_bytes": 3535,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrator_stats_monitoring.md",
+        "size_bytes": 4357,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrator_testing_validation.md",
+        "size_bytes": 3474,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrators_advanced_setup_ai_pipelines.md",
+        "size_bytes": 6793,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrators_advanced_setup_delegation.md",
+        "size_bytes": 7880,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrators_advanced_setup_rewards_and_fees.md",
+        "size_bytes": 8590,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrators_advanced_setup_staking_lpt.md",
+        "size_bytes": 12415,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/orchestrators_inline.md",
+        "size_bytes": 12423,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "v2/index.mdx",
+          "v2/x-notes/index.mdx"
+        ]
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/rewards_and_fees_advanced_orchestrator_guide.md",
+        "size_bytes": 4586,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/CONTEXT DATA/run_an_orchestrator_overview.md",
+        "size_bytes": 4821,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/ORCHESTRATORS-SECTION-STYLE-GUIDE.md",
+        "size_bytes": 8832,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/ORCHESTRATORS/README.md",
+        "size_bytes": 1114,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/v2-embedded/home/Industry Verticals.pdf",
+        "size_bytes": 93057,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/v2-embedded/home/Livepeer 2026 Technical & Product Overview (Internal Long Report).pdf",
+        "size_bytes": 246147,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/v2-embedded/home/Livepeer Ecosystem Overview.pdf",
+        "size_bytes": 148423,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/v2-embedded/home/Livepeer Ecosystem.pdf",
+        "size_bytes": 138914,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/v2-embedded/home/Livepeer TAM_Shannon.pdf",
+        "size_bytes": 1271513,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/v2-embedded/lpt/Livepeer Token Portal.pdf",
+        "size_bytes": 144847,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/v2-embedded/lpt/LPT-overview.pdf",
+        "size_bytes": 115448,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/v2-embedded/orchestrators/Canonical Flow_ Joining An Orchestrator Pool.pdf",
+        "size_bytes": 25681,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/v2-embedded/orchestrators/Orchestrator Functions and Services.pdf",
+        "size_bytes": 170854,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "context-data/v2-embedded/orchestrators/orchestrators-gateways-implementation-plan.mdx",
+        "size_bytes": 18743,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "README-media-migration.md",
+        "size_bytes": 1274,
         "referenced_in_docs_v2": false,
         "mdx_references": []
       },
@@ -4968,22 +5239,8 @@
       {
         "path": "snippets/assets/media/images/Livepeer Stats.png",
         "size_bytes": 298069,
-        "referenced_in_docs_v2": true,
-        "mdx_references": [
-          "snippets/data/about/hrefs.jsx",
-          "v2/about/livepeer-overview.mdx",
-          "v2/cn/about/livepeer-overview.mdx",
-          "v2/cn/resources/documentation-guide/component-library/component-library.mdx",
-          "v2/cn/resources/documentation-guide/component-library/display.mdx",
-          "v2/es/about/livepeer-overview.mdx",
-          "v2/es/resources/documentation-guide/component-library/component-library.mdx",
-          "v2/es/resources/documentation-guide/component-library/display.mdx",
-          "v2/fr/about/livepeer-overview.mdx",
-          "v2/fr/resources/documentation-guide/component-library/component-library.mdx",
-          "v2/fr/resources/documentation-guide/component-library/display.mdx",
-          "v2/resources/documentation-guide/component-library/component-library.mdx",
-          "v2/resources/documentation-guide/component-library/display.mdx"
-        ]
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
       },
       {
         "path": "snippets/assets/media/images/nytv-logo.png",
@@ -5035,6 +5292,8 @@
         "size_bytes": 47153588,
         "referenced_in_docs_v2": true,
         "mdx_references": [
+          "snippets/components/_archive/video.jsx",
+          "snippets/components/content/video.jsx",
           "snippets/data/resources/hrefs.jsx",
           "v2/cn/resources/documentation-guide/component-library/component-library.mdx",
           "v2/cn/resources/documentation-guide/component-library/display.mdx",
@@ -5051,6 +5310,8 @@
         "size_bytes": 3344652,
         "referenced_in_docs_v2": true,
         "mdx_references": [
+          "snippets/components/_archive/video.jsx",
+          "snippets/components/content/video.jsx",
           "snippets/data/home/hrefs.jsx",
           "snippets/data/resources/hrefs.jsx",
           "v2/cn/home/about-livepeer/vision.mdx",
@@ -5201,23 +5462,597 @@
         "mdx_references": []
       },
       {
-        "path": "v2/assets/daydream.gif",
-        "size_bytes": 92239994,
+        "path": "tasks-plan-archive/active/CONTENTFILES/builder-opportunity-files.zip",
+        "size_bytes": 18851,
         "referenced_in_docs_v2": false,
         "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/byoc.mdx",
+        "size_bytes": 8205,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "docs-guide/indexes/pages-index.mdx",
+          "snippets/components/layout/containers.jsx",
+          "snippets/components/layout/table.jsx",
+          "snippets/components/primitives/links.jsx",
+          "snippets/data/developers/hrefs.jsx",
+          "snippets/data/gateways/hrefs.jsx",
+          "snippets/data/home/hrefs.jsx",
+          "snippets/data/orchestrators/hrefs.jsx",
+          "v2/cn/docs-guide/indexes/pages-index.mdx",
+          "v2/cn/docs-guide/pages-index.mdx",
+          "v2/cn/index.mdx",
+          "v2/developers/index.mdx",
+          "v2/es/docs-guide/indexes/pages-index.mdx",
+          "v2/es/docs-guide/pages-index.mdx",
+          "v2/es/index.mdx",
+          "v2/fr/docs-guide/indexes/pages-index.mdx",
+          "v2/fr/docs-guide/pages-index.mdx",
+          "v2/fr/index.mdx",
+          "v2/gateways/index.mdx",
+          "v2/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/community-content-files.zip",
+        "size_bytes": 24003,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/dev-guides-files.zip",
+        "size_bytes": 18086,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/gateway-content-files.zip",
+        "size_bytes": 37977,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/gateway-content-files/ai-configuration.mdx",
+        "size_bytes": 11314,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "docs-guide/indexes/pages-index.mdx",
+          "snippets/components/primitives/links.jsx",
+          "snippets/data/gateways/hrefs.jsx",
+          "v2/cn/docs-guide/indexes/pages-index.mdx",
+          "v2/cn/docs-guide/pages-index.mdx",
+          "v2/cn/index.mdx",
+          "v2/es/docs-guide/indexes/pages-index.mdx",
+          "v2/es/docs-guide/pages-index.mdx",
+          "v2/es/index.mdx",
+          "v2/fr/docs-guide/indexes/pages-index.mdx",
+          "v2/fr/docs-guide/pages-index.mdx",
+          "v2/fr/index.mdx",
+          "v2/gateways/index.mdx",
+          "v2/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/gateway-content-files/configuration-flags.mdx",
+        "size_bytes": 13008,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "docs-guide/indexes/pages-index.mdx",
+          "snippets/components/primitives/links.jsx",
+          "snippets/data/gateways/hrefs.jsx",
+          "v2/cn/docs-guide/indexes/pages-index.mdx",
+          "v2/cn/docs-guide/pages-index.mdx",
+          "v2/cn/index.mdx",
+          "v2/es/docs-guide/indexes/pages-index.mdx",
+          "v2/es/docs-guide/pages-index.mdx",
+          "v2/es/index.mdx",
+          "v2/fr/docs-guide/indexes/pages-index.mdx",
+          "v2/fr/docs-guide/pages-index.mdx",
+          "v2/fr/index.mdx",
+          "v2/gateways/index.mdx",
+          "v2/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/gateway-content-files/connect-with-offerings.mdx",
+        "size_bytes": 9781,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "docs-guide/indexes/pages-index.mdx",
+          "snippets/components/content/zoomableDiagram.jsx",
+          "snippets/components/primitives/links.jsx",
+          "snippets/data/gateways/hrefs.jsx",
+          "v2/cn/docs-guide/indexes/pages-index.mdx",
+          "v2/cn/docs-guide/pages-index.mdx",
+          "v2/cn/index.mdx",
+          "v2/es/docs-guide/indexes/pages-index.mdx",
+          "v2/es/docs-guide/pages-index.mdx",
+          "v2/es/index.mdx",
+          "v2/fr/docs-guide/indexes/pages-index.mdx",
+          "v2/fr/docs-guide/pages-index.mdx",
+          "v2/fr/index.mdx",
+          "v2/gateways/index.mdx",
+          "v2/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/gateway-content-files/faq.mdx",
+        "size_bytes": 14349,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "docs-guide/indexes/pages-index.mdx",
+          "snippets/data/community/hrefs.jsx",
+          "snippets/data/gateways/hrefs.jsx",
+          "snippets/data/orchestrators/hrefs.jsx",
+          "v2/cn/docs-guide/indexes/pages-index.mdx",
+          "v2/cn/docs-guide/pages-index.mdx",
+          "v2/cn/index.mdx",
+          "v2/community/index.mdx",
+          "v2/es/docs-guide/indexes/pages-index.mdx",
+          "v2/es/docs-guide/pages-index.mdx",
+          "v2/es/index.mdx",
+          "v2/fr/docs-guide/indexes/pages-index.mdx",
+          "v2/fr/docs-guide/pages-index.mdx",
+          "v2/fr/index.mdx",
+          "v2/gateways/index.mdx",
+          "v2/index.mdx",
+          "v2/orchestrators/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/gateway-content-files/gateway-architecture.mdx",
+        "size_bytes": 11526,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "v2/cn/index.mdx",
+          "v2/es/index.mdx",
+          "v2/fr/index.mdx",
+          "v2/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/gateway-content-files/gateway-economics.mdx",
+        "size_bytes": 9894,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "v2/cn/index.mdx",
+          "v2/es/index.mdx",
+          "v2/fr/index.mdx",
+          "v2/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/gateway-content-files/monitor-and-optimise.mdx",
+        "size_bytes": 10086,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "docs-guide/indexes/pages-index.mdx",
+          "snippets/components/content/zoomableDiagram.jsx",
+          "snippets/components/primitives/links.jsx",
+          "snippets/data/gateways/hrefs.jsx",
+          "v2/cn/docs-guide/indexes/pages-index.mdx",
+          "v2/cn/docs-guide/pages-index.mdx",
+          "v2/cn/index.mdx",
+          "v2/es/docs-guide/indexes/pages-index.mdx",
+          "v2/es/docs-guide/pages-index.mdx",
+          "v2/es/index.mdx",
+          "v2/fr/docs-guide/indexes/pages-index.mdx",
+          "v2/fr/docs-guide/pages-index.mdx",
+          "v2/fr/index.mdx",
+          "v2/gateways/index.mdx",
+          "v2/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/gateway-content-files/overview.mdx",
+        "size_bytes": 8997,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/gateway-content-files/troubleshooting.mdx",
+        "size_bytes": 17594,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/hosting-models.mdx",
+        "size_bytes": 9702,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "docs-guide/indexes/pages-index.mdx",
+          "snippets/components/layout/containers.jsx",
+          "snippets/components/layout/table.jsx",
+          "snippets/components/primitives/links.jsx",
+          "snippets/data/developers/hrefs.jsx",
+          "snippets/data/orchestrators/hrefs.jsx",
+          "v2/index.mdx",
+          "v2/orchestrators/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/local-gateways-discord.txt",
+        "size_bytes": 29982,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/lpt-content-files.zip",
+        "size_bytes": 24003,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/model-support.mdx",
+        "size_bytes": 10849,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "docs-guide/indexes/pages-index.mdx",
+          "snippets/components/layout/table.jsx",
+          "snippets/components/primitives/links.jsx",
+          "snippets/data/developers/hrefs.jsx",
+          "snippets/data/orchestrators/hrefs.jsx",
+          "v2/developers/index.mdx",
+          "v2/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/notion/NaaP MVP .zip",
+        "size_bytes": 809484,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/notion/NaaP MVP 2.zip",
+        "size_bytes": 4837,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/notion/network as a product.zip",
+        "size_bytes": 3228,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/overview.mdx",
+        "size_bytes": 5937,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/pay-orc-gate-files.zip",
+        "size_bytes": 31923,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/pay-orc-gate-files/batch-ai.mdx",
+        "size_bytes": 3578,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/pay-orc-gate-files/cloud-spe-gateway.mdx",
+        "size_bytes": 3968,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/pay-orc-gate-files/daydream-gateway.mdx",
+        "size_bytes": 4292,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/pay-orc-gate-files/index.mdx",
+        "size_bytes": 1747,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "contribute/CONTRIBUTING.mdx",
+          "docs-guide/README.mdx",
+          "docs-guide/feature-guides/automation-pipelines.mdx",
+          "docs-guide/feature-guides/data-integrations.mdx",
+          "docs-guide/feature-guides/feature-map.mdx",
+          "docs-guide/governance-guides/component-governance.mdx",
+          "docs-guide/indexes/pages-index.mdx",
+          "docs-guide/indexes/scripts-index.mdx",
+          "docs-guide/lpd.mdx",
+          "docs-guide/source-of-truth-policy.mdx",
+          "snippets/data/community/hrefs.jsx",
+          "snippets/data/resources/hrefs.jsx",
+          "tools/scripts/snippets/README.mdx",
+          "v2/cn/docs-guide/README.mdx",
+          "v2/cn/docs-guide/feature-guides/automation-pipelines.mdx",
+          "v2/cn/docs-guide/feature-guides/data-integrations.mdx",
+          "v2/cn/docs-guide/feature-guides/feature-map.mdx",
+          "v2/cn/docs-guide/feature-map.mdx",
+          "v2/cn/docs-guide/indexes/pages-index.mdx",
+          "v2/cn/docs-guide/lpd.mdx",
+          "v2/cn/docs-guide/pages-index.mdx",
+          "v2/cn/docs-guide/source-of-truth-policy.mdx",
+          "v2/cn/index.mdx",
+          "v2/cn/resources/documentation-guide/automations-workflows.mdx",
+          "v2/cn/resources/documentation-guide/docs-features-and-ai-integrations.mdx",
+          "v2/cn/resources/documentation-guide/documentation-guide.mdx",
+          "v2/cn/resources/documentation-guide/snippets-inventory.mdx",
+          "v2/es/docs-guide/README.mdx",
+          "v2/es/docs-guide/feature-guides/automation-pipelines.mdx",
+          "v2/es/docs-guide/feature-guides/data-integrations.mdx",
+          "v2/es/docs-guide/feature-guides/feature-map.mdx",
+          "v2/es/docs-guide/feature-map.mdx",
+          "v2/es/docs-guide/indexes/pages-index.mdx",
+          "v2/es/docs-guide/lpd.mdx",
+          "v2/es/docs-guide/pages-index.mdx",
+          "v2/es/docs-guide/source-of-truth-policy.mdx",
+          "v2/es/index.mdx",
+          "v2/es/resources/documentation-guide/automations-workflows.mdx",
+          "v2/es/resources/documentation-guide/docs-features-and-ai-integrations.mdx",
+          "v2/es/resources/documentation-guide/documentation-guide.mdx",
+          "v2/es/resources/documentation-guide/snippets-inventory.mdx",
+          "v2/fr/docs-guide/README.mdx",
+          "v2/fr/docs-guide/automation-pipelines.mdx",
+          "v2/fr/docs-guide/feature-guides/automation-pipelines.mdx",
+          "v2/fr/docs-guide/feature-guides/data-integrations.mdx",
+          "v2/fr/docs-guide/feature-guides/feature-map.mdx",
+          "v2/fr/docs-guide/feature-map.mdx",
+          "v2/fr/docs-guide/indexes/pages-index.mdx",
+          "v2/fr/docs-guide/lpd.mdx",
+          "v2/fr/docs-guide/pages-index.mdx",
+          "v2/fr/docs-guide/source-of-truth-policy.mdx",
+          "v2/fr/index.mdx",
+          "v2/fr/resources/documentation-guide/automations-workflows.mdx",
+          "v2/fr/resources/documentation-guide/docs-features-and-ai-integrations.mdx",
+          "v2/fr/resources/documentation-guide/documentation-guide.mdx",
+          "v2/fr/resources/documentation-guide/snippets-inventory.mdx",
+          "v2/index.mdx",
+          "v2/internal/rfp/aims.mdx",
+          "v2/resources/documentation-guide/automations-workflows.mdx",
+          "v2/resources/documentation-guide/docs-features-and-ai-integrations.mdx",
+          "v2/resources/documentation-guide/documentation-guide.mdx",
+          "v2/resources/documentation-guide/snippets-inventory.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/pay-orc-gate-files/job-types.mdx",
+        "size_bytes": 6314,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "docs-guide/indexes/pages-index.mdx",
+          "snippets/data/orchestrators/hrefs.jsx",
+          "v2/index.mdx",
+          "v2/orchestrators/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/pay-orc-gate-files/livepeer-studio-gateway.mdx",
+        "size_bytes": 3848,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/pay-orc-gate-files/mnt/user-data/outputs/part2-mdx/orchestrators/about-orchestrators/naap-platform.mdx",
+        "size_bytes": 4157,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/pay-orc-gate-files/naap-platform.mdx",
+        "size_bytes": 5077,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/pay-orc-gate-files/payment-clearinghouse.mdx",
+        "size_bytes": 4864,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "docs-guide/indexes/pages-index.mdx",
+          "snippets/data/gateways/hrefs.jsx",
+          "v2/gateways/index.mdx",
+          "v2/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/pay-orc-gate-files/realtime-ai.mdx",
+        "size_bytes": 9603,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/repo-content-files/ai-pipelines-overview.mdx",
+        "size_bytes": 9844,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/repo-content-files/choosing-a-gateway.mdx",
+        "size_bytes": 6406,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "docs-guide/indexes/pages-index.mdx",
+          "snippets/components/layout/containers.jsx",
+          "snippets/components/layout/tables.jsx",
+          "snippets/components/primitives/links.jsx",
+          "snippets/data/gateways/hrefs.jsx",
+          "v2/cn/docs-guide/indexes/pages-index.mdx",
+          "v2/cn/docs-guide/pages-index.mdx",
+          "v2/cn/index.mdx",
+          "v2/es/docs-guide/indexes/pages-index.mdx",
+          "v2/es/docs-guide/pages-index.mdx",
+          "v2/es/index.mdx",
+          "v2/fr/docs-guide/indexes/pages-index.mdx",
+          "v2/fr/docs-guide/pages-index.mdx",
+          "v2/fr/index.mdx",
+          "v2/gateways/index.mdx",
+          "v2/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/repo-content-files/cloud-spe-gateway.mdx",
+        "size_bytes": 5761,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/repo-content-files/daydream-gateway.mdx",
+        "size_bytes": 6465,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/repo-content-files/delegator-onboarding.mdx",
+        "size_bytes": 8638,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/repo-content-files/developer-journey.mdx",
+        "size_bytes": 9453,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "snippets/data/developers/hrefs.jsx",
+          "v2/cn/index.mdx",
+          "v2/developers/index.mdx",
+          "v2/es/index.mdx",
+          "v2/fr/index.mdx",
+          "v2/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/repo-content-files/gateway-operator-opportunities.mdx",
+        "size_bytes": 8765,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "docs-guide/indexes/pages-index.mdx",
+          "snippets/components/layout/containers.jsx",
+          "snippets/components/layout/tables.jsx",
+          "snippets/data/developers/hrefs.jsx",
+          "snippets/data/gateways/hrefs.jsx",
+          "v2/gateways/index.mdx",
+          "v2/index.mdx",
+          "v2/x-deprecated/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/repo-content-files/livepeer-studio-gateway.mdx",
+        "size_bytes": 6956,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/repo-content-files/orchestrator-earnings.mdx",
+        "size_bytes": 7902,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/repo-content-files/video-streaming-101.mdx",
+        "size_bytes": 8348,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "snippets/components/layout/containers.jsx",
+          "snippets/components/layout/tables.jsx",
+          "snippets/components/primitives/previewCallouts.jsx",
+          "snippets/data/developers/hrefs.jsx",
+          "v2/developers/index.mdx",
+          "v2/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/CONTENTFILES/workload-fit.mdx",
+        "size_bytes": 8829,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "docs-guide/indexes/pages-index.mdx",
+          "snippets/components/layout/containers.jsx",
+          "snippets/components/layout/layout.jsx",
+          "snippets/components/layout/table.jsx",
+          "snippets/components/primitives/links.jsx",
+          "snippets/components/primitives/previewCallouts.jsx",
+          "snippets/data/developers/hrefs.jsx",
+          "v2/developers/index.mdx",
+          "v2/index.mdx"
+        ]
+      },
+      {
+        "path": "tasks-plan-archive/active/dev-plan1-quick-fixes.docx",
+        "size_bytes": 15136,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/dev-plan3-overall-updated-plan.docx",
+        "size_bytes": 16697,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/Developer-Gateway-Enhace-Flow-Plan.docx",
+        "size_bytes": 16001,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/gateways-restructure.mdx",
+        "size_bytes": 13386,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tasks-plan-archive/active/repo-governance-files.zip",
+        "size_bytes": 13369,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tests/integration/browser.test.js.bak",
+        "size_bytes": 8422,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tests/integration/browser.test.js.bak2",
+        "size_bytes": 8452,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tools/scripts/test-v2-pages.js.bak",
+        "size_bytes": 6821,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "tools/scripts/test-v2-pages.js.bak2",
+        "size_bytes": 6825,
+        "referenced_in_docs_v2": false,
+        "mdx_references": []
+      },
+      {
+        "path": "v1/images/ai/cool-cat-hat-moving.gif",
+        "size_bytes": 3375480,
+        "referenced_in_docs_v2": true,
+        "mdx_references": [
+          "v1/ai/pipelines/image-to-video.mdx"
+        ]
       }
     ],
     "reference_sources": [
       "contribute/CONTRIBUTING.mdx",
       "docs-guide/README.mdx",
-      "docs-guide/feature-guides/architecture-map.mdx",
+      "docs-guide/feature-guides/automation-pipelines.mdx",
       "docs-guide/feature-guides/content-system.mdx",
+      "docs-guide/feature-guides/data-integrations.mdx",
       "docs-guide/feature-guides/feature-map.mdx",
-      "docs-guide/feature-guides/visual-explainer-workflows.mdx",
+      "docs-guide/governance-guides/component-governance.mdx",
       "docs-guide/indexes/components-index.mdx",
+      "docs-guide/indexes/pages-index.mdx",
       "docs-guide/indexes/scripts-index.mdx",
       "docs-guide/indexes/templates-index.mdx",
       "docs-guide/indexes/workflows-index.mdx",
+      "docs-guide/lpd.mdx",
       "docs-guide/quality-testing/infrastructure-principles.mdx",
       "docs-guide/quality-testing/quality-gates.mdx",
       "docs-guide/source-of-truth-policy.mdx",
@@ -5225,21 +6060,29 @@
       "snippets/automations/showcase/showcaseData.jsx",
       "snippets/components/_archive/HeroGif.jsx",
       "snippets/components/_archive/Portals.jsx",
-      "snippets/components/_archive/embed.jsx",
-      "snippets/components/_archive/folders/display-examples/embed-examples.mdx",
       "snippets/components/_archive/frameMode.jsx",
       "snippets/components/_archive/showcaseCards.jsx",
       "snippets/components/_archive/video.jsx",
+      "snippets/components/content/video.jsx",
+      "snippets/components/content/zoomableDiagram.jsx",
       "snippets/components/data/showcaseCards.jsx",
+      "snippets/components/layout/containers.jsx",
+      "snippets/components/layout/layout.jsx",
+      "snippets/components/layout/table.jsx",
+      "snippets/components/layout/tables.jsx",
       "snippets/components/page-structure/heroGif.jsx",
       "snippets/components/page-structure/portals.jsx",
       "snippets/components/primitives/divider.jsx",
       "snippets/components/primitives/icons.jsx",
+      "snippets/components/primitives/links.jsx",
+      "snippets/components/primitives/previewCallouts.jsx",
       "snippets/data/about/hrefs.jsx",
+      "snippets/data/community/hrefs.jsx",
       "snippets/data/developers/hrefs.jsx",
       "snippets/data/gateways/hrefs.jsx",
       "snippets/data/home/hrefs.jsx",
       "snippets/data/internal/hrefs.jsx",
+      "snippets/data/orchestrators/hrefs.jsx",
       "snippets/data/resources/hrefs.jsx",
       "snippets/data/solutions/hrefs.jsx",
       "snippets/data/unknown/hrefs.jsx",
@@ -5251,9 +6094,7 @@
       "snippets/pages/05_GPUS/Diagrams/orchestratorRole.mdx",
       "snippets/snippetsWiki/mintlify-behaviour.mdx",
       "tools/scripts/snippets/README.mdx",
-      "v1/ai/contributors/guides/add-model.mdx",
-      "v1/ai/contributors/guides/add-pipeline.mdx",
-      "v1/ai/pipelines/text-to-speech.mdx",
+      "v1/ai/pipelines/image-to-video.mdx",
       "v2/about/core-concepts.mdx",
       "v2/about/core-concepts/concepts/actors.mdx",
       "v2/about/faq-about.mdx",
@@ -5359,14 +6200,16 @@
       "v2/cn/developers/x-unstaged/partner-integrations.mdx",
       "v2/cn/docs-guide/README.mdx",
       "v2/cn/docs-guide/components-index.mdx",
-      "v2/cn/docs-guide/feature-guides/architecture-map.mdx",
+      "v2/cn/docs-guide/feature-guides/automation-pipelines.mdx",
       "v2/cn/docs-guide/feature-guides/content-system.mdx",
+      "v2/cn/docs-guide/feature-guides/data-integrations.mdx",
       "v2/cn/docs-guide/feature-guides/feature-map.mdx",
       "v2/cn/docs-guide/feature-map.mdx",
       "v2/cn/docs-guide/indexes/components-index.mdx",
       "v2/cn/docs-guide/indexes/pages-index.mdx",
       "v2/cn/docs-guide/indexes/templates-index.mdx",
       "v2/cn/docs-guide/indexes/workflows-index.mdx",
+      "v2/cn/docs-guide/lpd.mdx",
       "v2/cn/docs-guide/pages-index.mdx",
       "v2/cn/docs-guide/quality-testing/quality-gates.mdx",
       "v2/cn/docs-guide/source-of-truth-policy.mdx",
@@ -5573,6 +6416,7 @@
       "v2/cn/solutions/streamplace/introduction/streamplace-provenance.mdx",
       "v2/cn/solutions/streamplace/overview.mdx",
       "v2/community/community-portal.mdx",
+      "v2/community/index.mdx",
       "v2/community/livepeer-community/community-guidelines.mdx",
       "v2/community/livepeer-community/roadmap.mdx",
       "v2/community/livepeer-community/trending-topics.mdx",
@@ -5704,15 +6548,17 @@
       "v2/es/developers/x-deprecated/contribution-guide.mdx",
       "v2/es/developers/x-unstaged/partner-integrations.mdx",
       "v2/es/docs-guide/README.mdx",
-      "v2/es/docs-guide/architecture-map.mdx",
       "v2/es/docs-guide/components-index.mdx",
+      "v2/es/docs-guide/feature-guides/automation-pipelines.mdx",
       "v2/es/docs-guide/feature-guides/content-system.mdx",
+      "v2/es/docs-guide/feature-guides/data-integrations.mdx",
       "v2/es/docs-guide/feature-guides/feature-map.mdx",
       "v2/es/docs-guide/feature-map.mdx",
       "v2/es/docs-guide/indexes/components-index.mdx",
       "v2/es/docs-guide/indexes/pages-index.mdx",
       "v2/es/docs-guide/indexes/templates-index.mdx",
       "v2/es/docs-guide/indexes/workflows-index.mdx",
+      "v2/es/docs-guide/lpd.mdx",
       "v2/es/docs-guide/pages-index.mdx",
       "v2/es/docs-guide/quality-gates.mdx",
       "v2/es/docs-guide/source-of-truth-policy.mdx",
@@ -5992,16 +6838,18 @@
       "v2/fr/developers/x-unstaged/developer-tools/tooling-hub.mdx",
       "v2/fr/developers/x-unstaged/partner-integrations.mdx",
       "v2/fr/docs-guide/README.mdx",
-      "v2/fr/docs-guide/architecture-map.mdx",
+      "v2/fr/docs-guide/automation-pipelines.mdx",
       "v2/fr/docs-guide/components-index.mdx",
-      "v2/fr/docs-guide/feature-guides/architecture-map.mdx",
+      "v2/fr/docs-guide/feature-guides/automation-pipelines.mdx",
       "v2/fr/docs-guide/feature-guides/content-system.mdx",
+      "v2/fr/docs-guide/feature-guides/data-integrations.mdx",
       "v2/fr/docs-guide/feature-guides/feature-map.mdx",
       "v2/fr/docs-guide/feature-map.mdx",
       "v2/fr/docs-guide/indexes/components-index.mdx",
       "v2/fr/docs-guide/indexes/pages-index.mdx",
       "v2/fr/docs-guide/indexes/templates-index.mdx",
       "v2/fr/docs-guide/indexes/workflows-index.mdx",
+      "v2/fr/docs-guide/lpd.mdx",
       "v2/fr/docs-guide/pages-index.mdx",
       "v2/fr/docs-guide/quality-gates.mdx",
       "v2/fr/docs-guide/quality-testing/quality-gates.mdx",
@@ -6227,6 +7075,7 @@
       "v2/gateways/guides-and-resources/faq.mdx",
       "v2/gateways/guides-and-resources/gateway-job-pipelines/byoc.mdx",
       "v2/gateways/guides-and-resources/gateway-job-pipelines/overview.mdx",
+      "v2/gateways/index.mdx",
       "v2/gateways/payments/overview.mdx",
       "v2/gateways/quickstart/AI-prompt.mdx",
       "v2/gateways/quickstart/gateway-setup.mdx",
@@ -6323,7 +7172,6 @@
       "v2/internal/definitions.mdx",
       "v2/internal/docs-philosophy.mdx",
       "v2/internal/ecosystem.mdx",
-      "v2/internal/index.mdx",
       "v2/internal/internal-overview.mdx",
       "v2/internal/layout-components-scripts-styling/components.mdx",
       "v2/internal/layout-components-scripts-styling/pages.mdx",
@@ -6369,6 +7217,7 @@
       "v2/orchestrators/advanced-setup/run-a-pool.mdx",
       "v2/orchestrators/advanced-setup/staking-LPT.mdx",
       "v2/orchestrators/earnings.mdx",
+      "v2/orchestrators/index.mdx",
       "v2/orchestrators/orchestrator-journey.mdx",
       "v2/orchestrators/orchestrator-tools-and-resources/community-pools.mdx",
       "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-tools.mdx",
@@ -6494,12 +7343,14 @@
       "v2/x-deprecated/about-livepeer/moved/livepeer-overview.mdx",
       "v2/x-deprecated/about-livepeer/moved/why-livepeer.mdx",
       "v2/x-deprecated/gateways/references/configuration-flags-old.mdx",
+      "v2/x-deprecated/index.mdx",
       "v2/x-deprecated/unmatched/04_gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway.mdx",
       "v2/x-deprecated/unmatched/09_internal/definitions.mdx",
       "v2/x-deprecated/unmatched/09_internal/ecosystem.mdx",
       "v2/x-deprecated/unmatched/09_internal/references.mdx",
       "v2/x-experimental/copy-trending-at-livepeer.mdx",
-      "v2/x-experimental/trending-layout-tests.mdx"
+      "v2/x-experimental/trending-layout-tests.mdx",
+      "v2/x-notes/index.mdx"
     ]
   },
   "gitignore_leakage_files": [
@@ -6508,14 +7359,17 @@
   "reference_update_files": [
     "contribute/CONTRIBUTING.mdx",
     "docs-guide/README.mdx",
-    "docs-guide/feature-guides/architecture-map.mdx",
+    "docs-guide/feature-guides/automation-pipelines.mdx",
     "docs-guide/feature-guides/content-system.mdx",
+    "docs-guide/feature-guides/data-integrations.mdx",
     "docs-guide/feature-guides/feature-map.mdx",
-    "docs-guide/feature-guides/visual-explainer-workflows.mdx",
+    "docs-guide/governance-guides/component-governance.mdx",
     "docs-guide/indexes/components-index.mdx",
+    "docs-guide/indexes/pages-index.mdx",
     "docs-guide/indexes/scripts-index.mdx",
     "docs-guide/indexes/templates-index.mdx",
     "docs-guide/indexes/workflows-index.mdx",
+    "docs-guide/lpd.mdx",
     "docs-guide/quality-testing/infrastructure-principles.mdx",
     "docs-guide/quality-testing/quality-gates.mdx",
     "docs-guide/source-of-truth-policy.mdx",
@@ -6523,21 +7377,29 @@
     "snippets/automations/showcase/showcaseData.jsx",
     "snippets/components/_archive/HeroGif.jsx",
     "snippets/components/_archive/Portals.jsx",
-    "snippets/components/_archive/embed.jsx",
-    "snippets/components/_archive/folders/display-examples/embed-examples.mdx",
     "snippets/components/_archive/frameMode.jsx",
     "snippets/components/_archive/showcaseCards.jsx",
     "snippets/components/_archive/video.jsx",
+    "snippets/components/content/video.jsx",
+    "snippets/components/content/zoomableDiagram.jsx",
     "snippets/components/data/showcaseCards.jsx",
+    "snippets/components/layout/containers.jsx",
+    "snippets/components/layout/layout.jsx",
+    "snippets/components/layout/table.jsx",
+    "snippets/components/layout/tables.jsx",
     "snippets/components/page-structure/heroGif.jsx",
     "snippets/components/page-structure/portals.jsx",
     "snippets/components/primitives/divider.jsx",
     "snippets/components/primitives/icons.jsx",
+    "snippets/components/primitives/links.jsx",
+    "snippets/components/primitives/previewCallouts.jsx",
     "snippets/data/about/hrefs.jsx",
+    "snippets/data/community/hrefs.jsx",
     "snippets/data/developers/hrefs.jsx",
     "snippets/data/gateways/hrefs.jsx",
     "snippets/data/home/hrefs.jsx",
     "snippets/data/internal/hrefs.jsx",
+    "snippets/data/orchestrators/hrefs.jsx",
     "snippets/data/resources/hrefs.jsx",
     "snippets/data/solutions/hrefs.jsx",
     "snippets/data/unknown/hrefs.jsx",
@@ -6549,10 +7411,7 @@
     "snippets/pages/05_GPUS/Diagrams/orchestratorRole.mdx",
     "snippets/snippetsWiki/mintlify-behaviour.mdx",
     "tools/scripts/snippets/README.mdx",
-    "v1/ai/contributors/guides/add-model.mdx",
-    "v1/ai/contributors/guides/add-pipeline.mdx",
     "v1/ai/pipelines/image-to-video.mdx",
-    "v1/ai/pipelines/text-to-speech.mdx",
     "v2/about/core-concepts.mdx",
     "v2/about/core-concepts/concepts/actors.mdx",
     "v2/about/faq-about.mdx",
@@ -6658,14 +7517,16 @@
     "v2/cn/developers/x-unstaged/partner-integrations.mdx",
     "v2/cn/docs-guide/README.mdx",
     "v2/cn/docs-guide/components-index.mdx",
-    "v2/cn/docs-guide/feature-guides/architecture-map.mdx",
+    "v2/cn/docs-guide/feature-guides/automation-pipelines.mdx",
     "v2/cn/docs-guide/feature-guides/content-system.mdx",
+    "v2/cn/docs-guide/feature-guides/data-integrations.mdx",
     "v2/cn/docs-guide/feature-guides/feature-map.mdx",
     "v2/cn/docs-guide/feature-map.mdx",
     "v2/cn/docs-guide/indexes/components-index.mdx",
     "v2/cn/docs-guide/indexes/pages-index.mdx",
     "v2/cn/docs-guide/indexes/templates-index.mdx",
     "v2/cn/docs-guide/indexes/workflows-index.mdx",
+    "v2/cn/docs-guide/lpd.mdx",
     "v2/cn/docs-guide/pages-index.mdx",
     "v2/cn/docs-guide/quality-testing/quality-gates.mdx",
     "v2/cn/docs-guide/source-of-truth-policy.mdx",
@@ -6872,6 +7733,7 @@
     "v2/cn/solutions/streamplace/introduction/streamplace-provenance.mdx",
     "v2/cn/solutions/streamplace/overview.mdx",
     "v2/community/community-portal.mdx",
+    "v2/community/index.mdx",
     "v2/community/livepeer-community/community-guidelines.mdx",
     "v2/community/livepeer-community/roadmap.mdx",
     "v2/community/livepeer-community/trending-topics.mdx",
@@ -7003,15 +7865,17 @@
     "v2/es/developers/x-deprecated/contribution-guide.mdx",
     "v2/es/developers/x-unstaged/partner-integrations.mdx",
     "v2/es/docs-guide/README.mdx",
-    "v2/es/docs-guide/architecture-map.mdx",
     "v2/es/docs-guide/components-index.mdx",
+    "v2/es/docs-guide/feature-guides/automation-pipelines.mdx",
     "v2/es/docs-guide/feature-guides/content-system.mdx",
+    "v2/es/docs-guide/feature-guides/data-integrations.mdx",
     "v2/es/docs-guide/feature-guides/feature-map.mdx",
     "v2/es/docs-guide/feature-map.mdx",
     "v2/es/docs-guide/indexes/components-index.mdx",
     "v2/es/docs-guide/indexes/pages-index.mdx",
     "v2/es/docs-guide/indexes/templates-index.mdx",
     "v2/es/docs-guide/indexes/workflows-index.mdx",
+    "v2/es/docs-guide/lpd.mdx",
     "v2/es/docs-guide/pages-index.mdx",
     "v2/es/docs-guide/quality-gates.mdx",
     "v2/es/docs-guide/source-of-truth-policy.mdx",
@@ -7291,16 +8155,18 @@
     "v2/fr/developers/x-unstaged/developer-tools/tooling-hub.mdx",
     "v2/fr/developers/x-unstaged/partner-integrations.mdx",
     "v2/fr/docs-guide/README.mdx",
-    "v2/fr/docs-guide/architecture-map.mdx",
+    "v2/fr/docs-guide/automation-pipelines.mdx",
     "v2/fr/docs-guide/components-index.mdx",
-    "v2/fr/docs-guide/feature-guides/architecture-map.mdx",
+    "v2/fr/docs-guide/feature-guides/automation-pipelines.mdx",
     "v2/fr/docs-guide/feature-guides/content-system.mdx",
+    "v2/fr/docs-guide/feature-guides/data-integrations.mdx",
     "v2/fr/docs-guide/feature-guides/feature-map.mdx",
     "v2/fr/docs-guide/feature-map.mdx",
     "v2/fr/docs-guide/indexes/components-index.mdx",
     "v2/fr/docs-guide/indexes/pages-index.mdx",
     "v2/fr/docs-guide/indexes/templates-index.mdx",
     "v2/fr/docs-guide/indexes/workflows-index.mdx",
+    "v2/fr/docs-guide/lpd.mdx",
     "v2/fr/docs-guide/pages-index.mdx",
     "v2/fr/docs-guide/quality-gates.mdx",
     "v2/fr/docs-guide/quality-testing/quality-gates.mdx",
@@ -7526,6 +8392,7 @@
     "v2/gateways/guides-and-resources/faq.mdx",
     "v2/gateways/guides-and-resources/gateway-job-pipelines/byoc.mdx",
     "v2/gateways/guides-and-resources/gateway-job-pipelines/overview.mdx",
+    "v2/gateways/index.mdx",
     "v2/gateways/payments/overview.mdx",
     "v2/gateways/quickstart/AI-prompt.mdx",
     "v2/gateways/quickstart/gateway-setup.mdx",
@@ -7622,7 +8489,6 @@
     "v2/internal/definitions.mdx",
     "v2/internal/docs-philosophy.mdx",
     "v2/internal/ecosystem.mdx",
-    "v2/internal/index.mdx",
     "v2/internal/internal-overview.mdx",
     "v2/internal/layout-components-scripts-styling/components.mdx",
     "v2/internal/layout-components-scripts-styling/pages.mdx",
@@ -7668,6 +8534,7 @@
     "v2/orchestrators/advanced-setup/run-a-pool.mdx",
     "v2/orchestrators/advanced-setup/staking-LPT.mdx",
     "v2/orchestrators/earnings.mdx",
+    "v2/orchestrators/index.mdx",
     "v2/orchestrators/orchestrator-journey.mdx",
     "v2/orchestrators/orchestrator-tools-and-resources/community-pools.mdx",
     "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-tools.mdx",
@@ -7793,11 +8660,13 @@
     "v2/x-deprecated/about-livepeer/moved/livepeer-overview.mdx",
     "v2/x-deprecated/about-livepeer/moved/why-livepeer.mdx",
     "v2/x-deprecated/gateways/references/configuration-flags-old.mdx",
+    "v2/x-deprecated/index.mdx",
     "v2/x-deprecated/unmatched/04_gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway.mdx",
     "v2/x-deprecated/unmatched/09_internal/definitions.mdx",
     "v2/x-deprecated/unmatched/09_internal/ecosystem.mdx",
     "v2/x-deprecated/unmatched/09_internal/references.mdx",
     "v2/x-experimental/copy-trending-at-livepeer.mdx",
-    "v2/x-experimental/trending-layout-tests.mdx"
+    "v2/x-experimental/trending-layout-tests.mdx",
+    "v2/x-notes/index.mdx"
   ]
 }
