@@ -67,6 +67,7 @@ const PLACEHOLDER_PATTERNS = [
 const SCRIPT_EXTENSIONS = new Set(['.js', '.cjs', '.mjs', '.ts', '.tsx', '.sh', '.bash', '.py']);
 const VALIDATION_ROOTS = ['.githooks', '.github/scripts', 'tests', 'tools/scripts', 'tasks/scripts', 'tools/lib/docs-usefulness'];
 const INDEXED_ROOTS = ['.githooks', '.github/scripts', 'tests', 'tools/scripts'];
+const CLASSIFICATION_ROOTS = ['.githooks', '.github/scripts', 'tests', 'tools/scripts', 'tasks/scripts'];
 
 const GROUP_INDEX_MAP = [
   { root: '.githooks', index: '.githooks/script-index.md' },
@@ -77,6 +78,7 @@ const GROUP_INDEX_MAP = [
 
 const AGGREGATE_INDEX_PATH = 'docs-guide/indexes/scripts-index.mdx';
 const LEGACY_AGGREGATE_INDEX_PATH = 'docs-guide/indexes/scripts-index.md';
+const CLASSIFICATION_DATA_PATH = 'tasks/reports/script-classifications.json';
 const AGGREGATE_FRONTMATTER_LINES = buildGeneratedFrontmatterLines({
   title: 'Scripts Index',
   sidebarTitle: 'Scripts Index',
@@ -168,6 +170,86 @@ function getAllValidationScripts() {
 
 function getAllIndexedScripts() {
   return getScriptsForRoots(INDEXED_ROOTS);
+}
+
+function getAllClassificationScripts() {
+  return getScriptsForRoots(CLASSIFICATION_ROOTS);
+}
+
+function isManagedRootPath(repoPath) {
+  return isWithinRoots(repoPath, CLASSIFICATION_ROOTS);
+}
+
+function fileExists(repoPath) {
+  const fullPath = path.join(REPO_ROOT, repoPath);
+  return fs.existsSync(fullPath) && fs.statSync(fullPath).isFile();
+}
+
+function loadClassificationData() {
+  const fullPath = path.join(REPO_ROOT, CLASSIFICATION_DATA_PATH);
+  const raw = fs.readFileSync(fullPath, 'utf8');
+  const parsed = JSON.parse(raw);
+
+  if (!Array.isArray(parsed)) {
+    throw new Error('Classification data must be a JSON array.');
+  }
+
+  return parsed.map((row, index) => {
+    if (!row || typeof row !== 'object' || Array.isArray(row)) {
+      throw new Error(`classification[${index}] must be an object.`);
+    }
+
+    const repoPath = normalizeRepoPath(String(row.path || '').trim());
+    if (!repoPath) {
+      throw new Error(`classification[${index}].path is required.`);
+    }
+
+    return { ...row, path: repoPath };
+  });
+}
+
+function validateClassificationCoverage(scopedScripts, classificationRows) {
+  const errors = [];
+  const liveScripts = [...new Set(scopedScripts.map(normalizeRepoPath))].sort();
+  const managedRows = classificationRows
+    .filter((row) => isManagedRootPath(row.path))
+    .sort((a, b) => a.path.localeCompare(b.path));
+  const classifiedPaths = new Set(managedRows.map((row) => row.path));
+
+  for (const scriptPath of liveScripts) {
+    if (!classifiedPaths.has(scriptPath)) {
+      errors.push({
+        file: CLASSIFICATION_DATA_PATH,
+        rule: 'Script classification coverage',
+        message: `Missing classification row for managed script: ${scriptPath}`,
+        line: 1
+      });
+    }
+  }
+
+  for (const row of managedRows) {
+    if (!fileExists(row.path)) {
+      errors.push({
+        file: CLASSIFICATION_DATA_PATH,
+        rule: 'Script classification coverage',
+        message: `Classification row points to a missing file: ${row.path}`,
+        line: 1
+      });
+    }
+  }
+
+  for (const row of classificationRows) {
+    if (row.path === 'tools/scripts/archive' || row.path.startsWith('tools/scripts/archive/')) {
+      errors.push({
+        file: CLASSIFICATION_DATA_PATH,
+        rule: 'Script classification coverage',
+        message: `Archive path must not appear in script classifications: ${row.path}`,
+        line: 1
+      });
+    }
+  }
+
+  return errors;
 }
 
 function getStagedAddedScripts() {
@@ -589,6 +671,7 @@ function runTests(options = {}) {
   const stagedOnly = Boolean(options.stagedOnly);
   const write = Boolean(options.write);
   const checkIndexes = Boolean(options.checkIndexes);
+  const checkClassification = Boolean(options.checkClassification);
   const stage = Boolean(options.stage);
   const autofill = Boolean(options.autofill);
   const backfillExisting = Boolean(options.backfillExisting);
@@ -603,6 +686,7 @@ function runTests(options = {}) {
   const backfilledScripts = [];
 
   const validationScripts = getAllValidationScripts();
+  const classificationScripts = getAllClassificationScripts();
   const stagedAddedScripts = getStagedAddedScripts();
   const explicitTargets = [...new Set(files.map(normalizeRepoPath))]
     .filter((file) => isWithinRoots(file, VALIDATION_ROOTS))
@@ -634,6 +718,20 @@ function runTests(options = {}) {
       if (result.missing.length > 0) parts.push(`missing required tags: ${result.missing.join(', ')}`);
       if (result.empty.length > 0) parts.push(`empty/placeholder values: ${result.empty.join(', ')}`);
       errors.push({ file: scriptPath, rule: 'Script header template', message: parts.join(' | '), line: 1 });
+    }
+  }
+
+  if (checkClassification) {
+    try {
+      const classificationRows = loadClassificationData();
+      errors.push(...validateClassificationCoverage(classificationScripts, classificationRows));
+    } catch (error) {
+      errors.push({
+        file: CLASSIFICATION_DATA_PATH,
+        rule: 'Script classification coverage',
+        message: `Unable to validate script classifications: ${error.message}`,
+        line: 1
+      });
     }
   }
 
@@ -728,14 +826,16 @@ function runTests(options = {}) {
 
 if (require.main === module) {
   const args = process.argv.slice(2);
+  const checkMode = args.includes('--check');
   const stagedOnly = args.includes('--staged');
   const write = args.includes('--write');
   const stage = args.includes('--stage');
   const autofill = args.includes('--autofill');
   const backfillExisting = args.includes('--backfill-existing');
-  const enforceExisting = args.includes('--enforce-existing');
-  const checkIndexes = args.includes('--check-indexes');
+  const enforceExisting = checkMode || args.includes('--enforce-existing');
+  const checkIndexes = checkMode || args.includes('--check-indexes');
   const rebuildIndexes = args.includes('--rebuild-indexes');
+  const checkClassification = checkMode || enforceExisting || rebuildIndexes || checkIndexes;
   const files = collectFilesFromArgs(args);
 
   const result = runTests({
@@ -747,6 +847,7 @@ if (require.main === module) {
     backfillExisting,
     enforceExisting,
     rebuildIndexes,
+    checkClassification,
     files
   });
 

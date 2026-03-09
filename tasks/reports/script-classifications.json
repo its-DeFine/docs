@@ -130,42 +130,12 @@
     "dualmode": ""
   },
   {
-    "path": "tasks/scripts/audit-minimal.js",
-    "category": "validator",
-    "purpose": "qa:repo-health",
-    "scope": "tasks/scripts",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Minimal audit runner \u2014 lightweight audit for quick checks during task execution",
-    "pipeline": "manual \u2014 not yet in pipeline",
-    "dualmode": ""
-  },
-  {
     "path": "tasks/scripts/audit-python.py",
     "category": "validator",
     "purpose": "qa:repo-health",
     "scope": "tasks/scripts",
     "needs": "E-C1, R-R14",
     "purpose_statement": "Python audit utility \u2014 runs Python-based audit checks (alternative to Node auditors)",
-    "pipeline": "manual \u2014 not yet in pipeline",
-    "dualmode": ""
-  },
-  {
-    "path": "tasks/scripts/run-audit-now.js",
-    "category": "validator",
-    "purpose": "qa:repo-health",
-    "scope": "tasks/scripts",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Quick audit launcher \u2014 runs audit-orchestrator with default settings for immediate results",
-    "pipeline": "manual \u2014 not yet in pipeline",
-    "dualmode": ""
-  },
-  {
-    "path": "tasks/scripts/test-audit.js",
-    "category": "validator",
-    "purpose": "qa:repo-health",
-    "scope": "tasks/scripts",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Audit test \u2014 validates audit pipeline logic and report format",
     "pipeline": "manual \u2014 not yet in pipeline",
     "dualmode": ""
   },
@@ -320,16 +290,6 @@
     "dualmode": "dual-mode (document flags)"
   },
   {
-    "path": "tests/unit/docs-usefulness-accuracy-verifier.test.js",
-    "category": "validator",
-    "purpose": "qa:content-quality",
-    "scope": "tests, tools/lib/docs-usefulness, tools/config",
-    "needs": "E-R1, R-R11",
-    "purpose_statement": "Tests accuracy verification rules \u2014 GitHub vs DeepWiki precedence, freshness, fallback, and cache reuse",
-    "pipeline": "manual \u2014 not yet in pipeline",
-    "dualmode": "dual-mode (document flags)"
-  },
-  {
     "path": "tests/unit/links-imports.test.js",
     "category": "validator",
     "purpose": "qa:link-integrity",
@@ -457,6 +417,26 @@
     "needs": "E-R1, R-R11",
     "purpose_statement": "Style guide compliance \u2014 checks en-GB conventions, heading case, formatting rules",
     "pipeline": "P1 (commit, via run-all)",
+    "dualmode": ""
+  },
+  {
+    "path": "tests/unit/usefulness-journey.test.js",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tests/unit, tools/lib/docs-usefulness, tools/config",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Usefulness journey tests \u2014 validate journey completeness evaluation and configuration guardrails",
+    "pipeline": "manual \u2014 not yet in pipeline",
+    "dualmode": ""
+  },
+  {
+    "path": "tests/unit/usefulness-rubric.test.js",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tests/unit, tools/lib/docs-usefulness, tools/scripts, tools/config",
+    "needs": "E-R1, R-R11",
+    "purpose_statement": "Usefulness rubric tests \u2014 validate rubric loading, evaluator coverage, route precedence, and score divergence behaviour",
+    "pipeline": "manual \u2014 not yet in pipeline",
     "dualmode": ""
   },
   {
@@ -601,42 +581,22 @@
   },
   {
     "path": "tools/scripts/add-pagetype-mechanical.js",
-    "category": "remediator",
-    "purpose": "qa:content-quality",
+    "category": "generator",
+    "purpose": "governance:index-management",
     "scope": "tools/scripts, v2, tasks/reports",
-    "needs": "E-R1, R-R11",
-    "purpose_statement": "Mechanically assigns pageType frontmatter to eligible v2 MDX pages.",
+    "needs": "",
+    "purpose_statement": "PageType metadata generator \u2014 assigns pageType frontmatter to eligible v2 MDX pages",
     "pipeline": "manual \u2014 deterministic metadata rollout utility for v2 docs",
     "dualmode": ""
   },
   {
-    "path": "tools/scripts/audit-all-pages-simple.js",
-    "category": "validator",
+    "path": "tools/scripts/assign-purpose-metadata.js",
+    "category": "generator",
     "purpose": "qa:content-quality",
-    "scope": "tasks/scripts",
+    "scope": "tools/scripts, tools/lib/docs-usefulness, tools/config, v2",
     "needs": "E-R1, R-R11",
-    "purpose_statement": "Lightweight page auditor \u2014 quick pass over all pages checking basic frontmatter and structure",
-    "pipeline": "manual \u2014 not yet in pipeline",
-    "dualmode": ""
-  },
-  {
-    "path": "tools/scripts/audit-all-pages.js",
-    "category": "validator",
-    "purpose": "qa:content-quality",
-    "scope": "tasks/scripts",
-    "needs": "E-R1, R-R11",
-    "purpose_statement": "Full page auditor \u2014 comprehensive check of all pages including content quality metrics",
-    "pipeline": "manual \u2014 not yet in pipeline",
-    "dualmode": ""
-  },
-  {
-    "path": "tools/scripts/audit-all-v2-pages.js",
-    "category": "validator",
-    "purpose": "tooling:dev-tools",
-    "scope": "tools/scripts",
-    "needs": "E-C6, F-C1",
-    "purpose_statement": "V2-specific page auditor \u2014 checks v2/** pages for v2-specific requirements (frontmatter, components)",
-    "pipeline": "manual \u2014 not yet in pipeline",
+    "purpose_statement": "Purpose metadata assigner \u2014 fills purpose and audience frontmatter for routable v2 pages",
+    "pipeline": "manual \u2014 interactive developer tool, not suited for automated pipelines",
     "dualmode": ""
   },
   {
@@ -650,22 +610,22 @@
     "dualmode": ""
   },
   {
-    "path": "tools/scripts/audit-media-assets.js",
-    "category": "utility",
-    "purpose": "governance:repo-health",
-    "scope": "tools/scripts, tasks/reports/media-audit",
-    "needs": "R-R14",
-    "purpose_statement": "Audits repo media assets, references, ignore leakage, and externalized asset branch inventory.",
-    "pipeline": "manual \u2014 diagnostic/investigation tool, run on-demand only",
-    "dualmode": ""
-  },
-  {
     "path": "tools/scripts/audit-scripts.js",
     "category": "validator",
     "purpose": "qa:repo-health",
     "scope": "tools/scripts, tasks/reports, tests/unit/script-docs.test.js, tests/README.md",
     "needs": "E-C1, R-R14",
     "purpose_statement": "Script auditor \u2014 analyses all repo scripts, categorises usage/overlap, generates SCRIPT_AUDIT reports",
+    "pipeline": "manual \u2014 not yet in pipeline",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/audit-media-assets.js",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tools/scripts, tasks/reports/media-audit",
+    "needs": "",
+    "purpose_statement": "Media asset auditor \u2014 audits repo media assets, references, ignore leakage, and externalized asset branch inventory",
     "pipeline": "manual \u2014 not yet in pipeline",
     "dualmode": ""
   },
@@ -678,16 +638,6 @@
     "purpose_statement": "Tasks folder auditor \u2014 checks tasks/ structure, normalises report locations, applies recommendations with conflict-safe moves",
     "pipeline": "manual \u2014 not yet in pipeline",
     "dualmode": ""
-  },
-  {
-    "path": "tools/scripts/audit-v1-to-v2-mapping.js",
-    "category": "validator",
-    "purpose": "qa:repo-health",
-    "scope": "tools/scripts, v1, v2, docs.json, tasks/reports",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Diagnostic \u2014 maps v1 page URLs to v2 equivalents for migration tracking",
-    "pipeline": "manual \u2014 not yet in pipeline",
-    "dualmode": "dual-mode (document flags)"
   },
   {
     "path": "tools/scripts/audit-v2-usefulness.js",
@@ -707,16 +657,6 @@
     "needs": "R-R27, R-R30",
     "purpose_statement": "PR enforcer \u2014 checks for conflicting codex PRs targeting the same files/branches",
     "pipeline": "P3 (PR, Track B)",
-    "dualmode": ""
-  },
-  {
-    "path": "tools/scripts/check-component-errors.js",
-    "category": "enforcer",
-    "purpose": "qa:repo-health",
-    "scope": "tools/scripts",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Component error checker \u2014 scans pages for broken or misconfigured component usage",
-    "pipeline": "manual \u2014 not yet in pipeline",
     "dualmode": ""
   },
   {
@@ -806,6 +746,16 @@
     "scope": "tools/scripts, v2/internal/assets/transcripts",
     "needs": "F-R1",
     "purpose_statement": "RSS-to-MDX converter \u2014 imports RSS feed items and converts to MDX page format",
+    "pipeline": "manual \u2014 not yet in pipeline",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/component-layout-governance.js",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tools/scripts, v2, tools/config/component-layout-profile.json",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Component layout governance validator \u2014 checks v2 page layouts against approved component contracts",
     "pipeline": "manual \u2014 not yet in pipeline",
     "dualmode": ""
   },
@@ -970,23 +920,13 @@
     "dualmode": ""
   },
   {
-    "path": "tools/scripts/final-verification.js",
-    "category": "utility",
-    "purpose": "tooling:dev-tools",
-    "scope": "tools/scripts",
-    "needs": "E-C6, F-C1",
-    "purpose_statement": "Diagnostic \u2014 runs final verification checks on page set (manual tool)",
-    "pipeline": "manual \u2014 developer tool",
-    "dualmode": ""
-  },
-  {
-    "path": "tools/scripts/find-correct-url.js",
-    "category": "utility",
-    "purpose": "tooling:dev-tools",
-    "scope": "tools/scripts",
-    "needs": "E-C6, F-C1",
-    "purpose_statement": "Diagnostic \u2014 given a broken URL, attempts to find the correct v2 equivalent",
-    "pipeline": "manual \u2014 developer tool",
+    "path": "tools/scripts/enforcers/pr/check-pr-template.js",
+    "category": "enforcer",
+    "purpose": "governance:repo-health",
+    "scope": "tools/scripts/enforcers/pr, .github/pull_request_template.md, .github/pull-request-template-v2.md",
+    "needs": "R-R14, R-C6",
+    "purpose_statement": "Enforces that PR descriptions include required change and rationale sections before merge",
+    "pipeline": "ci",
     "dualmode": ""
   },
   {
@@ -998,6 +938,16 @@
     "purpose_statement": "AI sitemap generator \u2014 produces AI-optimised sitemap files. Dual-mode: --check (enforcer) / --write (generator).",
     "pipeline": "P3 (PR, Track E, --check), P4 (post-merge, --write)",
     "dualmode": "--check (enforcer) | --write (generator)"
+  },
+  {
+    "path": "tools/scripts/generate-content-gap-reconciliation.js",
+    "category": "generator",
+    "purpose": "governance:index-management",
+    "scope": "tools/scripts, tools/config, tools/lib, v2, tasks/reports/content-gap",
+    "needs": "R-R16, R-R17",
+    "purpose_statement": "Content-gap reconciliation generator \u2014 compares blueprint coverage against v2 MDX and writes reconciliation artefacts",
+    "pipeline": "manual \u2014 not yet in pipeline",
+    "dualmode": ""
   },
   {
     "path": "tools/scripts/generate-docs-guide-components-index.js",
@@ -1270,23 +1220,13 @@
     "dualmode": ""
   },
   {
-    "path": "tools/scripts/inspect-page.js",
-    "category": "utility",
-    "purpose": "tooling:dev-tools",
-    "scope": "tools/scripts",
-    "needs": "E-C6, F-C1",
-    "purpose_statement": "Page inspector \u2014 displays parsed metadata, frontmatter, components, and structure for a single page",
-    "pipeline": "manual \u2014 developer tool",
-    "dualmode": ""
-  },
-  {
-    "path": "tools/scripts/inspect-video-page.js",
-    "category": "utility",
-    "purpose": "tooling:dev-tools",
-    "scope": "tools/scripts",
-    "needs": "E-C6, F-C1",
-    "purpose_statement": "Video page inspector \u2014 displays video-specific metadata and embed configuration for a page",
-    "pipeline": "manual \u2014 developer tool",
+    "path": "tools/scripts/i18n/validate-generated.js",
+    "category": "validator",
+    "purpose": "feature:translation",
+    "scope": "tools/scripts/i18n, v2",
+    "needs": "F-R6, F-R7",
+    "purpose_statement": "Generated localisation validator \u2014 checks generated translated MDX files and route-map outputs for integrity",
+    "pipeline": "manual \u2014 diagnostic/investigation tool, run on-demand only",
     "dualmode": ""
   },
   {
@@ -1470,42 +1410,12 @@
     "dualmode": ""
   },
   {
-    "path": "tools/scripts/test-all-pages-browser.js",
-    "category": "utility",
-    "purpose": "tooling:dev-tools",
-    "scope": "tools/scripts",
-    "needs": "E-C6, F-C1",
-    "purpose_statement": "Manual browser test runner \u2014 opens all pages in Puppeteer for visual inspection",
-    "pipeline": "manual \u2014 developer tool",
-    "dualmode": ""
-  },
-  {
-    "path": "tools/scripts/test-all-pages-comprehensive.js",
-    "category": "utility",
-    "purpose": "tooling:dev-tools",
-    "scope": "tools/scripts",
-    "needs": "E-C6, F-C1",
-    "purpose_statement": "Manual comprehensive test \u2014 runs all page validators including slow/network checks",
-    "pipeline": "manual \u2014 developer tool",
-    "dualmode": ""
-  },
-  {
     "path": "tools/scripts/test-v2-pages.js",
     "category": "utility",
     "purpose": "tooling:dev-tools",
     "scope": "tools/scripts",
     "needs": "E-C6, F-C1",
     "purpose_statement": "V2 page tester \u2014 validates v2 pages via Puppeteer browser rendering",
-    "pipeline": "manual \u2014 developer tool",
-    "dualmode": ""
-  },
-  {
-    "path": "tools/scripts/test-youtube-pages.js",
-    "category": "utility",
-    "purpose": "tooling:dev-tools",
-    "scope": "tools/scripts",
-    "needs": "E-C6, F-C1",
-    "purpose_statement": "YouTube page tester \u2014 validates YouTube embed pages render correctly",
     "pipeline": "manual \u2014 developer tool",
     "dualmode": ""
   },
@@ -1540,6 +1450,26 @@
     "dualmode": ""
   },
   {
+    "path": "tools/scripts/validators/components/check-naming-conventions.js",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tools/scripts/validators/components, tests/run-all.js, tests/run-pr-checks.js, snippets/components",
+    "needs": "R-R10",
+    "purpose_statement": "Validates active component filenames against strict camelCase file naming and PascalCase exports under snippets/components.",
+    "pipeline": "PR/manual validator for snippets/components/** scope",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/validators/content/check-anchor-usage.js",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tools/scripts/validators/content, v2",
+    "needs": "R-R14, R-C6",
+    "purpose_statement": "Validates same-page anchor links in maintained v2 MDX files against heading IDs on the same page",
+    "pipeline": "manual, ci",
+    "dualmode": ""
+  },
+  {
     "path": "tools/scripts/validators/content/check-description-quality.js",
     "category": "validator",
     "purpose": "qa:content-quality",
@@ -1570,6 +1500,16 @@
     "dualmode": "--check (default) | --fix (safe in-place rewrites)"
   },
   {
+    "path": "tools/scripts/validators/content/check-page-endings.js",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tools/scripts/validators/content, v2",
+    "needs": "R-R14",
+    "purpose_statement": "Validates that English v2 MDX pages end with an approved navigational or closing element",
+    "pipeline": "manual, ci",
+    "dualmode": ""
+  },
+  {
     "path": "tools/scripts/validators/content/check-proper-nouns.js",
     "category": "validator",
     "purpose": "qa:content-quality",
@@ -1580,23 +1520,13 @@
     "dualmode": "--check (default) | --fix"
   },
   {
-    "path": "tools/scripts/verify-all-pages.js",
-    "category": "enforcer",
-    "purpose": "qa:repo-health",
-    "scope": "tools/scripts",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Page verifier \u2014 checks all pages in docs.json resolve to valid files",
-    "pipeline": "manual \u2014 not yet in pipeline",
-    "dualmode": ""
-  },
-  {
-    "path": "tools/scripts/verify-pages.js",
-    "category": "enforcer",
-    "purpose": "qa:repo-health",
-    "scope": "tools/scripts",
-    "needs": "E-C1, R-R14",
-    "purpose_statement": "Page verifier \u2014 checks a subset of pages resolve to valid files",
-    "pipeline": "manual \u2014 not yet in pipeline",
+    "path": "tools/scripts/validators/governance/check-agent-docs-freshness.js",
+    "category": "validator",
+    "purpose": "governance:agent-governance",
+    "scope": "tools/scripts/validators/governance, .github, ai-tools/ai-skills, contribute",
+    "needs": "R-R14, R-R18",
+    "purpose_statement": "Validates that required agent governance docs exist and have been touched within a freshness threshold",
+    "pipeline": "manual, ci",
     "dualmode": ""
   },
   {

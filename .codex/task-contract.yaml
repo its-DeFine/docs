@@ -1,30 +1,30 @@
 task_id: 20260309
-branch: codex/20260309-headers-scripts-framework-headers
+branch: codex/20260309-classifications-fix
 base_branch: docs-v2
 scope_in:
   - .codex/task-contract.yaml
   - tasks/reports/script-classifications.json
-  - tools/scripts/add-pagetype-mechanical.js
-  - tools/scripts/audit-media-assets.js
-scope_out:
-  - tools/scripts/archive
+  - tests/unit/script-docs.test.js
+  - tools/scripts/audit-scripts.js
+  - tools/script-index.md
+scope_out: []
 allowed_generated:
   - .codex/pr-body.generated.md
+  - tasks/reports/repo-ops/SCRIPT_AUDIT.json
+  - tasks/reports/repo-ops/SCRIPT_AUDIT.md
   - tools/script-index.md
-  - docs-guide/indexes/scripts-index.mdx
 acceptance_checks:
   - >-
     node tools/scripts/validate-codex-task-contract.js --branch
-    codex/20260309-headers-scripts-framework-headers --validate-contract-only
-  - node tests/unit/script-docs.test.js --enforce-existing --write --rebuild-indexes
+    codex/20260309-classifications-fix --validate-contract-only
   - >-
-    bash -lc 'grep "@script" tools/scripts/validate-codex-task-contract.js &&
-    grep "@script" tools/scripts/generate-pages-index.js &&
-    grep "@script" tools/scripts/audit-scripts.js &&
-    grep "@script" tools/scripts/i18n/validate-generated.js'
-  - bash -lc 'cd tests && node run-all.js 2>&1 | tail -10'
+    node -e "JSON.parse(require('fs').readFileSync('tasks/reports/script-classifications.json'))"
+  - node tests/unit/script-docs.test.js --check
+  - node tools/scripts/audit-scripts.js
   - git diff --check
+  - >-
+    node -e "const fs=require('fs');const path=require('path');const arr=JSON.parse(fs.readFileSync('tasks/reports/script-classifications.json','utf8'));const SCOPED_ROOTS=['.githooks','.github/scripts','tests','tools/scripts','tasks/scripts'];const SCRIPT_EXTENSIONS=new Set(['.js','.cjs','.mjs','.ts','.tsx','.sh','.bash','.py']);function normalize(p){return p.split(path.sep).join('/')}function readFileSafe(p){try{return fs.readFileSync(p,'utf8')}catch{return ''}}function shouldExclude(repoPath){const p=normalize(repoPath);return p==='tools/scripts/archive'||p.startsWith('tools/scripts/archive/')||p.includes('/node_modules/')||p.startsWith('node_modules/')||p.includes('/.git/')||p.startsWith('.git/')||p.includes('/.venv/')||p.startsWith('.venv/')||p.includes('/tmp/')||p.startsWith('tmp/')||p.startsWith('notion/')||p.includes('.bak')||p.endsWith('.disabled')}function isScriptFile(repoPath){if(shouldExclude(repoPath)) return false;const ext=path.extname(repoPath).toLowerCase();if(SCRIPT_EXTENSIONS.has(ext)) return true;const c=readFileSafe(repoPath);return c.startsWith('#!/usr/bin/env')||c.startsWith('#!/bin/')}function walk(dir,out=[]){if(!fs.existsSync(dir)) return out;for(const entry of fs.readdirSync(dir,{withFileTypes:true})){const rel=normalize(path.join(dir,entry.name));if(shouldExclude(rel)) continue;if(entry.isDirectory()) walk(rel,out);else out.push(rel)}return out}const scripts=[...new Set(SCOPED_ROOTS.flatMap(r=>walk(r,[])).filter(isScriptFile))].sort();const classified=new Set(arr.map(x=>x.path));const missing=scripts.filter(p=>!classified.has(p));const stale=arr.map(x=>x.path).filter(p=>SCOPED_ROOTS.some(root=>p===root||p.startsWith(root+'/'))&&!fs.existsSync(p));const archived=arr.filter(x=>(x.path||'').includes('tools/scripts/archive/')).map(x=>x.path);if(missing.length||stale.length||archived.length){console.error(JSON.stringify({missing,stale,archived},null,2));process.exit(1)}"
 risk_flags:
-  - broad-script-governance
-  - generated-index-refresh
+  - metadata-classification
+  - generated-artifacts
 follow_up_issues: []
