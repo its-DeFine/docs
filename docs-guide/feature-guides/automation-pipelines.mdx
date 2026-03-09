@@ -38,7 +38,7 @@ OpenAPI workflow behavior:
 - Triggers: PR (`main`, `docs-v2`), push (`main`, `docs-v2`), daily schedule (`04:35 UTC`), manual dispatch
 - Validator: `tests/integration/openapi-reference-audit.js`
 - Autofix scope: method case, `METHOD /path` spacing, leading slash only
-- Failure handling: unresolved findings update a single rolling marker issue (`<!-- openapi-reference-audit -->`); clean runs close it with a resolution comment
+- Failure handling: unresolved findings update a single rolling marker issue (`[//]: # (openapi-reference-audit)`); clean runs close it with a resolution comment
 - Labels ensured idempotently before issue sync: `docs-v2`, `help wanted`, `status: needs-triage`, `type: bug`, `area: ci-cd`
 - Local reproduction:
   - `node tests/integration/openapi-reference-audit.js --full --strict --report /tmp/openapi-audit.md --report-json /tmp/openapi-audit.json`

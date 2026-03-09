@@ -96,7 +96,7 @@ Best for differentiated orchestrator offerings.
 Ignoring these will degrade routing priority and reduce job assignment:
 
 <Warning>
-  - **Cold starts reduce job assignment.** Keep models warm. Containers that take >10s to serve first inference will be deprioritised.
+  - **Cold starts reduce job assignment.** Keep models warm. Containers that take &gt;10s to serve first inference will be deprioritised.
   - **Excess VRAM usage limits parallelism.** Efficient memory management means more concurrent jobs per GPU.
   - **Slow endpoints are deprioritised.** Gateways track latency per orchestrator and route accordingly.
   - **Stateful jobs break retry and failover semantics.** The network assumes short, repeatable units of work. Long-lived state breaks this.

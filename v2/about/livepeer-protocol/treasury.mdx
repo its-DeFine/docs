@@ -48,7 +48,7 @@ In late 2023, the community passed several proposals creating the Livepeer Treas
 - **Creation & Governance**:
    - [LIP‑89](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md) established the [Treasury](./treasury)
    - It deployed a custom OpenZeppelin Governor (with a 100 LPT proposal threshold and stake-weighted voting)
-{/* - [LIP-89](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md) introduced a treasury contract managed by Livepeer’s Governor framework. Any token holder can propose using treasury funds. Treasury proposals follow the standard governance rules: stake 100 LPT to propose, then voting requires ≥33% quorum and >50% “For” to pass (identical to protocol votes). Once passed, the treasury contract executes the transfer (of LPT or ETH) to the specified recipient. */}
+{/* - [LIP-89](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md) introduced a treasury contract managed by Livepeer’s Governor framework. Any token holder can propose using treasury funds. Treasury proposals follow the standard governance rules: stake 100 LPT to propose, then voting requires ≥33% quorum and &gt;50% “For” to pass (identical to protocol votes). Once passed, the treasury contract executes the transfer (of LPT or ETH) to the specified recipient. */}
 - **Funding**:
    - [LIP‑92](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md) set the on-chain revenue allocation: sending **10% of new LPT** emissions into the treasury.
  {/* - Initially, the treasury holds whatever funds were donated or allocated during genesis and via special proposals. There is no automatic tax today. [LIP-92](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md) has been discussed as a way to deduct a small percentage of protocol inflation each round and add it to the treasury. Other funding methods include grants, donations, or revenue-sharing agreements. Any change to treasury funding (like LIP-92) must be approved by token-holder vote. */}
@@ -186,58 +186,12 @@ While the on-chain treasury itself is wholly community-governed, the Livepeer Fo
 - The community controls the money
 - The Foundation ensures the money is effectively & accountably used.
 </Info>
-It's role includes:
+Its role includes:
 - **Governance Orchestration**: Ensures treasury proposals move efficiently from idea to on-chain execution through structured processes and coordination.
- {/*
- The Foundation ensures that treasury proposals move from idea → draft → community review → on-chain execution.
- This includes:
-
-      - Structuring proposal frameworks (SPEs, budget formats, milestones)
-      - Coordinating review cycles and community calls
-      - Ensuring proposals are sufficiently specified before vote
-      - Facilitating execution after approval
- Without this layer, treasury funds stall in process friction.
- */}
 - **Accountability & Milestone Oversight**: Maintains transparency and tracks deliverables so approved funds translate into measurable outcomes.
- {/* <div>
- Once treasury funds are approved, the Foundation helps ensure:
-         - Deliverables are tracked
-         - Milestones are reported publicly
-         - Budget usage aligns with scope
-         - Underperforming initiatives are surfaced
- They do not “police” spending - they maintain transparency and continuity so governance decisions compound rather than fragment.
- </div> */}
 - **Strategic Capital Framing**: Helps define funding priorities and long-term allocation strategy aligned with network health.
- {/*
- The Foundation helps define:
-      - What categories of work treasury should fund (protocol R&D, ecosystem growth, infra, coordination)
-      - Multi-quarter budgeting horizons
-      - Tradeoffs between short-term impact and long-term network health
- They frame the strategy - the community votes on allocation.
- */}
 - **Execution Enablement**: Aligns contributors and removes blockers so treasury-funded initiatives actually ship.
- {/*
- Treasury funding is only valuable if someone can execute.
-
- The Foundation:
-      - Identifies capable contributors
-      - Aligns working groups
-      - Removes operational blockers
-      - Bridges Foundation resources with independent SPEs
-
- This converts governance intent into shipped outcomes.
- */}
 - **Long-Term Network Health**: Stewards treasury deployment to strengthen protocol security, decentralization, and ecosystem growth.
- {/*
- The treasury exists to strengthen:
-      - **Protocol security** - audits, formal verification, incentive design
-      - **Decentralization** - reducing validator/operator concentration, enabling new node types
-      - **Supply-side resilience** - transcoder infrastructure, redundancy, geographic distribution
-      - **Demand-side growth** - application integrations, developer tooling, use-case expansion
-      - **Tooling and ecosystem expansion** - SDKs, monitoring, indexing, public goods
-
- The Foundation’s role is to ensure treasury deployment reinforces these pillars rather than drifting into reactive or fragmented spending.
- */}
 
 {/* The community controls the money.
 The Foundation ensures the money gets used well.

@@ -291,7 +291,7 @@ For deeper test/audit script behaviour and owning paths, see [`quality-gates`](.
     <ResponseField name="--test-mode fast|staged|full" type="enum" default="fast">
       Selects advisory test mode used with `--test`.
     </ResponseField>
-    <ResponseField name="--script <path> | --script=<path>" type="string" default="tools/scripts/mint-dev.sh">
+    <ResponseField name="--script TARGET_PATH | --script=TARGET_PATH" type="string" default="tools/scripts/mint-dev.sh">
       Overrides the launcher script path (absolute or repo-relative).
     </ResponseField>
     <ResponseField name="--dry-run" type="boolean" default="false">
@@ -515,7 +515,7 @@ and
   itemsList={[
     { Action: "List every script token", "Flags available": "--group, --show-ignored, --json", "Run this": "lpd scripts list", PURPOSE: "Shows all runnable script tokens across tools/tasks/tests/v2/hooks with risk and path." },
     { Action: "List one group", "Flags available": "--group, --show-ignored, --json", "Run this": "lpd scripts list --group <tools|tasks|tests|v2|hooks>", PURPOSE: "Shows the exact token names available in a single group." },
-    { Action: "Run one script by group + token path", "Flags available": "--dry-run, --yes, --json, --", "Run this": "lpd scripts run <group> <script-path tokens...> [-- script args]", PURPOSE: "Resolves token path to a file, applies risk confirmation, then executes it." },
+    { Action: "Run one script by group + token path", "Flags available": "--dry-run, --yes, --json, --", "Run this": "lpd scripts run GROUP <script-path tokens...> [-- script args]", PURPOSE: "Resolves token path to a file, applies risk confirmation, then executes it." },
     { Action: "Run with shorthand alias", "Flags available": "-- (pass-through to script)", "Run this": "lpd <tools|tasks|tests|v2> <script-path tokens...> [-- script args]", PURPOSE: "Shortcut wrapper around `lpd scripts run` for each group." },
   ]}
   monospaceColumns={[2]}
@@ -566,7 +566,7 @@ and
     ```
 
     **Inputs**
-    <ResponseField name="<group>" type="enum" required>
+    <ResponseField name="GROUP" type="enum" required>
       One of `tools`, `tasks`, `tests`, `v2`, or `hooks`.
     </ResponseField>
     <ResponseField name="<script-path tokens...>" type="string" required>

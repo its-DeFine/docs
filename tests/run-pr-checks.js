@@ -16,6 +16,7 @@ const os = require('os');
 const path = require('path');
 const { execSync, spawnSync } = require('child_process');
 const { getDocsJsonRouteKeys, toDocsRouteKeyFromFileV2Aware } = require('./utils/file-walker');
+const { isEligibleRepoMarkdownPath } = require('../tools/lib/mdx-safe-markdown');
 
 const styleGuideTests = require('./unit/style-guide.test');
 const mdxTests = require('./unit/mdx.test');
@@ -27,6 +28,7 @@ const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
 const mdxComponentScopeTests = require('../tools/scripts/validators/components/check-mdx-component-scope');
+const mdxSafeMarkdownValidator = require('../tools/scripts/validators/content/check-mdx-safe-markdown');
 const mdxRuntimeSmoke = require('./integration/mdx-component-runtime-smoke');
 
 const REPO_ROOT = getRepoRoot();
@@ -124,23 +126,25 @@ function dedupe(values) {
 }
 
 function partitionFiles(changedFiles) {
+  const existingChangedFiles = changedFiles.filter((file) => fs.existsSync(relToAbs(file)));
   const docsRouteKeys = getDocsJsonRouteKeys(REPO_ROOT);
-  const docsMdx = changedFiles.filter((file) => {
+  const docsMdx = existingChangedFiles.filter((file) => {
     if (!file.endsWith('.mdx')) return false;
     const routeKey = toDocsRouteKeyFromFileV2Aware(file, REPO_ROOT);
     return Boolean(routeKey) && docsRouteKeys.has(routeKey);
   });
-  const componentJsx = changedFiles.filter(
+  const componentJsx = existingChangedFiles.filter(
     (file) => file.startsWith('snippets/components/') && file.endsWith('.jsx')
   );
+  const repoMarkdownFiles = existingChangedFiles.filter((file) => isEligibleRepoMarkdownPath(file));
 
-  const scriptFiles = changedFiles.filter((file) => {
+  const scriptFiles = existingChangedFiles.filter((file) => {
     const inScope = SCRIPT_SCOPES.some((scope) => file === scope || file.startsWith(`${scope}/`));
     const ext = path.extname(file).toLowerCase();
     return inScope && SCRIPT_EXTENSIONS.has(ext);
   });
 
-  const usefulnessFiles = changedFiles.filter((file) =>
+  const usefulnessFiles = existingChangedFiles.filter((file) =>
     file === 'tools/scripts/audit-v2-usefulness.js' ||
     file === 'tools/scripts/assign-purpose-metadata.js' ||
     file === 'tools/scripts/docs-quality-and-freshness-audit.js' ||
@@ -155,8 +159,10 @@ function partitionFiles(changedFiles) {
   return {
     docsMdx,
     componentJsx,
+    repoMarkdownFiles,
     styleFiles: dedupe([...docsMdx, ...componentJsx]).map(relToAbs),
     docsMdxAbs: docsMdx.map(relToAbs),
+    repoMarkdownFilesAbs: dedupe(repoMarkdownFiles).map(relToAbs),
     scriptFiles: dedupe(scriptFiles),
     usefulnessFiles: dedupe(usefulnessFiles)
   };
@@ -570,6 +576,7 @@ async function main() {
   console.log(`Branch: ${currentBranch || 'unknown'}`);
   console.log(`Changed files: ${changedFiles.length}`);
   console.log(`Changed docs pages: ${groups.docsMdx.length}`);
+  console.log(`Changed repo markdown files: ${groups.repoMarkdownFiles.length}`);
   console.log(`Changed components: ${groups.componentJsx.length}`);
   console.log(`Changed scripts: ${groups.scriptFiles.length}`);
   console.log(`Changed usefulness files: ${groups.usefulnessFiles.length}`);
@@ -581,6 +588,7 @@ async function main() {
     )
   );
   checks.push(await runUnitCheck('MDX Validation', groups.docsMdxAbs, mdxTests.runTests));
+  checks.push(await runUnitCheck('MDX-safe Markdown', groups.repoMarkdownFilesAbs, mdxSafeMarkdownValidator.run));
   checks.push(await runUnitCheck('Spelling', groups.docsMdxAbs, spellingTests.runTests));
   checks.push(await runUnitCheck('Quality', groups.docsMdxAbs, qualityTests.runTests));
   checks.push(await runUnitCheck('Links & Imports', groups.docsMdxAbs, linksImportsTests.runTests));

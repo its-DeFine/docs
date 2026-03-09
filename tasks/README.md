@@ -44,7 +44,7 @@ tracked-issue: #123             # Auto-added by retention action. Do not set man
 | `analysis` | Research output, audit plan, scoring analysis — human decision required. | ❌ No |
 | `handoff` | Session context transfer or status summary. Informational only. | ❌ No |
 
-- `plan/active/` — in-flight work. No age limit. Files unchanged >30 days trigger a GitHub issue.
+- `plan/active/` — in-flight work. No age limit. Files unchanged &gt;30 days trigger a GitHub issue.
 - `plan/complete/` — completed work. Auto-deleted 30 days after last commit.
 - `retention: permanent` — exempt from the stale-flagging action. Must be reviewed by a human quarterly.
 
@@ -62,7 +62,7 @@ tracked-issue: #123             # Auto-added by retention action. Do not set man
 | Label | Meaning |
 |---|---|
 | `tasks-retention` | Opened by the automated retention workflow |
-| `plan-stale` | File unchanged >30 days |
+| `plan-stale` | File unchanged &gt;30 days |
 | `agent-brief` / `backlog` / `handoff` / `analysis` / `execution` | Matches `plan-type` |
 | `copilot-candidate` | Copilot has been auto-assigned |
 | `needs-human` | Requires human review before action |
@@ -149,10 +149,10 @@ Workflow: `.github/workflows/tasks-retention.yml` — runs weekly on `docs-v2`, 
 
 | Target | Behaviour |
 |---|---|
-| `tasks/plan/complete/**` | Hard delete files with last commit >30 days old |
-| `tasks/plan/active/**` | Open GitHub issue + tag file with issue number if unchanged >30 days |
-| `tasks/scripts/**` | Hard delete files >14 days old (except `audit-python.py`) |
-| `tasks/errors/**` | Open GitHub issue if unchanged >14 days |
+| `tasks/plan/complete/**` | Hard delete files with last commit &gt;30 days old |
+| `tasks/plan/active/**` | Open GitHub issue + tag file with issue number if unchanged &gt;30 days |
+| `tasks/scripts/**` | Hard delete files &gt;14 days old (except `audit-python.py`) |
+| `tasks/errors/**` | Open GitHub issue if unchanged &gt;14 days |
 | `tasks/reports/**` | No action — scripts manage their own overwrite cycle |
 | `tasks/reports/script-classifications.json` | Never touched by any automated process |
 

@@ -133,7 +133,7 @@
 - No semantic path rewrites
 
 **Rolling Issue Behavior:**
-- Single marker issue: `<!-- openapi-reference-audit -->`
+- Single marker issue: `[//]: # (openapi-reference-audit)`
 - Opens/updates when unresolved failures remain
 - Closes with resolution comment when a run is clean
 - Labels ensured idempotently: `docs-v2`, `help wanted`, `status: needs-triage`, `type: bug`, `area: ci-cd`

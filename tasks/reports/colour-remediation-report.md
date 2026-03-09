@@ -71,8 +71,8 @@ Generated: 2026-03-08T01:36:50.294Z
 | Value | File | Context | Recommendation |
 |-------|------|---------|---------------|
 | #00AEEF | snippets/components/display/socialLinks.jsx | github: color ? color : "#f0f0f0", forum: color ? color : "#00AEEF", website: color ? color : "var(--accent)", | Prefer --lp-color-brand-forum for consistency, or explicitly exempt this brand colour. |
-| #5865F2 | snippets/components/display/socialLinks.jsx | const colors = { discord: color ? color : "#5865F2", twitter: color ? color : "var(--hero-text)", | Prefer --lp-color-brand-discord for consistency, or explicitly exempt this brand colour. |
-| #5965f3 | snippets/components/content/data.jsx | > <Icon icon="discord" color="#5965f3" /> <span style={{ fontWeight: 600, color: "var(--accent)" }}> | Prefer --lp-color-brand-discord for consistency, or explicitly exempt this brand colour. |
+| #5865F2 | snippets/components/display/socialLinks.jsx | `const colors = { discord: color ? color : "#5865F2", twitter: color ? color : "var(--hero-text)",` | Prefer --lp-color-brand-discord for consistency, or explicitly exempt this brand colour. |
+| #5965f3 | snippets/components/content/data.jsx | `> <Icon icon="discord" color="#5965f3" /> <span style={{ fontWeight: 600, color: "var(--accent)" }}>` | Prefer --lp-color-brand-discord for consistency, or explicitly exempt this brand colour. |
 | #f0f0f0 | snippets/components/display/socialLinks.jsx | twitter: color ? color : "var(--hero-text)", github: color ? color : "#f0f0f0", forum: color ? color : "#00AEEF", | Prefer --lp-color-brand-github for consistency, or explicitly exempt this brand colour. |
 
 ## Decision Required Before Phase 2b

@@ -6,7 +6,7 @@ Generated at: 2026-03-09T10:32:51.949Z
 
 - `snippets/assets/` total: 61M
 - Video/GIF count: 5
-- Large image count (>5 MB): 0
+- Large image count (&gt;5 MB): 0
 - Tracked Notion backups: 0
 - ALREADY_RESOLVED: no
 

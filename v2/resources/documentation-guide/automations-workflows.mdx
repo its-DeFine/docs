@@ -251,7 +251,7 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
   - `Classification` is only treated as required when the issue body already contains a `### Classification` section
   - This prevents older issues from being auto-labeled `status: needs-info` during re-triage edits
 - The workflow skips the docs-v2 top-level issue index by checking for the hidden marker:
-  - `<!-- docs-v2-issue-indexer -->`
+  - `[//]: # (docs-v2-issue-indexer)`
   - Do not remove or rename this marker without updating both this workflow and the indexer workflow
 
 **Manual validation checklist after edits:**
@@ -274,7 +274,7 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 - manual dispatch
 
 **What it does:**
-1. Finds the index issue by hidden marker in the issue body (`<!-- docs-v2-issue-indexer -->`)
+1. Finds the index issue by hidden marker in the issue body (`[//]: # (docs-v2-issue-indexer)`)
 2. Creates the index issue if it does not exist
 3. Queries all open `docs-v2` issues and recently closed `docs-v2` issues (default 30-day window)
 4. Generates summary counts + breakdown tables + issue tables
@@ -291,7 +291,7 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 
 **Operational troubleshooting:**
 - Duplicate index issues:
-  - Ensure only one issue contains the marker `<!-- docs-v2-issue-indexer -->`
+  - Ensure only one issue contains the marker `[//]: # (docs-v2-issue-indexer)`
   - Remove the marker from duplicates, then run the workflow manually
 - Missing labels in breakdowns:
   - Check `.github/workflows/issue-auto-label.yml` managed prefixes and label parsing

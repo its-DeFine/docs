@@ -51,7 +51,7 @@ The plan is decision-complete and prioritized for fastest user-visible wins firs
 
 ## Test Cases and Acceptance Criteria
 1. Key templates to test: `v1 intro`, `v2 mission-control`, `v2 gateway guide`, one API reference page, one embed-heavy page.
-2. Acceptance for Core Web Vitals: LCP <= 2.5s, INP <= 200ms, CLS <= 0.1 on representative mobile profile.
+2. Acceptance for Core Web Vitals: LCP &lt;= 2.5s, INP &lt;= 200ms, CLS &lt;= 0.1 on representative mobile profile.
 3. Acceptance for payload: reduce initial HTML payload by removing internal/report content from public route data; reduce eager image preloads on mission-control.
 4. Acceptance for media: no public page preloads 10MB+ assets; no GIF used as `og:image`.
 5. Acceptance for components: all custom `<img>` and `<iframe>` wrappers default to lazy-safe behavior unless explicitly opt-in eager.

@@ -16,8 +16,8 @@ primary_paths:
   - ".github/pull_request_template.md"
   - ".github/pull-request-template-v2.md"
 primary_commands:
-  - "git worktree add ../livepeer-docs-codex-<issue> -b codex/<issue>-<slug> docs-v2"
-  - "node tools/scripts/validate-codex-task-contract.js --branch codex/<issue>-<slug> --require-pr-body"
+  - "git worktree add ../livepeer-docs-codex-ISSUE_ID -b codex/ISSUE_ID-TASK_SLUG docs-v2"
+  - "node tools/scripts/validate-codex-task-contract.js --branch codex/ISSUE_ID-TASK_SLUG --require-pr-body"
   - "node tools/scripts/create-codex-pr.js --create"
 ---
 

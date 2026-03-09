@@ -64,7 +64,7 @@ The current token supply is defined as $l_{total}$ and the current active stake
 The transcoding fees are simpler and calculated using:
 
 $$
-yield_{ETH} = ({v_{daily} * 365}) * (s_{fees}) * {\left( p \over p + l_{orch}  \right)}
+yield_{ETH} = (v_{daily} * 365) * s_{fees} * \frac{p}{p + l_{orch}}
 $$
 
 The first part calculates the estimated fee volume in ETH for the orchestrator
@@ -81,7 +81,7 @@ The combined equation also includes input from the user, which is the amount of
 LPT they want to stake. This principle is defined as $p$.
 
 $$
-yield_{LPT} = { \left( l_{total} * (1+r_{inf})^{417} - l_{total} \over l_{active} \right)} * {((p + l_{orch}) * r_{rewards}) } * (s_{rewards} * {p \over (p + l_{orch})})
+yield_{LPT} = \frac{l_{total} * (1 + r_{inf})^{417} - l_{total}}{l_{active}} * ((p + l_{orch}) * r_{rewards}) * \left( s_{rewards} * \frac{p}{p + l_{orch}} \right)
 $$
 
 The first part of the equation is the estimated total rewards which will be

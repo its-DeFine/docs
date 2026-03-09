@@ -447,9 +447,9 @@ Professional operators track:
 
 KPI Target
 Uptime 99%+
-Segment failure rate < 1%
+Segment failure rate &lt; 1%
 GPU utilization 60–85%
-Ticket redemption delay < 1 round
+Ticket redemption delay &lt; 1 round
 Delegator churn Low 8. Reputation & Selection
 
 Being in the active set depends on:
@@ -501,11 +501,11 @@ Operators must tune monitoring differently.
 
 Alert if:
 
-GPU > 90°C
+GPU &gt; 90°C
 
-Inference OOM > 3/hour
+Inference OOM &gt; 3/hour
 
-Segment failure rate > 2%
+Segment failure rate &gt; 2%
 
 No reward call for 2 rounds
 

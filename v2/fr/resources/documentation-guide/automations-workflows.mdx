@@ -227,7 +227,7 @@ Les workflows GitHub Actions sont situés dans `.github/workflows/` et s'exécut
   - `Classification` n'est traité comme obligatoire que lorsqu'un corps de problème contient déjà une`### Classification` section
   - Cela empêche les anciens problèmes d'être automatiquement étiquetés `status: needs-info`lors des modifications de ré-triage
 - Le workflow ignore l'index de niveau supérieur des documents v2 en vérifiant le marqueur caché :
-  - `<!-- docs-v2-issue-indexer -->`
+  - `[//]: # (docs-v2-issue-indexer)`
   - Ne supprimez ou ne renommez pas ce marqueur sans mettre à jour à la fois ce workflow et le workflow de l'indexeur
 
 **Liste de vérification de validation manuelle après les modifications :**
@@ -250,7 +250,7 @@ Les workflows GitHub Actions sont situés dans `.github/workflows/` et s'exécut
 - envoi manuel
 
 **Ce qu'il fait :**
-1. Trouve l'incident indexé par le marqueur caché dans le corps de l'incident (`<!-- docs-v2-issue-indexer -->`）
+1. Trouve l'incident indexé par le marqueur caché dans le corps de l'incident (`[//]: # (docs-v2-issue-indexer)`）
 2. Crée l'incident d'index s'il n'existe pas
 3. Interroge tous les`docs-v2` incidents ouverts et récemment fermés`docs-v2` incidents (fenêtre par défaut de 30 jours)
 4. Génère des comptes résumés + des tableaux de décomposition + des tableaux d'incidents
@@ -267,7 +267,7 @@ Les workflows GitHub Actions sont situés dans `.github/workflows/` et s'exécut
 
 **Dépannage opérationnel :**
 - Problèmes d'index en double :
-  - Assurez-vous qu'un seul incident contient le marqueur`<!-- docs-v2-issue-indexer -->`
+  - Assurez-vous qu'un seul incident contient le marqueur`[//]: # (docs-v2-issue-indexer)`
   - Supprimez le marqueur des doublons, puis exécutez le workflow manuellement
 - Étiquettes manquantes dans les analyses :
   - Vérifiez`.github/workflows/issue-auto-label.yml` les préfixes gérés et l'analyse des étiquettes

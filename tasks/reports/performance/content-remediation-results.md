@@ -58,7 +58,7 @@ Page endings findings: 1
 - This report reflects the current remote `docs-v2` tip (`2c0c1ec5`), which moved past the earlier isolated remediation base before landing.
 - `tests/unit/style-guide.test.js` no longer reports trailing-whitespace violations directly. Its raw Step 0 output is preserved above for fidelity to the task brief, but the authoritative whitespace baseline and result come from a direct editable-scope scan.
 - The Step 0 `grep -c` extraction logic in the task brief is no longer authoritative for the current UK-English and page-ending validator outputs. The counts used below come from `Reportable findings:` and `Summary:` lines instead.
-- `tools/scripts/validators/content/check-page-endings.js` now exists and validates approved navigational endings. Its `--fix` mode appends `<!-- TODO: add page ending -->`, which is content authoring and was therefore not used.
+- `tools/scripts/validators/content/check-page-endings.js` now exists and validates approved navigational endings. Its `--fix` mode appends `[//]: # (TODO: add page ending)`, which is content authoring and was therefore not used.
 - `tools/scripts/style-and-language-homogenizer-en-gb.js` remained advisory-only on this checkout. The mutators used were `check-grammar-en-gb.js --fix` and `repair-spelling.js --write`.
 
 | Category | Baseline Count | Expected | Delta from expected |

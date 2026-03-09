@@ -1,25 +1,25 @@
 ## Description
 
-<!-- Provide a clear description of what this PR changes and why -->
+[//]: # (Provide a clear description of what this PR changes and why)
 
 ## Scope
 
-<!-- Required for codex/* PRs: list in-scope files/prefixes and any explicit out-of-scope exclusions -->
-<!-- Tip: node tools/scripts/create-codex-pr.js --create -->
+[//]: # (Required for codex/* PRs: list in-scope files/prefixes and any explicit out-of-scope exclusions)
+[//]: # (Tip: node tools/scripts/create-codex-pr.js --create)
 
 ## Validation
 
-<!-- Required for codex/* PRs: list exact commands run and notable outcomes -->
-<!-- Tip: node tools/scripts/create-codex-pr.js --create -->
+[//]: # (Required for codex/* PRs: list exact commands run and notable outcomes)
+[//]: # (Tip: node tools/scripts/create-codex-pr.js --create)
 
 ## Follow-up Tasks
 
-<!-- Required for codex/* PRs: link follow-up issues, or write "none" -->
-<!-- Tip: node tools/scripts/create-codex-pr.js --create -->
+[//]: # (Required for codex/* PRs: link follow-up issues, or write "none")
+[//]: # (Tip: node tools/scripts/create-codex-pr.js --create)
 
 ## Type of Change
 
-<!-- Check all that apply -->
+[//]: # (Check all that apply)
 
 - [ ] Bug fix (fixes an issue)
 - [ ] New content (adds new documentation)
@@ -30,14 +30,14 @@
 
 ## Related Issues
 
-<!-- Link to related GitHub issues -->
+[//]: # (Link to related GitHub issues)
 
 Fixes #
 Related to #
 
 ## Changes Made
 
-<!-- Describe the specific changes in this PR -->
+[//]: # (Describe the specific changes in this PR)
 
 - 
 - 
@@ -45,7 +45,7 @@ Related to #
 
 ## Testing
 
-<!-- Describe how you tested your changes -->
+[//]: # (Describe how you tested your changes)
 
 - [ ] Tested locally with `npm run dev`
 - [ ] Verified all links work
@@ -55,11 +55,11 @@ Related to #
 
 ## Screenshots (if applicable)
 
-<!-- Add screenshots if this PR changes the UI or adds visual content -->
+[//]: # (Add screenshots if this PR changes the UI or adds visual content)
 
 ## Checklist
 
-<!-- Check all that apply -->
+[//]: # (Check all that apply)
 
 - [ ] My changes follow the [style guides](../../docs/ABOUT/ABOUT-SECTION-STYLE-GUIDE.md)
 - [ ] I've reviewed the [Component Library](../../v2/pages/07_resources/documentation-guide/component-library) for available components
@@ -71,4 +71,4 @@ Related to #
 
 ## Additional Notes
 
-<!-- Any additional information, context, or notes for reviewers -->
+[//]: # (Any additional information, context, or notes for reviewers)

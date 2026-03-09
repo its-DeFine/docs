@@ -75,7 +75,7 @@ Autofix boundaries:
   - only deterministic normalization (`METHOD` casing, spacing, leading slash)
   - no semantic endpoint guess/rewrites
 Rolling issue behavior:
-  - single marker issue `<!-- openapi-reference-audit -->`
+  - single marker issue `[//]: # (openapi-reference-audit)`
   - opens/updates on unresolved failures
   - comments and closes automatically when resolved
 

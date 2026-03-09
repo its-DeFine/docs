@@ -875,6 +875,20 @@ else
               tools/scripts/generate-pages-index.js --staged --write --stage
         fi
 
+        if [ -f "tools/scripts/remediators/content/repair-mdx-safe-markdown.js" ]; then
+            run_node_check \
+              "Running staged MDX-safe markdown auto-repair..." \
+              "❌ MDX-safe markdown auto-repair failed - inspect repair-mdx-safe-markdown output" \
+              tools/scripts/remediators/content/repair-mdx-safe-markdown.js --write --staged --stage
+        fi
+
+        if [ -f "tools/scripts/validators/content/check-mdx-safe-markdown.js" ]; then
+            run_node_check \
+              "Running staged MDX-safe markdown validation..." \
+              "❌ MDX-safe markdown validation failed - inspect check-mdx-safe-markdown output" \
+              tools/scripts/validators/content/check-mdx-safe-markdown.js --staged
+        fi
+
         if [ -f "tools/scripts/generate-docs-index.js" ]; then
             if echo "$STAGED_FILES_SNAPSHOT_ALL" | grep -Eq '^(docs\.json|v1/|v2/|snippets/)'; then
                 echo -e "${YELLOW}Checking docs-index sync...${NC}"

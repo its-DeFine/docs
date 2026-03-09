@@ -24,7 +24,7 @@ node tools/scripts/remediators/assets/migrate-assets-to-branch.js --write
 
 ## Relationship to sync-large-assets.yml
 
-`.github/workflows/sync-large-assets.yml` auto-mirrors files >=20 MB to `docs-v2-assets`
+`.github/workflows/sync-large-assets.yml` auto-mirrors files &gt;=20 MB to `docs-v2-assets`
 on push to `docs-v2`. It is threshold-based and does not rewrite MDX/JSX links.
 
 Known gap: the workflow threshold (20 MB) does not match the manifest thresholds

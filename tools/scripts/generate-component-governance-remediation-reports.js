@@ -36,12 +36,17 @@
 const fs = require('fs');
 const path = require('path');
 const {
+  buildGeneratedMarkdownCommentLines,
+  sanitizeMarkdownTableCellText
+} = require('../lib/mdx-safe-markdown');
+const {
   buildMdxFacingComponentIndex
 } = require('./validators/components/check-mdx-component-scope');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const DEFAULT_AUDIT_FILE = 'tasks/reports/component-governance-audit.md';
 const DEFAULT_OUTPUT_DIR = 'tasks/reports';
+const REPORT_GENERATOR_SCRIPT = 'tools/scripts/generate-component-governance-remediation-reports.js';
 const VALID_REPORTS = ['migration', 'colours', 'tokens', 'defensive'];
 const REPORT_FILE_NAMES = {
   migration: 'migration-impact-report.md',
@@ -2083,9 +2088,11 @@ function deriveGenericGuardChecklist(componentMeta) {
 
 function renderMigrationImpactReport(context) {
   const lines = [
-    '# Migration Impact Report',
-    '',
-    `Generated: ${context.generatedAt}`,
+    ...buildGeneratedReportPreamble(
+      'Migration Impact Report',
+      'Summarize component import-rewrite impact and migration risk for the component-governance remediation phase.',
+      context
+    ),
     `Source: ${context.auditFile}`,
     '',
     '## Risk Summary',
@@ -2125,7 +2132,7 @@ function renderMigrationImpactReport(context) {
     } else {
       group.importRows.forEach((row) => {
         lines.push(
-          `| ${escapeMarkdownCell(row.filePath)} | ${escapeMarkdownCell(inlineCode(row.currentImportStatement))} | ${escapeMarkdownCell(row.newImportStatements.map((statement) => inlineCode(statement)).join('<br>'))} |`
+          `| ${escapeMarkdownCell(row.filePath)} | ${escapeMarkdownCell(inlineCode(row.currentImportStatement))} | ${escapeMarkdownCell(row.newImportStatements.map((statement) => inlineCode(statement)).join('<br />'))} |`
         );
       });
     }
@@ -2185,9 +2192,11 @@ function renderColourRemediationReport(context) {
   const deliberateRows = colourGroups.filter((group) => group.deliberate);
 
   const lines = [
-    '# Colour Remediation Report',
-    '',
-    `Generated: ${context.generatedAt}`,
+    ...buildGeneratedReportPreamble(
+      'Colour Remediation Report',
+      'Catalog hardcoded colour usage, token gaps, and replacement decisions for the component-governance remediation phase.',
+      context
+    ),
     '',
     '## Token Coverage Summary',
     '',
@@ -2290,9 +2299,11 @@ function renderColourRemediationReport(context) {
 function renderStyleTokenAuditReport(context) {
   const usageRows = context.tokenAudit.usageRows;
   const lines = [
-    '# style.css Token Audit',
-    '',
-    `Generated: ${context.generatedAt}`,
+    ...buildGeneratedReportPreamble(
+      'style.css Token Audit',
+      'Inventory style.css token usage and namespace gaps for the component-governance remediation phase.',
+      context
+    ),
     `File: ${context.stylePath}`,
     '',
     '## Token Inventory',
@@ -2356,9 +2367,11 @@ function renderStyleTokenAuditReport(context) {
 
 function renderDefensiveRenderingReport(context) {
   const lines = [
-    '# Defensive Rendering Remediation Report',
-    '',
-    `Generated: ${context.generatedAt}`,
+    ...buildGeneratedReportPreamble(
+      'Defensive Rendering Remediation Report',
+      'Summarize component crash-risk findings and defensive rendering fixes for the component-governance remediation phase.',
+      context
+    ),
     `Source: ${context.auditFile} (Defensive Rendering section)`,
     '',
     `## HIGH Crash Risk (${context.defensiveAnalysis.highRows.length} components)`,
@@ -2446,6 +2459,22 @@ function appendDriftNotes(lines, driftNotes, prefixes = null) {
   });
 
   return `${lines.join('\n').trim()}\n`;
+}
+
+function buildGeneratedReportPreamble(title, purpose, context) {
+  return [
+    ...buildGeneratedMarkdownCommentLines({
+      marker: 'generated-remediation-report:v1',
+      script: REPORT_GENERATOR_SCRIPT,
+      purpose,
+      runWhen: 'The approved component-governance audit changes or remediation reports need regeneration.',
+      runCommand: `node ${REPORT_GENERATOR_SCRIPT}`
+    }),
+    '',
+    `# ${title}`,
+    '',
+    `Generated: ${context.generatedAt}`
+  ];
 }
 
 function walkFiles(rootDir, predicate, out = []) {
@@ -2980,9 +3009,7 @@ function extractCssBlock(content, selector) {
 }
 
 function escapeMarkdownCell(value) {
-  return String(value || '')
-    .replace(/\|/g, '\\|')
-    .replace(/\n/g, '<br>');
+  return sanitizeMarkdownTableCellText(value).replace(/\|/g, '\\|');
 }
 
 function trimBlankLines(value) {
