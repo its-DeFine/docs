@@ -3,6 +3,7 @@ branch: codex/20260310-step-02-governance-verify
 base_branch: docs-v2
 scope_in:
   - .codex/task-contract.yaml
+  - .codex/locks-local/
   - tools/lib/docs-index-utils.js
   - tools/scripts/validators/governance/audit-script-inventory.js
 scope_out: []
