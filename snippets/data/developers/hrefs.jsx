@@ -196,8 +196,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../../orchestrators/advanced/hosting-models",
-      "resolvedPath": "v2/orchestrators/advanced/hosting-models.mdx",
+      "rawPath": "../../orchestrators/advanced-setup/hosting-models",
+      "resolvedPath": "v2/orchestrators/advanced-setup/hosting-models.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1498,8 +1498,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/orchestrators/get-started/setup-paths",
-      "resolvedPath": "v2/orchestrators/get-started/setup-paths.mdx",
+      "rawPath": "/v2/orchestrators/quickstart/overview",
+      "resolvedPath": "v2/orchestrators/quickstart/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1734,8 +1734,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/v2/orchestrators/setup/setup-guide",
-      "resolvedPath": "v2/orchestrators/setup/setup-guide.mdx",
+      "rawPath": "/v2/orchestrators/setting-up-an-orchestrator/overview",
+      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/overview.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

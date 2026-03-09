@@ -20,14 +20,14 @@ import { CustomCodeBlock } from '/snippets/components/content/code.jsx'
 
 <PreviewCallout />
 
-Este inicio rápido pone tu GPU en la red Livepeer ejecutando el **go-livepeer** cliente en modo orquestador. Instalarás (o usarás Docker), te conectarás a Arbitrum, establecerás precios y activarás. Para una guía completa de instalación (binario, Docker, fuente), consulta [Instalar go-livepeer](/v2/orchestrators/setup/install-go-livepeer). Para conectarte a Arbitrum (RPC, alojado vs autoalojado), consulta [Conectar a Arbitrum](/v2/orchestrators/setup/connect-to-arbitrum).
+Este inicio rápido pone tu GPU en la red Livepeer ejecutando el **go-livepeer** cliente en modo orquestador. Instalarás (o usarás Docker), te conectarás a Arbitrum, establecerás precios y activarás. Para una guía completa de instalación (binario, Docker, fuente), consulta [Instalar go-livepeer](../setting-up-an-orchestrator/install-go-livepeer). Para conectarte a Arbitrum (RPC, alojado vs autoalojado), consulta [Conectar a Arbitrum](../setting-up-an-orchestrator/connect-to-arbitrum).
 
 ## Requisitos previos
 
 - Familiaridad con la línea de comandos; `wget` o `curl`; [grpcurl](https://github.com/fullstorydev/grpcurl) opcional para pruebas.
 - [Controlador NVIDIA](https://www.nvidia.com/Download/index.aspx) instalado si se utiliza transcodificación con GPU.
-- Acceso a un [Arbitrum punto final RPC](/v2/orchestrators/setup/connect-to-arbitrum) (alojado o autoalojado).
-- **go-livepeer** [instalado](/v2/orchestrators/setup/install-go-livepeer) (binario o Docker).
+- Acceso a un [Arbitrum punto final RPC](../setting-up-an-orchestrator/connect-to-arbitrum) (alojado o autoalojado).
+- **go-livepeer** [instalado](../setting-up-an-orchestrator/install-go-livepeer) (binario o Docker).
 
 <Note> Non-NVIDIA GPU support may be added in the future. This guide assumes NVIDIA GPUs for transcoding.</Note>
 
@@ -69,7 +69,7 @@ GPU 1: GeForce GTX 1070 Ti (UUID: GPU-d46a085e-...)
     />
 
     <Accordion title="Key flags" icon="list">
-      - **-ethUrl** - Arbitrum RPC URL. See [Connect to Arbitrum](/v2/orchestrators/setup/connect-to-arbitrum).
+      - **-ethUrl** - Arbitrum RPC URL. See [Connect to Arbitrum](../setting-up-an-orchestrator/connect-to-arbitrum).
       - **-ethAcctAddr** - (Optional) ETH account address if you already have a keystore.
       - **-orchestrator** / **-transcoder** - Run as orchestrator with GPU transcoding.
       - **-nvidia** - Comma-separated GPU IDs (e.g. `0,1,2`). Omit for CPU-only.
@@ -102,7 +102,7 @@ Received Ping request`}
   <StyledStep title="Activate your orchestrator">
     Use **livepeer_cli** or the [Explorer](https://explorer.livepeer.org/) to bond LPT to yourself, set reward cut, fee share, price, and service address. Once transactions confirm, your orchestrator joins the active set in the next round.
 
-    See [Staking LPT](/v2/orchestrators/advanced/staking-LPT) and [Rewards and fees](/v2/orchestrators/advanced/rewards-and-fees) for economics. Full activation steps are in the [Install guide](/v2/orchestrators/setup/install-go-livepeer#activate).
+    See [Staking LPT](../advanced-setup/staking-LPT) and [Rewards and fees](../advanced-setup/rewards-and-fees) for economics. Full activation steps are in the [Install guide](../setting-up-an-orchestrator/install-go-livepeer#activate).
   </StyledStep>
 </StyledSteps>
 
@@ -112,7 +112,7 @@ Received Ping request`}
   <Card
     title="Install go-livepeer"
     icon="download"
-    href="/v2/orchestrators/setup/install-go-livepeer"
+    href="../setting-up-an-orchestrator/install-go-livepeer"
     arrow
   >
     Binary, Docker, and build from source.
@@ -120,7 +120,7 @@ Received Ping request`}
   <Card
     title="Connect to Arbitrum"
     icon="plug"
-    href="/v2/orchestrators/setup/connect-to-arbitrum"
+    href="../setting-up-an-orchestrator/connect-to-arbitrum"
     arrow
   >
     Hosted RPC vs self-hosted node.
@@ -128,7 +128,7 @@ Received Ping request`}
   <Card
     title="CLI flags reference"
     icon="terminal"
-    href="/v2/orchestrators/resources/cli-flags"
+    href="../references/cli-flags"
     arrow
   >
     Full flag list and gRPC mapping.
@@ -136,7 +136,7 @@ Received Ping request`}
   <Card
     title="Orchestrator FAQ"
     icon="circle-question"
-    href="/v2/orchestrators/resources/faq"
+    href="../references/faq"
     arrow
   >
     Common questions and troubleshooting.

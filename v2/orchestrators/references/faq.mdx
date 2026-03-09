@@ -13,7 +13,7 @@ keywords:
 'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
 ---
 
-Common questions about orchestrators, staking, rewards, and operations. For installation and configuration, see [Install go-livepeer](/v2/orchestrators/setup/install-go-livepeer) and [Add your GPU](/v2/orchestrators/get-started/quickstart-views/orchestrator-setup).
+Common questions about orchestrators, staking, rewards, and operations. For installation and configuration, see [Install go-livepeer](../setting-up-an-orchestrator/install-go-livepeer) and [Add your GPU](../quickstart/orchestrator-setup).
 
 ## What is an orchestrator?
 
@@ -29,7 +29,7 @@ An **orchestrator** is a bonded network participant that: stakes LPT via the Bon
 1. **LPT inflation** - Minted each round and distributed to bonded stake. You must call **reward()** every round to claim. Your share depends on your stake and your **reward cut** (the rest goes to delegators).
 2. **ETH fees** - Paid for work via probabilistic tickets. Winning tickets are redeemed on Arbitrum. Your **fee share** sets how much ETH you share with delegators.
 
-See [Rewards and fees](/v2/orchestrators/advanced/rewards-and-fees).
+See [Rewards and fees](../advanced-setup/rewards-and-fees).
 
 ## What is slashing risk?
 
@@ -37,7 +37,7 @@ Slashing can occur for double-signing, fraudulent transcoding proof, or maliciou
 
 ## What is a pool?
 
-A **pool** is one orchestrator (one on-chain identity, one stake) backed by **many GPUs**, often from different owners. The operator runs the node and distributes earnings to GPU contributors **off-chain**. See [Join a pool](/v2/orchestrators/guides/join-a-pool) and [Run a pool](/v2/orchestrators/advanced/run-a-pool).
+A **pool** is one orchestrator (one on-chain identity, one stake) backed by **many GPUs**, often from different owners. The operator runs the node and distributes earnings to GPU contributors **off-chain**. See [Join a pool](../quickstart/join-a-pool) and [Run a pool](../advanced-setup/run-a-pool).
 
 ## What should I monitor?
 
@@ -45,7 +45,7 @@ A **pool** is one orchestrator (one on-chain identity, one stake) backed by **ma
 - **Node:** GPU utilisation, segment/job success rate, latency (Prometheus metrics at `:7935/metrics` when `-monitor=true`).
 - **Economics:** Ticket redemption rate, LPT rewards, ETH fees.
 
-See [Orchestrator stats and monitoring](/v2/orchestrators/setup/orchestrator-stats).
+See [Orchestrator stats and monitoring](../setting-up-an-orchestrator/orchestrator-stats).
 
 ## Troubleshooting
 
@@ -54,13 +54,13 @@ See [Orchestrator stats and monitoring](/v2/orchestrators/setup/orchestrator-sta
 - **GPU not detected:** Run `nvidia-smi`; ensure Docker has `--gpus all` if using containers; check CUDA/driver version.
 - **RPC errors:** Use a stable Arbitrum RPC; flaky endpoints can cause failed transactions and missed reward calls.
 
-For more, see [Install go-livepeer](/v2/orchestrators/setup/install-go-livepeer), [Connect to Arbitrum](/v2/orchestrators/setup/connect-to-arbitrum), and [CLI flags](./cli-flags).
+For more, see [Install go-livepeer](../setting-up-an-orchestrator/install-go-livepeer), [Connect to Arbitrum](../setting-up-an-orchestrator/connect-to-arbitrum), and [CLI flags](./cli-flags).
 
 ## See also
 
 <Columns cols={2}>
   <Card title="CLI flags" icon="terminal" href="./cli-flags" arrow />
-  <Card title="Rewards and fees" icon="coins" href="/v2/orchestrators/advanced/rewards-and-fees" arrow />
-  <Card title="Staking LPT" icon="coins" href="/v2/orchestrators/advanced/staking-LPT" arrow />
-  <Card title="Orchestrator stats" icon="chart-line" href="/v2/orchestrators/setup/orchestrator-stats" arrow />
+  <Card title="Rewards and fees" icon="coins" href="../advanced-setup/rewards-and-fees" arrow />
+  <Card title="Staking LPT" icon="coins" href="../advanced-setup/staking-LPT" arrow />
+  <Card title="Orchestrator stats" icon="chart-line" href="../setting-up-an-orchestrator/orchestrator-stats" arrow />
 </Columns>

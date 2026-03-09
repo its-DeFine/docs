@@ -19,13 +19,13 @@ keywords:
 
 import { CustomCodeBlock } from '/snippets/components/content/code.jsx'
 
-After [installing go-livepeer](/v2/orchestrators/setup/install-go-livepeer), configure the node so gateways can discover you and send work. This page covers core flags and optional config files.
+After [installing go-livepeer](../install-go-livepeer), configure the node so gateways can discover you and send work. This page covers core flags and optional config files.
 
 ## Core configuration
 
 ### Network and wallet
 
-- **-ethUrl** - Arbitrum RPC URL. See [Connect to Arbitrum](/v2/orchestrators/setup/connect-to-arbitrum).
+- **-ethUrl** - Arbitrum RPC URL. See [Connect to Arbitrum](../connect-to-arbitrum).
 - **-ethAcctAddr** - (Optional) ETH account address if you already have a keystore.
 - **-network** - Use `arbitrum-one-mainnet` for production.
 
@@ -101,7 +101,7 @@ If you run AI inference, create an **aiModels.json** to specify pipelines and mo
   filename="aiModels.json"
 />
 
-See [AI pipelines](/v2/orchestrators/advanced/ai-pipelines) and [Developers BYOC](/v2/developers/ai-pipelines/byoc) for full AI setup.
+See [AI pipelines](../../advanced-setup/ai-pipelines) and [Developers BYOC](/developers/ai-pipelines/byoc) for full AI setup.
 
 ## Verification
 
@@ -114,8 +114,8 @@ After starting the node:
 ## See also
 
 <Columns cols={2}>
-  <Card title="Install go-livepeer" icon="download" href="/v2/orchestrators/setup/install-go-livepeer" arrow />
-  <Card title="Connect to Arbitrum" icon="plug" href="/v2/orchestrators/setup/connect-to-arbitrum" arrow />
-  <Card title="CLI flags reference" icon="terminal" href="/v2/orchestrators/resources/cli-flags" arrow />
-  <Card title="Rewards and fees" icon="coins" href="/v2/orchestrators/advanced/rewards-and-fees" arrow />
+  <Card title="Install go-livepeer" icon="download" href="../install-go-livepeer" arrow />
+  <Card title="Connect to Arbitrum" icon="plug" href="../connect-to-arbitrum" arrow />
+  <Card title="CLI flags reference" icon="terminal" href="../../references/cli-flags" arrow />
+  <Card title="Rewards and fees" icon="coins" href="../../advanced-setup/rewards-and-fees" arrow />
 </Columns>
