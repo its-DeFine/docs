@@ -432,8 +432,33 @@ function getCanonicalMap(normalizedRoute) {
       'v2/pages/04_gateways/quickstart/gateway-setup'
     ],
     'v2/pages/04_gateways/references/video-flags': ['v2/pages/04_gateways/references/configuration-flags'],
+    'v2/orchestrators/setting-up-an-orchestrator/overview': ['v2/orchestrators/setup/overview'],
+    'v2/orchestrators/setting-up-an-orchestrator/hardware-requirements': [
+      'v2/orchestrators/setup/hardware-requirements'
+    ],
+    'v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer': [
+      'v2/orchestrators/setup/install-go-livepeer'
+    ],
+    'v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats': [
+      'v2/orchestrators/setup/orchestrator-stats'
+    ],
+    'v2/orchestrators/setting-up-an-orchestrator/data-centre-setup': [
+      'v2/orchestrators/setup/data-centre-setup'
+    ],
+    'v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers': [
+      'v2/orchestrators/setup/data-centres-and-large-scale-hardware-providers'
+    ],
+    'v2/orchestrators/setting-up-an-orchestrator/enterprise-and-data-centres': [
+      'v2/orchestrators/setup/enterprise-and-data-centres'
+    ],
+    'v2/orchestrators/setting-up-an-orchestrator/publish-offerings': [
+      'v2/orchestrators/setup/publish-offerings'
+    ],
+    'v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer': [
+      'v2/orchestrators/setup/orch-config'
+    ],
     'v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers': [
-      'v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers'
+      'v2/orchestrators/setup/data-centres-and-large-scale-hardware-providers'
     ],
     'v2/pages/02_community/livepeer-community/media-kit': ['v2/resources/media-kit'],
     'v2/pages/01_about/livepeer-network/actors': ['v2/about/livepeer-network/actors'],

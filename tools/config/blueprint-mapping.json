@@ -67,7 +67,7 @@
     "Configuring AI on Your Orchestrator": "v2/orchestrators/advanced-setup/ai-pipelines.mdx",
     "Model Curation Strategy": null,
     "Orchestrator Earnings & Optimisation": "v2/orchestrators/earnings.mdx",
-    "Hardware Requirements": "v2/orchestrators/setting-up-an-orchestrator/hardware-requirements.mdx",
+    "Hardware Requirements": "v2/orchestrators/setup/hardware-requirements.mdx",
     "CLI Flags Reference": "v2/orchestrators/references/cli-flags.mdx",
     "Orchestrator Troubleshooting": null,
     "Orchestrator FAQ": "v2/orchestrators/references/faq.mdx"

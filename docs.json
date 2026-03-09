@@ -2816,57 +2816,19 @@
                         ]
                       },
                       {
-                        "group": "Payments",
-                        "icon": "coins",
-                        "pages": ["v2/orchestrators/payments/index"]
-                      },
-                      {
-                        "group": "Run an Orchestrator",
-                        "icon": "gear-code",
+                        "group": "Setup",
+                        "icon": "gear",
                         "pages": [
-                          {
-                            "group": "Orchestrator Setup Guide",
-                            "pages": [
-                              "v2/orchestrators/setting-up-an-orchestrator/overview",
-                              {
-                                "group": "Setup Checklist",
-                                "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/hardware-requirements"
-                                ]
-                              },
-                              {
-                                "group": "Installation",
-                                "pages": [
-                                  "v2/orchestrators/setup/install-go-livepeer",
-                                  "v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats"
-                                ]
-                              },
-                              {
-                                "group": "Configuration",
-                                "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer"
-                                ]
-                              },
-                              {
-                                "group": "Testing",
-                                "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
-                                ]
-                              },
-                              {
-                                "group": "Network Integration",
-                                "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
-                                ]
-                              },
-                              {
-                                "group": "Monitor & Optimise",
-                                "pages": [
-                                  "v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
-                                ]
-                              }
-                            ]
-                          }
+                          "v2/orchestrators/setup/overview",
+                          "v2/orchestrators/setup/hardware-requirements",
+                          "v2/orchestrators/setup/install-go-livepeer",
+                          "v2/orchestrators/setup/orch-config",
+                          "v2/orchestrators/setup/connect-to-arbitrum",
+                          "v2/orchestrators/setup/orchestrator-stats",
+                          "v2/orchestrators/setup/publish-offerings",
+                          "v2/orchestrators/setup/data-centre-setup",
+                          "v2/orchestrators/setup/data-centres-and-large-scale-hardware-providers",
+                          "v2/orchestrators/setup/enterprise-and-data-centres"
                         ]
                       },
                       {
@@ -3370,6 +3332,42 @@
     {
       "source": "/v2/pages/08_help/redirect",
       "destination": "/v2/pages/08_help/README"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/overview",
+      "destination": "/v2/orchestrators/setup/overview"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/hardware-requirements",
+      "destination": "/v2/orchestrators/setup/hardware-requirements"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer",
+      "destination": "/v2/orchestrators/setup/install-go-livepeer"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats",
+      "destination": "/v2/orchestrators/setup/orchestrator-stats"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/data-centre-setup",
+      "destination": "/v2/orchestrators/setup/data-centre-setup"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
+      "destination": "/v2/orchestrators/setup/data-centres-and-large-scale-hardware-providers"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/enterprise-and-data-centres",
+      "destination": "/v2/orchestrators/setup/enterprise-and-data-centres"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/publish-offerings",
+      "destination": "/v2/orchestrators/setup/publish-offerings"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
+      "destination": "/v2/orchestrators/setup/orch-config"
     },
     {
       "source": "/v1/guides/developing/quickstart",
