@@ -957,16 +957,8 @@ run_governance_auto_repair() {
         fi
 
         if ! supports_governance_repair_flow; then
-            echo ""
-            echo "⚠ Governance auto-repair unavailable in this checkout; skipping."
-            echo ""
-            echo "  REPAIR-00a is not merged here yet."
-            echo "  Expected tools/scripts/validators/governance/audit-script-inventory.js"
-            echo "  to support --staged-only and --quiet."
-            echo ""
-            echo "  Proceeding without governance auto-repair for this commit."
-            echo ""
-            exit 0
+            print_governance_dependency_error
+            exit 1
         fi
 
         tmp_dir=$(mktemp -d "${TMPDIR:-/tmp}/precommit-governance.XXXXXX") || {
@@ -1125,6 +1117,7 @@ run_governance_auto_repair() {
     )
 }
 
+<<<<<<< HEAD
 # Component governance checks
 if [ "$SKIP_TESTS" != "1" ]; then
     STAGED_COMPONENTS=$(git diff --cached --name-only --diff-filter=ACM -- snippets/components | grep -E '\.jsx$' | grep -v '/_archive/' || true)
