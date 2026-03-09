@@ -100,7 +100,7 @@ import { Video } from "/snippets/components/content/video.jsx";
 
 | 属性 | 类型 | 默认值 | 必需 | 描述 |
 |------|------|---------|----------|-------------|
-| `src` | `string` | - | **是** | 视频文件路径（例如："/snippets/assets/media/videos/HeroBackground.mp4""） |
+| `src` | `string` | - | **是** | 视频文件路径（例如："https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4""） |
 | `title` | `string` | `""` | 否 | 用于辅助功能的视频标题 |
 | `author` | `string` | `""` | 否 | 要与麦克风图标一起显示的作者名称 |
 | `caption` | `string` | - | 否 | 可选的标题文字（如果作者提供了，将使用图标样式） |
@@ -128,17 +128,17 @@ import { Video } from "/snippets/components/content/video.jsx";
   </Tab>
   <Tab title="With Author">
     <Video 
-      src="/snippets/assets/media/videos/livepeer-founders-post.mp4" 
+      src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/livepeer-founders-post.mp4"
       author="Doug Petkanics"
       title="Livepeer Vision"
     />
   </Tab>
   <Tab title="Code">
 ```jsx
-<Video src="/snippets/assets/media/videos/HeroBackground.mp4" title="Demo Video" />
+<Video src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4" title="Demo Video" />
 
 <Video 
-  src="/snippets/assets/media/videos/HeroBackground.mp4" 
+  src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4"
   autoPlay
   muted
   loop
@@ -183,7 +183,7 @@ import { TitledVideo } from "/snippets/components/content/video.jsx";
   <Tab title="Code">
 ```jsx
 <TitledVideo
-  src="/snippets/assets/media/videos/HeroBackground.mp4"
+  src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4"
   title="Demo Title"
   subtitle="Subtitle text"
   arrow={true}

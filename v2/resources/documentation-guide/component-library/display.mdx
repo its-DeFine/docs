@@ -104,7 +104,7 @@ import { Video } from "/snippets/components/content/video.jsx";
 
 | Prop | Type | Default | Required | Description |
 |------|------|---------|----------|-------------|
-| `src` | `string` | - | **Yes** | Path to the video file (e.g., "/snippets/assets/media/videos/HeroBackground.mp4") |
+| `src` | `string` | - | **Yes** | Path to the video file (e.g., "https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4") |
 | `title` | `string` | `""` | No | Video title for accessibility |
 | `author` | `string` | `""` | No | Author name to display with microphone icon |
 | `caption` | `string` | - | No | Optional caption text (if author provided, styled with icon) |
@@ -132,17 +132,17 @@ import { Video } from "/snippets/components/content/video.jsx";
   </Tab>
   <Tab title="With Author">
     <Video
-      src="/snippets/assets/media/videos/livepeer-founders-post.mp4"
+      src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/livepeer-founders-post.mp4"
       author="Doug Petkanics"
       title="Livepeer Vision"
     />
   </Tab>
   <Tab title="Code">
 ```jsx
-<Video src="/snippets/assets/media/videos/HeroBackground.mp4" title="Demo Video" />
+<Video src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4" title="Demo Video" />
 
 <Video
-  src="/snippets/assets/media/videos/HeroBackground.mp4"
+  src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4"
   autoPlay
   muted
   loop
@@ -187,7 +187,7 @@ import { TitledVideo } from "/snippets/components/content/video.jsx";
   <Tab title="Code">
 ```jsx
 <TitledVideo
-  src="/snippets/assets/media/videos/HeroBackground.mp4"
+  src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4"
   title="Demo Title"
   subtitle="Subtitle text"
   arrow={true}

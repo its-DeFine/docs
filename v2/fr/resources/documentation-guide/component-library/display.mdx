@@ -103,7 +103,7 @@ import { Video } from "/snippets/components/content/video.jsx";
 
 | Prop | Type | Défaut | Requis | Description |
 |------|------|---------|----------|-------------|
-| `src` | `string` | - | **Oui** | Chemin du fichier vidéo (par exemple, "/snippets/assets/media/videos/HeroBackground.mp4") |
+| `src` | `string` | - | **Oui** | Chemin du fichier vidéo (par exemple, "https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4") |
 | `title` | `string` | `""` | Non | Titre de la vidéo pour l'accessibilité |
 | `author` | `string` | `""` | Non | Nom de l'auteur à afficher avec l'icône du micro |
 | `caption` | `string` | - | Non | Texte de légende facultatif (si l'auteur l'a fourni, stylisé avec une icône) |
@@ -131,17 +131,17 @@ import { Video } from "/snippets/components/content/video.jsx";
   </Tab>
   <Tab title="With Author">
     <Video 
-      src="/snippets/assets/media/videos/livepeer-founders-post.mp4" 
+      src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/livepeer-founders-post.mp4"
       author="Doug Petkanics"
       title="Livepeer Vision"
     />
   </Tab>
   <Tab title="Code">
 ```jsx
-<Video src="/snippets/assets/media/videos/HeroBackground.mp4" title="Demo Video" />
+<Video src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4" title="Demo Video" />
 
 <Video 
-  src="/snippets/assets/media/videos/HeroBackground.mp4" 
+  src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4"
   autoPlay
   muted
   loop
@@ -186,7 +186,7 @@ import { TitledVideo } from "/snippets/components/content/video.jsx";
   <Tab title="Code">
 ```jsx
 <TitledVideo
-  src="/snippets/assets/media/videos/HeroBackground.mp4"
+  src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4"
   title="Demo Title"
   subtitle="Subtitle text"
   arrow={true}

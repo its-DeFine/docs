@@ -14,7 +14,7 @@
  *
  * @example
  * <TitledVideo
- *   src="/snippets/assets/media/videos/daydream.mp4"
+ *   src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/daydream.mp4"
  *   title="Daydream Demo"
  * />
  *
@@ -138,7 +138,7 @@ export const ShowcaseVideo = ({ src, title, subtitle }) => {
  * Displays a self-hosted video file within a Frame component.
  * Supports local .mp4 files and other video formats.
  *
- * @param {string} src - Path to the video file (e.g., "/snippets/assets/media/videos/demo.mp4")
+ * @param {string} src - Path to the video file (e.g., "https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4")
  * @param {string} [title=""] - Video title for accessibility
  * @param {string} [author=""] - Author name to display with microphone icon
  * @param {string} [caption] - Optional caption text (if author provided, styled with icon)
@@ -149,9 +149,9 @@ export const ShowcaseVideo = ({ src, title, subtitle }) => {
  * @param {ReactNode} [children] - Optional children to render inside Frame
  *
  * @example
- * <Video src="/snippets/assets/media/videos/demo.mp4" title="Demo Video" />
- * <Video src="/snippets/assets/media/videos/intro.mp4" author="Doug Petkanics" title="Livepeer Vision" />
- * <Video src="/snippets/assets/media/videos/intro.mp4" caption="Introduction" autoPlay muted loop />
+ * <Video src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4" title="Demo Video" />
+ * <Video src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/livepeer-founders-post.mp4" author="Doug Petkanics" title="Livepeer Vision" />
+ * <Video src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/livepeer-founders-post.mp4" caption="Introduction" autoPlay muted loop />
  *
  * @author Livepeer Documentation Team
  */

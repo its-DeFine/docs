@@ -103,7 +103,7 @@ import { Video } from "/snippets/components/content/video.jsx";
 
 | Prop | Tipo | Predeterminado | Requerido | Descripción |
 |------|------|---------|----------|-------------|
-| `src` | `string` | - | **Sí** | Ruta del archivo de video (por ejemplo, "/snippets/assets/media/videos/HeroBackground.mp4") |
+| `src` | `string` | - | **Sí** | Ruta del archivo de video (por ejemplo, "https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4") |
 | `title` | `string` | `""` | No | Título del video para accesibilidad |
 | `author` | `string` | `""` | No | Nombre del autor para mostrar con el icono de micrófono |
 | `caption` | `string` | - | No | Texto de leyenda opcional (si el autor lo proporcionó, con icono estilizado) |
@@ -131,17 +131,17 @@ import { Video } from "/snippets/components/content/video.jsx";
   </Tab>
   <Tab title="With Author">
     <Video 
-      src="/snippets/assets/media/videos/livepeer-founders-post.mp4" 
+      src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/livepeer-founders-post.mp4"
       author="Doug Petkanics"
       title="Livepeer Vision"
     />
   </Tab>
   <Tab title="Code">
 ```jsx
-<Video src="/snippets/assets/media/videos/HeroBackground.mp4" title="Demo Video" />
+<Video src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4" title="Demo Video" />
 
 <Video 
-  src="/snippets/assets/media/videos/HeroBackground.mp4" 
+  src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4"
   autoPlay
   muted
   loop
@@ -186,7 +186,7 @@ import { TitledVideo } from "/snippets/components/content/video.jsx";
   <Tab title="Code">
 ```jsx
 <TitledVideo
-  src="/snippets/assets/media/videos/HeroBackground.mp4"
+  src="https://raw.githubusercontent.com/livepeer/docs/docs-v2-assets/snippets/assets/media/videos/HeroBackground.mp4"
   title="Demo Title"
   subtitle="Subtitle text"
   arrow={true}
