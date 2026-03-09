@@ -30,7 +30,7 @@ The documentation repository uses multiple automation systems to keep content up
 - **Pre-commit Hooks** - Local validation to enforce style guide compliance
 
 <Tip>
-**Intentional Duplication:** Both GitHub Actions and n8n workflows exist for the same functionality (Ghost blog, Forum, YouTube data). This is intentional to provide flexibility for future maintainers. Use whichever platform you prefer based on your needs.
+**Current ownership model:** GitHub Actions is the canonical in-repo automation surface for Ghost, Forum, YouTube, Showcase, and freshness monitoring. Repo-tracked n8n assets are now split between active external dependencies (Discord announcements, Luma events, Discord issue intake), superseded definitions with tracked archive copies, and showcase overlap that still needs human review.
 </Tip>
 
 ## GitHub Actions Workflows
@@ -165,6 +165,29 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 
 **Output file:** `snippets/automations/globals/globals.mdx`
 
+**Audit note:** The March 9, 2026 freshness audit found version drift (`v0.7.7` in `globals.mdx` vs `v0.8.9` upstream) and a path mismatch inside this workflow. Treat the workflow as needing maintainer review before assuming it is healthy.
+
+---
+
+#### Pipeline Freshness Monitor
+
+**File:** `.github/workflows/freshness-monitor.yml`
+
+**Purpose:** Reports stale or missing derived automation outputs without modifying repository data
+
+**Triggers:**
+- Daily at 08:00 UTC (scheduled)
+- Manual dispatch
+
+**What it does:**
+1. Checks git history timestamps for the seven canonical pipeline output files
+2. Writes a markdown summary table to the GitHub Actions job summary
+3. Emits a warning annotation when any file is missing or older than 72 hours
+
+**Required secrets:** None
+
+**Output:** GitHub Actions step summary only
+
 ---
 
 #### Discord Issue Intake (Phase 1)
@@ -278,15 +301,15 @@ GitHub Actions workflows are located in `.github/workflows/` and run automatical
 
 ---
 
-### Data Fetching Workflows (GitHub Actions & n8n Available)
+### Data Fetching Workflows (GitHub Actions Canonical)
 
-The GitHub Actions implementation uses dedicated workflows split by data source (`update-forum-data.yml`, `update-ghost-blog-data.yml`, and `update-youtube-data.yml`). N8n versions of these flows are also maintained for teams that prefer external automation orchestration.
+The GitHub Actions implementation is the canonical in-repo path for Ghost, Forum, and YouTube data refresh. Older n8n definitions for those feeds now have tracked archive copies under `tasks/staging/deprecated-n8n/` so they are recoverable while the original files await human-approved cleanup.
 
 #### Update Forum Data
 
 **File:** `.github/workflows/update-forum-data.yml`
 
-**Status:** ⚠️ **Alternative to n8n** - See note in workflow file
+**Status:** Canonical GitHub Actions workflow
 
 **Purpose:** Fetches latest forum topics from Livepeer forum
 
@@ -303,7 +326,7 @@ The GitHub Actions implementation uses dedicated workflows split by data source 
 - `DOCS_V2` - GitHub token for docs repository access
 - `GHOST_CONTENT_API_KEY` - Ghost Content API key used by `.github/scripts/fetch-ghost-blog-data.js`
 
-**Note:** Both GitHub Actions and n8n workflows are available for this functionality. Use whichever you prefer.
+**Deprecated copy:** `tasks/staging/deprecated-n8n/Forum-To-Mintlify-Latest-Topics.json`
 
 ---
 
@@ -311,7 +334,7 @@ The GitHub Actions implementation uses dedicated workflows split by data source 
 
 **File:** `.github/workflows/update-ghost-blog-data.yml`
 
-**Status:** ⚠️ **Alternative to n8n** - See note in workflow file
+**Status:** Canonical GitHub Actions workflow
 
 **Purpose:** Fetches latest blog posts from Ghost CMS
 
@@ -327,7 +350,7 @@ The GitHub Actions implementation uses dedicated workflows split by data source 
 **Required secrets:**
 - `DOCS_V2` - GitHub token for docs repository access
 
-**Note:** Both GitHub Actions and n8n workflows are available for this functionality. Use whichever you prefer.
+**Deprecated copy:** `tasks/staging/deprecated-n8n/Ghost-to-Mintlify.json`
 
 ---
 
@@ -335,7 +358,7 @@ The GitHub Actions implementation uses dedicated workflows split by data source 
 
 **File:** `.github/workflows/update-youtube-data.yml`
 
-**Status:** ⚠️ **Alternative to n8n** - See note in workflow file
+**Status:** Canonical GitHub Actions workflow
 
 **Purpose:** Fetches latest YouTube videos from Livepeer channel
 
@@ -352,25 +375,52 @@ The GitHub Actions implementation uses dedicated workflows split by data source 
 **Required secrets:**
 - `YOUTUBE_API_KEY` - YouTube Data API v3 key
 
-**Note:** Both GitHub Actions and n8n workflows are available for this functionality. Use whichever you prefer.
+**Deprecated copy:** `tasks/staging/deprecated-n8n/YouTube-To-Mintlify.json`
 
 ---
 
 ## n8n Automation Workflows
 
-n8n workflows are JSON files located in `snippets/automations/scripts/n8n/`. These workflows run on an external n8n instance and can be imported/configured there.
+n8n workflows are JSON files located in `snippets/automations/scripts/n8n/`. These workflows run on an external n8n instance and can be imported/configured there. Superseded repo-tracked definitions now also have tracked archive copies under `tasks/staging/deprecated-n8n/`.
 
 <Warning>
-Most n8n workflows are currently **inactive** (`"active": false`). Only active workflows are documented below. See audit report for full status.
+The repository does not prove where the external n8n instance is hosted or which archived definitions are still deployed remotely. Treat repo JSON state as evidence, not runtime truth.
 </Warning>
 
+### Repo-tracked n8n workflows still in scope
+
+| Workflow | Repo status | Ownership |
+|---|---|---|
+| `Discord_Announce_to_Mintlify.json` | Retained in active directory | Only repo-tracked Discord announcements pipeline; external trigger and hosting still need maintainer confirmation. |
+| `Luma-To-Mintlify.json` | Retained in active directory | Only repo-tracked Luma events pipeline; marked active in JSON but external runtime ownership is undocumented. |
+| `Discord-Issue-Intake.json` | Retained in active directory | Paired with `.github/workflows/discord-issue-intake.yml`; n8n handles Discord interaction intake and GitHub Actions creates the issue. |
+| `Project Showcase Application Workflow.json` | Retained in active directory | Overlaps with `project-showcase-sync.yml`; repo evidence suggests live usage, so retirement requires human review. |
+| `Showcase_Project_Pipeline.json` | Retained in active directory | Overlaps with `project-showcase-sync.yml`; repo evidence suggests live usage, so retirement requires human review. |
+
 ### Active n8n Workflows
+
+#### Discord Announcements to Mintlify
+
+**File:** `snippets/automations/scripts/n8n/Discord_Announce_to_Mintlify.json`
+
+**Status:** Repo-tracked n8n-only feed
+
+**Purpose:** Generates `snippets/automations/discord/discordAnnouncementsData.jsx`
+
+**Trigger:** Schedule trigger in n8n
+
+**What we know from the repo:**
+1. No GitHub Actions workflow currently writes the Discord announcements data file
+2. The JSON workflow targets `docs-v2` and the canonical Discord data output path
+3. The JSON defaults to inactive in the repo, so external activation and hosting must be confirmed outside the repository
+
+**Output:** `snippets/automations/discord/discordAnnouncementsData.jsx`
 
 #### Luma Events to Mintlify
 
 **File:** `snippets/automations/scripts/n8n/Luma-To-Mintlify.json`
 
-**Status:** ✅ **Active**
+**Status:** Repo-tracked n8n-only feed
 
 **Purpose:** Fetches Luma calendar events and updates documentation
 
@@ -396,42 +446,14 @@ Most n8n workflows are currently **inactive** (`"active": false`). Only active w
 
 ---
 
-#### Showcase Project Pipeline
+#### Showcase Overlap (Needs Human Review)
 
-**File:** `snippets/automations/scripts/n8n/Showcase_To_Mintlify_Pipeline.json`
+The repository currently contains both `.github/workflows/project-showcase-sync.yml` and active showcase-focused n8n JSON assets:
 
-**Status:** ✅ **Active**
+- `snippets/automations/scripts/n8n/Project Showcase Application Workflow.json`
+- `snippets/automations/scripts/n8n/Showcase_Project_Pipeline.json`
 
-**Purpose:** Handles showcase project submissions, approvals, and updates
-
-**Trigger:** Google Sheets trigger (hourly polling)
-
-**What it does:**
-1. Monitors Google Sheets for new project submissions
-2. Validates submission data
-3. Sends Discord notifications for approval
-4. Downloads media files from Google Drive
-5. Updates `snippets/automations/showcase/showcaseData.jsx` when approved
-6. Sends notifications to submitters
-
-**Output:** `snippets/automations/showcase/showcaseData.jsx`
-
-**How to use:**
-1. Import JSON file into n8n instance
-2. Configure Google Sheets, Discord, and GitHub credentials
-3. Set up Google Form for submissions
-4. Activate workflow
-
-**Required credentials:**
-- Google Sheets OAuth2
-- Discord Bot API
-- GitHub API token
-- Google Drive OAuth2
-
-**Dependencies:**
-- Google Form for project submissions
-- Google Sheet for tracking submissions
-- Discord server for approval workflow
+Treat these as overlapping automation surfaces until Alison or Rick confirms which external pipeline is still authoritative. A third showcase JSON (`Showcase_To_Mintlify_Pipeline.json`) remains in the repo and appears to be an older prototype with placeholder paths, but it was intentionally left unchanged in this commit.
 
 ---
 
@@ -472,15 +494,13 @@ Most n8n workflows are currently **inactive** (`"active": false`). Only active w
 
 ---
 
-### Additional n8n Workflows (Alternative to GitHub Actions)
+### Archived Superseded n8n Workflows
 
-The following n8n workflows provide alternative implementations to GitHub Actions. Both are maintained for flexibility:
+The following repo-tracked n8n definitions now have copies in `tasks/staging/deprecated-n8n/` because GitHub Actions is the canonical in-repo owner or the JSON no longer reflects the live contract:
 
-- **Ghost-to-Mintlify.json** - Fetches Ghost blog posts (alternative to `update-ghost-blog-data.yml`)
-- **Forum-To-Mintlify-Latest-Topics.json** - Fetches forum topics (alternative to `update-forum-data.yml`)
-- **YouTube-To-Mintlify.json** - Fetches YouTube videos (alternative to `update-youtube-data.yml`)
-- **Discord_Announce_to_Mintlify.json** - Fetches Discord announcements (n8n only - no GitHub Action equivalent)
-- **Discord-Issue-Intake.json** - Discord issue intake relay (paired with `.github/workflows/discord-issue-intake.yml`)
+- **Ghost-to-Mintlify.json** - archived in favor of `update-ghost-blog-data.yml`
+- **Forum-To-Mintlify-Latest-Topics.json** - archived in favor of `update-forum-data.yml`
+- **YouTube-To-Mintlify.json** - archived in favor of `update-youtube-data.yml`
 
 <Warning>
 **Repository Configuration:** Some n8n workflows may be configured to write to `DeveloperAlly/livepeer-automations` instead of `livepeer/docs`. Before activating, verify the GitHub node is configured to write to the correct repository (`livepeer/docs`) and branch (`docs-v2`).

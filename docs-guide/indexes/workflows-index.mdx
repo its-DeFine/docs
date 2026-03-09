@@ -39,6 +39,7 @@ Run command: node tools/scripts/generate-docs-guide-indexes.js --write
 | Content Health Check | `.github/workflows/content-health.yml` | schedule, workflow_dispatch | Content Health Check | advisory or partial-advisory | workflow logs | docs |
 | Discord Issue Intake | `.github/workflows/discord-issue-intake.yml` | repository_dispatch | Discord Issue Intake | blocking by default (subject to branch protection) | workflow logs | docs |
 | Docs v2 Issue Indexer | `.github/workflows/docs-v2-issue-indexer.yml` | schedule, workflow_dispatch | Docs v2 Issue Indexer | blocking by default (subject to branch protection) | workflow logs | docs |
+| Pipeline Freshness Monitor | `.github/workflows/freshness-monitor.yml` | schedule, workflow_dispatch | Pipeline Freshness Monitor | advisory or partial-advisory | step summary | docs |
 | Generate AI Sitemap | `.github/workflows/generate-ai-sitemap.yml` | push, workflow_dispatch | Generate AI Sitemap | blocking by default (subject to branch protection) | repository commits | docs |
 | Generate Docs Index | `.github/workflows/generate-docs-index.yml` | push, workflow_dispatch | Generate Docs Index | blocking by default (subject to branch protection) | repository commits | docs |
 | Generate llms.txt | `.github/workflows/generate-llms-files.yml` | push, workflow_dispatch | Generate llms.txt | blocking by default (subject to branch protection) | repository commits | docs |
