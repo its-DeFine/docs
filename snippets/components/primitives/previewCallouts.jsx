@@ -10,15 +10,11 @@
  * @owner @livepeer/docs-team
  * @dependencies PreviewCallout, ReviewCallout
  * @usedIn v2/resources/changelog/migration-guide.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
- *   v2/x-deprecated/unmatched/09_internal/ecosystem.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
+ * @lastMeaningfulChange 2026-03-09
  * @param {string} [type="page"] - Type used by the component.
  *
  * @example
@@ -109,31 +105,12 @@ const ComingSoonCallout = ({ type = "page" }) => {
  * @contentAffinity universal
  * @owner @livepeer/docs-team
  * @dependencies ComingSoonCallout, ReviewCallout
- * @usedIn v2/developers/ai-inference-on-livepeer/overview.mdx
- *   v2/developers/ai-inference-on-livepeer/workload-fit.mdx
- *   v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx
- *   v2/developers/quickstart/video/video-streaming-101.mdx
- *   v2/gateways/_contextData_/docker-install-implementation.mdx
- *   v2/orchestrators/setting-up-an-orchestrator/publish-offerings.mdx
- *   v2/resources/concepts/brief-history-of-video.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
- *   v2/resources/references/contract-addresses.mdx
- *   v2/x-deprecated/about-livepeer/moved/livepeer-ecosystem.mdx
- *   v2/x-deprecated/about-livepeer/moved/livepeer-evolution.mdx
- *   v2/x-deprecated/about-livepeer/moved/livepeer-overview.mdx
- *   v2/x-deprecated/about-livepeer/moved/why-livepeer.mdx
- *   v2/x-deprecated/unmatched/04_gateways/_tests-to-delete/why.mdx
- *   v2/x-deprecated/unmatched/04_gateways/run-a-gateway/quickstart/get-AI-to-setup-the-gateway.mdx
- *   v2/x-deprecated/unmatched/09_internal/definitions.mdx
- *   v2/x-deprecated/unmatched/09_internal/references.mdx
- *   v2/x-experimental/copy-trending-at-livepeer.mdx, v2/x-experimental/trending-layout-tests.mdx
- * @breakingChangeRisk medium
+ * @usedIn v2/developers/ai-inference-on-livepeer/overview.mdx, v2/developers/ai-inference-on-livepeer/workload-fit.mdx, v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx, v2/developers/quickstart/video/video-streaming-101.mdx, v2/orchestrators/setting-up-an-orchestrator/publish-offerings.mdx, v2/resources/concepts/brief-history-of-video.mdx, v2/resources/references/contract-addresses.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
+ * @lastMeaningfulChange 2026-03-09
  * @example
  * <PreviewCallout />
  */
@@ -211,14 +188,12 @@ const PreviewCallout = () => {
  * @contentAffinity universal
  * @owner @livepeer/docs-team
  * @dependencies ComingSoonCallout, PreviewCallout
- * @usedIn v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @usedIn none
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
+ * @lastMeaningfulChange 2026-03-09
  * @example
  * <ReviewCallout />
  */

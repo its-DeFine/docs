@@ -10,9 +10,6 @@
  * @owner @livepeer/docs-team
  * @dependencies none
  * @usedIn v2/home/solutions/showcase.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/display.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none

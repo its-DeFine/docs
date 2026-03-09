@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-09T18:03:03.450Z",
+  "generated": "2026-03-09T20:06:08.057Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -14156,8 +14156,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 729,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "wordCount": 737,
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -14548,8 +14548,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3927,
-      "lastVerified": "2026-03-09T22:26:04+11:00",
+      "wordCount": 3938,
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -14832,7 +14832,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 165,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -14866,8 +14866,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 171,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "wordCount": 193,
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -14876,6 +14876,10 @@
         {
           "level": 2,
           "text": "Decision Tree Excerpt"
+        },
+        {
+          "level": 2,
+          "text": "Start Here"
         }
       ],
       "codeLanguages": []
@@ -14894,8 +14898,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1042,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "wordCount": 1412,
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -14903,11 +14907,15 @@
         },
         {
           "level": 3,
-          "text": "Summary Table"
+          "text": "Decision Tree Excerpt"
         },
         {
           "level": 3,
-          "text": "Component Entries"
+          "text": "Summary Table"
+        },
+        {
+          "level": 2,
+          "text": "Component Reference"
         },
         {
           "level": 3,
@@ -14940,6 +14948,10 @@
         {
           "level": 3,
           "text": "CustomCallout"
+        },
+        {
+          "level": 3,
+          "text": "CustomCardTitle"
         },
         {
           "level": 3,
@@ -15015,6 +15027,10 @@
         },
         {
           "level": 3,
+          "text": "Spacer"
+        },
+        {
+          "level": 3,
           "text": "Subtitle"
         },
         {
@@ -15040,8 +15056,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1042,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "wordCount": 1507,
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -15049,11 +15065,15 @@
         },
         {
           "level": 3,
-          "text": "Summary Table"
+          "text": "Decision Tree Excerpt"
         },
         {
           "level": 3,
-          "text": "Component Entries"
+          "text": "Summary Table"
+        },
+        {
+          "level": 2,
+          "text": "Component Reference"
         },
         {
           "level": 3,
@@ -15077,6 +15097,10 @@
         },
         {
           "level": 3,
+          "text": "DisplayCard"
+        },
+        {
+          "level": 3,
           "text": "DynamicTable"
         },
         {
@@ -15094,6 +15118,10 @@
         {
           "level": 3,
           "text": "IconList"
+        },
+        {
+          "level": 3,
+          "text": "InlineImageCard"
         },
         {
           "level": 3,
@@ -15162,6 +15190,10 @@
         {
           "level": 3,
           "text": "UpdateList"
+        },
+        {
+          "level": 3,
+          "text": "WidthCard"
         }
       ],
       "codeLanguages": [
@@ -15182,8 +15214,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1064,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "wordCount": 1301,
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -15191,11 +15223,15 @@
         },
         {
           "level": 3,
-          "text": "Summary Table"
+          "text": "Decision Tree Excerpt"
         },
         {
           "level": 3,
-          "text": "Component Entries"
+          "text": "Summary Table"
+        },
+        {
+          "level": 2,
+          "text": "Component Reference"
         },
         {
           "level": 3,
@@ -15312,8 +15348,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 611,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "wordCount": 958,
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -15321,11 +15357,15 @@
         },
         {
           "level": 3,
-          "text": "Summary Table"
+          "text": "Decision Tree Excerpt"
         },
         {
           "level": 3,
-          "text": "Component Entries"
+          "text": "Summary Table"
+        },
+        {
+          "level": 2,
+          "text": "Component Reference"
         },
         {
           "level": 3,
@@ -15373,7 +15413,27 @@
         },
         {
           "level": 3,
+          "text": "MarkdownEmbed"
+        },
+        {
+          "level": 3,
+          "text": "PdfEmbed"
+        },
+        {
+          "level": 3,
           "text": "PostCard"
+        },
+        {
+          "level": 3,
+          "text": "ShowcaseCards"
+        },
+        {
+          "level": 3,
+          "text": "TwitterTimeline"
+        },
+        {
+          "level": 3,
+          "text": "YouTubeVideoData"
         }
       ],
       "codeLanguages": [
@@ -15394,8 +15454,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1132,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "wordCount": 1373,
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -15403,11 +15463,15 @@
         },
         {
           "level": 3,
-          "text": "Summary Table"
+          "text": "Decision Tree Excerpt"
         },
         {
           "level": 3,
-          "text": "Component Entries"
+          "text": "Summary Table"
+        },
+        {
+          "level": 2,
+          "text": "Component Reference"
         },
         {
           "level": 3,
@@ -15500,10 +15564,6 @@
         {
           "level": 3,
           "text": "Starfield"
-        },
-        {
-          "level": 3,
-          "text": "Starfield1"
         },
         {
           "level": 3,
@@ -16206,6 +16266,51 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/internal/overview/governance-pipeline",
+      "title": "Governance Pipeline",
+      "description": "How the script governance system detects drift, auto-repairs safe issues, and surfaces items needing human attention.",
+      "section": "internal",
+      "tags": [
+        "internal",
+        "overview",
+        "governance-pipeline"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 755,
+      "lastVerified": "2026-03-09T19:54:46.469Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Overview"
+        },
+        {
+          "level": 2,
+          "text": "Trigger Chain"
+        },
+        {
+          "level": 2,
+          "text": "Auto-Fixed vs Needs Human"
+        },
+        {
+          "level": 2,
+          "text": "Commands"
+        },
+        {
+          "level": 2,
+          "text": "Adding a New Script"
+        },
+        {
+          "level": 2,
+          "text": "The 9-Field Header Schema"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
       "url": "https://docs.livepeer.org/v2/internal/rfp/aims",
       "title": "RFP Aims Implementation",
       "description": "This page articulates the philosophical framework that underpinned the v2 engagement and demonstrates how the RFP's three overarching themes for **stakeholder-focused**, **AI-first**, and **future-proofed** documentation, were delivered across every layer of the system.",
@@ -16460,8 +16565,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 2084,
-      "lastVerified": "2026-03-09T22:26:04+11:00",
+      "wordCount": 2182,
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
@@ -16567,20 +16672,20 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 41,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "lastVerified": "2026-03-10T05:09:37+11:00",
       "headings": [],
       "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/docs-guide/indexes/components-index",
       "title": "Components Index",
-      "description": "Aggregate inventory of governed component exports from snippets/components.",
+      "description": "Generated inventory of all governed component exports.",
       "section": "docs-guide",
       "tags": [
         "livepeer",
         "components-index",
-        "snippets",
         "registry",
+        "usage-map",
         "inventory",
         "docs-guide",
         "indexes"
@@ -16588,12 +16693,12 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1015,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "wordCount": 3251,
+      "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "Category Summary"
+          "text": "Summary"
         },
         {
           "level": 2,
@@ -16635,8 +16740,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3859,
-      "lastVerified": "2026-03-09T23:13:15+11:00",
+      "wordCount": 4073,
+      "lastVerified": "2026-03-10T06:42:22+11:00",
       "headings": [
         {
           "level": 2,
@@ -16695,8 +16800,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 933,
-      "lastVerified": "2026-03-09T21:53:01+11:00",
+      "wordCount": 986,
+      "lastVerified": "2026-03-10T06:46:12+11:00",
       "headings": [],
       "codeLanguages": []
     },

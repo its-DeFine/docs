@@ -6,7 +6,7 @@
  * @owner            docs
  * @needs            R-R10
  * @purpose-statement Shared parsing and validation utilities for component governance scripts.
- * @pipeline         indirect -- library module
+ * @pipeline         indirect
  * @usage            const utils = require('../lib/component-governance-utils');
  */
 
@@ -51,6 +51,7 @@ const GOVERNANCE_FIELDS = [
 const COMPONENT_IMPORT_RE = /import\s*\{([\s\S]*?)\}\s*from\s*['"]([^'"]+)['"]/g;
 const COLOR_LITERAL_RE = /#[0-9a-fA-F]{3,8}\b|\brgba?\([^)]*\)|\bhsla?\([^)]*\)/g;
 const COLOR_CONTEXT_RE = /\b(?:accentcolor|background(?:color)?|border(?:color)?|caretcolor|color|fill|floodcolor|icon|lightingcolor|outlinecolor|stopcolor|stroke|textdecorationcolor)\b/;
+const NON_PUBLISHED_SEGMENTS = new Set(['x-archived', 'x-deprecated', 'x-experimental', 'x-notes']);
 
 function getRepoRoot() {
   const result = spawnSync('git', ['rev-parse', '--show-toplevel'], { encoding: 'utf8' });
@@ -64,6 +65,16 @@ const REPO_ROOT = getRepoRoot();
 
 function toPosix(value) {
   return String(value || '').split(path.sep).join('/');
+}
+
+function runGit(args) {
+  const result = spawnSync('git', args, { cwd: REPO_ROOT, encoding: 'utf8' });
+  if (result.status !== 0) {
+    const stderr = String(result.stderr || '').trim();
+    const stdout = String(result.stdout || '').trim();
+    throw new Error(stderr || stdout || `git ${args.join(' ')} failed`);
+  }
+  return String(result.stdout || '').trim();
 }
 
 function compactWhitespace(value) {
@@ -82,6 +93,44 @@ function normalizeRepoPath(inputPath) {
 
 function isArchivePath(filePath) {
   return toPosix(filePath).split('/').includes('_archive');
+}
+
+function toKebabCaseFileName(fileName) {
+  return String(fileName || '')
+    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    .replace(/_/g, '-')
+    .toLowerCase();
+}
+
+function isLegacyDuplicateComponentPath(filePath) {
+  const absolutePath = path.isAbsolute(filePath) ? filePath : path.join(REPO_ROOT, filePath);
+  const parsed = path.parse(absolutePath);
+  if (!/[A-Z]/.test(parsed.name)) {
+    return false;
+  }
+
+  const canonicalName = toKebabCaseFileName(parsed.name);
+  if (!canonicalName || canonicalName === parsed.name) {
+    return false;
+  }
+
+  return fs.existsSync(path.join(parsed.dir, `${canonicalName}${parsed.ext}`));
+}
+
+function hasGovernableExport(filePath) {
+  if (!fs.existsSync(filePath)) {
+    return false;
+  }
+
+  const source = fs.readFileSync(filePath, 'utf8');
+  return /\bexport\s+(?:const|function|class)\b|\bexport\s*\{/.test(source);
+}
+
+function isPublishedDocsPath(filePath) {
+  return !toPosix(filePath)
+    .split('/')
+    .filter(Boolean)
+    .some((segment) => NON_PUBLISHED_SEGMENTS.has(segment));
 }
 
 function getCategoryFromPath(filePath) {
@@ -115,6 +164,8 @@ function getComponentFiles(baseDir = 'snippets/components') {
     (absolutePath) =>
       absolutePath.endsWith('.jsx') &&
       !isArchivePath(absolutePath) &&
+      !isLegacyDuplicateComponentPath(absolutePath) &&
+      hasGovernableExport(absolutePath) &&
       VALID_CATEGORIES.includes(getCategoryFromPath(absolutePath))
   )
     .map((absolutePath) => ({
@@ -122,6 +173,37 @@ function getComponentFiles(baseDir = 'snippets/components') {
       displayPath: normalizeRepoPath(absolutePath)
     }))
     .sort((a, b) => a.displayPath.localeCompare(b.displayPath, 'en', { sensitivity: 'base' }));
+}
+
+function getStagedComponentFiles(baseDir = 'snippets/components') {
+  const scope = normalizeRepoPath(baseDir);
+  const output = runGit(['diff', '--cached', '--name-only', '--diff-filter=ACM', '--', scope]);
+  if (!output) return [];
+
+  return output
+    .split('\n')
+    .map((line) => toPosix(line.trim()))
+    .filter(Boolean)
+    .filter((repoPath) => repoPath.endsWith('.jsx'))
+    .filter((repoPath) => !isArchivePath(repoPath))
+    .filter((repoPath) => !isLegacyDuplicateComponentPath(repoPath))
+    .filter((repoPath) => VALID_CATEGORIES.includes(getCategoryFromPath(repoPath)))
+    .filter((repoPath) => hasGovernableExport(path.join(REPO_ROOT, repoPath)))
+    .filter((repoPath) => fs.existsSync(path.join(REPO_ROOT, repoPath)))
+    .map((repoPath) => ({
+      absolutePath: path.join(REPO_ROOT, repoPath),
+      displayPath: repoPath
+    }))
+    .sort((a, b) => a.displayPath.localeCompare(b.displayPath, 'en', { sensitivity: 'base' }));
+}
+
+function sortStrings(values) {
+  return [...new Set(
+    (Array.isArray(values) ? values : [values])
+      .flat()
+      .map((entry) => String(entry || '').trim())
+      .filter(Boolean)
+  )].sort((left, right) => left.localeCompare(right, 'en', { sensitivity: 'base' }));
 }
 
 function stripComments(value) {
@@ -649,6 +731,8 @@ function extractExports(filePath) {
           name: entry.exportedName,
           line: entry.line,
           jsDocBlock: null,
+          jsDocRange: null,
+          exportIndex: entry.index,
           props: [],
           filePath: displayPath
         };
@@ -660,6 +744,14 @@ function extractExports(filePath) {
         name: entry.exportedName,
         line: declaration.line,
         jsDocBlock: jsdoc ? jsdoc.text : null,
+        jsDocRange: jsdoc
+          ? {
+              start: jsdoc.start,
+              end: jsdoc.end,
+              line: jsdoc.line
+            }
+          : null,
+        exportIndex: declaration.index,
         props: extractedProps.status === 'ok' ? extractedProps.props : [],
         filePath: displayPath
       };
@@ -682,20 +774,172 @@ function stripFencedCodeBlocks(content) {
   );
 }
 
-function isNonPublishedDocsPath(filePath) {
-  const normalized = toPosix(filePath);
-  return /^v2(?:\/(?:cn|es|fr))?\/x-(archived|deprecated|experimental|notes)\//.test(normalized);
+function normalizeCsvField(value, options = {}) {
+  const opts = typeof options === 'object' && options ? options : {};
+  let values = Array.isArray(value)
+    ? value
+    : String(value || '')
+        .split(',')
+        .map((entry) => entry.trim());
+
+  values = values
+    .map((entry) => String(entry || '').trim())
+    .filter(Boolean)
+    .filter((entry) => entry.toLowerCase() !== 'none');
+
+  if (opts.publishedOnly) {
+    values = values.filter((entry) => isPublishedDocsPath(entry));
+  }
+
+  if (opts.englishOnly) {
+    values = values.filter((entry) => getLocaleForPath(entry) === 'en');
+  }
+
+  return sortStrings(values);
 }
 
-function scanMDXImports(globPattern = 'v2/**/*.mdx') {
-  const base = String(globPattern || '').includes('docs-guide') ? 'docs-guide' : 'v2';
+function serializeCsvField(value, options = {}) {
+  const normalized = Array.isArray(value)
+    ? sortStrings(value)
+    : normalizeCsvField(value, options);
+  return normalized.length > 0 ? normalized.join(', ') : 'none';
+}
+
+function getEnglishCanonicalPages(value) {
+  return normalizeCsvField(value, { publishedOnly: true, englishOnly: true });
+}
+
+function deriveBreakingChangeRisk(usageCount) {
+  const count = Number.isFinite(Number(usageCount)) ? Number(usageCount) : 0;
+  if (count > 30) return 'high';
+  if (count >= 10) return 'medium';
+  return 'low';
+}
+
+function getLastMeaningfulChange(filePath) {
+  const repoPath = normalizeRepoPath(filePath);
+  return runGit(['log', '-1', '--date=format:%Y-%m-%d', '--format=%ad', '--', repoPath]);
+}
+
+function buildComponentUsageSummary(importMap, componentName) {
+  const current = importMap instanceof Map ? importMap.get(componentName) : null;
+  const pages = normalizeCsvField(current?.pages || [], { publishedOnly: true });
+  return {
+    pages,
+    count: current?.count || 0,
+    localeBreakdown: {
+      en: current?.localeBreakdown?.en || 0,
+      es: current?.localeBreakdown?.es || 0,
+      fr: current?.localeBreakdown?.fr || 0,
+      cn: current?.localeBreakdown?.cn || 0,
+      other: current?.localeBreakdown?.other || 0
+    },
+    englishCanonicalPages: getEnglishCanonicalPages(pages),
+    englishCanonicalCount: getEnglishCanonicalPages(pages).length
+  };
+}
+
+function escapeRegExp(value) {
+  return String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function formatJsDocTagLine(tag, value) {
+  const renderedValue = compactWhitespace(value);
+  return renderedValue ? ` * @${tag} ${renderedValue}` : ` * @${tag}`;
+}
+
+function updateJSDocTags(blockText, replacements = {}) {
+  const orderedTags = GOVERNANCE_FIELDS.filter((field) =>
+    Object.prototype.hasOwnProperty.call(replacements, field)
+  );
+  if (!orderedTags.length) return String(blockText || '');
+
+  const lineBreak = String(blockText || '').includes('\r\n') ? '\r\n' : '\n';
+  let updated = String(blockText || '');
+  const missingLines = [];
+
+  orderedTags.forEach((tag) => {
+    const pattern = new RegExp(
+      `(^\\s*\\*\\s*@${escapeRegExp(tag)}\\b[\\s\\S]*?)(?=^\\s*\\*\\s*@\\w|^\\s*\\*\\/\\s*$)`,
+      'm'
+    );
+    const replacement = `${formatJsDocTagLine(tag, replacements[tag])}${lineBreak}`;
+    if (pattern.test(updated)) {
+      updated = updated.replace(pattern, replacement);
+      return;
+    }
+    missingLines.push(formatJsDocTagLine(tag, replacements[tag]));
+  });
+
+  if (missingLines.length > 0) {
+    const insertionPattern = /(^\s*\*\s*@(?:param|example|deprecated|see)\b|^\s*\*\/\s*$)/m;
+    if (insertionPattern.test(updated)) {
+      updated = updated.replace(
+        insertionPattern,
+        `${missingLines.join(lineBreak)}${lineBreak}$1`
+      );
+    } else {
+      updated = updated.replace(/\s*\*\/\s*$/, '');
+      updated = `${updated}${lineBreak}${missingLines.join(lineBreak)}${lineBreak} */`;
+    }
+  }
+
+  return updated;
+}
+
+function replaceRange(content, start, end, replacement) {
+  return `${String(content || '').slice(0, start)}${replacement}${String(content || '').slice(end)}`;
+}
+
+function collectGovernedExportCodeSegments(content) {
+  const source = String(content || '');
+  const declarations = scanDeclarations(source);
+  const exportsList = scanExports(source)
+    .map((entry) => {
+      const declaration = declarations.get(entry.localName);
+      if (!declaration) return null;
+      const jsDoc = getImmediateJsdoc(source, declaration.index);
+      if (!jsDoc) return null;
+      return {
+        name: entry.exportedName,
+        jsDoc
+      };
+    })
+    .filter(Boolean)
+    .sort((left, right) => left.jsDoc.start - right.jsDoc.start);
+
+  return exportsList.map((entry, index) => {
+    const next = exportsList[index + 1];
+    const start = entry.jsDoc.end;
+    const end = next ? next.jsDoc.start : source.length;
+    return {
+      name: entry.name,
+      start,
+      end,
+      code: source.slice(start, end)
+    };
+  });
+}
+
+function resolveMdxBaseDir(globPattern) {
+  const normalized = toPosix(globPattern).replace(/^\.\//, '');
+  if (normalized.startsWith('docs-guide/')) return 'docs-guide';
+  if (normalized.startsWith('v2/')) return 'v2';
+  return normalized.split('/')[0] || 'v2';
+}
+
+function scanMDXImports(globPattern = 'v2/**/*.mdx', options = {}) {
+  const pattern = typeof globPattern === 'string' ? globPattern : 'v2/**/*.mdx';
+  const opts = typeof globPattern === 'string' ? options : globPattern || {};
+  const publishedOnly = opts.publishedOnly !== false;
+  const base = resolveMdxBaseDir(pattern);
   const absoluteBase = path.join(REPO_ROOT, base);
   const mdxFiles = walkFiles(absoluteBase, (filePath) => filePath.endsWith('.mdx'));
   const results = new Map();
 
   mdxFiles.forEach((absolutePath) => {
     const repoPath = normalizeRepoPath(absolutePath);
-    if (isNonPublishedDocsPath(repoPath)) {
+    if (publishedOnly && !isPublishedDocsPath(repoPath)) {
       return;
     }
     const locale = getLocaleForPath(repoPath);
@@ -849,6 +1093,10 @@ function scanStylingViolations(filePath) {
 }
 
 module.exports = {
+  REPO_ROOT,
+  runGit,
+  normalizeRepoPath,
+  compactWhitespace,
   parseJSDocBlock,
   extractExports,
   validateGovernanceFields,
@@ -857,9 +1105,21 @@ module.exports = {
   VALID_TIERS,
   VALID_RISKS,
   VALID_DECISIONS,
+  sortStrings,
+  normalizeCsvField,
+  serializeCsvField,
+  getEnglishCanonicalPages,
+  deriveBreakingChangeRisk,
+  getLastMeaningfulChange,
+  buildComponentUsageSummary,
+  updateJSDocTags,
+  replaceRange,
+  collectGovernedExportCodeSegments,
   scanMDXImports,
   scanStylingViolations,
   getCategoryFromPath,
   isArchivePath,
-  getComponentFiles
+  isPublishedDocsPath,
+  getComponentFiles,
+  getStagedComponentFiles
 };

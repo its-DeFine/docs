@@ -7,20 +7,7 @@
  * @contentAffinity universal
  * @owner @livepeer/docs-team
  * @dependencies none
- * @usedIn v2/about/livepeer-protocol/livepeer-token.mdx
- *   v2/about/livepeer-protocol/technical-architecture.mdx, v2/gateways/about/architecture.mdx
- *   v2/gateways/references/technical-architecture.mdx
- *   v2/gateways/run-a-gateway/configure/dual-configuration.mdx
- *   v2/gateways/run-a-gateway/configure/video-configuration-view.mdx
- *   v2/gateways/run-a-gateway/configure/video-configuration.mdx
- *   v2/gateways/run-a-gateway/connect/connect-with-offerings.mdx
- *   v2/gateways/run-a-gateway/connect/lp-marketplace.mdx
- *   v2/gateways/run-a-gateway/monitor/monitor-and-optimise.mdx
- *   v2/gateways/run-a-gateway/publish/connect-with-offerings.mdx
- *   v2/gateways/run-a-gateway/run-a-gateway.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/display.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @usedIn v2/about/livepeer-protocol/livepeer-token.mdx, v2/about/livepeer-protocol/technical-architecture.mdx, v2/gateways/about/architecture.mdx, v2/gateways/references/technical-architecture.mdx, v2/gateways/run-a-gateway/configure/dual-configuration.mdx, v2/gateways/run-a-gateway/configure/video-configuration-view.mdx, v2/gateways/run-a-gateway/configure/video-configuration.mdx, v2/gateways/run-a-gateway/connect/connect-with-offerings.mdx, v2/gateways/run-a-gateway/connect/lp-marketplace.mdx, v2/gateways/run-a-gateway/monitor/monitor-and-optimise.mdx, v2/gateways/run-a-gateway/publish/connect-with-offerings.mdx, v2/gateways/run-a-gateway/run-a-gateway.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none

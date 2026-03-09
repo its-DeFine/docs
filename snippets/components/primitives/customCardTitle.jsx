@@ -7,9 +7,7 @@
  * @contentAffinity landing
  * @owner @livepeer/docs-team
  * @dependencies none
- * @usedIn v2/home/about-livepeer/benefits.mdx, v2/home/primer.mdx
- *   v2/internal/overview/docs-philosophy.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @usedIn v2/home/about-livepeer/benefits.mdx, v2/home/primer.mdx, v2/internal/overview/docs-philosophy.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none

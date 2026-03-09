@@ -255,27 +255,7 @@
     "purpose": "governance:agent-governance",
     "scope": "tests/unit, tools/scripts/codex-safe-merge-with-stash.js",
     "needs": "R-R27, R-R30",
-    "purpose_statement": "Tests codex-safe-merge-with-stash.js — asserts the deprecated stash helper hard-fails and points callers to the supported Codex lifecycle",
-    "pipeline": "manual — developer tool",
-    "dualmode": "dual-mode (document flags)"
-  },
-  {
-    "path": "tests/unit/codex-task-cleanup.test.js",
-    "category": "utility",
-    "purpose": "governance:agent-governance",
-    "scope": "tests/unit, tools/scripts/codex/task-cleanup.js",
-    "needs": "R-R27, R-R30",
-    "purpose_statement": "Tests codex/task-cleanup.js — verifies safe worktree pruning, dirty-worktree preservation, branch pruning, and repo-root protection",
-    "pipeline": "manual — developer tool",
-    "dualmode": "dual-mode (document flags)"
-  },
-  {
-    "path": "tests/unit/codex-task-preflight.test.js",
-    "category": "utility",
-    "purpose": "governance:agent-governance",
-    "scope": "tests/unit, tools/scripts/codex/task-preflight.js",
-    "needs": "R-R27, R-R30",
-    "purpose_statement": "Tests codex/task-preflight.js — verifies managed worktree default behavior and the explicit in-place override",
+    "purpose_statement": "Tests codex-safe-merge-with-stash.js — validates safe merge logic with stash handling",
     "pipeline": "manual — developer tool",
     "dualmode": "dual-mode (document flags)"
   },
@@ -468,6 +448,46 @@
     "purpose_statement": "Unit tests for repair-spelling.js — validates deterministic spelling fixes and exclusion ranges",
     "pipeline": "manual — not yet in pipeline",
     "dualmode": "--dry-run (validator) | --write (remediator)"
+  },
+  {
+    "path": "tests/unit/audit-script-inventory-repair-rules.test.js",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tests/unit, tools/scripts/validators/governance",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Tests audit-script-inventory repair hardening rules for judgement-field backfill and pipeline safety.",
+    "pipeline": "manual (not yet in pipeline)",
+    "dualmode": ""
+  },
+  {
+    "path": "tests/unit/codex-task-cleanup.test.js",
+    "category": "utility",
+    "purpose": "governance:agent-governance",
+    "scope": "tests/unit, tools/scripts/codex/task-cleanup.js",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Tests codex/task-cleanup.js — verifies safe worktree pruning, dirty-worktree preservation, branch pruning, and repo-root protection",
+    "pipeline": "manual — developer tool",
+    "dualmode": "dual-mode (document flags)"
+  },
+  {
+    "path": "tests/unit/codex-task-preflight.test.js",
+    "category": "utility",
+    "purpose": "governance:agent-governance",
+    "scope": "tests/unit, tools/scripts/codex/task-preflight.js",
+    "needs": "R-R27, R-R30",
+    "purpose_statement": "Tests codex/task-preflight.js — verifies managed worktree default behavior and the explicit in-place override",
+    "pipeline": "manual — developer tool",
+    "dualmode": "dual-mode (document flags)"
+  },
+  {
+    "path": "tests/unit/repair-governance.test.js",
+    "category": "validator",
+    "purpose": "governance:repo-health",
+    "scope": "tests/unit, tools/scripts/orchestrators/repair-governance.js, .github/workflows/repair-governance.yml",
+    "needs": "R-R14, R-R18, R-C6",
+    "purpose_statement": "Tests repair-governance.js for safe dry-run, fix, rollback, strict exit handling, and workflow contract coverage.",
+    "pipeline": "manual",
+    "dualmode": ""
   },
   {
     "path": "tests/unit/repo-audit-pipeline.test.js",
@@ -796,7 +816,7 @@
     "scope": "tools/scripts/codex, .codex/locks-local, .codex/task-contract.yaml",
     "needs": "R-R27, R-R30",
     "purpose_statement": "Codex task cleanup utility — reports and prunes merged clean worktrees plus stale local codex branches after merge",
-    "pipeline": "manual — developer tool",
+    "pipeline": "manual — interactive developer tool, not suited for automated pipelines",
     "dualmode": ""
   },
   {
@@ -1370,6 +1390,16 @@
     "dualmode": ""
   },
   {
+    "path": "tools/scripts/orchestrators/repair-governance.js",
+    "category": "orchestrator",
+    "purpose": "governance:repo-health",
+    "scope": "full-repo",
+    "needs": "R-R14, R-R18, R-C6",
+    "purpose_statement": "Chains audit, safe repair, verification, and reporting into a single self-healing governance pipeline.",
+    "pipeline": "P5 (scheduled, weekly), P6 (on-demand), manual",
+    "dualmode": "--report-only | --dry-run | default fix mode"
+  },
+  {
     "path": "tools/scripts/publish-v2-internal-reports.js",
     "category": "automation",
     "purpose": "qa:repo-health",
@@ -1388,6 +1418,16 @@
     "purpose_statement": "Reads the media-audit manifest, migrates flagged assets to docs-v2-assets, rewrites MDX/JSX references to raw GitHub URLs, and removes local files after successful repair steps.",
     "pipeline": "manual",
     "dualmode": "--dry-run (show what would change) | --write (execute migration)"
+  },
+  {
+    "path": "tools/scripts/remediators/components/repair-component-metadata.js",
+    "category": "remediator",
+    "purpose": "governance:repo-health",
+    "scope": "single-domain",
+    "needs": "R-R10",
+    "purpose_statement": "Auto-repairs derived JSDoc metadata fields from repo state. Safe fields only. Mirrors AUDIT-00 --fix pattern for components.",
+    "pipeline": "P1 (commit — runs when components staged), P6 (on-demand)",
+    "dualmode": ""
   },
   {
     "path": "tools/scripts/remediators/content/repair-mdx-safe-markdown.js",
@@ -1517,16 +1557,6 @@
     "needs": "E-C6, F-C1",
     "purpose_statement": "Snippet test runner — runs basic validation on snippet scripts",
     "pipeline": "manual — developer tool",
-    "dualmode": ""
-  },
-  {
-    "path": "tools/scripts/snippets/update-component-library.sh",
-    "category": "automation",
-    "purpose": "infrastructure:data-feeds",
-    "scope": "tools/scripts",
-    "needs": "F-R1",
-    "purpose_statement": "Component library updater — syncs component library documentation from source",
-    "pipeline": "manual — not yet in pipeline",
     "dualmode": ""
   },
   {
@@ -1737,6 +1767,16 @@
     "scope": "full-repo"
   },
   {
+    "path": "tools/scripts/validators/governance/review-governance-repair-checklist.js",
+    "category": "validator",
+    "purpose": "governance:repo-health",
+    "scope": "full-repo",
+    "needs": "R-R14, R-R18",
+    "purpose_statement": "Generates a review checklist for dry-run governance repair proposals that require human approval before fix mode is applied.",
+    "pipeline": "manual",
+    "dualmode": "--json | --md | default both"
+  },
+  {
     "path": "tools/lib/component-governance-utils.js",
     "script": "component-governance-utils",
     "category": "utility",
@@ -1756,20 +1796,6 @@
     "category": "utility",
     "purpose": "qa:repo-health",
     "scope": "single-domain"
-  },
-  {
-    "path": "tools/lib/load-js-yaml.js",
-    "script": "load-js-yaml",
-    "category": "utility",
-    "purpose": "tooling:dev-tools",
-    "scope": "tools/lib, tests, tools/scripts"
-  },
-  {
-    "path": "tools/lib/load-minimatch.js",
-    "script": "load-minimatch",
-    "category": "utility",
-    "purpose": "tooling:dev-tools",
-    "scope": "tools/lib, tests, tools/scripts"
   },
   {
     "path": "tools/lib/docs-usefulness/llm-evaluator.js",
@@ -1875,6 +1901,26 @@
     "category": "utility",
     "purpose": "qa:repo-health",
     "scope": "single-domain"
+  },
+  {
+    "path": "tools/lib/load-js-yaml.js",
+    "category": "utility",
+    "purpose": "tooling:dev-tools",
+    "scope": "tools/lib, tests, tools/scripts",
+    "needs": "E-C6, F-C1",
+    "purpose_statement": "YAML loader utility — resolves js-yaml from repo-local installs and falls back to a minimal parser for task-contract style files in bare worktrees",
+    "pipeline": "indirect — library module",
+    "dualmode": ""
+  },
+  {
+    "path": "tools/lib/load-minimatch.js",
+    "category": "utility",
+    "purpose": "tooling:dev-tools",
+    "scope": "tools/lib, tests, tools/scripts",
+    "needs": "E-C6, F-C1",
+    "purpose_statement": "Glob matcher loader — resolves minimatch from repo-local installs and falls back to a simple glob matcher for bare worktrees",
+    "pipeline": "indirect — library module",
+    "dualmode": ""
   },
   {
     "path": "tools/lib/mdx-safe-markdown.js",

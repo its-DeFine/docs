@@ -2,26 +2,19 @@
 /**
  * @component CoinGeckoExchanges
  * @category data
- * @tier pattern
+ * @tier composite
  * @status stable
- * @description CoinGeckoExchanges - Dynamically fetches and displays exchanges that support a coin
- *   from CoinGecko
- * @contentAffinity reference
- * @owner @livepeer/docs-team
+ * @description Fetches and displays exchange availability for a token from the CoinGecko API.
+ * @contentAffinity overview, reference
+ * @owner docs
  * @dependencies none
- * @usedIn v2/gateways/references/arbitrum-exchanges.mdx
- *   v2/gateways/references/livepeer-exchanges.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/integrations.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @usedIn v2/gateways-new/resources/arbitrum-exchanges.mdx, v2/gateways-new/resources/livepeer-exchanges.mdx, v2/gateways/references/arbitrum-exchanges.mdx, v2/gateways/references/livepeer-exchanges.mdx
  * @breakingChangeRisk low
  * @decision KEEP
- * @dataSource CoinGecko API (live)
+ * @dataSource CoinGecko API
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
- * @param {string} [coinId="arbitrum"] - Coin id used by the component.
- *
+ * @lastMeaningfulChange 2026-03-10
+ * @param {string} [coinId="arbitrum"] - coin Id prop.
  * @example
  * <CoinGeckoExchanges />
  */
@@ -115,7 +108,6 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
         return sortOrder === "asc" ? comparison : -comparison;
       })
     : exchanges; // If no sort selected, use original API order
-  const safeExchanges = Array.isArray(sortedExchanges) ? sortedExchanges : [];
 
   const handleSort = (column) => {
     if (sortBy === column) {
@@ -130,15 +122,11 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
 
   // Convert trust score to color
   const getTrustScoreColor = (trustScore) => {
-    if (trustScore === "N/A" || trustScore === "yellow") return "#fbbf24"; // yellow
-    if (trustScore === "green") return "#22c55e"; // green
-    if (trustScore === "red") return "#ef4444"; // red
-    return "#fbbf24"; // default yellow
+    if (trustScore === "N/A" || trustScore === "yellow") return "var(--lp-color-status-warn)";
+    if (trustScore === "green") return "var(--lp-color-status-good)";
+    if (trustScore === "red") return "var(--lp-color-status-bad)";
+    return "var(--lp-color-status-warn)";
   };
-
-  if (safeExchanges.length === 0) {
-    return <div>No exchanges found for this coin.</div>;
-  }
 
   return (
     <div style={{ overflowX: "auto" }}>
@@ -153,7 +141,7 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
             <tr
               style={{
                 backgroundColor: "var(--accent)",
-                color: "var(--lp-color-white)",
+                color: "var(--lp-color-on-accent)",
               }}
             >
               <th
@@ -165,7 +153,7 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                   cursor: "pointer",
                   width: "220px",
                   maxWidth: "220px",
-                  color: "var(--lp-color-white)",
+                  color: "var(--lp-color-on-accent)",
                 }}
                 onClick={() => handleSort("name")}
                 title="Click to sort by name"
@@ -181,7 +169,7 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                   borderBottom: "2px solid var(--accent)",
                   width: "80px",
                   cursor: "pointer",
-                  color: "var(--lp-color-white)",
+                  color: "var(--lp-color-on-accent)",
                 }}
                 onClick={() => handleSort("type")}
                 title="Click to sort by type"
@@ -195,7 +183,7 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                   fontWeight: "600",
                   borderBottom: "2px solid var(--accent)",
                   width: "110px",
-                  color: "var(--lp-color-white)",
+                  color: "var(--lp-color-on-accent)",
                 }}
               >
                 Pair
@@ -207,7 +195,7 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                   fontWeight: "600",
                   borderBottom: "2px solid var(--accent)",
                   width: "100px",
-                  color: "var(--lp-color-white)",
+                  color: "var(--lp-color-on-accent)",
                 }}
               >
                 Trust
@@ -219,7 +207,7 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                   fontWeight: "600",
                   borderBottom: "2px solid var(--accent)",
                   width: "100px",
-                  color: "var(--lp-color-white)",
+                  color: "var(--lp-color-on-accent)",
                 }}
               >
                 Link
@@ -227,9 +215,9 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
             </tr>
           </thead>
           <tbody>
-            {safeExchanges.map((exchange, index) => (
+            {sortedExchanges.map((exchange, index) => (
               <tr
-                key={exchange?.url || exchange?.name || index}
+                key={index}
                 style={{
                   borderBottom: "1px solid var(--border)",
                 }}
@@ -244,11 +232,11 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  {exchange?.name || "Unknown"}
+                  {exchange.name}
                 </td>
                 <td style={{ padding: "10px 16px", textAlign: "center" }}>
-                  <Badge color={exchange?.type === "DEX" ? "purple" : "blue"}>
-                    {exchange?.type || "Unknown"}
+                  <Badge color={exchange.type === "DEX" ? "purple" : "blue"}>
+                    {exchange.type}
                   </Badge>
                 </td>
                 <td
@@ -263,18 +251,18 @@ export const CoinGeckoExchanges = ({ coinId = "arbitrum" }) => {
                     whiteSpace: "nowrap",
                   }}
                 >
-                  {exchange?.tradingPair || "N/A"}
+                  {exchange.tradingPair}
                 </td>
                 <td style={{ padding: "10px 16px", textAlign: "center" }}>
                   <Icon
                     icon="circle"
                     iconType="solid"
-                    color={getTrustScoreColor(exchange?.trustScore)}
+                    color={getTrustScoreColor(exchange.trustScore)}
                   />
                 </td>
                 <td style={{ padding: "10px 16px", textAlign: "center" }}>
                   <a
-                    href={exchange?.url}
+                    href={exchange.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{

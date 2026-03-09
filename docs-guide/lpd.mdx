@@ -18,7 +18,7 @@ keywords:
 ---
 
 import { DynamicTable } from "/snippets/components/layout/table.jsx";
-import { TabsContainer } from "/snippets/components/layout/containers.jsx";
+import { TabsContainer } from "/snippets/components/layout/containers.mdx";
 
 <Tip>
 `lpd` is the repository CLI for setup, local development, test orchestration, hook management, and script execution.
@@ -671,6 +671,9 @@ Use these entry commands to discover and run scripts:
 
   | Script token | Flags available | Resolved path | PURPOSE |
   |---|---|---|---|
+  | `audit-all-pages-simple` | script-specific via `-- <args>` | `tools/scripts/audit-all-pages-simple.js` | Utility script for tasks/scripts/audit-all-pages-simple.js. |
+  | `audit-all-pages` | script-specific via `-- <args>` | `tools/scripts/audit-all-pages.js` | Utility script for tasks/scripts/audit-all-pages.js. |
+  | `audit-all-v2-pages` | script-specific via `-- <args>` | `tools/scripts/audit-all-v2-pages.js` | Utility script for tools/scripts/audit-all-v2-pages.js. |
   | `audit-scripts` | script-specific via `-- <args>` | `tools/scripts/audit-scripts.js` | Audit full-repo executable scripts, categorize usage/overlap, and overwrite SCRIPT_AUDIT reports. |
   | `audit-tasks-folders` | script-specific via `-- <args>` | `tools/scripts/audit-tasks-folders.js` | Audit tasks folders, optionally normalise report locations, and optionally apply audit recommendations with conflict-safe moves. |
   | `audit-v2-usefulness` | script-specific via `-- <args>` | `tools/scripts/audit-v2-usefulness.js` | Audit v2 MDX pages (excluding x-* directories) and emit page-level usefulness matrix rows with source-weighted 2026 accuracy verification fields. |
@@ -699,8 +702,11 @@ Use these entry commands to discover and run scripts:
   | `snippets generate-data scripts terminology-search` | script-specific via `-- <args>` | `tools/scripts/snippets/generate-data/scripts/terminology-search.js` | Utility script for tools/scripts/snippets/generate-data/scripts/terminology-search.js. |
   | `snippets generate-seo` | script-specific via `-- <args>` | `tools/scripts/snippets/generate-seo.js` | Utility script for tools/scripts/snippets/generate-seo.js. |
   | `snippets test-scripts` | script-specific via `-- <args>` | `tools/scripts/snippets/test-scripts.sh` | Utility script for tools/scripts/snippets/test-scripts.sh. |
-  | `snippets update-component-library` | script-specific via `-- <args>` | `tools/scripts/snippets/update-component-library.sh` | Utility script for tools/scripts/snippets/update-component-library.sh. |
+  | `generate-component-docs` | `--dry-run`, `--fix`, `--check`, `--template-only`, `--category <name>` | `tools/scripts/generate-component-docs.js` | Generates the published component-library pages and localized scaffolds from governed component metadata. |
+  | `test-all-pages-browser` | script-specific via `-- <args>` | `tools/scripts/test-all-pages-browser.js` | Utility script for tools/scripts/test-all-pages-browser.js. |
+  | `test-all-pages-comprehensive` | script-specific via `-- <args>` | `tools/scripts/test-all-pages-comprehensive.js` | Utility script for tools/scripts/test-all-pages-comprehensive.js. |
   | `test-v2-pages` | script-specific via `-- <args>` | `tools/scripts/test-v2-pages.js` | Utility script for tools/scripts/test-v2-pages.js. |
+  | `test-youtube-pages` | script-specific via `-- <args>` | `tools/scripts/test-youtube-pages.js` | Utility script for tools/scripts/test-youtube-pages.js. |
   | `test test-youtube-pages` | script-specific via `-- <args>` | `tools/scripts/test/test-youtube-pages.js` | Utility script for tools/scripts/test/test-youtube-pages.js. |
   | `verify .verify-large-change` | script-specific via `-- <args>` | `tools/scripts/verify/.verify-large-change.sh` | Reserved verifier hook placeholder for large-change checks. |
   | `wcag-repair-common` | script-specific via `-- <args>` | `tools/scripts/wcag-repair-common.js` | Apply conservative WCAG-related source autofixes across v2 docs (common raw-tag issues) and write deterministic repair reports. |
@@ -730,6 +736,7 @@ Use these entry commands to discover and run scripts:
   | `run-pr-checks` | script-specific via `-- <args>` | `tests/run-pr-checks.js` | Run changed-file scoped validation checks for pull request CI. |
   | `unit docs-guide-sot.test` | script-specific via `-- <args>` | `tests/unit/docs-guide-sot.test.js` | Validate docs-guide source-of-truth coverage, README pointers, and generated index freshness. |
   | `unit docs-navigation.test` | script-specific via `-- <args>` | `tests/unit/docs-navigation.test.js` | Validate docs.json page-entry syntax, report missing routes, suggest remaps, and optionally apply approved remaps (`--write-report` to refresh navigation-report artifacts). |
+  | `unit docs-usefulness-accuracy-verifier.test` | script-specific via `-- <args>` | `tests/unit/docs-usefulness-accuracy-verifier.test.js` | Validate source-weighted 2026 accuracy verification rules (GitHub vs DeepWiki precedence, freshness, fallback, and cache reuse). |
   | `unit links-imports.test` | script-specific via `-- <args>` | `tests/unit/links-imports.test.js` | Utility script for tests/unit/links-imports.test.js. |
   | `unit mdx-guards.test` | script-specific via `-- <args>` | `tests/unit/mdx-guards.test.js` | Enforce MDX guardrails for globals imports, math delimiters, and markdown table line breaks. |
   | `unit mdx.test` | script-specific via `-- <args>` | `tests/unit/mdx.test.js` | Utility script for tests/unit/mdx.test.js. |

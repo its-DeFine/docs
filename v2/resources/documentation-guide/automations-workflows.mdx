@@ -622,26 +622,27 @@ output-dir/
 
 #### Update Component Library
 
-**File:** `tools/scripts/snippets/update-component-library.sh`
+**File:** `tools/scripts/generate-component-docs.js`
 
-**Purpose:** Auto-generates the component library index page from the current `snippets/components/` folder structure
+**Purpose:** Generates the published component-library pages from governed component metadata
 
 **Usage:**
 ```bash
-./tools/scripts/snippets/update-component-library.sh
+npm --prefix tools run components:docs
 ```
 
 **What it does:**
-1. Scans `snippets/components/` directory structure
-2. Generates a `<Tree>` component with all folders and files
-3. Updates `snippets/snippetsWiki/componentLibrary/index.mdx`
+1. Reads `docs-guide/component-registry.json`
+2. Generates the English component-library pages in `v2/resources/documentation-guide/component-library/`
+3. Generates locale scaffold pages for `es`, `fr`, and `cn`
+4. Archives the legacy shell entrypoint and removes retired generated pages when required
 
-**Output:** Updates the auto-generated section in `snippets/snippetsWiki/componentLibrary/index.mdx` between the `AUTO-GENERATED` comments.
+**Output:** `v2/resources/documentation-guide/component-library/*.mdx`
 
 **When to run:**
-- After adding new components to `snippets/components/`
-- After reorganizing the components folder structure
-- After renaming or deleting component files
+- After component metadata, usage-map output, or registry output changes
+- After adding, moving, or removing governed components
+- When localized component-library scaffolds need refreshing
 
 ---
 

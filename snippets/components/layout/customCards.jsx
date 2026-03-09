@@ -7,21 +7,12 @@
  * @contentAffinity universal
  * @owner @livepeer/docs-team
  * @dependencies InlineImageCard, WidthCard
- * @usedIn v2/community/livepeer-community/community-guidelines.mdx
- *   v2/developers/builder-opportunities/bug-bounties.mdx
- *   v2/developers/builder-opportunities/grants-and-programmes.mdx
- *   v2/developers/builder-opportunities/oss-contributions.mdx
- *   v2/developers/builder-opportunities/overview.mdx
- *   v2/developers/builder-opportunities/rfps-and-proposals.mdx, v2/home/about-livepeer/vision.mdx
- *   v2/home/get-started.mdx, v2/home/solutions/applications.mdx
- *   v2/internal/rfp/problem-statements.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @usedIn v2/community/livepeer-community/community-guidelines.mdx, v2/developers/builder-opportunities/bug-bounties.mdx, v2/developers/builder-opportunities/grants-and-programmes.mdx, v2/developers/builder-opportunities/oss-contributions.mdx, v2/developers/builder-opportunities/overview.mdx, v2/developers/builder-opportunities/rfps-and-proposals.mdx, v2/home/about-livepeer/vision.mdx, v2/home/get-started.mdx, v2/home/solutions/applications.mdx, v2/internal/rfp/problem-statements.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
+ * @lastMeaningfulChange 2026-03-10
  * @param {string} icon - Icon configuration used by the component.
  * @param {React.ReactNode} title - Title text rendered by the component.
  * @param {object} style - Style used by the component.
@@ -93,18 +84,15 @@ export const DisplayCard = ({
  * @contentAffinity landing
  * @owner @livepeer/docs-team
  * @dependencies InlineImageCard
- * @usedIn v2/gateways/quickstart/gateway-setup.mdx, v2/home/about-livepeer/benefits.mdx
- *   v2/home/about-livepeer/roadmap.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx, v2/resources/media-kit.mdx
+ * @usedIn v2/gateways-new/get-started/gateway-setup.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/roadmap.mdx, v2/resources/media-kit.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
+ * @lastMeaningfulChange 2026-03-10
  * @param {string} [width='80%'] - Width used by the component.
  * @param {React.ReactNode} children - Content rendered inside the component.
- * @param {Object} [cardProps={}] - Additional props spread to the card wrapper.
+ * @param {object} [cardProps] - Forwarded Card props.
  *
  * @example
  * <WidthCard>Example</WidthCard>
@@ -134,14 +122,12 @@ export const WidthCard = ({ width = '80%', children, ...cardProps }) => {
  * @contentAffinity universal
  * @owner @livepeer/docs-team
  * @dependencies none
- * @usedIn v2/resources/documentation-guide/component-library/overview.mdx
- *   v2/resources/media-kit.mdx
+ * @usedIn v2/resources/media-kit.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
+ * @lastMeaningfulChange 2026-03-10
  * @param {React.ReactNode} children - Content rendered inside the component.
  * @param {object} imgProps - Img props used by the component.
  * @param {object} imgStyle - Img style used by the component.

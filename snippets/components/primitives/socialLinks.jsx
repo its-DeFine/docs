@@ -33,9 +33,7 @@
  * @contentAffinity universal
  * @owner @livepeer/docs-team
  * @dependencies none
- * @usedIn v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/display.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @usedIn none
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none

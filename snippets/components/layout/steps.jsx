@@ -3,33 +3,23 @@
  * @category layout
  * @tier composite
  * @status stable
- * @description Wrapper for custom-styled step sequences with configurable colours.
- * @contentAffinity tutorial, how_to
- * @owner @livepeer/docs-team
+ * @description Styled Steps layout component for arranging documentation content without MDX inline styles.
+ * @contentAffinity overview, tutorial, reference
+ * @owner docs
  * @dependencies StyledStep
- * @usedIn v2/cn/docs-guide/components-index.mdx, v2/cn/docs-guide/indexes/components-index.mdx,
- *   v2/cn/gateways/run-a-gateway/configure/ai-configuration.mdx,
- *   v2/cn/gateways/run-a-gateway/connect/discover-offerings.mdx,
- *   v2/cn/gateways/run-a-gateway/install/docker-install.mdx,
- *   v2/cn/gateways/run-a-gateway/install/linux-install.mdx,
- *   v2/cn/gateways/run-a-gateway/install/windows-install.mdx,
- *   v2/cn/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx,
- *   v2/cn/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx,
- *   v2/cn/gateways/run-a-gateway/requirements/setup.mdx
- * @breakingChangeRisk high
+ * @usedIn v2/developers/ai-pipelines/byoc.mdx, v2/gateways-new/setup/configure/ai-configuration.mdx, v2/gateways-new/setup/connect/discover-offerings.mdx, v2/gateways-new/setup/install/docker-install.mdx, v2/gateways-new/setup/install/linux-install.mdx, v2/gateways-new/setup/install/windows-install.mdx, v2/gateways-new/setup/requirements/on-chain setup/fund-gateway.mdx, v2/gateways-new/setup/requirements/on-chain setup/on-chain.mdx, v2/gateways-new/setup/requirements/setup.mdx, v2/gateways-new/setup/run-a-gateway.mdx, v2/gateways/run-a-gateway/configure/ai-configuration.mdx, v2/gateways/run-a-gateway/connect/discover-offerings.mdx, v2/gateways/run-a-gateway/install/docker-install.mdx, v2/gateways/run-a-gateway/install/linux-install.mdx, v2/gateways/run-a-gateway/install/windows-install.mdx, v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx, v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx, v2/gateways/run-a-gateway/requirements/setup.mdx, v2/gateways/run-a-gateway/run-a-gateway.mdx, v2/lpt/delegation/getting-started.mdx, v2/orchestrators-new/advanced/hosting-models.mdx, v2/orchestrators-new/get-started/quickstart-views/orchestrator-setup.mdx, v2/orchestrators-new/guides/join-a-pool.mdx, v2/orchestrators/advanced-setup/hosting-models.mdx
+ * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
  * @duplicates none
  * @lastMeaningfulChange 2026-03-10
- *
- * @param {React.ReactNode} children - Step components rendered inside the sequence.
- * @param {string} [iconColor] - Background colour applied to step icons.
- * @param {string} [titleColor] - Colour applied to step titles.
- * @param {string} [lineColor] - Colour applied to connector lines between steps.
- * @param {string} [iconSize="24px"] - Icon size value accepted by the component.
- *
+ * @param {any} children - children prop.
+ * @param {any} iconColor - icon Color prop.
+ * @param {any} titleColor - title Color prop.
+ * @param {any} lineColor - line Color prop.
+ * @param {string} [iconSize="24px"] - icon Size prop.
  * @example
- * <StyledSteps><StyledStep>Step 1</StyledStep></StyledSteps>
+ * <StyledSteps iconColor="example" titleColor="example">Example content</StyledSteps>
  */
 export const StyledSteps = ({
   children,
@@ -38,53 +28,52 @@ export const StyledSteps = ({
   lineColor,
   iconSize = "24px",
 }) => {
+  const stepsId = `styled-steps-${Math.random().toString(36).substr(2, 9)}`;
   const resolvedIconColor = iconColor || "var(--accent-dark, #18794E)";
   const resolvedTitleColor = titleColor || "var(--accent)";
   const resolvedLineColor = lineColor || "var(--accent)";
-  const wrapperStyle = {
-    "--lp-styled-steps-icon-color": resolvedIconColor,
-    "--lp-styled-steps-title-color": resolvedTitleColor,
-    "--lp-styled-steps-line-color": resolvedLineColor,
-  };
 
   return (
-    <div data-lp-styled-steps style={wrapperStyle}>
-      <Steps>{children}</Steps>
-    </div>
+    <>
+      <style>{`
+        #${stepsId} .steps > div > div.absolute > div {
+          background-color: ${resolvedIconColor};
+        }
+        #${stepsId} .steps > div > div.w-full > p {
+          color: ${resolvedTitleColor};
+        }
+        #${stepsId} > div > div > div.absolute.w-px {
+          background-color: ${resolvedLineColor};
+        }
+      `}</style>
+      <div id={stepsId}>
+        <Steps>{children}</Steps>
+      </div>
+    </>
   );
 };
 
 /**
  * @component StyledStep
  * @category layout
- * @tier primitive
+ * @tier composite
  * @status stable
- * @description Individual step item within a StyledSteps sequence.
- * @contentAffinity tutorial, how_to
- * @owner @livepeer/docs-team
- * @dependencies none
- * @usedIn v2/cn/docs-guide/components-index.mdx, v2/cn/docs-guide/indexes/components-index.mdx,
- *   v2/cn/gateways/run-a-gateway/configure/ai-configuration.mdx,
- *   v2/cn/gateways/run-a-gateway/connect/discover-offerings.mdx,
- *   v2/cn/gateways/run-a-gateway/install/docker-install.mdx,
- *   v2/cn/gateways/run-a-gateway/install/linux-install.mdx,
- *   v2/cn/gateways/run-a-gateway/install/windows-install.mdx,
- *   v2/cn/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx,
- *   v2/cn/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx,
- *   v2/cn/gateways/run-a-gateway/requirements/setup.mdx
- * @breakingChangeRisk high
+ * @description Styled Step layout component for arranging documentation content without MDX inline styles.
+ * @contentAffinity overview, tutorial, reference
+ * @owner docs
+ * @dependencies StyledSteps
+ * @usedIn v2/developers/ai-pipelines/byoc.mdx, v2/gateways-new/setup/configure/ai-configuration.mdx, v2/gateways-new/setup/connect/discover-offerings.mdx, v2/gateways-new/setup/install/docker-install.mdx, v2/gateways-new/setup/install/linux-install.mdx, v2/gateways-new/setup/install/windows-install.mdx, v2/gateways-new/setup/requirements/on-chain setup/fund-gateway.mdx, v2/gateways-new/setup/requirements/on-chain setup/on-chain.mdx, v2/gateways-new/setup/requirements/setup.mdx, v2/gateways-new/setup/run-a-gateway.mdx, v2/gateways/run-a-gateway/configure/ai-configuration.mdx, v2/gateways/run-a-gateway/connect/discover-offerings.mdx, v2/gateways/run-a-gateway/install/docker-install.mdx, v2/gateways/run-a-gateway/install/linux-install.mdx, v2/gateways/run-a-gateway/install/windows-install.mdx, v2/gateways/run-a-gateway/requirements/on-chain setup/fund-gateway.mdx, v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx, v2/gateways/run-a-gateway/requirements/setup.mdx, v2/gateways/run-a-gateway/run-a-gateway.mdx, v2/lpt/delegation/getting-started.mdx, v2/orchestrators-new/advanced/hosting-models.mdx, v2/orchestrators-new/get-started/quickstart-views/orchestrator-setup.mdx, v2/orchestrators-new/guides/join-a-pool.mdx, v2/orchestrators/advanced-setup/hosting-models.mdx
+ * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
  * @duplicates none
  * @lastMeaningfulChange 2026-03-10
- *
- * @param {string} title - Step title text.
- * @param {string} icon - Icon name passed to the step item.
- * @param {string} [titleSize="h3"] - Heading size used for the step title.
- * @param {React.ReactNode} children - Step body content.
- *
+ * @param {any} title - title prop.
+ * @param {any} icon - icon prop.
+ * @param {string} [titleSize="h3"] - title Size prop.
+ * @param {any} children - children prop.
  * @example
- * <StyledStep title="Step 1">Content</StyledStep>
+ * <StyledStep title="example" icon="example">Example content</StyledStep>
  */
 export const StyledStep = ({ title, icon, titleSize = "h3", children }) => {
   return (

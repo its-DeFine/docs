@@ -24,43 +24,19 @@
  * @category primitives
  * @tier primitive
  * @status stable
- * @description Renders the custom divider component
- * @contentAffinity concept
- * @owner @livepeer/docs-team
+ * @description Custom Divider primitive used in authored documentation and component-library examples.
+ * @contentAffinity universal
+ * @owner docs
  * @dependencies none
- * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx
- *   v2/about/livepeer-protocol/governance-model.mdx, v2/about/livepeer-protocol/livepeer-token.mdx
- *   v2/about/livepeer-protocol/overview.mdx, v2/about/livepeer-protocol/technical-architecture.mdx
- *   v2/about/livepeer-protocol/treasury.mdx, v2/about/portal.mdx
- *   v2/about/resources/blockchain-contracts.mdx, v2/community/community-portal.mdx
- *   v2/community/livepeer-community/community-guidelines.mdx
- *   v2/developers/builder-opportunities/bug-bounties.mdx
- *   v2/developers/builder-opportunities/grants-and-programmes.mdx
- *   v2/developers/builder-opportunities/oss-contributions.mdx
- *   v2/developers/builder-opportunities/overview.mdx
- *   v2/developers/builder-opportunities/rfps-and-proposals.mdx, v2/developers/portal.mdx
- *   v2/gateways/gateways-portal.mdx, v2/gateways/quickstart/gateway-setup.mdx
- *   v2/gateways/run-a-gateway/configure/video-configuration.mdx
- *   v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/ecosystem.mdx
- *   v2/home/about-livepeer/vision.mdx, v2/home/mission-control.mdx, v2/home/solutions/showcase.mdx
- *   v2/orchestrators/orchestrators-portal.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/content.mdx
- *   v2/resources/documentation-guide/component-library/display.mdx
- *   v2/resources/documentation-guide/component-library/integrations.mdx
- *   v2/resources/documentation-guide/component-library/layout.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
- *   v2/resources/documentation-guide/component-library/primitives.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx, v2/about/livepeer-protocol/governance-model.mdx, v2/about/livepeer-protocol/livepeer-token.mdx, v2/about/livepeer-protocol/overview.mdx, v2/about/livepeer-protocol/technical-architecture.mdx, v2/about/livepeer-protocol/treasury.mdx, v2/about/portal.mdx, v2/about/resources/blockchain-contracts.mdx, v2/community/community-portal.mdx, v2/community/livepeer-community/community-guidelines.mdx, v2/developers-new/portal.mdx, v2/developers/builder-opportunities/bug-bounties.mdx, v2/developers/builder-opportunities/grants-and-programmes.mdx, v2/developers/builder-opportunities/oss-contributions.mdx, v2/developers/builder-opportunities/overview.mdx, v2/developers/builder-opportunities/rfps-and-proposals.mdx, v2/developers/portal.mdx, v2/gateways-new/get-started/gateway-setup.mdx, v2/gateways-new/portal.mdx, v2/gateways-new/setup/configure/video-configuration.mdx, v2/gateways-new/setup/requirements/on-chain setup/on-chain.mdx, v2/gateways/gateways-portal.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/run-a-gateway/configure/video-configuration.mdx, v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/ecosystem.mdx, v2/home/about-livepeer/vision.mdx, v2/home/mission-control.mdx, v2/home/solutions/showcase.mdx, v2/orchestrators-new/portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/resources/documentation-guide/snippets-inventory.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk high
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-03
- *
- * @param {string} [color="var(--border)"] - Color used by the component.
- * @param {string} [middleText=""] - Middle text used by the component.
- * @param {object} [style={}] - Style used by the component.
- *
+ * @lastMeaningfulChange 2026-03-10
+ * @param {string} [color="var(--border)"] - color prop.
+ * @param {string} [middleText=""] - middle Text prop.
+ * @param {object} [style={}] - style prop.
  * @example
  * <CustomDivider />
  */

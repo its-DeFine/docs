@@ -25,8 +25,7 @@
   },
   "scripts": {
     "format-mdx": "node convert-jsx-comments-to-markdown.js '**/*.mdx' && prettier --write '**/*.mdx'",
-    "audit:scripts": "node scripts/validators/governance/audit-script-inventory.js --md --json",
-    "audit:scripts:verbose": "node scripts/validators/governance/audit-script-inventory.js --md --json --verbose",
+    "audit:scripts": "node scripts/audit-scripts.js",
     "audit:repo": "node scripts/repo-audit-orchestrator.js --mode static --scope full",
     "audit:repo:changed": "node scripts/repo-audit-orchestrator.js --mode static --scope changed",
     "audit:repo:full": "node scripts/repo-audit-orchestrator.js --mode full --scope full",
@@ -41,6 +40,8 @@
     "cleanup:quarantine": "node scripts/cleanup-quarantine-manager.js --apply",
     "repair:mdx-safe-markdown": "node scripts/remediators/content/repair-mdx-safe-markdown.js --write",
     "repair:mdx-safe-markdown:dry-run": "node scripts/remediators/content/repair-mdx-safe-markdown.js --dry-run",
+    "repair:governance": "node scripts/orchestrators/repair-governance.js",
+    "review:governance:repair": "node scripts/validators/governance/review-governance-repair-checklist.js",
     "pack:agents": "node scripts/cross-agent-packager.js --agent-pack all",
     "skills:sync:codex": "node scripts/sync-codex-skills.js",
     "skills:sync:codex:check": "node scripts/sync-codex-skills.js --check",

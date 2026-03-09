@@ -6,16 +6,14 @@
  * @scope            generated-output
  * @owner            docs
  * @needs            R-R10, R-R16, R-R17
- * @purpose-statement Generates docs-guide and published component overview indexes from the governed component registry.
- * @pipeline         manual
- * @usage            node tools/scripts/generate-docs-guide-components-index.js [--write|--check]
+ * @purpose-statement Generates components-index.mdx in docs-guide/indexes/ from component-registry.json and component-usage-map.json.
+ * @pipeline         P1 (commit — auto-regenerated when components staged)
+ * @usage            node tools/scripts/generate-docs-guide-components-index.js [--fix|--write|--check]
  */
 
 const fs = require('fs');
 const path = require('path');
-const { VALID_CATEGORIES } = require('../lib/component-governance-utils');
-const { buildRegistry } = require('./generate-component-registry');
-const { renderOverviewPage } = require('./generate-component-docs');
+const { VALID_CATEGORIES, VALID_STATUSES } = require('../lib/component-governance-utils');
 const {
   buildGeneratedFrontmatterLines,
   buildGeneratedHiddenBannerLines,
@@ -23,10 +21,12 @@ const {
 } = require('../lib/generated-file-banners');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
-const OUTPUT_PATHS = [
-  'docs-guide/indexes/components-index.mdx',
-  'v2/resources/documentation-guide/component-library/overview.mdx'
-];
+const REGISTRY_PATH = path.join(REPO_ROOT, 'docs-guide', 'component-registry.json');
+const USAGE_MAP_PATH = path.join(REPO_ROOT, 'docs-guide', 'component-usage-map.json');
+const OUTPUT_PATH = path.join(REPO_ROOT, 'docs-guide', 'indexes', 'components-index.mdx');
+const STATUS_COLUMNS = VALID_STATUSES.filter((status) =>
+  ['stable', 'experimental', 'deprecated', 'broken', 'placeholder'].includes(status)
+);
 
 const CATEGORY_LABELS = {
   primitives: 'Primitives',
@@ -36,110 +36,193 @@ const CATEGORY_LABELS = {
   'page-structure': 'Page Structure'
 };
 
-const CATEGORY_DESCRIPTIONS = {
-  primitives: 'Standalone visual atoms reused across authored docs.',
-  layout: 'Arrangement and grouping components that shape flow and spacing.',
-  content: 'Reader-facing renderers for code, media, response fields, and structured content.',
-  data: 'Components bound to feeds, release metadata, or external datasets.',
-  'page-structure': 'Portal and frame-mode scaffolding for whole sections or hero treatments.'
-};
-
-function usage() {
+function printHelp() {
   console.log(
     [
-      'Usage: node tools/scripts/generate-docs-guide-components-index.js [options]',
+      'Usage:',
+      '  node tools/scripts/generate-docs-guide-components-index.js [--fix|--write|--check]',
       '',
-      'Options:',
-      '  --write      Write generated output files',
-      '  --check      Verify generated output files are current',
-      '  --help, -h   Show this help message'
+      'Modes:',
+      '  --fix      Write the generated components index.',
+      '  --write    Compatibility alias for --fix.',
+      '  --check    Fail when the generated output is stale.'
     ].join('\n')
   );
 }
 
 function parseArgs(argv) {
   const args = {
-    write: false,
-    check: false,
+    mode: 'fix',
     help: false
   };
 
+  let explicitModeCount = 0;
+
   argv.forEach((token) => {
-    if (token === '--write') {
-      args.write = true;
+    if (token === '--help' || token === '-h') {
+      args.help = true;
+      return;
+    }
+    if (token === '--fix' || token === '--write') {
+      args.mode = 'fix';
+      explicitModeCount += 1;
       return;
     }
     if (token === '--check') {
-      args.check = true;
-      return;
-    }
-    if (token === '--help' || token === '-h') {
-      args.help = true;
+      args.mode = 'check';
+      explicitModeCount += 1;
       return;
     }
     throw new Error(`Unknown argument: ${token}`);
   });
 
-  if (!args.write && !args.check) {
-    args.write = true;
+  if (explicitModeCount > 1) {
+    throw new Error('Choose only one mode: --fix/--write or --check');
   }
 
   return args;
+}
+
+function readJsonFile(filePath) {
+  if (!fs.existsSync(filePath)) {
+    throw new Error(`Missing required input: ${path.relative(REPO_ROOT, filePath)}`);
+  }
+  return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
 function normalizeFileContent(content) {
   return `${String(content || '').trim()}\n`;
 }
 
-function renderComponentsIndex(registry) {
-  const details = {
-    script: 'tools/scripts/generate-docs-guide-components-index.js',
-    purpose: 'Aggregate inventory of governed component exports from snippets/components for docs-guide maintenance.',
-    runWhen: 'Governed component files, exported signatures, or registry metadata change.',
-    runCommand: 'node tools/scripts/generate-docs-guide-components-index.js --write'
-  };
+function mdEscape(value) {
+  return String(value || '').replace(/\|/g, '\\|').replace(/\n/g, ' ');
+}
 
-  const summaryLines = [
-    '| Category | Exports | Primary purpose |',
-    '| --- | --- | --- |'
+function buildStatusBreakdown(components) {
+  return STATUS_COLUMNS.reduce((accumulator, status) => {
+    accumulator[status] = components.filter((component) => component.status === status).length;
+    return accumulator;
+  }, {});
+}
+
+function renderSummaryTable(registry) {
+  const rows = [
+    '| Category | Exports | Stable | Experimental | Deprecated | Broken | Placeholder |',
+    '| --- | --- | --- | --- | --- | --- | --- |'
   ];
 
+  const totals = {
+    exports: 0,
+    stable: 0,
+    experimental: 0,
+    deprecated: 0,
+    broken: 0,
+    placeholder: 0
+  };
+
   VALID_CATEGORIES.forEach((category) => {
-    summaryLines.push(
-      `| [${CATEGORY_LABELS[category]}](#${category}) | ${registry.categories[category].count} | ${CATEGORY_DESCRIPTIONS[category]} |`
+    const components = registry.components.filter((component) => component.category === category);
+    const counts = buildStatusBreakdown(components);
+    totals.exports += components.length;
+    STATUS_COLUMNS.forEach((status) => {
+      totals[status] += counts[status];
+    });
+
+    rows.push(
+      `| [${CATEGORY_LABELS[category]}](#${category}) | ${components.length} | ${counts.stable} | ${counts.experimental} | ${counts.deprecated} | ${counts.broken} | ${counts.placeholder} |`
     );
   });
 
-  const sections = VALID_CATEGORIES.map((category) => {
-    const components = registry.components.filter((component) => component.category === category);
-    const table = [
-      '| Component | Status | Tier | File |',
-      '| --- | --- | --- | --- |'
-    ];
+  rows.push(
+    `| **Total** | **${totals.exports}** | **${totals.stable}** | **${totals.experimental}** | **${totals.deprecated}** | **${totals.broken}** | **${totals.placeholder}** |`
+  );
 
-    components.forEach((component) => {
-      table.push(
-        `| ${component.name} | \`${component.status}\` | \`${component.tier}\` | \`/${component.file}\` |`
-      );
-    });
+  return rows.join('\n');
+}
 
-    return [
-      `## ${category}`,
-      '',
-      CATEGORY_DESCRIPTIONS[category],
-      '',
-      table.join('\n')
-    ].join('\n');
+function renderCategorySection(category, components) {
+  const rows = [
+    '| Component | File | Tier | Status | Description | Import path |',
+    '| --- | --- | --- | --- | --- | --- |'
+  ];
+
+  components.forEach((component) => {
+    rows.push(
+      `| ${mdEscape(component.name)} | \`/${mdEscape(component.file)}\` | \`${mdEscape(component.tier)}\` | \`${mdEscape(component.status)}\` | ${mdEscape(component.description)} | \`/${mdEscape(component.file)}\` |`
+    );
   });
+
+  return [
+    `## ${category}`,
+    '',
+    rows.join('\n')
+  ].join('\n');
+}
+
+function renderDeprecatedSection(components) {
+  if (components.length === 0) return '';
+
+  const rows = [
+    '| Component | File | Replacement | Deprecation note |',
+    '| --- | --- | --- | --- |'
+  ];
+
+  components.forEach((component) => {
+    rows.push(
+      `| ${mdEscape(component.name)} | \`/${mdEscape(component.file)}\` | ${component.see ? `\`${mdEscape(component.see)}\`` : '`none`'} | ${mdEscape(component.deprecated || 'No note provided.')} |`
+    );
+  });
+
+  return ['## Deprecated Components', '', rows.join('\n')].join('\n');
+}
+
+function renderOrphanedSection(usageMap, registry) {
+  if (!Array.isArray(usageMap.orphaned) || usageMap.orphaned.length === 0) return '';
+
+  const componentLookup = new Map(registry.components.map((component) => [component.name, component]));
+  const rows = [
+    '| Component | Category | File | Status | Description |',
+    '| --- | --- | --- | --- | --- |'
+  ];
+
+  usageMap.orphaned.forEach((entry) => {
+    const component = componentLookup.get(entry.name);
+    rows.push(
+      `| ${mdEscape(entry.name)} | \`${mdEscape(entry.category)}\` | \`/${mdEscape(entry.file)}\` | \`${mdEscape(component?.status || 'unknown')}\` | ${mdEscape(component?.description || '')} |`
+    );
+  });
+
+  return ['## Orphaned Components', '', rows.join('\n')].join('\n');
+}
+
+function buildOutput(registry, usageMap) {
+  const details = {
+    script: 'tools/scripts/generate-docs-guide-components-index.js',
+    purpose: 'Generated inventory of governed component exports from docs-guide/component-registry.json and docs-guide/component-usage-map.json.',
+    runWhen: 'Component governance metadata, registry output, or usage-map output changes.',
+    runCommand: 'node tools/scripts/generate-docs-guide-components-index.js --fix'
+  };
+
+  const sections = VALID_CATEGORIES.map((category) =>
+    renderCategorySection(
+      category,
+      registry.components.filter((component) => component.category === category)
+    )
+  );
+
+  const deprecatedSection = renderDeprecatedSection(
+    registry.components.filter((component) => component.status === 'deprecated')
+  );
+  const orphanedSection = renderOrphanedSection(usageMap, registry);
 
   return normalizeFileContent(
     [
       ...buildGeneratedFrontmatterLines({
         title: 'Components Index',
         sidebarTitle: 'Components Index',
-        description: 'Aggregate inventory of governed component exports from snippets/components.',
+        description: 'Generated inventory of all governed component exports.',
         pageType: 'overview',
-        keywords: ['livepeer', 'components index', 'snippets', 'registry', 'inventory']
+        keywords: ['livepeer', 'components index', 'registry', 'usage map', 'inventory']
       }),
       '',
       ...buildGeneratedHiddenBannerLines(details),
@@ -148,43 +231,38 @@ function renderComponentsIndex(registry) {
       '',
       `The governed component library currently exposes **${registry._meta.componentCount}** named export(s).`,
       '',
-      '## Category Summary',
+      '## Summary',
       '',
-      summaryLines.join('\n'),
+      renderSummaryTable(registry),
       '',
-      ...sections.flatMap((section, index) => (index === 0 ? [section] : ['', section]))
+      ...sections.flatMap((section, index) => (index === 0 ? [section] : ['', section])),
+      deprecatedSection ? ['', deprecatedSection] : [],
+      orphanedSection ? ['', orphanedSection] : []
     ].join('\n')
   );
 }
 
 function buildOutputs() {
-  const { registry, issues } = buildRegistry();
-  if (issues.length > 0) {
-    throw new Error(issues.join('\n'));
-  }
+  const registry = readJsonFile(REGISTRY_PATH);
+  const usageMap = readJsonFile(USAGE_MAP_PATH);
 
-  return new Map([
-    ['docs-guide/indexes/components-index.mdx', renderComponentsIndex(registry)],
-    ['v2/resources/documentation-guide/component-library/overview.mdx', normalizeFileContent(renderOverviewPage(registry))]
-  ]);
+  return new Map([[OUTPUT_PATH, buildOutput(registry, usageMap)]]);
 }
 
 function writeOutputs(outputs) {
-  outputs.forEach((content, relativePath) => {
-    const absolutePath = path.join(REPO_ROOT, relativePath);
-    fs.mkdirSync(path.dirname(absolutePath), { recursive: true });
-    fs.writeFileSync(absolutePath, content, 'utf8');
+  outputs.forEach((content, filePath) => {
+    fs.mkdirSync(path.dirname(filePath), { recursive: true });
+    fs.writeFileSync(filePath, content, 'utf8');
   });
 }
 
 function checkOutputs(outputs) {
   const stale = [];
 
-  outputs.forEach((expected, relativePath) => {
-    const absolutePath = path.join(REPO_ROOT, relativePath);
-    const actual = fs.existsSync(absolutePath) ? fs.readFileSync(absolutePath, 'utf8') : '';
+  outputs.forEach((expected, filePath) => {
+    const actual = fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : '';
     if (normalizeFileContent(actual) !== expected) {
-      stale.push(relativePath);
+      stale.push(path.relative(REPO_ROOT, filePath));
     }
   });
 
@@ -197,12 +275,12 @@ function run(argv = process.argv.slice(2)) {
     args = parseArgs(argv);
   } catch (error) {
     console.error(`❌ ${error.message}`);
-    usage();
+    printHelp();
     return 1;
   }
 
   if (args.help) {
-    usage();
+    printHelp();
     return 0;
   }
 
@@ -214,19 +292,21 @@ function run(argv = process.argv.slice(2)) {
     return 1;
   }
 
-  if (args.check) {
+  if (args.mode === 'check') {
     const stale = checkOutputs(outputs);
     if (stale.length > 0) {
       stale.forEach((filePath) => console.error(`Components index is out of date: ${filePath}`));
-      console.error('Run: node tools/scripts/generate-docs-guide-components-index.js --write');
+      console.error('Run: node tools/scripts/generate-docs-guide-components-index.js --fix');
       return 1;
     }
-    console.log('Components indexes are up to date.');
+    console.log('Components index is up to date.');
     return 0;
   }
 
   writeOutputs(outputs);
-  OUTPUT_PATHS.forEach((filePath) => console.log(`Wrote ${filePath}`));
+  outputs.forEach((_content, filePath) => {
+    console.log(`Wrote ${path.relative(REPO_ROOT, filePath)}`);
+  });
   return 0;
 }
 
@@ -236,6 +316,7 @@ if (require.main === module) {
 
 module.exports = {
   buildOutputs,
+  buildOutput,
   parseArgs,
   run
 };

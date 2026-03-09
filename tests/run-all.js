@@ -7,7 +7,7 @@
  * @owner             docs
  * @needs             R-R29
  * @purpose-statement Test orchestrator — dispatches all unit test suites. Called by pre-commit hook and npm test.
- * @pipeline          P1, P2, P3
+ * @pipeline          P1 (commit, orchestrator)
  * @usage             node tests/run-all.js [flags]
  */
 /**
@@ -19,18 +19,18 @@ const path = require('path');
 const styleGuideTests = require('./unit/style-guide.test');
 const mdxTests = require('./unit/mdx.test');
 const mdxGuardsTests = require('./unit/mdx-guards.test');
+const mdxSafeMarkdownUnitTests = require('./unit/mdx-safe-markdown.test');
 const spellingTests = require('./unit/spelling.test');
 const qualityTests = require('./unit/quality.test');
 const linksImportsTests = require('./unit/links-imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
-const codexTaskPreflightTests = require('./unit/codex-task-preflight.test');
-const codexTaskCleanupTests = require('./unit/codex-task-cleanup.test');
-const codexSafeMergeCompatTests = require('./unit/codex-safe-merge-with-stash.test');
 const componentGovernanceUtilsTests = require('./unit/component-governance-utils.test');
 const componentGovernanceGeneratorTests = require('./unit/component-governance-generators.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
+const mdxSafeMarkdownValidator = require('../tools/scripts/validators/content/check-mdx-safe-markdown');
 const pagesIndexGenerator = require('../tools/scripts/generate-pages-index');
+const browserTests = require('./integration/browser.test');
 const { getStagedFiles } = require('./utils/file-walker');
 const REPO_ROOT = path.resolve(__dirname, '..');
 
@@ -44,14 +44,11 @@ const wcagNoFix = args.includes('--wcag-no-fix');
 let totalErrors = 0;
 let totalWarnings = 0;
 
-function toPosix(filePath) {
-  return String(filePath || '').split(path.sep).join('/');
-}
-
-function getStagedRepoPaths() {
+function getStagedComponentFiles() {
   return getStagedFiles(REPO_ROOT)
-    .map((filePath) => toPosix(path.relative(REPO_ROOT, filePath)))
-    .filter(Boolean);
+    .map((filePath) => path.relative(REPO_ROOT, filePath).split(path.sep).join('/'))
+    .filter((filePath) => filePath.startsWith('snippets/components/') && filePath.endsWith('.jsx'))
+    .filter((filePath) => !filePath.includes('/_archive/'));
 }
 
 /**
@@ -60,16 +57,6 @@ function getStagedRepoPaths() {
 async function runAllTests() {
   console.log('🧪 Running Livepeer Documentation Test Suite\n');
   console.log('='.repeat(60));
-
-  const stagedRepoPaths = stagedOnly ? getStagedRepoPaths() : [];
-  const stagedComponentFiles = stagedRepoPaths.filter(
-    (filePath) => filePath.startsWith('snippets/components/') && filePath.endsWith('.jsx')
-  );
-  const shouldRunComponentNaming = !stagedOnly || stagedComponentFiles.length > 0;
-  const shouldRunComponentGovernanceUtils = !stagedOnly || stagedRepoPaths.some((filePath) =>
-    filePath === 'tools/lib/component-governance-utils.js' ||
-    filePath === 'tests/unit/component-governance-utils.test.js'
-  );
   
   // Style Guide Tests
   console.log('\n📋 Running Style Guide Tests...');
@@ -80,18 +67,18 @@ async function runAllTests() {
 
   // Component Naming
   console.log('\n🧩 Running Component Naming Checks...');
-  if (shouldRunComponentNaming) {
-    const componentNamingResult = componentNamingTests.run({
-      files: stagedOnly ? stagedComponentFiles : []
-    });
-    componentNamingResult.findings.forEach((finding) => {
-      console.error(`  ${componentNamingTests.formatFinding(finding)}`);
-    });
-    totalErrors += componentNamingResult.findings.length;
-    console.log(`   ${componentNamingResult.findings.length} errors, 0 warnings`);
-  } else {
-    console.log('   skipped in --staged mode (no staged component files)');
-  }
+  const componentNamingOptions = stagedOnly
+    ? {
+        files: getStagedComponentFiles(),
+        mode: 'migration'
+      }
+    : {};
+  const componentNamingResult = componentNamingTests.run(componentNamingOptions);
+  componentNamingResult.findings.forEach((finding) => {
+    console.error(`  ${componentNamingTests.formatFinding(finding)}`);
+  });
+  totalErrors += componentNamingResult.findings.length;
+  console.log(`   ${componentNamingResult.findings.length} errors, 0 warnings`);
   
   // MDX Tests
   console.log('\n📄 Running MDX Validation Tests...');
@@ -102,21 +89,16 @@ async function runAllTests() {
 
   // Repo-wide MDX-safe Markdown Validation
   console.log('\n🧱 Running Repo-wide MDX-safe Markdown Validation...');
-  try {
-    const mdxSafeMarkdownValidator = require('../tools/scripts/validators/content/check-mdx-safe-markdown');
-    const mdxSafeMarkdownResult = mdxSafeMarkdownValidator.run({
-      args: {
-        stagedOnly,
-        files: [],
-        json: false
-      }
-    });
-    totalErrors += mdxSafeMarkdownResult.errors.length;
-    totalWarnings += mdxSafeMarkdownResult.warnings.length;
-    console.log(`   ${mdxSafeMarkdownResult.errors.length} errors, ${mdxSafeMarkdownResult.warnings.length} warnings`);
-  } catch (error) {
-    console.log(`   skipped: ${error.message}`);
-  }
+  const mdxSafeMarkdownResult = mdxSafeMarkdownValidator.run({
+    args: {
+      stagedOnly,
+      files: [],
+      json: false
+    }
+  });
+  totalErrors += mdxSafeMarkdownResult.errors.length;
+  totalWarnings += mdxSafeMarkdownResult.warnings.length;
+  console.log(`   ${mdxSafeMarkdownResult.errors.length} errors, ${mdxSafeMarkdownResult.warnings.length} warnings`);
 
   // MDX Guardrails
   console.log('\n🛡️  Running MDX Guardrail Tests...');
@@ -127,15 +109,10 @@ async function runAllTests() {
 
   // MDX-safe Markdown Unit Tests
   console.log('\n🧪 Running MDX-safe Markdown Unit Tests...');
-  try {
-    const mdxSafeMarkdownUnitTests = require('./unit/mdx-safe-markdown.test');
-    const mdxSafeMarkdownUnitResult = mdxSafeMarkdownUnitTests.runTests();
-    totalErrors += mdxSafeMarkdownUnitResult.errors.length;
-    totalWarnings += mdxSafeMarkdownUnitResult.warnings.length;
-    console.log(`   ${mdxSafeMarkdownUnitResult.errors.length} errors, ${mdxSafeMarkdownUnitResult.warnings.length} warnings`);
-  } catch (error) {
-    console.log(`   skipped: ${error.message}`);
-  }
+  const mdxSafeMarkdownUnitResult = mdxSafeMarkdownUnitTests.runTests();
+  totalErrors += mdxSafeMarkdownUnitResult.errors.length;
+  totalWarnings += mdxSafeMarkdownUnitResult.warnings.length;
+  console.log(`   ${mdxSafeMarkdownUnitResult.errors.length} errors, ${mdxSafeMarkdownUnitResult.warnings.length} warnings`);
   
   // Spelling Tests
   console.log('\n🔤 Running Spelling Tests...');
@@ -174,40 +151,20 @@ async function runAllTests() {
 
   // Component Governance Utility Tests
   console.log('\n🧩 Running Component Governance Utility Tests...');
-  if (shouldRunComponentGovernanceUtils) {
-    const componentGovernanceUtilsResult = componentGovernanceUtilsTests.runTests();
-    totalErrors += componentGovernanceUtilsResult.errors.length;
-    totalWarnings += componentGovernanceUtilsResult.warnings.length;
-    console.log(
-      `   ${componentGovernanceUtilsResult.errors.length} errors, ${componentGovernanceUtilsResult.warnings.length} warnings`
-    );
-  } else {
-    console.log('   skipped in --staged mode (no staged component-governance utility changes)');
-  }
+  const componentGovernanceUtilsResult = componentGovernanceUtilsTests.runTests();
+  totalErrors += componentGovernanceUtilsResult.errors.length;
+  totalWarnings += componentGovernanceUtilsResult.warnings.length;
+  console.log(
+    `   ${componentGovernanceUtilsResult.errors.length} errors, ${componentGovernanceUtilsResult.warnings.length} warnings`
+  );
 
   // Component Governance Generator Tests
   console.log('\n🗂️  Running Component Governance Generator Tests...');
-  if (stagedOnly) {
-    console.log('   skipped in --staged mode (repo-wide component generator drift is enforced in PR/full runs)');
-  } else {
-    const componentGovernanceGeneratorResult = componentGovernanceGeneratorTests.runTests();
-    totalErrors += componentGovernanceGeneratorResult.errors.length;
-    totalWarnings += componentGovernanceGeneratorResult.warnings.length;
-    console.log(
-      `   ${componentGovernanceGeneratorResult.errors.length} errors, ${componentGovernanceGeneratorResult.warnings.length} warnings`
-    );
-  }
-
-  // Codex Lifecycle Tests
-  console.log('\n🧹 Running Codex Lifecycle Cleanup Tests...');
-  const codexTaskPreflightResult = await codexTaskPreflightTests.runTests();
-  const codexTaskCleanupResult = await codexTaskCleanupTests.runTests();
-  const codexSafeMergeCompatResult = await codexSafeMergeCompatTests.runTests();
-  totalErrors += codexTaskPreflightResult.errors.length;
-  totalErrors += codexTaskCleanupResult.errors.length;
-  totalErrors += codexSafeMergeCompatResult.errors.length;
+  const componentGovernanceGeneratorResult = componentGovernanceGeneratorTests.runTests();
+  totalErrors += componentGovernanceGeneratorResult.errors.length;
+  totalWarnings += componentGovernanceGeneratorResult.warnings.length;
   console.log(
-    `   ${codexTaskPreflightResult.errors.length + codexTaskCleanupResult.errors.length + codexSafeMergeCompatResult.errors.length} errors, 0 warnings`
+    `   ${componentGovernanceGeneratorResult.errors.length} errors, ${componentGovernanceGeneratorResult.warnings.length} warnings`
   );
 
   // Usefulness Unit Tests
@@ -267,7 +224,6 @@ async function runAllTests() {
   if (!skipBrowser) {
     console.log('\n🌐 Running Browser Tests...');
     try {
-      const browserTests = require('./integration/browser.test');
       const browserResult = await browserTests.runTests({ stagedOnly });
       totalErrors += browserResult.failed || 0;
       console.log(`   ${browserResult.failed || 0} failed, ${browserResult.passed || 0} passed`);

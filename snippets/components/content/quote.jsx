@@ -3,36 +3,21 @@
  * @category content
  * @tier composite
  * @status stable
- * @description Renders the quote component
- * @contentAffinity concept
- * @owner @livepeer/docs-team
- * @dependencies FrameQuote
- * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx
- *   v2/about/livepeer-protocol/governance-model.mdx, v2/about/livepeer-protocol/livepeer-token.mdx
- *   v2/about/livepeer-protocol/overview.mdx, v2/about/livepeer-protocol/technical-architecture.mdx
- *   v2/about/livepeer-protocol/treasury.mdx, v2/home/about-livepeer/vision.mdx
- *   v2/internal/rfp/aims.mdx, v2/internal/rfp/report.mdx
- *   v2/orchestrators/quickstart/join-a-pool.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/display.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @description Quote content component for rendering reader-facing documentation content.
+ * @contentAffinity tutorial, concept, reference
+ * @owner docs
+ * @dependencies none
+ * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx, v2/about/livepeer-protocol/governance-model.mdx, v2/about/livepeer-protocol/livepeer-token.mdx, v2/about/livepeer-protocol/overview.mdx, v2/about/livepeer-protocol/technical-architecture.mdx, v2/about/livepeer-protocol/treasury.mdx, v2/home/about-livepeer/vision.mdx, v2/internal/rfp/aims.mdx, v2/internal/rfp/report.mdx, v2/orchestrators-new/guides/join-a-pool.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
- * @param {React.ReactNode} children - Content rendered inside the component.
- *
+ * @lastMeaningfulChange 2026-03-10
+ * @param {any} children - children prop.
  * @example
- * <Quote>Example</Quote>
+ * <Quote>Example content</Quote>
  */
 export const Quote = ({ children }) => {
-  if (children == null) {
-    console.warn("[Quote] Missing children");
-    return null;
-  }
-
   const quoteStyle = {
     fontSize: '1rem',
     textAlign: 'center',
@@ -52,36 +37,28 @@ export const Quote = ({ children }) => {
  * @category content
  * @tier composite
  * @status stable
- * @description Renders the frame quote component
- * @contentAffinity landing
- * @owner @livepeer/docs-team
+ * @description Frame Quote content component for rendering reader-facing documentation content.
+ * @contentAffinity tutorial, concept, reference
+ * @owner docs
  * @dependencies none
- * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx, v2/about/livepeer-protocol/overview.mdx
- *   v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/ecosystem.mdx
- *   v2/home/about-livepeer/vision.mdx, v2/internal/overview/docs-philosophy.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/display.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
- *   v2/resources/documentation-guide/style-guide.mdx
- * @breakingChangeRisk medium
+ * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx, v2/about/livepeer-protocol/overview.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/ecosystem.mdx, v2/home/about-livepeer/vision.mdx, v2/internal/overview/docs-philosophy.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
- * @param {React.ReactNode} children - Content rendered inside the component.
- * @param {string} author - Author used by the component.
- * @param {string} source - Source used by the component.
- * @param {string} href - Destination URL used by the component.
- * @param {boolean} [frame=true] - Boolean flag that controls component behaviour.
- * @param {string} [align='right'] - Align used by the component.
- * @param {string} borderColor - Border color used by the component.
- * @param {string} img - Asset or embed source used by the component.
- * @param {boolean} [spacing=true] - Boolean flag that controls component behaviour.
- * @param {object} props - Additional props forwarded to the Frame component.
- *
+ * @lastMeaningfulChange 2026-03-10
+ * @param {any} children - children prop.
+ * @param {any} author - author prop.
+ * @param {any} source - source prop.
+ * @param {any} href - href prop.
+ * @param {boolean} [frame=true] - frame prop.
+ * @param {string} [align='right'] - align prop.
+ * @param {any} borderColor - border Color prop.
+ * @param {any} img - img prop.
+ * @param {boolean} [spacing=true] - spacing prop.
+ * @param {any} props - props prop.
  * @example
- * <FrameQuote author="value" source="value" href="/example" />
+ * <FrameQuote author="example" source="example">Example content</FrameQuote>
  */
 export const FrameQuote = ({
   children,

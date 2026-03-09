@@ -9,10 +9,6 @@
  * @dependencies CustomResponseField, ResponseFieldAccordion, ResponseFieldExpandable,
  *   ResponseFieldGroup
  * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx, v2/gateways/quickstart/gateway-setup.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/content.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
- *   v2/resources/documentation-guide/snippets-inventory.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
@@ -24,7 +20,7 @@
  * @param {string} [label="value"] - Label text rendered by the component.
  * @param {boolean} [line=true] - Boolean flag that controls component behaviour.
  * @param {React.ReactNode} children - Content rendered inside the component.
- * @param {...Object} props - Additional props spread to the root element.
+ * @param {object} [props] - Additional props forwarded to ResponseField.
  *
  * @example
  * <ValueResponseField description="Example" />
@@ -91,11 +87,7 @@ const expandableCode = () => {
  * @owner @livepeer/docs-team
  * @dependencies ResponseFieldAccordion, ResponseFieldExpandable, ResponseFieldGroup,
  *   ValueResponseField
- * @usedIn v2/gateways/quickstart/gateway-setup.mdx
- *   v2/gateways/run-a-gateway/configure/video-configuration.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/content.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/run-a-gateway/configure/video-configuration.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
@@ -103,7 +95,7 @@ const expandableCode = () => {
  * @lastMeaningfulChange 2026-03-08
  *
  * @param {React.ReactNode} description - Primary content rendered by the component.
- * @param {...Object} props - Additional props spread to the root element.
+ * @param {object} [props] - Additional props forwarded to ResponseField.
  *
  * @example
  * <CustomResponseField description="Example" />
@@ -134,9 +126,6 @@ const CustomResponseField = ({ description, ...props }) => {
  * @owner @livepeer/docs-team
  * @dependencies CustomResponseField, ResponseFieldAccordion, ResponseFieldGroup, ValueResponseField
  * @usedIn v2/gateways/quickstart/gateway-setup.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/content.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
@@ -144,7 +133,7 @@ const CustomResponseField = ({ description, ...props }) => {
  * @lastMeaningfulChange 2026-03-08
  *
  * @param {object} [fields={}] - Fields used by the component.
- * @param {...Object} props - Additional props spread to the root element.
+ * @param {object} [props] - Additional props forwarded to Expandable.
  *
  * @example
  * <ResponseFieldExpandable />
@@ -174,9 +163,7 @@ const ResponseFieldExpandable = ({ fields = {}, ...props }) => {
  * @owner @livepeer/docs-team
  * @dependencies CustomResponseField, ResponseFieldExpandable, ResponseFieldGroup,
  *   ValueResponseField
- * @usedIn v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/content.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
@@ -184,7 +171,7 @@ const ResponseFieldExpandable = ({ fields = {}, ...props }) => {
  * @lastMeaningfulChange 2026-03-08
  *
  * @param {object} [fields={}] - Fields used by the component.
- * @param {...Object} props - Additional props spread to the root element.
+ * @param {object} [props] - Additional props forwarded to Accordion.
  *
  * @example
  * <ResponseFieldAccordion />
@@ -216,9 +203,7 @@ const ResponseFieldAccordion = ({ fields = {}, ...props }) => {
  * @owner @livepeer/docs-team
  * @dependencies CustomResponseField, ResponseFieldAccordion, ResponseFieldExpandable,
  *   ValueResponseField
- * @usedIn v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/content.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @usedIn none
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
@@ -227,7 +212,7 @@ const ResponseFieldAccordion = ({ fields = {}, ...props }) => {
  *
  * @param {string} [component="accordion"] - Component used by the component.
  * @param {object} [fields={}] - Fields used by the component.
- * @param {...Object} props - Additional props spread to the root element.
+ * @param {object} [props] - Additional props forwarded to the selected wrapper component.
  *
  * @example
  * <ResponseFieldGroup />

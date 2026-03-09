@@ -37,28 +37,14 @@ function hashTemplate(params) {
   const cmd = usageDefault(params.filePath);
   const lines = [
     '# @script ' + params.scriptName,
-    '# @summary ' + params.summary,
+    '# @category utility',
+    '# @purpose tooling:dev-tools',
+    '# @needs TODO: requirement-id',
     '# @owner ' + params.owner,
     '# @scope ' + params.scope,
-    '#',
-    '# @usage',
-    '#   ' + cmd,
-    '#',
-    '# @inputs',
-    '#   TODO: --flag <description> (default: ...)',
-    '#',
-    '# @outputs',
-    '#   - TODO: output file/path/side effect',
-    '#',
-    '# @exit-codes',
-    '#   0 = success',
-    '#   1 = failure',
-    '#',
-    '# @examples',
-    '#   ' + cmd,
-    '#',
-    '# @notes',
-    '#   TODO: caveats, constraints, safety notes',
+    '# @purpose-statement ' + params.summary,
+    '# @pipeline manual — interactive developer tool, not suited for automated pipelines',
+    '# @usage ' + cmd + ' [flags]',
     ''
   ];
   return lines.join('\n');
@@ -69,28 +55,14 @@ function blockTemplate(params) {
   const lines = [
     '/**',
     ` * @script ${params.scriptName}`,
-    ` * @summary ${params.summary}`,
+    ' * @category utility',
+    ' * @purpose tooling:dev-tools',
+    ' * @needs TODO: requirement-id',
     ` * @owner ${params.owner}`,
     ` * @scope ${params.scope}`,
-    ' *',
-    ' * @usage',
-    ` *   ${cmd}`,
-    ' *',
-    ' * @inputs',
-    ' *   TODO: --flag <description> (default: ...)',
-    ' *',
-    ' * @outputs',
-    ' *   - TODO: output file/path/side effect',
-    ' *',
-    ' * @exit-codes',
-    ' *   0 = success',
-    ' *   1 = failure',
-    ' *',
-    ' * @examples',
-    ` *   ${cmd}`,
-    ' *',
-    ' * @notes',
-    ' *   TODO: caveats, constraints, safety notes',
+    ` * @purpose-statement ${params.summary}`,
+    ' * @pipeline manual — interactive developer tool, not suited for automated pipelines',
+    ` * @usage ${cmd} [flags]`,
     ' */',
     ''
   ];
@@ -139,4 +111,3 @@ function main() {
 }
 
 main();
-

@@ -3,33 +3,28 @@
  * @script           scan-component-imports
  * @category         generator
  * @purpose          governance:index-management
- * @scope            full-repo
+ * @scope            generated-output
  * @owner            docs
  * @needs            R-R10
  * @purpose-statement Scans MDX imports to produce component-usage-map.json and detect @usedIn drift.
- * @pipeline         manual
+ * @pipeline         P6
  * @usage            node tools/scripts/scan-component-imports.js [--verify]
  */
 
 const fs = require('fs');
 const path = require('path');
 const {
+  buildComponentUsageSummary,
   extractExports,
+  getCategoryFromPath,
   getComponentFiles,
+  normalizeCsvField,
   parseJSDocBlock,
   scanMDXImports
 } = require('../lib/component-governance-utils');
-const { buildRegistry } = require('./generate-component-registry');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const OUTPUT_PATH = path.join(REPO_ROOT, 'docs-guide', 'component-usage-map.json');
-const REGISTRY_PATH = path.join(REPO_ROOT, 'docs-guide', 'component-registry.json');
-
-function isPublishedDocsPath(filePath) {
-  return !/^v2(?:\/(?:cn|es|fr))?\/x-(archived|deprecated|experimental|notes)\//.test(
-    String(filePath || '').trim()
-  );
-}
 
 function usage() {
   console.log(
@@ -64,66 +59,59 @@ function parseArgs(argv) {
   return args;
 }
 
-function sortStrings(values) {
-  return [...new Set(values)].sort((left, right) =>
-    left.localeCompare(right, 'en', { sensitivity: 'base' })
-  );
-}
-
-function readRegistry() {
-  if (fs.existsSync(REGISTRY_PATH)) {
-    return JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf8'));
-  }
-
-  return buildRegistry().registry;
-}
-
-function collectDeclaredUsage() {
-  const usage = new Map();
-
+function collectComponentInventory() {
+  const inventory = [];
   getComponentFiles().forEach((file) => {
     extractExports(file.displayPath).forEach((entry) => {
-      if (!entry.jsDocBlock) return;
-      const parsed = parseJSDocBlock(entry.jsDocBlock);
-      usage.set(
-        entry.name,
-        sortStrings(
-          String(parsed.usedIn || '')
-            .split(',')
-            .map((value) => value.trim())
-            .filter((value) => value && value.toLowerCase() !== 'none' && isPublishedDocsPath(value))
-        )
-      );
+      const parsed = entry.jsDocBlock ? parseJSDocBlock(entry.jsDocBlock) : null;
+      inventory.push({
+        name: entry.name,
+        file: file.displayPath,
+        category: parsed?.category || getCategoryFromPath(file.displayPath),
+        declaredUsedIn: normalizeCsvField(parsed?.usedIn || '', { publishedOnly: true }),
+        declaredUsedInEnglish: normalizeCsvField(parsed?.usedIn || '', {
+          publishedOnly: true,
+          englishOnly: true
+        })
+      });
     });
   });
 
-  return usage;
+  return inventory.sort((left, right) => {
+    if (left.category !== right.category) {
+      return left.category.localeCompare(right.category, 'en', { sensitivity: 'base' });
+    }
+    if (left.name !== right.name) {
+      return left.name.localeCompare(right.name, 'en', { sensitivity: 'base' });
+    }
+    return left.file.localeCompare(right.file, 'en', { sensitivity: 'base' });
+  });
 }
 
 function buildUsageMap() {
-  const registry = readRegistry();
-  const liveImports = scanMDXImports('v2/**/*.mdx');
-  const declaredUsage = collectDeclaredUsage();
+  const inventory = collectComponentInventory();
+  const liveImports = scanMDXImports('v2/**/*.mdx', { publishedOnly: true });
 
-  const components = registry.components.map((component) => {
-    const actual = liveImports.get(component.name) || {
-      pages: [],
-      count: 0,
-      localeBreakdown: { en: 0, es: 0, fr: 0, cn: 0, other: 0 }
-    };
-    const actualPages = sortStrings(actual.pages);
-    const declaredPages = declaredUsage.get(component.name) || [];
-    const missingFromJsDoc = actualPages.filter((page) => !declaredPages.includes(page));
-    const staleInJsDoc = declaredPages.filter((page) => !actualPages.includes(page));
+  const components = inventory.map((component) => {
+    const usage = buildComponentUsageSummary(liveImports, component.name);
+    const missingFromJsDoc = usage.englishCanonicalPages.filter(
+      (page) => !component.declaredUsedInEnglish.includes(page)
+    );
+    const staleInJsDoc = component.declaredUsedInEnglish.filter(
+      (page) => !usage.englishCanonicalPages.includes(page)
+    );
 
     return {
       name: component.name,
       file: component.file,
       category: component.category,
-      count: actual.count,
-      pages: actualPages,
-      localeBreakdown: actual.localeBreakdown,
-      declaredUsedIn: declaredPages,
+      count: usage.count,
+      pages: usage.pages,
+      localeBreakdown: usage.localeBreakdown,
+      englishCanonicalCount: usage.englishCanonicalCount,
+      englishCanonicalPages: usage.englishCanonicalPages,
+      declaredUsedIn: component.declaredUsedIn,
+      declaredUsedInEnglish: component.declaredUsedInEnglish,
       drift: {
         missingFromJsDoc,
         staleInJsDoc
@@ -166,7 +154,8 @@ function buildUsageMap() {
       _meta: {
         generated: new Date().toISOString(),
         generator: 'tools/scripts/scan-component-imports.js',
-        componentCount: components.length
+        componentCount: inventory.length,
+        canonicalUsagePolicy: 'english-only-jsdoc'
       },
       components,
       orphaned,
@@ -197,20 +186,24 @@ function run(argv = process.argv.slice(2)) {
   console.log(`Wrote ${path.relative(REPO_ROOT, OUTPUT_PATH)}`);
 
   if (args.verify && drift.length > 0) {
-    console.error('❌ @usedIn drift detected:');
+    console.error('❌ English-canonical @usedIn drift detected:');
     drift.forEach((entry) => {
       if (entry.missingFromJsDoc.length > 0) {
-        console.error(`- ${entry.file} :: ${entry.name} missing from @usedIn: ${entry.missingFromJsDoc.join(', ')}`);
+        console.error(
+          `- ${entry.file} :: ${entry.name} missing from @usedIn: ${entry.missingFromJsDoc.join(', ')}`
+        );
       }
       if (entry.staleInJsDoc.length > 0) {
-        console.error(`- ${entry.file} :: ${entry.name} stale @usedIn entries: ${entry.staleInJsDoc.join(', ')}`);
+        console.error(
+          `- ${entry.file} :: ${entry.name} stale @usedIn entries: ${entry.staleInJsDoc.join(', ')}`
+        );
       }
     });
     return 1;
   }
 
   if (args.verify) {
-    console.log('No @usedIn drift detected.');
+    console.log('No English-canonical @usedIn drift detected.');
   }
 
   return 0;
@@ -222,6 +215,7 @@ if (require.main === module) {
 
 module.exports = {
   buildUsageMap,
+  collectComponentInventory,
   parseArgs,
   run
 };
