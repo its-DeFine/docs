@@ -14,7 +14,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
-const yaml = require('js-yaml');
+const yaml = require('../../lib/load-js-yaml');
 
 const LOCK_DIR_REL = '.codex/locks-local';
 const DEFAULT_CONTRACT = '.codex/task-contract.yaml';
@@ -160,6 +160,7 @@ function main() {
   }
 
   console.log(`✅ Released ${releasedCount} lock(s) for ${args.lockId ? `lock_id=${args.lockId}` : branch}`);
+  console.log(`ℹ️  Next step: node tools/scripts/codex/task-cleanup.js --branch ${branch} --apply`);
 }
 
 if (require.main === module) {

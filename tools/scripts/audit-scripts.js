@@ -25,7 +25,7 @@ const {
 let yaml = null
 try {
   // Optional dependency; parser falls back to text heuristics if unavailable.
-  yaml = require('js-yaml')
+  yaml = require('../lib/load-js-yaml')
 } catch (_err) {
   yaml = null
 }

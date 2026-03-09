@@ -26,6 +26,8 @@
 | `tools/lib/docs-usefulness/rule-evaluators.js` | Evaluates individual rubric rules against page content. | `const { evaluateRule } = require('../lib/docs-usefulness/rule-evaluators');` | docs |
 | `tools/lib/docs-usefulness/scoring.js` | Aggregates rule scores into a final usefulness score per page. | `const { score } = require('../lib/docs-usefulness/scoring');` | docs |
 | `tools/lib/generated-file-banners.js` | Generated file banner template — provides standard banner text for auto-generated files | `node tools/lib/generated-file-banners.js [flags]` | docs |
+| `tools/lib/load-js-yaml.js` | YAML loader utility — resolves js-yaml from repo-local installs and falls back to a minimal parser for task-contract style files in bare worktrees | `node -e "require('./tools/lib/load-js-yaml')"` | docs |
+| `tools/lib/load-minimatch.js` | Glob matcher loader — resolves minimatch from repo-local installs and falls back to a simple glob matcher for bare worktrees | `node -e "require('./tools/lib/load-minimatch')"` | docs |
 | `tools/lib/mdx-safe-markdown.js` | Shared MDX-safe markdown helpers that collect first-party markdown files, detect unsafe patterns, and apply deterministic repairs. | `node tools/lib/mdx-safe-markdown.js [flags]` | docs |
 | `tools/lib/script-governance-config.js` | Shared governance constants for script discovery, indexing, classification, and pipeline normalisation across the repo. | `const config = require('../lib/script-governance-config');` | docs |
 | `tools/lib/script-header-utils.js` | Shared helpers for extracting and reading top-of-file script governance headers without scanning into executable source. | `const { extractLeadingScriptHeader } = require('../lib/script-header-utils');` | docs |

@@ -139,7 +139,10 @@ function main() {
   }
 
   console.log('✅ Codex task finalize checks passed');
-  console.log('ℹ️  Next step: node tools/scripts/codex/lock-release.js');
+  console.log('ℹ️  Next steps:');
+  console.log(`  1. Merge ${branch} into ${args.baseRef || 'docs-v2'}`);
+  console.log(`  2. node tools/scripts/codex/lock-release.js --branch ${branch}`);
+  console.log(`  3. node tools/scripts/codex/task-cleanup.js --branch ${branch} --apply`);
 }
 
 if (require.main === module) {

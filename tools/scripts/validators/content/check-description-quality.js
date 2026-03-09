@@ -13,7 +13,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const yaml = require('js-yaml');
+const yaml = require('../../lib/load-js-yaml');
 
 const REPO_ROOT = path.resolve(__dirname, '../../../../');
 const DOCS_JSON_PATH = path.join(REPO_ROOT, 'docs.json');

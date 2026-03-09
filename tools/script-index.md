@@ -17,8 +17,9 @@
 | `tools/scripts/check-no-ai-stash.sh` | AI stash enforcer — blocks push if AI temporary/stash files are present in working tree | `bash tools/scripts/check-no-ai-stash.sh [flags]` | docs |
 | `tools/scripts/cleanup-quarantine-manager.js` | Quarantine manager — classifies files for quarantine (default) or applies quarantine moves (--apply) | `node tools/scripts/cleanup-quarantine-manager.js [flags]` | docs |
 | `tools/scripts/codex-commit.js` | Codex commit helper — audits codex branch state and generates compliant commit messages | `node tools/scripts/codex-commit.js [flags]` | docs |
-| `tools/scripts/codex-safe-merge-with-stash.js` | Codex merge utility — safely merges branches with stash handling to avoid codex conflicts | `node tools/scripts/codex-safe-merge-with-stash.js [flags]` | docs |
+| `tools/scripts/codex-safe-merge-with-stash.js` | Deprecated compatibility shim — blocks stash-based Codex merge flow and directs users to task-finalize, lock-release, and task-cleanup | `node tools/scripts/codex-safe-merge-with-stash.js [flags]` | docs |
 | `tools/scripts/codex/lock-release.js` | Codex lock release utility — releases stale codex lock files | `node tools/scripts/codex/lock-release.js [flags]` | docs |
+| `tools/scripts/codex/task-cleanup.js` | Codex task cleanup utility — reports and prunes merged clean worktrees plus stale local codex branches after merge | `node tools/scripts/codex/task-cleanup.js [flags]` | docs |
 | `tools/scripts/codex/task-finalize.js` | Codex task finaliser — enforces task completion requirements before closing | `node tools/scripts/codex/task-finalize.js [flags]` | docs |
 | `tools/scripts/codex/task-preflight.js` | Codex task preflight — generates task setup files and validates preconditions | `node tools/scripts/codex/task-preflight.js [flags]` | docs |
 | `tools/scripts/codex/validate-locks.js` | Codex lock validator — checks for stale or conflicting lock files before push | `node tools/scripts/codex/validate-locks.js [flags]` | docs |

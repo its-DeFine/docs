@@ -14,7 +14,7 @@
 
 const fs = require('fs');
 const path = require('path');
-const yaml = require('js-yaml');
+const yaml = require('../../tools/lib/load-js-yaml');
 const { execSync } = require('child_process');
 
 const FINDING_TYPES = {

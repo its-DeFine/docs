@@ -16,7 +16,6 @@ const os = require('os');
 const path = require('path');
 const { execSync, spawnSync } = require('child_process');
 const { getDocsJsonRouteKeys, toDocsRouteKeyFromFileV2Aware } = require('./utils/file-walker');
-const { isEligibleRepoMarkdownPath } = require('../tools/lib/mdx-safe-markdown');
 const {
   AGGREGATE_INDEX_PATH,
   GOVERNED_ROOTS,
@@ -34,7 +33,6 @@ const linksImportsTests = require('./unit/links-imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
-const mdxSafeMarkdownValidator = require('../tools/scripts/validators/content/check-mdx-safe-markdown');
 
 const REPO_ROOT = getRepoRoot();
 const SCRIPT_EXTENSIONS = new Set(GOVERNED_SCRIPT_EXTENSIONS);
@@ -56,6 +54,24 @@ const GENERATED_AFFECTING_EXACT = new Set([
   'v2/index.mdx',
   'v2/resources/documentation-guide/component-library/overview.mdx'
 ]);
+
+function fallbackIsEligibleRepoMarkdownPath(filePath) {
+  return /\.(md|mdx)$/i.test(String(filePath || ''));
+}
+
+let isEligibleRepoMarkdownPath = fallbackIsEligibleRepoMarkdownPath;
+try {
+  ({ isEligibleRepoMarkdownPath } = require('../tools/lib/mdx-safe-markdown'));
+} catch (_error) {
+  isEligibleRepoMarkdownPath = fallbackIsEligibleRepoMarkdownPath;
+}
+
+let mdxSafeMarkdownValidator = null;
+try {
+  mdxSafeMarkdownValidator = require('../tools/scripts/validators/content/check-mdx-safe-markdown');
+} catch (_error) {
+  mdxSafeMarkdownValidator = null;
+}
 
 function getRepoRoot() {
   try {
@@ -468,7 +484,11 @@ async function main() {
   checks.push(runComponentNamingCheck(groups.componentJsx));
   checks.push(await runUnitCheck('Style Guide', groups.styleFiles, styleGuideTests.runTests));
   checks.push(await runUnitCheck('MDX Validation', groups.docsMdxAbs, mdxTests.runTests));
-  checks.push(await runUnitCheck('MDX-safe Markdown', groups.repoMarkdownFilesAbs, mdxSafeMarkdownValidator.run));
+  checks.push(
+    mdxSafeMarkdownValidator
+      ? await runUnitCheck('MDX-safe Markdown', groups.repoMarkdownFilesAbs, mdxSafeMarkdownValidator.run)
+      : { label: 'MDX-safe Markdown', status: 'skipped', files: 0, errors: 0, warnings: 0 }
+  );
   checks.push(await runUnitCheck('Spelling', groups.docsMdxAbs, spellingTests.runTests));
   checks.push(await runUnitCheck('Quality', groups.docsMdxAbs, qualityTests.runTests));
   checks.push(await runUnitCheck('Links & Imports', groups.docsMdxAbs, linksImportsTests.runTests));

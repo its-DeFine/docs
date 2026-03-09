@@ -1,70 +1,45 @@
-task_id: 808
-branch: codex/808-governance-replay
+task_id: 20260310
+branch: codex/20260310-post-merge-cleanup-phase-recovered
 base_branch: docs-v2
 scope_in:
-  - .codex/locks-local/
+  - .codex/README.md
   - .codex/task-contract.yaml
-  - .github/scripts
+  - .githooks/README.md
   - docs-guide/indexes/scripts-index.mdx
-  - docs-guide/indexes/pages-index.mdx
-  - snippets/automations/script-index.md
-  - snippets/components/content/responseField.jsx
-  - snippets/components/layout/customCards.jsx
-  - snippets/components/layout/steps.jsx
   - tasks/reports/script-classifications.json
-  - tasks/scripts/script-index.md
-  - tests
-  - tools/config
-  - tools/lib
-  - tools/notion
-  - tools/package.json
+  - tests/integration/openapi-reference-audit.js
+  - tests/package.json
+  - tests/run-all.js
+  - tests/run-pr-checks.js
+  - tests/script-index.md
+  - tests/unit/codex-safe-merge-with-stash.test.js
+  - tests/utils/mdx-parser.js
+  - tools/lib/docs-usefulness/journey-check.js
+  - tools/lib/script-index.md
   - tools/script-index.md
-  - tools/scripts
-scope_out:
-  - tasks/reports/repo-ops/SCRIPT_INVENTORY_FULL.json
-  - tasks/reports/repo-ops/SCRIPT_INVENTORY_FULL.md
+  - tools/scripts/audit-scripts.js
+  - tools/scripts/codex-safe-merge-with-stash.js
+  - tools/scripts/codex/lock-release.js
+  - tools/scripts/codex/task-finalize.js
+  - tools/scripts/codex/task-preflight.js
+  - tools/scripts/codex/validate-locks.js
+  - tools/scripts/create-codex-pr.js
+  - tools/scripts/generate-docs-guide-indexes.js
+  - tools/scripts/generate-llms-files.js
+  - tools/scripts/sync-codex-skills.js
+  - tools/scripts/validate-codex-task-contract.js
+  - tools/scripts/validators/components/check-component-css.js
+  - tools/scripts/validators/content/check-description-quality.js
+  - tests/unit/codex-task-cleanup.test.js
+  - tests/unit/codex-task-preflight.test.js
+  - tools/lib/load-js-yaml.js
+  - tools/lib/load-minimatch.js
+  - tools/scripts/codex/task-cleanup.js
+scope_out: []
 allowed_generated:
   - .codex/pr-body.generated.md
-  - .github/script-index.md
-  - docs-guide/component-registry.json
-  - docs-guide/component-registry-schema.json
-  - docs-guide/indexes/components-index.mdx
-  - docs-guide/indexes/pages-index.mdx
-  - docs-guide/indexes/scripts-index.mdx
-  - docs-index.json
-  - snippets/automations/script-index.md
-  - tasks/scripts/script-index.md
-  - tests/script-index.md
-  - tools/config/script-index.md
-  - tools/lib/script-index.md
-  - tools/notion/script-index.md
-  - tools/script-index.md
-  - v2/about/index.mdx
-  - v2/cn/index.mdx
-  - v2/developers-new/index.mdx
-  - v2/es/index.mdx
-  - v2/fr/index.mdx
-  - v2/gateways/index.mdx
-  - v2/gateways-new/index.mdx
-  - v2/home/index.mdx
-  - v2/index.mdx
-  - v2/orchestrators/index.mdx
-  - v2/orchestrators-new/index.mdx
-  - v2/resources/documentation-guide/component-library/overview.mdx
-  - v2/x-archived/index.mdx
 acceptance_checks:
-  - >-
-    node tools/scripts/validate-codex-task-contract.js --branch
-    codex/808-governance-replay --validate-contract-only
-  - >-
-    node tools/scripts/validators/governance/audit-script-inventory.js --json --md
-    --output /tmp/pr808-script-audit
-  - node tests/unit/script-docs.test.js --enforce-existing --write --rebuild-indexes
   - node tests/run-pr-checks.js --base-ref docs-v2
-  - git diff --check
 risk_flags:
   - workflow-governance
-  - repo-governance
-  - generated-indexes
-follow_up_issues:
-  - 765
+follow_up_issues: []

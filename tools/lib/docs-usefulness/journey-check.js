@@ -11,7 +11,7 @@
  * @usage             const { checkJourney } = require('../lib/docs-usefulness/journey-check');
  */
 
-const { minimatch } = require('minimatch');
+const { minimatch } = require('../load-minimatch');
 const { loadJourneys } = require('./rubric-loader');
 
 function chooseBestPage(pages) {

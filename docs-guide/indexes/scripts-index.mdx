@@ -56,8 +56,10 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tests/run-all.js` | Test orchestrator — dispatches all unit test suites. Called by pre-commit hook and npm test. | `node tests/run-all.js [flags]` | docs |
 | `tests/run-pr-checks.js` | PR orchestrator — runs changed-file scoped validation checks for pull request CI. Dispatches per-file validators based on PR diff. | `node tests/run-pr-checks.js [flags]` | docs |
 | `tests/unit/codex-commit.test.js` | Tests codex-commit.js — validates commit message generation and contract compliance | `node tests/unit/codex-commit.test.js [flags]` | docs |
-| `tests/unit/codex-safe-merge-with-stash.test.js` | Tests codex-safe-merge-with-stash.js — validates safe merge logic with stash handling | `node tests/unit/codex-safe-merge-with-stash.test.js [flags]` | docs |
+| `tests/unit/codex-safe-merge-with-stash.test.js` | Tests codex-safe-merge-with-stash.js — asserts the deprecated stash helper hard-fails and points callers to the supported Codex lifecycle | `node tests/unit/codex-safe-merge-with-stash.test.js [flags]` | docs |
 | `tests/unit/codex-skill-sync.test.js` | Tests sync-codex-skills.js — validates skill file synchronisation between sources | `node tests/unit/codex-skill-sync.test.js [flags]` | docs |
+| `tests/unit/codex-task-cleanup.test.js` | Tests codex/task-cleanup.js — verifies safe worktree pruning, dirty-worktree preservation, branch pruning, and repo-root protection | `node tests/unit/codex-task-cleanup.test.js [flags]` | docs |
+| `tests/unit/codex-task-preflight.test.js` | Tests codex/task-preflight.js — verifies managed worktree default behavior and the explicit in-place override | `node tests/unit/codex-task-preflight.test.js [flags]` | docs |
 | `tests/unit/component-governance-generators.test.js` | Verifies component governance generators produce coherent registry, usage-map, and docs outputs. | `node tests/unit/component-governance-generators.test.js` | docs |
 | `tests/unit/component-governance-utils.test.js` | Verifies shared component governance utility parsing, scanning, and archive exclusion behavior. | `node tests/unit/component-governance-utils.test.js` | docs |
 | `tests/unit/components/TEMPLATE.test.js` | Template for category-scoped component unit tests. | `node tests/unit/components/TEMPLATE.test.js` | docs |
@@ -107,8 +109,9 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/scripts/check-no-ai-stash.sh` | AI stash enforcer — blocks push if AI temporary/stash files are present in working tree | `bash tools/scripts/check-no-ai-stash.sh [flags]` | docs |
 | `tools/scripts/cleanup-quarantine-manager.js` | Quarantine manager — classifies files for quarantine (default) or applies quarantine moves (--apply) | `node tools/scripts/cleanup-quarantine-manager.js [flags]` | docs |
 | `tools/scripts/codex-commit.js` | Codex commit helper — audits codex branch state and generates compliant commit messages | `node tools/scripts/codex-commit.js [flags]` | docs |
-| `tools/scripts/codex-safe-merge-with-stash.js` | Codex merge utility — safely merges branches with stash handling to avoid codex conflicts | `node tools/scripts/codex-safe-merge-with-stash.js [flags]` | docs |
+| `tools/scripts/codex-safe-merge-with-stash.js` | Deprecated compatibility shim — blocks stash-based Codex merge flow and directs users to task-finalize, lock-release, and task-cleanup | `node tools/scripts/codex-safe-merge-with-stash.js [flags]` | docs |
 | `tools/scripts/codex/lock-release.js` | Codex lock release utility — releases stale codex lock files | `node tools/scripts/codex/lock-release.js [flags]` | docs |
+| `tools/scripts/codex/task-cleanup.js` | Codex task cleanup utility — reports and prunes merged clean worktrees plus stale local codex branches after merge | `node tools/scripts/codex/task-cleanup.js [flags]` | docs |
 | `tools/scripts/codex/task-finalize.js` | Codex task finaliser — enforces task completion requirements before closing | `node tools/scripts/codex/task-finalize.js [flags]` | docs |
 | `tools/scripts/codex/task-preflight.js` | Codex task preflight — generates task setup files and validates preconditions | `node tools/scripts/codex/task-preflight.js [flags]` | docs |
 | `tools/scripts/codex/validate-locks.js` | Codex lock validator — checks for stale or conflicting lock files before push | `node tools/scripts/codex/validate-locks.js [flags]` | docs |
@@ -229,6 +232,8 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/lib/docs-usefulness/rule-evaluators.js` | Evaluates individual rubric rules against page content. | `const &#123; evaluateRule &#125; = require('../lib/docs-usefulness/rule-evaluators');` | docs |
 | `tools/lib/docs-usefulness/scoring.js` | Aggregates rule scores into a final usefulness score per page. | `const &#123; score &#125; = require('../lib/docs-usefulness/scoring');` | docs |
 | `tools/lib/generated-file-banners.js` | Generated file banner template — provides standard banner text for auto-generated files | `node tools/lib/generated-file-banners.js [flags]` | docs |
+| `tools/lib/load-js-yaml.js` | YAML loader utility — resolves js-yaml from repo-local installs and falls back to a minimal parser for task-contract style files in bare worktrees | `node -e "require('./tools/lib/load-js-yaml')"` | docs |
+| `tools/lib/load-minimatch.js` | Glob matcher loader — resolves minimatch from repo-local installs and falls back to a simple glob matcher for bare worktrees | `node -e "require('./tools/lib/load-minimatch')"` | docs |
 | `tools/lib/mdx-safe-markdown.js` | Shared MDX-safe markdown helpers that collect first-party markdown files, detect unsafe patterns, and apply deterministic repairs. | `node tools/lib/mdx-safe-markdown.js [flags]` | docs |
 | `tools/lib/script-governance-config.js` | Shared governance constants for script discovery, indexing, classification, and pipeline normalisation across the repo. | `const config = require('../lib/script-governance-config');` | docs |
 | `tools/lib/script-header-utils.js` | Shared helpers for extracting and reading top-of-file script governance headers without scanning into executable source. | `const &#123; extractLeadingScriptHeader &#125; = require('../lib/script-header-utils');` | docs |

@@ -19,6 +19,7 @@ const { spawnSync } = require('child_process');
 const DEFAULT_BASE = 'docs-v2';
 const DEFAULT_CONTRACT = '.codex/task-contract.yaml';
 const LOCK_DIR_REL = '.codex/locks-local';
+const DEFAULT_WORKTREE_ROOT = 'codex-worktrees';
 
 const REPO_ROOT = getRepoRoot();
 
@@ -70,6 +71,7 @@ function parseArgs(argv) {
     scopeFile: '',
     owner: `${process.env.USER || 'unknown'}@${os.hostname()}`,
     worktree: '',
+    inPlace: false,
     expiresHours: 8,
     contractPath: DEFAULT_CONTRACT,
     dryRun: false
@@ -148,6 +150,10 @@ function parseArgs(argv) {
       args.worktree = token.slice('--worktree='.length).trim();
       continue;
     }
+    if (token === '--in-place') {
+      args.inPlace = true;
+      continue;
+    }
     if (token === '--expires-hours') {
       args.expiresHours = Number(argv[i + 1]);
       i += 1;
@@ -182,7 +188,7 @@ function parseArgs(argv) {
 }
 
 function usage() {
-  console.log('Usage: node tools/scripts/codex/task-preflight.js --task <id> --slug <slug> (--scope <a,b,c> | --scope-file <path>) [--base docs-v2] [--worktree <path>] [--dry-run]');
+  console.log('Usage: node tools/scripts/codex/task-preflight.js --task <id> --slug <slug> (--scope <a,b,c> | --scope-file <path>) [--base docs-v2] [--worktree <path> | --in-place] [--dry-run]');
 }
 
 function readScopeFromFile(scopeFile) {
@@ -228,8 +234,31 @@ function writeLock(lockDirAbs, lock) {
   return lockPath;
 }
 
+function releasePriorBranchLocks(lockDirAbs, branch, releasedAt) {
+  if (!fs.existsSync(lockDirAbs)) return;
+
+  fs.readdirSync(lockDirAbs, { withFileTypes: true }).forEach((entry) => {
+    if (!entry.isFile() || !entry.name.endsWith('.json')) return;
+    const abs = path.join(lockDirAbs, entry.name);
+    try {
+      const parsed = JSON.parse(fs.readFileSync(abs, 'utf8'));
+      if (String(parsed.branch || '') !== branch) return;
+      if (String(parsed.status || '').trim() !== 'active') return;
+      parsed.status = 'released';
+      parsed.released_at = releasedAt;
+      fs.writeFileSync(abs, `${JSON.stringify(parsed, null, 2)}\n`, 'utf8');
+    } catch (_error) {
+      // Leave malformed lock files untouched; validate-locks will surface them.
+    }
+  });
+}
+
 function branchExists(branch) {
   return Boolean(tryRunGit(['rev-parse', '--verify', `refs/heads/${branch}`]));
+}
+
+function getDefaultWorktreePath(taskId, slug) {
+  return path.join(path.dirname(REPO_ROOT), DEFAULT_WORKTREE_ROOT, `${taskId}-${slug}`);
 }
 
 function main() {
@@ -252,24 +281,30 @@ function main() {
     throw new Error('--expires-hours must be a positive number');
   }
 
-  const scope = [...new Set([...args.scope, ...readScopeFromFile(args.scopeFile)])];
+  if (args.inPlace && args.worktree) {
+    throw new Error('--in-place cannot be combined with --worktree');
+  }
+
+  const scope = [...new Set([...args.scope, ...readScopeFromFile(args.scopeFile), toPosix(args.contractPath)])];
   if (scope.length === 0) {
     throw new Error('At least one scope entry is required via --scope or --scope-file');
   }
 
   const branch = `codex/${args.taskId}-${slug}`;
-  const contractAbs = path.resolve(REPO_ROOT, args.contractPath);
-  const lockDirAbs = path.join(REPO_ROOT, LOCK_DIR_REL);
   const now = new Date();
   const expiresAt = new Date(now.getTime() + args.expiresHours * 60 * 60 * 1000);
   const lockId = `${args.taskId}-${slug}-${now.toISOString().replace(/[:.]/g, '-')}`;
-  const worktreePath = args.worktree
+  const requestedWorktreePath = args.worktree
     ? path.resolve(REPO_ROOT, args.worktree)
-    : path.resolve(REPO_ROOT);
+    : getDefaultWorktreePath(args.taskId, slug);
+  const worktreePath = args.inPlace ? path.resolve(REPO_ROOT) : requestedWorktreePath;
+  const contractRoot = worktreePath;
+  const contractAbs = path.resolve(contractRoot, args.contractPath);
+  const lockDirAbs = path.join(contractRoot, LOCK_DIR_REL);
 
   const actions = [];
 
-  if (args.worktree) {
+  if (!args.inPlace) {
     if (!fs.existsSync(worktreePath)) {
       if (branchExists(branch)) {
         actions.push({ type: 'git', cmd: ['worktree', 'add', worktreePath, branch] });
@@ -290,8 +325,9 @@ function main() {
     actions.forEach((action) => {
       console.log(`  git ${action.cmd.join(' ')}`);
     });
-    console.log(`  write ${toPosix(path.relative(REPO_ROOT, contractAbs))}`);
-    console.log(`  write ${toPosix(path.join(LOCK_DIR_REL, `${lockId}.json`))}`);
+    console.log(`  write ${toPosix(contractAbs)}`);
+    console.log(`  write ${toPosix(path.join(lockDirAbs, `${lockId}.json`))}`);
+    console.log(`  worktree ${toPosix(worktreePath)}`);
     process.exit(0);
   }
 
@@ -305,6 +341,8 @@ function main() {
     base: args.base,
     scope
   });
+
+  releasePriorBranchLocks(lockDirAbs, branch, now.toISOString());
 
   const lockPath = writeLock(lockDirAbs, {
     lock_id: lockId,
@@ -320,8 +358,9 @@ function main() {
 
   console.log('✅ Codex preflight completed');
   console.log(`Branch: ${branch}`);
-  console.log(`Contract: ${toPosix(path.relative(REPO_ROOT, contractAbs))}`);
-  console.log(`Lock: ${toPosix(path.relative(REPO_ROOT, lockPath))}`);
+  console.log(`Worktree: ${toPosix(worktreePath)}`);
+  console.log(`Contract: ${toPosix(contractAbs)}`);
+  console.log(`Lock: ${toPosix(lockPath)}`);
 }
 
 if (require.main === module) {

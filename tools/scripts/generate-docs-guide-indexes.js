@@ -22,7 +22,7 @@ const {
 
 let yaml = null;
 try {
-  yaml = require('js-yaml');
+  yaml = require('../lib/load-js-yaml');
 } catch (_err) {
   yaml = null;
 }
