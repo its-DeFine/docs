@@ -14,7 +14,16 @@
  * Main test runner - orchestrates all test suites
  */
 const { spawnSync } = require('child_process');
+const Module = require('module');
 const path = require('path');
+
+const TESTS_NODE_MODULES = path.resolve(__dirname, 'node_modules');
+if (!Module.globalPaths.includes(TESTS_NODE_MODULES)) {
+  process.env.NODE_PATH = [TESTS_NODE_MODULES, process.env.NODE_PATH || '']
+    .filter(Boolean)
+    .join(path.delimiter);
+  Module._initPaths();
+}
 
 const styleGuideTests = require('./unit/style-guide.test');
 const mdxTests = require('./unit/mdx.test');
@@ -132,6 +141,18 @@ async function runAllTests() {
   if (usefulnessJourneyCheck.status !== 0) totalErrors += 1;
   const usefulnessFailures = (usefulnessRubricCheck.status === 0 ? 0 : 1) + (usefulnessJourneyCheck.status === 0 ? 0 : 1);
   console.log(`   ${usefulnessFailures} errors, 0 warnings`);
+
+  // Asset Migration Remediator Unit Tests
+  console.log('\n📦 Running Asset Migration Remediator Unit Tests...');
+  const migrateAssetsCheck = spawnSync(
+    'node',
+    ['tests/unit/migrate-assets-to-branch.test.js'],
+    { cwd: REPO_ROOT, encoding: 'utf8' }
+  );
+  if (migrateAssetsCheck.stdout) process.stdout.write(migrateAssetsCheck.stdout);
+  if (migrateAssetsCheck.stderr) process.stderr.write(migrateAssetsCheck.stderr);
+  if (migrateAssetsCheck.status !== 0) totalErrors += 1;
+  console.log(`   ${migrateAssetsCheck.status === 0 ? 0 : 1} errors, 0 warnings`);
 
   // Pages Index Sync Validation
   console.log('\n🗂️  Running Pages Index Sync Validation...');

@@ -370,6 +370,16 @@
     "dualmode": ""
   },
   {
+    "path": "tests/unit/migrate-assets-to-branch.test.js",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tests/unit, tools/scripts/remediators/assets, tools/scripts/audit-media-assets.js",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Unit tests for migrate-assets-to-branch.js — validates CLI defaults, ambiguous basename detection, deterministic rewrites, and end-to-end branch migration in a temp git repo",
+    "pipeline": "manual — not yet in pipeline",
+    "dualmode": "--dry-run (validator) | --write (remediator)"
+  },
+  {
     "path": "tests/unit/openapi-reference-audit.test.js",
     "category": "validator",
     "purpose": "tooling:api-spec",
@@ -1288,6 +1298,16 @@
     "purpose_statement": "Report publisher \u2014 publishes v2 internal audit reports to configured output locations",
     "pipeline": "manual \u2014 not yet in pipeline",
     "dualmode": ""
+  },
+  {
+    "path": "tools/scripts/remediators/assets/migrate-assets-to-branch.js",
+    "category": "remediator",
+    "purpose": "governance:repo-health",
+    "scope": "full-repo",
+    "needs": "R-R14",
+    "purpose_statement": "Reads the media-audit manifest, migrates flagged assets to docs-v2-assets, rewrites MDX/JSX references to raw GitHub URLs, and removes local files after successful repair steps.",
+    "pipeline": "P6 (on-demand)",
+    "dualmode": "--dry-run (show what would change) | --write (execute migration)"
   },
   {
     "path": "tools/scripts/remediators/content/repair-spelling.js",

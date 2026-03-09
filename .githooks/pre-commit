@@ -349,7 +349,7 @@ should_enforce_ai_stash_policy() {
     return 1
 }
 
-allow_manifest_migrate_r2_deletions() {
+allow_manifest_migrate_asset_deletions() {
     local deleted_files="$1"
     local manifest_path="tasks/reports/media-audit/media-audit-manifest.json"
 
@@ -383,7 +383,7 @@ try {
 const assets = Array.isArray(manifest && manifest.assets) ? manifest.assets : [];
 const allowed = new Set(
   assets
-    .filter((asset) => asset && asset.migration_target === 'migrate_r2')
+    .filter((asset) => asset && typeof asset.migration_target === 'string' && asset.migration_target.startsWith('migrate_'))
     .map((asset) => String(asset.path || '').trim())
     .filter(Boolean)
 );
@@ -443,7 +443,7 @@ if [ -n "$DELETED_FILES" ]; then
         echo ""
     fi
 
-    if [ -n "$BLOCKED_DELETED_FILES" ] && allow_manifest_migrate_r2_deletions "$BLOCKED_DELETED_FILES"; then
+    if [ -n "$BLOCKED_DELETED_FILES" ] && allow_manifest_migrate_asset_deletions "$BLOCKED_DELETED_FILES"; then
         ALLOWED_MANIFEST_DELETIONS="$BLOCKED_DELETED_FILES"
         BLOCKED_DELETED_FILES=""
         DELETED_FILES=""
@@ -479,7 +479,7 @@ if [ -n "$DELETED_FILES" ]; then
             echo ""
         fi
         if [ -n "$ALLOWED_MANIFEST_DELETIONS" ]; then
-            echo -e "${GREEN}ℹ️  Manifest-approved migrate_r2 asset deletions are exempt from this block on codex branches.${NC}"
+            echo -e "${GREEN}ℹ️  Manifest-approved migrate_* asset deletions are exempt from this block on codex branches.${NC}"
             echo ""
         fi
         echo -e "${YELLOW}📋 INSTRUCTIONS FOR AI AGENTS:${NC}"

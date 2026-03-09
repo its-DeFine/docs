@@ -66,6 +66,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tests/unit/lpd-scoped-mint-dev.test.js` | Tests lpd scoped mint-dev functionality — validates dev server scope filtering | `node tests/unit/lpd-scoped-mint-dev.test.js [flags]` | docs |
 | `tests/unit/mdx-guards.test.js` | Enforces MDX guardrails — globals imports, math delimiters, markdown table line breaks | `node tests/unit/mdx-guards.test.js [flags]` | docs |
 | `tests/unit/mdx.test.js` | Validates MDX syntax and structure — checks for parse errors, invalid JSX, broken components | `node tests/unit/mdx.test.js [flags]` | docs |
+| `tests/unit/migrate-assets-to-branch.test.js` | Unit tests for migrate-assets-to-branch.js — validates CLI defaults, ambiguous basename detection, deterministic rewrites, and end-to-end branch migration in a temp git repo | `node tests/unit/migrate-assets-to-branch.test.js` | docs |
 | `tests/unit/openapi-reference-audit.test.js` | Unit tests for openapi-reference-audit.js — tests individual audit rules and fix logic | `node tests/unit/openapi-reference-audit.test.js [flags]` | docs |
 | `tests/unit/openapi-rolling-issue.test.js` | Tests OpenAPI rolling issue tracker — validates issue creation and dedup logic | `node tests/unit/openapi-rolling-issue.test.js [flags]` | docs |
 | `tests/unit/quality.test.js` | Content quality checks — validates frontmatter completeness, thin content detection, placeholder flagging | `node tests/unit/quality.test.js [flags]` | docs |
@@ -165,6 +166,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/scripts/mint-dev.sh` | Mintlify dev server launcher — starts mint dev with correct configuration | `bash tools/scripts/mint-dev.sh [flags]` | docs |
 | `tools/scripts/new-script.js` | ' + params.summary, | `node tools/scripts/new-script.js [flags]` | docs |
 | `tools/scripts/publish-v2-internal-reports.js` | Report publisher — publishes v2 internal audit reports to configured output locations | `node tools/scripts/publish-v2-internal-reports.js [flags]` | docs |
+| `tools/scripts/remediators/assets/migrate-assets-to-branch.js` | Reads the media-audit manifest and migrates flagged assets to the | `node tools/scripts/remediators/assets/migrate-assets-to-branch.js \` | docs |
 | `tools/scripts/remediators/content/repair-spelling.js` | Auto-corrects spelling errors using the shared cspell configuration. Safe, dictionary-based corrections only. | `node tools/scripts/remediators/content/repair-spelling.js --dry-run` | docs |
 | `tools/scripts/repo-audit-orchestrator.js` | Repo audit orchestrator — dispatches all static analysis validators in sequence. Supports --mode (static/full), --scope (full/changed), --quarantine, --agent-pack. | `node tools/scripts/repo-audit-orchestrator.js [flags]` | docs |
 | `tools/scripts/script-footprint-and-usage-audit.js` | Script footprint auditor — analyses script file sizes, dependencies, and usage patterns across the repo | `node tools/scripts/script-footprint-and-usage-audit.js [flags]` | docs |

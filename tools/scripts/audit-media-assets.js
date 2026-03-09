@@ -983,9 +983,28 @@ function main() {
   console.log(`Scanned ${assetsResult.rows.length} assets and ${sourceFiles.length} source files`)
 }
 
-try {
-  main()
-} catch (error) {
-  console.error(error.message)
-  process.exit(1)
+if (require.main === module) {
+  try {
+    main()
+  } catch (error) {
+    console.error(error.message)
+    process.exit(1)
+  }
+}
+
+module.exports = {
+  DEFAULT_ASSETS_BRANCH_REF,
+  DEFAULT_MANIFEST_PATH,
+  DEFAULT_SUMMARY_PATH,
+  RAW_ASSET_BRANCH_NAMES,
+  absoluteFromRepoPath,
+  buildRawGitHubRegex,
+  buildTokenSet,
+  ensureGitRef,
+  escapeRegExp,
+  normalizeRepoPath,
+  parseLsTree,
+  readFileUtf8,
+  runCommand,
+  uniqueSorted,
 }
