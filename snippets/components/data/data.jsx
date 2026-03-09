@@ -1,32 +1,39 @@
 /**
  * @component BlogCard
  * @category data
- * @tier composite
+ * @tier pattern
  * @status stable
- * @description Blog Card data-driven component for rendering automated or API-backed documentation content.
- * @contentAffinity overview, reference
- * @owner docs
- * @dependencies CardBlogDataLayout, CardColumnsPostLayout, DiscordAnnouncements, LumaEvents, PostCard
- * @usedIn v2/cn/community/livepeer-community/livepeer-latest-topics.mdx, v2/cn/community/livepeer-community/trending-topics.mdx, v2/community/livepeer-community/trending-topics.mdx, v2/es/community/livepeer-community/livepeer-latest-topics.mdx, v2/es/community/livepeer-community/trending-topics.mdx, v2/fr/community/livepeer-community/livepeer-latest-topics.mdx, v2/fr/community/livepeer-community/trending-topics.mdx, v2/x-archived/home/trending.mdx
- * @breakingChangeRisk medium
+ * @description Similar to PostCard but optimized for blog content with reading time and excerpt
+ *   support. Includes automatic scroll detection for long content
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies CardBlogDataLayout, ColumnsBlogCardLayout, PostCard
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/trending.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/snippets-inventory.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
- * @dataSource automationData/blog
+ * @dataSource /snippets/automations/discord/discordAnnouncementsData.jsx
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
- * @param {any} title - title prop.
- * @param {any} content - content prop.
- * @param {any} href - href prop.
- * @param {string} [author="Livepeer Team"] - author prop.
- * @param {any} [datePosted=null] - date Posted prop.
- * @param {any} [excerpt=null] - excerpt prop.
- * @param {any} [readingTime=null] - reading Time prop.
- * @param {string} [icon="book-open"] - icon prop.
- * @param {string} [authorIcon="user-pen"] - author Icon prop.
- * @param {string} [dateIcon="calendar"] - date Icon prop.
- * @param {string} [cta="Read More"] - cta prop.
- * @param {any} [img=null] - img prop.
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} title - Title text rendered by the component.
+ * @param {React.ReactNode} content - Primary content rendered by the component.
+ * @param {string} href - Destination URL used by the component.
+ * @param {string} [author="Livepeer Team"] - Author used by the component.
+ * @param {string} [datePosted=null] - Date posted used by the component.
+ * @param {string} [excerpt=null] - Primary content rendered by the component.
+ * @param {string} [readingTime=null] - Reading time used by the component.
+ * @param {string} [icon="book-open"] - Icon configuration used by the component.
+ * @param {string} [authorIcon="user-pen"] - Author icon used by the component.
+ * @param {string} [dateIcon="calendar"] - Date icon used by the component.
+ * @param {string} [cta="Read More"] - Cta used by the component.
+ * @param {string} [img=null] - Asset or embed source used by the component.
+ *
  * @example
- * <BlogCard title="example" content="example" />
+ * <BlogCard title="Example" content="Example" href="/example" />
  */
 export const BlogCard = ({
   title,
@@ -183,29 +190,52 @@ export const BlogCard = ({
 };
 
 /**
+ * CardBlogDataLayout - Layout component for displaying multiple BlogCards
+ *
+ * @description
+ * Renders an array of blog items as BlogCard components in a vertical layout.
+ *
+ * @param {Array<Object>} [items=[]] - Array of BlogCard props objects
+ *
+ * @example
+ * const blogPosts = [
+ *   { title: "Blog 1", content: "...", href: "/blog/post-1", readingTime: 5 },
+ *   { title: "Blog 2", content: "...", href: "/blog/post-2", readingTime: 3 }
+ * ];
+ * <CardBlogDataLayout items={blogPosts} />
+ *
+ * @author Livepeer Documentation Team
+ */
+/**
  * @component CardBlogDataLayout
  * @category data
- * @tier composite
+ * @tier pattern
  * @status stable
- * @description Card Blog Data Layout data-driven component for rendering automated or API-backed documentation content.
- * @contentAffinity overview, reference
- * @owner docs
- * @dependencies BlogCard, CardColumnsPostLayout, DiscordAnnouncements, LumaEvents, PostCard
- * @usedIn v2/cn/community/livepeer-community/livepeer-latest-topics.mdx, v2/cn/community/livepeer-community/trending-topics.mdx, v2/community/livepeer-community/trending-topics.mdx, v2/es/community/livepeer-community/livepeer-latest-topics.mdx, v2/es/community/livepeer-community/trending-topics.mdx, v2/fr/community/livepeer-community/livepeer-latest-topics.mdx, v2/fr/community/livepeer-community/trending-topics.mdx, v2/x-archived/home/trending.mdx
- * @breakingChangeRisk medium
+ * @description Renders an array of blog items as BlogCard components in a vertical layout
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies BlogCard, ColumnsBlogCardLayout, PostCard
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/trending.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
- * @dataSource automationData/blog
- * @duplicates none
- * @lastMeaningfulChange 2026-03-09
- * @param {Array} [items=[]] - items prop.
- * @param {any} limit - limit prop.
+ * @dataSource /snippets/automations/discord/discordAnnouncementsData.jsx
+ * @duplicates BlogDataLayout
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {Array} [items=[]] - Collection data rendered by the component.
+ * @param {number} limit - Limit used by the component.
+ *
  * @example
  * <CardBlogDataLayout limit={1} />
  */
 export const CardBlogDataLayout = ({ items = [], limit }) => {
-  console.debug("items", items);
-  const displayItems = limit ? items.slice(0, limit) : items;
-  if (!displayItems || displayItems.length === 0) {
+  const safeItems = Array.isArray(items) ? items : [];
+  const displayItems = limit ? safeItems.slice(0, limit) : safeItems;
+
+  if (displayItems.length === 0) {
     return (
       <Note>
         <p style={{ color: "var(--text-secondary)", textAlign: "center" }}>
@@ -217,7 +247,7 @@ export const CardBlogDataLayout = ({ items = [], limit }) => {
   return (
     <div>
       {displayItems.map((props, idx) => (
-        <BlogCard key={props.href || idx} {...props} />
+        <BlogCard key={props?.href || idx} {...props} />
       ))}
     </div>
   );
@@ -226,96 +256,115 @@ export const CardBlogDataLayout = ({ items = [], limit }) => {
 /**
  * @component ColumnsBlogCardLayout
  * @category data
- * @tier composite
+ * @tier pattern
  * @status stable
- * @description Columns Blog Card Layout data-driven component for rendering automated or API-backed documentation content.
- * @contentAffinity overview, reference
- * @owner docs
- * @dependencies BlogCard, CardBlogDataLayout, CardColumnsPostLayout, DiscordAnnouncements, LumaEvents, PostCard
- * @usedIn v2/cn/community/livepeer-community/livepeer-latest-topics.mdx, v2/cn/community/livepeer-community/trending-topics.mdx, v2/community/livepeer-community/trending-topics.mdx, v2/es/community/livepeer-community/livepeer-latest-topics.mdx, v2/es/community/livepeer-community/trending-topics.mdx, v2/fr/community/livepeer-community/livepeer-latest-topics.mdx, v2/fr/community/livepeer-community/trending-topics.mdx, v2/x-archived/home/trending.mdx
- * @breakingChangeRisk medium
+ * @description Renders the columns blog card layout component
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies BlogCard, PostCard
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/trending.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
- * @dataSource automationData/blog
+ * @dataSource /snippets/automations/discord/discordAnnouncementsData.jsx
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
- * @param {Array} [items=[]] - items prop.
- * @param {number} [cols=2] - cols prop.
- * @param {any} limit - limit prop.
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {Array} [items=[]] - Collection data rendered by the component.
+ * @param {number} [cols=2] - Cols used by the component.
+ * @param {number} limit - Limit used by the component.
+ *
  * @example
  * <ColumnsBlogCardLayout limit={1} />
  */
 export const ColumnsBlogCardLayout = ({ items = [], cols = 2, limit }) => {
-  console.debug("items", items);
-  const displayItems = limit ? items.slice(0, limit) : items;
+  const safeItems = Array.isArray(items) ? items : [];
+  const displayItems = limit ? safeItems.slice(0, limit) : safeItems;
+
+  if (displayItems.length === 0) {
+    return null;
+  }
+
   return (
     <Columns cols={cols}>
       {displayItems.map((props, idx) => (
-        <BlogCard key={props.href || idx} {...props} />
+        <BlogCard key={props?.href || idx} {...props} />
       ))}
     </Columns>
   );
 };
 
-/**
- * @component BlogDataLayout
- * @category data
- * @tier composite
- * @status stable
- * @description Blog Data Layout data-driven component for rendering automated or API-backed documentation content.
- * @contentAffinity overview, reference
- * @owner docs
- * @dependencies BlogCard, CardBlogDataLayout, CardColumnsPostLayout, DiscordAnnouncements, LumaEvents, PostCard
- * @usedIn none
- * @breakingChangeRisk medium
- * @decision KEEP
- * @dataSource automationData/blog
- * @duplicates none
- * @lastMeaningfulChange 2026-03-09
- * @param {Array} [items=[]] - items prop.
- * @param {any} limit - limit prop.
- * @example
- * <BlogDataLayout limit={1} />
- */
-export const BlogDataLayout = ({ items = [], limit }) => {
-  console.debug("blogdata items", items);
-  const displayItems = limit ? items.slice(0, limit) : items;
-  return (
-    <div>
-      {displayItems.map((props, idx) => (
-        <BlogCard key={props.href || idx} {...props} />
-      ))}
-    </div>
-  );
-};
+// ARCHIVED: duplicate of CardBlogDataLayout - see tasks/reports/archived-components-review.md
+// export const BlogDataLayout = ({ items = [], limit }) => (
+//   <CardBlogDataLayout items={items} limit={limit} />
+// );
 
+/**
+ * PostCard - A card component for displaying forum posts or articles
+ *
+ * @description
+ * Displays a post with title, content, author, date, and optional metadata.
+ * Includes automatic scroll detection and hints for long content.
+ *
+ * @param {string} title - The title of the post
+ * @param {string} content - HTML content to display (rendered with dangerouslySetInnerHTML)
+ * @param {string} href - Link URL for the card
+ * @param {string} [author="Unknown"] - Author name
+ * @param {string} [datePosted=null] - Date the post was published
+ * @param {number} [replyCount=null] - Number of replies (currently unused)
+ * @param {string} [icon="book-open"] - Icon to display on the card
+ * @param {string} [authorIcon="user-pen"] - Icon for the author section
+ * @param {string} [dateIcon="calendar"] - Icon for the date section
+ * @param {string} [cta="Read More"] - Call-to-action button text
+ * @param {string} [img=null] - Optional image URL for the card
+ *
+ * @example
+ * <PostCard
+ *   title="Getting Started with Livepeer"
+ *   content="<p>Learn how to use Livepeer...</p>"
+ *   href="/guides/getting-started"
+ *   author="John Doe"
+ *   datePosted="2024-01-15"
+ * />
+ *
+ * @author Livepeer Documentation Team
+ */
 /**
  * @component PostCard
  * @category data
- * @tier composite
+ * @tier pattern
  * @status stable
- * @description Post Card data-driven component for rendering automated or API-backed documentation content.
- * @contentAffinity overview, reference
- * @owner docs
- * @dependencies BlogCard, CardBlogDataLayout, CardColumnsPostLayout, DiscordAnnouncements, LumaEvents
- * @usedIn v2/cn/community/livepeer-community/livepeer-latest-topics.mdx, v2/cn/community/livepeer-community/trending-topics.mdx, v2/community/livepeer-community/trending-topics.mdx, v2/es/community/livepeer-community/livepeer-latest-topics.mdx, v2/es/community/livepeer-community/trending-topics.mdx, v2/fr/community/livepeer-community/livepeer-latest-topics.mdx, v2/fr/community/livepeer-community/trending-topics.mdx, v2/x-archived/home/trending.mdx, v2/x-experimental/trending-layout-tests.mdx
- * @breakingChangeRisk medium
+ * @description Displays a post with title, content, author, date, and optional metadata. Includes
+ *   automatic scroll detection and hints for long content
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies CardColumnsPostLayout, CardInCardLayout
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/trending.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/x-experimental/trending-layout-tests.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
- * @dataSource automationData/blog
+ * @dataSource /snippets/automations/discord/discordAnnouncementsData.jsx
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
- * @param {any} title - title prop.
- * @param {any} content - content prop.
- * @param {any} href - href prop.
- * @param {string} [author="Unknown"] - author prop.
- * @param {any} [datePosted=null] - date Posted prop.
- * @param {any} [replyCount=null] - reply Count prop.
- * @param {string} [icon="book-open"] - icon prop.
- * @param {string} [authorIcon="user-pen"] - author Icon prop.
- * @param {string} [dateIcon="calendar"] - date Icon prop.
- * @param {string} [cta="Read More"] - cta prop.
- * @param {any} [img=null] - img prop.
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} title - Title text rendered by the component.
+ * @param {React.ReactNode} content - Primary content rendered by the component.
+ * @param {string} href - Destination URL used by the component.
+ * @param {string} [author="Unknown"] - Author used by the component.
+ * @param {string} [datePosted=null] - Date posted used by the component.
+ * @param {number} [replyCount=null] - Reply count used by the component.
+ * @param {string} [icon="book-open"] - Icon configuration used by the component.
+ * @param {string} [authorIcon="user-pen"] - Author icon used by the component.
+ * @param {string} [dateIcon="calendar"] - Date icon used by the component.
+ * @param {string} [cta="Read More"] - Cta used by the component.
+ * @param {string} [img=null] - Asset or embed source used by the component.
+ *
  * @example
- * <PostCard title="example" content="example" />
+ * <PostCard title="Example" content="Example" href="/example" />
  */
 export const PostCard = ({
   title,
@@ -330,9 +379,13 @@ export const PostCard = ({
   cta = "Read More",
   img = null,
 }) => {
-  console.debug("item", title, content, href, img);
-  // Show hint if content is likely to overflow (>500 chars as proxy)
-  const showScrollHint = content && content.length > 500;
+  const contentHtml = typeof content === "string" ? content : "";
+  const showScrollHint = contentHtml.length > 500;
+
+  if (!title || !href) {
+    console.warn("[PostCard] Missing required props: title or href");
+    return null;
+  }
 
   // FIX STYLES
   return (
@@ -388,7 +441,7 @@ export const PostCard = ({
       <div
         style={{
           height: 1,
-          backgroundColor: "var(--lp-color-bg-subtle)",
+          backgroundColor: "var(--lp-color-border-inverse-subtle)",
           margin: "12px 0",
         }}
       />
@@ -407,13 +460,13 @@ export const PostCard = ({
           const hint = el.nextSibling;
           if (hint) hint.style.display = atBottom ? "none" : "block";
         }}
-        dangerouslySetInnerHTML={{ __html: content }}
+        dangerouslySetInnerHTML={{ __html: contentHtml }}
       />
       {showScrollHint && (
         <div
           style={{
             fontSize: 11,
-            color: "var(--lp-color-text-muted)",
+            color: "var(--lp-color-border-inverse-subtle)",
             textAlign: "center",
             marginTop: 10,
             marginBottom: 10,
@@ -427,34 +480,65 @@ export const PostCard = ({
 };
 
 /**
+ * CardColumnsPostLayout - Layout component for displaying multiple PostCards in columns
+ *
+ * @description
+ * Renders an array of post items in a multi-column layout using the Columns component.
+ * Each item is rendered as a PostCard.
+ *
+ * @param {number} [cols=2] - Number of columns to display
+ * @param {Array<Object>} [items=[]] - Array of PostCard props objects
+ *
+ * @example
+ * const posts = [
+ *   { title: "Post 1", content: "...", href: "/post-1" },
+ *   { title: "Post 2", content: "...", href: "/post-2" }
+ * ];
+ * <CardColumnsPostLayout cols={3} items={posts} />
+ *
+ * @author Livepeer Documentation Team
+ */
+/**
  * @component CardColumnsPostLayout
  * @category data
- * @tier composite
+ * @tier pattern
  * @status stable
- * @description Card Columns Post Layout data-driven component for rendering automated or API-backed documentation content.
- * @contentAffinity overview, reference
- * @owner docs
- * @dependencies BlogCard, CardBlogDataLayout, DiscordAnnouncements, LumaEvents, PostCard
- * @usedIn v2/cn/community/livepeer-community/livepeer-latest-topics.mdx, v2/cn/community/livepeer-community/trending-topics.mdx, v2/community/livepeer-community/trending-topics.mdx, v2/es/community/livepeer-community/livepeer-latest-topics.mdx, v2/es/community/livepeer-community/trending-topics.mdx, v2/fr/community/livepeer-community/livepeer-latest-topics.mdx, v2/fr/community/livepeer-community/trending-topics.mdx, v2/x-archived/home/trending.mdx, v2/x-experimental/trending-layout-tests.mdx
- * @breakingChangeRisk medium
+ * @description Renders an array of post items in a multi-column layout using the Columns component.
+ *   Each item is rendered as a PostCard
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies CardInCardLayout, ForumLatestLayout, PostCard
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/trending.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/x-experimental/trending-layout-tests.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
- * @dataSource automationData/blog
+ * @dataSource /snippets/automations/discord/discordAnnouncementsData.jsx
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
- * @param {number} [cols=2] - cols prop.
- * @param {Array} [items=[]] - items prop.
- * @param {any} limit - limit prop.
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {number} [cols=2] - Cols used by the component.
+ * @param {Array} [items=[]] - Collection data rendered by the component.
+ * @param {number} limit - Limit used by the component.
+ *
  * @example
  * <CardColumnsPostLayout limit={1} />
  */
 export const CardColumnsPostLayout = ({ cols = 2, items = [], limit }) => {
-  const displayItems = limit ? items.slice(0, limit) : items;
+  const safeItems = Array.isArray(items) ? items : [];
+  const displayItems = limit ? safeItems.slice(0, limit) : safeItems;
+
+  if (displayItems.length === 0) {
+    return null;
+  }
 
   return (
     <>
       <Columns cols={cols}>
         {displayItems.map((props, idx) => (
-          <PostCard key={props.href || idx} {...props} />
+          <PostCard key={props?.href || idx} {...props} />
         ))}
       </Columns>
     </>
@@ -464,31 +548,40 @@ export const CardColumnsPostLayout = ({ cols = 2, items = [], limit }) => {
 /**
  * @component CardInCardLayout
  * @category data
- * @tier composite
+ * @tier pattern
  * @status stable
- * @description Card In Card Layout data-driven component for rendering automated or API-backed documentation content.
- * @contentAffinity overview, reference
- * @owner docs
- * @dependencies BlogCard, CardBlogDataLayout, CardColumnsPostLayout, DiscordAnnouncements, LumaEvents, PostCard
- * @usedIn none
- * @breakingChangeRisk medium
+ * @description Renders the card in card layout component
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies CardColumnsPostLayout, DiscordAnnouncements, ForumLatestLayout
+ * @usedIn v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
- * @dataSource none
+ * @dataSource /snippets/automations/discord/discordAnnouncementsData.jsx
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
- * @param {Array} [items=[]] - items prop.
- * @param {any} limit - limit prop.
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {Array} [items=[]] - Collection data rendered by the component.
+ * @param {number} limit - Limit used by the component.
+ *
  * @example
  * <CardInCardLayout limit={1} />
  */
 export const CardInCardLayout = ({ items = [], limit }) => {
+  const safeItems = Array.isArray(items) ? items : [];
+
+  if (safeItems.length === 0) {
+    console.warn("[CardInCardLayout] Missing or invalid items");
+    return null;
+  }
+
   return (
     <Card
       img="/snippets/automations/forum/Hero_Livepeer_Forum.png"
       href="https://forum.livepeer.org"
       arrow={false}
     >
-      <CardColumnsPostLayout cols={2} items={forumData} limit={2} />
+      <CardColumnsPostLayout cols={2} items={safeItems} limit={limit ?? 2} />
     </Card>
   );
 };
@@ -496,20 +589,25 @@ export const CardInCardLayout = ({ items = [], limit }) => {
 /**
  * @component ForumLatestLayout
  * @category data
- * @tier composite
+ * @tier pattern
  * @status stable
- * @description Forum Latest Layout data-driven component for rendering automated or API-backed documentation content.
- * @contentAffinity overview, reference
- * @owner docs
- * @dependencies BlogCard, CardBlogDataLayout, CardColumnsPostLayout, DiscordAnnouncements, LumaEvents, PostCard
- * @usedIn v2/cn/community/livepeer-community/livepeer-latest-topics.mdx, v2/cn/community/livepeer-community/trending-topics.mdx, v2/community/livepeer-community/livepeer-latest-topics.mdx, v2/community/livepeer-community/trending-topics.mdx, v2/es/community/livepeer-community/livepeer-latest-topics.mdx, v2/es/community/livepeer-community/trending-topics.mdx, v2/fr/community/livepeer-community/livepeer-latest-topics.mdx, v2/fr/community/livepeer-community/trending-topics.mdx, v2/x-archived/home/trending.mdx
- * @breakingChangeRisk medium
+ * @description Renders the forum latest layout component
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies CardColumnsPostLayout, DiscordAnnouncements
+ * @usedIn v2/community/livepeer-community/livepeer-latest-topics.mdx
+ *   v2/community/livepeer-community/trending-topics.mdx, v2/home/trending.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
- * @dataSource automationData/forum
+ * @dataSource /snippets/automations/discord/discordAnnouncementsData.jsx
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
- * @param {Array} [items=[]] - items prop.
- * @param {any} limit - limit prop.
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {Array} [items=[]] - Collection data rendered by the component.
+ * @param {number} limit - Limit used by the component.
+ *
  * @example
  * <ForumLatestLayout limit={1} />
  */
@@ -536,22 +634,38 @@ export const ForumLatestLayout = ({ items = [], limit }) => {
 };
 
 /**
+ * DiscordAnnouncements - Displays Discord announcements from discordAnnouncementsData.jsx
+ *
+ * @param {Array} items - Array of announcement objects
+ * @param {number} [limit] - Optional limit on number of announcements to display
+ *
+ * @example
+ * import { discordAnnouncementsData } from '/snippets/automations/discord/discordAnnouncementsData.jsx';
+ *
+ * <DiscordAnnouncements items={discordAnnouncementsData} limit={3} />
+ */
+/**
  * @component DiscordAnnouncements
  * @category data
- * @tier composite
+ * @tier pattern
  * @status stable
- * @description Discord Announcements data-driven component for rendering automated or API-backed documentation content.
- * @contentAffinity overview, reference
- * @owner docs
- * @dependencies BlogCard, CardBlogDataLayout, CardColumnsPostLayout, LumaEvents, PostCard
- * @usedIn v2/cn/community/livepeer-community/livepeer-latest-topics.mdx, v2/cn/community/livepeer-community/trending-topics.mdx, v2/community/livepeer-community/trending-topics.mdx, v2/es/community/livepeer-community/livepeer-latest-topics.mdx, v2/es/community/livepeer-community/trending-topics.mdx, v2/fr/community/livepeer-community/livepeer-latest-topics.mdx, v2/fr/community/livepeer-community/trending-topics.mdx, v2/x-archived/home/trending.mdx
- * @breakingChangeRisk medium
+ * @description DiscordAnnouncements - Displays Discord announcements from
+ *   discordAnnouncementsData.jsx
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies LumaEvents
+ * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/trending.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
- * @dataSource automationData/discord
+ * @dataSource /snippets/automations/discord/discordAnnouncementsData.jsx
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
- * @param {Array} [items=[]] - items prop.
- * @param {any} limit - limit prop.
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {Array} [items=[]] - Collection data rendered by the component.
+ * @param {number} limit - Limit used by the component.
+ *
  * @example
  * <DiscordAnnouncements limit={1} />
  */
@@ -619,7 +733,7 @@ export const DiscordAnnouncements = ({ items = [], limit }) => {
             <span
               style={{
                 fontSize: "0.875rem",
-                color: "var(--lp-color-text-secondary)",
+                color: "var(--text)",
                 marginLeft: "auto",
               }}
             >
@@ -651,25 +765,40 @@ export const DiscordAnnouncements = ({ items = [], limit }) => {
 };
 
 /**
+ * LumaEvents - Displays Luma events from lumaEventsData.jsx
+ *
+ * @param {Object} data - Event data object with upcoming and past arrays
+ * @param {number} [limit] - Optional limit on number of events to display
+ * @param {string} [type="upcoming"] - Type of events to display: "upcoming", "past", or "all"
+ *
+ * @example
+ * import { lumaEvents } from '/snippets/automations/luma/lumaEventsData.jsx';
+ *
+ * <LumaEvents data={lumaEvents} type="upcoming" limit={5} />
+ */
+/**
  * @component LumaEvents
  * @category data
- * @tier composite
+ * @tier pattern
  * @status stable
- * @description Luma Events data-driven component for rendering automated or API-backed documentation content.
- * @contentAffinity overview, reference
- * @owner docs
- * @dependencies BlogCard, CardBlogDataLayout, CardColumnsPostLayout, DiscordAnnouncements, PostCard
- * @usedIn v2/cn/community/livepeer-connect/events-and-community-streams.mdx, v2/community/livepeer-connect/events-and-community-streams.mdx, v2/es/community/livepeer-connect/events-and-community-streams.mdx, v2/fr/community/livepeer-connect/events-and-community-streams.mdx
- * @breakingChangeRisk medium
+ * @description LumaEvents - Displays Luma events from lumaEventsData.jsx
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies none
+ * @usedIn v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
- * @dataSource automationData/luma
+ * @dataSource /snippets/automations/discord/discordAnnouncementsData.jsx
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
- * @param {any} data - data prop.
- * @param {any} limit - limit prop.
- * @param {string} [type="upcoming"] - type prop.
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {object} data - Data used by the component.
+ * @param {number} limit - Limit used by the component.
+ * @param {string} [type="upcoming"] - Type used by the component.
+ *
  * @example
- * <LumaEvents data="example" limit={1} />
+ * <LumaEvents data={{}} limit={1} />
  */
 export const LumaEvents = ({ data, limit, type = "upcoming" }) => {
   let events = [];

@@ -4,29 +4,44 @@
  * @category content
  * @tier composite
  * @status stable
- * @description Custom Code Block content component for rendering reader-facing documentation content.
- * @contentAffinity tutorial, concept, reference
- * @owner docs
- * @dependencies CodeSection, ComplexCodeBlock
- * @usedIn v2/cn/gateways/quickstart/gateway-setup.mdx, v2/cn/gateways/run-a-gateway/install/linux-install.mdx, v2/cn/gateways/run-a-gateway/install/windows-install.mdx, v2/cn/orchestrators/orchestrators-portal.mdx, v2/cn/orchestrators/quickstart/orchestrator-setup.mdx, v2/cn/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx, v2/cn/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx, v2/es/gateways/quickstart/gateway-setup.mdx, v2/es/gateways/run-a-gateway/install/linux-install.mdx, v2/es/gateways/run-a-gateway/install/windows-install.mdx, v2/es/orchestrators/orchestrators-portal.mdx, v2/es/orchestrators/quickstart/orchestrator-setup.mdx, v2/es/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx, v2/es/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx, v2/fr/gateways/quickstart/gateway-setup.mdx, v2/fr/gateways/run-a-gateway/install/linux-install.mdx, v2/fr/gateways/run-a-gateway/install/windows-install.mdx, v2/fr/orchestrators/orchestrators-portal.mdx, v2/fr/orchestrators/quickstart/orchestrator-setup.mdx, v2/fr/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx, v2/fr/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/run-a-gateway/install/linux-install.mdx, v2/gateways/run-a-gateway/install/windows-install.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/orchestrators/quickstart/orchestrator-setup.mdx, v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx, v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx, v2/orchestrators/setting-up-an-orchestrator/orch-config.mdx, v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx, v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx
+ * @description Displays a code block with support for placeholder replacement, pre/post notes, and
+ *   expandable expected output section
+ * @contentAffinity universal
+ * @owner @livepeer/docs-team
+ * @dependencies CodeComponent, ComplexCodeBlock
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx
+ *   v2/gateways/run-a-gateway/install/linux-install.mdx
+ *   v2/gateways/run-a-gateway/install/windows-install.mdx
+ *   v2/orchestrators/orchestrators-portal.mdx, v2/orchestrators/quickstart/orchestrator-setup.mdx
+ *   v2/orchestrators/setting-up-an-orchestrator/connect-to-arbitrum.mdx
+ *   v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx
+ *   v2/orchestrators/setting-up-an-orchestrator/orch-config.mdx
+ *   v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx
+ *   v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/snippets-inventory.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-03
- * @param {any} filename - filename prop.
- * @param {any} icon - icon prop.
- * @param {any} language - language prop.
- * @param {any} highlight - highlight prop.
- * @param {string} [codeString=""] - code String prop.
- * @param {string} [placeholderValue=""] - placeholder Value prop.
- * @param {boolean} [wrap=true] - wrap prop.
- * @param {boolean} [lines=true] - lines prop.
- * @param {string} [preNote=""] - pre Note prop.
- * @param {string} [postNote=""] - post Note prop.
- * @param {string} [output=""] - output prop.
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {string} filename - Filename used by the component.
+ * @param {string} icon - Icon configuration used by the component.
+ * @param {string} language - Language used by the component.
+ * @param {string} highlight - Highlight used by the component.
+ * @param {string} [codeString=""] - Code string used by the component.
+ * @param {string} [placeholderValue=""] - Placeholder value used by the component.
+ * @param {boolean} [wrap=true] - Boolean flag that controls component behaviour.
+ * @param {boolean} [lines=true] - Boolean flag that controls component behaviour.
+ * @param {string} [preNote=""] - Pre note used by the component.
+ * @param {string} [postNote=""] - Post note used by the component.
+ * @param {string} [output=""] - Output used by the component.
+ *
  * @example
- * <CustomCodeBlock filename="example" icon="example" />
+ * <CustomCodeBlock filename="value" icon="sparkles" language="value" />
  */
 export const CustomCodeBlock = ({
   filename,
@@ -113,29 +128,42 @@ export const CustomCodeBlock = ({
 };
 
 /**
+ * CodeComponent - Simple code display with {PLACEHOLDER} replacement
+ *
+ * Props:
+ *   - codeString: string with {PLACEHOLDER} to replace
+ *   - placeholderValue: string value to insert in place of {PLACEHOLDER}
+ */
+/**
  * @component CodeComponent
  * @category content
  * @tier composite
  * @status stable
- * @description Code Component content component for rendering reader-facing documentation content.
- * @contentAffinity tutorial, concept, reference
- * @owner docs
- * @dependencies CodeSection, ComplexCodeBlock, CustomCodeBlock
- * @usedIn v2/cn/gateways/run-a-gateway/install/linux-install.mdx, v2/es/gateways/run-a-gateway/install/linux-install.mdx, v2/fr/gateways/run-a-gateway/install/linux-install.mdx, v2/gateways/run-a-gateway/install/linux-install.mdx
- * @breakingChangeRisk medium
+ * @description CodeComponent - Simple code display with {PLACEHOLDER} replacement
+ * @contentAffinity how_to
+ * @owner @livepeer/docs-team
+ * @dependencies CodeSection, ComplexCodeBlock
+ * @usedIn v2/gateways/run-a-gateway/install/linux-install.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ *   v2/resources/documentation-guide/snippets-inventory.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-03
- * @param {string} [filename=""] - filename prop.
- * @param {string} [icon="terminal"] - icon prop.
- * @param {string} [language=""] - language prop.
- * @param {string} [highlight=""] - highlight prop.
- * @param {boolean} [expandable=false] - expandable prop.
- * @param {boolean} [wrap=true] - wrap prop.
- * @param {boolean} [lines=true] - lines prop.
- * @param {string} [codeString=""] - code String prop.
- * @param {string} [placeholderValue=""] - placeholder Value prop.
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {string} [filename=""] - Filename used by the component.
+ * @param {string} [icon="terminal"] - Icon configuration used by the component.
+ * @param {string} [language=""] - Language used by the component.
+ * @param {string} [highlight=""] - Highlight used by the component.
+ * @param {boolean} [expandable=false] - Boolean flag that controls component behaviour.
+ * @param {boolean} [wrap=true] - Boolean flag that controls component behaviour.
+ * @param {boolean} [lines=true] - Boolean flag that controls component behaviour.
+ * @param {string} [codeString=""] - Code string used by the component.
+ * @param {string} [placeholderValue=""] - Placeholder value used by the component.
+ *
  * @example
  * <CodeComponent />
  */
@@ -167,32 +195,67 @@ export const CodeComponent = ({
 };
 
 /**
+ * ComplexCodeBlock - Code block with placeholder replacement and pre/post notes
+ *
+ * @description
+ * Similar to CustomCodeBlock but without the output section.
+ * Supports placeholder replacement and optional notes before/after the code.
+ *
+ * @param {string} filename - Name of the file to display
+ * @param {string} icon - Icon for the code block header
+ * @param {string} language - Programming language for syntax highlighting
+ * @param {string} highlight - Line numbers to highlight
+ * @param {string} [codeString=""] - The code content
+ * @param {string} [placeholderValue=""] - Value to replace {PLACEHOLDER} with
+ * @param {boolean} [wrap=true] - Whether to wrap long lines
+ * @param {boolean} [lines=true] - Whether to show line numbers
+ * @param {React.ReactNode} [preNote=null] - Note to display before the code
+ * @param {React.ReactNode} [postNote=null] - Note to display after the code
+ *
+ * @example
+ * <ComplexCodeBlock
+ *   filename="setup.sh"
+ *   language="bash"
+ *   codeString="export API_KEY={PLACEHOLDER}"
+ *   placeholderValue="abc123"
+ *   preNote="Run this command in your terminal"
+ * />
+ *
+ * @author Livepeer Documentation Team
+ */
+/**
  * @component ComplexCodeBlock
  * @category content
  * @tier composite
  * @status stable
- * @description Complex Code Block content component for rendering reader-facing documentation content.
- * @contentAffinity tutorial, concept, reference
- * @owner docs
- * @dependencies CodeSection, CustomCodeBlock
- * @usedIn v2/cn/gateways/quickstart/gateway-setup.mdx, v2/es/gateways/quickstart/gateway-setup.mdx, v2/fr/gateways/quickstart/gateway-setup.mdx, v2/gateways/quickstart/gateway-setup.mdx
- * @breakingChangeRisk medium
+ * @description Similar to CustomCodeBlock but without the output section. Supports placeholder
+ *   replacement and optional notes before/after the code
+ * @contentAffinity how_to
+ * @owner @livepeer/docs-team
+ * @dependencies CodeSection
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-03
- * @param {any} filename - filename prop.
- * @param {any} icon - icon prop.
- * @param {any} language - language prop.
- * @param {any} highlight - highlight prop.
- * @param {string} [codeString=""] - code String prop.
- * @param {string} [placeholderValue=""] - placeholder Value prop.
- * @param {boolean} [wrap=true] - wrap prop.
- * @param {boolean} [lines=true] - lines prop.
- * @param {any} [preNote=null] - pre Note prop.
- * @param {any} [postNote=null] - post Note prop.
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {string} filename - Filename used by the component.
+ * @param {string} icon - Icon configuration used by the component.
+ * @param {string} language - Language used by the component.
+ * @param {string} highlight - Highlight used by the component.
+ * @param {string} [codeString=""] - Code string used by the component.
+ * @param {string} [placeholderValue=""] - Placeholder value used by the component.
+ * @param {boolean} [wrap=true] - Boolean flag that controls component behaviour.
+ * @param {boolean} [lines=true] - Boolean flag that controls component behaviour.
+ * @param {string} [preNote=null] - Pre note used by the component.
+ * @param {string} [postNote=null] - Post note used by the component.
+ *
  * @example
- * <ComplexCodeBlock filename="example" icon="example" />
+ * <ComplexCodeBlock filename="value" icon="sparkles" language="value" />
  */
 export const ComplexCodeBlock = ({
   filename,
@@ -253,28 +316,49 @@ export const ComplexCodeBlock = ({
 };
 
 /**
+ * CodeSection - Wrapper component for ComplexCodeBlock
+ *
+ * @description
+ * Convenience wrapper that accepts a fields object and spreads it to ComplexCodeBlock.
+ * Useful for passing configuration objects.
+ *
+ * @param {Object} [fields={}] - Object containing all ComplexCodeBlock props
+ *
+ * @example
+ * const codeConfig = {
+ *   filename: "app.js",
+ *   language: "javascript",
+ *   codeString: "console.log('Hello');"
+ * };
+ * <CodeSection fields={codeConfig} />
+ *
+ * @author Livepeer Documentation Team
+ */
+/**
  * @component CodeSection
  * @category content
- * @tier composite
+ * @tier pattern
  * @status stable
- * @description Thin wrapper that maps a `fields` object into the complex code block renderer.
- * @contentAffinity tutorial, concept, reference
- * @owner docs
- * @dependencies ComplexCodeBlock, CustomCodeBlock
- * @usedIn v2/cn/gateways/quickstart/gateway-setup.mdx, v2/es/gateways/quickstart/gateway-setup.mdx, v2/fr/gateways/quickstart/gateway-setup.mdx, v2/gateways/quickstart/gateway-setup.mdx
- * @breakingChangeRisk medium
+ * @description Convenience wrapper that accepts a fields object and spreads it to ComplexCodeBlock.
+ *   Useful for passing configuration objects
+ * @contentAffinity how_to
+ * @owner @livepeer/docs-team
+ * @dependencies ComplexCodeBlock
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/content.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-03
- * @param {object} [fields={}] - fields prop.
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {object} [fields={}] - Fields used by the component.
+ *
  * @example
  * <CodeSection />
  */
 export const CodeSection = ({ fields = {} }) => {
   return <ComplexCodeBlock {...fields} />;
 };
-
-// export const CodeSection = ({ fields = {} }) => {
-//   return <ComplexCodeBlock {...fields} />;
-// };

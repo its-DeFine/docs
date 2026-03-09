@@ -1,3 +1,5 @@
+import { CustomDivider } from "../primitives/divider.jsx";
+
 /**
  * Frame Mode Headers - Custom heading components for Mintlify frame mode
  *

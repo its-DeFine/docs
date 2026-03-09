@@ -3,23 +3,29 @@
  * @category layout
  * @tier composite
  * @status stable
- * @description Scroll Box layout component for arranging documentation content without MDX inline styles.
- * @contentAffinity overview, tutorial, reference
- * @owner docs
+ * @description Provides a scrollable area with optional max height and scroll hint. Use as a child
+ *   of Card to make long content scrollable
+ * @contentAffinity landing
+ * @owner @livepeer/docs-team
  * @dependencies none
- * @usedIn v2/cn/home/solutions/showcase.mdx, v2/cn/home/solutions/verticals.mdx, v2/es/home/solutions/showcase.mdx, v2/es/home/solutions/verticals.mdx, v2/fr/home/solutions/showcase.mdx, v2/fr/home/solutions/verticals.mdx, v2/home/solutions/showcase.mdx, v2/home/solutions/verticals.mdx
- * @breakingChangeRisk medium
+ * @usedIn v2/home/solutions/showcase.mdx, v2/home/solutions/verticals.mdx
+ *   v2/resources/documentation-guide/component-library/component-library.mdx
+ *   v2/resources/documentation-guide/component-library/layout.mdx
+ *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-03
- * @param {any} children - children prop.
- * @param {number} [maxHeight=300] - max Height prop.
- * @param {boolean} [showHint=true] - show Hint prop.
- * @param {string} [ariaLabel="Scrollable content"] - aria Label prop.
- * @param {any} style - style prop.
+ * @lastMeaningfulChange 2026-03-08
+ *
+ * @param {React.ReactNode} children - Content rendered inside the component.
+ * @param {number} [maxHeight=300] - Max height used by the component.
+ * @param {boolean} [showHint=true] - Boolean flag that controls component behaviour.
+ * @param {string} [ariaLabel="Scrollable content"] - Aria label used by the component.
+ * @param {object} style - Style used by the component.
+ *
  * @example
- * <ScrollBox style="example">Example content</ScrollBox>
+ * <ScrollBox style={{}} />
  */
 export const ScrollBox = ({
   children,
@@ -28,6 +34,11 @@ export const ScrollBox = ({
   ariaLabel = "Scrollable content",
   style,
 }) => {
+  if (children == null) {
+    console.warn("[ScrollBox] Missing children");
+    return null;
+  }
+
   const contentRef = useRef(null);
   const [isOverflowing, setIsOverflowing] = useState(false);
 
@@ -76,7 +87,7 @@ export const ScrollBox = ({
           data-scroll-hint
           style={{
             fontSize: 11,
-            color: "var(--lp-color-text-muted)",
+            color: "rgba(255,255,255,0.5)",
             textAlign: "center",
             marginTop: 8,
             transition: "opacity 0.2s",
