@@ -805,8 +805,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-rooted",
-      "rawPath": "/snippets/assets/media/images/Livepeer%20Stats.png",
-      "resolvedPath": "snippets/assets/media/images/Livepeer Stats.png",
+      "rawPath": "/snippets/assets/media/images/livepeer-stats.png",
+      "resolvedPath": "snippets/assets/media/images/livepeer-stats.png",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

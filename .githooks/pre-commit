@@ -79,6 +79,13 @@ has_human_override_trailer() {
     return 1
 }
 
+staged_added_lines_match() {
+    local file="$1"
+    local pattern="$2"
+
+    git diff --cached --unified=0 -- "$file" 2>/dev/null | grep -Eq "^\+[^+].*(${pattern})"
+}
+
 get_contract_allowed_generated() {
     local contract_path=".codex/task-contract.yaml"
     if [ ! -f "$contract_path" ]; then
@@ -156,9 +163,42 @@ is_allowed_generated_untrack() {
     return 1
 }
 
+head_blob_for_path() {
+    local file="$1"
+    git rev-parse "HEAD:${file}" 2>/dev/null || true
+}
+
+has_surviving_index_blob_match() {
+    local blob="$1"
+    local deleted_file="$2"
+    local matches=""
+
+    matches=$(git ls-files -s | awk -v blob="$blob" '$2 == blob { print $4 }')
+    while IFS= read -r match; do
+        if [[ -n "$match" && "$match" != "$deleted_file" ]]; then
+            return 0
+        fi
+    done <<< "$matches"
+
+    return 1
+}
+
+is_safe_duplicate_deletion() {
+    local file="$1"
+    local head_blob=""
+
+    head_blob=$(head_blob_for_path "$file")
+    if [[ -z "$head_blob" ]]; then
+        return 1
+    fi
+
+    has_surviving_index_blob_match "$head_blob" "$file"
+}
+
 partition_deleted_files() {
     local deleted_list="$1"
     ALLOWED_GENERATED_DELETIONS=""
+    SAFE_DUPLICATE_DELETIONS=""
     BLOCKED_DELETED_FILES=""
 
     while IFS= read -r file; do
@@ -166,6 +206,8 @@ partition_deleted_files() {
 
         if is_allowed_generated_untrack "$file"; then
             ALLOWED_GENERATED_DELETIONS="${ALLOWED_GENERATED_DELETIONS}${file}"$'\n'
+        elif is_safe_duplicate_deletion "$file"; then
+            SAFE_DUPLICATE_DELETIONS="${SAFE_DUPLICATE_DELETIONS}${file}"$'\n'
         else
             BLOCKED_DELETED_FILES="${BLOCKED_DELETED_FILES}${file}"$'\n'
         fi
@@ -385,6 +427,11 @@ DELETED_FILES=$(printf '%s' "$BLOCKED_DELETED_FILES")
 if [ -n "$ALLOWED_GENERATED_DELETIONS" ]; then
     echo -e "${GREEN}✓ Allowed generated file untracking detected:${NC}"
     echo "$ALLOWED_GENERATED_DELETIONS" | sed '/^$/d; s/^/  • /'
+    echo ""
+fi
+if [ -n "$SAFE_DUPLICATE_DELETIONS" ]; then
+    echo -e "${YELLOW}ℹ️  Allowing duplicate-content deletions with surviving canonical files:${NC}"
+    echo "$SAFE_DUPLICATE_DELETIONS" | sed '/^$/d; s/^/  • /'
     echo ""
 fi
 ALLOWED_MANIFEST_DELETIONS=""
@@ -695,7 +742,7 @@ else
             fi
             continue
         fi
-        if grep -q "ThemeData\|themeStyles\.jsx" "$file" 2>/dev/null; then
+        if staged_added_lines_match "$file" "ThemeData|themeStyles\\.jsx"; then
             WARNINGS+=("❌ $file: Uses deprecated ThemeData - use CSS Custom Properties instead")
             VIOLATIONS=$((VIOLATIONS + 1))
         fi
