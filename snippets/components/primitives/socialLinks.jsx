@@ -38,8 +38,7 @@
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
+ * @lastMeaningfulChange 2026-03-10
  * @param {number} [size=20] - Size used by the component.
  * @param {string} [gap="0.75rem"] - Gap used by the component.
  * @param {string} [justify="center"] - Justify used by the component.

@@ -13,8 +13,7 @@
  * @decision KEEP
  * @dataSource live API
  * @duplicates EmbedMarkdown
- * @lastMeaningfulChange 2026-03-08
- *
+ * @lastMeaningfulChange 2026-03-10
  * @param {string} url - Destination URL used by the component.
  *
  * @example
@@ -64,8 +63,7 @@ export const MarkdownEmbed = ({ url }) => {
  * @decision KEEP
  * @dataSource live API
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
+ * @lastMeaningfulChange 2026-03-10
  * @param {React.ReactNode} title - Title text rendered by the component.
  * @param {string} src - Asset or embed source used by the component.
  * @param {string} [height='700px'] - Height used by the component.
@@ -102,8 +100,7 @@ export const PdfEmbed = ({
  * @decision KEEP
  * @dataSource live API
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
+ * @lastMeaningfulChange 2026-03-10
  * @example
  * <TwitterTimeline />
  */

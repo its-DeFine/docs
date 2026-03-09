@@ -12,7 +12,7 @@
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {number} [density=1.1] - density prop.
  * @example
  * <Starfield />

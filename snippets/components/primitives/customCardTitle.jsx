@@ -12,8 +12,7 @@
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
+ * @lastMeaningfulChange 2026-03-10
  * @param {string} icon - Icon configuration used by the component.
  * @param {React.ReactNode} title - Title text rendered by the component.
  * @param {object} style - Style used by the component.

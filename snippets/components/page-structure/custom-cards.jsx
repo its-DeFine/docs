@@ -7,12 +7,12 @@
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies none
- * @usedIn v2/community/livepeer-community/community-guidelines.mdx, v2/developers/builder-opportunities/bug-bounties.mdx, v2/developers/builder-opportunities/grants-and-programmes.mdx, v2/developers/builder-opportunities/oss-contributions.mdx, v2/developers/builder-opportunities/overview.mdx, v2/developers/builder-opportunities/rfps-and-proposals.mdx, v2/home/about-livepeer/vision.mdx, v2/home/get-started.mdx, v2/home/solutions/applications.mdx, v2/internal/rfp/problem-statements.mdx
+ * @usedIn v2/community/livepeer-community/community-guidelines.mdx, v2/developers/opportunities/bug-bounties.mdx, v2/developers/opportunities/grants-and-programmes.mdx, v2/developers/opportunities/oss-contributions.mdx, v2/developers/opportunities/overview.mdx, v2/developers/opportunities/rfps-and-proposals.mdx, v2/home/about-livepeer/vision.mdx, v2/home/get-started.mdx, v2/home/solutions/applications.mdx, v2/internal/rfp/problem-statements.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {any} icon - icon prop.
  * @param {any} title - title prop.
  * @param {any} style - style prop.
@@ -83,7 +83,7 @@ export const DisplayCard = ({
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {any} icon - icon prop.
  * @param {any} title - title prop.
  * @param {any} style - style prop.
@@ -123,7 +123,7 @@ export const CustomCardTitle = ({ icon, title, style }) => {
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {string} [width='80%'] - width prop.
  * @param {any} children - children prop.
  * @param {any} cardProps - card Props prop.
@@ -160,7 +160,7 @@ export const WidthCard = ({ width = '80%', children, ...cardProps }) => {
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {any} children - children prop.
  * @param {any} imgProps - img Props prop.
  * @param {any} imgStyle - img Style prop.

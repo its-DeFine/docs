@@ -7,7 +7,7 @@
  * @contentAffinity universal
  * @owner @livepeer/docs-team
  * @dependencies InlineImageCard, WidthCard
- * @usedIn v2/community/livepeer-community/community-guidelines.mdx, v2/developers/builder-opportunities/bug-bounties.mdx, v2/developers/builder-opportunities/grants-and-programmes.mdx, v2/developers/builder-opportunities/oss-contributions.mdx, v2/developers/builder-opportunities/overview.mdx, v2/developers/builder-opportunities/rfps-and-proposals.mdx, v2/home/about-livepeer/vision.mdx, v2/home/get-started.mdx, v2/home/solutions/applications.mdx, v2/internal/rfp/problem-statements.mdx
+ * @usedIn v2/community/livepeer-community/community-guidelines.mdx, v2/developers/opportunities/bug-bounties.mdx, v2/developers/opportunities/grants-and-programmes.mdx, v2/developers/opportunities/oss-contributions.mdx, v2/developers/opportunities/overview.mdx, v2/developers/opportunities/rfps-and-proposals.mdx, v2/home/about-livepeer/vision.mdx, v2/home/get-started.mdx, v2/home/solutions/applications.mdx, v2/internal/rfp/problem-statements.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none

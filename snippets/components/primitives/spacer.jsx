@@ -13,8 +13,7 @@
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
+ * @lastMeaningfulChange 2026-03-10
  * @param {string} [size="1rem"] - Size used by the component.
  * @param {string} [direction="vertical"] - Direction used by the component.
  *

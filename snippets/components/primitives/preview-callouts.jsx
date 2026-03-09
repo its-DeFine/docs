@@ -14,7 +14,7 @@
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {string} [type="page"] - type prop.
  * @example
  * <ComingSoonCallout />
@@ -96,12 +96,12 @@ const ComingSoonCallout = ({ type = "page" }) => {
  * @contentAffinity universal
  * @owner docs
  * @dependencies ComingSoonCallout, ReviewCallout
- * @usedIn v2/developers/ai-inference-on-livepeer/overview.mdx, v2/developers/ai-inference-on-livepeer/workload-fit.mdx, v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx, v2/developers/quickstart/video/video-streaming-101.mdx, v2/orchestrators-new/setup/publish-offerings.mdx, v2/orchestrators/setting-up-an-orchestrator/publish-offerings.mdx, v2/resources/concepts/brief-history-of-video.mdx, v2/resources/references/contract-addresses.mdx
+ * @usedIn v2/developers/_archive/ai-inference-overview-old.mdx, v2/developers/_archive/ai-inference-workload-fit-old.mdx, v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx, v2/developers/_archive/quickstart-video-101.mdx, v2/orchestrators-new/setup/publish-offerings.mdx, v2/orchestrators/setting-up-an-orchestrator/publish-offerings.mdx, v2/resources/concepts/brief-history-of-video.mdx, v2/resources/references/contract-addresses.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @example
  * <PreviewCallout />
  */
@@ -184,7 +184,7 @@ const PreviewCallout = () => {
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @example
  * <ReviewCallout />
  */

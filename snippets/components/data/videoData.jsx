@@ -14,8 +14,7 @@ import { YouTubeVideo } from "/snippets/components/content/video.jsx";
  * @decision KEEP
  * @dataSource /snippets/automations/youtube/youtubeData.jsx
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
+ * @lastMeaningfulChange 2026-03-10
  * @param {Array} [items=[]] - Collection data rendered by the component.
  * @param {number} limit - Limit used by the component.
  * @param {number} [cols=2] - Cols used by the component.

@@ -14,8 +14,7 @@
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-08
- *
+ * @lastMeaningfulChange 2026-03-10
  * @param {Array} [items=[]] - Collection data rendered by the component.
  * @param {number} [limit=null] - Limit used by the component.
  * @param {number} [pageSize=10] - Page size used by the component.
