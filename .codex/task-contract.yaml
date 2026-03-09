@@ -10,6 +10,7 @@ scope_in:
 scope_out: []
 allowed_generated:
   - .codex/pr-body.generated.md
+  - tasks/reports/INDEX.md
   - tasks/reports/repo-ops/SCRIPT_AUDIT.json
   - tasks/reports/repo-ops/SCRIPT_AUDIT.md
   - tools/script-index.md
