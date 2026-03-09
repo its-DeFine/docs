@@ -96,7 +96,7 @@ const ComingSoonCallout = ({ type = "page" }) => {
  * @contentAffinity universal
  * @owner docs
  * @dependencies ComingSoonCallout, ReviewCallout
- * @usedIn v2/developers/_archive/ai-inference-overview-old.mdx, v2/developers/_archive/ai-inference-workload-fit-old.mdx, v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx, v2/developers/_archive/quickstart-video-101.mdx, v2/orchestrators-new/setup/publish-offerings.mdx, v2/orchestrators/setting-up-an-orchestrator/publish-offerings.mdx, v2/resources/concepts/brief-history-of-video.mdx, v2/resources/references/contract-addresses.mdx
+ * @usedIn v2/developers/_archive/ai-inference-overview-old.mdx, v2/developers/_archive/ai-inference-workload-fit-old.mdx, v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx, v2/developers/_archive/quickstart-video-101.mdx, v2/orchestrators/setup/publish-offerings.mdx, v2/resources/concepts/brief-history-of-video.mdx, v2/resources/references/contract-addresses.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none

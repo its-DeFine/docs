@@ -1081,66 +1081,66 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/advanced/ai-pipelines</loc>
-    <lastmod>2026-03-10T07:09:01+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>128</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:09:01+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, AI, inference, BYOC</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/advanced/delegation</loc>
-    <lastmod>2026-03-10T07:09:01+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>145</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:09:01+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, delegation, delegators, reward cut, fee share</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/advanced/earnings</loc>
-    <lastmod>2026-03-10T07:09:01+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>891</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:09:01+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrator earnings, lpt rewards, eth fees, reward cut, fee share, transcoding fees, ai inference fees, orchestrator income</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/advanced/hosting-models</loc>
-    <lastmod>2026-03-10T07:09:01+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>733</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:09:01+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrator, ai models, comfyui, comfystream, byoc, inference, gpu, capability, pricing</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/advanced/payments</loc>
-    <lastmod>2026-03-10T07:09:01+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>26</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:09:01+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, payments, clearinghouse, arbitrum, eth, lpt</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/advanced/rewards-and-fees</loc>
-    <lastmod>2026-03-10T07:09:01+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>187</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:09:01+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, rewards, fees, inflation, LPT, ETH</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/advanced/run-a-pool</loc>
-    <lastmod>2026-03-10T07:09:01+11:00</lastmod>
+    <lastmod>2026-03-10T09:58:31+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
-    <ai:wordCount>192</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:09:01+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, pool, operator, GPU pool</ai:tags>
+    <ai:wordCount>1467</ai:wordCount>
+    <ai:lastVerified>2026-03-10T09:58:31+11:00</ai:lastVerified>
+    <ai:tags>livepeer, orchestrator, pool, GPU pool, transcoder pool, worker, fee sharing, pool operator, Titan Node, Video Miner</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/advanced/staking-LPT</loc>
-    <lastmod>2026-03-10T07:09:01+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>184</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:09:01+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, staking, LPT, bonding, active set</ai:tags>
   </url>
   <url>
@@ -1169,11 +1169,11 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/concepts/job-types</loc>
-    <lastmod>2026-03-10T09:06:59+11:00</lastmod>
+    <lastmod>2026-03-10T09:55:57+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
-    <ai:wordCount>138</ai:wordCount>
-    <ai:lastVerified>2026-03-10T09:06:59+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, job types, transcoding, realtime ai, batch ai</ai:tags>
+    <ai:wordCount>1772</ai:wordCount>
+    <ai:lastVerified>2026-03-10T09:55:57+11:00</ai:lastVerified>
+    <ai:tags>livepeer, orchestrator, job types, transcoding, AI inference, Cascade, LLM, batch AI, real-time AI, GPU, VRAM, pipeline, ComfyStream, aiModels.json</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/concepts/overview</loc>
@@ -1185,49 +1185,50 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/get-started/AI-prompt-start</loc>
-    <lastmod>2026-03-10T07:53:25+11:00</lastmod>
+    <lastmod>2026-03-10T10:00:05+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
-    <ai:wordCount>9</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:53:25+11:00</ai:lastVerified>
+    <ai:wordCount>931</ai:wordCount>
+    <ai:lastVerified>2026-03-10</ai:lastVerified>
+    <ai:tags>livepeer, orchestrator, AI inference, AI runner, aiModels.json, pipeline, VRAM, Cascade, batch AI, GPU</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/get-started/batch-ai-quickstart</loc>
-    <lastmod>2026-03-09T21:39:26.452Z</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>33</ai:wordCount>
-    <ai:lastVerified>2026-03-09T21:39:26.452Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, batch ai, quickstart</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/get-started/join-a-pool</loc>
-    <lastmod>2026-03-09T19:36:07.504Z</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>1061</ai:wordCount>
-    <ai:lastVerified>2026-03-09T19:36:07.504Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, setting up an orchestrator, join a pool, join, pool</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/get-started/quickstart</loc>
-    <lastmod>2026-03-10T07:09:01+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>176</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:09:01+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, quickstart, transcoding, go-livepeer</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/get-started/realtime-ai-quickstart</loc>
-    <lastmod>2026-03-09T21:39:26.452Z</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>31</ai:wordCount>
-    <ai:lastVerified>2026-03-09T21:39:26.452Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, realtime ai, quickstart</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/get-started/setup-paths</loc>
-    <lastmod>2026-03-10T07:53:25+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>52</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:53:25+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, quickstart, orchestrator</ai:tags>
   </url>
   <url>
@@ -1240,49 +1241,50 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/orchestrators-portal</loc>
-    <lastmod>2026-03-10T09:20:54+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>175</ai:wordCount>
-    <ai:lastVerified>2026-03-10T09:20:54+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>Start Here, home, index, landing, gpu, earn, rewards, orchestrator, orchestrators, livepeer orchestrator, livepeer orchestrators, livepeer orchestrator portal, livepeer orchestrators portal</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/resources/cli-flags</loc>
-    <lastmod>2026-03-10T07:09:01+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>225</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:09:01+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, references, cli flags, flags, reference, straight, chatgpt</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/resources/community-pools</loc>
-    <lastmod>2026-03-10T07:09:01+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>67</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:09:01+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, orchestrator guides and references, orchestrator pools, pools</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/resources/faq</loc>
-    <lastmod>2026-03-10T07:09:01+11:00</lastmod>
+    <lastmod>2026-03-10T09:55:00+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
-    <ai:wordCount>398</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:09:01+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, FAQ, troubleshooting</ai:tags>
+    <ai:wordCount>3457</ai:wordCount>
+    <ai:lastVerified>2026-03-10T09:55:00+11:00</ai:lastVerified>
+    <ai:tags>livepeer, orchestrator, troubleshooting, FAQ, not receiving jobs, GPU, serviceAddr, pricePerUnit, AI runner, earnings</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setup/connect-to-arbitrum</loc>
-    <lastmod>2026-03-10T09:20:54+11:00</lastmod>
+    <lastmod>2026-03-10T09:59:48+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
-    <ai:wordCount>3</ai:wordCount>
-    <ai:lastVerified>2026-03-10T09:20:54+11:00</ai:lastVerified>
+    <ai:wordCount>631</ai:wordCount>
+    <ai:lastVerified>2026-03-10T09:59:48+11:00</ai:lastVerified>
+    <ai:tags>livepeer, orchestrator, Arbitrum, RPC, ethUrl, Alchemy, Infura, Ethereum, connection</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setup/data-centre-setup</loc>
-    <lastmod>2026-03-10T07:09:01+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>3</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:09:01+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setup/data-centres-and-large-scale-hardware-providers</loc>
@@ -1293,10 +1295,10 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setup/enterprise-and-data-centres</loc>
-    <lastmod>2026-03-10T07:09:01+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>3</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:09:01+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setup/hardware-requirements</loc>
@@ -1308,57 +1310,58 @@
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setup/install-go-livepeer</loc>
-    <lastmod>2026-03-10T08:59:19+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>285</ai:wordCount>
-    <ai:lastVerified>2026-03-10T08:59:19+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, install, go-livepeer, docker, binary</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setup/orch-config</loc>
-    <lastmod>2026-03-10T07:53:25+11:00</lastmod>
+    <lastmod>2026-03-10T09:58:14+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
-    <ai:wordCount>3</ai:wordCount>
-    <ai:lastVerified>2026-03-10T07:53:25+11:00</ai:lastVerified>
+    <ai:wordCount>1376</ai:wordCount>
+    <ai:lastVerified>2026-03-10T09:58:14+11:00</ai:lastVerified>
+    <ai:tags>go-livepeer, orchestrator, configuration, flags, pricePerUnit, serviceAddr, nvidia, AI worker, CLI</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setup/orchestrator-stats</loc>
-    <lastmod>2026-03-10T09:20:54+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>199</ai:wordCount>
-    <ai:lastVerified>2026-03-10T09:20:54+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, monitoring, stats, prometheus, metrics</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setup/overview</loc>
-    <lastmod>2026-03-10T09:20:54+11:00</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>60</ai:wordCount>
-    <ai:lastVerified>2026-03-10T09:20:54+11:00</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, setup, checklist</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/setup/publish-offerings</loc>
-    <lastmod>2026-03-10T09:20:54+11:00</lastmod>
+    <lastmod>2026-03-10T10:04:55+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
-    <ai:wordCount>77</ai:wordCount>
-    <ai:lastVerified>2026-03-10T09:20:54+11:00</ai:lastVerified>
-    <ai:tags>livepeer, orchestrators, setting up an orchestrator, publish offerings, publish, offerings, marketplace</ai:tags>
+    <ai:wordCount>869</ai:wordCount>
+    <ai:lastVerified>2026-03-10T10:04:55+11:00</ai:lastVerified>
+    <ai:tags>livepeer, orchestrator, activate, livepeer_cli, active set, LPT, stake, reward cut, service URI</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/tools-and-guides/guides</loc>
-    <lastmod>2026-03-09T22:27:09.024Z</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>81</ai:wordCount>
-    <ai:lastVerified>2026-03-09T22:27:09.024Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, guides, community, pools</ai:tags>
   </url>
   <url>
     <loc>https://docs.livepeer.org/v2/orchestrators/tools-and-guides/tooling</loc>
-    <lastmod>2026-03-09T20:53:25.442Z</lastmod>
+    <lastmod>2026-03-10T09:38:11+11:00</lastmod>
     <ai:section>orchestrators</ai:section>
     <ai:wordCount>33</ai:wordCount>
-    <ai:lastVerified>2026-03-09T20:53:25.442Z</ai:lastVerified>
+    <ai:lastVerified>2026-03-10T09:38:11+11:00</ai:lastVerified>
     <ai:tags>livepeer, orchestrators, orchestrator guides and references, orchestrator tools, tools</ai:tags>
   </url>
   <url>

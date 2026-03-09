@@ -105,7 +105,7 @@ const ComingSoonCallout = ({ type = "page" }) => {
  * @contentAffinity universal
  * @owner @livepeer/docs-team
  * @dependencies ComingSoonCallout, ReviewCallout
- * @usedIn v2/developers/ai-inference-on-livepeer/overview.mdx, v2/developers/ai-inference-on-livepeer/workload-fit.mdx, v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx, v2/developers/quickstart/video/video-streaming-101.mdx, v2/orchestrators/setting-up-an-orchestrator/publish-offerings.mdx, v2/resources/concepts/brief-history-of-video.mdx, v2/resources/references/contract-addresses.mdx
+ * @usedIn v2/developers/ai-inference-on-livepeer/overview.mdx, v2/developers/ai-inference-on-livepeer/workload-fit.mdx, v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx, v2/developers/quickstart/video/video-streaming-101.mdx, v2/orchestrators/setup/publish-offerings.mdx, v2/resources/concepts/brief-history-of-video.mdx, v2/resources/references/contract-addresses.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none

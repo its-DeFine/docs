@@ -33,30 +33,34 @@ done
 repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 cd "$repo_root"
 
-# Exact 12 deliverable targets from the insertion plan.
+# Exact 12 deliverable targets from the current payments/orchestrators plan.
 target_files=(
   "v2/gateways/payments/how-payments-work.mdx"
   "v2/gateways/payments/remote-signers.mdx"
   "v2/gateways/payments/payment-clearinghouse.mdx"
-  "v2/gateways/payments/naap-platform.mdx"
+  "v2/gateways/payments/overview.mdx"
   "v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway.mdx"
   "v2/gateways/using-gateways/gateway-providers/daydream-gateway.mdx"
   "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx"
-  "v2/orchestrators/about-orchestrators/job-types.mdx"
-  "v2/orchestrators/about-orchestrators/naap-platform.mdx"
-  "v2/orchestrators/quickstart/realtime-ai.mdx"
-  "v2/orchestrators/quickstart/batch-ai.mdx"
-  "v2/orchestrators/quickstart/overview.mdx"
+  "v2/orchestrators/concepts/job-types.mdx"
+  "v2/orchestrators/advanced/payments.mdx"
+  "v2/orchestrators/get-started/realtime-ai-quickstart.mdx"
+  "v2/orchestrators/get-started/batch-ai-quickstart.mdx"
+  "v2/orchestrators/get-started/setup-paths.mdx"
 )
 
 # Required migration outcomes from implementation steps.
 migration_required_files=(
-  "v2/orchestrators/quickstart/transcoding.mdx"
+  "v2/orchestrators/get-started/quickstart.mdx"
+  "v2/orchestrators/get-started/join-a-pool.mdx"
+  "v2/orchestrators/get-started/AI-prompt-start.mdx"
 )
 
 # Legacy files that must not exist after migration.
 legacy_blocked_files=(
   "v2/gateways/run-a-gateway/payments/payment-clearinghouse.mdx"
+  "v2/orchestrators/quickstart/overview.mdx"
+  "v2/orchestrators/quickstart/join-a-pool.mdx"
   "v2/orchestrators/quickstart/orchestrator-setup.mdx"
   "v2/orchestrators/quickstart/realtime-ai-quickstart.mdx"
   "v2/orchestrators/quickstart/batch-ai-quickstart.mdx"
