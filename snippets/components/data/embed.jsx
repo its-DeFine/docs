@@ -8,9 +8,7 @@
  * @contentAffinity universal
  * @owner @livepeer/docs-team
  * @dependencies PdfEmbed, TwitterTimeline
- * @usedIn v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/display.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @usedIn none
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource live API
@@ -61,7 +59,7 @@ export const MarkdownEmbed = ({ url }) => {
  * @contentAffinity universal
  * @owner @livepeer/docs-team
  * @dependencies TwitterTimeline
- * @usedIn none
+ * @usedIn v2/gateways-new/advanced/payment-clearinghouse.mdx, v2/gateways/payments/payment-clearinghouse.mdx, v2/internal/overview/docs-philosophy.mdx, v2/internal/rfp/aims.mdx, v2/lpt/treasury/overview.mdx, v2/resources/media-kit.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource live API
@@ -100,9 +98,6 @@ export const PdfEmbed = ({
  * @owner @livepeer/docs-team
  * @dependencies none
  * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/trending.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/display.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource live API

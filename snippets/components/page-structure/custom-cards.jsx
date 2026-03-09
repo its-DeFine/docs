@@ -7,8 +7,8 @@
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies none
- * @usedIn v2/cn/developers/builder-opportunities/bug-bounties.mdx, v2/cn/developers/builder-opportunities/grants-and-programmes.mdx, v2/cn/developers/builder-opportunities/oss-contributions.mdx, v2/cn/developers/builder-opportunities/overview.mdx, v2/cn/developers/builder-opportunities/rfps-and-proposals.mdx, v2/cn/home/about-livepeer/vision.mdx, v2/cn/home/get-started.mdx, v2/cn/home/solutions/applications.mdx, v2/community/livepeer-community/community-guidelines.mdx, v2/developers/builder-opportunities/bug-bounties.mdx, v2/developers/builder-opportunities/grants-and-programmes.mdx, v2/developers/builder-opportunities/oss-contributions.mdx, v2/developers/builder-opportunities/overview.mdx, v2/developers/builder-opportunities/rfps-and-proposals.mdx, v2/es/developers/builder-opportunities/bug-bounties.mdx, v2/es/developers/builder-opportunities/grants-and-programmes.mdx, v2/es/developers/builder-opportunities/oss-contributions.mdx, v2/es/developers/builder-opportunities/overview.mdx, v2/es/developers/builder-opportunities/rfps-and-proposals.mdx, v2/es/home/about-livepeer/vision.mdx, v2/es/home/get-started.mdx, v2/es/home/solutions/applications.mdx, v2/fr/developers/builder-opportunities/bug-bounties.mdx, v2/fr/developers/builder-opportunities/grants-and-programmes.mdx, v2/fr/developers/builder-opportunities/oss-contributions.mdx, v2/fr/developers/builder-opportunities/overview.mdx, v2/fr/developers/builder-opportunities/rfps-and-proposals.mdx, v2/fr/home/about-livepeer/vision.mdx, v2/fr/home/get-started.mdx, v2/fr/home/solutions/applications.mdx, v2/home/about-livepeer/vision.mdx, v2/home/solutions/applications.mdx, v2/internal/rfp/problem-statements.mdx, v2/x-archived/home/get-started.mdx
- * @breakingChangeRisk high
+ * @usedIn v2/community/livepeer-community/community-guidelines.mdx, v2/developers/builder-opportunities/bug-bounties.mdx, v2/developers/builder-opportunities/grants-and-programmes.mdx, v2/developers/builder-opportunities/oss-contributions.mdx, v2/developers/builder-opportunities/overview.mdx, v2/developers/builder-opportunities/rfps-and-proposals.mdx, v2/home/about-livepeer/vision.mdx, v2/home/get-started.mdx, v2/home/solutions/applications.mdx, v2/internal/rfp/problem-statements.mdx
+ * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
  * @duplicates none
@@ -78,8 +78,8 @@ export const DisplayCard = ({
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies none
- * @usedIn v2/cn/home/about-livepeer/benefits.mdx, v2/cn/home/primer.mdx, v2/es/home/about-livepeer/benefits.mdx, v2/es/home/primer.mdx, v2/fr/home/about-livepeer/benefits.mdx, v2/fr/home/primer.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/primer.mdx, v2/internal/overview/docs-philosophy.mdx
- * @breakingChangeRisk high
+ * @usedIn v2/home/about-livepeer/benefits.mdx, v2/home/primer.mdx, v2/internal/overview/docs-philosophy.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
@@ -118,8 +118,8 @@ export const CustomCardTitle = ({ icon, title, style }) => {
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies none
- * @usedIn v2/cn/home/about-livepeer/benefits.mdx, v2/cn/home/about-livepeer/roadmap.mdx, v2/es/home/about-livepeer/benefits.mdx, v2/es/home/about-livepeer/roadmap.mdx, v2/fr/home/about-livepeer/benefits.mdx, v2/fr/home/about-livepeer/roadmap.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/roadmap.mdx, v2/resources/media-kit.mdx
- * @breakingChangeRisk high
+ * @usedIn v2/gateways-new/get-started/gateway-setup.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/roadmap.mdx, v2/resources/media-kit.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
@@ -156,7 +156,7 @@ export const WidthCard = ({ width = '80%', children, ...cardProps }) => {
  * @owner docs
  * @dependencies none
  * @usedIn v2/resources/media-kit.mdx
- * @breakingChangeRisk high
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none

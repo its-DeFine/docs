@@ -94,7 +94,7 @@ Modular MDX content imported into main documentation pages:
 
 Automation and generation scripts:
 
-- `update-component-library.sh` - Auto-updates component library listing
+- `generate-component-docs.js` - Generates the published component-library pages from governed component metadata
 - `generate-api-docs.sh` - Generates API documentation from OpenAPI specs
 - `generate-seo.js` - Generates SEO metadata
 - `fetch-external-docs.sh` - Fetches external documentation
@@ -183,16 +183,16 @@ import AboutOverview from "/snippets/pages/01_ABOUT/concepts/overview.mdx";
 
 The component library listing is automated:
 
-**Script:** `tools/scripts/snippets/update-component-library.sh`
+**Script:** `tools/scripts/generate-component-docs.js`
 
-**Output:** `snippets/snippetsWiki/componentLibrary/index.mdx`
+**Output:** `v2/resources/documentation-guide/component-library/*.mdx`
 
 **Usage:**
 ```bash
-./tools/scripts/snippets/update-component-library.sh
+npm --prefix tools run components:docs
 ```
 
-This script automatically generates a Tree structure listing all components in `snippets/components/`.
+This script generates the published component-library pages from the governed component registry and localized scaffolds.
 
 ## Related Resources
 

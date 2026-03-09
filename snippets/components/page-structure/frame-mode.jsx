@@ -1,5 +1,3 @@
-import { CustomDivider } from "../primitives/divider.jsx";
-
 /**
  * Frame Mode Headers - Custom heading components for Mintlify frame mode
  *
@@ -26,11 +24,11 @@ import { CustomDivider } from "../primitives/divider.jsx";
  * @owner docs
  * @dependencies Divider, H1, H2, H3, H4, H5, H6, P
  * @usedIn none
- * @breakingChangeRisk high
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {any} title - title prop.
  * @param {any} subtitle - subtitle prop.
  * @param {any} description - description prop.
@@ -114,12 +112,12 @@ const PageHeader = ({
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies Divider, H2, H3, H4, H5, H6, P, PageHeader
- * @usedIn v2/about/portal.mdx, v2/cn/about/portal.mdx, v2/cn/community/community-portal.mdx, v2/cn/developers/portal.mdx, v2/cn/gateways/gateways-portal.mdx, v2/cn/home/mission-control.mdx, v2/cn/lpt/token-portal.mdx, v2/cn/orchestrators/orchestrators-portal.mdx, v2/cn/solutions/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/es/about/portal.mdx, v2/es/community/community-portal.mdx, v2/es/developers/portal.mdx, v2/es/gateways/gateways-portal.mdx, v2/es/home/mission-control.mdx, v2/es/lpt/token-portal.mdx, v2/es/orchestrators/orchestrators-portal.mdx, v2/es/solutions/portal.mdx, v2/fr/about/portal.mdx, v2/fr/community/community-portal.mdx, v2/fr/developers/portal.mdx, v2/fr/gateways/gateways-portal.mdx, v2/fr/home/mission-control.mdx, v2/fr/lpt/token-portal.mdx, v2/fr/orchestrators/orchestrators-portal.mdx, v2/fr/solutions/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
- * @breakingChangeRisk high
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/orchestrators-new/portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {any} children - children prop.
  * @param {any} icon - icon prop.
  * @param {number} [iconSize=32] - icon Size prop.
@@ -178,12 +176,12 @@ const H1 = ({
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies Divider, H1, H3, H4, H5, H6, P, PageHeader
- * @usedIn v2/about/portal.mdx, v2/cn/about/portal.mdx, v2/cn/community/community-portal.mdx, v2/cn/developers/portal.mdx, v2/cn/gateways/gateways-portal.mdx, v2/cn/home/mission-control.mdx, v2/cn/lpt/token-portal.mdx, v2/cn/orchestrators/orchestrators-portal.mdx, v2/cn/solutions/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/es/about/portal.mdx, v2/es/community/community-portal.mdx, v2/es/developers/portal.mdx, v2/es/gateways/gateways-portal.mdx, v2/es/home/mission-control.mdx, v2/es/lpt/token-portal.mdx, v2/es/orchestrators/orchestrators-portal.mdx, v2/es/solutions/portal.mdx, v2/fr/about/portal.mdx, v2/fr/community/community-portal.mdx, v2/fr/developers/portal.mdx, v2/fr/gateways/gateways-portal.mdx, v2/fr/home/mission-control.mdx, v2/fr/lpt/token-portal.mdx, v2/fr/orchestrators/orchestrators-portal.mdx, v2/fr/solutions/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
- * @breakingChangeRisk high
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/orchestrators-new/portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {string} children - The heading text
  * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} [iconSize=28] - Size of the icon (default: 28)
@@ -242,12 +240,12 @@ const H2 = ({
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies Divider, H1, H2, H4, H5, H6, P, PageHeader
- * @usedIn v2/cn/community/community-portal.mdx, v2/community/community-portal.mdx, v2/es/community/community-portal.mdx, v2/fr/community/community-portal.mdx
- * @breakingChangeRisk high
+ * @usedIn v2/community/community-portal.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {string} children - The heading text
  * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} [iconSize=24] - Size of the icon (default: 24)
@@ -307,11 +305,11 @@ const H3 = ({
  * @owner docs
  * @dependencies Divider, H1, H2, H3, H5, H6, P, PageHeader
  * @usedIn none
- * @breakingChangeRisk high
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {string} children - The heading text
  * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} [iconSize=20] - Size of the icon (default: 20)
@@ -370,12 +368,12 @@ const H4 = ({
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies Divider, H1, H2, H3, H4, H6, P, PageHeader
- * @usedIn v2/about/portal.mdx, v2/cn/about/portal.mdx, v2/cn/community/community-portal.mdx, v2/cn/developers/portal.mdx, v2/cn/gateways/gateways-portal.mdx, v2/cn/lpt/token-portal.mdx, v2/cn/orchestrators/orchestrators-portal.mdx, v2/cn/solutions/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/es/about/portal.mdx, v2/es/community/community-portal.mdx, v2/es/developers/portal.mdx, v2/es/gateways/gateways-portal.mdx, v2/es/lpt/token-portal.mdx, v2/es/orchestrators/orchestrators-portal.mdx, v2/es/solutions/portal.mdx, v2/fr/about/portal.mdx, v2/fr/community/community-portal.mdx, v2/fr/developers/portal.mdx, v2/fr/gateways/gateways-portal.mdx, v2/fr/lpt/token-portal.mdx, v2/fr/orchestrators/orchestrators-portal.mdx, v2/fr/solutions/portal.mdx, v2/gateways/gateways-portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
- * @breakingChangeRisk high
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/orchestrators-new/portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {string} children - The heading text
  * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} [iconSize=18] - Size of the icon (default: 18)
@@ -435,11 +433,11 @@ const H5 = ({
  * @owner docs
  * @dependencies Divider, H1, H2, H3, H4, H5, P, PageHeader
  * @usedIn none
- * @breakingChangeRisk high
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {string} children - The heading text
  * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} [iconSize=16] - Size of the icon (default: 16)
@@ -498,12 +496,12 @@ const H6 = ({
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies Divider, H1, H2, H3, H4, H5, H6, PageHeader
- * @usedIn v2/about/portal.mdx, v2/cn/about/portal.mdx, v2/cn/community/community-portal.mdx, v2/cn/developers/portal.mdx, v2/cn/gateways/gateways-portal.mdx, v2/cn/home/mission-control.mdx, v2/cn/lpt/token-portal.mdx, v2/cn/orchestrators/orchestrators-portal.mdx, v2/cn/solutions/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/es/about/portal.mdx, v2/es/community/community-portal.mdx, v2/es/developers/portal.mdx, v2/es/gateways/gateways-portal.mdx, v2/es/home/mission-control.mdx, v2/es/lpt/token-portal.mdx, v2/es/orchestrators/orchestrators-portal.mdx, v2/es/solutions/portal.mdx, v2/fr/about/portal.mdx, v2/fr/community/community-portal.mdx, v2/fr/developers/portal.mdx, v2/fr/gateways/gateways-portal.mdx, v2/fr/home/mission-control.mdx, v2/fr/lpt/token-portal.mdx, v2/fr/orchestrators/orchestrators-portal.mdx, v2/fr/solutions/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
- * @breakingChangeRisk high
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/orchestrators-new/portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {string} children - The paragraph text
  * @param {string} icon - Optional icon name or path to theme-aware SVG
  * @param {number} [iconSize=16] - Size of the icon (default: 16)
@@ -560,11 +558,11 @@ const P = ({
  * @owner docs
  * @dependencies H1, H2, H3, H4, H5, H6, P, PageHeader
  * @usedIn none
- * @breakingChangeRisk high
+ * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
  * @duplicates none
- * @lastMeaningfulChange 2026-03-09
+ * @lastMeaningfulChange 2026-03-10
  * @param {string} color - Custom color for the divider (optional, defaults to theme border color)
  * @param {string} [margin="1.5rem 0"] - Vertical margin (default: "1.5rem 0")
  * @param {string} [opacity=0.2] - Opacity of the divider (default: 0.2)

@@ -8,8 +8,7 @@
  * @contentAffinity universal
  * @owner @livepeer/docs-team
  * @dependencies none
- * @usedIn v2/resources/documentation-guide/component-library/overview.mdx
- *   v2/resources/documentation-guide/component-library/primitives.mdx
+ * @usedIn none
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none

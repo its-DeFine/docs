@@ -9,11 +9,7 @@
  * @contentAffinity landing
  * @owner @livepeer/docs-team
  * @dependencies none
- * @usedIn v2/about/livepeer-overview.mdx, v2/home/about-livepeer/ecosystem.mdx
- *   v2/home/about-livepeer/vision.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/layout.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @usedIn v2/about/livepeer-overview.mdx, v2/home/about-livepeer/ecosystem.mdx, v2/home/about-livepeer/vision.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none

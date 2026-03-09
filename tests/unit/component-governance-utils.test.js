@@ -16,11 +16,14 @@ const fs = require('fs');
 const os = require('os');
 const path = require('path');
 const {
+  collectGovernedExportCodeSegments,
   extractExports,
+  getEnglishCanonicalPages,
   getComponentFiles,
   parseJSDocBlock,
   scanMDXImports,
-  scanStylingViolations
+  scanStylingViolations,
+  updateJSDocTags
 } = require('../../tools/lib/component-governance-utils');
 
 function runTests() {
@@ -58,7 +61,7 @@ function runTests() {
   }
 
   try {
-    const exportsList = extractExports('snippets/components/content/responseField.jsx');
+    const exportsList = extractExports('snippets/components/content/response-field.jsx');
     const responseFieldGroup = exportsList.find((entry) => entry.name === 'ResponseFieldGroup');
     assert(responseFieldGroup, 'ResponseFieldGroup export should be discovered');
     assert(responseFieldGroup.jsDocBlock, 'ResponseFieldGroup should have an attached JSDoc block');
@@ -106,8 +109,50 @@ function runTests() {
     const componentFiles = getComponentFiles();
     assert(componentFiles.length > 0, 'component file discovery should find governed files');
     assert(componentFiles.every((file) => !file.displayPath.includes('/_archive/')));
+    assert(componentFiles.every((file) => !/responseField\.jsx$/.test(file.displayPath)));
+    assert(componentFiles.every((file) => !/content\/math\.jsx$/.test(file.displayPath)));
+    assert(componentFiles.every((file) => !/content\/release\.jsx$/.test(file.displayPath)));
   } catch (error) {
     errors.push(`getComponentFiles failed: ${error.message}`);
+  }
+
+  try {
+    const pages = getEnglishCanonicalPages([
+      'v2/home/primer.mdx',
+      'v2/es/home/primer.mdx',
+      'v2/x-archived/home/get-started.mdx',
+      'v2/home/primer.mdx'
+    ]);
+    assert.deepEqual(pages, ['v2/home/primer.mdx']);
+  } catch (error) {
+    errors.push(`getEnglishCanonicalPages failed: ${error.message}`);
+  }
+
+  try {
+    const source = [
+      '/**',
+      ' * @component DemoCard',
+      ' * @category layout',
+      ' * @usedIn v2/es/demo.mdx,',
+      ' *   v2/demo.mdx',
+      ' */',
+      'export const DemoCard = () => <div>demo</div>;',
+      ''
+    ].join('\n');
+    const before = collectGovernedExportCodeSegments(source);
+    const updated = source.replace(
+      '/**\n * @component DemoCard\n * @category layout\n * @usedIn v2/es/demo.mdx,\n *   v2/demo.mdx\n */',
+      updateJSDocTags(
+        '/**\n * @component DemoCard\n * @category layout\n * @usedIn v2/es/demo.mdx,\n *   v2/demo.mdx\n */',
+        { usedIn: 'v2/demo.mdx' }
+      )
+    );
+    const after = collectGovernedExportCodeSegments(updated);
+    assert.equal(before.length, 1);
+    assert.equal(after.length, 1);
+    assert.equal(before[0].code, after[0].code);
+  } catch (error) {
+    errors.push(`updateJSDocTags failed: ${error.message}`);
   }
 
   return { errors, warnings };

@@ -7,8 +7,8 @@
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies none
- * @usedIn v2/about/portal.mdx, v2/cn/about/portal.mdx, v2/cn/community/community-portal.mdx, v2/cn/developers/portal.mdx, v2/cn/gateways/gateways-portal.mdx, v2/cn/home/mission-control.mdx, v2/cn/lpt/token-portal.mdx, v2/cn/orchestrators/orchestrators-portal.mdx, v2/cn/solutions/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/es/about/portal.mdx, v2/es/community/community-portal.mdx, v2/es/developers/portal.mdx, v2/es/gateways/gateways-portal.mdx, v2/es/home/mission-control.mdx, v2/es/lpt/token-portal.mdx, v2/es/orchestrators/orchestrators-portal.mdx, v2/es/solutions/portal.mdx, v2/fr/about/portal.mdx, v2/fr/community/community-portal.mdx, v2/fr/developers/portal.mdx, v2/fr/gateways/gateways-portal.mdx, v2/fr/home/mission-control.mdx, v2/fr/lpt/token-portal.mdx, v2/fr/orchestrators/orchestrators-portal.mdx, v2/fr/solutions/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
- * @breakingChangeRisk high
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators-new/portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
  * @duplicates none

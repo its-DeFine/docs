@@ -7,13 +7,7 @@
  * @contentAffinity how_to
  * @owner @livepeer/docs-team
  * @dependencies none
- * @usedIn v2/about/resources/livepeer-whitepaper.mdx
- *   v2/developers/technical-references/awesome-livepeer.mdx
- *   v2/gateways/run-a-gateway/configure/dual-configuration.mdx
- *   v2/gateways/run-a-gateway/install/community-projects.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/content.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
+ * @usedIn none
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none

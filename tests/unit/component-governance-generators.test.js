@@ -12,11 +12,13 @@
  */
 
 const assert = require('assert');
+const { execFileSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
 const { buildRegistry } = require('../../tools/scripts/generate-component-registry');
 const { buildUsageMap } = require('../../tools/scripts/scan-component-imports');
 const { parseArgs: parseDocsArgs } = require('../../tools/scripts/generate-component-docs');
+const { parseArgs: parseRepairArgs } = require('../../tools/scripts/remediators/components/repair-component-metadata');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 
@@ -44,16 +46,27 @@ function runTests() {
     assert(usageMap.components.length > 0);
     assert(Array.isArray(usageMap.orphaned));
     assert(Array.isArray(usageMap.mostImported));
+    assert.equal(usageMap._meta.canonicalUsagePolicy, 'english-only-jsdoc');
+    assert(usageMap.components.every((component) => Array.isArray(component.englishCanonicalPages)));
   } catch (error) {
     errors.push(`buildUsageMap failed: ${error.message}`);
   }
 
   try {
-    const args = parseDocsArgs(['--category', 'data']);
+    const args = parseDocsArgs(['--fix', '--template-only', '--category', 'data']);
     assert.equal(args.category, 'data');
     assert.equal(args.templateOnly, true);
+    assert.equal(args.mode, 'fix');
   } catch (error) {
     errors.push(`generate-component-docs argument parsing failed: ${error.message}`);
+  }
+
+  try {
+    const args = parseRepairArgs(['--fix', '--staged']);
+    assert.equal(args.mode, 'fix');
+    assert.equal(args.staged, true);
+  } catch (error) {
+    errors.push(`repair-component-metadata argument parsing failed: ${error.message}`);
   }
 
   try {
@@ -78,6 +91,21 @@ function runTests() {
     assert(landingContent.includes('./page-structure'));
   } catch (error) {
     errors.push(`generated docs output validation failed: ${error.message}`);
+  }
+
+  try {
+    execFileSync(
+      process.execPath,
+      ['tools/scripts/generate-component-docs.js', '--check', '--template-only'],
+      {
+        cwd: REPO_ROOT,
+        stdio: 'pipe'
+      }
+    );
+  } catch (error) {
+    errors.push(
+      `generate-component-docs --check failed: ${String(error.stderr || error.stdout || error.message).trim()}`
+    );
   }
 
   return { errors, warnings };

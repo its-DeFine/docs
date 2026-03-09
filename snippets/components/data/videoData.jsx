@@ -10,9 +10,6 @@ import { YouTubeVideo } from "/snippets/components/content/video.jsx";
  * @owner @livepeer/docs-team
  * @dependencies none
  * @usedIn v2/community/livepeer-community/trending-topics.mdx, v2/home/trending.mdx
- *   v2/resources/documentation-guide/component-library/component-library.mdx
- *   v2/resources/documentation-guide/component-library/display.mdx
- *   v2/resources/documentation-guide/component-library/overview.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource /snippets/automations/youtube/youtubeData.jsx

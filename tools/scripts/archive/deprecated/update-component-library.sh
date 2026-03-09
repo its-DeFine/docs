@@ -1,4 +1,7 @@
 #!/bin/bash
+# Archived by generate-component-docs.js
+# Replaced by node tools/scripts/generate-component-docs.js --fix --template-only
+# Legacy snippet-tree generation retained for historical reference.
 # @script            update-component-library
 # @category          automation
 # @purpose           infrastructure:data-feeds

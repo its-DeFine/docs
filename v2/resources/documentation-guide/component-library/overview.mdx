@@ -10,29 +10,29 @@ generated-file-banner: generated-file-banner:v1
 Generation Script: tools/scripts/generate-component-docs.js
 Purpose: Generated component-library MDX pages derived from docs-guide/component-registry.json.
 Run when: Component governance metadata, registry outputs, or published component-library templates change.
-Run command: node tools/scripts/generate-component-docs.js --template-only
+Run command: node tools/scripts/generate-component-docs.js --fix --template-only
 */}
 
 <Note>
 **Generation Script**: This file is generated from script(s): `tools/scripts/generate-component-docs.js`. <br/>
 **Purpose**: Generated component-library MDX pages derived from docs-guide/component-registry.json. <br/>
 **Run when**: Component governance metadata, registry outputs, or published component-library templates change. <br/>
-**Important**: Do not manually edit this file; run `node tools/scripts/generate-component-docs.js --template-only`. <br/>
+**Important**: Do not manually edit this file; run `node tools/scripts/generate-component-docs.js --fix --template-only`. <br/>
 </Note>
 
 ## Governance Snapshot
 
-The governed component library currently exposes **122** named export(s) across five active categories.
+The governed component library currently exposes **125** named export(s) across five active categories.
 
 ### Category Matrix
 
 | Category | Purpose | Exports |
 | --- | --- | --- |
 | [Primitives](./primitives) | Standalone visual atoms | 30 |
-| [Layout](./layout) | Spatial arrangement containers | 29 |
-| [Content](./content) | Content formatting and rendering | 23 |
-| [Data](./data) | Data-bound feed renderers | 15 |
-| [Page Structure](./page-structure) | Frame-mode and portal scaffolding | 25 |
+| [Layout](./layout) | Spatial arrangement containers | 30 |
+| [Content](./content) | Content formatting and rendering | 24 |
+| [Data](./data) | Data-bound feed renderers | 17 |
+| [Page Structure](./page-structure) | Frame-mode and portal scaffolding | 24 |
 
 ### Classification Decision Tree
 
@@ -45,5 +45,5 @@ The governed component library currently exposes **122** named export(s) across 
 ### Canonical Sources
 
 - Registry JSON: [`docs-guide/component-registry.json`](/docs-guide/component-registry.json)
-- Governance framework: [`docs-guide/contributing/component-framework.mdx`](/docs-guide/contributing/component-framework.mdx)
 - Usage map: [`docs-guide/component-usage-map.json`](/docs-guide/component-usage-map.json)
+- Docs-guide index: [`docs-guide/indexes/components-index.mdx`](/docs-guide/indexes/components-index.mdx)

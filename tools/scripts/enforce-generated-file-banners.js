@@ -1,15 +1,35 @@
 #!/usr/bin/env node
 /**
- * @script            enforce-generated-file-banners
- * @category          remediator
- * @purpose           governance:index-management
- * @scope             tools/scripts, tools/lib, docs-guide/indexes, v2, tests/unit/docs-guide-sot.test.js
- * @owner             docs
- * @needs             R-R16, R-R17
- * @purpose-statement Generated file banner enforcer — checks (--check) or writes (default) "do not edit" banners on generated files
- * @pipeline          P1, P3
- * @dualmode          --check (enforcer) | default (remediator)
- * @usage             node tools/scripts/enforce-generated-file-banners.js [flags]
+ * @script enforce-generated-file-banners
+ * @summary Enforce standardized hidden/visible generated banners and frontmatter across generated MDX outputs.
+ * @owner docs
+ * @scope tools/scripts, tools/lib, docs-guide/indexes, v2, tests/unit/docs-guide-sot.test.js
+ * @pipeline manual — interactive developer tool, not suited for automated pipelines
+ *
+ * @usage
+ *   node tools/scripts/enforce-generated-file-banners.js --check
+ *   node tools/scripts/enforce-generated-file-banners.js --write
+ *   node tools/scripts/enforce-generated-file-banners.js --check --staged
+ *
+ * @inputs
+ *   --check Validate generated banner/frontmatter policy without writing files.
+ *   --write Run generators and normalize generated outputs before validation.
+ *   --staged Restrict validation to generated/banner-relevant staged files when available.
+ *
+ * @outputs
+ *   - Console validation summary
+ *
+ * @exit-codes
+ *   0 = policy checks passed
+ *   1 = one or more policy checks failed
+ *
+ * @examples
+ *   node tools/scripts/enforce-generated-file-banners.js --check
+ *   node tools/scripts/enforce-generated-file-banners.js --write
+ *   node tools/scripts/enforce-generated-file-banners.js --check --staged
+ *
+ * @notes
+ *   i18n localized files must keep codex-i18n provenance. Visible generation Note parity follows source English pages.
  */
 
 const fs = require('fs');
@@ -26,6 +46,7 @@ const {
 } = require('../lib/generated-file-banners');
 
 const REPO_ROOT = process.cwd();
+const STAGED_SNAPSHOT_ENV = 'LPD_STAGED_FILES_SNAPSHOT';
 
 const NON_I18N_GENERATED_STATIC = [
   'docs-guide/indexes/components-index.mdx',
@@ -33,13 +54,20 @@ const NON_I18N_GENERATED_STATIC = [
   'docs-guide/indexes/scripts-index.mdx',
   'docs-guide/indexes/templates-index.mdx',
   'docs-guide/indexes/workflows-index.mdx',
-  'v2/resources/documentation-guide/component-library/overview.mdx'
+  'v2/resources/documentation-guide/component-library/overview.mdx',
+  'v2/resources/documentation-guide/component-library/component-library.mdx',
+  'v2/resources/documentation-guide/component-library/primitives.mdx',
+  'v2/resources/documentation-guide/component-library/layout.mdx',
+  'v2/resources/documentation-guide/component-library/content.mdx',
+  'v2/resources/documentation-guide/component-library/data.mdx',
+  'v2/resources/documentation-guide/component-library/page-structure.mdx'
 ];
 
 const CHECK_COMMANDS = [
   ['tools/scripts/generate-docs-guide-indexes.js', '--check'],
   ['tools/scripts/generate-docs-guide-pages-index.js', '--check'],
   ['tools/scripts/generate-docs-guide-components-index.js', '--check'],
+  ['tools/scripts/generate-component-docs.js', '--check', '--template-only'],
   ['tests/unit/script-docs.test.js', '--check-indexes'],
   ['tools/scripts/generate-pages-index.js']
 ];
@@ -48,6 +76,7 @@ const WRITE_COMMANDS = [
   ['tools/scripts/generate-docs-guide-indexes.js', '--write'],
   ['tools/scripts/generate-docs-guide-pages-index.js', '--write'],
   ['tools/scripts/generate-docs-guide-components-index.js', '--write'],
+  ['tools/scripts/generate-component-docs.js', '--fix', '--template-only'],
   ['tests/unit/script-docs.test.js', '--write', '--rebuild-indexes'],
   ['tools/scripts/generate-pages-index.js', '--write', '--rebuild-indexes']
 ];
@@ -90,6 +119,42 @@ function runNodeCommand(args) {
   if (result.stdout) process.stdout.write(result.stdout);
   if (result.stderr) process.stderr.write(result.stderr);
   return result.status === 0;
+}
+
+function getStagedFiles() {
+  const snapshot = String(process.env[STAGED_SNAPSHOT_ENV] || '')
+    .split(/\r?\n/)
+    .map((entry) => normalizeRepoPath(entry.trim()))
+    .filter(Boolean);
+  if (snapshot.length > 0) {
+    return [...new Set(snapshot)].sort();
+  }
+
+  const result = spawnSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACMRD'], {
+    cwd: REPO_ROOT,
+    encoding: 'utf8'
+  });
+  if (result.status !== 0) {
+    return [];
+  }
+
+  return [...new Set(String(result.stdout || '')
+    .split(/\r?\n/)
+    .map((entry) => normalizeRepoPath(entry.trim()))
+    .filter(Boolean))].sort();
+}
+
+function getBannerRelevantStagedFiles(stagedFiles) {
+  if (!Array.isArray(stagedFiles) || stagedFiles.length === 0) {
+    return [];
+  }
+
+  const expectedGenerated = new Set(getExpectedNonI18nGeneratedFiles());
+
+  return stagedFiles.filter((repoPath) => {
+    if (expectedGenerated.has(repoPath)) return true;
+    return repoPath.startsWith('v2/cn/') || repoPath.startsWith('v2/es/') || repoPath.startsWith('v2/fr/');
+  });
 }
 
 function runGeneratorSet(writeMode, violations) {
@@ -266,9 +331,11 @@ function validateI18nParity(writeMode, violations, warnings) {
 function parseArgs(argv) {
   const write = argv.includes('--write');
   const check = argv.includes('--check') || !write;
+  const staged = argv.includes('--staged');
   return {
     write,
-    check
+    check,
+    staged
   };
 }
 
@@ -276,6 +343,13 @@ function main(argv = process.argv.slice(2)) {
   const args = parseArgs(argv);
   const violations = [];
   const warnings = [];
+  const stagedFiles = args.staged ? getStagedFiles() : [];
+  const bannerRelevantStagedFiles = args.staged ? getBannerRelevantStagedFiles(stagedFiles) : [];
+
+  if (args.staged && bannerRelevantStagedFiles.length === 0) {
+    console.log('⏭️ Generated file banner enforcement skipped in staged mode (no relevant staged files).');
+    return;
+  }
 
   if (args.write) {
     runGeneratorSet(true, violations);
