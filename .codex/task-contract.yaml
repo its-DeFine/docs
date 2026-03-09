@@ -15,7 +15,6 @@ scope_in:
   - docs-guide/governance-guides/component-governance.mdx
   - ai-tools/ai-skills/templates/05-mdx-parent-child-scope-patterns.template.md
 scope_out:
-  - tasks/reports
   - v2/internal/reports
 allowed_generated:
   - .codex/pr-body.generated.md
