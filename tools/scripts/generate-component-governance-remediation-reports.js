@@ -35,6 +35,9 @@
 
 const fs = require('fs');
 const path = require('path');
+const {
+  buildMdxFacingComponentIndex
+} = require('./validators/components/check-mdx-component-scope');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const DEFAULT_AUDIT_FILE = 'tasks/reports/component-governance-audit.md';
@@ -501,7 +504,8 @@ function buildContext(options) {
   const defensiveAnalysis = analyseDefensiveRendering(
     audit.defensiveRendering,
     audit.statusAssessment,
-    componentIndex
+    componentIndex,
+    buildMdxFacingComponentIndex()
   );
 
   return {
@@ -1829,7 +1833,7 @@ function analyseTokenInventory(styleTokens, tokenUsage, stylingAnalysis) {
   };
 }
 
-function analyseDefensiveRendering(defensiveRows, statusRows, componentIndex) {
+function analyseDefensiveRendering(defensiveRows, statusRows, componentIndex, mdxFacingComponentIndex) {
   const statusByComponent = new Map(statusRows.map((row) => [row.component, row]));
   const highRows = [];
   const mediumGroups = new Map();
@@ -1841,7 +1845,7 @@ function analyseDefensiveRendering(defensiveRows, statusRows, componentIndex) {
     }
 
     if (row.crashRisk === 'HIGH') {
-      highRows.push(buildHighRiskEntry(row, componentMeta, statusByComponent));
+      highRows.push(buildHighRiskEntry(row, componentMeta, statusByComponent, mdxFacingComponentIndex));
       return;
     }
 
@@ -1877,7 +1881,7 @@ function analyseDefensiveRendering(defensiveRows, statusRows, componentIndex) {
   };
 }
 
-function buildHighRiskEntry(defensiveRow, componentMeta, statusByComponent) {
+function buildHighRiskEntry(defensiveRow, componentMeta, statusByComponent, mdxFacingComponentIndex) {
   const source = readSource(componentMeta.filePath);
   const override = HIGH_RISK_OVERRIDES[defensiveRow.component];
   const statusRow = statusByComponent.get(defensiveRow.component) || {};
@@ -1892,7 +1896,12 @@ function buildHighRiskEntry(defensiveRow, componentMeta, statusByComponent) {
 
   const currentSnippet = extractSnippet(source.lines, evidenceLine, 6);
   const fixSnippet = override ? override.fix : buildGenericHighRiskFix(componentMeta);
-  const guards = override ? override.guards : deriveGenericGuardChecklist(componentMeta);
+  const guards = override ? [...override.guards] : deriveGenericGuardChecklist(componentMeta);
+  if (mdxFacingComponentIndex?.has(componentMeta.filePath)) {
+    guards.push(
+      'This file is imported directly by routable MDX pages. Do not hoist the fix into a private file-scope helper; keep it inline in the exported component or import it from a colocated .js helper module.'
+    );
+  }
 
   return {
     component: defensiveRow.component,

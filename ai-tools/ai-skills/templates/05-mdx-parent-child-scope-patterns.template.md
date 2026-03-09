@@ -26,10 +26,11 @@ Constraints
 - Do not modify `v1/` content; it is frozen/immutable.
 - Keep edits within requested scope and avoid protected root changes like `.allowlist` unless explicitly requested.
 - Use only repository-backed commands and paths listed in this template.
+- For MDX-facing `.jsx` modules, do not hoist shared guard logic into private file-scope helpers. Keep it inline in the exported component or import it from a colocated non-component `.js` helper module.
 
 Workflow
 1. Inspect parent/child MDX import graph and detect duplicated or missing imports.
-2. Apply scope rules: shared imports in parent; child-only imports where needed.
+2. Apply scope rules: shared imports in parent; child-only imports where needed; no private file-scope helper hoisting in MDX-facing `.jsx` modules.
 3. Validate with staged MDX and links/imports checks.
 
 Command examples

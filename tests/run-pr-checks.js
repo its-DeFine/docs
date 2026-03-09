@@ -26,6 +26,8 @@ const linksImportsTests = require('./unit/links-imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
+const mdxComponentScopeTests = require('../tools/scripts/validators/components/check-mdx-component-scope');
+const mdxRuntimeSmoke = require('./integration/mdx-component-runtime-smoke');
 
 const REPO_ROOT = getRepoRoot();
 const SCRIPT_EXTENSIONS = new Set(['.js', '.cjs', '.mjs', '.ts', '.tsx', '.sh', '.bash', '.py']);
@@ -222,6 +224,36 @@ function runComponentNamingCheck(files) {
   };
 }
 
+function runMdxComponentScopeCheck(componentFiles, mdxFiles) {
+  const targetFiles = dedupe([
+    ...componentFiles,
+    ...mdxComponentScopeTests.getComponentFilesImportedByMdxFiles(mdxFiles)
+  ]);
+
+  if (!targetFiles.length) {
+    return {
+      label: 'MDX Component Scope',
+      status: 'skipped',
+      files: 0,
+      errors: 0,
+      warnings: 0
+    };
+  }
+
+  const result = mdxComponentScopeTests.run({ files: targetFiles });
+  result.findings.forEach((finding) => {
+    console.error(mdxComponentScopeTests.formatFinding(finding));
+  });
+
+  return {
+    label: 'MDX Component Scope',
+    status: result.findings.length === 0 ? 'passed' : 'failed',
+    files: targetFiles.length,
+    errors: result.findings.length,
+    warnings: 0
+  };
+}
+
 function runUsefulnessChecks(files) {
   if (!files.length) {
     return { label: 'Usefulness Unit Tests', status: 'skipped', files: 0, errors: 0, warnings: 0 };
@@ -269,6 +301,33 @@ function runLinkAuditCheck(files) {
     label: 'V2 Link Audit (Strict)',
     status: cmd.status === 0 ? 'passed' : 'failed',
     files: files.length,
+    errors: cmd.status === 0 ? 0 : 1,
+    warnings: 0
+  };
+}
+
+function runMdxRuntimeSmokeCheck(changedFiles) {
+  if (!mdxRuntimeSmoke.shouldRunForChangedFiles(changedFiles)) {
+    return {
+      label: 'MDX Runtime Smoke',
+      status: 'skipped',
+      files: 0,
+      errors: 0,
+      warnings: 0
+    };
+  }
+
+  const cmd = spawnSync('node', ['tests/integration/mdx-component-runtime-smoke.js'], {
+    cwd: REPO_ROOT,
+    encoding: 'utf8'
+  });
+  if (cmd.stdout) process.stdout.write(cmd.stdout);
+  if (cmd.stderr) process.stderr.write(cmd.stderr);
+
+  return {
+    label: 'MDX Runtime Smoke',
+    status: cmd.status === 0 ? 'passed' : 'failed',
+    files: mdxRuntimeSmoke.SENTINEL_ROUTES.length,
     errors: cmd.status === 0 ? 0 : 1,
     warnings: 0
   };
@@ -462,6 +521,7 @@ async function main() {
   checks.push(await runUnitCheck('Quality', groups.docsMdxAbs, qualityTests.runTests));
   checks.push(await runUnitCheck('Links & Imports', groups.docsMdxAbs, linksImportsTests.runTests));
   checks.push(runComponentNamingCheck(groups.componentJsx));
+  checks.push(runMdxComponentScopeCheck(groups.componentJsx, groups.docsMdxAbs));
   checks.push(runGlobalCheck('MDX Guardrails', mdxGuardsTests.runTests));
   checks.push(runDocsNavigationCheck());
   checks.push(runDocsJsonRedirectGuard(args.baseRef, changedFiles));
@@ -471,6 +531,7 @@ async function main() {
   checks.push(runScriptDocsCheck(groups.scriptFiles));
   checks.push(runUsefulnessChecks(groups.usefulnessFiles));
   checks.push(runLinkAuditCheck(groups.docsMdx));
+  checks.push(runMdxRuntimeSmokeCheck(changedFiles));
 
   console.log('\n============================================================');
   console.log('PR Changed-File Checks Summary');

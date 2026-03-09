@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Development tooling for Livepeer documentation",
   "devDependencies": {
+    "@babel/parser": "^7.28.4",
     "remark-mdx": "^3.1.1",
     "remark-parse": "^11.0.0",
     "remark-stringify": "^11.0.0",
@@ -53,6 +54,7 @@
     "test:links": "node ../tests/unit/links-imports.test.js",
     "test:browser": "node ../tests/integration/browser.test.js",
     "test:browser:all": "node ../tests/integration/browser.test.js",
+    "test:mdx-runtime-smoke": "node ../tests/integration/mdx-component-runtime-smoke.js",
     "test:quality": "node ../tests/unit/quality.test.js",
     "test:all-pages": "node scripts/test-v2-pages.js",
     "i18n:translate": "node scripts/i18n/translate-docs.js",

@@ -58,7 +58,7 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 <CustomDivider />
 ```
 
-Mintlify requires full paths with file extensions. No barrel imports. If you need multiple components, import them all at the MDX page level — components cannot import each other.
+Mintlify requires full paths with file extensions. No barrel imports. If you need multiple components, import them all at the MDX page level. Components must not import other `.jsx` component files. Shared non-visual runtime logic may only be kept inline in the exported component or imported from a colocated non-component `.js` helper module.
 
 ### Decide which category
 
@@ -100,7 +100,8 @@ Props
   □ Required props: no default. Optional: always have default.
 
 Composition
-  □ No cross-file imports from other .jsx component files
+  □ No cross-file imports from other `.jsx` component files
+  □ Shared runtime logic for MDX-facing components stays inline or comes from a colocated `.js` helper import
   □ Renders correctly standalone and inside Mintlify globals
 
 Styling
@@ -358,6 +359,8 @@ Mintlify has no error boundary per component. **A component crash kills the enti
 | Try-catch complex logic | Wrap computed values, data transforms |
 | Console.warn on degradation | `console.warn('[ComponentName] reason')` |
 | Never throw | Catch internally, degrade gracefully |
+
+**MDX-facing component rule:** if a `.jsx` file is imported directly by a routable MDX page, exported components in that file must not rely on private file-scope helpers. Keep defensive logic inline in the exported component or import it from a colocated non-component `.js` helper module. Do not hoist the logic into top-level private locals inside the `.jsx` file.
 
 ### 4.5 Testing (Three Tiers)
 

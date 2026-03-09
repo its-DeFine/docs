@@ -1,47 +1,40 @@
 task_id: 20260309
-branch: codex/20260309-portal-runtime-frame-mode
+branch: codex/20260309-mdx-safety-guards
 base_branch: docs-v2
 scope_in:
   - .codex/task-contract.yaml
-  - snippets/components/primitives/links.jsx
-  - snippets/components/display
-  - snippets/components/page-structure
-  - snippets/components/_archive
-  - snippets/components/README.md
-  - snippets/data
-  - snippets/snippetsWiki
+  - tools/package.json
+  - tools/package-lock.json
+  - tools/scripts/generate-component-governance-remediation-reports.js
   - tools/scripts/validators/components
-  - docs-guide
-  - v2/about
-  - v2/community
-  - v2/developers
-  - v2/gateways
-  - v2/home
-  - v2/lpt
-  - v2/orchestrators
-  - v2/resources/documentation-guide
-  - v2/solutions
-  - v2/cn
-  - v2/es
-  - v2/fr
+  - tests/integration
+  - tests/run-all.js
+  - tests/run-pr-checks.js
+  - tests/unit
+  - tests/utils/mdx-parser.js
+  - docs-guide/governance-guides/component-governance.mdx
+  - ai-tools/ai-skills/templates/05-mdx-parent-child-scope-patterns.template.md
 scope_out:
   - tasks/reports
   - v2/internal/reports
 allowed_generated:
   - .codex/pr-body.generated.md
+  - docs-guide/indexes/scripts-index.mdx
+  - tests/script-index.md
+  - tools/script-index.md
+  - tasks/reports/script-classifications.json
 acceptance_checks:
   - >-
     node tools/scripts/validate-codex-task-contract.js --branch
-    codex/20260309-portal-runtime-frame-mode --validate-contract-only
-  - >-
-    bash -lc 'if rg -n
-    "components/page-structure/frameMode\\.jsx|components/display/frameMode\\.jsx"
-    . --glob "!node_modules" --glob "!.git" --glob "!tasks/reports/**" --glob
-    "!v2/internal/reports/**" --glob "!llms-full.txt"; then exit 1; fi'
-  - node tests/run-all.js
+    codex/20260309-mdx-safety-guards --validate-contract-only
+  - node tests/unit/mdx-component-scope.test.js
+  - node tests/unit/mdx-component-runtime-smoke.test.js
+  - node tests/run-all.js --staged
+  - node tests/run-pr-checks.js --base-ref docs-v2
   - git diff --check
 risk_flags:
   - runtime-components
-  - path-migration
-  - localized-docs
+  - validator-enforcement
+  - docs-governance
+  - local-skill-sync
 follow_up_issues: []

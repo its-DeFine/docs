@@ -34,6 +34,7 @@ const linksImportsTests = require('./unit/links-imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const componentNamingTests = require('../tools/scripts/validators/components/check-naming-conventions');
+const mdxComponentScopeTests = require('../tools/scripts/validators/components/check-mdx-component-scope');
 const pagesIndexGenerator = require('../tools/scripts/generate-pages-index');
 const browserTests = require('./integration/browser.test');
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -70,6 +71,15 @@ async function runAllTests() {
   });
   totalErrors += componentNamingResult.findings.length;
   console.log(`   ${componentNamingResult.findings.length} errors, 0 warnings`);
+
+  // MDX-Facing Component Scope
+  console.log('\n🧱 Running MDX-Facing Component Scope Checks...');
+  const mdxComponentScopeResult = mdxComponentScopeTests.run({ stagedOnly });
+  mdxComponentScopeResult.findings.forEach((finding) => {
+    console.error(`  ${mdxComponentScopeTests.formatFinding(finding)}`);
+  });
+  totalErrors += mdxComponentScopeResult.findings.length;
+  console.log(`   ${mdxComponentScopeResult.findings.length} errors, 0 warnings`);
   
   // MDX Tests
   console.log('\n📄 Running MDX Validation Tests...');

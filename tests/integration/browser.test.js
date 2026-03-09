@@ -16,9 +16,16 @@
  * Tests pages in headless browser with theme checks
  */
 
-const puppeteer = require('puppeteer');
 const fs = require('fs');
 const path = require('path');
+
+let puppeteer;
+try {
+  puppeteer = require('puppeteer');
+} catch (_error) {
+  puppeteer = require(path.join(process.cwd(), 'tools', 'node_modules', 'puppeteer'));
+}
+
 const { getMdxFiles, getStagedDocsPageFiles } = require('../utils/file-walker');
 const { getV2Pages } = require('../../tools/scripts/test-v2-pages');
 const { ensureServerRunning, stopServer, getServerUrl } = require('../../.githooks/server-manager');
