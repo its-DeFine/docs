@@ -37,7 +37,7 @@ The documentation uses **CSS Custom Properties** defined in `style.css` at the r
 
 **DO NOT USE:**
 - ❌ JavaScript theme objects (ThemeData, themeStyles.jsx) - **DEPRECATED**
-- ❌ Inline style objects with hardcoded colors
+- ❌ Inline style objects with hardcoded colours
 - ❌ JavaScript-based theme switching
 
 **USE INSTEAD:**
@@ -45,9 +45,9 @@ The documentation uses **CSS Custom Properties** defined in `style.css` at the r
 - ✅ Global CSS variables in `style.css`
 - ✅ Mintlify theme configuration in `docs.json`
 
-### Color System
+### Colour System
 
-All theme colors are defined as CSS Custom Properties in `style.css`:
+All theme colours are defined as CSS Custom Properties in `style.css`:
 
 | Variable | Light Mode | Dark Mode | Usage |
 |----------|-----------|-----------|-------|
@@ -121,17 +121,17 @@ Mintlify automatically adds a `.dark` class to the `<html>` element when dark mo
 
 **No JavaScript required** - theme switching is handled entirely by CSS.
 
-### Color Rules
+### Colour Rules
 
 | Use Case | Approach |
 |----------|----------|
-| Brand colors (green) | Use `--accent` or `--accent-dark` |
+| Brand colours (green) | Use `--accent` or `--accent-dark` |
 | Headings | Use `--hero-text` |
 | Body text | Use `--text` |
 | Secondary text | Use `--muted-text` |
 | Backgrounds | Use `--background` or `--card-background` |
 | Borders | Use `--border` |
-| Semantic colors (error, warning, success) | Keep fixed (don't theme) |
+| Semantic colours (error, warning, success) | Keep fixed (don't theme) |
 | White text on green headers | Keep fixed as `#fff` |
 
 ### Deprecated Approaches
@@ -145,7 +145,7 @@ Mintlify automatically adds a `.dark` class to the `<html>` element when dark mo
    <div style={{ color: ThemeData.light.accent }}>Content</div>
    ```
 
-2. **Hardcoded Colors** - Never hardcode hex values that should adapt to theme
+2. **Hardcoded Colours** - Never hardcode hex values that should adapt to theme
    ```jsx
    // ❌ WRONG - DO NOT USE
    <div style={{ color: "#3CB540" }}>Content</div>
@@ -156,7 +156,7 @@ Mintlify automatically adds a `.dark` class to the `<html>` element when dark mo
 ### What NOT to Do
 
 - ❌ Don't import or use `ThemeData` from `themeStyles.jsx`
-- ❌ Don't hardcode hex colors that should adapt to theme
+- ❌ Don't hardcode hex colours that should adapt to theme
 - ❌ Don't use generic grays without checking theme compatibility
 - ❌ Don't make semantic colors (trust scores, error states) theme-dependent
 - ❌ Don't override white text on intentionally colored backgrounds
@@ -811,7 +811,7 @@ git checkout -b docs-plan/XX-task-name
 
 ## Best Practices
 
-### Code Organization
+### Code Organisation
 
 1. **Keep components in `/snippets/components/`** organized by purpose:
    - `primitives/` - Basic UI elements
@@ -970,7 +970,7 @@ This repository uses Git pre-commit hooks to automatically enforce the style gui
 The pre-commit hooks automatically check for:
 
 - **Deprecated `ThemeData` Usage** - Blocks imports of `ThemeData` from `snippets/styles/themeStyles.jsx`
-- **Hardcoded Theme Colors** - Warns about direct hex color codes that should use CSS Custom Properties
+- **Hardcoded Theme Colours** - Warns about direct hex color codes that should use CSS Custom Properties
 - **Relative Snippets Imports** - Flags imports from `snippets/` that use relative paths instead of absolute paths
 - **Unnecessary Imports** - Warns about explicit imports for Mintlify's globally available components and React hooks
 - **Syntax Validation** - Checks MDX, JSON, Shell, and JavaScript syntax

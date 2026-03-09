@@ -22,13 +22,13 @@ Architectures supported:
 - **Git** for version control
 
 <Warning>
-    **FFmpeg** is a common cause of errors when building from source.
+ **FFmpeg** is a common cause of errors when building from source.
 
-    It **must be installed in a specific location** and not conflict with any existing ffmpeg installations.
+ It **must be installed in a specific location** and not conflict with any existing ffmpeg installations.
 
-    **Livepeer uses a custom build of `ffmpeg`** that is installed as part of the build process.
+ **Livepeer uses a custom build of `ffmpeg`** that is installed as part of the build process.
 
-    If you have `ffmpeg` installed already, it is recommended to remove it before building Livepeer.
+ If you have `ffmpeg` installed already, it is recommended to remove it before building Livepeer.
 </Warning>
 
 {/* <Danger> Verify below installs are correct </Danger>
@@ -45,7 +45,7 @@ export PATH=$ROOT/compiled/bin/:$PATH
 {/* ```bash lines icon="warning" Linux Dependencies for Livepeer
 sudo apt-get update && sudo apt-get -y install build-essential pkg-config autoconf git curl wget
 sudo apt-get -y install protobuf-compiler-grpc golang-goprotobuf-dev
-sudo apt-get -y install clang clang-tools
+sudo apt-get -y install clang-tools
 ``` */}
 
 ```bash Install Dependencies icon="terminal" lines
@@ -65,10 +65,10 @@ sudo add-apt-repository "deb https://apt.llvm.org/$(lsb_release -cs)/ llvm-toolc
 # Install remaining dependencies
 sudo apt update
 sudo apt install -y clang-14 clang-tools-14 lld-14 pkg-config autoconf python3 \
-  protobuf-compiler libx11-dev libbz2-dev libbzip3-dev
+ protobuf-compiler libx11-dev libbz2-dev libbzip3-dev
 
 # Set clang as default
-sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-14 30
+sudo update-alternatives --install /usr/bin/clang /usr/bin/clang-14 30
 sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-14 30
-sudo update-alternatives --install /usr/bin/ld ld /usr/bin/lld-14 30
+sudo update-alternatives --install /usr/bin/ld /usr/bin/lld-14 30
 ```

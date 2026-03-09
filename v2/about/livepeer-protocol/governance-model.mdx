@@ -37,8 +37,8 @@ This page describes:
 */}
 
 <div style={{ display: "flex", justifyContent: "center", width: "fit-content", margin: "0 auto" }}>
-   <CardTitleTextWithArrow icon="github" href="https://github.com/livepeer/lips" horizontal> livepeer-lips </CardTitleTextWithArrow>
-   {/* <Card title="On-Chain Voting Explorer" icon="check-to-slot" href="https://explorer.livepeer.org/voting" horizontal arrow /> */}
+ <CardTitleTextWithArrow icon="github" href="https://github.com/livepeer/lips" horizontal> livepeer-lips </CardTitleTextWithArrow>
+ {/* <Card title="On-Chain Voting Explorer" icon="check-to-slot" href="https://explorer.livepeer.org/voting" horizontal arrow /> */}
 </div>
 <Quote>
 Livepeer is a community-driven protocol, where token holders have the ability to vote on proposals to upgrade protocol mechanisms or to spend from the treasury.
@@ -53,13 +53,13 @@ This model ensures that the community (token holders) collectively controls upgr
 
 <div style={{ display: "flex", justifyContent: "center", width: "fit-content", margin: "0 auto" }}>
 <Accordion title={<div style={{color: "var(--accent)"}}>ELI5: Governance Model</div>} icon="user-crown">
-   Imagine a community garden run by people who own shares (tokens).
+ Imagine a community garden run by people who own shares (tokens).
 
    - **Proposing a Change:** If someone has 100 share tokens, they can suggest a new rule (like “we should plant carrots”). They put 100 tokens in a safe place while the idea is considered.
    - **Voting:** Over the next month (30 days), everyone with tokens decides yes or no. If at least 33 out of every 100 token shares vote, and more than half vote “yes,” the idea becomes official. The 100 tokens go back to the proposer.
    - **Delegating Votes:** If you’ve given your shares to a friend to manage (delegation), you still get to vote because your votes travel with your shares.
 
-   Rules are set by token holders: stake some tokens to propose, everyone votes, and a rule only passes if enough people say yes.
+ Rules are set by token holders: stake some tokens to propose, everyone votes, and a rule only passes if enough people say yes.
 </Accordion>
 </div>
 
@@ -76,32 +76,32 @@ After community vetting, an on-chain vote is held. Stake-weighted voting ensures
 
 <Steps>
    <Step title="Idea Phase: Community Discussion" icon="comment-dots">
-      Proposals typically start with community discussion to gather feedback on the <LinkArrow label="Livepeer Forum" href="https://forum.livepeer.org/c/lips/18" newline={false} />.
+ Proposals typically start with community discussion to gather feedback on the <LinkArrow label="Livepeer Forum" href="https://forum.livepeer.org/c/lips/18" newline={false} />.
    </Step>
    <Step title="Draft Phase: Request For Feedback (RFP)" icon="comments">
-      Community members post pre-proposals (requests for feedback) on the forum.
+ Community members post pre-proposals (requests for feedback) on the forum.
    </Step>
    <Step title="Proposal: Livepeer Improvement Proposal (LIP)" icon="file-pen">
-      Once an idea is refined, an official proposal is drafted in the form of a <LinkArrow label="Livepeer Improvement Proposal (LIP)" href="https://github.com/livepeer/LIPs" newline={ false} />
-      {/* Proposals are first discussed and drafted off-chain - in the form of a <LinkArrow label="Livepeer Improvement Proposal (LIP)" href="https://github.com/livepeer/LIPs" newline={false} />.
-      <br/> The forum is the primary place for discussion: <LinkArrow label="Livepeer Forum" href="https://forum.livepeer.org/c/lips/18" newline={false} /> */}
+ Once an idea is refined, an official proposal is drafted in the form of a <LinkArrow label="Livepeer Improvement Proposal (LIP)" href="https://github.com/livepeer/LIPs" newline={ false} />
+ {/* Proposals are first discussed and drafted off-chain - in the form of a <LinkArrow label="Livepeer Improvement Proposal (LIP)" href="https://github.com/livepeer/LIPs" newline={false} />.
+ <br/> The forum is the primary place for discussion: <LinkArrow label="Livepeer Forum" href="https://forum.livepeer.org/c/lips/18" newline={false} /> */}
    </Step>
    <Step title="Proposal Submission: On-Chain" icon="arrow-up-right-from-square">
-      Once a LIP is finalized, anyone with ≥100 LPT can submit it on-chain to the [Governor](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/governance/Governor.sol) contract for a vote. This stake is large by design to ensure only serious proposals advance and is returned if the proposal passes.
+ Once a LIP is finalized, anyone with ≥100 LPT can submit it on-chain to the [Governor](https://github.com/livepeer/protocol/blob/e8b6243c/contracts/governance/Governor.sol) contract for a vote. This stake is large by design to ensure only serious proposals advance and is returned if the proposal passes.
    </Step>
    <Step title="Proposal Voting: On-Chain" icon="link">
-      After submission, a voting period of 30 rounds (≈3.75 days) opens where eligible voters (Orchestrators and their delegated LPT) cast votes. Anyone with 1+ LPT staked can vote.
-      <br/> The on-chain proposals and votes can be found on <LinkArrow label="Livepeer Explorer" href="https://explorer.livepeer.org/voting" newline={false} />.
+ After submission, a voting period of 30 rounds (≈3.75 days) opens where eligible voters (Orchestrators and their delegated LPT) cast votes. Anyone with 1+ LPT staked can vote.
+ <br/> The on-chain proposals and votes can be found on <LinkArrow label="Livepeer Explorer" href="https://explorer.livepeer.org/voting" newline={false} />.
    </Step>
    <Step title="Proposal Voting: Details" icon="ballot">
-      Voting power is driven by LPT **stake-weighted voting**. If an orchestrator has X LPT staked (including delegated stake), that weight applies to its vote.
-      <br/> Note: Delegators can withdraw their delegation temporarily to vote separately if they disagree with their operator.
+ Voting power is driven by LPT **stake-weighted voting**. If an orchestrator has X LPT staked (including delegated stake), that weight applies to its vote.
+ <br/> Note: Delegators can withdraw their delegation temporarily to vote separately if they disagree with their operator.
    </Step>
    <Step title="Proposal Voting: Quorum & Approval" icon="people">
-      A proposal passes only if at least **33% of total staked LPT participates (quorum)** and **>50% of the votes** cast are “For”. These thresholds prevent minority-rule.
+ A proposal passes only if at least **33% of total staked LPT participates (quorum)** and **>50% of the votes** cast are “For”. These thresholds prevent minority-rule.
    </Step>
    <Step title="Proposal Execution: On-Chain" icon="check-to-slot">
-      If a proposal passes, the Governor automatically executes the proposal’s instructions (changing a contract parameter or sending treasury funds).
+ If a proposal passes, the Governor automatically executes the proposal’s instructions (changing a contract parameter or sending treasury funds).
    </Step>
 </Steps>
 
@@ -190,8 +190,8 @@ D -- Rejected --> F[Revise or Abandon]
 
 ## Related Resources
 <Columns cols={2}>
-   <Card title="Governance Model" href="/v2/about/livepeer-protocol/governance-model" icon="ballot-check" arrow > Read more about the technical details of the governance model. </Card>
-   <Card title="Delegate LPT" href="https://github.com/livepeer/LIPs" icon="github" arrow > Find out more about Delegating LPT. </Card>
+ <Card title="Governance Model" href="/v2/about/livepeer-protocol/governance-model" icon="ballot-check" arrow > Read more about the technical details of the governance model. </Card>
+ <Card title="Delegate LPT" href="https://github.com/livepeer/LIPs" icon="github" arrow > Find out more about Delegating LPT. </Card>
 </Columns>
 
 {/* ## Protocol Proposals

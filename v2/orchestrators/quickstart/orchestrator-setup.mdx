@@ -28,32 +28,32 @@ This is the canonical quickstart for running a transcoding orchestrator.
 <StyledTable variant="bordered">
   <thead>
     <TableRow header>
-      <TableCell header>Requirement</TableCell>
-      <TableCell header>Notes</TableCell>
+ <TableCell header>Requirement</TableCell>
+ <TableCell header>Notes</TableCell>
     </TableRow>
   </thead>
   <tbody>
     <TableRow hover>
-      <TableCell>Docker Engine installed</TableCell>
+ <TableCell>Docker Engine installed</TableCell>
       <TableCell>
-        <a href="https://docs.docker.com/engine/install/">Install Docker</a>
+ <a href="https://docs.docker.com/engine/install/">Install Docker</a>
       </TableCell>
     </TableRow>
     <TableRow hover>
-      <TableCell>Docker Compose v2</TableCell>
-      <TableCell>Verify with `docker compose version`</TableCell>
+ <TableCell>Docker Compose v2</TableCell>
+ <TableCell>Verify with `docker compose version`</TableCell>
     </TableRow>
     <TableRow hover>
-      <TableCell>ETH account funded</TableCell>
-      <TableCell>Complete Step 1</TableCell>
+ <TableCell>ETH account funded</TableCell>
+ <TableCell>Complete Step 1</TableCell>
     </TableRow>
     <TableRow hover>
-      <TableCell>Open ports</TableCell>
-      <TableCell>`8935` (orchestrator), `7935` (metrics optional)</TableCell>
+ <TableCell>Open ports</TableCell>
+ <TableCell>`8935` (orchestrator), `7935` (metrics optional)</TableCell>
     </TableRow>
     <TableRow hover>
-      <TableCell>NVIDIA drivers</TableCell>
-      <TableCell>Required only if enabling GPU transcoding</TableCell>
+ <TableCell>NVIDIA drivers</TableCell>
+ <TableCell>Required only if enabling GPU transcoding</TableCell>
     </TableRow>
   </tbody>
 </StyledTable>
@@ -92,7 +92,7 @@ Use this compose template as a baseline and replace placeholders.
 />
 
 <Note>
-  If you are running CPU-only transcoding, remove GPU-specific runtime settings.
+ If you are running CPU-only transcoding, remove GPU-specific runtime settings.
 </Note>
 
 Start the node:
@@ -114,7 +114,7 @@ Start the node:
     />
   </StyledStep>
   <StyledStep title="Activate orchestrator settings">
-    Use `Invoke multistep wizard` in CLI, or run flags directly:
+ Use `Invoke multistep wizard` in CLI, or run flags directly:
 
     <CustomCodeBlock
       language="bash"
@@ -146,37 +146,37 @@ Once both services are running, verify an end-to-end transcoding session.
 
 <StyledSteps>
   <StyledStep title="Point a gateway at your orchestrator">
-    Configure gateway routing to your orchestrator service URI:
+ Configure gateway routing to your orchestrator service URI:
 
     ```bash
     -orchAddr=https://your-orchestrator.example.com:8935
     ```
   </StyledStep>
   <StyledStep title="Send a test stream through the gateway">
-    Use the gateway quickstart ingest flow.
+ Use the gateway quickstart ingest flow.
   </StyledStep>
   <StyledStep title="Confirm transcoding session logs">
-    Check orchestrator logs for active session creation and completion.
+ Check orchestrator logs for active session creation and completion.
   </StyledStep>
 </StyledSteps>
 
 <Card title="Gateway Quickstart" icon="torii-gate" href="/v2/gateways/quickstart/gateway-setup" arrow>
-  Use this to run gateway-side setup and stream validation.
+ Use this to run gateway-side setup and stream validation.
 </Card>
 
 ## Related pages
 
 <CardGroup cols={2}>
   <Card title="Orchestrator Job Types" icon="layer-group" href="../about-orchestrators/job-types" arrow>
-    Compare transcoding, realtime AI, and batch AI paths.
+ Compare transcoding, realtime AI, and batch AI paths.
   </Card>
   <Card title="Install go-livepeer" icon="download" href="../setting-up-an-orchestrator/install-go-livepeer" arrow>
-    Full install options and advanced flags.
+ Full install options and advanced flags.
   </Card>
   <Card title="Connect to Arbitrum" icon="plug" href="../setting-up-an-orchestrator/connect-to-arbitrum" arrow>
-    RPC selection and network connection guidance.
+ RPC selection and network connection guidance.
   </Card>
   <Card title="CLI flags reference" icon="terminal" href="../references/cli-flags" arrow>
-    Full orchestrator flag reference.
+ Full orchestrator flag reference.
   </Card>
 </CardGroup>

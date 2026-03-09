@@ -52,12 +52,12 @@ import MacSupport from './groups/linux/macSupport.mdx';
 
 
 <TipWithArrow>
-  <span style={{fontSize: '1.0rem'}}> Use the <Icon icon="circle-chevron-down" /> **Dropdown** at the top-right of this page to view the Quickstart Guide
-  for your preferred OS. </span>
+ <span style={{fontSize: '1.0rem'}}> Use the <Icon icon="circle-chevron-down" /> **Dropdown** at the top-right of this page to view the Quickstart Guide
+ for your preferred OS. </span>
 </TipWithArrow>
 
 <WidthCard title="go-livepeer" href="https://github.com/livepeer/go-livepeer" icon="github" arrow horizontal>
-  <span> *Latest Version:* <Badge color="green">{latestVersion}</Badge> </span>
+ <span> *Latest Version:* <Badge color="green">{latestVersion}</Badge> </span>
 </WidthCard>
 
 <CustomDivider style={{narginTop: "-1rem", marginBottom: "-1rem"}} />
@@ -70,9 +70,9 @@ This page will get you up & running with a Livepeer Gateway Node for <Badge colo
 - Installation guides for <span><Icon icon="docker" size={20} /> **Docker _(recommended)_** </span> and <span><Icon icon="laptop-code" size={20} /> **Pre-Built Binaries**. </span>
 
 <Note>
-  <span style={{fontSize: '1.0rem'}}><Icon icon="docker" size={20}/> [Docker](https://docs.docker.com/get-docker/) is the recommended way to install and run a Livepeer Gateway Node.</span>
+ <span style={{fontSize: '1.0rem'}}><Icon icon="docker" size={20}/> [Docker](https://docs.docker.com/get-docker/) is the recommended way to install and run a Livepeer Gateway Node.</span>
   <br/>
-  <br/><span style={{ fontSize: '1.0rem' }}><Icon icon="linux" size={20}/> [Linux OS](https://linux.org) is recommended for production use.</span>
+ <br/><span style={{ fontSize: '1.0rem' }}><Icon icon="linux" size={20}/> [Linux OS](https://linux.org) is recommended for production use.</span>
 </Note>
 
 <br />
@@ -82,15 +82,15 @@ This page will get you up & running with a Livepeer Gateway Node for <Badge colo
   <FlexContainer gap="1rem" wrap>
     <FlexContainer direction="row" gap="0.2rem" align="flex-start">
       <Icon icon="linux" color="#ff9a0e" size={22}/>
-      <Badge> Linux </Badge>
+ <Badge> Linux </Badge>
     </FlexContainer>
     <FlexContainer direction="row" gap="0.2rem" align="flex-start">
       <Icon icon="windows" color="#14bbf7" size={22} />
-      <Badge> Windows <Icon icon="warning" size={12} /></Badge>
+ <Badge> Windows <Icon icon="warning" size={12} /></Badge>
     </FlexContainer>
     <FlexContainer direction="row" align="flex-start">
       <Icon icon="apple" color="#60ba47" size={22} />
-      <Badge> MacOS <Icon icon="warning" size={12}/></Badge>
+ <Badge> MacOS <Icon icon="warning" size={12}/></Badge>
     </FlexContainer>
   </FlexContainer>
 
@@ -100,21 +100,21 @@ This page will get you up & running with a Livepeer Gateway Node for <Badge colo
     <DockerSupport />
   </Accordion>
 
-  This guide will install and configure a Gateway to run video & AI workloads.
+ This guide will install and configure a Gateway to run video & AI workloads.
 
   <Tip>
-    Docker is the recommended install method for most users.
+ Docker is the recommended install method for most users.
   </Tip>
 
-  _**Choose your Gateway Mode:**_
+ _**Choose your Gateway Mode:**_
   <Tabs>
       <DockerOffChainTab />
     <DockerOnChainTab />
   </Tabs>
 
   <Accordion title="Docker Tips & Tricks" icon="magic-wand-sparkles">
-    <Danger> Verify these </Danger>
-    If you wanted to build a `go-livepeer` Docker image, you can do so from the root of the repository using this:
+ <Danger> Verify these </Danger>
+ If you wanted to build a `go-livepeer` Docker image, you can do so from the root of the repository using this:
     <CustomCodeBlock
       codeString="docker build -t livepeer/go-livepeer:alpha-build -f docker/Dockerfile ../"
       language="bash"
@@ -124,7 +124,7 @@ This page will get you up & running with a Livepeer Gateway Node for <Badge colo
   </Accordion>
 
   ## Reference Pages
-  {/* MOVE TO OWN PAGE*/}
+ {/* MOVE TO OWN PAGE*/}
   <Columns cols={2}>
     <Card
       title="Docker Installation Guide"
@@ -132,7 +132,7 @@ This page will get you up & running with a Livepeer Gateway Node for <Badge colo
       arrow
       horizontal
     >
-      View Full Installation Guide
+ View Full Installation Guide
     </Card>
     <Card
       title="Configuration Flags Reference"
@@ -140,7 +140,7 @@ This page will get you up & running with a Livepeer Gateway Node for <Badge colo
       arrow
       horizontal
     >
-      Gateway Configuration Flag Guide
+ Gateway Configuration Flag Guide
     </Card>
   </Columns>
 
@@ -149,27 +149,27 @@ This page will get you up & running with a Livepeer Gateway Node for <Badge colo
 <View title="Linux" icon="linux" iconType="solid">
   ## <Icon icon="linux" iconType="solid" size={32} /> Linux Quickstart Guide
 
-  This guide covers building from source on Linux (Ubuntu/Debian)
-  {/* & MacOS (video support only).  -> separate view -> macOS can't do dual gateway.*/}
+ This guide covers building from source on Linux (Ubuntu/Debian)
+ {/* & MacOS (video support only). -> separate view -> macOS can't do dual gateway.*/}
 
   <Accordion title="Linux Supported Distributions & Required Packages" icon="info-circle">
     <LinuxSupport />
   </Accordion>
 
-  It's possible to use this guide for <Icon icon="apple" size={20} /> MacOS also, with some caveats:
+ It's possible to use this guide for <Icon icon="apple" size={20} /> MacOS also, with some caveats:
   <Accordion title="MacOS Important Notes" icon="warning">
     <MacSupport />
   </Accordion>
   <br/>
 
-  _**Choose your Gateway Mode:**_
+ _**Choose your Gateway Mode:**_
   <Tabs>
     <LinuxOffChainTab />
     <LinuxOnChainTab />
   </Tabs>
 
   ## Reference Pages
-  {/* MOVE TO OWN PAGE*/}
+ {/* MOVE TO OWN PAGE*/}
   <Columns cols={2}>
     <Card
       title="Linux Installation Guide"
@@ -177,7 +177,7 @@ This page will get you up & running with a Livepeer Gateway Node for <Badge colo
       arrow
       horizontal
     >
-      View Full Installation Guide
+ View Full Installation Guide
     </Card>
     <Card
       title="Configuration Flags Reference"
@@ -185,7 +185,7 @@ This page will get you up & running with a Livepeer Gateway Node for <Badge colo
       arrow
       horizontal
     >
-      Gateway Configuration Flag Guide
+ Gateway Configuration Flag Guide
     </Card>
   </Columns>
 
@@ -207,7 +207,7 @@ This page will get you up & running with a Livepeer Gateway Node for <Badge colo
       arrow
       horizontal
     >
-      View Full Installation Guide
+ View Full Installation Guide
     </Card>
     <Card
       title="Configuration Flags Reference"
@@ -215,7 +215,7 @@ This page will get you up & running with a Livepeer Gateway Node for <Badge colo
       arrow
       horizontal
     >
-      Gateway Configuration Flag Guide
+ Gateway Configuration Flag Guide
     </Card>
   </Columns>
 
@@ -227,23 +227,23 @@ Use this loop after both your gateway and orchestrator are online.
 
 <Steps>
   <Step title="Confirm orchestrator endpoint and capabilities">
-    Verify your orchestrator is reachable on `:8935` and advertises transcoding
-    support.
+ Verify your orchestrator is reachable on `:8935` and advertises transcoding
+ support.
   </Step>
   <Step title="Configure gateway routing to that orchestrator">
-    In off-chain mode, point the gateway directly with:
+ In off-chain mode, point the gateway directly with:
 
     ```bash
     -orchAddr=https://your-orchestrator.example.com:8935
     ```
   </Step>
   <Step title="Ingest a test stream through the gateway">
-    Use the quickstart ingest flow (FFmpeg or OBS), then fetch the generated HLS
-    manifest from the gateway.
+ Use the quickstart ingest flow (FFmpeg or OBS), then fetch the generated HLS
+ manifest from the gateway.
   </Step>
   <Step title="Validate logs on both nodes">
-    Confirm the gateway logs show route selection and the orchestrator logs show
-    session creation/completion for the same stream.
+ Confirm the gateway logs show route selection and the orchestrator logs show
+ session creation/completion for the same stream.
   </Step>
 </Steps>
 
@@ -254,7 +254,7 @@ Use this loop after both your gateway and orchestrator are online.
   arrow
   horizontal
 >
-  Use this guide for orchestrator-side setup, registration, and verification.
+ Use this guide for orchestrator-side setup, registration, and verification.
 </Card>
 
 ## Troubleshooting
@@ -267,21 +267,21 @@ Use this loop after both your gateway and orchestrator are online.
   arrow
   horizontal
 >
-  Review common troubleshooting issues and fixes.
+ Review common troubleshooting issues and fixes.
 </Card>
 
 ## Related Pages
 
 <Columns cols={2}>
   <Card title="Setup Checklist" href="../run-a-gateway/requirements/setup" arrow horizontal>
-    {' '}
-    See Prerequisites & Requirements.{' '}
+ {' '}
+ See Prerequisites & Requirements.{' '}
   </Card>
   <Card title="On-Chain Setup" href="../run-a-gateway/requirements/on-chain%20setup/on-chain" arrow horizontal>
-    See on-chain Setup Checklist.
+ See on-chain Setup Checklist.
   </Card>
   <Card title="Run a Gateway" href="../run-a-gateway/run-a-gateway" arrow horizontal>
-    See full Gateway Setup Guide.
+ See full Gateway Setup Guide.
   </Card>
   <Card
     title="Orchestrator Guide"
@@ -289,7 +289,7 @@ Use this loop after both your gateway and orchestrator are online.
     arrow
     horizontal
   >
-    Setup an Orchestrator.
+ Setup an Orchestrator.
   </Card>
 </Columns>
 {/*

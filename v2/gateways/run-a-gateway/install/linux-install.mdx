@@ -35,10 +35,10 @@ This guide covers installing the Livepeer Gateway from source binary on Linux.
 
 <StyledSteps>
 <StyledStep title="Prerequisites">
-  Ensure you have `wget` and `tar` installed & up-to-date on your system.
+ Ensure you have `wget` and `tar` installed & up-to-date on your system.
   - `tar` is pre-installed on macOS and most linux distributions.
   <br/>
-  <Icon icon="fast-forward" />  Quick Install `wget` with [Homebrew](https://brew.sh/)
+ <Icon icon="fast-forward" /> Quick Install `wget` with [Homebrew](https://brew.sh/)
   ```bash lines icon="terminal" install wget with brew
   # Check if wget is installed
   brew list --versions wget
@@ -46,31 +46,31 @@ This guide covers installing the Livepeer Gateway from source binary on Linux.
   brew install wget
   ```
 
-  <Icon icon="arrow-down" /> Other `wget` Install Options
+ <Icon icon="arrow-down" /> Other `wget` Install Options
   <Tabs>
   <Tab title="Linux">
-    You can use brew or your package manager to install `wget`
+ You can use brew or your package manager to install `wget`
 
     <Expandable title=">_ Using Package Manager">
-        **Linux Ubuntu/Debian**
+ **Linux Ubuntu/Debian**
         ```bash icon="terminal" lines
         sudo apt-get update && sudo apt-get upgrade wget
         sudo apt install -y wget
         ```
 
-        **Alpine**
+ **Alpine**
         ```bash lines icon="terminal"
         sudo apk update
         sudo apk add wget
         ```
 
-        **Fedora/RHEL/CentOS/Rocky**
+ **Fedora/RHEL/CentOS/Rocky**
         ```bash lines icon="terminal"
         sudo dnf update
         sudo dnf install -y wget
         ```
 
-        **Arch**
+ **Arch**
         ```bash lines icon="terminal"
         sudo pacman -Syu
         sudo pacman -S wget
@@ -107,12 +107,12 @@ This guide covers installing the Livepeer Gateway from source binary on Linux.
 
   </Tab>
   <Tab title="MacOS">
-  MacOS users will also need to install `libx11` and `--cask xquartz`
+ MacOS users will also need to install `libx11` and `--cask xquartz`
 
 You can use brew or curl to install `wget`
 
   <Expandable title=">_ Using brew">
-    Using [brew](https://brew.sh/)
+ Using [brew](https://brew.sh/)
     ```bash lines icon="terminal" brew wrap
     # Install brew if not already installed
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -132,7 +132,7 @@ You can use brew or curl to install `wget`
 
   </Expandable>
   <Expandable title=">_ Using curl">
-    Using [curl](https://curl.haxx.se/)
+ Using [curl](https://curl.haxx.se/)
   <br/>
   ```bash lines icon="terminal" curl wrap
   curl -LO https://ftp.gnu.org/gnu/wget/wget-1.21.4.tar.gz
@@ -148,7 +148,7 @@ You can use brew or curl to install `wget`
   <StyledStep title="Download & Install Binary">
     <Tabs>
     <Tab title='linux' icon="linux">
-        Note: {'<VERSION>'} is dynamically fetched from the [go-livepeer releases page](https://github.com/livepeer/go-livepeer/releases) via Gtihub API.
+ Note: {'<VERSION>'} is dynamically fetched from the [go-livepeer releases page](https://github.com/livepeer/go-livepeer/releases) via Gtihub API.
         <CustomCodeBlock
           codeString="sudo wget https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-linux-amd64.tar.gz"
           placeholderValue={latestVersion}
@@ -156,7 +156,7 @@ You can use brew or curl to install `wget`
           icon="terminal"
         />
         <Expandable title=">_ In case of version fetch issues">
-        In case of fetch issues: Replace {'<VERSION>'} with the latest version number
+ In case of fetch issues: Replace {'<VERSION>'} with the latest version number
         ```bash lines icon="terminal" wrap wget
         sudo wget https://github.com/livepeer/go-livepeer/releases/download/<VERSION>/livepeer-linux-amd64.tar.gz
         ```
@@ -164,9 +164,9 @@ You can use brew or curl to install `wget`
 
     </Tab>
     <Tab title="MacOS" icon="apple">
-        Note: {'<VERSION>'} is dynamically fetched from the [go-livepeer releases page](https://github.com/livepeer/go-livepeer/releases) via Gtihub API.
+ Note: {'<VERSION>'} is dynamically fetched from the [go-livepeer releases page](https://github.com/livepeer/go-livepeer/releases) via Gtihub API.
 
-        Intel
+ Intel
         <CustomCodeBlock
           codeString="curl -LO https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-darwin-amd64.tar.gz"
           placeholderValue={latestVersion}
@@ -183,7 +183,7 @@ You can use brew or curl to install `wget`
         ```
         </Expandable>
 
-        Apple Silicon
+ Apple Silicon
         <CustomCodeBlock
           codeString="curl -LO https://github.com/livepeer/go-livepeer/releases/download/{PLACEHOLDER}/livepeer-darwin-arm64.tar.gz"
           placeholderValue={latestVersion}
@@ -208,7 +208,7 @@ You can use brew or curl to install `wget`
               icon="terminal"
         />
         <Expandable title=">_ In case of version fetch issues">
-        In case of fetch issues: Replace {'<VERSION>'} with the latest version number
+ In case of fetch issues: Replace {'<VERSION>'} with the latest version number
         ```bash lines icon="terminal" wrap curl
         curl -LO https://github.com/livepeer/go-livepeer/releases/download/<VERSION>/livepeer-linux-amd64.tar.gz
         ```
@@ -216,7 +216,7 @@ You can use brew or curl to install `wget`
     </Tab>
     </Tabs>
 
-    Unpack and remove the compressed file
+ Unpack and remove the compressed file
 
     ``` bash icon="terminal" lines
     sudo tar -zxvf livepeer-linux-amd64.tar.gz
@@ -229,7 +229,7 @@ You can use brew or curl to install `wget`
 
 <Tabs>
   <Tab title="Off-Chain Gateways">
-    Off-chain mode is the default network and requires no blockchain connectivity (no wallet or RPC).
+ Off-chain mode is the default network and requires no blockchain connectivity (no wallet or RPC).
 
     - defaultNetwork := "offchain"
 
@@ -241,13 +241,13 @@ You can use brew or curl to install `wget`
   </Tab>
   <Tab title="On-Chain Gateways">
 
-    You will need to **Generate Keystore File**
+ You will need to **Generate Keystore File**
 
     <Warning>
-      When generating a new keystore file, the program will prompt you for a
-      password. This password is used to decrypt the keystore file and access the
-      private key. Make sure to never share or lose access to either the password or
-      the keystore file
+ When generating a new keystore file, the program will prompt you for a
+ password. This password is used to decrypt the keystore file and access the
+ private key. Make sure to never share or lose access to either the password or
+ the keystore file
     </Warning>
 
     ```bash icon="terminal" lines Run the Gateway
@@ -260,7 +260,7 @@ You can use brew or curl to install `wget`
 
   </Tab>
 </Tabs>
-  **Output Example**
+ **Output Example**
   ```bash icon="terminal" lines Off-Chain Gateway Example Output
     >_ livepeer -gateway
 

@@ -26,9 +26,9 @@ import { BorderedBox } from '/snippets/components/layout/containers.jsx'
 
 
 <Note>
-  Gateway nodes do not require NVIDIA GPU drivers by default. Driver setup is
-  only required on systems running GPU workloads (for example orchestrators or
-  GPU-accelerated AI workers).
+ Gateway nodes do not require NVIDIA GPU drivers by default. Driver setup is
+ only required on systems running GPU workloads (for example orchestrators or
+ GPU-accelerated AI workers).
 </Note>
 ## Gateway Modes
 
@@ -36,7 +36,7 @@ You can run a gateway
 
 - <Icon icon="floppy-disk" size={18} /> **Off-chain** -> dev or local mode
 - <Icon icon="link" size={18} /> **On-chain** -> production mode connected to the
-  blockchain-based Livepeer network.{' '}
+ blockchain-based Livepeer network.{' '}
 
 ## Gateway Capabilities
 
@@ -45,7 +45,7 @@ You can run a Gateway for:
 - <Badge color="blue"> Video Only </Badge> -> traditional transcoding services
 - <Badge color="purple"> AI Only </Badge> -> AI inference services
 - <Badge color="green"> Dual: AI & Video </Badge> -> both video transcoding and AI
-  inference services
+ inference services
 
 ## Quick OS Table
 
@@ -60,36 +60,36 @@ You can run a Gateway for:
   iconSize="24px"
 >
   <Step title="Technical Knowledge" icon="brain-circuit" titleSize="h3">
-    <Badge color="surface"><Icon icon="floppy-disk" /> <Icon icon="link" /></Badge> <Badge color="green"> Dual AI & Video </Badge>
+ <Badge color="surface"><Icon icon="floppy-disk" /> <Icon icon="link" /></Badge> <Badge color="green"> Dual AI & Video </Badge>
 
-    A basic understanding of system administration and CLI tooling... or know how to ask AI for help :)
+ A basic understanding of system administration and CLI tooling... Or know how to ask AI for help :)
   </Step>
   <Step title="Hardware Requirements" icon="laptop-code" titleSize="h3">
-    <Badge color="surface"><Icon icon="floppy-disk" /> <Icon icon="link" /></Badge> <Badge color="green"> Dual AI & Video </Badge>
+ <Badge color="surface"><Icon icon="floppy-disk" /> <Icon icon="link" /></Badge> <Badge color="green"> Dual AI & Video </Badge>
 
-    Gateways do not require GPU resources, but must be able to handle high network throughput.
-    This is necessary to route requests between applications and Orchestrators.
+ Gateways do not require GPU resources, but must be able to handle high network throughput.
+ This is necessary to route requests between applications and Orchestrators.
 
     <BorderedBox variant="accent" padding="16px">
-      **[A typical setup includes](#)**
+ **[A typical setup includes](#)**
       <ul style={{ paddingLeft: '20px', margin: 0 }}>
-        <li>4–8 CPU cores</li>
-        <li>16–32 GB RAM</li>
-        <li>High-speed NVMe (optional, recommended)</li>
-        <li>Stable multi-region networking</li>
-        <li>Linux or containerised deployment environment</li>
+ <li>4–8 CPU cores</li>
+ <li>16–32 GB RAM</li>
+ <li>High-speed NVMe (optional, recommended)</li>
+ <li>Stable multi-region networking</li>
+ <li>Linux or containerised deployment environment</li>
       </ul>
     </BorderedBox>
   </Step>
   <Step title="Network Requirements" icon="network-wired" titleSize="h3">
-    <Badge color="surface"><Icon icon="floppy-disk" /> <Icon icon="link" /></Badge> <Badge color="green"> Dual AI & Video </Badge>
+ <Badge color="surface"><Icon icon="floppy-disk" /> <Icon icon="link" /></Badge> <Badge color="green"> Dual AI & Video </Badge>
 
-    Your Gateway must be reachable and responsive.
+ Your Gateway must be reachable and responsive.
     - Public HTTPs endpoint
     - Low-latency connectivity to Orchestrators
     - Ability to handle high request throughput
 
-    Recommended:
+ Recommended:
 
     - Multi-region deployment or failover
     - Static IP or domain name (required for production)
@@ -98,22 +98,22 @@ You can run a Gateway for:
   <Step title="OS & Software Requirements" icon="computer" titleSize="h3">
     <Badge color="surface"><Icon icon="floppy-disk" /> <Icon icon="link" /></Badge>
 
-    Gateways install the <DoubleIconLink label="Go-Livepeer Gateway" href="https://github.com/livepeer/go-livepeer" iconLeft="github" />  Software.
+ Gateways install the <DoubleIconLink label="Go-Livepeer Gateway" href="https://github.com/livepeer/go-livepeer" iconLeft="github" /> Software.
 
-    Installation requires the following OS with **root or sudo access**:
+ Installation requires the following OS with **root or sudo access**:
 
     <BorderedBox variant="accent" padding="16px" style={{ textAlign: 'left' }}>
-      <div style={{ fontWeight: 'bold', marginBottom: '12px' }}>**[OS Requirements](#)**</div>
+ <div style={{ fontWeight: 'bold', marginBottom: '12px' }}>**[OS Requirements](#)**</div>
       <div style={{ marginBottom: '12px'}}>
-        <strong><Badge color="blue">Video Only</Badge> Gateway:</strong> <Icon icon="linux" size={20}/>&nbsp;<Icon icon="windows" size={20} />&nbsp;<Icon icon="docker" size={20}/>
+ <strong><Badge color="blue">Video Only</Badge> Gateway:</strong> <Icon icon="linux" size={20}/>&nbsp;<Icon icon="windows" size={20} />&nbsp;<Icon icon="docker" size={20}/>
         <ul style={{ paddingLeft: '20px', margin: '4px 0' }}>
-          <li>Linux, Windows or Docker containerised deployment environment</li>
+ <li>Linux, Windows or Docker containerised deployment environment</li>
         </ul>
       </div>
       <div style={{ marginBottom: '12px' }}>
-        **<Badge color="purple">AI</Badge> or <Badge color="green">Dual</Badge> Gateway:** <Icon icon="linux" size={22}/>
+ **<Badge color="purple">AI</Badge> or <Badge color="green">Dual</Badge> Gateway:** <Icon icon="linux" size={22}/>
         <ul style={{ paddingLeft: '20px', margin: '4px 0' }}>
-          <li>Linux OS (Windows and macOS support coming soon)</li>
+ <li>Linux OS (Windows and macOS support coming soon)</li>
         </ul>
       </div>
     </BorderedBox>
@@ -127,29 +127,29 @@ You can run a Gateway for:
 
   </Step>
   <Step title="Additional Requirements" icon="user-robot" titleSize="h3">
-    <Badge color="green"> Dual AI & Video </Badge>
+ <Badge color="green"> Dual AI & Video </Badge>
 
-    You can run a gateway
+ You can run a gateway
     - **<Icon icon="floppy-disk" /> Off-chain** -> dev or local mode
     - **<Icon icon="link" /> On-chain** -> production mode connected to the blockchain-based Livepeer network.
 
     <Tabs>
       <Tab title="Off-Chain Gateways" icon="floppy-disk">
-        Additional requirements apply when running a Gateway in off-chain mode:
+ Additional requirements apply when running a Gateway in off-chain mode:
 
-        You will **need to run an Orchestrator Node** locally to test Gateway functionality.
+ You will **need to run an Orchestrator Node** locally to test Gateway functionality.
 
         <BorderedBox variant="accent" padding="16px" style={{ textAlign: 'left' }}>
-          **This requires that you**
+ **This requires that you**
           <div style={{ marginBottom: '12px', marginTop: '12px' }}>
-            <Icon icon="diamond" iconType="solid" size={10} /> Have a GPU available (locally or cloud) with root or sudo access
+ <Icon icon="diamond" iconType="solid" size={10} /> Have a GPU available (locally or cloud) with root or sudo access
           </div>
           <div style={{ marginBottom: '12px' }}>
-            <Icon icon="diamond" iconType="solid" size={10} /> Setup the GPU as an Orchestrator per the <DoubleIconLink label="Orchestrator Setup Guide" href="https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/overview" iconLeft="link" />
+ <Icon icon="diamond" iconType="solid" size={10} /> Setup the GPU as an Orchestrator per the <DoubleIconLink label="Orchestrator Setup Guide" href="https://docs.livepeer.org/v2/orchestrators/setting-up-an-orchestrator/overview" iconLeft="link" />
           </div>
         </BorderedBox>
 
-        Off-chain mode is ideal for:
+ Off-chain mode is ideal for:
 
         - Local development and testing
         - Learning the gateway functionality
@@ -157,26 +157,26 @@ You can run a Gateway for:
         - Running private transcoding infrastructure
       </Tab>
       <Tab title="On-Chain Gateways" icon="link">
-        You will need a blockchain wallet and RPC to connect to the Livepeer Network (on [Arbitrum](https://arbitrum.io/)) and pay for services.
+ You will need a blockchain wallet and RPC to connect to the Livepeer Network (on [Arbitrum](https://arbitrum.io/)) and pay for services.
 
         <BorderedBox variant="accent" padding="16px" style={{ textAlign: 'left' }}>
-          **You will need**
+ **You will need**
           <div style={{ marginBottom: '12px', marginTop: '12px' }}>
-            <Icon icon="diamond" iconType="solid" size={10} /> **An Arbitrum** [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) **URL**
+ <Icon icon="diamond" iconType="solid" size={10} /> **An Arbitrum** [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) **URL**
             <ul style={{ paddingLeft: '20px', margin: '4px 0' }}>
             </ul>
           </div>
           <div style={{ marginBottom: '12px' }}>
-            <Icon icon="diamond" iconType="solid" size={10} /> **A funded Ethereum account (wallet)**
+ <Icon icon="diamond" iconType="solid" size={10} /> **A funded Ethereum account (wallet)**
           </div>
         </BorderedBox>
         <br/>
 
         <Card title="Go to On-Chain Setup Guide" icon="chain" href="/v2/gateways/run-a-gateway/requirements/on-chain%20setup/on-chain" horizontal arrow>
-        See the full on-chain setup guide
+ See the full on-chain setup guide
         </Card>
 
-        On-chain mode is for:
+ On-chain mode is for:
         - Public Production Gateways
         - Running a business
       </Tab>
@@ -188,127 +188,127 @@ You can run a Gateway for:
 {/*
 
 <Accordion title="alternative flow">
-  Gateway Setup Requirements
+ Gateway Setup Requirements
   <StyledSteps>
     <StyledStep title="Step 1: Understand What a Gateway Needs (and Doesn’t)">
-    Step 1: Understand What a Gateway Needs (and Doesn’t)
+ Step 1: Understand What a Gateway Needs (and Doesn’t)
 
-    A Livepeer Gateway does not perform compute.
-    It routes, validates, and brokers work to Orchestrators.
+ A Livepeer Gateway does not perform compute.
+ It routes, validates, and brokers work to Orchestrators.
 
-    That means:
+ That means:
 
-    ❌ No GPUs required
+ ❌ No GPUs required
 
-    ✅ CPU, memory, networking, and reliability matter most
+ ✅ CPU, memory, networking, and reliability matter most
 
     </StyledStep>
     <StyledStep title="Step 2: Verify Hardware & OS Requirements">
-    Step 2: Verify Hardware & OS Requirements
+ Step 2: Verify Hardware & OS Requirements
 
-    Recommended baseline for a production Gateway:
+ Recommended baseline for a production Gateway:
 
-    CPU: 4–8 cores
+ CPU: 4–8 cores
 
-    Memory: 16–32 GB RAM
+ Memory: 16–32 GB RAM
 
-    Storage: SSD (NVMe recommended, not required)
+ Storage: SSD (NVMe recommended, not required)
 
-    OS: Linux (bare metal or containerized)
+ OS: Linux (bare metal or containerized)
 
-    Gateways are lightweight but network-intensive. Prioritize stability over raw compute.
+ Gateways are lightweight but network-intensive. Prioritize stability over raw compute.
     </StyledStep>
     <StyledStep title="Step 3: Confirm Network & Connectivity">
-    Step 3: Confirm Network & Connectivity
+ Step 3: Confirm Network & Connectivity
 
-    Your Gateway must be reachable and responsive.
+ Your Gateway must be reachable and responsive.
 
-    Required:
+ Required:
 
-    Public HTTPS endpoint
+ Public HTTPS endpoint
 
-    Low-latency connectivity to Orchestrators
+ Low-latency connectivity to Orchestrators
 
-    Ability to handle high request throughput
+ Ability to handle high request throughput
 
-    Recommended:
+ Recommended:
 
-    Multi-region deployment or failover
+ Multi-region deployment or failover
 
-    Static IP or domain name (required for production)
+ Static IP or domain name (required for production)
     </StyledStep>
     <StyledStep title="Step 4: Install the Gateway Software">
-    Step 4: Install the Gateway Software
+ Step 4: Install the Gateway Software
 
-    Install the official Livepeer Gateway implementation:
+ Install the official Livepeer Gateway implementation:
 
-    Software: go-livepeer Gateway
+ Software: go-livepeer Gateway
 
-    Supports:
+ Supports:
 
-    Marketplace registration
+ Marketplace registration
 
-    Capability & pricing advertisement
+ Capability & pricing advertisement
 
-    Routing via the PyTrickle layer
+ Routing via the PyTrickle layer
 
-    Logging, metrics, and alerting
+ Logging, metrics, and alerting
 
-    BYOC and containerized deployments
+ BYOC and containerized deployments
 
-    This guide assumes familiarity with basic system administration and CLI tooling.
+ This guide assumes familiarity with basic system administration and CLI tooling.
     </StyledStep>
     <StyledStep title="Step 5: Configure Blockchain Access (Required)">
-    Step 5: Configure Blockchain Access (Required)
+ Step 5: Configure Blockchain Access (Required)
 
-    All Gateways require access to Arbitrum.
+ All Gateways require access to Arbitrum.
 
-    You must provide:
+ You must provide:
 
-    An Arbitrum RPC URL
+ An Arbitrum RPC URL
 
-    Popular options:
+ Popular options:
 
-    Infura
+ Infura
 
-    Alchemy
+ Alchemy
 
-    Free tiers are typically sufficient for a single Gateway.
-    You may also self-host an Arbitrum node - see Offchain Labs instructions
-    .
+ Free tiers are typically sufficient for a single Gateway.
+ You may also self-host an Arbitrum node - see Offchain Labs instructions
+ .
     </StyledStep>
     <StyledStep title="Step 6: Prepare On-Chain Production Requirements">
 
-    Step 6: Prepare On-Chain Production Requirements
+ Step 6: Prepare On-Chain Production Requirements
 
-    For mainnet / production Gateways:
+ For mainnet / production Gateways:
 
-    Dedicated static IP or domain
+ Dedicated static IP or domain
 
-    Funded Ethereum account with:
+ Funded Ethereum account with:
 
-    ETH for gas
+ ETH for gas
 
-    ETH/LPT for AI inference payments (if applicable)
+ ETH/LPT for AI inference payments (if applicable)
 
-    See: Fund Gateway Guide
+ See: Fund Gateway Guide
     </StyledStep>
     <StyledStep title="Step 7: (Optional) AI Gateway Requirements">
-    Step 7: (Optional) AI Gateway Requirements
+ Step 7: (Optional) AI Gateway Requirements
 
-    Only required if your Gateway advertises AI inference capabilities.
+ Only required if your Gateway advertises AI inference capabilities.
 
-    Additional requirements:
+ Additional requirements:
 
-    Linux host (Windows/macOS support coming soon)
+ Linux host (Windows/macOS support coming soon)
 
-    Root or sudo access
+ Root or sudo access
 
-    Model and pipeline metadata configuration
+ Model and pipeline metadata configuration
 
-    Access to AI routing and pricing configuration
+ Access to AI routing and pricing configuration
 
-    GPU resources are still provided by Orchestrators - not the Gateway.
+ GPU resources are still provided by Orchestrators - not the Gateway.
     </StyledStep>
 
   </StyledSteps>

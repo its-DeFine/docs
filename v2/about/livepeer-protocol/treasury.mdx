@@ -34,7 +34,7 @@ import { Quote } from '/snippets/components/content/quote.jsx'
 import { DynamicTable } from '/snippets/components/layout/table.jsx'
 
 <div style={{ display: "flex", justifyContent: "center", padding: 0, margin: 0}}>
-  <CardTitleTextWithArrow icon="piggy-bank" horizontal href="https://explorer.livepeer.org/treasury"> Livepeer Treasury </CardTitleTextWithArrow>
+ <CardTitleTextWithArrow icon="piggy-bank" horizontal href="https://explorer.livepeer.org/treasury"> Livepeer Treasury </CardTitleTextWithArrow>
 </div>
 <CustomDivider style={{margin: 0, marginBottom: "-1rem"}} />
 
@@ -51,11 +51,11 @@ In late 2023, the community passed several proposals creating the Livepeer Treas
 {/* - [LIP-89](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0089.md) introduced a treasury contract managed by Livepeer’s Governor framework. Any token holder can propose using treasury funds. Treasury proposals follow the standard governance rules: stake 100 LPT to propose, then voting requires ≥33% quorum and >50% “For” to pass (identical to protocol votes). Once passed, the treasury contract executes the transfer (of LPT or ETH) to the specified recipient. */}
 - **Funding**:
    - [LIP‑92](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md) set the on-chain revenue allocation: sending **10% of new LPT** emissions into the treasury.
-   {/* - Initially, the treasury holds whatever funds were donated or allocated during genesis and via special proposals. There is no automatic tax today. [LIP-92](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md) has been discussed as a way to deduct a small percentage of protocol inflation each round and add it to the treasury. Other funding methods include grants, donations, or revenue-sharing agreements. Any change to treasury funding (like LIP-92) must be approved by token-holder vote. */}
+ {/* - Initially, the treasury holds whatever funds were donated or allocated during genesis and via special proposals. There is no automatic tax today. [LIP-92](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0092.md) has been discussed as a way to deduct a small percentage of protocol inflation each round and add it to the treasury. Other funding methods include grants, donations, or revenue-sharing agreements. Any change to treasury funding (like LIP-92) must be approved by token-holder vote. */}
 - **Usage**:
    - [LIP‑90](https://github.com/livepeer/LIPs/blob/main/LIPs/LIP-0090.md) established that the treasury should fund public goods.
    - Approved proposals can allocate treasury assets to projects that benefit the Livepeer ecosystem.
-   {/* - For example, Special Purpose Entities (teams building tools, education, security audits, etc.) can apply for grants from the treasury. All spending is transparent on-chain. The Community Forum often hosts calls or discussions with applicants, and final decisions rest with the on-chain vote. */}
+ {/* - For example, Special Purpose Entities (teams building tools, education, security audits, etc.) can apply for grants from the treasury. All spending is transparent on-chain. The Community Forum often hosts calls or discussions with applicants, and final decisions rest with the on-chain vote. */}
 
 <div sytle={{ display: "flex", justifyContent: "center", margin: "0 1rem" }}>
 ```mermaid
@@ -124,7 +124,7 @@ Livepeer’s treasury accrues value from these primary sources (in 2026):
 The purpose of the treasury is to fund public goods.
 
 This includes development, grants, security audits, research, operational initiatives, tooling and ecosystem growth initiatives that benefit the entire ecosystem (as determined by the community).
-{/* Examples include grants for improving monitoring infrastructure, research into verifiable transcoding and support for builders.  */}
+{/* Examples include grants for improving monitoring infrastructure, research into verifiable transcoding and support for builders. */}
 
 <DynamicTable
   tableTitle={<span style={{fontSize: '1rem'}}>Fund Use Cases</span>}
@@ -146,7 +146,7 @@ This includes development, grants, security audits, research, operational initia
 {/* When the treasury balance reached a pre‑defined cap, contributions paused; future LIPs can adjust the rate or resume funding. */}
 
 ## Governance
-The treasury uses the same [governance model & processes](governance-model) as the the protocol (though implemented by a separate Governor contract):
+The treasury uses the same [governance model & processes](governance-model) as the protocol (though implemented by a separate Governor contract):
 {/* Compound-style Governor contract customized for Livepeer. */}
 - **Proposals**: Stake 100 LPT to propose.
 - **Voting**: Any staked tokens (orchestrators + delegators) can vote on the grant. Delegators normally let their operator vote on their behalf, but may detach to vote separately.
@@ -180,64 +180,64 @@ This structure turns inflation into a community‑directed investment in the pro
 
 While the on-chain treasury itself is wholly community-governed, the Livepeer Foundation plays an important role as a neutral steward for funding processes and outcomes.
 <Info>
-{/* The Livepeer Foundation is a non-profit organisation that stewards the long-term vision, ecosystem growth, and core development of the Livepeer network.  */}
-{/* <br/><br/>  */}
+{/* The Livepeer Foundation is a non-profit organisation that stewards the long-term vision, ecosystem growth, and core development of the Livepeer network. */}
+{/* <br/><br/> */}
 **Treasury mechanics remain on-chain and community governance-controlled**
 - The community controls the money
 - The Foundation ensures the money is effectively & accountably used.
 </Info>
 It's role includes:
 - **Governance Orchestration**: Ensures treasury proposals move efficiently from idea to on-chain execution through structured processes and coordination.
-   {/*
-   The Foundation ensures that treasury proposals move from idea → draft → community review → on-chain execution.
-      This includes:
+ {/*
+ The Foundation ensures that treasury proposals move from idea → draft → community review → on-chain execution.
+ This includes:
 
       - Structuring proposal frameworks (SPEs, budget formats, milestones)
       - Coordinating review cycles and community calls
       - Ensuring proposals are sufficiently specified before vote
       - Facilitating execution after approval
-      Without this layer, treasury funds stall in process friction.
-    */}
+ Without this layer, treasury funds stall in process friction.
+ */}
 - **Accountability & Milestone Oversight**: Maintains transparency and tracks deliverables so approved funds translate into measurable outcomes.
-      {/* <div>
-      Once treasury funds are approved, the Foundation helps ensure:
+ {/* <div>
+ Once treasury funds are approved, the Foundation helps ensure:
          - Deliverables are tracked
          - Milestones are reported publicly
          - Budget usage aligns with scope
          - Underperforming initiatives are surfaced
-      They do not “police” spending - they maintain transparency and continuity so governance decisions compound rather than fragment.
-      </div> */}
+ They do not “police” spending - they maintain transparency and continuity so governance decisions compound rather than fragment.
+ </div> */}
 - **Strategic Capital Framing**: Helps define funding priorities and long-term allocation strategy aligned with network health.
-   {/*
-   The Foundation helps define:
+ {/*
+ The Foundation helps define:
       - What categories of work treasury should fund (protocol R&D, ecosystem growth, infra, coordination)
       - Multi-quarter budgeting horizons
       - Tradeoffs between short-term impact and long-term network health
-   They frame the strategy - the community votes on allocation.
-    */}
+ They frame the strategy - the community votes on allocation.
+ */}
 - **Execution Enablement**: Aligns contributors and removes blockers so treasury-funded initiatives actually ship.
-   {/*
-      Treasury funding is only valuable if someone can execute.
+ {/*
+ Treasury funding is only valuable if someone can execute.
 
-      The Foundation:
+ The Foundation:
       - Identifies capable contributors
       - Aligns working groups
       - Removes operational blockers
       - Bridges Foundation resources with independent SPEs
 
-      This converts governance intent into shipped outcomes.
-   */}
+ This converts governance intent into shipped outcomes.
+ */}
 - **Long-Term Network Health**: Stewards treasury deployment to strengthen protocol security, decentralization, and ecosystem growth.
-   {/*
-   The treasury exists to strengthen:
+ {/*
+ The treasury exists to strengthen:
       - **Protocol security** - audits, formal verification, incentive design
       - **Decentralization** - reducing validator/operator concentration, enabling new node types
       - **Supply-side resilience** - transcoder infrastructure, redundancy, geographic distribution
       - **Demand-side growth** - application integrations, developer tooling, use-case expansion
       - **Tooling and ecosystem expansion** - SDKs, monitoring, indexing, public goods
 
-   The Foundation’s role is to ensure treasury deployment reinforces these pillars rather than drifting into reactive or fragmented spending.
-    */}
+ The Foundation’s role is to ensure treasury deployment reinforces these pillars rather than drifting into reactive or fragmented spending.
+ */}
 
 {/* The community controls the money.
 The Foundation ensures the money gets used well.
@@ -278,12 +278,12 @@ These experiments reflect a maturing and invested community's commitment to incl
 ## Further Resources
 <Card title="Treasury Documentation" icon="piggy-bank" href="/v2/lpt/treasury/overview" arrow horizontal > See the Livepeer Treasury documentation in the [LP Token](/v2/lpt/treasury/overview) section for comprehensive technical details and guides on voting and porposals. </Card>
 <Columns cols={2}>
-   <Card title="LIP-89: Treasury Proposal" icon="file" href="https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-89.md"> Specification for the on-chain Treasury and governance framework </Card>
-   <Card title="LIP-92: Treasury Funding" icon="message" href="https://forum.livepeer.org/t/lip-92-livepeer-treasury-contribution-percentage/3249"> Discussion of allocating a percentage of inflation to the treasury </Card>
-   <Card title="Treasury Explorer" icon="globe" href="https://explorer.livepeer.org/treasury" > On-chain treasury transactions </Card>
-   <Card title="Messari Report" icon="scroll" href="https://messari.io/asset/livepeer/reports" > Messari Report: Livepeer Treasury </Card>
-   <Card title="Treasury Analytics" icon="chart-line" href="https://dune.com/dob/livepeer-treasury" > Dune Dashboard Analytics </Card>
-   <Card href="https://www.karmahq.xyz/community/livepeer" title="Community SPE Dashboard" icon="boxes" > SPE Project Dashboard </Card>
-   <Card href="https://arbiscan.io/address/0x363cdB9BaE210Ef182c60b5a496139E980330127#code" title="Treasury Contract" icon="ethereum" > Treasury Contract on Arbiscan </Card>
-   <Card href="https://github.com/livepeer/protocol/blob/e8b6243c/contracts/governance/Treasury.sol" title="Treasury Contract" icon="github" > Treasury Contract on Github </Card>
+ <Card title="LIP-89: Treasury Proposal" icon="file" href="https://github.com/livepeer/LIPs/blob/master/LIPs/LIP-89.md"> Specification for the on-chain Treasury and governance framework </Card>
+ <Card title="LIP-92: Treasury Funding" icon="message" href="https://forum.livepeer.org/t/lip-92-livepeer-treasury-contribution-percentage/3249"> Discussion of allocating a percentage of inflation to the treasury </Card>
+ <Card title="Treasury Explorer" icon="globe" href="https://explorer.livepeer.org/treasury" > On-chain treasury transactions </Card>
+ <Card title="Messari Report" icon="scroll" href="https://messari.io/asset/livepeer/reports" > Messari Report: Livepeer Treasury </Card>
+ <Card title="Treasury Analytics" icon="chart-line" href="https://dune.com/dob/livepeer-treasury" > Dune Dashboard Analytics </Card>
+ <Card href="https://www.karmahq.xyz/community/livepeer" title="Community SPE Dashboard" icon="boxes" > SPE Project Dashboard </Card>
+ <Card href="https://arbiscan.io/address/0x363cdB9BaE210Ef182c60b5a496139E980330127#code" title="Treasury Contract" icon="ethereum" > Treasury Contract on Arbiscan </Card>
+ <Card href="https://github.com/livepeer/protocol/blob/e8b6243c/contracts/governance/Treasury.sol" title="Treasury Contract" icon="github" > Treasury Contract on Github </Card>
 </Columns>
