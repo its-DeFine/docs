@@ -8,7 +8,7 @@ audience: 'developer'
 status: 'draft'
 ---
 
-<!-- REVIEW: OQ-D1 unresolved. This draft treats ComfyStream as primarily a standalone tool (no Livepeer account required for the core tutorial). The Livepeer connection is covered in a separate section as the next step. Confirm with Peter/Rick before publishing whether this framing is correct, or whether a specific Livepeer network onboarding flow should be mandatory. -->
+[//]: # (REVIEW: OQ-D1 unresolved. This draft treats ComfyStream as primarily a standalone tool (no Livepeer account required for the core tutorial\). The Livepeer connection is covered in a separate section as the next step. Confirm with Peter/Rick before publishing whether this framing is correct, or whether a specific Livepeer network onboarding flow should be mandatory.)
 
 By the end of this quickstart, you will have a ComfyStream instance running with a real-time AI effect applied to a live video feed. Once you have a working pipeline, the final section shows how to connect it to the Livepeer network.
 
@@ -24,11 +24,11 @@ ComfyStream processes live video using ComfyUI workflows on a local or cloud GPU
 
 <Warning>
 ComfyStream requires an NVIDIA GPU. Windows and macOS are not supported for the server component.
-<!-- REVIEW: Confirm Linux-only from docs.comfystream.org or Rick. The README does not explicitly state OS, but PyTorch + CUDA dependency strongly implies Linux/NVIDIA only. -->
+[//]: # (REVIEW: Confirm Linux-only from docs.comfystream.org or Rick. The README does not explicitly state OS, but PyTorch + CUDA dependency strongly implies Linux/NVIDIA only.)
 </Warning>
 
 **Prerequisites across all paths:**
-- NVIDIA GPU with sufficient VRAM <!-- REVIEW: Verify minimum VRAM from docs.comfystream.org hardware section. Likely 12–16 GB for StreamDiffusion; 24 GB recommended for real-time performance. -->
+- NVIDIA GPU with sufficient VRAM [//]: # (REVIEW: Verify minimum VRAM from docs.comfystream.org hardware section. Likely 12–16 GB for StreamDiffusion; 24 GB recommended for real-time performance.)
 - A modern browser (Chrome or Firefox) for the ComfyStream UI
 
 ---
@@ -42,7 +42,7 @@ ComfyStream requires an NVIDIA GPU. Windows and macOS are not supported for the 
       <Step title="Deploy the RunPod template">
         Open the [livepeer-comfystream RunPod template](https://runpod.io/console/deploy?template=w01m180vxx&ref=u8tlskew) and select a GPU pod.
 
-        For StreamDiffusion workflows, select a GPU with at least <!-- REVIEW: confirm VRAM --> VRAM. An RTX A4000 or A40 is a reasonable starting point.
+        For StreamDiffusion workflows, select a GPU with at least [//]: # (REVIEW: confirm VRAM) VRAM. An RTX A4000 or A40 is a reasonable starting point.
 
         Click **Deploy**.
       </Step>
@@ -53,7 +53,7 @@ ComfyStream requires an NVIDIA GPU. Windows and macOS are not supported for the 
         ComfyStream exposes two ports:
         - `8188` — ComfyUI interface
         - `8889` — ComfyStream WebRTC server
-        <!-- REVIEW: Confirm exact ports from docs.comfystream.org or docker-compose.yml in the repo. These are based on standard ComfyUI port + common ComfyStream server port. -->
+        [//]: # (REVIEW: Confirm exact ports from docs.comfystream.org or docker-compose.yml in the repo. These are based on standard ComfyUI port + common ComfyStream server port.)
       </Step>
 
       <Step title="Open the ComfyStream UI">
@@ -71,7 +71,7 @@ ComfyStream requires an NVIDIA GPU. Windows and macOS are not supported for the 
         ```bash
         docker pull livepeer/comfystream
         ```
-        <!-- REVIEW: Verify the current tag recommendation. If there is a pinned release tag, use that rather than latest. -->
+        [//]: # (REVIEW: Verify the current tag recommendation. If there is a pinned release tag, use that rather than latest.)
       </Step>
 
       <Step title="Run the container">
@@ -83,7 +83,7 @@ ComfyStream requires an NVIDIA GPU. Windows and macOS are not supported for the 
         ```
 
         For full installation options including volume mounts and workspace configuration, see the [ComfyStream install docs](https://docs.comfystream.org/technical/get-started/install).
-        <!-- REVIEW: Confirm exact docker run flags from docs.comfystream.org / docker-compose.yml. The above is a minimal illustration only — actual flags may differ (workspace path, model path mounts). -->
+        [//]: # (REVIEW: Confirm exact docker run flags from docs.comfystream.org / docker-compose.yml. The above is a minimal illustration only — actual flags may differ (workspace path, model path mounts\).)
       </Step>
 
       <Step title="Open ports for WebRTC (remote server only)">
@@ -119,7 +119,7 @@ ComfyStream requires an NVIDIA GPU. Windows and macOS are not supported for the 
       </Step>
 
       <Step title="Download models">
-        <!-- REVIEW: Confirm the recommended starter model and download command from the repo's scripts/README.md. The repo has a `setup_models.py` script that handles model downloads. -->
+        [//]: # (REVIEW: Confirm the recommended starter model and download command from the repo's scripts/README.md. The repo has a `setup_models.py` script that handles model downloads.)
         ```bash
         python src/comfystream/scripts/setup_models.py --workspace /path/to/ComfyUI
         ```
@@ -148,7 +148,7 @@ ComfyStream uses ComfyUI workflow JSON files. The repository includes several st
     In the ComfyStream UI, click the workflow selector and choose a workflow file.
 
     For your first run, use the StreamDiffusion SD 1.5 workflow — it is the lightest and fastest to compile.
-    <!-- REVIEW: Confirm the recommended starter workflow filename from the repo's workflows/ directory. Likely something like `streamdiffusion_sd15.json`. -->
+    [//]: # (REVIEW: Confirm the recommended starter workflow filename from the repo's workflows/ directory. Likely something like `streamdiffusion_sd15.json`.)
   </Step>
 
   <Step title="Select your camera input">
@@ -194,7 +194,7 @@ For the Daydream API, request access at [daydream.live](https://daydream.live).
 
 For the BYOC path, the integration layer is [PyTrickle](https://github.com/livepeer/pytrickle) — a Python package that enables ComfyStream to register as a Livepeer AI worker. See the [BYOC documentation](/v2/developers/build/byoc) for setup steps.
 
-<!-- REVIEW: OQ-D1 — confirm whether this two-path framing is correct with Peter/Rick. Also confirm whether the Livepeer community gateway (free endpoint) can serve as a simple test target for new developers before going full BYOC. If so, add a step here showing that connection. -->
+[//]: # (REVIEW: OQ-D1 — confirm whether this two-path framing is correct with Peter/Rick. Also confirm whether the Livepeer community gateway (free endpoint\) can serve as a simple test target for new developers before going full BYOC. If so, add a step here showing that connection.)
 
 ---
 
@@ -224,4 +224,4 @@ ComfyStream supports the following pipeline types in production (Phase 4, Januar
   </Card>
 </CardGroup>
 
-<!-- REVIEW: build/comfystream and build/byoc hrefs — confirm these paths exist or will exist before publication. -->
+[//]: # (REVIEW: build/comfystream and build/byoc hrefs — confirm these paths exist or will exist before publication.)

@@ -8,7 +8,7 @@ audience: 'developer'
 status: 'draft'
 ---
 
-<!-- SCOPE: This is a guide page for developers who have completed the ComfyStream quickstart and are deepening their usage. It does not repeat installation or first-run steps. -->
+[//]: # (SCOPE: This is a guide page for developers who have completed the ComfyStream quickstart and are deepening their usage. It does not repeat installation or first-run steps.)
 
 This page covers all available ComfyStream pipeline modes, the node ecosystem, how to build and load custom workflows, and how to configure output types including video, audio, and data-channel.
 
@@ -29,7 +29,7 @@ ComfyStream supports four output modalities. Every ComfyStream workflow produces
 
 <Note>
 ComfyStream can serve multiple pipelines in a single container (Phase 4 BYOC addition). Dynamic warm-up allows new pipelines to load mid-stream without restarting the server.
-<!-- REVIEW: Confirm "multiple pipelines in single container" framing from docs.comfystream.org or Phase 4 BYOC implementation details. Phase 4 retrospective says "hosting multiple models and disparate workflow/pipelines on one orchestrator in a single container." -->
+[//]: # (REVIEW: Confirm "multiple pipelines in single container" framing from docs.comfystream.org or Phase 4 BYOC implementation details. Phase 4 retrospective says "hosting multiple models and disparate workflow/pipelines on one orchestrator in a single container.")
 </Note>
 
 ---
@@ -51,7 +51,7 @@ These nodes handle real-time tensor input and output. They are required for Comf
 
 These nodes update their output on every workflow execution — designed specifically for real-time video loops.
 
-<!-- REVIEW: Verify the canonical repo for these nodes. ryanontheinside/ComfyUI_RealtimeNodes appears to be the primary source. Confirm whether these are officially endorsed for the Livepeer ComfyStream ecosystem or community-maintained. -->
+[//]: # (REVIEW: Verify the canonical repo for these nodes. ryanontheinside/ComfyUI_RealtimeNodes appears to be the primary source. Confirm whether these are officially endorsed for the Livepeer ComfyStream ecosystem or community-maintained.)
 
 | Node | Source | Purpose |
 |------|--------|---------|
@@ -66,7 +66,7 @@ These nodes update their output on every workflow execution — designed specifi
 
 The primary generative video nodes, ported from Livepeer Inc's Daydream StreamDiffusion pipeline.
 
-<!-- REVIEW: Confirm canonical repo location for these nodes. Phase 4 retrospective says they were "added to the ComfyUI Stream Pack" but the livepeer/ComfyUI-Stream-Pack README shows no nodes added. pschroedl/ComfyUI-StreamDiffusion is the actual repo found. Rick should confirm the official location. -->
+[//]: # (REVIEW: Confirm canonical repo location for these nodes. Phase 4 retrospective says they were "added to the ComfyUI Stream Pack" but the livepeer/ComfyUI-Stream-Pack README shows no nodes added. pschroedl/ComfyUI-StreamDiffusion is the actual repo found. Rick should confirm the official location.)
 
 | Node | Purpose | Notes |
 |------|---------|-------|
@@ -82,7 +82,7 @@ The primary generative video nodes, ported from Livepeer Inc's Daydream StreamDi
 
 Real-time video upscaling. Input: standard-resolution frame; output: upscaled frame. Suitable for adding resolution to low-quality input streams.
 
-<!-- REVIEW: Confirm node name and source repo from Rick / muxionlabs/comfystream. -->
+[//]: # (REVIEW: Confirm node name and source repo from Rick / muxionlabs/comfystream.)
 
 ### AudioTranscription nodes (Phase 4)
 
@@ -91,7 +91,7 @@ Whisper-based real-time speech transcription. Two output modes:
 - **Video output with SRT subtitles** — captions are burned into the video segments
 - **Data-channel text output** — transcript text delivered to the application separately via WebRTC data channel; no visual overlay
 
-<!-- REVIEW: Confirm node names from muxionlabs/comfystream. Phase 4 confirms these were shipped as "AudioTranscription + SRT" node set. -->
+[//]: # (REVIEW: Confirm node names from muxionlabs/comfystream. Phase 4 confirms these were shipped as "AudioTranscription + SRT" node set.)
 
 ---
 
@@ -123,7 +123,7 @@ Workflows saved from ComfyUI in the default format (with UI layout data) will no
 
   <Step title="Place the workflow file">
     Copy the workflow JSON into the `workflows/` directory inside your ComfyStream workspace. For Docker deployments, mount this directory as a volume.
-    <!-- REVIEW: Confirm exact path convention from docs.comfystream.org. The workflows/ dir is confirmed from the ComfyStream repo but the precise expected path may differ per deployment mode. -->
+    [//]: # (REVIEW: Confirm exact path convention from docs.comfystream.org. The workflows/ dir is confirmed from the ComfyStream repo but the precise expected path may differ per deployment mode.)
   </Step>
 
   <Step title="Load the workflow in the ComfyStream UI">
@@ -144,7 +144,7 @@ pip install -r requirements.txt
 ```
 
 For ComfyStream Docker deployments, Phase 4 added a config-based method to specify which custom node subsets are included in the container build:
-<!-- REVIEW: Confirm the exact config mechanism from docs.comfystream.org. Phase 4 retrospective says "a simple, config based method to allow for developing and deploying workflows using custom nodes which have different underlying python package requirements." -->
+[//]: # (REVIEW: Confirm the exact config mechanism from docs.comfystream.org. Phase 4 retrospective says "a simple, config based method to allow for developing and deploying workflows using custom nodes which have different underlying python package requirements.")
 
 ---
 
@@ -163,7 +163,7 @@ ComfyStream extends the WebRTC connection with a data channel. When the workflow
 
 To receive data-channel output from the client side, use `@muxionlabs/byoc-sdk`, which provides data-channel support alongside WebRTC video streaming.
 
-<!-- REVIEW: Confirm the exact data-output node name and wiring pattern from muxionlabs/comfystream or Rick. The Phase 4 retrospective confirms the capability but does not name the exact node or API. -->
+[//]: # (REVIEW: Confirm the exact data-output node name and wiring pattern from muxionlabs/comfystream or Rick. The Phase 4 retrospective confirms the capability but does not name the exact node or API.)
 
 ---
 
@@ -184,7 +184,7 @@ Achievable frame rate depends on model complexity, GPU, and image resolution. Re
 - SD1.5 + DMD one-step + DepthControlNet workflow: ~14–15 fps at 640×360 input
 - StreamDiffusion with TensorRT: higher throughput at same resolution (exact figures vary by LoRA and ControlNet load)
 
-<!-- REVIEW: Verify these reference figures from docs.comfystream.org benchmark section or an official Livepeer performance report. Current figures are from community gists — confirm before publication. -->
+[//]: # (REVIEW: Verify these reference figures from docs.comfystream.org benchmark section or an official Livepeer performance report. Current figures are from community gists — confirm before publication.)
 
 ### Dynamic warm-up (Phase 4)
 
@@ -194,13 +194,13 @@ ComfyStream now supports dynamic warm-up, allowing new workflows to load mid-str
 
 ### Configuration parameters
 
-<!-- REVIEW: Extract the complete set of configurable server parameters from docs.comfystream.org or the comfystream server/app.py source. The following are confirmed from README and Phase 4 but without official defaults. -->
+[//]: # (REVIEW: Extract the complete set of configurable server parameters from docs.comfystream.org or the comfystream server/app.py source. The following are confirmed from README and Phase 4 but without official defaults.)
 
 | Parameter | How to set | Effect | Default |
 |-----------|-----------|--------|---------|
 | `--workspace` | CLI flag to `server/app.py` | Path to ComfyUI workspace directory | Required |
 | `--media-ports` | CLI flag | Comma-delimited UDP port range for WebRTC | 1024–65535 |
-| Port | `docker run -p` or `--port` | Server port | <!-- REVIEW: Confirm default port --> |
+| Port | `docker run -p` or `--port` | Server port | [//]: # (REVIEW: Confirm default port) |
 
 ---
 

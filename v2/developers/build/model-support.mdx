@@ -24,10 +24,10 @@ These pipelines accept a request, process it, and return a result. They use the 
 |----------|-------------|------------------------|------------|----------|--------|
 | **Text to image** | `POST /text-to-image` | Stable Diffusion XL (SDXL), SD 1.5, Flux | `SG161222/RealVisXL_V4.0_Lightning` | 24 GB | <Badge>Beta</Badge> |
 | **Image to image** | `POST /image-to-image` | Instruct-Pix2Pix, SDXL img2img, SD 1.5 | `timbrooks/instruct-pix2pix` | 20 GB | <Badge>Beta</Badge> |
-| **Image to video** | `POST /image-to-video` | Stable Video Diffusion (SVD, SVD-XT) | `stabilityai/stable-video-diffusion-img2vid-xt` | <!-- REVIEW: VRAM not confirmed from Livepeer published source. SVD-XT runs on A100 80GB per HF model card; Livepeer-published minimum not retrieved. Confirm from docs.livepeer.org/ai/pipelines/image-to-video --> | <Badge>Beta</Badge> |
+| **Image to video** | `POST /image-to-video` | Stable Video Diffusion (SVD, SVD-XT) | `stabilityai/stable-video-diffusion-img2vid-xt` | [//]: # (REVIEW: VRAM not confirmed from Livepeer published source. SVD-XT runs on A100 80GB per HF model card; Livepeer-published minimum not retrieved. Confirm from docs.livepeer.org/ai/pipelines/image-to-video) | <Badge>Beta</Badge> |
 | **Image to text** | `POST /image-to-text` | BLIP, BLIP-2, vision-language models | `Salesforce/blip-image-captioning-large` | 4 GB | <Badge>Beta</Badge> |
 | **Audio to text** | `POST /audio-to-text` | Whisper (OpenAI) | `openai/whisper-large-v3` | 12 GB | <Badge>Beta</Badge> |
-| **Text to speech** | `POST /text-to-speech` | <!-- REVIEW: Warm model not confirmed — likely Bark or XTTS based on Diffusers TTS pipeline conventions. Verify from docs.livepeer.org/ai/pipelines/text-to-speech --> | <!-- REVIEW --> | 12 GB | <Badge>Beta</Badge> |
+| **Text to speech** | `POST /text-to-speech` | [//]: # (REVIEW: Warm model not confirmed — likely Bark or XTTS based on Diffusers TTS pipeline conventions. Verify from docs.livepeer.org/ai/pipelines/text-to-speech) | [//]: # (REVIEW) | 12 GB | <Badge>Beta</Badge> |
 | **Upscale** | `POST /upscale` | SD x4-Upscaler (4× super-resolution) | `stabilityai/stable-diffusion-x4-upscaler` | 24 GB | <Badge>Beta</Badge> |
 | **Segment Anything 2** | `POST /segment-anything-2` | SAM 2 (Meta AI) | `facebook/sam2-hiera-large` | 6 GB | <Badge>Beta</Badge> |
 | **LLM** | `POST /llm` | Any Ollama-compatible model (Llama, Mistral, Gemma, Qwen, …) | `meta-llama/Meta-Llama-3.1-8B-Instruct` | 8 GB | <Badge>Beta</Badge> |
@@ -44,7 +44,7 @@ These pipelines accept a request, process it, and return a result. They use the 
 
 **Image to text** — Returns a text caption. Accepts an optional prompt to guide the caption content.
 
-**Audio to text** — Returns a full transcript with per-chunk timestamps. Accepts audio files up to <!-- REVIEW: confirm max file size from api-runner or gateway docs -->. Uses Whisper-large-v3 as the default warm model.
+**Audio to text** — Returns a full transcript with per-chunk timestamps. Accepts audio files up to [//]: # (REVIEW: confirm max file size from api-runner or gateway docs). Uses Whisper-large-v3 as the default warm model.
 
 **Text to speech** — Requires a pipeline-specific AI Runner container. Standard ai-runner image does not include this pipeline; orchestrators must opt in.
 
@@ -60,7 +60,7 @@ These pipelines process live video streams frame-by-frame. They use the trickle 
 
 | Pipeline | Transport | Supported models | Min VRAM | Status |
 |----------|-----------|-----------------|----------|--------|
-| **live-video-to-video** (Cascade) | Trickle / WebRTC | Any ComfyUI-compatible model; StreamDiffusion, SDXL, ControlNets, LoRAs, SuperResolution, Whisper (audio), Gemma (video understanding) | <!-- REVIEW: Variable by workflow. StreamDiffusion + SD1.5 one-step: community-reported 8–12GB. SDXL + TensorRT: 16–24GB. Confirm minimum supported config from docs.comfystream.org or Rick. --> | <Badge>Beta</Badge> |
+| **live-video-to-video** (Cascade) | Trickle / WebRTC | Any ComfyUI-compatible model; StreamDiffusion, SDXL, ControlNets, LoRAs, SuperResolution, Whisper (audio), Gemma (video understanding) | [//]: # (REVIEW: Variable by workflow. StreamDiffusion + SD1.5 one-step: community-reported 8–12GB. SDXL + TensorRT: 16–24GB. Confirm minimum supported config from docs.comfystream.org or Rick.) | <Badge>Beta</Badge> |
 
 The live-video-to-video pipeline is served by [ComfyStream](/v2/developers/build/comfystream). The pipeline type in go-livepeer is `live-video-to-video`. It is not accessible via the standard AI Jobs API — it requires a real-time connection to a gateway that has this pipeline enabled.
 
@@ -96,7 +96,7 @@ See [Bring Your Own Container](/v2/developers/build/byoc) for the full implement
 
 **Warm model signalling:** Orchestrators advertise their warm models to the gateway. When you request a specific `model_id`, the gateway routes your job to an orchestrator that has that model warm — if one exists. If none does, the request is held until a cold-start load completes or times out.
 
-<!-- REVIEW: Confirm the timeout behaviour — does the gateway return an error immediately if no warm orchestrator exists, or does it wait? Verify from go-livepeer gateway source or Rick. -->
+[//]: # (REVIEW: Confirm the timeout behaviour — does the gateway return an error immediately if no warm orchestrator exists, or does it wait? Verify from go-livepeer gateway source or Rick.)
 
 ---
 

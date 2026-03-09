@@ -8,7 +8,7 @@ audience: 'developer'
 status: 'draft'
 ---
 
-<!-- SCOPE: how_to page. Goal → Prerequisites → Steps → Variants → Related. Assumes reader has a custom AI model or processing function they want to run on the Livepeer network. Does not assume ComfyStream knowledge. -->
+[//]: # (SCOPE: how_to page. Goal → Prerequisites → Steps → Variants → Related. Assumes reader has a custom AI model or processing function they want to run on the Livepeer network. Does not assume ComfyStream knowledge.)
 
 Bring Your Own Container (BYOC) lets you run any custom AI model on the Livepeer network inside your own Docker container. Your container receives a live video (or audio) stream, processes it with your model, and returns the processed output — all over the Livepeer network's trickle streaming protocol.
 
@@ -121,7 +121,7 @@ async def main():
     await server.run_forever()
 ```
 
-<!-- REVIEW: Confirm the correct `capability_name` value for the standard Livepeer live-video-to-video pipeline. "live-video-to-video" is the pipeline type from go-livepeer; verify this matches what PyTrickle registers. (Rick / PyTrickle maintainers) -->
+[//]: # (REVIEW: Confirm the correct `capability_name` value for the standard Livepeer live-video-to-video pipeline. "live-video-to-video" is the pipeline type from go-livepeer; verify this matches what PyTrickle registers. (Rick / PyTrickle maintainers\))
 
 ---
 
@@ -173,7 +173,7 @@ EXPOSE 8000
 CMD ["python3", "processor.py"]
 ```
 
-<!-- REVIEW: Confirm whether there is an official Livepeer base image (e.g., livepeer/ai-runner:base or a PyTrickle image) that developers should use instead of building from nvidia/cuda. Check ai-runner repo for an official base image or Dockerfile. Rick to confirm. -->
+[//]: # (REVIEW: Confirm whether there is an official Livepeer base image (e.g., livepeer/ai-runner:base or a PyTrickle image\) that developers should use instead of building from nvidia/cuda. Check ai-runner repo for an official base image or Dockerfile. Rick to confirm.)
 
 Build and test locally:
 
@@ -262,7 +262,7 @@ The image must be accessible to your orchestrator. Public Docker Hub or any regi
 
 Your BYOC container runs on an orchestrator. The orchestrator pulls your image, starts it, and routes live-video-to-video jobs to it.
 
-<!-- REVIEW: CRITICAL — confirm the exact go-livepeer orchestrator flags for registering a BYOC container. The following is a placeholder structure based on the Phase 4 architecture; exact flags must be verified from go-livepeer CLI reference or Rick. -->
+[//]: # (REVIEW: CRITICAL — confirm the exact go-livepeer orchestrator flags for registering a BYOC container. The following is a placeholder structure based on the Phase 4 architecture; exact flags must be verified from go-livepeer CLI reference or Rick.)
 
 To register your container with an orchestrator, you (or the orchestrator you are working with) configure go-livepeer to use BYOC mode and point to your container image:
 
@@ -302,7 +302,7 @@ await client.startStream({ videoElement, params: { /* your params */ } });
 
 The SDK handles WebRTC streaming from the browser directly to your gateway without requiring a custom backend.
 
-<!-- REVIEW: Confirm SDK install name and basic API from npmjs.com/@muxionlabs/byoc-sdk. -->
+[//]: # (REVIEW: Confirm SDK install name and basic API from npmjs.com/@muxionlabs/byoc-sdk.)
 
 ---
 

@@ -58,7 +58,7 @@ This represents a different infrastructure model from batch processing:
 - **GPU assignment:** Dedicated to your stream for its entire duration
 - **Output:** Continuous frame-by-frame results — not a single returned asset
 
-<!-- REVIEW: Confirm exact billing unit (per-second confirmed in go-livepeer CHANGELOG but exact pricing model for developer-facing docs needs verification with Rick/Mehrdad -->
+[//]: # (REVIEW: Confirm exact billing unit (per-second confirmed in go-livepeer CHANGELOG but exact pricing model for developer-facing docs needs verification with Rick/Mehrdad)
 
 This shift from batch to real-time is what the Livepeer Cascade vision describes: *"a path to transition from a pure streaming and transcoding infrastructure, to an infrastructure that could succeed at providing compute for the future of real-time AI video."* Real-time pipelines enable use cases that are simply impossible with batch processing — live avatars, interactive stream effects, and generative overlays that respond to live input.
 
@@ -71,7 +71,7 @@ Use cases enabled by real-time AI on Livepeer:
 - Automated video agents and real-time scene augmentation
 - Live analytics and frame-by-frame computer vision
 
-<!-- REVIEW: Confirm live-video-to-video production stability — is it production-ready or still in active development? go-livepeer CHANGELOG activity in main suggests functional but feature-incomplete. Verify with Rick. -->
+[//]: # (REVIEW: Confirm live-video-to-video production stability — is it production-ready or still in active development? go-livepeer CHANGELOG activity in main suggests functional but feature-incomplete. Verify with Rick.)
 
 **Where to start:** [ComfyStream Quickstart](/v2/developers/get-started/comfystream-quickstart)
 
@@ -83,7 +83,7 @@ The LLM pipeline brings text inference to the Livepeer network using an Ollama-b
 
 The LLM pipeline runs on a wider range of GPU hardware than diffusion-based batch pipelines — an orchestrator needs as little as 8 GB of VRAM to serve LLM workloads, making it accessible to a larger pool of network participants.
 
-<!-- REVIEW: Confirm LLM pipeline production status vs beta. Listed in pipeline nav and referenced in go-livepeer CHANGELOG as updated to OpenAI-compatible format — treat as available, but clarify stability level with Rick or Mehrdad before marking production-ready. -->
+[//]: # (REVIEW: Confirm LLM pipeline production status vs beta. Listed in pipeline nav and referenced in go-livepeer CHANGELOG as updated to OpenAI-compatible format — treat as available, but clarify stability level with Rick or Mehrdad before marking production-ready.)
 
 The LLM pipeline is suited for applications that need:
 - Text or code generation
@@ -93,7 +93,7 @@ The LLM pipeline is suited for applications that need:
 
 **Where to start:** [AI Quickstart](/v2/developers/get-started/ai-quickstart)
 
-<!-- REVIEW: Confirm whether a separate LLM-specific quickstart exists or is planned. If yes, update link. -->
+[//]: # (REVIEW: Confirm whether a separate LLM-specific quickstart exists or is planned. If yes, update link.)
 
 ---
 
