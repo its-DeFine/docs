@@ -1,58 +1,28 @@
-task_id: 99999
-branch: codex/99999-asset-migrate-3a
+task_id: 20260309
+branch: codex/20260309-notion-framework-headers
 base_branch: docs-v2
 scope_in:
   - .codex/task-contract.yaml
-  - .githooks/pre-commit
-  - tasks/reports/media-audit/media-audit-manifest.json
-  - snippets/assets/domain/04_GATEWAYS/test-video.mp4
-  - snippets/assets/domain/10_PRODUCTS/Embody/Videos/arealiensreal.mp4
-  - snippets/assets/media/videos/HeroBackground.mp4
-  - snippets/assets/media/videos/LivepeerStudio.mp4
-  - snippets/assets/media/videos/daydream.mp4
-  - snippets/assets/media/videos/nytv.live.mp4
-  - snippets/data/
-  - tests/integration/v2-link-audit.js
-  - tests/run-pr-checks.js
-  - tools/scripts/check-no-ai-stash.sh
-  - tools/scripts/validate-codex-task-contract.js
-  - tools/scripts/create-codex-pr.js
-  - tasks/reports/navigation-links/LINK_TEST_REPORT.md
-  - tasks/reports/navigation-links/LINK_TEST_REPORT.json
-  - v2/gateways/quickstart/views/docker/dockerOffChainTab.mdx
-  - v2/gateways/quickstart/views/docker/dockerOnChainTab.mdx
-  - v2/solutions/embody/overview.mdx
-  - v2/resources/documentation-guide/component-library/component-library.mdx
-  - v2/resources/documentation-guide/component-library/display.mdx
-  - v2/cn/solutions/embody/overview.mdx
-  - v2/cn/resources/documentation-guide/component-library/component-library.mdx
-  - v2/cn/resources/documentation-guide/component-library/display.mdx
-  - v2/es/solutions/embody/overview.mdx
-  - v2/es/resources/documentation-guide/component-library/component-library.mdx
-  - v2/es/resources/documentation-guide/component-library/display.mdx
-  - v2/fr/solutions/embody/overview.mdx
-  - v2/fr/resources/documentation-guide/component-library/component-library.mdx
-  - v2/fr/resources/documentation-guide/component-library/display.mdx
-  - v2/about/faq-about.mdx
-  - v2/gateways/payments/overview.mdx
-  - v2/gateways/using-gateways/gateway-providers.mdx
-  - v2/internal/docs-philosophy.mdx
+  - tools/notion/1-read-notion-to-csv.js
+  - tools/notion/2-read-docs-to-csv.js
+  - tools/notion/3-check-duplicates.js
+  - tools/notion/4-remove-duplicates.js
+  - tools/notion/5-export-to-notion.js
+  - tools/notion/backup-notion-table.js
+  - tools/notion/install-local-sync-hook.sh
+  - tools/notion/local-post-commit-sync.sh
+  - tools/notion/remove-local-sync-hook.sh
+  - tools/notion/sync-v2-en-canonical.js
 scope_out: []
 allowed_generated:
   - .codex/pr-body.generated.md
-  - docs-index.json
-  - snippets/data/
-  - tasks/reports/navigation-links/LINK_TEST_REPORT.md
-  - tasks/reports/navigation-links/LINK_TEST_REPORT.json
-  - tools/script-index.md
-  - v2/resources/documentation-guide/component-library/overview.mdx
 acceptance_checks:
-  - node tests/integration/v2-link-audit.js --full --write-links --strict
-  - cd tests && npm test
-  - node tests/run-pr-checks.js --base-ref docs-v2
-  - node tools/scripts/validate-codex-task-contract.js --branch codex/99999-asset-migrate-3a --require-pr-body
+  - >-
+    for f in $(find tools/notion/ -type f \( -name '*.js' -o -name '*.sh' \)
+    | sort); do echo -n "$f: "; grep -l '@script' "$f" && echo 'PASS' ||
+    echo 'MISSING'; done
+  - git diff --unified=0 -- tools/notion
+  - git diff --cached --name-only
 risk_flags:
-  - asset-migration
-  - generated-artifacts
-  - large-binary-removal
+  - workflow-governance
 follow_up_issues: []

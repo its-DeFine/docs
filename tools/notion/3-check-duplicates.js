@@ -1,3 +1,15 @@
+/**
+ * @script            3-check-duplicates
+ * @category          validator
+ * @purpose           audit
+ * @scope             tools/notion/data/notion-read.json, tools/notion/reports
+ * @owner             docs
+ * @needs             node
+ * @purpose-statement Analyzes the exported Notion snapshot for duplicate page keys and writes JSON and Markdown reports.
+ * @pipeline          notion-sync
+ * @usage             node tools/notion/3-check-duplicates.js [flags]
+ */
+
 const fs = require("fs");
 const path = require("path");
 

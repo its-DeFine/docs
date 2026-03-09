@@ -1,3 +1,15 @@
+/**
+ * @script            4-remove-duplicates
+ * @category          remediator
+ * @purpose           enforcement
+ * @scope             tools/notion/reports/duplicates-report.json, Notion database
+ * @owner             docs
+ * @needs             node, @notionhq/client, dotenv, NOTION_API_KEY
+ * @purpose-statement Archives duplicate Notion pages from the duplicate report while keeping the first record in each group.
+ * @pipeline          notion-sync
+ * @usage             node tools/notion/4-remove-duplicates.js [flags]
+ */
+
 require("dotenv").config();
 const { Client } = require("@notionhq/client");
 const fs = require("fs");
