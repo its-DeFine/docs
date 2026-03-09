@@ -8,7 +8,7 @@
  * @contentAffinity tutorial, concept, reference
  * @owner docs
  * @dependencies CodeSection, ComplexCodeBlock
- * @usedIn v2/gateways-new/get-started/gateway-setup.mdx, v2/gateways-new/setup/install/linux-install.mdx, v2/gateways-new/setup/install/windows-install.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/run-a-gateway/install/linux-install.mdx, v2/gateways/run-a-gateway/install/windows-install.mdx, v2/orchestrators-new/get-started/quickstart-views/orchestrator-setup.mdx, v2/orchestrators-new/get-started/quickstart.mdx, v2/orchestrators-new/portal.mdx, v2/orchestrators-new/setup/connect-to-arbitrum.mdx, v2/orchestrators-new/setup/install-go-livepeer.mdx, v2/orchestrators-new/setup/orch-config.mdx, v2/orchestrators-new/setup/orchestrator-stats.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx, v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx, v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx
+ * @usedIn v2/gateways-new/get-started/gateway-setup.mdx, v2/gateways-new/setup/install/linux-install.mdx, v2/gateways-new/setup/install/windows-install.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/run-a-gateway/install/linux-install.mdx, v2/gateways/run-a-gateway/install/windows-install.mdx, v2/orchestrators/get-started/quickstart.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/orchestrators/setup/install-go-livepeer.mdx, v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats.mdx, v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none

@@ -465,8 +465,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../setting-up-an-orchestrator/install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "../setup/install-go-livepeer",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -840,8 +840,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../setting-up-an-orchestrator/install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "../setup/install-go-livepeer",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -903,8 +903,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../setting-up-an-orchestrator/install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "../setup/install-go-livepeer",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -912,8 +912,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../setting-up-an-orchestrator/install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "../setup/install-go-livepeer",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -971,8 +971,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "./install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "../setup/install-go-livepeer",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1005,7 +1005,7 @@ export const LINK_MAP = {
       "movedCandidates": []
     }
   ],
-  "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx": [
+  "v2/orchestrators/setup/install-go-livepeer.mdx": [
     {
       "sourceType": "markdown-link",
       "linkType": "external-https",
@@ -1072,7 +1072,7 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "./setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
+      "rawPath": "../setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
       "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx",
       "exists": true,
       "status": "ok",
@@ -1108,7 +1108,7 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "./setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
+      "rawPath": "../setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
       "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx",
       "exists": true,
       "status": "ok",
@@ -1118,7 +1118,7 @@ export const LINK_MAP = {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
       "rawPath": "./install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1164,8 +1164,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "./install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "../setup/install-go-livepeer",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1211,8 +1211,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "./install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "../setup/install-go-livepeer",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1220,8 +1220,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "./install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "../setup/install-go-livepeer",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1301,8 +1301,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "./install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "../setup/install-go-livepeer",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1310,8 +1310,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "./install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "../setup/install-go-livepeer",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1359,8 +1359,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "../../setup/install-go-livepeer",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1368,8 +1368,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-relative",
-      "rawPath": "../install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "../../setup/install-go-livepeer",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1404,8 +1404,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "../../setup/install-go-livepeer",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1413,8 +1413,8 @@ export const LINK_MAP = {
     {
       "sourceType": "jsx-attr",
       "linkType": "internal-relative",
-      "rawPath": "../install-go-livepeer",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "../../setup/install-go-livepeer",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

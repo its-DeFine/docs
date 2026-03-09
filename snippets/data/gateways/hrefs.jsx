@@ -1745,8 +1745,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/orchestrators/setting-up-an-orchestrator/install-go-livepeer#install-using-a-binary-release",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "/orchestrators/setup/install-go-livepeer#install-using-a-binary-release",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []
@@ -1781,8 +1781,8 @@ export const LINK_MAP = {
     {
       "sourceType": "markdown-link",
       "linkType": "internal-rooted",
-      "rawPath": "/orchestrators/setting-up-an-orchestrator/install-go-livepeer#install-using-a-binary-release",
-      "resolvedPath": "v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer.mdx",
+      "rawPath": "/orchestrators/setup/install-go-livepeer#install-using-a-binary-release",
+      "resolvedPath": "v2/orchestrators/setup/install-go-livepeer.mdx",
       "exists": true,
       "status": "ok",
       "movedCandidates": []

@@ -20,14 +20,14 @@ import { CustomCodeBlock } from '/snippets/components/content/code.jsx'
 
 <PreviewCallout />
 
-Ce guide rapide met votre GPU sur le réseau Livepeer en exécutant le **go-livepeer** client en mode orchestrateur. Vous installerez (ou utiliserez Docker), vous connecterez à Arbitrum, définirez les prix et activerez. Pour un guide d'installation complet (binaire, Docker, source), voir [Installer go-livepeer](../setting-up-an-orchestrator/install-go-livepeer). Pour se connecter à Arbitrum (RPC, hébergé vs auto-hébergé), voir [Se connecter à Arbitrum](../setting-up-an-orchestrator/connect-to-arbitrum).
+Ce guide rapide met votre GPU sur le réseau Livepeer en exécutant le **go-livepeer** client en mode orchestrateur. Vous installerez (ou utiliserez Docker), vous connecterez à Arbitrum, définirez les prix et activerez. Pour un guide d'installation complet (binaire, Docker, source), voir [Installer go-livepeer](/v2/orchestrators/setup/install-go-livepeer). Pour se connecter à Arbitrum (RPC, hébergé vs auto-hébergé), voir [Se connecter à Arbitrum](/v2/orchestrators/setup/install-go-livepeer).
 
 ## Prérequis
 
 - Familiarité avec la ligne de commande ; `wget` ou `curl`; [grpcurl](https://github.com/fullstorydev/grpcurl) optionnel pour les tests.
 - [Pilote NVIDIA](https://www.nvidia.com/Download/index.aspx) installé si vous utilisez le transcodage GPU.
 - Accès à un [Arbitrum point de terminaison RPC](../setting-up-an-orchestrator/connect-to-arbitrum) (hébergé ou auto-hébergé).
-- **go-livepeer** [installé](../setting-up-an-orchestrator/install-go-livepeer) (binaire ou Docker).
+- **go-livepeer** [installé](/v2/orchestrators/setup/install-go-livepeer) (binaire ou Docker).
 
 <Note> Non-NVIDIA GPU support may be added in the future. This guide assumes NVIDIA GPUs for transcoding.</Note>
 
@@ -102,7 +102,7 @@ Received Ping request`}
   <StyledStep title="Activate your orchestrator">
     Use **livepeer_cli** or the [Explorer](https://explorer.livepeer.org/) to bond LPT to yourself, set reward cut, fee share, price, and service address. Once transactions confirm, your orchestrator joins the active set in the next round.
 
-    See [Staking LPT](../advanced-setup/staking-LPT) and [Rewards and fees](../advanced-setup/rewards-and-fees) for economics. Full activation steps are in the [Install guide](../setting-up-an-orchestrator/install-go-livepeer#activate).
+    See [Staking LPT](../advanced-setup/staking-LPT) and [Rewards and fees](../advanced-setup/rewards-and-fees) for economics. Full activation steps are in the [Install guide](/v2/orchestrators/setup/install-go-livepeer#activate).
   </StyledStep>
 </StyledSteps>
 
@@ -112,7 +112,7 @@ Received Ping request`}
   <Card
     title="Install go-livepeer"
     icon="download"
-    href="../setting-up-an-orchestrator/install-go-livepeer"
+    href="/v2/orchestrators/setup/install-go-livepeer"
     arrow
   >
     Binary, Docker, and build from source.

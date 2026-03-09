@@ -2831,6 +2831,7 @@
                               {
                                 "group": "Installation",
                                 "pages": [
+                                  "v2/orchestrators/setup/install-go-livepeer",
                                   "v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats"
                                 ]
                               },
