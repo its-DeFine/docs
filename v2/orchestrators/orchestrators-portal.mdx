@@ -57,7 +57,7 @@ Get Situated */}
         <PortalHeroContent
           title="GPUs for AI Video"
           subtitle="Run – Provide – Earn"
-          callout={<div style={{ display: "flex", justifyContent: "center", width: "100%" }}><div style={{ width: "70%", minWidth: "fit-content" }}><Tip>In the Livepeer network, GPU nodes are known as Orchestrators </Tip></div></div>}
+          callout={<Tip>In the Livepeer network, GPU nodes are known as Orchestrators.</Tip>}
           refCardLink={
               <Card
                 title="go-livepeer"
@@ -68,7 +68,7 @@ Get Situated */}
               />
             }
           overview={
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <>
               Orchestrators are the GPU compute nodes that power the Livepeer network. They provide the GPU horsepower and services to run AI pipelines & real-time video workloads.
                 <br />
                 <br />
@@ -80,7 +80,7 @@ Get Situated */}
                 language="bash"
                 icon="terminal"
               />
-            </div>
+            </>
           }
         >
         </PortalHeroContent>
@@ -114,26 +114,26 @@ Get Situated */}
  Developer Level Up
         </Badge>
       </Card>
-      <Card title="Advanced Orchestrator Information" icon="circle-play" href="./advanced-setup/ai-pipelines" arrow>
+      <Card title="Advanced Orchestrator Information" icon="circle-play" href="./advanced/ai-pipelines" arrow>
  Find out how to set pricing, become a delegator, vote in governance, earn rewards, and run AI pipelines.
       </Card>
       <Card
         title="Running AI Pipelines on your Orchestrator"
         icon="tools"
-        href="./advanced-setup/ai-pipelines"
+        href="./advanced/ai-pipelines"
         arrow
       >
  Learn how to run AI pipelines on your orchestrator, add models, set pricing, and more.
       </Card>
       <Card
         title="Orchestrator Tools & Guides"
-        icon="laptop-file"
-        href="./orchestrator-tools-and-resources/orchestrator-tools"
+        icon="wrench"
+        href="./tools-and-guides/guides"
         arrow
       >
  Find Orchestrator tools, dashboards, guides, and community tutorials.
       </Card>
-      <Card title="Orchestrator References" icon="book" href="./references/faq" arrow>
+      <Card title="Orchestrator References" icon="book" href="./resources/faq" arrow>
  FAQ, CLI flags, and technical references.
       </Card>
     </Columns>

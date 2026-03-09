@@ -2805,14 +2805,15 @@
                         ]
                       },
                       {
-                        "group": "Quickstart ⚡",
-                        "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
+                        "group": "Get Started",
+                        "icon": "bolt",
                         "pages": [
-                          "v2/orchestrators/quickstart/overview",
-                          "v2/orchestrators/quickstart/join-a-pool",
-                          "v2/orchestrators/quickstart/orchestrator-setup",
-                          "v2/orchestrators/quickstart/realtime-ai-quickstart",
-                          "v2/orchestrators/quickstart/batch-ai-quickstart"
+                          "v2/orchestrators/get-started/setup-paths",
+                          "v2/orchestrators/get-started/quickstart",
+                          "v2/orchestrators/get-started/join-a-pool",
+                          "v2/orchestrators/get-started/AI-prompt-start",
+                          "v2/orchestrators/get-started/realtime-ai-quickstart",
+                          "v2/orchestrators/get-started/batch-ai-quickstart"
                         ]
                       },
                       {
@@ -2832,42 +2833,34 @@
                         ]
                       },
                       {
-                        "group": "Advanced Orchestrator Information",
-                        "icon": "gamepad",
+                        "group": "Advanced",
+                        "icon": "chart-line",
                         "pages": [
-                          "v2/orchestrators/earnings",
-                          "v2/orchestrators/advanced-setup/staking-LPT",
-                          "v2/orchestrators/advanced-setup/rewards-and-fees",
-                          "v2/orchestrators/advanced-setup/delegation",
-                          "v2/orchestrators/advanced-setup/ai-pipelines",
-                          "v2/orchestrators/advanced-setup/hosting-models",
-                          "v2/orchestrators/advanced-setup/run-a-pool"
+                          "v2/orchestrators/advanced/earnings",
+                          "v2/orchestrators/advanced/staking-LPT",
+                          "v2/orchestrators/advanced/rewards-and-fees",
+                          "v2/orchestrators/advanced/delegation",
+                          "v2/orchestrators/advanced/payments",
+                          "v2/orchestrators/advanced/ai-pipelines",
+                          "v2/orchestrators/advanced/hosting-models",
+                          "v2/orchestrators/advanced/run-a-pool"
                         ]
                       },
                       {
-                        "group": "Orchestrator Tools & Resources",
-                        "icon": "laptop-file",
+                        "group": "Tools and Guides",
+                        "icon": "wrench",
                         "pages": [
-                          "v2/orchestrators/orchestrator-tools-and-resources/orchestrator-tools",
-                          "v2/orchestrators/orchestrator-tools-and-resources/community-pools"
+                          "v2/orchestrators/tools-and-guides/guides",
+                          "v2/orchestrators/tools-and-guides/tooling"
                         ]
                       },
                       {
-                        "group": "Technical References",
-                        "icon": "code",
+                        "group": "Resources",
+                        "icon": "books",
                         "pages": [
-                          {
-                            "group": "Orchestrators",
-                            "pages": ["v2/orchestrators/references/faq"]
-                          },
-                          {
-                            "group": "API & CLI Reference",
-                            "pages": ["v2/orchestrators/references/cli-flags"]
-                          },
-                          {
-                            "group": "On-Chain Reference",
-                            "pages": ["v2/orchestrators/references/faq"]
-                          }
+                          "v2/orchestrators/resources/faq",
+                          "v2/orchestrators/resources/cli-flags",
+                          "v2/orchestrators/resources/community-pools"
                         ]
                       }
                     ]
@@ -3448,6 +3441,26 @@
     {
       "source": "/v1/tutorials/developing/optimize-latency",
       "destination": "/v1/developers/guides/optimize-latency-of-a-livestream"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/overview",
+      "destination": "/v2/orchestrators/get-started/setup-paths"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/join-a-pool",
+      "destination": "/v2/orchestrators/get-started/join-a-pool"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/orchestrator-setup",
+      "destination": "/v2/orchestrators/get-started/quickstart"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/realtime-ai-quickstart",
+      "destination": "/v2/orchestrators/get-started/realtime-ai-quickstart"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/batch-ai-quickstart",
+      "destination": "/v2/orchestrators/get-started/batch-ai-quickstart"
     },
     {
       "source": "/v1/tutorials/developing/analyze-engagement-timeplus",
