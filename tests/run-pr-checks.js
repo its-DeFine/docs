@@ -3,7 +3,7 @@
  * @script            run-pr-checks
  * @category          orchestrator
  * @purpose           infrastructure:pipeline-orchestration
- * @scope             tests, .github/workflows, tools/scripts
+ * @scope             changed
  * @owner             docs
  * @needs             R-R29
  * @purpose-statement PR orchestrator — runs changed-file scoped validation checks for pull request CI. Dispatches per-file validators based on PR diff.
@@ -18,11 +18,15 @@ const { execSync, spawnSync } = require('child_process');
 const { getDocsJsonRouteKeys, toDocsRouteKeyFromFileV2Aware } = require('./utils/file-walker');
 const {
   AGGREGATE_INDEX_PATH,
+  CATEGORY_ENUM: VALID_CATEGORIES,
   GOVERNED_ROOTS,
   GROUP_INDEX_PATHS,
+  PURPOSE_ENUM: VALID_PURPOSES,
+  SCOPE_ENUM: VALID_SCOPES,
   SCRIPT_EXTENSIONS: GOVERNED_SCRIPT_EXTENSIONS,
   isWithinRoots
 } = require('../tools/lib/script-governance-config');
+const { extractLeadingScriptHeader, getTagValue } = require('../tools/lib/script-header-utils');
 
 const styleGuideTests = require('./unit/style-guide.test');
 const mdxTests = require('./unit/mdx.test');
@@ -37,6 +41,9 @@ const componentNamingTests = require('../tools/scripts/validators/components/che
 const REPO_ROOT = getRepoRoot();
 const SCRIPT_EXTENSIONS = new Set(GOVERNED_SCRIPT_EXTENSIONS);
 const SCRIPT_SCOPES = GOVERNED_ROOTS;
+const VALID_CATEGORY_SET = new Set(VALID_CATEGORIES);
+const VALID_PURPOSE_SET = new Set(VALID_PURPOSES);
+const VALID_SCOPE_SET = new Set(VALID_SCOPES);
 const LINK_AUDIT_REPORT = '/tmp/livepeer-link-audit-pr.md';
 const CODEX_BRANCH_RE = /^codex\//;
 const GENERATED_AFFECTING_PREFIXES = [
@@ -213,6 +220,55 @@ async function runUnitCheck(label, files, fn) {
     files: files.length,
     errors: Array.isArray(result.errors) ? result.errors.length : 0,
     warnings: Array.isArray(result.warnings) ? result.warnings.length : 0
+  };
+}
+
+function runScriptGovernanceCheck(files) {
+  if (!files.length) {
+    return { label: 'Script Governance', status: 'skipped', files: 0, errors: 0, warnings: 0 };
+  }
+
+  const findings = [];
+
+  for (const file of files) {
+    const content = fs.readFileSync(relToAbs(file), 'utf8');
+    const header = extractLeadingScriptHeader(content);
+    const category = getTagValue(header, '@category');
+    const purpose = getTagValue(header, '@purpose');
+    const scope = getTagValue(header, '@scope');
+
+    if (!category) {
+      findings.push({ file, message: 'Missing required @category header' });
+    } else if (!VALID_CATEGORY_SET.has(category)) {
+      findings.push({ file, message: `Invalid @category: "${category}"` });
+    }
+
+    if (!purpose) {
+      findings.push({ file, message: 'Missing required @purpose header' });
+    } else if (!VALID_PURPOSE_SET.has(purpose)) {
+      findings.push({ file, message: `Invalid @purpose: "${purpose}"` });
+    }
+
+    if (!scope) {
+      findings.push({ file, message: 'Missing required @scope header' });
+    } else if (!VALID_SCOPE_SET.has(scope)) {
+      findings.push({ file, message: `Invalid @scope: "${scope}"` });
+    }
+  }
+
+  if (findings.length > 0) {
+    console.error('\n❌ Script governance check failed:\n');
+    findings.forEach((finding) => {
+      console.error(`  ${finding.file}:1 - ${finding.message}`);
+    });
+  }
+
+  return {
+    label: 'Script Governance',
+    status: findings.length === 0 ? 'passed' : 'failed',
+    files: files.length,
+    errors: findings.length,
+    warnings: 0
   };
 }
 
@@ -498,6 +554,7 @@ async function main() {
   checks.push(runGeneratedBannerCheck(changedFiles));
   checks.push(runCodexTaskContractCheck(currentBranch, changedFiles, args.baseRef));
   checks.push(runCodexSkillSyncCheck());
+  checks.push(runScriptGovernanceCheck(groups.scriptFiles));
   checks.push(runScriptDocsCheck(groups.scriptFiles));
   checks.push(runUsefulnessChecks(groups.usefulnessFiles));
   checks.push(runLinkAuditCheck(groups.docsMdx));
