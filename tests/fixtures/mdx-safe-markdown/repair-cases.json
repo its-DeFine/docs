@@ -78,5 +78,18 @@
       "`codex/<issue-id>-<slug>`"
     ],
     "expectedRules": []
+  },
+  {
+    "name": "Leaves supported REVIEW comments unchanged",
+    "filePath": "fixtures/review-comment.mdx",
+    "inputLines": [
+      "Paragraph before.",
+      "<!-- REVIEW: confirm path -->"
+    ],
+    "expectedLines": [
+      "Paragraph before.",
+      "<!-- REVIEW: confirm path -->"
+    ],
+    "expectedRules": []
   }
 ]

@@ -53,5 +53,14 @@
       "$$"
     ],
     "expectedRules": []
+  },
+  {
+    "name": "Allows supported REVIEW comments",
+    "filePath": "fixtures/review-comment.mdx",
+    "contentLines": [
+      "Paragraph before.",
+      "<!-- REVIEW: confirm path -->"
+    ],
+    "expectedRules": []
   }
 ]

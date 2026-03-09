@@ -9539,54 +9539,54 @@
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/publish-offerings",
-      "title": "Publish Offerings",
-      "description": "How to Publish Offerings to the Marketplace",
+      "title": "Activate on the Network",
+      "description": "Activate your orchestrator on the Livepeer network using livepeer_cli — set reward cut, fee cut, and service URI, and verify you are in the active set.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
+        "orchestrator",
+        "activate",
+        "livepeer-cli",
+        "active-set",
+        "lpt",
+        "stake",
+        "reward-cut",
+        "service-uri",
         "orchestrators",
-        "setting-up-an-orchestrator",
-        "publish-offerings",
-        "publish",
-        "offerings",
-        "marketplace",
-        "setup"
+        "setup",
+        "publish-offerings"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 77,
+      "wordCount": 869,
       "lastVerified": "2026-03-10T09:20:54+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "Publishing as an Orchestrator (MOVE ME)"
-        },
-        {
-          "level": 3,
-          "text": "**GPU Inventory**"
-        },
-        {
-          "level": 3,
-          "text": "**Model Compatibility**"
-        },
-        {
-          "level": 3,
-          "text": "**Benchmarks**"
+          "text": "Prerequisites"
         },
         {
           "level": 2,
-          "text": "Marketplace Submission Workflow"
+          "text": "Activate your orchestrator"
         },
         {
           "level": 2,
-          "text": "Updating Offerings"
+          "text": "Verify you are in the active set"
+        },
+        {
+          "level": 2,
+          "text": "The active set"
+        },
+        {
+          "level": 2,
+          "text": "Related"
         }
       ],
       "codeLanguages": [
-        "mermaid"
+        "bash"
       ]
     },
     {
