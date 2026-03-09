@@ -3119,7 +3119,7 @@
                         "group": "Gateway References",
                         "icon": "wand-magic-sparkles",
                         "pages": [
-                          "v2/gateways/guides-and-tools/gateway-job-pipelines/overview"
+                          "v2/gateways/guides-and-resources/gateway-job-pipelines/overview"
                         ]
                       },
                       {
