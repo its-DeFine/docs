@@ -1,45 +1,19 @@
 task_id: 20260310
-branch: codex/20260310-post-merge-cleanup-phase-recovered
+branch: codex/20260310-dev-setup-a-docs-v2-dev
 base_branch: docs-v2
 scope_in:
-  - .codex/README.md
   - .codex/task-contract.yaml
-  - .githooks/README.md
-  - docs-guide/indexes/scripts-index.mdx
-  - tasks/reports/script-classifications.json
-  - tests/integration/openapi-reference-audit.js
-  - tests/package.json
-  - tests/run-all.js
-  - tests/run-pr-checks.js
-  - tests/script-index.md
-  - tests/unit/codex-safe-merge-with-stash.test.js
-  - tests/utils/mdx-parser.js
-  - tools/lib/docs-usefulness/journey-check.js
-  - tools/lib/script-index.md
-  - tools/script-index.md
-  - tools/scripts/audit-scripts.js
-  - tools/scripts/codex-safe-merge-with-stash.js
-  - tools/scripts/codex/lock-release.js
-  - tools/scripts/codex/task-finalize.js
-  - tools/scripts/codex/task-preflight.js
-  - tools/scripts/codex/validate-locks.js
-  - tools/scripts/create-codex-pr.js
-  - tools/scripts/generate-docs-guide-indexes.js
-  - tools/scripts/generate-llms-files.js
-  - tools/scripts/sync-codex-skills.js
-  - tools/scripts/validate-codex-task-contract.js
-  - tools/scripts/validators/components/check-component-css.js
-  - tools/scripts/validators/content/check-description-quality.js
-  - tests/unit/codex-task-cleanup.test.js
-  - tests/unit/codex-task-preflight.test.js
-  - tools/lib/load-js-yaml.js
-  - tools/lib/load-minimatch.js
-  - tools/scripts/codex/task-cleanup.js
+  - v2/developers/**
 scope_out: []
-allowed_generated:
-  - .codex/pr-body.generated.md
+allowed_generated: []
 acceptance_checks:
-  - node tests/run-pr-checks.js --base-ref docs-v2
-risk_flags:
-  - workflow-governance
+  - find v2/developers -name "*.mdx" | sort
+  - git status --short | grep "^ D"
+  - ls v2/developers/get-started/
+  - ls v2/developers/build/
+  - ls v2/developers/guides/
+  - ls v2/developers/opportunities/
+  - ls v2/developers/resources/
+  - ls v2/developers/_archive/ | wc -l
+risk_flags: []
 follow_up_issues: []
