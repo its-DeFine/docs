@@ -1117,7 +1117,6 @@ run_governance_auto_repair() {
     )
 }
 
-<<<<<<< HEAD
 # Component governance checks
 if [ "$SKIP_TESTS" != "1" ]; then
     STAGED_COMPONENTS=$(git diff --cached --name-only --diff-filter=ACM -- snippets/components | grep -E '\.jsx$' | grep -v '/_archive/' || true)
