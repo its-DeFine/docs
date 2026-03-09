@@ -1,6 +1,6 @@
 # SCRIPT_AUDIT
 
-Generated: 2026-03-09T06:55:58.151Z
+Generated: 2026-03-09T07:07:29.783Z
 
 ## Rules Source
 - `tests/unit/script-docs.test.js`
@@ -19,10 +19,10 @@ Generated: 2026-03-09T06:55:58.151Z
 |---|---:|
 | `audit` | 27 |
 | `ci` | 24 |
-| `enforcement` | 79 |
-| `fixture` | 5 |
+| `enforcement` | 76 |
+| `fixture` | 7 |
 | `generator` | 36 |
-| `helper` | 34 |
+| `helper` | 36 |
 | `hook` | 11 |
 | `manual` | 156 |
 | `npm-script` | 43 |
@@ -46,28 +46,28 @@ Generated: 2026-03-09T06:55:58.151Z
 | `.githooks/server-manager.js` | Manages Mintlify dev server lifecycle for browser tests (start/stop/health-check) | PASS | enforcement, hook | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `.githooks/verify-browser.js` | Verifies browser availability for Puppeteer-based integration tests | PASS | enforcement, hook | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `.githooks/verify.sh` | Pre-commit sub-hook — verifies file-walker is available and runs structural checks on staged files | PASS | enforcement, hook | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `.github/scripts/fetch-forum-data.js` | Fetches latest topics and posts from Livepeer Forum API, writes to snippets/automations/forum/ | PASS | ci, sync | scheduled, workflow-dispatch | workflow:.github/workflows/update-forum-data.yml#update-forum-data.yml > update-forum-data > Fetch and process forum data [scheduled,workflow-dispatch] |
-| `.github/scripts/fetch-ghost-blog-data.js` | Fetches blog posts from Ghost CMS API, writes to snippets/automations/blog/ | PASS | ci, sync | scheduled, workflow-dispatch | workflow:.github/workflows/update-ghost-blog-data.yml#update-ghost-blog-data.yml > update-ghost-data > Fetch and process Ghost blog data [scheduled,workflow-dispatch] |
-| `.github/scripts/fetch-youtube-data.js` | Fetches video data from YouTube Data API, writes to snippets/automations/youtube/ | PASS | ci, sync | scheduled, workflow-dispatch | workflow:.github/workflows/update-youtube-data.yml#update-youtube-data.yml > update-youtube > Fetch and process YouTube videos [scheduled,workflow-dispatch] |
-| `.github/scripts/project-showcase-sync.js` | Fetches project showcase data from external source, writes to snippets/automations/showcase/ | PASS | ci, sync | scheduled, workflow-dispatch | workflow:.github/workflows/project-showcase-sync.yml#project-showcase-sync.yml > sync-showcase > Run project showcase sync [scheduled,workflow-dispatch] |
+| `.github/scripts/fetch-forum-data.js` | Fetches latest topics and posts from Livepeer Forum API, writes to snippets/automations/forum/ | PASS | ci, sync | scheduled, workflow-dispatch | workflow:.github/workflows/update-forum-data.yml#Update Forum Data > update-forum-data > Fetch and process forum data [scheduled,workflow-dispatch] |
+| `.github/scripts/fetch-ghost-blog-data.js` | Fetches blog posts from Ghost CMS API, writes to snippets/automations/blog/ | PASS | ci, sync | scheduled, workflow-dispatch | workflow:.github/workflows/update-ghost-blog-data.yml#Update Ghost Blog Data > update-ghost-data > Fetch and process Ghost blog data [scheduled,workflow-dispatch] |
+| `.github/scripts/fetch-youtube-data.js` | Fetches video data from YouTube Data API, writes to snippets/automations/youtube/ | PASS | ci, sync | scheduled, workflow-dispatch | workflow:.github/workflows/update-youtube-data.yml#Update YouTube Data > update-youtube > Fetch and process YouTube videos [scheduled,workflow-dispatch] |
+| `.github/scripts/project-showcase-sync.js` | Fetches project showcase data from external source, writes to snippets/automations/showcase/ | PASS | ci, sync | scheduled, workflow-dispatch | workflow:.github/workflows/project-showcase-sync.yml#Project Showcase Sync > sync-showcase > Run project showcase sync [scheduled,workflow-dispatch] |
 | `lpd` | Developer CLI orchestrator — unified command surface for setup, dev server, testing, hooks, and script execution across all repo domains | PASS | runner | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `snippets/automations/youtube/filterVideos.js` | YouTube video filter — post-processes fetched YouTube data to filter/sort videos for display | PASS | sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tasks/scripts/audit-python.py` | Python audit utility — runs Python-based audit checks (alternative to Node auditors) | PASS | audit, enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tests/integration/browser.test.js` | Puppeteer browser integration test — renders pages from docs.json and checks for console errors, load failures, and visual regressions | PASS | ci, enforcement, test | manual, npm-script, pr, push | package-script:tests/package.json#scripts.test:browser [manual,npm-script] \| package-script:tools/package.json#scripts.test:browser [manual,npm-script] \| package-script:tools/package.json#scripts.test:browser:all [manual,npm-script] \| workflow:.github/workflows/test-suite.yml#test-suite.yml > test-suite > Run Browser Tests (All Pages) [npm-script,pr,push] |
+| `tests/integration/browser.test.js` | Puppeteer browser integration test — renders pages from docs.json and checks for console errors, load failures, and visual regressions | PASS | ci, enforcement, test | manual, npm-script, pr, push | package-script:tests/package.json#scripts.test:browser [manual,npm-script] \| package-script:tools/package.json#scripts.test:browser [manual,npm-script] \| package-script:tools/package.json#scripts.test:browser:all [manual,npm-script] \| workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Run Browser Tests (All Pages) [npm-script,pr,push] |
 | `tests/integration/domain-pages-audit.js` | Audits deployed docs page HTTP status codes (v1, v2, or both) and emits a stable JSON report | PASS | audit, test | manual, npm-script | package-script:tests/package.json#scripts.test:domain [manual,npm-script] \| package-script:tests/package.json#scripts.test:domain:both [manual,npm-script] \| package-script:tests/package.json#scripts.test:domain:v1 [manual,npm-script] \| package-script:tests/package.json#scripts.test:domain:v2 [manual,npm-script] |
-| `tests/integration/openapi-reference-audit.js` | Comprehensive OpenAPI spec validation — checks references, schemas, examples. Supports --strict (validate), --fix (repair), and report modes. | PASS | audit, ci, enforcement, test | manual, npm-script, pr, push, scheduled, workflow-dispatch | package-script:tests/package.json#scripts.test:openapi:audit [manual,npm-script] \| workflow:.github/workflows/openapi-reference-validation.yml#openapi-reference-validation.yml > audit > Apply safe autofix (non-PR) [pr,push,scheduled,workflow-dispatch] \| workflow:.github/workflows/openapi-reference-validation.yml#openapi-reference-validation.yml > audit > Run strict OpenAPI audit (final) [pr,push,scheduled,workflow-dispatch] \| workflow:.github/workflows/openapi-reference-validation.yml#openapi-reference-validation.yml > audit > Run strict OpenAPI audit (initial) [pr,push,scheduled,workflow-dispatch] |
-| `tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit — checks internal links, external links, anchor refs. Supports --staged, --full, --strict, --write-links modes. | PASS | audit, ci, enforcement, test | manual, npm-script, scheduled, workflow-dispatch | package-script:tests/package.json#scripts.test:link-audit [manual,npm-script] \| package-script:tests/package.json#scripts.test:link-audit:external [manual,npm-script] \| package-script:tests/package.json#scripts.test:link-audit:staged [manual,npm-script] \| workflow:.github/workflows/v2-external-link-audit.yml#v2-external-link-audit.yml > v2-external-link-audit > Run V2 external link audit (advisory) [scheduled,workflow-dispatch] |
+| `tests/integration/openapi-reference-audit.js` | Comprehensive OpenAPI spec validation — checks references, schemas, examples. Supports --strict (validate), --fix (repair), and report modes. | PASS | audit, ci, enforcement, test | manual, npm-script, pr, push, scheduled, workflow-dispatch | package-script:tests/package.json#scripts.test:openapi:audit [manual,npm-script] \| workflow:.github/workflows/openapi-reference-validation.yml#OpenAPI Reference Validation > audit > Apply safe autofix (non-PR) [pr,push,scheduled,workflow-dispatch] \| workflow:.github/workflows/openapi-reference-validation.yml#OpenAPI Reference Validation > audit > Run strict OpenAPI audit (final) [pr,push,scheduled,workflow-dispatch] \| workflow:.github/workflows/openapi-reference-validation.yml#OpenAPI Reference Validation > audit > Run strict OpenAPI audit (initial) [pr,push,scheduled,workflow-dispatch] |
+| `tests/integration/v2-link-audit.js` | Comprehensive V2 MDX link audit — checks internal links, external links, anchor refs. Supports --staged, --full, --strict, --write-links modes. | PASS | audit, ci, enforcement, test | manual, npm-script, scheduled, workflow-dispatch | package-script:tests/package.json#scripts.test:link-audit [manual,npm-script] \| package-script:tests/package.json#scripts.test:link-audit:external [manual,npm-script] \| package-script:tests/package.json#scripts.test:link-audit:staged [manual,npm-script] \| workflow:.github/workflows/v2-external-link-audit.yml#V2 External Link Audit (Advisory) > v2-external-link-audit > Run V2 external link audit (advisory) [scheduled,workflow-dispatch] |
 | `tests/integration/v2-link-audit.selftest.js` | Self-test suite for v2-link-audit.js — validates audit logic against known fixtures | PASS | audit, enforcement, fixture, test | manual, npm-script | package-script:tests/package.json#scripts.test:link-audit:selftest [manual,npm-script] |
 | `tests/integration/v2-wcag-audit.js` | WCAG accessibility audit for v2 pages — checks heading hierarchy, alt text, ARIA. Supports --fix mode for auto-repair. | PASS | audit, enforcement, test | manual, npm-script | package-script:tests/package.json#scripts.test:wcag [manual,npm-script] \| package-script:tests/package.json#scripts.test:wcag:nofix [manual,npm-script] \| package-script:tests/package.json#scripts.test:wcag:staged [manual,npm-script] |
 | `tests/integration/v2-wcag-audit.selftest.js` | Self-test suite for v2-wcag-audit.js — validates WCAG audit logic against known fixtures | PASS | audit, enforcement, fixture, test | manual, npm-script | package-script:tests/package.json#scripts.test:wcag:selftest [manual,npm-script] |
 | `tests/run-all.js` | Test orchestrator — dispatches all unit test suites. Called by pre-commit hook and npm test. | PASS | enforcement, hook, runner, test | manual, npm-script, pre-commit | hook:.githooks/pre-commit#line 855 [pre-commit] \| package-script:tests/package.json#scripts.test [manual,npm-script] \| package-script:tools/package.json#scripts.test [manual,npm-script] |
-| `tests/run-pr-checks.js` | PR orchestrator — runs changed-file scoped validation checks for pull request CI. Dispatches per-file validators based on PR diff. | PASS | ci, enforcement, runner, sync, test | manual, npm-script, pr, push | package-script:tests/package.json#scripts.test:pr [manual,npm-script] \| workflow:.github/workflows/test-suite.yml#test-suite.yml > test-suite > Run PR Changed-File Checks [npm-script,pr,push] |
+| `tests/run-pr-checks.js` | PR orchestrator — runs changed-file scoped validation checks for pull request CI. Dispatches per-file validators based on PR diff. | PASS | ci, enforcement, runner, sync, test | manual, npm-script, pr, push | package-script:tests/package.json#scripts.test:pr [manual,npm-script] \| workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Run PR Changed-File Checks [npm-script,pr,push] |
 | `tests/unit/codex-commit.test.js` | Tests codex-commit.js — validates commit message generation and contract compliance | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tests/unit/codex-safe-merge-with-stash.test.js` | Tests codex-safe-merge-with-stash.js — validates safe merge logic with stash handling | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tests/unit/codex-skill-sync.test.js` | Tests sync-codex-skills.js — validates skill file synchronisation between sources | PASS | enforcement, sync, test | manual, npm-script | package-script:tests/package.json#scripts.test:codex-skills-sync [manual,npm-script] |
 | `tests/unit/create-codex-pr.test.js` | Tests create-codex-pr.js — validates PR creation logic and branch naming | PASS | enforcement, generator, test | manual, npm-script | package-script:tests/package.json#scripts.test:codex-pr-create [manual,npm-script] |
-| `tests/unit/docs-guide-sot.test.js` | Validates docs-guide source-of-truth coverage, README pointers, and generated index freshness | PASS | ci, enforcement, generator, test | manual, npm-script, pr, push | package-script:tests/package.json#scripts.test:docs-guide [manual,npm-script] \| workflow:.github/workflows/test-suite.yml#test-suite.yml > test-suite > Run Docs-Guide SoT Check (Advisory) [npm-script,pr,push] |
-| `tests/unit/docs-navigation.test.js` | Validates docs.json page-entry syntax, reports missing routes, warns on orphaned canonical v2 pages, suggests remaps, and optionally applies approved remaps | PASS | audit, ci, enforcement, test | manual, npm-script, workflow-dispatch | package-script:tests/package.json#scripts.test:docs-nav [manual,npm-script] \| package-script:tests/package.json#scripts.test:docs-nav:write [manual,npm-script] \| workflow:.github/workflows/translate-docs.yml#translate-docs.yml > translate-docs > Validate docs.json navigation [workflow-dispatch] |
+| `tests/unit/docs-guide-sot.test.js` | Validates docs-guide source-of-truth coverage, README pointers, and generated index freshness | PASS | ci, enforcement, generator, test | manual, npm-script, pr, push | package-script:tests/package.json#scripts.test:docs-guide [manual,npm-script] \| workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Run Docs-Guide SoT Check (Advisory) [npm-script,pr,push] |
+| `tests/unit/docs-navigation.test.js` | Validates docs.json page-entry syntax, reports missing routes, warns on orphaned canonical v2 pages, suggests remaps, and optionally applies approved remaps | PASS | audit, ci, enforcement, test | manual, npm-script, workflow-dispatch | package-script:tests/package.json#scripts.test:docs-nav [manual,npm-script] \| package-script:tests/package.json#scripts.test:docs-nav:write [manual,npm-script] \| workflow:.github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Validate docs.json navigation [workflow-dispatch] |
 | `tests/unit/links-imports.test.js` | Validates MDX internal links and snippet import paths are resolvable | PASS | enforcement, test | manual, npm-script | package-script:tests/package.json#scripts.test:links [manual,npm-script] \| package-script:tools/package.json#scripts.test:links [manual,npm-script] |
 | `tests/unit/lpd-scoped-mint-dev.test.js` | Tests lpd scoped mint-dev functionality — validates dev server scope filtering | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tests/unit/mdx-guards.test.js` | Enforces MDX guardrails — globals imports, math delimiters, markdown table line breaks | PASS | enforcement, test | manual, npm-script | package-script:tests/package.json#scripts.test:mdx:guards [manual,npm-script] |
@@ -81,8 +81,8 @@ Generated: 2026-03-09T06:55:58.151Z
 | `tests/unit/script-docs.test.js` | Enforces script header schema, keeps group script indexes in sync, and builds aggregate script index | PASS | enforcement, generator, sync, test | manual, npm-script | package-script:tests/package.json#scripts.test:scripts [manual,npm-script] |
 | `tests/unit/spelling.test.js` | Spelling check — validates content against custom dictionary with en-GB rules | PASS | enforcement, test | manual, npm-script | package-script:tests/package.json#scripts.test:spell [manual,npm-script] \| package-script:tools/package.json#scripts.test:spell [manual,npm-script] |
 | `tests/unit/style-guide.test.js` | Style guide compliance — checks en-GB conventions, heading case, formatting rules | PASS | enforcement, test | manual, npm-script | package-script:tests/package.json#scripts.test:style [manual,npm-script] \| package-script:tools/package.json#scripts.test:style [manual,npm-script] |
-| `tests/unit/usefulness-journey.test.js` | Usefulness journey tests — validate journey completeness evaluation and configuration guardrails | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tests/unit/usefulness-rubric.test.js` | Usefulness rubric tests — validate rubric loading, evaluator coverage, route precedence, and score divergence behaviour | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tests/unit/usefulness-journey.test.js` | Tests journey-check evaluation logic against fixture pages. | PASS | enforcement, fixture, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tests/unit/usefulness-rubric.test.js` | Tests rubric-based scoring logic against fixture pages. | PASS | fixture, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tests/unit/v2-link-audit.test.js` | Unit tests for v2-link-audit.js — tests individual link checking rules | PASS | audit, enforcement, test | manual, npm-script | package-script:tests/package.json#scripts.test:link-audit:unit [manual,npm-script] |
 | `tests/unit/v2-wcag-audit.test.js` | Unit tests for v2-wcag-audit.js — tests individual WCAG rules | PASS | audit, test | manual, npm-script | package-script:tests/package.json#scripts.test:wcag:unit [manual,npm-script] |
 | `tests/unit/validate-codex-task-contract.test.js` | Tests validate-codex-task-contract.js — validates contract checking logic | PASS | enforcement, test | manual, npm-script | package-script:tests/package.json#scripts.test:codex-task-contract [manual,npm-script] |
@@ -93,34 +93,34 @@ Generated: 2026-03-09T06:55:58.151Z
 | `tests/utils/spell-checker.js` | Spell checker utility — checks text against custom dictionary with en-GB locale support | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/config/v2-internal-report-pages.js` | Configuration data — list of internal report page paths for publish-v2-internal-reports.js | PASS | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/lib/docs-index-utils.js` | Shared utilities for docs-index.json generation — path resolution, frontmatter extraction, index merging | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/config-validator.js` | Usefulness config validator — validates rubric, journey, audience, and LLM-tier configuration integrity | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/journey-check.js` | Usefulness journey checker — evaluates journey completeness, purpose fit, and next-step linkage from page scores | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/llm-evaluator.js` | Usefulness LLM evaluator — runs cached OpenRouter-based rubric checks with tier and budget controls | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/prompts/changelog.js` | Changelog usefulness prompts — define LLM prompt templates for changelog page scoring | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/prompts/concept.js` | Concept usefulness prompts — define LLM prompt templates for concept page scoring | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/prompts/faq.js` | FAQ usefulness prompts — define LLM prompt templates for faq page scoring | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/prompts/glossary.js` | Glossary usefulness prompts — define LLM prompt templates for glossary page scoring | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/prompts/how_to.js` | How-to usefulness prompts — define LLM prompt templates for how-to page scoring | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/prompts/index.js` | Usefulness prompt registry — aggregates purpose-specific LLM prompt modules | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/prompts/landing.js` | Landing usefulness prompts — define LLM prompt templates for landing page scoring | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/prompts/overview.js` | Overview usefulness prompts — define LLM prompt templates for overview page scoring | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/prompts/reference.js` | Reference usefulness prompts — define LLM prompt templates for reference page scoring | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/prompts/troubleshooting.js` | Troubleshooting usefulness prompts — define LLM prompt templates for troubleshooting page scoring | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/prompts/tutorial.js` | Tutorial usefulness prompts — define LLM prompt templates for tutorial page scoring | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/quality-gate.js` | Usefulness quality gate — derives fail and warn prerequisite checks for page scoring | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/rubric-loader.js` | Usefulness rubric loader — loads rubric, journey, audience, and LLM-tier configuration data | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/rule-evaluators.js` | Usefulness rule evaluators — implement deterministic tier-1 scoring rules for page analysis | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/lib/docs-usefulness/scoring.js` | Usefulness scoring engine — computes human and agent usefulness scores from page metadata | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/config-validator.js` | Validates docs-usefulness config structure and field completeness. | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/journey-check.js` | Evaluates docs pages against user journey completeness criteria. | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/llm-evaluator.js` | Wraps LLM API calls for rubric-based page quality evaluation. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/prompts/changelog.js` | LLM prompt template for changelog page-type usefulness evaluation. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/prompts/concept.js` | LLM prompt template for concept page-type usefulness evaluation. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/prompts/faq.js` | LLM prompt template for faq page-type usefulness evaluation. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/prompts/glossary.js` | LLM prompt template for glossary page-type usefulness evaluation. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/prompts/how_to.js` | LLM prompt template for how_to page-type usefulness evaluation. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/prompts/index.js` | LLM prompt template for index page-type usefulness evaluation. | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/prompts/landing.js` | LLM prompt template for landing page-type usefulness evaluation. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/prompts/overview.js` | LLM prompt template for overview page-type usefulness evaluation. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/prompts/reference.js` | LLM prompt template for reference page-type usefulness evaluation. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/prompts/troubleshooting.js` | LLM prompt template for troubleshooting page-type usefulness evaluation. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/prompts/tutorial.js` | LLM prompt template for tutorial page-type usefulness evaluation. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/quality-gate.js` | Applies pass/fail thresholds to usefulness scores. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/rubric-loader.js` | Loads and parses rubric YAML/JSON for page-type scoring rules. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/rule-evaluators.js` | Evaluates individual rubric rules against page content. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
+| `tools/lib/docs-usefulness/scoring.js` | Aggregates rule scores into a final usefulness score per page. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/lib/generated-file-banners.js` | Generated file banner template — provides standard banner text for auto-generated files | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/add-framework-headers.js` | Insert or verify governance framework metadata headers from classification JSON. | PASS | enforcement, generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/add-pagetype-mechanical.js` | Mechanically assign pageType frontmatter to eligible v2 MDX pages. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/assign-purpose-metadata.js` | Purpose metadata assigner — fills purpose and audience frontmatter for routable v2 pages | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/scripts/audit-component-usage.js` | Component usage auditor — scans pages for component usage patterns and reports statistics | PASS | audit, ci | scheduled, workflow-dispatch | workflow:.github/workflows/content-health.yml#content-health.yml > content-health > Component usage audit [scheduled,workflow-dispatch] |
+| `tools/scripts/audit-component-usage.js` | Component usage auditor — scans pages for component usage patterns and reports statistics | PASS | audit, ci | scheduled, workflow-dispatch | workflow:.github/workflows/content-health.yml#Content Health Check > content-health > Component usage audit [scheduled,workflow-dispatch] |
 | `tools/scripts/audit-media-assets.js` | Audit repo media assets, references, ignore leakage, and externalized asset branch inventory. | PASS | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/audit-scripts.js` | Script auditor — analyses all repo scripts, categorises usage/overlap, generates SCRIPT_AUDIT reports | PASS | audit, generator | manual, npm-script | package-script:tools/package.json#scripts.audit:scripts [manual,npm-script] |
 | `tools/scripts/audit-tasks-folders.js` | Tasks folder auditor — checks tasks/ structure, normalises report locations, applies recommendations with conflict-safe moves | PASS | audit, enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/audit-v2-usefulness.js` | Usefulness auditor — scores v2 MDX pages on human and agent usefulness with source-weighted 2026 accuracy verification | PASS | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/scripts/check-codex-pr-overlap.js` | PR enforcer — checks for conflicting codex PRs targeting the same files/branches | PASS | ci, enforcement | pr | workflow:.github/workflows/codex-governance.yml#codex-governance.yml > codex-governance > Check codex PR overlap [pr] |
+| `tools/scripts/check-codex-pr-overlap.js` | PR enforcer — checks for conflicting codex PRs targeting the same files/branches | PASS | ci, enforcement | pr | workflow:.github/workflows/codex-governance.yml#Codex Governance > codex-governance > Check codex PR overlap [pr] |
 | `tools/scripts/check-no-ai-stash.sh` | AI stash enforcer — blocks push if AI temporary/stash files are present in working tree | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/cleanup-quarantine-manager.js` | Quarantine manager — classifies files for quarantine (default) or applies quarantine moves (--apply) | PASS | helper | manual, npm-script | package-script:tools/package.json#scripts.cleanup:classify [manual,npm-script] \| package-script:tools/package.json#scripts.cleanup:quarantine [manual,npm-script] |
 | `tools/scripts/codex-commit.js` | Codex commit helper — audits codex branch state and generates compliant commit messages | PASS | audit, generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -129,7 +129,7 @@ Generated: 2026-03-09T06:55:58.151Z
 | `tools/scripts/codex/task-finalize.js` | Codex task finaliser — enforces task completion requirements before closing | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/codex/task-preflight.js` | Codex task preflight — generates task setup files and validates preconditions | PASS | enforcement, generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/codex/validate-locks.js` | Codex lock validator — checks for stale or conflicting lock files before push | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/scripts/component-layout-governance.js` | Component layout governance validator — checks v2 page layouts against approved component contracts | PASS | ci, enforcement | manual, npm-script, scheduled, workflow-dispatch | package-script:tools/package.json#scripts.audit:component-layout [manual,npm-script] \| workflow:.github/workflows/content-health.yml#content-health.yml > content-health > Component layout governance [scheduled,workflow-dispatch] |
+| `tools/scripts/component-layout-governance.js` | Component layout governance validator — checks v2 page layouts against approved component contracts | PASS | ci, enforcement | manual, npm-script, scheduled, workflow-dispatch | package-script:tools/package.json#scripts.audit:component-layout [manual,npm-script] \| workflow:.github/workflows/content-health.yml#Content Health Check > content-health > Component layout governance [scheduled,workflow-dispatch] |
 | `tools/scripts/convert-rss-to-mdx.js` | RSS-to-MDX converter — imports RSS feed items and converts to MDX page format | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/create-codex-pr.js` | Codex PR creator — generates codex PR with correct branch naming, labels, and body template | PASS | generator | manual, npm-script | package-script:tools/package.json#scripts.codex:pr [manual,npm-script] |
 | `tools/scripts/cross-agent-packager.js` | Cross-agent packager — bundles audit reports and repo state into agent-consumable packages | PASS | audit, generator | manual, npm-script | package-script:tools/package.json#scripts.pack:agents [manual,npm-script] |
@@ -144,18 +144,18 @@ Generated: 2026-03-09T06:55:58.151Z
 | `tools/scripts/dev/test-seo-generator.js` | Test for seo-generator — validates SEO generation logic | PASS | enforcement, generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/dev/update-all-og-images.js` | Bulk OG image updater — updates og:image across all v2 pages | PASS | sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/dev/update-og-image.js` | Single OG image updater — updates og:image for one page | PASS | sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/scripts/docs-quality-and-freshness-audit.js` | Content freshness audit — checks for TODO/TBD/Coming Soon markers, thin pages, stale content | PASS | audit, ci, enforcement | manual, npm-script, scheduled, workflow-dispatch | package-script:tools/package.json#scripts.audit:docs-quality [manual,npm-script] \| workflow:.github/workflows/content-health.yml#content-health.yml > content-health > Content quality audit [scheduled,workflow-dispatch] |
+| `tools/scripts/docs-quality-and-freshness-audit.js` | Content freshness audit — checks for TODO/TBD/Coming Soon markers, thin pages, stale content | PASS | audit, ci, enforcement | manual, npm-script, scheduled, workflow-dispatch | package-script:tools/package.json#scripts.audit:docs-quality [manual,npm-script] \| workflow:.github/workflows/content-health.yml#Content Health Check > content-health > Content quality audit [scheduled,workflow-dispatch] |
 | `tools/scripts/enforce-generated-file-banners.js` | Generated file banner enforcer — checks (--check) or writes (default) "do not edit" banners on generated files | PASS | enforcement, generator | manual, npm-script | package-script:tests/package.json#scripts.test:generated-banners [manual,npm-script] |
 | `tools/scripts/enforcers/pr/check-component-immutability.js` | Flags modifications to existing component files in PR context. New files allowed. Modifications require approval label. | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/scripts/generate-ai-sitemap.js` | AI sitemap generator — produces AI-optimised sitemap files. Dual-mode: --check (enforcer) / --write (generator). | PASS | ci, enforcement, generator | pr, push, workflow-dispatch | workflow:.github/workflows/generate-ai-sitemap.yml#generate-ai-sitemap.yml > generate-ai-sitemap > Generate AI sitemap [push,workflow-dispatch] \| workflow:.github/workflows/verify-ai-sitemap.yml#verify-ai-sitemap.yml > verify-ai-sitemap > Verify AI sitemap output [pr,push] |
+| `tools/scripts/generate-ai-sitemap.js` | AI sitemap generator — produces AI-optimised sitemap files. Dual-mode: --check (enforcer) / --write (generator). | PASS | ci, enforcement, generator | pr, push, workflow-dispatch | workflow:.github/workflows/generate-ai-sitemap.yml#Generate AI Sitemap > generate-ai-sitemap > Generate AI sitemap [push,workflow-dispatch] \| workflow:.github/workflows/verify-ai-sitemap.yml#Verify AI Sitemap > verify-ai-sitemap > Verify AI sitemap output [pr,push] |
 | `tools/scripts/generate-content-gap-reconciliation.js` | Content-gap reconciliation generator — compares blueprint coverage against v2 MDX and writes reconciliation artefacts | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/generate-docs-guide-components-index.js` | Generates the docs-guide component library index page | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/generate-docs-guide-indexes.js` | Generates docs-guide workflow/template indexes and optionally verifies freshness | PASS | generator | manual, npm-script | package-script:tools/package.json#scripts.docs-guide:indexes [manual,npm-script] |
 | `tools/scripts/generate-docs-guide-pages-index.js` | Generates the docs-guide pages index | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/scripts/generate-docs-index.js` | Docs index generator — produces docs-index.json from v2 frontmatter and docs.json. Dual-mode: --check (enforcer) / --write (generator). Most-called script in the repo. | PASS | ci, enforcement, generator, hook | pr, pre-commit, push, workflow-dispatch | hook:.githooks/pre-commit#line 881 [pre-commit] \| hook:.githooks/pre-commit#line 885 [pre-commit] \| hook:.githooks/pre-commit#line 890 [pre-commit] \| workflow:.github/workflows/check-docs-index.yml#check-docs-index.yml > docs-index-check > Verify docs-index.json is current [pr,push,workflow-dispatch] \| workflow:.github/workflows/generate-docs-index.yml#generate-docs-index.yml > generate-docs-index > Generate docs index [push,workflow-dispatch] \| workflow:.github/workflows/translate-docs.yml#translate-docs.yml > translate-docs > Regenerate docs-index.json [workflow-dispatch] |
-| `tools/scripts/generate-llms-files.js` | LLMs file generator — produces llms.txt and llms-full.txt for AI consumption. Dual-mode: --check / --write. | PASS | ci, enforcement, generator | pr, push, workflow-dispatch | workflow:.github/workflows/generate-llms-files.yml#generate-llms-files.yml > generate > Generate llms files [push,workflow-dispatch] \| workflow:.github/workflows/verify-llms-files.yml#verify-llms-files.yml > verify-llms-files > Verify llms outputs [pr,push] |
+| `tools/scripts/generate-docs-index.js` | Docs index generator — produces docs-index.json from v2 frontmatter and docs.json. Dual-mode: --check (enforcer) / --write (generator). Most-called script in the repo. | PASS | ci, enforcement, generator, hook | pr, pre-commit, push, workflow-dispatch | hook:.githooks/pre-commit#line 881 [pre-commit] \| hook:.githooks/pre-commit#line 885 [pre-commit] \| hook:.githooks/pre-commit#line 890 [pre-commit] \| workflow:.github/workflows/check-docs-index.yml#Check Docs Index > docs-index-check > Verify docs-index.json is current [pr,push,workflow-dispatch] \| workflow:.github/workflows/generate-docs-index.yml#Generate Docs Index > generate-docs-index > Generate docs index [push,workflow-dispatch] \| workflow:.github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Regenerate docs-index.json [workflow-dispatch] |
+| `tools/scripts/generate-llms-files.js` | LLMs file generator — produces llms.txt and llms-full.txt for AI consumption. Dual-mode: --check / --write. | PASS | ci, enforcement, generator | pr, push, workflow-dispatch | workflow:.github/workflows/generate-llms-files.yml#Generate llms.txt > generate > Generate llms files [push,workflow-dispatch] \| workflow:.github/workflows/verify-llms-files.yml#Verify llms.txt Files > verify-llms-files > Verify llms outputs [pr,push] |
 | `tools/scripts/generate-pages-index.js` | Pages index generator — generates and verifies section-style index.mdx files for v2 docs folders plus root aggregate index | PASS | generator | manual, npm-script | package-script:tests/package.json#scripts.test:pages-index [manual,npm-script] \| package-script:tests/package.json#scripts.test:pages-index:rebuild [manual,npm-script] \| package-script:tests/package.json#scripts.test:pages-index:write [manual,npm-script] |
-| `tools/scripts/i18n/generate-localized-docs-json.js` | Locale docs.json generator — produces localised docs.json variants from route-map and source docs.json | PASS | ci, generator, sync | manual, npm-script, workflow-dispatch | package-script:tools/package.json#scripts.i18n:docs-json [manual,npm-script] \| workflow:.github/workflows/translate-docs.yml#translate-docs.yml > translate-docs > Update docs.json localized language nodes [workflow-dispatch] |
+| `tools/scripts/i18n/generate-localized-docs-json.js` | Locale docs.json generator — produces localised docs.json variants from route-map and source docs.json | PASS | ci, generator, sync | manual, npm-script, workflow-dispatch | package-script:tools/package.json#scripts.i18n:docs-json [manual,npm-script] \| workflow:.github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Update docs.json localized language nodes [workflow-dispatch] |
 | `tools/scripts/i18n/lib/common.js` | i18n shared utilities — common helper functions for translation pipeline | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/i18n/lib/config.js` | i18n configuration — language codes, locale paths, translation settings | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/i18n/lib/docs-json-localizer.js` | docs.json localiser engine — transforms docs.json navigation for locale variants | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -175,8 +175,8 @@ Generated: 2026-03-09T06:55:58.151Z
 | `tools/scripts/i18n/test/mdx-translate.test.js` | Tests MDX translation — validates content block translation logic | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/i18n/test/provenance.test.js` | Tests provenance tracker — validates translation provenance recording | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/i18n/test/provider-openrouter.test.js` | Tests OpenRouter provider — validates API call logic and response parsing | PASS | enforcement, test | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/scripts/i18n/translate-docs.js` | Translation generator — translates v2 MDX pages to target languages via OpenRouter API | PASS | ci, generator, sync | manual, npm-script, workflow-dispatch | package-script:tools/package.json#scripts.i18n:translate [manual,npm-script] \| workflow:.github/workflows/translate-docs.yml#translate-docs.yml > translate-docs > Run translation generation [workflow-dispatch] |
-| `tools/scripts/i18n/validate-generated.js` | Generated localisation validator — checks generated translated MDX files and route-map outputs for integrity | PASS | ci, enforcement, generator | manual, npm-script, workflow-dispatch | package-script:tools/package.json#scripts.i18n:validate [manual,npm-script] \| workflow:.github/workflows/translate-docs.yml#translate-docs.yml > translate-docs > Validate generated localized MDX [workflow-dispatch] |
+| `tools/scripts/i18n/translate-docs.js` | Translation generator — translates v2 MDX pages to target languages via OpenRouter API | PASS | ci, generator, sync | manual, npm-script, workflow-dispatch | package-script:tools/package.json#scripts.i18n:translate [manual,npm-script] \| workflow:.github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Run translation generation [workflow-dispatch] |
+| `tools/scripts/i18n/validate-generated.js` | Generated localisation validator — checks generated translated MDX files and route-map outputs for integrity | PASS | ci, enforcement, generator | manual, npm-script, workflow-dispatch | package-script:tools/package.json#scripts.i18n:validate [manual,npm-script] \| workflow:.github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Validate generated localized MDX [workflow-dispatch] |
 | `tools/scripts/mint-dev.sh` | Mintlify dev server launcher — starts mint dev with correct configuration | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/new-script.js` | ' + params.summary, | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/publish-v2-internal-reports.js` | Report publisher — publishes v2 internal audit reports to configured output locations | PASS | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -184,19 +184,19 @@ Generated: 2026-03-09T06:55:58.151Z
 | `tools/scripts/remediators/content/repair-spelling.js` | Auto-corrects spelling errors using the shared cspell configuration. Safe, dictionary-based corrections only. | PASS | helper | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/repo-audit-orchestrator.js` | Repo audit orchestrator — dispatches all static analysis validators in sequence. Supports --mode (static/full), --scope (full/changed), --quarantine, --agent-pack. | PASS | audit | manual, npm-script | package-script:tools/package.json#scripts.audit:repo [manual,npm-script] \| package-script:tools/package.json#scripts.audit:repo:changed [manual,npm-script] \| package-script:tools/package.json#scripts.audit:repo:full [manual,npm-script] \| package-script:tools/package.json#scripts.audit:repo:pack-all [manual,npm-script] \| package-script:tools/package.json#scripts.audit:repo:quarantine [manual,npm-script] |
 | `tools/scripts/script-footprint-and-usage-audit.js` | Script footprint auditor — analyses script file sizes, dependencies, and usage patterns across the repo | PASS | audit | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/scripts/snippets/fetch-external-docs.sh` | External docs fetcher — pulls doc fragments from external GitHub repos into snippets/data/ for inclusion in builds | PASS | ci, enforcement, generator, sync | manual, npm-script, pr, push | package-script:tools/package.json#scripts.fetch-docs [manual,npm-script] \| package-script:tools/package.json#scripts.prebuild [manual,npm-script] \| workflow:.github/workflows/broken-links.yml#broken-links.yml > broken-links > Fetch external snippets [pr] \| workflow:.github/workflows/test-suite.yml#test-suite.yml > test-suite > Fetch external snippets [pr,push] \| workflow:.github/workflows/test-v2-pages.yml#test-v2-pages.yml > test-pages > Fetch external snippets [pr,push] |
+| `tools/scripts/snippets/fetch-external-docs.sh` | External docs fetcher — pulls doc fragments from external GitHub repos into snippets/data/ for inclusion in builds | PASS | ci, enforcement, generator, sync | manual, npm-script, pr, push | package-script:tools/package.json#scripts.fetch-docs [manual,npm-script] \| package-script:tools/package.json#scripts.prebuild [manual,npm-script] \| workflow:.github/workflows/broken-links.yml#Check Broken Links > broken-links > Fetch external snippets [pr] \| workflow:.github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Fetch external snippets [pr,push] \| workflow:.github/workflows/test-v2-pages.yml#Docs CI - V2 Browser Sweep > test-pages > Fetch external snippets [pr,push] |
 | `tools/scripts/snippets/fetch-lpt-exchanges.sh` | LPT exchange data fetcher — pulls exchange listing data for LPT token pages | PASS | sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/snippets/fetch-openapi-specs.sh` | OpenAPI spec fetcher — pulls latest OpenAPI specs from Livepeer services for reference pages | PASS | sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/snippets/generate-api-docs.sh` | API docs generator — generates API reference pages from OpenAPI specs | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/snippets/generate-data/scripts/generate-glossary.js` | Glossary generator — produces glossary data file from terminology sources | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/snippets/generate-data/scripts/terminology-search.js` | Terminology search — searches glossary/terminology data for definitions | PASS | generator | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/scripts/snippets/generate-seo.js` | SEO generator — generates SEO metadata (title, description, keywords) for v2 pages from content analysis | PASS | ci, generator | manual, npm-script, workflow-dispatch | package-script:tools/package.json#scripts.generate-seo [manual,npm-script] \| package-script:tools/package.json#scripts.generate-seo:dry-run [manual,npm-script] \| workflow:.github/workflows/seo-refresh.yml#seo-refresh.yml > seo > Generate SEO metadata [workflow-dispatch] |
+| `tools/scripts/snippets/generate-seo.js` | SEO generator — generates SEO metadata (title, description, keywords) for v2 pages from content analysis | PASS | ci, generator | manual, npm-script, workflow-dispatch | package-script:tools/package.json#scripts.generate-seo [manual,npm-script] \| package-script:tools/package.json#scripts.generate-seo:dry-run [manual,npm-script] \| workflow:.github/workflows/seo-refresh.yml#SEO Metadata Refresh > seo > Generate SEO metadata [workflow-dispatch] |
 | `tools/scripts/snippets/test-scripts.sh` | Snippet test runner — runs basic validation on snippet scripts | PASS | enforcement, runner | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/snippets/update-component-library.sh` | Component library updater — syncs component library documentation from source | PASS | sync | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
-| `tools/scripts/style-and-language-homogenizer-en-gb.js` | EN-GB style homogeniser — finds and fixes American English spellings, style guide violations, and formatting inconsistencies across v2 content | PASS | ci | manual, npm-script, workflow-dispatch | package-script:tools/package.json#scripts.audit:language-en-gb [manual,npm-script] \| workflow:.github/workflows/style-homogenise.yml#style-homogenise.yml > homogenise > Run style homogeniser [workflow-dispatch] |
+| `tools/scripts/style-and-language-homogenizer-en-gb.js` | EN-GB style homogeniser — finds and fixes American English spellings, style guide violations, and formatting inconsistencies across v2 content | PASS | ci | manual, npm-script, workflow-dispatch | package-script:tools/package.json#scripts.audit:language-en-gb [manual,npm-script] \| workflow:.github/workflows/style-homogenise.yml#EN-GB Style Homogenisation > homogenise > Run style homogeniser [workflow-dispatch] |
 | `tools/scripts/sync-codex-skills.js` | Codex skills sync — synchronises skill definition files between local and remote sources. Supports --check mode. | PASS | enforcement, sync | manual, npm-script | package-script:tools/package.json#scripts.skills:sync:codex [manual,npm-script] \| package-script:tools/package.json#scripts.skills:sync:codex:check [manual,npm-script] |
 | `tools/scripts/test-v2-pages.js` | V2 page tester — validates v2 pages via Puppeteer browser rendering | PASS | enforcement | manual, npm-script | package-script:tools/package.json#scripts.test:all-pages [manual,npm-script] \| package-script:tools/package.json#scripts.test:v2-pages [manual,npm-script] |
-| `tools/scripts/validate-codex-task-contract.js` | Codex task contract enforcer — validates branch naming, task files, PR body, and issue state for codex branches | PASS | ci, enforcement, hook | pr, pre-commit | hook:.githooks/pre-commit#line 287 [pre-commit] \| workflow:.github/workflows/codex-governance.yml#codex-governance.yml > codex-governance > Validate codex task contract + issue readiness + PR body [pr] |
+| `tools/scripts/validate-codex-task-contract.js` | Codex task contract enforcer — validates branch naming, task files, PR body, and issue state for codex branches | PASS | ci, enforcement, hook | pr, pre-commit | hook:.githooks/pre-commit#line 287 [pre-commit] \| workflow:.github/workflows/codex-governance.yml#Codex Governance > codex-governance > Validate codex task contract + issue readiness + PR body [pr] |
 | `tools/scripts/validators/components/check-component-css.js` | Validates component files use CSS custom properties only. No ThemeData, no hardcoded hex, no inline styles. | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/validators/components/check-component-docs.js` | Validate component JSDoc coverage, prop documentation, and docs-entry coverage for snippets/components exports. | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
 | `tools/scripts/validators/components/check-naming-conventions.js` | Validates active component filenames against strict camelCase file naming and PascalCase exports under snippets/components. | PASS | enforcement | manual | Manual/on-demand (no direct hook/workflow/package reference found) |
@@ -269,7 +269,7 @@ All discovered scripts meet the required script template rules.
 - Role tags: ci, sync
 - Run-context tags: scheduled, workflow-dispatch
 - Used by:
-  - workflow: .github/workflows/update-forum-data.yml#update-forum-data.yml > update-forum-data > Fetch and process forum data (when: scheduled, workflow-dispatch)
+  - workflow: .github/workflows/update-forum-data.yml#Update Forum Data > update-forum-data > Fetch and process forum data (when: scheduled, workflow-dispatch)
 
 ### `.github/scripts/fetch-ghost-blog-data.js`
 - Purpose: Fetches blog posts from Ghost CMS API, writes to snippets/automations/blog/
@@ -277,7 +277,7 @@ All discovered scripts meet the required script template rules.
 - Role tags: ci, sync
 - Run-context tags: scheduled, workflow-dispatch
 - Used by:
-  - workflow: .github/workflows/update-ghost-blog-data.yml#update-ghost-blog-data.yml > update-ghost-data > Fetch and process Ghost blog data (when: scheduled, workflow-dispatch)
+  - workflow: .github/workflows/update-ghost-blog-data.yml#Update Ghost Blog Data > update-ghost-data > Fetch and process Ghost blog data (when: scheduled, workflow-dispatch)
 
 ### `.github/scripts/fetch-youtube-data.js`
 - Purpose: Fetches video data from YouTube Data API, writes to snippets/automations/youtube/
@@ -285,7 +285,7 @@ All discovered scripts meet the required script template rules.
 - Role tags: ci, sync
 - Run-context tags: scheduled, workflow-dispatch
 - Used by:
-  - workflow: .github/workflows/update-youtube-data.yml#update-youtube-data.yml > update-youtube > Fetch and process YouTube videos (when: scheduled, workflow-dispatch)
+  - workflow: .github/workflows/update-youtube-data.yml#Update YouTube Data > update-youtube > Fetch and process YouTube videos (when: scheduled, workflow-dispatch)
 
 ### `.github/scripts/project-showcase-sync.js`
 - Purpose: Fetches project showcase data from external source, writes to snippets/automations/showcase/
@@ -293,7 +293,7 @@ All discovered scripts meet the required script template rules.
 - Role tags: ci, sync
 - Run-context tags: scheduled, workflow-dispatch
 - Used by:
-  - workflow: .github/workflows/project-showcase-sync.yml#project-showcase-sync.yml > sync-showcase > Run project showcase sync (when: scheduled, workflow-dispatch)
+  - workflow: .github/workflows/project-showcase-sync.yml#Project Showcase Sync > sync-showcase > Run project showcase sync (when: scheduled, workflow-dispatch)
 
 ### `lpd`
 - Purpose: Developer CLI orchestrator — unified command surface for setup, dev server, testing, hooks, and script execution across all repo domains
@@ -325,7 +325,7 @@ All discovered scripts meet the required script template rules.
   - package-script: tests/package.json#scripts.test:browser (when: manual, npm-script)
   - package-script: tools/package.json#scripts.test:browser (when: manual, npm-script)
   - package-script: tools/package.json#scripts.test:browser:all (when: manual, npm-script)
-  - workflow: .github/workflows/test-suite.yml#test-suite.yml > test-suite > Run Browser Tests (All Pages) (when: npm-script, pr, push)
+  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Run Browser Tests (All Pages) (when: npm-script, pr, push)
 
 ### `tests/integration/domain-pages-audit.js`
 - Purpose: Audits deployed docs page HTTP status codes (v1, v2, or both) and emits a stable JSON report
@@ -345,9 +345,9 @@ All discovered scripts meet the required script template rules.
 - Run-context tags: manual, npm-script, pr, push, scheduled, workflow-dispatch
 - Used by:
   - package-script: tests/package.json#scripts.test:openapi:audit (when: manual, npm-script)
-  - workflow: .github/workflows/openapi-reference-validation.yml#openapi-reference-validation.yml > audit > Apply safe autofix (non-PR) (when: pr, push, scheduled, workflow-dispatch)
-  - workflow: .github/workflows/openapi-reference-validation.yml#openapi-reference-validation.yml > audit > Run strict OpenAPI audit (final) (when: pr, push, scheduled, workflow-dispatch)
-  - workflow: .github/workflows/openapi-reference-validation.yml#openapi-reference-validation.yml > audit > Run strict OpenAPI audit (initial) (when: pr, push, scheduled, workflow-dispatch)
+  - workflow: .github/workflows/openapi-reference-validation.yml#OpenAPI Reference Validation > audit > Apply safe autofix (non-PR) (when: pr, push, scheduled, workflow-dispatch)
+  - workflow: .github/workflows/openapi-reference-validation.yml#OpenAPI Reference Validation > audit > Run strict OpenAPI audit (final) (when: pr, push, scheduled, workflow-dispatch)
+  - workflow: .github/workflows/openapi-reference-validation.yml#OpenAPI Reference Validation > audit > Run strict OpenAPI audit (initial) (when: pr, push, scheduled, workflow-dispatch)
 
 ### `tests/integration/v2-link-audit.js`
 - Purpose: Comprehensive V2 MDX link audit — checks internal links, external links, anchor refs. Supports --staged, --full, --strict, --write-links modes.
@@ -358,7 +358,7 @@ All discovered scripts meet the required script template rules.
   - package-script: tests/package.json#scripts.test:link-audit (when: manual, npm-script)
   - package-script: tests/package.json#scripts.test:link-audit:external (when: manual, npm-script)
   - package-script: tests/package.json#scripts.test:link-audit:staged (when: manual, npm-script)
-  - workflow: .github/workflows/v2-external-link-audit.yml#v2-external-link-audit.yml > v2-external-link-audit > Run V2 external link audit (advisory) (when: scheduled, workflow-dispatch)
+  - workflow: .github/workflows/v2-external-link-audit.yml#V2 External Link Audit (Advisory) > v2-external-link-audit > Run V2 external link audit (advisory) (when: scheduled, workflow-dispatch)
 
 ### `tests/integration/v2-link-audit.selftest.js`
 - Purpose: Self-test suite for v2-link-audit.js — validates audit logic against known fixtures
@@ -403,7 +403,7 @@ All discovered scripts meet the required script template rules.
 - Run-context tags: manual, npm-script, pr, push
 - Used by:
   - package-script: tests/package.json#scripts.test:pr (when: manual, npm-script)
-  - workflow: .github/workflows/test-suite.yml#test-suite.yml > test-suite > Run PR Changed-File Checks (when: npm-script, pr, push)
+  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Run PR Changed-File Checks (when: npm-script, pr, push)
 
 ### `tests/unit/codex-commit.test.js`
 - Purpose: Tests codex-commit.js — validates commit message generation and contract compliance
@@ -442,7 +442,7 @@ All discovered scripts meet the required script template rules.
 - Run-context tags: manual, npm-script, pr, push
 - Used by:
   - package-script: tests/package.json#scripts.test:docs-guide (when: manual, npm-script)
-  - workflow: .github/workflows/test-suite.yml#test-suite.yml > test-suite > Run Docs-Guide SoT Check (Advisory) (when: npm-script, pr, push)
+  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Run Docs-Guide SoT Check (Advisory) (when: npm-script, pr, push)
 
 ### `tests/unit/docs-navigation.test.js`
 - Purpose: Validates docs.json page-entry syntax, reports missing routes, warns on orphaned canonical v2 pages, suggests remaps, and optionally applies approved remaps
@@ -452,7 +452,7 @@ All discovered scripts meet the required script template rules.
 - Used by:
   - package-script: tests/package.json#scripts.test:docs-nav (when: manual, npm-script)
   - package-script: tests/package.json#scripts.test:docs-nav:write (when: manual, npm-script)
-  - workflow: .github/workflows/translate-docs.yml#translate-docs.yml > translate-docs > Validate docs.json navigation (when: workflow-dispatch)
+  - workflow: .github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Validate docs.json navigation (when: workflow-dispatch)
 
 ### `tests/unit/links-imports.test.js`
 - Purpose: Validates MDX internal links and snippet import paths are resolvable
@@ -560,16 +560,16 @@ All discovered scripts meet the required script template rules.
   - package-script: tools/package.json#scripts.test:style (when: manual, npm-script)
 
 ### `tests/unit/usefulness-journey.test.js`
-- Purpose: Usefulness journey tests — validate journey completeness evaluation and configuration guardrails
+- Purpose: Tests journey-check evaluation logic against fixture pages.
 - Template compliance: PASS
-- Role tags: enforcement, test
+- Role tags: enforcement, fixture, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tests/unit/usefulness-rubric.test.js`
-- Purpose: Usefulness rubric tests — validate rubric loading, evaluator coverage, route precedence, and score divergence behaviour
+- Purpose: Tests rubric-based scoring logic against fixture pages.
 - Template compliance: PASS
-- Role tags: enforcement, test
+- Role tags: fixture, test
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
@@ -649,126 +649,126 @@ All discovered scripts meet the required script template rules.
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/config-validator.js`
-- Purpose: Usefulness config validator — validates rubric, journey, audience, and LLM-tier configuration integrity
+- Purpose: Validates docs-usefulness config structure and field completeness.
 - Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/journey-check.js`
-- Purpose: Usefulness journey checker — evaluates journey completeness, purpose fit, and next-step linkage from page scores
+- Purpose: Evaluates docs pages against user journey completeness criteria.
 - Template compliance: PASS
 - Role tags: enforcement
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/llm-evaluator.js`
-- Purpose: Usefulness LLM evaluator — runs cached OpenRouter-based rubric checks with tier and budget controls
+- Purpose: Wraps LLM API calls for rubric-based page quality evaluation.
 - Template compliance: PASS
-- Role tags: enforcement
+- Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/changelog.js`
-- Purpose: Changelog usefulness prompts — define LLM prompt templates for changelog page scoring
+- Purpose: LLM prompt template for changelog page-type usefulness evaluation.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/concept.js`
-- Purpose: Concept usefulness prompts — define LLM prompt templates for concept page scoring
+- Purpose: LLM prompt template for concept page-type usefulness evaluation.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/faq.js`
-- Purpose: FAQ usefulness prompts — define LLM prompt templates for faq page scoring
+- Purpose: LLM prompt template for faq page-type usefulness evaluation.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/glossary.js`
-- Purpose: Glossary usefulness prompts — define LLM prompt templates for glossary page scoring
+- Purpose: LLM prompt template for glossary page-type usefulness evaluation.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/how_to.js`
-- Purpose: How-to usefulness prompts — define LLM prompt templates for how-to page scoring
+- Purpose: LLM prompt template for how_to page-type usefulness evaluation.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/index.js`
-- Purpose: Usefulness prompt registry — aggregates purpose-specific LLM prompt modules
+- Purpose: LLM prompt template for index page-type usefulness evaluation.
 - Template compliance: PASS
 - Role tags: generator
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/landing.js`
-- Purpose: Landing usefulness prompts — define LLM prompt templates for landing page scoring
+- Purpose: LLM prompt template for landing page-type usefulness evaluation.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/overview.js`
-- Purpose: Overview usefulness prompts — define LLM prompt templates for overview page scoring
+- Purpose: LLM prompt template for overview page-type usefulness evaluation.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/reference.js`
-- Purpose: Reference usefulness prompts — define LLM prompt templates for reference page scoring
+- Purpose: LLM prompt template for reference page-type usefulness evaluation.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/troubleshooting.js`
-- Purpose: Troubleshooting usefulness prompts — define LLM prompt templates for troubleshooting page scoring
+- Purpose: LLM prompt template for troubleshooting page-type usefulness evaluation.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/prompts/tutorial.js`
-- Purpose: Tutorial usefulness prompts — define LLM prompt templates for tutorial page scoring
+- Purpose: LLM prompt template for tutorial page-type usefulness evaluation.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/quality-gate.js`
-- Purpose: Usefulness quality gate — derives fail and warn prerequisite checks for page scoring
+- Purpose: Applies pass/fail thresholds to usefulness scores.
 - Template compliance: PASS
-- Role tags: enforcement
+- Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/rubric-loader.js`
-- Purpose: Usefulness rubric loader — loads rubric, journey, audience, and LLM-tier configuration data
+- Purpose: Loads and parses rubric YAML/JSON for page-type scoring rules.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/rule-evaluators.js`
-- Purpose: Usefulness rule evaluators — implement deterministic tier-1 scoring rules for page analysis
+- Purpose: Evaluates individual rubric rules against page content.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
 - Used by: Manual/on-demand (no direct hook/workflow/package reference found)
 
 ### `tools/lib/docs-usefulness/scoring.js`
-- Purpose: Usefulness scoring engine — computes human and agent usefulness scores from page metadata
+- Purpose: Aggregates rule scores into a final usefulness score per page.
 - Template compliance: PASS
 - Role tags: helper
 - Run-context tags: manual
@@ -808,7 +808,7 @@ All discovered scripts meet the required script template rules.
 - Role tags: audit, ci
 - Run-context tags: scheduled, workflow-dispatch
 - Used by:
-  - workflow: .github/workflows/content-health.yml#content-health.yml > content-health > Component usage audit (when: scheduled, workflow-dispatch)
+  - workflow: .github/workflows/content-health.yml#Content Health Check > content-health > Component usage audit (when: scheduled, workflow-dispatch)
 
 ### `tools/scripts/audit-media-assets.js`
 - Purpose: Audit repo media assets, references, ignore leakage, and externalized asset branch inventory.
@@ -845,7 +845,7 @@ All discovered scripts meet the required script template rules.
 - Role tags: ci, enforcement
 - Run-context tags: pr
 - Used by:
-  - workflow: .github/workflows/codex-governance.yml#codex-governance.yml > codex-governance > Check codex PR overlap (when: pr)
+  - workflow: .github/workflows/codex-governance.yml#Codex Governance > codex-governance > Check codex PR overlap (when: pr)
 
 ### `tools/scripts/check-no-ai-stash.sh`
 - Purpose: AI stash enforcer — blocks push if AI temporary/stash files are present in working tree
@@ -912,7 +912,7 @@ All discovered scripts meet the required script template rules.
 - Run-context tags: manual, npm-script, scheduled, workflow-dispatch
 - Used by:
   - package-script: tools/package.json#scripts.audit:component-layout (when: manual, npm-script)
-  - workflow: .github/workflows/content-health.yml#content-health.yml > content-health > Component layout governance (when: scheduled, workflow-dispatch)
+  - workflow: .github/workflows/content-health.yml#Content Health Check > content-health > Component layout governance (when: scheduled, workflow-dispatch)
 
 ### `tools/scripts/convert-rss-to-mdx.js`
 - Purpose: RSS-to-MDX converter — imports RSS feed items and converts to MDX page format
@@ -1021,7 +1021,7 @@ All discovered scripts meet the required script template rules.
 - Run-context tags: manual, npm-script, scheduled, workflow-dispatch
 - Used by:
   - package-script: tools/package.json#scripts.audit:docs-quality (when: manual, npm-script)
-  - workflow: .github/workflows/content-health.yml#content-health.yml > content-health > Content quality audit (when: scheduled, workflow-dispatch)
+  - workflow: .github/workflows/content-health.yml#Content Health Check > content-health > Content quality audit (when: scheduled, workflow-dispatch)
 
 ### `tools/scripts/enforce-generated-file-banners.js`
 - Purpose: Generated file banner enforcer — checks (--check) or writes (default) "do not edit" banners on generated files
@@ -1044,8 +1044,8 @@ All discovered scripts meet the required script template rules.
 - Role tags: ci, enforcement, generator
 - Run-context tags: pr, push, workflow-dispatch
 - Used by:
-  - workflow: .github/workflows/generate-ai-sitemap.yml#generate-ai-sitemap.yml > generate-ai-sitemap > Generate AI sitemap (when: push, workflow-dispatch)
-  - workflow: .github/workflows/verify-ai-sitemap.yml#verify-ai-sitemap.yml > verify-ai-sitemap > Verify AI sitemap output (when: pr, push)
+  - workflow: .github/workflows/generate-ai-sitemap.yml#Generate AI Sitemap > generate-ai-sitemap > Generate AI sitemap (when: push, workflow-dispatch)
+  - workflow: .github/workflows/verify-ai-sitemap.yml#Verify AI Sitemap > verify-ai-sitemap > Verify AI sitemap output (when: pr, push)
 
 ### `tools/scripts/generate-content-gap-reconciliation.js`
 - Purpose: Content-gap reconciliation generator — compares blueprint coverage against v2 MDX and writes reconciliation artefacts
@@ -1085,9 +1085,9 @@ All discovered scripts meet the required script template rules.
   - hook: .githooks/pre-commit#line 881 (when: pre-commit)
   - hook: .githooks/pre-commit#line 885 (when: pre-commit)
   - hook: .githooks/pre-commit#line 890 (when: pre-commit)
-  - workflow: .github/workflows/check-docs-index.yml#check-docs-index.yml > docs-index-check > Verify docs-index.json is current (when: pr, push, workflow-dispatch)
-  - workflow: .github/workflows/generate-docs-index.yml#generate-docs-index.yml > generate-docs-index > Generate docs index (when: push, workflow-dispatch)
-  - workflow: .github/workflows/translate-docs.yml#translate-docs.yml > translate-docs > Regenerate docs-index.json (when: workflow-dispatch)
+  - workflow: .github/workflows/check-docs-index.yml#Check Docs Index > docs-index-check > Verify docs-index.json is current (when: pr, push, workflow-dispatch)
+  - workflow: .github/workflows/generate-docs-index.yml#Generate Docs Index > generate-docs-index > Generate docs index (when: push, workflow-dispatch)
+  - workflow: .github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Regenerate docs-index.json (when: workflow-dispatch)
 
 ### `tools/scripts/generate-llms-files.js`
 - Purpose: LLMs file generator — produces llms.txt and llms-full.txt for AI consumption. Dual-mode: --check / --write.
@@ -1095,8 +1095,8 @@ All discovered scripts meet the required script template rules.
 - Role tags: ci, enforcement, generator
 - Run-context tags: pr, push, workflow-dispatch
 - Used by:
-  - workflow: .github/workflows/generate-llms-files.yml#generate-llms-files.yml > generate > Generate llms files (when: push, workflow-dispatch)
-  - workflow: .github/workflows/verify-llms-files.yml#verify-llms-files.yml > verify-llms-files > Verify llms outputs (when: pr, push)
+  - workflow: .github/workflows/generate-llms-files.yml#Generate llms.txt > generate > Generate llms files (when: push, workflow-dispatch)
+  - workflow: .github/workflows/verify-llms-files.yml#Verify llms.txt Files > verify-llms-files > Verify llms outputs (when: pr, push)
 
 ### `tools/scripts/generate-pages-index.js`
 - Purpose: Pages index generator — generates and verifies section-style index.mdx files for v2 docs folders plus root aggregate index
@@ -1115,7 +1115,7 @@ All discovered scripts meet the required script template rules.
 - Run-context tags: manual, npm-script, workflow-dispatch
 - Used by:
   - package-script: tools/package.json#scripts.i18n:docs-json (when: manual, npm-script)
-  - workflow: .github/workflows/translate-docs.yml#translate-docs.yml > translate-docs > Update docs.json localized language nodes (when: workflow-dispatch)
+  - workflow: .github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Update docs.json localized language nodes (when: workflow-dispatch)
 
 ### `tools/scripts/i18n/lib/common.js`
 - Purpose: i18n shared utilities — common helper functions for translation pipeline
@@ -1257,7 +1257,7 @@ All discovered scripts meet the required script template rules.
 - Run-context tags: manual, npm-script, workflow-dispatch
 - Used by:
   - package-script: tools/package.json#scripts.i18n:translate (when: manual, npm-script)
-  - workflow: .github/workflows/translate-docs.yml#translate-docs.yml > translate-docs > Run translation generation (when: workflow-dispatch)
+  - workflow: .github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Run translation generation (when: workflow-dispatch)
 
 ### `tools/scripts/i18n/validate-generated.js`
 - Purpose: Generated localisation validator — checks generated translated MDX files and route-map outputs for integrity
@@ -1266,7 +1266,7 @@ All discovered scripts meet the required script template rules.
 - Run-context tags: manual, npm-script, workflow-dispatch
 - Used by:
   - package-script: tools/package.json#scripts.i18n:validate (when: manual, npm-script)
-  - workflow: .github/workflows/translate-docs.yml#translate-docs.yml > translate-docs > Validate generated localized MDX (when: workflow-dispatch)
+  - workflow: .github/workflows/translate-docs.yml#Docs Translation Pipeline > translate-docs > Validate generated localized MDX (when: workflow-dispatch)
 
 ### `tools/scripts/mint-dev.sh`
 - Purpose: Mintlify dev server launcher — starts mint dev with correct configuration
@@ -1330,9 +1330,9 @@ All discovered scripts meet the required script template rules.
 - Used by:
   - package-script: tools/package.json#scripts.fetch-docs (when: manual, npm-script)
   - package-script: tools/package.json#scripts.prebuild (when: manual, npm-script)
-  - workflow: .github/workflows/broken-links.yml#broken-links.yml > broken-links > Fetch external snippets (when: pr)
-  - workflow: .github/workflows/test-suite.yml#test-suite.yml > test-suite > Fetch external snippets (when: pr, push)
-  - workflow: .github/workflows/test-v2-pages.yml#test-v2-pages.yml > test-pages > Fetch external snippets (when: pr, push)
+  - workflow: .github/workflows/broken-links.yml#Check Broken Links > broken-links > Fetch external snippets (when: pr)
+  - workflow: .github/workflows/test-suite.yml#Docs CI - Content Quality Suite > test-suite > Fetch external snippets (when: pr, push)
+  - workflow: .github/workflows/test-v2-pages.yml#Docs CI - V2 Browser Sweep > test-pages > Fetch external snippets (when: pr, push)
 
 ### `tools/scripts/snippets/fetch-lpt-exchanges.sh`
 - Purpose: LPT exchange data fetcher — pulls exchange listing data for LPT token pages
@@ -1377,7 +1377,7 @@ All discovered scripts meet the required script template rules.
 - Used by:
   - package-script: tools/package.json#scripts.generate-seo (when: manual, npm-script)
   - package-script: tools/package.json#scripts.generate-seo:dry-run (when: manual, npm-script)
-  - workflow: .github/workflows/seo-refresh.yml#seo-refresh.yml > seo > Generate SEO metadata (when: workflow-dispatch)
+  - workflow: .github/workflows/seo-refresh.yml#SEO Metadata Refresh > seo > Generate SEO metadata (when: workflow-dispatch)
 
 ### `tools/scripts/snippets/test-scripts.sh`
 - Purpose: Snippet test runner — runs basic validation on snippet scripts
@@ -1400,7 +1400,7 @@ All discovered scripts meet the required script template rules.
 - Run-context tags: manual, npm-script, workflow-dispatch
 - Used by:
   - package-script: tools/package.json#scripts.audit:language-en-gb (when: manual, npm-script)
-  - workflow: .github/workflows/style-homogenise.yml#style-homogenise.yml > homogenise > Run style homogeniser (when: workflow-dispatch)
+  - workflow: .github/workflows/style-homogenise.yml#EN-GB Style Homogenisation > homogenise > Run style homogeniser (when: workflow-dispatch)
 
 ### `tools/scripts/sync-codex-skills.js`
 - Purpose: Codex skills sync — synchronises skill definition files between local and remote sources. Supports --check mode.
@@ -1427,7 +1427,7 @@ All discovered scripts meet the required script template rules.
 - Run-context tags: pr, pre-commit
 - Used by:
   - hook: .githooks/pre-commit#line 287 (when: pre-commit)
-  - workflow: .github/workflows/codex-governance.yml#codex-governance.yml > codex-governance > Validate codex task contract + issue readiness + PR body (when: pr)
+  - workflow: .github/workflows/codex-governance.yml#Codex Governance > codex-governance > Validate codex task contract + issue readiness + PR body (when: pr)
 
 ### `tools/scripts/validators/components/check-component-css.js`
 - Purpose: Validates component files use CSS custom properties only. No ThemeData, no hardcoded hex, no inline styles.

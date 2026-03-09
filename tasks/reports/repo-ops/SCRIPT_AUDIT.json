@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-09T06:55:58.151Z",
+  "generatedAt": "2026-03-09T07:07:29.783Z",
   "repoRoot": "/Users/alisonhaire/Documents/Livepeer/livepeer-docs-codex-classifications-fix",
   "options": {
     "format": "both",
@@ -17,7 +17,7 @@
     "categoryCounts": {
       "hook": 11,
       "manual": 156,
-      "enforcement": 79,
+      "enforcement": 76,
       "generator": 36,
       "pre-commit": 5,
       "ci": 24,
@@ -30,20 +30,20 @@
       "npm-script": 43,
       "pr": 10,
       "push": 8,
-      "fixture": 5,
-      "helper": 34
+      "fixture": 7,
+      "helper": 36
     },
     "roleTagCounts": {
       "hook": 11,
-      "enforcement": 79,
+      "enforcement": 76,
       "generator": 36,
       "ci": 24,
       "sync": 19,
       "runner": 4,
       "audit": 27,
       "test": 44,
-      "fixture": 5,
-      "helper": 34
+      "fixture": 7,
+      "helper": 36
     },
     "runContextTagCounts": {
       "manual": 156,
@@ -328,7 +328,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/update-forum-data.yml",
-          "location": "update-forum-data.yml > update-forum-data > Fetch and process forum data",
+          "location": "Update Forum Data > update-forum-data > Fetch and process forum data",
           "whenTags": [
             "scheduled",
             "workflow-dispatch"
@@ -377,7 +377,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/update-ghost-blog-data.yml",
-          "location": "update-ghost-blog-data.yml > update-ghost-data > Fetch and process Ghost blog data",
+          "location": "Update Ghost Blog Data > update-ghost-data > Fetch and process Ghost blog data",
           "whenTags": [
             "scheduled",
             "workflow-dispatch"
@@ -426,7 +426,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/update-youtube-data.yml",
-          "location": "update-youtube-data.yml > update-youtube > Fetch and process YouTube videos",
+          "location": "Update YouTube Data > update-youtube > Fetch and process YouTube videos",
           "whenTags": [
             "scheduled",
             "workflow-dispatch"
@@ -475,7 +475,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/project-showcase-sync.yml",
-          "location": "project-showcase-sync.yml > sync-showcase > Run project showcase sync",
+          "location": "Project Showcase Sync > sync-showcase > Run project showcase sync",
           "whenTags": [
             "scheduled",
             "workflow-dispatch"
@@ -668,7 +668,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/test-suite.yml",
-          "location": "test-suite.yml > test-suite > Run Browser Tests (All Pages)",
+          "location": "Docs CI - Content Quality Suite > test-suite > Run Browser Tests (All Pages)",
           "whenTags": [
             "npm-script",
             "pr",
@@ -831,7 +831,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/openapi-reference-validation.yml",
-          "location": "openapi-reference-validation.yml > audit > Apply safe autofix (non-PR)",
+          "location": "OpenAPI Reference Validation > audit > Apply safe autofix (non-PR)",
           "whenTags": [
             "pr",
             "push",
@@ -847,7 +847,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/openapi-reference-validation.yml",
-          "location": "openapi-reference-validation.yml > audit > Run strict OpenAPI audit (final)",
+          "location": "OpenAPI Reference Validation > audit > Run strict OpenAPI audit (final)",
           "whenTags": [
             "pr",
             "push",
@@ -863,7 +863,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/openapi-reference-validation.yml",
-          "location": "openapi-reference-validation.yml > audit > Run strict OpenAPI audit (initial)",
+          "location": "OpenAPI Reference Validation > audit > Run strict OpenAPI audit (initial)",
           "whenTags": [
             "pr",
             "push",
@@ -962,7 +962,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/v2-external-link-audit.yml",
-          "location": "v2-external-link-audit.yml > v2-external-link-audit > Run V2 external link audit (advisory)",
+          "location": "V2 External Link Audit (Advisory) > v2-external-link-audit > Run V2 external link audit (advisory)",
           "whenTags": [
             "scheduled",
             "workflow-dispatch"
@@ -1299,7 +1299,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/test-suite.yml",
-          "location": "test-suite.yml > test-suite > Run PR Changed-File Checks",
+          "location": "Docs CI - Content Quality Suite > test-suite > Run PR Changed-File Checks",
           "whenTags": [
             "npm-script",
             "pr",
@@ -1540,7 +1540,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/test-suite.yml",
-          "location": "test-suite.yml > test-suite > Run Docs-Guide SoT Check (Advisory)",
+          "location": "Docs CI - Content Quality Suite > test-suite > Run Docs-Guide SoT Check (Advisory)",
           "whenTags": [
             "npm-script",
             "pr",
@@ -1623,7 +1623,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/translate-docs.yml",
-          "location": "translate-docs.yml > translate-docs > Validate docs.json navigation",
+          "location": "Docs Translation Pipeline > translate-docs > Validate docs.json navigation",
           "whenTags": [
             "workflow-dispatch"
           ],
@@ -2290,7 +2290,7 @@
     },
     {
       "path": "tests/unit/usefulness-journey.test.js",
-      "purpose": "Usefulness journey tests — validate journey completeness evaluation and configuration guardrails",
+      "purpose": "Tests journey-check evaluation logic against fixture pages.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -2303,12 +2303,13 @@
       "metadata": {
         "scriptTag": "usefulness-journey.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, tools/lib/docs-usefulness, tools/config",
-        "usageTag": "node tests/unit/usefulness-journey.test.js [flags]"
+        "scopeTag": "full-repo",
+        "usageTag": "node tests/unit/usefulness-journey.test.js"
       },
       "categories": {
         "roleTags": [
           "enforcement",
+          "fixture",
           "test"
         ],
         "runContextTags": [
@@ -2316,6 +2317,7 @@
         ],
         "evidence": [
           "role:enforcement via keyword or gating context",
+          "role:fixture via fixture/test-helper path or naming",
           "role:test via tests path or .test filename",
           "run-context:manual due to no direct invocation mapping"
         ]
@@ -2324,7 +2326,7 @@
     },
     {
       "path": "tests/unit/usefulness-rubric.test.js",
-      "purpose": "Usefulness rubric tests — validate rubric loading, evaluator coverage, route precedence, and score divergence behaviour",
+      "purpose": "Tests rubric-based scoring logic against fixture pages.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -2337,19 +2339,19 @@
       "metadata": {
         "scriptTag": "usefulness-rubric.test",
         "ownerTag": "docs",
-        "scopeTag": "tests/unit, tools/lib/docs-usefulness, tools/scripts, tools/config",
-        "usageTag": "node tests/unit/usefulness-rubric.test.js [flags]"
+        "scopeTag": "full-repo",
+        "usageTag": "node tests/unit/usefulness-rubric.test.js"
       },
       "categories": {
         "roleTags": [
-          "enforcement",
+          "fixture",
           "test"
         ],
         "runContextTags": [
           "manual"
         ],
         "evidence": [
-          "role:enforcement via keyword or gating context",
+          "role:fixture via fixture/test-helper path or naming",
           "role:test via tests path or .test filename",
           "run-context:manual due to no direct invocation mapping"
         ]
@@ -2768,7 +2770,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/config-validator.js",
-      "purpose": "Usefulness config validator — validates rubric, journey, audience, and LLM-tier configuration integrity",
+      "purpose": "Validates docs-usefulness config structure and field completeness.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -2781,8 +2783,8 @@
       "metadata": {
         "scriptTag": "config-validator",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness, tools/config",
-        "usageTag": "node tools/lib/docs-usefulness/config-validator.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { validateConfig } = require('../lib/docs-usefulness/config-validator');"
       },
       "categories": {
         "roleTags": [
@@ -2800,7 +2802,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/journey-check.js",
-      "purpose": "Usefulness journey checker — evaluates journey completeness, purpose fit, and next-step linkage from page scores",
+      "purpose": "Evaluates docs pages against user journey completeness criteria.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -2813,8 +2815,8 @@
       "metadata": {
         "scriptTag": "journey-check",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness, tools/config",
-        "usageTag": "node tools/lib/docs-usefulness/journey-check.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { checkJourney } = require('../lib/docs-usefulness/journey-check');"
       },
       "categories": {
         "roleTags": [
@@ -2832,7 +2834,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/llm-evaluator.js",
-      "purpose": "Usefulness LLM evaluator — runs cached OpenRouter-based rubric checks with tier and budget controls",
+      "purpose": "Wraps LLM API calls for rubric-based page quality evaluation.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -2845,18 +2847,18 @@
       "metadata": {
         "scriptTag": "llm-evaluator",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness, tools/config, .cache/llm-usefulness",
-        "usageTag": "node tools/lib/docs-usefulness/llm-evaluator.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { evaluate } = require('../lib/docs-usefulness/llm-evaluator');"
       },
       "categories": {
         "roleTags": [
-          "enforcement"
+          "helper"
         ],
         "runContextTags": [
           "manual"
         ],
         "evidence": [
-          "role:enforcement via keyword or gating context",
+          "role:helper fallback because no stronger primary role was matched",
           "run-context:manual due to no direct invocation mapping"
         ]
       },
@@ -2864,7 +2866,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/prompts/changelog.js",
-      "purpose": "Changelog usefulness prompts — define LLM prompt templates for changelog page scoring",
+      "purpose": "LLM prompt template for changelog page-type usefulness evaluation.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -2875,10 +2877,10 @@
         ]
       },
       "metadata": {
-        "scriptTag": "changelog",
+        "scriptTag": "prompts/changelog",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness/prompts",
-        "usageTag": "node tools/lib/docs-usefulness/prompts/changelog.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { getPrompt } = require('../lib/docs-usefulness/prompts/changelog');"
       },
       "categories": {
         "roleTags": [
@@ -2896,7 +2898,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/prompts/concept.js",
-      "purpose": "Concept usefulness prompts — define LLM prompt templates for concept page scoring",
+      "purpose": "LLM prompt template for concept page-type usefulness evaluation.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -2907,10 +2909,10 @@
         ]
       },
       "metadata": {
-        "scriptTag": "concept",
+        "scriptTag": "prompts/concept",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness/prompts",
-        "usageTag": "node tools/lib/docs-usefulness/prompts/concept.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { getPrompt } = require('../lib/docs-usefulness/prompts/concept');"
       },
       "categories": {
         "roleTags": [
@@ -2928,7 +2930,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/prompts/faq.js",
-      "purpose": "FAQ usefulness prompts — define LLM prompt templates for faq page scoring",
+      "purpose": "LLM prompt template for faq page-type usefulness evaluation.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -2939,10 +2941,10 @@
         ]
       },
       "metadata": {
-        "scriptTag": "faq",
+        "scriptTag": "prompts/faq",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness/prompts",
-        "usageTag": "node tools/lib/docs-usefulness/prompts/faq.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { getPrompt } = require('../lib/docs-usefulness/prompts/faq');"
       },
       "categories": {
         "roleTags": [
@@ -2960,7 +2962,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/prompts/glossary.js",
-      "purpose": "Glossary usefulness prompts — define LLM prompt templates for glossary page scoring",
+      "purpose": "LLM prompt template for glossary page-type usefulness evaluation.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -2971,10 +2973,10 @@
         ]
       },
       "metadata": {
-        "scriptTag": "glossary",
+        "scriptTag": "prompts/glossary",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness/prompts",
-        "usageTag": "node tools/lib/docs-usefulness/prompts/glossary.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { getPrompt } = require('../lib/docs-usefulness/prompts/glossary');"
       },
       "categories": {
         "roleTags": [
@@ -2992,7 +2994,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/prompts/how_to.js",
-      "purpose": "How-to usefulness prompts — define LLM prompt templates for how-to page scoring",
+      "purpose": "LLM prompt template for how_to page-type usefulness evaluation.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3003,10 +3005,10 @@
         ]
       },
       "metadata": {
-        "scriptTag": "how_to",
+        "scriptTag": "prompts/how_to",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness/prompts",
-        "usageTag": "node tools/lib/docs-usefulness/prompts/how_to.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { getPrompt } = require('../lib/docs-usefulness/prompts/how_to');"
       },
       "categories": {
         "roleTags": [
@@ -3024,7 +3026,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/prompts/index.js",
-      "purpose": "Usefulness prompt registry — aggregates purpose-specific LLM prompt modules",
+      "purpose": "LLM prompt template for index page-type usefulness evaluation.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3035,10 +3037,10 @@
         ]
       },
       "metadata": {
-        "scriptTag": "index",
+        "scriptTag": "prompts/index",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness/prompts",
-        "usageTag": "node tools/lib/docs-usefulness/prompts/index.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { getPrompt } = require('../lib/docs-usefulness/prompts/index');"
       },
       "categories": {
         "roleTags": [
@@ -3056,7 +3058,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/prompts/landing.js",
-      "purpose": "Landing usefulness prompts — define LLM prompt templates for landing page scoring",
+      "purpose": "LLM prompt template for landing page-type usefulness evaluation.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3067,10 +3069,10 @@
         ]
       },
       "metadata": {
-        "scriptTag": "landing",
+        "scriptTag": "prompts/landing",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness/prompts",
-        "usageTag": "node tools/lib/docs-usefulness/prompts/landing.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { getPrompt } = require('../lib/docs-usefulness/prompts/landing');"
       },
       "categories": {
         "roleTags": [
@@ -3088,7 +3090,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/prompts/overview.js",
-      "purpose": "Overview usefulness prompts — define LLM prompt templates for overview page scoring",
+      "purpose": "LLM prompt template for overview page-type usefulness evaluation.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3099,10 +3101,10 @@
         ]
       },
       "metadata": {
-        "scriptTag": "overview",
+        "scriptTag": "prompts/overview",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness/prompts",
-        "usageTag": "node tools/lib/docs-usefulness/prompts/overview.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { getPrompt } = require('../lib/docs-usefulness/prompts/overview');"
       },
       "categories": {
         "roleTags": [
@@ -3120,7 +3122,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/prompts/reference.js",
-      "purpose": "Reference usefulness prompts — define LLM prompt templates for reference page scoring",
+      "purpose": "LLM prompt template for reference page-type usefulness evaluation.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3131,10 +3133,10 @@
         ]
       },
       "metadata": {
-        "scriptTag": "reference",
+        "scriptTag": "prompts/reference",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness/prompts",
-        "usageTag": "node tools/lib/docs-usefulness/prompts/reference.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { getPrompt } = require('../lib/docs-usefulness/prompts/reference');"
       },
       "categories": {
         "roleTags": [
@@ -3152,7 +3154,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/prompts/troubleshooting.js",
-      "purpose": "Troubleshooting usefulness prompts — define LLM prompt templates for troubleshooting page scoring",
+      "purpose": "LLM prompt template for troubleshooting page-type usefulness evaluation.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3163,10 +3165,10 @@
         ]
       },
       "metadata": {
-        "scriptTag": "troubleshooting",
+        "scriptTag": "prompts/troubleshooting",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness/prompts",
-        "usageTag": "node tools/lib/docs-usefulness/prompts/troubleshooting.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { getPrompt } = require('../lib/docs-usefulness/prompts/troubleshooting');"
       },
       "categories": {
         "roleTags": [
@@ -3184,7 +3186,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/prompts/tutorial.js",
-      "purpose": "Tutorial usefulness prompts — define LLM prompt templates for tutorial page scoring",
+      "purpose": "LLM prompt template for tutorial page-type usefulness evaluation.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3195,10 +3197,10 @@
         ]
       },
       "metadata": {
-        "scriptTag": "tutorial",
+        "scriptTag": "prompts/tutorial",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness/prompts",
-        "usageTag": "node tools/lib/docs-usefulness/prompts/tutorial.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { getPrompt } = require('../lib/docs-usefulness/prompts/tutorial');"
       },
       "categories": {
         "roleTags": [
@@ -3216,7 +3218,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/quality-gate.js",
-      "purpose": "Usefulness quality gate — derives fail and warn prerequisite checks for page scoring",
+      "purpose": "Applies pass/fail thresholds to usefulness scores.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3229,18 +3231,18 @@
       "metadata": {
         "scriptTag": "quality-gate",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness",
-        "usageTag": "node tools/lib/docs-usefulness/quality-gate.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { applyGate } = require('../lib/docs-usefulness/quality-gate');"
       },
       "categories": {
         "roleTags": [
-          "enforcement"
+          "helper"
         ],
         "runContextTags": [
           "manual"
         ],
         "evidence": [
-          "role:enforcement via keyword or gating context",
+          "role:helper fallback because no stronger primary role was matched",
           "run-context:manual due to no direct invocation mapping"
         ]
       },
@@ -3248,7 +3250,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/rubric-loader.js",
-      "purpose": "Usefulness rubric loader — loads rubric, journey, audience, and LLM-tier configuration data",
+      "purpose": "Loads and parses rubric YAML/JSON for page-type scoring rules.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3261,8 +3263,8 @@
       "metadata": {
         "scriptTag": "rubric-loader",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness, tools/config",
-        "usageTag": "node tools/lib/docs-usefulness/rubric-loader.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { loadRubric } = require('../lib/docs-usefulness/rubric-loader');"
       },
       "categories": {
         "roleTags": [
@@ -3280,7 +3282,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/rule-evaluators.js",
-      "purpose": "Usefulness rule evaluators — implement deterministic tier-1 scoring rules for page analysis",
+      "purpose": "Evaluates individual rubric rules against page content.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3293,8 +3295,8 @@
       "metadata": {
         "scriptTag": "rule-evaluators",
         "ownerTag": "docs",
-        "scopeTag": "tools/lib/docs-usefulness",
-        "usageTag": "node tools/lib/docs-usefulness/rule-evaluators.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { evaluateRule } = require('../lib/docs-usefulness/rule-evaluators');"
       },
       "categories": {
         "roleTags": [
@@ -3312,7 +3314,7 @@
     },
     {
       "path": "tools/lib/docs-usefulness/scoring.js",
-      "purpose": "Usefulness scoring engine — computes human and agent usefulness scores from page metadata",
+      "purpose": "Aggregates rule scores into a final usefulness score per page.",
       "templateCompliance": {
         "valid": true,
         "missingTags": [],
@@ -3325,8 +3327,8 @@
       "metadata": {
         "scriptTag": "scoring",
         "ownerTag": "docs",
-        "scopeTag": "full-repo",
-        "usageTag": "node tools/lib/docs-usefulness/scoring.js [flags]"
+        "scopeTag": "single-domain",
+        "usageTag": "const { score } = require('../lib/docs-usefulness/scoring');"
       },
       "categories": {
         "roleTags": [
@@ -3390,7 +3392,7 @@
         "scriptTag": "add-framework-headers",
         "ownerTag": "docs",
         "scopeTag": "full-repo",
-        "usageTag": "*   node tools/scripts/add-framework-headers.js --data script-classifications.json --dry-run"
+        "usageTag": "node tools/scripts/add-framework-headers.js --data script-classifications.json --dry-run"
       },
       "categories": {
         "roleTags": [
@@ -3510,7 +3512,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/content-health.yml",
-          "location": "content-health.yml > content-health > Component usage audit",
+          "location": "Content Health Check > content-health > Component usage audit",
           "whenTags": [
             "scheduled",
             "workflow-dispatch"
@@ -3706,7 +3708,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/codex-governance.yml",
-          "location": "codex-governance.yml > codex-governance > Check codex PR overlap",
+          "location": "Codex Governance > codex-governance > Check codex PR overlap",
           "whenTags": [
             "pr"
           ],
@@ -4064,7 +4066,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/content-health.yml",
-          "location": "content-health.yml > content-health > Component layout governance",
+          "location": "Content Health Check > content-health > Component layout governance",
           "whenTags": [
             "scheduled",
             "workflow-dispatch"
@@ -4620,7 +4622,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/content-health.yml",
-          "location": "content-health.yml > content-health > Content quality audit",
+          "location": "Content Health Check > content-health > Content quality audit",
           "whenTags": [
             "scheduled",
             "workflow-dispatch"
@@ -4755,7 +4757,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/generate-ai-sitemap.yml",
-          "location": "generate-ai-sitemap.yml > generate-ai-sitemap > Generate AI sitemap",
+          "location": "Generate AI Sitemap > generate-ai-sitemap > Generate AI sitemap",
           "whenTags": [
             "push",
             "workflow-dispatch"
@@ -4769,7 +4771,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/verify-ai-sitemap.yml",
-          "location": "verify-ai-sitemap.yml > verify-ai-sitemap > Verify AI sitemap output",
+          "location": "Verify AI Sitemap > verify-ai-sitemap > Verify AI sitemap output",
           "whenTags": [
             "pr",
             "push"
@@ -5011,7 +5013,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/check-docs-index.yml",
-          "location": "check-docs-index.yml > docs-index-check > Verify docs-index.json is current",
+          "location": "Check Docs Index > docs-index-check > Verify docs-index.json is current",
           "whenTags": [
             "pr",
             "push",
@@ -5026,7 +5028,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/generate-docs-index.yml",
-          "location": "generate-docs-index.yml > generate-docs-index > Generate docs index",
+          "location": "Generate Docs Index > generate-docs-index > Generate docs index",
           "whenTags": [
             "push",
             "workflow-dispatch"
@@ -5040,7 +5042,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/translate-docs.yml",
-          "location": "translate-docs.yml > translate-docs > Regenerate docs-index.json",
+          "location": "Docs Translation Pipeline > translate-docs > Regenerate docs-index.json",
           "whenTags": [
             "workflow-dispatch"
           ],
@@ -5092,7 +5094,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/generate-llms-files.yml",
-          "location": "generate-llms-files.yml > generate > Generate llms files",
+          "location": "Generate llms.txt > generate > Generate llms files",
           "whenTags": [
             "push",
             "workflow-dispatch"
@@ -5106,7 +5108,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/verify-llms-files.yml",
-          "location": "verify-llms-files.yml > verify-llms-files > Verify llms outputs",
+          "location": "Verify llms.txt Files > verify-llms-files > Verify llms outputs",
           "whenTags": [
             "pr",
             "push"
@@ -5249,7 +5251,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/translate-docs.yml",
-          "location": "translate-docs.yml > translate-docs > Update docs.json localized language nodes",
+          "location": "Docs Translation Pipeline > translate-docs > Update docs.json localized language nodes",
           "whenTags": [
             "workflow-dispatch"
           ],
@@ -5936,7 +5938,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/translate-docs.yml",
-          "location": "translate-docs.yml > translate-docs > Run translation generation",
+          "location": "Docs Translation Pipeline > translate-docs > Run translation generation",
           "whenTags": [
             "workflow-dispatch"
           ],
@@ -6001,7 +6003,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/translate-docs.yml",
-          "location": "translate-docs.yml > translate-docs > Validate generated localized MDX",
+          "location": "Docs Translation Pipeline > translate-docs > Validate generated localized MDX",
           "whenTags": [
             "workflow-dispatch"
           ],
@@ -6379,7 +6381,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/broken-links.yml",
-          "location": "broken-links.yml > broken-links > Fetch external snippets",
+          "location": "Check Broken Links > broken-links > Fetch external snippets",
           "whenTags": [
             "pr"
           ],
@@ -6392,7 +6394,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/test-suite.yml",
-          "location": "test-suite.yml > test-suite > Fetch external snippets",
+          "location": "Docs CI - Content Quality Suite > test-suite > Fetch external snippets",
           "whenTags": [
             "pr",
             "push"
@@ -6406,7 +6408,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/test-v2-pages.yml",
-          "location": "test-v2-pages.yml > test-pages > Fetch external snippets",
+          "location": "Docs CI - V2 Browser Sweep > test-pages > Fetch external snippets",
           "whenTags": [
             "pr",
             "push"
@@ -6648,7 +6650,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/seo-refresh.yml",
-          "location": "seo-refresh.yml > seo > Generate SEO metadata",
+          "location": "SEO Metadata Refresh > seo > Generate SEO metadata",
           "whenTags": [
             "workflow-dispatch"
           ],
@@ -6776,7 +6778,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/style-homogenise.yml",
-          "location": "style-homogenise.yml > homogenise > Run style homogeniser",
+          "location": "EN-GB Style Homogenisation > homogenise > Run style homogeniser",
           "whenTags": [
             "workflow-dispatch"
           ],
@@ -6964,7 +6966,7 @@
         {
           "sourceType": "workflow",
           "sourcePath": ".github/workflows/codex-governance.yml",
-          "location": "codex-governance.yml > codex-governance > Validate codex task contract + issue readiness + PR body",
+          "location": "Codex Governance > codex-governance > Validate codex task contract + issue readiness + PR body",
           "whenTags": [
             "pr"
           ],
@@ -6992,7 +6994,7 @@
         "scriptTag": "check-component-css",
         "ownerTag": "docs",
         "scopeTag": "single-domain",
-        "usageTag": "*   node tools/scripts/validators/components/check-component-css.js [--path snippets/components/] [--fix]"
+        "usageTag": "node tools/scripts/validators/components/check-component-css.js [--path snippets/components/] [--fix]"
       },
       "categories": {
         "roleTags": [
