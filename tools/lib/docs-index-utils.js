@@ -14,7 +14,7 @@
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
-const yaml = require('js-yaml');
+const yaml = require('./load-js-yaml');
 
 const DOMAIN_RENAME_MAP = {
   '00_home': 'home',
