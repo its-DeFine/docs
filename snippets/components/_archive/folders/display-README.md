@@ -11,7 +11,7 @@ Display components handle the presentation of media, embeds, quotes, and visual 
 | `video.jsx`            | `YouTubeVideo`, `YouTubeVideoDownload`, `CardVideo` | Video embed components      |
 | `zoomable-diagram.jsx` | `ScrollableDiagram`                                 | Zoomable/scrollable diagram with controls |
 | `quote.jsx`            | `Quote`, `FrameQuote`                               | Quote display components    |
-| `frameMode.jsx`        | `PageHeader`, `H1`-`H6`, `P`, `Divider`             | Frame mode heading components |
+| `frame-mode.jsx`        | `PageHeader`, `H1`-`H6`, `P`, `Divider`             | Frame mode heading components |
 | `showcaseCards.jsx`    | `ShowcaseCards`                                     | Project showcase with filtering |
 | `socialLinks.jsx`      | `SocialLinks`                                       | Social media icon links     |
 | `CardCarousel.jsx`     | `CardCarousel`                                      | Card carousel with pagination |
@@ -22,7 +22,7 @@ Display components handle the presentation of media, embeds, quotes, and visual 
 import { YouTubeVideo } from "/snippets/components/content/video.jsx";
 import { ScrollableDiagram } from "/snippets/components/content/zoomableDiagram.jsx";
 import { Quote, FrameQuote } from "/snippets/components/content/quote.jsx";
-import { H1, H2, PageHeader } from "/snippets/components/page-structure/frameMode.jsx";
+import { H1, H2, PageHeader } from "/snippets/components/display/frame-mode.jsx";
 import { ShowcaseCards } from "/snippets/components/data/showcaseCards.jsx";
 import { SocialLinks } from "/snippets/components/primitives/socialLinks.jsx";
 import { CardCarousel } from "/snippets/components/layout/cardCarousel.jsx";
@@ -32,16 +32,16 @@ import { CardCarousel } from "/snippets/components/layout/cardCarousel.jsx";
 
 All components use theme-aware colors:
 - `ScrollableDiagram` uses CSS variables (`var(--border)`, `var(--accent)`)
-- `frameMode.jsx` components use `ThemeData` for all colors
+- `frame-mode.jsx` components use `ThemeData` for all colors
 - `Quote` components use `var(--accent)` for styling
 
 ## Frame Mode Components
 
-The `frameMode.jsx` exports are specifically designed for Mintlify frame mode pages where default markdown headings may not render correctly. They require importing `ThemeData` in the MDX file:
+The `frame-mode.jsx` exports are specifically designed for Mintlify frame mode pages where default markdown headings may not render correctly. They require importing `ThemeData` in the MDX file:
 
 ```jsx
 import { ThemeData } from "/snippets/styles/themeStyles.jsx";
-import { H1, H2, PageHeader } from "/snippets/components/page-structure/frameMode.jsx";
+import { H1, H2, PageHeader } from "/snippets/components/display/frame-mode.jsx";
 ```
 
 ## Examples

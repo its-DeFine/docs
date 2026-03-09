@@ -19,23 +19,6 @@
  *
  * @author Livepeer Documentation Team
  */
-const isNonEmptyString = (value) =>
-  typeof value === "string" && value.trim().length > 0;
-
-const normalizeIconName = (value, fallback) =>
-  isNonEmptyString(value) ? value.trim() : fallback;
-
-const normalizeIconSize = (value, fallback) => {
-  const parsed = Number(value);
-  return Number.isFinite(parsed) ? parsed : fallback;
-};
-
-const getAlphaColor = (value, alpha) => {
-  const resolvedValue = isNonEmptyString(value) ? value.trim() : "var(--accent)";
-  const percentage = Math.max(0, Math.min(100, Math.round(alpha * 100)));
-  return `color-mix(in srgb, ${resolvedValue} ${percentage}%, transparent)`;
-};
-
 /**
  * @component CustomCallout
  * @category primitives
@@ -76,12 +59,24 @@ const CustomCallout = ({
   textSize = "0.875rem",
   textColor,
 }) => {
-  const resolvedColor = isNonEmptyString(color) ? color.trim() : "var(--accent)";
-  const resolvedTextColor = isNonEmptyString(textColor)
-    ? textColor.trim()
-    : resolvedColor;
-  const resolvedIcon = normalizeIconName(icon, "lightbulb");
-  const resolvedIconSize = normalizeIconSize(iconSize, 16);
+  const resolvedColor =
+    typeof color === "string" && color.trim().length > 0
+      ? color.trim()
+      : "var(--accent)";
+  const resolvedTextColor =
+    typeof textColor === "string" && textColor.trim().length > 0
+      ? textColor.trim()
+      : resolvedColor;
+  const resolvedIcon =
+    typeof icon === "string" && icon.trim().length > 0
+      ? icon.trim()
+      : "lightbulb";
+  const parsedIconSize = Number(iconSize);
+  const resolvedIconSize = Number.isFinite(parsedIconSize) ? parsedIconSize : 16;
+  const getAlphaColor = (alpha) => {
+    const percentage = Math.max(0, Math.min(100, Math.round(alpha * 100)));
+    return `color-mix(in srgb, ${resolvedColor} ${percentage}%, transparent)`;
+  };
 
   return (
     <>
@@ -92,8 +87,8 @@ const CustomCallout = ({
           gap: "12px",
           padding: "16px 20px",
           borderRadius: "16px",
-          border: `1px solid ${getAlphaColor(resolvedColor, 0.2)}`,
-          backgroundColor: getAlphaColor(resolvedColor, 0.1),
+          border: `1px solid ${getAlphaColor(0.2)}`,
+          backgroundColor: getAlphaColor(0.1),
           marginTop: "16px",
           marginBottom: "16px",
           overflow: "hidden",
@@ -170,8 +165,10 @@ const CustomCallout = ({
  */
 const BlinkingIcon = ({ icon = "terminal", size = 16, color }) => {
   const resolvedColor = color || "var(--accent)";
-  const resolvedIcon = normalizeIconName(icon, "terminal");
-  const resolvedSize = normalizeIconSize(size, 16);
+  const resolvedIcon =
+    typeof icon === "string" && icon.trim().length > 0 ? icon.trim() : "terminal";
+  const parsedSize = Number(size);
+  const resolvedSize = Number.isFinite(parsedSize) ? parsedSize : 16;
 
   return (
     <>
@@ -531,11 +528,26 @@ const TipWithArrow = ({
   iconSize = 16,
   arrowSize = 16,
 }) => {
-  const resolvedColor = isNonEmptyString(color) ? color.trim() : "var(--accent)";
-  const resolvedIcon = normalizeIconName(icon, "lightbulb");
-  const resolvedArrowIcon = normalizeIconName(arrowIcon, "arrow-up-right");
-  const resolvedIconSize = normalizeIconSize(iconSize, 16);
-  const resolvedArrowSize = normalizeIconSize(arrowSize, 16);
+  const resolvedColor =
+    typeof color === "string" && color.trim().length > 0
+      ? color.trim()
+      : "var(--accent)";
+  const resolvedIcon =
+    typeof icon === "string" && icon.trim().length > 0
+      ? icon.trim()
+      : "lightbulb";
+  const resolvedArrowIcon =
+    typeof arrowIcon === "string" && arrowIcon.trim().length > 0
+      ? arrowIcon.trim()
+      : "arrow-up-right";
+  const parsedIconSize = Number(iconSize);
+  const parsedArrowSize = Number(arrowSize);
+  const resolvedIconSize = Number.isFinite(parsedIconSize) ? parsedIconSize : 16;
+  const resolvedArrowSize = Number.isFinite(parsedArrowSize) ? parsedArrowSize : 16;
+  const getAlphaColor = (alpha) => {
+    const percentage = Math.max(0, Math.min(100, Math.round(alpha * 100)));
+    return `color-mix(in srgb, ${resolvedColor} ${percentage}%, transparent)`;
+  };
 
   return (
     <>
@@ -548,8 +560,8 @@ const TipWithArrow = ({
           padding: "16px 20px",
           paddingRight: "48px", // Extra space for the arrow
           borderRadius: "16px",
-          border: `1px solid ${getAlphaColor(resolvedColor, 0.2)}`,
-          backgroundColor: getAlphaColor(resolvedColor, 0.1),
+          border: `1px solid ${getAlphaColor(0.2)}`,
+          backgroundColor: getAlphaColor(0.1),
           marginTop: "16px",
           marginBottom: "16px",
           overflow: "hidden",

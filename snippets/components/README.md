@@ -65,7 +65,7 @@ components/
 
 | File            | Exports                                                                                          | Description                    |
 | --------------- | ------------------------------------------------------------------------------------------------ | ------------------------------ |
-| `frameMode.jsx` | `PageHeader`, `H1`, `H2`, `H3`, `H4`, `H5`, `H6`, `P`, `Divider`                                | Frame mode heading components  |
+| `frame-mode.jsx` | `PageHeader`, `H1`, `H2`, `H3`, `H4`, `H5`, `H6`, `P`, `Divider`                                | Frame mode heading components  |
 | `heroGif.jsx`   | `Starfield`                                                                                      | Hero animation                 |
 | `portals.jsx`   | `HeroSectionContainer`, `HeroContentContainer`, `PortalHeroContent`, `LogoHeroContainer`, etc. | Portal page layout components  |
 
@@ -80,7 +80,7 @@ import { YouTubeVideo } from "/snippets/components/content/video.jsx";
 import { GotoCard, GotoLink } from "/snippets/components/primitives/links.jsx";
 import { CustomCodeBlock } from "/snippets/components/content/code.jsx";
 import { PdfEmbed } from "/snippets/components/data/embed.jsx";
-import { PageHeader } from "/snippets/components/page-structure/frameMode.jsx";
+import { PageHeader } from "/snippets/components/display/frame-mode.jsx";
 ```
 
 **Note:** Mintlify provides `React`, `Frame`, `Card`, `Icon`, and other

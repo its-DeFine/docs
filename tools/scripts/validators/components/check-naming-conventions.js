@@ -6,7 +6,7 @@
  * @scope             tools/scripts/validators/components, tests/run-all.js, tests/run-pr-checks.js, snippets/components
  * @owner             docs
  * @needs             R-R10
- * @purpose-statement Validates active component filenames against strict camelCase file naming and PascalCase exports under snippets/components.
+ * @purpose-statement Validates active component filenames against directory-aware file naming and PascalCase exports under snippets/components.
  * @pipeline          PR/manual validator for snippets/components/** scope
  * @usage             node tools/scripts/validators/components/check-naming-conventions.js [--path snippets/components] [--files path[,path...]] [--mode migration|strict-camel]
  */
@@ -437,8 +437,15 @@ function scanExports(content) {
   return exportsList;
 }
 
-function isAllowedFilename(fileName, mode) {
+function usesDisplayKebabCase(displayPath) {
+  return toPosix(displayPath).startsWith('snippets/components/display/');
+}
+
+function isAllowedFilename(fileName, mode, displayPath) {
   if (mode === 'strict-camel') {
+    if (usesDisplayKebabCase(displayPath)) {
+      return KEBAB_FILE_NAME_RE.test(fileName);
+    }
     return CAMEL_FILE_NAME_RE.test(fileName);
   }
 
@@ -449,8 +456,11 @@ function isAllowedFilename(fileName, mode) {
   );
 }
 
-function fileNamingMessage(mode, fileName) {
+function fileNamingMessage(mode, fileName, displayPath) {
   if (mode === 'strict-camel') {
+    if (usesDisplayKebabCase(displayPath)) {
+      return `Filename must be kebab-case in display/: ${fileName}`;
+    }
     return `Filename must be camelCase: ${fileName}`;
   }
   return `Filename must be legacy-compatible or camelCase during migration: ${fileName}`;
@@ -466,14 +476,14 @@ function analyzeFile(absolutePath, options = {}) {
   const content = fs.readFileSync(absolutePath, 'utf8');
   const fileName = path.basename(displayPath);
 
-  if (!isAllowedFilename(fileName, mode)) {
+  if (!isAllowedFilename(fileName, mode, displayPath)) {
     addFinding(
       findings,
       makeFinding(
         displayPath,
         1,
         FILE_RULE_LABEL,
-        fileNamingMessage(mode, fileName),
+        fileNamingMessage(mode, fileName, displayPath),
         fileName
       )
     );

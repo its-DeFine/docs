@@ -224,19 +224,23 @@ snippets/components/
 │   ├── data.jsx
 │   ├── ...
 │   └── examples/
+├── display/
+│   ├── frame-mode.jsx
+│   ├── ...
+│   └── examples/
 └── page-structure/
-    ├── frameMode.jsx
-    ├── ...
-    └── examples/
+    ├── heroGif.jsx
+    ├── portals.jsx
+    └── ...
 ```
 
-Five category folders. Flat within each (no tier subfolders). One `examples/` subdirectory per category.
+Six category folders. Flat within each (no tier subfolders). One `examples/` subdirectory per category where the category uses runnable examples.
 
 ### 2.2 Naming Conventions
 
 | Element | Convention | Example |
 |---------|-----------|---------|
-| Files | camelCase `.jsx` | `frameMode.jsx`, `customCards.jsx` |
+| Files | Stable `.jsx` filenames; use kebab-case for new display files and preserve legacy names elsewhere | `frame-mode.jsx`, `heroGif.jsx` |
 | Exports | PascalCase, named, arrow function | `export const PageHeader = () => ...` |
 | Example files | kebab-case `-examples.mdx` | `frame-mode-examples.mdx` |
 
