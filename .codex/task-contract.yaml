@@ -1,28 +1,21 @@
 task_id: 20260309
-branch: codex/20260309-notion-framework-headers
+branch: codex/20260309-n8n-space-path-mopup
 base_branch: docs-v2
 scope_in:
   - .codex/task-contract.yaml
-  - tools/notion/1-read-notion-to-csv.js
-  - tools/notion/2-read-docs-to-csv.js
-  - tools/notion/3-check-duplicates.js
-  - tools/notion/4-remove-duplicates.js
-  - tools/notion/5-export-to-notion.js
-  - tools/notion/backup-notion-table.js
-  - tools/notion/install-local-sync-hook.sh
-  - tools/notion/local-post-commit-sync.sh
-  - tools/notion/remove-local-sync-hook.sh
-  - tools/notion/sync-v2-en-canonical.js
+  - snippets/automations/scripts/n8n/project-showcase-application-workflow.json
+  - snippets/assets/scripts/n8n/README-project-showcase-application-workflow.md
 scope_out: []
 allowed_generated:
   - .codex/pr-body.generated.md
 acceptance_checks:
   - >-
-    for f in $(find tools/notion/ -type f \( -name '*.js' -o -name '*.sh' \)
-    | sort); do echo -n "$f: "; grep -l '@script' "$f" && echo 'PASS' ||
-    echo 'MISSING'; done
-  - git diff --unified=0 -- tools/notion
-  - git diff --cached --name-only
+    node tools/scripts/validate-codex-task-contract.js --branch
+    codex/20260309-n8n-space-path-mopup --validate-contract-only
+  - rg -n --fixed-strings 'Project Showcase Application Workflow.json' .
+  - ls -1 snippets/automations/scripts/n8n
+  - git diff --check
+  - node tests/run-pr-checks.js --base-ref docs-v2
 risk_flags:
-  - workflow-governance
+  - path-normalization
 follow_up_issues: []
