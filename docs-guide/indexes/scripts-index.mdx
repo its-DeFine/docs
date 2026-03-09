@@ -75,8 +75,8 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tests/unit/script-docs.test.js` | Enforces script header schema, keeps group script indexes in sync, and builds aggregate script index | `node tests/unit/script-docs.test.js [flags]` | docs |
 | `tests/unit/spelling.test.js` | Spelling check — validates content against custom dictionary with en-GB rules | `node tests/unit/spelling.test.js [flags]` | docs |
 | `tests/unit/style-guide.test.js` | Style guide compliance — checks en-GB conventions, heading case, formatting rules | `node tests/unit/style-guide.test.js [flags]` | docs |
-| `tests/unit/usefulness-journey.test.js` | Validate journey completeness evaluation and journey-config guardrails for usefulness scoring. | `node tests/unit/usefulness-journey.test.js` | docs |
-| `tests/unit/usefulness-rubric.test.js` | Validate usefulness rubric loading, rule evaluator coverage, argument deprecations, route precedence, and score divergence behavior. | `node tests/unit/usefulness-rubric.test.js` | docs |
+| `tests/unit/usefulness-journey.test.js` | Usefulness journey tests — validate journey completeness evaluation and configuration guardrails | `node tests/unit/usefulness-journey.test.js [flags]` | docs |
+| `tests/unit/usefulness-rubric.test.js` | Usefulness rubric tests — validate rubric loading, evaluator coverage, route precedence, and score divergence behaviour | `node tests/unit/usefulness-rubric.test.js [flags]` | docs |
 | `tests/unit/v2-link-audit.test.js` | Unit tests for v2-link-audit.js — tests individual link checking rules | `node tests/unit/v2-link-audit.test.js [flags]` | docs |
 | `tests/unit/v2-wcag-audit.test.js` | Unit tests for v2-wcag-audit.js — tests individual WCAG rules | `node tests/unit/v2-wcag-audit.test.js [flags]` | docs |
 | `tests/unit/validate-codex-task-contract.test.js` | Tests validate-codex-task-contract.js — validates contract checking logic | `node tests/unit/validate-codex-task-contract.test.js [flags]` | docs |
@@ -92,7 +92,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 |---|---|---|---|
 | `tools/scripts/add-framework-headers.js` | Insert or verify governance framework metadata headers from classification JSON. | `node tools/scripts/add-framework-headers.js --data script-classifications.json --dry-run` | docs |
 | `tools/scripts/add-pagetype-mechanical.js` | Mechanically assign pageType frontmatter to eligible v2 MDX pages. | `node tools/scripts/add-pagetype-mechanical.js [--dry-run]` | docs |
-| `tools/scripts/assign-purpose-metadata.js` | Assign purpose and audience frontmatter metadata for docs.json EN-routable v2 pages using deterministic rules with optional LLM classification for unclassified pages. | `node tools/scripts/assign-purpose-metadata.js --scope pilot --dry-run` | docs |
+| `tools/scripts/assign-purpose-metadata.js` | Purpose metadata assigner — fills purpose and audience frontmatter for routable v2 pages | `node tools/scripts/assign-purpose-metadata.js [flags]` | docs |
 | `tools/scripts/audit-component-usage.js` | Component usage auditor — scans pages for component usage patterns and reports statistics | `node tools/scripts/audit-component-usage.js [flags]` | docs |
 | `tools/scripts/audit-media-assets.js` | Audit repo media assets, references, ignore leakage, and externalized asset branch inventory. | `node tools/scripts/audit-media-assets.js [--manifest &lt;path&gt;] [--summary &lt;path&gt;] [--assets-branch-ref &lt;ref&gt;] [--check-staged]` | docs |
 | `tools/scripts/audit-scripts.js` | Script auditor — analyses all repo scripts, categorises usage/overlap, generates SCRIPT_AUDIT reports | `node tools/scripts/audit-scripts.js [flags]` | docs |
@@ -107,7 +107,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/scripts/codex/task-finalize.js` | Codex task finaliser — enforces task completion requirements before closing | `node tools/scripts/codex/task-finalize.js [flags]` | docs |
 | `tools/scripts/codex/task-preflight.js` | Codex task preflight — generates task setup files and validates preconditions | `node tools/scripts/codex/task-preflight.js [flags]` | docs |
 | `tools/scripts/codex/validate-locks.js` | Codex lock validator — checks for stale or conflicting lock files before push | `node tools/scripts/codex/validate-locks.js [flags]` | docs |
-| `tools/scripts/component-layout-governance.js` | Validate v2 English docs against component-layout contracts by page type. | `node tools/scripts/component-layout-governance.js --scope full` | docs |
+| `tools/scripts/component-layout-governance.js` | Component layout governance validator — checks v2 page layouts against approved component contracts | `node tools/scripts/component-layout-governance.js [flags]` | docs |
 | `tools/scripts/convert-rss-to-mdx.js` | RSS-to-MDX converter — imports RSS feed items and converts to MDX page format | `node tools/scripts/convert-rss-to-mdx.js [flags]` | docs |
 | `tools/scripts/create-codex-pr.js` | Codex PR creator — generates codex PR with correct branch naming, labels, and body template | `node tools/scripts/create-codex-pr.js [flags]` | docs |
 | `tools/scripts/cross-agent-packager.js` | Cross-agent packager — bundles audit reports and repo state into agent-consumable packages | `node tools/scripts/cross-agent-packager.js [flags]` | docs |
@@ -126,7 +126,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/scripts/enforce-generated-file-banners.js` | Generated file banner enforcer — checks (--check) or writes (default) "do not edit" banners on generated files | `node tools/scripts/enforce-generated-file-banners.js [flags]` | docs |
 | `tools/scripts/enforcers/pr/check-component-immutability.js` | Flags modifications to existing component files in PR context. New files allowed. Modifications require approval label. | `node tools/scripts/enforcers/pr/check-component-immutability.js --base-ref main` | docs |
 | `tools/scripts/generate-ai-sitemap.js` | AI sitemap generator — produces AI-optimised sitemap files. Dual-mode: --check (enforcer) / --write (generator). | `node tools/scripts/generate-ai-sitemap.js [flags]` | docs |
-| `tools/scripts/generate-content-gap-reconciliation.js` | Generate IA reconciliation CSV and summary from blueprint and v2 MDX coverage. | `node tools/scripts/generate-content-gap-reconciliation.js` | docs |
+| `tools/scripts/generate-content-gap-reconciliation.js` | Content-gap reconciliation generator — compares blueprint coverage against v2 MDX and writes reconciliation artefacts | `node tools/scripts/generate-content-gap-reconciliation.js [flags]` | docs |
 | `tools/scripts/generate-docs-guide-components-index.js` | Generates the docs-guide component library index page | `node tools/scripts/generate-docs-guide-components-index.js [flags]` | docs |
 | `tools/scripts/generate-docs-guide-indexes.js` | Generates docs-guide workflow/template indexes and optionally verifies freshness | `node tools/scripts/generate-docs-guide-indexes.js [flags]` | docs |
 | `tools/scripts/generate-docs-guide-pages-index.js` | Generates the docs-guide pages index | `node tools/scripts/generate-docs-guide-pages-index.js [flags]` | docs |
@@ -154,7 +154,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/scripts/i18n/test/provenance.test.js` | Tests provenance tracker — validates translation provenance recording | `node tools/scripts/i18n/test/provenance.test.js [flags]` | docs |
 | `tools/scripts/i18n/test/provider-openrouter.test.js` | Tests OpenRouter provider — validates API call logic and response parsing | `node tools/scripts/i18n/test/provider-openrouter.test.js [flags]` | docs |
 | `tools/scripts/i18n/translate-docs.js` | Translation generator — translates v2 MDX pages to target languages via OpenRouter API | `node tools/scripts/i18n/translate-docs.js [flags]` | docs |
-| `tools/scripts/i18n/validate-generated.js` | Validate generated localized MDX files parse cleanly and exist for successful route-map entries. | `node tools/scripts/i18n/validate-generated.js --languages es,fr,zh-CN --route-map /tmp/route-map.json --report-json /tmp/validate-report.json` | docs |
+| `tools/scripts/i18n/validate-generated.js` | Generated localisation validator — checks generated translated MDX files and route-map outputs for integrity | `node tools/scripts/i18n/validate-generated.js [flags]` | docs |
 | `tools/scripts/mint-dev.sh` | Mintlify dev server launcher — starts mint dev with correct configuration | `bash tools/scripts/mint-dev.sh [flags]` | docs |
 | `tools/scripts/new-script.js` | ' + params.summary, | `node tools/scripts/new-script.js [flags]` | docs |
 | `tools/scripts/publish-v2-internal-reports.js` | Report publisher — publishes v2 internal audit reports to configured output locations | `node tools/scripts/publish-v2-internal-reports.js [flags]` | docs |

@@ -1,4 +1,15 @@
 'use strict';
+/**
+ * @script            rule-evaluators
+ * @category          utility
+ * @purpose           qa:content-quality
+ * @scope             tools/lib/docs-usefulness
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Usefulness rule evaluators — implement deterministic tier-1 scoring rules for page analysis
+ * @pipeline          indirect — library module imported by other scripts, not invoked directly
+ * @usage             node tools/lib/docs-usefulness/rule-evaluators.js [flags]
+ */
 
 function toText(value) {
   return String(value || '').toLowerCase();

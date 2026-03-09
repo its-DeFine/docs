@@ -1,4 +1,15 @@
 'use strict';
+/**
+ * @script            llm-evaluator
+ * @category          utility
+ * @purpose           qa:content-quality
+ * @scope             tools/lib/docs-usefulness, tools/config, .cache/llm-usefulness
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Usefulness LLM evaluator — runs cached OpenRouter-based rubric checks with tier and budget controls
+ * @pipeline          indirect — library module imported by other scripts, not invoked directly
+ * @usage             node tools/lib/docs-usefulness/llm-evaluator.js [flags]
+ */
 
 const fs = require('fs');
 const path = require('path');

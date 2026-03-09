@@ -1,4 +1,15 @@
 'use strict';
+/**
+ * @script            faq
+ * @category          utility
+ * @purpose           qa:content-quality
+ * @scope             tools/lib/docs-usefulness/prompts
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement FAQ usefulness prompts — define LLM prompt templates for faq page scoring
+ * @pipeline          indirect — library module imported by other scripts, not invoked directly
+ * @usage             node tools/lib/docs-usefulness/prompts/faq.js [flags]
+ */
 
 const SYSTEM_BASE = 'You are a documentation quality evaluator for Livepeer docs. Return ONLY JSON: {"score":0-100,"pass":true/false,"reasoning":"one sentence"}.';
 

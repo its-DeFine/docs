@@ -1,4 +1,15 @@
 'use strict';
+/**
+ * @script            rubric-loader
+ * @category          utility
+ * @purpose           qa:content-quality
+ * @scope             tools/lib/docs-usefulness, tools/config
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Usefulness rubric loader — loads rubric, journey, audience, and LLM-tier configuration data
+ * @pipeline          indirect — library module imported by other scripts, not invoked directly
+ * @usage             node tools/lib/docs-usefulness/rubric-loader.js [flags]
+ */
 
 const fs = require('fs');
 const path = require('path');

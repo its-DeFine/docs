@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script usefulness-journey.test
- * @summary Validate journey completeness evaluation and journey-config guardrails for usefulness scoring.
- * @owner docs
- * @scope tests, tools/lib/docs-usefulness, tools/config
- *
- * @usage
- *   node tests/unit/usefulness-journey.test.js
- *
- * @inputs
- *   No required CLI flags.
- *
- * @outputs
- *   - Console pass/fail output for journey checks.
- *
- * @exit-codes
- *   0 = all assertions passed
- *   1 = one or more assertions failed
- *
- * @examples
- *   node tests/unit/usefulness-journey.test.js
- *
- * @notes
- *   Uses synthetic page-score fixtures and does not require external services.
+ * @script            usefulness-journey.test
+ * @category          validator
+ * @purpose           qa:content-quality
+ * @scope             tests/unit, tools/lib/docs-usefulness, tools/config
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Usefulness journey tests — validate journey completeness evaluation and configuration guardrails
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tests/unit/usefulness-journey.test.js [flags]
  */
 
 'use strict';

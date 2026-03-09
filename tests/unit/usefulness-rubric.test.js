@@ -1,28 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script usefulness-rubric.test
- * @summary Validate usefulness rubric loading, rule evaluator coverage, argument deprecations, route precedence, and score divergence behavior.
- * @owner docs
- * @scope tests, tools/lib/docs-usefulness, tools/scripts, tools/config
- *
- * @usage
- *   node tests/unit/usefulness-rubric.test.js
- *
- * @inputs
- *   No required CLI flags.
- *
- * @outputs
- *   - Console pass/fail output for usefulness rubric scenarios.
- *
- * @exit-codes
- *   0 = all assertions passed
- *   1 = one or more assertions failed
- *
- * @examples
- *   node tests/unit/usefulness-rubric.test.js
- *
- * @notes
- *   Uses synthetic page samples and temp directories; no network calls required.
+ * @script            usefulness-rubric.test
+ * @category          validator
+ * @purpose           qa:content-quality
+ * @scope             tests/unit, tools/lib/docs-usefulness, tools/scripts, tools/config
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Usefulness rubric tests — validate rubric loading, evaluator coverage, route precedence, and score divergence behaviour
+ * @pipeline          manual — not yet in pipeline
+ * @usage             node tests/unit/usefulness-rubric.test.js [flags]
  */
 
 'use strict';

@@ -35,8 +35,8 @@
 | `tests/unit/script-docs.test.js` | Enforces script header schema, keeps group script indexes in sync, and builds aggregate script index | `node tests/unit/script-docs.test.js [flags]` | docs |
 | `tests/unit/spelling.test.js` | Spelling check — validates content against custom dictionary with en-GB rules | `node tests/unit/spelling.test.js [flags]` | docs |
 | `tests/unit/style-guide.test.js` | Style guide compliance — checks en-GB conventions, heading case, formatting rules | `node tests/unit/style-guide.test.js [flags]` | docs |
-| `tests/unit/usefulness-journey.test.js` | Validate journey completeness evaluation and journey-config guardrails for usefulness scoring. | `node tests/unit/usefulness-journey.test.js` | docs |
-| `tests/unit/usefulness-rubric.test.js` | Validate usefulness rubric loading, rule evaluator coverage, argument deprecations, route precedence, and score divergence behavior. | `node tests/unit/usefulness-rubric.test.js` | docs |
+| `tests/unit/usefulness-journey.test.js` | Usefulness journey tests — validate journey completeness evaluation and configuration guardrails | `node tests/unit/usefulness-journey.test.js [flags]` | docs |
+| `tests/unit/usefulness-rubric.test.js` | Usefulness rubric tests — validate rubric loading, evaluator coverage, route precedence, and score divergence behaviour | `node tests/unit/usefulness-rubric.test.js [flags]` | docs |
 | `tests/unit/v2-link-audit.test.js` | Unit tests for v2-link-audit.js — tests individual link checking rules | `node tests/unit/v2-link-audit.test.js [flags]` | docs |
 | `tests/unit/v2-wcag-audit.test.js` | Unit tests for v2-wcag-audit.js — tests individual WCAG rules | `node tests/unit/v2-wcag-audit.test.js [flags]` | docs |
 | `tests/unit/validate-codex-task-contract.test.js` | Tests validate-codex-task-contract.js — validates contract checking logic | `node tests/unit/validate-codex-task-contract.test.js [flags]` | docs |

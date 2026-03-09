@@ -1,4 +1,15 @@
 'use strict';
+/**
+ * @script            quality-gate
+ * @category          utility
+ * @purpose           qa:content-quality
+ * @scope             tools/lib/docs-usefulness
+ * @owner             docs
+ * @needs             E-R1, R-R11
+ * @purpose-statement Usefulness quality gate — derives fail and warn prerequisite checks for page scoring
+ * @pipeline          indirect — library module imported by other scripts, not invoked directly
+ * @usage             node tools/lib/docs-usefulness/quality-gate.js [flags]
+ */
 
 function runQualityGate(page) {
   const details = {};
