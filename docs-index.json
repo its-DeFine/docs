@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-09T20:06:08.057Z",
+  "generated": "2026-03-10T04:20:54.533Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -16278,20 +16278,16 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 755,
-      "lastVerified": "2026-03-09T19:54:46.469Z",
+      "wordCount": 700,
+      "lastVerified": "2026-03-10T07:07:09+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "Overview"
+          "text": "Trigger chain"
         },
         {
           "level": 2,
-          "text": "Trigger Chain"
-        },
-        {
-          "level": 2,
-          "text": "Auto-Fixed vs Needs Human"
+          "text": "Auto-fixed vs needs human"
         },
         {
           "level": 2,
@@ -16299,11 +16295,11 @@
         },
         {
           "level": 2,
-          "text": "Adding a New Script"
+          "text": "Adding a new script"
         },
         {
           "level": 2,
-          "text": "The 9-Field Header Schema"
+          "text": "The 9-field schema"
         }
       ],
       "codeLanguages": [
@@ -16672,7 +16668,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 41,
-      "lastVerified": "2026-03-10T05:09:37+11:00",
+      "lastVerified": "2026-03-10T07:07:09+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -16741,7 +16737,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 4073,
-      "lastVerified": "2026-03-10T06:42:22+11:00",
+      "lastVerified": "2026-03-10T07:07:09+11:00",
       "headings": [
         {
           "level": 2,
@@ -16801,7 +16797,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 986,
-      "lastVerified": "2026-03-10T06:46:12+11:00",
+      "lastVerified": "2026-03-10T07:07:09+11:00",
       "headings": [],
       "codeLanguages": []
     },
