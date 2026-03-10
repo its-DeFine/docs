@@ -505,15 +505,6 @@ function convertHtmlCommentBlock(body) {
   return lines.map((line) => `[//]: # (${escapeMarkdownCommentText(line)})`).join('\n');
 }
 
-function isSupportedHtmlComment(body) {
-  const firstContentLine = String(body || '')
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .find(Boolean);
-
-  return /^REVIEW:/.test(firstContentLine || '');
-}
-
 function splitFencedSegments(content) {
   const lines = String(content || '').split('\n');
   const segments = [];
@@ -566,27 +557,6 @@ function splitFencedSegments(content) {
   return segments;
 }
 
-function sanitizeSupportedHtmlComments(content) {
-  const original = String(content || '');
-  const segments = splitFencedSegments(original);
-
-  return segments
-    .map((segment) => {
-      if (segment.protected) {
-        return segment.text;
-      }
-
-      return segment.text.replace(/<!--([\s\S]*?)-->/g, (match, body) => {
-        if (!isSupportedHtmlComment(body)) {
-          return match;
-        }
-
-        return convertHtmlCommentBlock(body);
-      });
-    })
-    .join('\n');
-}
-
 function repairMarkdownContent(content, filePath = '', options = {}) {
   const original = String(content || '');
   const segments = splitFencedSegments(original);
@@ -602,10 +572,6 @@ function repairMarkdownContent(content, filePath = '', options = {}) {
     let working = segment.text;
 
     working = working.replace(/<!--([\s\S]*?)-->/g, (match, body, offset) => {
-      if (isSupportedHtmlComment(body)) {
-        return match;
-      }
-
       changes.push({
         file: filePath,
         line: getLineNumberAtIndex(segment.text, offset, segment.lineStart),
@@ -716,7 +682,7 @@ function validateMarkdownContent(content, filePath = '') {
   findings.push(...repaired.changes);
 
   if (shouldRunFullParse(content, filePath, repaired)) {
-    const parseResult = parseMdxSafeContent(sanitizeSupportedHtmlComments(content), filePath);
+    const parseResult = parseMdxSafeContent(content, filePath);
     if (!parseResult.ok && parseResult.error) {
       findings.push(parseResult.error);
     }

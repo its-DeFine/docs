@@ -15,7 +15,7 @@ Orchestrators on Livepeer do not just transcode video. They can earn fees from f
 |---|---|---|---|---|
 | Transcoding | Converts video streams to multiple formats/resolutions | None (NVENC/NVDEC for GPU-accelerated) | Wei per pixel | `-pricePerUnit` flag |
 | Batch AI Inference | Processes single AI requests (image generation, audio transcription, captioning) | 4–24GB depending on pipeline | Wei per pixel or per millisecond | `aiModels.json` |
-| Real-time AI (Cascade) | Applies AI to a live video stream continuously | 8GB+ (model-dependent) | <!-- REVIEW: pricing unit TBC — see SME note --> | `aiModels.json` + ComfyStream |
+| Real-time AI (Cascade) | Applies AI to a live video stream continuously | 8GB+ (model-dependent) | {/* REVIEW pricing unit TBC - see SME note */} | `aiModels.json` + ComfyStream |
 | LLM Inference | Generates text responses using large language models | 8GB (quantised 7–8B models) | Wei per token unit | `aiModels.json` + Ollama runner |
 
 ---
@@ -28,7 +28,7 @@ Transcoding is the original job type on the Livepeer network, live since 2017. W
 
 ### Hardware requirements
 
-Transcoding can run on CPU alone, but GPU-accelerated transcoding via NVIDIA NVENC/NVDEC is strongly recommended for performance and to remain competitive on the network. <!-- REVIEW: confirm minimum NVIDIA driver/CUDA version from go-livepeer README -->
+Transcoding can run on CPU alone, but GPU-accelerated transcoding via NVIDIA NVENC/NVDEC is strongly recommended for performance and to remain competitive on the network. {/* REVIEW: confirm minimum NVIDIA driver/CUDA version from go-livepeer README */}
 
 ### Pricing model
 
@@ -54,12 +54,12 @@ The Livepeer AI Subnet launched in Q3 2024 and added this category to the networ
 |---|---|---|---|
 | `text-to-image` | Image from text prompt | 24GB | 1.9073484e-08 USD per output pixel |
 | `image-to-image` | Transformed image from input image + prompt | 20GB | 1.9073484e-08 USD per input pixel |
-| `image-to-video` | Short video clip from input image | 16GB+ <!-- REVIEW --> | ~3.39e-06 USD per pixel |
+| `image-to-video` | Short video clip from input image | 16GB+ {/* REVIEW */} | ~3.39e-06 USD per pixel |
 | `image-to-text` | Text caption from image | 4GB | 2.5e-10 USD per input pixel |
 | `audio-to-text` | Transcript from audio file | 12GB | 0.02e-06 USD per millisecond of audio |
-| `upscale` | High-resolution image from low-resolution input | <!-- REVIEW --> | <!-- REVIEW --> |
+| `upscale` | High-resolution image from low-resolution input | {/* REVIEW */} | {/* REVIEW */} |
 | `segment-anything-2` | Segmentation masks from image | 6GB | 3.22e-11 USD per input pixel |
-| `text-to-speech` | Speech audio from text | <!-- REVIEW --> | <!-- REVIEW --> |
+| `text-to-speech` | Speech audio from text | {/* REVIEW */} | {/* REVIEW */} |
 
 <Note>
 The `upscale` and `text-to-speech` VRAM requirements are not confirmed in this draft — they will be filled before publication. Check [AI Pipelines](/ai/pipelines) for current per-pipeline specs.
@@ -79,7 +79,7 @@ AI inference pipelines use a **per-unit pricing model** where the unit depends o
 
 ### Configuration
 
-Configured via the `aiModels.json` file. Each entry specifies the pipeline name, model ID, pricing, whether the model is kept warm, and the URL of the runner container. See [Configure AI Pipelines](/v2/orchestrators/setup/ai-config) <!-- REVIEW: confirm correct target path --> for the configuration reference.
+Configured via the `aiModels.json` file. Each entry specifies the pipeline name, model ID, pricing, whether the model is kept warm, and the URL of the runner container. See [Configure AI Pipelines](/v2/orchestrators/setup/ai-config) {/* REVIEW: confirm correct target path */} for the configuration reference.
 
 ---
 
@@ -110,11 +110,11 @@ Unlike batch AI, where you can accept or decline jobs by model, real-time AI pip
 
 ### Pricing model
 
-<!-- REVIEW: Cascade/ComfyStream pricing unit is not confirmed in official documentation. SME review needed before publication. Pricing may be per-session, per-stream-minute, or per-frame. Ask Peter (AI SPE) or post in #orchestrating. -->
+{/* REVIEW: Cascade/ComfyStream pricing unit is not confirmed in official documentation. SME review needed before publication. Pricing may be per-session, per-stream-minute, or per-frame. Ask Peter (AI SPE) or post in #orchestrating. */}
 
 ### Configuration
 
-Configured via `aiModels.json` and requires a running ComfyStream instance. See [Set Up Real-time AI Pipelines](/v2/orchestrators/setup/comfystream) <!-- REVIEW: confirm target path --> for the setup guide.
+Configured via `aiModels.json` and requires a running ComfyStream instance. See [Set Up Real-time AI Pipelines](/v2/orchestrators/setup/comfystream) {/* REVIEW: confirm target path */} for the setup guide.
 
 ---
 
@@ -134,7 +134,7 @@ Models are loaded and managed by Ollama using its standard naming convention. An
 
 - `meta-llama/Meta-Llama-3.1-8B-Instruct` (Ollama: `llama3.1:8b`)
 
-<!-- REVIEW: full supported model list — check go-livepeer LLM pipeline docs or Cloud SPE guide for updated list -->
+{/* REVIEW: full supported model list — check go-livepeer LLM pipeline docs or Cloud SPE guide for updated list */}
 
 ### Hardware requirements
 
@@ -164,11 +164,11 @@ LLM pricing is configured in `aiModels.json` using a `pixels_per_unit` abstracti
 }
 ```
 
-<!-- REVIEW: confirm canonical pricing unit for LLM — is this per-token, per-request, or per-million-tokens? Check Cloud SPE documentation and go-livepeer source -->
+{/* REVIEW: confirm canonical pricing unit for LLM — is this per-token, per-request, or per-million-tokens? Check Cloud SPE documentation and go-livepeer source */}
 
 ### Configuration
 
-Requires deploying the Ollama runner container alongside your orchestrator. Configured via `aiModels.json` with `"pipeline": "llm"`. See [Set Up the LLM Pipeline](/v2/orchestrators/setup/llm-pipeline) <!-- REVIEW: confirm target path --> for the deployment guide.
+Requires deploying the Ollama runner container alongside your orchestrator. Configured via `aiModels.json` with `"pipeline": "llm"`. See [Set Up the LLM Pipeline](/v2/orchestrators/setup/llm-pipeline) {/* REVIEW: confirm target path */} for the deployment guide.
 
 ---
 
@@ -201,4 +201,4 @@ The job types you can run depend on your hardware and what you want to optimise 
     Configure AI pipelines on an existing orchestrator.
   </Card>
 </CardGroup>
-<!-- REVIEW: Current file had CardGroup quickstart links — not present in new draft. Human to decide whether to include. -->
+{/* REVIEW: Current file had CardGroup quickstart links — not present in new draft. Human to decide whether to include. */}

@@ -35,7 +35,7 @@ These are the flags you must set every time you start go-livepeer as an orchestr
 
 **Options:**
 - `arbitrum-one-mainnet` — production network
-- `arbitrum-one-rinkeby` — testnet (deprecated; check current testnet name in release notes) <!-- REVIEW: confirm current testnet network flag value -->
+- `arbitrum-one-rinkeby` — testnet (deprecated; check current testnet name in release notes) {/* REVIEW: confirm current testnet network flag value */}
 - `offchain` — local/dev only, no on-chain participation
 
 </Step>
@@ -351,7 +351,7 @@ journalctl -u livepeer -f
 ```
 
 <Note>
-If your ETH passphrase is required at startup and you are running as a systemd service, you will need to either use a keystore created with an empty passphrase (not recommended for production) or set up a passphrase file and configure go-livepeer to read from it. <!-- REVIEW: confirm the correct passphrase-file flag name if available — check go-livepeer flag list for -ethPassword or similar -->
+If your ETH passphrase is required at startup and you are running as a systemd service, you will need to either use a keystore created with an empty passphrase (not recommended for production) or set up a passphrase file and configure go-livepeer to read from it. {/* REVIEW: confirm the correct passphrase-file flag name if available — check go-livepeer flag list for -ethPassword or similar */}
 </Note>
 
 </Accordion>
@@ -377,7 +377,7 @@ livepeer $(< /etc/livepeer/livepeer.conf)
 
 In a systemd unit file, this pattern requires the `ExecStart` line to call a wrapper shell script rather than the binary directly, since systemd does not perform shell expansion in `ExecStart`.
 
-<!-- REVIEW: Confirm whether a native -config flag was added to go-livepeer after issue #2047. If so, replace this section with the native approach. Check with @rickstaa. -->
+{/* REVIEW: Confirm whether a native -config flag was added to go-livepeer after issue #2047. If so, replace this section with the native approach. Check with @rickstaa. */}
 
 </Accordion>
 
@@ -396,4 +396,4 @@ In a systemd unit file, this pattern requires the `ExecStart` line to call a wra
     Every flag, its type, default, and description.
   </Card>
 </CardGroup>
-<!-- REVIEW: setting-up-an-orchestrator/orch-config.mdx (now deleted) contained [aiModels.json / transcodingOptions.json] example blocks not present in this draft. Human to decide whether to include. -->
+{/* REVIEW: setting-up-an-orchestrator/orch-config.mdx (now deleted) contained [aiModels.json / transcodingOptions.json] example blocks not present in this draft. Human to decide whether to include. */}

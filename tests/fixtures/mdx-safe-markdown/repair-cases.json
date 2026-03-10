@@ -80,7 +80,7 @@
     "expectedRules": []
   },
   {
-    "name": "Leaves supported REVIEW comments unchanged",
+    "name": "Converts REVIEW comments to Markdown reference comments",
     "filePath": "fixtures/review-comment.mdx",
     "inputLines": [
       "Paragraph before.",
@@ -88,8 +88,8 @@
     ],
     "expectedLines": [
       "Paragraph before.",
-      "<!-- REVIEW: confirm path -->"
+      "[//]: # (REVIEW: confirm path)"
     ],
-    "expectedRules": []
+    "expectedRules": ["html-comment"]
   }
 ]
