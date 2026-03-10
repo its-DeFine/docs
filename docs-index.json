@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-10T03:01:39.989Z",
+  "generated": "2026-03-10T03:09:59.395Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -9109,7 +9109,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1772,
-      "lastVerified": "2026-03-10T09:55:57+11:00",
+      "lastVerified": "2026-03-10T14:02:36+11:00",
       "headings": [
         {
           "level": 2,
@@ -9616,7 +9616,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1376,
-      "lastVerified": "2026-03-10T09:58:14+11:00",
+      "lastVerified": "2026-03-10T14:02:36+11:00",
       "headings": [
         {
           "level": 2,
@@ -9771,7 +9771,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 869,
-      "lastVerified": "2026-03-10T10:04:55+11:00",
+      "lastVerified": "2026-03-10T14:02:36+11:00",
       "headings": [
         {
           "level": 2,
@@ -10102,16 +10102,21 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/advanced/ai-pipelines",
       "title": "AI Pipelines",
-      "description": "Run AI inference on your orchestrator: enable AI, configure models, routing.",
+      "description": "Configure and optimise AI inference pipelines on your orchestrator — pipeline types, aiModels.json reference, custom models, Ollama LLM runner, and remote workers.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
-        "orchestrators",
-        "ai",
-        "inference",
-        "byoc",
-        "advanced",
-        "ai-pipelines"
+        "orchestrator",
+        "ai-pipelines",
+        "aimodelsjson",
+        "ai-runner",
+        "cascade",
+        "llm",
+        "ollama",
+        "text-to-image",
+        "vram",
+        "custom-models",
+        "byoc"
       ],
       "entities": [
         "orchestrator",
@@ -10119,27 +10124,59 @@
       ],
       "apiEndpoints": [],
       "difficulty": "advanced",
-      "wordCount": 128,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "wordCount": 1693,
+      "lastVerified": "2026-03-10",
       "headings": [
         {
           "level": 2,
-          "text": "Enable AI"
+          "text": "Supported pipelines"
         },
         {
           "level": 2,
-          "text": "BYOC and ComfyStream"
+          "text": "aiModels.json — complete reference"
+        },
+        {
+          "level": 3,
+          "text": "Example with all fields"
+        },
+        {
+          "level": 3,
+          "text": "Field reference"
         },
         {
           "level": 2,
-          "text": "Economics"
+          "text": "Running multiple pipelines"
         },
         {
           "level": 2,
-          "text": "See also"
+          "text": "LLM inference — Ollama runner"
+        },
+        {
+          "level": 3,
+          "text": "Setup"
+        },
+        {
+          "level": 2,
+          "text": "External containers and BYOC"
+        },
+        {
+          "level": 2,
+          "text": "Troubleshooting"
+        },
+        {
+          "level": 2,
+          "text": "Key takeaways"
+        },
+        {
+          "level": 2,
+          "text": "Related"
         }
       ],
-      "codeLanguages": []
+      "codeLanguages": [
+        "json",
+        "bash",
+        "yaml"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/advanced/hosting-models",
@@ -10374,7 +10411,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3457,
-      "lastVerified": "2026-03-10T09:55:00+11:00",
+      "lastVerified": "2026-03-10T14:02:36+11:00",
       "headings": [
         {
           "level": 2,
