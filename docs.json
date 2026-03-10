@@ -2453,74 +2453,76 @@
                     "icon": "display-code",
                     "groups": [
                       {
-                        "group": "Building on Livepeer",
-                        "icon": "code",
+                        "group": "Hub",
+                        "icon": "house",
                         "pages": [
                           "v2/developers/portal",
-                          "v2/developers/developer-path"
+                          "v2/developers/developer-journey"
                         ]
                       },
                       {
-                        "group": "Quickstart",
-                        "icon": "fast-forward",
-                        "pages": [
-                          {
-                            "group": "Video & Transcoding",
-                            "pages": [
-                              "v2/developers/quickstart/video/video-streaming",
-                              "v2/developers/quickstart/video/transcoding-jobs"
-                            ]
-                          },
-                          {
-                            "group": "AI Jobs & Pipelines",
-                            "pages": [
-                              "v2/developers/quickstart/ai/ai-pipelines",
-                              "v2/developers/quickstart/ai/ai-jobs"
-                            ]
-                          }
-                        ]
-                      },
-                      {
-                        "group": "AI Pipelines",
-                        "icon": "user-robot",
-                        "pages": [
-                          "v2/developers/ai-pipelines/overview",
-                          "v2/developers/ai-pipelines/comfystream",
-                          "v2/developers/ai-pipelines/byoc",
-                          "v2/developers/ai-pipelines/workload-fit",
-                          "v2/developers/ai-pipelines/model-support"
-                        ]
-                      },
-                      {
-                        "group": "Guides & Tutorials",
-                        "icon": "laptop-file",
-                        "pages": [
-                          "v2/developers/guides-and-tools/developer-guides",
-                          "v2/developers/guides-and-tools/resources",
-                          "v2/developers/guides-and-tools/developer-help",
-                          "v2/developers/guides-and-tools/contribution-guide"
-                        ]
-                      },
-                      {
-                        "group": "Builder Opportunities",
+                        "group": "Concepts",
                         "icon": "lightbulb",
                         "pages": [
-                          "v2/developers/builder-opportunities/overview",
-                          "v2/developers/builder-opportunities/grants-and-programmes",
-                          "v2/developers/builder-opportunities/rfps-and-proposals",
-                          "v2/developers/builder-opportunities/oss-contributions",
-                          "v2/developers/builder-opportunities/bug-bounties"
+                          "v2/developers/concepts/developer-stack",
+                          "v2/developers/concepts/ai-on-livepeer",
+                          "v2/developers/concepts/video-on-livepeer",
+                          "v2/developers/concepts/running-a-gateway",
+                          "v2/developers/concepts/oss-stack"
                         ]
                       },
                       {
-                        "group": "Technical References",
-                        "icon": "code",
+                        "group": "Get Started",
+                        "icon": "fast-forward",
                         "pages": [
-                          "v2/developers/technical-references/sdks",
-                          "v2/developers/technical-references/apis",
-                          "v2/developers/technical-references/awesome-livepeer",
-                          "v2/developers/technical-references/wiki",
-                          "v2/developers/technical-references/deepwiki"
+                          "v2/developers/get-started/setup-paths",
+                          "v2/developers/get-started/video-quickstart",
+                          "v2/developers/get-started/transcoding-quickstart",
+                          "v2/developers/get-started/ai-quickstart",
+                          "v2/developers/get-started/comfystream-quickstart"
+                        ]
+                      },
+                      {
+                        "group": "Build",
+                        "icon": "hammer",
+                        "pages": [
+                          "v2/developers/build/comfystream",
+                          "v2/developers/build/byoc",
+                          "v2/developers/build/sdk-gateway",
+                          "v2/developers/build/workload-fit",
+                          "v2/developers/build/model-support"
+                        ]
+                      },
+                      {
+                        "group": "Guides",
+                        "icon": "laptop-file",
+                        "pages": [
+                          "v2/developers/guides/developer-guides",
+                          "v2/developers/guides/resources",
+                          "v2/developers/guides/contribution-guide",
+                          "v2/developers/guides/developer-help"
+                        ]
+                      },
+                      {
+                        "group": "Opportunities",
+                        "icon": "lightbulb",
+                        "pages": [
+                          "v2/developers/opportunities/overview",
+                          "v2/developers/opportunities/grants-and-programmes",
+                          "v2/developers/opportunities/rfps-and-proposals",
+                          "v2/developers/opportunities/oss-contributions",
+                          "v2/developers/opportunities/bug-bounties"
+                        ]
+                      },
+                      {
+                        "group": "Resources",
+                        "icon": "books",
+                        "pages": [
+                          "v2/developers/resources/sdks",
+                          "v2/developers/resources/apis",
+                          "v2/developers/resources/awesome-livepeer",
+                          "v2/developers/resources/wiki",
+                          "v2/developers/resources/deepwiki"
                         ]
                       }
                     ]
@@ -3745,6 +3747,126 @@
     {
       "source": "/v2/ai-runner",
       "destination": "/v2/developers/ai-pipelines/overview"
+    },
+    {
+      "source": "/v2/developers/developer-path",
+      "destination": "/v2/developers/developer-journey"
+    },
+    {
+      "source": "/v2/developers/developer-guide",
+      "destination": "/v2/developers/developer-journey"
+    },
+    {
+      "source": "/v2/developers/journey-mapping",
+      "destination": "/v2/developers/developer-journey"
+    },
+    {
+      "source": "/v2/developers/quickstart/ai/ai-pipelines",
+      "destination": "/v2/developers/get-started/ai-quickstart"
+    },
+    {
+      "source": "/v2/developers/quickstart/ai/ai-jobs",
+      "destination": "/v2/developers/get-started/ai-quickstart"
+    },
+    {
+      "source": "/v2/developers/quickstart/video/video-streaming",
+      "destination": "/v2/developers/get-started/video-quickstart"
+    },
+    {
+      "source": "/v2/developers/quickstart/video/transcoding-jobs",
+      "destination": "/v2/developers/get-started/transcoding-quickstart"
+    },
+    {
+      "source": "/v2/developers/ai-pipelines/overview",
+      "destination": "/v2/developers/concepts/ai-on-livepeer"
+    },
+    {
+      "source": "/v2/developers/ai-pipelines/comfystream",
+      "destination": "/v2/developers/build/comfystream"
+    },
+    {
+      "source": "/v2/developers/ai-pipelines/byoc",
+      "destination": "/v2/developers/build/byoc"
+    },
+    {
+      "source": "/v2/developers/ai-pipelines/workload-fit",
+      "destination": "/v2/developers/build/workload-fit"
+    },
+    {
+      "source": "/v2/developers/ai-pipelines/model-support",
+      "destination": "/v2/developers/build/model-support"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/overview",
+      "destination": "/v2/developers/concepts/ai-on-livepeer"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/workload-fit",
+      "destination": "/v2/developers/build/workload-fit"
+    },
+    {
+      "source": "/v2/developers/guides-and-tools/developer-guides",
+      "destination": "/v2/developers/guides/developer-guides"
+    },
+    {
+      "source": "/v2/developers/guides-and-tools/resources",
+      "destination": "/v2/developers/guides/resources"
+    },
+    {
+      "source": "/v2/developers/guides-and-tools/developer-help",
+      "destination": "/v2/developers/guides/developer-help"
+    },
+    {
+      "source": "/v2/developers/guides-and-tools/contribution-guide",
+      "destination": "/v2/developers/guides/contribution-guide"
+    },
+    {
+      "source": "/v2/developers/guides-and-resources/contribution-guide",
+      "destination": "/v2/developers/guides/contribution-guide"
+    },
+    {
+      "source": "/v2/developers/builder-opportunities/overview",
+      "destination": "/v2/developers/opportunities/overview"
+    },
+    {
+      "source": "/v2/developers/builder-opportunities/grants-and-programmes",
+      "destination": "/v2/developers/opportunities/grants-and-programmes"
+    },
+    {
+      "source": "/v2/developers/builder-opportunities/rfps-and-proposals",
+      "destination": "/v2/developers/opportunities/rfps-and-proposals"
+    },
+    {
+      "source": "/v2/developers/builder-opportunities/oss-contributions",
+      "destination": "/v2/developers/opportunities/oss-contributions"
+    },
+    {
+      "source": "/v2/developers/builder-opportunities/bug-bounties",
+      "destination": "/v2/developers/opportunities/bug-bounties"
+    },
+    {
+      "source": "/v2/developers/builder-opportunities/livepeer-rfps",
+      "destination": "/v2/developers/opportunities/rfps-and-proposals"
+    },
+    {
+      "source": "/v2/developers/technical-references/sdks",
+      "destination": "/v2/developers/resources/sdks"
+    },
+    {
+      "source": "/v2/developers/technical-references/apis",
+      "destination": "/v2/developers/resources/apis"
+    },
+    {
+      "source": "/v2/developers/technical-references/awesome-livepeer",
+      "destination": "/v2/developers/resources/awesome-livepeer"
+    },
+    {
+      "source": "/v2/developers/technical-references/wiki",
+      "destination": "/v2/developers/resources/wiki"
+    },
+    {
+      "source": "/v2/developers/technical-references/deepwiki",
+      "destination": "/v2/developers/resources/deepwiki"
     }
   ],
   "styling": {
