@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-10T02:46:06.097Z",
+  "generated": "2026-03-10T03:01:39.989Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -8892,7 +8892,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 434,
-      "lastVerified": "2026-03-10T07:53:25+11:00",
+      "lastVerified": "2026-03-10T13:46:27+11:00",
       "headings": [
         {
           "level": 2,
@@ -8935,7 +8935,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 350,
-      "lastVerified": "2026-03-10T09:20:54+11:00",
+      "lastVerified": "2026-03-10T13:46:27+11:00",
       "headings": [
         {
           "level": 3,
@@ -10229,7 +10229,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 1467,
-      "lastVerified": "2026-03-10T09:58:31+11:00",
+      "lastVerified": "2026-03-10T13:49:51+11:00",
       "headings": [
         {
           "level": 2,
@@ -10268,27 +10268,36 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/tools-and-guides/guides",
       "title": "Orchestrator Guides",
-      "description": "Find the main guides, community links, and pool resources for Livepeer orchestrators.",
+      "description": "Curated guides for running and optimising a Livepeer orchestrator — setup references, earnings strategy, community how-tos, and Discord resources.",
       "section": "orchestrators",
       "tags": [
-        "livepeer",
         "orchestrators",
-        "guides",
-        "community",
-        "pools",
-        "tools-and-guides"
+        "tools-and-guides",
+        "guides"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 81,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "wordCount": 281,
+      "lastVerified": "2026-03-10",
       "headings": [
         {
           "level": 2,
-          "text": "Community"
+          "text": "Official guides"
+        },
+        {
+          "level": 2,
+          "text": "Community resources"
+        },
+        {
+          "level": 2,
+          "text": "Discord and forum"
+        },
+        {
+          "level": 2,
+          "text": "See Also"
         }
       ],
       "codeLanguages": []
@@ -10296,14 +10305,10 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/tools-and-guides/tooling",
       "title": "Orchestrator Tools",
-      "description": "Find official and community tools, dashboards, and helper resources for operating Livepeer orchestrators.",
+      "description": "Tools for monitoring, verifying, and operating your Livepeer orchestrator — Explorer, payout dashboards, Prometheus metrics, and community tools.",
       "section": "orchestrators",
       "tags": [
-        "livepeer",
         "orchestrators",
-        "orchestrator-guides-and-references",
-        "orchestrator-tools",
-        "tools",
         "tools-and-guides",
         "tooling"
       ],
@@ -10312,19 +10317,37 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 33,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "wordCount": 634,
+      "lastVerified": "2026-03-10",
       "headings": [
         {
           "level": 2,
-          "text": "Official Livepeer Tools & Dashboards"
+          "text": "Livepeer Explorer"
         },
         {
           "level": 2,
-          "text": "Community Tools"
+          "text": "Node Metrics (Prometheus)"
+        },
+        {
+          "level": 2,
+          "text": "Cloud SPE Tools"
+        },
+        {
+          "level": 2,
+          "text": "Network Dashboards (Dune Analytics)"
+        },
+        {
+          "level": 2,
+          "text": "Capability Testing"
+        },
+        {
+          "level": 2,
+          "text": "See Also"
         }
       ],
-      "codeLanguages": []
+      "codeLanguages": [
+        "bash"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/resources/faq",
@@ -13999,7 +14022,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1412,
-      "lastVerified": "2026-03-10T06:26:49+11:00",
+      "lastVerified": "2026-03-10T13:46:27+11:00",
       "headings": [
         {
           "level": 2,
@@ -14157,7 +14180,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1507,
-      "lastVerified": "2026-03-10T06:26:49+11:00",
+      "lastVerified": "2026-03-10T13:46:27+11:00",
       "headings": [
         {
           "level": 2,
@@ -14315,7 +14338,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1301,
-      "lastVerified": "2026-03-10T09:19:44+11:00",
+      "lastVerified": "2026-03-10T13:46:27+11:00",
       "headings": [
         {
           "level": 2,
@@ -14449,7 +14472,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 958,
-      "lastVerified": "2026-03-10T06:26:49+11:00",
+      "lastVerified": "2026-03-10T13:46:27+11:00",
       "headings": [
         {
           "level": 2,
@@ -14555,7 +14578,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1373,
-      "lastVerified": "2026-03-10T06:26:49+11:00",
+      "lastVerified": "2026-03-10T13:46:27+11:00",
       "headings": [
         {
           "level": 2,
