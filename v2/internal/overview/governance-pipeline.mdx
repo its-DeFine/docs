@@ -3,90 +3,80 @@ title: Governance Pipeline
 description: How the script governance system detects drift, auto-repairs safe issues, and surfaces items needing human attention.
 ---
 
-## Overview
+This repository currently governs about 214 scripts, hooks, and support modules through a shared 9-field metadata model. The governance pipeline checks that metadata at commit time, in pull request CI, on the weekly repair schedule, and during manual maintainer runs. Safe, derivable drift is repaired automatically where the source of truth is clear, while judgement fields and risky wiring decisions are left for a human.
 
-The repo currently tracks roughly 200 scripts through the governance framework. Governed scripts are expected to carry a 9-field header, and the governance pipeline checks for drift at commit time, in PR CI, on post-merge governance sync, during weekly repair, and during on-demand runs, auto-repairing deterministic metadata where it can and surfacing the rest for a human.
+## Trigger chain
 
-## Trigger Chain
-
-| Event | When | What runs | Auto-fixes? | Blocks? |
+| Surface | When | What runs | Safe auto-fix | Blocks |
 |---|---|---|---|---|
-| Commit | Every `git commit` | `.githooks/pre-commit`, including `tests/unit/script-docs.test.js --staged --write --stage --autofill` | Placeholder header bootstrap for new scripts and script index refresh | Yes, when required tags are missing or still placeholders |
-| PR | Every pull request to `main` or `docs-v2` | `.github/workflows/test-suite.yml` -> `npm --prefix tests run test:pr` -> `tests/run-pr-checks.js` | None | Yes, on failed changed-file checks |
-| Push / merge to `docs-v2` | When governance-related paths land on `docs-v2` | `.github/workflows/governance-sync.yml` -> `tools/scripts/orchestrators/repair-governance.js` | Yes, safe governance repair plus follow-up PR creation when fixes are applied | No |
-| Weekly repair | Monday 05:00 UTC | `.github/workflows/repair-governance.yml` -> `tools/scripts/orchestrators/repair-governance.js` in fix mode | Yes, safe governance repairs plus follow-up PR creation when files change | No |
-| Weekly health check | Monday 06:00 UTC | `.github/workflows/content-health.yml` -> broader repo health and component drift audits | None | No |
-| Manual GitHub dispatch | Any time from Actions | `repair-governance.yml` `workflow_dispatch` -> `repair-governance.js` in dry-run, fix, or report-only mode | Yes, in fix mode | No |
-| Manual CLI | Any time locally | `cd tools && npm run audit:scripts` or `npm run repair:governance`, plus direct `node` modes for governance-specific audit and repair flags | Yes, in fix mode | N/A |
+| Commit | Every `git commit` | `.githooks/pre-commit` -> `tests/unit/script-docs.test.js --staged --write --stage --autofill` | Placeholder header injection for newly added governed scripts, plus script index refresh | Yes |
+| Pull request | Every pull request to `main` or `docs-v2` | `.github/workflows/test-suite.yml` -> `tests/run-pr-checks.js` | None | Yes |
+| Scheduled repair | Weekly on Monday at 05:00 UTC | `.github/workflows/repair-governance.yml` -> `tools/scripts/orchestrators/repair-governance.js` in fix mode | Safe governance repairs, report refresh, optional repair PR creation | No |
+| Manual | Any time | Workflow dispatch for `repair-governance.yml`, `npm --prefix tools run audit:scripts`, or `npm --prefix tools run repair:governance` | Depends on command mode | No |
 
-## Auto-Fixed vs Needs Human
+There is no dedicated merge or push stage governance-sync workflow today. Governance repair happens on the Monday schedule or when a maintainer runs it manually.
 
-**Auto-repaired (safe, deterministic):**
+## Auto-fixed vs needs human
 
-- Phantom rows removed from `tasks/reports/script-classifications.json`
-- Missing classification rows added when a script already has valid governed metadata
-- Existing classification rows updated when fields are already recoverable
-- `@script` derived from the filename
-- `@owner` defaulted to `docs`
-- `@usage` derived from file kind and path
-- `@scope` backfilled when it is already recoverable from governed metadata
-- `@pipeline` corrected from actual trigger analysis
-- `@category`, `@purpose`, `@needs`, and `@purpose-statement` backfilled only when classification data already exists
-- Script indexes regenerated
+**Auto-repaired**
 
-**Needs human attention:**
+- Phantom JSON entries are removed from `tasks/reports/script-classifications.json`.
+- Missing JSON rows can be added when a governed script already has valid category, purpose, and scope metadata.
+- Existing JSON rows can be updated from valid header metadata when missing fields are safely recoverable.
+- `@owner` is backfilled to `docs`.
+- `@script` is derived from the filename when it is missing.
+- `@usage` is derived from the file path and command type when it is missing.
+- `@pipeline` is corrected only when the proposed value is a safe superset of detected automation triggers.
+- Script indexes and aggregate indexes are regenerated when governance changes affect them.
 
-- Choosing `@category` and `@purpose` for new scripts without classification data
-- Choosing `@scope` when the right enum is not already recorded
-- Writing `@needs`
-- Writing `@purpose-statement`
-- Deciding the intended execution surface, which determines pipeline wiring
-- Adding or updating the matching row in `tasks/reports/script-classifications.json`
+**Needs human**
+
+- Missing or invalid `@category`
+- Missing or invalid `@purpose`
+- Missing or invalid `@scope`
+- Missing `@needs`
+- Missing `@purpose-statement`
+- Unsafe pipeline mismatches, including claims that would hide detected triggers
+- Missing classification rows that cannot be created from already valid metadata
+- Wiring decisions such as whether a script should stay manual or join a commit, PR, or scheduled path
 
 ## Commands
 
-Only the base repo audit and governance repair orchestration have npm aliases. The detailed governance audit and the extra repair modes use direct `node` invocations.
-
 ```bash
-cd tools
+npm --prefix tools run audit:scripts
+node tools/scripts/validators/governance/audit-script-inventory.js --dry-run
+node tools/scripts/validators/governance/audit-script-inventory.js --fix
+node tools/scripts/validators/governance/audit-script-inventory.js --verbose
 
-npm run audit:scripts
-npm run repair:governance
-
-node scripts/validators/governance/audit-script-inventory.js --json --md
-node scripts/validators/governance/audit-script-inventory.js --json --md --verbose
-node scripts/validators/governance/audit-script-inventory.js --json --md --fix
-node scripts/validators/governance/audit-script-inventory.js --json --md --fix --dry-run
-
-node scripts/orchestrators/repair-governance.js --dry-run
-node scripts/orchestrators/repair-governance.js --report-only
-node scripts/orchestrators/repair-governance.js --auto-commit
+npm --prefix tools run repair:governance
+node tools/scripts/orchestrators/repair-governance.js --dry-run
+node tools/scripts/orchestrators/repair-governance.js --report-only
+node tools/scripts/orchestrators/repair-governance.js --auto-commit
 ```
 
-## Adding a New Script
+Use the audit command family when you want a detailed inventory or a targeted repair preview. Use the repair orchestrator when you want the full safe-repair pipeline, including verification and repair reports.
 
-1. Create the script under `tools/scripts/`.
-2. Add the full 9-field governance header up front: `@script`, `@category`, `@purpose`, `@scope`, `@owner`, `@needs`, `@purpose-statement`, `@pipeline`, and `@usage`.
-3. Add or update the matching row in `tasks/reports/script-classifications.json` if the script should participate in governance repair.
-4. Run `node tests/unit/script-docs.test.js --enforce-existing --write --rebuild-indexes`.
-5. Commit your changes. Pre-commit will run `tests/unit/script-docs.test.js --staged --write --stage --autofill`. If you forgot a header completely, the hook can inject a placeholder bootstrap block, but you still need to replace it with real governance metadata before the commit will pass.
-6. Open a PR. `tests/run-pr-checks.js` validates changed-file coverage in CI.
-7. Merge to `docs-v2`. If governance-related paths changed, `governance-sync.yml` can open a follow-up repair PR. Weekly repair and manual repair remain the fallback for everything else.
+## Adding a new script
 
-Use the schema table below for valid enum choices. The current pre-commit hook tells you which tags are missing or placeholders, but it does not list the valid values for you.
+1. Create the script under a governed root such as `tools/scripts/`, `tests/`, `.githooks/`, or `tasks/scripts/`.
+2. Add the framework header fields: `@script`, `@category`, `@purpose`, `@scope`, `@owner`, `@needs`, `@purpose-statement`, `@pipeline`, and `@usage`.
+3. Run `node tests/unit/script-docs.test.js --write --rebuild-indexes`.
+4. Commit the change. The pre-commit hook can auto-fill a missing placeholder template for newly added scripts, but it does not invent judgement fields for you.
+5. Open the pull request and let `tests/run-pr-checks.js` verify the changed governance surface.
+6. Use the weekly repair workflow or a manual `repair-governance` run to sync safe JSON and header drift after the script lands.
 
-## The 9-Field Header Schema
+## The 9-field schema
 
-Treat all nine fields as required for a complete governed header. Some automation still distinguishes between minimum grading fields and full governance completeness, but new scripts should include the full set from the start.
+`tests/unit/script-docs.test.js` currently enforces the framework header set including `@needs`, `@purpose-statement`, and `@pipeline`. Governance repair extends that model by deriving `@usage` and other safe defaults where possible, but it still treats judgement fields and risky pipeline changes as human work.
 
-| Field | Required? | Auto-repairable? | Valid values |
+| Field | Enforced today | Auto-derived | Notes |
 |---|---|---|---|
-| `@script` | Yes | Yes | Filename-derived script identifier, usually the script basename |
-| `@category` | Yes | Sometimes, from classification data | `validator`, `enforcer`, `remediator`, `generator`, `automation`, `utility`, `orchestrator` |
-| `@purpose` | Yes | Sometimes, from classification data | `qa:content-quality`, `qa:link-integrity`, `qa:repo-health`, `governance:index-management`, `governance:agent-governance`, `governance:repo-health`, `feature:translation`, `feature:seo`, `infrastructure:data-feeds`, `infrastructure:pipeline-orchestration`, `tooling:api-spec`, `tooling:dev-tools` |
-| `@scope` | Yes | Sometimes | `staged`, `changed`, `full-repo`, `v2-content`, `single-domain`, `single-file`, `external`, `generated-output` |
-| `@owner` | Yes | Yes | `docs` |
-| `@needs` | Yes | Sometimes, from classification data | Requirement IDs such as `E-C1`, `R-R29`, `F-R*`, or similar requirement references |
-| `@purpose-statement` | Yes | Sometimes, from classification data | Short free-text explanation of what the script does |
-| `@pipeline` | Yes | Yes | `P1`, `P2`, `P3`, `P5`, `P6`, `manual`, `indirect`, optionally with clarifying prose such as `P5 (scheduled, weekly)` |
-| `@usage` | Yes | Yes | Executable command string such as `node ...`, `bash ...`, or `python3 ...` |
+| `@script` | Yes | Yes | Defaults to the filename when missing. |
+| `@category` | Yes | No | Must match the governed enum. Never guessed. |
+| `@purpose` | Yes | No | Must match the governed enum. Never guessed. |
+| `@scope` | Yes | No | Missing or invalid scope remains a human fix. |
+| `@owner` | Yes | Yes | Governance repair backfills `docs`. |
+| `@needs` | Yes | No | Requirement IDs are mandatory in the current framework validator, but repair will not invent them. |
+| `@purpose-statement` | Yes | No | Required by the framework validator. Repair will not generate free text. |
+| `@pipeline` | Yes | Sometimes | Safe correction is allowed only when detected triggers are preserved. |
+| `@usage` | Partly | Yes | Governance repair derives it from file type and path. `script-docs.test.js` expects a non-placeholder value when the tag is present and uses it in generated indexes. |

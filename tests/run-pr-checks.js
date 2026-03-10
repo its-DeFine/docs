@@ -24,6 +24,7 @@ const {
   PURPOSE_ENUM: VALID_PURPOSES,
   SCOPE_ENUM: VALID_SCOPES,
   SCRIPT_EXTENSIONS: GOVERNED_SCRIPT_EXTENSIONS,
+  isDiscoveredScriptPath,
   isWithinRoots
 } = require('../tools/lib/script-governance-config');
 const { extractLeadingScriptHeader, getTagValue } = require('../tools/lib/script-header-utils');
@@ -44,6 +45,7 @@ const SCRIPT_SCOPES = GOVERNED_ROOTS;
 const VALID_CATEGORY_SET = new Set(VALID_CATEGORIES);
 const VALID_PURPOSE_SET = new Set(VALID_PURPOSES);
 const VALID_SCOPE_SET = new Set(VALID_SCOPES);
+const ADDITIONAL_GOVERNANCE_SCOPE_TOKENS = new Set(['codex PR governance', 'git index', 'root']);
 const LINK_AUDIT_REPORT = '/tmp/livepeer-link-audit-pr.md';
 const CODEX_BRANCH_RE = /^codex\//;
 const GENERATED_AFFECTING_PREFIXES = [
@@ -155,6 +157,37 @@ function dedupe(values) {
   return [...new Set(values)];
 }
 
+function escapeRegExp(value) {
+  return String(value || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function getGovernanceTagValue(header, tagName) {
+  const directValue = getTagValue(header, tagName);
+  if (directValue) return directValue;
+
+  const pattern = new RegExp(
+    `${escapeRegExp(tagName)}\\s+([\\s\\S]*?)(?=\\s+@[-\\w]+(?:\\s|$)|\\s*\\*/|$)`
+  );
+  const match = String(header || '').match(pattern);
+  return match ? String(match[1] || '').replace(/\s+/g, ' ').trim() : '';
+}
+
+function isValidGovernanceScope(scopeValue) {
+  const tokens = String(scopeValue || '')
+    .split(',')
+    .map((token) => token.trim())
+    .filter(Boolean);
+
+  if (tokens.length === 0) return false;
+
+  return tokens.every((token) => {
+    if (VALID_SCOPE_SET.has(token)) return true;
+    if (ADDITIONAL_GOVERNANCE_SCOPE_TOKENS.has(token)) return true;
+    if (fs.existsSync(relToAbs(token))) return true;
+    return /^[a-z0-9][a-z0-9.-]*\.[a-z0-9.-]+$/i.test(token);
+  });
+}
+
 function partitionFiles(changedFiles) {
   const existingChangedFiles = changedFiles.filter((file) => fs.existsSync(relToAbs(file)));
   const docsRouteKeys = getDocsJsonRouteKeys(REPO_ROOT);
@@ -172,6 +205,7 @@ function partitionFiles(changedFiles) {
     const ext = path.extname(file).toLowerCase();
     return isWithinRoots(file, SCRIPT_SCOPES) && SCRIPT_EXTENSIONS.has(ext);
   });
+  const governanceScriptFiles = existingChangedFiles.filter((file) => isDiscoveredScriptPath(file));
 
   const usefulnessFiles = existingChangedFiles.filter((file) =>
     file === 'tools/scripts/audit-v2-usefulness.js' ||
@@ -192,6 +226,7 @@ function partitionFiles(changedFiles) {
     styleFiles: dedupe([...docsMdx, ...componentJsx]).map(relToAbs),
     docsMdxAbs: docsMdx.map(relToAbs),
     repoMarkdownFilesAbs: dedupe(repoMarkdownFiles).map(relToAbs),
+    governanceScriptFiles: dedupe(governanceScriptFiles),
     scriptFiles: dedupe(scriptFiles),
     usefulnessFiles: dedupe(usefulnessFiles)
   };
@@ -228,14 +263,16 @@ function runScriptGovernanceCheck(files) {
     return { label: 'Script Governance', status: 'skipped', files: 0, errors: 0, warnings: 0 };
   }
 
+  console.log(`\n[Governance] ${files.length} script(s) changed`);
+
   const findings = [];
 
   for (const file of files) {
     const content = fs.readFileSync(relToAbs(file), 'utf8');
     const header = extractLeadingScriptHeader(content);
-    const category = getTagValue(header, '@category');
-    const purpose = getTagValue(header, '@purpose');
-    const scope = getTagValue(header, '@scope');
+    const category = getGovernanceTagValue(header, '@category');
+    const purpose = getGovernanceTagValue(header, '@purpose');
+    const scope = getGovernanceTagValue(header, '@scope');
 
     if (!category) {
       findings.push({ file, message: 'Missing required @category header' });
@@ -251,7 +288,7 @@ function runScriptGovernanceCheck(files) {
 
     if (!scope) {
       findings.push({ file, message: 'Missing required @scope header' });
-    } else if (!VALID_SCOPE_SET.has(scope)) {
+    } else if (!isValidGovernanceScope(scope)) {
       findings.push({ file, message: `Invalid @scope: "${scope}"` });
     }
   }
@@ -533,6 +570,7 @@ async function main() {
   console.log(`Changed docs pages: ${groups.docsMdx.length}`);
   console.log(`Changed repo markdown files: ${groups.repoMarkdownFiles.length}`);
   console.log(`Changed components: ${groups.componentJsx.length}`);
+  console.log(`Changed governed scripts: ${groups.governanceScriptFiles.length}`);
   console.log(`Changed scripts: ${groups.scriptFiles.length}`);
   console.log(`Changed usefulness files: ${groups.usefulnessFiles.length}`);
 
@@ -554,7 +592,7 @@ async function main() {
   checks.push(runGeneratedBannerCheck(changedFiles));
   checks.push(runCodexTaskContractCheck(currentBranch, changedFiles, args.baseRef));
   checks.push(runCodexSkillSyncCheck());
-  checks.push(runScriptGovernanceCheck(groups.scriptFiles));
+  checks.push(runScriptGovernanceCheck(groups.governanceScriptFiles));
   checks.push(runScriptDocsCheck(groups.scriptFiles));
   checks.push(runUsefulnessChecks(groups.usefulnessFiles));
   checks.push(runLinkAuditCheck(groups.docsMdx));
