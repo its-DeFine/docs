@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script           component-governance-generators.test
- * @category         validator
- * @purpose          qa:repo-health
- * @scope            tests
- * @owner            docs
- * @needs            R-R10
+ * @script            component-governance-generators.test
+ * @category          validator
+ * @purpose           qa:repo-health
+ * @scope             tests
+ * @owner             docs
+ * @needs             R-R10
  * @purpose-statement Verifies component governance generators produce coherent registry, usage-map, and docs outputs.
- * @pipeline         P1 (commit, via run-all)
- * @usage            node tests/unit/component-governance-generators.test.js
+ * @pipeline          P1 (commit, via run-all)
+ * @usage             node tests/unit/component-governance-generators.test.js
  */
 
 const assert = require('assert');

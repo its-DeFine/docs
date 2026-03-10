@@ -140,9 +140,31 @@ function walkFiles(dirPath, out = []) {
   return out;
 }
 
+function getTrackedFilesForRoot(dirPath) {
+  try {
+    const output = execSync(`git ls-files -- "${normalizeRepoPath(dirPath)}"`, {
+      cwd: REPO_ROOT,
+      encoding: 'utf8'
+    });
+
+    return output
+      .split('\n')
+      .map((line) => normalizeRepoPath(line.trim()))
+      .filter(Boolean)
+      .filter((repoPath) => fileExists(repoPath));
+  } catch (_err) {
+    return [];
+  }
+}
+
 function getScriptsForRoots(roots) {
   const scripts = [];
   for (const root of roots) {
+    const trackedFiles = getTrackedFilesForRoot(root);
+    if (trackedFiles.length > 0) {
+      scripts.push(...trackedFiles);
+      continue;
+    }
     walkFiles(root, scripts);
   }
   return [...new Set(scripts)].filter(isScriptFile).sort();

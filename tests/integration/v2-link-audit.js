@@ -17,6 +17,8 @@ const path = require('path');
 const { execSync } = require('child_process');
 const { extractImports } = require('../utils/mdx-parser');
 const {
+  getDocsJsonGroupFiles,
+  getDocsJsonTabFiles,
   getStagedFiles,
   isExcludedV2ExperimentalPath,
   filterPathsByMintIgnore
@@ -147,6 +149,9 @@ function parseArgs(argv) {
     externalConcurrency: 12,
     externalPerHostConcurrency: 2,
     externalRetries: 1,
+    tab: '',
+    anchor: '',
+    group: '',
     files: []
   };
   let reportExplicit = false;
@@ -165,6 +170,18 @@ function parseArgs(argv) {
           .filter(Boolean)
           .forEach((part) => args.files.push(part));
       }
+      i += 1;
+    }
+    else if (token === '--tab') {
+      args.tab = String(argv[i + 1] || '').trim();
+      i += 1;
+    }
+    else if (token === '--anchor') {
+      args.anchor = String(argv[i + 1] || '').trim();
+      i += 1;
+    }
+    else if (token === '--group') {
+      args.group = String(argv[i + 1] || '').trim();
       i += 1;
     }
     else if (token === '--strict') args.strict = true;
@@ -214,6 +231,16 @@ function parseArgs(argv) {
   args.files = [...new Set(args.files)];
   if (args.files.length > 0) {
     args.mode = 'files';
+  } else if (args.tab) {
+    args.mode = 'tab';
+  }
+
+  if (args.group && !args.tab) {
+    throw new Error('The --group option requires --tab.');
+  }
+
+  if (args.anchor && !args.tab) {
+    throw new Error('The --anchor option requires --tab.');
   }
 
   if (typeof args.writeLinks === 'undefined') {
@@ -392,10 +419,23 @@ function getExplicitTargets(files, options = {}) {
 }
 
 function getInitialTargets(mode, explicitFiles = [], options = {}) {
-  const { respectMintIgnore = true } = options;
+  const { respectMintIgnore = true, tab = '', anchor = '', group = '' } = options;
   const isIndexMdx = (abs) => path.basename(abs).toLowerCase() === 'index.mdx';
   if (mode === 'files') {
     return getExplicitTargets(explicitFiles, { respectMintIgnore });
+  }
+
+  if (mode === 'tab') {
+    const navTargets = group
+      ? getDocsJsonGroupFiles({ tab, anchor, group, rootDir: REPO_ROOT })
+      : getDocsJsonTabFiles(tab, REPO_ROOT);
+    return filterPathsByMintIgnore(
+      navTargets.filter((abs) => abs.endsWith('.mdx') && fs.existsSync(abs) && !isIndexMdx(abs)),
+      {
+        rootDir: REPO_ROOT,
+        respectMintIgnore
+      }
+    );
   }
 
   if (mode === 'staged') {
@@ -1824,7 +1864,10 @@ async function runAudit(options = {}) {
   const { folderToDomain } = buildDomainMaps(structure);
 
   const rootTargets = getInitialTargets(args.mode, args.files, {
-    respectMintIgnore: args.respectMintIgnore
+    respectMintIgnore: args.respectMintIgnore,
+    tab: args.tab,
+    anchor: args.anchor,
+    group: args.group
   });
   if (!rootTargets.length) {
     console.log('No target MDX files found for selected mode.');
@@ -1910,6 +1953,7 @@ async function runAudit(options = {}) {
     exitCode,
     args,
     summary,
+    jsonReport,
     externalValidation,
     reportPath: args.report,
     reportJsonPath: args.reportJson,

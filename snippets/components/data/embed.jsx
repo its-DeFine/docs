@@ -58,7 +58,7 @@ export const MarkdownEmbed = ({ url }) => {
  * @contentAffinity universal
  * @owner @livepeer/docs-team
  * @dependencies TwitterTimeline
- * @usedIn v2/gateways-new/advanced/payment-clearinghouse.mdx, v2/gateways/payments/payment-clearinghouse.mdx, v2/internal/overview/docs-philosophy.mdx, v2/internal/rfp/aims.mdx, v2/lpt/treasury/overview.mdx, v2/resources/media-kit.mdx
+ * @usedIn v2/gateways/payments/payment-clearinghouse.mdx, v2/internal/overview/docs-philosophy.mdx, v2/internal/rfp/aims.mdx, v2/lpt/treasury/overview.mdx, v2/resources/media-kit.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource live API

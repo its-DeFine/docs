@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script           repair-governance.test
- * @category         validator
- * @purpose          governance:repo-health
- * @scope            tests/unit, tools/scripts/orchestrators/repair-governance.js, .github/workflows/repair-governance.yml
- * @owner            docs
- * @needs            R-R14, R-R18, R-C6
+ * @script            repair-governance.test
+ * @category          validator
+ * @purpose           governance:repo-health
+ * @scope             tests/unit, tools/scripts/orchestrators/repair-governance.js, .github/workflows/repair-governance.yml
+ * @owner             docs
+ * @needs             R-R14, R-R18, R-C6
  * @purpose-statement Tests repair-governance.js for safe dry-run, fix, rollback, strict exit handling, and workflow contract coverage.
- * @pipeline         manual
- * @usage            node tests/unit/repair-governance.test.js
+ * @pipeline          manual
+ * @usage             node tests/unit/repair-governance.test.js
  */
 
 const assert = require('assert');

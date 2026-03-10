@@ -1,13 +1,13 @@
 /**
- * @script           component-governance-utils
- * @category         utility
- * @purpose          governance:repo-health
- * @scope            single-domain
- * @owner            docs
- * @needs            R-R10
+ * @script            component-governance-utils
+ * @category          utility
+ * @purpose           governance:repo-health
+ * @scope             single-domain
+ * @owner             docs
+ * @needs             R-R10
  * @purpose-statement Shared parsing and validation utilities for component governance scripts.
- * @pipeline         indirect
- * @usage            const utils = require('../lib/component-governance-utils');
+ * @pipeline          indirect
+ * @usage             const utils = require('../lib/component-governance-utils');
  */
 
 const fs = require('fs');
@@ -155,6 +155,25 @@ function walkFiles(targetPath, predicate, files = []) {
     walkFiles(path.join(targetPath, entry.name), predicate, files);
   });
   return files;
+}
+
+function listTrackedFiles(baseDir, extension) {
+  const scope = normalizeRepoPath(baseDir);
+  let output = '';
+
+  try {
+    output = runGit(['ls-files', '--', scope]);
+  } catch (_error) {
+    return [];
+  }
+
+  return output
+    .split('\n')
+    .map((line) => toPosix(line.trim()))
+    .filter(Boolean)
+    .filter((repoPath) => !extension || repoPath.endsWith(extension))
+    .filter((repoPath) => fs.existsSync(path.join(REPO_ROOT, repoPath)))
+    .map((repoPath) => path.join(REPO_ROOT, repoPath));
 }
 
 function getComponentFiles(baseDir = 'snippets/components') {
@@ -934,10 +953,13 @@ function scanMDXImports(globPattern = 'v2/**/*.mdx', options = {}) {
   const publishedOnly = opts.publishedOnly !== false;
   const base = resolveMdxBaseDir(pattern);
   const absoluteBase = path.join(REPO_ROOT, base);
-  const mdxFiles = walkFiles(absoluteBase, (filePath) => filePath.endsWith('.mdx'));
+  const mdxFiles = listTrackedFiles(absoluteBase, '.mdx');
+  const candidateFiles = mdxFiles.length
+    ? mdxFiles
+    : walkFiles(absoluteBase, (filePath) => filePath.endsWith('.mdx'));
   const results = new Map();
 
-  mdxFiles.forEach((absolutePath) => {
+  candidateFiles.forEach((absolutePath) => {
     const repoPath = normalizeRepoPath(absolutePath);
     if (publishedOnly && !isPublishedDocsPath(repoPath)) {
       return;

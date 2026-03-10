@@ -1,4 +1,13 @@
 #!/usr/bin/env python3
+# @script            generate-component-snippets
+# @category          generator
+# @purpose           tooling:dev-tools
+# @scope             tools/scripts, docs-guide/component-registry.json, .vscode/components.code-snippets
+# @owner             docs
+# @needs             R-R10
+# @purpose-statement Generates VS Code component snippets from the component registry for local editor authoring workflows.
+# @pipeline          manual
+# @usage             python3 tools/scripts/generate-component-snippets.py
 """Generate VS Code component snippets from component-registry.json"""
 import json
 

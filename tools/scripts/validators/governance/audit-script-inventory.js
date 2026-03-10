@@ -29,9 +29,9 @@ const {
   PIPELINE_ORDER,
   PURPOSE_ENUM,
   REQUIRED_FRAMEWORK_KEYS,
-  SCOPE_ENUM,
   SCRIPT_EXTENSIONS,
   isDiscoveredScriptPath,
+  isValidGovernanceScope,
   isWithinRoots,
   normalizeRepoPath,
   parseDeclaredPipelines
@@ -237,7 +237,7 @@ function extractHeaderMetadata(scriptPath, content) {
     has_framework_header: hasFrameworkHeader,
     category_valid: values.category ? CATEGORY_ENUM.includes(values.category) : false,
     purpose_valid: values.purpose ? PURPOSE_ENUM.includes(values.purpose) : false,
-    scope_valid: values.scope ? SCOPE_ENUM.includes(values.scope) : false
+    scope_valid: values.scope ? isValidGovernanceScope(values.scope) : false
   };
 }
 
@@ -1274,7 +1274,7 @@ function buildNeedsHumanEntry(pathName, projectedValues, hasClassificationRow, o
 
   if (!projectedValues.category || !CATEGORY_ENUM.includes(projectedValues.category)) missing.push('@category');
   if (!projectedValues.purpose || !PURPOSE_ENUM.includes(projectedValues.purpose)) missing.push('@purpose');
-  if (!projectedValues.scope || !SCOPE_ENUM.includes(projectedValues.scope)) missing.push('@scope');
+  if (!projectedValues.scope || !isValidGovernanceScope(projectedValues.scope)) missing.push('@scope');
   if (!projectedValues.needs) missing.push('@needs');
   if (!projectedValues.purpose_statement) missing.push('@purpose-statement');
   if (!projectedValues.pipeline_declared || options.pipelineNeedsHuman) missing.push('@pipeline');
@@ -1305,7 +1305,7 @@ function buildProjectedScriptInfo(scriptInfo, projectedValues, classificationRow
     header_field_count: countTruthyFrameworkFields(projectedValues),
     category_valid: projectedValues.category ? CATEGORY_ENUM.includes(projectedValues.category) : false,
     purpose_valid: projectedValues.purpose ? PURPOSE_ENUM.includes(projectedValues.purpose) : false,
-    scope_valid: projectedValues.scope ? SCOPE_ENUM.includes(projectedValues.scope) : false,
+    scope_valid: projectedValues.scope ? isValidGovernanceScope(projectedValues.scope) : false,
     in_json: hasClassificationRow,
     category_match: hasClassificationRow ? classificationRow.category === projectedValues.category : 'N/A',
     purpose_match: hasClassificationRow ? classificationRow.purpose === projectedValues.purpose : 'N/A',

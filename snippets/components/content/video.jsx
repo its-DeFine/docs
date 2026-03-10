@@ -283,7 +283,7 @@ export const Video = ({
  * @contentAffinity tutorial, concept, reference
  * @owner docs
  * @dependencies CardVideo, LinkedInEmbed, TitledVideo, Video, YouTubeVideoData
- * @usedIn v2/community/community-portal.mdx, v2/community/livepeer-community/trending-topics.mdx, v2/gateways-new/setup/install/community-projects.mdx, v2/gateways/run-a-gateway/install/community-projects.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/evolution.mdx, v2/home/about-livepeer/vision.mdx, v2/home/primer.mdx, v2/home/trending.mdx, v2/internal/rfp/aims.mdx, v2/solutions/daydream/overview.mdx, v2/solutions/daydream/overview1.mdx, v2/solutions/frameworks/overview.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/community/community-portal.mdx, v2/community/livepeer-community/trending-topics.mdx, v2/gateways/run-a-gateway/install/community-projects.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/evolution.mdx, v2/home/about-livepeer/vision.mdx, v2/home/primer.mdx, v2/home/trending.mdx, v2/internal/rfp/aims.mdx, v2/solutions/daydream/overview.mdx, v2/solutions/daydream/overview1.mdx, v2/solutions/frameworks/overview.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none

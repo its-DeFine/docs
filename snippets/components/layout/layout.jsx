@@ -7,7 +7,7 @@
  * @contentAffinity overview, tutorial, reference
  * @owner docs
  * @dependencies GridContainer, Spacer
- * @usedIn v2/community/livepeer-community/community-guidelines.mdx, v2/developers/_archive/ai-inference-overview-old.mdx, v2/developers/_archive/ai-inference-workload-fit-old.mdx, v2/developers/build/workload-fit.mdx, v2/gateways-new/get-started/gateway-setup.mdx, v2/gateways-new/setup/run-a-gateway.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/run-a-gateway/run-a-gateway.mdx
+ * @usedIn v2/community/livepeer-community/community-guidelines.mdx, v2/developers/_archive/ai-inference-overview-old.mdx, v2/developers/_archive/ai-inference-workload-fit-old.mdx, v2/developers/build/workload-fit.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/run-a-gateway/run-a-gateway.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none

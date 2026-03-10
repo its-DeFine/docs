@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script           audit-script-inventory-repair-rules.test
- * @category         validator
- * @purpose          qa:repo-health
- * @scope            tests/unit, tools/scripts/validators/governance
- * @owner            docs
- * @needs            E-C1, R-R14
+ * @script            audit-script-inventory-repair-rules.test
+ * @category          validator
+ * @purpose           qa:repo-health
+ * @scope             tests/unit, tools/scripts/validators/governance
+ * @owner             docs
+ * @needs             E-C1, R-R14
  * @purpose-statement Tests audit-script-inventory repair hardening rules for judgement-field backfill and pipeline safety.
- * @pipeline         manual (not yet in pipeline)
- * @usage            node tests/unit/audit-script-inventory-repair-rules.test.js
+ * @pipeline          manual (not yet in pipeline)
+ * @usage             node tests/unit/audit-script-inventory-repair-rules.test.js
  */
 
 const assert = require('assert');
@@ -124,6 +124,24 @@ function main() {
     assert.strictEqual(pipelineDecision.safe_to_apply, true);
     assert.strictEqual(pipelineDecision.value, candidate);
     assert.strictEqual(pipelineDecision.needs_human, false);
+  });
+
+  runCase('accepts path-scoped governance values as valid scope', () => {
+    const needsHuman = buildNeedsHumanEntry(
+      'tests/unit/docs-route-scope.test.js',
+      {
+        category: 'validator',
+        purpose: 'qa:repo-health',
+        scope: 'tests, docs.json',
+        needs: 'E-C1, R-R14',
+        purpose_statement: 'Verifies docs.json-derived tab and group route scopes resolve to live files.',
+        pipeline_declared: 'P1 (commit, via run-all)'
+      },
+      true,
+      { pipelineNeedsHuman: false }
+    );
+
+    assert.strictEqual(needsHuman, null);
   });
 
   if (failures.length > 0) {

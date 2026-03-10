@@ -45,7 +45,7 @@
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies HeroContentContainer, HeroImageBackgroundComponent, HeroOverviewContent, LogoHeroContainer, PortalCardsHeader, PortalContentContainer, PortalHeroContent, PortalSectionHeader, RefCardContainer
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/old/orchestrators-portal.mdx, v2/orchestrators/portal.mdx, v2/orchestrators/v2-dev/orchestrators-portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
@@ -94,7 +94,7 @@ const HeroSectionContainer = ({ children, minHeight = "fit-content" }) => {
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies HeroContentContainer, HeroOverviewContent, HeroSectionContainer, LogoHeroContainer, PortalCardsHeader, PortalContentContainer, PortalHeroContent, PortalSectionHeader, RefCardContainer
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/old/orchestrators-portal.mdx, v2/orchestrators/portal.mdx, v2/orchestrators/v2-dev/orchestrators-portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
@@ -145,7 +145,7 @@ const HeroImageBackgroundComponent = ({ children }) => {
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies HeroImageBackgroundComponent, HeroOverviewContent, HeroSectionContainer, LogoHeroContainer, PortalCardsHeader, PortalContentContainer, PortalHeroContent, PortalSectionHeader, RefCardContainer
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/old/orchestrators-portal.mdx, v2/orchestrators/portal.mdx, v2/orchestrators/v2-dev/orchestrators-portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
@@ -235,7 +235,7 @@ const HeroOverviewContent = ({ children }) => {
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies HeroContentContainer, HeroImageBackgroundComponent, HeroOverviewContent, HeroSectionContainer, LogoHeroContainer, PortalCardsHeader, PortalHeroContent, PortalSectionHeader, RefCardContainer
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/old/orchestrators-portal.mdx, v2/orchestrators/portal.mdx, v2/orchestrators/v2-dev/orchestrators-portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
@@ -283,7 +283,7 @@ const PortalContentContainer = ({ children }) => {
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies HeroContentContainer, HeroImageBackgroundComponent, HeroOverviewContent, HeroSectionContainer, LogoHeroContainer, PortalCardsHeader, PortalContentContainer, PortalSectionHeader, RefCardContainer
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/old/orchestrators-portal.mdx, v2/orchestrators/portal.mdx, v2/orchestrators/v2-dev/orchestrators-portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
@@ -446,7 +446,7 @@ const PortalHeroContent = ({
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies HeroContentContainer, HeroImageBackgroundComponent, HeroOverviewContent, HeroSectionContainer, LogoHeroContainer, PortalContentContainer, PortalHeroContent, PortalSectionHeader, RefCardContainer
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/old/orchestrators-portal.mdx, v2/orchestrators/portal.mdx, v2/orchestrators/v2-dev/orchestrators-portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none
@@ -535,7 +535,7 @@ const PortalSectionHeader = ({ children, title, icon }) => {
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies HeroContentContainer, HeroImageBackgroundComponent, HeroOverviewContent, HeroSectionContainer, PortalCardsHeader, PortalContentContainer, PortalHeroContent, PortalSectionHeader, RefCardContainer
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/lpt/token-portal.mdx, v2/orchestrators/old/orchestrators-portal.mdx, v2/orchestrators/portal.mdx, v2/orchestrators/v2-dev/orchestrators-portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none

@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "generated": "2026-03-10T03:18:05.176Z",
+    "generated": "2026-03-10T21:32:00.742Z",
     "generator": "tools/scripts/generate-component-registry.js",
-    "componentCount": 125
+    "componentCount": 126
   },
   "categories": {
     "primitives": {
@@ -10,7 +10,7 @@
       "purpose": "Standalone visual atoms"
     },
     "layout": {
-      "count": 30,
+      "count": 31,
       "purpose": "Spatial arrangement containers"
     },
     "content": {
@@ -103,7 +103,6 @@
         "CustomCodeBlock"
       ],
       "usedIn": [
-        "v2/gateways-new/setup/install/linux-install.mdx",
         "v2/gateways/run-a-gateway/install/linux-install.mdx"
       ],
       "breakingChangeRisk": "low",
@@ -200,7 +199,6 @@
         "CustomCodeBlock"
       ],
       "usedIn": [
-        "v2/gateways-new/get-started/gateway-setup.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx"
       ],
       "breakingChangeRisk": "low",
@@ -241,7 +239,6 @@
         "CustomCodeBlock"
       ],
       "usedIn": [
-        "v2/gateways-new/get-started/gateway-setup.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx"
       ],
       "breakingChangeRisk": "low",
@@ -345,16 +342,21 @@
         "ComplexCodeBlock"
       ],
       "usedIn": [
-        "v2/gateways-new/get-started/gateway-setup.mdx",
-        "v2/gateways-new/setup/install/linux-install.mdx",
-        "v2/gateways-new/setup/install/windows-install.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
         "v2/gateways/run-a-gateway/install/linux-install.mdx",
         "v2/gateways/run-a-gateway/install/windows-install.mdx",
-        "v2/orchestrators/get-started/quickstart.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
-        "v2/orchestrators/setup/install-go-livepeer.mdx",
-        "v2/orchestrators/setup/orchestrator-stats.mdx"
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/old/setting-up-an-orchestrator/connect-to-arbitrum.mdx",
+        "v2/orchestrators/old/setting-up-an-orchestrator/install-go-livepeer.mdx",
+        "v2/orchestrators/old/setting-up-an-orchestrator/orch-config.mdx",
+        "v2/orchestrators/old/setting-up-an-orchestrator/orchestrator-stats.mdx",
+        "v2/orchestrators/old/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/quickstart/quickstart.mdx",
+        "v2/orchestrators/v2-dev/get-started/quickstart.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
+        "v2/orchestrators/v2-dev/setup/install-go-livepeer.mdx",
+        "v2/orchestrators/v2-dev/setup/orchestrator-stats.mdx"
       ],
       "breakingChangeRisk": "medium",
       "decision": "KEEP",
@@ -466,8 +468,6 @@
         "ValueResponseField"
       ],
       "usedIn": [
-        "v2/gateways-new/get-started/gateway-setup.mdx",
-        "v2/gateways-new/setup/configure/video-configuration.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
         "v2/gateways/run-a-gateway/configure/video-configuration.mdx"
       ],
@@ -835,7 +835,8 @@
         "v2/home/about-livepeer/vision.mdx",
         "v2/internal/rfp/aims.mdx",
         "v2/internal/rfp/report.mdx",
-        "v2/orchestrators/get-started/join-a-pool.mdx"
+        "v2/orchestrators/quickstart/join-a-pool.mdx",
+        "v2/orchestrators/v2-dev/get-started/join-a-pool.mdx"
       ],
       "breakingChangeRisk": "medium",
       "decision": "KEEP",
@@ -877,7 +878,6 @@
         "ValueResponseField"
       ],
       "usedIn": [
-        "v2/gateways-new/get-started/gateway-setup.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx"
       ],
       "breakingChangeRisk": "low",
@@ -927,7 +927,6 @@
         "ValueResponseField"
       ],
       "usedIn": [
-        "v2/gateways-new/get-started/gateway-setup.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx"
       ],
       "breakingChangeRisk": "low",
@@ -1028,16 +1027,6 @@
       "usedIn": [
         "v2/about/livepeer-protocol/livepeer-token.mdx",
         "v2/about/livepeer-protocol/technical-architecture.mdx",
-        "v2/gateways-new/concepts/architecture.mdx",
-        "v2/gateways-new/resources/technical-architecture.mdx",
-        "v2/gateways-new/setup/configure/dual-configuration.mdx",
-        "v2/gateways-new/setup/configure/video-configuration-view.mdx",
-        "v2/gateways-new/setup/configure/video-configuration.mdx",
-        "v2/gateways-new/setup/connect/connect-with-offerings.mdx",
-        "v2/gateways-new/setup/connect/lp-marketplace.mdx",
-        "v2/gateways-new/setup/monitor/monitor-and-optimise.mdx",
-        "v2/gateways-new/setup/publish/connect-with-offerings.mdx",
-        "v2/gateways-new/setup/run-a-gateway.mdx",
         "v2/gateways/about/architecture.mdx",
         "v2/gateways/references/technical-architecture.mdx",
         "v2/gateways/run-a-gateway/configure/dual-configuration.mdx",
@@ -1287,7 +1276,6 @@
       ],
       "usedIn": [
         "v2/about/livepeer-protocol/core-mechanisms.mdx",
-        "v2/gateways-new/get-started/gateway-setup.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx"
       ],
       "breakingChangeRisk": "low",
@@ -1474,7 +1462,6 @@
       "usedIn": [
         "v2/community/community-portal.mdx",
         "v2/community/livepeer-community/trending-topics.mdx",
-        "v2/gateways-new/setup/install/community-projects.mdx",
         "v2/gateways/run-a-gateway/install/community-projects.mdx",
         "v2/home/about-livepeer/benefits.mdx",
         "v2/home/about-livepeer/evolution.mdx",
@@ -1995,8 +1982,6 @@
       "owner": "docs",
       "dependencies": [],
       "usedIn": [
-        "v2/gateways-new/resources/arbitrum-exchanges.mdx",
-        "v2/gateways-new/resources/livepeer-exchanges.mdx",
         "v2/gateways/references/arbitrum-exchanges.mdx",
         "v2/gateways/references/livepeer-exchanges.mdx"
       ],
@@ -2323,7 +2308,6 @@
         "TwitterTimeline"
       ],
       "usedIn": [
-        "v2/gateways-new/advanced/payment-clearinghouse.mdx",
         "v2/gateways/payments/payment-clearinghouse.mdx",
         "v2/internal/overview/docs-philosophy.mdx",
         "v2/internal/rfp/aims.mdx",
@@ -2612,6 +2596,43 @@
       ]
     },
     {
+      "name": "AccordionGroupList",
+      "file": "snippets/components/layout/accordionGroupList.jsx",
+      "category": "layout",
+      "tier": "composite",
+      "status": "stable",
+      "description": "Renders a configurable number of empty accordion sections for scaffold examples.",
+      "contentAffinity": [
+        "tutorial",
+        "reference"
+      ],
+      "owner": "docs",
+      "dependencies": [
+        "AccordionGroup",
+        "Accordion"
+      ],
+      "usedIn": [],
+      "breakingChangeRisk": "low",
+      "decision": "KEEP",
+      "dataSource": "none",
+      "duplicates": [],
+      "lastMeaningfulChange": "2026-03-11",
+      "deprecated": "",
+      "see": "",
+      "params": [
+        {
+          "name": "num",
+          "type": "number",
+          "required": false,
+          "defaultValue": "1",
+          "description": "Number of placeholder accordion sections to render."
+        }
+      ],
+      "examples": [
+        "<AccordionGroupList num={3} />"
+      ]
+    },
+    {
       "name": "AccordionLayout",
       "file": "snippets/components/layout/text.jsx",
       "category": "layout",
@@ -2721,9 +2742,6 @@
         "v2/developers/opportunities/oss-contributions.mdx",
         "v2/developers/opportunities/overview.mdx",
         "v2/developers/opportunities/rfps-and-proposals.mdx",
-        "v2/gateways-new/guides/gateway-operator-opportunities.mdx",
-        "v2/gateways-new/setup/requirements/on-chain setup/on-chain.mdx",
-        "v2/gateways-new/setup/requirements/setup.mdx",
         "v2/gateways/run-a-gateway/gateway-operator-opportunities.mdx",
         "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
         "v2/gateways/run-a-gateway/requirements/setup.mdx",
@@ -2732,8 +2750,12 @@
         "v2/gateways/using-gateways/gateway-providers/daydream-gateway.mdx",
         "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx",
         "v2/lpt/delegation/getting-started.mdx",
-        "v2/orchestrators/advanced/earnings.mdx",
-        "v2/orchestrators/advanced/hosting-models.mdx"
+        "v2/orchestrators/old/advanced-setup/hosting-models.mdx",
+        "v2/orchestrators/old/earnings.mdx",
+        "v2/orchestrators/operations/earnings.mdx",
+        "v2/orchestrators/operations/hosting-models.mdx",
+        "v2/orchestrators/v2-dev/advanced/earnings.mdx",
+        "v2/orchestrators/v2-dev/advanced/hosting-models.mdx"
       ],
       "breakingChangeRisk": "medium",
       "decision": "KEEP",
@@ -3010,16 +3032,17 @@
         "v2/developers/_archive/ai-pipelines-comfystream-old.mdx",
         "v2/developers/_archive/ai-pipelines-model-support-old.mdx",
         "v2/developers/build/workload-fit.mdx",
-        "v2/gateways-new/setup/configure/pricing-configuration.mdx",
-        "v2/gateways-new/setup/configure/video-configuration-view.mdx",
-        "v2/gateways-new/setup/configure/video-configuration.mdx",
         "v2/gateways/guides-and-resources/gateway-job-pipelines/overview.mdx",
         "v2/gateways/run-a-gateway/configure/pricing-configuration.mdx",
         "v2/gateways/run-a-gateway/configure/video-configuration-view.mdx",
         "v2/gateways/run-a-gateway/configure/video-configuration.mdx",
-        "v2/orchestrators/advanced/hosting-models.mdx",
-        "v2/orchestrators/get-started/join-a-pool.mdx",
-        "v2/orchestrators/setup/hardware-requirements.mdx"
+        "v2/orchestrators/old/advanced-setup/hosting-models.mdx",
+        "v2/orchestrators/old/setting-up-an-orchestrator/hardware-requirements.mdx",
+        "v2/orchestrators/operations/hosting-models.mdx",
+        "v2/orchestrators/quickstart/join-a-pool.mdx",
+        "v2/orchestrators/v2-dev/advanced/hosting-models.mdx",
+        "v2/orchestrators/v2-dev/get-started/join-a-pool.mdx",
+        "v2/orchestrators/v2-dev/setup/hardware-requirements.mdx"
       ],
       "breakingChangeRisk": "medium",
       "decision": "KEEP",
@@ -3091,8 +3114,6 @@
         "v2/developers/_archive/ai-inference-overview-old.mdx",
         "v2/developers/_archive/ai-inference-workload-fit-old.mdx",
         "v2/developers/build/workload-fit.mdx",
-        "v2/gateways-new/get-started/gateway-setup.mdx",
-        "v2/gateways-new/setup/run-a-gateway.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
         "v2/gateways/run-a-gateway/run-a-gateway.mdx"
       ],
@@ -3962,15 +3983,6 @@
       ],
       "usedIn": [
         "v2/developers/_archive/ai-pipelines-byoc-old.mdx",
-        "v2/gateways-new/setup/configure/ai-configuration.mdx",
-        "v2/gateways-new/setup/connect/discover-offerings.mdx",
-        "v2/gateways-new/setup/install/docker-install.mdx",
-        "v2/gateways-new/setup/install/linux-install.mdx",
-        "v2/gateways-new/setup/install/windows-install.mdx",
-        "v2/gateways-new/setup/requirements/on-chain setup/fund-gateway.mdx",
-        "v2/gateways-new/setup/requirements/on-chain setup/on-chain.mdx",
-        "v2/gateways-new/setup/requirements/setup.mdx",
-        "v2/gateways-new/setup/run-a-gateway.mdx",
         "v2/gateways/run-a-gateway/configure/ai-configuration.mdx",
         "v2/gateways/run-a-gateway/connect/discover-offerings.mdx",
         "v2/gateways/run-a-gateway/install/docker-install.mdx",
@@ -3981,9 +3993,13 @@
         "v2/gateways/run-a-gateway/requirements/setup.mdx",
         "v2/gateways/run-a-gateway/run-a-gateway.mdx",
         "v2/lpt/delegation/getting-started.mdx",
-        "v2/orchestrators/advanced/hosting-models.mdx",
-        "v2/orchestrators/get-started/join-a-pool.mdx",
-        "v2/orchestrators/get-started/quickstart.mdx"
+        "v2/orchestrators/old/advanced-setup/hosting-models.mdx",
+        "v2/orchestrators/operations/hosting-models.mdx",
+        "v2/orchestrators/quickstart/join-a-pool.mdx",
+        "v2/orchestrators/quickstart/quickstart.mdx",
+        "v2/orchestrators/v2-dev/advanced/hosting-models.mdx",
+        "v2/orchestrators/v2-dev/get-started/join-a-pool.mdx",
+        "v2/orchestrators/v2-dev/get-started/quickstart.mdx"
       ],
       "breakingChangeRisk": "medium",
       "decision": "KEEP",
@@ -4044,15 +4060,6 @@
       ],
       "usedIn": [
         "v2/developers/_archive/ai-pipelines-byoc-old.mdx",
-        "v2/gateways-new/setup/configure/ai-configuration.mdx",
-        "v2/gateways-new/setup/connect/discover-offerings.mdx",
-        "v2/gateways-new/setup/install/docker-install.mdx",
-        "v2/gateways-new/setup/install/linux-install.mdx",
-        "v2/gateways-new/setup/install/windows-install.mdx",
-        "v2/gateways-new/setup/requirements/on-chain setup/fund-gateway.mdx",
-        "v2/gateways-new/setup/requirements/on-chain setup/on-chain.mdx",
-        "v2/gateways-new/setup/requirements/setup.mdx",
-        "v2/gateways-new/setup/run-a-gateway.mdx",
         "v2/gateways/run-a-gateway/configure/ai-configuration.mdx",
         "v2/gateways/run-a-gateway/connect/discover-offerings.mdx",
         "v2/gateways/run-a-gateway/install/docker-install.mdx",
@@ -4063,9 +4070,13 @@
         "v2/gateways/run-a-gateway/requirements/setup.mdx",
         "v2/gateways/run-a-gateway/run-a-gateway.mdx",
         "v2/lpt/delegation/getting-started.mdx",
-        "v2/orchestrators/advanced/hosting-models.mdx",
-        "v2/orchestrators/get-started/join-a-pool.mdx",
-        "v2/orchestrators/get-started/quickstart.mdx"
+        "v2/orchestrators/old/advanced-setup/hosting-models.mdx",
+        "v2/orchestrators/operations/hosting-models.mdx",
+        "v2/orchestrators/quickstart/join-a-pool.mdx",
+        "v2/orchestrators/quickstart/quickstart.mdx",
+        "v2/orchestrators/v2-dev/advanced/hosting-models.mdx",
+        "v2/orchestrators/v2-dev/get-started/join-a-pool.mdx",
+        "v2/orchestrators/v2-dev/get-started/quickstart.mdx"
       ],
       "breakingChangeRisk": "medium",
       "decision": "KEEP",
@@ -4136,9 +4147,6 @@
         "v2/developers/_archive/ai-pipelines-overview-old.mdx",
         "v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx",
         "v2/developers/_archive/quickstart-video-101.mdx",
-        "v2/gateways-new/guides/gateway-operator-opportunities.mdx",
-        "v2/gateways-new/resources/api-reference/AI-API/ai.mdx",
-        "v2/gateways-new/setup/requirements/setup.mdx",
         "v2/gateways/references/api-reference/AI-API/ai.mdx",
         "v2/gateways/run-a-gateway/gateway-operator-opportunities.mdx",
         "v2/gateways/run-a-gateway/requirements/setup.mdx",
@@ -4146,8 +4154,11 @@
         "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx",
         "v2/internal/rfp/report.mdx",
         "v2/lpt/delegation/getting-started.mdx",
-        "v2/orchestrators/advanced/earnings.mdx",
-        "v2/orchestrators/get-started/quickstart.mdx"
+        "v2/orchestrators/old/earnings.mdx",
+        "v2/orchestrators/operations/earnings.mdx",
+        "v2/orchestrators/quickstart/quickstart.mdx",
+        "v2/orchestrators/v2-dev/advanced/earnings.mdx",
+        "v2/orchestrators/v2-dev/get-started/quickstart.mdx"
       ],
       "breakingChangeRisk": "medium",
       "decision": "KEEP",
@@ -4204,9 +4215,6 @@
         "v2/developers/_archive/ai-pipelines-overview-old.mdx",
         "v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx",
         "v2/developers/_archive/quickstart-video-101.mdx",
-        "v2/gateways-new/guides/gateway-operator-opportunities.mdx",
-        "v2/gateways-new/resources/api-reference/AI-API/ai.mdx",
-        "v2/gateways-new/setup/requirements/setup.mdx",
         "v2/gateways/references/api-reference/AI-API/ai.mdx",
         "v2/gateways/run-a-gateway/gateway-operator-opportunities.mdx",
         "v2/gateways/run-a-gateway/requirements/setup.mdx",
@@ -4214,8 +4222,11 @@
         "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx",
         "v2/internal/rfp/report.mdx",
         "v2/lpt/delegation/getting-started.mdx",
-        "v2/orchestrators/advanced/earnings.mdx",
-        "v2/orchestrators/get-started/quickstart.mdx"
+        "v2/orchestrators/old/earnings.mdx",
+        "v2/orchestrators/operations/earnings.mdx",
+        "v2/orchestrators/quickstart/quickstart.mdx",
+        "v2/orchestrators/v2-dev/advanced/earnings.mdx",
+        "v2/orchestrators/v2-dev/get-started/quickstart.mdx"
       ],
       "breakingChangeRisk": "medium",
       "decision": "KEEP",
@@ -4279,9 +4290,6 @@
         "v2/developers/_archive/ai-pipelines-overview-old.mdx",
         "v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx",
         "v2/developers/_archive/quickstart-video-101.mdx",
-        "v2/gateways-new/guides/gateway-operator-opportunities.mdx",
-        "v2/gateways-new/resources/api-reference/AI-API/ai.mdx",
-        "v2/gateways-new/setup/requirements/setup.mdx",
         "v2/gateways/references/api-reference/AI-API/ai.mdx",
         "v2/gateways/run-a-gateway/gateway-operator-opportunities.mdx",
         "v2/gateways/run-a-gateway/requirements/setup.mdx",
@@ -4289,8 +4297,11 @@
         "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway.mdx",
         "v2/internal/rfp/report.mdx",
         "v2/lpt/delegation/getting-started.mdx",
-        "v2/orchestrators/advanced/earnings.mdx",
-        "v2/orchestrators/get-started/quickstart.mdx"
+        "v2/orchestrators/old/earnings.mdx",
+        "v2/orchestrators/operations/earnings.mdx",
+        "v2/orchestrators/quickstart/quickstart.mdx",
+        "v2/orchestrators/v2-dev/advanced/earnings.mdx",
+        "v2/orchestrators/v2-dev/get-started/quickstart.mdx"
       ],
       "breakingChangeRisk": "medium",
       "decision": "KEEP",
@@ -4429,7 +4440,6 @@
         "InlineImageCard"
       ],
       "usedIn": [
-        "v2/gateways-new/get-started/gateway-setup.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
         "v2/home/about-livepeer/benefits.mdx",
         "v2/home/about-livepeer/roadmap.mdx",
@@ -4676,12 +4686,12 @@
       "usedIn": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/developers-new/portal.mdx",
         "v2/developers/portal.mdx",
-        "v2/gateways-new/portal.mdx",
         "v2/gateways/gateways-portal.mdx",
         "v2/home/mission-control.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "breakingChangeRisk": "low",
@@ -4764,12 +4774,12 @@
       "usedIn": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/developers-new/portal.mdx",
         "v2/developers/portal.mdx",
-        "v2/gateways-new/portal.mdx",
         "v2/gateways/gateways-portal.mdx",
         "v2/home/mission-control.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "breakingChangeRisk": "low",
@@ -5010,11 +5020,11 @@
       "usedIn": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/developers-new/portal.mdx",
         "v2/developers/portal.mdx",
-        "v2/gateways-new/portal.mdx",
         "v2/gateways/gateways-portal.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "breakingChangeRisk": "low",
@@ -5176,13 +5186,13 @@
       "usedIn": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/developers-new/portal.mdx",
         "v2/developers/portal.mdx",
-        "v2/gateways-new/portal.mdx",
         "v2/gateways/gateways-portal.mdx",
         "v2/home/mission-control.mdx",
         "v2/lpt/token-portal.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "breakingChangeRisk": "medium",
@@ -5231,13 +5241,13 @@
       "usedIn": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/developers-new/portal.mdx",
         "v2/developers/portal.mdx",
-        "v2/gateways-new/portal.mdx",
         "v2/gateways/gateways-portal.mdx",
         "v2/home/mission-control.mdx",
         "v2/lpt/token-portal.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "breakingChangeRisk": "medium",
@@ -5330,13 +5340,13 @@
       "usedIn": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/developers-new/portal.mdx",
         "v2/developers/portal.mdx",
-        "v2/gateways-new/portal.mdx",
         "v2/gateways/gateways-portal.mdx",
         "v2/home/mission-control.mdx",
         "v2/lpt/token-portal.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "breakingChangeRisk": "medium",
@@ -5456,13 +5466,13 @@
       "usedIn": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/developers-new/portal.mdx",
         "v2/developers/portal.mdx",
-        "v2/gateways-new/portal.mdx",
         "v2/gateways/gateways-portal.mdx",
         "v2/home/mission-control.mdx",
         "v2/lpt/token-portal.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "breakingChangeRisk": "medium",
@@ -5559,12 +5569,12 @@
       "usedIn": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/developers-new/portal.mdx",
         "v2/developers/portal.mdx",
-        "v2/gateways-new/portal.mdx",
         "v2/gateways/gateways-portal.mdx",
         "v2/home/mission-control.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "breakingChangeRisk": "low",
@@ -5733,13 +5743,13 @@
       "usedIn": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/developers-new/portal.mdx",
         "v2/developers/portal.mdx",
-        "v2/gateways-new/portal.mdx",
         "v2/gateways/gateways-portal.mdx",
         "v2/home/mission-control.mdx",
         "v2/lpt/token-portal.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "breakingChangeRisk": "medium",
@@ -5795,13 +5805,13 @@
       "usedIn": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/developers-new/portal.mdx",
         "v2/developers/portal.mdx",
-        "v2/gateways-new/portal.mdx",
         "v2/gateways/gateways-portal.mdx",
         "v2/home/mission-control.mdx",
         "v2/lpt/token-portal.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "breakingChangeRisk": "medium",
@@ -5850,13 +5860,13 @@
       "usedIn": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/developers-new/portal.mdx",
         "v2/developers/portal.mdx",
-        "v2/gateways-new/portal.mdx",
         "v2/gateways/gateways-portal.mdx",
         "v2/home/mission-control.mdx",
         "v2/lpt/token-portal.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "breakingChangeRisk": "medium",
@@ -6077,13 +6087,13 @@
       "usedIn": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/developers-new/portal.mdx",
         "v2/developers/portal.mdx",
-        "v2/gateways-new/portal.mdx",
         "v2/gateways/gateways-portal.mdx",
         "v2/home/mission-control.mdx",
         "v2/lpt/token-portal.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "breakingChangeRisk": "medium",
@@ -6120,7 +6130,6 @@
       "owner": "docs",
       "dependencies": [],
       "usedIn": [
-        "v2/gateways-new/get-started/gateway-setup.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
         "v2/home/about-livepeer/benefits.mdx",
         "v2/home/about-livepeer/roadmap.mdx",
@@ -6261,17 +6270,15 @@
       "usedIn": [
         "v2/about/portal.mdx",
         "v2/community/community-portal.mdx",
-        "v2/developers-new/portal.mdx",
         "v2/developers/portal.mdx",
-        "v2/gateways-new/portal.mdx",
-        "v2/gateways-new/setup/configure/ai-configuration.mdx",
-        "v2/gateways-new/setup/requirements/on-chain setup/on-chain.mdx",
         "v2/gateways/gateways-portal.mdx",
         "v2/gateways/run-a-gateway/configure/ai-configuration.mdx",
         "v2/gateways/run-a-gateway/requirements/on-chain setup/on-chain.mdx",
         "v2/home/mission-control.mdx",
         "v2/lpt/token-portal.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
         "v2/solutions/portal.mdx"
       ],
       "breakingChangeRisk": "medium",
@@ -6491,8 +6498,6 @@
         "TipWithArrow"
       ],
       "usedIn": [
-        "v2/gateways-new/setup/connect/connect-with-offerings.mdx",
-        "v2/gateways-new/setup/publish/connect-with-offerings.mdx",
         "v2/gateways/run-a-gateway/connect/connect-with-offerings.mdx",
         "v2/gateways/run-a-gateway/publish/connect-with-offerings.mdx"
       ],
@@ -6625,17 +6630,12 @@
         "v2/about/resources/blockchain-contracts.mdx",
         "v2/community/community-portal.mdx",
         "v2/community/livepeer-community/community-guidelines.mdx",
-        "v2/developers-new/portal.mdx",
         "v2/developers/opportunities/bug-bounties.mdx",
         "v2/developers/opportunities/grants-and-programmes.mdx",
         "v2/developers/opportunities/oss-contributions.mdx",
         "v2/developers/opportunities/overview.mdx",
         "v2/developers/opportunities/rfps-and-proposals.mdx",
         "v2/developers/portal.mdx",
-        "v2/gateways-new/get-started/gateway-setup.mdx",
-        "v2/gateways-new/portal.mdx",
-        "v2/gateways-new/setup/configure/video-configuration.mdx",
-        "v2/gateways-new/setup/requirements/on-chain setup/on-chain.mdx",
         "v2/gateways/gateways-portal.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
         "v2/gateways/run-a-gateway/configure/video-configuration.mdx",
@@ -6645,11 +6645,13 @@
         "v2/home/about-livepeer/vision.mdx",
         "v2/home/mission-control.mdx",
         "v2/home/solutions/showcase.mdx",
-        "v2/orchestrators/orchestrators-portal.mdx",
+        "v2/orchestrators/old/orchestrators-portal.mdx",
+        "v2/orchestrators/portal.mdx",
+        "v2/orchestrators/v2-dev/orchestrators-portal.mdx",
         "v2/resources/documentation-guide/snippets-inventory.mdx",
         "v2/solutions/portal.mdx"
       ],
-      "breakingChangeRisk": "high",
+      "breakingChangeRisk": "medium",
       "decision": "KEEP",
       "dataSource": "none",
       "duplicates": [],
@@ -6704,18 +6706,6 @@
         "TipWithArrow"
       ],
       "usedIn": [
-        "v2/gateways-new/concepts/architecture.mdx",
-        "v2/gateways-new/get-started/gateway-setup.mdx",
-        "v2/gateways-new/resources/configuration-flags.mdx",
-        "v2/gateways-new/setup/configure/ai-configuration.mdx",
-        "v2/gateways-new/setup/configure/dual-configuration.mdx",
-        "v2/gateways-new/setup/configure/video-configuration-view.mdx",
-        "v2/gateways-new/setup/configure/video-configuration.mdx",
-        "v2/gateways-new/setup/install/docker-install.mdx",
-        "v2/gateways-new/setup/install/install-overview.mdx",
-        "v2/gateways-new/setup/monitor/monitor-and-optimise.mdx",
-        "v2/gateways-new/setup/requirements/on-chain setup/on-chain.mdx",
-        "v2/gateways-new/setup/requirements/setup.mdx",
         "v2/gateways/_contextData_/docker-install.mdx",
         "v2/gateways/about/architecture.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
@@ -6795,8 +6785,6 @@
         "BasicBtn"
       ],
       "usedIn": [
-        "v2/gateways-new/get-started/gateway-setup.mdx",
-        "v2/gateways-new/setup/install/linux-install.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx",
         "v2/gateways/run-a-gateway/install/linux-install.mdx",
         "v2/internal/overview/docs-philosophy.mdx",
@@ -6919,17 +6907,15 @@
         "v2/developers/guides/resources.mdx",
         "v2/developers/opportunities/grants-and-programmes.mdx",
         "v2/developers/opportunities/overview.mdx",
-        "v2/gateways-new/concepts/explainer.mdx",
-        "v2/gateways-new/guides/explorer.mdx",
-        "v2/gateways-new/guides/livepeer-tools.mdx",
-        "v2/gateways-new/setup/install/community-projects.mdx",
         "v2/gateways/about/explainer.mdx",
         "v2/gateways/gateway-tools/explorer.mdx",
         "v2/gateways/gateway-tools/livepeer-tools.mdx",
         "v2/gateways/run-a-gateway/install/community-projects.mdx",
         "v2/home/about-livepeer/vision.mdx",
         "v2/home/primer.mdx",
-        "v2/orchestrators/advanced/hosting-models.mdx"
+        "v2/orchestrators/old/advanced-setup/hosting-models.mdx",
+        "v2/orchestrators/operations/hosting-models.mdx",
+        "v2/orchestrators/v2-dev/advanced/hosting-models.mdx"
       ],
       "breakingChangeRisk": "medium",
       "decision": "KEEP",
@@ -7016,10 +7002,6 @@
         "v2/developers/_archive/ai-pipelines-byoc-old.mdx",
         "v2/developers/_archive/developer-platforms/builder-hub.mdx",
         "v2/developers/build/workload-fit.mdx",
-        "v2/gateways-new/guides/explorer.mdx",
-        "v2/gateways-new/setup/install/community-projects.mdx",
-        "v2/gateways-new/setup/install/install-overview.mdx",
-        "v2/gateways-new/setup/run-a-gateway.mdx",
         "v2/gateways/about/quickstart.mdx",
         "v2/gateways/gateway-tools/explorer.mdx",
         "v2/gateways/run-a-gateway/install/community-projects.mdx",
@@ -7028,7 +7010,9 @@
         "v2/gateways/using-gateways/gateway-providers.mdx",
         "v2/home/about-livepeer/vision.mdx",
         "v2/home/primer.mdx",
-        "v2/orchestrators/advanced/hosting-models.mdx",
+        "v2/orchestrators/old/advanced-setup/hosting-models.mdx",
+        "v2/orchestrators/operations/hosting-models.mdx",
+        "v2/orchestrators/v2-dev/advanced/hosting-models.mdx",
         "v2/solutions/product-hub.mdx"
       ],
       "breakingChangeRisk": "medium",
@@ -7189,8 +7173,10 @@
         "v2/home/solutions/landscape.mdx",
         "v2/home/solutions/showcase.mdx",
         "v2/home/trending.mdx",
-        "v2/orchestrators/concepts/overview.mdx",
-        "v2/orchestrators/get-started/join-a-pool.mdx"
+        "v2/orchestrators/old/about-orchestrators/overview.mdx",
+        "v2/orchestrators/quickstart/join-a-pool.mdx",
+        "v2/orchestrators/v2-dev/concepts/overview.mdx",
+        "v2/orchestrators/v2-dev/get-started/join-a-pool.mdx"
       ],
       "breakingChangeRisk": "medium",
       "decision": "KEEP",
@@ -7621,6 +7607,7 @@
         "v2/developers/_archive/ai-inference-workload-fit-old.mdx",
         "v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx",
         "v2/developers/_archive/quickstart-video-101.mdx",
+        "v2/orchestrators/old/setting-up-an-orchestrator/publish-offerings.mdx",
         "v2/resources/concepts/brief-history-of-video.mdx",
         "v2/resources/references/contract-addresses.mdx"
       ],
@@ -7831,7 +7818,6 @@
         "LinkArrow"
       ],
       "usedIn": [
-        "v2/gateways-new/get-started/gateway-setup.mdx",
         "v2/gateways/quickstart/gateway-setup.mdx"
       ],
       "breakingChangeRisk": "low",

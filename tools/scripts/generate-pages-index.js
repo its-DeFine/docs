@@ -143,19 +143,69 @@ function sortAlpha(values) {
   return [...values].sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
 }
 
+function listTrackedPathsUnder(repoDirRel) {
+  const scope = normalizeRel(repoDirRel);
+
+  try {
+    const output = execSync(`git ls-files -- "${scope}"`, {
+      encoding: 'utf8',
+      cwd: REPO_ROOT
+    });
+
+    return output
+      .split('\n')
+      .map((line) => normalizeRel(line.trim()))
+      .filter(Boolean)
+      .filter((relPath) => relPath === scope || relPath.startsWith(`${scope}/`))
+      .filter((relPath) => fs.existsSync(path.join(REPO_ROOT, relPath)));
+  } catch (_err) {
+    return [];
+  }
+}
+
 function getDirectSubdirs(absDir) {
   if (!fs.existsSync(absDir)) return [];
-  const entries = fs.readdirSync(absDir, { withFileTypes: true });
-  return sortAlpha(entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name));
+  const repoDirRel = normalizeRel(path.relative(REPO_ROOT, absDir));
+  const trackedPaths = listTrackedPathsUnder(repoDirRel);
+
+  if (trackedPaths.length === 0) {
+    const entries = fs.readdirSync(absDir, { withFileTypes: true });
+    return sortAlpha(entries.filter((entry) => entry.isDirectory()).map((entry) => entry.name));
+  }
+
+  const directSubdirs = new Set();
+  trackedPaths.forEach((relPath) => {
+    const remainder = normalizeRel(path.posix.relative(repoDirRel, relPath));
+    if (!remainder || remainder === relPath) return;
+    const [firstSegment, ...tail] = remainder.split('/').filter(Boolean);
+    if (firstSegment && tail.length > 0) {
+      directSubdirs.add(firstSegment);
+    }
+  });
+
+  return sortAlpha([...directSubdirs]);
 }
 
 function getDirectMarkdownFiles(absDir) {
   if (!fs.existsSync(absDir)) return [];
-  const entries = fs.readdirSync(absDir, { withFileTypes: true });
+  const repoDirRel = normalizeRel(path.relative(REPO_ROOT, absDir));
+  const trackedPaths = listTrackedPathsUnder(repoDirRel);
+
+  if (trackedPaths.length === 0) {
+    const entries = fs.readdirSync(absDir, { withFileTypes: true });
+    return sortAlpha(
+      entries
+        .filter((entry) => entry.isFile())
+        .map((entry) => entry.name)
+        .filter((name) => isMarkdownFile(name) && !isIndexFile(name))
+    );
+  }
+
   return sortAlpha(
-    entries
-      .filter((entry) => entry.isFile())
-      .map((entry) => entry.name)
+    trackedPaths
+      .map((relPath) => normalizeRel(path.posix.relative(repoDirRel, relPath)))
+      .filter(Boolean)
+      .filter((relPath) => !relPath.includes('/'))
       .filter((name) => isMarkdownFile(name) && !isIndexFile(name))
   );
 }
@@ -608,29 +658,46 @@ function findNestedIndexFiles(topLevelDirRel, docsRouteKeys = new Set()) {
   ]);
 
   const nested = [];
+  const trackedPaths = listTrackedPathsUnder(topLevelDirRel);
 
-  function walk(currentAbs) {
-    const entries = fs.readdirSync(currentAbs, { withFileTypes: true });
-    for (const entry of entries) {
-      const fullPath = path.join(currentAbs, entry.name);
-      if (entry.isDirectory()) {
-        walk(fullPath);
-        continue;
-      }
-      if (!entry.isFile() || !isIndexFile(entry.name)) {
-        continue;
-      }
-      const relPath = normalizeRel(path.relative(REPO_ROOT, fullPath));
-      const routeKey = normalizeDocsRouteKey(relPath);
-      const isRoutableIndex = routeKey && docsRouteKeys.has(routeKey);
-      if (!allowedTopLevelIndexes.has(relPath)) {
-        if (isRoutableIndex) continue;
-        nested.push(relPath);
+  if (trackedPaths.length === 0) {
+    function walk(currentAbs) {
+      const entries = fs.readdirSync(currentAbs, { withFileTypes: true });
+      for (const entry of entries) {
+        const fullPath = path.join(currentAbs, entry.name);
+        if (entry.isDirectory()) {
+          walk(fullPath);
+          continue;
+        }
+        if (!entry.isFile() || !isIndexFile(entry.name)) {
+          continue;
+        }
+        const relPath = normalizeRel(path.relative(REPO_ROOT, fullPath));
+        const routeKey = normalizeDocsRouteKey(relPath);
+        const isRoutableIndex = routeKey && docsRouteKeys.has(routeKey);
+        if (!allowedTopLevelIndexes.has(relPath)) {
+          if (isRoutableIndex) continue;
+          nested.push(relPath);
+        }
       }
     }
+
+    walk(topLevelAbs);
+    return sortAlpha(nested);
   }
 
-  walk(topLevelAbs);
+  trackedPaths.forEach((relPath) => {
+    if (!isIndexFile(path.basename(relPath))) {
+      return;
+    }
+    const routeKey = normalizeDocsRouteKey(relPath);
+    const isRoutableIndex = routeKey && docsRouteKeys.has(routeKey);
+    if (!allowedTopLevelIndexes.has(relPath)) {
+      if (isRoutableIndex) return;
+      nested.push(relPath);
+    }
+  });
+
   return sortAlpha(nested);
 }
 

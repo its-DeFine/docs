@@ -1,16 +1,23 @@
 ---
-title: 'Dev-helpers'
-sidebarTitle: Dev-helpers
-description: 'Description of dev-helpers'
-audience: developer
-pageType: landing
-purpose: landing
-status: draft
-lastVerified: 2026-03-11
+title: Dev Helpers
+sidebarTitle: Dev Helpers
+description: This page provides resources and helpers for Livepeer docs contributors, including VS Code snippets for frontmatter, Mintlify components, and custom Livepeer components.
 keywords:
   - livepeer
-  - keyword
-'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
+  - vscode snippets
+  - dev helpers
+  - frontmatter
+  - mintlify components
+'og:image': /snippets/assets/site/og-image/fallback.png
+'og:image:alt': Livepeer Docs social preview image
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+audience: developer
+pageType: reference
+purpose: reference
+status: draft
+lastVerified: 2026-03-11T00:00:00.000Z
 ---
 
 {/*
@@ -62,50 +69,107 @@ If you want, I can generate:
 - a **repo-specific VS Code snippets file**
 - or both, tailored to your Livepeer docs structure. */}
 
+# Dev Tools for Livepeer Docs
+Here are some tools to help you write and maintain Livepeer docs more efficiently.
+<GotoLink label="lpd-CLI" relativePath="../lpd.mdx" />
 
 ## AI Skills
 
-## VSCode Snippets
+## VS Code Snippets
 
-Workspace snippets in `.vscode/` — available to all contributors automatically.
+Workspace snippets in `.vscode/` — available to all contributors automatically when they open this repo.
 
-#### Utility snippets 
-{/* IN ACCORDIONGROUPLIST */}
-Frontmatter (`.vscode/mdx.code-snippets`)
+Three snippet files, organised by scope:
 
+| File | Snippets | Scope |
+|------|----------|-------|
+| `.vscode/mdx.code-snippets` | 7 | Frontmatter fields |
+| `.vscode/mintlify.code-snippets` | 25 | Mintlify built-in components |
+| `.vscode/components.code-snippets` | 114 | Custom Livepeer components |
 
-Type `frontmatter` in any MDX file to scaffold the full block with auto-filled title and date:
+<AccordionGroup>
+
+<Accordion title="Frontmatter snippets (7)" icon="gear">
+
+Source: `.vscode/mdx.code-snippets`
+
+**`frontmatter`** — full block with auto-filled title and date:
 
 ```yaml
 ---
 title: 'Explorer' # ← auto-filled from filename
 sidebarTitle: Explorer
 description: 'Description of explorer'
-audience: developer # ← dropdown with 9 canonical values
-pageType: guide # ← dropdown with 12 canonical values
+audience: developer # ← dropdown: 9 canonical values
+pageType: guide # ← dropdown: 12 canonical values
 purpose: how_to
 status: draft
-lastVerified: 2026-03-11 # ← auto-filled with today's date
+lastVerified: 2026-03-11 # ← auto-filled today's date
 keywords:
   - livepeer
   - keyword
-'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
+'og:image': /snippets/assets/site/og-image/fallback.png
+'og:image:alt': Livepeer Docs social preview image
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
 ---
 ```
 
-#### Mintlify Component snippets 
-{/* IN ACCORDIONGROUPLIST - where is this??*/}
+**`fm`** — minimal frontmatter (title + description only).
 
- {/* WHAT IS THIS? what heading is it for?? */}
-Individual field snippets: `pageType`, `audience`, `status`, `purpose`, `lastVerified`, `fm` (minimal block).
+**Individual field snippets** — each inserts one YAML line with a dropdown of canonical values:
 
-### Component snippets (`.vscode/components.code-snippets`)
+| Prefix | Values |
+|--------|--------|
+| `pageType` | `landing`, `overview`, `tutorial`, `quickstart`, `how_to`, `concept`, `reference`, `faq`, `troubleshooting`, `changelog`, `glossary`, `guide` |
+| `audience` | `developer`, `gateway-operator`, `orchestrator`, `delegator`, `platform-builder`, `community`, `internal`, `general`, `everyone` |
+| `status` | `draft`, `review`, `published`, `deprecated`, `archived`, `stub`, `wip`, `needs_update`, `frozen` |
+| `purpose` | `landing`, `overview`, `walkthrough`, `how_to`, `explanation`, `reference`, `troubleshooting`, `faq`, `changelog`, `glossary` |
+| `lastVerified` | Auto-fills today's date |
 
-114 component snippets generated from `docs-guide/component-registry.json`. Type a component name to insert it with required props:
+</Accordion>
 
-<AccordionGroup>
+<Accordion title="Mintlify built-in snippets (25)" icon="bolt">
 
-<Accordion title="primitives (28 snippets)" icon="shapes">
+Source: `.vscode/mintlify.code-snippets`
+
+Type any Mintlify component name to insert it with placeholder props.
+
+| Prefix | What it inserts |
+|--------|----------------|
+| `Card` | `<Card title icon href>` |
+| `CardGroup` | `<CardGroup cols>` with 2 starter cards |
+| `Tabs` | `<Tabs>` with 2 starter tabs |
+| `Tab` | Single `<Tab title>` |
+| `Steps` | `<Steps>` with 2 starter steps |
+| `Step` | Single `<Step title>` |
+| `Accordion` | `<Accordion title icon>` |
+| `AccordionGroup` | `<AccordionGroup>` with 2 starter accordions |
+| `CodeGroup` | `<CodeGroup>` with 2 code blocks |
+| `Note` | `<Note>` callout |
+| `Warning` | `<Warning>` callout |
+| `Info` | `<Info>` callout |
+| `Tip` | `<Tip>` callout |
+| `Check` | `<Check>` success callout |
+| `Frame` | `<Frame>` container |
+| `FrameCaption` | `<Frame caption>` with caption |
+| `Tooltip` | `<Tooltip tip>` inline |
+| `ResponseField` | `<ResponseField name type>` |
+| `Expandable` | `<Expandable title>` |
+| `ParamField` | `<ParamField path type>` |
+| `Snippet` | `<Snippet file>` include |
+| `Icon` | `<Icon icon size>` |
+| `Columns` | `<Columns>` two-column layout |
+| `Column` | Single `<Column>` |
+| `Update` | `<Update label>` changelog entry |
+
+</Accordion>
+
+<Accordion title="Custom components — primitives (28)" icon="shapes">
+
+Source: `.vscode/components.code-snippets` — generated from `docs-guide/component-registry.json`.
+
 **Most used:**
 
 ```mdx
@@ -121,9 +185,11 @@ Individual field snippets: `pageType`, `audience`, `status`, `purpose`, `lastVer
 ```
 
 **Also available:** `DoubleIconLink`, `GotoLink`, `LinkArrow`, `BlinkingIcon`, `MathBlock`, `MathInline`, `Image`, `CardTitleTextWithArrow`, `DownloadButton`, `PreviewCallout`, `CustomCallout`, `Subtitle`, `AccordionTitleWithArrow`, `TipWithArrow`, `ComingSoonCallout`, `CopyText`, `FocusableScrollRegions`, `LivepeerIcon`, `BasicBtn`, `BlinkingTerminal`, `LinkImage`, `LivepeerIconFlipped`, `LivepeerIconOld`, `LivepeerSVG`, `ReviewCallout`, `SocialLinks`
+
 </Accordion>
 
-<Accordion title="layout (29 snippets)" icon="table-columns">
+<Accordion title="Custom components — layout (29)" icon="table-columns">
+
 **Most used:**
 
 ```mdx
@@ -139,9 +205,11 @@ Individual field snippets: `pageType`, `audience`, `status`, `purpose`, `lastVer
 ```
 
 **Also available:** `StyledSteps`, `StyledTable`, `TableCell`, `TableRow`, `DisplayCard`, `FlexContainer`, `WidthCard`, `QuadGrid`, `ScrollBox`, `AccordionLayout`, `BasicList`, `IconList`, `InlineImageCard`, `StepLinkList`, `StepList`, `UpdateLinkList`, `UpdateList`, `CardCarousel`, `CenteredContainer`, `FullWidthContainer`, `GridContainer`, `InteractiveCard`, `InteractiveCards`, `ListSteps`, `SearchTable`, `Spacer`
+
 </Accordion>
 
-<Accordion title="content (24 snippets)" icon="file-lines">
+<Accordion title="Custom components — content (24)" icon="file-lines">
+
 **Most used:**
 
 ```mdx
@@ -157,9 +225,11 @@ Individual field snippets: `pageType`, `audience`, `status`, `purpose`, `lastVer
 ```
 
 **Also available:** `Quote`, `FrameQuote`, `CustomResponseField`, `ValueResponseField`, `CodeComponent`, `CodeSection`, `ComplexCodeBlock`, `ResponseFieldAccordion`, `ResponseFieldExpandable`, `TwitterTimeline`, `YouTubeVideoData`, `CardVideo`, `ShowcaseVideo`, `TitledVideo`, `Video`, `YouTubeVideoDownload`, `EmbedMarkdown`, `ExternalContent`, `LinkedInEmbed`, `MarkdownEmbed`, `ResponseFieldGroup`
+
 </Accordion>
 
-<Accordion title="page-structure (21 snippets)" icon="layer-group">
+<Accordion title="Custom components — page-structure (21)" icon="layer-group">
+
 **Most used — portal hero pattern:**
 
 ```mdx
@@ -173,9 +243,11 @@ Individual field snippets: `pageType`, `audience`, `status`, `purpose`, `lastVer
 ```
 
 **Also available:** `LogoHeroContainer`, `PortalCardsHeader`, `PortalContentContainer`, `PortalHeroContent`, `Starfield`, `H1`, `H2`, `H3`, `H4`, `H5`, `H6`, `P`, `CustomCardTitle`, `PortalSectionHeader`, `Divider`, `HeroOverviewContent`, `PageHeader`, `RefCardContainer`
+
 </Accordion>
 
-<Accordion title="data (14 snippets)" icon="database">
+<Accordion title="Custom components — data (14)" icon="database">
+
 **Most used:**
 
 ```mdx
@@ -188,8 +260,14 @@ Individual field snippets: `pageType`, `audience`, `status`, `purpose`, `lastVer
 ```
 
 **Also available:** `BlogCard`, `CardBlogDataLayout`, `CardColumnsPostLayout`, `ColumnsBlogCardLayout`, `DiscordAnnouncements`, `PostCard`, `LumaEvents`, `ShowcaseCards`, `BlogDataLayout`, `CardInCardLayout`, `LatestVersion`
+
 </Accordion>
 
 </AccordionGroup>
 
-Regenerate after registry changes: `python3 tools/scripts/generate-component-snippets.py`
+<Tip>
+Regenerate component snippets after registry changes:
+```bash
+python3 tools/scripts/generate-component-snippets.py
+```
+</Tip>

@@ -1,35 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script enforce-generated-file-banners
- * @summary Enforce standardized hidden/visible generated banners and frontmatter across generated MDX outputs.
- * @owner docs
- * @scope tools/scripts, tools/lib, docs-guide/indexes, v2, tests/unit/docs-guide-sot.test.js
- * @pipeline manual — interactive developer tool, not suited for automated pipelines
- *
- * @usage
- *   node tools/scripts/enforce-generated-file-banners.js --check
- *   node tools/scripts/enforce-generated-file-banners.js --write
- *   node tools/scripts/enforce-generated-file-banners.js --check --staged
- *
- * @inputs
- *   --check Validate generated banner/frontmatter policy without writing files.
- *   --write Run generators and normalize generated outputs before validation.
- *   --staged Restrict validation to generated/banner-relevant staged files when available.
- *
- * @outputs
- *   - Console validation summary
- *
- * @exit-codes
- *   0 = policy checks passed
- *   1 = one or more policy checks failed
- *
- * @examples
- *   node tools/scripts/enforce-generated-file-banners.js --check
- *   node tools/scripts/enforce-generated-file-banners.js --write
- *   node tools/scripts/enforce-generated-file-banners.js --check --staged
- *
- * @notes
- *   i18n localized files must keep codex-i18n provenance. Visible generation Note parity follows source English pages.
+ * @script            enforce-generated-file-banners
+ * @category          remediator
+ * @purpose           governance:index-management
+ * @scope             tools/scripts, tools/lib, docs-guide/indexes, v2, tests/unit/docs-guide-sot.test.js
+ * @owner             docs
+ * @needs             R-R16, R-R17
+ * @purpose-statement Generated file banner enforcer — checks (--check) or writes (default) "do not edit" banners on generated files.
+ * @pipeline          P1, P3
+ * @usage             node tools/scripts/enforce-generated-file-banners.js --check | --write [--staged]
  */
 
 const fs = require('fs');

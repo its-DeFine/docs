@@ -8,7 +8,7 @@
  * @contentAffinity overview, reference
  * @owner docs
  * @dependencies none
- * @usedIn v2/gateways-new/resources/arbitrum-exchanges.mdx, v2/gateways-new/resources/livepeer-exchanges.mdx, v2/gateways/references/arbitrum-exchanges.mdx, v2/gateways/references/livepeer-exchanges.mdx
+ * @usedIn v2/gateways/references/arbitrum-exchanges.mdx, v2/gateways/references/livepeer-exchanges.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource CoinGecko API

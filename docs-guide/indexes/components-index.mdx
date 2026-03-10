@@ -21,18 +21,18 @@ Run command: node tools/scripts/generate-docs-guide-components-index.js --fix
 **Important**: Do not manually edit this file; run `node tools/scripts/generate-docs-guide-components-index.js --fix`. <br/>
 </Note>
 
-The governed component library currently exposes **125** named export(s).
+The governed component library currently exposes **126** named export(s).
 
 ## Summary
 
 | Category | Exports | Stable | Experimental | Deprecated | Broken | Placeholder |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Primitives](#primitives) | 30 | 29 | 0 | 1 | 0 | 0 |
-| [Layout](#layout) | 30 | 30 | 0 | 0 | 0 | 0 |
+| [Layout](#layout) | 31 | 31 | 0 | 0 | 0 | 0 |
 | [Content](#content) | 24 | 23 | 0 | 1 | 0 | 0 |
 | [Data](#data) | 17 | 16 | 1 | 0 | 0 | 0 |
 | [Page Structure](#page-structure) | 24 | 24 | 0 | 0 | 0 | 0 |
-| **Total** | **125** | **122** | **1** | **2** | **0** | **0** |
+| **Total** | **126** | **123** | **1** | **2** | **0** | **0** |
 
 ## primitives
 
@@ -73,6 +73,7 @@ The governed component library currently exposes **125** named export(s).
 
 | Component | File | Tier | Status | Description | Import path |
 | --- | --- | --- | --- | --- | --- |
+| AccordionGroupList | `/snippets/components/layout/accordionGroupList.jsx` | `composite` | `stable` | Renders a configurable number of empty accordion sections for scaffold examples. | `/snippets/components/layout/accordionGroupList.jsx` |
 | AccordionLayout | `/snippets/components/layout/text.jsx` | `composite` | `stable` | Accordion Layout layout component for arranging documentation content without MDX inline styles. | `/snippets/components/layout/text.jsx` |
 | BasicList | `/snippets/components/layout/lists.jsx` | `composite` | `stable` | Basic List layout component for arranging documentation content without MDX inline styles. | `/snippets/components/layout/lists.jsx` |
 | BorderedBox | `/snippets/components/layout/containers.jsx` | `composite` | `stable` | Bordered Box layout component for arranging documentation content without MDX inline styles. | `/snippets/components/layout/containers.jsx` |
@@ -200,6 +201,7 @@ The governed component library currently exposes **125** named export(s).
 | BlogDataLayout | `data` | `/snippets/components/data/data.jsx` | `stable` | Blog Data Layout data-driven component for rendering automated or API-backed documentation content. |
 | CardInCardLayout | `data` | `/snippets/components/data/data.jsx` | `stable` | Card In Card Layout data-driven component for rendering automated or API-backed documentation content. |
 | MarkdownEmbed | `data` | `/snippets/components/data/embed.jsx` | `stable` | Dynamically fetches markdown content from a remote URL and renders it. Uses React hooks to manage the fetch lifecycle |
+| AccordionGroupList | `layout` | `/snippets/components/layout/accordionGroupList.jsx` | `stable` | Renders a configurable number of empty accordion sections for scaffold examples. |
 | CardCarousel | `layout` | `/snippets/components/layout/card-carousel.jsx` | `stable` | Card Carousel layout component for arranging documentation content without MDX inline styles. |
 | CenteredContainer | `layout` | `/snippets/components/layout/containers.jsx` | `stable` | Centered Container layout component for arranging documentation content without MDX inline styles. |
 | FullWidthContainer | `layout` | `/snippets/components/layout/containers.jsx` | `stable` | Full Width Container layout component for arranging documentation content without MDX inline styles. |

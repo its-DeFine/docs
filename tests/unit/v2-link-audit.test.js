@@ -90,6 +90,21 @@ async function runTests() {
     assert.ok(parsed.reportJson.endsWith('/tmp/v2-link-audit-unit.json'));
   });
 
+  await runCase('Parses docs.json tab scope flags and promotes mode to tab', async () => {
+    const parsed = audit.parseArgs([
+      '--tab', 'GPU Nodes',
+      '--anchor', 'GPU Nodes',
+      '--group', 'Tools and Guides',
+      '--no-write-links'
+    ]);
+
+    assert.strictEqual(parsed.mode, 'tab');
+    assert.strictEqual(parsed.tab, 'GPU Nodes');
+    assert.strictEqual(parsed.anchor, 'GPU Nodes');
+    assert.strictEqual(parsed.group, 'Tools and Guides');
+    assert.strictEqual(parsed.writeLinks, false);
+  });
+
   await runCase('Derives JSON report path from custom markdown report when report-json is omitted', async () => {
     const parsed = audit.parseArgs([
       '--report', '/tmp/v2-link-audit-unit-report.md',
@@ -166,11 +181,30 @@ async function runTests() {
     }
   });
 
+  await runCase('Docs.json tab scope resolves live orchestrator files without stale guides paths', async () => {
+    const result = await audit.runAudit({
+      argv: [
+        '--tab', 'GPU Nodes',
+        '--anchor', 'GPU Nodes',
+        '--group', 'Tools and Guides',
+        '--no-write-links',
+        '--report', '/tmp/v2-link-audit-unit-gpu-nodes.md',
+        '--report-json', '/tmp/v2-link-audit-unit-gpu-nodes.json'
+      ]
+    });
+
+    assert.strictEqual(result.fileCount, 2);
+    const analyzedFiles = (result.jsonReport?.files || []).map((file) => file.file || file.filePath || '');
+    assert(analyzedFiles.some((file) => file.endsWith('v2/orchestrators/tools-and-guides/guides.mdx')));
+    assert(analyzedFiles.some((file) => file.endsWith('v2/orchestrators/tools-and-guides/tooling.mdx')));
+    assert(analyzedFiles.every((file) => !file.includes('v2/orchestrators/guides/')));
+  });
+
   return {
     errors,
     warnings,
     passed: errors.length === 0,
-    total: 7
+    total: 9
   };
 }
 

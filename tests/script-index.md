@@ -27,6 +27,8 @@
 | `tests/unit/create-codex-pr.test.js` | Tests create-codex-pr.js — validates PR creation logic and branch naming | `node tests/unit/create-codex-pr.test.js [flags]` | docs |
 | `tests/unit/docs-guide-sot.test.js` | Validates docs-guide source-of-truth coverage, README pointers, and generated index freshness | `node tests/unit/docs-guide-sot.test.js [flags]` | docs |
 | `tests/unit/docs-navigation.test.js` | Validates docs.json page-entry syntax, reports missing routes, warns on orphaned canonical v2 pages, suggests remaps, and optionally applies approved remaps | `node tests/unit/docs-navigation.test.js [flags]` | docs |
+| `tests/unit/docs-route-scope.test.js` | Verifies docs.json-derived tab and group route scopes resolve to live files. | `node tests/unit/docs-route-scope.test.js` | docs |
+| `tests/unit/frontmatter-taxonomy.test.js` | Verifies shared docs frontmatter taxonomy normalization and purpose mapping. | `node tests/unit/frontmatter-taxonomy.test.js` | docs |
 | `tests/unit/links-imports.test.js` | Validates MDX internal links and snippet import paths are resolvable | `node tests/unit/links-imports.test.js [flags]` | docs |
 | `tests/unit/lpd-scoped-mint-dev.test.js` | Tests lpd scoped mint-dev functionality — validates dev server scope filtering | `node tests/unit/lpd-scoped-mint-dev.test.js [flags]` | docs |
 | `tests/unit/mdx-component-runtime-smoke.test.js` | Unit tests for the MDX runtime smoke helpers — covers arg parsing, sentinel route selection, trigger logic, and failure classification. | `node tests/unit/mdx-component-runtime-smoke.test.js` | docs |

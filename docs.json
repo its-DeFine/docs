@@ -2791,69 +2791,69 @@
                         "group": "Hub",
                         "icon": "graduation-cap",
                         "pages": [
-                          "v2/orchestrators/orchestrators-portal",
-                          "v2/orchestrators/orchestrator-journey"
+                          "v2/orchestrators/portal",
+                          "v2/orchestrators/old/orchestrator-journey"
                         ]
                       },
                       {
                         "group": "Concepts",
                         "icon": "book-open",
                         "pages": [
-                          "v2/orchestrators/concepts/overview",
-                          "v2/orchestrators/concepts/architecture",
-                          "v2/orchestrators/concepts/economics",
-                          "v2/orchestrators/concepts/functions",
-                          "v2/orchestrators/concepts/job-types"
+                          "v2/orchestrators/old/about-orchestrators/overview",
+                          "v2/orchestrators/old/about-orchestrators/architecture",
+                          "v2/orchestrators/old/about-orchestrators/economics",
+                          "v2/orchestrators/old/about-orchestrators/orchestrator-functions",
+                          "v2/orchestrators/old/about-orchestrators/job-types"
                         ]
                       },
                       {
                         "group": "Get Started",
                         "icon": "bolt",
                         "pages": [
-                          "v2/orchestrators/get-started/setup-paths",
-                          "v2/orchestrators/get-started/quickstart",
-                          "v2/orchestrators/get-started/join-a-pool",
-                          "v2/orchestrators/get-started/AI-prompt-start",
-                          "v2/orchestrators/get-started/realtime-ai-quickstart",
-                          "v2/orchestrators/get-started/batch-ai-quickstart"
+                          "v2/orchestrators/quickstart/setup-paths",
+                          "v2/orchestrators/quickstart/quickstart",
+                          "v2/orchestrators/quickstart/join-a-pool",
+                          "v2/orchestrators/quickstart/AI-prompt-start",
+                          "v2/orchestrators/quickstart/realtime-ai-quickstart",
+                          "v2/orchestrators/quickstart/batch-ai-quickstart"
                         ]
                       },
                       {
                         "group": "Setup",
                         "icon": "gear",
                         "pages": [
-                          "v2/orchestrators/setup/overview",
-                          "v2/orchestrators/setup/hardware-requirements",
-                          "v2/orchestrators/setup/install-go-livepeer",
-                          "v2/orchestrators/setup/orch-config",
-                          "v2/orchestrators/setup/connect-to-arbitrum",
-                          "v2/orchestrators/setup/orchestrator-stats",
-                          "v2/orchestrators/setup/publish-offerings",
-                          "v2/orchestrators/setup/data-centre-setup",
-                          "v2/orchestrators/setup/data-centres-and-large-scale-hardware-providers",
-                          "v2/orchestrators/setup/enterprise-and-data-centres"
+                          "v2/orchestrators/old/setting-up-an-orchestrator/overview",
+                          "v2/orchestrators/old/setting-up-an-orchestrator/hardware-requirements",
+                          "v2/orchestrators/old/setting-up-an-orchestrator/install-go-livepeer",
+                          "v2/orchestrators/old/setting-up-an-orchestrator/orch-config",
+                          "v2/orchestrators/old/setting-up-an-orchestrator/connect-to-arbitrum",
+                          "v2/orchestrators/old/setting-up-an-orchestrator/orchestrator-stats",
+                          "v2/orchestrators/old/setting-up-an-orchestrator/publish-offerings",
+                          "v2/orchestrators/old/setting-up-an-orchestrator/data-centre-setup",
+                          "v2/orchestrators/old/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
+                          "v2/orchestrators/old/setting-up-an-orchestrator/enterprise-and-data-centres"
                         ]
                       },
                       {
                         "group": "Advanced",
                         "icon": "chart-line",
                         "pages": [
-                          "v2/orchestrators/advanced/earnings",
-                          "v2/orchestrators/advanced/staking-LPT",
-                          "v2/orchestrators/advanced/rewards-and-fees",
-                          "v2/orchestrators/advanced/delegation",
-                          "v2/orchestrators/advanced/payments",
-                          "v2/orchestrators/advanced/ai-pipelines",
-                          "v2/orchestrators/advanced/hosting-models",
-                          "v2/orchestrators/advanced/run-a-pool"
+                          "v2/orchestrators/operations/earnings",
+                          "v2/orchestrators/operations/staking-LPT",
+                          "v2/orchestrators/operations/rewards-and-fees",
+                          "v2/orchestrators/operations/delegation",
+                          "v2/orchestrators/operations/payments",
+                          "v2/orchestrators/operations/ai-pipelines",
+                          "v2/orchestrators/operations/hosting-models",
+                          "v2/orchestrators/operations/run-a-pool"
                         ]
                       },
                       {
                         "group": "Tools and Guides",
                         "icon": "wrench",
                         "pages": [
-                          "v2/orchestrators/tools-and-guides/guides",
-                          "v2/orchestrators/tools-and-guides/tooling"
+                          "v2/orchestrators/guides/guides",
+                          "v2/orchestrators/guides/tooling"
                         ]
                       },
                       {
@@ -2861,7 +2861,8 @@
                         "icon": "books",
                         "pages": [
                           "v2/orchestrators/resources/faq",
-                          "v2/orchestrators/resources/cli-flags"
+                          "v2/orchestrators/resources/community-pools",
+                          "v2/orchestrators/resources/technical/cli-flags"
                         ]
                       }
                     ]
@@ -3189,7 +3190,7 @@
                               "docs-guide/feature-guides/architecture-map",
                               "docs-guide/feature-guides/automation-pipelines",
                               "docs-guide/feature-guides/content-system",
-                              "docs-guide/feature-guides/visual-explainer-workflows",
+                              "docs-guide/feature-guides/deprecated/visual-explainer-workflows",
                               "docs-guide/feature-guides/data-integrations"
                             ]
                           },

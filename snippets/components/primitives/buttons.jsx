@@ -29,7 +29,7 @@ export const BasicBtn = () => {
  * @contentAffinity universal
  * @owner docs
  * @dependencies BasicBtn
- * @usedIn v2/gateways-new/get-started/gateway-setup.mdx, v2/gateways-new/setup/install/linux-install.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/run-a-gateway/install/linux-install.mdx, v2/internal/overview/docs-philosophy.mdx, v2/resources/media-kit.mdx
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/run-a-gateway/install/linux-install.mdx, v2/internal/overview/docs-philosophy.mdx, v2/resources/media-kit.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none

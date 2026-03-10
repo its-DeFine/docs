@@ -112,7 +112,7 @@ const PageHeader = ({
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies Divider, H2, H3, H4, H5, H6, P, PageHeader
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/old/orchestrators-portal.mdx, v2/orchestrators/portal.mdx, v2/orchestrators/v2-dev/orchestrators-portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
@@ -176,7 +176,7 @@ const H1 = ({
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies Divider, H1, H3, H4, H5, H6, P, PageHeader
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/old/orchestrators-portal.mdx, v2/orchestrators/portal.mdx, v2/orchestrators/v2-dev/orchestrators-portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
@@ -368,7 +368,7 @@ const H4 = ({
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies Divider, H1, H2, H3, H4, H6, P, PageHeader
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/gateways-portal.mdx, v2/orchestrators/old/orchestrators-portal.mdx, v2/orchestrators/portal.mdx, v2/orchestrators/v2-dev/orchestrators-portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
@@ -496,7 +496,7 @@ const H6 = ({
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies Divider, H1, H2, H3, H4, H5, H6, PageHeader
- * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers-new/portal.mdx, v2/developers/portal.mdx, v2/gateways-new/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/orchestrators-portal.mdx, v2/solutions/portal.mdx
+ * @usedIn v2/about/portal.mdx, v2/community/community-portal.mdx, v2/developers/portal.mdx, v2/gateways/gateways-portal.mdx, v2/home/mission-control.mdx, v2/orchestrators/old/orchestrators-portal.mdx, v2/orchestrators/portal.mdx, v2/orchestrators/v2-dev/orchestrators-portal.mdx, v2/solutions/portal.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none

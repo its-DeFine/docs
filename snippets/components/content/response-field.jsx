@@ -7,7 +7,7 @@
  * @contentAffinity tutorial, concept, reference
  * @owner docs
  * @dependencies CustomResponseField, ResponseFieldAccordion, ResponseFieldExpandable, ResponseFieldGroup
- * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx, v2/gateways-new/get-started/gateway-setup.mdx, v2/gateways/quickstart/gateway-setup.mdx
+ * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx, v2/gateways/quickstart/gateway-setup.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
@@ -76,7 +76,7 @@ const expandableCode = () => {
  * @contentAffinity tutorial, concept, reference
  * @owner docs
  * @dependencies ResponseFieldAccordion, ResponseFieldExpandable, ResponseFieldGroup, ValueResponseField
- * @usedIn v2/gateways-new/get-started/gateway-setup.mdx, v2/gateways-new/setup/configure/video-configuration.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/run-a-gateway/configure/video-configuration.mdx
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx, v2/gateways/run-a-gateway/configure/video-configuration.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
@@ -112,7 +112,7 @@ const CustomResponseField = ({ description, ...props }) => {
  * @contentAffinity tutorial, concept, reference
  * @owner docs
  * @dependencies CustomResponseField, ResponseFieldAccordion, ResponseFieldGroup, ValueResponseField
- * @usedIn v2/gateways-new/get-started/gateway-setup.mdx, v2/gateways/quickstart/gateway-setup.mdx
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none
@@ -143,7 +143,7 @@ const ResponseFieldExpandable = ({ fields = {}, ...props }) => {
  * @contentAffinity tutorial, concept, reference
  * @owner docs
  * @dependencies CustomResponseField, ResponseFieldExpandable, ResponseFieldGroup, ValueResponseField
- * @usedIn v2/gateways-new/get-started/gateway-setup.mdx, v2/gateways/quickstart/gateway-setup.mdx
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none

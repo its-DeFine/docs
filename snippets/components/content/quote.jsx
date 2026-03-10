@@ -7,7 +7,7 @@
  * @contentAffinity tutorial, concept, reference
  * @owner docs
  * @dependencies none
- * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx, v2/about/livepeer-protocol/governance-model.mdx, v2/about/livepeer-protocol/livepeer-token.mdx, v2/about/livepeer-protocol/overview.mdx, v2/about/livepeer-protocol/technical-architecture.mdx, v2/about/livepeer-protocol/treasury.mdx, v2/home/about-livepeer/vision.mdx, v2/internal/rfp/aims.mdx, v2/internal/rfp/report.mdx, v2/orchestrators/get-started/join-a-pool.mdx
+ * @usedIn v2/about/livepeer-protocol/core-mechanisms.mdx, v2/about/livepeer-protocol/governance-model.mdx, v2/about/livepeer-protocol/livepeer-token.mdx, v2/about/livepeer-protocol/overview.mdx, v2/about/livepeer-protocol/technical-architecture.mdx, v2/about/livepeer-protocol/treasury.mdx, v2/home/about-livepeer/vision.mdx, v2/internal/rfp/aims.mdx, v2/internal/rfp/report.mdx, v2/orchestrators/quickstart/join-a-pool.mdx, v2/orchestrators/v2-dev/get-started/join-a-pool.mdx
  * @breakingChangeRisk medium
  * @decision KEEP
  * @dataSource none

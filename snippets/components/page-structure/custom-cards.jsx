@@ -118,7 +118,7 @@ export const CustomCardTitle = ({ icon, title, style }) => {
  * @contentAffinity landing, overview
  * @owner docs
  * @dependencies none
- * @usedIn v2/gateways-new/get-started/gateway-setup.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/roadmap.mdx, v2/resources/media-kit.mdx
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/roadmap.mdx, v2/resources/media-kit.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none

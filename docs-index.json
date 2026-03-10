@@ -1,10 +1,6 @@
 {
   "version": "docs-index.v1",
-<<<<<<< HEAD
-  "generated": "2026-03-10T04:14:04.081Z",
-=======
-  "generated": "2026-03-10T04:20:54.533Z",
->>>>>>> origin/docs-v2
+  "generated": "2026-03-10T21:32:21.355Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -676,7 +672,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1864,
+      "wordCount": 1860,
       "lastVerified": "2026-03-09T20:43:37+11:00",
       "headings": [
         {
@@ -1888,12 +1884,16 @@
     {
       "url": "https://docs.livepeer.org/v2/about/resources/technical-roadmap",
       "title": "Technical Roadmap",
-      "description": "",
+      "description": "Roadmap: https://blog.livepeer.org/introducing-livepeer-cascade-a-vision-for-livepeers-future-in-the-age-of-real-time-ai-video/ https://blog.livepeer.org/a-r...",
       "section": "about",
       "tags": [
+        "livepeer",
         "about",
         "resources",
-        "technical-roadmap"
+        "technical-roadmap",
+        "roadmap",
+        "https",
+        "introducing"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -2006,7 +2006,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 32,
+      "wordCount": 44,
       "lastVerified": "2026-03-09T01:25:13+11:00",
       "headings": [],
       "codeLanguages": []
@@ -2017,9 +2017,16 @@
       "description": "Open-source toolkit for world models and real-time AI video on the Livepeer network.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "daydream",
-        "overview"
+        "overview",
+        "open",
+        "source",
+        "toolkit",
+        "world",
+        "models",
+        "real"
       ],
       "entities": [
         "daydream"
@@ -2062,9 +2069,16 @@
       "description": "Add live and on-demand video to your app with Livepeer Studio-APIs, dashboard, SDKs, and billing in one place.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
-        "overview"
+        "overview",
+        "studio",
+        "live",
+        "demand",
+        "video",
+        "your",
+        "with"
       ],
       "entities": [
         "livepeer-studio"
@@ -2566,9 +2580,16 @@
       "description": "Full-stack video infrastructure: open stack, live video processing, and flexible self-hosted or hosted deployments on Livepeer.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "frameworks",
-        "overview"
+        "overview",
+        "full",
+        "stack",
+        "video",
+        "infrastructure",
+        "open",
+        "live"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -2644,9 +2665,16 @@
       "description": "Create an account, get an API key, and add live or on-demand video in under 5 minutes.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
-        "quickstart"
+        "quickstart",
+        "create",
+        "account",
+        "live",
+        "demand",
+        "video",
+        "under"
       ],
       "entities": [
         "livepeer-studio"
@@ -2737,10 +2765,15 @@
       "description": "Scaffold a new Livepeer app with the Livepeer Studio CLI.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "get-started",
-        "studio-cli"
+        "studio-cli",
+        "studio",
+        "scaffold",
+        "with",
+        "generates"
       ],
       "entities": [
         "livepeer-studio"
@@ -2773,10 +2806,16 @@
       "description": "Concepts for livestreams in Livepeer Studio: streams, sessions, ingest, playback, and health.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "livestream",
-        "overview"
+        "overview",
+        "concepts",
+        "livestreams",
+        "studio",
+        "streams",
+        "sessions"
       ],
       "entities": [
         "livepeer-studio"
@@ -2823,10 +2862,16 @@
       "description": "Create a livestream with the Livepeer Studio API and get a stream key and playback ID.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "livestream",
-        "create-livestream"
+        "create-livestream",
+        "create",
+        "with",
+        "studio",
+        "stream",
+        "playback"
       ],
       "entities": [
         "livepeer-studio"
@@ -2861,10 +2906,16 @@
       "description": "Play livestreams in your app with the Livepeer Player or a custom HLS/WebRTC player.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "livestream",
-        "playback-livestream"
+        "playback-livestream",
+        "play",
+        "livestreams",
+        "your",
+        "with",
+        "player"
       ],
       "entities": [
         "livepeer-studio"
@@ -2898,10 +2949,16 @@
       "description": "Configure OBS Studio to stream into Livepeer Studio using RTMP and the stream key.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "livestream",
-        "stream-via-obs"
+        "stream-via-obs",
+        "stream",
+        "configure",
+        "studio",
+        "into",
+        "using"
       ],
       "entities": [
         "livepeer-studio"
@@ -2936,10 +2993,16 @@
       "description": "Broadcast live from the browser using WebRTC and the Livepeer Broadcast component or custom WHIP.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "livestream",
-        "livestream-from-browser"
+        "livestream-from-browser",
+        "from",
+        "browser",
+        "broadcast",
+        "live",
+        "using"
       ],
       "entities": [
         "livepeer-studio"
@@ -2977,10 +3040,16 @@
       "description": "Send one livestream to multiple RTMP/RTMPS destinations (e.g. Twitch, YouTube).",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "livestream",
-        "multistream"
+        "multistream",
+        "send",
+        "multiple",
+        "rtmp",
+        "rtmps",
+        "destinations"
       ],
       "entities": [
         "livepeer-studio"
@@ -3015,10 +3084,16 @@
       "description": "Create short clips from active livestreams using the Create Clip API.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "livestream",
-        "clip-livestream"
+        "clip-livestream",
+        "clip",
+        "create",
+        "short",
+        "clips",
+        "from"
       ],
       "entities": [
         "livepeer-studio"
@@ -3063,10 +3138,16 @@
       "description": "Monitor livestream health: transcoding, real-time status, multistream targets, ingest rate, and logs.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "livestream",
-        "stream-health"
+        "stream-health",
+        "stream",
+        "health",
+        "monitor",
+        "transcoding",
+        "real"
       ],
       "entities": [
         "livepeer-studio"
@@ -3109,10 +3190,16 @@
       "description": "Achieve low or ultra-low latency with WebRTC and HLS and tune OBS and in-browser broadcast settings.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "livestream",
-        "optimize-latency"
+        "optimize-latency",
+        "optimize",
+        "latency",
+        "achieve",
+        "ultra",
+        "with"
       ],
       "entities": [
         "livepeer-studio"
@@ -3151,10 +3238,16 @@
       "description": "Concepts for VOD in Livepeer Studio: assets, playback, recordings, clips, and encrypted assets.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "video-on-demand",
-        "overview"
+        "overview",
+        "video",
+        "demand",
+        "concepts",
+        "studio",
+        "assets"
       ],
       "entities": [
         "livepeer-studio",
@@ -3190,10 +3283,16 @@
       "description": "Upload video files to Livepeer Studio with TUS resumable uploads or PUT.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "video-on-demand",
-        "upload-asset"
+        "upload-asset",
+        "upload",
+        "asset",
+        "video",
+        "files",
+        "studio"
       ],
       "entities": [
         "livepeer-studio",
@@ -3223,10 +3322,16 @@
       "description": "Play VOD assets with the Livepeer Player or a custom HLS/MP4 player.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "video-on-demand",
-        "playback-asset"
+        "playback-asset",
+        "play",
+        "asset",
+        "assets",
+        "with",
+        "player"
       ],
       "entities": [
         "livepeer-studio",
@@ -3261,10 +3366,16 @@
       "description": "Upload and play encrypted video with Livepeer Studio and control access.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "video-on-demand",
-        "encrypted-assets"
+        "encrypted-assets",
+        "encrypted",
+        "assets",
+        "upload",
+        "play",
+        "video"
       ],
       "entities": [
         "livepeer-studio",
@@ -3288,10 +3399,16 @@
       "description": "Get thumbnails for video assets from the playback info API (WebVTT and keyframe images).",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "video-on-demand",
-        "thumbnails-vod"
+        "thumbnails-vod",
+        "thumbnails",
+        "video",
+        "assets",
+        "from",
+        "playback"
       ],
       "entities": [
         "livepeer-studio",
@@ -3330,10 +3447,16 @@
       "description": "Use the Transcode API to transcode video from and to S3-compatible storage (e.g. Storj, W3S).",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "video-on-demand",
-        "transcode-video"
+        "transcode-video",
+        "transcode",
+        "video",
+        "from",
+        "compatible",
+        "storage"
       ],
       "entities": [
         "livepeer-studio",
@@ -3365,10 +3488,16 @@
       "description": "Restrict playback for streams and assets with webhooks or JWTs.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "access-control",
-        "overview"
+        "overview",
+        "access",
+        "control",
+        "restrict",
+        "playback",
+        "streams"
       ],
       "entities": [
         "livepeer-studio"
@@ -3395,10 +3524,16 @@
       "description": "Gate playback using a webhook that validates the viewer and returns allow or deny.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "access-control",
-        "webhooks"
+        "webhooks",
+        "access",
+        "control",
+        "with",
+        "gate",
+        "playback"
       ],
       "entities": [
         "livepeer-studio"
@@ -3436,10 +3571,16 @@
       "description": "Gate playback using signed JWTs so only viewers with a valid token can watch.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "access-control",
-        "jwt"
+        "jwt",
+        "access",
+        "control",
+        "with",
+        "jwts",
+        "gate"
       ],
       "entities": [
         "livepeer-studio"
@@ -3477,10 +3618,16 @@
       "description": "Receive real-time events from Livepeer Studio (stream, asset, recording, multistream, task, access control).",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "analytics",
-        "webhooks"
+        "webhooks",
+        "receive",
+        "real",
+        "time",
+        "events",
+        "from"
       ],
       "entities": [
         "livepeer-studio"
@@ -3511,10 +3658,16 @@
       "description": "Use webhooks to react to stream and asset events (started, ready, failed, etc.).",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "analytics",
-        "listen-to-events"
+        "listen-to-events",
+        "listen",
+        "events",
+        "webhooks",
+        "react",
+        "stream"
       ],
       "entities": [
         "livepeer-studio"
@@ -3545,10 +3698,16 @@
       "description": "Viewership and engagement metrics via the Livepeer API, Grafana, and Timeplus.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "analytics",
-        "overview"
+        "overview",
+        "viewership",
+        "engagement",
+        "metrics",
+        "grafana",
+        "timeplus"
       ],
       "entities": [
         "livepeer-studio"
@@ -3579,9 +3738,16 @@
       "description": "Use the Livepeer Player component and the lvpr.tv embeddable player for playback.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
-        "player"
+        "player",
+        "embed",
+        "component",
+        "lvpr",
+        "embeddable",
+        "playback",
+        "react"
       ],
       "entities": [
         "livepeer-studio"
@@ -3618,10 +3784,16 @@
       "description": "Livepeer Studio REST API: authentication and basic usage.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "reference",
-        "api"
+        "api",
+        "overview",
+        "studio",
+        "rest",
+        "authentication",
+        "basic"
       ],
       "entities": [
         "livepeer-studio"
@@ -3710,10 +3882,16 @@
       "description": "Server and client SDKs for the Livepeer Studio API: TypeScript, Go, Python, and React.",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "reference",
-        "sdks"
+        "sdks",
+        "overview",
+        "server",
+        "client",
+        "studio",
+        "typescript"
       ],
       "entities": [
         "livepeer-studio"
@@ -3746,10 +3924,16 @@
       "description": "Organize streams, assets, and API keys with Livepeer Studio projects (staging, production, multiple apps).",
       "section": "solutions",
       "tags": [
+        "livepeer",
         "solutions",
         "livepeer-studio",
         "reference",
-        "managing-projects"
+        "managing-projects",
+        "managing",
+        "projects",
+        "organize",
+        "streams",
+        "assets"
       ],
       "entities": [
         "livepeer-studio"
@@ -5914,8 +6098,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1049,
-      "lastVerified": "2026-03-10T09:20:54+11:00",
+      "wordCount": 1059,
+      "lastVerified": "2026-03-10T15:14:03+11:00",
       "headings": [
         {
           "level": 2,
@@ -7437,7 +7621,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 103,
-      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "lastVerified": "2026-03-10T15:14:03+11:00",
       "headings": [
         {
           "level": 2,
@@ -7470,7 +7654,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 100,
-      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "lastVerified": "2026-03-10T15:14:03+11:00",
       "headings": [
         {
           "level": 2,
@@ -7784,7 +7968,7 @@
     {
       "url": "https://docs.livepeer.org/v2/resources/changelog/changelog",
       "title": "Documentation Changelog",
-      "description": "",
+      "description": "This changelog tracks significant updates to the Livepeer documentation. For protocol changes, see the Livepeer Improvement Proposals (LIPs) and Livepeer Forum.",
       "section": "resources",
       "tags": [
         "livepeer",
@@ -9619,9 +9803,16 @@
       "description": "Understand Livepeer's probabilistic micropayment system and what it means for gateway operators managing payment signing keys, ETH balances, and on-chain settlement.",
       "section": "gateways",
       "tags": [
+        "livepeer",
         "gateways",
         "payments",
-        "how-payments-work"
+        "how-payments-work",
+        "work",
+        "understand",
+        "probabilistic",
+        "micropayment",
+        "system",
+        "what"
       ],
       "entities": [
         "gateway"
@@ -9684,9 +9875,16 @@
       "description": "How third-party clearinghouses can manage Ethereum custody, payment signing, and PM settlement on behalf of gateway operators and app developers.",
       "section": "gateways",
       "tags": [
+        "livepeer",
         "gateways",
         "payments",
-        "payment-clearinghouse"
+        "payment-clearinghouse",
+        "payment",
+        "clearinghouses",
+        "third",
+        "party",
+        "manage",
+        "ethereum"
       ],
       "entities": [
         "gateway"
@@ -9916,7 +10114,7 @@
         "POST /text-to-image"
       ],
       "difficulty": "advanced",
-      "wordCount": 30,
+      "wordCount": 42,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9943,7 +10141,7 @@
         "POST /image-to-image"
       ],
       "difficulty": "advanced",
-      "wordCount": 48,
+      "wordCount": 61,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9971,7 +10169,7 @@
         "POST /image-to-video"
       ],
       "difficulty": "advanced",
-      "wordCount": 30,
+      "wordCount": 42,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -9998,7 +10196,7 @@
         "POST /upscale"
       ],
       "difficulty": "advanced",
-      "wordCount": 28,
+      "wordCount": 40,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10025,7 +10223,7 @@
         "POST /audio-to-text"
       ],
       "difficulty": "advanced",
-      "wordCount": 48,
+      "wordCount": 60,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10052,7 +10250,7 @@
         "POST /segment-anything-2"
       ],
       "difficulty": "advanced",
-      "wordCount": 30,
+      "wordCount": 42,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10079,7 +10277,7 @@
         "POST /llm"
       ],
       "difficulty": "advanced",
-      "wordCount": 28,
+      "wordCount": 40,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10106,7 +10304,7 @@
         "POST /image-to-text"
       ],
       "difficulty": "advanced",
-      "wordCount": 47,
+      "wordCount": 60,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10134,7 +10332,7 @@
         "POST /live-video-to-video"
       ],
       "difficulty": "advanced",
-      "wordCount": 31,
+      "wordCount": 43,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10161,7 +10359,7 @@
         "POST /text-to-speech"
       ],
       "difficulty": "advanced",
-      "wordCount": 30,
+      "wordCount": 42,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10188,7 +10386,7 @@
         "GET /health"
       ],
       "difficulty": "advanced",
-      "wordCount": 44,
+      "wordCount": 57,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10215,7 +10413,7 @@
         "GET /hardware/info"
       ],
       "difficulty": "advanced",
-      "wordCount": 46,
+      "wordCount": 59,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10242,7 +10440,7 @@
         "GET /hardware/stats"
       ],
       "difficulty": "advanced",
-      "wordCount": 43,
+      "wordCount": 56,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10337,7 +10535,7 @@
         "POST /unbond"
       ],
       "difficulty": "advanced",
-      "wordCount": 28,
+      "wordCount": 40,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10363,7 +10561,7 @@
         "POST /rebond"
       ],
       "difficulty": "advanced",
-      "wordCount": 28,
+      "wordCount": 40,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10390,7 +10588,7 @@
         "POST /activateOrchestrator"
       ],
       "difficulty": "advanced",
-      "wordCount": 28,
+      "wordCount": 40,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10416,7 +10614,7 @@
         "POST /setBroadcastConfig"
       ],
       "difficulty": "advanced",
-      "wordCount": 28,
+      "wordCount": 40,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10442,7 +10640,7 @@
         "POST /setMaxPriceForCapability"
       ],
       "difficulty": "advanced",
-      "wordCount": 28,
+      "wordCount": 40,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10468,7 +10666,7 @@
         "POST /reward"
       ],
       "difficulty": "advanced",
-      "wordCount": 28,
+      "wordCount": 40,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10494,7 +10692,7 @@
         "POST /transferTokens"
       ],
       "difficulty": "advanced",
-      "wordCount": 28,
+      "wordCount": 40,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10520,7 +10718,7 @@
         "POST /signMessage"
       ],
       "difficulty": "advanced",
-      "wordCount": 28,
+      "wordCount": 40,
       "lastVerified": "2026-03-09T15:06:41+11:00",
       "headings": [],
       "codeLanguages": []
@@ -10610,8 +10808,8 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/orchestrators-portal",
-      "title": "Orchestrator Home Portal",
+      "url": "https://docs.livepeer.org/v2/orchestrators/portal",
+      "title": "Orchestrator Portal",
       "description": "Welcome To The Orchestrator Portal: Explore, Earn, Operate",
       "section": "orchestrators",
       "tags": [
@@ -10634,7 +10832,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 175,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -10644,7 +10842,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/orchestrator-journey",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/orchestrator-journey",
       "title": "Orchestrator Journey",
       "description": "Choose your path as a Livepeer orchestrator - run a full go-livepeer node or use a lightweight split setup",
       "section": "orchestrators",
@@ -10658,6 +10856,7 @@
         "rewards",
         "staking",
         "orchestrators",
+        "old",
         "orchestrator-journey"
       ],
       "entities": [
@@ -10666,7 +10865,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 434,
-      "lastVerified": "2026-03-10T13:46:27+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -10690,7 +10889,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/concepts/overview",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/about-orchestrators/overview",
       "title": "Orchestrator Explainer",
       "description": "Learn what orchestrators are, how they earn, and which setup path fits your GPU resources and goals.",
       "section": "orchestrators",
@@ -10701,7 +10900,7 @@
         "overview",
         "orchestrator",
         "explainer",
-        "concepts"
+        "old"
       ],
       "entities": [
         "orchestrator"
@@ -10709,7 +10908,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 350,
-      "lastVerified": "2026-03-10T13:46:27+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 3,
@@ -10727,7 +10926,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/concepts/architecture",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/about-orchestrators/architecture",
       "title": "Orchestrator Architecture",
       "description": "See how gateways, orchestrator controllers, and GPU workers interact to process transcoding and AI jobs.",
       "section": "orchestrators",
@@ -10738,7 +10937,7 @@
         "orchestrator-architecture",
         "orchestrator",
         "architecture",
-        "concepts"
+        "old"
       ],
       "entities": [
         "orchestrator"
@@ -10746,14 +10945,14 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 44,
-      "lastVerified": "2026-03-10T09:06:59+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [],
       "codeLanguages": [
         "mermaid"
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/concepts/economics",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/about-orchestrators/economics",
       "title": "Orchestrator Economics",
       "description": "Understand orchestrator revenue, costs, staking, fees, and incentives across Livepeer network participation.",
       "section": "orchestrators",
@@ -10764,7 +10963,7 @@
         "orchestrator-economics",
         "orchestrator",
         "economics",
-        "concepts"
+        "old"
       ],
       "entities": [
         "orchestrator"
@@ -10772,7 +10971,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 289,
-      "lastVerified": "2026-03-10T09:06:59+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -10798,7 +10997,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/concepts/functions",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/about-orchestrators/orchestrator-functions",
       "title": "Orchestrator Functions",
       "description": "Learn what orchestrators do across compute, AI inference, staking, delegation, and governance on the Livepeer network.",
       "section": "orchestrators",
@@ -10809,7 +11008,7 @@
         "orchestrator-functions",
         "orchestrator",
         "functions",
-        "concepts"
+        "old"
       ],
       "entities": [
         "orchestrator"
@@ -10817,7 +11016,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 304,
-      "lastVerified": "2026-03-10T09:06:59+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -10859,123 +11058,45 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/concepts/job-types",
-      "title": "Job Types",
-      "description": "The job types an orchestrator can process — transcoding, batch AI inference, real-time AI (Cascade), and LLM inference — with hardware requirements, pricing models, and how to choose which to run.",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/about-orchestrators/job-types",
+      "title": "Types of Orchestrator Jobs",
+      "description": "Understand the differences between transcoding, realtime AI, and batch AI orchestrator configurations.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
-        "orchestrator",
+        "orchestrators",
         "job-types",
         "transcoding",
-        "ai-inference",
-        "cascade",
-        "llm",
+        "realtime-ai",
         "batch-ai",
-        "real-time-ai",
-        "gpu",
-        "vram",
-        "pipeline"
+        "old",
+        "about-orchestrators"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1772,
-      "lastVerified": "2026-03-10T14:20:15+11:00",
+      "wordCount": 138,
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
-        {
-          "level": 2,
-          "text": "Overview"
-        },
         {
           "level": 2,
           "text": "Transcoding"
         },
         {
-          "level": 3,
-          "text": "Hardware requirements"
-        },
-        {
-          "level": 3,
-          "text": "Pricing model"
-        },
-        {
-          "level": 3,
-          "text": "Configuration"
+          "level": 2,
+          "text": "Realtime AI"
         },
         {
           "level": 2,
-          "text": "Batch AI Inference"
-        },
-        {
-          "level": 3,
-          "text": "Current pipelines"
-        },
-        {
-          "level": 3,
-          "text": "Hardware requirements"
-        },
-        {
-          "level": 3,
-          "text": "Pricing model"
-        },
-        {
-          "level": 3,
-          "text": "Configuration"
-        },
-        {
-          "level": 2,
-          "text": "Real-time AI (Cascade)"
-        },
-        {
-          "level": 3,
-          "text": "Use cases"
-        },
-        {
-          "level": 3,
-          "text": "Hardware requirements"
-        },
-        {
-          "level": 3,
-          "text": "Pricing model"
-        },
-        {
-          "level": 3,
-          "text": "Configuration"
-        },
-        {
-          "level": 2,
-          "text": "LLM Inference"
-        },
-        {
-          "level": 3,
-          "text": "Current supported models"
-        },
-        {
-          "level": 3,
-          "text": "Hardware requirements"
-        },
-        {
-          "level": 3,
-          "text": "Pricing model"
-        },
-        {
-          "level": 3,
-          "text": "Configuration"
-        },
-        {
-          "level": 2,
-          "text": "Choosing Your Setup"
+          "text": "Batch AI"
         }
       ],
-      "codeLanguages": [
-        "json"
-      ]
+      "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/get-started/setup-paths",
+      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/setup-paths",
       "title": "How to Get Started",
       "description": "Choose your path as a GPU operator on Livepeer — join a pool, run a solo orchestrator, add AI pipelines, or operate at enterprise scale.",
       "section": "orchestrators",
@@ -10989,15 +11110,16 @@
         "lpt",
         "gpu",
         "setup-paths",
-        "orchestrators"
+        "orchestrators",
+        "quickstart"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
-      "difficulty": "intermediate",
+      "difficulty": "beginner",
       "wordCount": 271,
-      "lastVerified": "2026-03-10T14:20:15+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -11007,7 +11129,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/get-started/quickstart",
+      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/quickstart",
       "title": "Transcoding Orchestrator Quickstart",
       "description": "Run go-livepeer as a transcoding orchestrator: create your wallet, configure your node, register, and verify.",
       "section": "orchestrators",
@@ -11016,8 +11138,7 @@
         "orchestrators",
         "quickstart",
         "transcoding",
-        "go-livepeer",
-        "get-started"
+        "go-livepeer"
       ],
       "entities": [
         "orchestrator"
@@ -11025,7 +11146,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 176,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -11057,7 +11178,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/get-started/join-a-pool",
+      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/join-a-pool",
       "title": "Join a Pool",
       "description": "Contribute GPU capacity to an existing Livepeer orchestrator and earn rewards without running protocol infrastructure.",
       "section": "orchestrators",
@@ -11068,15 +11189,15 @@
         "join-a-pool",
         "join",
         "pool",
-        "get-started"
+        "quickstart"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
-      "difficulty": "intermediate",
+      "difficulty": "beginner",
       "wordCount": 1061,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -11090,7 +11211,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/get-started/AI-prompt-start",
+      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/AI-prompt-start",
       "title": "Add AI to Your Node",
       "description": "Add AI inference pipelines to an existing go-livepeer transcoding node — hardware check, aiModels.json configuration, and startup command update.",
       "section": "orchestrators",
@@ -11106,14 +11227,14 @@
         "batch-ai",
         "gpu",
         "orchestrators",
-        "get-started"
+        "quickstart"
       ],
       "entities": [
         "orchestrator",
         "ai"
       ],
       "apiEndpoints": [],
-      "difficulty": "intermediate",
+      "difficulty": "beginner",
       "wordCount": 931,
       "lastVerified": "2026-03-10",
       "headings": [
@@ -11172,7 +11293,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/get-started/realtime-ai-quickstart",
+      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/realtime-ai-quickstart",
       "title": "Realtime AI Orchestrator Quickstart",
       "description": "Setup path for realtime AI orchestrators on Livepeer (coming soon).",
       "section": "orchestrators",
@@ -11181,7 +11302,6 @@
         "orchestrators",
         "realtime-ai",
         "quickstart",
-        "get-started",
         "realtime-ai-quickstart"
       ],
       "entities": [
@@ -11191,12 +11311,12 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 31,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/get-started/batch-ai-quickstart",
+      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/batch-ai-quickstart",
       "title": "Batch AI Orchestrator Quickstart",
       "description": "Setup path for batch AI orchestrators on Livepeer (coming soon).",
       "section": "orchestrators",
@@ -11205,7 +11325,6 @@
         "orchestrators",
         "batch-ai",
         "quickstart",
-        "get-started",
         "batch-ai-quickstart"
       ],
       "entities": [
@@ -11215,12 +11334,12 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 33,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/overview",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/setting-up-an-orchestrator/overview",
       "title": "Setting up an Orchestrator",
       "description": "What it means to run an orchestrator and a setup checklist.",
       "section": "orchestrators",
@@ -11229,6 +11348,8 @@
         "orchestrators",
         "setup",
         "checklist",
+        "old",
+        "setting-up-an-orchestrator",
         "overview"
       ],
       "entities": [
@@ -11237,7 +11358,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 60,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -11251,7 +11372,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/hardware-requirements",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/setting-up-an-orchestrator/hardware-requirements",
       "title": "Hardware Requirements",
       "description": "Minimum, recommended, and production hardware for running a Livepeer orchestrator.",
       "section": "orchestrators",
@@ -11261,7 +11382,8 @@
         "hardware",
         "gpu",
         "requirements",
-        "setup",
+        "old",
+        "setting-up-an-orchestrator",
         "hardware-requirements"
       ],
       "entities": [
@@ -11270,7 +11392,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 158,
-      "lastVerified": "2026-03-10T09:20:54+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -11300,22 +11422,19 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/install-go-livepeer",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/setting-up-an-orchestrator/install-go-livepeer",
       "title": "Install go-livepeer",
-      "description": "Install the go-livepeer binary on Linux, macOS, or via Docker. Covers prerequisites, GPU driver requirements, installation steps, and verification.",
+      "description": "Install the Livepeer node software: binary (Darwin, Linux, Windows), Docker, or build from source.",
       "section": "orchestrators",
       "tags": [
-        "go-livepeer",
+        "livepeer",
+        "orchestrators",
         "install",
-        "orchestrator",
-        "gpu",
-        "nvidia",
+        "go-livepeer",
         "docker",
         "binary",
-        "cuda",
-        "linux",
-        "orchestrators",
-        "setup",
+        "old",
+        "setting-up-an-orchestrator",
         "install-go-livepeer"
       ],
       "entities": [
@@ -11323,8 +11442,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 569,
-      "lastVerified": "2026-03-10T14:16:31+11:00",
+      "wordCount": 285,
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -11332,56 +11451,56 @@
         },
         {
           "level": 2,
-          "text": "Install go-livepeer"
+          "text": "Binary release"
         },
         {
-          "level": 1,
-          "text": "CPU build (arm64)"
+          "level": 3,
+          "text": "Darwin (macOS)"
         },
         {
-          "level": 1,
-          "text": "NVIDIA GPU build (amd64)"
+          "level": 3,
+          "text": "Linux"
         },
         {
-          "level": 1,
-          "text": "NVIDIA GPU build (arm64)"
+          "level": 3,
+          "text": "Linux (GPU / NVIDIA)"
         },
         {
-          "level": 1,
-          "text": "Release checksums"
-        },
-        {
-          "level": 1,
-          "text": "Intel (amd64)"
+          "level": 3,
+          "text": "Windows"
         },
         {
           "level": 2,
-          "text": "Verify your installation"
+          "text": "Docker"
         },
         {
           "level": 2,
-          "text": "Next steps"
+          "text": "Build from source"
+        },
+        {
+          "level": 2,
+          "text": "Activate"
+        },
+        {
+          "level": 2,
+          "text": "See also"
         }
       ],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/orch-config",
-      "title": "Configure Your Orchestrator",
-      "description": "Set the go-livepeer flags needed to run as an orchestrator — GPU selection, pricing, networking, and AI worker configuration.",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/setting-up-an-orchestrator/orch-config",
+      "title": "Example Orchestrator Config",
+      "description": "Example aiModels.json and transcodingOptions.json for orchestrators.",
       "section": "orchestrators",
       "tags": [
-        "go-livepeer",
-        "orchestrator",
-        "configuration",
-        "flags",
-        "priceperunit",
-        "serviceaddr",
-        "nvidia",
-        "ai-worker",
-        "cli",
+        "livepeer",
         "orchestrators",
-        "setup",
+        "config",
+        "aimodels",
+        "transcodingoptions",
+        "old",
+        "setting-up-an-orchestrator",
         "orch-config"
       ],
       "entities": [
@@ -11389,56 +11508,24 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1376,
-      "lastVerified": "2026-03-10T14:20:15+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Prerequisites"
-        },
-        {
-          "level": 2,
-          "text": "Essential flags"
-        },
-        {
-          "level": 2,
-          "text": "Full startup command"
-        },
-        {
-          "level": 2,
-          "text": "Adding AI inference"
-        },
-        {
-          "level": 2,
-          "text": "Variants"
-        },
-        {
-          "level": 2,
-          "text": "Next steps"
-        }
-      ],
-      "codeLanguages": [
-        "bash",
-        "ini"
-      ]
+      "wordCount": 28,
+      "lastVerified": "2026-03-11T05:46:11+11:00",
+      "headings": [],
+      "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/connect-to-arbitrum",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/setting-up-an-orchestrator/connect-to-arbitrum",
       "title": "Connect to Arbitrum",
-      "description": "Connect go-livepeer to the Arbitrum network using a hosted or self-hosted RPC endpoint — required for staking, activation, and payments.",
+      "description": "Connect go-livepeer to Arbitrum: hosted RPC or self-hosted node.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
-        "orchestrator",
+        "orchestrators",
         "arbitrum",
         "rpc",
         "ethurl",
-        "alchemy",
-        "infura",
-        "ethereum",
-        "connection",
-        "orchestrators",
-        "setup",
+        "old",
+        "setting-up-an-orchestrator",
         "connect-to-arbitrum"
       ],
       "entities": [
@@ -11446,36 +11533,30 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 631,
-      "lastVerified": "2026-03-10T14:20:15+11:00",
+      "wordCount": 66,
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "Prerequisites"
+          "text": "Hosted RPC (recommended to start)"
         },
         {
           "level": 2,
-          "text": "Step 1 — Choose an RPC endpoint"
+          "text": "Self-hosted node"
         },
         {
           "level": 2,
-          "text": "Step 2 — Add the flag to your startup command"
+          "text": "Supported networks"
         },
         {
           "level": 2,
-          "text": "Step 3 — Verify the connection"
-        },
-        {
-          "level": 2,
-          "text": "Related"
+          "text": "See also"
         }
       ],
-      "codeLanguages": [
-        "bash"
-      ]
+      "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/orchestrator-stats",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/setting-up-an-orchestrator/orchestrator-stats",
       "title": "Orchestrator Stats and Monitoring",
       "description": "Monitor node health, GPU performance, and earnings with Prometheus and the Livepeer Explorer.",
       "section": "orchestrators",
@@ -11486,7 +11567,8 @@
         "stats",
         "prometheus",
         "metrics",
-        "setup",
+        "old",
+        "setting-up-an-orchestrator",
         "orchestrator-stats"
       ],
       "entities": [
@@ -11495,7 +11577,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 199,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -11521,65 +11603,67 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/publish-offerings",
-      "title": "Activate on the Network",
-      "description": "Activate your orchestrator on the Livepeer network using livepeer_cli — set reward cut, fee cut, and service URI, and verify you are in the active set.",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/setting-up-an-orchestrator/publish-offerings",
+      "title": "Publish Offerings",
+      "description": "How to Publish Offerings to the Marketplace",
       "section": "orchestrators",
       "tags": [
         "livepeer",
-        "orchestrator",
-        "activate",
-        "livepeer-cli",
-        "active-set",
-        "lpt",
-        "stake",
-        "reward-cut",
-        "service-uri",
         "orchestrators",
-        "setup",
-        "publish-offerings"
+        "setting-up-an-orchestrator",
+        "publish-offerings",
+        "publish",
+        "offerings",
+        "marketplace",
+        "old"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 869,
-      "lastVerified": "2026-03-10T14:20:15+11:00",
+      "wordCount": 77,
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "Prerequisites"
+          "text": "Publishing as an Orchestrator (MOVE ME)"
+        },
+        {
+          "level": 3,
+          "text": "**GPU Inventory**"
+        },
+        {
+          "level": 3,
+          "text": "**Model Compatibility**"
+        },
+        {
+          "level": 3,
+          "text": "**Benchmarks**"
         },
         {
           "level": 2,
-          "text": "Activate your orchestrator"
+          "text": "Marketplace Submission Workflow"
         },
         {
           "level": 2,
-          "text": "Verify you are in the active set"
-        },
-        {
-          "level": 2,
-          "text": "The active set"
-        },
-        {
-          "level": 2,
-          "text": "Related"
+          "text": "Updating Offerings"
         }
       ],
       "codeLanguages": [
-        "bash"
+        "mermaid"
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/data-centre-setup",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/setting-up-an-orchestrator/data-centre-setup",
       "title": "Data Centre Setup",
-      "description": "Multi-GPU and high-availability orchestrator setup for professional environments.",
+      "description": "",
       "section": "orchestrators",
       "tags": [
+        "livepeer",
         "orchestrators",
-        "setup",
+        "old",
+        "setting-up-an-orchestrator",
         "data-centre-setup"
       ],
       "entities": [
@@ -11587,19 +11671,26 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
-      "headings": [],
+      "wordCount": 4,
+      "lastVerified": "2026-03-11T05:46:11+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Data Centre Setup"
+        }
+      ],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/data-centres-and-large-scale-hardware-providers",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
       "title": "Data Centres & Large Scale Hardware Providers",
       "description": "",
       "section": "orchestrators",
       "tags": [
+        "livepeer",
         "orchestrators",
-        "setup",
+        "old",
+        "setting-up-an-orchestrator",
         "data-centres-and-large-scale-hardware-providers"
       ],
       "entities": [
@@ -11608,7 +11699,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 8,
-      "lastVerified": "2026-03-10T09:20:54+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 1,
@@ -11618,13 +11709,15 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/setup/enterprise-and-data-centres",
-      "title": "Enterprise Operations",
-      "description": "Fleet management, multi-region orchestrators, and enterprise configuration.",
+      "url": "https://docs.livepeer.org/v2/orchestrators/old/setting-up-an-orchestrator/enterprise-and-data-centres",
+      "title": "Enterprise & Data Centres",
+      "description": "",
       "section": "orchestrators",
       "tags": [
+        "livepeer",
         "orchestrators",
-        "setup",
+        "old",
+        "setting-up-an-orchestrator",
         "enterprise-and-data-centres"
       ],
       "entities": [
@@ -11632,13 +11725,18 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
-      "headings": [],
+      "wordCount": 5,
+      "lastVerified": "2026-03-11T05:46:11+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Enterprise & Data Centres"
+        }
+      ],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/advanced/earnings",
+      "url": "https://docs.livepeer.org/v2/orchestrators/operations/earnings",
       "title": "Orchestrator Earnings Explained",
       "description": "How orchestrators earn ETH fees and LPT rewards on Livepeer - fee types, reward calculation, commission parameters, and what affects your income.",
       "section": "orchestrators",
@@ -11653,16 +11751,16 @@
         "ai-inference-fees",
         "orchestrator-income",
         "orchestrators",
-        "advanced",
+        "operations",
         "earnings"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
-      "difficulty": "advanced",
+      "difficulty": "intermediate",
       "wordCount": 891,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -11726,7 +11824,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/advanced/staking-LPT",
+      "url": "https://docs.livepeer.org/v2/orchestrators/operations/staking-LPT",
       "title": "Staking LPT",
       "description": "Why orchestrators stake LPT, how bonding works, and how stake affects video vs AI work.",
       "section": "orchestrators",
@@ -11737,7 +11835,7 @@
         "lpt",
         "bonding",
         "active-set",
-        "advanced",
+        "operations",
         "staking-lpt"
       ],
       "entities": [
@@ -11745,9 +11843,9 @@
         "lpt"
       ],
       "apiEndpoints": [],
-      "difficulty": "advanced",
+      "difficulty": "intermediate",
       "wordCount": 184,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -11769,7 +11867,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/advanced/rewards-and-fees",
+      "url": "https://docs.livepeer.org/v2/orchestrators/operations/rewards-and-fees",
       "title": "Rewards and Fees",
       "description": "How orchestrators earn: LPT inflation rewards and ETH job fees; reward cut and fee share.",
       "section": "orchestrators",
@@ -11781,16 +11879,16 @@
         "inflation",
         "lpt",
         "eth",
-        "advanced",
+        "operations",
         "rewards-and-fees"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
-      "difficulty": "advanced",
+      "difficulty": "intermediate",
       "wordCount": 187,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -11812,7 +11910,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/advanced/delegation",
+      "url": "https://docs.livepeer.org/v2/orchestrators/operations/delegation",
       "title": "Delegation",
       "description": "How delegators bond LPT to orchestrators and how to attract and retain delegators.",
       "section": "orchestrators",
@@ -11823,15 +11921,15 @@
         "delegators",
         "reward-cut",
         "fee-share",
-        "advanced"
+        "operations"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
-      "difficulty": "advanced",
+      "difficulty": "intermediate",
       "wordCount": 145,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -11849,7 +11947,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/advanced/payments",
+      "url": "https://docs.livepeer.org/v2/orchestrators/operations/payments",
       "title": "Orchestrator Payments",
       "description": "Payment setup guidance for Livepeer orchestrators.",
       "section": "orchestrators",
@@ -11861,20 +11959,20 @@
         "arbitrum",
         "eth",
         "lpt",
-        "advanced"
+        "operations"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
-      "difficulty": "advanced",
+      "difficulty": "intermediate",
       "wordCount": 26,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/advanced/ai-pipelines",
+      "url": "https://docs.livepeer.org/v2/orchestrators/operations/ai-pipelines",
       "title": "AI Pipelines",
       "description": "Configure and optimise AI inference pipelines on your orchestrator — pipeline types, aiModels.json reference, custom models, Ollama LLM runner, and remote workers.",
       "section": "orchestrators",
@@ -11897,7 +11995,7 @@
         "ai"
       ],
       "apiEndpoints": [],
-      "difficulty": "advanced",
+      "difficulty": "intermediate",
       "wordCount": 1693,
       "lastVerified": "2026-03-10",
       "headings": [
@@ -11953,7 +12051,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/advanced/hosting-models",
+      "url": "https://docs.livepeer.org/v2/orchestrators/operations/hosting-models",
       "title": "Hosting AI Models on an Orchestrator",
       "description": "How to host AI models on a Livepeer orchestrator node: runtime setup, capability advertisement, pricing, and gateway integration. GPU operator guide.",
       "section": "orchestrators",
@@ -11969,15 +12067,15 @@
         "capability",
         "pricing",
         "orchestrators",
-        "advanced"
+        "operations"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
-      "difficulty": "advanced",
+      "difficulty": "intermediate",
       "wordCount": 733,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -12016,7 +12114,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/advanced/run-a-pool",
+      "url": "https://docs.livepeer.org/v2/orchestrators/operations/run-a-pool",
       "title": "Run a Pool",
       "description": "Operate a Livepeer GPU pool — accept external worker connections, manage job routing across multiple GPUs, and handle fee distribution.",
       "section": "orchestrators",
@@ -12032,15 +12130,15 @@
         "titan-node",
         "video-miner",
         "orchestrators",
-        "advanced"
+        "operations"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
-      "difficulty": "advanced",
+      "difficulty": "intermediate",
       "wordCount": 1467,
-      "lastVerified": "2026-03-10T14:20:15+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -12077,13 +12175,12 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/tools-and-guides/guides",
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/guides",
       "title": "Orchestrator Guides",
       "description": "Curated guides for running and optimising a Livepeer orchestrator — setup references, earnings strategy, community how-tos, and Discord resources.",
       "section": "orchestrators",
       "tags": [
         "orchestrators",
-        "tools-and-guides",
         "guides"
       ],
       "entities": [
@@ -12114,13 +12211,13 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/tools-and-guides/tooling",
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/tooling",
       "title": "Orchestrator Tools",
       "description": "Tools for monitoring, verifying, and operating your Livepeer orchestrator — Explorer, payout dashboards, Prometheus metrics, and community tools.",
       "section": "orchestrators",
       "tags": [
         "orchestrators",
-        "tools-and-guides",
+        "guides",
         "tooling"
       ],
       "entities": [
@@ -12222,7 +12319,31 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/v2/orchestrators/resources/cli-flags",
+      "url": "https://docs.livepeer.org/v2/orchestrators/resources/community-pools",
+      "title": "Community Orchestrator Pools",
+      "description": "Compare community orchestrator pools, how they work, and what to review before joining one.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrators",
+        "orchestrator-guides-and-references",
+        "orchestrator-pools",
+        "pools",
+        "resources",
+        "community-pools"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 67,
+      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/resources/technical/cli-flags",
       "title": "cli-flags reference",
       "description": "CLI flags and gRPC field mapping for go-livepeer orchestrators.",
       "section": "orchestrators",
@@ -12235,7 +12356,8 @@
         "reference",
         "straight",
         "chatgpt",
-        "resources"
+        "resources",
+        "technical"
       ],
       "entities": [
         "orchestrator"
@@ -12243,7 +12365,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 225,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 2,
@@ -13769,9 +13891,16 @@
       "description": "How Livepeer is governed, who the Livepeer Foundation is, how the treasury works, and how to participate in decisions that shape the network.",
       "section": "community",
       "tags": [
+        "livepeer",
         "community",
         "livepeer-community",
-        "governance-and-foundation"
+        "governance-and-foundation",
+        "governance",
+        "foundation",
+        "governed",
+        "treasury",
+        "works",
+        "participate"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -13904,9 +14033,16 @@
       "description": "Curated ecosystem highlights and a live feed of the latest topics from the Livepeer Forum.",
       "section": "community",
       "tags": [
+        "livepeer",
         "community",
         "livepeer-community",
-        "livepeer-latest-topics"
+        "livepeer-latest-topics",
+        "what",
+        "happening",
+        "curated",
+        "ecosystem",
+        "highlights",
+        "live"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -13975,9 +14111,16 @@
       "description": "Where to find the Livepeer community - forums, Discord, Telegram, social media, and recurring community calls.",
       "section": "community",
       "tags": [
+        "livepeer",
         "community",
         "livepeer-connect",
-        "forums-and-discussions"
+        "forums-and-discussions",
+        "connect",
+        "channels",
+        "where",
+        "find",
+        "forums",
+        "discord"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -14153,9 +14296,16 @@
       "description": "A curated overview of community-built tools, dashboards, SDKs, and projects in the Livepeer ecosystem. The full list lives in the awesome-livepeer repository.",
       "section": "community",
       "tags": [
+        "livepeer",
         "community",
         "resources",
-        "awesome-livepeer"
+        "awesome-livepeer",
+        "ecosystem",
+        "tools",
+        "projects",
+        "curated",
+        "overview",
+        "built"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -14283,8 +14433,16 @@
       "description": "Frequently asked questions about the Livepeer community, governance, ecosystem participation, and getting support.",
       "section": "community",
       "tags": [
+        "livepeer",
         "community",
-        "faq"
+        "faq",
+        "frequently",
+        "asked",
+        "questions",
+        "about",
+        "governance",
+        "ecosystem",
+        "participation"
       ],
       "entities": [],
       "apiEndpoints": [],
@@ -15458,7 +15616,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3938,
+      "wordCount": 3963,
       "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
@@ -15808,7 +15966,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1412,
+      "wordCount": 1408,
       "lastVerified": "2026-03-10T14:20:15+11:00",
       "headings": [
         {
@@ -15966,7 +16124,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1507,
+      "wordCount": 1634,
       "lastVerified": "2026-03-10T13:46:27+11:00",
       "headings": [
         {
@@ -15984,6 +16142,10 @@
         {
           "level": 2,
           "text": "Component Reference"
+        },
+        {
+          "level": 3,
+          "text": "AccordionGroupList"
         },
         {
           "level": 3,
@@ -16124,7 +16286,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1301,
+      "wordCount": 1293,
       "lastVerified": "2026-03-10T13:46:27+11:00",
       "headings": [
         {
@@ -16258,7 +16420,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 958,
+      "wordCount": 955,
       "lastVerified": "2026-03-10T13:46:27+11:00",
       "headings": [
         {
@@ -16364,7 +16526,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1373,
+      "wordCount": 1372,
       "lastVerified": "2026-03-10T13:46:27+11:00",
       "headings": [
         {
@@ -17230,19 +17392,22 @@
       "description": "How the script governance system detects drift, auto-repairs safe issues, and surfaces items needing human attention.",
       "section": "internal",
       "tags": [
+        "livepeer",
         "internal",
         "overview",
-        "governance-pipeline"
+        "governance-pipeline",
+        "governance",
+        "pipeline",
+        "script",
+        "system",
+        "detects",
+        "drift"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "beginner",
-<<<<<<< HEAD
-      "wordCount": 755,
-=======
       "wordCount": 700,
->>>>>>> origin/docs-v2
-      "lastVerified": "2026-03-10T07:07:09+11:00",
+      "lastVerified": "2026-03-10T15:23:01+11:00",
       "headings": [
         {
           "level": 2,
@@ -17342,7 +17507,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 27,
+      "wordCount": 39,
       "lastVerified": "2026-03-09T01:25:13+11:00",
       "headings": [],
       "codeLanguages": []
@@ -17361,7 +17526,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 27,
+      "wordCount": 39,
       "lastVerified": "2026-03-09T01:25:13+11:00",
       "headings": [],
       "codeLanguages": []
@@ -17631,11 +17796,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 41,
-<<<<<<< HEAD
       "lastVerified": "2026-03-10T14:20:15+11:00",
-=======
-      "lastVerified": "2026-03-10T07:07:09+11:00",
->>>>>>> origin/docs-v2
       "headings": [],
       "codeLanguages": []
     },
@@ -17656,7 +17817,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3251,
+      "wordCount": 3288,
       "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
@@ -17703,12 +17864,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 4073,
-<<<<<<< HEAD
+      "wordCount": 4165,
       "lastVerified": "2026-03-10T14:20:15+11:00",
-=======
-      "lastVerified": "2026-03-10T07:07:09+11:00",
->>>>>>> origin/docs-v2
       "headings": [
         {
           "level": 2,
@@ -18041,7 +18198,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/feature-guides/visual-explainer-workflows",
+      "url": "https://docs.livepeer.org/docs-guide/feature-guides/deprecated/visual-explainer-workflows",
       "title": "Visual Explainer Workflows",
       "description": "Pilot workflow guidance for using visual-explainer in docs maintenance, review, and reporting.",
       "section": "docs-guide",
@@ -18056,6 +18213,7 @@
         "fact-check",
         "project-recap",
         "feature-guides",
+        "deprecated",
         "visual-explainer-workflows"
       ],
       "entities": [
@@ -18064,7 +18222,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1537,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-11T05:46:11+11:00",
       "headings": [
         {
           "level": 1,
@@ -18206,11 +18364,16 @@
     {
       "url": "https://docs.livepeer.org/docs-guide/contributing/contributing",
       "title": "Contributing",
-      "description": "",
+      "description": "This workflow is optional and maintainer-focused during the pilot period. It is not a required contributor quality gate and is not part of CI.",
       "section": "docs-guide",
       "tags": [
+        "livepeer",
         "docs-guide",
-        "contributing"
+        "contributing",
+        "visual",
+        "explainer",
+        "signal",
+        "review"
       ],
       "entities": [],
       "apiEndpoints": [],

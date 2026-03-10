@@ -6,7 +6,7 @@
 # @owner             docs
 # @needs             E-C6, F-C1
 # @purpose-statement Mintlify dev server launcher — starts mint dev with correct configuration
-# @pipeline          manual — interactive developer tool, not suited for automated pipelines
+# @pipeline          manual — developer tool
 # @usage             bash tools/scripts/mint-dev.sh [flags]
 set -euo pipefail
 

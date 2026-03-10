@@ -28,7 +28,7 @@ Run command: node tools/scripts/generate-component-docs.js --fix --template-only
 
 Containers and arrangements that define spacing, grouping, and page flow.
 
-This category currently contains **30** governed export(s).
+This category currently contains **31** governed export(s).
 
 ### Decision Tree Excerpt
 
@@ -42,6 +42,7 @@ This category currently contains **30** governed export(s).
 
 | Component | Tier | Status | Import path | Description |
 | --- | --- | --- | --- | --- |
+| AccordionGroupList | `composite` | `stable` | `/snippets/components/layout/accordionGroupList.jsx` | Renders a configurable number of empty accordion sections for scaffold examples. |
 | AccordionLayout | `composite` | `stable` | `/snippets/components/layout/text.jsx` | Accordion Layout layout component for arranging documentation content without MDX inline styles. |
 | BasicList | `composite` | `stable` | `/snippets/components/layout/lists.jsx` | Basic List layout component for arranging documentation content without MDX inline styles. |
 | BorderedBox | `composite` | `stable` | `/snippets/components/layout/containers.jsx` | Bordered Box layout component for arranging documentation content without MDX inline styles. |
@@ -74,6 +75,37 @@ This category currently contains **30** governed export(s).
 | WidthCard | `composite` | `stable` | `/snippets/components/layout/customCards.jsx` | Renders the width card component |
 
 ## Component Reference
+
+### AccordionGroupList
+Use **AccordionGroupList** when you need renders a configurable number of empty accordion sections for scaffold examples.. Best suited for tutorial, reference page types.
+Source description: Renders a configurable number of empty accordion sections for scaffold examples.
+**Import path**
+```jsx
+import { AccordionGroupList } from '/snippets/components/layout/accordionGroupList.jsx'
+```
+**Metadata**
+- Content affinity: `tutorial`, `reference`
+- Dependencies: `AccordionGroup`, `Accordion`
+- Data source: `none`
+- Last meaningful change: `2026-03-11`
+- Breaking change risk: `low`
+- Owner: `docs`
+- Decision: `KEEP`
+- Status: `stable`
+- Tier: `composite`
+- `@usedIn`: none
+**Props**
+| Prop | Type | Default | Required | Description |
+| --- | --- | --- | --- | --- |
+| `num` | `number` | `1` | No | Number of placeholder accordion sections to render. |
+
+**Code example**
+
+```jsx
+<AccordionGroupList num={3} />
+```
+
+---
 
 ### AccordionLayout
 Use **AccordionLayout** when you need accordion Layout layout component for arranging documentation content without MDX inline styles.. Best suited for overview, tutorial, reference page types.
@@ -154,7 +186,7 @@ import { BorderedBox } from '/snippets/components/layout/containers.jsx'
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
-- `@usedIn`: `v2/community/livepeer-community/community-guidelines.mdx`, `v2/developers/_archive/ai-inference-overview-old.mdx`, `v2/developers/_archive/ai-inference-workload-fit-old.mdx`, `v2/developers/_archive/ai-pipelines-byoc-old.mdx`, `v2/developers/_archive/ai-pipelines-overview-old.mdx`, `v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx`, and 21 more page(s)
+- `@usedIn`: `v2/community/livepeer-community/community-guidelines.mdx`, `v2/developers/_archive/ai-inference-overview-old.mdx`, `v2/developers/_archive/ai-inference-workload-fit-old.mdx`, `v2/developers/_archive/ai-pipelines-byoc-old.mdx`, `v2/developers/_archive/ai-pipelines-overview-old.mdx`, `v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx`, and 22 more page(s)
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
@@ -293,7 +325,7 @@ import { DynamicTable } from '/snippets/components/layout/table.jsx'
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
-- `@usedIn`: `v2/about/livepeer-network/interfaces.mdx`, `v2/about/livepeer-network/job-lifecycle.mdx`, `v2/about/livepeer-network/marketplace.mdx`, `v2/about/livepeer-network/technical-architecture.mdx`, `v2/about/livepeer-protocol/core-mechanisms.mdx`, `v2/about/livepeer-protocol/livepeer-token.mdx`, and 19 more page(s)
+- `@usedIn`: `v2/about/livepeer-network/interfaces.mdx`, `v2/about/livepeer-network/job-lifecycle.mdx`, `v2/about/livepeer-network/marketplace.mdx`, `v2/about/livepeer-network/technical-architecture.mdx`, `v2/about/livepeer-protocol/core-mechanisms.mdx`, `v2/about/livepeer-protocol/livepeer-token.mdx`, and 20 more page(s)
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
@@ -328,7 +360,7 @@ import { FlexContainer } from '/snippets/components/layout/layout.jsx'
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
-- `@usedIn`: `v2/community/livepeer-community/community-guidelines.mdx`, `v2/developers/_archive/ai-inference-overview-old.mdx`, `v2/developers/_archive/ai-inference-workload-fit-old.mdx`, `v2/developers/build/workload-fit.mdx`, `v2/gateways-new/get-started/gateway-setup.mdx`, `v2/gateways-new/setup/run-a-gateway.mdx`, and 2 more page(s)
+- `@usedIn`: `v2/community/livepeer-community/community-guidelines.mdx`, `v2/developers/_archive/ai-inference-overview-old.mdx`, `v2/developers/_archive/ai-inference-workload-fit-old.mdx`, `v2/developers/build/workload-fit.mdx`, `v2/gateways/quickstart/gateway-setup.mdx`, `v2/gateways/run-a-gateway/run-a-gateway.mdx`
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
@@ -835,7 +867,7 @@ import { StyledStep } from '/snippets/components/layout/steps.jsx'
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
-- `@usedIn`: `v2/developers/_archive/ai-pipelines-byoc-old.mdx`, `v2/gateways-new/setup/configure/ai-configuration.mdx`, `v2/gateways-new/setup/connect/discover-offerings.mdx`, `v2/gateways-new/setup/install/docker-install.mdx`, `v2/gateways-new/setup/install/linux-install.mdx`, `v2/gateways-new/setup/install/windows-install.mdx`, and 17 more page(s)
+- `@usedIn`: `v2/developers/_archive/ai-pipelines-byoc-old.mdx`, `v2/gateways/run-a-gateway/configure/ai-configuration.mdx`, `v2/gateways/run-a-gateway/connect/discover-offerings.mdx`, `v2/gateways/run-a-gateway/install/docker-install.mdx`, `v2/gateways/run-a-gateway/install/linux-install.mdx`, `v2/gateways/run-a-gateway/install/windows-install.mdx`, and 12 more page(s)
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
@@ -869,7 +901,7 @@ import { StyledSteps } from '/snippets/components/layout/steps.jsx'
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
-- `@usedIn`: `v2/developers/_archive/ai-pipelines-byoc-old.mdx`, `v2/gateways-new/setup/configure/ai-configuration.mdx`, `v2/gateways-new/setup/connect/discover-offerings.mdx`, `v2/gateways-new/setup/install/docker-install.mdx`, `v2/gateways-new/setup/install/linux-install.mdx`, `v2/gateways-new/setup/install/windows-install.mdx`, and 17 more page(s)
+- `@usedIn`: `v2/developers/_archive/ai-pipelines-byoc-old.mdx`, `v2/gateways/run-a-gateway/configure/ai-configuration.mdx`, `v2/gateways/run-a-gateway/connect/discover-offerings.mdx`, `v2/gateways/run-a-gateway/install/docker-install.mdx`, `v2/gateways/run-a-gateway/install/linux-install.mdx`, `v2/gateways/run-a-gateway/install/windows-install.mdx`, and 12 more page(s)
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
@@ -904,7 +936,7 @@ import { StyledTable } from '/snippets/components/layout/tables.jsx'
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
-- `@usedIn`: `v2/developers/_archive/ai-pipelines-overview-old.mdx`, `v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx`, `v2/developers/_archive/quickstart-video-101.mdx`, `v2/gateways-new/guides/gateway-operator-opportunities.mdx`, `v2/gateways-new/resources/api-reference/AI-API/ai.mdx`, `v2/gateways-new/setup/requirements/setup.mdx`, and 9 more page(s)
+- `@usedIn`: `v2/developers/_archive/ai-pipelines-overview-old.mdx`, `v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx`, `v2/developers/_archive/quickstart-video-101.mdx`, `v2/gateways/references/api-reference/AI-API/ai.mdx`, `v2/gateways/run-a-gateway/gateway-operator-opportunities.mdx`, `v2/gateways/run-a-gateway/requirements/setup.mdx`, and 9 more page(s)
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
@@ -937,7 +969,7 @@ import { TableCell } from '/snippets/components/layout/tables.jsx'
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
-- `@usedIn`: `v2/developers/_archive/ai-pipelines-overview-old.mdx`, `v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx`, `v2/developers/_archive/quickstart-video-101.mdx`, `v2/gateways-new/guides/gateway-operator-opportunities.mdx`, `v2/gateways-new/resources/api-reference/AI-API/ai.mdx`, `v2/gateways-new/setup/requirements/setup.mdx`, and 9 more page(s)
+- `@usedIn`: `v2/developers/_archive/ai-pipelines-overview-old.mdx`, `v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx`, `v2/developers/_archive/quickstart-video-101.mdx`, `v2/gateways/references/api-reference/AI-API/ai.mdx`, `v2/gateways/run-a-gateway/gateway-operator-opportunities.mdx`, `v2/gateways/run-a-gateway/requirements/setup.mdx`, and 9 more page(s)
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
@@ -971,7 +1003,7 @@ import { TableRow } from '/snippets/components/layout/tables.jsx'
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
-- `@usedIn`: `v2/developers/_archive/ai-pipelines-overview-old.mdx`, `v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx`, `v2/developers/_archive/quickstart-video-101.mdx`, `v2/gateways-new/guides/gateway-operator-opportunities.mdx`, `v2/gateways-new/resources/api-reference/AI-API/ai.mdx`, `v2/gateways-new/setup/requirements/setup.mdx`, and 9 more page(s)
+- `@usedIn`: `v2/developers/_archive/ai-pipelines-overview-old.mdx`, `v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx`, `v2/developers/_archive/quickstart-video-101.mdx`, `v2/gateways/references/api-reference/AI-API/ai.mdx`, `v2/gateways/run-a-gateway/gateway-operator-opportunities.mdx`, `v2/gateways/run-a-gateway/requirements/setup.mdx`, and 9 more page(s)
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |
@@ -1067,7 +1099,7 @@ import { WidthCard } from '/snippets/components/layout/customCards.jsx'
 - Decision: `KEEP`
 - Status: `stable`
 - Tier: `composite`
-- `@usedIn`: `v2/gateways-new/get-started/gateway-setup.mdx`, `v2/gateways/quickstart/gateway-setup.mdx`, `v2/home/about-livepeer/benefits.mdx`, `v2/home/about-livepeer/roadmap.mdx`, `v2/resources/media-kit.mdx`
+- `@usedIn`: `v2/gateways/quickstart/gateway-setup.mdx`, `v2/home/about-livepeer/benefits.mdx`, `v2/home/about-livepeer/roadmap.mdx`, `v2/resources/media-kit.mdx`
 **Props**
 | Prop | Type | Default | Required | Description |
 | --- | --- | --- | --- | --- |

@@ -84,7 +84,7 @@ export const DisplayCard = ({
  * @contentAffinity landing
  * @owner @livepeer/docs-team
  * @dependencies InlineImageCard
- * @usedIn v2/gateways-new/get-started/gateway-setup.mdx, v2/gateways/quickstart/gateway-setup.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/roadmap.mdx, v2/resources/media-kit.mdx
+ * @usedIn v2/gateways/quickstart/gateway-setup.mdx, v2/home/about-livepeer/benefits.mdx, v2/home/about-livepeer/roadmap.mdx, v2/resources/media-kit.mdx
  * @breakingChangeRisk low
  * @decision KEEP
  * @dataSource none

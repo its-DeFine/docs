@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 /**
- * @script           repair-governance
- * @category         orchestrator
- * @purpose          governance:repo-health
- * @scope            full-repo
- * @owner            docs
- * @needs            R-R14, R-R18, R-C6
+ * @script            repair-governance
+ * @category          orchestrator
+ * @purpose           governance:repo-health
+ * @scope             full-repo
+ * @owner             docs
+ * @needs             R-R14, R-R18, R-C6
  * @purpose-statement Chains audit, safe repair, verification, and reporting into a single self-healing governance pipeline.
- * @pipeline         P5 (scheduled, weekly), P6 (on-demand), manual
- * @dualmode         --report-only | --dry-run | default fix mode
- * @usage            node tools/scripts/orchestrators/repair-governance.js [--dry-run] [--auto-commit] [--report-only] [--strict]
+ * @pipeline          P2, P5, P6, indirect, manual
+ * @dualmode          --report-only | --dry-run | default fix mode
+ * @usage             node tools/scripts/orchestrators/repair-governance.js [--dry-run] [--auto-commit] [--report-only] [--strict]
  */
 
 const fs = require('fs');
