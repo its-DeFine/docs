@@ -1,0 +1,71 @@
+{
+  "Frontmatter: pageType": {
+    "scope": "mdx,markdown",
+    "prefix": "pageType",
+    "body": ["pageType: ${1|landing,overview,tutorial,quickstart,how_to,concept,reference,faq,troubleshooting,changelog,glossary,guide|}"],
+    "description": "Frontmatter pageType (canonical values from frontmatter-taxonomy.js)"
+  },
+  "Frontmatter: audience": {
+    "scope": "mdx,markdown",
+    "prefix": "audience",
+    "body": ["audience: ${1|developer,gateway-operator,orchestrator,delegator,platform-builder,community,internal,general,everyone|}"],
+    "description": "Frontmatter audience (canonical values from usefulness-audience-normalization.json)"
+  },
+  "Frontmatter: status": {
+    "scope": "mdx,markdown",
+    "prefix": "status",
+    "body": ["status: ${1|draft,review,current,published,deprecated,coming-soon,production,provisional,verified_2026|}"],
+    "description": "Frontmatter page status (canonical values from frontmatter-taxonomy.js)"
+  },
+  "Frontmatter: purpose": {
+    "scope": "mdx,markdown",
+    "prefix": "purpose",
+    "body": ["purpose: ${1|landing,overview,concept,how_to,tutorial,reference,faq,glossary,changelog,troubleshooting|}"],
+    "description": "Frontmatter purpose (derived from pageType via PAGE_TYPE_TO_PURPOSE)"
+  },
+  "Frontmatter: lastVerified": {
+    "scope": "mdx,markdown",
+    "prefix": "lastVerified",
+    "body": ["lastVerified: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE"],
+    "description": "Frontmatter lastVerified date (auto-fills today's date)"
+  },
+  "Frontmatter: full block": {
+    "scope": "mdx,markdown",
+    "prefix": "frontmatter",
+    "body": [
+      "---",
+      "title: '${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}'",
+      "sidebarTitle: ${2:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}",
+      "description: '${3:Description of ${TM_FILENAME_BASE}}'",
+      "audience: ${4|developer,gateway-operator,orchestrator,delegator,platform-builder,community,internal,general,everyone|}",
+      "pageType: ${5|landing,overview,tutorial,quickstart,how_to,concept,reference,faq,troubleshooting,changelog,glossary,guide|}",
+      "purpose: ${6|landing,overview,concept,how_to,tutorial,reference,faq,glossary,changelog,troubleshooting|}",
+      "status: ${7|draft,review,current,published,deprecated,coming-soon,production,provisional,verified_2026|}",
+      "lastVerified: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      "keywords:",
+      "  - livepeer",
+      "  - ${8:keyword}",
+      "'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg",
+      "---",
+      "",
+      "$0"
+    ],
+    "description": "Complete MDX frontmatter block — auto-fills title from filename, today's date for lastVerified"
+  },
+  "Frontmatter: minimal": {
+    "scope": "mdx,markdown",
+    "prefix": "fm",
+    "body": [
+      "---",
+      "title: '${1:${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}}'",
+      "description: '${2:Description of ${TM_FILENAME_BASE}}'",
+      "audience: ${3|developer,gateway-operator,orchestrator,delegator,platform-builder,community,internal,general,everyone|}",
+      "pageType: ${4|landing,overview,tutorial,quickstart,how_to,concept,reference,faq,troubleshooting,changelog,glossary,guide|}",
+      "status: ${5|draft,review,current,published|}",
+      "---",
+      "",
+      "$0"
+    ],
+    "description": "Minimal frontmatter block — title auto-filled from filename"
+  }
+}

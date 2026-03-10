@@ -1,0 +1,1354 @@
+{
+  "layout: AccordionGroupList": {
+    "scope": "mdx,markdown",
+    "prefix": ["accordionGroupList", "AccordionGroupList"],
+    "body": ["<AccordionGroupList num={${1|1,2,3,4,5,6,7,8,9,10|}} />"],
+    "description": "[layout] Renders N empty Accordions inside an AccordionGroup"
+  },
+  "content: CardVideo": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "cardVideo",
+      "CardVideo"
+    ],
+    "body": [
+      "<CardVideo embedUrl=\"${1}\" title=\"${2}\" style=\"${3}\" />"
+    ],
+    "description": "[content] Card Video content component for rendering reader-facing documentation content."
+  },
+  "content: CodeComponent": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "codeComponent",
+      "CodeComponent"
+    ],
+    "body": [
+      "<CodeComponent />"
+    ],
+    "description": "[content] Code Component content component for rendering reader-facing documentation content."
+  },
+  "content: CodeSection": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "codeSection",
+      "CodeSection"
+    ],
+    "body": [
+      "<CodeSection />"
+    ],
+    "description": "[content] Thin wrapper that maps a `fields` object into the complex code block renderer."
+  },
+  "content: ComplexCodeBlock": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "complexCodeBlock",
+      "ComplexCodeBlock"
+    ],
+    "body": [
+      "<ComplexCodeBlock filename=\"${1}\" icon=\"${2}\" language=\"${3}\" highlight=\"${4}\" />"
+    ],
+    "description": "[content] Complex Code Block content component for rendering reader-facing documentation content."
+  },
+  "content: CustomCodeBlock": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "customCodeBlock",
+      "CustomCodeBlock"
+    ],
+    "body": [
+      "<CustomCodeBlock filename=\"${1}\" icon=\"${2}\" language=\"${3}\" highlight=\"${4}\" />"
+    ],
+    "description": "[content] Custom Code Block content component for rendering reader-facing documentation content."
+  },
+  "content: CustomResponseField": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "customResponseField",
+      "CustomResponseField"
+    ],
+    "body": [
+      "<CustomResponseField description=\"${1}\" props=\"${2}\" />"
+    ],
+    "description": "[content] ResponseField wrapper that removes the default divider for tighter grouped layouts."
+  },
+  "content: EmbedMarkdown": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "embedMarkdown",
+      "EmbedMarkdown"
+    ],
+    "body": [
+      "<EmbedMarkdown url=\"${1}\" />"
+    ],
+    "description": "[content] Embed Markdown content component for rendering reader-facing documentation content."
+  },
+  "content: ExternalContent": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "externalContent",
+      "ExternalContent"
+    ],
+    "body": [
+      "<ExternalContent repoName=\"${1}\" githubUrl=\"${2}\">",
+      "  ${3:content}",
+      "</ExternalContent>"
+    ],
+    "description": "[content] External Content content component for rendering reader-facing documentation content."
+  },
+  "content: FrameQuote": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "frameQuote",
+      "FrameQuote"
+    ],
+    "body": [
+      "<FrameQuote author=\"${1}\" source=\"${2}\" href=\"${3}\" borderColor=\"${4}\" img=\"${5}\" props=\"${6}\">",
+      "  ${7:content}",
+      "</FrameQuote>"
+    ],
+    "description": "[content] Frame Quote content component for rendering reader-facing documentation content."
+  },
+  "content: LinkedInEmbed": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "linkedInEmbed",
+      "LinkedInEmbed"
+    ],
+    "body": [
+      "<LinkedInEmbed embedUrl=\"${1}\" caption=\"${2}\" />"
+    ],
+    "description": "[content] Linked In Embed content component for rendering reader-facing documentation content."
+  },
+  "content: MarkdownEmbed": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "markdownEmbed",
+      "MarkdownEmbed"
+    ],
+    "body": [
+      "<MarkdownEmbed url=\"${1}\" />"
+    ],
+    "description": "[content] Markdown Embed content component for rendering reader-facing documentation content."
+  },
+  "content: Quote": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "quote",
+      "Quote"
+    ],
+    "body": [
+      "<Quote>",
+      "  ${1:content}",
+      "</Quote>"
+    ],
+    "description": "[content] Quote content component for rendering reader-facing documentation content."
+  },
+  "content: ResponseFieldAccordion": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "responseFieldAccordion",
+      "ResponseFieldAccordion"
+    ],
+    "body": [
+      "<ResponseFieldAccordion props=\"${1}\" />"
+    ],
+    "description": "[content] Accordion wrapper that renders a collection of response fields inside Mintlify Accordion."
+  },
+  "content: ResponseFieldExpandable": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "responseFieldExpandable",
+      "ResponseFieldExpandable"
+    ],
+    "body": [
+      "<ResponseFieldExpandable props=\"${1}\" />"
+    ],
+    "description": "[content] Expandable wrapper that renders a collection of response fields inside Mintlify Expandable."
+  },
+  "content: ResponseFieldGroup": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "responseFieldGroup",
+      "ResponseFieldGroup"
+    ],
+    "body": [
+      "<ResponseFieldGroup props=\"${1}\" />"
+    ],
+    "description": "[content] Runtime wrapper that switches between accordion and expandable response field groupings."
+  },
+  "content: ScrollableDiagram": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "scrollableDiagram",
+      "ScrollableDiagram"
+    ],
+    "body": [
+      "<ScrollableDiagram>",
+      "  ${1:content}",
+      "</ScrollableDiagram>"
+    ],
+    "description": "[content] Scrollable Diagram content component for rendering reader-facing documentation content."
+  },
+  "content: ShowcaseVideo": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "showcaseVideo",
+      "ShowcaseVideo"
+    ],
+    "body": [
+      "<ShowcaseVideo src=\"${1}\" title=\"${2}\" subtitle=\"${3}\" />"
+    ],
+    "description": "[content] Showcase Video content component for rendering reader-facing documentation content."
+  },
+  "content: TitledVideo": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "titledVideo",
+      "TitledVideo"
+    ],
+    "body": [
+      "<TitledVideo src=\"${1}\" title=\"${2}\" subtitle=\"${3}\" />"
+    ],
+    "description": "[content] Titled Video content component for rendering reader-facing documentation content."
+  },
+  "content: TwitterTimeline": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "twitterTimeline",
+      "TwitterTimeline"
+    ],
+    "body": [
+      "<TwitterTimeline />"
+    ],
+    "description": "[content] Twitter Timeline content component for rendering reader-facing documentation content."
+  },
+  "content: ValueResponseField": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "valueResponseField",
+      "ValueResponseField"
+    ],
+    "body": [
+      "<ValueResponseField description=\"${1}\" props=\"${2}\">",
+      "  ${3:content}",
+      "</ValueResponseField>"
+    ],
+    "description": "[content] ResponseField wrapper that renders a labelled post value alongside descriptive content."
+  },
+  "content: Video": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "video",
+      "Video"
+    ],
+    "body": [
+      "<Video src=\"${1}\" caption=\"${2}\">",
+      "  ${3:content}",
+      "</Video>"
+    ],
+    "description": "[content] Video content component for rendering reader-facing documentation content."
+  },
+  "content: YouTubeVideo": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "youTubeVideo",
+      "YouTubeVideo"
+    ],
+    "body": [
+      "<YouTubeVideo embedUrl=\"${1}\" caption=\"${2}\" />"
+    ],
+    "description": "[content] You Tube Video content component for rendering reader-facing documentation content."
+  },
+  "content: YouTubeVideoData": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "youTubeVideoData",
+      "YouTubeVideoData"
+    ],
+    "body": [
+      "<YouTubeVideoData limit={${1:1}} />"
+    ],
+    "description": "[content] You Tube Video Data content component for rendering reader-facing documentation content."
+  },
+  "data: BlogCard": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "blogCard",
+      "BlogCard"
+    ],
+    "body": [
+      "<BlogCard title=\"${1}\" content=\"${2}\" href=\"${3}\" />"
+    ],
+    "description": "[data] Blog Card data-driven component for rendering automated or API-backed documentation content."
+  },
+  "data: BlogDataLayout": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "blogDataLayout",
+      "BlogDataLayout"
+    ],
+    "body": [
+      "<BlogDataLayout limit={${1:1}} />"
+    ],
+    "description": "[data] Blog Data Layout data-driven component for rendering automated or API-backed documentation content."
+  },
+  "data: CardBlogDataLayout": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "cardBlogDataLayout",
+      "CardBlogDataLayout"
+    ],
+    "body": [
+      "<CardBlogDataLayout limit={${1:1}} />"
+    ],
+    "description": "[data] Card Blog Data Layout data-driven component for rendering automated or API-backed documentation content."
+  },
+  "data: CardColumnsPostLayout": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "cardColumnsPostLayout",
+      "CardColumnsPostLayout"
+    ],
+    "body": [
+      "<CardColumnsPostLayout limit={${1:1}} />"
+    ],
+    "description": "[data] Card Columns Post Layout data-driven component for rendering automated or API-backed documentation content."
+  },
+  "data: CardInCardLayout": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "cardInCardLayout",
+      "CardInCardLayout"
+    ],
+    "body": [
+      "<CardInCardLayout limit={${1:1}} />"
+    ],
+    "description": "[data] Card In Card Layout data-driven component for rendering automated or API-backed documentation content."
+  },
+  "data: CoinGeckoExchanges": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "coinGeckoExchanges",
+      "CoinGeckoExchanges"
+    ],
+    "body": [
+      "<CoinGeckoExchanges />"
+    ],
+    "description": "[data] Fetches and displays exchange availability for a token from the CoinGecko API."
+  },
+  "data: ColumnsBlogCardLayout": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "columnsBlogCardLayout",
+      "ColumnsBlogCardLayout"
+    ],
+    "body": [
+      "<ColumnsBlogCardLayout limit={${1:1}} />"
+    ],
+    "description": "[data] Columns Blog Card Layout data-driven component for rendering automated or API-backed documentation content."
+  },
+  "data: DiscordAnnouncements": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "discordAnnouncements",
+      "DiscordAnnouncements"
+    ],
+    "body": [
+      "<DiscordAnnouncements limit={${1:1}} />"
+    ],
+    "description": "[data] Discord Announcements data-driven component for rendering automated or API-backed documentation content."
+  },
+  "data: ForumLatestLayout": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "forumLatestLayout",
+      "ForumLatestLayout"
+    ],
+    "body": [
+      "<ForumLatestLayout limit={${1:1}} />"
+    ],
+    "description": "[data] Forum Latest Layout data-driven component for rendering automated or API-backed documentation content."
+  },
+  "data: LatestVersion": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "latestVersion",
+      "LatestVersion"
+    ],
+    "body": [
+      "<LatestVersion version=\"${1}\" />"
+    ],
+    "description": "[data] Displays the latest release version value supplied by the release-version workflow."
+  },
+  "data: LumaEvents": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "lumaEvents",
+      "LumaEvents"
+    ],
+    "body": [
+      "<LumaEvents data=\"${1}\" limit={${2:1}} />"
+    ],
+    "description": "[data] Luma Events data-driven component for rendering automated or API-backed documentation content."
+  },
+  "data: PdfEmbed": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "pdfEmbed",
+      "PdfEmbed"
+    ],
+    "body": [
+      "<PdfEmbed title=\"${1}\" src=\"${2}\" />"
+    ],
+    "description": "[data] Wraps an iframe in a Mintlify Frame so long-form external documents can be embedded with a caption and responsive width"
+  },
+  "data: PostCard": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "postCard",
+      "PostCard"
+    ],
+    "body": [
+      "<PostCard title=\"${1}\" content=\"${2}\" href=\"${3}\" />"
+    ],
+    "description": "[data] Post Card data-driven component for rendering automated or API-backed documentation content."
+  },
+  "data: ShowcaseCards": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "showcaseCards",
+      "ShowcaseCards"
+    ],
+    "body": [
+      "<ShowcaseCards />"
+    ],
+    "description": "[data] Renders the showcase cards component"
+  },
+  "layout: AccordionLayout": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "accordionLayout",
+      "AccordionLayout"
+    ],
+    "body": [
+      "<AccordionLayout>",
+      "  ${1:content}",
+      "</AccordionLayout>"
+    ],
+    "description": "[layout] Accordion Layout layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: BasicList": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "basicList",
+      "BasicList"
+    ],
+    "body": [
+      "<BasicList listItems=\"${1}\" />"
+    ],
+    "description": "[layout] Basic List layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: BorderedBox": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "borderedBox",
+      "BorderedBox"
+    ],
+    "body": [
+      "<BorderedBox>",
+      "  ${1:content}",
+      "</BorderedBox>"
+    ],
+    "description": "[layout] Bordered Box layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: CardCarousel": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "cardCarousel",
+      "CardCarousel"
+    ],
+    "body": [
+      "<CardCarousel style=\"${1}\">",
+      "  ${2:content}",
+      "</CardCarousel>"
+    ],
+    "description": "[layout] Card Carousel layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: CenteredContainer": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "centeredContainer",
+      "CenteredContainer"
+    ],
+    "body": [
+      "<CenteredContainer>",
+      "  ${1:content}",
+      "</CenteredContainer>"
+    ],
+    "description": "[layout] Centered Container layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: DisplayCard": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "displayCard",
+      "DisplayCard"
+    ],
+    "body": [
+      "<DisplayCard icon=\"${1}\" title=\"${2}\" style={${3:{}}}>",
+      "  ${4:content}",
+      "</DisplayCard>"
+    ],
+    "description": "[layout] --------"
+  },
+  "layout: DynamicTable": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "dynamicTable",
+      "DynamicTable"
+    ],
+    "body": [
+      "<DynamicTable margin=\"${1}\" />"
+    ],
+    "description": "[layout] Dynamic Table layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: FlexContainer": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "flexContainer",
+      "FlexContainer"
+    ],
+    "body": [
+      "<FlexContainer>",
+      "  ${1:content}",
+      "</FlexContainer>"
+    ],
+    "description": "[layout] Flex Container layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: FullWidthContainer": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "fullWidthContainer",
+      "FullWidthContainer"
+    ],
+    "body": [
+      "<FullWidthContainer backgroundColor=\"${1}\">",
+      "  ${2:content}",
+      "</FullWidthContainer>"
+    ],
+    "description": "[layout] Full Width Container layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: GridContainer": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "gridContainer",
+      "GridContainer"
+    ],
+    "body": [
+      "<GridContainer columns=\"${1}\">",
+      "  ${2:content}",
+      "</GridContainer>"
+    ],
+    "description": "[layout] Grid Container layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: IconList": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "iconList",
+      "IconList"
+    ],
+    "body": [
+      "<IconList listItems=\"${1}\" />"
+    ],
+    "description": "[layout] Icon List layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: InlineImageCard": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "inlineImageCard",
+      "InlineImageCard"
+    ],
+    "body": [
+      "<InlineImageCard imgProps={${1:{}}} imgStyle={${2:{}}} cardProps={${3:{}}} style={${4:{}}}>",
+      "  ${5:content}",
+      "</InlineImageCard>"
+    ],
+    "description": "[layout] Renders the inline image card component"
+  },
+  "layout: InteractiveCard": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "interactiveCard",
+      "InteractiveCard"
+    ],
+    "body": [
+      "<InteractiveCard style=\"${1}\" cardProps=\"${2}\" />"
+    ],
+    "description": "[layout] Interactive Card layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: InteractiveCards": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "interactiveCards",
+      "InteractiveCards"
+    ],
+    "body": [
+      "<InteractiveCards />"
+    ],
+    "description": "[layout] Interactive Cards layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: ListSteps": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "listSteps",
+      "ListSteps"
+    ],
+    "body": [
+      "<ListSteps />"
+    ],
+    "description": "[layout] List Steps layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: QuadGrid": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "quadGrid",
+      "QuadGrid"
+    ],
+    "body": [
+      "<QuadGrid>",
+      "  ${1:content}",
+      "</QuadGrid>"
+    ],
+    "description": "[layout] Quad Grid layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: ScrollBox": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "scrollBox",
+      "ScrollBox"
+    ],
+    "body": [
+      "<ScrollBox style=\"${1}\">",
+      "  ${2:content}",
+      "</ScrollBox>"
+    ],
+    "description": "[layout] Scroll Box layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: SearchTable": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "searchTable",
+      "SearchTable"
+    ],
+    "body": [
+      "<SearchTable margin=\"${1}\" />"
+    ],
+    "description": "[layout] Search Table layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: Spacer": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "spacer",
+      "Spacer"
+    ],
+    "body": [
+      "<Spacer />"
+    ],
+    "description": "[layout] Spacer layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: StepLinkList": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "stepLinkList",
+      "StepLinkList"
+    ],
+    "body": [
+      "<StepLinkList listItems=\"${1}\" />"
+    ],
+    "description": "[layout] Step Link List layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: StepList": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "stepList",
+      "StepList"
+    ],
+    "body": [
+      "<StepList listItems=\"${1}\" />"
+    ],
+    "description": "[layout] Step List layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: StyledStep": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "styledStep",
+      "StyledStep"
+    ],
+    "body": [
+      "<StyledStep title=\"${1}\" icon=\"${2}\">",
+      "  ${3:content}",
+      "</StyledStep>"
+    ],
+    "description": "[layout] Styled Step layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: StyledSteps": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "styledSteps",
+      "StyledSteps"
+    ],
+    "body": [
+      "<StyledSteps iconColor=\"${1}\" titleColor=\"${2}\" lineColor=\"${3}\">",
+      "  ${4:content}",
+      "</StyledSteps>"
+    ],
+    "description": "[layout] Styled Steps layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: StyledTable": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "styledTable",
+      "StyledTable"
+    ],
+    "body": [
+      "<StyledTable>",
+      "  ${1:content}",
+      "</StyledTable>"
+    ],
+    "description": "[layout] Styled Table layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: TableCell": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "tableCell",
+      "TableCell"
+    ],
+    "body": [
+      "<TableCell>",
+      "  ${1:content}",
+      "</TableCell>"
+    ],
+    "description": "[layout] Table Cell layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: TableRow": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "tableRow",
+      "TableRow"
+    ],
+    "body": [
+      "<TableRow>",
+      "  ${1:content}",
+      "</TableRow>"
+    ],
+    "description": "[layout] Table Row layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: UpdateLinkList": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "updateLinkList",
+      "UpdateLinkList"
+    ],
+    "body": [
+      "<UpdateLinkList listItems=\"${1}\" />"
+    ],
+    "description": "[layout] Update Link List layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: UpdateList": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "updateList",
+      "UpdateList"
+    ],
+    "body": [
+      "<UpdateList listItems=\"${1}\" />"
+    ],
+    "description": "[layout] Update List layout component for arranging documentation content without MDX inline styles."
+  },
+  "layout: WidthCard": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "widthCard",
+      "WidthCard"
+    ],
+    "body": [
+      "<WidthCard>",
+      "  ${1:content}",
+      "</WidthCard>"
+    ],
+    "description": "[layout] Renders the width card component"
+  },
+  "page-structure: CustomCardTitle": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "customCardTitle",
+      "CustomCardTitle"
+    ],
+    "body": [
+      "<CustomCardTitle icon=\"${1}\" title=\"${2}\" style=\"${3}\" />"
+    ],
+    "description": "[page-structure] Custom Card Title page-structure component for frame-mode and portal layout scaffolding."
+  },
+  "page-structure: Divider": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "divider",
+      "Divider"
+    ],
+    "body": [
+      "<Divider color=\"${1}\" />"
+    ],
+    "description": "[page-structure] Renders a horizontal rule (---) with proper styling for frame mode."
+  },
+  "page-structure: H1": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "h1",
+      "H1"
+    ],
+    "body": [
+      "<H1 icon=\"${1}\" iconColor=\"${2}\">",
+      "  ${3:content}",
+      "</H1>"
+    ],
+    "description": "[page-structure] H1 page-structure component for frame-mode and portal layout scaffolding."
+  },
+  "page-structure: H2": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "h2",
+      "H2"
+    ],
+    "body": [
+      "<H2 icon=\"${1}\" iconColor=\"${2}\">",
+      "  ${3:content}",
+      "</H2>"
+    ],
+    "description": "[page-structure] H2 - Custom H2 heading component for frame mode"
+  },
+  "page-structure: H3": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "h3",
+      "H3"
+    ],
+    "body": [
+      "<H3 icon=\"${1}\" iconColor=\"${2}\">",
+      "  ${3:content}",
+      "</H3>"
+    ],
+    "description": "[page-structure] H3 - Custom H3 heading component for frame mode"
+  },
+  "page-structure: H4": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "h4",
+      "H4"
+    ],
+    "body": [
+      "<H4 icon=\"${1}\" iconColor=\"${2}\">",
+      "  ${3:content}",
+      "</H4>"
+    ],
+    "description": "[page-structure] H4 - Custom H4 heading component for frame mode"
+  },
+  "page-structure: H5": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "h5",
+      "H5"
+    ],
+    "body": [
+      "<H5 icon=\"${1}\" iconColor=\"${2}\">",
+      "  ${3:content}",
+      "</H5>"
+    ],
+    "description": "[page-structure] H5 - Custom H5 heading component for frame mode"
+  },
+  "page-structure: H6": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "h6",
+      "H6"
+    ],
+    "body": [
+      "<H6 icon=\"${1}\" iconColor=\"${2}\">",
+      "  ${3:content}",
+      "</H6>"
+    ],
+    "description": "[page-structure] H6 - Custom H6 heading component for frame mode"
+  },
+  "page-structure: HeroContentContainer": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "heroContentContainer",
+      "HeroContentContainer"
+    ],
+    "body": [
+      "<HeroContentContainer>",
+      "  ${1:content}",
+      "</HeroContentContainer>"
+    ],
+    "description": "[page-structure] Centered frame-mode container for hero content stacked over hero backgrounds."
+  },
+  "page-structure: HeroImageBackgroundComponent": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "heroImageBackgroundComponent",
+      "HeroImageBackgroundComponent"
+    ],
+    "body": [
+      "<HeroImageBackgroundComponent>",
+      "  ${1:content}",
+      "</HeroImageBackgroundComponent>"
+    ],
+    "description": "[page-structure] Absolute-positioned hero background wrapper used behind portal hero content."
+  },
+  "page-structure: HeroOverviewContent": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "heroOverviewContent",
+      "HeroOverviewContent"
+    ],
+    "body": [
+      "<HeroOverviewContent>",
+      "  ${1:content}",
+      "</HeroOverviewContent>"
+    ],
+    "description": "[page-structure] Centered hero overview wrapper for introductory portal copy blocks."
+  },
+  "page-structure: HeroSectionContainer": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "heroSectionContainer",
+      "HeroSectionContainer"
+    ],
+    "body": [
+      "<HeroSectionContainer>",
+      "  ${1:content}",
+      "</HeroSectionContainer>"
+    ],
+    "description": "[page-structure] Outer frame-mode hero section wrapper for portal layouts."
+  },
+  "page-structure: LogoHeroContainer": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "logoHeroContainer",
+      "LogoHeroContainer"
+    ],
+    "body": [
+      "<LogoHeroContainer>",
+      "  ${1:content}",
+      "</LogoHeroContainer>"
+    ],
+    "description": "[page-structure] Portal hero logo wrapper that centers a themed brand asset above hero content."
+  },
+  "page-structure: P": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "p",
+      "P"
+    ],
+    "body": [
+      "<P icon=\"${1}\" iconColor=\"${2}\">",
+      "  ${3:content}",
+      "</P>"
+    ],
+    "description": "[page-structure] P - Custom paragraph component for frame mode"
+  },
+  "page-structure: PageHeader": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "pageHeader",
+      "PageHeader"
+    ],
+    "body": [
+      "<PageHeader title=\"${1}\" subtitle=\"${2}\" description=\"${3}\" titleColor=\"${4}\" subtitleColor=\"${5}\" descriptionColor=\"${6}\">",
+      "  ${7:content}",
+      "</PageHeader>"
+    ],
+    "description": "[page-structure] H1 - Custom H1 heading component for frame mode"
+  },
+  "page-structure: PortalCardsHeader": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "portalCardsHeader",
+      "PortalCardsHeader"
+    ],
+    "body": [
+      "<PortalCardsHeader title=\"${1}\">",
+      "  ${2:content}",
+      "</PortalCardsHeader>"
+    ],
+    "description": "[page-structure] Header wrapper for portal card groups and section intros."
+  },
+  "page-structure: PortalContentContainer": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "portalContentContainer",
+      "PortalContentContainer"
+    ],
+    "body": [
+      "<PortalContentContainer>",
+      "  ${1:content}",
+      "</PortalContentContainer>"
+    ],
+    "description": "[page-structure] Frame-mode content wrapper for portal body sections."
+  },
+  "page-structure: PortalHeroContent": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "portalHeroContent",
+      "PortalHeroContent"
+    ],
+    "body": [
+      "<PortalHeroContent description=\"${1}\" refCardLink=\"${2}\" overview=\"${3}\" titleColor=\"${4}\" subtitleColor=\"${5}\">",
+      "  ${6:content}",
+      "</PortalHeroContent>"
+    ],
+    "description": "[page-structure] Hero scaffold for portal landing pages with title, subtitle, supporting content, and optional callouts."
+  },
+  "page-structure: PortalSectionHeader": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "portalSectionHeader",
+      "PortalSectionHeader"
+    ],
+    "body": [
+      "<PortalSectionHeader title=\"${1}\" icon=\"${2}\">",
+      "  ${3:content}",
+      "</PortalSectionHeader>"
+    ],
+    "description": "[page-structure] Section heading wrapper for portal subsections with optional icon treatment."
+  },
+  "page-structure: RefCardContainer": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "refCardContainer",
+      "RefCardContainer"
+    ],
+    "body": [
+      "<RefCardContainer>",
+      "  ${1:content}",
+      "</RefCardContainer>"
+    ],
+    "description": "[page-structure] Container for portal reference cards and related CTA blocks."
+  },
+  "page-structure: Starfield": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "starfield",
+      "Starfield"
+    ],
+    "body": [
+      "<Starfield />"
+    ],
+    "description": "[page-structure] Animated Livepeer logo starfield background for frame-mode hero sections."
+  },
+  "primitives: AccordionTitleWithArrow": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "accordionTitleWithArrow",
+      "AccordionTitleWithArrow"
+    ],
+    "body": [
+      "<AccordionTitleWithArrow text=\"${1}\">",
+      "  ${2:content}",
+      "</AccordionTitleWithArrow>"
+    ],
+    "description": "[primitives] Accordion Title With Arrow primitive used in authored documentation and component-library examples."
+  },
+  "primitives: BasicBtn": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "basicBtn",
+      "BasicBtn"
+    ],
+    "body": [
+      "<BasicBtn />"
+    ],
+    "description": "[primitives] Basic Btn primitive used in authored documentation and component-library examples."
+  },
+  "primitives: BlinkingIcon": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "blinkingIcon",
+      "BlinkingIcon"
+    ],
+    "body": [
+      "<BlinkingIcon color=\"${1}\" />"
+    ],
+    "description": "[primitives] Displays an icon with a smooth blinking animation (fades between full and 30% opacity)."
+  },
+  "primitives: CardTitleTextWithArrow": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "cardTitleTextWithArrow",
+      "CardTitleTextWithArrow"
+    ],
+    "body": [
+      "<CardTitleTextWithArrow cardProps=\"${1}\">",
+      "  ${2:content}",
+      "</CardTitleTextWithArrow>"
+    ],
+    "description": "[primitives] Card Title Text With Arrow primitive used in authored documentation and component-library examples."
+  },
+  "primitives: ComingSoonCallout": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "comingSoonCallout",
+      "ComingSoonCallout"
+    ],
+    "body": [
+      "<ComingSoonCallout />"
+    ],
+    "description": "[primitives] Callout announcing work-in-progress content and contribution links."
+  },
+  "primitives: CopyText": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "copyText",
+      "CopyText"
+    ],
+    "body": [
+      "<CopyText text=\"${1}\" label=\"${2}\" />"
+    ],
+    "description": "[primitives] Copy Text primitive used in authored documentation and component-library examples."
+  },
+  "primitives: CustomCallout": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "customCallout",
+      "CustomCallout"
+    ],
+    "body": [
+      "<CustomCallout color=\"${1}\" textColor=\"${2}\">",
+      "  ${3:content}",
+      "</CustomCallout>"
+    ],
+    "description": "[primitives] Displays a styled callout box with an icon and custom colors."
+  },
+  "primitives: CustomDivider": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "customDivider",
+      "CustomDivider"
+    ],
+    "body": [
+      "<CustomDivider />"
+    ],
+    "description": "[primitives] Custom Divider primitive used in authored documentation and component-library examples."
+  },
+  "primitives: DoubleIconLink": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "doubleIconLink",
+      "DoubleIconLink"
+    ],
+    "body": [
+      "<DoubleIconLink />"
+    ],
+    "description": "[primitives] Displays a link with an icon on the left and right, plus optional text prefix."
+  },
+  "primitives: DownloadButton": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "downloadButton",
+      "DownloadButton"
+    ],
+    "body": [
+      "<DownloadButton downloadLink=\"${1}\" />"
+    ],
+    "description": "[primitives] Download Button primitive used in authored documentation and component-library examples."
+  },
+  "primitives: FocusableScrollRegions": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "focusableScrollRegions",
+      "FocusableScrollRegions"
+    ],
+    "body": [
+      "<FocusableScrollRegions selectors=\"${1}\" />"
+    ],
+    "description": "[primitives] Focusable Scroll Regions primitive used in authored documentation and component-library examples."
+  },
+  "primitives: GotoCard": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "gotoCard",
+      "GotoCard"
+    ],
+    "body": [
+      "<GotoCard label=\"${1}\" relativePath=\"${2}\" icon=\"${3}\" text=\"${4}\" props=\"${5}\" />"
+    ],
+    "description": "[primitives] Wraps content in a Card component with a link, icon, and optional CTA."
+  },
+  "primitives: GotoLink": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "gotoLink",
+      "GotoLink"
+    ],
+    "body": [
+      "<GotoLink label=\"${1}\" relativePath=\"${2}\" />"
+    ],
+    "description": "[primitives] Displays a link with an icon, typically used for internal navigation."
+  },
+  "primitives: Image": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "image",
+      "Image"
+    ],
+    "body": [
+      "<Image src=\"${1}\" alt=\"${2}\" caption=\"${3}\" icon=\"${4}\" hint=\"${5}\" />"
+    ],
+    "description": "[primitives] Image primitive used in authored documentation and component-library examples."
+  },
+  "primitives: LinkArrow": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "linkArrow",
+      "LinkArrow"
+    ],
+    "body": [
+      "<LinkArrow href=\"${1}\" label=\"${2}\" description=\"${3}\" borderColor=\"${4}\" />"
+    ],
+    "description": "[primitives] Link Arrow primitive used in authored documentation and component-library examples."
+  },
+  "primitives: LinkImage": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "linkImage",
+      "LinkImage"
+    ],
+    "body": [
+      "<LinkImage src=\"${1}\" alt=\"${2}\" caption=\"${3}\" icon=\"${4}\" hint=\"${5}\" href=\"${6}\" />"
+    ],
+    "description": "[primitives] Link Image primitive used in authored documentation and component-library examples."
+  },
+  "primitives: LivepeerIcon": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "livepeerIcon",
+      "LivepeerIcon"
+    ],
+    "body": [
+      "<LivepeerIcon color=\"${1}\" props=\"${2}\" />"
+    ],
+    "description": "[primitives] Livepeer Icon primitive used in authored documentation and component-library examples."
+  },
+  "primitives: LivepeerIconFlipped": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "livepeerIconFlipped",
+      "LivepeerIconFlipped"
+    ],
+    "body": [
+      "<LivepeerIconFlipped props=\"${1}\" />"
+    ],
+    "description": "[primitives] Livepeer Icon Flipped primitive used in authored documentation and component-library examples."
+  },
+  "primitives: LivepeerIconOld": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "livepeerIconOld",
+      "LivepeerIconOld"
+    ],
+    "body": [
+      "<LivepeerIconOld props=\"${1}\" />"
+    ],
+    "description": "[primitives] Livepeer Icon Old primitive used in authored documentation and component-library examples."
+  },
+  "primitives: LivepeerSVG": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "livepeerSVG",
+      "LivepeerSVG"
+    ],
+    "body": [
+      "<LivepeerSVG props=\"${1}\" />"
+    ],
+    "description": "[primitives] Livepeer SVG primitive used in authored documentation and component-library examples."
+  },
+  "primitives: MathBlock": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "mathBlock",
+      "MathBlock"
+    ],
+    "body": [
+      "<MathBlock latex=\"${1}\" ariaLabel=\"${2}\" />"
+    ],
+    "description": "[primitives] Math Block primitive used in authored documentation and component-library examples."
+  },
+  "primitives: MathInline": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "mathInline",
+      "MathInline"
+    ],
+    "body": [
+      "<MathInline latex=\"${1}\" ariaLabel=\"${2}\" />"
+    ],
+    "description": "[primitives] Math Inline primitive used in authored documentation and component-library examples."
+  },
+  "primitives: PreviewCallout": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "previewCallout",
+      "PreviewCallout"
+    ],
+    "body": [
+      "<PreviewCallout />"
+    ],
+    "description": "[primitives] Callout highlighting preview-state content and feedback channels."
+  },
+  "primitives: ReviewCallout": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "reviewCallout",
+      "ReviewCallout"
+    ],
+    "body": [
+      "<ReviewCallout />"
+    ],
+    "description": "[primitives] Callout requesting technical review support on incomplete content."
+  },
+  "primitives: SocialLinks": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "socialLinks",
+      "SocialLinks"
+    ],
+    "body": [
+      "<SocialLinks color=\"${1}\" />"
+    ],
+    "description": "[primitives] Renders the social links component"
+  },
+  "primitives: Subtitle": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "subtitle",
+      "Subtitle"
+    ],
+    "body": [
+      "<Subtitle text=\"${1}\">",
+      "  ${2:content}",
+      "</Subtitle>"
+    ],
+    "description": "[primitives] Subtitle primitive used in authored documentation and component-library examples."
+  },
+  "primitives: TipWithArrow": {
+    "scope": "mdx,markdown",
+    "prefix": [
+      "tipWithArrow",
+      "TipWithArrow"
+    ],
+    "body": [
+      "<TipWithArrow color=\"${1}\">",
+      "  ${2:content}",
+      "</TipWithArrow>"
+    ],
+    "description": "[primitives] Similar to CustomCallout but includes an arrow icon in the top-right corner."
+  }
+}

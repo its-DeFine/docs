@@ -1,0 +1,210 @@
+---
+title: 'Install go-livepeer'
+description: 'Install the go-livepeer binary on Linux, macOS, or via Docker. Covers prerequisites, GPU driver requirements, installation steps, and verification.'
+keywords:
+  [
+    'go-livepeer',
+    'install',
+    'orchestrator',
+    'GPU',
+    'NVIDIA',
+    'Docker',
+    'binary',
+    'CUDA',
+    'Linux',
+  ]
+pageType: 'tutorial'
+audience: 'orchestrator'
+status: 'current'
+---
+
+By the end of this guide, you will have go-livepeer installed on your machine and your GPU detected and ready to configure.
+
+## Prerequisites
+
+...
+
+## Install go-livepeer
+
+<View>...</View>
+
+## Verify your installation
+
+...
+
+## Next steps
+
+<CardGroup>
+  <Card
+    title="Configure your orchestrator"
+    href="/v2/orchestrators/setup/orch-config"
+  >
+    Set the flags your node needs to connect, price jobs, and accept work.
+  </Card>
+</CardGroup>
+```
+
+Unresolved items marked with HTML comments:
+
+```
+{/* REVIEW: Command needs verification against current go-livepeer release */}
+{/* SME: Rick to confirm minimum NVIDIA driver version */}
+{/* EMBED: [Video title] recommended here — awaiting approval */}
+```
+
+---
+
+## Part 3 — Research Report
+
+_Agent fills this in as a standalone deliverable. Delivered alongside the draft MDX._
+
+---
+
+### 3.1 Sources Consulted
+
+| #   | Source | URL | Date checked | Content found |
+| --- | ------ | --- | ------------ | ------------- |
+| 1   |        |     |              |               |
+| 2   |        |     |              |               |
+| 3   |        |     |              |               |
+| 4   |        |     |              |               |
+| 5   |        |     |              |               |
+| 6   |        |     |              |               |
+| 7   |        |     |              |               |
+| 8   |        |     |              |               |
+
+---
+
+### 3.2 Technical Claims & Sources
+
+| Claim                              | Value found | Source (Tier + URL) | Verified? |
+| ---------------------------------- | ----------- | ------------------- | --------- |
+| Current release version            |             |                     |           |
+| Linux amd64 binary URL             |             |                     |           |
+| macOS arm64 binary URL             |             |                     |           |
+| macOS amd64 binary URL             |             |                     |           |
+| Docker image name + tag            |             |                     |           |
+| Minimum NVIDIA driver version      |             |                     |           |
+| CUDA version required              |             |                     |           |
+| Go version for source build        |             |                     |           |
+| GPU detection verification command |             |                     |           |
+| nvidia-container-toolkit required? |             |                     |           |
+
+---
+
+### 3.3 Pain Points Found
+
+_(From Forum, Discord, Reddit, blog comments — Tier 3/4 only. Verify resolutions against Tier 1 before including.)_
+
+| #   | Pain point / error | Source | Frequency | Resolution | Page placement |
+| --- | ------------------ | ------ | --------- | ---------- | -------------- |
+| 1   |                    |        |           |            |                |
+| 2   |                    |        |           |            |                |
+| 3   |                    |        |           |            |                |
+| 4   |                    |        |           |            |                |
+| 5   |                    |        |           |            |                |
+
+---
+
+### 3.4 Media & Embed Candidates
+
+| #   | Title | URL | Type | Length | Recommended position | Accurate? | Notes |
+| --- | ----- | --- | ---- | ------ | -------------------- | --------- | ----- |
+| 1   |       |     |      |        |                      |           |       |
+| 2   |       |     |      |        |                      |           |       |
+| 3   |       |     |      |        |                      |           |       |
+
+---
+
+### 3.5 Source Conflicts
+
+_(Record any case where two sources give different information for the same claim. Higher tier wins.)_
+
+| Topic | Source A (value) | Source B (value) | Resolution |
+| ----- | ---------------- | ---------------- | ---------- |
+|       |                  |                  |            |
+
+---
+
+### 3.6 Unverified Claims — Flagged for SME Review
+
+| Claim | Why unverified | Suggested verifier |
+| ----- | -------------- | ------------------ |
+|       |                |                    |
+
+---
+
+## Appendix — GPU Nodes Tab IA Context
+
+_Reference for the agent. Shows where this page sits in the full tab structure and what it links to._
+
+### Target IA (post-Phase-0)
+
+```
+v2/orchestrators/
+├── orchestrators-portal.mdx           [landing]
+├── orchestrator-journey.mdx           [landing]
+├── concepts/
+│   ├── overview.mdx                   [overview]
+│   ├── architecture.mdx               [concept]
+│   ├── economics.mdx                  [concept]
+│   ├── functions.mdx                  [concept]
+│   └── job-types.mdx                  [concept]
+├── get-started/
+│   ├── setup-paths.mdx                [overview → decision matrix]
+│   ├── quickstart.mdx                 [tutorial]
+│   ├── join-a-pool.mdx               ← ✅ COMPLETE
+│   ├── AI-prompt-start.mdx            [tutorial]
+│   ├── realtime-ai-quickstart.mdx     [tutorial]
+│   └── batch-ai-quickstart.mdx        [tutorial]
+├── setup/
+│   ├── overview.mdx                   [how_to — flow map]
+│   ├── hardware-requirements.mdx      [reference]
+│   ├── install-go-livepeer.mdx        [tutorial]  ← THIS PAGE
+│   ├── orch-config.mdx                [how_to]    ← NEXT PAGE
+│   ├── connect-to-arbitrum.mdx        [how_to]
+│   ├── orchestrator-stats.mdx         [guide]
+│   ├── publish-offerings.mdx          [how_to]
+│   ├── data-centre-setup.mdx          [how_to]
+│   └── enterprise-and-data-centres.mdx [guide]
+├── advanced/
+│   ├── earnings.mdx                   [guide]
+│   ├── staking-LPT.mdx               [how_to]
+│   ├── rewards-and-fees.mdx           [concept]
+│   ├── delegation.mdx                 [how_to]
+│   ├── payments.mdx                   [concept]
+│   ├── ai-pipelines.mdx               [guide]
+│   ├── hosting-models.mdx             [guide]
+│   └── run-a-pool.mdx                 [guide]
+├── tools-and-guides/
+│   ├── guides.mdx                     [reference — index]
+│   └── tooling.mdx                    [reference — index]
+└── resources/
+    ├── faq.mdx                        [faq + troubleshooting]
+    ├── cli-flags.mdx                  [reference]
+    └── community-pools.mdx            [reference]
+```
+
+### Upstream and downstream links from this page
+
+| Direction             | Page                              | Link type                                              |
+| --------------------- | --------------------------------- | ------------------------------------------------------ |
+| Upstream (comes from) | `setup/hardware-requirements.mdx` | Reader verified their hardware and is ready to install |
+| Upstream (comes from) | `get-started/setup-paths.mdx`     | Reader chose the solo orchestrator path                |
+| Downstream (goes to)  | `setup/orch-config.mdx`           | Next Steps card — configure the installed binary       |
+| Escalation            | `resources/faq.mdx`               | Linked from Warning if GPU not detected                |
+
+### Content priority queue (for context)
+
+| Priority | File                              | Action                  | Key persona |
+| -------- | --------------------------------- | ----------------------- | ----------- |
+| **P0**   | `resources/faq.mdx`               | WRITE                   | All         |
+| **P1**   | `setup/install-go-livepeer.mdx`   | **CREATE ← THIS BRIEF** | A, C, E     |
+| **P1**   | `setup/orch-config.mdx`           | CREATE                  | A, C        |
+| **P1**   | `get-started/AI-prompt-start.mdx` | CREATE                  | C, E        |
+| **P1**   | `get-started/setup-paths.mdx`     | REWRITE                 | All         |
+
+### Intentional docs.json patterns — never touch
+
+- `"anchor": " "` with `"pages": [" "]` — intentional sidebar visual separators
+- `/v2/resources/redirect` — intentional routing workaround

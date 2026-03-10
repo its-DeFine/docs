@@ -1,0 +1,195 @@
+---
+title: 'Dev-helpers'
+sidebarTitle: Dev-helpers
+description: 'Description of dev-helpers'
+audience: developer
+pageType: landing
+purpose: landing
+status: draft
+lastVerified: 2026-03-11
+keywords:
+  - livepeer
+  - keyword
+'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
+---
+
+{/*
+GitHub Gists can work well for:
+
+- **full MDX layouts/templates** — reusable page shells, callout patterns, frontmatter blocks, component examples, landing page sections
+- **VS Code snippets** — repo-specific snippet JSON files, MDX authoring snippets, React/component snippets, Mintlify/MDX boilerplate
+- **small reusable content primitives** — tabs, cards, accordions, API example blocks, Mermaid templates
+
+Where they work best:
+
+- versioned reusable text/code blocks
+- fast sharing across contributors
+- lightweight template library
+- copy/paste authoring helpers
+
+Where they are weaker:
+
+- not ideal for **discoverability/governance** at scale
+- no strong repo-local coupling by default
+- harder to enforce as a true source of truth
+- worse than a repo for reviewing changes alongside docs
+
+Best practice split:
+
+- use **the repo** for anything that should be canonical and shipped with the docs
+- use **gists** for shared drafts, experiments, snippet libraries, and authoring helpers
+- use **repo-local `.vscode/*.code-snippets`** or `.code-snippets` files for team snippets tied to that docs repo
+
+For your use case, the strongest setup is usually:
+
+1. **Repo-native MDX templates** in a `/templates` or `/snippets` folder
+2. **Repo-specific VS Code snippets** in `.vscode/livepeer-docs.code-snippets`
+3. **Optional Gists** for quick-share patterns or external contributor starter kits
+
+Example uses:
+
+- `quickstart-template.mdx`
+- `persona-landing-page.mdx`
+- `concept-page-template.mdx`
+- `how-to-page-template.mdx`
+- `value-response-field` snippet
+- Mintlify card-grid snippet
+- Mermaid architecture diagram snippet
+
+If you want, I can generate:
+
+- a **GitHub Gist-ready MDX template pack**
+- a **repo-specific VS Code snippets file**
+- or both, tailored to your Livepeer docs structure. */}
+
+
+## AI Skills
+
+## VSCode Snippets
+
+Workspace snippets in `.vscode/` — available to all contributors automatically.
+
+#### Utility snippets 
+{/* IN ACCORDIONGROUPLIST */}
+Frontmatter (`.vscode/mdx.code-snippets`)
+
+
+Type `frontmatter` in any MDX file to scaffold the full block with auto-filled title and date:
+
+```yaml
+---
+title: 'Explorer' # ← auto-filled from filename
+sidebarTitle: Explorer
+description: 'Description of explorer'
+audience: developer # ← dropdown with 9 canonical values
+pageType: guide # ← dropdown with 12 canonical values
+purpose: how_to
+status: draft
+lastVerified: 2026-03-11 # ← auto-filled with today's date
+keywords:
+  - livepeer
+  - keyword
+'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
+---
+```
+
+#### Mintlify Component snippets 
+{/* IN ACCORDIONGROUPLIST - where is this??*/}
+
+ {/* WHAT IS THIS? what heading is it for?? */}
+Individual field snippets: `pageType`, `audience`, `status`, `purpose`, `lastVerified`, `fm` (minimal block).
+
+### Component snippets (`.vscode/components.code-snippets`)
+
+114 component snippets generated from `docs-guide/component-registry.json`. Type a component name to insert it with required props:
+
+<AccordionGroup>
+
+<Accordion title="primitives (28 snippets)" icon="shapes">
+**Most used:**
+
+```mdx
+<CustomDivider />
+
+<CustomDivider middleText="OVERVIEW" />
+
+<GotoCard
+  label="Resource Index"
+  relativePath="/v2/resources/resources-portal"
+  text="Find more resources in the Resource Hub"
+/>
+```
+
+**Also available:** `DoubleIconLink`, `GotoLink`, `LinkArrow`, `BlinkingIcon`, `MathBlock`, `MathInline`, `Image`, `CardTitleTextWithArrow`, `DownloadButton`, `PreviewCallout`, `CustomCallout`, `Subtitle`, `AccordionTitleWithArrow`, `TipWithArrow`, `ComingSoonCallout`, `CopyText`, `FocusableScrollRegions`, `LivepeerIcon`, `BasicBtn`, `BlinkingTerminal`, `LinkImage`, `LivepeerIconFlipped`, `LivepeerIconOld`, `LivepeerSVG`, `ReviewCallout`, `SocialLinks`
+</Accordion>
+
+<Accordion title="layout (29 snippets)" icon="table-columns">
+**Most used:**
+
+```mdx
+<BorderedBox variant="accent" padding="16px">
+  content
+</BorderedBox>
+
+<DynamicTable margin="0" />
+
+<StyledStep title="Connect your GPU">
+  content
+</StyledStep>
+```
+
+**Also available:** `StyledSteps`, `StyledTable`, `TableCell`, `TableRow`, `DisplayCard`, `FlexContainer`, `WidthCard`, `QuadGrid`, `ScrollBox`, `AccordionLayout`, `BasicList`, `IconList`, `InlineImageCard`, `StepLinkList`, `StepList`, `UpdateLinkList`, `UpdateList`, `CardCarousel`, `CenteredContainer`, `FullWidthContainer`, `GridContainer`, `InteractiveCard`, `InteractiveCards`, `ListSteps`, `SearchTable`, `Spacer`
+</Accordion>
+
+<Accordion title="content (24 snippets)" icon="file-lines">
+**Most used:**
+
+```mdx
+<ScrollableDiagram title="Livepeer Protocol Contract Architecture" maxHeight="600px">
+  content
+</ScrollableDiagram>
+
+<YouTubeVideo embedUrl="https://www.youtube.com/embed/4xOuRIVLnv8?si=5Bq9ROCnp_JamVmf"
+  author="Doug Petkanics"
+  title="A Decade of Bleeding Edge Innovation" />
+
+<CustomCodeBlock {...DOCKER_CODE.install} />
+```
+
+**Also available:** `Quote`, `FrameQuote`, `CustomResponseField`, `ValueResponseField`, `CodeComponent`, `CodeSection`, `ComplexCodeBlock`, `ResponseFieldAccordion`, `ResponseFieldExpandable`, `TwitterTimeline`, `YouTubeVideoData`, `CardVideo`, `ShowcaseVideo`, `TitledVideo`, `Video`, `YouTubeVideoDownload`, `EmbedMarkdown`, `ExternalContent`, `LinkedInEmbed`, `MarkdownEmbed`, `ResponseFieldGroup`
+</Accordion>
+
+<Accordion title="page-structure (21 snippets)" icon="layer-group">
+**Most used — portal hero pattern:**
+
+```mdx
+<HeroSectionContainer>
+  <HeroImageBackgroundComponent>
+    <HeroContentContainer>
+      content
+    </HeroContentContainer>
+  </HeroImageBackgroundComponent>
+</HeroSectionContainer>
+```
+
+**Also available:** `LogoHeroContainer`, `PortalCardsHeader`, `PortalContentContainer`, `PortalHeroContent`, `Starfield`, `H1`, `H2`, `H3`, `H4`, `H5`, `H6`, `P`, `CustomCardTitle`, `PortalSectionHeader`, `Divider`, `HeroOverviewContent`, `PageHeader`, `RefCardContainer`
+</Accordion>
+
+<Accordion title="data (14 snippets)" icon="database">
+**Most used:**
+
+```mdx
+<PdfEmbed title="Livepeer Brand Guidelines"
+  src="https://www.dropbox.com/scl/fi/tblvrdl3chfklvujhri19/Livepeer-Brand-Guidelines.pdf?rlkey=mfp3zj8kbp8aw3z0kqhez8wn9&st=or62duey&raw=1" />
+
+<CoinGeckoExchanges coinId="livepeer" />
+
+<ForumLatestLayout items={forumData} limit={2} />
+```
+
+**Also available:** `BlogCard`, `CardBlogDataLayout`, `CardColumnsPostLayout`, `ColumnsBlogCardLayout`, `DiscordAnnouncements`, `PostCard`, `LumaEvents`, `ShowcaseCards`, `BlogDataLayout`, `CardInCardLayout`, `LatestVersion`
+</Accordion>
+
+</AccordionGroup>
+
+Regenerate after registry changes: `python3 tools/scripts/generate-component-snippets.py`
