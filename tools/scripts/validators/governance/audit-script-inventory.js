@@ -1,20 +1,20 @@
 #!/usr/bin/env node
 /**
- * @script           audit-script-inventory
- * @category         validator
- * @purpose          governance:repo-health
- * @scope            full-repo
- * @owner            docs
- * @needs            R-R14, R-R18, R-C6
+ * @script            audit-script-inventory
+ * @category          validator
+ * @purpose           governance:repo-health
+ * @scope             full-repo
+ * @owner             docs
+ * @needs             R-R14, R-R18, R-C6
  * @purpose-statement Deep inventory audit of every script in the repo. Traces triggers, outputs, downstream chains, and governance compliance. Produces reports grouped by trigger category.
- * @pipeline         manual
- * @usage            node tools/scripts/validators/governance/audit-script-inventory.js [--json] [--md] [--output <dir>] [--verbose]
+ * @pipeline          P1 (commit), indirect
+ * @usage             node tools/scripts/validators/governance/audit-script-inventory.js [--fix] [--dry-run] [--staged-only] [--quiet] [--json] [--md] [--output <dir>] [--verbose]
  */
 
 const fs = require('fs');
 const path = require('path');
-const { execFileSync } = require('child_process');
-const yaml = require('../../../lib/load-js-yaml');
+const { execFileSync, spawnSync } = require('child_process');
+const yaml = require('js-yaml');
 const {
   AGGREGATE_INDEX_PATH,
   CATEGORY_ENUM,
@@ -74,7 +74,7 @@ const AUTOMATED_PIPELINES = new Set(['P1', 'P2', 'P3', 'P5', 'P6']);
 
 function usage() {
   console.log(
-    'Usage: node tools/scripts/validators/governance/audit-script-inventory.js [--fix] [--dry-run] [--json] [--md] [--output <dir>] [--verbose]'
+    'Usage: node tools/scripts/validators/governance/audit-script-inventory.js [--fix] [--dry-run] [--staged-only] [--quiet] [--json] [--md] [--output <dir>] [--verbose]'
   );
 }
 
@@ -82,6 +82,8 @@ function parseArgs(argv) {
   const args = {
     fix: false,
     dryRun: false,
+    stagedOnly: false,
+    quiet: false,
     json: false,
     md: false,
     verbose: false,
@@ -105,6 +107,14 @@ function parseArgs(argv) {
     if (token === '--dry-run') {
       args.dryRun = true;
       args.fix = true;
+      continue;
+    }
+    if (token === '--staged-only') {
+      args.stagedOnly = true;
+      continue;
+    }
+    if (token === '--quiet') {
+      args.quiet = true;
       continue;
     }
     if (token === '--verbose') {
@@ -159,6 +169,17 @@ function readRepoFileOptional(repoPath) {
 
 function listTrackedFiles() {
   const output = execFileSync('git', ['ls-files'], {
+    cwd: REPO_ROOT,
+    encoding: 'utf8'
+  });
+  return output
+    .split('\n')
+    .map((line) => normalizeRepoPath(line.trim()))
+    .filter(Boolean);
+}
+
+function listStagedFiles(diffFilter = 'ACM') {
+  const output = execFileSync('git', ['diff', '--cached', '--name-only', `--diff-filter=${diffFilter}`], {
     cwd: REPO_ROOT,
     encoding: 'utf8'
   });
@@ -1323,6 +1344,10 @@ function buildProjectedSummary(report, projectedScripts, nextRows, phantomCount)
 
 function buildRepairPlan(report, options = {}) {
   const dryRun = options.dryRun === true;
+  const scopedPaths = new Set(
+    Array.isArray(options.scopedPaths) ? options.scopedPaths.map((entry) => normalizeRepoPath(entry)) : []
+  );
+  const stagedScopedMode = scopedPaths.size > 0;
   const rowMap = new Map(report.classification_rows.map((row) => [row.path, { ...row }]));
   const fixes = {
     json_phantoms_removed: 0,
@@ -1343,13 +1368,17 @@ function buildRepairPlan(report, options = {}) {
   const headerUpdates = [];
   const needsHuman = [];
   const managedScriptMap = buildManagedScriptInfoMap(report);
-  const liveManagedPaths = [...managedScriptMap.keys()].sort();
+  const liveManagedPaths = [...managedScriptMap.keys()]
+    .filter((scriptPath) => !stagedScopedMode || scopedPaths.has(scriptPath))
+    .sort();
 
-  for (const [rowPath] of [...rowMap.entries()]) {
-    if (!isWithinRoots(rowPath, GOVERNED_ROOTS)) continue;
-    if (managedScriptMap.has(rowPath)) continue;
-    rowMap.delete(rowPath);
-    incrementCount(fixes, 'json_phantoms_removed');
+  if (!stagedScopedMode) {
+    for (const [rowPath] of [...rowMap.entries()]) {
+      if (!isWithinRoots(rowPath, GOVERNED_ROOTS)) continue;
+      if (managedScriptMap.has(rowPath)) continue;
+      rowMap.delete(rowPath);
+      incrementCount(fixes, 'json_phantoms_removed');
+    }
   }
 
   liveManagedPaths.forEach((scriptPath) => {
@@ -1644,6 +1673,10 @@ function runAudit(options) {
   const warnings = [];
   const trackedFiles = listTrackedFiles();
   const discoveredScripts = getDiscoveredScripts(trackedFiles);
+  const stagedScriptSet = options.stagedOnly ? new Set(listStagedFiles('ACM').filter(isDiscoveredScriptPath)) : null;
+  const scopedScripts = stagedScriptSet
+    ? discoveredScripts.filter((scriptPath) => stagedScriptSet.has(scriptPath))
+    : discoveredScripts;
   const docs = new Map();
   const callerFiles = new Set([...discoveredScripts, ...SPECIAL_CALLERS, ...PACKAGE_JSON_PATHS, ...getWorkflowFiles(trackedFiles)]);
 
@@ -1665,7 +1698,7 @@ function runAudit(options) {
     .map((row) => ({ ...row, phantom: true }))
     .sort((left, right) => left.path.localeCompare(right.path));
 
-  const scripts = discoveredScripts.map((scriptPath) => {
+  const scripts = scopedScripts.map((scriptPath) => {
     const content = docs.get(scriptPath) || readRepoFile(scriptPath, warnings);
     const metadata = extractHeaderMetadata(scriptPath, content);
     const triggers = findTriggers(scriptPath, docs, workflowDocs);
@@ -1771,6 +1804,8 @@ function runAudit(options) {
   return {
     generated_at: new Date().toISOString(),
     mode: options.fix ? (options.dryRun ? 'dry-run' : 'fix') : 'audit',
+    scope: options.stagedOnly ? 'staged' : 'full-repo',
+    scoped_script_paths: scopedScripts,
     output_dir: normalizeRepoPath(path.relative(REPO_ROOT, path.resolve(REPO_ROOT, options.outputDir))),
     summary,
     groups,
@@ -1789,7 +1824,10 @@ function runAuditWithOptionalRepair(options) {
     return baseReport;
   }
 
-  const plan = buildRepairPlan(baseReport, { dryRun: options.dryRun });
+  const plan = buildRepairPlan(baseReport, {
+    dryRun: options.dryRun,
+    scopedPaths: options.stagedOnly ? baseReport.scoped_script_paths : []
+  });
   if (options.dryRun) {
     return {
       ...baseReport,
@@ -1843,7 +1881,7 @@ function main() {
     const report = runAuditWithOptionalRepair(options);
     writeReportFiles(report, options);
 
-    if (options.printSummary || options.verbose) {
+    if (!options.quiet && (options.printSummary || options.verbose)) {
       buildSummaryLines(report).forEach((line) => console.log(line));
     }
   } catch (error) {

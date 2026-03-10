@@ -2,7 +2,7 @@
 # @script            verify-pay-orc-gate-finalize
 # @category          enforcer
 # @purpose           qa:repo-health
-# @scope             tools/scripts, .githooks/pre-commit, v2/gateways, v2/orchestrators
+# @scope             v2-content
 # @owner             docs
 # @needs             E-C1, R-R14
 # @purpose-statement Payment/orchestrator gate verifier — checks payment and orchestrator documentation gate conditions

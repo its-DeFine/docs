@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-10T03:09:59.395Z",
+  "generated": "2026-03-10T03:19:53.472Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -5890,6 +5890,1656 @@
       "codeLanguages": []
     },
     {
+      "url": "https://docs.livepeer.org/v2/developers/developer-journey",
+      "title": "Developer Journey",
+      "description": "Find your path on Livepeer - whether you want to build video apps, run AI pipelines, operate a gateway, or contribute to the protocol. Start here.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developer-journey",
+        "build-on-livepeer",
+        "gateway-operator",
+        "orchestrator",
+        "ai-developer",
+        "video-developer",
+        "where-to-start",
+        "developers"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 699,
+      "lastVerified": "2026-03-10T09:20:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Start here in 5 minutes"
+        },
+        {
+          "level": 2,
+          "text": "What do you want to build?"
+        },
+        {
+          "level": 2,
+          "text": "Builder Personas Map"
+        },
+        {
+          "level": 2,
+          "text": "Zero-to-Hero Progression"
+        },
+        {
+          "level": 2,
+          "text": "Not sure yet? Browse by use case"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/concepts/developer-stack",
+      "title": "The Livepeer Developer Landscape",
+      "description": "Explains the relationship between Studio, Daydream, the AI gateway API, ComfyStream, and the raw Livepeer protocol — so you can choose the right layer to build at.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developer",
+        "studio",
+        "daydream",
+        "ai-gateway",
+        "comfystream",
+        "developer-stack",
+        "sdk",
+        "developers",
+        "concepts"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1292,
+      "lastVerified": "2026-03-10T08:44:32+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "The Developer Ecosystem at a Glance"
+        },
+        {
+          "level": 2,
+          "text": "Studio"
+        },
+        {
+          "level": 2,
+          "text": "Daydream"
+        },
+        {
+          "level": 2,
+          "text": "AI Gateway API"
+        },
+        {
+          "level": 2,
+          "text": "ComfyStream"
+        },
+        {
+          "level": 2,
+          "text": "Protocol Layer"
+        },
+        {
+          "level": 2,
+          "text": "Choosing Your Layer"
+        },
+        {
+          "level": 2,
+          "text": "Next Steps"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/concepts/ai-on-livepeer",
+      "title": "AI on Livepeer",
+      "description": "Explains the three AI pipeline categories on the Livepeer network — batch inference, real-time AI (live-video-to-video), and LLM — so you can choose the right path for your workload.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "ai",
+        "pipeline",
+        "cascade",
+        "batch-ai",
+        "real-time-ai",
+        "llm",
+        "comfystream",
+        "inference",
+        "developer",
+        "developers",
+        "concepts"
+      ],
+      "entities": [
+        "developer",
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1097,
+      "lastVerified": "2026-03-10T08:44:32+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Pipeline Categories at a Glance"
+        },
+        {
+          "level": 2,
+          "text": "Batch AI Pipelines"
+        },
+        {
+          "level": 2,
+          "text": "Real-Time AI"
+        },
+        {
+          "level": 2,
+          "text": "LLM Pipeline"
+        },
+        {
+          "level": 2,
+          "text": "Choose Your Path"
+        },
+        {
+          "level": 2,
+          "text": "Next Steps"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/concepts/video-on-livepeer",
+      "title": "Video on Livepeer",
+      "description": "Explains video streaming and transcoding on the Livepeer network for developers.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "video",
+        "streaming",
+        "transcoding",
+        "developer",
+        "developers",
+        "concepts",
+        "video-on-livepeer"
+      ],
+      "entities": [
+        "developer",
+        "video"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 0,
+      "lastVerified": "2026-03-10T08:44:32+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/concepts/running-a-gateway",
+      "title": "When to Run Your Own Gateway",
+      "description": "A decision guide for developers considering self-hosting a Livepeer gateway — covering the trade-offs between hosted APIs and self-hosted infrastructure, and what self-hosting requires.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "gateway",
+        "self-host",
+        "developer",
+        "graduation",
+        "ai-gateway",
+        "off-chain",
+        "cost",
+        "decision",
+        "developers",
+        "concepts",
+        "running-a-gateway"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 750,
+      "lastVerified": "2026-03-10T08:44:32+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "When to run your own gateway"
+        },
+        {
+          "level": 2,
+          "text": "What self-hosting requires"
+        },
+        {
+          "level": 2,
+          "text": "The two gateway types"
+        },
+        {
+          "level": 2,
+          "text": "Next steps"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/concepts/oss-stack",
+      "title": "The Livepeer Open Source Stack",
+      "description": "Maps the main Livepeer open-source repositories — go-livepeer, livepeer-protocol, ai-worker, comfystream, and livepeer.js — and explains how they connect, for developers wanting to contribute.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "open-source",
+        "go-livepeer",
+        "protocol",
+        "ai-worker",
+        "comfystream",
+        "contribute",
+        "spe",
+        "oss",
+        "developers",
+        "concepts",
+        "oss-stack"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 859,
+      "lastVerified": "2026-03-10T08:44:32+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Repo map"
+        },
+        {
+          "level": 2,
+          "text": "How the repos connect"
+        },
+        {
+          "level": 2,
+          "text": "Where to start contributing"
+        },
+        {
+          "level": 2,
+          "text": "Contributing pathways"
+        },
+        {
+          "level": 2,
+          "text": "Next steps"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/get-started/setup-paths",
+      "title": "How to Get Started",
+      "description": "Choose your developer path and get to your first successful Livepeer integration.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developer",
+        "quickstart",
+        "get-started",
+        "developers",
+        "setup-paths"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 0,
+      "lastVerified": "2026-03-10T08:44:32+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/get-started/video-quickstart",
+      "title": "Quickstart: Video Streaming",
+      "description": "Stream and transcode video using the Livepeer Studio API.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "video",
+        "streaming",
+        "quickstart",
+        "studio",
+        "developers",
+        "get-started",
+        "video-quickstart"
+      ],
+      "entities": [
+        "developer",
+        "video"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 0,
+      "lastVerified": "2026-03-10T08:44:32+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/get-started/transcoding-quickstart",
+      "title": "Transcoding Jobs Quickstart",
+      "description": "Submit a Livepeer Studio Transcode job, poll the task status, and verify completion. Built from the GitHub-validated Studio OpenAPI spec and pending TD accuracy review.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "transcoding-jobs",
+        "quickstart",
+        "studio-api",
+        "transcode",
+        "tasks-api",
+        "developers",
+        "get-started",
+        "transcoding-quickstart"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 416,
+      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Transcoding Jobs Quickstart"
+        },
+        {
+          "level": 2,
+          "text": "AI-ready summary (for humans and assistants)"
+        },
+        {
+          "level": 2,
+          "text": "Review status"
+        },
+        {
+          "level": 2,
+          "text": "1. Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "2. Base URL and authentication"
+        },
+        {
+          "level": 2,
+          "text": "3. Submit a transcode job"
+        },
+        {
+          "level": 3,
+          "text": "Example request body"
+        },
+        {
+          "level": 3,
+          "text": "Example curl request"
+        },
+        {
+          "level": 2,
+          "text": "4. Capture the task ID"
+        },
+        {
+          "level": 2,
+          "text": "5. Poll the task status"
+        },
+        {
+          "level": 2,
+          "text": "6. Verify completion and outputs"
+        },
+        {
+          "level": 2,
+          "text": "7. Common failure modes"
+        },
+        {
+          "level": 3,
+          "text": "`401 Unauthorized`"
+        },
+        {
+          "level": 3,
+          "text": "`422 Validation Error`"
+        },
+        {
+          "level": 3,
+          "text": "Task enters `failed`"
+        },
+        {
+          "level": 2,
+          "text": "8. Rick (TD) review checklist (blocking before final publish)"
+        },
+        {
+          "level": 2,
+          "text": "9. Next steps"
+        },
+        {
+          "level": 2,
+          "text": "Canonical references (source-of-truth first)"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "json"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/get-started/ai-quickstart",
+      "title": "AI Jobs Quickstart",
+      "description": "Send your first AI job to a Livepeer gateway using the AI API, with GitHub-validated endpoint references and a stakeholder signoff checklist.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "ai-jobs",
+        "quickstart",
+        "ai-api",
+        "gateway",
+        "text-to-image",
+        "developers",
+        "get-started",
+        "ai-quickstart"
+      ],
+      "entities": [
+        "developer",
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 447,
+      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "AI Jobs Quickstart"
+        },
+        {
+          "level": 2,
+          "text": "AI-ready summary (for humans and assistants)"
+        },
+        {
+          "level": 2,
+          "text": "Review status"
+        },
+        {
+          "level": 2,
+          "text": "1. Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "2. Base URL and authentication"
+        },
+        {
+          "level": 2,
+          "text": "3. Submit an AI job (text-to-image starter flow)"
+        },
+        {
+          "level": 3,
+          "text": "Example request body"
+        },
+        {
+          "level": 3,
+          "text": "Example curl request"
+        },
+        {
+          "level": 2,
+          "text": "4. Read the response"
+        },
+        {
+          "level": 2,
+          "text": "5. Troubleshooting"
+        },
+        {
+          "level": 3,
+          "text": "`401 Unauthorized`"
+        },
+        {
+          "level": 3,
+          "text": "`422 Validation Error`"
+        },
+        {
+          "level": 3,
+          "text": "`500 Internal Server Error`"
+        },
+        {
+          "level": 2,
+          "text": "6. What counts as an “AI job” (scope note)"
+        },
+        {
+          "level": 2,
+          "text": "7. Required stakeholder signoff before marking final"
+        },
+        {
+          "level": 2,
+          "text": "8. Next steps"
+        },
+        {
+          "level": 2,
+          "text": "Canonical references (source-of-truth first)"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "json"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/get-started/comfystream-quickstart",
+      "title": "Quickstart: ComfyStream on Livepeer",
+      "description": "Get a ComfyStream instance running and connected to the Livepeer network in a single session — covering Docker, RunPod, and local install paths.",
+      "section": "developers",
+      "tags": [
+        "comfystream",
+        "livepeer",
+        "real-time-ai",
+        "live-video",
+        "quickstart",
+        "comfyui",
+        "vtuber",
+        "cascade",
+        "docker",
+        "runpod",
+        "developers",
+        "get-started"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 1073,
+      "lastVerified": "2026-03-10T08:44:32+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Before You Start"
+        },
+        {
+          "level": 2,
+          "text": "Set Up ComfyStream"
+        },
+        {
+          "level": 2,
+          "text": "Load a Workflow"
+        },
+        {
+          "level": 2,
+          "text": "Verify the Pipeline is Running"
+        },
+        {
+          "level": 2,
+          "text": "Connect to the Livepeer Network"
+        },
+        {
+          "level": 2,
+          "text": "What You Can Build"
+        },
+        {
+          "level": 2,
+          "text": "Next Steps"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/build/comfystream",
+      "title": "Build with ComfyStream",
+      "description": "Reference for ComfyStream pipeline modes, custom nodes, workflow format, data-channel output, and performance tuning for developers building real-time AI video applications on Livepeer.",
+      "section": "developers",
+      "tags": [
+        "comfystream",
+        "livepeer",
+        "real-time-ai",
+        "pipeline-modes",
+        "nodes",
+        "custom-workflow",
+        "data-channel",
+        "streamdiffusion",
+        "audio-transcription",
+        "byoc",
+        "developers",
+        "build"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1531,
+      "lastVerified": "2026-03-10T08:44:32+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Pipeline Modes"
+        },
+        {
+          "level": 2,
+          "text": "Node Ecosystem"
+        },
+        {
+          "level": 3,
+          "text": "Core I/O nodes"
+        },
+        {
+          "level": 3,
+          "text": "Real-time control nodes"
+        },
+        {
+          "level": 3,
+          "text": "StreamDiffusion nodes (Phase 4)"
+        },
+        {
+          "level": 3,
+          "text": "SuperResolution node (Phase 4)"
+        },
+        {
+          "level": 3,
+          "text": "AudioTranscription nodes (Phase 4)"
+        },
+        {
+          "level": 2,
+          "text": "Custom Workflows"
+        },
+        {
+          "level": 3,
+          "text": "Workflow format"
+        },
+        {
+          "level": 3,
+          "text": "Loading a workflow"
+        },
+        {
+          "level": 3,
+          "text": "Custom node dependencies"
+        },
+        {
+          "level": 2,
+          "text": "Data-Channel Output"
+        },
+        {
+          "level": 2,
+          "text": "Performance Tuning"
+        },
+        {
+          "level": 3,
+          "text": "First-run compilation"
+        },
+        {
+          "level": 3,
+          "text": "Frame rate and throughput"
+        },
+        {
+          "level": 3,
+          "text": "Dynamic warm-up (Phase 4)"
+        },
+        {
+          "level": 3,
+          "text": "Configuration parameters"
+        },
+        {
+          "level": 2,
+          "text": "Next Steps"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/build/byoc",
+      "title": "Bring Your Own Container (BYOC)",
+      "description": "Step-by-step guide to building a custom AI container using the PyTrickle integration layer and deploying it as a worker on the Livepeer network.",
+      "section": "developers",
+      "tags": [
+        "byoc",
+        "bring-your-own-container",
+        "livepeer",
+        "ai",
+        "custom-model",
+        "docker",
+        "pytrickle",
+        "ai-worker",
+        "container-spec",
+        "streaming",
+        "developers",
+        "build"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 917,
+      "lastVerified": "2026-03-10T08:44:32+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "When to Use BYOC"
+        },
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "How BYOC Works"
+        },
+        {
+          "level": 2,
+          "text": "Step 1 — Implement Your Processor"
+        },
+        {
+          "level": 2,
+          "text": "Step 2 — Define the REST API Contract"
+        },
+        {
+          "level": 2,
+          "text": "Step 3 — Build Your Docker Container"
+        },
+        {
+          "level": 2,
+          "text": "Step 4 — Test Locally"
+        },
+        {
+          "level": 2,
+          "text": "Step 5 — Push to a Container Registry"
+        },
+        {
+          "level": 2,
+          "text": "Step 6 — Deploy to the Livepeer Network"
+        },
+        {
+          "level": 2,
+          "text": "Building a Client Application on Top of BYOC"
+        },
+        {
+          "level": 2,
+          "text": "Variants"
+        },
+        {
+          "level": 3,
+          "text": "ComfyStream as a BYOC container"
+        },
+        {
+          "level": 3,
+          "text": "Python-native processing (no Docker)"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "python",
+        "json",
+        "dockerfile",
+        "typescript"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/build/sdk-gateway",
+      "title": "Build a Gateway Client with the SDK",
+      "description": "Build a lightweight Livepeer gateway client in Python, JavaScript, or mobile using the SDK and remote signer — no Go required.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "gateway",
+        "sdk",
+        "python",
+        "remote-signer",
+        "livepeer-python-gateway",
+        "naap",
+        "off-chain",
+        "api-key",
+        "developers",
+        "build",
+        "sdk-gateway"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 0,
+      "lastVerified": "2026-03-10T08:44:32+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/build/workload-fit",
+      "title": "Is My AI Workload a Good Fit for Livepeer?",
+      "description": "Decision framework for evaluating whether your AI workload belongs on Livepeer. Includes decision tree, capability matrix, gateway vs orchestrator responsibilities, and anti-patterns.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "ai-workload",
+        "inference",
+        "streaming",
+        "real-time",
+        "batch",
+        "fit",
+        "comfystream",
+        "byoc",
+        "decision",
+        "developers",
+        "build"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 675,
+      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Decision tree"
+        },
+        {
+          "level": 2,
+          "text": "Capability matrix"
+        },
+        {
+          "level": 2,
+          "text": "Gateway vs orchestrator responsibilities by workload"
+        },
+        {
+          "level": 3,
+          "text": "Audio workloads (ASR, translation, intent)"
+        },
+        {
+          "level": 3,
+          "text": "Vision workloads (depth, pose, segmentation)"
+        },
+        {
+          "level": 3,
+          "text": "Video workloads (generation, effects, diffusion)"
+        },
+        {
+          "level": 3,
+          "text": "Text workloads (real-time only)"
+        },
+        {
+          "level": 2,
+          "text": "ASR pipeline examples"
+        },
+        {
+          "level": 3,
+          "text": "Live captions for video streams"
+        },
+        {
+          "level": 3,
+          "text": "Multilingual live translation"
+        },
+        {
+          "level": 3,
+          "text": "Voice-driven avatars or agents"
+        },
+        {
+          "level": 3,
+          "text": "Live moderation and safety"
+        },
+        {
+          "level": 2,
+          "text": "What about batch and file-based workloads?"
+        },
+        {
+          "level": 2,
+          "text": "Next steps"
+        }
+      ],
+      "codeLanguages": [
+        "text"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/build/model-support",
+      "title": "AI Model Support",
+      "description": "Reference tables for all AI pipeline types supported on the Livepeer network, with supported model architectures, minimum GPU VRAM requirements, and current status.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "ai",
+        "models",
+        "pipeline",
+        "vram",
+        "support",
+        "llm",
+        "diffusion",
+        "cascade",
+        "comfystream",
+        "byoc",
+        "reference"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1192,
+      "lastVerified": "2026-03-10T08:44:32+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Batch AI Pipelines"
+        },
+        {
+          "level": 3,
+          "text": "Notes per pipeline"
+        },
+        {
+          "level": 2,
+          "text": "Real-Time AI Pipelines"
+        },
+        {
+          "level": 2,
+          "text": "BYOC"
+        },
+        {
+          "level": 2,
+          "text": "Model Warm-Up and Cold Start"
+        },
+        {
+          "level": 2,
+          "text": "Requesting a Specific Model"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/developer-guides",
+      "title": "Developer Guides",
+      "description": "A curated library of how-to guides, tutorials, and walkthroughs for building with Livepeer — from first API call to production AI pipelines.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "guides",
+        "tutorials",
+        "how-to",
+        "video-streaming",
+        "ai-inference",
+        "sdk",
+        "api",
+        "developer-guides"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 945,
+      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Getting Started"
+        },
+        {
+          "level": 2,
+          "text": "Video Streaming: Livestreams and VOD"
+        },
+        {
+          "level": 2,
+          "text": "Full-Stack Application Guides"
+        },
+        {
+          "level": 2,
+          "text": "AI Inference and Real-Time AI Video"
+        },
+        {
+          "level": 2,
+          "text": "SDK and API Reference Guides"
+        },
+        {
+          "level": 2,
+          "text": "Node Operations: Orchestrators and Gateways"
+        },
+        {
+          "level": 2,
+          "text": "Community-Curated Resources"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/resources",
+      "title": "Resources",
+      "description": "A curated library of tools, dashboards, reading, videos, and reference material from across the Livepeer ecosystem.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "resources",
+        "tools",
+        "dashboards",
+        "reading",
+        "blog",
+        "whitepaper",
+        "sdk",
+        "explorer",
+        "guides"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1000,
+      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Official Tools and Platforms"
+        },
+        {
+          "level": 2,
+          "text": "SDKs and Developer Libraries"
+        },
+        {
+          "level": 2,
+          "text": "Network Dashboards and Analytics"
+        },
+        {
+          "level": 2,
+          "text": "Node Operator Tools"
+        },
+        {
+          "level": 2,
+          "text": "Community Platforms and Aggregators"
+        },
+        {
+          "level": 2,
+          "text": "Blogs, Reading, and Key Articles"
+        },
+        {
+          "level": 2,
+          "text": "Security and Bug Bounties"
+        },
+        {
+          "level": 2,
+          "text": "Grants and Funding"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/contribution-guide",
+      "title": "Contribution Guide",
+      "description": "How to contribute to Livepeer — code, documentation, governance, community support, and bug reports across all repositories.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "contribution-guide",
+        "contribute",
+        "open-source",
+        "pull-request",
+        "github",
+        "documentation",
+        "guides"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1038,
+      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Contributors Spotlight"
+        },
+        {
+          "level": 2,
+          "text": "Ways to Contribute"
+        },
+        {
+          "level": 2,
+          "text": "Contributing to the Code"
+        },
+        {
+          "level": 3,
+          "text": "Before You Start"
+        },
+        {
+          "level": 3,
+          "text": "Key Repositories"
+        },
+        {
+          "level": 3,
+          "text": "General Pull Request Principles"
+        },
+        {
+          "level": 2,
+          "text": "Contributing to the Docs"
+        },
+        {
+          "level": 3,
+          "text": "Quick Path: Feedback Without Code"
+        },
+        {
+          "level": 3,
+          "text": "Pull Request Workflow"
+        },
+        {
+          "level": 3,
+          "text": "Review Assignments"
+        },
+        {
+          "level": 2,
+          "text": "Contributing to Governance"
+        },
+        {
+          "level": 2,
+          "text": "Grants and Bounties"
+        },
+        {
+          "level": 2,
+          "text": "Community Contribution Principles"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/guides/developer-help",
+      "title": "Developer Help",
+      "description": "Every way to get help as a Livepeer developer — Discord channels, forum, office hours, GitHub issues, and more.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developer",
+        "help",
+        "support",
+        "discord",
+        "forum",
+        "office-hours",
+        "github",
+        "bug-report",
+        "contact",
+        "developers",
+        "guides"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1142,
+      "lastVerified": "2026-03-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Quick Reference"
+        },
+        {
+          "level": 2,
+          "text": "Discord"
+        },
+        {
+          "level": 3,
+          "text": "Channels"
+        },
+        {
+          "level": 2,
+          "text": "Livepeer Forum"
+        },
+        {
+          "level": 3,
+          "text": "Forum Categories"
+        },
+        {
+          "level": 2,
+          "text": "Developer Office Hours"
+        },
+        {
+          "level": 2,
+          "text": "GitHub Issues"
+        },
+        {
+          "level": 3,
+          "text": "Writing a Good Issue"
+        },
+        {
+          "level": 2,
+          "text": "Livepeer Studio Support"
+        },
+        {
+          "level": 2,
+          "text": "Security Vulnerabilities and Bug Bounties"
+        },
+        {
+          "level": 2,
+          "text": "Community and Social"
+        },
+        {
+          "level": 2,
+          "text": "Grants and Funding Help"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/opportunities/overview",
+      "title": "Builder Opportunities",
+      "description": "Find grants, programmes, RFPs, treasury proposals, open source contribution pathways, and bug bounties for every type of Livepeer builder.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "builder-opportunities",
+        "grants",
+        "rfps",
+        "open-source",
+        "bug-bounty",
+        "treasury",
+        "hackathon",
+        "opportunities",
+        "overview"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 359,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Who Are You?"
+        },
+        {
+          "level": 2,
+          "text": "All Opportunities"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/opportunities/grants-and-programmes",
+      "title": "Grants & Programmes",
+      "description": "Livepeer funding opportunities for app builders, AI workflow creators, orchestrators, and research teams -- from microgrants to multi-month accelerator programmes.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "grants",
+        "programmes",
+        "hackathon",
+        "ai-video-startup",
+        "comfyui",
+        "bootcamp",
+        "funding",
+        "builder-opportunities",
+        "opportunities",
+        "grants-and-programmes"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 983,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Grant Types"
+        },
+        {
+          "level": 2,
+          "text": "AI Video Startup Programme"
+        },
+        {
+          "level": 2,
+          "text": "ComfyUI Live Video Hacker Programme"
+        },
+        {
+          "level": 2,
+          "text": "Real-Time Video AI Bootcamp"
+        },
+        {
+          "level": 2,
+          "text": "Hackathons"
+        },
+        {
+          "level": 3,
+          "text": "Livepeer Summit Hackathon"
+        },
+        {
+          "level": 3,
+          "text": "Encode Club Hackathons"
+        },
+        {
+          "level": 2,
+          "text": "How to Apply"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/opportunities/rfps-and-proposals",
+      "title": "RFPs & Treasury Proposals",
+      "description": "Apply for Foundation-issued Requests for Proposals (RFPs) or submit a funded Special Purpose Entity (SPE) proposal to the Livepeer onchain treasury.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "rfp",
+        "treasury",
+        "spe",
+        "special-purpose-entity",
+        "governance",
+        "onchain",
+        "proposal",
+        "builder-opportunities",
+        "opportunities",
+        "rfps-and-proposals"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 920,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Foundation RFPs"
+        },
+        {
+          "level": 3,
+          "text": "How RFPs Work"
+        },
+        {
+          "level": 3,
+          "text": "Past RFPs"
+        },
+        {
+          "level": 2,
+          "text": "SPE Treasury Proposals"
+        },
+        {
+          "level": 3,
+          "text": "The SPE Governance Process"
+        },
+        {
+          "level": 3,
+          "text": "Active SPEs (Examples)"
+        },
+        {
+          "level": 2,
+          "text": "What Kinds of SPEs Does the Ecosystem Need?"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/opportunities/oss-contributions",
+      "title": "Open Source Contributions",
+      "description": "How to contribute to Livepeer's open source repositories -- from documentation fixes to protocol engineering -- including a guide to every core repo and its contributing process.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "open-source",
+        "oss",
+        "contribute",
+        "github",
+        "go-livepeer",
+        "studio",
+        "ai-runner",
+        "comfystream",
+        "pull-request",
+        "good-first-issue",
+        "developers"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1128,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Ways to Contribute"
+        },
+        {
+          "level": 2,
+          "text": "Contribution Principles"
+        },
+        {
+          "level": 2,
+          "text": "Core Repositories"
+        },
+        {
+          "level": 2,
+          "text": "First Contribution Workflow"
+        },
+        {
+          "level": 2,
+          "text": "Code of Conduct"
+        }
+      ],
+      "codeLanguages": [
+        "text"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/opportunities/bug-bounties",
+      "title": "Bug Bounties",
+      "description": "Report smart contract vulnerabilities in the Livepeer protocol and earn USDC rewards through the official Livepeer bug bounty programme on Immunefi.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "bug-bounty",
+        "immunefi",
+        "security",
+        "smart-contract",
+        "vulnerability",
+        "usdc",
+        "developer",
+        "builder-opportunities",
+        "developers",
+        "opportunities",
+        "bug-bounties"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 721,
+      "lastVerified": "2026-03",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Programme Overview"
+        },
+        {
+          "level": 2,
+          "text": "Severity Levels and Rewards"
+        },
+        {
+          "level": 3,
+          "text": "Focus Areas"
+        },
+        {
+          "level": 2,
+          "text": "Scope"
+        },
+        {
+          "level": 3,
+          "text": "Out of Scope"
+        },
+        {
+          "level": 2,
+          "text": "How to Submit a Report"
+        },
+        {
+          "level": 2,
+          "text": "Recent Programme Activity"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/resources/sdks",
+      "title": "SDKs",
+      "description": "SDKs for Livepeer - Studio SDKs and Network SDKs",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "sdk",
+        "studio",
+        "network",
+        "developers",
+        "resources",
+        "sdks"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 75,
+      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Livepeer Studio SDKs"
+        },
+        {
+          "level": 2,
+          "text": "Network SDKs"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/resources/apis",
+      "title": "APIs",
+      "description": "APIs for Livepeer - Studio API and Network APIs",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "api",
+        "studio",
+        "network",
+        "developers",
+        "resources",
+        "apis"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 82,
+      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Livepeer Studio API"
+        },
+        {
+          "level": 2,
+          "text": "Network APIs"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/resources/awesome-livepeer",
+      "title": "Awesome Livepeer",
+      "description": "Browse the community-curated Awesome Livepeer collection of tools, libraries, examples, and ecosystem resources.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "technical-references",
+        "awesome-livepeer",
+        "awesome",
+        "resources"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 43,
+      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Awesome Livepeer"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/resources/wiki",
+      "title": "Livepeer Wiki",
+      "description": "Access the Livepeer Wiki README and repository for older technical reference material and project documentation.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "technical-references",
+        "wiki",
+        "resources"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 29,
+      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/resources/deepwiki",
+      "title": "DeepWiki",
+      "description": "Use DeepWiki to explore Livepeer repositories, architecture, and workflows through AI-generated codebase documentation and search.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "technical-references",
+        "deepwiki",
+        "resources"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 86,
+      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
       "url": "https://docs.livepeer.org/v2/developers/developer-tools/tooling-hub",
       "title": "Tooling Hub",
       "description": "Tools for building on Livepeer",
@@ -6005,6 +7655,114 @@
           "text": "Livepeer Cloud vs. Livepeer Studio"
         }
       ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/technical-references/sdks",
+      "title": "SDKs",
+      "description": "Compatibility route for the canonical SDKs resource page.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "technical-references",
+        "sdk",
+        "sdks"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 22,
+      "lastVerified": "2026-03-10T14:10:06+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/technical-references/apis",
+      "title": "APIs",
+      "description": "Compatibility route for the canonical APIs resource page.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "technical-references",
+        "api",
+        "apis"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 22,
+      "lastVerified": "2026-03-10T14:10:06+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/technical-references/awesome-livepeer",
+      "title": "Awesome Livepeer",
+      "description": "Compatibility route for the canonical Awesome Livepeer resource page.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "technical-references",
+        "awesome",
+        "awesome-livepeer"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 22,
+      "lastVerified": "2026-03-10T14:10:06+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/technical-references/wiki",
+      "title": "Livepeer Wiki",
+      "description": "Compatibility route for the canonical Livepeer Wiki resource page.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "technical-references",
+        "wiki"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 22,
+      "lastVerified": "2026-03-10T14:10:06+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/developers/technical-references/deepwiki",
+      "title": "DeepWiki",
+      "description": "Compatibility route for the canonical DeepWiki resource page.",
+      "section": "developers",
+      "tags": [
+        "livepeer",
+        "developers",
+        "technical-references",
+        "deepwiki"
+      ],
+      "entities": [
+        "developer"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 21,
+      "lastVerified": "2026-03-10T14:10:06+11:00",
+      "headings": [],
       "codeLanguages": []
     },
     {
@@ -9202,32 +10960,32 @@
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/get-started/setup-paths",
-      "title": "Orchestrator Quickstart",
-      "description": "Choose the right orchestrator quickstart for transcoding, real-time AI, or batch AI workloads.",
+      "title": "How to Get Started",
+      "description": "Choose your path as a GPU operator on Livepeer — join a pool, run a solo orchestrator, add AI pipelines, or operate at enterprise scale.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
-        "orchestrators",
-        "quickstart",
         "orchestrator",
         "get-started",
-        "setup-paths"
+        "pool",
+        "solo",
+        "ai-pipelines",
+        "lpt",
+        "gpu",
+        "setup-paths",
+        "orchestrators"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 52,
+      "wordCount": 271,
       "lastVerified": "2026-03-10T09:38:11+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "What do you want to run?"
-        },
-        {
-          "level": 2,
-          "text": "Need help deciding?"
+          "text": "Choose your path"
         }
       ],
       "codeLanguages": []
@@ -9318,21 +11076,12 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/get-started/AI-prompt-start",
       "title": "Add AI to Your Node",
-      "description": "Add AI inference pipelines to an existing go-livepeer transcoding node — hardware check, aiModels.json configuration, and startup command update.",
+      "description": "Layer AI inference pipelines onto an existing transcoding orchestrator.",
       "section": "orchestrators",
       "tags": [
-        "livepeer",
-        "orchestrator",
-        "ai-inference",
-        "ai-runner",
-        "aimodelsjson",
-        "pipeline",
-        "vram",
-        "cascade",
-        "batch-ai",
-        "gpu",
         "orchestrators",
-        "get-started"
+        "get-started",
+        "ai-prompt-start"
       ],
       "entities": [
         "orchestrator",
@@ -9340,62 +11089,10 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 931,
-      "lastVerified": "2026-03-10",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Prerequisites"
-        },
-        {
-          "level": 2,
-          "text": "Check your hardware"
-        },
-        {
-          "level": 2,
-          "text": "Step 1 — Pull the AI runner image"
-        },
-        {
-          "level": 2,
-          "text": "Step 2 — Configure aiModels.json"
-        },
-        {
-          "level": 3,
-          "text": "Field reference"
-        },
-        {
-          "level": 2,
-          "text": "Step 3 — Update your startup command"
-        },
-        {
-          "level": 2,
-          "text": "Step 4 — Verify AI is active"
-        },
-        {
-          "level": 3,
-          "text": "Check the logs"
-        },
-        {
-          "level": 3,
-          "text": "Test the AI runner directly"
-        },
-        {
-          "level": 3,
-          "text": "Confirm pipelines are advertised"
-        },
-        {
-          "level": 2,
-          "text": "Choose your AI path"
-        },
-        {
-          "level": 2,
-          "text": "Related"
-        }
-      ],
-      "codeLanguages": [
-        "bash",
-        "json"
-      ]
+      "wordCount": 9,
+      "lastVerified": "2026-03-10T14:02:36+11:00",
+      "headings": [],
+      "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/get-started/realtime-ai-quickstart",
@@ -9528,15 +11225,19 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/install-go-livepeer",
       "title": "Install go-livepeer",
-      "description": "Install the Livepeer node software: binary (Darwin, Linux, Windows), Docker, or build from source.",
+      "description": "Install the go-livepeer binary on Linux, macOS, or via Docker. Covers prerequisites, GPU driver requirements, installation steps, and verification.",
       "section": "orchestrators",
       "tags": [
-        "livepeer",
-        "orchestrators",
-        "install",
         "go-livepeer",
+        "install",
+        "orchestrator",
+        "gpu",
+        "nvidia",
         "docker",
         "binary",
+        "cuda",
+        "linux",
+        "orchestrators",
         "setup",
         "install-go-livepeer"
       ],
@@ -9545,8 +11246,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 285,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "wordCount": 569,
+      "lastVerified": "2026-03-10T14:16:31+11:00",
       "headings": [
         {
           "level": 2,
@@ -9554,39 +11255,35 @@
         },
         {
           "level": 2,
-          "text": "Binary release"
+          "text": "Install go-livepeer"
         },
         {
-          "level": 3,
-          "text": "Darwin (macOS)"
+          "level": 1,
+          "text": "CPU build (arm64)"
         },
         {
-          "level": 3,
-          "text": "Linux"
+          "level": 1,
+          "text": "NVIDIA GPU build (amd64)"
         },
         {
-          "level": 3,
-          "text": "Linux (GPU / NVIDIA)"
+          "level": 1,
+          "text": "NVIDIA GPU build (arm64)"
         },
         {
-          "level": 3,
-          "text": "Windows"
+          "level": 1,
+          "text": "Release checksums"
         },
         {
-          "level": 2,
-          "text": "Docker"
-        },
-        {
-          "level": 2,
-          "text": "Build from source"
+          "level": 1,
+          "text": "Intel (amd64)"
         },
         {
           "level": 2,
-          "text": "Activate"
+          "text": "Verify your installation"
         },
         {
           "level": 2,
-          "text": "See also"
+          "text": "Next steps"
         }
       ],
       "codeLanguages": []
@@ -9594,18 +11291,9 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/orch-config",
       "title": "Configure Your Orchestrator",
-      "description": "Set the go-livepeer flags needed to run as an orchestrator — GPU selection, pricing, networking, and AI worker configuration.",
+      "description": "Essential CLI flags and configuration for running in orchestrator mode.",
       "section": "orchestrators",
       "tags": [
-        "go-livepeer",
-        "orchestrator",
-        "configuration",
-        "flags",
-        "priceperunit",
-        "serviceaddr",
-        "nvidia",
-        "ai-worker",
-        "cli",
         "orchestrators",
         "setup",
         "orch-config"
@@ -9615,54 +11303,17 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1376,
+      "wordCount": 3,
       "lastVerified": "2026-03-10T14:02:36+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Prerequisites"
-        },
-        {
-          "level": 2,
-          "text": "Essential flags"
-        },
-        {
-          "level": 2,
-          "text": "Full startup command"
-        },
-        {
-          "level": 2,
-          "text": "Adding AI inference"
-        },
-        {
-          "level": 2,
-          "text": "Variants"
-        },
-        {
-          "level": 2,
-          "text": "Next steps"
-        }
-      ],
-      "codeLanguages": [
-        "bash",
-        "ini"
-      ]
+      "headings": [],
+      "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/connect-to-arbitrum",
       "title": "Connect to Arbitrum",
-      "description": "Connect go-livepeer to the Arbitrum network using a hosted or self-hosted RPC endpoint — required for staking, activation, and payments.",
+      "description": "Configure your ETH URL to connect to the Arbitrum One mainnet.",
       "section": "orchestrators",
       "tags": [
-        "livepeer",
-        "orchestrator",
-        "arbitrum",
-        "rpc",
-        "ethurl",
-        "alchemy",
-        "infura",
-        "ethereum",
-        "connection",
         "orchestrators",
         "setup",
         "connect-to-arbitrum"
@@ -9672,33 +11323,10 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 631,
+      "wordCount": 3,
       "lastVerified": "2026-03-10T09:59:48+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Prerequisites"
-        },
-        {
-          "level": 2,
-          "text": "Step 1 — Choose an RPC endpoint"
-        },
-        {
-          "level": 2,
-          "text": "Step 2 — Add the flag to your startup command"
-        },
-        {
-          "level": 2,
-          "text": "Step 3 — Verify the connection"
-        },
-        {
-          "level": 2,
-          "text": "Related"
-        }
-      ],
-      "codeLanguages": [
-        "bash"
-      ]
+      "headings": [],
+      "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/orchestrator-stats",
@@ -10244,97 +11872,68 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/advanced/run-a-pool",
       "title": "Run a Pool",
-      "description": "Operate a Livepeer GPU pool — accept external worker connections, manage job routing across multiple GPUs, and handle fee distribution.",
+      "description": "What an orchestrator pool is and how to run one: aggregate GPUs, set terms, and list your pool.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
-        "orchestrator",
-        "pool",
-        "gpu-pool",
-        "transcoder-pool",
-        "worker",
-        "fee-sharing",
-        "pool-operator",
-        "titan-node",
-        "video-miner",
         "orchestrators",
-        "advanced"
+        "pool",
+        "operator",
+        "gpu-pool",
+        "advanced",
+        "run-a-pool"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
       "difficulty": "advanced",
-      "wordCount": 1467,
+      "wordCount": 192,
       "lastVerified": "2026-03-10T13:49:51+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "How a pool works"
+          "text": "Operator responsibilities"
         },
         {
           "level": 2,
-          "text": "Worker connection models"
+          "text": "What to publish"
         },
         {
           "level": 2,
-          "text": "Accepting workers"
+          "text": "Listing your pool"
         },
         {
           "level": 2,
-          "text": "Fee distribution"
-        },
-        {
-          "level": 2,
-          "text": "On-chain identity and transparency"
-        },
-        {
-          "level": 2,
-          "text": "Key takeaways"
-        },
-        {
-          "level": 2,
-          "text": "Related"
+          "text": "See also"
         }
       ],
-      "codeLanguages": [
-        "mermaid",
-        "bash"
-      ]
+      "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/tools-and-guides/guides",
       "title": "Orchestrator Guides",
-      "description": "Curated guides for running and optimising a Livepeer orchestrator — setup references, earnings strategy, community how-tos, and Discord resources.",
+      "description": "Find the main guides, community links, and pool resources for Livepeer orchestrators.",
       "section": "orchestrators",
       "tags": [
+        "livepeer",
         "orchestrators",
-        "tools-and-guides",
-        "guides"
+        "guides",
+        "community",
+        "pools",
+        "tools-and-guides"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 281,
-      "lastVerified": "2026-03-10",
+      "wordCount": 81,
+      "lastVerified": "2026-03-10T13:58:34+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "Official guides"
-        },
-        {
-          "level": 2,
-          "text": "Community resources"
-        },
-        {
-          "level": 2,
-          "text": "Discord and forum"
-        },
-        {
-          "level": 2,
-          "text": "See Also"
+          "text": "Community"
         }
       ],
       "codeLanguages": []
@@ -10342,10 +11941,14 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/tools-and-guides/tooling",
       "title": "Orchestrator Tools",
-      "description": "Tools for monitoring, verifying, and operating your Livepeer orchestrator — Explorer, payout dashboards, Prometheus metrics, and community tools.",
+      "description": "Find official and community tools, dashboards, and helper resources for operating Livepeer orchestrators.",
       "section": "orchestrators",
       "tags": [
+        "livepeer",
         "orchestrators",
+        "orchestrator-guides-and-references",
+        "orchestrator-tools",
+        "tools",
         "tools-and-guides",
         "tooling"
       ],
@@ -10354,37 +11957,19 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 634,
-      "lastVerified": "2026-03-10",
+      "wordCount": 33,
+      "lastVerified": "2026-03-10T14:03:16+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "Livepeer Explorer"
+          "text": "Official Livepeer Tools & Dashboards"
         },
         {
           "level": 2,
-          "text": "Node Metrics (Prometheus)"
-        },
-        {
-          "level": 2,
-          "text": "Cloud SPE Tools"
-        },
-        {
-          "level": 2,
-          "text": "Network Dashboards (Dune Analytics)"
-        },
-        {
-          "level": 2,
-          "text": "Capability Testing"
-        },
-        {
-          "level": 2,
-          "text": "See Also"
+          "text": "Community Tools"
         }
       ],
-      "codeLanguages": [
-        "bash"
-      ]
+      "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/resources/faq",
@@ -10487,30 +12072,6 @@
       "codeLanguages": [
         "yaml"
       ]
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/orchestrators/resources/community-pools",
-      "title": "Community Orchestrator Pools",
-      "description": "Compare community orchestrator pools, how they work, and what to review before joining one.",
-      "section": "orchestrators",
-      "tags": [
-        "livepeer",
-        "orchestrators",
-        "orchestrator-guides-and-references",
-        "orchestrator-pools",
-        "pools",
-        "resources",
-        "community-pools"
-      ],
-      "entities": [
-        "orchestrator"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 67,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
-      "headings": [],
-      "codeLanguages": []
     },
     {
       "url": "https://docs.livepeer.org/v2/lpt/token-portal",
@@ -15116,6 +16677,55 @@
         {
           "level": 3,
           "text": "MoC (Market Opportunity)"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/gateways/guides-and-resources/gateway-job-pipelines/overview",
+      "title": "Gateway Job Pipelines Overview",
+      "description": "How gateway operators handle AI job pipelines, capability routing, and BYOC-backed workloads on Livepeer.",
+      "section": "gateways",
+      "tags": [
+        "livepeer",
+        "gateway",
+        "job-pipelines",
+        "ai",
+        "byoc",
+        "routing",
+        "capabilities",
+        "gateways",
+        "guides-and-resources",
+        "gateway-job-pipelines",
+        "overview"
+      ],
+      "entities": [
+        "gateway"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 160,
+      "lastVerified": "2026-03-09T20:43:37+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "What a gateway pipeline does"
+        },
+        {
+          "level": 2,
+          "text": "Gateway vs orchestrator responsibilities"
+        },
+        {
+          "level": 2,
+          "text": "Pipeline types"
+        },
+        {
+          "level": 2,
+          "text": "BYOC in gateway pipelines"
+        },
+        {
+          "level": 2,
+          "text": "See also"
         }
       ],
       "codeLanguages": []

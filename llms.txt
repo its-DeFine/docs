@@ -436,14 +436,14 @@
 - [Orchestrator Architecture](https://docs.livepeer.org/v2/orchestrators/concepts/architecture): See how gateways, orchestrator controllers, and GPU workers interact to process transcoding and AI jobs.
 - [Orchestrator Economics](https://docs.livepeer.org/v2/orchestrators/concepts/economics): Understand orchestrator revenue, costs, staking, fees, and incentives across Livepeer network participation.
 - [Orchestrator Functions](https://docs.livepeer.org/v2/orchestrators/concepts/functions): Learn what orchestrators do across compute, AI inference, staking, delegation, and governance on the Livepeer network.
-- [Job Types](https://docs.livepeer.org/v2/orchestrators/concepts/job-types): The job types an orchestrator can process — transcoding, batch AI inference, real-time AI (Cascade), and LLM inference — with hardware requirements, pricing models, and how to choose which to run.
+- [Types of Orchestrator Jobs](https://docs.livepeer.org/v2/orchestrators/concepts/job-types): Understand the differences between transcoding, realtime AI, and batch AI orchestrator configurations.
 
 ### GPU Nodes / Get Started
 
 - [Orchestrator Quickstart](https://docs.livepeer.org/v2/orchestrators/get-started/setup-paths): Choose the right orchestrator quickstart for transcoding, real-time AI, or batch AI workloads.
 - [Transcoding Orchestrator Quickstart](https://docs.livepeer.org/v2/orchestrators/get-started/quickstart): Run go-livepeer as a transcoding orchestrator: create your wallet, configure your node, register, and verify.
 - [Join a Pool](https://docs.livepeer.org/v2/orchestrators/get-started/join-a-pool): Contribute GPU capacity to an existing Livepeer orchestrator and earn rewards without running protocol infrastructure.
-- [Add AI to Your Node](https://docs.livepeer.org/v2/orchestrators/get-started/AI-prompt-start): Add AI inference pipelines to an existing go-livepeer transcoding node — hardware check, aiModels.json configuration, and startup command update.
+- [Add AI to Your Node](https://docs.livepeer.org/v2/orchestrators/get-started/AI-prompt-start): Layer AI inference pipelines onto an existing transcoding orchestrator.
 - [Realtime AI Orchestrator Quickstart](https://docs.livepeer.org/v2/orchestrators/get-started/realtime-ai-quickstart): Setup path for realtime AI orchestrators on Livepeer (coming soon).
 - [Batch AI Orchestrator Quickstart](https://docs.livepeer.org/v2/orchestrators/get-started/batch-ai-quickstart): Setup path for batch AI orchestrators on Livepeer (coming soon).
 
@@ -452,10 +452,10 @@
 - [Setting up an Orchestrator](https://docs.livepeer.org/v2/orchestrators/setup/overview): What it means to run an orchestrator and a setup checklist.
 - [Hardware Requirements](https://docs.livepeer.org/v2/orchestrators/setup/hardware-requirements): Minimum, recommended, and production hardware for running a Livepeer orchestrator.
 - [Install go-livepeer](https://docs.livepeer.org/v2/orchestrators/setup/install-go-livepeer): Install the Livepeer node software: binary (Darwin, Linux, Windows), Docker, or build from source.
-- [Configure Your Orchestrator](https://docs.livepeer.org/v2/orchestrators/setup/orch-config): Set the go-livepeer flags needed to run as an orchestrator — GPU selection, pricing, networking, and AI worker configuration.
-- [Connect to Arbitrum](https://docs.livepeer.org/v2/orchestrators/setup/connect-to-arbitrum): Connect go-livepeer to the Arbitrum network using a hosted or self-hosted RPC endpoint — required for staking, activation, and payments.
+- [Configure Your Orchestrator](https://docs.livepeer.org/v2/orchestrators/setup/orch-config): Essential CLI flags and configuration for running in orchestrator mode.
+- [Connect to Arbitrum](https://docs.livepeer.org/v2/orchestrators/setup/connect-to-arbitrum): Configure your ETH URL to connect to the Arbitrum One mainnet.
 - [Orchestrator Stats and Monitoring](https://docs.livepeer.org/v2/orchestrators/setup/orchestrator-stats): Monitor node health, GPU performance, and earnings with Prometheus and the Livepeer Explorer.
-- [Activate on the Network](https://docs.livepeer.org/v2/orchestrators/setup/publish-offerings): Activate your orchestrator on the Livepeer network using livepeer_cli — set reward cut, fee cut, and service URI, and verify you are in the active set.
+- [Publish Offerings](https://docs.livepeer.org/v2/orchestrators/setup/publish-offerings): How to Publish Offerings to the Marketplace
 - [Data Centre Setup](https://docs.livepeer.org/v2/orchestrators/setup/data-centre-setup): Multi-GPU and high-availability orchestrator setup for professional environments.
 - [Data Centres & Large Scale Hardware Providers](https://docs.livepeer.org/v2/orchestrators/setup/data-centres-and-large-scale-hardware-providers)
 - [Enterprise Operations](https://docs.livepeer.org/v2/orchestrators/setup/enterprise-and-data-centres): Fleet management, multi-region orchestrators, and enterprise configuration.
@@ -469,7 +469,7 @@
 - [Orchestrator Payments](https://docs.livepeer.org/v2/orchestrators/advanced/payments): Payment setup guidance for Livepeer orchestrators.
 - [AI Pipelines](https://docs.livepeer.org/v2/orchestrators/advanced/ai-pipelines): Run AI inference on your orchestrator: enable AI, configure models, routing.
 - [Hosting AI Models on an Orchestrator](https://docs.livepeer.org/v2/orchestrators/advanced/hosting-models): How to host AI models on a Livepeer orchestrator node: runtime setup, capability advertisement, pricing, and gateway integration. GPU operator guide.
-- [Run a Pool](https://docs.livepeer.org/v2/orchestrators/advanced/run-a-pool): Operate a Livepeer GPU pool — accept external worker connections, manage job routing across multiple GPUs, and handle fee distribution.
+- [Run a Pool](https://docs.livepeer.org/v2/orchestrators/advanced/run-a-pool): What an orchestrator pool is and how to run one: aggregate GPUs, set terms, and list your pool.
 
 ### GPU Nodes / Tools and Guides
 
@@ -478,7 +478,7 @@
 
 ### GPU Nodes / Resources
 
-- [FAQ and Troubleshooting](https://docs.livepeer.org/v2/orchestrators/resources/faq): Answers to common orchestrator questions and step-by-step fixes for the most frequent errors — installation, networking, job routing, AI pipelines, and earnings.
+- [Orchestrator FAQ](https://docs.livepeer.org/v2/orchestrators/resources/faq): Frequently asked questions about running and operating Livepeer orchestrators.
 - [cli-flags reference](https://docs.livepeer.org/v2/orchestrators/resources/cli-flags): CLI flags and gRPC field mapping for go-livepeer orchestrators.
 - [Community Orchestrator Pools](https://docs.livepeer.org/v2/orchestrators/resources/community-pools): Compare community orchestrator pools, how they work, and what to review before joining one.
 

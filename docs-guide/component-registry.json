@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generated": "2026-03-09T23:02:11.644Z",
+    "generated": "2026-03-10T03:18:05.176Z",
     "generator": "tools/scripts/generate-component-registry.js",
     "componentCount": 125
   },
@@ -7621,7 +7621,6 @@
         "v2/developers/_archive/ai-inference-workload-fit-old.mdx",
         "v2/developers/_archive/livepeer-real-time-video/video-streaming-on-livepeer/video-streaming-101.mdx",
         "v2/developers/_archive/quickstart-video-101.mdx",
-        "v2/orchestrators/setup/publish-offerings.mdx",
         "v2/resources/concepts/brief-history-of-video.mdx",
         "v2/resources/references/contract-addresses.mdx"
       ],

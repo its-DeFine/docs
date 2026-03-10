@@ -1733,7 +1733,7 @@
     "path": "tools/scripts/verify-pay-orc-gate-finalize.sh",
     "category": "enforcer",
     "purpose": "qa:repo-health",
-    "scope": "tools/scripts, .githooks/pre-commit, v2/gateways, v2/orchestrators",
+    "scope": "v2-content",
     "needs": "E-C1, R-R14",
     "purpose_statement": "Payment/orchestrator gate verifier — checks payment and orchestrator documentation gate conditions",
     "pipeline": "manual — not yet in pipeline",
@@ -1764,7 +1764,11 @@
     "script": "audit-script-inventory",
     "category": "validator",
     "purpose": "governance:repo-health",
-    "scope": "full-repo"
+    "scope": "full-repo",
+    "needs": "R-R14, R-R18, R-C6",
+    "purpose_statement": "Deep inventory audit of every script in the repo. Traces triggers, outputs, downstream chains, and governance compliance. Produces reports grouped by trigger category.",
+    "pipeline": "P1 (commit), indirect",
+    "dualmode": "--fix --dry-run | --fix | audit-only"
   },
   {
     "path": "tools/scripts/validators/governance/review-governance-repair-checklist.js",

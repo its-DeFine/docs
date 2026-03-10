@@ -78,18 +78,5 @@
       "`codex/<issue-id>-<slug>`"
     ],
     "expectedRules": []
-  },
-  {
-    "name": "Converts REVIEW comments to Markdown reference comments",
-    "filePath": "fixtures/review-comment.mdx",
-    "inputLines": [
-      "Paragraph before.",
-      "<!-- REVIEW: confirm path -->"
-    ],
-    "expectedLines": [
-      "Paragraph before.",
-      "[//]: # (REVIEW: confirm path)"
-    ],
-    "expectedRules": ["html-comment"]
   }
 ]

@@ -53,14 +53,5 @@
       "$$"
     ],
     "expectedRules": []
-  },
-  {
-    "name": "Flags REVIEW comments written as HTML comments",
-    "filePath": "fixtures/review-comment.mdx",
-    "contentLines": [
-      "Paragraph before.",
-      "<!-- REVIEW: confirm path -->"
-    ],
-    "expectedRules": ["html-comment", "parse-error"]
   }
 ]

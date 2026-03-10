@@ -34,7 +34,7 @@ The NVIDIA driver version installed on the host is below the minimum required by
    ```bash
    nvidia-smi
    ```
-   The output shows `Driver Version`. {/* REVIEW: confirm exact minimum driver version required against go-livepeer release notes — not specified in v1 docs */}
+   The output shows `Driver Version`. <!-- REVIEW: confirm exact minimum driver version required against go-livepeer release notes — not specified in v1 docs -->
 
 2. If the driver is below the minimum, update it:
    ```bash
@@ -59,7 +59,7 @@ The NVIDIA driver version installed on the host is below the minimum required by
    ```
    Use `-nvidia all` to target all available GPUs.
 
-{/* REVIEW: Confirm minimum NVIDIA driver version and CUDA version against go-livepeer README or latest release notes. Source: @rickstaa or go-livepeer release notes. */}
+<!-- REVIEW: Confirm minimum NVIDIA driver version and CUDA version against go-livepeer README or latest release notes. Source: @rickstaa or go-livepeer release notes. -->
 
 </Accordion>
 
@@ -85,7 +85,7 @@ If the error appears during normal operation (not at startup):
    ```bash
    livepeer -maxSessions 10 ...
    ```
-   {/* REVIEW: Confirm default value of -maxSessions against go-livepeer source (likely in core/orchestrator.go) */}
+   <!-- REVIEW: Confirm default value of -maxSessions against go-livepeer source (likely in core/orchestrator.go) -->
 
 If the error appears at startup when using the `-nvidia` flag, the GPU itself has reached its hardware encoding/decoding session limit. Different NVIDIA GPU models have different limits — consumer cards (GTX/RTX series) typically cap at 3–5 concurrent NVENC sessions. Search `nvenc nvdec session limit <your GPU model>` to find the limit for your card.
 
@@ -136,7 +136,7 @@ The CUDA version installed on your host does not match the version that go-livep
    ```
 
 2. Check the go-livepeer release notes for the current release to identify the required CUDA version.  
-   {/* REVIEW: Confirm CUDA version requirement per release — check go-livepeer releases page and README */}
+   <!-- REVIEW: Confirm CUDA version requirement per release — check go-livepeer releases page and README -->
 
 3. If using Docker, pull the official go-livepeer image which bundles the correct CUDA version rather than relying on a host CUDA installation.
 
@@ -397,7 +397,7 @@ Common causes: the NVIDIA Container Toolkit is not installed or configured; the 
    ```
 
 3. If the error is out-of-memory (OOM): the model you are loading requires more VRAM than available on the GPU. Either load a smaller model or use a higher-VRAM GPU.
-   {/* REVIEW: Add specific per-pipeline VRAM minimums when confirmed. Official docs suggest 16GB for diffusion models; Cloud SPE's Ollama runner supports 8GB for LLM pipeline. */}
+   <!-- REVIEW: Add specific per-pipeline VRAM minimums when confirmed. Official docs suggest 16GB for diffusion models; Cloud SPE's Ollama runner supports 8GB for LLM pipeline. -->
 
 4. Ensure you are using the AI Runner image that corresponds to your go-livepeer release version. Mismatched versions can cause silent container failures.
 
@@ -481,7 +481,7 @@ The model you have configured requires more VRAM than your GPU has available, or
 
 3. For the LLM pipeline specifically, the Cloud SPE Ollama runner supports GPUs with as little as 8 GB VRAM (using quantised model weights). Diffusion models (text-to-image, image-to-video) typically require 16 GB+ VRAM for full-precision models.
 
-   {/* REVIEW: Confirm exact per-pipeline VRAM requirements from go-livepeer AI docs or Peter (AI SPE lead) before publishing. */}
+   <!-- REVIEW: Confirm exact per-pipeline VRAM requirements from go-livepeer AI docs or Peter (AI SPE lead) before publishing. -->
 
 4. Enable the `DEEPCACHE` or `SFAST` optimisation flags to reduce VRAM usage and improve throughput for diffusion models:
 
@@ -591,7 +591,7 @@ Pool earnings are tracked and distributed by the pool operator, not by go-livepe
 
 3. Verify your transcoder process is running correctly and connected to the pool's orchestrator address by checking your logs for successful job processing messages.
 
-{/* REVIEW: Add links to Titan Node, Video Miner, and other active pool dashboards once confirmed current by pool SPE leads. */}
+<!-- REVIEW: Add links to Titan Node, Video Miner, and other active pool dashboards once confirmed current by pool SPE leads. -->
 
 </Accordion>
 
@@ -699,8 +699,7 @@ If your issue is not covered on this page, the following resources are available
   </Card>
 </CardGroup>
 
-{/*
-REVIEW: The following topics were in the previous version and are not in this draft. Human to decide whether to include:
+<!-- REVIEW: The following topics were in the previous version and are not in this draft. Human to decide whether to include:
 - What is slashing risk?
 - What should I monitor?
-*/}
+-->

@@ -62,7 +62,7 @@ The Livepeer AI Subnet launched in Q3 2024 and added this category to the networ
 | `text-to-speech` | Speech audio from text | {/* REVIEW */} | {/* REVIEW */} |
 
 <Note>
-The `upscale` and `text-to-speech` VRAM requirements are not confirmed in this draft — they will be filled before publication. Check [AI Pipelines](/ai/pipelines) for current per-pipeline specs.
+The `upscale` and `text-to-speech` VRAM requirements are not confirmed in this draft — they will be filled before publication. Check [AI Pipelines](/v2/orchestrators/advanced/ai-pipelines) for current per-pipeline specs.
 </Note>
 
 ### Hardware requirements
@@ -79,7 +79,7 @@ AI inference pipelines use a **per-unit pricing model** where the unit depends o
 
 ### Configuration
 
-Configured via the `aiModels.json` file. Each entry specifies the pipeline name, model ID, pricing, whether the model is kept warm, and the URL of the runner container. See [Configure AI Pipelines](/v2/orchestrators/setup/ai-config) {/* REVIEW: confirm correct target path */} for the configuration reference.
+Configured via the `aiModels.json` file. Each entry specifies the pipeline name, model ID, pricing, whether the model is kept warm, and the URL of the runner container. See [Configure AI Pipelines](/v2/orchestrators/advanced/ai-pipelines) for the configuration reference.
 
 ---
 
@@ -114,7 +114,7 @@ Unlike batch AI, where you can accept or decline jobs by model, real-time AI pip
 
 ### Configuration
 
-Configured via `aiModels.json` and requires a running ComfyStream instance. See [Set Up Real-time AI Pipelines](/v2/orchestrators/setup/comfystream) {/* REVIEW: confirm target path */} for the setup guide.
+Configured via `aiModels.json` and requires a running ComfyStream instance. See [Set Up Real-time AI Pipelines](/v2/orchestrators/advanced/ai-pipelines#live-video-to-video-cascade) for the setup guide.
 
 ---
 
@@ -168,7 +168,7 @@ LLM pricing is configured in `aiModels.json` using a `pixels_per_unit` abstracti
 
 ### Configuration
 
-Requires deploying the Ollama runner container alongside your orchestrator. Configured via `aiModels.json` with `"pipeline": "llm"`. See [Set Up the LLM Pipeline](/v2/orchestrators/setup/llm-pipeline) {/* REVIEW: confirm target path */} for the deployment guide.
+Requires deploying the Ollama runner container alongside your orchestrator. Configured via `aiModels.json` with `"pipeline": "llm"`. See [Set Up the LLM Pipeline](/v2/orchestrators/advanced/ai-pipelines#llm-inference-ollama-runner) for the deployment guide.
 
 ---
 

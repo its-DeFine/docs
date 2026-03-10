@@ -20,7 +20,6 @@ tools/notion/node_modules
 **/.cache/**
 **/coverage/**
 **/dist/**
-**/build/**
 .mintlify/
 .mintlify-cache/
 .out/
