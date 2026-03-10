@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-10T03:19:53.472Z",
+  "generated": "2026-03-10T04:14:04.081Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -5910,7 +5910,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 699,
+      "wordCount": 1049,
       "lastVerified": "2026-03-10T09:20:54+11:00",
       "headings": [
         {
@@ -5923,7 +5923,19 @@
         },
         {
           "level": 2,
-          "text": "Builder Personas Map"
+          "text": "Three ways to go deeper"
+        },
+        {
+          "level": 3,
+          "text": "Workload Provider"
+        },
+        {
+          "level": 3,
+          "text": "Workload Consumer"
+        },
+        {
+          "level": 3,
+          "text": "Core Contributor"
         },
         {
           "level": 2,
@@ -6349,7 +6361,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 447,
-      "lastVerified": "2026-03-10T08:22:20+11:00",
+      "lastVerified": "2026-03-10T14:20:15+11:00",
       "headings": [
         {
           "level": 1,
@@ -7420,7 +7432,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "advanced",
-      "wordCount": 75,
+      "wordCount": 103,
       "lastVerified": "2026-03-10T08:22:20+11:00",
       "headings": [
         {
@@ -7429,7 +7441,7 @@
         },
         {
           "level": 2,
-          "text": "Network SDKs"
+          "text": "Network-side SDKs"
         }
       ],
       "codeLanguages": []
@@ -7453,7 +7465,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 82,
+      "wordCount": 100,
       "lastVerified": "2026-03-10T08:22:20+11:00",
       "headings": [
         {
@@ -8370,7 +8382,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 318,
-      "lastVerified": "2026-03-10T07:53:25+11:00",
+      "lastVerified": "2026-03-10T14:20:15+11:00",
       "headings": [
         {
           "level": 1,
@@ -10867,7 +10879,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1772,
-      "lastVerified": "2026-03-10T14:02:36+11:00",
+      "lastVerified": "2026-03-10T14:20:15+11:00",
       "headings": [
         {
           "level": 2,
@@ -10981,7 +10993,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 271,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-10T14:20:15+11:00",
       "headings": [
         {
           "level": 2,
@@ -11076,12 +11088,21 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/get-started/AI-prompt-start",
       "title": "Add AI to Your Node",
-      "description": "Layer AI inference pipelines onto an existing transcoding orchestrator.",
+      "description": "Add AI inference pipelines to an existing go-livepeer transcoding node — hardware check, aiModels.json configuration, and startup command update.",
       "section": "orchestrators",
       "tags": [
+        "livepeer",
+        "orchestrator",
+        "ai-inference",
+        "ai-runner",
+        "aimodelsjson",
+        "pipeline",
+        "vram",
+        "cascade",
+        "batch-ai",
+        "gpu",
         "orchestrators",
-        "get-started",
-        "ai-prompt-start"
+        "get-started"
       ],
       "entities": [
         "orchestrator",
@@ -11089,10 +11110,62 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 9,
-      "lastVerified": "2026-03-10T14:02:36+11:00",
-      "headings": [],
-      "codeLanguages": []
+      "wordCount": 931,
+      "lastVerified": "2026-03-10",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "Check your hardware"
+        },
+        {
+          "level": 2,
+          "text": "Step 1 — Pull the AI runner image"
+        },
+        {
+          "level": 2,
+          "text": "Step 2 — Configure aiModels.json"
+        },
+        {
+          "level": 3,
+          "text": "Field reference"
+        },
+        {
+          "level": 2,
+          "text": "Step 3 — Update your startup command"
+        },
+        {
+          "level": 2,
+          "text": "Step 4 — Verify AI is active"
+        },
+        {
+          "level": 3,
+          "text": "Check the logs"
+        },
+        {
+          "level": 3,
+          "text": "Test the AI runner directly"
+        },
+        {
+          "level": 3,
+          "text": "Confirm pipelines are advertised"
+        },
+        {
+          "level": 2,
+          "text": "Choose your AI path"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "json"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/get-started/realtime-ai-quickstart",
@@ -11291,9 +11364,18 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/orch-config",
       "title": "Configure Your Orchestrator",
-      "description": "Essential CLI flags and configuration for running in orchestrator mode.",
+      "description": "Set the go-livepeer flags needed to run as an orchestrator — GPU selection, pricing, networking, and AI worker configuration.",
       "section": "orchestrators",
       "tags": [
+        "go-livepeer",
+        "orchestrator",
+        "configuration",
+        "flags",
+        "priceperunit",
+        "serviceaddr",
+        "nvidia",
+        "ai-worker",
+        "cli",
         "orchestrators",
         "setup",
         "orch-config"
@@ -11303,17 +11385,54 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3,
-      "lastVerified": "2026-03-10T14:02:36+11:00",
-      "headings": [],
-      "codeLanguages": []
+      "wordCount": 1376,
+      "lastVerified": "2026-03-10T14:20:15+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "Essential flags"
+        },
+        {
+          "level": 2,
+          "text": "Full startup command"
+        },
+        {
+          "level": 2,
+          "text": "Adding AI inference"
+        },
+        {
+          "level": 2,
+          "text": "Variants"
+        },
+        {
+          "level": 2,
+          "text": "Next steps"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "ini"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/connect-to-arbitrum",
       "title": "Connect to Arbitrum",
-      "description": "Configure your ETH URL to connect to the Arbitrum One mainnet.",
+      "description": "Connect go-livepeer to the Arbitrum network using a hosted or self-hosted RPC endpoint — required for staking, activation, and payments.",
       "section": "orchestrators",
       "tags": [
+        "livepeer",
+        "orchestrator",
+        "arbitrum",
+        "rpc",
+        "ethurl",
+        "alchemy",
+        "infura",
+        "ethereum",
+        "connection",
         "orchestrators",
         "setup",
         "connect-to-arbitrum"
@@ -11323,10 +11442,33 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3,
-      "lastVerified": "2026-03-10T09:59:48+11:00",
-      "headings": [],
-      "codeLanguages": []
+      "wordCount": 631,
+      "lastVerified": "2026-03-10T14:20:15+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "Step 1 — Choose an RPC endpoint"
+        },
+        {
+          "level": 2,
+          "text": "Step 2 — Add the flag to your startup command"
+        },
+        {
+          "level": 2,
+          "text": "Step 3 — Verify the connection"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/orchestrator-stats",
@@ -11399,7 +11541,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 869,
-      "lastVerified": "2026-03-10T14:02:36+11:00",
+      "lastVerified": "2026-03-10T14:20:15+11:00",
       "headings": [
         {
           "level": 2,
@@ -11872,68 +12014,97 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/advanced/run-a-pool",
       "title": "Run a Pool",
-      "description": "What an orchestrator pool is and how to run one: aggregate GPUs, set terms, and list your pool.",
+      "description": "Operate a Livepeer GPU pool — accept external worker connections, manage job routing across multiple GPUs, and handle fee distribution.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
-        "orchestrators",
+        "orchestrator",
         "pool",
-        "operator",
         "gpu-pool",
-        "advanced",
-        "run-a-pool"
+        "transcoder-pool",
+        "worker",
+        "fee-sharing",
+        "pool-operator",
+        "titan-node",
+        "video-miner",
+        "orchestrators",
+        "advanced"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
       "difficulty": "advanced",
-      "wordCount": 192,
-      "lastVerified": "2026-03-10T13:49:51+11:00",
+      "wordCount": 1467,
+      "lastVerified": "2026-03-10T14:20:15+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "Operator responsibilities"
+          "text": "How a pool works"
         },
         {
           "level": 2,
-          "text": "What to publish"
+          "text": "Worker connection models"
         },
         {
           "level": 2,
-          "text": "Listing your pool"
+          "text": "Accepting workers"
         },
         {
           "level": 2,
-          "text": "See also"
+          "text": "Fee distribution"
+        },
+        {
+          "level": 2,
+          "text": "On-chain identity and transparency"
+        },
+        {
+          "level": 2,
+          "text": "Key takeaways"
+        },
+        {
+          "level": 2,
+          "text": "Related"
         }
       ],
-      "codeLanguages": []
+      "codeLanguages": [
+        "mermaid",
+        "bash"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/tools-and-guides/guides",
       "title": "Orchestrator Guides",
-      "description": "Find the main guides, community links, and pool resources for Livepeer orchestrators.",
+      "description": "Curated guides for running and optimising a Livepeer orchestrator — setup references, earnings strategy, community how-tos, and Discord resources.",
       "section": "orchestrators",
       "tags": [
-        "livepeer",
         "orchestrators",
-        "guides",
-        "community",
-        "pools",
-        "tools-and-guides"
+        "tools-and-guides",
+        "guides"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 81,
-      "lastVerified": "2026-03-10T13:58:34+11:00",
+      "wordCount": 281,
+      "lastVerified": "2026-03-10",
       "headings": [
         {
           "level": 2,
-          "text": "Community"
+          "text": "Official guides"
+        },
+        {
+          "level": 2,
+          "text": "Community resources"
+        },
+        {
+          "level": 2,
+          "text": "Discord and forum"
+        },
+        {
+          "level": 2,
+          "text": "See Also"
         }
       ],
       "codeLanguages": []
@@ -11941,14 +12112,10 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/tools-and-guides/tooling",
       "title": "Orchestrator Tools",
-      "description": "Find official and community tools, dashboards, and helper resources for operating Livepeer orchestrators.",
+      "description": "Tools for monitoring, verifying, and operating your Livepeer orchestrator — Explorer, payout dashboards, Prometheus metrics, and community tools.",
       "section": "orchestrators",
       "tags": [
-        "livepeer",
         "orchestrators",
-        "orchestrator-guides-and-references",
-        "orchestrator-tools",
-        "tools",
         "tools-and-guides",
         "tooling"
       ],
@@ -11957,19 +12124,37 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 33,
-      "lastVerified": "2026-03-10T14:03:16+11:00",
+      "wordCount": 634,
+      "lastVerified": "2026-03-10",
       "headings": [
         {
           "level": 2,
-          "text": "Official Livepeer Tools & Dashboards"
+          "text": "Livepeer Explorer"
         },
         {
           "level": 2,
-          "text": "Community Tools"
+          "text": "Node Metrics (Prometheus)"
+        },
+        {
+          "level": 2,
+          "text": "Cloud SPE Tools"
+        },
+        {
+          "level": 2,
+          "text": "Network Dashboards (Dune Analytics)"
+        },
+        {
+          "level": 2,
+          "text": "Capability Testing"
+        },
+        {
+          "level": 2,
+          "text": "See Also"
         }
       ],
-      "codeLanguages": []
+      "codeLanguages": [
+        "bash"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/resources/faq",
@@ -11996,7 +12181,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3457,
-      "lastVerified": "2026-03-10T14:02:36+11:00",
+      "lastVerified": "2026-03-10T14:20:15+11:00",
       "headings": [
         {
           "level": 2,
@@ -15620,7 +15805,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1412,
-      "lastVerified": "2026-03-10T13:46:27+11:00",
+      "lastVerified": "2026-03-10T14:20:15+11:00",
       "headings": [
         {
           "level": 2,
@@ -16705,7 +16890,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 160,
-      "lastVerified": "2026-03-09T20:43:37+11:00",
+      "lastVerified": "2026-03-10T14:20:15+11:00",
       "headings": [
         {
           "level": 2,
@@ -17442,7 +17627,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 41,
-      "lastVerified": "2026-03-10T09:38:11+11:00",
+      "lastVerified": "2026-03-10T14:20:15+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -17511,7 +17696,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 4073,
-      "lastVerified": "2026-03-10T07:07:09+11:00",
+      "lastVerified": "2026-03-10T14:20:15+11:00",
       "headings": [
         {
           "level": 2,

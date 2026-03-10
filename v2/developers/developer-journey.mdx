@@ -19,9 +19,6 @@ pageType: guide
 audience: developer
 status: current
 ---
-{/* TODO: Incorporate the 3-path model (Workload Provider / Consumer / Core Contributor)
-    from _archive/developer-journey-3path.mdx — specifically the livepeer-ops, Embody pipeline,
-    and DeFine/direct smart contract interaction references. */}
 
 import { BorderedBox } from '/snippets/components/layout/containers.jsx'
 
@@ -52,7 +49,7 @@ Livepeer serves several distinct types of builders. The fastest path to your fir
  **What you'll use:** `livepeer` npm package, `@livepeer/react` Player and Broadcast components, RTMP ingest, HLS playback, Livepeer Studio dashboard.
 
  **Primary CTA:** Start implementation with the quickstart.
-    <Card title="Video Streaming Quickstart" icon="tower-broadcast" href="/v2/developers/quickstart/video/video-streaming" arrow>
+    <Card title="Video Streaming Quickstart" icon="tower-broadcast" href="/v2/developers/get-started/video-quickstart" arrow>
  Create a livestream, get a stream key, and play back with the Livepeer Player in minutes.
     </Card>
 
@@ -71,12 +68,12 @@ Livepeer serves several distinct types of builders. The fastest path to your fir
  **Also useful:** [Daydream overview](/v2/solutions/daydream/overview) and [AI API reference](/v2/gateways/references/api-reference/AI-API/text-to-image).
 
  **Primary CTA:** Get your first response from the AI network.
-    <Card title="AI Inference Quickstart" icon="robot" href="/v2/developers/quickstart/ai/ai-pipelines" arrow>
+    <Card title="AI Quickstart" icon="robot" href="/v2/developers/get-started/ai-quickstart" arrow>
  Run text-to-image and other AI pipelines in minutes using the Livepeer AI SDK.
     </Card>
 
  **Secondary CTA:** Choose between standard APIs, ComfyStream, and BYOC.
-    <Card title="AI Pipelines Overview" icon="circuit-board" href="/v2/developers/ai-pipelines/overview" arrow>
+    <Card title="AI on Livepeer" icon="circuit-board" href="/v2/developers/concepts/ai-on-livepeer" arrow>
  Understand how Livepeer AI pipelines work, including ComfyStream and BYOC.
     </Card>
   </Tab>
@@ -139,28 +136,110 @@ Livepeer serves several distinct types of builders. The fastest path to your fir
 
 ---
 
-## Builder Personas Map
+## Three ways to go deeper
 
-If you're still not sure where you fit, here's the full map:
+The tabs above get you to a first win quickly. Once you know how you want to engage with the network, most developer journeys settle into one of three longer-term paths.
+
+<Columns cols={3}>
+  <Card title="Workload Provider" icon="server" href="#workload-provider" arrow>
+ Build workloads that orchestrators run, whether that means BYOC, custom routing, or direct smart contract control.
+  </Card>
+  <Card title="Workload Consumer" icon="wand-magic-sparkles" href="#workload-consumer" arrow>
+ Consume existing AI or video workloads through hosted gateways, Daydream, or other higher-level products.
+  </Card>
+  <Card title="Core Contributor" icon="code-branch" href="#core-contributor" arrow>
+ Work directly on go-livepeer, the protocol, or the supporting OSS stack that powers the network.
+  </Card>
+</Columns>
+
+Here is the deeper operating model behind those roles:
 
 ```mermaid
 flowchart TD
-    A["I want to build on Livepeer"] --> B{"What's my goal?"}
+    Start["Developer"] --> WP["Workload Provider"]
+    Start --> WC["Workload Consumer"]
+    Start --> CC["Core Contributor"]
 
-    B --> C["Add video to my app"]
-    B --> D["Run AI on video"]
-    B --> E["Route jobs & control infrastructure"]
-    B --> F["Provide GPU compute"]
-    B --> G["Build on the protocol"]
-    B --> H["Grow the ecosystem"]
+    WP --> TR["Traditional Route\nBYOC + Gateway"]
+    WP --> SC["Direct Smart Contract\nInteraction"]
 
-    C --> C1["Application Developer\n→ Use hosted gateway (Studio)"]
-    D --> D1["AI Developer\n→ Use AI SDK + hosted AI gateway"]
-    E --> E1["Gateway Operator\n→ Run go-livepeer gateway node"]
-    F --> F1["GPU Node Operator\n→ Run go-livepeer orchestrator"]
-    G --> G1["Protocol Developer\n→ Smart contracts on Arbitrum"]
-    H --> H1["Community Builder\n→ Governance, education, OSS"]
+    TR --> BYOC["Build a BYOC workload"]
+    BYOC --> GW["Run or integrate a gateway"]
+
+    SC --> OPS["Fork livepeer-ops"]
+    SC --> EMB["Reference Embody / DeFine flows"]
+
+    WC --> AI["Use hosted AI and video APIs"]
+    WC --> DD["Consume Daydream workflows"]
+
+    CC --> OSS["Work across the OSS stack"]
+    CC --> GL["Contribute to go-livepeer"]
 ```
+
+### Workload Provider
+
+Workload Providers define what runs on Livepeer compute. That can mean packaging a BYOC container, choosing your own routing layer, or interacting with the protocol more directly when you need full operational control.
+
+<Steps>
+  <Step title="Start with the standard BYOC route" icon="boxes">
+ BYOC is the clearest path for most builders. Package the workload, understand the pipeline model, and validate the routing flow end to end.
+
+    <Card title="BYOC" icon="cube" href="/v2/developers/build/byoc" arrow horizontal>
+ Learn how custom containers attach to Livepeer's inference and routing model.
+    </Card>
+  </Step>
+  <Step title="Add a gateway when you need routing control" icon="tower-broadcast">
+ If you need your own routing, auth, or SLA layer, pair BYOC with a gateway path instead of relying only on hosted products.
+
+    <Card title="Run a Gateway" icon="tower-broadcast" href="/v2/developers/concepts/running-a-gateway" arrow horizontal>
+ Understand when gateway control is worth the extra operational complexity.
+    </Card>
+  </Step>
+  <Step title="Use direct contract tooling for advanced control" icon="file-contract">
+ The DeFine-maintained `livepeer-ops` workflow and Embody reference implementation show the more protocol-native route: direct orchestrator management, remote coordination, and custom control planes.
+  </Step>
+</Steps>
+
+<CardGroup cols={2}>
+  <Card title="livepeer-ops" icon="github" href="https://github.com/its-DeFine/livepeer-ops">
+ DeFine's direct smart contract and operator-management toolkit for advanced workload providers.
+  </Card>
+  <Card title="Embody pipeline reference" icon="github" href="https://github.com/its-DeFine/Unreal_Vtuber">
+ Reference implementation for a real-time avatar workflow built on direct orchestration patterns.
+  </Card>
+</CardGroup>
+
+### Workload Consumer
+
+Workload Consumers do not need to run infrastructure. They use hosted APIs, higher-level products, or existing workloads already available on the network.
+
+<CardGroup cols={3}>
+  <Card title="AI Quickstart" icon="robot" href="/v2/developers/get-started/ai-quickstart">
+ Get your first response from Livepeer AI without setting up infrastructure.
+  </Card>
+  <Card title="Daydream" icon="wand-magic-sparkles" href="/v2/solutions/daydream/overview">
+ Explore the productized real-time generative workflow built on Livepeer infrastructure.
+  </Card>
+  <Card title="AI on Livepeer" icon="circuit-board" href="/v2/developers/concepts/ai-on-livepeer">
+ Compare hosted APIs, ComfyStream, and custom workload options before you go deeper.
+  </Card>
+</CardGroup>
+
+### Core Contributor
+
+Core Contributors work on the repos that power the network itself: `go-livepeer`, the protocol contracts, the AI runtime, ComfyStream, and the docs and tooling around them.
+
+<CardGroup cols={3}>
+  <Card title="OSS Stack" icon="books" href="/v2/developers/concepts/oss-stack">
+ See how the main Livepeer repos fit together and where each kind of contribution starts.
+  </Card>
+  <Card title="Contribution Guide" icon="book-open" href="/v2/developers/guides/contribution-guide">
+ Review contribution standards, repo expectations, and submission conventions.
+  </Card>
+  <Card title="go-livepeer" icon="github" href="https://github.com/livepeer/go-livepeer">
+ Start with the main node implementation if you want to work on gateways, orchestrators, or the protocol runtime.
+  </Card>
+</CardGroup>
 
 ---
 
@@ -180,7 +259,7 @@ Each builder path has a clear progression from first action to ecosystem contrib
 ## Not sure yet? Browse by use case
 
 <CardGroup cols={3}>
-  <Card title="Live Streaming" icon="tower-broadcast" href="/v2/developers/livepeer-real-time-video/video-streaming-on-livepeer/README" arrow>
+  <Card title="Live Streaming" icon="tower-broadcast" href="/v2/developers/get-started/video-quickstart" arrow>
  RTMP, WebRTC, HLS, OBS
   </Card>
   <Card title="Video on Demand" icon="video" href="/v2/solutions/livepeer-studio/video-on-demand/overview" arrow>
@@ -192,7 +271,7 @@ Each builder path has a clear progression from first action to ecosystem contrib
   <Card title="Real-Time AI Video" icon="wand-magic-sparkles" href="/v2/solutions/daydream/overview" arrow>
  Style transfer, StreamDiffusion
   </Card>
-  <Card title="Custom AI Pipelines" icon="circuit-board" href="/v2/developers/ai-pipelines/overview" arrow>
+  <Card title="Custom AI Pipelines" icon="circuit-board" href="/v2/developers/concepts/ai-on-livepeer" arrow>
  BYOC, ComfyStream, ComfyUI
   </Card>
   <Card title="Staking & Governance" icon="coins" href="/v2/lpt/delegation/overview" arrow>
