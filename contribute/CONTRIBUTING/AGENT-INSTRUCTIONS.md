@@ -91,6 +91,13 @@ The pre-commit hook runs automatically when you attempt to commit. It:
 
 ## Agent Workflow
 
+### Tracked File Moves and Renames
+
+- Use `git mv` for every tracked file rename or relocation so Git records the move instead of presenting it as a delete plus add.
+- Do not emulate a move by creating a new file and deleting the old tracked path manually.
+- If you intentionally keep both old and new paths during a compatibility window, document that the old path is an alias and keep both files staged intentionally.
+- Do not delete the old tracked path until references/imports have been validated and the deletion is covered by the existing `allow-deletions=true` trailer flow.
+
 ### Before Committing
 
 1. **Check hook is installed:**
