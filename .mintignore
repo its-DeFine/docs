@@ -1,3 +1,6 @@
+# Bare node_modules — Mintlify's ignore parser doesn't reliably handle ** globs
+node_modules
+
 # Localised trees not currently routed in docs.json
 /v2/es/**
 /v2/cn/**

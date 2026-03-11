@@ -1,24 +1,18 @@
 {
   "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit"
+    "source.fixAll": "never",
+    "source.fixAll.eslint": "never",
+    "source.organizeImports": "never"
   },
   "files.associations": {
     "*.mdx": "mdx",
     "docs.json": "json"
   },
-  "eslint.options": {
-    "extensions": [".js", ".json", ".md", ".mdx", ".ts", ".tsx"]
-  },
-  "eslint.validate": [
-    "javascript",
-    "json",
-    "markdown",
-    "mdx",
-    "typescript",
-    "typescriptreact"
-  ],
-  "eslint.packageManager": "pnpm",
+  "eslint.enable": false,
+  "eslint.validate": [],
+  "eslint.probe": [],
   "cSpell.words": ["Arweave", "multistream"],
   "json.format.enable": true,
   "json.schemaDownload.enable": true,
@@ -26,6 +20,19 @@
     "mdx": "html"
   },
   "[mdx]": {
-    "editor.formatOnSave": false
+    "editor.defaultFormatter": "unifiedjs.vscode-mdx",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
   }
 }

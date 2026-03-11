@@ -1,0 +1,1103 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "palm",
+  "name": "Livepeer Docs",
+  "metadata": {
+    "timestamp": true
+  },
+  "colors": {
+    "primary": "#3CB540",
+    "light": "#2b9a66",
+    "dark": "#3CB540"
+  },
+  "favicon": "/snippets/assets/favicon.png",
+  "navigation": {
+    "versions": [
+      {
+        "version": "v2",
+        "default": false,
+        "languages": [
+          {
+            "language": "en",
+            "tabs": [
+              {
+                "tab": "Orchestrators Final",
+                "icon": "microchip",
+                "groups": [
+                  {
+                    "group": "Home",
+                    "icon": "microchip",
+                    "pages": [
+                      "v2/orchestrators/portal",
+                      "v2/orchestrators/rc-navigator"
+                    ]
+                  },
+                  {
+                    "group": "Concepts",
+                    "icon": "book-open",
+                    "pages": [
+                      "v2/orchestrators/concepts/r-role",
+                      "v2/orchestrators/concepts/rcs-capabilities",
+                      "v2/orchestrators/concepts/rs-workloads",
+                      "v2/orchestrators/concepts/x-architecture",
+                      "v2/orchestrators/concepts/rcs-incentives"
+                    ]
+                  },
+                  {
+                    "group": "Quickstart",
+                    "icon": "bolt",
+                    "pages": [
+                      "v2/orchestrators/quickstart/x-setup-paths",
+                      {
+                        "group": "GPU Setup",
+                        "pages": [
+                          "v2/orchestrators/quickstart/video-transcoding",
+                          "v2/orchestrators/quickstart/x-ai",
+                          "v2/orchestrators/quickstart/quickstart",
+                          "v2/orchestrators/quickstart/x-realtime-ai",
+                          "v2/orchestrators/quickstart/x-batch-ai",
+                          "v2/orchestrators/quickstart/AI-prompt-start"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "GPU Setup",
+                    "icon": "gear",
+                    "pages": [
+                      "v2/orchestrators/setup/s-guide",
+                      "v2/orchestrators/setup/rcs-requirements",
+                      "v2/orchestrators/setup/rs-install",
+                      "v2/orchestrators/setup/r-configure",
+                      "v2/orchestrators/setup/sc-connect",
+                      "v2/orchestrators/setup/x-test",
+                      "v2/orchestrators/setup/r-monitor"
+                    ]
+                  },
+                  {
+                    "group": "Operations",
+                    "icon": "chart-line",
+                    "pages": [
+                      "v2/orchestrators/operations/x-optimise",
+                      "v2/orchestrators/operations/rc-ai-pipelines",
+                      "v2/orchestrators/operations/r-hosting-models",
+                      "v2/orchestrators/operations/rcs-staking-delegation",
+                      "v2/orchestrators/operations/earnings",
+                      "v2/orchestrators/operations/rs-rewards-and-fees"
+                    ]
+                  },
+                  {
+                    "group": "Guides",
+                    "icon": "wrench",
+                    "pages": [
+                      "v2/orchestrators/guides/x-explorer",
+                      "v2/orchestrators/guides/join-a-pool",
+                      "v2/orchestrators/guides/r-run-a-pool",
+                      "v2/orchestrators/guides/rcs-tooling",
+                      "v2/orchestrators/guides/x-payments",
+                      "v2/orchestrators/guides/x-governance"
+                    ]
+                  },
+                  {
+                    "group": "Resources",
+                    "icon": "books",
+                    "pages": [
+                      "v2/orchestrators/resources/faq",
+                      {
+                        "group": "Technical References",
+                        "pages": [
+                          "v2/orchestrators/resources/technical/x-troubleshooting",
+                          "v2/orchestrators/resources/technical/cli-flags",
+                          "v2/orchestrators/placeholder/resources/technical/x-contract-addresses"
+                        ]
+                      },
+                      {
+                        "group": "Resources",
+                        "pages": [
+                          "v2/orchestrators/resources/x-guides",
+                          "v2/orchestrators/resources/community-pools"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Needed",
+                    "icon": "exclamation-triangle",
+                    "pages": [
+                      "v2/orchestrators/placeholder/concepts/architecture",
+                      "v2/orchestrators/placeholder/setup/install-go-livepeer",
+                      "v2/orchestrators/placeholder/troubleshooting",
+                      "v2/orchestrators/placeholder/resources/technical/contract-addresses",
+                      "v2/orchestrators/placeholder/guides/explorer"
+                    ]
+                  },
+                  {
+                    "group": "Unplaced",
+                    "icon": "question",
+                    "pages": [
+                      "v2/orchestrators/guides/guides",
+                      "v2/orchestrators/guides/tooling",
+                      "v2/orchestrators/unclassified/rcs-connect-activate-publish",
+                      "v2/orchestrators/unclassified/rcs-06-add-ai-to-node-output"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tab": "Orchestrators",
+                "icon": "microchip",
+                "groups": [
+                  {
+                    "group": "Home",
+                    "icon": "microchip",
+                    "pages": [
+                      "v2/orchestrators/portal",
+                      "v2/orchestrators/rc-navigator"
+                    ]
+                  },
+                  {
+                    "group": "Concepts",
+                    "icon": "book-open",
+                    "pages": [
+                      "v2/orchestrators/concepts/r-role",
+                      "v2/orchestrators/concepts/rcs-capabilities",
+                      "v2/orchestrators/concepts/rs-workloads",
+                      "v2/orchestrators/concepts/x-architecture",
+                      "v2/orchestrators/concepts/rcs-incentives"
+                    ]
+                  },
+                  {
+                    "group": "Quickstart",
+                    "icon": "bolt",
+                    "pages": [
+                      "v2/orchestrators/quickstart/x-setup-paths",
+                      {
+                        "group": "GPU Setup",
+                        "pages": [
+                          "v2/orchestrators/quickstart/x-video",
+                          "v2/orchestrators/quickstart/x-ai",
+                          "v2/orchestrators/quickstart/quickstart",
+                          "v2/orchestrators/quickstart/x-realtime-ai",
+                          "v2/orchestrators/quickstart/x-batch-ai",
+                          "v2/orchestrators/quickstart/AI-prompt-start"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "GPU Setup",
+                    "icon": "gear",
+                    "pages": [
+                      "v2/orchestrators/setup/s-guide",
+                      "v2/orchestrators/setup/rcs-requirements",
+                      "v2/orchestrators/setup/x-install",
+                      "v2/orchestrators/setup/r-configure",
+                      "v2/orchestrators/setup/sc-connect",
+                      "v2/orchestrators/setup/x-test",
+                      "v2/orchestrators/setup/r-monitor"
+                    ]
+                  },
+                  {
+                    "group": "Operations",
+                    "icon": "chart-line",
+                    "pages": [
+                      "v2/orchestrators/operations/x-optimise",
+                      "v2/orchestrators/operations/rc-ai-pipelines",
+                      "v2/orchestrators/operations/r-hosting-models",
+                      "v2/orchestrators/operations/rcs-staking-delegation",
+                      "v2/orchestrators/operations/earnings",
+                      "v2/orchestrators/operations/rs-rewards-and-fees"
+                    ]
+                  },
+                  {
+                    "group": "Guides",
+                    "icon": "wrench",
+                    "pages": [
+                      "v2/orchestrators/placeholder/explorer",
+                      "v2/orchestrators/guides/join-a-pool",
+                      "v2/orchestrators/guides/r-run-a-pool",
+                      "v2/orchestrators/guides/rcs-tooling",
+                      "v2/orchestrators/guides/x-payments",
+                      "v2/orchestrators/guides/x-governance"
+                    ]
+                  },
+                  {
+                    "group": "Resources",
+                    "icon": "books",
+                    "pages": [
+                      "v2/orchestrators/resources/faq",
+                      "v2/orchestrators/placeholder/troubleshooting",
+                      {
+                        "group": "Technical References",
+                        "pages": [
+                          "v2/orchestrators/resources/technical/cli-flags",
+                          "v2/orchestrators/placeholder/resources/technical/contract-addresses"
+                        ]
+                      },
+                      {
+                        "group": "Resources",
+                        "pages": [
+                          "v2/orchestrators/resources/x-guides",
+                          "v2/orchestrators/resources/community-pools"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "group": "Needed",
+                    "icon": "exclamation-triangle",
+                    "pages": [
+                      "v2/orchestrators/placeholder/concepts/architecture",
+                      "v2/orchestrators/placeholder/setup/install-go-livepeer",
+                      "v2/orchestrators/placeholder/troubleshooting",
+                      "v2/orchestrators/placeholder/resources/technical/contract-addresses",
+                      "v2/orchestrators/placeholder/guides/explorer"
+                    ]
+                  },
+                  {
+                    "group": "Unplaced",
+                    "icon": "question",
+                    "pages": [
+                      "v2/orchestrators/guides/guides",
+                      "v2/orchestrators/guides/tooling",
+                      "v2/orchestrators/unclassified/rcs-connect-activate-publish",
+                      "v2/orchestrators/unclassified/rcs-06-add-ai-to-node-output"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tab": "GPU v2-dev",
+                "icon": "microchip",
+                "groups": [
+                  {
+                    "group": "GPU Nodes",
+                    "icon": "microchip",
+                    "pages": [
+                      "v2/orchestrators/v2-dev/orchestrators-portal",
+                      "v2/orchestrators/v2-dev/orchestrator-journey"
+                    ]
+                  },
+                  {
+                    "group": "Concepts",
+                    "icon": "book-open",
+                    "pages": [
+                      "v2/orchestrators/v2-dev/concepts/overview",
+                      "v2/orchestrators/v2-dev/concepts/architecture",
+                      "v2/orchestrators/v2-dev/concepts/economics",
+                      "v2/orchestrators/v2-dev/concepts/functions",
+                      "v2/orchestrators/v2-dev/concepts/job-types"
+                    ]
+                  },
+                  {
+                    "group": "Get Started",
+                    "icon": "bolt",
+                    "pages": [
+                      "v2/orchestrators/v2-dev/get-started/setup-paths",
+                      "v2/orchestrators/v2-dev/get-started/quickstart",
+                      "v2/orchestrators/v2-dev/get-started/join-a-pool",
+                      "v2/orchestrators/v2-dev/get-started/AI-prompt-start",
+                      "v2/orchestrators/v2-dev/get-started/realtime-ai-quickstart",
+                      "v2/orchestrators/v2-dev/get-started/batch-ai-quickstart"
+                    ]
+                  },
+                  {
+                    "group": "Setup",
+                    "icon": "gear",
+                    "pages": [
+                      "v2/orchestrators/v2-dev/setup/overview",
+                      "v2/orchestrators/v2-dev/setup/hardware-requirements",
+                      "v2/orchestrators/v2-dev/setup/install-go-livepeer",
+                      "v2/orchestrators/v2-dev/setup/orch-config",
+                      "v2/orchestrators/v2-dev/setup/connect-to-arbitrum",
+                      "v2/orchestrators/v2-dev/setup/orchestrator-stats",
+                      "v2/orchestrators/v2-dev/setup/publish-offerings"
+                    ]
+                  },
+                  {
+                    "group": "Advanced",
+                    "icon": "chart-line",
+                    "pages": [
+                      "v2/orchestrators/v2-dev/advanced/earnings",
+                      "v2/orchestrators/v2-dev/advanced/staking-LPT",
+                      "v2/orchestrators/v2-dev/advanced/rewards-and-fees",
+                      "v2/orchestrators/v2-dev/advanced/delegation",
+                      "v2/orchestrators/v2-dev/advanced/payments",
+                      "v2/orchestrators/v2-dev/advanced/ai-pipelines",
+                      "v2/orchestrators/v2-dev/advanced/hosting-models",
+                      "v2/orchestrators/v2-dev/advanced/run-a-pool"
+                    ]
+                  },
+                  {
+                    "group": "Tools and Guides",
+                    "icon": "wrench",
+                    "pages": [
+                      "v2/orchestrators/v2-dev/tools-and-guides/guides",
+                      "v2/orchestrators/v2-dev/tools-and-guides/tooling"
+                    ]
+                  },
+                  {
+                    "group": "Resources",
+                    "icon": "books",
+                    "pages": [
+                      "v2/orchestrators/v2-dev/resources/faq",
+                      "v2/orchestrators/v2-dev/resources/community-pools",
+                      "v2/orchestrators/v2-dev/resources/cli-flags"
+                    ]
+                  }
+                ]
+              },
+              {
+                "tab": "GPU Old",
+                "icon": "microchip",
+                "anchors": [
+                  {
+                    "anchor": "GPU Nodes",
+                    "icon": "microchip",
+                    "groups": [
+                      {
+                        "group": "Orchestrator Knowledge Hub",
+                        "icon": "graduation-cap",
+                        "pages": [
+                          "v2/orchestrators/old/orchestrators-portal",
+                          "v2/orchestrators/old/orchestrator-journey",
+                          "v2/orchestrators/old/about-orchestrators/overview",
+                          "v2/orchestrators/old/about-orchestrators/orchestrator-functions",
+                          "v2/orchestrators/old/about-orchestrators/architecture",
+                          "v2/orchestrators/old/about-orchestrators/economics",
+                          "v2/orchestrators/old/about-orchestrators/job-types"
+                        ]
+                      },
+                      {
+                        "group": "Quickstart ⚡",
+                        "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
+                        "pages": [
+                          "v2/orchestrators/old/quickstart/overview",
+                          "v2/orchestrators/old/quickstart/join-a-pool",
+                          "v2/orchestrators/old/quickstart/orchestrator-setup",
+                          "v2/orchestrators/old/quickstart/realtime-ai-quickstart",
+                          "v2/orchestrators/old/quickstart/batch-ai-quickstart"
+                        ]
+                      },
+                      {
+                        "group": "Payments",
+                        "icon": "coins",
+                        "pages": ["v2/orchestrators/old/payments/index"]
+                      },
+                      {
+                        "group": "Run an Orchestrator",
+                        "icon": "gear-code",
+                        "pages": [
+                          {
+                            "group": "Orchestrator Setup Guide",
+                            "pages": [
+                              "v2/orchestrators/old/setting-up-an-orchestrator/overview",
+                              {
+                                "group": "Setup Checklist",
+                                "pages": [
+                                  "v2/orchestrators/old/setting-up-an-orchestrator/hardware-requirements"
+                                ]
+                              },
+                              {
+                                "group": "Installation",
+                                "pages": [
+                                  "v2/orchestrators/old/setting-up-an-orchestrator/orchestrator-stats"
+                                ]
+                              },
+                              {
+                                "group": "Configuration",
+                                "pages": [
+                                  "v2/orchestrators/old/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer"
+                                ]
+                              },
+                              {
+                                "group": "Testing",
+                                "pages": [
+                                  "v2/orchestrators/old/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                ]
+                              },
+                              {
+                                "group": "Network Integration",
+                                "pages": [
+                                  "v2/orchestrators/old/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                ]
+                              },
+                              {
+                                "group": "Monitor & Optimise",
+                                "pages": [
+                                  "v2/orchestrators/old/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "group": "Advanced Orchestrator Information",
+                        "icon": "gamepad",
+                        "pages": [
+                          "v2/orchestrators/old/earnings",
+                          "v2/orchestrators/old/advanced-setup/staking-LPT",
+                          "v2/orchestrators/old/advanced-setup/rewards-and-fees",
+                          "v2/orchestrators/old/advanced-setup/delegation",
+                          "v2/orchestrators/old/advanced-setup/ai-pipelines",
+                          "v2/orchestrators/old/advanced-setup/hosting-models",
+                          "v2/orchestrators/old/advanced-setup/run-a-pool"
+                        ]
+                      },
+                      {
+                        "group": "Orchestrator Tools & Resources",
+                        "icon": "laptop-file",
+                        "pages": [
+                          "v2/orchestrators/old/orchestrator-tools-and-resources/orchestrator-tools",
+                          "v2/orchestrators/old/orchestrator-tools-and-resources/community-pools",
+                          "v2/orchestrators/old/orchestrator-tools-and-resources/orchestrator-guides",
+                          "v2/orchestrators/old/orchestrator-tools-and-resources/orchestrator-resources",
+                          "v2/orchestrators/old/orchestrator-tools-and-resources/orchestrator-community-and-help"
+                        ]
+                      },
+                      {
+                        "group": "Technical References",
+                        "icon": "code",
+                        "pages": [
+                          {
+                            "group": "Orchestrators",
+                            "pages": ["v2/orchestrators/old/references/faq"]
+                          },
+                          {
+                            "group": "API & CLI Reference",
+                            "pages": [
+                              "v2/orchestrators/old/references/cli-flags"
+                            ]
+                          },
+                          {
+                            "group": "On-Chain Reference",
+                            "pages": ["v2/orchestrators/old/references/faq"]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "logo": {
+    "light": "/snippets/assets/logo/light.svg",
+    "dark": "/snippets/assets/logo/dark.svg"
+  },
+  "api": {
+    "openapi": "api/openapi.yaml",
+    "mdx": {
+      "server": "https://livepeer.studio/api"
+    }
+  },
+  "appearance": {
+    "default": "dark"
+  },
+  "search": {
+    "prompt": "Need help? Ask our AI"
+  },
+  "footer": {
+    "socials": {
+      "website": "https://forum.livepeer.org",
+      "github": "https://github.com/livepeer",
+      "twitter": "https://twitter.com/livepeer",
+      "discord": "https://discord.gg/livepeer",
+      "linkedin": "https://www.linkedin.com/company/livepeer"
+    }
+  },
+  "integrations": {
+    "ga4": {
+      "measurementId": "G-P1Z15F6NX4"
+    }
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "",
+        "href": "https://twitter.com/Livepeer",
+        "icon": "x-twitter"
+      },
+      {
+        "label": "",
+        "href": "https://github.com/livepeer",
+        "icon": "github"
+      },
+      {
+        "label": "",
+        "href": "https://discord.gg/livepeer",
+        "icon": "discord"
+      }
+    ]
+  },
+  "errors": {
+    "404": {
+      "redirect": false,
+      "title": "Ruh oh. This page doesn't exist.",
+      "description": "<Frame><img src=\"https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2FteDJ4bno5MHU5Y3QxdGx3eWR2emdhejRhc2c1Y2d3ejY5ajlxMSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ju7l5y9osyymQ/giphy.gif\" alt=\"Rick Roll\" /></Frame><br/><br/>Sorry About That.<br/><br/><a href=\"https://github.com/livepeer/docs/issues/new?assignees=copilot&amp;labels=broken-link&amp;title=Broken+link%3A+404+page+encountered&amp;body=I+found+a+broken+link+on+the+docs+site.%0A%0A%2A%2AURL+that+404d%3A%2A%2A+%28paste+the+URL+from+your+browser%29%0A%0A%2A%2AExpected+page%3A%2A%2A+%0A\">Report this broken link <span style=\"color:var(--accent)\">↗</span></a>"
+    }
+  },
+  "redirects": [
+    {
+      "source": "/v2/resources/redirect",
+      "destination": "/v2/resources/resources-portal"
+    },
+    {
+      "source": "/v2/pages/08_help/redirect",
+      "destination": "/v2/pages/08_help/README"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/overview",
+      "destination": "/v2/orchestrators/setup/overview"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/hardware-requirements",
+      "destination": "/v2/orchestrators/setup/hardware-requirements"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer",
+      "destination": "/v2/orchestrators/setup/install-go-livepeer"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats",
+      "destination": "/v2/orchestrators/setup/orchestrator-stats"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/data-centre-setup",
+      "destination": "/v2/orchestrators/setup/data-centre-setup"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
+      "destination": "/v2/orchestrators/setup/data-centres-and-large-scale-hardware-providers"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/enterprise-and-data-centres",
+      "destination": "/v2/orchestrators/setup/enterprise-and-data-centres"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/publish-offerings",
+      "destination": "/v2/orchestrators/setup/publish-offerings"
+    },
+    {
+      "source": "/v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
+      "destination": "/v2/orchestrators/setup/orch-config"
+    },
+    {
+      "source": "/v1/guides/developing/quickstart",
+      "destination": "/v1/developers/quick-start"
+    },
+    {
+      "source": "/v1/guides/overview",
+      "destination": "/v1/developers/guides/overview"
+    },
+    {
+      "source": "/v1/guides/developing/player",
+      "destination": "/v1/developers/guides/playback-an-asset"
+    },
+    {
+      "source": "/v1/guides/developing/create-a-livestream",
+      "destination": "/v1/developers/guides/create-livestream"
+    },
+    {
+      "source": "/v1/guides/developing/stream-via-obs",
+      "destination": "/v1/developers/guides/stream-via-obs"
+    },
+    {
+      "source": "/v1/developing/stream-via-browser",
+      "destination": "/v1/developers/guides/livestream-from-browser"
+    },
+    {
+      "source": "/v1/guides/developing/upload-a-video-asset",
+      "destination": "/v1/developers/guides/upload-video-asset"
+    },
+    {
+      "source": "/v1/guides/developing/mint-a-video-nft",
+      "destination": "/v1/developers/guides/mint-video-nft"
+    },
+    {
+      "source": "/v1/guides/developing/dstorage-playback",
+      "destination": "/v1/developers/guides/dstorage-playback"
+    },
+    {
+      "source": "/v1/developers/guides/dstorage-playback",
+      "destination": "/v1/developers/guides/upload-video-asset"
+    },
+    {
+      "source": "/v1/guides/developing/access-control",
+      "destination": "/v1/developers/guides/access-control-webhooks"
+    },
+    {
+      "source": "/v1/guides/developing/access-control-vod",
+      "destination": "/v1/developers/guides/access-control-webhooks"
+    },
+    {
+      "source": "/v1/guides/developing/encrypted-vod",
+      "destination": "/v1/developers/guides/encrypted-asset"
+    },
+    {
+      "source": "/v1/guides/developing/listen-for-webhooks",
+      "destination": "/v1/developers/guides/setup-and-listen-to-webhooks"
+    },
+    {
+      "source": "/v1/guides/developing/multistream",
+      "destination": "/v1/developers/guides/multistream"
+    },
+    {
+      "source": "/v1/guides/developing/monitor-stream-health",
+      "destination": "/v1/developers/guides/monitor-stream-health"
+    },
+    {
+      "source": "/v1/guides/developing/viewer-engagement",
+      "destination": "/v1/developers/guides/get-engagement-analytics-via-api"
+    },
+    {
+      "source": "/v1/guides/developing/transcode-video-storj",
+      "destination": "/v1/developers/guides/transcode-video-storj"
+    },
+    {
+      "source": "/v1/guides/developing/transcode-video-w3s",
+      "destination": "/v1/developers/guides/transcode-video-w3s"
+    },
+    {
+      "source": "/v1/tutorials/developing/optimize-latency",
+      "destination": "/v1/developers/guides/optimize-latency-of-a-livestream"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/overview",
+      "destination": "/v2/orchestrators/get-started/setup-paths"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/join-a-pool",
+      "destination": "/v2/orchestrators/get-started/join-a-pool"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/orchestrator-setup",
+      "destination": "/v2/orchestrators/get-started/quickstart"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/realtime-ai-quickstart",
+      "destination": "/v2/orchestrators/get-started/realtime-ai-quickstart"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/batch-ai-quickstart",
+      "destination": "/v2/orchestrators/get-started/batch-ai-quickstart"
+    },
+    {
+      "source": "/v1/tutorials/developing/analyze-engagement-timeplus",
+      "destination": "/v1/developers/guides/get-engagement-analytics-via-timeplus"
+    },
+    {
+      "source": "/v1/tutorials/developing/visualize-engagement-metrics-grafana",
+      "destination": "/v1/developers/guides/get-engagement-analytics-via-grafana"
+    },
+    {
+      "source": "/v1/tutorials/developing/token-gate-videos-using-guildxyz",
+      "destination": "/v1/developers/tutorials/token-gate-videos-with-lit"
+    },
+    {
+      "source": "/v1/tutorials/developing/token-gate-videos-using-lit",
+      "destination": "/v1/developers/tutorials/token-gate-videos-with-lit"
+    },
+    {
+      "source": "/v1/tutorials/developing/build-decentralized-video-app-with-fvm",
+      "destination": "/v1/developers/tutorials/decentralized-app-with-fvm"
+    },
+    {
+      "source": "/v1/tutorials/developing/upload-playback-videos-on-ipfs-4everland",
+      "destination": "/v1/developers/tutorials/upload-playback-videos-4everland"
+    },
+    {
+      "source": "/v1/tutorials/developing/upload-playback-videos-on-ipfs",
+      "destination": "/v1/developers/tutorials/upload-playback-videos-on-ipfs"
+    },
+    {
+      "source": "/v1/tutorials/developing/upload-playback-videos-on-arweave",
+      "destination": "/v1/developers/tutorials/upload-playback-videos-on-arweave"
+    },
+    {
+      "source": "/v1/reference/api",
+      "destination": "/v1/api-reference/overview/introduction"
+    },
+    {
+      "source": "/v1/reference/deployed-contract-addresses",
+      "destination": "/v1/references/contract-addresses"
+    },
+    {
+      "source": "/v1/reference/example-applications",
+      "destination": "/v1/references/example-applications"
+    },
+    {
+      "source": "/v1/reference/api-support-matrix",
+      "destination": "/v1/references/api-support-matrix"
+    },
+    {
+      "source": "/v1/reference/go-livepeer",
+      "destination": "/v1/references/go-livepeer/bandwidth-requirements"
+    },
+    {
+      "source": "/v1/reference/go-livepeer/cli-reference",
+      "destination": "/v1/references/go-livepeer/cli-reference"
+    },
+    {
+      "source": "/v1/reference/go-livepeer/gpu-support",
+      "destination": "/v1/references/go-livepeer/gpu-support"
+    },
+    {
+      "source": "/v1/reference/go-livepeer/hardware-requirements",
+      "destination": "/v1/references/go-livepeer/hardware-requirements"
+    },
+    {
+      "source": "/v1/reference/go-livepeer/bandwidth-requirements",
+      "destination": "/v1/references/go-livepeer/bandwidth-requirements"
+    },
+    {
+      "source": "/v1/reference/go-livepeer/prometheus-metrics",
+      "destination": "/v1/references/go-livepeer/prometheus-metrics"
+    },
+    {
+      "source": "/v1/guides/delegating/bridge-lpt-to-arbitrum",
+      "destination": "/v1/delegators/guides/bridge-lpt-to-arbitrum"
+    },
+    {
+      "source": "/v1/guides/delegating/migrate-stake-to-arbitrum",
+      "destination": "/v1/delegators/guides/migrate-stake-to-arbitrum"
+    },
+    {
+      "source": "/v1/delegators/reference/yield-calculation",
+      "destination": "/v1/delegators/guides/yield-calculation"
+    },
+    {
+      "source": "/v1/guides/orchestrating/get-started",
+      "destination": "/v1/orchestrators/guides/get-started"
+    },
+    {
+      "source": "/v1/guides/orchestrating/install-go-livepeer",
+      "destination": "/v1/orchestrators/guides/install-go-livepeer"
+    },
+    {
+      "source": "/v1/guides/orchestrating/connect-to-arbitrum",
+      "destination": "/v1/orchestrators/guides/connect-to-arbitrum"
+    },
+    {
+      "source": "/v1/guides/orchestrating/configure-reward-calling",
+      "destination": "/v1/orchestrators/guides/configure-reward-calling"
+    },
+    {
+      "source": "/v1/guides/orchestrating/set-session-limits",
+      "destination": "/v1/orchestrators/guides/set-session-limits"
+    },
+    {
+      "source": "/v1/guides/orchestrating/set-pricing",
+      "destination": "/v1/orchestrators/guides/set-pricing"
+    },
+    {
+      "source": "/v1/guides/orchestrating/benchmark-transcoding",
+      "destination": "/v1/orchestrators/guides/benchmark-transcoding"
+    },
+    {
+      "source": "/v1/guides/orchestrating/assess-capabilities",
+      "destination": "/v1/orchestrators/guides/assess-capabilities"
+    },
+    {
+      "source": "/v1/guides/orchestrating/monitor-metrics",
+      "destination": "/v1/orchestrators/guides/monitor-metrics"
+    },
+    {
+      "source": "/v1/guides/orchestrating/vote",
+      "destination": "/v1/orchestrators/guides/vote"
+    },
+    {
+      "source": "/v1/guides/orchestrating/dual-mine",
+      "destination": "/v1/orchestrators/guides/dual-mine"
+    },
+    {
+      "source": "/v1/guides/orchestrating/o-t-split",
+      "destination": "/v1/orchestrators/guides/o-t-split"
+    },
+    {
+      "source": "/v1/guides/orchestrating/migrate-to-arbitrum",
+      "destination": "/v1/orchestrators/guides/migrate-to-arbitrum"
+    },
+    {
+      "source": "/v1/guides/orchestrating/migrate-from-contract-wallet",
+      "destination": "/v1/orchestrators/guides/migrate-from-contract-wallet"
+    },
+    {
+      "source": "/v1/guides/orchestrating/gateway-introspection",
+      "destination": "/v1/orchestrators/guides/gateway-introspection"
+    },
+    {
+      "source": "/v1/guides/orchestrating/troubleshoot",
+      "destination": "/v1/orchestrators/guides/troubleshoot"
+    },
+    {
+      "source": "/v1/reference/react",
+      "destination": "/v1/react/getting-started"
+    },
+    {
+      "source": "/v1/reference/react/getting-started",
+      "destination": "/v1/react/getting-started"
+    },
+    {
+      "source": "/v1/reference/react/client",
+      "destination": "/v1/react/getting-started"
+    },
+    {
+      "source": "/v1/reference/react/LivepeerConfig",
+      "destination": "/v1/sdks/react/migration/3.x/LivepeerConfig"
+    },
+    {
+      "source": "/v1/reference/react/Player",
+      "destination": "/v1/react/player/Root"
+    },
+    {
+      "source": "/v1/reference/react/Broadcast",
+      "destination": "/v1/react/broadcast/Root"
+    },
+    {
+      "source": "/v1/reference/react/providers/studio",
+      "destination": "/v1/sdks/react/migration/3.x/providers/studio"
+    },
+    {
+      "source": "/v1/reference/react/asset/useAsset",
+      "destination": "/v1/sdks/react/migration/3.x/asset/useAsset"
+    },
+    {
+      "source": "/v1/reference/react/asset/useCreateAsset",
+      "destination": "/v1/sdks/react/migration/3.x/asset/useCreateAsset"
+    },
+    {
+      "source": "/v1/reference/react/asset/useAssetMetrics",
+      "destination": "/v1/sdks/react/migration/3.x/asset/useAssetMetrics"
+    },
+    {
+      "source": "/v1/reference/react/asset/useUpdateAsset",
+      "destination": "/v1/sdks/react/migration/3.x/asset/useUpdateAsset"
+    },
+    {
+      "source": "/v1/reference/react/stream/useStream",
+      "destination": "/v1/sdks/react/migration/3.x/stream/useStream"
+    },
+    {
+      "source": "/v1/reference/react/stream/useStreamSession",
+      "destination": "/v1/sdks/react/migration/3.x/stream/useStreamSession"
+    },
+    {
+      "source": "/v1/reference/react/stream/useStreamSessions",
+      "destination": "/v1/sdks/react/migration/3.x/stream/useStreamSessions"
+    },
+    {
+      "source": "/v1/reference/react/stream/useCreateStream",
+      "destination": "/v1/sdks/react/migration/3.x/stream/useCreateStream"
+    },
+    {
+      "source": "/v1/reference/react/stream/useUpdateStream",
+      "destination": "/v1/sdks/react/migration/3.x/stream/useUpdateStream"
+    },
+    {
+      "source": "/v1/reference/react/playback/usePlaybackInfo",
+      "destination": "/v1/sdks/react/migration/3.x/playback/usePlaybackInfo"
+    },
+    {
+      "source": "/v1/reference/react/constants/abis",
+      "destination": "/v1/sdks/react/migration/3.x/constants/abis"
+    },
+    {
+      "source": "/v1/reference/react/constants/contract-addresses",
+      "destination": "/v1/sdks/react/migration/3.x/constants/contract-addresses"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/comfyui",
+      "destination": "/v2/developers/ai-pipelines/model-support"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/byoc",
+      "destination": "/v2/developers/ai-pipelines/byoc"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/comfystream",
+      "destination": "/v2/developers/ai-pipelines/comfystream"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/api-reference",
+      "destination": "/v2/gateways/references/api-reference/AI-API/ai"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/README",
+      "destination": "/v2/developers/technical-references/apis"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/*",
+      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/README",
+      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/ai-101",
+      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/custom-ai-pipelines",
+      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/daydream-generative-ai-video-platform",
+      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/livepeer-ai-content-directory",
+      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/overview-ai-on-livepeer",
+      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/realtime-ai",
+      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/using-ai-on-livepeer",
+      "destination": "/v2/developers/ai-inference-on-livepeer/overview"
+    },
+    {
+      "source": "/v2/ai-runner",
+      "destination": "/v2/developers/ai-pipelines/overview"
+    },
+    {
+      "source": "/v2/developers/developer-path",
+      "destination": "/v2/developers/developer-journey"
+    },
+    {
+      "source": "/v2/developers/developer-guide",
+      "destination": "/v2/developers/developer-journey"
+    },
+    {
+      "source": "/v2/developers/journey-mapping",
+      "destination": "/v2/developers/developer-journey"
+    },
+    {
+      "source": "/v2/developers/quickstart/ai/ai-pipelines",
+      "destination": "/v2/developers/get-started/ai-quickstart"
+    },
+    {
+      "source": "/v2/developers/quickstart/ai/ai-jobs",
+      "destination": "/v2/developers/get-started/ai-quickstart"
+    },
+    {
+      "source": "/v2/developers/quickstart/video/video-streaming",
+      "destination": "/v2/developers/get-started/video-quickstart"
+    },
+    {
+      "source": "/v2/developers/quickstart/video/transcoding-jobs",
+      "destination": "/v2/developers/get-started/transcoding-quickstart"
+    },
+    {
+      "source": "/v2/developers/ai-pipelines/overview",
+      "destination": "/v2/developers/concepts/ai-on-livepeer"
+    },
+    {
+      "source": "/v2/developers/ai-pipelines/comfystream",
+      "destination": "/v2/developers/build/comfystream"
+    },
+    {
+      "source": "/v2/developers/ai-pipelines/byoc",
+      "destination": "/v2/developers/build/byoc"
+    },
+    {
+      "source": "/v2/developers/ai-pipelines/workload-fit",
+      "destination": "/v2/developers/build/workload-fit"
+    },
+    {
+      "source": "/v2/developers/ai-pipelines/model-support",
+      "destination": "/v2/developers/build/model-support"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/overview",
+      "destination": "/v2/developers/concepts/ai-on-livepeer"
+    },
+    {
+      "source": "/v2/developers/ai-inference-on-livepeer/workload-fit",
+      "destination": "/v2/developers/build/workload-fit"
+    },
+    {
+      "source": "/v2/developers/guides-and-tools/developer-guides",
+      "destination": "/v2/developers/guides/developer-guides"
+    },
+    {
+      "source": "/v2/developers/guides-and-tools/resources",
+      "destination": "/v2/developers/guides/resources"
+    },
+    {
+      "source": "/v2/developers/guides-and-tools/developer-help",
+      "destination": "/v2/developers/guides/developer-help"
+    },
+    {
+      "source": "/v2/developers/guides-and-tools/contribution-guide",
+      "destination": "/v2/developers/guides/contribution-guide"
+    },
+    {
+      "source": "/v2/developers/guides-and-resources/contribution-guide",
+      "destination": "/v2/developers/guides/contribution-guide"
+    },
+    {
+      "source": "/v2/developers/builder-opportunities/overview",
+      "destination": "/v2/developers/opportunities/overview"
+    },
+    {
+      "source": "/v2/developers/builder-opportunities/grants-and-programmes",
+      "destination": "/v2/developers/opportunities/grants-and-programmes"
+    },
+    {
+      "source": "/v2/developers/builder-opportunities/rfps-and-proposals",
+      "destination": "/v2/developers/opportunities/rfps-and-proposals"
+    },
+    {
+      "source": "/v2/developers/builder-opportunities/oss-contributions",
+      "destination": "/v2/developers/opportunities/oss-contributions"
+    },
+    {
+      "source": "/v2/developers/builder-opportunities/bug-bounties",
+      "destination": "/v2/developers/opportunities/bug-bounties"
+    },
+    {
+      "source": "/v2/developers/builder-opportunities/livepeer-rfps",
+      "destination": "/v2/developers/opportunities/rfps-and-proposals"
+    },
+    {
+      "source": "/v2/developers/technical-references/sdks",
+      "destination": "/v2/developers/resources/sdks"
+    },
+    {
+      "source": "/v2/developers/technical-references/apis",
+      "destination": "/v2/developers/resources/apis"
+    },
+    {
+      "source": "/v2/developers/technical-references/awesome-livepeer",
+      "destination": "/v2/developers/resources/awesome-livepeer"
+    },
+    {
+      "source": "/v2/developers/technical-references/wiki",
+      "destination": "/v2/developers/resources/wiki"
+    },
+    {
+      "source": "/v2/developers/technical-references/deepwiki",
+      "destination": "/v2/developers/resources/deepwiki"
+    }
+  ],
+  "styling": {
+    "codeblocks": {
+      "theme": {
+        "light": "github-light",
+        "dark": "dark-plus"
+      }
+    }
+  }
+}
