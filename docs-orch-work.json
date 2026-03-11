@@ -53,7 +53,6 @@
                         "pages": [
                           "v2/orchestrators/quickstart/video-transcoding",
                           "v2/orchestrators/quickstart/x-ai",
-                          "v2/orchestrators/quickstart/quickstart",
                           "v2/orchestrators/quickstart/x-realtime-ai",
                           "v2/orchestrators/quickstart/x-batch-ai",
                           "v2/orchestrators/quickstart/AI-prompt-start"
@@ -108,7 +107,7 @@
                         "pages": [
                           "v2/orchestrators/resources/technical/x-troubleshooting",
                           "v2/orchestrators/resources/technical/cli-flags",
-                          "v2/orchestrators/placeholder/resources/technical/x-contract-addresses"
+                          "v2/orchestrators/resources/technical/x-contract-addresses"
                         ]
                       },
                       {
@@ -138,7 +137,13 @@
                       "v2/orchestrators/guides/guides",
                       "v2/orchestrators/guides/tooling",
                       "v2/orchestrators/unclassified/rcs-connect-activate-publish",
-                      "v2/orchestrators/unclassified/rcs-06-add-ai-to-node-output"
+                      "v2/orchestrators/unclassified/rcs-06-add-ai-to-node-output",
+                      "v2/orchestrators/unclassified/orchestrator-functions",
+                      "v2/orchestrators/unclassified/quickstart-add-your-gpu-to-livepeer",
+                      "v2/orchestrators/unclassified/placeholders/data-centre-setup",
+                      "v2/orchestrators/unclassified/placeholders/data-centres-and-large-scale-hardware-providers",
+                      "v2/orchestrators/unclassified/placeholders/enterprise-and-data-centres",
+                      "v2/orchestrators/personas-and-pages"
                     ]
                   }
                 ]
