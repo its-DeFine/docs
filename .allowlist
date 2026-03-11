@@ -16,6 +16,8 @@ sitemap-ai.xml
 llms-full.txt
 llms.txt
 docs-index.json
+docs.json.jsx
+docs-orch-work.json
 lpd
 .lpdignore
 .gitignore
