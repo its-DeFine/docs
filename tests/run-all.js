@@ -24,6 +24,7 @@ const spellingTests = require('./unit/spelling.test');
 const qualityTests = require('./unit/quality.test');
 const linksImportsTests = require('./unit/links-imports.test');
 const docsNavigationTests = require('./unit/docs-navigation.test');
+const docsPathSyncTests = require('./unit/docs-path-sync.test');
 const scriptDocsTests = require('./unit/script-docs.test');
 const componentGovernanceUtilsTests = require('./unit/component-governance-utils.test');
 const componentGovernanceGeneratorTests = require('./unit/component-governance-generators.test');
@@ -141,6 +142,13 @@ async function runAllTests() {
   totalErrors += docsNavigationResult.errors.length;
   totalWarnings += docsNavigationResult.warnings.length;
   console.log(`   ${docsNavigationResult.errors.length} errors, ${docsNavigationResult.warnings.length} warnings`);
+
+  // Docs Path Sync Validation
+  console.log('\n🛤️  Running Docs Path Sync Validation...');
+  const docsPathSyncResult = docsPathSyncTests.runTests();
+  totalErrors += docsPathSyncResult.errors.length;
+  totalWarnings += docsPathSyncResult.warnings.length;
+  console.log(`   ${docsPathSyncResult.errors.length} errors, ${docsPathSyncResult.warnings.length} warnings`);
 
   // Script Docs Enforcement
   console.log('\n🧾 Running Script Documentation Enforcement...');
