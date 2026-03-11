@@ -16,6 +16,7 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('../../tools/lib/load-js-yaml');
 const { execSync } = require('child_process');
+const { isExcludedV2ExperimentalPath } = require('../../tools/lib/docs-publishability');
 
 const FINDING_TYPES = {
   INVALID_REFERENCE_FORMAT: 'invalid-reference-format',
@@ -52,12 +53,6 @@ function toPosix(value) {
 
 function relFromRoot(absPath) {
   return toPosix(path.relative(REPO_ROOT, absPath));
-}
-
-function isExcludedV2ExperimentalPath(relPath) {
-  const rel = toPosix(relPath).replace(/^\/+/, '');
-  if (!rel.startsWith('v2/')) return false;
-  return rel.split('/').some((segment) => segment.toLowerCase().startsWith('x-'));
 }
 
 function walkFiles(dirPath, out = []) {

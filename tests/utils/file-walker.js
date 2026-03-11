@@ -19,6 +19,7 @@ const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
 const { filterPathsByMintIgnore } = require('./mintignore');
+const { isExcludedV2ExperimentalPath } = require('../../tools/lib/docs-publishability');
 
 function toPosix(filePath) {
   return String(filePath || '').split(path.sep).join('/');
@@ -46,14 +47,6 @@ function normalizeDocsRouteKey(routePath) {
   normalized = normalized.replace(/\/index$/i, '');
   normalized = normalized.replace(/\/+$/, '');
   return normalized;
-}
-
-function isExcludedV2ExperimentalPath(relPath) {
-  const rel = toPosix(relPath).replace(/^\/+/, '');
-  if (!rel.startsWith('v2/')) return false;
-  return rel
-    .split('/')
-    .some((segment) => segment.toLowerCase().startsWith('x-'));
 }
 
 function collectDocsPageEntries(node, out = []) {

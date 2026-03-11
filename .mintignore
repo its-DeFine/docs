@@ -49,10 +49,12 @@ tmp_*
 **/*.disabled
 
 # V2 draft / scratch / context-only content / deprecated
-/v2/x-*/**
-/v2/**/x-*
-/v2/**/x-*/
-/v2/**/x-*/**
+/v2/**/x-archived/**
+/v2/**/x-deprecated/**
+/v2/**/x-experimental/**
+/v2/**/x-notes/**
+/v2/**/x-pages/**
+/v2/**/x-unstaged/**
 /v2/**/_contextData_/**
 /v2/**/_context_data_/**
 /v2/**/_tests-to-delete/**

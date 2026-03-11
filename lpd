@@ -54,8 +54,8 @@ Usage:
     - flags: `--strict` makes warnings fail.
     - info: Check local environment and repo readiness.
 
-  lpd dev [--test] [--test-mode fast|staged|full] [--script <path>] [--scoped] [--scope-...] [-- ...mint args]
-    - flags: run advisory tests first, optional scoped docs profile for large docs.json, override launcher script, pass-through Mintlify args.
+  lpd dev [--test] [--test-mode fast|staged|full] [--script <path>] [--scoped] [--docs-config <path>] [--scope-...] [-- ...mint args]
+    - flags: run advisory tests first, optional scoped docs profile for large docs.json or alternate docs config, override launcher script, pass-through Mintlify args.
     - info: Run local docs dev launcher.
 
   lpd mint dev [--scoped] [--scope-...] [-- ...mint args]
@@ -152,7 +152,7 @@ Command Groups:
   core
     lpd setup [--yes] [--no-tools] [--no-tests] [--no-hooks] [--with-mintlify] [--no-cli]
     lpd doctor [--strict] [--json]
-    lpd dev [--test] [--test-mode fast|staged|full] [--scoped] [--scope-...] [-- ...mint args]
+    lpd dev [--test] [--test-mode fast|staged|full] [--scoped] [--docs-config <path>] [--scope-...] [-- ...mint args]
     lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--wcag] [--wcag-no-fix] [--link-audit-external] [--base-url URL]
     lpd move-page <old> <new> [--yes] [--check] [--no-stage]
     lpd ai-sitemap [--write|--check] [--json]
@@ -937,6 +937,7 @@ cmd_dev() {
     local script_path="$REPO_ROOT/tools/scripts/mint-dev.sh"
     local dry_run=0
     local scoped_mode=0
+    local docs_config=""
     local scope_interactive=0
     local scope_file=""
     local scope_versions=""
@@ -977,6 +978,19 @@ cmd_dev() {
                 ;;
             --scoped)
                 scoped_mode=1
+                ;;
+            --docs-config)
+                if [ "$#" -lt 2 ]; then
+                    finish 1 "dev" "--docs-config requires a path."
+                    return 1
+                fi
+                scoped_mode=1
+                docs_config="$2"
+                shift
+                ;;
+            --docs-config=*)
+                scoped_mode=1
+                docs_config="${1#--docs-config=}"
                 ;;
             --scope-interactive)
                 scoped_mode=1
@@ -1094,7 +1108,7 @@ cmd_dev() {
                 ;;
             --help|-h)
                 cat <<'EOF'
-Usage: lpd dev [--test] [--test-mode fast|staged|full] [--script <path>] [--dry-run] [--scoped] [--scope-interactive] [--scope-file <path>] [--scope-version <csv>] [--scope-language <csv>] [--scope-tab <csv>] [--scope-prefix <csv>] [--skip-external-fetch] [--disable-openapi] [-- ...mint args]
+Usage: lpd dev [--test] [--test-mode fast|staged|full] [--script <path>] [--dry-run] [--scoped] [--docs-config <path>] [--scope-interactive] [--scope-file <path>] [--scope-version <csv>] [--scope-language <csv>] [--scope-tab <csv>] [--scope-prefix <csv>] [--skip-external-fetch] [--disable-openapi] [-- ...mint args]
 EOF
                 return 0
                 ;;
@@ -1125,9 +1139,12 @@ EOF
         fi
     fi
 
-    if [ "$dry_run" = "1" ]; then
+        if [ "$dry_run" = "1" ]; then
         if [ "$scoped_mode" = "1" ]; then
             echo "Scoped mint profile: enabled"
+            if [ -n "$docs_config" ]; then
+                echo "  docs_config: $docs_config"
+            fi
             if [ "$scope_interactive" = "1" ]; then
                 echo "  scope_interactive: true"
             fi
@@ -1166,6 +1183,9 @@ EOF
     env_vars=()
     if [ "$scoped_mode" = "1" ]; then
         env_vars+=("LPD_SCOPED_MINT_DEV=1")
+    fi
+    if [ -n "$docs_config" ]; then
+        env_vars+=("LPD_MINT_DOCS_CONFIG=$docs_config")
     fi
     if [ "$scope_interactive" = "1" ]; then
         env_vars+=("LPD_MINT_SCOPE_INTERACTIVE=1")

@@ -14,6 +14,7 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
+const { isExcludedV2ExperimentalPath } = require('../../../lib/docs-publishability');
 
 const TODO_COMMENT = '<!-- TODO: add page ending -->';
 const REPO_ROOT = getRepoRoot();
@@ -74,7 +75,7 @@ function shouldExclude(repoPath) {
   if (relPath.includes('/_contextData_/') || relPath.includes('/_context_data_/')) return true;
   if (relPath.includes('/_move_me/') || relPath.includes('/_tests-to-delete/')) return true;
   if (relPath.endsWith('/todo.mdx') || relPath.endsWith('/NOTES_V2.md') || relPath.endsWith('/todo.txt')) return true;
-  return relPath.split('/').some((segment) => segment.toLowerCase().startsWith('x-'));
+  return isExcludedV2ExperimentalPath(relPath);
 }
 
 function walkFiles(dirPath, out = []) {

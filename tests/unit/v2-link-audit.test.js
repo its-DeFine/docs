@@ -150,7 +150,7 @@ async function runTests() {
     assert.strictEqual(audit.classifyExternalStatus(503), audit.EXTERNAL_SOFT_FAIL);
   });
 
-  await runCase('Excludes x-* paths from explicit --files scope', async () => {
+  await runCase('Excludes explicit unpublished paths from explicit --files scope', async () => {
     const root = getRepoRoot();
     const tmpDir = path.join(root, 'v2', 'x-experimental', 'link-audit-unit-fixture');
     const tmpFile = path.join(tmpDir, `fixture-${Date.now()}.mdx`);

@@ -17,6 +17,7 @@ const path = require('path');
 const readline = require('readline');
 const { execSync } = require('child_process');
 const { listMintIgnoredRepoPaths } = require('../utils/mintignore');
+const { isExcludedV2ExperimentalPath } = require('../../tools/lib/docs-publishability');
 
 const REPORT_MD_REL = 'tasks/reports/navigation-links/navigation-report.md';
 const REPORT_JSON_REL = 'tasks/reports/navigation-links/navigation-report.json';
@@ -237,7 +238,7 @@ function shouldExcludeOrphanCandidate(relPath, localeSet) {
   if (localeSet.has(topLevelDir)) return true;
   if (topLevelDir === 'internal') return true;
 
-  if (segments.some((segment) => String(segment || '').toLowerCase().startsWith('x-'))) {
+  if (isExcludedV2ExperimentalPath(normalized)) {
     return true;
   }
 

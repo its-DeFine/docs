@@ -1170,7 +1170,7 @@ async function runAudit(options = {}) {
   let files = resolved.files;
   const excludedInputs = [...resolved.excludedInputs];
   if (excludedInputs.length) {
-    excludedInputs.forEach((rel) => console.warn(`⚠️  Excluding x-* path from audit scope: ${rel}`));
+    excludedInputs.forEach((rel) => console.warn(`⚠️  Excluding unpublished v2 path from audit scope: ${rel}`));
   }
 
   const navFiltered = filterFilesToDocsJsonV2Navigation(files, docsRoutes, { mode: args.mode });

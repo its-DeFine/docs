@@ -197,7 +197,7 @@
                     ]
                   },
                   {
-                    "group": "Advanced",
+                    "group": "Advanced Operations",
                     "icon": "chart-line",
                     "pages": [
                       "v2/orchestrators/v2-dev/advanced/earnings",

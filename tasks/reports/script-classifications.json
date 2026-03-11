@@ -371,6 +371,17 @@
     "dualmode": "dual-mode (document flags)"
   },
   {
+    "path": "tests/unit/docs-path-sync.test.js",
+    "script": "docs-path-sync.test",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "tests/unit, tools/scripts/lib, tools/scripts/validators/content, tools/scripts/remediators/content, lpd",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Unit tests for docs path sync — validates staged move detection, deterministic docs.json/reference rewrites, validator behavior, and remediator write mode.",
+    "pipeline": "P1, P3",
+    "dualmode": "--check (validator) | fixture-driven script execution"
+  },
+  {
     "path": "tests/unit/docs-route-scope.test.js",
     "script": "docs-route-scope.test",
     "category": "validator",
@@ -493,6 +504,16 @@
     "needs": "F-R17",
     "purpose_statement": "Tests OpenAPI rolling issue tracker — validates issue creation and dedup logic",
     "pipeline": "manual — not yet in pipeline"
+  },
+  {
+    "path": "tests/unit/og-image-policy.test.js",
+    "script": "og-image-policy.test",
+    "category": "validator",
+    "purpose": "qa:content-quality",
+    "scope": "tests/unit, tools/scripts/snippets/lib",
+    "needs": "E-R1, R-R14",
+    "purpose_statement": "Unit tests for og-image-policy — validates route mapping, locale asset selection, fallback assignment, and URL guardrails.",
+    "pipeline": "manual — targeted unit coverage for OG image governance"
   },
   {
     "path": "tests/unit/quality.test.js",
@@ -700,6 +721,26 @@
     "needs": "R-R16, R-R17",
     "purpose_statement": "Shared utilities for docs-index.json generation — path resolution, frontmatter extraction, index merging",
     "pipeline": "indirect — library module"
+  },
+  {
+    "path": "tools/lib/docs-publishability.js",
+    "script": "docs-publishability",
+    "category": "utility",
+    "purpose": "governance:repo-health",
+    "scope": "tools/lib, tests, tools/scripts",
+    "needs": "E-C6, F-C1",
+    "purpose_statement": "Shared path publishability rules for v2 docs content and tooling.",
+    "pipeline": "indirect"
+  },
+  {
+    "path": "tools/scripts/lib/docs-path-sync.js",
+    "script": "docs-path-sync",
+    "category": "utility",
+    "purpose": "qa:repo-health",
+    "scope": "full-repo",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Shared docs path sync library — detects staged page moves, plans deterministic route rewrites, and applies governed docs.json/path reference updates.",
+    "pipeline": "indirect -- library module"
   },
   {
     "path": "tools/lib/docs-usefulness/config-validator.js",
@@ -1323,6 +1364,16 @@
     "pipeline": "manual — developer tool"
   },
   {
+    "path": "tools/scripts/dev/mint-custom-loader.sh",
+    "script": "mint-custom-loader",
+    "category": "utility",
+    "purpose": "tooling:dev-tools",
+    "scope": "tools/scripts/dev, docs.json, lpd",
+    "needs": "E-C6, F-C1",
+    "purpose_statement": "Mint custom loader — launches lpd dev with an alternate docs config as the active Mint navigation source.",
+    "pipeline": "manual — developer tool"
+  },
+  {
     "path": "tools/scripts/dev/replace-og-image.py",
     "script": "replace-og-image",
     "category": "remediator",
@@ -1844,6 +1895,17 @@
     "dualmode": "--dry-run (validator) | --write (remediator)"
   },
   {
+    "path": "tools/scripts/remediators/content/sync-docs-paths.js",
+    "script": "sync-docs-paths",
+    "category": "remediator",
+    "purpose": "qa:repo-health",
+    "scope": "staged",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Docs path sync remediator — applies deterministic docs.json and governed reference rewrites for moved docs pages.",
+    "pipeline": "P1, P6",
+    "dualmode": "--dry-run (validator) | --write (remediator)"
+  },
+  {
     "path": "tools/scripts/remediators/content/repair-spelling.js",
     "script": "repair-spelling",
     "category": "remediator",
@@ -1955,6 +2017,26 @@
     "pipeline": "P6 (on-demand, SEO refresh)"
   },
   {
+    "path": "tools/scripts/snippets/generate-og-images.js",
+    "script": "generate-og-images",
+    "category": "generator",
+    "purpose": "seo:og-image-assets",
+    "scope": "tools/scripts, snippets/assets/site/og-image",
+    "needs": "E-R1, R-R14",
+    "purpose_statement": "Generate canonical site-level Open Graph image assets and manifest for fallback and section-level social previews.",
+    "pipeline": "manual — run when OG assets, section labels, or branding change"
+  },
+  {
+    "path": "tools/scripts/snippets/lib/og-image-policy.js",
+    "script": "og-image-policy",
+    "category": "utility",
+    "purpose": "seo:og-image-governance",
+    "scope": "tools/scripts, snippets/assets/site/og-image, docs.json",
+    "needs": "E-R1, R-R14",
+    "purpose_statement": "OG image policy helper — resolves authored MDX pages to canonical section or fallback social images and metadata.",
+    "pipeline": "indirect — library module imported by generators and validators"
+  },
+  {
     "path": "tools/scripts/snippets/test-scripts.sh",
     "script": "test-scripts",
     "category": "utility",
@@ -2063,6 +2145,17 @@
     "needs": "E-R1, R-R11",
     "purpose_statement": "Validates English v2 frontmatter descriptions for SEO length, boilerplate openings, and duplicate reuse",
     "pipeline": "manual — diagnostic/investigation tool, run on-demand only"
+  },
+  {
+    "path": "tools/scripts/validators/content/check-docs-path-sync.js",
+    "script": "check-docs-path-sync",
+    "category": "validator",
+    "purpose": "qa:repo-health",
+    "scope": "staged",
+    "needs": "E-C1, R-R14",
+    "purpose_statement": "Docs path sync validator — detects staged page moves that require docs.json or governed path reference rewrites.",
+    "pipeline": "P1, P6",
+    "dualmode": "--check (validator) | --json (machine-readable report)"
   },
   {
     "path": "tools/scripts/validators/content/check-double-headers.js",

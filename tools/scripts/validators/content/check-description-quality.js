@@ -14,6 +14,7 @@
 const fs = require('fs');
 const path = require('path');
 const yaml = require('../../lib/load-js-yaml');
+const { isExcludedV2ExperimentalPath } = require('../../lib/docs-publishability');
 
 const REPO_ROOT = path.resolve(__dirname, '../../../../');
 const DOCS_JSON_PATH = path.join(REPO_ROOT, 'docs.json');
@@ -95,9 +96,7 @@ function shouldExclude(repoPath) {
   if (relPath.includes('/_move_me/') || relPath.includes('/_tests-to-delete/')) return true;
   if (relPath.endsWith('todo.txt') || relPath.endsWith('todo.mdx') || relPath.endsWith('NOTES_V2.md')) return true;
 
-  return relPath
-    .split('/')
-    .some((segment) => segment.toLowerCase().startsWith('x-'));
+  return isExcludedV2ExperimentalPath(relPath);
 }
 
 function isSupportedDocFile(repoPath) {

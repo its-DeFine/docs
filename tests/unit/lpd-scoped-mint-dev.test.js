@@ -199,6 +199,45 @@ async function runTests() {
   });
 
   cases.push(async () => {
+    const tmp = mkTmpDir('lpd-alt-docs-config-');
+    const altDocs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Alt Fixture Docs',
+      navigation: {
+        versions: [
+          {
+            version: 'v2',
+            languages: [
+              {
+                language: 'en',
+                tabs: [
+                  {
+                    tab: 'Orchestrators',
+                    groups: [
+                      {
+                        group: 'Operations',
+                        pages: ['v2/orchestrators/operations/x-running-workloads']
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    };
+    writeFile(path.join(tmp, 'docs-orch-work.json'), `${JSON.stringify(altDocs, null, 2)}\n`);
+
+    const run = runLpd(['dev', '--dry-run', '--scoped', '--docs-config', path.join(tmp, 'docs-orch-work.json')]);
+    assert.strictEqual(run.status, 0, `lpd dry-run with docs config failed: ${run.stderr || run.stdout}`);
+    assert.match(run.stdout, /Scoped mint profile: enabled/);
+    assert.match(run.stdout, /docs_config:/);
+    assert.match(run.stdout, /docs-orch-work\.json/);
+  });
+
+  cases.push(async () => {
     const run = runLpd(['dev', '--dry-run', '--', '--port', '3333']);
     assert.strictEqual(run.status, 0, `lpd pass-through dry-run failed: ${run.stderr || run.stdout}`);
     assert.doesNotMatch(run.stdout, /Scoped mint profile: enabled/);
@@ -225,6 +264,54 @@ async function runTests() {
     const payload = JSON.parse(String(run.stdout || '{}').trim());
     assert.ok(payload.routeCounts.original > payload.routeCounts.scoped, 'scoped profile should reduce route count');
     assert.strictEqual(payload.routeCounts.scoped, 1, 'expected Developers tab route count after OpenAPI filter');
+  });
+
+  cases.push(async () => {
+    const tmp = mkTmpDir('lpd-alt-scope-source-');
+    const rootDocs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Root Docs',
+      navigation: SAMPLE_NAVIGATION
+    };
+    const altDocs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Alt Docs',
+      navigation: {
+        versions: [
+          {
+            version: 'v2',
+            languages: [
+              {
+                language: 'en',
+                tabs: [
+                  {
+                    tab: 'Orchestrators',
+                    groups: [
+                      {
+                        group: 'Operations',
+                        pages: ['v2/orchestrators/operations/x-running-workloads']
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    };
+    writeFile(path.join(tmp, 'docs.json'), `${JSON.stringify(rootDocs, null, 2)}\n`);
+    writeFile(path.join(tmp, 'docs-orch-work.json'), `${JSON.stringify(altDocs, null, 2)}\n`);
+    writeFile(path.join(tmp, '.mintignore'), '# fixture\n');
+
+    const run = runScopeScript(['--repo-root', tmp, '--docs-config', path.join(tmp, 'docs-orch-work.json'), '--print-only'], REPO_ROOT);
+    assert.strictEqual(run.status, 0, `scope generator with docs config failed: ${run.stderr || run.stdout}`);
+    const payload = JSON.parse(String(run.stdout || '{}').trim());
+    assert.strictEqual(payload.routeCounts.original, 1, 'alternate docs config should replace root docs.json as route source');
+    assert.strictEqual(payload.routeCounts.scoped, 1, 'alternate docs config should remain active without extra filters');
+    assert.match(payload.sourceDocsConfig, /docs-orch-work\.json$/);
   });
 
   cases.push(async () => {

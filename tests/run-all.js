@@ -45,6 +45,13 @@ const wcagNoFix = args.includes('--wcag-no-fix');
 let totalErrors = 0;
 let totalWarnings = 0;
 
+function normalizeSuiteResult(result) {
+  const normalized = result && typeof result === 'object' ? { ...result } : {};
+  normalized.errors = Array.isArray(normalized.errors) ? normalized.errors : [];
+  normalized.warnings = Array.isArray(normalized.warnings) ? normalized.warnings : [];
+  return normalized;
+}
+
 function getStagedComponentFiles() {
   return getStagedFiles(REPO_ROOT)
     .map((filePath) => path.relative(REPO_ROOT, filePath).split(path.sep).join('/'))
@@ -61,7 +68,7 @@ async function runAllTests() {
   
   // Style Guide Tests
   console.log('\n📋 Running Style Guide Tests...');
-  const styleResult = styleGuideTests.runTests({ stagedOnly });
+  const styleResult = normalizeSuiteResult(styleGuideTests.runTests({ stagedOnly }));
   totalErrors += styleResult.errors.length;
   totalWarnings += styleResult.warnings.length;
   console.log(`   ${styleResult.errors.length} errors, ${styleResult.warnings.length} warnings`);
@@ -83,83 +90,83 @@ async function runAllTests() {
   
   // MDX Tests
   console.log('\n📄 Running MDX Validation Tests...');
-  const mdxResult = mdxTests.runTests({ stagedOnly });
+  const mdxResult = normalizeSuiteResult(mdxTests.runTests({ stagedOnly }));
   totalErrors += mdxResult.errors.length;
   totalWarnings += mdxResult.warnings.length;
   console.log(`   ${mdxResult.errors.length} errors, ${mdxResult.warnings.length} warnings`);
 
   // Repo-wide MDX-safe Markdown Validation
   console.log('\n🧱 Running Repo-wide MDX-safe Markdown Validation...');
-  const mdxSafeMarkdownResult = mdxSafeMarkdownValidator.run({
+  const mdxSafeMarkdownResult = normalizeSuiteResult(mdxSafeMarkdownValidator.run({
     args: {
       stagedOnly,
       files: [],
       json: false
     }
-  });
+  }));
   totalErrors += mdxSafeMarkdownResult.errors.length;
   totalWarnings += mdxSafeMarkdownResult.warnings.length;
   console.log(`   ${mdxSafeMarkdownResult.errors.length} errors, ${mdxSafeMarkdownResult.warnings.length} warnings`);
 
   // MDX Guardrails
   console.log('\n🛡️  Running MDX Guardrail Tests...');
-  const mdxGuardsResult = mdxGuardsTests.runTests();
+  const mdxGuardsResult = normalizeSuiteResult(mdxGuardsTests.runTests());
   totalErrors += mdxGuardsResult.errors.length;
   totalWarnings += mdxGuardsResult.warnings.length;
   console.log(`   ${mdxGuardsResult.errors.length} errors, ${mdxGuardsResult.warnings.length} warnings`);
 
   // MDX-safe Markdown Unit Tests
   console.log('\n🧪 Running MDX-safe Markdown Unit Tests...');
-  const mdxSafeMarkdownUnitResult = mdxSafeMarkdownUnitTests.runTests();
+  const mdxSafeMarkdownUnitResult = normalizeSuiteResult(mdxSafeMarkdownUnitTests.runTests());
   totalErrors += mdxSafeMarkdownUnitResult.errors.length;
   totalWarnings += mdxSafeMarkdownUnitResult.warnings.length;
   console.log(`   ${mdxSafeMarkdownUnitResult.errors.length} errors, ${mdxSafeMarkdownUnitResult.warnings.length} warnings`);
   
   // Spelling Tests
   console.log('\n🔤 Running Spelling Tests...');
-  const spellResult = await spellingTests.runTests({ stagedOnly });
+  const spellResult = normalizeSuiteResult(await spellingTests.runTests({ stagedOnly }));
   totalErrors += spellResult.errors.length;
   totalWarnings += (spellResult.warnings || []).length;
   console.log(`   ${spellResult.errors.length} errors`);
   
   // Quality Tests
   console.log('\n✨ Running Quality Checks...');
-  const qualityResult = qualityTests.runTests({ stagedOnly });
+  const qualityResult = normalizeSuiteResult(qualityTests.runTests({ stagedOnly }));
   totalErrors += qualityResult.errors.length;
   totalWarnings += qualityResult.warnings.length;
   console.log(`   ${qualityResult.errors.length} errors, ${qualityResult.warnings.length} warnings`);
   
   // Links & Imports Tests
   console.log('\n🔗 Running Links & Imports Validation...');
-  const linksResult = linksImportsTests.runTests({ stagedOnly });
+  const linksResult = normalizeSuiteResult(linksImportsTests.runTests({ stagedOnly }));
   totalErrors += linksResult.errors.length;
   totalWarnings += linksResult.warnings.length;
   console.log(`   ${linksResult.errors.length} errors, ${linksResult.warnings.length} warnings`);
 
   // Docs Navigation Validation
   console.log('\n🧭 Running Docs Navigation Validation...');
-  const docsNavigationResult = docsNavigationTests.runTests({ writeReport: false });
+  const docsNavigationResult = normalizeSuiteResult(docsNavigationTests.runTests({ writeReport: false }));
   totalErrors += docsNavigationResult.errors.length;
   totalWarnings += docsNavigationResult.warnings.length;
   console.log(`   ${docsNavigationResult.errors.length} errors, ${docsNavigationResult.warnings.length} warnings`);
 
   // Docs Path Sync Validation
   console.log('\n🛤️  Running Docs Path Sync Validation...');
-  const docsPathSyncResult = docsPathSyncTests.runTests();
+  const docsPathSyncResult = normalizeSuiteResult(docsPathSyncTests.runTests());
   totalErrors += docsPathSyncResult.errors.length;
   totalWarnings += docsPathSyncResult.warnings.length;
   console.log(`   ${docsPathSyncResult.errors.length} errors, ${docsPathSyncResult.warnings.length} warnings`);
 
   // Script Docs Enforcement
   console.log('\n🧾 Running Script Documentation Enforcement...');
-  const scriptDocsResult = scriptDocsTests.runTests({ stagedOnly });
+  const scriptDocsResult = normalizeSuiteResult(scriptDocsTests.runTests({ stagedOnly }));
   totalErrors += scriptDocsResult.errors.length;
   totalWarnings += scriptDocsResult.warnings.length;
   console.log(`   ${scriptDocsResult.errors.length} errors, ${scriptDocsResult.warnings.length} warnings`);
 
   // Component Governance Utility Tests
   console.log('\n🧩 Running Component Governance Utility Tests...');
-  const componentGovernanceUtilsResult = componentGovernanceUtilsTests.runTests();
+  const componentGovernanceUtilsResult = normalizeSuiteResult(componentGovernanceUtilsTests.runTests());
   totalErrors += componentGovernanceUtilsResult.errors.length;
   totalWarnings += componentGovernanceUtilsResult.warnings.length;
   console.log(
@@ -168,7 +175,7 @@ async function runAllTests() {
 
   // Component Governance Generator Tests
   console.log('\n🗂️  Running Component Governance Generator Tests...');
-  const componentGovernanceGeneratorResult = componentGovernanceGeneratorTests.runTests();
+  const componentGovernanceGeneratorResult = normalizeSuiteResult(componentGovernanceGeneratorTests.runTests());
   totalErrors += componentGovernanceGeneratorResult.errors.length;
   totalWarnings += componentGovernanceGeneratorResult.warnings.length;
   console.log(
@@ -199,7 +206,7 @@ async function runAllTests() {
 
   // Pages Index Sync Validation
   console.log('\n🗂️  Running Pages Index Sync Validation...');
-  const pagesIndexResult = pagesIndexGenerator.run({ stagedOnly });
+  const pagesIndexResult = normalizeSuiteResult(pagesIndexGenerator.run({ stagedOnly }));
   totalErrors += pagesIndexResult.errors.length;
   totalWarnings += pagesIndexResult.warnings.length;
   if (pagesIndexResult.skipped) {

@@ -14,6 +14,7 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 MINT_WORKDIR="$REPO_ROOT"
 SCOPE_GENERATOR="$REPO_ROOT/tools/scripts/dev/generate-mint-dev-scope.js"
 SCOPED_MODE="${LPD_SCOPED_MINT_DEV:-0}"
+DOCS_CONFIG="${LPD_MINT_DOCS_CONFIG:-}"
 SCOPE_INTERACTIVE="${LPD_MINT_SCOPE_INTERACTIVE:-0}"
 SCOPE_FILE="${LPD_MINT_SCOPE_FILE:-}"
 SCOPE_VERSIONS="${LPD_MINT_SCOPE_VERSIONS:-}"
@@ -94,6 +95,9 @@ build_scoped_workspace() {
     local -a scope_cmd
     scope_cmd=(node "$SCOPE_GENERATOR" --repo-root "$REPO_ROOT")
 
+    if [ -n "$DOCS_CONFIG" ]; then
+        scope_cmd+=(--docs-config "$DOCS_CONFIG")
+    fi
     if [ "$SCOPE_INTERACTIVE" = "1" ]; then
         scope_cmd+=(--interactive)
     fi
