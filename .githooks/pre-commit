@@ -1252,6 +1252,13 @@ else
             fi
         fi
 
+        if [ -f "tools/scripts/remediators/content/sync-docs-paths.js" ]; then
+            run_node_check \
+              "Running staged docs path sync..." \
+              "❌ Docs path sync failed - inspect sync-docs-paths output" \
+              tools/scripts/remediators/content/sync-docs-paths.js --write --staged --stage
+        fi
+
         run_node_check \
           "Running core staged test suite..." \
           "❌ Core staged test suite failed - see output above" \

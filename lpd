@@ -66,6 +66,10 @@ Usage:
     - flags: choose test scope and optional browser/domain/WCAG/external-link-audit checks.
     - info: Run test suite with optional integration checks.
 
+  lpd move-page <old> <new> [--yes] [--check] [--no-stage]
+    - flags: dry-run with `--check`, skip `git add` with `--no-stage`, auto-confirm via `--yes`.
+    - info: Move a docs page with `git mv`, then run governed docs path sync.
+
   lpd ai-sitemap [--write|--check] [--json]
     - flags: write or verify the AI sitemap artifact.
     - info: Generate or validate sitemap-ai.xml.
@@ -150,6 +154,7 @@ Command Groups:
     lpd doctor [--strict] [--json]
     lpd dev [--test] [--test-mode fast|staged|full] [--scoped] [--scope-...] [-- ...mint args]
     lpd test [--staged|--full] [--browser] [--domain v1|v2|both] [--wcag] [--wcag-no-fix] [--link-audit-external] [--base-url URL]
+    lpd move-page <old> <new> [--yes] [--check] [--no-stage]
     lpd ai-sitemap [--write|--check] [--json]
     lpd ci [--skip-browser] [--base-url URL]
 
@@ -175,6 +180,8 @@ Common Workflows:
     lpd tools dev test-add-callouts -- --help
   regenerate AI sitemap
     lpd ai-sitemap --write
+  move a docs page and sync docs.json
+    lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/new.mdx
 
 Notes:
   - lpd uses .lpdignore (if present) to hide/block scripts from discovery and execution.
@@ -1470,6 +1477,88 @@ EOF
     finish 0 "ai-sitemap" "AI sitemap command completed successfully."
 }
 
+cmd_move_page() {
+    local check_only=0
+    local stage_changes=1
+    local assume_yes=0
+
+    while [ "$#" -gt 0 ]; do
+        case "$1" in
+            --check)
+                check_only=1
+                ;;
+            --no-stage)
+                stage_changes=0
+                ;;
+            --yes)
+                assume_yes=1
+                ;;
+            --json)
+                GLOBAL_JSON=1
+                ;;
+            --help|-h)
+                cat <<'EOF'
+Usage: lpd move-page <old> <new> [--yes] [--check] [--no-stage] [--json]
+EOF
+                return 0
+                ;;
+            --*)
+                finish 1 "move-page" "Unknown option: $1"
+                return 1
+                ;;
+            *)
+                break
+                ;;
+        esac
+        shift
+    done
+
+    if [ "$#" -ne 2 ]; then
+        finish 1 "move-page" "Usage: lpd move-page <old> <new> [--yes] [--check] [--no-stage]"
+        return 1
+    fi
+
+    local source_path="$1"
+    local target_path="$2"
+    local -a sync_cmd
+    sync_cmd=(node tools/scripts/remediators/content/sync-docs-paths.js)
+
+    if [ "$check_only" = "1" ]; then
+        sync_cmd+=(--dry-run)
+    else
+        if [ "$assume_yes" != "1" ]; then
+            printf 'Move %s -> %s and sync docs paths? [y/N] ' "$source_path" "$target_path"
+            read -r reply
+            case "$reply" in
+                y|Y|yes|YES) ;;
+                *)
+                    finish 1 "move-page" "Cancelled."
+                    return 1
+                    ;;
+            esac
+        fi
+
+        if ! git mv -- "$source_path" "$target_path"; then
+            finish 1 "move-page" "git mv failed."
+            return 1
+        fi
+
+        sync_cmd+=(--write)
+    fi
+
+    sync_cmd+=(--from "$source_path" --to "$target_path")
+    if [ "$stage_changes" = "1" ] && [ "$check_only" != "1" ]; then
+        sync_cmd+=(--stage)
+    fi
+
+    if ! "${sync_cmd[@]}"; then
+        finish 1 "move-page" "Docs path sync failed."
+        return 1
+    fi
+
+    finish 0 "move-page" "Docs move sync completed successfully."
+}
+
 cmd_scripts_list() {
     local group_filter=""
     local show_ignored=0
@@ -1685,6 +1774,9 @@ case "$COMMAND" in
         ;;
     test)
         cmd_test "$@"
+        ;;
+    move-page)
+        cmd_move_page "$@"
         ;;
     ai-sitemap)
         cmd_ai_sitemap "$@"
