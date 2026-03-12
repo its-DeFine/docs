@@ -29,7 +29,9 @@ audience: orchestrator
 status: current
 ---
 
-Orchestrators on Livepeer do not just transcode video. They can earn fees from four distinct categories of work, each with different GPU requirements, pricing models, and configuration paths. This page explains what each job type is, how it reaches your node, and what hardware it demands — so you can decide which to run before choosing a setup path.
+Orchestrators on Livepeer do not just transcode video. They can earn fees from four distinct categories of work, each with different GPU requirements, pricing models, and configuration paths.
+
+This page explains what each job type is, how it reaches your node, and what hardware it demands — so you can decide which to run before choosing a setup path.
 
 ## Overview
 
@@ -196,8 +198,6 @@ LLM pricing is configured in `aiModels.json` using a `pixels_per_unit` abstracti
 }
 ```
 
-````
-
 {/* REVIEW: confirm canonical pricing unit for LLM — is this per-token, per-request, or per-million-tokens? Check Cloud SPE documentation and go-livepeer source */}
 
 ### Configuration
@@ -248,4 +248,3 @@ The job types you can run depend on your hardware and what you want to optimise 
 5. **`/v2/orchestrators/setup/ai-config` and `/v2/orchestrators/setup/llm-pipeline`** — these are target links from this page; confirm they are being created as part of Phase 1 content work
 6. **YouTube demo search** — find an embeddable Cascade/ComfyStream demo video for the Real-time AI section; search `livepeer Cascade demo` and `livepeer comfystream demo` on YouTube
 7. **NVENC/NVDEC minimum driver version** — not confirmed in this research pass; check go-livepeer README before publishing the transcoding section
-````

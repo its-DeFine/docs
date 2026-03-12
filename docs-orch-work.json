@@ -25,27 +25,6 @@
                 "icon": "microchip",
                 "groups": [
                   {
-                    "group": "Planning",
-                    "icon": "sitemap",
-                    "pages": [
-                      "v2/orchestrators/IA",
-                      "v2/orchestrators/personas-and-pages"
-                    ]
-                  },
-                  {
-                    "group": "Templates",
-                    "icon": "bullhorn",
-                    "pages": [
-                      "v2/templates/blocks/block-examples",
-                      "v2/templates/pages/landing-and-navigation/navigation-page-template",
-                      "v2/templates/pages/landing-and-navigation/landing-page-template",
-                      "v2/templates/pages/reference-and-api/openapi-endpoint-page-template",
-                      "v2/templates/pages/setup-and-code-layouts//multi-view-page-template",
-                      "v2/templates/pages/faq-page-template",
-                      "v2/templates/pages/troubleshooting-page-template"
-                    ]
-                  },
-                  {
                     "group": "Start Here",
                     "icon": "microchip",
                     "pages": [
@@ -57,9 +36,8 @@
                     "group": "Concepts",
                     "icon": "book-open",
                     "pages": [
-                      "v2/orchestrators/concepts/r-role",
-                      "v2/orchestrators/concepts/rcs-capabilities",
-                      "v2/orchestrators/concepts/rs-workloads",
+                      "v2/orchestrators/concepts/role",
+                      "v2/orchestrators/concepts/capabilities",
                       "v2/orchestrators/concepts/x-architecture",
                       "v2/orchestrators/concepts/rcs-incentives"
                     ]
@@ -69,7 +47,6 @@
                     "icon": "bolt",
                     "pages": [
                       "v2/orchestrators/quickstart/guide",
-                      "v2/orchestrators/guides-old/join-a-pool",
                       "v2/orchestrators/quickstart/video-transcoding"
                     ]
                   },
@@ -143,6 +120,7 @@
                         "group": "Delegates, Pools and Voting",
                         "pages": [
                           "v2/orchestrators/guides/delegates-voting-pools/rcs-delegates",
+                          "v2/orchestrators/guides/delegates-voting-pools/join-a-pool",
                           "v2/orchestrators/guides/delegates-voting-pools/r-run-a-pool",
                           "v2/orchestrators/guides/delegates-voting-pools/x-governance"
                         ]

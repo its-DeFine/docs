@@ -1,5 +1,4 @@
 {
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
   "editor.formatOnSaveMode": "modificationsIfAvailable",
   "editor.formatOnPaste": false,
@@ -46,31 +45,10 @@
     "**/v2/es/**": true,
     "**/v2/x-archived/**": true
   },
-  "files.exclude": {
-    "**/.codex": true,
-    "**/v1": true,
-    "**/tools": true,
-    "**/tests": true,
-    "**/tasks": true,
-    "**/ai-tools": true,
-    "**/api": true,
-    "**/snippets/assets": true,
-    "**/snippets/automations": true,
-    "**/snippets/data": true,
-    "**/snippets/snippetsWiki": true,
-    "**/v2/cn": true,
-    "**/v2/fr": true,
-    "**/v2/es": true,
-    "**/v2/x-archived": true
-  },
   "files.associations": {
     "*.mdx": "mdx",
     "docs.json": "json"
   },
-  "prettier.prettierPath": "./tools/node_modules/prettier",
-  "prettier.configPath": ".prettierrc",
-  "prettier.requireConfig": true,
-  "prettier.useEditorConfig": true,
   "eslint.enable": false,
   "eslint.validate": [],
   "eslint.probe": [],

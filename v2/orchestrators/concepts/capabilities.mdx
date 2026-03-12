@@ -40,14 +40,17 @@ The broader capabilities orchestrators add as protocol infrastructure participan
 
 import OrchestratorRoleDiagram from '/snippets/pages/05_GPUS/Diagrams/orchestratorRole.mdx'
 
+---
+
  {/* Orcestrators are both general purpose GPU compute providers that transcode video, run AI inference pipelines, manage staking and rewards, vote in governance, and even host novel services like AI avatars and agent workloads. */}
-Livepeer Orchestrators are both general purpose GPU compute providers, as well as economic actors that stake LPT, earn rewards, and vote in governance.
+{/* Orchestrators on Livepeer are general purpose GPU compute providers that may run workloads to transcode video, provide AI inference or real-time AI video pipelines
+or enable custom workloads or novel services like AI avatars and agent workloads for applications or users. */}
 
-They also host and provide AI models & inference endpoints (including BYOC) which power novel services like AI avatars and agent workloads.
+Orchestrators on the Livepeer Network perform compute work for the network, which can be broadly categorized into three main types:
+- GPU nodes that perform [video transcoding](/v2/developers/build/video-transcoding)
+- AI nodes that perform [AI work](/guides/ai-pipelines)
+- Custom Workloads ie. [BYOC pipelines](/v2/developers/build/byoc) or application-specific workloads (e.g. [Embody](/v2/solutions/embody) AI avatars or [Daydream](/v2/solutions/daydream) real-time AI video workloads)
 
-Additionally, they may also manage delegated LPT and can have significant input into the direction of the network by voting as a block in governance with their delegators.
-
-<OrchestratorRoleDiagram />
 
 ## General Compute Functions
 
@@ -63,21 +66,24 @@ Orchestrators on the Livepeer network perform transcoding by running a node that
 
 AI inference is the process of running a model to make a prediction. Orchestrators on the Livepeer network perform AI inference by running a node that is connected to the network and performing the work that is assigned to it.
 
+#### Real-Time AI Video Pipelines
+Real-time AI video pipelines are a new type of workload that orchestrators can run on the Livepeer network. These pipelines allow for real-time processing of video using AI models, enabling applications like interactive live video, real-time avatars, and more.
+
 #### Custom Workloads
-Orchestrators can also run custom workloads on the Livepeer network.
+Orchestrators can also run custom workloads on the Livepeer network - both CPU and GPU workloads via BYOC workflows. These containerise workloads allow orchestrators to run workloads defined by applications or users, as well as application-specific workloads like the Embody AI avatars or Daydream real-time AI video workloads.
 
 
-## AI Pipeline Functions
+{/* ## AI Pipeline Functions
 
 #### BYOC
 
-#### AI Models
+#### AI Models */}
 
 
 
-## Delegation & Governance Services
+{/* ## Delegation & Governance Services
 
-Orchestrators can also earn rewards by delegating their LPT tokens to other orchestrators.
+Orchestrators can also earn rewards by delegating their LPT tokens to other orchestrators. */}
 
 
 ## Example Services Powered by Orchestrators
