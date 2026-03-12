@@ -3173,24 +3173,24 @@
                           "docs-guide/source-of-truth-policy",
                           "docs-guide/lpd",
                           {
-                            "group": "Indexes",
+                            "group": "Catalog",
                             "pages": [
-                              "docs-guide/indexes/pages-index",
-                              "docs-guide/indexes/components-index",
-                              "docs-guide/indexes/scripts-index",
-                              "docs-guide/indexes/workflows-index",
-                              "docs-guide/indexes/templates-index"
+                              "docs-guide/catalog/pages-catalog",
+                              "docs-guide/catalog/components-catalog",
+                              "docs-guide/catalog/scripts-catalog",
+                              "docs-guide/catalog/workflows-catalog",
+                              "docs-guide/catalog/templates-catalog"
                             ]
                           },
                           {
-                            "group": "Feature Guides",
+                            "group": "Features",
                             "pages": [
-                              "docs-guide/feature-guides/feature-map",
-                              "docs-guide/feature-guides/architecture-map",
-                              "docs-guide/feature-guides/automation-pipelines",
-                              "docs-guide/feature-guides/content-system",
-                              "docs-guide/feature-guides/visual-explainer-workflows",
-                              "docs-guide/feature-guides/data-integrations"
+                              "docs-guide/features/feature-map",
+                              "docs-guide/features/architecture-map",
+                              "docs-guide/features/automations",
+                              "docs-guide/frameworks/content-system",
+                              "docs-guide/features/visual-explainer-workflows",
+                              "docs-guide/features/data-integrations"
                             ]
                           },
                           {

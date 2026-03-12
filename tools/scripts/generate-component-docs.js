@@ -485,7 +485,7 @@ function renderOverviewPage(registry) {
       '',
       '- Registry JSON: [`docs-guide/component-registry.json`](/docs-guide/component-registry.json)',
       '- Usage map: [`docs-guide/component-usage-map.json`](/docs-guide/component-usage-map.json)',
-      '- Docs-guide index: [`docs-guide/indexes/components-index.mdx`](/docs-guide/indexes/components-index.mdx)',
+      '- Docs-guide index: [`docs-guide/catalog/components-catalog.mdx`](/docs-guide/catalog/components-catalog.mdx)',
       ''
     ].join('\n')
   );

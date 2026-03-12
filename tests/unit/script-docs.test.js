@@ -3,10 +3,10 @@
  * @script            script-docs-test
  * @category          validator
  * @purpose           qa:repo-health
- * @scope             .githooks, .github/scripts, tests, tools/scripts, tasks/scripts, docs-guide/indexes/scripts-index.mdx
+ * @scope             .githooks, .github/scripts, tests, tools/scripts, tasks/scripts, docs-guide/catalog/scripts-catalog.mdx
  * @owner             docs
  * @needs             E-C1, R-R14
- * @purpose-statement Enforces script header schema, keeps group script indexes in sync, and builds aggregate script index
+ * @purpose-statement Enforces script header schema, keeps group script indexes in sync, and builds aggregate script catalog
  * @pipeline          P1, P3
  * @dualmode          --check (validator) | --write --rebuild-indexes (generator)
  * @usage             node tests/unit/script-docs.test.js [flags]
@@ -86,14 +86,14 @@ const SCRIPT_EXTENSIONS = new Set(GOVERNED_SCRIPT_EXTENSIONS);
 const VALIDATION_ROOTS = GOVERNED_ROOTS;
 const CLASSIFICATION_ROOTS = GOVERNED_ROOTS;
 const AGGREGATE_FRONTMATTER_LINES = buildGeneratedFrontmatterLines({
-  title: 'Scripts Index',
-  sidebarTitle: 'Scripts Index',
+  title: 'Scripts Catalog',
+  sidebarTitle: 'Scripts Catalog',
   description: 'This page provides an aggregate catalog inventory of repository scripts generated from group script indexes.',
-  keywords: ['livepeer', 'scripts index', 'aggregate inventory', 'repository', 'scripts']
+  keywords: ['livepeer', 'scripts catalog', 'aggregate inventory', 'repository', 'scripts']
 });
 const AGGREGATE_DETAILS = {
   script: 'tests/unit/script-docs.test.js',
-  purpose: 'Enforce script header schema, keep group script indexes in sync, and build aggregate script index.',
+  purpose: 'Enforce script header schema, keep group script indexes in sync, and build aggregate script catalog.',
   runWhen: 'Script metadata changes in validation roots or script changes in indexed roots.',
   runCommand: 'node tests/unit/script-docs.test.js --write --rebuild-indexes'
 };
@@ -796,14 +796,14 @@ function runTests(options = {}) {
         errors.push({
           file: AGGREGATE_INDEX_PATH,
           rule: 'Aggregate script index freshness',
-          message: 'Missing aggregate scripts index. Run with --write --rebuild-indexes.',
+        message: 'Missing aggregate scripts catalog. Run with --write --rebuild-indexes.',
           line: 1
         });
       } else if (aggregateCheck.changed) {
         errors.push({
           file: AGGREGATE_INDEX_PATH,
           rule: 'Aggregate script index freshness',
-          message: 'Outdated aggregate scripts index. Run with --write --rebuild-indexes.',
+        message: 'Outdated aggregate scripts catalog. Run with --write --rebuild-indexes.',
           line: 1
         });
       }
@@ -816,7 +816,7 @@ function runTests(options = {}) {
       errors.push({
         file: LEGACY_AGGREGATE_INDEX_PATH,
         rule: 'Legacy aggregate script index',
-        message: 'Legacy scripts-index.md should be removed; use scripts-index.mdx.',
+        message: 'Legacy scripts index should be removed; use docs-guide/catalog/scripts-catalog.mdx.',
         line: 1
       });
     }

@@ -1,6 +1,6 @@
 ---
 name: generated-mdx-banners-governance
-description: Standardize generated MDX artifacts with consistent frontmatter, hidden generated banner, and visible Note policy across docs-guide and v2 index generators. Use when adding/updating generators, migrating generated files (for example scripts-index.md -> scripts-index.mdx), or enforcing i18n generated-page provenance and Note parity.
+description: Standardize generated MDX artifacts with consistent frontmatter, hidden generated banner, and visible Note policy across docs-guide and v2 index generators. Use when adding/updating generators, migrating generated files (for example a retired scripts index route -> docs-guide/catalog/scripts-catalog.mdx), or enforcing i18n generated-page provenance and Note parity.
 ---
 
 SKILL: Generated MDX Banner Governance
@@ -40,9 +40,9 @@ Primary Files to Touch
 - `tests/run-pr-checks.js`
 - `tests/package.json`
 
-Scripts Index Migration Rule
-- Canonical path: `docs-guide/indexes/scripts-index.mdx`.
-- Keep legacy cleanup for `docs-guide/indexes/scripts-index.md` in generator/test logic.
+Scripts Catalog Migration Rule
+- Canonical path: `docs-guide/catalog/scripts-catalog.mdx`.
+- Keep legacy cleanup for the retired scripts index path in generator/test logic.
 - Update all maintained references when migration occurs.
 
 Execution Steps

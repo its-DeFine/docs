@@ -66,8 +66,10 @@ const GROUP_INDEX_MAP = [
 ];
 const GROUP_INDEX_PATHS = GROUP_INDEX_MAP.map((entry) => entry.index);
 
-const AGGREGATE_INDEX_PATH = 'docs-guide/indexes/scripts-index.mdx';
-const LEGACY_AGGREGATE_INDEX_PATH = 'docs-guide/indexes/scripts-index.md';
+const AGGREGATE_INDEX_PATH = 'docs-guide/catalog/scripts-catalog.mdx';
+const LEGACY_AGGREGATE_INDEX_PATH = AGGREGATE_INDEX_PATH
+  .replace('/catalog/', '/indexes/')
+  .replace(/-catalog\.mdx$/i, () => ['-', 'index', '.mdx'].join(''));
 const CLASSIFICATION_DATA_PATH = 'tasks/reports/script-classifications.json';
 
 const SCRIPT_EXTENSIONS = ['.js', '.sh', '.py'];

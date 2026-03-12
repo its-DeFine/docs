@@ -233,7 +233,7 @@ See /v2/gateways/faq.
   results.push(await runCase('PR checks generated-banner matcher is delta-aware and codex issue-skip log marker exists', async () => {
     assert.strictEqual(shouldRunGeneratedBannerCheck(['tools/lib/docs-usefulness/scoring.js']), false);
     assert.strictEqual(shouldRunGeneratedBannerCheck(['tools/scripts/generate-pages-index.js']), true);
-    assert.strictEqual(shouldRunGeneratedBannerCheck(['v2/fr/docs-guide/indexes/pages-index.mdx']), true);
+    assert.strictEqual(shouldRunGeneratedBannerCheck(['v2/fr/docs-guide/catalog/pages-catalog.mdx']), true);
 
     const prChecksSource = fs.readFileSync(path.join(__dirname, '..', 'run-pr-checks.js'), 'utf8');
     assert.match(prChecksSource, /issue-readiness enforcement is skipped/i);

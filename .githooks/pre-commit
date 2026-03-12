@@ -1175,14 +1175,14 @@ if [ "$SKIP_TESTS" != "1" ]; then
         fi
 
         if [ $VIOLATIONS -eq 0 ] && [ -f "tools/scripts/generate-docs-guide-components-index.js" ]; then
-            echo -e "${YELLOW}Regenerating components index...${NC}"
+            echo -e "${YELLOW}Regenerating components catalog...${NC}"
             if node tools/scripts/generate-docs-guide-components-index.js --fix 2>&1; then
-                git add docs-guide/indexes/components-index.mdx 2>/dev/null
-                echo -e "${GREEN}✓ Components index regenerated${NC}"
+                git add docs-guide/catalog/components-catalog.mdx 2>/dev/null
+                echo -e "${GREEN}✓ Components catalog regenerated${NC}"
             else
                 VIOLATIONS=$((VIOLATIONS + 1))
-                WARNINGS+=("❌ Components index generation failed")
-                echo -e "${RED}❌ Components index generation failed${NC}"
+                WARNINGS+=("❌ Components catalog generation failed")
+                echo -e "${RED}❌ Components catalog generation failed${NC}"
             fi
         fi
     fi

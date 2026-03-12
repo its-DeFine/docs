@@ -374,7 +374,7 @@
     "format": "markdown",
     "line_count": 82,
     "has_skill_frontmatter": true,
-    "primary_purpose": "Standardize generated MDX artifacts with consistent frontmatter, hidden generated banner, and visible Note policy across docs-guide and v2 index generators. Use when adding/updating generators, migrating generated files (for example scripts-index.md -> scripts-index.mdx), or enforcing i18n generated-page provenance and Note parity.",
+    "primary_purpose": "Standardize generated MDX artifacts with consistent frontmatter, hidden generated banner, and visible Note policy across docs-guide and v2 index generators. Use when adding/updating generators, migrating generated files (for example a retired scripts index route -> docs-guide/catalog/scripts-catalog.mdx), or enforcing i18n generated-page provenance and Note parity.",
     "discovery": "pattern",
     "unexpected": false,
     "unexpected_reason": null

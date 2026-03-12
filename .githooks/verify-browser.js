@@ -95,12 +95,19 @@ function filePathToUrls(filePath) {
     .replace(/^v2\/pages\//, '')
     .replace(/^v2\//, '');
   const normalizedRoute = routeWithoutPrefix.replace(/\/index$/, '');
+  const folderOverviewRoute = normalizedRoute.replace(/\/overview$/, '');
+  const legacyRoute = withoutExt.replace(/^v2\//, '').replace(/\/index$/, '');
+  const legacyFolderOverviewRoute = legacyRoute.replace(/\/overview$/, '');
 
   const candidates = [
     `/${normalizedRoute}`,
-    `/${withoutExt.replace(/^v2\//, '').replace(/\/index$/, '')}`,
+    `/${legacyRoute}`,
     `/v2/${normalizedRoute}`,
-    `/v2/pages/${normalizedRoute}`
+    `/v2/pages/${normalizedRoute}`,
+    `/${folderOverviewRoute}`,
+    `/${legacyFolderOverviewRoute}`,
+    `/v2/${folderOverviewRoute}`,
+    `/v2/pages/${folderOverviewRoute}`
   ];
 
   return [...new Set(candidates)];
@@ -248,7 +255,21 @@ async function testPage(browser, filePath, baseUrl) {
       warnings
     };
   } finally {
-    await page.close();
+    if (!page.isClosed()) {
+      try {
+        await page.close();
+      } catch (error) {
+        const message = error instanceof Error ? error.message : String(error);
+        const transientCloseFailure =
+          message.includes('Connection closed') ||
+          message.includes('Target closed') ||
+          message.includes('Session closed');
+
+        if (!transientCloseFailure) {
+          throw error;
+        }
+      }
+    }
   }
 }
 
@@ -270,7 +291,8 @@ async function main() {
   // Ensure server is running (start if needed)
   let serverStarted = false;
   try {
-    serverStarted = await ensureServerRunning({ allowCommonPorts: false });
+    const probePath = stagedFiles[0] ? filePathToUrls(stagedFiles[0])[0] : '';
+    serverStarted = await ensureServerRunning({ probePath, allowCommonPorts: false });
     // Get actual server URL (may differ if port was auto-selected)
     const actualUrl = getServerUrl();
     if (actualUrl !== BASE_URL) {

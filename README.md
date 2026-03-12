@@ -114,14 +114,14 @@ Recovery:
 | Cleanup and quarantine rules | [`docs-guide/policies/cleanup-quarantine-policy.mdx`](docs-guide/policies/cleanup-quarantine-policy.mdx) |
 | Component layout policy decisions | [`docs-guide/policies/component-layout-decisions.mdx`](docs-guide/policies/component-layout-decisions.mdx) |
 | Automation pipelines map | [`docs-guide/features/automations.mdx`](docs-guide/features/automations.mdx) |
-| Content system and IA model | [`docs-guide/feature-guides/content-system.mdx`](docs-guide/feature-guides/content-system.mdx) |
+| Content system and IA model | [`docs-guide/frameworks/content-system.mdx`](docs-guide/frameworks/content-system.mdx) |
 | APIs and data integrations | [`docs-guide/features/data-integrations.mdx`](docs-guide/features/data-integrations.mdx) |
 | AI tools catalog | [`docs-guide/catalog/ai-tools.mdx`](docs-guide/catalog/ai-tools.mdx) |
-| Generated pages tree inventory | [`docs-guide/indexes/pages-index.mdx`](docs-guide/indexes/pages-index.mdx) |
-| Generated components inventory | [`docs-guide/indexes/components-index.mdx`](docs-guide/indexes/components-index.mdx) |
-| Generated script inventory | [`docs-guide/indexes/scripts-index.mdx`](docs-guide/indexes/scripts-index.mdx) |
-| Generated workflow inventory | [`docs-guide/indexes/workflows-index.mdx`](docs-guide/indexes/workflows-index.mdx) |
-| Generated issue/PR template inventory | [`docs-guide/indexes/templates-index.mdx`](docs-guide/indexes/templates-index.mdx) |
+| Generated pages tree inventory | [`docs-guide/catalog/pages-catalog.mdx`](docs-guide/catalog/pages-catalog.mdx) |
+| Generated components inventory | [`docs-guide/catalog/components-catalog.mdx`](docs-guide/catalog/components-catalog.mdx) |
+| Generated script inventory | [`docs-guide/catalog/scripts-catalog.mdx`](docs-guide/catalog/scripts-catalog.mdx) |
+| Generated workflow inventory | [`docs-guide/catalog/workflows-catalog.mdx`](docs-guide/catalog/workflows-catalog.mdx) |
+| Generated issue/PR template inventory | [`docs-guide/catalog/templates-catalog.mdx`](docs-guide/catalog/templates-catalog.mdx) |
 
 ## Contributing (Quick Path)
 
@@ -168,7 +168,7 @@ Contributor deep docs:
 ### Local (pre-commit)
 
 - `.githooks/pre-commit` runs structure/style verification and staged checks
-- includes script docs enforcement and pages index synchronization
+- includes script docs enforcement and pages catalog synchronization
 - includes staged WCAG accessibility audit with conservative autofix for common raw-tag issues
 - docs-guide source-of-truth checks currently run in advisory mode
 
