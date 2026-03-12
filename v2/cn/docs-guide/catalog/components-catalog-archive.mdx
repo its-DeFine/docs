@@ -1,12 +1,12 @@
 ---
-title: 'Índice de componentes'
-sidebarTitle: 'Índice de componentes'
-description: 'Inventario agregado de componentes del repositorio desde snippets/components, generado para el mantenimiento de docs-guide.'
+title: '组件目录存档'
+sidebarTitle: '组件存档'
+description: '保留的归档快照：旧版组件目录页面。'
 pageType: overview
 keywords: ['livepeer', 'components index', 'aggregate inventory', 'repository', 'snippets']
 ---
 
-{/* codex-i18n: eyJraW5kIjoiY29kZXgtaTE4biIsInZlcnNpb24iOjEsInNvdXJjZVBhdGgiOiJkb2NzLWd1aWRlL2luZGV4ZXMvY29tcG9uZW50cy1pbmRleC5tZHgiLCJzb3VyY2VSb3V0ZSI6ImRvY3MtZ3VpZGUvaW5kZXhlcy9jb21wb25lbnRzLWluZGV4Iiwic291cmNlSGFzaCI6IjA1ZWMyMDRjZGZmYjNlN2VlMjRmMTEyMWUzZTZiM2YyOWIzN2QyYzk3OTExNGVhYTFlZWIwM2Q0ZDkzNjFjNjQiLCJsYW5ndWFnZSI6ImVzIiwicHJvdmlkZXIiOiJvcGVucm91dGVyIiwibW9kZWwiOiJxd2VuL3F3ZW4tdHVyYm8iLCJnZW5lcmF0ZWRBdCI6IjIwMjYtMDMtMDFUMTc6MDg6NDIuNzI5WiJ9 */}
+{/* codex-i18n: eyJraW5kIjoiY29kZXgtaTE4biIsInZlcnNpb24iOjEsInNvdXJjZVBhdGgiOiJkb2NzLWd1aWRlL2NhdGFsb2cvY29tcG9uZW50cy1jYXRhbG9nLm1keCIsInNvdXJjZVJvdXRlIjoiZG9jcy1ndWlkZS9jYXRhbG9nL2NvbXBvbmVudHMtY2F0YWxvZyIsInNvdXJjZUhhc2giOiIwNWVjMjA0Y2RmZmIzZTdlZTI0ZjExMjFlM2U2YjNmMjliMzdkMmM5NzkxMTRlYWExZWViMDNkNGQ5MzYxYzY0IiwibGFuZ3VhZ2UiOiJjbiIsInByb3ZpZGVyIjoib3BlbnJvdXRlciIsIm1vZGVsIjoicXdlbi9xd2VuLXR1cmJvIiwiZ2VuZXJhdGVkQXQiOiIyMDI2LTAzLTAxVDE3OjI2OjQ0LjU0M1oifQ== */}
 import { SearchTable } from "/snippets/components/layout/searchTable.jsx";
 import { DynamicTable } from "/snippets/components/layout/table.jsx";
 
@@ -25,8 +25,8 @@ Run command: node tools/scripts/generate-docs-guide-components-index.js --write
 **Important**: Do not manually edit this file; run `node tools/scripts/generate-docs-guide-components-index.js --write`. <br/>
 </Note>
 
-## Primitivas
-Los componentes primitivos son bloques básicos de interfaz reutilizados en todo el sistema de documentación.
+## 原始组件
+原始组件是整个文档系统中复用的基础 UI 构建块。
 
 <AccordionGroup>
   <Accordion title="a11y.jsx" icon="file-code">
@@ -471,8 +471,8 @@ import { Subtitle } from "/snippets/components/primitives/text.jsx";
   </Accordion>
 </AccordionGroup>
 
-## Diseño
-Los componentes de diseño proporcionan primitivas estructurales reutilizables para organizar el contenido de la página.
+## 布局
+布局组件提供可重用的结构原语，用于组织页面内容。
 
 <AccordionGroup>
   <Accordion title="api-base-urls-table.mdx" icon="file-code">
@@ -975,8 +975,8 @@ import { AccordionLayout } from "/snippets/components/layout/text.jsx";
   </Accordion>
 </AccordionGroup>
 
-## Contenido
-Los componentes de contenido proporcionan código, datos y ayudantes de formato de respuesta para las páginas de documentación.
+## 内容
+内容组件为文档页面提供代码、数据和响应格式帮助。
 
 <AccordionGroup>
   <Accordion title="code.jsx" icon="file-code">
@@ -1393,8 +1393,8 @@ import { ScrollableDiagram } from "/snippets/components/content/zoomableDiagram.
   </Accordion>
 </AccordionGroup>
 
-## Datos
-Los componentes de datos renderizan conjuntos de datos estructurados, contenido obtenido y superficies de documentación impulsadas por API.
+## 数据
+数据组件渲染结构化数据集、获取的内容和 API 驱动的文档界面。
 
 <AccordionGroup>
   <Accordion title="coingecko.jsx" icon="file-code">
@@ -1654,8 +1654,8 @@ import { YouTubeVideoData } from "/snippets/components/data/videoData.jsx";
   </Accordion>
 </AccordionGroup>
 
-## Estructura de página
-Los componentes de estructura de página orquestan secciones de página completas, tratamientos hero y composición a nivel de ruta.
+## 页面结构
+页面结构组件编排整页区块、hero 处理和路由级组合。
 
 <AccordionGroup>
   <Accordion title="heroGif.jsx" icon="file-code">
@@ -1824,8 +1824,8 @@ import { RefCardContainer } from "/snippets/components/page-structure/portals.js
   </Accordion>
 </AccordionGroup>
 
-## Visualización
-Los componentes de visualización gestionan medios, incrustaciones, citas y patrones de presentación visual.
+## 显示
+显示组件处理媒体、嵌入、引用和视觉呈现模式。
 
 <AccordionGroup>
   <Accordion title="frame-mode.jsx" icon="file-code">
@@ -1993,129 +1993,129 @@ import { PageHeader } from "/snippets/components/display/frame-mode.jsx";
   </Accordion>
 </AccordionGroup>
 
-## Tabla de búsqueda
-Busca por categoría, ruta de página o nombre de componente.
+## 查找表
+按类别、页面路径或组件名称搜索。
 
 <SearchTable
   TableComponent={DynamicTable}
   tableTitle="Component Lookup"
   headerList={["Category", "Page", "Component", "Props"]}
   itemsList={[
-    { Category: "Contenido", Page: "content/code.jsx", Component: "CodeComponent", Props: "filename=\"\", icon=\"terminal\", language=\"\", highlight=\"\", expandable=false, wrap=true, lines=true, codeString=\"\", placeholderValue=\"\"" },
-    { Category: "Contenido", Page: "content/code.jsx", Component: "CodeSection", Props: "fields={}" },
-    { Category: "Contenido", Page: "content/code.jsx", Component: "ComplexCodeBlock", Props: "filename, icon, language, highlight, codeString=\"\", placeholderValue=\"\", wrap=true, lines=true, preNote=null, postNote=null" },
-    { Category: "Contenido", Page: "content/code.jsx", Component: "CustomCodeBlock", Props: "filename, icon, language, highlight, codeString=\"\", placeholderValue=\"\", wrap=true, lines=true, preNote=\"\", postNote=\"\", output=\"\"" },
-    { Category: "Contenido", Page: "content/externalContent.jsx", Component: "ExternalContent", Props: "repoName, githubUrl, maxHeight=\"1000px\", icon=\"github\", children" },
-    { Category: "Contenido", Page: "content/math.jsx", Component: "MathBlock", Props: "latex, className=\"\", ariaLabel" },
-    { Category: "Contenido", Page: "content/math.jsx", Component: "MathInline", Props: "latex, className=\"\", ariaLabel" },
-    { Category: "Contenido", Page: "content/quote.jsx", Component: "FrameQuote", Props: "children, author, source, href, frame=true, align=\"right\", borderColor, img, spacing=true" },
-    { Category: "Contenido", Page: "content/quote.jsx", Component: "Quote", Props: "children" },
-    { Category: "Contenido", Page: "content/release.jsx", Component: "LatestVersion", Props: "version" },
-    { Category: "Contenido", Page: "content/responseField.jsx", Component: "CustomResponseField", Props: "description" },
-    { Category: "Contenido", Page: "content/responseField.jsx", Component: "ResponseFieldAccordion", Props: "fields={}" },
-    { Category: "Contenido", Page: "content/responseField.jsx", Component: "ResponseFieldExpandable", Props: "fields={}" },
-    { Category: "Contenido", Page: "content/responseField.jsx", Component: "ResponseFieldGroup", Props: "component=\"accordion\", fields={}" },
-    { Category: "Contenido", Page: "content/responseField.jsx", Component: "ValueResponseField", Props: "description, post=null, label=\"value\", line=true, children" },
-    { Category: "Contenido", Page: "content/video.jsx", Component: "CardVideo", Props: "embedUrl, title, style" },
-    { Category: "Contenido", Page: "content/video.jsx", Component: "LinkedInEmbed", Props: "embedUrl, title=\"Embedded post\", hint=\"\", caption, height=\"399\"" },
-    { Category: "Contenido", Page: "content/video.jsx", Component: "ShowcaseVideo", Props: "src, title, subtitle" },
-    { Category: "Contenido", Page: "content/video.jsx", Component: "TitledVideo", Props: "src, title, subtitle, arrow=false, borderRadius=\"12px\", style={}" },
-    { Category: "Contenido", Page: "content/video.jsx", Component: "Video", Props: "src, title=\"\", author=\"\", caption, href=\"\", controls=true, autoPlay=false, loop=false, muted=false, children" },
-    { Category: "Contenido", Page: "content/video.jsx", Component: "YouTubeVideo", Props: "embedUrl, title=\"\", author=\"\", hint=\"\", caption" },
-    { Category: "Contenido", Page: "content/video.jsx", Component: "YouTubeVideoDownload", Props: "embedUrl, title, hint, caption=\"\"" },
-    { Category: "Contenido", Page: "content/zoomableDiagram.jsx", Component: "ScrollableDiagram", Props: "children, title=\"\", maxHeight=\"500px\", minWidth=\"100%\", showControls=false" },
-    { Category: "Datos", Page: "data/coingecko.jsx", Component: "CoinGeckoExchanges", Props: "coinId=\"arbitrum\"" },
-    { Category: "Datos", Page: "data/data.jsx", Component: "BlogCard", Props: "title, content, href, author=\"Livepeer Team\", datePosted=null, excerpt=null, icon=\"book-open\", authorIcon=\"user-pen\", dateIcon=\"calendar\", cta=\"Read More\", img=null" },
-    { Category: "Datos", Page: "data/data.jsx", Component: "CardBlogDataLayout", Props: "items=[], limit" },
-    { Category: "Datos", Page: "data/data.jsx", Component: "CardColumnsPostLayout", Props: "cols=2, items=[], limit" },
-    { Category: "Datos", Page: "data/data.jsx", Component: "CardInCardLayout", Props: "items=[], limit" },
-    { Category: "Datos", Page: "data/data.jsx", Component: "ColumnsBlogCardLayout", Props: "items=[], cols=2, limit" },
-    { Category: "Datos", Page: "data/data.jsx", Component: "DiscordAnnouncements", Props: "items=[], limit" },
-    { Category: "Datos", Page: "data/data.jsx", Component: "ForumLatestLayout", Props: "items=[], limit" },
-    { Category: "Datos", Page: "data/data.jsx", Component: "LumaEvents", Props: "data, limit, type=\"upcoming\"" },
-    { Category: "Datos", Page: "data/data.jsx", Component: "PostCard", Props: "title, content, href, author=\"Unknown\", datePosted=null, replyCount=null, icon=\"book-open\", authorIcon=\"user-pen\", dateIcon=\"calendar\", cta=\"Read More\", img=null" },
-    { Category: "Datos", Page: "data/embed.jsx", Component: "MarkdownEmbed", Props: "url" },
-    { Category: "Datos", Page: "data/embed.jsx", Component: "PdfEmbed", Props: "title, src, height=\"700px\", width=\"100%\"" },
-    { Category: "Datos", Page: "data/embed.jsx", Component: "TwitterTimeline", Props: "none" },
-    { Category: "Datos", Page: "data/showcaseCards.jsx", Component: "ShowcaseCards", Props: "items=[], limit=null, pageSize=10" },
-    { Category: "Datos", Page: "data/videoData.jsx", Component: "YouTubeVideoData", Props: "items=[], limit, cols=2" },
-    { Category: "Diseño", Page: "layout/api-base-urls-table.mdx", Component: "ApiBaseUrlsTable", Props: "urls" },
-    { Category: "Diseño", Page: "layout/cardCarousel.jsx", Component: "CardCarousel", Props: "children, visibleCount=3, gap=\"1.5rem\", showDots=true, style" },
-    { Category: "Diseño", Page: "layout/cards.jsx", Component: "ScrollBox", Props: "children, maxHeight=300, showHint=true, ariaLabel=\"Scrollable content\", style" },
-    { Category: "Diseño", Page: "layout/containers.jsx", Component: "BorderedBox", Props: "children, variant=\"default\", padding=\"1rem\", borderRadius=\"8px\", style={}" },
-    { Category: "Diseño", Page: "layout/containers.jsx", Component: "CalloutContainer", Props: "children, width=\"fit-content\", align=\"center\"" },
-    { Category: "Diseño", Page: "layout/containers.jsx", Component: "CardContentContainer", Props: "children, align, justify, gap=\"1rem\"" },
-    { Category: "Diseño", Page: "layout/containers.jsx", Component: "CenteredContainer", Props: "children, maxWidth=\"800px\", padding=\"0\", style={}" },
-    { Category: "Diseño", Page: "layout/containers.jsx", Component: "FullWidthContainer", Props: "children, backgroundColor, style={}" },
-    { Category: "Diseño", Page: "layout/containers.jsx", Component: "TabsContainer", Props: "children" },
-    { Category: "Diseño", Page: "layout/customCards.jsx", Component: "DisplayCard", Props: "icon, title, style, background=\"var(--card-background)\", children" },
-    { Category: "Diseño", Page: "layout/customCards.jsx", Component: "InlineImageCard", Props: "children, imgProps, imgStyle, cardProps, style" },
-    { Category: "Diseño", Page: "layout/customCards.jsx", Component: "WidthCard", Props: "width=\"80%\", children" },
-    { Category: "Diseño", Page: "layout/layout.jsx", Component: "FlexContainer", Props: "children, direction=\"row\", gap=\"1rem\", align=\"flex-start\", justify=\"flex-start\", wrap=false, style={}" },
-    { Category: "Diseño", Page: "layout/layout.jsx", Component: "GridContainer", Props: "children, columns, gap=\"1rem\", style={}" },
-    { Category: "Diseño", Page: "layout/lists.jsx", Component: "BasicList", Props: "listItems" },
-    { Category: "Diseño", Page: "layout/lists.jsx", Component: "IconList", Props: "listItems" },
-    { Category: "Diseño", Page: "layout/lists.jsx", Component: "StepLinkList", Props: "listItems" },
-    { Category: "Diseño", Page: "layout/lists.jsx", Component: "StepList", Props: "listItems" },
-    { Category: "Diseño", Page: "layout/lists.jsx", Component: "UpdateLinkList", Props: "listItems" },
-    { Category: "Diseño", Page: "layout/lists.jsx", Component: "UpdateList", Props: "listItems" },
-    { Category: "Diseño", Page: "layout/listSteps.jsx", Component: "ListSteps", Props: "listItems, stepsConfig={}" },
-    { Category: "Diseño", Page: "layout/quadGrid.jsx", Component: "QuadGrid", Props: "children, icon=\"arrows-spin\", iconSize=50, iconColor=\"var(--accent)\", spinDuration=\"10s\"" },
-    { Category: "Diseño", Page: "layout/searchTable.jsx", Component: "SearchTable", Props: "TableComponent=null, tableTitle=null, headerList=[], itemsList=[], monospaceColumns=[], margin, searchPlaceholder=\"Search...\", searchColumns=[], categoryColumn=\"Category\"" },
-    { Category: "Diseño", Page: "layout/steps.jsx", Component: "StyledStep", Props: "title, icon, titleSize=\"h3\", children" },
-    { Category: "Diseño", Page: "layout/steps.jsx", Component: "StyledSteps", Props: "children, iconColor, titleColor, lineColor, iconSize=\"24px\"" },
-    { Category: "Diseño", Page: "layout/table.jsx", Component: "DynamicTable", Props: "tableTitle=null, headerList=[], itemsList=[], monospaceColumns=[], margin" },
-    { Category: "Diseño", Page: "layout/tables.jsx", Component: "StyledTable", Props: "children, variant=\"default\", style={}" },
-    { Category: "Diseño", Page: "layout/tables.jsx", Component: "TableCell", Props: "children, align=\"left\", header=false, style={}" },
-    { Category: "Diseño", Page: "layout/tables.jsx", Component: "TableRow", Props: "children, header=false, hover=false, style={}" },
-    { Category: "Diseño", Page: "layout/text.jsx", Component: "AccordionLayout", Props: "children" },
-    { Category: "Estructura de página", Page: "page-structure/heroGif.jsx", Component: "Starfield", Props: "density=1.1" },
-    { Category: "Estructura de página", Page: "page-structure/portals.jsx", Component: "HeroContentContainer", Props: "children" },
-    { Category: "Estructura de página", Page: "page-structure/portals.jsx", Component: "HeroImageBackgroundComponent", Props: "children" },
-    { Category: "Estructura de página", Page: "page-structure/portals.jsx", Component: "HeroOverviewContent", Props: "children" },
-    { Category: "Estructura de página", Page: "page-structure/portals.jsx", Component: "HeroSectionContainer", Props: "children, minHeight=\"fit-content\"" },
-    { Category: "Estructura de página", Page: "page-structure/portals.jsx", Component: "LogoHeroContainer", Props: "src=\"/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg\", alt=\"Livepeer Logo\", width=\"100%\", margin=\"1rem auto 0 auto\", imgHeight=\"20px\", imgWidth=\"auto\", objectFit=\"contain\", children" },
-    { Category: "Estructura de página", Page: "page-structure/portals.jsx", Component: "PortalCardsHeader", Props: "children, title" },
-    { Category: "Estructura de página", Page: "page-structure/portals.jsx", Component: "PortalContentContainer", Props: "children" },
-    { Category: "Estructura de página", Page: "page-structure/portals.jsx", Component: "PortalHeroContent", Props: "zIndex=true, subtitle=\"Build - Explore - Create\", subtitleIcon=\"/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg\", description, refCardLink, overview, divider=true, callout=null, titleColor, subtitleColor, children" },
-    { Category: "Estructura de página", Page: "page-structure/portals.jsx", Component: "PortalSectionHeader", Props: "children, title, icon" },
-    { Category: "Estructura de página", Page: "page-structure/portals.jsx", Component: "RefCardContainer", Props: "children" },
-    { Category: "Primitivas", Page: "primitives/a11y.jsx", Component: "FocusableScrollRegions", Props: "selectors" },
-    { Category: "Primitivas", Page: "primitives/buttons.jsx", Component: "DownloadButton", Props: "label=\"Download\", icon=\"download\", downloadLink, rightIcon=\"\", border=false" },
-    { Category: "Primitivas", Page: "primitives/customCardTitle.jsx", Component: "CustomCardTitle", Props: "icon, title, style" },
-    { Category: "Primitivas", Page: "primitives/divider.jsx", Component: "CustomDivider", Props: "color=\"var(--border)\", middleText=\"\", style={}" },
-    { Category: "Primitivas", Page: "primitives/icons.jsx", Component: "LivepeerIcon", Props: "size=16, color" },
-    { Category: "Primitivas", Page: "primitives/icons.jsx", Component: "LivepeerIconFlipped", Props: "none" },
-    { Category: "Primitivas", Page: "primitives/icons.jsx", Component: "LivepeerIconOld", Props: "none" },
-    { Category: "Primitivas", Page: "primitives/icons.jsx", Component: "LivepeerSVG", Props: "size=24, fill=\"var(--lp-color-white)\"" },
-    { Category: "Primitivas", Page: "primitives/image.jsx", Component: "Image", Props: "src, alt, caption, icon, hint, fullwidth=true" },
-    { Category: "Primitivas", Page: "primitives/image.jsx", Component: "LinkImage", Props: "src, alt, caption, icon, hint, href" },
-    { Category: "Primitivas", Page: "primitives/links.jsx", Component: "BlinkingIcon", Props: "icon=\"terminal\", size=16, color" },
-    { Category: "Primitivas", Page: "primitives/links.jsx", Component: "BlinkingTerminal", Props: "none" },
-    { Category: "Primitivas", Page: "primitives/links.jsx", Component: "CustomCallout", Props: "children, icon=\"lightbulb\", color, iconSize=16, textSize=\"0.875rem\", textColor" },
-    { Category: "Primitivas", Page: "primitives/links.jsx", Component: "DoubleIconLink", Props: "label=\"\", href=\"#\", text=\"\", iconLeft=\"github\", iconRight=\"arrow-up-right\"" },
-    { Category: "Primitivas", Page: "primitives/links.jsx", Component: "GotoCard", Props: "label, relativePath, icon, text, cta=\"\"" },
-    { Category: "Primitivas", Page: "primitives/links.jsx", Component: "GotoLink", Props: "label, relativePath, text=\"\", icon=\"arrow-turn-down-right\"" },
-    { Category: "Primitivas", Page: "primitives/links.jsx", Component: "LinkArrow", Props: "href, label, description, newline=true, borderColor" },
-    { Category: "Primitivas", Page: "primitives/links.jsx", Component: "TipWithArrow", Props: "children, icon=\"lightbulb\", arrowIcon=\"arrow-up-right\", color, iconSize=16, arrowSize=16" },
-    { Category: "Primitivas", Page: "primitives/previewCallouts.jsx", Component: "ComingSoonCallout", Props: "type=\"page\"" },
-    { Category: "Primitivas", Page: "primitives/previewCallouts.jsx", Component: "PreviewCallout", Props: "none" },
-    { Category: "Primitivas", Page: "primitives/previewCallouts.jsx", Component: "ReviewCallout", Props: "none" },
-    { Category: "Primitivas", Page: "primitives/socialLinks.jsx", Component: "SocialLinks", Props: "size=20, gap=\"0.75rem\", justify=\"center\", color" },
-    { Category: "Primitivas", Page: "primitives/spacer.jsx", Component: "Spacer", Props: "size=\"1rem\", direction=\"vertical\"" },
-    { Category: "Primitivas", Page: "primitives/text.jsx", Component: "AccordionTitleWithArrow", Props: "text, children, color=\"var(--text)\"" },
-    { Category: "Primitivas", Page: "primitives/text.jsx", Component: "CardTitleTextWithArrow", Props: "children" },
-    { Category: "Primitivas", Page: "primitives/text.jsx", Component: "CopyText", Props: "text, label" },
-    { Category: "Primitivas", Page: "primitives/text.jsx", Component: "Subtitle", Props: "style={}, text, children" },
-    { Category: "Visualización", Page: "display/frame-mode.jsx", Component: "Divider", Props: "color, margin=\"1.5rem 0\", opacity=0.2" },
-    { Category: "Visualización", Page: "display/frame-mode.jsx", Component: "H1", Props: "children, icon, iconSize=32, iconColor, align=\"left\", gap=\"0.75rem\"" },
-    { Category: "Visualización", Page: "display/frame-mode.jsx", Component: "H2", Props: "children, icon, iconSize=28, iconColor, align=\"left\", gap=\"0.75rem\"" },
-    { Category: "Visualización", Page: "display/frame-mode.jsx", Component: "H3", Props: "children, icon, iconSize=24, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Visualización", Page: "display/frame-mode.jsx", Component: "H4", Props: "children, icon, iconSize=20, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Visualización", Page: "display/frame-mode.jsx", Component: "H5", Props: "children, icon, iconSize=18, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Visualización", Page: "display/frame-mode.jsx", Component: "H6", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Visualización", Page: "display/frame-mode.jsx", Component: "P", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
-    { Category: "Visualización", Page: "display/frame-mode.jsx", Component: "PageHeader", Props: "title, subtitle, description, children, titleColor, subtitleColor, descriptionColor" },
+    { Category: "内容", Page: "content/code.jsx", Component: "CodeComponent", Props: "filename=\"\", icon=\"terminal\", language=\"\", highlight=\"\", expandable=false, wrap=true, lines=true, codeString=\"\", placeholderValue=\"\"" },
+    { Category: "内容", Page: "content/code.jsx", Component: "CodeSection", Props: "fields={}" },
+    { Category: "内容", Page: "content/code.jsx", Component: "ComplexCodeBlock", Props: "filename, icon, language, highlight, codeString=\"\", placeholderValue=\"\", wrap=true, lines=true, preNote=null, postNote=null" },
+    { Category: "内容", Page: "content/code.jsx", Component: "CustomCodeBlock", Props: "filename, icon, language, highlight, codeString=\"\", placeholderValue=\"\", wrap=true, lines=true, preNote=\"\", postNote=\"\", output=\"\"" },
+    { Category: "内容", Page: "content/externalContent.jsx", Component: "ExternalContent", Props: "repoName, githubUrl, maxHeight=\"1000px\", icon=\"github\", children" },
+    { Category: "内容", Page: "content/math.jsx", Component: "MathBlock", Props: "latex, className=\"\", ariaLabel" },
+    { Category: "内容", Page: "content/math.jsx", Component: "MathInline", Props: "latex, className=\"\", ariaLabel" },
+    { Category: "内容", Page: "content/quote.jsx", Component: "FrameQuote", Props: "children, author, source, href, frame=true, align=\"right\", borderColor, img, spacing=true" },
+    { Category: "内容", Page: "content/quote.jsx", Component: "Quote", Props: "children" },
+    { Category: "内容", Page: "content/release.jsx", Component: "LatestVersion", Props: "version" },
+    { Category: "内容", Page: "content/responseField.jsx", Component: "CustomResponseField", Props: "description" },
+    { Category: "内容", Page: "content/responseField.jsx", Component: "ResponseFieldAccordion", Props: "fields={}" },
+    { Category: "内容", Page: "content/responseField.jsx", Component: "ResponseFieldExpandable", Props: "fields={}" },
+    { Category: "内容", Page: "content/responseField.jsx", Component: "ResponseFieldGroup", Props: "component=\"accordion\", fields={}" },
+    { Category: "内容", Page: "content/responseField.jsx", Component: "ValueResponseField", Props: "description, post=null, label=\"value\", line=true, children" },
+    { Category: "内容", Page: "content/video.jsx", Component: "CardVideo", Props: "embedUrl, title, style" },
+    { Category: "内容", Page: "content/video.jsx", Component: "LinkedInEmbed", Props: "embedUrl, title=\"Embedded post\", hint=\"\", caption, height=\"399\"" },
+    { Category: "内容", Page: "content/video.jsx", Component: "ShowcaseVideo", Props: "src, title, subtitle" },
+    { Category: "内容", Page: "content/video.jsx", Component: "TitledVideo", Props: "src, title, subtitle, arrow=false, borderRadius=\"12px\", style={}" },
+    { Category: "内容", Page: "content/video.jsx", Component: "Video", Props: "src, title=\"\", author=\"\", caption, href=\"\", controls=true, autoPlay=false, loop=false, muted=false, children" },
+    { Category: "内容", Page: "content/video.jsx", Component: "YouTubeVideo", Props: "embedUrl, title=\"\", author=\"\", hint=\"\", caption" },
+    { Category: "内容", Page: "content/video.jsx", Component: "YouTubeVideoDownload", Props: "embedUrl, title, hint, caption=\"\"" },
+    { Category: "内容", Page: "content/zoomableDiagram.jsx", Component: "ScrollableDiagram", Props: "children, title=\"\", maxHeight=\"500px\", minWidth=\"100%\", showControls=false" },
+    { Category: "原始组件", Page: "primitives/a11y.jsx", Component: "FocusableScrollRegions", Props: "selectors" },
+    { Category: "原始组件", Page: "primitives/buttons.jsx", Component: "DownloadButton", Props: "label=\"Download\", icon=\"download\", downloadLink, rightIcon=\"\", border=false" },
+    { Category: "原始组件", Page: "primitives/customCardTitle.jsx", Component: "CustomCardTitle", Props: "icon, title, style" },
+    { Category: "原始组件", Page: "primitives/divider.jsx", Component: "CustomDivider", Props: "color=\"var(--border)\", middleText=\"\", style={}" },
+    { Category: "原始组件", Page: "primitives/icons.jsx", Component: "LivepeerIcon", Props: "size=16, color" },
+    { Category: "原始组件", Page: "primitives/icons.jsx", Component: "LivepeerIconFlipped", Props: "none" },
+    { Category: "原始组件", Page: "primitives/icons.jsx", Component: "LivepeerIconOld", Props: "none" },
+    { Category: "原始组件", Page: "primitives/icons.jsx", Component: "LivepeerSVG", Props: "size=24, fill=\"var(--lp-color-white)\"" },
+    { Category: "原始组件", Page: "primitives/image.jsx", Component: "Image", Props: "src, alt, caption, icon, hint, fullwidth=true" },
+    { Category: "原始组件", Page: "primitives/image.jsx", Component: "LinkImage", Props: "src, alt, caption, icon, hint, href" },
+    { Category: "原始组件", Page: "primitives/links.jsx", Component: "BlinkingIcon", Props: "icon=\"terminal\", size=16, color" },
+    { Category: "原始组件", Page: "primitives/links.jsx", Component: "BlinkingTerminal", Props: "none" },
+    { Category: "原始组件", Page: "primitives/links.jsx", Component: "CustomCallout", Props: "children, icon=\"lightbulb\", color, iconSize=16, textSize=\"0.875rem\", textColor" },
+    { Category: "原始组件", Page: "primitives/links.jsx", Component: "DoubleIconLink", Props: "label=\"\", href=\"#\", text=\"\", iconLeft=\"github\", iconRight=\"arrow-up-right\"" },
+    { Category: "原始组件", Page: "primitives/links.jsx", Component: "GotoCard", Props: "label, relativePath, icon, text, cta=\"\"" },
+    { Category: "原始组件", Page: "primitives/links.jsx", Component: "GotoLink", Props: "label, relativePath, text=\"\", icon=\"arrow-turn-down-right\"" },
+    { Category: "原始组件", Page: "primitives/links.jsx", Component: "LinkArrow", Props: "href, label, description, newline=true, borderColor" },
+    { Category: "原始组件", Page: "primitives/links.jsx", Component: "TipWithArrow", Props: "children, icon=\"lightbulb\", arrowIcon=\"arrow-up-right\", color, iconSize=16, arrowSize=16" },
+    { Category: "原始组件", Page: "primitives/previewCallouts.jsx", Component: "ComingSoonCallout", Props: "type=\"page\"" },
+    { Category: "原始组件", Page: "primitives/previewCallouts.jsx", Component: "PreviewCallout", Props: "none" },
+    { Category: "原始组件", Page: "primitives/previewCallouts.jsx", Component: "ReviewCallout", Props: "none" },
+    { Category: "原始组件", Page: "primitives/socialLinks.jsx", Component: "SocialLinks", Props: "size=20, gap=\"0.75rem\", justify=\"center\", color" },
+    { Category: "原始组件", Page: "primitives/spacer.jsx", Component: "Spacer", Props: "size=\"1rem\", direction=\"vertical\"" },
+    { Category: "原始组件", Page: "primitives/text.jsx", Component: "AccordionTitleWithArrow", Props: "text, children, color=\"var(--text)\"" },
+    { Category: "原始组件", Page: "primitives/text.jsx", Component: "CardTitleTextWithArrow", Props: "children" },
+    { Category: "原始组件", Page: "primitives/text.jsx", Component: "CopyText", Props: "text, label" },
+    { Category: "原始组件", Page: "primitives/text.jsx", Component: "Subtitle", Props: "style={}, text, children" },
+    { Category: "布局", Page: "layout/api-base-urls-table.mdx", Component: "ApiBaseUrlsTable", Props: "urls" },
+    { Category: "布局", Page: "layout/cardCarousel.jsx", Component: "CardCarousel", Props: "children, visibleCount=3, gap=\"1.5rem\", showDots=true, style" },
+    { Category: "布局", Page: "layout/cards.jsx", Component: "ScrollBox", Props: "children, maxHeight=300, showHint=true, ariaLabel=\"Scrollable content\", style" },
+    { Category: "布局", Page: "layout/containers.jsx", Component: "BorderedBox", Props: "children, variant=\"default\", padding=\"1rem\", borderRadius=\"8px\", style={}" },
+    { Category: "布局", Page: "layout/containers.jsx", Component: "CalloutContainer", Props: "children, width=\"fit-content\", align=\"center\"" },
+    { Category: "布局", Page: "layout/containers.jsx", Component: "CardContentContainer", Props: "children, align, justify, gap=\"1rem\"" },
+    { Category: "布局", Page: "layout/containers.jsx", Component: "CenteredContainer", Props: "children, maxWidth=\"800px\", padding=\"0\", style={}" },
+    { Category: "布局", Page: "layout/containers.jsx", Component: "FullWidthContainer", Props: "children, backgroundColor, style={}" },
+    { Category: "布局", Page: "layout/containers.jsx", Component: "TabsContainer", Props: "children" },
+    { Category: "布局", Page: "layout/customCards.jsx", Component: "DisplayCard", Props: "icon, title, style, background=\"var(--card-background)\", children" },
+    { Category: "布局", Page: "layout/customCards.jsx", Component: "InlineImageCard", Props: "children, imgProps, imgStyle, cardProps, style" },
+    { Category: "布局", Page: "layout/customCards.jsx", Component: "WidthCard", Props: "width=\"80%\", children" },
+    { Category: "布局", Page: "layout/layout.jsx", Component: "FlexContainer", Props: "children, direction=\"row\", gap=\"1rem\", align=\"flex-start\", justify=\"flex-start\", wrap=false, style={}" },
+    { Category: "布局", Page: "layout/layout.jsx", Component: "GridContainer", Props: "children, columns, gap=\"1rem\", style={}" },
+    { Category: "布局", Page: "layout/lists.jsx", Component: "BasicList", Props: "listItems" },
+    { Category: "布局", Page: "layout/lists.jsx", Component: "IconList", Props: "listItems" },
+    { Category: "布局", Page: "layout/lists.jsx", Component: "StepLinkList", Props: "listItems" },
+    { Category: "布局", Page: "layout/lists.jsx", Component: "StepList", Props: "listItems" },
+    { Category: "布局", Page: "layout/lists.jsx", Component: "UpdateLinkList", Props: "listItems" },
+    { Category: "布局", Page: "layout/lists.jsx", Component: "UpdateList", Props: "listItems" },
+    { Category: "布局", Page: "layout/listSteps.jsx", Component: "ListSteps", Props: "listItems, stepsConfig={}" },
+    { Category: "布局", Page: "layout/quadGrid.jsx", Component: "QuadGrid", Props: "children, icon=\"arrows-spin\", iconSize=50, iconColor=\"var(--accent)\", spinDuration=\"10s\"" },
+    { Category: "布局", Page: "layout/searchTable.jsx", Component: "SearchTable", Props: "TableComponent=null, tableTitle=null, headerList=[], itemsList=[], monospaceColumns=[], margin, searchPlaceholder=\"Search...\", searchColumns=[], categoryColumn=\"Category\"" },
+    { Category: "布局", Page: "layout/steps.jsx", Component: "StyledStep", Props: "title, icon, titleSize=\"h3\", children" },
+    { Category: "布局", Page: "layout/steps.jsx", Component: "StyledSteps", Props: "children, iconColor, titleColor, lineColor, iconSize=\"24px\"" },
+    { Category: "布局", Page: "layout/table.jsx", Component: "DynamicTable", Props: "tableTitle=null, headerList=[], itemsList=[], monospaceColumns=[], margin" },
+    { Category: "布局", Page: "layout/tables.jsx", Component: "StyledTable", Props: "children, variant=\"default\", style={}" },
+    { Category: "布局", Page: "layout/tables.jsx", Component: "TableCell", Props: "children, align=\"left\", header=false, style={}" },
+    { Category: "布局", Page: "layout/tables.jsx", Component: "TableRow", Props: "children, header=false, hover=false, style={}" },
+    { Category: "布局", Page: "layout/text.jsx", Component: "AccordionLayout", Props: "children" },
+    { Category: "数据", Page: "data/coingecko.jsx", Component: "CoinGeckoExchanges", Props: "coinId=\"arbitrum\"" },
+    { Category: "数据", Page: "data/data.jsx", Component: "BlogCard", Props: "title, content, href, author=\"Livepeer Team\", datePosted=null, excerpt=null, icon=\"book-open\", authorIcon=\"user-pen\", dateIcon=\"calendar\", cta=\"Read More\", img=null" },
+    { Category: "数据", Page: "data/data.jsx", Component: "CardBlogDataLayout", Props: "items=[], limit" },
+    { Category: "数据", Page: "data/data.jsx", Component: "CardColumnsPostLayout", Props: "cols=2, items=[], limit" },
+    { Category: "数据", Page: "data/data.jsx", Component: "CardInCardLayout", Props: "items=[], limit" },
+    { Category: "数据", Page: "data/data.jsx", Component: "ColumnsBlogCardLayout", Props: "items=[], cols=2, limit" },
+    { Category: "数据", Page: "data/data.jsx", Component: "DiscordAnnouncements", Props: "items=[], limit" },
+    { Category: "数据", Page: "data/data.jsx", Component: "ForumLatestLayout", Props: "items=[], limit" },
+    { Category: "数据", Page: "data/data.jsx", Component: "LumaEvents", Props: "data, limit, type=\"upcoming\"" },
+    { Category: "数据", Page: "data/data.jsx", Component: "PostCard", Props: "title, content, href, author=\"Unknown\", datePosted=null, replyCount=null, icon=\"book-open\", authorIcon=\"user-pen\", dateIcon=\"calendar\", cta=\"Read More\", img=null" },
+    { Category: "数据", Page: "data/embed.jsx", Component: "MarkdownEmbed", Props: "url" },
+    { Category: "数据", Page: "data/embed.jsx", Component: "PdfEmbed", Props: "title, src, height=\"700px\", width=\"100%\"" },
+    { Category: "数据", Page: "data/embed.jsx", Component: "TwitterTimeline", Props: "none" },
+    { Category: "数据", Page: "data/showcaseCards.jsx", Component: "ShowcaseCards", Props: "items=[], limit=null, pageSize=10" },
+    { Category: "数据", Page: "data/videoData.jsx", Component: "YouTubeVideoData", Props: "items=[], limit, cols=2" },
+    { Category: "显示", Page: "display/frame-mode.jsx", Component: "Divider", Props: "color, margin=\"1.5rem 0\", opacity=0.2" },
+    { Category: "显示", Page: "display/frame-mode.jsx", Component: "H1", Props: "children, icon, iconSize=32, iconColor, align=\"left\", gap=\"0.75rem\"" },
+    { Category: "显示", Page: "display/frame-mode.jsx", Component: "H2", Props: "children, icon, iconSize=28, iconColor, align=\"left\", gap=\"0.75rem\"" },
+    { Category: "显示", Page: "display/frame-mode.jsx", Component: "H3", Props: "children, icon, iconSize=24, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "显示", Page: "display/frame-mode.jsx", Component: "H4", Props: "children, icon, iconSize=20, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "显示", Page: "display/frame-mode.jsx", Component: "H5", Props: "children, icon, iconSize=18, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "显示", Page: "display/frame-mode.jsx", Component: "H6", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "显示", Page: "display/frame-mode.jsx", Component: "P", Props: "children, icon, iconSize=16, iconColor, align=\"left\", gap=\"0.5rem\"" },
+    { Category: "显示", Page: "display/frame-mode.jsx", Component: "PageHeader", Props: "title, subtitle, description, children, titleColor, subtitleColor, descriptionColor" },
+    { Category: "页面结构", Page: "page-structure/heroGif.jsx", Component: "Starfield", Props: "density=1.1" },
+    { Category: "页面结构", Page: "page-structure/portals.jsx", Component: "HeroContentContainer", Props: "children" },
+    { Category: "页面结构", Page: "page-structure/portals.jsx", Component: "HeroImageBackgroundComponent", Props: "children" },
+    { Category: "页面结构", Page: "page-structure/portals.jsx", Component: "HeroOverviewContent", Props: "children" },
+    { Category: "页面结构", Page: "page-structure/portals.jsx", Component: "HeroSectionContainer", Props: "children, minHeight=\"fit-content\"" },
+    { Category: "页面结构", Page: "page-structure/portals.jsx", Component: "LogoHeroContainer", Props: "src=\"/snippets/assets/logos/Livepeer-Logo-Full-Theme.svg\", alt=\"Livepeer Logo\", width=\"100%\", margin=\"1rem auto 0 auto\", imgHeight=\"20px\", imgWidth=\"auto\", objectFit=\"contain\", children" },
+    { Category: "页面结构", Page: "page-structure/portals.jsx", Component: "PortalCardsHeader", Props: "children, title" },
+    { Category: "页面结构", Page: "page-structure/portals.jsx", Component: "PortalContentContainer", Props: "children" },
+    { Category: "页面结构", Page: "page-structure/portals.jsx", Component: "PortalHeroContent", Props: "zIndex=true, subtitle=\"Build - Explore - Create\", subtitleIcon=\"/snippets/assets/logos/Livepeer-Logo-Symbol-Green-Theme.svg\", description, refCardLink, overview, divider=true, callout=null, titleColor, subtitleColor, children" },
+    { Category: "页面结构", Page: "page-structure/portals.jsx", Component: "PortalSectionHeader", Props: "children, title, icon" },
+    { Category: "页面结构", Page: "page-structure/portals.jsx", Component: "RefCardContainer", Props: "children" },
   ]}
   searchPlaceholder="Search category, page, component, or props..."
   monospaceColumns={[1, 2, 3]}
