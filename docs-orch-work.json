@@ -83,72 +83,83 @@
                       "v2/orchestrators/setup/r-configure",
                       "v2/orchestrators/setup/sc-connect",
                       "v2/orchestrators/unclassified/rcs-connect-activate-publish",
-                      "v2/orchestrators/setup/x-test"
+                      "v2/orchestrators/setup/x-test",
+                      "v2/orchestrators/guides/tooling-and-monitoring/p-smoke-test"
                     ]
                   },
                   {
-                    "group": "Advanced Guides",
+                    "group": "Guides",
                     "icon": "chart-line",
                     "pages": [
                       "v2/orchestrators/guides/guide",
                       {
+                        "group": "Orchestrator Answers [Move to Resources]",
+                        "pages": [
+                          "v2/orchestrators/guides/feasibility/p-feasibility",
+                          "v2/orchestrators/guides/feasibility/rcs-requirements"
+                        ]
+                      },
+                      {
                         "group": "Setups and Workloads",
                         "pages": [
-                          "v2/orchestrators/dep-rc-navigator",
-                          "v2/orchestrators/concepts/rs-workloads"
+                          "v2/orchestrators/guides/setups-and-workloads/rc-alternate-setups",
+                          "v2/orchestrators/guides/setups-and-workloads/x-siphon-setup",
+                          "v2/orchestrators/guides/setups-and-workloads/x-running-workloads",
+                          "v2/orchestrators/guides/setups-and-workloads/rs-workloads"
                         ]
                       },
                       {
-                        "group": "Staking and Rewards",
+                        "group": "Staking and Rewards [Consolidate]",
                         "pages": [
-                          "v2/orchestrators/guides/p-feasibility",
-                          "v2/orchestrators/guides/earnings",
-                          "v2/orchestrators/guides/rs-rewards-and-fees",
-                          "v2/orchestrators/guides/rcs-staking-delegation"
+                          "v2/orchestrators/guides/staking-and-rewards/rcs-staking-lpt",
+                          "v2/orchestrators/guides/staking-and-rewards/earnings",
+                          "v2/orchestrators/guides/staking-and-rewards/rs-rewards-and-fees"
                         ]
                       },
                       {
-                        "group": "Tooling and Monitoring",
+                        "group": "Tooling and Monitoring [Consolidate]",
                         "pages": [
-                          "v2/orchestrators/guides/tools/guide",
-                          "v2/orchestrators/setup/r-monitor",
-                          "v2/orchestrators/guides/x-optimise",
-                          "v2/orchestrators/guides/x-explorer",
-                          "v2/orchestrators/guides-old/rcs-tooling",
-                          "v2/orchestrators/resources/x-troubleshooting",
-                          "v2/orchestrators/guides/p-smoke-test"
+                          "v2/orchestrators/guides/tooling-and-monitoring/r-monitor",
+                          "v2/orchestrators/guides/tooling-and-monitoring/x-optimise",
+                          "v2/orchestrators/guides/tooling-and-monitoring/x-explorer",
+                          "v2/orchestrators/guides/tooling-and-monitoring/rcs-tooling",
+                          "v2/orchestrators/guides/tooling-and-monitoring/x-troubleshooting"
                         ]
                       },
                       {
-                        "group": "AI Pipelines",
+                        "group": "AI Pipelines [Consolidate]",
                         "pages": [
-                          "v2/orchestrators/guides/rc-ai-pipelines",
-                          "v2/orchestrators/guides/r-hosting-models",
-                          "v2/orchestrators/guides/p-models-and-vram",
-                          "v2/orchestrators/guides/p-ai-models",
-                          "v2/orchestrators/quickstart/x-ai",
-                          "v2/orchestrators/quickstart/x-realtime-ai",
-                          "v2/orchestrators/quickstart/x-batch-ai",
-                          "v2/orchestrators/quickstart/AI-prompt-start",
-                          "v2/orchestrators/guides/p-realtime-vs-batch"
+                          "v2/orchestrators/guides/ai-workloads/rc-ai-pipelines",
+                          "v2/orchestrators/guides/ai-workloads/r-hosting-models",
+                          "v2/orchestrators/guides/ai-workloads/p-models-and-vram",
+                          "v2/orchestrators/guides/ai-workloads/p-ai-models",
+                          "v2/orchestrators/guides/ai-workloads/x-ai",
+                          "v2/orchestrators/guides/ai-workloads/p-realtime-vs-batch",
+                          "v2/orchestrators/guides/ai-workloads/x-realtime-ai",
+                          "v2/orchestrators/guides/ai-workloads/x-batch-ai"
                         ]
                       },
                       {
                         "group": "Delegates, Pools and Voting",
                         "pages": [
-                          "v2/orchestrators/guides/rcs-staking-delegation",
-                          "v2/orchestrators/guides-old/r-run-a-pool",
-                          "v2/orchestrators/guides-old/x-governance"
+                          "v2/orchestrators/guides/delegates-voting-pools/rcs-delegates",
+                          "v2/orchestrators/guides/delegates-voting-pools/r-run-a-pool",
+                          "v2/orchestrators/guides/delegates-voting-pools/x-governance"
                         ]
                       },
                       {
                         "group": "Integrations and More",
                         "pages": [
-                          "v2/orchestrators/guides/p-gateways",
-                          "v2/orchestrators/unclassified/placeholders/data-centres-and-large-scale-hardware-providers",
+                          "v2/orchestrators/guides/integrations-other/p-gateways",
+                          "v2/orchestrators/guides/integrations-other/p-fleet-ops"
+                        ]
+                      },
+                      {
+                        "group": "Unplaced",
+                        "pages": [
+                          "v2/orchestrators/guides/tools/guide",
                           "v2/orchestrators/guides/p-support-status",
-                          "v2/orchestrators/guides-old/rcs-tooling",
-                          "v2/orchestrators/resources/x-guides"
+                          "v2/orchestrators/unclassified/placeholders/data-centres-and-large-scale-hardware-providers"
                         ]
                       }
                     ]
@@ -157,11 +168,24 @@
                     "group": "Resources",
                     "icon": "books",
                     "pages": [
-                      "v2/orchestrators/resources/community-pools",
                       "v2/orchestrators/resources/faq",
-                      "v2/orchestrators/resources/technical/cli-flags",
-                      "v2/orchestrators/resources/technical/x-troubleshooting",
-                      "v2/orchestrators/resources/technical/x-contract-addresses"
+                      {
+                        "group": "Technical Reference",
+                        "pages": [
+                          "v2/orchestrators/resources/technical/cli-flags",
+                          "v2/orchestrators/resources/technical/x-contract-addresses",
+                          "v2/orchestrators/resources/technical/x-troubleshooting",
+                          "v2/orchestrators/resources/technical/x-changelog",
+                          "v2/orchestrators/resources/technical/x-support-status"
+                        ]
+                      },
+                      {
+                        "group": "Resources",
+                        "pages": [
+                          "v2/orchestrators/resources/x-guides",
+                          "v2/orchestrators/resources/x-help"
+                        ]
+                      }
                     ]
                   },
                   {

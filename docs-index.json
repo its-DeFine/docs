@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-12T08:09:40.364Z",
+  "generated": "2026-03-12T12:43:55.114Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/portal",
@@ -1316,32 +1316,6 @@
           "text": "See also"
         }
       ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/v2/orchestrators/guides/x-explorer",
-      "title": "Livepeer Explorer",
-      "description": "Explore the Livepeer network with our block explorer, providing insights into transactions, blocks, and network activity.",
-      "section": "orchestrators",
-      "tags": [
-        "livepeer",
-        "orchestrators",
-        "livepeer-explorer",
-        "block-explorer",
-        "transactions",
-        "blocks",
-        "network-activity",
-        "guides",
-        "x-explorer"
-      ],
-      "entities": [
-        "orchestrator"
-      ],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 0,
-      "lastVerified": "2026-03-11T16:33:09+11:00",
-      "headings": [],
       "codeLanguages": []
     },
     {

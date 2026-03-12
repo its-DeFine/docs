@@ -52,10 +52,10 @@
                         "group": "GPU Setup",
                         "pages": [
                           "v2/orchestrators/quickstart/video-transcoding",
-                          "v2/orchestrators/quickstart/x-ai",
+                          "v2/orchestrators/guides/ai-workloads/x-ai",
                           "v2/orchestrators/quickstart/quickstart",
-                          "v2/orchestrators/quickstart/x-realtime-ai",
-                          "v2/orchestrators/quickstart/x-batch-ai",
+                          "v2/orchestrators/guides/ai-workloads/x-realtime-ai",
+                          "v2/orchestrators/guides/ai-workloads/x-batch-ai",
                           "v2/orchestrators/quickstart/AI-prompt-start"
                         ]
                       }
@@ -90,7 +90,7 @@
                     "group": "Guides",
                     "icon": "wrench",
                     "pages": [
-                      "v2/orchestrators/guides/x-explorer",
+                      "v2/orchestrators/guides/tooling-and-monitoring/x-explorer",
                       "v2/orchestrators/guides/join-a-pool",
                       "v2/orchestrators/guides/r-run-a-pool",
                       "v2/orchestrators/guides/rcs-tooling",
@@ -175,10 +175,10 @@
                         "group": "GPU Setup",
                         "pages": [
                           "v2/orchestrators/quickstart/x-video",
-                          "v2/orchestrators/quickstart/x-ai",
+                          "v2/orchestrators/guides/ai-workloads/x-ai",
                           "v2/orchestrators/quickstart/quickstart",
-                          "v2/orchestrators/quickstart/x-realtime-ai",
-                          "v2/orchestrators/quickstart/x-batch-ai",
+                          "v2/orchestrators/guides/ai-workloads/x-realtime-ai",
+                          "v2/orchestrators/guides/ai-workloads/x-batch-ai",
                           "v2/orchestrators/quickstart/AI-prompt-start"
                         ]
                       }
@@ -382,7 +382,9 @@
                       {
                         "group": "Payments",
                         "icon": "coins",
-                        "pages": ["v2/orchestrators/old/payments/index"]
+                        "pages": [
+                          "v2/orchestrators/old/payments/index"
+                        ]
                       },
                       {
                         "group": "Run an Orchestrator",
@@ -462,7 +464,9 @@
                         "pages": [
                           {
                             "group": "Orchestrators",
-                            "pages": ["v2/orchestrators/old/references/faq"]
+                            "pages": [
+                              "v2/orchestrators/old/references/faq"
+                            ]
                           },
                           {
                             "group": "API & CLI Reference",
@@ -472,7 +476,9 @@
                           },
                           {
                             "group": "On-Chain Reference",
-                            "pages": ["v2/orchestrators/old/references/faq"]
+                            "pages": [
+                              "v2/orchestrators/old/references/faq"
+                            ]
                           }
                         ]
                       }
@@ -670,11 +676,11 @@
     },
     {
       "source": "/v2/orchestrators/quickstart/realtime-ai-quickstart",
-      "destination": "/v2/orchestrators/quickstart/x-realtime-ai"
+      "destination": "/v2/orchestrators/guides/ai-workloads/x-realtime-ai"
     },
     {
       "source": "/v2/orchestrators/quickstart/batch-ai-quickstart",
-      "destination": "/v2/orchestrators/quickstart/x-batch-ai"
+      "destination": "/v2/orchestrators/guides/ai-workloads/x-batch-ai"
     },
     {
       "source": "/v2/orchestrators/rc-navigator",
