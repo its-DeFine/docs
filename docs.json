@@ -3220,20 +3220,23 @@
                               "docs-guide/features/feature-map",
                               "docs-guide/features/architecture-map",
                               "docs-guide/features/automations",
-                              "docs-guide/feature-guides/content-system",
                               "docs-guide/features/visual-explainer-workflows",
                               "docs-guide/features/data-integrations"
                             ]
                           },
                           {
                             "group": "Tooling",
-                            "pages": ["docs-guide/tooling/lpd-cli"]
+                            "pages": [
+                              "docs-guide/tooling/lpd-cli",
+                              "docs-guide/tooling/dev-tools"
+                            ]
                           },
                           {
                             "group": "Frameworks",
                             "pages": [
                               "docs-guide/frameworks/component-framework",
-                              "docs-guide/governance-guides/component-governance"
+                              "docs-guide/frameworks/content-system",
+                              "docs-guide/frameworks/component-governance"
                             ]
                           },
                           {
@@ -3252,11 +3255,12 @@
                             "group": "Catalog",
                             "pages": [
                               "docs-guide/catalog/ai-tools",
-                              "docs-guide/indexes/pages-index",
-                              "docs-guide/indexes/components-index",
-                              "docs-guide/indexes/scripts-index",
-                              "docs-guide/indexes/workflows-index",
-                              "docs-guide/indexes/templates-index"
+                              "docs-guide/catalog/pages-catalog",
+                              "docs-guide/catalog/components-catalog",
+                              "docs-guide/catalog/scripts-catalog",
+                              "docs-guide/catalog/workflows-catalog",
+                              "docs-guide/catalog/templates-catalog",
+                              "docs-guide/catalog/visual-explainer-workflows-archive"
                             ]
                           }
                         ]

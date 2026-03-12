@@ -7,14 +7,14 @@
  * @owner             docs
  * @needs             R-R14, R-R18, R-C6
  * @purpose-statement Deep inventory audit of every script in the repo. Traces triggers, outputs, downstream chains, and governance compliance. Produces reports grouped by trigger category.
- * @pipeline          P1 (pre-commit), indirect
- * @usage             node tools/scripts/validators/governance/audit-script-inventory.js [--json] [--md] [--output <dir>] [--verbose]
+ * @pipeline          P1 (commit), indirect
+ * @usage             node tools/scripts/validators/governance/audit-script-inventory.js [--fix] [--dry-run] [--staged-only] [--quiet] [--json] [--md] [--output <dir>] [--verbose]
  */
 
 const fs = require('fs');
 const path = require('path');
 const { execFileSync, spawnSync } = require('child_process');
-const yaml = require('../../../lib/load-js-yaml');
+const yaml = require('js-yaml');
 const {
   AGGREGATE_INDEX_PATH,
   CATEGORY_ENUM,
@@ -29,9 +29,9 @@ const {
   PIPELINE_ORDER,
   PURPOSE_ENUM,
   REQUIRED_FRAMEWORK_KEYS,
-  SCOPE_ENUM,
   SCRIPT_EXTENSIONS,
   isDiscoveredScriptPath,
+  isValidGovernanceScope,
   isWithinRoots,
   normalizeRepoPath,
   parseDeclaredPipelines
@@ -82,10 +82,10 @@ function parseArgs(argv) {
   const args = {
     fix: false,
     dryRun: false,
-    json: false,
-    md: false,
     stagedOnly: false,
     quiet: false,
+    json: false,
+    md: false,
     verbose: false,
     outputDir: DEFAULT_OUTPUT_DIR
   };
@@ -109,16 +109,16 @@ function parseArgs(argv) {
       args.fix = true;
       continue;
     }
-    if (token === '--verbose') {
-      args.verbose = true;
-      continue;
-    }
     if (token === '--staged-only') {
       args.stagedOnly = true;
       continue;
     }
     if (token === '--quiet') {
       args.quiet = true;
+      continue;
+    }
+    if (token === '--verbose') {
+      args.verbose = true;
       continue;
     }
     if (token === '--output') {
@@ -178,20 +178,15 @@ function listTrackedFiles() {
     .filter(Boolean);
 }
 
-function listStagedGovernedScriptFiles(trackedFiles) {
-  const output = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], {
+function listStagedFiles(diffFilter = 'ACM') {
+  const output = execFileSync('git', ['diff', '--cached', '--name-only', `--diff-filter=${diffFilter}`], {
     cwd: REPO_ROOT,
     encoding: 'utf8'
   });
-  const trackedSet = new Set(trackedFiles);
-
   return output
     .split('\n')
     .map((line) => normalizeRepoPath(line.trim()))
-    .filter(Boolean)
-    .filter((repoPath) => trackedSet.has(repoPath))
-    .filter((repoPath) => isDiscoveredScriptPath(repoPath) && isWithinRoots(repoPath, GOVERNED_ROOTS))
-    .sort();
+    .filter(Boolean);
 }
 
 function getWorkflowFiles(trackedFiles) {
@@ -242,7 +237,7 @@ function extractHeaderMetadata(scriptPath, content) {
     has_framework_header: hasFrameworkHeader,
     category_valid: values.category ? CATEGORY_ENUM.includes(values.category) : false,
     purpose_valid: values.purpose ? PURPOSE_ENUM.includes(values.purpose) : false,
-    scope_valid: values.scope ? SCOPE_ENUM.includes(values.scope) : false
+    scope_valid: values.scope ? isValidGovernanceScope(values.scope) : false
   };
 }
 
@@ -705,9 +700,16 @@ function buildConstantMap(scriptPath, content) {
 }
 
 function classifyOutputType(outputPath) {
+  const baseName = path.basename(String(outputPath || '')).toLowerCase();
   if (!outputPath || outputPath === 'stdout') return 'stdout';
   if (outputPath.startsWith('tasks/reports/')) return 'report';
-  if (outputPath.endsWith('script-index.md') || outputPath.endsWith('scripts-index.mdx')) return 'generated-index';
+  if (
+    baseName === 'script-index.md' ||
+    baseName === 'scripts-catalog.mdx' ||
+    (baseName.endsWith('.mdx') && baseName.includes('scripts') && baseName.includes('index'))
+  ) {
+    return 'generated-index';
+  }
   if (outputPath.startsWith('snippets/automations/')) return 'data-feed';
   if (!path.extname(outputPath)) return 'directory';
   return 'generated-output';
@@ -1279,7 +1281,7 @@ function buildNeedsHumanEntry(pathName, projectedValues, hasClassificationRow, o
 
   if (!projectedValues.category || !CATEGORY_ENUM.includes(projectedValues.category)) missing.push('@category');
   if (!projectedValues.purpose || !PURPOSE_ENUM.includes(projectedValues.purpose)) missing.push('@purpose');
-  if (!projectedValues.scope || !SCOPE_ENUM.includes(projectedValues.scope)) missing.push('@scope');
+  if (!projectedValues.scope || !isValidGovernanceScope(projectedValues.scope)) missing.push('@scope');
   if (!projectedValues.needs) missing.push('@needs');
   if (!projectedValues.purpose_statement) missing.push('@purpose-statement');
   if (!projectedValues.pipeline_declared || options.pipelineNeedsHuman) missing.push('@pipeline');
@@ -1310,7 +1312,7 @@ function buildProjectedScriptInfo(scriptInfo, projectedValues, classificationRow
     header_field_count: countTruthyFrameworkFields(projectedValues),
     category_valid: projectedValues.category ? CATEGORY_ENUM.includes(projectedValues.category) : false,
     purpose_valid: projectedValues.purpose ? PURPOSE_ENUM.includes(projectedValues.purpose) : false,
-    scope_valid: projectedValues.scope ? SCOPE_ENUM.includes(projectedValues.scope) : false,
+    scope_valid: projectedValues.scope ? isValidGovernanceScope(projectedValues.scope) : false,
     in_json: hasClassificationRow,
     category_match: hasClassificationRow ? classificationRow.category === projectedValues.category : 'N/A',
     purpose_match: hasClassificationRow ? classificationRow.purpose === projectedValues.purpose : 'N/A',
@@ -1349,7 +1351,10 @@ function buildProjectedSummary(report, projectedScripts, nextRows, phantomCount)
 
 function buildRepairPlan(report, options = {}) {
   const dryRun = options.dryRun === true;
-  const scopedScriptSet = new Set(Array.isArray(report.scoped_script_paths) ? report.scoped_script_paths : []);
+  const scopedPaths = new Set(
+    Array.isArray(options.scopedPaths) ? options.scopedPaths.map((entry) => normalizeRepoPath(entry)) : []
+  );
+  const stagedScopedMode = scopedPaths.size > 0;
   const rowMap = new Map(report.classification_rows.map((row) => [row.path, { ...row }]));
   const fixes = {
     json_phantoms_removed: 0,
@@ -1370,14 +1375,17 @@ function buildRepairPlan(report, options = {}) {
   const headerUpdates = [];
   const needsHuman = [];
   const managedScriptMap = buildManagedScriptInfoMap(report);
-  const liveManagedPaths = [...managedScriptMap.keys()].sort();
+  const liveManagedPaths = [...managedScriptMap.keys()]
+    .filter((scriptPath) => !stagedScopedMode || scopedPaths.has(scriptPath))
+    .sort();
 
-  for (const [rowPath] of [...rowMap.entries()]) {
-    if (!isWithinRoots(rowPath, GOVERNED_ROOTS)) continue;
-    if (scopedScriptSet.size > 0 && !scopedScriptSet.has(rowPath)) continue;
-    if (managedScriptMap.has(rowPath)) continue;
-    rowMap.delete(rowPath);
-    incrementCount(fixes, 'json_phantoms_removed');
+  if (!stagedScopedMode) {
+    for (const [rowPath] of [...rowMap.entries()]) {
+      if (!isWithinRoots(rowPath, GOVERNED_ROOTS)) continue;
+      if (managedScriptMap.has(rowPath)) continue;
+      rowMap.delete(rowPath);
+      incrementCount(fixes, 'json_phantoms_removed');
+    }
   }
 
   liveManagedPaths.forEach((scriptPath) => {
@@ -1457,12 +1465,9 @@ function buildRepairPlan(report, options = {}) {
   });
 
   const nextRows = sortClassificationRows([...rowMap.values()]);
+  const currentRowsJson = `${JSON.stringify(sortClassificationRows(report.classification_rows), null, 2)}\n`;
   const nextRowsJson = `${JSON.stringify(nextRows, null, 2)}\n`;
-  const classificationChanged = (
-    fixes.json_phantoms_removed > 0 ||
-    fixes.json_entries_added > 0 ||
-    fixes.json_entries_updated > 0
-  );
+  const classificationChanged = currentRowsJson !== nextRowsJson;
 
   const projectedScripts = report.scripts.map((scriptInfo) => {
     if (!isWithinRoots(scriptInfo.path, GOVERNED_ROOTS)) return scriptInfo;
@@ -1675,10 +1680,10 @@ function runAudit(options) {
   const warnings = [];
   const trackedFiles = listTrackedFiles();
   const discoveredScripts = getDiscoveredScripts(trackedFiles);
-  const scopedScripts = options.stagedOnly
-    ? listStagedGovernedScriptFiles(trackedFiles)
+  const stagedScriptSet = options.stagedOnly ? new Set(listStagedFiles('ACM').filter(isDiscoveredScriptPath)) : null;
+  const scopedScripts = stagedScriptSet
+    ? discoveredScripts.filter((scriptPath) => stagedScriptSet.has(scriptPath))
     : discoveredScripts;
-  const scopedScriptSet = new Set(scopedScripts);
   const docs = new Map();
   const callerFiles = new Set([...discoveredScripts, ...SPECIAL_CALLERS, ...PACKAGE_JSON_PATHS, ...getWorkflowFiles(trackedFiles)]);
 
@@ -1696,7 +1701,6 @@ function runAudit(options) {
 
   const phantomJsonEntries = classificationRows
     .filter((row) => isWithinRoots(row.path, GOVERNED_ROOTS))
-    .filter((row) => !options.stagedOnly || scopedScriptSet.has(row.path))
     .filter((row) => row.path && !trackedFiles.includes(row.path) && !fs.existsSync(path.join(REPO_ROOT, row.path)))
     .map((row) => ({ ...row, phantom: true }))
     .sort((left, right) => left.path.localeCompare(right.path));
@@ -1807,6 +1811,8 @@ function runAudit(options) {
   return {
     generated_at: new Date().toISOString(),
     mode: options.fix ? (options.dryRun ? 'dry-run' : 'fix') : 'audit',
+    scope: options.stagedOnly ? 'staged' : 'full-repo',
+    scoped_script_paths: scopedScripts,
     output_dir: normalizeRepoPath(path.relative(REPO_ROOT, path.resolve(REPO_ROOT, options.outputDir))),
     summary,
     groups,
@@ -1815,8 +1821,7 @@ function runAudit(options) {
     outputChains: outputChains.sort((left, right) => `${left.producer}|${left.output}|${left.consumer}`.localeCompare(`${right.producer}|${right.output}|${right.consumer}`)),
     warnings,
     tracked_files: trackedFiles,
-    classification_rows: classificationRows,
-    scoped_script_paths: scopedScripts
+    classification_rows: classificationRows
   };
 }
 
@@ -1826,7 +1831,10 @@ function runAuditWithOptionalRepair(options) {
     return baseReport;
   }
 
-  const plan = buildRepairPlan(baseReport, { dryRun: options.dryRun });
+  const plan = buildRepairPlan(baseReport, {
+    dryRun: options.dryRun,
+    scopedPaths: options.stagedOnly ? baseReport.scoped_script_paths : []
+  });
   if (options.dryRun) {
     return {
       ...baseReport,

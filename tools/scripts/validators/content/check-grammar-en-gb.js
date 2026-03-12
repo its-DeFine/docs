@@ -3,7 +3,7 @@
  * @script    check-grammar-en-gb
  * @category  validator
  * @purpose   qa:content-quality
- * @scope     tools/scripts/validators/content, tools/script-index.md, tests/script-index.md, docs-guide/indexes/scripts-index.mdx, v2
+ * @scope     tools/scripts/validators/content, tools/script-index.md, tests/script-index.md, docs-guide/catalog/scripts-catalog.mdx, v2
  * @owner     docs
  * @needs     SE-1-11, S-1.15
  * @purpose-statement  Deterministic UK English grammar checker for prose content with optional conservative autofix for safe rules.

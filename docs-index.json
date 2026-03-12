@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-12T02:42:32.072Z",
+  "generated": "2026-03-12T04:14:48.491Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -13443,7 +13443,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 463,
-      "lastVerified": "2026-03-09T22:26:04+11:00",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 2,
@@ -16324,8 +16324,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3671,
-      "lastVerified": "2026-03-09T20:57:38+11:00",
+      "wordCount": 3672,
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -16457,8 +16457,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 303,
-      "lastVerified": "2026-03-12T02:40:22.024Z",
+      "wordCount": 307,
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 1,
@@ -16496,7 +16496,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 138,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 2,
@@ -16536,7 +16536,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 323,
-      "lastVerified": "2026-03-12T02:40:22.023Z",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 2,
@@ -16594,7 +16594,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 209,
-      "lastVerified": "2026-03-12T02:40:22.023Z",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 2,
@@ -16655,7 +16655,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 445,
-      "lastVerified": "2026-03-12T02:40:22.023Z",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 2,
@@ -16705,66 +16705,6 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/feature-guides/content-system",
-      "title": "Content System",
-      "description": "This document defines how product messaging, information architecture, and technical depth are organized.",
-      "section": "docs-guide",
-      "tags": [
-        "livepeer",
-        "content-system",
-        "product-messaging",
-        "information-architecture",
-        "technical-depth",
-        "organized",
-        "docs-guide",
-        "feature-guides"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 238,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Objectives"
-        },
-        {
-          "level": 2,
-          "text": "IA Model"
-        },
-        {
-          "level": 2,
-          "text": "Content Layers"
-        },
-        {
-          "level": 3,
-          "text": "Layer 1: Product and Positioning"
-        },
-        {
-          "level": 3,
-          "text": "Layer 2: Operational How-to"
-        },
-        {
-          "level": 3,
-          "text": "Layer 3: Deep Reference"
-        },
-        {
-          "level": 2,
-          "text": "Copy + Quality Principles"
-        },
-        {
-          "level": 2,
-          "text": "Canonical Supporting Docs"
-        },
-        {
-          "level": 2,
-          "text": "Maintainer Guidance"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
       "url": "https://docs.livepeer.org/docs-guide/features/visual-explainer-workflows",
       "title": "Visual Explainer Workflows",
       "description": "Pilot workflow guidance for using visual-explainer in docs maintenance, review, and reporting.",
@@ -16788,7 +16728,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1537,
-      "lastVerified": "2026-03-12T02:40:22.023Z",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 1,
@@ -16898,7 +16838,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 167,
-      "lastVerified": "2026-03-12T02:40:22.023Z",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 2,
@@ -16929,80 +16869,72 @@
     },
     {
       "url": "https://docs.livepeer.org/docs-guide/tooling/lpd-cli",
-      "title": "LPD CLI API Reference",
-      "description": "User-first guide and API reference for the repository lpd CLI.",
+      "title": "LPD CLI",
+      "description": "Accurate contributor guide and command reference for the repository lpd CLI.",
       "section": "docs-guide",
       "tags": [
         "livepeer",
-        "lpd-cli-guide",
-        "internal",
-        "repository",
+        "lpd",
         "cli",
-        "setup",
+        "docs",
+        "mintlify",
         "local-development",
-        "test-orchestration",
-        "hook-management",
-        "script-execution",
+        "testing",
+        "hooks",
+        "scripts",
         "docs-guide",
-        "tooling"
+        "tooling",
+        "lpd-cli"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "advanced",
-      "wordCount": 2182,
-      "lastVerified": "2026-03-12T02:40:22.025Z",
+      "wordCount": 1830,
+      "lastVerified": "2026-03-12T14:20:33+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "What is lpd"
+          "text": "What `lpd` does"
         },
         {
           "level": 2,
-          "text": "Start Here (New Contributor Path)"
+          "text": "Most common workflows"
+        },
+        {
+          "level": 3,
+          "text": "Start local docs"
+        },
+        {
+          "level": 3,
+          "text": "Start a scoped Mint session"
+        },
+        {
+          "level": 3,
+          "text": "Load an alternate docs config"
+        },
+        {
+          "level": 3,
+          "text": "Use the custom Mint loader helper"
+        },
+        {
+          "level": 3,
+          "text": "Run pre-PR checks"
+        },
+        {
+          "level": 3,
+          "text": "Move a page with governed rewrites"
         },
         {
           "level": 2,
-          "text": "Installation"
+          "text": "Command quick index"
         },
         {
           "level": 2,
-          "text": "First 10 Minutes Workflow"
-        },
-        {
-          "level": 3,
-          "text": "I just need docs running"
-        },
-        {
-          "level": 3,
-          "text": "I need to run checks before PR"
-        },
-        {
-          "level": 3,
-          "text": "I need to run a managed script"
+          "text": "Command guide"
         },
         {
           "level": 2,
-          "text": "Command Quick Index"
-        },
-        {
-          "level": 2,
-          "text": "Command Reference"
-        },
-        {
-          "level": 3,
-          "text": "Core Workflow Commands"
-        },
-        {
-          "level": 3,
-          "text": "Hooks Commands"
-        },
-        {
-          "level": 3,
-          "text": "Scripts Commands"
-        },
-        {
-          "level": 2,
-          "text": "Script Index"
+          "text": "Script Catalog"
         },
         {
           "level": 2,
@@ -17039,20 +16971,72 @@
       ]
     },
     {
+      "url": "https://docs.livepeer.org/docs-guide/tooling/dev-tools",
+      "title": "Dev Tools",
+      "description": "This page provides developer tools and helpers for Livepeer docs contributors, including VS Code snippets for frontmatter, Mintlify components, and custom Livepeer components.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "vscode-snippets",
+        "dev-helpers",
+        "frontmatter",
+        "mintlify-components",
+        "docs-guide",
+        "tooling",
+        "dev-tools"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 441,
+      "lastVerified": "2026-03-12T03:29:02.000Z",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Dev Tools for Livepeer Docs"
+        },
+        {
+          "level": 2,
+          "text": "AI Skills"
+        },
+        {
+          "level": 2,
+          "text": "MDX Templates"
+        },
+        {
+          "level": 2,
+          "text": "VS Code Snippets"
+        }
+      ],
+      "codeLanguages": [
+        "yaml",
+        "mdx",
+        "bash"
+      ]
+    },
+    {
       "url": "https://docs.livepeer.org/docs-guide/frameworks/component-framework",
       "title": "Component Governance Framework",
       "description": "Canonical reference for how components are classified, built, documented, and maintained in snippets/components/.",
       "section": "docs-guide",
       "tags": [
+        "livepeer",
         "docs-guide",
-        "frameworks",
-        "component-framework"
+        "contributing",
+        "component-framework",
+        "component",
+        "governance",
+        "framework",
+        "canonical",
+        "reference",
+        "components",
+        "frameworks"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2771,
-      "lastVerified": "2026-03-12T02:40:22.024Z",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 1,
@@ -17297,20 +17281,88 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/governance-guides/component-governance",
+      "url": "https://docs.livepeer.org/docs-guide/frameworks/content-system",
+      "title": "Content System",
+      "description": "This document defines how product messaging, information architecture, and technical depth are organized.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "content-system",
+        "product-messaging",
+        "information-architecture",
+        "technical-depth",
+        "organized",
+        "docs-guide",
+        "frameworks"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 238,
+      "lastVerified": "2026-03-12T03:21:59.000Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Objectives"
+        },
+        {
+          "level": 2,
+          "text": "IA Model"
+        },
+        {
+          "level": 2,
+          "text": "Content Layers"
+        },
+        {
+          "level": 3,
+          "text": "Layer 1: Product and Positioning"
+        },
+        {
+          "level": 3,
+          "text": "Layer 2: Operational How-to"
+        },
+        {
+          "level": 3,
+          "text": "Layer 3: Deep Reference"
+        },
+        {
+          "level": 2,
+          "text": "Copy + Quality Principles"
+        },
+        {
+          "level": 2,
+          "text": "Canonical Supporting Docs"
+        },
+        {
+          "level": 2,
+          "text": "Maintainer Guidance"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/frameworks/component-governance",
       "title": "Component Governance Framework",
       "description": "Canonical reference for how components are classified, built, documented, and maintained in snippets/components/.",
       "section": "docs-guide",
       "tags": [
+        "livepeer",
         "docs-guide",
         "governance-guides",
-        "component-governance"
+        "component-governance",
+        "component",
+        "governance",
+        "framework",
+        "canonical",
+        "reference",
+        "components",
+        "frameworks"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2866,
-      "lastVerified": "2026-03-09T21:40:52+11:00",
+      "lastVerified": "2026-03-12T03:43:53.000Z",
       "headings": [
         {
           "level": 1,
@@ -17576,7 +17628,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 408,
-      "lastVerified": "2026-03-12T02:40:22.025Z",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 1,
@@ -17631,7 +17683,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 139,
-      "lastVerified": "2026-03-12T02:40:22.024Z",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 2,
@@ -17677,7 +17729,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 70,
-      "lastVerified": "2026-03-12T02:40:22.024Z",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 2,
@@ -17719,7 +17771,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 90,
-      "lastVerified": "2026-03-12T02:40:22.025Z",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 2,
@@ -17764,7 +17816,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 560,
-      "lastVerified": "2026-03-12T02:40:22.025Z",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 2,
@@ -17817,7 +17869,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 211,
-      "lastVerified": "2026-03-12T02:40:22.025Z",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 2,
@@ -17873,7 +17925,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 109,
-      "lastVerified": "2026-03-12T02:40:22.025Z",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 2,
@@ -17919,7 +17971,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 110,
-      "lastVerified": "2026-03-12T02:40:22.022Z",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 2,
@@ -17951,46 +18003,46 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/indexes/pages-index",
-      "title": "Pages Index",
-      "description": "Tree inventory of docs pages included in docs.json navigation, generated from v2 index data.",
+      "url": "https://docs.livepeer.org/docs-guide/catalog/pages-catalog",
+      "title": "Pages Catalog",
+      "description": "Tree catalog of docs pages included in docs.json navigation, generated from v2 index data.",
       "section": "docs-guide",
       "tags": [
         "livepeer",
-        "pages-index",
+        "pages-catalog",
         "tree",
         "docsjson",
         "v2",
         "docs-guide",
-        "indexes"
+        "catalog"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 41,
-      "lastVerified": "2026-03-10T07:07:09+11:00",
+      "lastVerified": "2026-03-12T03:52:07.729Z",
       "headings": [],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/indexes/components-index",
-      "title": "Components Index",
-      "description": "Generated inventory of all governed component exports.",
+      "url": "https://docs.livepeer.org/docs-guide/catalog/components-catalog",
+      "title": "Components Catalog",
+      "description": "Generated catalog of all governed component exports.",
       "section": "docs-guide",
       "tags": [
         "livepeer",
-        "components-index",
+        "components-catalog",
         "registry",
         "usage-map",
         "inventory",
         "docs-guide",
-        "indexes"
+        "catalog"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3251,
-      "lastVerified": "2026-03-10T06:26:49+11:00",
+      "lastVerified": "2026-03-12T03:52:07.761Z",
       "headings": [
         {
           "level": 2,
@@ -18020,24 +18072,24 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/indexes/scripts-index",
-      "title": "Scripts Index",
+      "url": "https://docs.livepeer.org/docs-guide/catalog/scripts-catalog",
+      "title": "Scripts Catalog",
       "description": "This page provides an aggregate catalog inventory of repository scripts generated from group script indexes.",
       "section": "docs-guide",
       "tags": [
         "livepeer",
-        "scripts-index",
+        "scripts-catalog",
         "aggregate-inventory",
         "repository",
         "scripts",
         "docs-guide",
-        "indexes"
+        "catalog"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 4170,
-      "lastVerified": "2026-03-10T07:07:09+11:00",
+      "wordCount": 4216,
+      "lastVerified": "2026-03-12T03:52:07.371Z",
       "headings": [
         {
           "level": 2,
@@ -18079,49 +18131,162 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/indexes/workflows-index",
-      "title": "Workflows Index",
-      "description": "Aggregate inventory of repository GitHub workflows",
+      "url": "https://docs.livepeer.org/docs-guide/catalog/workflows-catalog",
+      "title": "Workflows Catalog",
+      "description": "Aggregate catalog of repository GitHub workflows",
       "section": "docs-guide",
       "tags": [
         "livepeer",
-        "workflows-index",
+        "workflows-catalog",
         "aggregate-inventory",
         "repository",
         "github",
         "workflows",
         "docs-guide",
-        "indexes"
+        "catalog"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 986,
-      "lastVerified": "2026-03-10T07:07:09+11:00",
+      "lastVerified": "2026-03-12T03:39:59.000Z",
       "headings": [],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/indexes/templates-index",
-      "title": "Templates Index",
-      "description": "Aggregate inventory of repository templates",
+      "url": "https://docs.livepeer.org/docs-guide/catalog/templates-catalog",
+      "title": "Templates Catalog",
+      "description": "Aggregate catalog of repository templates",
       "section": "docs-guide",
       "tags": [
         "livepeer",
-        "templates-index",
+        "templates-catalog",
         "aggregate-inventory",
         "repository",
         "templates",
         "docs-guide",
-        "indexes"
+        "catalog"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 301,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "lastVerified": "2026-03-12T03:39:59.000Z",
       "headings": [],
       "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/catalog/visual-explainer-workflows-archive",
+      "title": "Visual Explainer Workflows Archive",
+      "description": "Pilot workflow guidance for using visual-explainer in docs maintenance, review, and reporting.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "visual-explainer",
+        "docs-guide",
+        "feature-guide",
+        "pilot-workflow",
+        "diff-review",
+        "plan-review",
+        "fact-check",
+        "project-recap",
+        "catalog",
+        "visual-explainer-workflows-archive"
+      ],
+      "entities": [
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1537,
+      "lastVerified": "2026-03-12T03:29:02.000Z",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Visual Explainer — Livepeer docs-v2 Implementation Guide"
+        },
+        {
+          "level": 2,
+          "text": "Pilot Scope (Current)"
+        },
+        {
+          "level": 2,
+          "text": "Understanding the Boundary"
+        },
+        {
+          "level": 2,
+          "text": "Installation"
+        },
+        {
+          "level": 2,
+          "text": "Priority 1: `/plan-review` on the AI-First Docs Plan"
+        },
+        {
+          "level": 2,
+          "text": "Priority 2: `/diff-review` on docs-v2 PRs"
+        },
+        {
+          "level": 2,
+          "text": "Priority 3: Architecture Diagrams for Commented-Out Mermaid"
+        },
+        {
+          "level": 2,
+          "text": "Priority 4: `/fact-check` on Delivery Reports"
+        },
+        {
+          "level": 2,
+          "text": "Priority 5: `/project-recap` for Contributor Onboarding"
+        },
+        {
+          "level": 2,
+          "text": "Priority 6: Persona Routing Matrix Table"
+        },
+        {
+          "level": 2,
+          "text": "What NOT to Use Visual Explainer For"
+        },
+        {
+          "level": 2,
+          "text": "4-Week Pilot Rollout"
+        },
+        {
+          "level": 3,
+          "text": "Week 1: Baseline"
+        },
+        {
+          "level": 3,
+          "text": "Weeks 1-2: Operational Pilot"
+        },
+        {
+          "level": 3,
+          "text": "Week 2: Diagram Rescue Pilot"
+        },
+        {
+          "level": 3,
+          "text": "Weeks 3-4: Evidence and Onboarding"
+        },
+        {
+          "level": 3,
+          "text": "End of Week 4: Decision Gate"
+        },
+        {
+          "level": 2,
+          "text": "Operator Runbook (Planning Only)"
+        },
+        {
+          "level": 2,
+          "text": "Quick Reference: Commands"
+        },
+        {
+          "level": 2,
+          "text": "Files to Know in docs-v2"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "mdx",
+        "markdown"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/internal/reports/navigation-links/docs-navigation",
@@ -18173,7 +18338,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1311,
-      "lastVerified": "2026-03-09T17:16:19+11:00",
+      "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
           "level": 1,

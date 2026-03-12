@@ -17,16 +17,16 @@ Voir[source-of-truth-policy.md](./policies/source-of-truth-policy.mdx) pour les 
 | Si vous avez besoin de comprendre... | Fichier canonique |
 |---|---|
 | Gouvernance et propriété canonique | [source-of-truth-policy.md](./policies/source-of-truth-policy.mdx) |
-| Carte complète des capacités du dépôt | [feature-map.md](./feature-map.md) |
-| Flux de données et de contrôle entre les systèmes | [architecture-map.md](./architecture-map.md) |
+| Carte complète des capacités du dépôt | [feature-map.mdx](./feature-map.mdx) |
+| Flux de données et de contrôle entre les systèmes | [architecture-map.mdx](./features/architecture-map.mdx) |
 | Comportement de la CLI et des manuels d'opérateur | [lpd.md](./tooling/lpd-cli.mdx) |
 | Gates de validation et d'application | [quality-gates.md](./policies/quality-gates.mdx) |
 | GitHub Actions, n8n et pipelines d'automatisation | [automation-pipelines.md](./features/automations.mdx) |
-| Architecture de l'information et stratégie de contenu | [content-system.md](./feature-guides/content-system.mdx) |
-| APIs et intégrations de données externes | [data-integrations.md](./data-integrations.md) |
-| Catalogue de scripts (généré) | [scripts-index.md](./scripts-index.md) |
-| Catalogue de workflows (généré) | [workflows-index.md](./workflows-index.md) |
-| Catalogue des modèles de problème/PR (généré) | [templates-index.md](./templates-index.md) |
+| Architecture de l'information et stratégie de contenu | [content-system.md](./frameworks/content-system.mdx) |
+| APIs et intégrations de données externes | [data-integrations.mdx](./features/data-integrations.mdx) |
+| Catalogue de scripts (généré) | [scripts-catalog.mdx](./catalog/scripts-catalog.mdx) |
+| Catalogue de workflows (généré) | [workflows-catalog.mdx](./catalog/workflows-catalog.mdx) |
+| Catalogue des modèles de problème/PR (généré) | [templates-catalog.mdx](./catalog/templates-catalog.mdx) |
 
 ## Règles de mise à jour
 
@@ -39,7 +39,7 @@ Voir[source-of-truth-policy.md](./policies/source-of-truth-policy.mdx) pour les 
 
 ## Zones connexes
 
-- Orientation racine :[`README.md`](../README.md)
-- Guide des documents publics :[`v2/resources/documentation-guide/`](../v2/resources/documentation-guide/)
-- Procédures des contributeurs :[`contribute/CONTRIBUTING/`](../contribute/CONTRIBUTING/)
-- Matrices de tests et comportement de CI :[`tests/`](../tests/)
+- Orientation racine :[`README.md`](../../../README.md)
+- Guide des documents publics :[`documentation-guide.mdx`](../resources/documentation-guide/documentation-guide.mdx)
+- Procédures des contributeurs :[`contribute/CONTRIBUTING/`](../../../contribute/CONTRIBUTING/)
+- Matrices de tests et comportement de CI :[`tests/`](../../../tests/)

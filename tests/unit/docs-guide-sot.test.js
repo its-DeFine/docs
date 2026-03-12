@@ -36,18 +36,18 @@ const REQUIRED_MANUAL_FILES = [
   'docs-guide/policies/cleanup-quarantine-policy.mdx',
   'docs-guide/policies/component-layout-decisions.mdx',
   'docs-guide/features/automations.mdx',
-  'docs-guide/feature-guides/content-system.mdx',
+  'docs-guide/frameworks/content-system.mdx',
   'docs-guide/features/data-integrations.mdx',
   'docs-guide/frameworks/component-framework.mdx',
   'docs-guide/catalog/ai-tools.mdx'
 ];
 
 const REQUIRED_GENERATED_FILES = [
-  'docs-guide/indexes/scripts-index.mdx',
-  'docs-guide/indexes/workflows-index.mdx',
-  'docs-guide/indexes/templates-index.mdx',
-  'docs-guide/indexes/pages-index.mdx',
-  'docs-guide/indexes/components-index.mdx'
+  'docs-guide/catalog/scripts-catalog.mdx',
+  'docs-guide/catalog/workflows-catalog.mdx',
+  'docs-guide/catalog/templates-catalog.mdx',
+  'docs-guide/catalog/pages-catalog.mdx',
+  'docs-guide/catalog/components-catalog.mdx'
 ];
 
 const REQUIRED_README_REFERENCES = [
@@ -62,11 +62,11 @@ const REQUIRED_README_REFERENCES = [
   'docs-guide/policies/component-layout-decisions.mdx',
   'docs-guide/features/automations.mdx',
   'docs-guide/catalog/ai-tools.mdx',
-  'docs-guide/indexes/pages-index.mdx',
-  'docs-guide/indexes/components-index.mdx',
-  'docs-guide/indexes/scripts-index.mdx',
-  'docs-guide/indexes/workflows-index.mdx',
-  'docs-guide/indexes/templates-index.mdx'
+  'docs-guide/catalog/pages-catalog.mdx',
+  'docs-guide/catalog/components-catalog.mdx',
+  'docs-guide/catalog/scripts-catalog.mdx',
+  'docs-guide/catalog/workflows-catalog.mdx',
+  'docs-guide/catalog/templates-catalog.mdx'
 ];
 
 function readFileSafe(repoPath) {
@@ -135,23 +135,23 @@ function checkGeneratedIndexFreshness(errors) {
   const checks = [
     {
       args: ['tools/scripts/generate-docs-guide-indexes.js', '--check'],
-      file: 'docs-guide/indexes/workflows-index.mdx',
+      file: 'docs-guide/catalog/workflows-catalog.mdx',
       message: 'Generated docs-guide template/workflow indexes are out of date. Run generator script.'
     },
     {
       args: ['tools/scripts/generate-docs-guide-pages-index.js', '--check'],
-      file: 'docs-guide/indexes/pages-index.mdx',
-      message: 'Generated docs-guide pages index is out of date. Run pages index generator script.'
+      file: 'docs-guide/catalog/pages-catalog.mdx',
+      message: 'Generated docs-guide pages catalog is out of date. Run pages catalog generator script.'
     },
     {
       args: ['tools/scripts/generate-docs-guide-components-index.js', '--check'],
-      file: 'docs-guide/indexes/components-index.mdx',
-      message: 'Generated docs-guide components index is out of date. Run components index generator script.'
+      file: 'docs-guide/catalog/components-catalog.mdx',
+      message: 'Generated docs-guide components catalog is out of date. Run components catalog generator script.'
     },
     {
       args: null,
-      file: 'docs-guide/indexes/scripts-index.mdx',
-      message: 'Generated docs-guide scripts index is out of date. Run script docs generator script.'
+      file: 'docs-guide/catalog/scripts-catalog.mdx',
+      message: 'Generated docs-guide scripts catalog is out of date. Run script docs generator script.'
     }
   ];
 

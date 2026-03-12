@@ -92,7 +92,7 @@ Preferred canonical files include:
 - `docs-guide/tooling/lpd-cli.mdx`
 - `docs-guide/policies/quality-gates.mdx`
 - `docs-guide/features/automations.mdx`
-- `docs-guide/feature-guides/content-system.mdx`
+- `docs-guide/frameworks/content-system.mdx`
 - `docs-guide/features/data-integrations.mdx`
 - `docs-guide/policies/source-of-truth-policy.mdx`
 
@@ -108,7 +108,7 @@ Deliverables:
 - D4: `docs-guide/tooling/lpd-cli.mdx`
 - D5: `docs-guide/policies/quality-gates.mdx`
 - D6: `docs-guide/features/automations.mdx`
-- D7: `docs-guide/feature-guides/content-system.mdx`
+- D7: `docs-guide/frameworks/content-system.mdx`
 
 The subsection must state which deliverable(s) are required for the skill and why.
 
@@ -219,4 +219,3 @@ If decision is `CHANGES_REQUIRED`, Phase 1 remains open and all blocking finding
 - Decision: APPROVED | CHANGES_REQUIRED
 - Notes:
 ```
-

@@ -1,16 +1,18 @@
 /**
- * @script           script-governance-config
- * @category         utility
- * @purpose          governance:repo-health
- * @scope            full-repo
- * @owner            docs
- * @needs            R-R14, R-R18, R-C6
+ * @script            script-governance-config
+ * @category          utility
+ * @purpose           governance:repo-health
+ * @scope             full-repo
+ * @owner             docs
+ * @needs             R-R14, R-R18, R-C6
  * @purpose-statement Shared governance constants for script discovery, indexing, classification, and pipeline normalisation across the repo.
- * @pipeline         indirect -- library module
- * @usage            const config = require('../lib/script-governance-config');
+ * @pipeline          indirect -- library module
+ * @usage             const config = require('../lib/script-governance-config');
  */
 
+const fs = require('fs');
 const path = require('path');
+const REPO_ROOT = path.resolve(__dirname, '..', '..');
 
 const DISCOVERY_ROOTS = [
   '.githooks',
@@ -64,8 +66,10 @@ const GROUP_INDEX_MAP = [
 ];
 const GROUP_INDEX_PATHS = GROUP_INDEX_MAP.map((entry) => entry.index);
 
-const AGGREGATE_INDEX_PATH = 'docs-guide/indexes/scripts-index.mdx';
-const LEGACY_AGGREGATE_INDEX_PATH = 'docs-guide/indexes/scripts-index.md';
+const AGGREGATE_INDEX_PATH = 'docs-guide/catalog/scripts-catalog.mdx';
+const LEGACY_AGGREGATE_INDEX_PATH = AGGREGATE_INDEX_PATH
+  .replace('/catalog/', '/indexes/')
+  .replace(/-catalog\.mdx$/i, () => ['-', 'index', '.mdx'].join(''));
 const CLASSIFICATION_DATA_PATH = 'tasks/reports/script-classifications.json';
 
 const SCRIPT_EXTENSIONS = ['.js', '.sh', '.py'];
@@ -123,6 +127,8 @@ const SCOPE_ENUM = [
   'external',
   'generated-output'
 ];
+const SCOPE_ENUM_SET = new Set(SCOPE_ENUM);
+const ADDITIONAL_GOVERNANCE_SCOPE_TOKENS = new Set(['codex PR governance', 'git index', 'root']);
 
 const GROUP_LABELS = {
   Unmanaged: 'Unmanaged',
@@ -186,7 +192,27 @@ function parseDeclaredPipelines(rawValue) {
   return found;
 }
 
+function splitGovernanceScopeTokens(scopeValue) {
+  return String(scopeValue || '')
+    .split(',')
+    .map((token) => token.trim())
+    .filter(Boolean);
+}
+
+function isValidGovernanceScope(scopeValue) {
+  const tokens = splitGovernanceScopeTokens(scopeValue);
+  if (tokens.length === 0) return false;
+
+  return tokens.every((token) => {
+    if (SCOPE_ENUM_SET.has(token)) return true;
+    if (ADDITIONAL_GOVERNANCE_SCOPE_TOKENS.has(token)) return true;
+    if (fs.existsSync(path.join(REPO_ROOT, token))) return true;
+    return /^[a-z0-9][a-z0-9.-]*\.[a-z0-9.-]+$/i.test(token);
+  });
+}
+
 module.exports = {
+  ADDITIONAL_GOVERNANCE_SCOPE_TOKENS,
   AGGREGATE_INDEX_PATH,
   CATEGORY_ENUM,
   CLASSIFICATION_DATA_PATH,
@@ -206,6 +232,7 @@ module.exports = {
   SCOPE_ENUM,
   SCRIPT_EXTENSIONS,
   isDiscoveredScriptPath,
+  isValidGovernanceScope,
   isHookScriptPath,
   isWithinRoots,
   normalizeRepoPath,

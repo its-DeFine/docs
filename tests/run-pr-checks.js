@@ -22,9 +22,9 @@ const {
   GOVERNED_ROOTS,
   GROUP_INDEX_PATHS,
   PURPOSE_ENUM: VALID_PURPOSES,
-  SCOPE_ENUM: VALID_SCOPES,
   SCRIPT_EXTENSIONS: GOVERNED_SCRIPT_EXTENSIONS,
   isDiscoveredScriptPath,
+  isValidGovernanceScope,
   isWithinRoots
 } = require('../tools/lib/script-governance-config');
 const { extractLeadingScriptHeader, getTagValue } = require('../tools/lib/script-header-utils');
@@ -44,12 +44,10 @@ const SCRIPT_EXTENSIONS = new Set(GOVERNED_SCRIPT_EXTENSIONS);
 const SCRIPT_SCOPES = GOVERNED_ROOTS;
 const VALID_CATEGORY_SET = new Set(VALID_CATEGORIES);
 const VALID_PURPOSE_SET = new Set(VALID_PURPOSES);
-const VALID_SCOPE_SET = new Set(VALID_SCOPES);
-const ADDITIONAL_GOVERNANCE_SCOPE_TOKENS = new Set(['codex PR governance', 'git index', 'root']);
 const LINK_AUDIT_REPORT = '/tmp/livepeer-link-audit-pr.md';
 const CODEX_BRANCH_RE = /^codex\//;
 const GENERATED_AFFECTING_PREFIXES = [
-  'docs-guide/indexes/',
+  'docs-guide/catalog/',
   'tools/scripts/generate-docs-guide-',
   'tools/scripts/generate-pages-index.js',
   'tools/scripts/enforce-generated-file-banners.js',
@@ -170,22 +168,6 @@ function getGovernanceTagValue(header, tagName) {
   );
   const match = String(header || '').match(pattern);
   return match ? String(match[1] || '').replace(/\s+/g, ' ').trim() : '';
-}
-
-function isValidGovernanceScope(scopeValue) {
-  const tokens = String(scopeValue || '')
-    .split(',')
-    .map((token) => token.trim())
-    .filter(Boolean);
-
-  if (tokens.length === 0) return false;
-
-  return tokens.every((token) => {
-    if (VALID_SCOPE_SET.has(token)) return true;
-    if (ADDITIONAL_GOVERNANCE_SCOPE_TOKENS.has(token)) return true;
-    if (fs.existsSync(relToAbs(token))) return true;
-    return /^[a-z0-9][a-z0-9.-]*\.[a-z0-9.-]+$/i.test(token);
-  });
 }
 
 function partitionFiles(changedFiles) {
