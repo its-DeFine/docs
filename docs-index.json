@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-12T04:53:12.861Z",
+  "generated": "2026-03-12T07:14:23.304Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/portal",
@@ -3679,6 +3679,97 @@
         "bash",
         "mdx",
         "markdown"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/dep-rc-navigator",
+      "title": "Find Your Path to Becoming a Livepeer Orchestrator",
+      "description": "Not sure where to start? Use this guide to find the best path for your goals and experience level.",
+      "section": "orchestrators",
+      "tags": [
+        "start-here",
+        "livepeer",
+        "orchestrator",
+        "go-livepeer",
+        "orchestratorsiphon",
+        "gpu",
+        "setup",
+        "rewards",
+        "staking",
+        "orchestrators",
+        "dep-rc-navigator"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 718,
+      "lastVerified": "2026-03-12T07:13:29.805Z",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Orchestrator Navigator: Find Your Path"
+        },
+        {
+          "level": 2,
+          "text": "Orchestrator Requirements"
+        },
+        {
+          "level": 2,
+          "text": "Economic Feasibility"
+        },
+        {
+          "level": 2,
+          "text": "Operator Path Options"
+        },
+        {
+          "level": 2,
+          "text": "Orchestrator Setup Paths"
+        },
+        {
+          "level": 4,
+          "text": "Requirements"
+        },
+        {
+          "level": 4,
+          "text": "Setup Options"
+        },
+        {
+          "level": 4,
+          "text": "Workload Types"
+        },
+        {
+          "level": 2,
+          "text": "Advanced Operation Paths"
+        },
+        {
+          "level": 4,
+          "text": "Workloads & AI-Pipelines"
+        },
+        {
+          "level": 4,
+          "text": "Delegates & Governance Participation"
+        },
+        {
+          "level": 2,
+          "text": "Pick Your Setup"
+        },
+        {
+          "level": 2,
+          "text": "Option A: Full go-livepeer Setup"
+        },
+        {
+          "level": 2,
+          "text": "Option B: Split Setup (OrchestratorSiphon + go-livepeer)"
+        },
+        {
+          "level": 2,
+          "text": "Not sure which setup?"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
       ]
     }
   ]
