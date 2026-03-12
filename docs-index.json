@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-12T12:43:55.114Z",
+  "generated": "2026-03-12T18:22:52.470Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/portal",
@@ -450,14 +450,18 @@
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/video-transcoding",
       "title": "Video Transcoding Quickstart",
-      "description": "Run go-livepeer as a transcoding orchestrator: create your wallet, configure your node, register, and verify.",
+      "description": "Run a Livepeer transcoding orchestrator with Docker — from install to first job in under 30 minutes.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
-        "orchestrators",
+        "orchestrator",
         "quickstart",
         "transcoding",
         "go-livepeer",
+        "docker",
+        "gpu",
+        "nvidia",
+        "orchestrators",
         "video-transcoding"
       ],
       "entities": [
@@ -466,36 +470,49 @@
       ],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 176,
+      "wordCount": 609,
       "lastVerified": "2026-03-11T16:33:09+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "Step 2: Prerequisites"
+          "text": "Prerequisites"
         },
         {
           "level": 2,
-          "text": "Step 3: Configure and run"
+          "text": "Step 1 — Pull the Docker image"
         },
         {
           "level": 2,
-          "text": "Step 4: Register as an orchestrator"
+          "text": "Step 2 — Create your data directory"
         },
         {
           "level": 2,
-          "text": "Step 5: Verify your node"
+          "text": "Step 3 — Start the node"
         },
         {
           "level": 2,
-          "text": "Testing end-to-end with a Gateway"
+          "text": "Step 4 — Verify the connection"
         },
         {
           "level": 2,
-          "text": "Related pages"
+          "text": "Step 5 — Activate on the network"
+        },
+        {
+          "level": 2,
+          "text": "Step 6 — Verify activation"
+        },
+        {
+          "level": 2,
+          "text": "What you just set up"
+        },
+        {
+          "level": 2,
+          "text": "Next steps"
         }
       ],
       "codeLanguages": [
-        "bash"
+        "bash",
+        "mermaid"
       ]
     },
     {
@@ -682,8 +699,8 @@
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/rcs-requirements",
-      "title": "Operational and Hardware Requirements for Orchestrators",
-      "description": "Minimum, recommended, and production hardware for running a Livepeer orchestrator.",
+      "title": "Setup Checklist",
+      "description": "Pre-flight checklist for orchestrator setup — confirm hardware, software, network, wallet, and tokens before installing go-livepeer.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
@@ -691,6 +708,10 @@
         "hardware",
         "gpu",
         "requirements",
+        "checklist",
+        "prerequisites",
+        "cuda",
+        "nvidia",
         "setup",
         "rcs-requirements"
       ],
@@ -699,35 +720,41 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 158,
-      "lastVerified": "2026-03-11T16:33:09+11:00",
+      "wordCount": 362,
+      "lastVerified": "2026-03-13T04:51:59+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "Minimum (development / testing)"
+          "text": "Hardware"
         },
         {
           "level": 2,
-          "text": "Recommended (video / production)"
+          "text": "Software"
         },
         {
           "level": 2,
-          "text": "AI inference"
+          "text": "Network"
         },
         {
           "level": 2,
-          "text": "Network and ops"
+          "text": "Wallet and tokens"
         },
         {
           "level": 2,
-          "text": "Checklist before going live"
+          "text": "Arbitrum RPC"
         },
         {
           "level": 2,
-          "text": "See also"
+          "text": "Quick verification commands"
+        },
+        {
+          "level": 2,
+          "text": "Ready?"
         }
       ],
-      "codeLanguages": []
+      "codeLanguages": [
+        "bash"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/rs-install",

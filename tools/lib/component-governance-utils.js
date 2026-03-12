@@ -116,6 +116,11 @@ function isLegacyDuplicateComponentPath(filePath) {
   return fs.existsSync(path.join(parsed.dir, `${canonicalName}${parsed.ext}`));
 }
 
+function isLegacyShimComponentPath(filePath) {
+  const repoPath = normalizeRepoPath(filePath);
+  return repoPath === 'snippets/components/content/math.jsx' || repoPath === 'snippets/components/content/release.jsx';
+}
+
 function hasGovernableExport(filePath) {
   if (!fs.existsSync(filePath)) {
     return false;
@@ -180,6 +185,7 @@ function getComponentFiles(baseDir = 'snippets/components') {
       absolutePath.endsWith('.jsx') &&
       !isArchivePath(absolutePath) &&
       !isLegacyDuplicateComponentPath(absolutePath) &&
+      !isLegacyShimComponentPath(absolutePath) &&
       hasGovernableExport(absolutePath) &&
       VALID_CATEGORIES.includes(getCategoryFromPath(absolutePath))
   )
@@ -202,6 +208,7 @@ function getStagedComponentFiles(baseDir = 'snippets/components') {
     .filter((repoPath) => repoPath.endsWith('.jsx'))
     .filter((repoPath) => !isArchivePath(repoPath))
     .filter((repoPath) => !isLegacyDuplicateComponentPath(repoPath))
+    .filter((repoPath) => !isLegacyShimComponentPath(repoPath))
     .filter((repoPath) => VALID_CATEGORIES.includes(getCategoryFromPath(repoPath)))
     .filter((repoPath) => hasGovernableExport(path.join(REPO_ROOT, repoPath)))
     .filter((repoPath) => fs.existsSync(path.join(REPO_ROOT, repoPath)))

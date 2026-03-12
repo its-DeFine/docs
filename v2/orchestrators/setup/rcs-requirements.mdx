@@ -31,12 +31,12 @@ Confirm every item on this checklist before proceeding to [Install go-livepeer](
 
 ## Hardware
 
-- [ ] **NVIDIA GPU** with NVENC/NVDEC support installed and visible via `nvidia-smi`
-- [ ] **NVIDIA driver** version 525+ (Linux) or 527+ (Windows)
-- [ ] **CUDA 12.0+** installed (or plan to use the Docker image, which bundles CUDA)
-- [ ] **CPU:** 4+ cores minimum, 8+ recommended
-- [ ] **RAM:** 16 GB minimum, 32 GB recommended
-- [ ] **Storage:** 100 GB SSD minimum (NVMe recommended for AI model weights)
+- **NVIDIA GPU** with NVENC/NVDEC support installed and visible via `nvidia-smi`
+- **NVIDIA driver** version 525+ (Linux) or 527+ (Windows)
+- **CUDA 12.0+** installed (or plan to use the Docker image, which bundles CUDA)
+- **CPU:** 4+ cores minimum, 8+ recommended
+- **RAM:** 16 GB minimum, 32 GB recommended
+- **Storage:** 100 GB SSD minimum (NVMe recommended for AI model weights)
 
 <Tip>
 For AI inference, VRAM is the primary constraint: 8 GB for LLM-only, 16 GB for basic batch AI, 24 GB+ for the full pipeline suite. See [GPU & Hardware Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference) for detailed per-workload guidance.
@@ -44,17 +44,17 @@ For AI inference, VRAM is the primary constraint: 8 GB for LLM-only, 16 GB for b
 
 ## Software
 
-- [ ] **OS:** Linux (Ubuntu 22.04+ recommended). macOS and Windows work for development but are not recommended for production GPU workloads.
-- [ ] **Docker Engine** installed if using the container install path
-- [ ] **NVIDIA Container Toolkit** installed if using Docker with GPU (`docker run --gpus all nvidia/cuda:12.0-base nvidia-smi` should succeed)
-- [ ] `curl` and `tar` available (Linux/macOS) or PowerShell (Windows)
+- **OS:** Linux (Ubuntu 22.04+ recommended). macOS and Windows work for development but are not recommended for production GPU workloads.
+- **Docker Engine** installed if using the container install path
+- **NVIDIA Container Toolkit** installed if using Docker with GPU (`docker run --gpus all nvidia/cuda:12.0-base nvidia-smi` should succeed)
+- `curl` and `tar` available (Linux/macOS) or PowerShell (Windows)
 
 ## Network
 
-- [ ] **Port 8935 TCP** open to the public internet (firewall, router NAT, cloud security group)
-- [ ] **Static IP** or stable hostname (dynamic DNS if on a home connection)
-- [ ] **Bandwidth:** 100 Mbps symmetric minimum; 1 Gbps recommended for multi-stream transcoding
-- [ ] **Latency:** <50 ms to major regions improves gateway selection probability
+- **Port 8935 TCP** open to the public internet (firewall, router NAT, cloud security group)
+- **Static IP** or stable hostname (dynamic DNS if on a home connection)
+- **Bandwidth:** 100 Mbps symmetric minimum; 1 Gbps recommended for multi-stream transcoding
+- **Latency:** Under 50 ms to major regions improves gateway selection probability
 
 Verify port access from an external machine:
 ```bash
@@ -63,15 +63,15 @@ curl -k https://YOUR_PUBLIC_IP:8935/status
 
 ## Wallet and tokens
 
-- [ ] **Ethereum wallet** — an existing account or go-livepeer will create one on first run
-- [ ] **ETH on Arbitrum One** — for gas (activation, reward calls, ticket redemption). A few dollars is sufficient.
-- [ ] **LPT on Arbitrum One** — for staking. The amount needed to enter the active set (top 100) varies — check [Livepeer Explorer](https://explorer.livepeer.org) for the current threshold.
+- **Ethereum wallet** — an existing account or go-livepeer will create one on first run
+- **ETH on Arbitrum One** — for gas (activation, reward calls, ticket redemption). A few dollars is sufficient.
+- **LPT on Arbitrum One** — for staking. The amount needed to enter the active set (top 100) varies — check [Livepeer Explorer](https://explorer.livepeer.org) for the current threshold.
 
 See [Arbitrum Exchanges](/v2/orchestrators/resources/arbitrum-exchanges) for where to acquire ETH and LPT on Arbitrum.
 
 ## Arbitrum RPC
 
-- [ ] **RPC endpoint** for Arbitrum One — Alchemy (free tier), Infura, or self-hosted. You will need this for the `-ethUrl` flag.
+- **RPC endpoint** for Arbitrum One — Alchemy (free tier), Infura, or self-hosted. You will need this for the `-ethUrl` flag.
 
 See [Arbitrum RPCs](/v2/orchestrators/resources/arbitrum-rpc) for provider comparison and setup.
 
