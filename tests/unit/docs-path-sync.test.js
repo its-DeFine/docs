@@ -24,6 +24,43 @@ const validator = require('../../tools/scripts/validators/content/check-docs-pat
 
 const REMEDIATOR_PATH = path.join(__dirname, '..', '..', 'tools', 'scripts', 'remediators', 'content', 'sync-docs-paths.js');
 const VALIDATOR_PATH = path.join(__dirname, '..', '..', 'tools', 'scripts', 'validators', 'content', 'check-docs-path-sync.js');
+const REPO_ROOT = path.join(__dirname, '..', '..');
+const STATIC_GIT_ENV_VARS = [
+  'GIT_ALTERNATE_OBJECT_DIRECTORIES',
+  'GIT_AUTHOR_DATE',
+  'GIT_AUTHOR_EMAIL',
+  'GIT_AUTHOR_NAME',
+  'GIT_COMMON_DIR',
+  'GIT_COMMITTER_DATE',
+  'GIT_COMMITTER_EMAIL',
+  'GIT_COMMITTER_NAME',
+  'GIT_CONFIG',
+  'GIT_CONFIG_COUNT',
+  'GIT_CONFIG_PARAMETERS',
+  'GIT_CONFIG_KEY_0',
+  'GIT_CONFIG_VALUE_0',
+  'GIT_DIR',
+  'GIT_GRAFT_FILE',
+  'GIT_INDEX_FILE',
+  'GIT_INDEX_VERSION',
+  'GIT_LITERAL_PATHSPECS',
+  'GIT_OBJECT_DIRECTORY',
+  'GIT_PREFIX',
+  'GIT_QUARANTINE_PATH',
+  'GIT_WORK_TREE',
+];
+const LOCAL_GIT_ENV_VARS = (() => {
+  const envProbe = spawnSync('git', ['rev-parse', '--local-env-vars'], {
+    cwd: REPO_ROOT,
+    encoding: 'utf8',
+    env: process.env,
+  });
+  const discovered = String(envProbe.stdout || '')
+    .split(/\r?\n/)
+    .map((name) => name.trim())
+    .filter(Boolean);
+  return [...new Set([...STATIC_GIT_ENV_VARS, ...discovered])];
+})();
 
 let errors = [];
 
@@ -38,16 +75,7 @@ function runCase(name, fn) {
 
 function runCommand(command, args, options = {}) {
   const env = { ...process.env };
-  const gitEnvResult = spawnSync('git', ['rev-parse', '--local-env-vars'], {
-    cwd: options.cwd,
-    encoding: 'utf8',
-    env,
-  });
-  const localGitEnvVars = String(gitEnvResult.stdout || '')
-    .split(/\r?\n/)
-    .map((name) => name.trim())
-    .filter(Boolean);
-  for (const name of localGitEnvVars) delete env[name];
+  for (const name of LOCAL_GIT_ENV_VARS) delete env[name];
 
   const result = spawnSync(command, args, { cwd: options.cwd, encoding: 'utf8', env });
   if (result.status !== 0 && !options.allowFailure) throw new Error(String(result.stderr || result.stdout || `exit ${result.status}`).trim());
