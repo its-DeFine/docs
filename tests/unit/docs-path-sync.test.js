@@ -38,17 +38,16 @@ function runCase(name, fn) {
 
 function runCommand(command, args, options = {}) {
   const env = { ...process.env };
-  delete env.GIT_DIR;
-  delete env.GIT_WORK_TREE;
-  delete env.GIT_INDEX_FILE;
-  delete env.GIT_OBJECT_DIRECTORY;
-  delete env.GIT_ALTERNATE_OBJECT_DIRECTORIES;
-  delete env.GIT_COMMON_DIR;
-  delete env.GIT_PREFIX;
-  delete env.GIT_AUTHOR_NAME;
-  delete env.GIT_AUTHOR_EMAIL;
-  delete env.GIT_COMMITTER_NAME;
-  delete env.GIT_COMMITTER_EMAIL;
+  const gitEnvResult = spawnSync('git', ['rev-parse', '--local-env-vars'], {
+    cwd: options.cwd,
+    encoding: 'utf8',
+    env,
+  });
+  const localGitEnvVars = String(gitEnvResult.stdout || '')
+    .split(/\r?\n/)
+    .map((name) => name.trim())
+    .filter(Boolean);
+  for (const name of localGitEnvVars) delete env[name];
 
   const result = spawnSync(command, args, { cwd: options.cwd, encoding: 'utf8', env });
   if (result.status !== 0 && !options.allowFailure) throw new Error(String(result.stderr || result.stdout || `exit ${result.status}`).trim());
