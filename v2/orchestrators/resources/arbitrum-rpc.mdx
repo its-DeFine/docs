@@ -1,0 +1,101 @@
+---
+title: Arbitrum RPCs
+sidebarTitle: Arbitrum RPCs
+description: 'Arbitrum One RPC endpoint options for Livepeer orchestrators — provider comparison, rate limits, and configuration.'
+keywords:
+  - livepeer
+  - orchestrator
+  - arbitrum
+  - RPC
+  - ethUrl
+  - Alchemy
+  - Infura
+  - Ankr
+'og:image': /snippets/assets/site/og-image/en/orchestrators.png
+'og:image:alt': Livepeer Docs social preview image for Orchestrators
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+pageType: reference
+audience: orchestrator
+purpose: reference
+status: review
+lastVerified: 2026-03-13
+---
+
+Livepeer orchestrators require an Arbitrum One RPC endpoint to interact with the protocol — staking, reward calls, ticket redemption, and service registration all happen on Arbitrum. The endpoint is configured via the `-ethUrl` flag.
+
+---
+
+## Requirements
+
+Your RPC endpoint must:
+
+- Connect to **Arbitrum One** (chain ID `42161` / `0xa4b1`) — not Ethereum L1
+- Support standard JSON-RPC methods (`eth_call`, `eth_sendRawTransaction`, `eth_getBlockByNumber`, `eth_getLogs`)
+- Handle the request volume your orchestrator generates — active orchestrators with frequent reward calls and ticket redemptions may exceed free-tier limits
+
+---
+
+## Provider Options
+
+| Provider | Free Tier | Rate Limit (free) | Notes |
+|---|---|---|---|
+| [Alchemy](https://www.alchemy.com/) | Yes | 300 CU/s (~100 req/s) | Most commonly used by orchestrators. Arbitrum One supported natively. |
+| [Infura](https://www.infura.io/) | Yes | 100k req/day | Requires separate Arbitrum add-on in dashboard. |
+| [Ankr](https://www.ankr.com/) | Yes (public) | Shared, best-effort | Public endpoint: `https://rpc.ankr.com/arbitrum`. No API key needed. |
+| [QuickNode](https://www.quicknode.com/) | Paid | Varies by plan | Low-latency option for high-volume orchestrators. |
+| [Chainstack](https://chainstack.com/) | Yes | 25 req/s | Arbitrum One supported. |
+| [Public Arbitrum RPC](https://arb1.arbitrum.io/rpc) | Yes | Shared, rate-limited | Official Arbitrum public endpoint. Suitable for testing only — not recommended for production orchestrators. |
+
+{/* REVIEW: Verify all free-tier limits are current — these change frequently */}
+
+---
+
+## Configuration
+
+Set the endpoint when starting your orchestrator:
+
+```bash
+livepeer \
+  -network arbitrum-one-mainnet \
+  -ethUrl https://arb-mainnet.g.alchemy.com/v2/YOUR_API_KEY \
+  -orchestrator \
+  -transcoder \
+  ...
+```
+
+### Verify Your Endpoint
+
+Test that the endpoint is reachable and returns the correct chain ID:
+
+```bash
+curl -X POST -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' \
+  YOUR_ETH_URL
+```
+
+Expected response includes `"result":"0xa4b1"` (42161 in decimal = Arbitrum One).
+
+---
+
+## Common Issues
+
+| Problem | Cause | Fix |
+|---|---|---|
+| `dial tcp: connection refused` | Wrong URL or provider down | Verify URL, test with `curl`, try alternate provider |
+| `could not retrieve chain ID` | Using Ethereum L1 endpoint instead of Arbitrum | Switch to an Arbitrum One endpoint |
+| `context deadline exceeded` | Rate-limited or slow provider | Upgrade plan or switch provider |
+| Reward calls failing intermittently | Free-tier rate limit hit during peak | Upgrade to paid tier or use a dedicated node |
+
+For detailed troubleshooting, see the [FAQ](/v2/orchestrators/resources/faq#arbitrum-rpc-connection-failing--node-will-not-start).
+
+---
+
+## See Also
+
+<CardGroup cols={3}>
+  <Card title="Arbitrum Exchanges" href="/v2/orchestrators/resources/arbitrum-exchanges" icon="coins" />
+  <Card title="Contract Addresses" href="/v2/orchestrators/resources/technical/x-contract-addresses" icon="file-contract" />
+  <Card title="FAQ" href="/v2/orchestrators/resources/faq" icon="circle-question" />
+</CardGroup>

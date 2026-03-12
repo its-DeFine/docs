@@ -133,6 +133,61 @@
                         ]
                       },
                       {
+                        "group": "Feasibility & Hardware [NEW]",
+                        "pages": [
+                          "v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics",
+                          "v2/orchestrators/guides/feasibility-and-hardware/hardware-reference",
+                          "v2/orchestrators/guides/feasibility-and-hardware/benchmarking",
+                          "v2/orchestrators/guides/feasibility-and-hardware/session-limits"
+                        ]
+                      },
+                      {
+                        "group": "Setup Paths [NEW]",
+                        "pages": [
+                          "v2/orchestrators/guides/setup-paths/setup-navigator",
+                          "v2/orchestrators/guides/setup-paths/find-your-path",
+                          "v2/orchestrators/guides/setup-paths/join-a-pool",
+                          "v2/orchestrators/guides/setup-paths/siphon-setup"
+                        ]
+                      },
+                      {
+                        "group": "Staking & Rewards [NEW]",
+                        "pages": [
+                          "v2/orchestrators/guides/staking-and-rewards/earnings",
+                          "v2/orchestrators/guides/staking-and-rewards/rewards-and-fees",
+                          "v2/orchestrators/guides/staking-and-rewards/attracting-delegates",
+                          "v2/orchestrators/guides/staking-and-rewards/payments",
+                          "v2/orchestrators/guides/staking-and-rewards/governance"
+                        ]
+                      },
+                      {
+                        "group": "Workloads & AI [NEW]",
+                        "pages": [
+                          "v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide",
+                          "v2/orchestrators/guides/workloads-and-ai/batch-ai-setup",
+                          "v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup",
+                          "v2/orchestrators/guides/workloads-and-ai/model-vram-reference"
+                        ]
+                      },
+                      {
+                        "group": "Monitoring & Troubleshooting [NEW]",
+                        "pages": [
+                          "v2/orchestrators/guides/monitoring-and-troubleshooting/tools",
+                          "v2/orchestrators/guides/monitoring-and-troubleshooting/explorer-guide",
+                          "v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring",
+                          "v2/orchestrators/guides/monitoring-and-troubleshooting/troubleshooting"
+                        ]
+                      },
+                      {
+                        "group": "Advanced Operations [NEW]",
+                        "pages": [
+                          "v2/orchestrators/guides/advanced-operations/run-a-pool",
+                          "v2/orchestrators/guides/advanced-operations/gateways-orchestrators",
+                          "v2/orchestrators/guides/advanced-operations/large-scale-operations",
+                          "v2/orchestrators/guides/advanced-operations/orchestrator-transcoder-setup"
+                        ]
+                      },
+                      {
                         "group": "Unplaced",
                         "pages": [
                           "v2/orchestrators/guides/tools/guide",
@@ -147,23 +202,46 @@
                     "icon": "books",
                     "pages": [
                       "v2/orchestrators/resources/faq",
+                      "v2/orchestrators/resources/community-guides",
+                      "v2/orchestrators/resources/community-pools",
                       {
                         "group": "Technical Reference",
                         "pages": [
                           "v2/orchestrators/resources/technical/cli-flags",
                           "v2/orchestrators/resources/technical/x-contract-addresses",
+                          "v2/orchestrators/resources/gpu-support",
+                          "v2/orchestrators/resources/arbitrum-rpc",
+                          "v2/orchestrators/resources/arbitrum-exchanges",
                           "v2/orchestrators/resources/technical/x-troubleshooting",
                           "v2/orchestrators/resources/technical/x-changelog",
                           "v2/orchestrators/resources/technical/x-support-status"
                         ]
                       },
                       {
-                        "group": "Resources",
+                        "group": "Guides Index [Review]",
                         "pages": [
                           "v2/orchestrators/resources/x-guides",
-                          "v2/orchestrators/resources/x-help"
+                          "v2/orchestrators/resources/x-help",
+                          "v2/orchestrators/resources/x-payments"
                         ]
                       }
+                    ]
+                  },
+                  {
+                    "group": "V1 Reference (for restructure)",
+                    "icon": "clock-rotate-left",
+                    "pages": [
+                      "v2/orchestrators/v1/troubleshoot",
+                      "v2/orchestrators/v1/monitor-metrics",
+                      "v2/orchestrators/v1/benchmark-transcoding",
+                      "v2/orchestrators/v1/set-pricing",
+                      "v2/orchestrators/v1/set-session-limits",
+                      "v2/orchestrators/v1/assess-capabilities",
+                      "v2/orchestrators/v1/configure-reward-calling",
+                      "v2/orchestrators/v1/yield-calculation",
+                      "v2/orchestrators/v1/vote",
+                      "v2/orchestrators/v1/o-t-split",
+                      "v2/orchestrators/v1/gateway-introspection"
                     ]
                   },
                   {

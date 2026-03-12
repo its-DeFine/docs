@@ -1,0 +1,320 @@
+---
+title: Metrics and Monitoring
+sidebarTitle: Metrics
+description: >-
+  How to set up Prometheus, Grafana, and the Docker monitoring stack for your
+  Livepeer orchestrator. Covers the -monitor flag, key metrics, AI runner
+  container monitoring, and log capture.
+keywords:
+  - livepeer
+  - orchestrator
+  - prometheus
+  - grafana
+  - monitoring
+  - metrics
+  - docker
+  - -monitor
+  - livepeer-monitoring
+  - ai-runner
+'og:image': /snippets/assets/site/og-image/en/orchestrators.png
+'og:image:alt': Livepeer Docs social preview image for Orchestrators
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+pageType: guide
+audience: orchestrator
+purpose: guide
+status: published
+lastVerified: 2026-03-13
+---
+
+Logs tell you what just happened. Metrics tell you what is happening — and whether it is trending the right way. This page covers everything from enabling go-livepeer's built-in Prometheus endpoint to running the full Docker monitoring stack and monitoring your AI runner containers separately.
+
+---
+
+## Enabling node metrics
+
+go-livepeer exposes a standard Prometheus endpoint when you pass the `-monitor` flag at startup.
+
+```bash
+livepeer \
+  -orchestrator \
+  -transcoder \
+  -monitor \
+  -metricsPerStream \
+  -network arbitrum-one-mainnet \
+  # ... other flags
+```
+
+**Metrics endpoint:** `http://localhost:7935/metrics`
+
+This is on the same port as the go-livepeer CLI (`7935` by default). The `-monitor` flag activates the `/metrics` path on that port.
+
+**Monitoring flags:**
+
+| Flag | What it does |
+|---|---|
+| `-monitor` | Enables the `/metrics` endpoint. Required for any Prometheus scraping. |
+| `-metricsPerStream` | Groups performance metrics per stream. Useful for diagnosing individual session issues rather than aggregate counts. |
+| `-metricsClientIP` | Includes the client IP address in metrics labels. Useful for identifying which gateway is routing work to you. |
+
+<Note>
+  For split orchestrator and transcoder setups, pass `-monitor` on both processes if you want metrics from both. Each process exposes its own `/metrics` endpoint on its respective CLI port.
+</Note>
+
+---
+
+## What metrics are exposed
+
+go-livepeer exposes metrics across several categories. The full reference is at [Prometheus Metrics Reference](/v2/orchestrators/reference/prometheus-metrics).
+
+**The metrics you will actually act on:**
+
+<CardGroup cols={2}>
+
+<Card title="Session metrics" icon="users">
+  Current active sessions, max session capacity, sessions per GPU. These tell you whether your node is at capacity or idle.
+</Card>
+
+<Card title="Segment metrics" icon="film">
+  Segments received, transcoded, and failed. Success rate over time is your core transcoding health signal.
+</Card>
+
+<Card title="Ticket metrics" icon="ticket">
+  Winning tickets received and redeemed. A winning ticket gap (received but not redeemed) indicates ETH balance or redemption issues.
+</Card>
+
+<Card title="Latency metrics" icon="gauge-high">
+  Processing time per segment. High latency means your GPU is saturated or a pipeline is slow — both affect gateway scoring.
+</Card>
+
+</CardGroup>
+
+**Other available metrics:**
+- GPU utilisation (where reported by the NVIDIA driver)
+- ETH balance and pending fees
+- Round number and reward call status
+
+---
+
+## Option A: Docker monitoring stack (fastest setup)
+
+Livepeer maintains a Docker image that bundles Prometheus, Grafana, and starter dashboard templates. This is the quickest path from zero to a working dashboard.
+
+```bash
+# Pull the image
+docker pull livepeer/monitoring
+
+# Run against a single local node
+docker run --net=host \
+  --env LP_MODE=standalone \
+  --env LP_NODES=localhost:7935 \
+  livepeer/monitoring:latest
+```
+
+Then open Grafana at `http://localhost:3000` (default credentials: `admin` / `admin`).
+
+**Multi-node:**
+
+```bash
+docker run --net=host \
+  --env LP_MODE=standalone \
+  --env LP_NODES=node1.yourdomain.com:7935,node2.yourdomain.com:7935 \
+  livepeer/monitoring:latest
+```
+
+**All environment variable options:**
+
+| Variable | Values | Description |
+|---|---|---|
+| `LP_MODE` | `standalone` | Local or bare metal single-machine |
+| `LP_MODE` | `docker-compose` | Running as part of a Docker Compose stack |
+| `LP_MODE` | `kubernetes` | Pod-based deployment; auto-discovery via labels |
+| `LP_NODES` | Comma-separated `host:port` | Nodes to monitor (not needed for Kubernetes) |
+| `LP_KUBE_NAMESPACES` | Comma-separated namespaces | Kubernetes namespace filter |
+| `LP_PROMETHEUS_KUBE_SCRAPE` | Annotation name | Custom scrape annotation for Kubernetes pods |
+
+For Kubernetes deployments, pods with the `prometheus.io/scrape` label are discovered automatically without specifying `LP_NODES`.
+
+<Card title="livepeer/livepeer-monitoring" icon="github" href="https://github.com/livepeer/livepeer-monitoring">
+  Source, Dockerfile, prometheus.yml, and Grafana dashboard templates.
+</Card>
+
+---
+
+## Option B: Custom Prometheus and Grafana
+
+If you are already running a monitoring stack, add go-livepeer as a scrape target:
+
+```yaml
+# prometheus.yml
+scrape_configs:
+  - job_name: 'livepeer-orchestrator'
+    static_configs:
+      - targets: ['localhost:7935']
+    scrape_interval: 15s
+    metrics_path: /metrics
+```
+
+Reload Prometheus after editing: `kill -HUP <prometheus-pid>` or use the reload API at `http://localhost:9090/-/reload`.
+
+**Useful Grafana panels to build:**
+
+| Panel | Query pattern | What it shows |
+|---|---|---|
+| Session capacity | `livepeer_current_sessions_total` vs `livepeer_max_sessions` | How close to capacity you are |
+| Segment success rate | `rate(livepeer_transcode_success_total[5m])` | Transcoding health over time |
+| Reward call tracker | Alerts on missed rounds | Whether reward is being called reliably |
+| AI job latency | AI pipeline processing time | Performance per pipeline |
+
+{/* REVIEW: The community monitoring guide at forum.livepeer.org/t/guide-transcoder-monitoring-with-prometheus-grafana/1225 was referenced in v1 docs and is a useful detailed tutorial. The Livepeer Forum appeared offline during verification (March 2026). If it becomes available again, link directly here. Rick / community to check. */}
+
+---
+
+## Monitoring AI runner containers
+
+AI inference workloads run in the `ai-runner` Docker container alongside go-livepeer. Monitoring the container separately from the node gives you a faster signal for AI-specific issues.
+
+**Check container health:**
+
+```bash
+# List running containers and their status
+docker ps --filter name=livepeer-ai-runner
+
+# Follow container logs in real time
+docker logs -f livepeer-ai-runner
+
+# Check resource usage
+docker stats livepeer-ai-runner
+```
+
+**Key log messages to watch for:**
+
+| Message | Meaning |
+|---|---|
+| `Starting AI worker` | Container is initialising. Normal. |
+| `Loaded model <model-id>` | Model loaded into VRAM. Ready to process. |
+| `RunAI request pipeline=<name>` | Job received. Processing. |
+| `Error loading model` | Model failed to load — check VRAM, model ID spelling |
+| `Container health check failed` | Container is alive but not responding to health checks |
+| `CUDA out of memory` | VRAM exhausted — reduce `-maxSessions` or capacity in `aiModels.json` |
+
+**Verify AI pipelines are registered on the network:**
+
+After starting your AI runner and go-livepeer, check that your pipelines appear to the network:
+
+```bash
+# Query your node's registered capabilities
+curl http://localhost:7935/getNetworkCapabilities | jq
+```
+
+Also check the community tool at [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities) — this shows which AI-capable orchestrators are visible network-wide and which models are warm.
+
+---
+
+## Log capture and verbose output
+
+By default, `livepeer` sends all logs to stdout only. For long-running production nodes, capture logs to a file:
+
+```bash
+# Pipe to both terminal and a log file
+livepeer \
+  -orchestrator \
+  -transcoder \
+  -monitor \
+  ... \
+  2>&1 | tee /var/log/livepeer/livepeer.log
+```
+
+**Verbose logging for debugging:**
+
+```bash
+# -v 6 adds detailed transcoding activity logs
+livepeer \
+  -orchestrator \
+  -transcoder \
+  -v 6 \
+  ...
+```
+
+With `-v 6` you will see individual segment reception and transcoding activity, which is the fastest way to confirm your node is receiving and processing work without a full Prometheus setup.
+
+**Useful log search patterns:**
+
+```bash
+# Check for reward calls
+grep -i "reward" /var/log/livepeer/livepeer.log
+
+# Check for transcoding sessions
+grep -i "transcode\|session" /var/log/livepeer/livepeer.log
+
+# Check for errors only
+grep -i "error\|fail\|crit" /var/log/livepeer/livepeer.log
+
+# Check for incoming jobs
+grep -i "received\|segment" /var/log/livepeer/livepeer.log
+```
+
+For systemd-managed services, use `journalctl` instead:
+
+```bash
+journalctl -u livepeer -f               # follow live
+journalctl -u livepeer --since "1 hour ago"   # recent
+journalctl -u livepeer -p err           # errors only
+```
+
+---
+
+## Alerting
+
+If you are running Prometheus, add alerting rules for the most impactful failure modes:
+
+```yaml
+# prometheus-alerts.yml — add to your Prometheus config
+groups:
+  - name: livepeer-orchestrator
+    rules:
+
+      - alert: OrchestratorAtCapacity
+        expr: livepeer_current_sessions_total >= livepeer_max_sessions
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Orchestrator at session capacity for 5+ minutes"
+
+      - alert: LowETHBalance
+        expr: livepeer_eth_balance < 0.02
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "ETH balance below 0.02 — reward calls may fail"
+
+      - alert: TranscodeFailureRate
+        expr: rate(livepeer_transcode_failed_total[10m]) > 0.1
+        for: 10m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Transcode failure rate above 10% over 10 minutes"
+```
+
+{/* REVIEW: Confirm current metric names against go-livepeer monitor/census.go before publishing. These are best-effort approximations from v1 documentation — Rick to verify exact exported metric names. */}
+
+---
+
+<CardGroup cols={2}>
+  <Card title="Prometheus Metrics Reference" icon="table" href="/v2/orchestrators/reference/prometheus-metrics">
+    Full list of every metric exported by go-livepeer.
+  </Card>
+  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/orchestrators/guides/monitoring/troubleshooting">
+    When metrics reveal a problem — how to diagnose and fix it.
+  </Card>
+  <Card title="AI Configuration" icon="robot" href="/v2/orchestrators/setup/ai-configuration">
+    Setting up aiModels.json and the AI runner container.
+  </Card>
+  <Card title="Session Limits" icon="gauge" href="/v2/orchestrators/guides/feasibility/session-limits">
+    Configuring -maxSessions to match your hardware capacity.
+  </Card>
+</CardGroup>

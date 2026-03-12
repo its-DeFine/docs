@@ -1,0 +1,236 @@
+---
+title: Orchestrator Tools
+sidebarTitle: Tools
+description: >-
+  Every tool for monitoring, verifying, and operating your Livepeer orchestrator
+  — Explorer, Prometheus metrics, Docker monitoring stack, community dashboards,
+  and capability testing utilities.
+keywords:
+  - livepeer
+  - orchestrator
+  - explorer
+  - prometheus
+  - grafana
+  - monitoring
+  - tools
+  - dune
+  - tools.livepeer.cloud
+  - metrics
+'og:image': /snippets/assets/site/og-image/en/orchestrators.png
+'og:image:alt': Livepeer Docs social preview image for Orchestrators
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+pageType: reference
+audience: orchestrator
+purpose: reference
+status: published
+lastVerified: 2026-03-13
+---
+
+Your node is running. These are the tools you reach for when you want to verify you are in the active set, track earnings, diagnose a routing problem, monitor GPU health, or understand what the network is doing.
+
+---
+
+## Livepeer Explorer
+
+**URL:** [explorer.livepeer.org](https://explorer.livepeer.org)
+
+The Explorer is the authoritative on-chain dashboard for the Livepeer protocol. It reads directly from the Arbitrum subgraph — everything you see here is real on-chain state, not cached or estimated.
+
+**Your orchestrator profile lives at:**
+```
+https://explorer.livepeer.org/accounts/<your-address>/orchestrating
+```
+
+<CardGroup cols={2}>
+
+<Card title="Active Set and Stake" icon="ranking-star">
+  See your rank by total stake (own + delegated). The top 100 active orchestrators receive transcoding work. Check here to confirm you are in the set and track your rank trend.
+</Card>
+
+<Card title="Reward Call History" icon="clock-rotate-left">
+  Round-by-round history of reward calls. Missed rounds mean lost inflation — for you and your delegators. Target is 100% call rate. Any gaps here warrant investigation.
+</Card>
+
+<Card title="Earnings" icon="coins">
+  Cumulative ETH transcoding fees and LPT inflation rewards. Use this to verify your node is earning and to track long-term trend.
+</Card>
+
+<Card title="Governance" icon="landmark">
+  Vote on Livepeer Improvement Proposals and treasury proposals directly from the Explorer interface.
+</Card>
+
+</CardGroup>
+
+**Also on the Explorer:**
+- Your published reward cut and fee share — verify these match what you configured on-chain
+- Your delegator list, with individual stake amounts and unbonding status
+- Rounds active (your seniority on the network)
+
+{/* REVIEW: AI performance leaderboard — verify this feature is live and functional in the current Explorer post-RaidGuild maintenance engagement (late 2025). If live, add a dedicated section with the metrics it exposes per pipeline. Rick to confirm. */}
+
+<Note>
+  The Explorer shows on-chain data only. Worker-level data for pool contributors is not visible here, and off-chain pool payouts do not appear. For AI model warm status, use [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities).
+</Note>
+
+---
+
+## Node Metrics (Prometheus)
+
+go-livepeer exposes a standard Prometheus metrics endpoint you can scrape with any monitoring stack.
+
+**Enable metrics with the `-monitor` flag:**
+
+```bash
+livepeer \
+  -orchestrator \
+  -transcoder \
+  -monitor \
+  -metricsPerStream \
+  # ... other flags
+```
+
+**Flags:**
+
+| Flag | Effect |
+|---|---|
+| `-monitor` | Enables the `/metrics` endpoint on port 7935 |
+| `-metricsPerStream` | Groups performance metrics per stream — useful for debugging individual sessions |
+| `-metricsClientIP` | Exposes client IP in metrics — useful for identifying which gateway is sending work |
+
+**Endpoint:** `http://localhost:7935/metrics`
+
+**Key metric categories exposed:**
+- Session count and capacity utilisation
+- Segment success and failure rates by stream
+- Winning ticket counts (probabilistic approximation)
+- Job processing latency
+- GPU utilisation
+
+For the full metric reference, see the [Prometheus Metrics Reference](/v2/orchestrators/reference/prometheus-metrics).
+
+### Docker monitoring stack (fastest setup)
+
+Livepeer maintains a Docker image that bundles Prometheus and Grafana with starter dashboard templates:
+
+```bash
+# Single node
+docker run --net=host \
+  --env LP_MODE=standalone \
+  --env LP_NODES=localhost:7935 \
+  livepeer/monitoring:latest
+```
+
+```bash
+# Multi-node
+docker run --net=host \
+  --env LP_MODE=standalone \
+  --env LP_NODES=node1.example.com:7935,node2.example.com:7935 \
+  livepeer/monitoring:latest
+```
+
+**Environment variable options:**
+
+| Variable | Values | Description |
+|---|---|---|
+| `LP_MODE` | `standalone`, `docker-compose`, `kubernetes` | Deployment mode |
+| `LP_NODES` | Comma-separated `host:port` list | Nodes to monitor |
+| `LP_KUBE_NAMESPACES` | Comma-separated namespaces | For Kubernetes deployments |
+
+For Kubernetes, pods with the `prometheus.io/scrape` label are discovered automatically.
+
+<Card title="livepeer/livepeer-monitoring" icon="github" href="https://github.com/livepeer/livepeer-monitoring">
+  Source, Dockerfile, and prometheus.yml for the monitoring supercontainer.
+</Card>
+
+### Custom Prometheus setup
+
+Add this to your `prometheus.yml` to scrape go-livepeer directly:
+
+```yaml
+scrape_configs:
+  - job_name: 'livepeer'
+    static_configs:
+      - targets: ['localhost:7935']
+    scrape_interval: 15s
+```
+
+{/* REVIEW: The community monitoring guide at forum.livepeer.org/t/guide-transcoder-monitoring-with-prometheus-grafana/1225 was referenced in v1 docs. Verify this URL is still accessible before publication — the forum appeared offline during verification (March 2026). Rick/community to confirm an alternative if the forum is down. */}
+
+---
+
+## Cloud SPE Tools
+
+**URL:** [tools.livepeer.cloud](https://tools.livepeer.cloud)
+
+A community-built suite of orchestrator and network monitoring tools, maintained by the Cloud SPE.
+
+**Key sections:**
+
+- **AI network capabilities** (`/ai/network-capabilities`) — lists all AI-capable orchestrators by pipeline, showing which models are warm. Use this to verify your AI pipeline registrations are visible to the network after configuring `aiModels.json`.
+- **Payout reports** — daily, weekly, and monthly earnings breakdowns per orchestrator address
+- **Orchestrator view** — per-orchestrator statistics including pricing and job activity
+
+<Warning>
+  This is community infrastructure, not operated by the Livepeer Foundation. It has experienced intermittent availability. Do not rely on it as your sole monitoring source.
+</Warning>
+
+---
+
+## Network Dashboards (Dune Analytics)
+
+For protocol-level macro data — inflation, staking participation, fee volumes, token distribution:
+
+| Dashboard | Link |
+|---|---|
+| Growth Dashboard | [dune.com/rickstaa/livepeer-growth-dashboard](https://dune.com/rickstaa/livepeer-growth-dashboard) |
+| Governance Dashboard | [dune.com/rickstaa/livepeer-governance-dashboard](https://dune.com/rickstaa/livepeer-governance-dashboard) |
+| Token Dashboard (Arbitrum) | [dune.com/stronk/livepeer-arbitrum](https://dune.com/stronk/livepeer-arbitrum) |
+
+{/* REVIEW: Verify all three Dune dashboard URLs are still public and current before publication. */}
+
+These are for understanding network trends, not per-node operational monitoring.
+
+---
+
+## Capability Testing
+
+Tools for verifying your node is correctly serving jobs end-to-end, rather than inferring from logs.
+
+<CardGroup cols={2}>
+
+<Card title="stream-tester" icon="github" href="https://github.com/livepeer/stream-tester">
+  Submits transcoding jobs to an orchestrator and measures response times and success rates. Used to validate your transcoding capability from the outside.
+</Card>
+
+<Card title="livepeer-ai-job-tester" icon="github" href="https://github.com/mikezupper/livepeer-ai-job-tester">
+  Community-built tool (Cloud SPE) that submits AI inference jobs and records performance metrics. Used to verify AI pipeline availability before relying on network routing.
+</Card>
+
+</CardGroup>
+
+{/* REVIEW: Confirm livepeer-ai-job-tester repo (mikezupper/livepeer-ai-job-tester) is still maintained and compatible with current AI subnet. Cloud SPE to confirm. */}
+
+---
+
+## Tool selection guide
+
+| Situation | Tool to reach for |
+|---|---|
+| Am I in the active set? | Livepeer Explorer → orchestrator list |
+| Did I miss any reward rounds? | Livepeer Explorer → reward call history |
+| Is my node processing jobs right now? | Prometheus `/metrics` → session count; or `-v 6` logs |
+| Why am I not receiving AI jobs? | tools.livepeer.cloud/ai/network-capabilities |
+| Is my transcoding pipeline working correctly? | stream-tester |
+| What is the network-wide inflation rate? | Dune dashboards |
+| Is my pricing competitive? | Explorer → compare your price to top 20 orchestrators |
+
+<CardGroup cols={2}>
+  <Card title="Livepeer Explorer Guide" icon="compass" href="/v2/orchestrators/guides/monitoring/explorer">
+    Full walkthrough of every Explorer metric and what to do when things look wrong.
+  </Card>
+  <Card title="Metrics and Monitoring" icon="gauge" href="/v2/orchestrators/guides/monitoring/metrics">
+    Setting up Prometheus, Grafana, and the Docker monitoring stack.
+  </Card>
+</CardGroup>
