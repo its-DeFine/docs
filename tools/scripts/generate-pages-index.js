@@ -139,6 +139,12 @@ function isIndexFile(fileName) {
   return lower === INDEX_FILENAME || lower === LEGACY_INDEX_FILENAME;
 }
 
+function isContextDataPath(relPath) {
+  return normalizeRel(relPath)
+    .split('/')
+    .some((segment) => /^_contextdata_?$/i.test(segment));
+}
+
 function sortAlpha(values) {
   return [...values].sort((a, b) => a.localeCompare(b, 'en', { sensitivity: 'base' }));
 }
@@ -673,6 +679,9 @@ function findNestedIndexFiles(topLevelDirRel, docsRouteKeys = new Set()) {
           continue;
         }
         const relPath = normalizeRel(path.relative(REPO_ROOT, fullPath));
+        if (isContextDataPath(relPath)) {
+          continue;
+        }
         const routeKey = normalizeDocsRouteKey(relPath);
         const isRoutableIndex = routeKey && docsRouteKeys.has(routeKey);
         if (!allowedTopLevelIndexes.has(relPath)) {
@@ -688,6 +697,9 @@ function findNestedIndexFiles(topLevelDirRel, docsRouteKeys = new Set()) {
 
   trackedPaths.forEach((relPath) => {
     if (!isIndexFile(path.basename(relPath))) {
+      return;
+    }
+    if (isContextDataPath(relPath)) {
       return;
     }
     const routeKey = normalizeDocsRouteKey(relPath);
