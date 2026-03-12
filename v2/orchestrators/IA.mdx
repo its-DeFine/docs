@@ -13,6 +13,160 @@ keywords:
 'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
 ---
 
+# Orchestrator Routing Structure (Gap-Integrated)
+
+## Added sections / pages (placed into current structure)
+
+| Area       | Place             | ⚠️ Add                      | Suggested short name         | Why                                           |
+| ---------- | ----------------- | --------------------------- | ---------------------------- | --------------------------------------------- |
+| Root       | /navigator.mdx         | ⚠️ Decision / fit layer     | **Should I Run One?**        | Adds missing worth-it / fit routing           |
+| Root       | /navigator.mdx          | ⚠️ Service / path matrix    | **Path Matrix**              | Clarifies pool vs solo vs AI vs enterprise    |
+| Root       | /navigator.mdx          | ⚠️ Video vs AI routing      | **Video vs AI**              | Clarifies workload choice early               |
+| Root       | /navigator.mdx          | ⚠️ Viability layer          | **Worth It?**                | Consolidates costs, stake, rewards            |
+| Quickstart | quickstart/guide.mdx             | ⚠️ Activation milestone     | **First Job**                | Adds clear first-success checkpoint           |
+| Quickstart | quickstart/guide.mdx             | ⚠️ Earnings checkpoint      | **First Earnings**           | Adds first visible outcome checkpoint         |
+| Setup      | setup/guide.mdx             | ⚠️ Alt path callout         | **Other Setups**             | Redirects siphon / custom / non-default flows |     | **Fleet Ops**                | Covers data centre / multi-node / scale ops   |
+| Operations | /operations/Staking & Rewards | ⚠️ Practical economics page | **Worth It?** / **Capacity** | Covers pricing, competitiveness, capacity     |
+| Operations | /operations/AI Pipelines      | ⚠️ Model / VRAM ref         | **Models & VRAM**            | Canonical operator-side AI fit page           |
+| Operations | /operations/AI Pipelines      | ⚠️ Realtime vs batch choice | **Realtime vs Batch**        | Clarifies AI quickstart split                 |
+| Operations | /operations/Monitoring        | ⚠️ Activation validation    | **Smoke Test**               | Canonical “am I actually live?” check         |
+| Operations | /operations/More Guides       | ⚠️ Gateway relationship     | **Gateways**                 | Explains operator ↔ gateway operational link  |
+| Operations | /operations/More Guides       | ⚠️ Current support / status | **Support Status**           | What is supported, experimental, deprecated   |
+| Operations | /operations/More Guides         | ⚠️ Enterprise / scale  
+---
+
+## Current structure with additions placed
+
+### `/{root}` → `navigator.mdx`
+
+| Section   | Include                                     |                                                      |
+| --------- | ------------------------------------------- | ---------------------------------------------------- |
+| Navigator | 1. Should you run an orchestrator?          |                                                      |
+| Navigator | 2. Pool vs Solo *(with enterprise callout)* |                                                      |
+| Navigator |                                             | 2.1 Pool Joiner Path                                 |
+| Navigator |                                             | 2.2 Solo Operator Path → Setup Guide                 |
+| Navigator | 3. Workload types                           |                                                      |
+| Navigator |                                             | 3.1 ⚠️ **Video vs AI**                               |
+| Navigator |                                             | 3.2 Video Operator Path → ⚠️ **GPU Setup**           |
+| Navigator |                                             | 3.3 AI Operator Path → AI Pipelines Guide            |
+| Navigator | 4. Costs, Stake & Viability                 |                                                      |
+| Navigator |                                             | ⚠️ **Worth It?**                                     |
+| Navigator |                                             | Earnings                                             |
+| Navigator |                                             | Staking LPT                                          |
+| Navigator |                                             | Rewards                                              |
+| Navigator | 5. Delegates, Running Pools                 |                                                      |
+| Navigator |                                             | 5.1 Delegates / Rewards & Fees                       |
+| Navigator |                                             | 5.2 Running a Pool                                   |
+| Navigator |                                             | ⚠️ **Path Matrix** *(solo / pool / AI / enterprise)* |
+
+### `/quickstart` → `guide.mdx`
+
+| Section          | Include                                                                |                                             |
+| ---------------- | ---------------------------------------------------------------------- | ------------------------------------------- |
+| Quickstart Guide | 1. This quickstart gets solo operators up and running with go-livepeer |                                             |
+| Quickstart Guide |                                                                        | What it does **not** do                     |
+| Quickstart Guide | 2. Redirects                                                           |                                             |
+| Quickstart Guide |                                                                        | Pool → Join a Pool                          |
+| Quickstart Guide |                                                                        | AI workloads → AI quickstart / AI Pipelines |
+| Quickstart Guide |                                                                        | Enterprise → ⚠️ **Fleet Ops**               |
+| Quickstart Guide |                                                                        | Different setup → Setup Guide               |
+| Quickstart Guide | 3. Default quickstart scope                                            |                                             |
+| Quickstart Guide |                                                                        | Video-first / default path                  |
+| Quickstart Guide |                                                                        | AI requires separate path                   |
+| Quickstart Guide | 4. ⚠️ **First Job**                                                    |                                             |
+| Quickstart Guide | 5. ⚠️ **First Earnings**                                               |                                             |
+| Quickstart Guide | 6. ⚠️ **Smoke Test**                                                   |                                             |
+
+### `/setup` → `guide.mdx`
+
+| Section     | Include                                              |                                                       |
+| ----------- | ---------------------------------------------------- | ----------------------------------------------------- |
+| Setup Guide | 1. This guide sets up an orchestrator on go-livepeer |                                                       |
+| Setup Guide |                                                      | What it does **not** do                               |
+| Setup Guide |                                                      | Pool redirect                                         |
+| Setup Guide |                                                      | ⚠️ **Other Setups** *(siphon / custom / non-default)* |
+| Setup Guide |                                                      | Default path for most users                           |
+| Setup Guide | 2. Setup overview                                    |                                                       |
+| Setup Guide |                                                      | Cards for steps / sections                            |
+| Setup Guide | 3. ⚠️ **Activation checks**                          |                                                       |
+| Setup Guide |                                                      | Connect                                               |
+| Setup Guide |                                                      | Publish                                               |
+| Setup Guide |                                                      | Verify                                                |
+
+### `/operations` → section label: **Advanced Operations**
+
+| Group                       | Pages                                                        |                         |
+| --------------------------- | ------------------------------------------------------------ | ----------------------- |
+| Overview                    | ⚠️ **Advanced Operations Guide** *(top-level overview page)* |                         |
+| `setups-and-workloads`  | **Alt Setups** *(incl. Siphon if relevant)*                  |                         |
+|                             | **Workloads**                                                |                         |
+|                             |                                                              | Video vs AI workloads   |
+|                             |                                                              | Setup / ops differences |
+| `ai-pipelines`              | **AI Pipelines**                                             |                         |
+|                             | **Hosting Models**                                           |                         |
+|                             | ⚠️ **Models & VRAM**                                         |                         |
+|                             | AI Models *(compatibility, aiModels.json, custom models)*    |                         |
+|                             | BYOC / Custom Models                                         |                         |
+|                             | Cascade / Streaming Agent Setup *(if real / supported)*      |                         |
+|                             | Keep Models Warm / Runtime Strategy                          |                         |
+|                             | ⚠️ **Realtime vs Batch**                                     |                         |
+| `staking-and-rewards`       | ⚠️ **Worth It?** / **Capacity**                              |                         |
+|                             | Pricing / Earnings                                           |                         |
+|                             | Staking LPT                                                  |                         |
+| `delegates-and-governance`  | Delegates / Rewards & Fees                                   |                         |
+|                             | Governance                                                   |                         |
+| `monitoring-and-optimising` | Optimisation                                                 |                         |
+|                             | Monitoring                                                   |                         |
+|                             | Troubleshooting                                              |                         |
+|                             | Node Health Checks                                           |                         |
+|                             | Simple Monitoring                                            |                         |
+|                             | Explorer Verification                                        |                         |
+|                             | Logs & Diagnostics                                           |                         |
+|                             | Prometheus / Grafana *(if supported)*                        |                         |
+|                             | ⚠️ **Smoke Test**                                            |                         |
+| `more-guides`               | ⚠️ **Gateways**                                              |                         |
+|                             | Running a Pool                                               |                         |
+|                             | ⚠️ **Fleet Ops**                                             |                         |
+|                             | Enterprise / Data Centres                                    |                         |
+|                             | Governance Participation                                     |                         |
+|                             | ⚠️ **Support Status**                                        |                         |
+
+### `/guides`
+
+| Section | Include                                                                                     |
+| ------- | ------------------------------------------------------------------------------------------- |
+| Guides  | Keep light / optional                                                                       |
+| Guides  | Most task guides now live under **Advanced Operations**                                     |
+
+---
+
+## Short-name suggestions
+
+| Current / unclear                                                  | Suggested short name       |
+| ------------------------------------------------------------------ | -------------------------- |
+| Costs, Stake & Viability                                           | **Feasibility**              |
+| Pricing, Competitiveness & Capacity                                | **Capacity**               |
+| Alternative Setups & Workload differentiation                      | **Setups-and-Workloads** |
+| AI Models Guide (compatibility, aiModels.json, custom models, etc) | **AI-Models**          |
+| Realtime vs Batch AI choice page                                   | **AI-Realtime-Batch**      |
+| Connecting with Gateways                                           | **Gateway-interface**               |
+
+---
+
+## Missing pages to create
+
+| ⚠️ Page                      | Suggested file                                         |
+| ---------------------------- | ------------------------------------------------------ |
+| ⚠️ Feasibility                 | `/operations/staking-and-rewards/feasibility.mdx`         |
+| ⚠️ AI-Models             | `/operations/ai-pipelines/ai-models.mdx`         |
+| ⚠️ Realtime vs Batch         | `/operations/ai-pipelines/realtime-vs-batch.mdx`       |
+| ⚠️ Smoke Test                | `/operations/monitoring-and-optimising/smoke-test.mdx` |
+| ⚠️ Fleet Ops                 | `/operations/more-guides/fleet-ops.mdx`                |
+| ⚠️ Gateways                  | `/operations/more-guides/gateways.mdx`                 |
+| ⚠️ Support Status            | `/operations/more-guides/support-status.mdx`           |
+| ⚠️ Advanced Operations Guide | `/operations/guide.mdx`                                |
+
+
 # To do: IA Layout
 
 ## Routing Guides per section 
