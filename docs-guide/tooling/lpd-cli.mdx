@@ -239,10 +239,10 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     Use `lpd dev --scoped` for filtered previews of the main docs navigation. For alternate docs config files such as `docs-orch-work.json` or `docs-gate-work.json`, use the custom loader helper below.
 
     **Advanced distinction**
-    <ResponseField name="--docs-config TARGET_PATH" type="string" default="">
+    <ResponseField name="--docs-config <path>" type="string" default="">
       Alternate docs-config input passed through to the scoped Mint launcher. This page does not recommend it as the primary contributor workflow.
     </ResponseField>
-    <ResponseField name="--scope-file TARGET_PATH" type="string" default="">
+    <ResponseField name="--scope-file <path>" type="string" default="">
       Load scoped selection settings from JSON. This is for filters such as `versions`, `languages`, `tabs`, `prefixes`, and optional `disableOpenapi`. It is not the normal way to switch to another docs navigation file.
     </ResponseField>
 
@@ -253,7 +253,7 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     <ResponseField name="--test-mode fast|staged|full" type="enum" default="fast">
       Choose which advisory test mode to run with `--test`.
     </ResponseField>
-    <ResponseField name="--script TARGET_PATH" type="string" default="tools/scripts/mint-dev.sh">
+    <ResponseField name="--script <path>" type="string" default="tools/scripts/mint-dev.sh">
       Override the launcher script path.
     </ResponseField>
     <ResponseField name="--dry-run" type="boolean" default="false">
@@ -265,16 +265,16 @@ bash lpd move-page v2/orchestrators/setup/old.mdx v2/orchestrators/get-started/n
     <ResponseField name="--scope-interactive" type="boolean" default="false">
       Prompt for scoped filters interactively.
     </ResponseField>
-    <ResponseField name="--scope-version CSV" type="string" default="all">
+    <ResponseField name="--scope-version <csv>" type="string" default="all">
       Limit included versions.
     </ResponseField>
-    <ResponseField name="--scope-language CSV" type="string" default="all">
+    <ResponseField name="--scope-language <csv>" type="string" default="all">
       Limit included languages.
     </ResponseField>
-    <ResponseField name="--scope-tab CSV" type="string" default="all">
+    <ResponseField name="--scope-tab <csv>" type="string" default="all">
       Limit included tabs.
     </ResponseField>
-    <ResponseField name="--scope-prefix CSV" type="string" default="all">
+    <ResponseField name="--scope-prefix <csv>" type="string" default="all">
       Limit included routes by prefix such as `v2/orchestrators`.
     </ResponseField>
     <ResponseField name="--skip-external-fetch" type="boolean" default="false">
