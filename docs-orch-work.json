@@ -148,6 +148,11 @@
                     ]
                   }
                 ]
+              },
+              {
+                "tab": "Orchestrators Restructure",
+                "icon": "microchip",
+                "groups": []
               }
             ]
           }
