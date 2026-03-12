@@ -28,6 +28,7 @@
                     "group": "Home",
                     "icon": "microchip",
                     "pages": [
+                      "v2/orchestrators/IA",
                       "v2/orchestrators/portal",
                       "v2/orchestrators/rc-navigator"
                     ]
@@ -134,8 +135,8 @@
                     "group": "Unplaced",
                     "icon": "question",
                     "pages": [
-                      "v2/orchestrators/guides/guides",
-                      "v2/orchestrators/guides/tooling",
+                      "v2/orchestrators/resources/x-guides",
+                      "v2/orchestrators/guides/rcs-tooling",
                       "v2/orchestrators/unclassified/rcs-connect-activate-publish",
                       "v2/orchestrators/unclassified/rcs-06-add-ai-to-node-output",
                       "v2/orchestrators/unclassified/orchestrator-functions",
@@ -144,220 +145,6 @@
                       "v2/orchestrators/unclassified/placeholders/data-centres-and-large-scale-hardware-providers",
                       "v2/orchestrators/unclassified/placeholders/enterprise-and-data-centres",
                       "v2/orchestrators/personas-and-pages"
-                    ]
-                  }
-                ]
-              },
-              {
-                "tab": "GPU v2-dev",
-                "icon": "microchip",
-                "groups": [
-                  {
-                    "group": "GPU Nodes",
-                    "icon": "microchip",
-                    "pages": [
-                      "v2/orchestrators/v2-dev/orchestrators-portal",
-                      "v2/orchestrators/v2-dev/orchestrator-journey"
-                    ]
-                  },
-                  {
-                    "group": "Concepts",
-                    "icon": "book-open",
-                    "pages": [
-                      "v2/orchestrators/v2-dev/concepts/overview",
-                      "v2/orchestrators/v2-dev/concepts/architecture",
-                      "v2/orchestrators/v2-dev/concepts/economics",
-                      "v2/orchestrators/v2-dev/concepts/functions",
-                      "v2/orchestrators/v2-dev/concepts/job-types"
-                    ]
-                  },
-                  {
-                    "group": "Get Started",
-                    "icon": "bolt",
-                    "pages": [
-                      "v2/orchestrators/v2-dev/get-started/setup-paths",
-                      "v2/orchestrators/v2-dev/get-started/quickstart",
-                      "v2/orchestrators/v2-dev/get-started/join-a-pool",
-                      "v2/orchestrators/v2-dev/get-started/AI-prompt-start",
-                      "v2/orchestrators/v2-dev/get-started/realtime-ai-quickstart",
-                      "v2/orchestrators/v2-dev/get-started/batch-ai-quickstart"
-                    ]
-                  },
-                  {
-                    "group": "Setup",
-                    "icon": "gear",
-                    "pages": [
-                      "v2/orchestrators/v2-dev/setup/overview",
-                      "v2/orchestrators/v2-dev/setup/hardware-requirements",
-                      "v2/orchestrators/v2-dev/setup/install-go-livepeer",
-                      "v2/orchestrators/v2-dev/setup/orch-config",
-                      "v2/orchestrators/v2-dev/setup/connect-to-arbitrum",
-                      "v2/orchestrators/v2-dev/setup/orchestrator-stats",
-                      "v2/orchestrators/v2-dev/setup/publish-offerings"
-                    ]
-                  },
-                  {
-                    "group": "Advanced Operations",
-                    "icon": "chart-line",
-                    "pages": [
-                      "v2/orchestrators/v2-dev/advanced/earnings",
-                      "v2/orchestrators/v2-dev/advanced/staking-LPT",
-                      "v2/orchestrators/v2-dev/advanced/rewards-and-fees",
-                      "v2/orchestrators/v2-dev/advanced/delegation",
-                      "v2/orchestrators/v2-dev/advanced/payments",
-                      "v2/orchestrators/v2-dev/advanced/ai-pipelines",
-                      "v2/orchestrators/v2-dev/advanced/hosting-models",
-                      "v2/orchestrators/v2-dev/advanced/run-a-pool"
-                    ]
-                  },
-                  {
-                    "group": "Tools and Guides",
-                    "icon": "wrench",
-                    "pages": [
-                      "v2/orchestrators/v2-dev/tools-and-guides/guides",
-                      "v2/orchestrators/v2-dev/tools-and-guides/tooling"
-                    ]
-                  },
-                  {
-                    "group": "Resources",
-                    "icon": "books",
-                    "pages": [
-                      "v2/orchestrators/v2-dev/resources/faq",
-                      "v2/orchestrators/v2-dev/resources/community-pools",
-                      "v2/orchestrators/v2-dev/resources/cli-flags"
-                    ]
-                  }
-                ]
-              },
-              {
-                "tab": "GPU Old",
-                "icon": "microchip",
-                "anchors": [
-                  {
-                    "anchor": "GPU Nodes",
-                    "icon": "microchip",
-                    "groups": [
-                      {
-                        "group": "Orchestrator Knowledge Hub",
-                        "icon": "graduation-cap",
-                        "pages": [
-                          "v2/orchestrators/old/orchestrators-portal",
-                          "v2/orchestrators/old/orchestrator-journey",
-                          "v2/orchestrators/old/about-orchestrators/overview",
-                          "v2/orchestrators/old/about-orchestrators/orchestrator-functions",
-                          "v2/orchestrators/old/about-orchestrators/architecture",
-                          "v2/orchestrators/old/about-orchestrators/economics",
-                          "v2/orchestrators/old/about-orchestrators/job-types"
-                        ]
-                      },
-                      {
-                        "group": "Quickstart ⚡",
-                        "icon": "/snippets/assets/logos/Livepeer-Logo-Symbol-Theme.svg",
-                        "pages": [
-                          "v2/orchestrators/old/quickstart/overview",
-                          "v2/orchestrators/old/quickstart/join-a-pool",
-                          "v2/orchestrators/old/quickstart/orchestrator-setup",
-                          "v2/orchestrators/old/quickstart/realtime-ai-quickstart",
-                          "v2/orchestrators/old/quickstart/batch-ai-quickstart"
-                        ]
-                      },
-                      {
-                        "group": "Payments",
-                        "icon": "coins",
-                        "pages": ["v2/orchestrators/old/payments/index"]
-                      },
-                      {
-                        "group": "Run an Orchestrator",
-                        "icon": "gear-code",
-                        "pages": [
-                          {
-                            "group": "Orchestrator Setup Guide",
-                            "pages": [
-                              "v2/orchestrators/old/setting-up-an-orchestrator/overview",
-                              {
-                                "group": "Setup Checklist",
-                                "pages": [
-                                  "v2/orchestrators/old/setting-up-an-orchestrator/hardware-requirements"
-                                ]
-                              },
-                              {
-                                "group": "Installation",
-                                "pages": [
-                                  "v2/orchestrators/old/setting-up-an-orchestrator/orchestrator-stats"
-                                ]
-                              },
-                              {
-                                "group": "Configuration",
-                                "pages": [
-                                  "v2/orchestrators/old/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer"
-                                ]
-                              },
-                              {
-                                "group": "Testing",
-                                "pages": [
-                                  "v2/orchestrators/old/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
-                                ]
-                              },
-                              {
-                                "group": "Network Integration",
-                                "pages": [
-                                  "v2/orchestrators/old/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
-                                ]
-                              },
-                              {
-                                "group": "Monitor & Optimise",
-                                "pages": [
-                                  "v2/orchestrators/old/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers"
-                                ]
-                              }
-                            ]
-                          }
-                        ]
-                      },
-                      {
-                        "group": "Advanced Orchestrator Information",
-                        "icon": "gamepad",
-                        "pages": [
-                          "v2/orchestrators/old/earnings",
-                          "v2/orchestrators/old/advanced-setup/staking-LPT",
-                          "v2/orchestrators/old/advanced-setup/rewards-and-fees",
-                          "v2/orchestrators/old/advanced-setup/delegation",
-                          "v2/orchestrators/old/advanced-setup/ai-pipelines",
-                          "v2/orchestrators/old/advanced-setup/hosting-models",
-                          "v2/orchestrators/old/advanced-setup/run-a-pool"
-                        ]
-                      },
-                      {
-                        "group": "Orchestrator Tools & Resources",
-                        "icon": "laptop-file",
-                        "pages": [
-                          "v2/orchestrators/old/orchestrator-tools-and-resources/orchestrator-tools",
-                          "v2/orchestrators/old/orchestrator-tools-and-resources/community-pools",
-                          "v2/orchestrators/old/orchestrator-tools-and-resources/orchestrator-guides",
-                          "v2/orchestrators/old/orchestrator-tools-and-resources/orchestrator-resources",
-                          "v2/orchestrators/old/orchestrator-tools-and-resources/orchestrator-community-and-help"
-                        ]
-                      },
-                      {
-                        "group": "Technical References",
-                        "icon": "code",
-                        "pages": [
-                          {
-                            "group": "Orchestrators",
-                            "pages": ["v2/orchestrators/old/references/faq"]
-                          },
-                          {
-                            "group": "API & CLI Reference",
-                            "pages": [
-                              "v2/orchestrators/old/references/cli-flags"
-                            ]
-                          },
-                          {
-                            "group": "On-Chain Reference",
-                            "pages": ["v2/orchestrators/old/references/faq"]
-                          }
-                        ]
-                      }
                     ]
                   }
                 ]
