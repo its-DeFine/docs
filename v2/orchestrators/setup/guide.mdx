@@ -1,15 +1,18 @@
 ---
-title: Setup Overview
+title: Run an Orchestrator
 sidebarTitle: Setup Overview
-description: Default setup path for Livepeer orchestrators running go-livepeer, with redirects for pools and non-default deployment patterns.
+description: >-
+  End-to-end setup path for Livepeer orchestrators running go-livepeer —
+  from hardware prerequisites through activation and first jobs.
 keywords:
   - livepeer
   - orchestrator
   - setup
   - go-livepeer
   - activation
-  - publish
-  - verify
+  - GPU
+  - install
+  - configure
 'og:image': /snippets/assets/site/og-image/en/orchestrators.png
 'og:image:alt': Livepeer Docs social preview image for Orchestrators
 'og:image:type': image/png
@@ -18,70 +21,104 @@ keywords:
 pageType: overview
 audience: orchestrator
 purpose: guide
-status: draft
-lastVerified: 2026-03-12
+status: current
+lastVerified: 2026-03-13
 ---
 
-This guide is the default setup path for operators who are running an orchestrator on go-livepeer.
+This is the standard setup path for running a Livepeer orchestrator with go-livepeer. It covers a single-machine deployment where one node runs as both orchestrator and transcoder.
 
-## What this guide does
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d' }}}%%
+flowchart LR
+    classDef default stroke-width:2px
+    GPU["Your Machine\n(GPU + go-livepeer)"]
+    Arb["Arbitrum One\n(staking, payments)"]
+    GW["Gateways\n(route jobs to you)"]
+    GPU -->|"register, stake, reward"| Arb
+    GW -->|"send video/AI jobs"| GPU
+    GPU -->|"return results"| GW
+```
 
-- Walks through the default setup path most operators should use.
-- Breaks setup into clear install, configure, connect, activate, test, and monitor steps.
-- Links to the detailed current pages for each step.
+<Note>
+**Not the right path?** If you want to contribute GPU to an existing pool without managing your own node, see [Join a Pool](/v2/orchestrators/guides/setup-paths/join-a-pool). For the split keystore setup (Siphon), see [Siphon Setup](/v2/orchestrators/guides/setup-paths/siphon-setup). For help choosing, see the [Navigator](/v2/orchestrators/guides/setup-paths/setup-navigator).
+</Note>
 
-## What this guide does not do
+---
 
-- It does not cover pool participation as the primary path.
-- It does not replace the detailed AI operations guides.
-- It does not cover every split, siphon, or custom deployment pattern in-line.
+## Setup flow
 
-## Redirects
+Follow these steps in order. Each page is self-contained — complete it before moving to the next.
+
+<Steps>
+  <Step title="Check prerequisites">
+    Confirm your hardware, GPU drivers, network, wallet, and tokens are ready.
+
+    [Setup Checklist →](/v2/orchestrators/setup/rcs-requirements)
+  </Step>
+  <Step title="Install go-livepeer">
+    Download and install the go-livepeer binary or Docker image for your platform.
+
+    [Install →](/v2/orchestrators/setup/rs-install)
+  </Step>
+  <Step title="Configure your node">
+    Set the startup flags: network, GPU selection, pricing, service address, and AI workers.
+
+    [Configure →](/v2/orchestrators/setup/r-configure)
+  </Step>
+  <Step title="Connect to Arbitrum">
+    Choose an RPC provider, add the `-ethUrl` flag, and verify the connection.
+
+    [Connect →](/v2/orchestrators/setup/sc-connect)
+  </Step>
+  <Step title="Activate on-chain">
+    Register as an orchestrator, set reward cut and fee cut, stake LPT, and join the active set.
+
+    [Activate →](/v2/orchestrators/setup/activate)
+  </Step>
+  <Step title="Verify your setup">
+    Run pre- and post-activation checks: GPU detection, port reachability, Explorer status, first job.
+
+    [Verify →](/v2/orchestrators/setup/test)
+  </Step>
+  <Step title="Set up monitoring">
+    Enable Prometheus metrics, track key health signals, and connect to Explorer.
+
+    [Monitor →](/v2/orchestrators/setup/r-monitor)
+  </Step>
+</Steps>
+
+---
+
+## What you will need
+
+| Requirement | Details |
+|---|---|
+| **GPU** | NVIDIA with NVENC support. RTX 3060+ for transcoding; RTX 3090+ for AI inference. |
+| **OS** | Linux recommended for production. macOS and Windows for development only. |
+| **CUDA** | 12.0+ with matching NVIDIA driver (525+ on Linux). |
+| **Wallet** | Ethereum account with ETH on Arbitrum (for gas) and LPT (for staking). |
+| **Port** | 8935 TCP open to the public internet. |
+| **RPC** | Arbitrum One endpoint (Alchemy, Infura, or self-hosted). |
+
+For detailed hardware guidance, see [GPU & Hardware Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference). For cost and revenue analysis, see [Feasibility & Economics](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics).
+
+---
+
+## After setup
+
+Once your node is live and receiving jobs:
 
 <CardGroup cols={2}>
-  <Card title="Pool redirect" icon="users" href="/v2/orchestrators/guides/join-a-pool" arrow>
-    Use this if you are contributing GPU capacity to an existing operator instead of setting up your own node.
+  <Card title="Workloads & AI" icon="layer-group" href="/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide">
+    Add AI inference pipelines to earn from the AI subnet alongside transcoding.
   </Card>
-  <Card title="Other setups" icon="shuffle" href="/v2/orchestrators/dep-rc-navigator" arrow>
-    Use this for split, siphon, and other non-default setup paths that are still being consolidated.
+  <Card title="Staking & Rewards" icon="coins" href="/v2/orchestrators/guides/staking-and-rewards/earnings">
+    Understand your revenue streams and optimise commission parameters.
   </Card>
-</CardGroup>
-
-## Setup overview
-
-<CardGroup cols={2}>
-  <Card title="Requirements" icon="microchip" href="/v2/orchestrators/setup/rcs-requirements" arrow>
-    Confirm hardware, networking, and operational prerequisites.
+  <Card title="Getting Delegates" icon="users" href="/v2/orchestrators/guides/staking-and-rewards/attracting-delegates">
+    Attract delegators to increase your stake and job selection probability.
   </Card>
-  <Card title="Install" icon="download" href="/v2/orchestrators/setup/rs-install" arrow>
-    Install go-livepeer using the release path that matches your environment.
+  <Card title="Troubleshooting" icon="circle-question" href="/v2/orchestrators/resources/faq">
+    Common errors and fixes for orchestrator operations.
   </Card>
-  <Card title="Configure" icon="sliders" href="/v2/orchestrators/setup/r-configure" arrow>
-    Set the runtime flags that define price, GPU selection, network, and service address.
-  </Card>
-  <Card title="Connect" icon="plug" href="/v2/orchestrators/setup/sc-connect" arrow>
-    Connect the node to Arbitrum and verify RPC reliability.
-  </Card>
-  <Card title="Test" icon="vial" href="/v2/orchestrators/setup/x-test" arrow>
-    Validate the node before and after activation.
-  </Card>
-  <Card title="Monitor" icon="chart-line" href="/v2/orchestrators/setup/r-monitor" arrow>
-    Track health, rewards, and operational signals once the node is live.
-  </Card>
-</CardGroup>
-
-## Activation checks
-
-Treat activation as a distinct checkpoint, not just the end of installation.
-
-| Check | Use this page |
-| --- | --- |
-| Connect | `/v2/orchestrators/setup/sc-connect` |
-| Publish and activate | `/v2/orchestrators/unclassified/rcs-connect-activate-publish` |
-| Verify | `/v2/orchestrators/setup/x-test` |
-
-<CardGroup cols={3}>
-  <Card title="Connect" icon="plug" href="/v2/orchestrators/setup/sc-connect" arrow />
-  <Card title="Publish" icon="satellite-dish" href="/v2/orchestrators/unclassified/rcs-connect-activate-publish" arrow />
-  <Card title="Verify" icon="circle-check" href="/v2/orchestrators/setup/x-test" arrow />
 </CardGroup>

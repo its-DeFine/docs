@@ -1,70 +1,170 @@
 ---
-title: Monitoring Your Orchestrator Setup
+title: Set Up Monitoring
 sidebarTitle: Monitor
 description: >-
-  Monitor node health, GPU performance, and earnings with Prometheus and the
-  Livepeer Explorer.
+  Enable Prometheus metrics, track key health signals, and verify your
+  orchestrator is earning — the minimum monitoring setup for a new node.
 keywords:
   - livepeer
-  - orchestrators
+  - orchestrator
   - monitoring
-  - stats
-  - prometheus
+  - Prometheus
   - metrics
-'og:image': /snippets/assets/site/og-image/fallback.png
-'og:image:alt': Livepeer Docs social preview image
+  - nvidia-smi
+  - GPU
+  - reward call
+  - Explorer
+'og:image': /snippets/assets/site/og-image/en/orchestrators.png
+'og:image:alt': Livepeer Docs social preview image for Orchestrators
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
+pageType: how_to
 audience: orchestrator
+status: current
+lastVerified: 2026-03-13
 ---
-{/* Should include community tooling for doing this as well as link to Explorer */}
 
-import { CustomCodeBlock } from '/snippets/components/content/code.jsx'
+This page covers the minimum monitoring you should have in place once your orchestrator is live. For full observability (Grafana dashboards, alerting, DCGM exporter), see the [Metrics & Monitoring guide](/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring).
 
-Operating an orchestrator means keeping the node online, processing jobs correctly, calling rewards each round, and redeeming tickets. Monitoring helps you spot failures before they cost you income or reputation.
+---
 
-## Built-in metrics
+## Enable Prometheus metrics
 
-With `-monitor=true`, go-livepeer exposes Prometheus-compatible metrics at:
+Add `-monitor` to your go-livepeer startup command:
 
-<CustomCodeBlock
-  codeString={`http://localhost:7935/metrics`}
-  language="text"
-  icon="gauge"
-/>
+```bash
+livepeer \
+  -network arbitrum-one-mainnet \
+  -ethUrl <YOUR_RPC_URL> \
+  -orchestrator \
+  -transcoder \
+  -nvidia 0 \
+  -monitor \
+  ...
+```
 
-## What to track
+Metrics are exposed at:
 
-| Layer | What to monitor |
-|--------|------------------|
-| **Hardware** | GPU utilisation, VRAM, temperature (`nvidia-smi`) |
-| **Application** | go-livepeer health, segment/job success rate |
-| **Network** | Latency, packet loss |
-| **On-chain** | Bonded stake, active set status, reward calls |
-| **Economics** | ETH fees, LPT rewards |
+```
+http://localhost:7935/metrics
+```
 
-Key metrics include: `livepeer_segment_processed_total`, `livepeer_segment_errors_total`, `livepeer_transcode_latency_seconds`, and (for AI) inference job counts and latency. High error rates reduce selection probability.
+Verify with:
 
-<Warning> If you do not call **reward()** every round, you stop earning inflation rewards. Automate reward calls or use a service that does.</Warning>
+```bash
+curl -s http://localhost:7935/metrics | head -20
+```
 
-## Explorer
+---
 
-Use the [Livepeer Explorer](https://explorer.livepeer.org) to check:
+## Key metrics to watch
 
-- Active set status
-- Bonded and delegated LPT
-- Reward calls and fee earnings
-- Historical performance
+| Metric | What it tells you |
+|---|---|
+| `segment_source_appeared_total` | Total segments received — confirms you are getting jobs |
+| `segment_transcoded_total` | Successfully transcoded segments |
+| `segment_transcode_errors_total` | Failed transcodes — high values reduce gateway selection probability |
+| `transcode_latency_seconds` | Time to transcode each segment — should stay well under real-time |
+| `current_round` | Current Livepeer protocol round |
+| `reward_call_count` | Number of reward calls submitted — should increment once per round |
 
-## Prometheus and Grafana
+For AI inference metrics, also watch `ai_request_count` and `ai_request_latency_seconds`.
 
-For production, run Prometheus with a scrape config for your node(s), and use or build Grafana dashboards. Add **Node exporter** and **NVIDIA DCGM exporter** for host and GPU metrics.
+---
 
-## See also
+## Check Explorer
 
-<Columns cols={2}>
-  <Card title="Install go-livepeer" icon="download" href="./install-go-livepeer" arrow />
-  <Card title="Rewards and fees" icon="coins" href="../advanced/rewards-and-fees" arrow />
-  <Card title="FAQ" icon="circle-question" href="../resources/faq" arrow />
-</Columns>
+After each round (~24 hours), verify on [Livepeer Explorer](https://explorer.livepeer.org):
+
+1. **Status** — should show **Active**
+2. **Reward calls** — should show a reward for each round your node was online
+3. **Fees earned** — will appear after you process transcoding or AI jobs
+
+If reward calls are missing, check:
+- Your node was online and connected during the round
+- You did **not** start with `-reward=false`
+- Your Arbitrum ETH balance is sufficient for gas
+
+---
+
+## GPU monitoring
+
+Check GPU health and utilisation:
+
+```bash
+# Current status
+nvidia-smi
+
+# Continuous monitoring (updates every 2 seconds)
+nvidia-smi -l 2
+
+# CSV output for logging: utilisation, memory, temperature
+nvidia-smi --query-gpu=utilization.gpu,utilization.memory,memory.used,memory.total,temperature.gpu --format=csv -l 5
+```
+
+Watch for:
+- **Temperature** above 85°C — indicates inadequate cooling
+- **Memory utilisation** near 100% — may cause out-of-memory errors for AI workloads
+- **GPU utilisation** at 0% when you should be processing jobs — check go-livepeer logs
+
+---
+
+## Quick symptom guide
+
+| Symptom | Likely cause | Action |
+|---|---|---|
+| No segments in logs | Service address unreachable or price too high | Re-check port 8935 from external machine; compare pricing on Explorer |
+| Reward calls missing | Node offline during round, or `-reward=false` | Confirm uptime; check startup flags |
+| High transcode errors | GPU driver issue or CUDA mismatch | Run `nvidia-smi`; check go-livepeer error logs |
+| RPC errors in logs | Arbitrum endpoint down or rate-limited | Test RPC with `curl`; switch to a different provider if needed |
+| AI runner not responding | Container crashed or port conflict | `docker logs <container>`; check `curl localhost:8000/health` |
+
+For detailed troubleshooting, see the [FAQ](/v2/orchestrators/resources/faq).
+
+---
+
+## Minimal Prometheus setup
+
+If you want to scrape and store metrics, add a `prometheus.yml`:
+
+```yaml
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'go-livepeer'
+    static_configs:
+      - targets: ['localhost:7935']
+```
+
+Run Prometheus with Docker:
+
+```bash
+docker run -d \
+  --name prometheus \
+  --network host \
+  -v $(pwd)/prometheus.yml:/etc/prometheus/prometheus.yml \
+  prom/prometheus
+```
+
+Access the Prometheus UI at `http://localhost:9090`.
+
+---
+
+## Next steps
+
+<CardGroup cols={2}>
+  <Card title="Metrics & Monitoring" icon="chart-line" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring" arrow>
+    Full observability setup with Grafana dashboards and alerting.
+  </Card>
+  <Card title="Explorer Guide" icon="compass" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/explorer-guide" arrow>
+    Navigate the Livepeer Explorer to track your performance.
+  </Card>
+  <Card title="Troubleshooting" icon="circle-question" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/troubleshooting" arrow>
+    Common errors and fixes for orchestrator operations.
+  </Card>
+  <Card title="Community Tools" icon="screwdriver-wrench" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/tools" arrow>
+    Third-party dashboards and monitoring tools.
+  </Card>
+</CardGroup>

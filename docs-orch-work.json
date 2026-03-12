@@ -21,7 +21,7 @@
             "language": "en",
             "tabs": [
               {
-                "tab": "Orchestrators Restructure",
+                "tab": "Orchestrators",
                 "icon": "microchip",
                 "groups": [
                   {
@@ -38,7 +38,7 @@
                     "pages": [
                       "v2/orchestrators/concepts/role",
                       "v2/orchestrators/concepts/capabilities",
-                      "v2/orchestrators/concepts/x-architecture",
+                      "v2/orchestrators/concepts/architecture",
                       "v2/orchestrators/concepts/rcs-incentives"
                     ]
                   },
@@ -59,81 +59,17 @@
                       "v2/orchestrators/setup/rs-install",
                       "v2/orchestrators/setup/r-configure",
                       "v2/orchestrators/setup/sc-connect",
-                      "v2/orchestrators/unclassified/rcs-connect-activate-publish",
-                      "v2/orchestrators/setup/x-test",
-                      "v2/orchestrators/guides/tooling-and-monitoring/p-smoke-test"
+                      "v2/orchestrators/setup/activate",
+                      "v2/orchestrators/setup/test",
+                      "v2/orchestrators/setup/r-monitor"
                     ]
                   },
                   {
                     "group": "Guides",
                     "icon": "chart-line",
                     "pages": [
-                      "v2/orchestrators/guides/guide",
                       {
-                        "group": "Orchestrator Answers [Move to Resources]",
-                        "pages": [
-                          "v2/orchestrators/guides/feasibility/p-feasibility",
-                          "v2/orchestrators/guides/feasibility/rcs-requirements"
-                        ]
-                      },
-                      {
-                        "group": "Setups and Workloads",
-                        "pages": [
-                          "v2/orchestrators/guides/setups-and-workloads/rc-alternate-setups",
-                          "v2/orchestrators/guides/setups-and-workloads/x-siphon-setup",
-                          "v2/orchestrators/guides/setups-and-workloads/x-running-workloads",
-                          "v2/orchestrators/guides/setups-and-workloads/rs-workloads"
-                        ]
-                      },
-                      {
-                        "group": "Staking and Rewards [Consolidate]",
-                        "pages": [
-                          "v2/orchestrators/guides/staking-and-rewards/rcs-staking-lpt",
-                          "v2/orchestrators/guides/staking-and-rewards/earnings",
-                          "v2/orchestrators/guides/staking-and-rewards/rs-rewards-and-fees"
-                        ]
-                      },
-                      {
-                        "group": "Tooling and Monitoring [Consolidate]",
-                        "pages": [
-                          "v2/orchestrators/guides/tooling-and-monitoring/r-monitor",
-                          "v2/orchestrators/guides/tooling-and-monitoring/x-optimise",
-                          "v2/orchestrators/guides/tooling-and-monitoring/x-explorer",
-                          "v2/orchestrators/guides/tooling-and-monitoring/rcs-tooling",
-                          "v2/orchestrators/guides/tooling-and-monitoring/x-troubleshooting"
-                        ]
-                      },
-                      {
-                        "group": "AI Pipelines [Consolidate]",
-                        "pages": [
-                          "v2/orchestrators/guides/ai-workloads/rc-ai-pipelines",
-                          "v2/orchestrators/guides/ai-workloads/r-hosting-models",
-                          "v2/orchestrators/guides/ai-workloads/p-models-and-vram",
-                          "v2/orchestrators/guides/ai-workloads/p-ai-models",
-                          "v2/orchestrators/guides/ai-workloads/x-ai",
-                          "v2/orchestrators/guides/ai-workloads/p-realtime-vs-batch",
-                          "v2/orchestrators/guides/ai-workloads/x-realtime-ai",
-                          "v2/orchestrators/guides/ai-workloads/x-batch-ai"
-                        ]
-                      },
-                      {
-                        "group": "Delegates, Pools and Voting",
-                        "pages": [
-                          "v2/orchestrators/guides/delegates-voting-pools/rcs-delegates",
-                          "v2/orchestrators/guides/delegates-voting-pools/join-a-pool",
-                          "v2/orchestrators/guides/delegates-voting-pools/r-run-a-pool",
-                          "v2/orchestrators/guides/delegates-voting-pools/x-governance"
-                        ]
-                      },
-                      {
-                        "group": "Integrations and More",
-                        "pages": [
-                          "v2/orchestrators/guides/integrations-other/p-gateways",
-                          "v2/orchestrators/guides/integrations-other/p-fleet-ops"
-                        ]
-                      },
-                      {
-                        "group": "Feasibility & Hardware [NEW]",
+                        "group": "Feasibility & Hardware",
                         "pages": [
                           "v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics",
                           "v2/orchestrators/guides/feasibility-and-hardware/hardware-reference",
@@ -142,7 +78,7 @@
                         ]
                       },
                       {
-                        "group": "Setup Paths [NEW]",
+                        "group": "Setup Paths",
                         "pages": [
                           "v2/orchestrators/guides/setup-paths/setup-navigator",
                           "v2/orchestrators/guides/setup-paths/find-your-path",
@@ -151,7 +87,7 @@
                         ]
                       },
                       {
-                        "group": "Staking & Rewards [NEW]",
+                        "group": "Staking & Rewards",
                         "pages": [
                           "v2/orchestrators/guides/staking-and-rewards/earnings",
                           "v2/orchestrators/guides/staking-and-rewards/rewards-and-fees",
@@ -161,8 +97,10 @@
                         ]
                       },
                       {
-                        "group": "Workloads & AI [NEW]",
+                        "group": "Workloads & AI",
                         "pages": [
+                          "v2/orchestrators/guides/workloads-and-ai/job-types",
+                          "v2/orchestrators/guides/workloads-and-ai/video-transcoding",
                           "v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide",
                           "v2/orchestrators/guides/workloads-and-ai/batch-ai-setup",
                           "v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup",
@@ -170,7 +108,7 @@
                         ]
                       },
                       {
-                        "group": "Monitoring & Troubleshooting [NEW]",
+                        "group": "Monitoring & Troubleshooting",
                         "pages": [
                           "v2/orchestrators/guides/monitoring-and-troubleshooting/tools",
                           "v2/orchestrators/guides/monitoring-and-troubleshooting/explorer-guide",
@@ -179,20 +117,12 @@
                         ]
                       },
                       {
-                        "group": "Advanced Operations [NEW]",
+                        "group": "Advanced Operations",
                         "pages": [
                           "v2/orchestrators/guides/advanced-operations/run-a-pool",
                           "v2/orchestrators/guides/advanced-operations/gateways-orchestrators",
                           "v2/orchestrators/guides/advanced-operations/large-scale-operations",
                           "v2/orchestrators/guides/advanced-operations/orchestrator-transcoder-setup"
-                        ]
-                      },
-                      {
-                        "group": "Unplaced",
-                        "pages": [
-                          "v2/orchestrators/guides/tools/guide",
-                          "v2/orchestrators/guides/p-support-status",
-                          "v2/orchestrators/unclassified/placeholders/data-centres-and-large-scale-hardware-providers"
                         ]
                       }
                     ]
@@ -225,46 +155,6 @@
                           "v2/orchestrators/resources/x-payments"
                         ]
                       }
-                    ]
-                  },
-                  {
-                    "group": "V1 Reference (for restructure)",
-                    "icon": "clock-rotate-left",
-                    "pages": [
-                      "v2/orchestrators/v1/troubleshoot",
-                      "v2/orchestrators/v1/monitor-metrics",
-                      "v2/orchestrators/v1/benchmark-transcoding",
-                      "v2/orchestrators/v1/set-pricing",
-                      "v2/orchestrators/v1/set-session-limits",
-                      "v2/orchestrators/v1/assess-capabilities",
-                      "v2/orchestrators/v1/configure-reward-calling",
-                      "v2/orchestrators/v1/yield-calculation",
-                      "v2/orchestrators/v1/vote",
-                      "v2/orchestrators/v1/o-t-split",
-                      "v2/orchestrators/v1/gateway-introspection"
-                    ]
-                  },
-                  {
-                    "group": "Deprecated / Carry-over",
-                    "icon": "box-archive",
-                    "pages": [
-                      "v2/orchestrators/dep-rc-navigator",
-                      "v2/orchestrators/concepts/dep-workloads",
-                      "v2/orchestrators/setup/dep-config",
-                      "v2/orchestrators/quickstart/dep-x-setup-paths",
-                      "v2/orchestrators/setup/dep-s-guide",
-                      "v2/orchestrators/unclassified/dep-connect-to-arbitrum",
-                      "v2/orchestrators/unclassified/dep-quickstart-add-your-gpu-to-livepeer",
-                      "v2/orchestrators/unclassified/dep-rcs-06-add-ai-to-node-output",
-                      "v2/orchestrators/unclassified/dep-orchestrator-functions",
-                      "v2/orchestrators/guides-old/x-explorer",
-                      "v2/orchestrators/guides-old/x-payments",
-                      "v2/orchestrators/guides/x-payments",
-                      "v2/orchestrators/guides/x-running-workloads",
-                      "v2/orchestrators/needed/troubleshooting",
-                      "v2/orchestrators/unclassified/placeholders/enterprise-and-data-centres",
-                      "v2/orchestrators/guides/p-fleet-ops",
-                      "v2/orchestrators/unclassified/placeholders/data-centre-setup"
                     ]
                   }
                 ]
@@ -370,7 +260,11 @@
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/publish-offerings",
-      "destination": "/v2/orchestrators/unclassified/rcs-connect-activate-publish"
+      "destination": "/v2/orchestrators/setup/activate"
+    },
+    {
+      "source": "/v2/orchestrators/unclassified/rcs-connect-activate-publish",
+      "destination": "/v2/orchestrators/setup/activate"
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",

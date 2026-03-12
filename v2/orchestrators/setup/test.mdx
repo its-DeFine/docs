@@ -1,0 +1,210 @@
+---
+title: Verify Your Setup
+sidebarTitle: Verify
+description: >-
+  Pre-activation and post-activation checks to confirm your orchestrator is
+  configured correctly, reachable, and receiving jobs.
+keywords:
+  - livepeer
+  - orchestrator
+  - verify
+  - test
+  - smoke test
+  - port check
+  - serviceAddr
+  - active set
+  - troubleshooting
+'og:image': /snippets/assets/site/og-image/en/orchestrators.png
+'og:image:alt': Livepeer Docs social preview image for Orchestrators
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+pageType: how_to
+audience: orchestrator
+status: current
+lastVerified: 2026-03-13
+---
+
+Run through these checks before and after activation to confirm your orchestrator is working correctly. Each check is independent — if one fails, fix it before moving on.
+
+---
+
+## Pre-activation checks
+
+Run these while go-livepeer is running but before you activate via `livepeer_cli`.
+
+### 1. GPU detection
+
+Confirm go-livepeer sees your GPU:
+
+```bash
+nvidia-smi
+```
+
+You should see your GPU listed with driver version and CUDA version. If this fails, your NVIDIA drivers are not installed or not loaded.
+
+Then check go-livepeer's startup logs for a line like:
+
+```
+Transcoding on Nvidia GPU 0
+```
+
+If you started with `-nvidia all` or `-nvidia 0`, this confirms go-livepeer has claimed the GPU.
+
+### 2. RPC connectivity
+
+Verify your Arbitrum RPC endpoint is responding:
+
+```bash
+curl -s -X POST -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' \
+  YOUR_ETH_URL
+```
+
+Expected: `"result":"0xa4b1"` — this is Arbitrum One (chain ID 42161). If you get `0x1`, you are connected to Ethereum mainnet, not Arbitrum.
+
+### 3. Port reachability
+
+Your `serviceAddr` port (default 8935) must be reachable from the public internet. Test from a **different machine** (not the same server):
+
+```bash
+curl -k https://YOUR_PUBLIC_IP:8935/status
+```
+
+A response (even an error JSON) confirms the port is open. If the connection times out:
+
+- Check your firewall: `sudo ufw allow 8935/tcp` (Ubuntu)
+- Check router NAT / port forwarding if behind a home network
+- Check cloud security groups (AWS, GCP, Hetzner)
+
+### 4. Wallet and funds
+
+Confirm your wallet has the tokens needed for activation:
+
+- **ETH on Arbitrum** — for gas (a few dollars is sufficient)
+- **LPT on Arbitrum** — for staking
+
+Check your go-livepeer logs at startup — they will show your account address and network:
+
+```
+Account: 0xYOUR_ADDRESS
+```
+
+Verify the balance on [Arbiscan](https://arbiscan.io) by searching for that address.
+
+---
+
+## Post-activation checks
+
+Run these after completing the [Activate](/v2/orchestrators/setup/activate) steps via `livepeer_cli`.
+
+### 5. Explorer status
+
+1. Go to [Livepeer Explorer](https://explorer.livepeer.org)
+2. Search for your Ethereum address
+3. Confirm your status shows **Active**
+
+If it shows **Registered** but not Active:
+- Your stake may be below the top-100 threshold
+- If you just activated, wait for the next round (~24 hours)
+
+### 6. Service address match
+
+In Explorer, check that the **Service URI** displayed matches the `-serviceAddr` you configured. If they don't match, gateways will try to connect to the wrong address.
+
+To update the on-chain service URI:
+
+```bash
+livepeer_cli
+# Select: Set orchestrator config → update service URI
+```
+
+### 7. First job verification
+
+After activation and the start of the next round, monitor your go-livepeer logs for job activity:
+
+```bash
+# For transcoding jobs, look for:
+Got segment
+
+# For AI inference jobs, look for:
+Received AI request
+```
+
+<Note>
+It may take hours or days to receive your first job, depending on network demand, your pricing, and your stake ranking. This is normal for new orchestrators. If you have not received any jobs after 48 hours, see the [troubleshooting section](#not-receiving-jobs) below.
+</Note>
+
+### 8. Reward call
+
+After one full round passes (~24 hours), verify that a reward call was submitted. Check your go-livepeer logs for:
+
+```
+Calling reward
+```
+
+Or check your address on [Arbiscan](https://arbiscan.io) for a `reward()` transaction. If reward calls are not happening:
+
+- Confirm you did **not** start with `-reward=false`
+- Confirm your ETH balance on Arbitrum is sufficient for gas
+- Confirm your node was online and connected during the round
+
+### 9. AI pipeline health (if configured)
+
+If you configured AI pipelines via `aiModels.json`, verify the runner is reachable:
+
+```bash
+curl http://localhost:8000/health
+```
+
+A `200 OK` response confirms the AI Runner container is running. If it fails, check:
+
+```bash
+docker logs <ai_runner_container_name>
+```
+
+---
+
+## Quick-reference checklist
+
+| # | Check | Command / Action | Expected |
+|---|---|---|---|
+| 1 | GPU detected | `nvidia-smi` + go-livepeer logs | GPU listed, "Transcoding on Nvidia GPU" |
+| 2 | RPC connected | `curl` eth_chainId | `0xa4b1` |
+| 3 | Port open | `curl -k https://IP:8935/status` (external) | Response received |
+| 4 | Wallet funded | Arbiscan balance check | ETH + LPT present |
+| 5 | Explorer Active | explorer.livepeer.org | Status: Active |
+| 6 | Service URI correct | Explorer profile | Matches your `-serviceAddr` |
+| 7 | Receiving jobs | go-livepeer logs | `Got segment` or `Received AI request` |
+| 8 | Reward called | Arbiscan or logs | `reward()` transaction |
+| 9 | AI runner healthy | `curl localhost:8000/health` | 200 OK |
+
+---
+
+## Not receiving jobs?
+
+<Accordion title="Common causes and fixes">
+
+**Service address not reachable** — The #1 cause. Re-run check #3 from an external machine. If the port is closed, no gateway can route work to you.
+
+**Price too high** — Gateways filter by `-maxPricePerUnit`. Check [livepeer.tools](https://livepeer.tools) for current market rates and adjust your `-pricePerUnit` accordingly.
+
+**Not in the active set** — You need to be in the top 100 by total stake. Check your rank on Explorer.
+
+**Just activated** — Your node joins the active set at the start of the next round (~24 hours). Wait for the round to change.
+
+**AI jobs specifically** — AI routing is capability-based, not stake-based. Ensure your `aiModels.json` model IDs match the Livepeer-verified model list and that your AI Runner container is running.
+
+For detailed troubleshooting, see the [FAQ](/v2/orchestrators/resources/faq).
+
+</Accordion>
+
+---
+
+## See also
+
+<CardGroup cols={3}>
+  <Card title="Activate" icon="satellite-dish" href="/v2/orchestrators/setup/activate" arrow />
+  <Card title="Monitor" icon="chart-line" href="/v2/orchestrators/setup/r-monitor" arrow />
+  <Card title="FAQ" icon="circle-question" href="/v2/orchestrators/resources/faq" arrow />
+</CardGroup>

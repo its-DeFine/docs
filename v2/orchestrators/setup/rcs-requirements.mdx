@@ -1,96 +1,104 @@
 ---
-title: Operational and Hardware Requirements for Orchestrators
-sidebarTitle: Setup Checklist
+title: Setup Checklist
+sidebarTitle: Prerequisites
 description: >-
-  Minimum, recommended, and production hardware for running a Livepeer
-  orchestrator.
+  Pre-flight checklist for orchestrator setup — confirm hardware, software,
+  network, wallet, and tokens before installing go-livepeer.
 keywords:
   - livepeer
   - orchestrators
   - hardware
   - GPU
   - requirements
-'og:image': /snippets/assets/site/og-image/fallback.png
-'og:image:alt': Livepeer Docs social preview image
+  - checklist
+  - prerequisites
+  - CUDA
+  - NVIDIA
+'og:image': /snippets/assets/site/og-image/en/orchestrators.png
+'og:image:alt': Livepeer Docs social preview image for Orchestrators
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
+pageType: how_to
 audience: orchestrator
+status: current
+lastVerified: 2026-03-13
 ---
 
-import { DynamicTable } from '/snippets/components/layout/table.jsx'
+Confirm every item on this checklist before proceeding to [Install go-livepeer](/v2/orchestrators/setup/rs-install). If any item fails, fix it first — setup issues are much harder to diagnose after activation.
 
-Orchestrators run **video transcoding** (NVENC/FFmpeg) and/or **AI inference** on GPUs. Hardware directly affects job selection, reputation, and revenue. Below are minimum, recommended, and AI-optimised guidelines for 2026.
+---
 
-## Minimum (development / testing)
+## Hardware
 
-<DynamicTable
-  tableTitle="Minimum specs"
-  headerList={["Component", "Minimum"]}
-  itemsList={[
-    { "Component": "GPU", "Minimum": "NVIDIA RTX 3060 / T4 (8GB VRAM)" },
-    { "Component": "CPU", "Minimum": "4 cores" },
-    { "Component": "RAM", "Minimum": "16GB" },
-    { "Component": "Storage", "Minimum": "100GB SSD" },
-    { "Component": "Network", "Minimum": "100 Mbps symmetric" },
-    { "Component": "OS", "Minimum": "Ubuntu 22.04 LTS" }
-  ]}
-/>
+- [ ] **NVIDIA GPU** with NVENC/NVDEC support installed and visible via `nvidia-smi`
+- [ ] **NVIDIA driver** version 525+ (Linux) or 527+ (Windows)
+- [ ] **CUDA 12.0+** installed (or plan to use the Docker image, which bundles CUDA)
+- [ ] **CPU:** 4+ cores minimum, 8+ recommended
+- [ ] **RAM:** 16 GB minimum, 32 GB recommended
+- [ ] **Storage:** 100 GB SSD minimum (NVMe recommended for AI model weights)
 
-Suitable for testnet, low-volume workloads, and learning.
+<Tip>
+For AI inference, VRAM is the primary constraint: 8 GB for LLM-only, 16 GB for basic batch AI, 24 GB+ for the full pipeline suite. See [GPU & Hardware Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference) for detailed per-workload guidance.
+</Tip>
 
-## Recommended (video / production)
+## Software
 
-<DynamicTable
-  tableTitle="Recommended production (video-focused)"
-  headerList={["Component", "Recommended"]}
-  itemsList={[
-    { "Component": "GPU", "Recommended": "RTX 4080 / A4000 / L4" },
-    { "Component": "CPU", "Recommended": "8–16 cores" },
-    { "Component": "RAM", "Recommended": "32–64GB" },
-    { "Component": "Storage", "Recommended": "NVMe SSD 1TB+" },
-    { "Component": "Network", "Recommended": "1 Gbps symmetric" },
-    { "Component": "Uptime", "Recommended": "99%+ target" }
-  ]}
-/>
+- [ ] **OS:** Linux (Ubuntu 22.04+ recommended). macOS and Windows work for development but are not recommended for production GPU workloads.
+- [ ] **Docker Engine** installed if using the container install path
+- [ ] **NVIDIA Container Toolkit** installed if using Docker with GPU (`docker run --gpus all nvidia/cuda:12.0-base nvidia-smi` should succeed)
+- [ ] `curl` and `tar` available (Linux/macOS) or PowerShell (Windows)
 
-Optimised for real-time streaming and multi-resolution transcoding.
+## Network
 
-## AI inference
+- [ ] **Port 8935 TCP** open to the public internet (firewall, router NAT, cloud security group)
+- [ ] **Static IP** or stable hostname (dynamic DNS if on a home connection)
+- [ ] **Bandwidth:** 100 Mbps symmetric minimum; 1 Gbps recommended for multi-stream transcoding
+- [ ] **Latency:** <50 ms to major regions improves gateway selection probability
 
-AI workloads are VRAM-bound. Stake does **not** determine AI job routing; capability and price do.
+Verify port access from an external machine:
+```bash
+curl -k https://YOUR_PUBLIC_IP:8935/status
+```
 
-<DynamicTable
-  tableTitle="AI-oriented GPUs"
-  headerList={["GPU", "Use case"]}
-  itemsList={[
-    { "GPU": "RTX 4090 (24GB)", "Use case": "Stable Diffusion, high batch" },
-    { "GPU": "A100 (40GB/80GB)", "Use case": "Enterprise inference" },
-    { "GPU": "H100", "Use case": "Advanced model serving" }
-  ]}
-/>
+## Wallet and tokens
 
-Also ensure: CUDA 12+, NVIDIA Container Toolkit, good cooling, high IOPS storage for model weights.
+- [ ] **Ethereum wallet** — an existing account or go-livepeer will create one on first run
+- [ ] **ETH on Arbitrum One** — for gas (activation, reward calls, ticket redemption). A few dollars is sufficient.
+- [ ] **LPT on Arbitrum One** — for staking. The amount needed to enter the active set (top 100) varies — check [Livepeer Explorer](https://explorer.livepeer.org) for the current threshold.
 
-## Network and ops
+See [Arbitrum Exchanges](/v2/orchestrators/resources/arbitrum-exchanges) for where to acquire ETH and LPT on Arbitrum.
 
-- **Latency:** &lt;50 ms to major regions helps streaming and gateway selection.
-- **Production:** Static IP, reverse proxy (e.g. nginx), TLS, firewall rules.
-- **Monitoring:** Prometheus, Grafana, NVIDIA DCGM exporter; track GPU utilisation, VRAM, segment/job success rate.
+## Arbitrum RPC
 
-## Checklist before going live
+- [ ] **RPC endpoint** for Arbitrum One — Alchemy (free tier), Infura, or self-hosted. You will need this for the `-ethUrl` flag.
 
-- GPU visible via `nvidia-smi`
-- Docker sees GPU (`--gpus all`)
-- CUDA functional
-- Ports open (e.g. 8935)
-- Stable Arbitrum RPC
-- Monitoring configured
+See [Arbitrum RPCs](/v2/orchestrators/resources/arbitrum-rpc) for provider comparison and setup.
 
-## See also
+---
 
-<Columns cols={2}>
-  <Card title="Install go-livepeer" icon="download" href="./install-go-livepeer" arrow />
-  <Card title="Orchestrator stats & monitoring" icon="chart-line" href="./orchestrator-stats" arrow />
-  <Card title="Data centre setup" icon="server" href="./data-centre-setup" arrow />
-</Columns>
+## Quick verification commands
+
+```bash
+# GPU visible?
+nvidia-smi
+
+# CUDA version?
+nvcc --version
+
+# Docker GPU access? (if using Docker)
+docker run --gpus all nvidia/cuda:12.0-base nvidia-smi
+
+# Port open? (run from a different machine)
+curl -k https://YOUR_PUBLIC_IP:8935/status
+```
+
+---
+
+## Ready?
+
+Once all checklist items pass, proceed to installation.
+
+<Card title="Install go-livepeer" icon="download" href="/v2/orchestrators/setup/rs-install" arrow>
+  Download and install the go-livepeer binary or Docker image for your platform.
+</Card>
