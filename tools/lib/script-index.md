@@ -26,6 +26,7 @@
 | `tools/lib/docs-usefulness/rubric-loader.js` | Loads and parses rubric YAML/JSON for page-type scoring rules. | `const { loadRubric } = require('../lib/docs-usefulness/rubric-loader');` | docs |
 | `tools/lib/docs-usefulness/rule-evaluators.js` | Evaluates individual rubric rules against page content. | `const { evaluateRule } = require('../lib/docs-usefulness/rule-evaluators');` | docs |
 | `tools/lib/docs-usefulness/scoring.js` | Aggregates rule scores into a final usefulness score per page. | `const { score } = require('../lib/docs-usefulness/scoring');` | docs |
+| `tools/lib/frontmatter-taxonomy.js` | Shared frontmatter taxonomy utilities for routable docs pages. | `const taxonomy = require('../lib/frontmatter-taxonomy');` | docs |
 | `tools/lib/generated-file-banners.js` | Generated file banner template — provides standard banner text for auto-generated files | `node tools/lib/generated-file-banners.js [flags]` | docs |
 | `tools/lib/load-js-yaml.js` | YAML loader utility — resolves js-yaml from repo-local installs and falls back to a minimal parser for task-contract style files in bare worktrees | `node -e "require('./tools/lib/load-js-yaml')"` | docs |
 | `tools/lib/load-minimatch.js` | Glob matcher loader — resolves minimatch from repo-local installs and falls back to a simple glob matcher for bare worktrees | `node -e "require('./tools/lib/load-minimatch')"` | docs |

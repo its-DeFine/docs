@@ -1,9 +1,7 @@
 ---
-sidebarTitle: Contribute
 title: Contribute To The Docs
+sidebarTitle: Contribute
 description: Contribute to the Livepeer documentation and help us make it even better!
-audience: everyone
-purpose: concept
 keywords:
   - livepeer
   - resources
@@ -11,7 +9,16 @@ keywords:
   - contribute to the docs
   - contribute
   - docs
-'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
+'og:image': /snippets/assets/site/og-image/fallback.png
+'og:image:alt': Livepeer Docs social preview image
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+audience: everyone
+pageType: how_to
+purpose: how_to
+status: current
+lastVerified: 2026-03-12
 ---
 
 We love community feedback and contributions, and it's our mission to make it easy for everyone to contribute to these docs and provide feedback for us to make them even better!
@@ -130,7 +137,7 @@ Pre-commit hooks automatically check your code for style guide violations and sy
 ```
 
 The pre-commit hook will:
-- Check for deprecated `ThemeData` usage
+- Check for deprecated theme-helper usage
 - Warn about hardcoded hex colours
 - Validate MDX, JSON, and JavaScript syntax
 - Check for relative imports
@@ -243,19 +250,19 @@ git push origin docs/your-branch-name
 Brief description of changes
 
 ## Type of Change
-- [ ] Bug fix (typo, broken link, incorrect information)
-- [ ] New content (guide, tutorial, example)
-- [ ] Content improvement (clarification, better examples)
-- [ ] Component or styling update
+- Bug fix (typo, broken link, incorrect information)
+- New content (guide, tutorial, example)
+- Content improvement (clarification, better examples)
+- Component or styling update
 
 ## Related Issues
 Fixes #123
 
 ## Testing
-- [ ] Tested locally with `mint dev`
-- [ ] Checked light and dark modes
-- [ ] Verified all links work
-- [ ] No console errors
+- Tested locally with `mint dev`
+- Checked light and dark modes
+- Verified all links work
+- No console errors
 ```
 
 #### 11. Address Review Feedback
@@ -323,6 +330,106 @@ docs/
 └── style.css             # Global CSS variables
 ```
 
+## Authoring Helpers
+
+Use the checked-in templates and workspace snippets before hand-authoring new page shells. They keep frontmatter, OG metadata, and common page layouts consistent across contributors.
+
+### MDX Templates
+
+Checked-in templates live under `snippets/templates/` so they stay versioned, reviewable, and available to every contributor.
+
+<AccordionGroup>
+  <Accordion title="Page templates (3)" icon="file-lines">
+
+  | File | Use it for | Matching snippet |
+  |---|---|---|
+  | `snippets/templates/pages/faq-page.mdx` | FAQ pages with a standard `<AccordionGroup>` structure | `faqPage` |
+  | `snippets/templates/pages/troubleshooting-page.mdx` | Operational and debugging pages with `Symptom`, `Cause`, `Fix`, and `Verify` sections | `troubleshootingPage` |
+  | `snippets/templates/pages/openapi-endpoint-page.mdx` | API endpoint pages that use `openapi: METHOD /path` frontmatter | `openapiPage` |
+
+  All three page templates default to `status: draft`, use `/snippets/assets/site/og-image/fallback.png`, and intentionally omit `lastVerified` until the page is current.
+
+  </Accordion>
+  <Accordion title="Block templates (2)" icon="table-columns">
+
+  | File | Use it for | Matching snippet |
+  |---|---|---|
+  | `snippets/templates/blocks/related-pages-cta.mdx` | Related reading or next-step CTA blocks at the bottom of a page | `relatedPages` |
+  | `snippets/templates/blocks/comparison-matrix.mdx` | Product, workflow, or architecture comparison sections | `comparisonMatrix` |
+
+  The full template catalog lives in `snippets/templates/README.mdx`.
+
+  </Accordion>
+</AccordionGroup>
+
+### VS Code Snippets
+
+Workspace snippets in `.vscode/` load automatically when you open this repo in VS Code.
+
+| File | Snippets | Scope |
+|---|---:|---|
+| `.vscode/mdx.code-snippets` | 17 | Frontmatter, page scaffolds, and reusable MDX blocks |
+| `.vscode/mintlify.code-snippets` | 25 | Mintlify built-in components |
+| `.vscode/components.code-snippets` | 115 | Livepeer custom components |
+
+<AccordionGroup>
+  <Accordion title="Frontmatter and metadata (7)" icon="gear">
+
+  Source: `.vscode/mdx.code-snippets`
+
+  Use `frontmatter` for the full draft block, `fm` for the smaller version, and the single-field snippets when you need to patch one field in place.
+
+  ```yaml
+  ---
+  title: "Page Title"
+  sidebarTitle: Page Title
+  description: "Describe the page."
+  audience: developer
+  pageType: reference
+  purpose: reference
+  status: draft
+  keywords:
+    - livepeer
+    - keyword
+  'og:image': /snippets/assets/site/og-image/fallback.png
+  'og:image:alt': Livepeer Docs social preview image
+  'og:image:type': image/png
+  'og:image:width': 1200
+  'og:image:height': 630
+  ---
+  ```
+
+  `lastVerified` is now a separate opt-in snippet. Add it only when the page status is `current`, `published`, `production`, or `verified_2026`.
+
+  </Accordion>
+  <Accordion title="Page scaffolds (8)" icon="file-lines">
+
+  | Prefix | Layout |
+  |---|---|
+  | `lp-overview` | Overview page with `Overview`, `Key Concepts`, and next-step cards |
+  | `lp-howto` | How-to page with `Prerequisites`, `Steps`, and `Verify` |
+  | `lp-tutorial` | Tutorial page with `Prerequisites`, guided `Steps`, and `Next Steps` |
+  | `lp-reference` | Reference page with sections for inputs, behavior, and examples |
+  | `lp-landing-frame` | Frame-mode landing scaffold using the existing portal components |
+  | `faqPage` | FAQ page scaffold with `<AccordionGroup>` |
+  | `troubleshootingPage` | Troubleshooting page scaffold with `Symptom`, `Cause`, `Fix`, and `Verify` |
+  | `openapiPage` | OpenAPI endpoint scaffold with `openapi: METHOD /path` frontmatter and `<OpenAPI />` |
+
+  All page scaffolds default to `status: draft`, include the fallback OG block, and omit `lastVerified`.
+
+  </Accordion>
+  <Accordion title="Block snippets (2)" icon="table-columns">
+
+  | Prefix | Inserts |
+  |---|---|
+  | `relatedPages` | `## Related Pages` plus a two-card `<CardGroup>` CTA block |
+  | `comparisonMatrix` | `## Compare Options` plus a decision table and recommendation note |
+
+  Use these when the surrounding page already exists and you only need a standard decision or navigation block.
+
+  </Accordion>
+</AccordionGroup>
+
 ## Contribution Guidelines
 
 ### Style Guide
@@ -333,14 +440,14 @@ docs/
 
 **Critical rules:**
 - ✅ Use CSS Custom Properties (`var(--accent)`) only
-- ❌ Never use `ThemeData` or hardcode colours
+- ❌ Never use legacy theme helpers or hardcode colours
 - ✅ Use absolute imports: `/snippets/components/...`
 - ❌ No relative imports for snippets
 - ✅ Test in both light and dark modes
 
 ### Component Usage
 
-- Use components from the [Component Library](./component-library)
+- Use components from the [Component Library](./component-library/overview)
 - Check component documentation before creating new components
 - Follow existing patterns and conventions
 
@@ -362,13 +469,13 @@ docs/
 ### Testing Requirements
 
 Before submitting a PR, ensure:
-- [ ] All pages render without errors
-- [ ] No console errors in browser
-- [ ] Links work correctly
-- [ ] Components display properly
-- [ ] Works in both light and dark modes
-- [ ] Mobile responsive
-- [ ] Pre-commit hooks pass
+- All pages render without errors
+- No console errors in browser
+- Links work correctly
+- Components display properly
+- Works in both light and dark modes
+- Mobile responsive
+- Pre-commit hooks pass
 
 ## Review Process
 
@@ -488,7 +595,7 @@ v2/
   <Card title="Style Guide" icon="palette" href="./style-guide" arrow>
  Complete styling guidelines, Mintlify gotchas, and best practices.
   </Card>
-  <Card title="Component Library" icon="puzzle-piece" href="./component-library" arrow>
+  <Card title="Component Library" icon="puzzle-piece" href="./component-library/overview" arrow>
  Reference all custom components with live examples and usage instructions.
   </Card>
   <Card title="Mintlify Documentation" icon="book" href="https://mintlify.com/docs" arrow>
@@ -544,7 +651,7 @@ If you have questions about contributing:
 
 - Check the [Documentation Guide](./documentation-guide) for structure and conventions
 - Review the [Style Guide](./style-guide) for styling guidelines
-- Check the [Component Library](./component-library) for component usage
+- Check the [Component Library](./component-library/overview) for component usage
 - Review [CODEOWNERS](https://github.com/livepeer/docs/blob/docs-v2-preview/.github/CODEOWNERS) to see who reviews what
 - Open a GitHub issue or discussion
 - Ask in the Livepeer Discord community

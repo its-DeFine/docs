@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-12T04:14:48.491Z",
+  "generated": "2026-03-12T04:50:36.346Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -13443,7 +13443,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 463,
-      "lastVerified": "2026-03-12T13:48:24+11:00",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 2,
@@ -14156,7 +14156,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 737,
+      "wordCount": 807,
       "lastVerified": "2026-03-10T06:26:49+11:00",
       "headings": [
         {
@@ -14198,6 +14198,10 @@
         {
           "level": 3,
           "text": "Pages (`/snippets/pages/`)"
+        },
+        {
+          "level": 3,
+          "text": "Templates (`/snippets/templates/`)"
         },
         {
           "level": 3,
@@ -14269,7 +14273,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1993,
+      "wordCount": 2371,
       "lastVerified": "2026-03-09T20:43:37+11:00",
       "headings": [
         {
@@ -14379,6 +14383,18 @@
         {
           "level": 3,
           "text": "Project Structure"
+        },
+        {
+          "level": 2,
+          "text": "Authoring Helpers"
+        },
+        {
+          "level": 3,
+          "text": "MDX Templates"
+        },
+        {
+          "level": 3,
+          "text": "VS Code Snippets"
         },
         {
           "level": 2,
@@ -14524,7 +14540,8 @@
       "codeLanguages": [
         "bash",
         "text",
-        "markdown"
+        "markdown",
+        "yaml"
       ]
     },
     {
@@ -14832,7 +14849,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 165,
-      "lastVerified": "2026-03-10T06:26:49+11:00",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 2,
@@ -16325,7 +16342,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3672,
-      "lastVerified": "2026-03-12T13:48:24+11:00",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -16344,7 +16361,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2722,
-      "lastVerified": "2026-03-09T01:25:13+11:00",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 2,
@@ -16458,7 +16475,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 307,
-      "lastVerified": "2026-03-12T13:48:24+11:00",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 1,
@@ -16536,7 +16553,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 323,
-      "lastVerified": "2026-03-12T13:48:24+11:00",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 2,
@@ -16655,7 +16672,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 445,
-      "lastVerified": "2026-03-12T13:48:24+11:00",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 2,
@@ -16728,7 +16745,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1537,
-      "lastVerified": "2026-03-12T13:48:24+11:00",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 1,
@@ -16838,7 +16855,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 167,
-      "lastVerified": "2026-03-12T13:48:24+11:00",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 2,
@@ -16890,7 +16907,7 @@
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 1830,
-      "lastVerified": "2026-03-12T14:20:33+11:00",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 2,
@@ -16989,7 +17006,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 441,
-      "lastVerified": "2026-03-12T03:29:02.000Z",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 1,
@@ -17036,7 +17053,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2771,
-      "lastVerified": "2026-03-12T13:48:24+11:00",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 1,
@@ -17298,8 +17315,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 238,
-      "lastVerified": "2026-03-12T03:21:59.000Z",
+      "wordCount": 253,
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 2,
@@ -17362,7 +17379,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 2866,
-      "lastVerified": "2026-03-12T03:43:53.000Z",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 1,
@@ -17628,7 +17645,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 408,
-      "lastVerified": "2026-03-12T13:48:24+11:00",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 1,
@@ -17770,7 +17787,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 90,
+      "wordCount": 163,
       "lastVerified": "2026-03-12T13:48:24+11:00",
       "headings": [
         {
@@ -18020,7 +18037,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 41,
-      "lastVerified": "2026-03-12T03:52:07.729Z",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -18042,7 +18059,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 3251,
-      "lastVerified": "2026-03-12T03:52:07.761Z",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 2,
@@ -18088,8 +18105,8 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 4216,
-      "lastVerified": "2026-03-12T03:52:07.371Z",
+      "wordCount": 4230,
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 2,
@@ -18149,7 +18166,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 986,
-      "lastVerified": "2026-03-12T03:39:59.000Z",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -18171,7 +18188,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 301,
-      "lastVerified": "2026-03-12T03:39:59.000Z",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [],
       "codeLanguages": []
     },
@@ -18199,7 +18216,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1537,
-      "lastVerified": "2026-03-12T03:29:02.000Z",
+      "lastVerified": "2026-03-12T15:26:18+11:00",
       "headings": [
         {
           "level": 1,
