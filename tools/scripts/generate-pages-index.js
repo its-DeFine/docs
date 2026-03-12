@@ -641,6 +641,27 @@ function getStagedFiles() {
   }
 }
 
+function getAffectedTopLevelDirs(stagedFiles, topLevelDirs) {
+  const available = new Set(topLevelDirs.map((dirRel) => normalizeRel(dirRel)));
+  const affected = new Set();
+
+  stagedFiles.forEach((file) => {
+    const preferred = resolvePreferredRepoPath(file);
+    const normalized = normalizeRel(preferred);
+    const relative = normalizeRel(path.posix.relative(PAGES_ROOT, normalized));
+
+    if (!relative || relative.startsWith('..')) return;
+
+    const [topLevelName] = relative.split('/').filter(Boolean);
+    if (!topLevelName) return;
+
+    const candidate = normalizeRel(path.join(PAGES_ROOT, topLevelName));
+    if (available.has(candidate)) affected.add(candidate);
+  });
+
+  return sortAlpha([...affected]);
+}
+
 function stagePaths(repoRelativePaths) {
   if (repoRelativePaths.length === 0) return null;
   const unique = [...new Set(repoRelativePaths.map((p) => normalizeRel(p)))];
@@ -738,6 +759,11 @@ function run(options = {}) {
   }
 
   const topLevelDirs = getDirectSubdirs(PAGES_ROOT_ABS).map((name) => normalizeRel(path.join(PAGES_ROOT, name)));
+  const scopedTopLevelDirs =
+    stagedOnly && !rebuildIndexes
+      ? getAffectedTopLevelDirs(stagedFiles, topLevelDirs)
+      : topLevelDirs;
+  const topLevelDirsToProcess = scopedTopLevelDirs.length > 0 ? scopedTopLevelDirs : topLevelDirs;
   const expectedByTopDir = new Map();
 
   let docsRouteKeys = new Set();
@@ -748,7 +774,7 @@ function run(options = {}) {
     return { passed: false, skipped: false, errors, warnings, changed, removedLegacy, removedNested };
   }
 
-  for (const dirRel of topLevelDirs) {
+  for (const dirRel of topLevelDirsToProcess) {
     const sourceDirRel = resolveSourceDirRel(dirRel);
     const data = buildFolderIndexData(dirRel, sourceDirRel, docsRouteKeys);
     const content = renderIndexContent(data, buildIndexMeta(dirRel));
@@ -796,7 +822,22 @@ function run(options = {}) {
   }
 
   const contentByTopDir = new Map();
-  topLevelDirs.forEach((dirRel) => contentByTopDir.set(dirRel, expectedByTopDir.get(dirRel) || ''));
+  topLevelDirs.forEach((dirRel) => {
+    if (expectedByTopDir.has(dirRel)) {
+      contentByTopDir.set(dirRel, expectedByTopDir.get(dirRel) || '');
+      return;
+    }
+
+    const existingIndexAbs = path.join(REPO_ROOT, dirRel, INDEX_FILENAME);
+    if (fileExists(existingIndexAbs)) {
+      contentByTopDir.set(dirRel, readTextSafe(existingIndexAbs));
+      return;
+    }
+
+    const sourceDirRel = resolveSourceDirRel(dirRel);
+    const data = buildFolderIndexData(dirRel, sourceDirRel, docsRouteKeys);
+    contentByTopDir.set(dirRel, renderIndexContent(data, buildIndexMeta(dirRel)));
+  });
 
   const rootIndexAbs = path.join(PAGES_ROOT_ABS, INDEX_FILENAME);
   const aggregate = renderAggregateContent(buildAggregateData(topLevelDirs, contentByTopDir, rootIndexAbs), buildRootMeta());

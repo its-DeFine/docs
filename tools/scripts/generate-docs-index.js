@@ -104,6 +104,44 @@ function getV2NavPages() {
   return normalizedPages;
 }
 
+function getStagedFiles() {
+  try {
+    const output = require('child_process').execSync('git diff --cached --name-only --diff-filter=ACMRD', {
+      encoding: 'utf8',
+      cwd: REPO_ROOT
+    });
+
+    return output
+      .split('\n')
+      .map((line) => normalizeRel(line.trim()))
+      .filter(Boolean);
+  } catch (_err) {
+    return [];
+  }
+}
+
+function getStagedDocPaths() {
+  return getStagedFiles()
+    .filter((filePath) => /\.(md|mdx)$/i.test(filePath))
+    .map((filePath) => normalizeRel(filePath.replace(/\.(md|mdx)$/i, '')));
+}
+
+function indexEntryPath(entry) {
+  if (!entry || typeof entry.url !== 'string') return '';
+  const normalized = entry.url.replace(`${BASE_URL}/`, '').replace(/^\/+/, '').trim();
+  return normalizeRel(normalized);
+}
+
+function readExistingDocsIndex() {
+  try {
+    const parsed = JSON.parse(readFileSafe(OUTPUT_PATH));
+    if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.pages)) return null;
+    return parsed;
+  } catch (_err) {
+    return null;
+  }
+}
+
 function inferTitle(headings, fallbackPath) {
   const h1 = headings.find((heading) => heading.level === 1);
   if (h1 && h1.text) return h1.text;
@@ -156,6 +194,49 @@ function updateFrontmatterBlock(frontmatterRaw, updates) {
   return lines.join('\n').trimEnd();
 }
 
+function buildDocsIndexEntry({ normalizedPath, gitMap }) {
+  const resolvedPath = resolveDocPath(normalizedPath, REPO_ROOT);
+  if (!resolvedPath) {
+    return { entry: null, missing: { normalizedPath } };
+  }
+
+  const content = readFileSafe(path.join(REPO_ROOT, resolvedPath));
+  const frontmatter = extractFrontmatter(content);
+  const body = frontmatter.body || content;
+  const headings = extractHeadings(body);
+  const codeLanguages = extractCodeLanguages(content);
+  const apiEndpoints = extractOpenApiEndpoints(frontmatter.data || {});
+  const apiEndpointPaths = apiEndpoints.map((endpoint) => endpoint.split(/\s+/)[1]).filter(Boolean);
+
+  const title = frontmatter.data?.title || inferTitle(headings, resolvedPath);
+  const description = frontmatter.data?.description || '';
+  const normalizedUrlPath = normalizeDocPathForUrl(normalizedPath);
+  const section = normalizedUrlPath.replace(/^v2\//, '').split('/')[0] || 'v2';
+  const tags = deriveTags(frontmatter.data || {}, normalizedPath);
+  const entities = deriveEntities(frontmatter.data || {}, normalizedPath, apiEndpointPaths);
+  const difficulty = deriveDifficulty(normalizedPath);
+  const wordCount = countWords(stripForWordCount(body));
+  const lastVerified = getLastVerified(resolvedPath, frontmatter.data || {}, gitMap, REPO_ROOT);
+
+  return {
+    entry: {
+      url: `${BASE_URL}/${normalizedUrlPath}`,
+      title,
+      description,
+      section,
+      tags,
+      entities,
+      apiEndpoints,
+      difficulty,
+      wordCount,
+      lastVerified,
+      headings,
+      codeLanguages
+    },
+    missing: null
+  };
+}
+
 function buildDocsIndex({ pages, gitMap, generated }) {
   const missingPages = [];
   const missingFrontmatter = [];
@@ -163,11 +244,13 @@ function buildDocsIndex({ pages, gitMap, generated }) {
   const entries = [];
 
   pages.forEach(({ navPath, normalizedPath }) => {
-    const resolvedPath = resolveDocPath(normalizedPath, REPO_ROOT);
-    if (!resolvedPath) {
+    const { entry, missing } = buildDocsIndexEntry({ normalizedPath, gitMap });
+    if (!entry) {
       missingPages.push({ navPath, normalizedPath });
       return;
     }
+
+    const resolvedPath = resolveDocPath(normalizedPath, REPO_ROOT);
 
     const content = readFileSafe(path.join(REPO_ROOT, resolvedPath));
     const frontmatter = extractFrontmatter(content);
@@ -183,32 +266,7 @@ function buildDocsIndex({ pages, gitMap, generated }) {
       invalidFrontmatter.push({ resolvedPath, normalizedPath, body, headings, apiEndpoints, apiEndpointPaths, error: frontmatter.error });
     }
 
-    const title = frontmatter.data?.title || inferTitle(headings, resolvedPath);
-    const description = frontmatter.data?.description || '';
-
-    const normalizedUrlPath = normalizeDocPathForUrl(normalizedPath);
-    const section = normalizedUrlPath.replace(/^v2\//, '').split('/')[0] || 'v2';
-
-    const tags = deriveTags(frontmatter.data || {}, normalizedPath);
-    const entities = deriveEntities(frontmatter.data || {}, normalizedPath, apiEndpointPaths);
-    const difficulty = deriveDifficulty(normalizedPath);
-    const wordCount = countWords(stripForWordCount(body));
-    const lastVerified = getLastVerified(resolvedPath, frontmatter.data || {}, gitMap, REPO_ROOT);
-
-    entries.push({
-      url: `${BASE_URL}/${normalizedUrlPath}`,
-      title,
-      description,
-      section,
-      tags,
-      entities,
-      apiEndpoints,
-      difficulty,
-      wordCount,
-      lastVerified,
-      headings,
-      codeLanguages
-    });
+    entries.push(entry);
   });
 
   return {
@@ -334,6 +392,7 @@ function main() {
   const shouldCheck = args.has('--check') || !shouldWrite;
   const shouldBackfill = args.has('--backfill');
   const shouldReport = args.has('--report') || shouldBackfill;
+  const stagedOnly = args.has('--staged');
 
   const gitMap = buildGitLastModifiedMap(REPO_ROOT);
 
@@ -348,6 +407,9 @@ function main() {
   }
 
   const pages = getV2NavPages();
+  const stagedFiles = stagedOnly ? getStagedFiles() : [];
+  const docsJsonStaged = stagedFiles.includes('docs.json');
+  const stagedDocPaths = stagedOnly ? getStagedDocPaths() : [];
 
   if (shouldBackfill) {
     backfillFrontmatter({
@@ -356,7 +418,53 @@ function main() {
     });
   }
 
-  const result = buildDocsIndex({ pages, gitMap, generated });
+  const usePartialStagedMode = stagedOnly && !docsJsonStaged;
+  let result = buildDocsIndex({ pages, gitMap, generated });
+
+  if (usePartialStagedMode) {
+    const existingIndex = readExistingDocsIndex();
+    if (existingIndex) {
+      const existingPages = Array.isArray(existingIndex.pages) ? existingIndex.pages : [];
+      const existingByPath = new Map(existingPages.map((entry) => [indexEntryPath(entry), entry]));
+      const navPaths = new Set(pages.map((page) => normalizeRel(page.normalizedPath)));
+      const updatedPages = [];
+      const seenPaths = new Set();
+      const changedPaths = new Set(
+        stagedDocPaths.filter((normalizedPath) => navPaths.has(normalizedPath) || existingByPath.has(normalizedPath))
+      );
+
+      existingPages.forEach((entry) => {
+        const normalizedPath = indexEntryPath(entry);
+        if (!changedPaths.has(normalizedPath)) {
+          updatedPages.push(entry);
+          seenPaths.add(normalizedPath);
+          return;
+        }
+
+        const { entry: nextEntry } = buildDocsIndexEntry({ normalizedPath, gitMap });
+        if (nextEntry) {
+          updatedPages.push(nextEntry);
+          seenPaths.add(normalizedPath);
+        }
+      });
+
+      [...changedPaths]
+        .filter((normalizedPath) => !seenPaths.has(normalizedPath))
+        .forEach((normalizedPath) => {
+          const { entry: nextEntry } = buildDocsIndexEntry({ normalizedPath, gitMap });
+          if (nextEntry) updatedPages.push(nextEntry);
+        });
+
+      result = {
+        ...result,
+        index: {
+          version: VERSION,
+          generated,
+          pages: updatedPages
+        }
+      };
+    }
+  }
 
   if (shouldWrite) {
     writeDocsIndex(result.index);

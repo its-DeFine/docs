@@ -29,7 +29,9 @@
                     "icon": "microchip",
                     "pages": [
                       "v2/orchestrators/portal",
-                      "v2/orchestrators/rc-navigator"
+                      "v2/orchestrators/rc-navigator",
+                      "docs-guide/contributing/mintlify",
+                      "docs-guide/lpd"
                     ]
                   },
                   {

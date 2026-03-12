@@ -136,8 +136,70 @@ function getBannerRelevantStagedFiles(stagedFiles) {
   });
 }
 
-function runGeneratorSet(writeMode, violations) {
+function runGeneratorSet(writeMode, violations, options = {}) {
   const commands = writeMode ? WRITE_COMMANDS : CHECK_COMMANDS;
+  const staged = Boolean(options.staged);
+  const relevantFiles = new Set(options.relevantFiles || []);
+
+  if (staged) {
+    if (!writeMode) {
+      return;
+    }
+
+    const stagedCommands = [];
+
+    const hasV2Index = [...relevantFiles].some((repoPath) => repoPath === 'v2/index.mdx' || /^v2\/[^/]+\/index\.mdx$/.test(repoPath));
+    if (hasV2Index) {
+      stagedCommands.push(writeMode
+        ? ['tools/scripts/generate-pages-index.js', '--staged', '--write', '--stage']
+        : ['tools/scripts/generate-pages-index.js', '--staged']);
+    }
+
+    if (relevantFiles.has('docs-guide/indexes/pages-index.mdx')) {
+      stagedCommands.push(writeMode
+        ? ['tools/scripts/generate-docs-guide-pages-index.js', '--write']
+        : ['tools/scripts/generate-docs-guide-pages-index.js', '--check']);
+    }
+
+    const hasDocsGuideIndex = [...relevantFiles].some((repoPath) =>
+      [
+        'docs-guide/indexes/components-index.mdx',
+        'docs-guide/indexes/scripts-index.mdx',
+        'docs-guide/indexes/templates-index.mdx',
+        'docs-guide/indexes/workflows-index.mdx'
+      ].includes(repoPath)
+    );
+    if (hasDocsGuideIndex) {
+      stagedCommands.push(writeMode
+        ? ['tools/scripts/generate-docs-guide-indexes.js', '--write']
+        : ['tools/scripts/generate-docs-guide-indexes.js', '--check']);
+      stagedCommands.push(writeMode
+        ? ['tests/unit/script-docs.test.js', '--write', '--rebuild-indexes']
+        : ['tests/unit/script-docs.test.js', '--check-indexes']);
+    }
+
+    const hasComponentDocs = [...relevantFiles].some((repoPath) =>
+      repoPath.startsWith('v2/resources/documentation-guide/component-library/')
+    );
+    if (hasComponentDocs) {
+      stagedCommands.push(writeMode
+        ? ['tools/scripts/generate-component-docs.js', '--fix', '--template-only']
+        : ['tools/scripts/generate-component-docs.js', '--check', '--template-only']);
+    }
+
+    stagedCommands.forEach((args) => {
+      const ok = runNodeCommand(args);
+      if (!ok) {
+        violations.push({
+          rule: 'GENERATOR_SYNC',
+          file: args[0],
+          message: `Generator command failed: node ${args.join(' ')}`
+        });
+      }
+    });
+    return;
+  }
+
   commands.forEach((args) => {
     const ok = runNodeCommand(args);
     if (!ok) {
@@ -158,8 +220,7 @@ function addViolation(violations, rule, file, message) {
   });
 }
 
-function validateNonI18nGeneratedFiles(violations) {
-  const files = getExpectedNonI18nGeneratedFiles();
+function validateNonI18nGeneratedFiles(violations, files = getExpectedNonI18nGeneratedFiles()) {
   files.forEach((repoPath) => {
     const raw = readFileSafe(repoPath);
     if (!raw.trim()) {
@@ -238,8 +299,7 @@ function normalizeI18nNoteParity(repoPath, sourceHasNote) {
   return false;
 }
 
-function validateI18nParity(writeMode, violations, warnings) {
-  const localizedFiles = collectLocalizedMdxFiles();
+function validateI18nParity(writeMode, violations, warnings, localizedFiles = collectLocalizedMdxFiles()) {
   let normalizedCount = 0;
 
   localizedFiles.forEach((repoPath) => {
@@ -331,14 +391,21 @@ function main(argv = process.argv.slice(2)) {
   }
 
   if (args.write) {
-    runGeneratorSet(true, violations);
+    runGeneratorSet(true, violations, { staged: args.staged, relevantFiles: bannerRelevantStagedFiles });
   }
   if (args.check || args.write) {
-    runGeneratorSet(false, violations);
+    runGeneratorSet(false, violations, { staged: args.staged, relevantFiles: bannerRelevantStagedFiles });
   }
 
-  validateNonI18nGeneratedFiles(violations);
-  const normalizedCount = validateI18nParity(args.write, violations, warnings);
+  const nonI18nFilesToValidate = args.staged
+    ? bannerRelevantStagedFiles.filter((repoPath) => !repoPath.startsWith('v2/cn/') && !repoPath.startsWith('v2/es/') && !repoPath.startsWith('v2/fr/'))
+    : getExpectedNonI18nGeneratedFiles();
+  validateNonI18nGeneratedFiles(violations, nonI18nFilesToValidate);
+
+  const localizedFilesToValidate = args.staged
+    ? bannerRelevantStagedFiles.filter((repoPath) => repoPath.startsWith('v2/cn/') || repoPath.startsWith('v2/es/') || repoPath.startsWith('v2/fr/'))
+    : collectLocalizedMdxFiles();
+  const normalizedCount = validateI18nParity(args.write, violations, warnings, localizedFilesToValidate);
 
   if (args.write && normalizedCount > 0) {
     console.log(`Normalized i18n visible-note parity in ${normalizedCount} file(s).`);

@@ -1234,11 +1234,15 @@ else
         if [ -f "tools/scripts/generate-docs-index.js" ]; then
             if echo "$STAGED_FILES_SNAPSHOT_ALL" | grep -Eq '^(docs\.json|v1/|v2/|snippets/)'; then
                 echo -e "${YELLOW}Checking docs-index sync...${NC}"
-                if node tools/scripts/generate-docs-index.js --check >/dev/null 2>&1; then
+                DOCS_INDEX_ARGS="--staged"
+                if echo "$STAGED_FILES_SNAPSHOT_ALL" | grep -Eq '^docs\.json$'; then
+                    DOCS_INDEX_ARGS=""
+                fi
+                if node tools/scripts/generate-docs-index.js --check $DOCS_INDEX_ARGS >/dev/null 2>&1; then
                     echo -e "${GREEN}✓ docs-index.json is up to date${NC}"
                 else
                     echo -e "${YELLOW}docs-index.json out of date, regenerating...${NC}"
-                    if node tools/scripts/generate-docs-index.js --write 2>&1; then
+                    if node tools/scripts/generate-docs-index.js --write $DOCS_INDEX_ARGS 2>&1; then
                         git add docs-index.json
                         echo -e "${GREEN}✓ docs-index.json regenerated and staged${NC}"
                     else
