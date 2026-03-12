@@ -29,7 +29,7 @@
                     "icon": "microchip",
                     "pages": [
                       "v2/orchestrators/portal",
-                      "v2/orchestrators/rc-navigator"
+                      "v2/orchestrators/dep-rc-navigator"
                     ]
                   },
                   {
@@ -47,7 +47,7 @@
                     "group": "Quickstart",
                     "icon": "bolt",
                     "pages": [
-                      "v2/orchestrators/quickstart/x-setup-paths",
+                      "v2/orchestrators/quickstart/dep-x-setup-paths",
                       {
                         "group": "GPU Setup",
                         "pages": [
@@ -65,7 +65,7 @@
                     "group": "GPU Setup",
                     "icon": "gear",
                     "pages": [
-                      "v2/orchestrators/setup/s-guide",
+                      "v2/orchestrators/setup/dep-s-guide",
                       "v2/orchestrators/setup/rcs-requirements",
                       "v2/orchestrators/setup/rs-install",
                       "v2/orchestrators/setup/r-configure",
@@ -138,7 +138,7 @@
                       "v2/orchestrators/guides/guides",
                       "v2/orchestrators/guides/tooling",
                       "v2/orchestrators/unclassified/rcs-connect-activate-publish",
-                      "v2/orchestrators/unclassified/rcs-06-add-ai-to-node-output"
+                      "v2/orchestrators/unclassified/dep-rcs-06-add-ai-to-node-output"
                     ]
                   }
                 ]
@@ -152,7 +152,7 @@
                     "icon": "microchip",
                     "pages": [
                       "v2/orchestrators/portal",
-                      "v2/orchestrators/rc-navigator"
+                      "v2/orchestrators/dep-rc-navigator"
                     ]
                   },
                   {
@@ -170,7 +170,7 @@
                     "group": "Quickstart",
                     "icon": "bolt",
                     "pages": [
-                      "v2/orchestrators/quickstart/x-setup-paths",
+                      "v2/orchestrators/quickstart/dep-x-setup-paths",
                       {
                         "group": "GPU Setup",
                         "pages": [
@@ -188,7 +188,7 @@
                     "group": "GPU Setup",
                     "icon": "gear",
                     "pages": [
-                      "v2/orchestrators/setup/s-guide",
+                      "v2/orchestrators/setup/dep-s-guide",
                       "v2/orchestrators/setup/rcs-requirements",
                       "v2/orchestrators/setup/x-install",
                       "v2/orchestrators/setup/r-configure",
@@ -261,7 +261,7 @@
                       "v2/orchestrators/guides/guides",
                       "v2/orchestrators/guides/tooling",
                       "v2/orchestrators/unclassified/rcs-connect-activate-publish",
-                      "v2/orchestrators/unclassified/rcs-06-add-ai-to-node-output"
+                      "v2/orchestrators/unclassified/dep-rcs-06-add-ai-to-node-output"
                     ]
                   }
                 ]
@@ -622,39 +622,87 @@
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/overview",
-      "destination": "/v2/orchestrators/setup/overview"
+      "destination": "/v2/orchestrators/setup/guide"
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/hardware-requirements",
-      "destination": "/v2/orchestrators/setup/hardware-requirements"
+      "destination": "/v2/orchestrators/setup/rcs-requirements"
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer",
-      "destination": "/v2/orchestrators/setup/install-go-livepeer"
+      "destination": "/v2/orchestrators/setup/rs-install"
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats",
-      "destination": "/v2/orchestrators/setup/orchestrator-stats"
+      "destination": "/v2/orchestrators/setup/r-monitor"
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/data-centre-setup",
-      "destination": "/v2/orchestrators/setup/data-centre-setup"
+      "destination": "/v2/orchestrators/unclassified/placeholders/data-centre-setup"
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers",
-      "destination": "/v2/orchestrators/setup/data-centres-and-large-scale-hardware-providers"
+      "destination": "/v2/orchestrators/unclassified/placeholders/data-centres-and-large-scale-hardware-providers"
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/enterprise-and-data-centres",
-      "destination": "/v2/orchestrators/setup/enterprise-and-data-centres"
+      "destination": "/v2/orchestrators/unclassified/placeholders/enterprise-and-data-centres"
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/publish-offerings",
-      "destination": "/v2/orchestrators/setup/publish-offerings"
+      "destination": "/v2/orchestrators/unclassified/rcs-connect-activate-publish"
     },
     {
       "source": "/v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer",
-      "destination": "/v2/orchestrators/setup/orch-config"
+      "destination": "/v2/orchestrators/setup/r-configure"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/overview",
+      "destination": "/v2/orchestrators/quickstart/guide"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/join-a-pool",
+      "destination": "/v2/orchestrators/guides/join-a-pool"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/orchestrator-setup",
+      "destination": "/v2/orchestrators/quickstart/video-transcoding"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/realtime-ai-quickstart",
+      "destination": "/v2/orchestrators/quickstart/x-realtime-ai"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/batch-ai-quickstart",
+      "destination": "/v2/orchestrators/quickstart/x-batch-ai"
+    },
+    {
+      "source": "/v2/orchestrators/rc-navigator",
+      "destination": "/v2/orchestrators/navigator"
+    },
+    {
+      "source": "/v2/orchestrators/quickstart/x-setup-paths",
+      "destination": "/v2/orchestrators/quickstart/guide"
+    },
+    {
+      "source": "/v2/orchestrators/setup/s-guide",
+      "destination": "/v2/orchestrators/setup/guide"
+    },
+    {
+      "source": "/v2/orchestrators/unclassified/connect-to-arbitrum",
+      "destination": "/v2/orchestrators/setup/sc-connect"
+    },
+    {
+      "source": "/v2/orchestrators/unclassified/quickstart-add-your-gpu-to-livepeer",
+      "destination": "/v2/orchestrators/setup/r-configure"
+    },
+    {
+      "source": "/v2/orchestrators/unclassified/rcs-06-add-ai-to-node-output",
+      "destination": "/v2/orchestrators/quickstart/AI-prompt-start"
+    },
+    {
+      "source": "/v2/orchestrators/unclassified/orchestrator-functions",
+      "destination": "/v2/orchestrators/concepts/rcs-capabilities"
     },
     {
       "source": "/v1/guides/developing/quickstart",
@@ -735,26 +783,6 @@
     {
       "source": "/v1/tutorials/developing/optimize-latency",
       "destination": "/v1/developers/guides/optimize-latency-of-a-livestream"
-    },
-    {
-      "source": "/v2/orchestrators/quickstart/overview",
-      "destination": "/v2/orchestrators/get-started/setup-paths"
-    },
-    {
-      "source": "/v2/orchestrators/quickstart/join-a-pool",
-      "destination": "/v2/orchestrators/get-started/join-a-pool"
-    },
-    {
-      "source": "/v2/orchestrators/quickstart/orchestrator-setup",
-      "destination": "/v2/orchestrators/get-started/quickstart"
-    },
-    {
-      "source": "/v2/orchestrators/quickstart/realtime-ai-quickstart",
-      "destination": "/v2/orchestrators/get-started/realtime-ai-quickstart"
-    },
-    {
-      "source": "/v2/orchestrators/quickstart/batch-ai-quickstart",
-      "destination": "/v2/orchestrators/get-started/batch-ai-quickstart"
     },
     {
       "source": "/v1/tutorials/developing/analyze-engagement-timeplus",

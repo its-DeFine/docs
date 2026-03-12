@@ -5204,3 +5204,289 @@ const docsJsonV1 = {
     },
   ],
 }
+
+const orchFinalOld = {
+  tab: 'Orchestrators Final',
+  icon: 'microchip',
+  groups: [
+    {
+      group: 'Home',
+      icon: 'microchip',
+      pages: [
+        'v2/orchestrators/IA',
+        'v2/orchestrators/portal',
+        'v2/orchestrators/dep-rc-navigator',
+      ],
+    },
+    {
+      group: 'Concepts',
+      icon: 'book-open',
+      pages: [
+        'v2/orchestrators/concepts/r-role',
+        'v2/orchestrators/concepts/rcs-capabilities',
+        'v2/orchestrators/concepts/rs-workloads',
+        'v2/orchestrators/concepts/x-architecture',
+        'v2/orchestrators/concepts/rcs-incentives',
+      ],
+    },
+    {
+      group: 'Quickstart',
+      icon: 'bolt',
+      pages: [
+        'v2/orchestrators/quickstart/dep-x-setup-paths',
+        {
+          group: 'GPU Setup',
+          pages: [
+            'v2/orchestrators/quickstart/video-transcoding',
+            'v2/orchestrators/quickstart/x-ai',
+            'v2/orchestrators/quickstart/x-realtime-ai',
+            'v2/orchestrators/quickstart/x-batch-ai',
+            'v2/orchestrators/quickstart/AI-prompt-start',
+          ],
+        },
+      ],
+    },
+    {
+      group: 'GPU Setup',
+      icon: 'gear',
+      pages: [
+        'v2/orchestrators/setup/dep-s-guide',
+        'v2/orchestrators/setup/rcs-requirements',
+        'v2/orchestrators/setup/rs-install',
+        'v2/orchestrators/setup/r-configure',
+        'v2/orchestrators/setup/sc-connect',
+        'v2/orchestrators/setup/x-test',
+        'v2/orchestrators/setup/r-monitor',
+      ],
+    },
+    {
+      group: 'Operations',
+      icon: 'chart-line',
+      pages: [
+        'v2/orchestrators/operations/x-optimise',
+        'v2/orchestrators/operations/rc-ai-pipelines',
+        'v2/orchestrators/operations/r-hosting-models',
+        'v2/orchestrators/operations/rcs-staking-delegation',
+        'v2/orchestrators/operations/earnings',
+        'v2/orchestrators/operations/rs-rewards-and-fees',
+      ],
+    },
+    {
+      group: 'Guides',
+      icon: 'wrench',
+      pages: [
+        'v2/orchestrators/guides/x-explorer',
+        'v2/orchestrators/guides/join-a-pool',
+        'v2/orchestrators/guides/r-run-a-pool',
+        'v2/orchestrators/guides/rcs-tooling',
+        'v2/orchestrators/guides/x-payments',
+        'v2/orchestrators/guides/x-governance',
+      ],
+    },
+    {
+      group: 'Resources',
+      icon: 'books',
+      pages: [
+        'v2/orchestrators/resources/faq',
+        {
+          group: 'Technical References',
+          pages: [
+            'v2/orchestrators/resources/technical/x-troubleshooting',
+            'v2/orchestrators/resources/technical/cli-flags',
+            'v2/orchestrators/resources/technical/x-contract-addresses',
+          ],
+        },
+        {
+          group: 'Resources',
+          pages: [
+            'v2/orchestrators/resources/x-guides',
+            'v2/orchestrators/resources/community-pools',
+          ],
+        },
+      ],
+    },
+    {
+      group: 'Needed',
+      icon: 'exclamation-triangle',
+      pages: [
+        'v2/orchestrators/placeholder/concepts/architecture',
+        'v2/orchestrators/placeholder/setup/install-go-livepeer',
+        'v2/orchestrators/placeholder/troubleshooting',
+        'v2/orchestrators/placeholder/resources/technical/contract-addresses',
+        'v2/orchestrators/placeholder/guides/explorer',
+      ],
+    },
+    {
+      group: 'Unplaced',
+      icon: 'question',
+      pages: [
+        'v2/orchestrators/resources/x-guides',
+        'v2/orchestrators/guides/rcs-tooling',
+        'v2/orchestrators/unclassified/rcs-connect-activate-publish',
+        'v2/orchestrators/unclassified/dep-rcs-06-add-ai-to-node-output',
+        'v2/orchestrators/unclassified/dep-orchestrator-functions',
+        'v2/orchestrators/unclassified/dep-quickstart-add-your-gpu-to-livepeer',
+        'v2/orchestrators/unclassified/placeholders/data-centre-setup',
+        'v2/orchestrators/unclassified/placeholders/data-centres-and-large-scale-hardware-providers',
+        'v2/orchestrators/unclassified/placeholders/enterprise-and-data-centres',
+        'v2/orchestrators/personas-and-pages',
+      ],
+    },
+  ],
+}
+
+const orchFinalNew = {
+  tab: 'Orchestrators Restructure',
+  icon: 'microchip',
+  groups: [
+    {
+      group: 'Planning',
+      icon: 'sitemap',
+      pages: ['v2/orchestrators/IA', 'v2/orchestrators/personas-and-pages'],
+    },
+    {
+      group: 'Start Here',
+      icon: 'microchip',
+      pages: ['v2/orchestrators/portal', 'v2/orchestrators/navigator'],
+    },
+    {
+      group: 'Concepts',
+      icon: 'book-open',
+      pages: [
+        'v2/orchestrators/concepts/r-role',
+        'v2/orchestrators/concepts/rcs-capabilities',
+        'v2/orchestrators/concepts/rs-workloads',
+        'v2/orchestrators/concepts/x-architecture',
+        'v2/orchestrators/concepts/rcs-incentives',
+      ],
+    },
+    {
+      group: 'Quickstart',
+      icon: 'bolt',
+      pages: [
+        'v2/orchestrators/quickstart/guide',
+        'v2/orchestrators/quickstart/video-transcoding',
+      ],
+    },
+    {
+      group: 'Setup',
+      icon: 'gear',
+      pages: [
+        'v2/orchestrators/setup/guide',
+        'v2/orchestrators/setup/rcs-requirements',
+        'v2/orchestrators/setup/rs-install',
+        'v2/orchestrators/setup/r-configure',
+        'v2/orchestrators/setup/sc-connect',
+        'v2/orchestrators/unclassified/rcs-connect-activate-publish',
+        'v2/orchestrators/setup/x-test',
+        'v2/orchestrators/setup/r-monitor',
+      ],
+    },
+    {
+      group: 'Advanced Operations',
+      icon: 'chart-line',
+      pages: [
+        'v2/orchestrators/operations/guide',
+        {
+          group: 'Setups and Workloads',
+          pages: [
+            'v2/orchestrators/concepts/rs-workloads',
+            'v2/orchestrators/dep-rc-navigator',
+          ],
+        },
+        {
+          group: 'AI Pipelines',
+          pages: [
+            'v2/orchestrators/operations/rc-ai-pipelines',
+            'v2/orchestrators/operations/r-hosting-models',
+            'v2/orchestrators/operations/p-models-and-vram',
+            'v2/orchestrators/operations/p-ai-models',
+            'v2/orchestrators/quickstart/x-ai',
+            'v2/orchestrators/quickstart/x-realtime-ai',
+            'v2/orchestrators/quickstart/x-batch-ai',
+            'v2/orchestrators/quickstart/AI-prompt-start',
+            'v2/orchestrators/operations/p-realtime-vs-batch',
+          ],
+        },
+        {
+          group: 'Staking and Rewards',
+          pages: [
+            'v2/orchestrators/operations/p-feasibility',
+            'v2/orchestrators/operations/earnings',
+            'v2/orchestrators/operations/rs-rewards-and-fees',
+            'v2/orchestrators/operations/rcs-staking-delegation',
+          ],
+        },
+        {
+          group: 'Delegates and Governance',
+          pages: [
+            'v2/orchestrators/operations/rcs-staking-delegation',
+            'v2/orchestrators/guides/x-governance',
+          ],
+        },
+        {
+          group: 'Monitoring and Optimising',
+          pages: [
+            'v2/orchestrators/operations/x-optimise',
+            'v2/orchestrators/setup/r-monitor',
+            'v2/orchestrators/operations/x-explorer',
+            'v2/orchestrators/resources/faq',
+            'v2/orchestrators/operations/p-smoke-test',
+          ],
+        },
+        {
+          group: 'More Guides',
+          pages: [
+            'v2/orchestrators/operations/p-gateways',
+            'v2/orchestrators/guides/r-run-a-pool',
+            'v2/orchestrators/operations/p-fleet-ops',
+            'v2/orchestrators/unclassified/placeholders/data-centre-setup',
+            'v2/orchestrators/unclassified/placeholders/data-centres-and-large-scale-hardware-providers',
+            'v2/orchestrators/unclassified/placeholders/enterprise-and-data-centres',
+            'v2/orchestrators/operations/p-support-status',
+          ],
+        },
+      ],
+    },
+    {
+      group: 'Guides',
+      icon: 'wrench',
+      pages: [
+        'v2/orchestrators/guides/join-a-pool',
+        'v2/orchestrators/guides/rcs-tooling',
+        'v2/orchestrators/resources/x-guides',
+      ],
+    },
+    {
+      group: 'Resources',
+      icon: 'books',
+      pages: [
+        'v2/orchestrators/resources/community-pools',
+        'v2/orchestrators/resources/faq',
+        'v2/orchestrators/resources/technical/cli-flags',
+        'v2/orchestrators/resources/technical/x-troubleshooting',
+        'v2/orchestrators/resources/technical/x-contract-addresses',
+      ],
+    },
+    {
+      group: 'Deprecated / Carry-over',
+      icon: 'box-archive',
+      pages: [
+        'v2/orchestrators/dep-rc-navigator',
+        'v2/orchestrators/concepts/dep-workloads',
+        'v2/orchestrators/setup/dep-config',
+        'v2/orchestrators/quickstart/dep-x-setup-paths',
+        'v2/orchestrators/setup/dep-s-guide',
+        'v2/orchestrators/unclassified/dep-connect-to-arbitrum',
+        'v2/orchestrators/unclassified/dep-quickstart-add-your-gpu-to-livepeer',
+        'v2/orchestrators/unclassified/dep-rcs-06-add-ai-to-node-output',
+        'v2/orchestrators/unclassified/dep-orchestrator-functions',
+        'v2/orchestrators/guides/x-explorer',
+        'v2/orchestrators/guides/x-payments',
+        'v2/orchestrators/operations/x-payments',
+        'v2/orchestrators/operations/x-running-workloads',
+        'v2/orchestrators/needed/troubleshooting',
+      ],
+    },
+  ],
+}
