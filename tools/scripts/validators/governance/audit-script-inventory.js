@@ -700,9 +700,16 @@ function buildConstantMap(scriptPath, content) {
 }
 
 function classifyOutputType(outputPath) {
+  const baseName = path.basename(String(outputPath || '')).toLowerCase();
   if (!outputPath || outputPath === 'stdout') return 'stdout';
   if (outputPath.startsWith('tasks/reports/')) return 'report';
-  if (outputPath.endsWith('script-index.md') || outputPath.endsWith('scripts-index.mdx')) return 'generated-index';
+  if (
+    baseName === 'script-index.md' ||
+    baseName === 'scripts-catalog.mdx' ||
+    (baseName.endsWith('.mdx') && baseName.includes('scripts') && baseName.includes('index'))
+  ) {
+    return 'generated-index';
+  }
   if (outputPath.startsWith('snippets/automations/')) return 'data-feed';
   if (!path.extname(outputPath)) return 'directory';
   return 'generated-output';

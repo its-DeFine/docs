@@ -31,9 +31,9 @@ Les fichiers suivants doivent exister et être non vides :
 
 Les fichiers suivants sont générés et ne doivent pas être modifiés directement :
 
-- `docs-guide/scripts-index.md`
-- `docs-guide/workflows-index.md`
-- `docs-guide/templates-index.md`
+- `docs-guide/catalog/scripts-catalog.mdx`
+- `docs-guide/catalog/workflows-catalog.mdx`
+- `docs-guide/catalog/templates-catalog.mdx`
 
 Regénérer avec :
 

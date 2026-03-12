@@ -8,11 +8,11 @@
 | 关注点 | 规范来源 | 注释 |
 |---|---|---|
 | 脚本/运行时行为 | 代码 + 测试 | 行为真相始终存在于可执行代码和验证测试中。 |
-| 脚本元数据和库存 | 脚本头 + 生成的索引 | 脚本头用于生成脚本索引。 |
+| 脚本元数据和库存 | 脚本头 + 生成的索引 | 脚本头用于生成脚本目录。 |
 | 仓库功能导航图 | `docs-guide/*.md`（手动规范文件） | 内部维护者真相来源。 |
 | 公开用户面向文档内容 | `v2/pages/**` | Mintlify 文档在`docs.json`导航中。 |
 | CI/测试执行行为 | 工作流文件 + 测试运行器脚本 | 叙述性摘要必须链接到这些文件。 |
-| 问题/PR接收行为 | `.github/ISSUE_TEMPLATE/*` + PR模板 + 工作流 | 生成的模板索引总结了使用情况。 |
+| 问题/PR接收行为 | `.github/ISSUE_TEMPLATE/*` + PR模板 + 工作流 | 生成的模板目录总结了使用情况。 |
 
 ## 必需的docs-guide规范文件
 
@@ -31,9 +31,9 @@
 
 以下文件是生成的，不应直接编辑：
 
-- `docs-guide/scripts-index.md`
-- `docs-guide/workflows-index.md`
-- `docs-guide/templates-index.md`
+- `docs-guide/catalog/scripts-catalog.mdx`
+- `docs-guide/catalog/workflows-catalog.mdx`
+- `docs-guide/catalog/templates-catalog.mdx`
 
 重新生成使用：
 

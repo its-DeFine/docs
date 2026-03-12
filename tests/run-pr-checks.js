@@ -47,7 +47,7 @@ const VALID_PURPOSE_SET = new Set(VALID_PURPOSES);
 const LINK_AUDIT_REPORT = '/tmp/livepeer-link-audit-pr.md';
 const CODEX_BRANCH_RE = /^codex\//;
 const GENERATED_AFFECTING_PREFIXES = [
-  'docs-guide/indexes/',
+  'docs-guide/catalog/',
   'tools/scripts/generate-docs-guide-',
   'tools/scripts/generate-pages-index.js',
   'tools/scripts/enforce-generated-file-banners.js',

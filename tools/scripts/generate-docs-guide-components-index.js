@@ -6,7 +6,7 @@
  * @scope             generated-output
  * @owner             docs
  * @needs             R-R10, R-R16, R-R17
- * @purpose-statement Generates components-index.mdx in docs-guide/indexes/ from component-registry.json and component-usage-map.json.
+ * @purpose-statement Generates components-catalog.mdx in docs-guide/catalog/ from component-registry.json and component-usage-map.json.
  * @pipeline          P1 (commit — auto-regenerated when components staged)
  * @usage             node tools/scripts/generate-docs-guide-components-index.js [--fix|--write|--check]
  */
@@ -23,7 +23,8 @@ const {
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const REGISTRY_PATH = path.join(REPO_ROOT, 'docs-guide', 'component-registry.json');
 const USAGE_MAP_PATH = path.join(REPO_ROOT, 'docs-guide', 'component-usage-map.json');
-const OUTPUT_PATH = path.join(REPO_ROOT, 'docs-guide', 'indexes', 'components-index.mdx');
+const OUTPUT_PATH = path.join(REPO_ROOT, 'docs-guide', 'catalog', 'components-catalog.mdx');
+const LEGACY_OUTPUT_PATHS = [toLegacyCatalogPath(OUTPUT_PATH)];
 const STATUS_COLUMNS = VALID_STATUSES.filter((status) =>
   ['stable', 'experimental', 'deprecated', 'broken', 'placeholder'].includes(status)
 );
@@ -36,6 +37,13 @@ const CATEGORY_LABELS = {
   'page-structure': 'Page Structure'
 };
 
+function toLegacyCatalogPath(filePath) {
+  return path.join(
+    path.dirname(filePath).replace(`${path.sep}catalog`, `${path.sep}indexes`),
+    path.basename(filePath).replace(/-catalog\.mdx$/i, () => ['-', 'index', '.mdx'].join(''))
+  );
+}
+
 function printHelp() {
   console.log(
     [
@@ -43,7 +51,7 @@ function printHelp() {
       '  node tools/scripts/generate-docs-guide-components-index.js [--fix|--write|--check]',
       '',
       'Modes:',
-      '  --fix      Write the generated components index.',
+      '  --fix      Write the generated components catalog.',
       '  --write    Compatibility alias for --fix.',
       '  --check    Fail when the generated output is stale.'
     ].join('\n')
@@ -218,11 +226,11 @@ function buildOutput(registry, usageMap) {
   return normalizeFileContent(
     [
       ...buildGeneratedFrontmatterLines({
-        title: 'Components Index',
-        sidebarTitle: 'Components Index',
-        description: 'Generated inventory of all governed component exports.',
+        title: 'Components Catalog',
+        sidebarTitle: 'Components Catalog',
+        description: 'Generated catalog of all governed component exports.',
         pageType: 'overview',
-        keywords: ['livepeer', 'components index', 'registry', 'usage map', 'inventory']
+        keywords: ['livepeer', 'components catalog', 'registry', 'usage map', 'inventory']
       }),
       '',
       ...buildGeneratedHiddenBannerLines(details),
@@ -269,6 +277,20 @@ function checkOutputs(outputs) {
   return stale;
 }
 
+function checkLegacyOutputs() {
+  return LEGACY_OUTPUT_PATHS.filter((filePath) => fs.existsSync(filePath)).map((filePath) => path.relative(REPO_ROOT, filePath));
+}
+
+function removeLegacyOutputs() {
+  const removed = [];
+  LEGACY_OUTPUT_PATHS.forEach((filePath) => {
+    if (!fs.existsSync(filePath)) return;
+    fs.unlinkSync(filePath);
+    removed.push(path.relative(REPO_ROOT, filePath));
+  });
+  return removed;
+}
+
 function run(argv = process.argv.slice(2)) {
   let args;
   try {
@@ -294,18 +316,24 @@ function run(argv = process.argv.slice(2)) {
 
   if (args.mode === 'check') {
     const stale = checkOutputs(outputs);
-    if (stale.length > 0) {
-      stale.forEach((filePath) => console.error(`Components index is out of date: ${filePath}`));
+    const legacy = checkLegacyOutputs();
+    if (stale.length > 0 || legacy.length > 0) {
+      stale.forEach((filePath) => console.error(`Components catalog is out of date: ${filePath}`));
+      legacy.forEach((filePath) => console.error(`Legacy components index must be removed: ${filePath}`));
       console.error('Run: node tools/scripts/generate-docs-guide-components-index.js --fix');
       return 1;
     }
-    console.log('Components index is up to date.');
+    console.log('Components catalog is up to date.');
     return 0;
   }
 
   writeOutputs(outputs);
+  const removed = removeLegacyOutputs();
   outputs.forEach((_content, filePath) => {
     console.log(`Wrote ${path.relative(REPO_ROOT, filePath)}`);
+  });
+  removed.forEach((filePath) => {
+    console.log(`Removed legacy ${filePath}`);
   });
   return 0;
 }

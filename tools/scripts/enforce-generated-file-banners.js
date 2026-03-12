@@ -3,7 +3,7 @@
  * @script            enforce-generated-file-banners
  * @category          remediator
  * @purpose           governance:index-management
- * @scope             tools/scripts, tools/lib, docs-guide/indexes, v2, tests/unit/docs-guide-sot.test.js
+ * @scope             tools/scripts, tools/lib, docs-guide/catalog, v2, tests/unit/docs-guide-sot.test.js
  * @owner             docs
  * @needs             R-R16, R-R17
  * @purpose-statement Generated file banner enforcer — checks (--check) or writes (default) "do not edit" banners on generated files.
@@ -28,11 +28,11 @@ const REPO_ROOT = process.cwd();
 const STAGED_SNAPSHOT_ENV = 'LPD_STAGED_FILES_SNAPSHOT';
 
 const NON_I18N_GENERATED_STATIC = [
-  'docs-guide/indexes/components-index.mdx',
-  'docs-guide/indexes/pages-index.mdx',
-  'docs-guide/indexes/scripts-index.mdx',
-  'docs-guide/indexes/templates-index.mdx',
-  'docs-guide/indexes/workflows-index.mdx',
+  'docs-guide/catalog/components-catalog.mdx',
+  'docs-guide/catalog/pages-catalog.mdx',
+  'docs-guide/catalog/scripts-catalog.mdx',
+  'docs-guide/catalog/templates-catalog.mdx',
+  'docs-guide/catalog/workflows-catalog.mdx',
   'v2/resources/documentation-guide/component-library/overview.mdx',
   'v2/resources/documentation-guide/component-library/component-library.mdx',
   'v2/resources/documentation-guide/component-library/primitives.mdx',
@@ -155,7 +155,7 @@ function runGeneratorSet(writeMode, violations, options = {}) {
         : ['tools/scripts/generate-pages-index.js', '--staged']);
     }
 
-    if (relevantFiles.has('docs-guide/indexes/pages-index.mdx')) {
+    if (relevantFiles.has('docs-guide/catalog/pages-catalog.mdx')) {
       stagedCommands.push(writeMode
         ? ['tools/scripts/generate-docs-guide-pages-index.js', '--write']
         : ['tools/scripts/generate-docs-guide-pages-index.js', '--check']);
@@ -163,10 +163,10 @@ function runGeneratorSet(writeMode, violations, options = {}) {
 
     const hasDocsGuideIndex = [...relevantFiles].some((repoPath) =>
       [
-        'docs-guide/indexes/components-index.mdx',
-        'docs-guide/indexes/scripts-index.mdx',
-        'docs-guide/indexes/templates-index.mdx',
-        'docs-guide/indexes/workflows-index.mdx'
+        'docs-guide/catalog/components-catalog.mdx',
+        'docs-guide/catalog/scripts-catalog.mdx',
+        'docs-guide/catalog/templates-catalog.mdx',
+        'docs-guide/catalog/workflows-catalog.mdx'
       ].includes(repoPath)
     );
     if (hasDocsGuideIndex) {

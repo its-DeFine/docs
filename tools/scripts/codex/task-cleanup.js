@@ -25,10 +25,10 @@ const GENERATED_EXACT = new Set([
   'llms-full.txt',
   'llms.txt',
   'sitemap-ai.xml',
-  'docs-guide/indexes/pages-index.mdx',
-  'docs-guide/indexes/scripts-index.mdx',
-  'docs-guide/indexes/templates-index.mdx',
-  'docs-guide/indexes/workflows-index.mdx',
+  'docs-guide/catalog/pages-catalog.mdx',
+  'docs-guide/catalog/scripts-catalog.mdx',
+  'docs-guide/catalog/templates-catalog.mdx',
+  'docs-guide/catalog/workflows-catalog.mdx',
   'tools/script-index.md'
 ]);
 const OPERATIONAL_PATTERNS = [

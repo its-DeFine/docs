@@ -17,16 +17,16 @@
 | 如果您需要了解... | 规范文件 |
 |---|---|
 | 治理和规范所有权 | [source-of-truth-policy.md](./policies/source-of-truth-policy.mdx) |
-| 完整的仓库功能图 | [feature-map.md](./feature-map.md) |
-| 系统间的数据和控制流 | [architecture-map.md](./architecture-map.md) |
+| 完整的仓库功能图 | [feature-map.mdx](./feature-map.mdx) |
+| 系统间的数据和控制流 | [architecture-map.mdx](./features/architecture-map.mdx) |
 | CLI 行为和操作手册 | [lpd.md](./tooling/lpd-cli.mdx) |
 | 验证和强制检查点 | [quality-gates.md](./policies/quality-gates.mdx) |
 | GitHub Actions、n8n 和自动化流水线 | [automation-pipelines.md](./features/automations.mdx) |
-| 信息架构和内容策略 | [content-system.md](./feature-guides/content-system.mdx) |
-| API 和外部数据集成 | [data-integrations.md](./data-integrations.md) |
-| 脚本目录（生成的） | [scripts-index.md](./scripts-index.md) |
-| 工作流目录（生成的） | [workflows-index.md](./workflows-index.md) |
-| 问题/PR 模板目录（生成的） | [templates-index.md](./templates-index.md) |
+| 信息架构和内容策略 | [content-system.md](./frameworks/content-system.mdx) |
+| API 和外部数据集成 | [data-integrations.mdx](./features/data-integrations.mdx) |
+| 脚本目录（生成的） | [scripts-catalog.mdx](./catalog/scripts-catalog.mdx) |
+| 工作流目录（生成的） | [workflows-catalog.mdx](./catalog/workflows-catalog.mdx) |
+| 问题/PR 模板目录（生成的） | [templates-catalog.mdx](./catalog/templates-catalog.mdx) |
 
 ## 更新规则
 
@@ -39,7 +39,7 @@
 
 ## 相关区域
 
-- 根目录导航： [`README.md`](../README.md)
-- 公共文档指南： [`v2/resources/documentation-guide/`](../v2/resources/documentation-guide/)
-- 贡献者流程： [`contribute/CONTRIBUTING/`](../contribute/CONTRIBUTING/)
-- 测试矩阵和 CI 行为： [`tests/`](../tests/)
+- 根目录导航： [`README.md`](../../../README.md)
+- 公共文档指南： [`documentation-guide.mdx`](../resources/documentation-guide/documentation-guide.mdx)
+- 贡献者流程： [`contribute/CONTRIBUTING/`](../../../contribute/CONTRIBUTING/)
+- 测试矩阵和 CI 行为： [`tests/`](../../../tests/)

@@ -63,7 +63,7 @@ async function runTests() {
     );
     assert.strictEqual(smoke.shouldRunForChangedFiles(['tests/integration/mdx-component-runtime-smoke.js']), true);
     assert.strictEqual(smoke.shouldRunForChangedFiles(['v2/home/mission-control.mdx']), true);
-    assert.strictEqual(smoke.shouldRunForChangedFiles(['docs-guide/governance-guides/component-governance.mdx']), false);
+    assert.strictEqual(smoke.shouldRunForChangedFiles(['docs-guide/frameworks/component-governance.mdx']), false);
   });
 
   await runCase('Blocking console and page errors are classified correctly', async () => {

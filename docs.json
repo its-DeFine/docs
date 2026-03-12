@@ -479,6 +479,75 @@
                     ]
                   }
                 ]
+              },
+              {
+                "tab": "Docs Guide",
+                "icon": "book-open",
+                "groups": [
+                  {
+                    "group": "Contributing",
+                    "icon": "wrench",
+                    "pages": [
+                      "docs-guide/overview",
+                      "docs-guide/contributing/contributing",
+                      "docs-guide/contributing/mintlify"
+                    ]
+                  },
+                  {
+                    "group": "Features",
+                    "icon": "sparkles",
+                    "pages": [
+                      "docs-guide/features/feature-map",
+                      "docs-guide/features/architecture-map",
+                      "docs-guide/features/automations",
+                      "docs-guide/features/data-integrations",
+                      "docs-guide/features/visual-explainer-workflows"
+                    ]
+                  },
+                  {
+                    "group": "Tooling",
+                    "icon": "terminal",
+                    "pages": [
+                      "docs-guide/tooling/lpd-cli",
+                      "docs-guide/tooling/dev-tools"
+                    ]
+                  },
+                  {
+                    "group": "Frameworks",
+                    "icon": "boxes-stacked",
+                    "pages": [
+                      "docs-guide/frameworks/component-framework",
+                      "docs-guide/frameworks/content-system",
+                      "docs-guide/frameworks/component-governance"
+                    ]
+                  },
+                  {
+                    "group": "Policies",
+                    "icon": "shield-check",
+                    "pages": [
+                      "docs-guide/policies/source-of-truth-policy",
+                      "docs-guide/policies/audit-system-overview",
+                      "docs-guide/policies/cleanup-quarantine-policy",
+                      "docs-guide/policies/component-layout-decisions",
+                      "docs-guide/policies/infrastructure-principles",
+                      "docs-guide/policies/quality-gates",
+                      "docs-guide/policies/skill-pipeline-map"
+                    ]
+                  },
+                  {
+                    "group": "Catalog",
+                    "icon": "table-columns",
+                    "pages": [
+                      "docs-guide/catalog/ai-tools",
+                      "docs-guide/catalog/pages-catalog",
+                      "docs-guide/catalog/components-catalog",
+                      "docs-guide/catalog/scripts-catalog",
+                      "docs-guide/catalog/workflows-catalog",
+                      "docs-guide/catalog/templates-catalog",
+                      "docs-guide/catalog/visual-explainer-workflows-archive"
+                    ]
+                  }
+                ]
               }
             ]
           }

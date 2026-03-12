@@ -66,7 +66,7 @@ function getLocalizedPath(route, locale) {
 
 function findFallbackFixture(repoRoot) {
   const candidates = [
-    "docs-guide/feature-guides/architecture-map.mdx",
+    "docs-guide/features/architecture-map.mdx",
     "docs/resources/documentation-guide/authoring-standard.mdx",
     "v2/resources/documentation-guide/authoring-standard.mdx",
   ];
