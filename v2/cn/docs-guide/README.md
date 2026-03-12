@@ -10,19 +10,19 @@
 - 公共文档用户体验/内容：权威来源是 Mintlify 页面下的 `v2/pages/`。
 - 生成的目录：权威来源是生成脚本；生成的文件是只读的。
 
-查看 [source-of-truth-policy.md](./source-of-truth-policy.md) 以了解完整的边界。
+查看 [source-of-truth-policy.md](./policies/source-of-truth-policy.mdx) 以了解完整的边界。
 
 ## 从这里开始
 
 | 如果您需要了解... | 规范文件 |
 |---|---|
-| 治理和规范所有权 | [source-of-truth-policy.md](./source-of-truth-policy.md) |
+| 治理和规范所有权 | [source-of-truth-policy.md](./policies/source-of-truth-policy.mdx) |
 | 完整的仓库功能图 | [feature-map.md](./feature-map.md) |
 | 系统间的数据和控制流 | [architecture-map.md](./architecture-map.md) |
-| CLI 行为和操作手册 | [lpd.md](./lpd.md) |
-| 验证和强制检查点 | [quality-gates.md](./quality-gates.md) |
-| GitHub Actions、n8n 和自动化流水线 | [automation-pipelines.md](./automation-pipelines.md) |
-| 信息架构和内容策略 | [content-system.md](./content-system.md) |
+| CLI 行为和操作手册 | [lpd.md](./tooling/lpd-cli.mdx) |
+| 验证和强制检查点 | [quality-gates.md](./policies/quality-gates.mdx) |
+| GitHub Actions、n8n 和自动化流水线 | [automation-pipelines.md](./features/automations.mdx) |
+| 信息架构和内容策略 | [content-system.md](./feature-guides/content-system.mdx) |
 | API 和外部数据集成 | [data-integrations.md](./data-integrations.md) |
 | 脚本目录（生成的） | [scripts-index.md](./scripts-index.md) |
 | 工作流目录（生成的） | [workflows-index.md](./workflows-index.md) |

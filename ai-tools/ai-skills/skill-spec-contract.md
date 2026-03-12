@@ -16,7 +16,7 @@ This contract applies to all skill surfaces:
 
 ## Canonical Sources
 
-- Source-of-truth policy: `docs-guide/source-of-truth-policy.mdx`
+- Source-of-truth policy: `docs-guide/policies/source-of-truth-policy.mdx`
 - Design framework deliverables reference: `v2/internal/rfp/reports/livepeer-docs-v2-report.md` (D1-D7)
 
 ## Normative Rules
@@ -86,15 +86,15 @@ Each skill must include a `Canonical docs-guide source` section that points to a
 
 Preferred canonical files include:
 
-- `docs-guide/README.mdx`
-- `docs-guide/feature-guides/feature-map.mdx`
-- `docs-guide/feature-guides/architecture-map.mdx`
-- `docs-guide/lpd.mdx`
-- `docs-guide/quality-testing/quality-gates.mdx`
-- `docs-guide/feature-guides/automation-pipelines.mdx`
+- `docs-guide/overview.mdx`
+- `docs-guide/features/feature-map.mdx`
+- `docs-guide/features/architecture-map.mdx`
+- `docs-guide/tooling/lpd-cli.mdx`
+- `docs-guide/policies/quality-gates.mdx`
+- `docs-guide/features/automations.mdx`
 - `docs-guide/feature-guides/content-system.mdx`
-- `docs-guide/feature-guides/data-integrations.mdx`
-- `docs-guide/source-of-truth-policy.mdx`
+- `docs-guide/features/data-integrations.mdx`
+- `docs-guide/policies/source-of-truth-policy.mdx`
 
 ### Rule 9: Design Framework Alignment (Component Library Skills)
 
@@ -102,12 +102,12 @@ Any skill covering component-library workflows must include a `Design Framework 
 
 Deliverables:
 
-- D1: `docs-guide/README.mdx`
-- D2: `docs-guide/feature-guides/feature-map.mdx`
-- D3: `docs-guide/feature-guides/architecture-map.mdx`
-- D4: `docs-guide/lpd.mdx`
-- D5: `docs-guide/quality-testing/quality-gates.mdx`
-- D6: `docs-guide/feature-guides/automation-pipelines.mdx`
+- D1: `docs-guide/overview.mdx`
+- D2: `docs-guide/features/feature-map.mdx`
+- D3: `docs-guide/features/architecture-map.mdx`
+- D4: `docs-guide/tooling/lpd-cli.mdx`
+- D5: `docs-guide/policies/quality-gates.mdx`
+- D6: `docs-guide/features/automations.mdx`
 - D7: `docs-guide/feature-guides/content-system.mdx`
 
 The subsection must state which deliverable(s) are required for the skill and why.

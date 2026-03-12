@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-10T04:20:54.533Z",
+  "generated": "2026-03-12T02:42:32.072Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/home/mission-control",
@@ -16279,7 +16279,7 @@
       "apiEndpoints": [],
       "difficulty": "beginner",
       "wordCount": 700,
-      "lastVerified": "2026-03-10T07:07:09+11:00",
+      "lastVerified": "2026-03-10T15:23:01+11:00",
       "headings": [
         {
           "level": 2,
@@ -16440,7 +16440,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/README",
+      "url": "https://docs.livepeer.org/docs-guide/overview",
       "title": "Docs Guide Overview",
       "description": "Internal source of truth for repository features and functionality",
       "section": "docs-guide",
@@ -16452,13 +16452,13 @@
         "repository",
         "features",
         "functionality",
-        "readme"
+        "overview"
       ],
       "entities": [],
       "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 337,
-      "lastVerified": "2026-03-09T06:43:27+11:00",
+      "difficulty": "beginner",
+      "wordCount": 303,
+      "lastVerified": "2026-03-12T02:40:22.024Z",
       "headings": [
         {
           "level": 1,
@@ -16470,7 +16470,7 @@
         },
         {
           "level": 2,
-          "text": "Start Here"
+          "text": "Section Routes"
         },
         {
           "level": 2,
@@ -16484,347 +16484,41 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/source-of-truth-policy",
-      "title": "Source of Truth Policy",
-      "description": "Canonical ownership boundaries to prevent drift across README, docs-guide, tests docs, and Mintlify pages",
+      "url": "https://docs.livepeer.org/docs-guide/contributing/contributing",
+      "title": "Contributing",
+      "description": "",
       "section": "docs-guide",
       "tags": [
-        "livepeer",
-        "source-of-truth-policy",
-        "canonical",
-        "ownership",
-        "boundaries",
-        "drift",
-        "readme",
         "docs-guide",
-        "tests-docs",
-        "mintlify-pages"
+        "contributing"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 408,
-      "lastVerified": "2026-03-09T06:43:27+11:00",
-      "headings": [
-        {
-          "level": 1,
-          "text": "Source of Truth Policy"
-        },
-        {
-          "level": 2,
-          "text": "Canonical Boundaries"
-        },
-        {
-          "level": 2,
-          "text": "Required docs-guide Canonical Files"
-        },
-        {
-          "level": 2,
-          "text": "Generated Index Files"
-        },
-        {
-          "level": 2,
-          "text": "Generated File Banners"
-        },
-        {
-          "level": 2,
-          "text": "README Contract"
-        },
-        {
-          "level": 2,
-          "text": "Change Management Rules"
-        }
-      ],
-      "codeLanguages": [
-        "bash"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/docs-guide/lpd",
-      "title": "LPD CLI API Reference",
-      "description": "User-first guide and API reference for the repository lpd CLI.",
-      "section": "docs-guide",
-      "tags": [
-        "livepeer",
-        "lpd-cli-guide",
-        "internal",
-        "repository",
-        "cli",
-        "setup",
-        "local-development",
-        "test-orchestration",
-        "hook-management",
-        "script-execution",
-        "docs-guide",
-        "lpd"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 2182,
-      "lastVerified": "2026-03-10T06:26:49+11:00",
+      "wordCount": 138,
+      "lastVerified": "2026-03-03T19:21:03+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "What is lpd"
-        },
-        {
-          "level": 2,
-          "text": "Start Here (New Contributor Path)"
-        },
-        {
-          "level": 2,
-          "text": "Installation"
-        },
-        {
-          "level": 2,
-          "text": "First 10 Minutes Workflow"
+          "text": "Optional Visual-Explainer Workflows (Pilot)"
         },
         {
           "level": 3,
-          "text": "I just need docs running"
+          "text": "Recommended Pilot Uses"
         },
         {
           "level": 3,
-          "text": "I need to run checks before PR"
+          "text": "Artifact Naming Convention"
         },
         {
           "level": 3,
-          "text": "I need to run a managed script"
-        },
-        {
-          "level": 2,
-          "text": "Command Quick Index"
-        },
-        {
-          "level": 2,
-          "text": "Command Reference"
-        },
-        {
-          "level": 3,
-          "text": "Core Workflow Commands"
-        },
-        {
-          "level": 3,
-          "text": "Hooks Commands"
-        },
-        {
-          "level": 3,
-          "text": "Scripts Commands"
-        },
-        {
-          "level": 2,
-          "text": "Script Index"
-        },
-        {
-          "level": 2,
-          "text": "Troubleshooting"
-        },
-        {
-          "level": 3,
-          "text": "`lpd` not found"
-        },
-        {
-          "level": 3,
-          "text": "Hooks mismatch"
-        },
-        {
-          "level": 3,
-          "text": "`--json` expectations"
-        },
-        {
-          "level": 3,
-          "text": "Port collision on `lpd dev`"
-        },
-        {
-          "level": 3,
-          "text": "Slow startup or slow route changes on very large `docs.json`"
-        },
-        {
-          "level": 2,
-          "text": "JSON Output"
-        }
-      ],
-      "codeLanguages": [
-        "bash",
-        "json"
-      ]
-    },
-    {
-      "url": "https://docs.livepeer.org/docs-guide/indexes/pages-index",
-      "title": "Pages Index",
-      "description": "Tree inventory of docs pages included in docs.json navigation, generated from v2 index data.",
-      "section": "docs-guide",
-      "tags": [
-        "livepeer",
-        "pages-index",
-        "tree",
-        "docsjson",
-        "v2",
-        "docs-guide",
-        "indexes"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 41,
-      "lastVerified": "2026-03-10T07:07:09+11:00",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/docs-guide/indexes/components-index",
-      "title": "Components Index",
-      "description": "Generated inventory of all governed component exports.",
-      "section": "docs-guide",
-      "tags": [
-        "livepeer",
-        "components-index",
-        "registry",
-        "usage-map",
-        "inventory",
-        "docs-guide",
-        "indexes"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 3251,
-      "lastVerified": "2026-03-10T06:26:49+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": "Summary"
-        },
-        {
-          "level": 2,
-          "text": "primitives"
-        },
-        {
-          "level": 2,
-          "text": "layout"
-        },
-        {
-          "level": 2,
-          "text": "content"
-        },
-        {
-          "level": 2,
-          "text": "data"
-        },
-        {
-          "level": 2,
-          "text": "page-structure"
+          "text": "Scope and Boundaries"
         }
       ],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/indexes/scripts-index",
-      "title": "Scripts Index",
-      "description": "This page provides an aggregate catalog inventory of repository scripts generated from group script indexes.",
-      "section": "docs-guide",
-      "tags": [
-        "livepeer",
-        "scripts-index",
-        "aggregate-inventory",
-        "repository",
-        "scripts",
-        "docs-guide",
-        "indexes"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 4073,
-      "lastVerified": "2026-03-10T07:07:09+11:00",
-      "headings": [
-        {
-          "level": 2,
-          "text": ".githooks"
-        },
-        {
-          "level": 2,
-          "text": ".github/scripts"
-        },
-        {
-          "level": 2,
-          "text": "tests"
-        },
-        {
-          "level": 2,
-          "text": "tools/scripts"
-        },
-        {
-          "level": 2,
-          "text": "tools/lib"
-        },
-        {
-          "level": 2,
-          "text": "tools/notion"
-        },
-        {
-          "level": 2,
-          "text": "tools/config"
-        },
-        {
-          "level": 2,
-          "text": "tasks/scripts"
-        },
-        {
-          "level": 2,
-          "text": "snippets/automations"
-        }
-      ],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/docs-guide/indexes/workflows-index",
-      "title": "Workflows Index",
-      "description": "Aggregate inventory of repository GitHub workflows",
-      "section": "docs-guide",
-      "tags": [
-        "livepeer",
-        "workflows-index",
-        "aggregate-inventory",
-        "repository",
-        "github",
-        "workflows",
-        "docs-guide",
-        "indexes"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 986,
-      "lastVerified": "2026-03-10T07:07:09+11:00",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/docs-guide/indexes/templates-index",
-      "title": "Templates Index",
-      "description": "Aggregate inventory of repository templates",
-      "section": "docs-guide",
-      "tags": [
-        "livepeer",
-        "templates-index",
-        "aggregate-inventory",
-        "repository",
-        "templates",
-        "docs-guide",
-        "indexes"
-      ],
-      "entities": [],
-      "apiEndpoints": [],
-      "difficulty": "intermediate",
-      "wordCount": 301,
-      "lastVerified": "2026-03-09T22:43:49+11:00",
-      "headings": [],
-      "codeLanguages": []
-    },
-    {
-      "url": "https://docs.livepeer.org/docs-guide/feature-guides/feature-map",
+      "url": "https://docs.livepeer.org/docs-guide/features/feature-map",
       "title": "Feature Map",
       "description": "This map captures repository capabilities as an internal maintainer index.",
       "section": "docs-guide",
@@ -16836,13 +16530,13 @@
         "repository",
         "capabilities",
         "docs-guide",
-        "feature-guides"
+        "features"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 323,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-12T02:40:22.023Z",
       "headings": [
         {
           "level": 2,
@@ -16880,7 +16574,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/feature-guides/architecture-map",
+      "url": "https://docs.livepeer.org/docs-guide/features/architecture-map",
       "title": "Architecture Map",
       "description": "Internal systems map for how content, tooling, validation, and automation interact",
       "section": "docs-guide",
@@ -16894,13 +16588,13 @@
         "validation",
         "automation",
         "docs-guide",
-        "feature-guides"
+        "features"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "advanced",
       "wordCount": 209,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-12T02:40:22.023Z",
       "headings": [
         {
           "level": 2,
@@ -16940,8 +16634,8 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/feature-guides/automation-pipelines",
-      "title": "Automation Pipelines Map",
+      "url": "https://docs.livepeer.org/docs-guide/features/automations",
+      "title": "Automations",
       "description": "This document tracks automation systems and where they write data.",
       "section": "docs-guide",
       "tags": [
@@ -16954,13 +16648,14 @@
         "write",
         "data",
         "docs-guide",
-        "feature-guides"
+        "features",
+        "automations"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 445,
-      "lastVerified": "2026-03-09T22:26:04+11:00",
+      "lastVerified": "2026-03-12T02:40:22.023Z",
       "headings": [
         {
           "level": 2,
@@ -17070,7 +16765,7 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/feature-guides/visual-explainer-workflows",
+      "url": "https://docs.livepeer.org/docs-guide/features/visual-explainer-workflows",
       "title": "Visual Explainer Workflows",
       "description": "Pilot workflow guidance for using visual-explainer in docs maintenance, review, and reporting.",
       "section": "docs-guide",
@@ -17084,7 +16779,7 @@
         "plan-review",
         "fact-check",
         "project-recap",
-        "feature-guides",
+        "features",
         "visual-explainer-workflows"
       ],
       "entities": [
@@ -17093,7 +16788,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 1537,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-12T02:40:22.023Z",
       "headings": [
         {
           "level": 1,
@@ -17183,7 +16878,7 @@
       ]
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/feature-guides/data-integrations",
+      "url": "https://docs.livepeer.org/docs-guide/features/data-integrations",
       "title": "Data Integrations",
       "description": "This document maps primary API/data integrations used by docs content and automations.",
       "section": "docs-guide",
@@ -17197,13 +16892,13 @@
         "docs-content",
         "automation",
         "docs-guide",
-        "feature-guides"
+        "features"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 167,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "lastVerified": "2026-03-12T02:40:22.023Z",
       "headings": [
         {
           "level": 2,
@@ -17233,41 +16928,877 @@
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/contributing/contributing",
-      "title": "Contributing",
-      "description": "",
+      "url": "https://docs.livepeer.org/docs-guide/tooling/lpd-cli",
+      "title": "LPD CLI API Reference",
+      "description": "User-first guide and API reference for the repository lpd CLI.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "lpd-cli-guide",
+        "internal",
+        "repository",
+        "cli",
+        "setup",
+        "local-development",
+        "test-orchestration",
+        "hook-management",
+        "script-execution",
+        "docs-guide",
+        "tooling"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 2182,
+      "lastVerified": "2026-03-12T02:40:22.025Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "What is lpd"
+        },
+        {
+          "level": 2,
+          "text": "Start Here (New Contributor Path)"
+        },
+        {
+          "level": 2,
+          "text": "Installation"
+        },
+        {
+          "level": 2,
+          "text": "First 10 Minutes Workflow"
+        },
+        {
+          "level": 3,
+          "text": "I just need docs running"
+        },
+        {
+          "level": 3,
+          "text": "I need to run checks before PR"
+        },
+        {
+          "level": 3,
+          "text": "I need to run a managed script"
+        },
+        {
+          "level": 2,
+          "text": "Command Quick Index"
+        },
+        {
+          "level": 2,
+          "text": "Command Reference"
+        },
+        {
+          "level": 3,
+          "text": "Core Workflow Commands"
+        },
+        {
+          "level": 3,
+          "text": "Hooks Commands"
+        },
+        {
+          "level": 3,
+          "text": "Scripts Commands"
+        },
+        {
+          "level": 2,
+          "text": "Script Index"
+        },
+        {
+          "level": 2,
+          "text": "Troubleshooting"
+        },
+        {
+          "level": 3,
+          "text": "`lpd` not found"
+        },
+        {
+          "level": 3,
+          "text": "Hooks mismatch"
+        },
+        {
+          "level": 3,
+          "text": "`--json` expectations"
+        },
+        {
+          "level": 3,
+          "text": "Port collision on `lpd dev`"
+        },
+        {
+          "level": 3,
+          "text": "Slow startup or slow route changes on very large `docs.json`"
+        },
+        {
+          "level": 2,
+          "text": "JSON Output"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "json"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/frameworks/component-framework",
+      "title": "Component Governance Framework",
+      "description": "Canonical reference for how components are classified, built, documented, and maintained in snippets/components/.",
       "section": "docs-guide",
       "tags": [
         "docs-guide",
-        "contributing"
+        "frameworks",
+        "component-framework"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 138,
-      "lastVerified": "2026-03-03T19:21:03+11:00",
+      "wordCount": 2771,
+      "lastVerified": "2026-03-12T02:40:22.024Z",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Component Governance Framework"
+        },
+        {
+          "level": 2,
+          "text": "Quick Start"
+        },
+        {
+          "level": 3,
+          "text": "Find a component"
+        },
+        {
+          "level": 3,
+          "text": "Use a component"
+        },
+        {
+          "level": 3,
+          "text": "Decide which category"
+        },
+        {
+          "level": 3,
+          "text": "Build a new component"
+        },
+        {
+          "level": 3,
+          "text": "Component checklist (full)"
+        },
+        {
+          "level": 2,
+          "text": "1. Classification & Purpose Model"
+        },
+        {
+          "level": 3,
+          "text": "1.1 Category Taxonomy"
+        },
+        {
+          "level": 3,
+          "text": "1.2 Decision Tree"
+        },
+        {
+          "level": 3,
+          "text": "1.3 Compositional Tiers"
+        },
+        {
+          "level": 3,
+          "text": "1.4 Library Boundary"
+        },
+        {
+          "level": 3,
+          "text": "1.5 Content Affinity"
+        },
+        {
+          "level": 2,
+          "text": "2. Repo Structure & Documentation Architecture"
+        },
+        {
+          "level": 3,
+          "text": "2.1 Folder Layout"
+        },
+        {
+          "level": 3,
+          "text": "2.2 Naming Conventions"
+        },
+        {
+          "level": 3,
+          "text": "2.3 File Granularity"
+        },
+        {
+          "level": 3,
+          "text": "2.4 Import Paths"
+        },
+        {
+          "level": 3,
+          "text": "2.5 Documentation Architecture"
+        },
+        {
+          "level": 3,
+          "text": "2.6 Registry"
+        },
+        {
+          "level": 2,
+          "text": "3. Styling Architecture & Standards"
+        },
+        {
+          "level": 3,
+          "text": "3.1 Three-Layer Hierarchy"
+        },
+        {
+          "level": 3,
+          "text": "3.2 Token Namespace"
+        },
+        {
+          "level": 3,
+          "text": "3.3 Banned Patterns (Pre-commit Blocks)"
+        },
+        {
+          "level": 3,
+          "text": "3.4 Advisory Patterns (Code Review Flags)"
+        },
+        {
+          "level": 3,
+          "text": "3.5 Dark/Light Mode"
+        },
+        {
+          "level": 3,
+          "text": "3.6 Mintlify Override Registry"
+        },
+        {
+          "level": 2,
+          "text": "4. Component Development Standards"
+        },
+        {
+          "level": 3,
+          "text": "4.1 Props Conventions (7 Rules)"
+        },
+        {
+          "level": 3,
+          "text": "4.2 Composition"
+        },
+        {
+          "level": 3,
+          "text": "4.3 Accessibility"
+        },
+        {
+          "level": 3,
+          "text": "4.4 Error Handling (Mandatory)"
+        },
+        {
+          "level": 3,
+          "text": "4.5 Testing (Three Tiers)"
+        },
+        {
+          "level": 2,
+          "text": "5. Documentation & Example Standards"
+        },
+        {
+          "level": 3,
+          "text": "5.1 JSDoc Template"
+        },
+        {
+          "level": 3,
+          "text": "5.2 Metadata Schema (14 Fields, All Required)"
+        },
+        {
+          "level": 3,
+          "text": "5.3 Props Table Format (Published Docs)"
+        },
+        {
+          "level": 3,
+          "text": "5.4 Examples"
+        },
+        {
+          "level": 3,
+          "text": "5.5 Published Docs Generation"
+        },
+        {
+          "level": 3,
+          "text": "5.6 Deprecation"
+        },
+        {
+          "level": 2,
+          "text": "6. Lifecycle & Governance"
+        },
+        {
+          "level": 3,
+          "text": "6.1 Lifecycle States"
+        },
+        {
+          "level": 3,
+          "text": "6.2 Transitions"
+        },
+        {
+          "level": 3,
+          "text": "6.3 Ownership"
+        },
+        {
+          "level": 3,
+          "text": "6.4 Modification Rules"
+        },
+        {
+          "level": 3,
+          "text": "6.5 Deprecation & Removal"
+        },
+        {
+          "level": 2,
+          "text": "7. Enforcement Summary"
+        },
+        {
+          "level": 2,
+          "text": "8. Generation Pipeline"
+        },
+        {
+          "level": 3,
+          "text": "8.1 Registry Generation"
+        },
+        {
+          "level": 3,
+          "text": "8.2 Published Docs Generation"
+        },
+        {
+          "level": 2,
+          "text": "9. Decision Register (All 33 Decisions)"
+        },
+        {
+          "level": 3,
+          "text": "D1: Classification & Purpose Model"
+        },
+        {
+          "level": 3,
+          "text": "D2: Repo Structure & Documentation Architecture"
+        },
+        {
+          "level": 3,
+          "text": "D3: Styling Architecture & Standards"
+        },
+        {
+          "level": 3,
+          "text": "D4: Component Development Standards"
+        },
+        {
+          "level": 3,
+          "text": "D5: Documentation & Example Standards"
+        },
+        {
+          "level": 3,
+          "text": "D6: Lifecycle & Governance Model"
+        },
+        {
+          "level": 2,
+          "text": "10. Upstream Dependencies"
+        },
+        {
+          "level": 2,
+          "text": "11. Open Items (D8 Audit + D9 Migration)"
+        }
+      ],
+      "codeLanguages": [
+        "mdx",
+        "jsx"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/governance-guides/component-governance",
+      "title": "Component Governance Framework",
+      "description": "Canonical reference for how components are classified, built, documented, and maintained in snippets/components/.",
+      "section": "docs-guide",
+      "tags": [
+        "docs-guide",
+        "governance-guides",
+        "component-governance"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 2866,
+      "lastVerified": "2026-03-09T21:40:52+11:00",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Component Governance Framework"
+        },
+        {
+          "level": 2,
+          "text": "Quick Start"
+        },
+        {
+          "level": 3,
+          "text": "Find a component"
+        },
+        {
+          "level": 3,
+          "text": "Use a component"
+        },
+        {
+          "level": 3,
+          "text": "Decide which category"
+        },
+        {
+          "level": 3,
+          "text": "Build a new component"
+        },
+        {
+          "level": 3,
+          "text": "Component checklist (full)"
+        },
+        {
+          "level": 2,
+          "text": "1. Classification & Purpose Model"
+        },
+        {
+          "level": 3,
+          "text": "1.1 Category Taxonomy"
+        },
+        {
+          "level": 3,
+          "text": "1.2 Decision Tree"
+        },
+        {
+          "level": 3,
+          "text": "1.3 Compositional Tiers"
+        },
+        {
+          "level": 3,
+          "text": "1.4 Library Boundary"
+        },
+        {
+          "level": 3,
+          "text": "1.5 Content Affinity"
+        },
+        {
+          "level": 2,
+          "text": "2. Repo Structure & Documentation Architecture"
+        },
+        {
+          "level": 3,
+          "text": "2.1 Folder Layout"
+        },
+        {
+          "level": 3,
+          "text": "2.2 Naming Conventions"
+        },
+        {
+          "level": 3,
+          "text": "2.3 File Granularity"
+        },
+        {
+          "level": 3,
+          "text": "2.4 Import Paths"
+        },
+        {
+          "level": 3,
+          "text": "2.5 Documentation Architecture"
+        },
+        {
+          "level": 3,
+          "text": "2.6 Registry"
+        },
+        {
+          "level": 2,
+          "text": "3. Styling Architecture & Standards"
+        },
+        {
+          "level": 3,
+          "text": "3.1 Three-Layer Hierarchy"
+        },
+        {
+          "level": 3,
+          "text": "3.2 Token Namespace"
+        },
+        {
+          "level": 3,
+          "text": "3.3 Banned Patterns (Pre-commit Blocks)"
+        },
+        {
+          "level": 3,
+          "text": "3.4 Advisory Patterns (Code Review Flags)"
+        },
+        {
+          "level": 3,
+          "text": "3.5 Dark/Light Mode"
+        },
+        {
+          "level": 3,
+          "text": "3.6 Mintlify Override Registry"
+        },
+        {
+          "level": 2,
+          "text": "4. Component Development Standards"
+        },
+        {
+          "level": 3,
+          "text": "4.1 Props Conventions (7 Rules)"
+        },
+        {
+          "level": 3,
+          "text": "4.2 Composition"
+        },
+        {
+          "level": 3,
+          "text": "4.3 Accessibility"
+        },
+        {
+          "level": 3,
+          "text": "4.4 Error Handling (Mandatory)"
+        },
+        {
+          "level": 3,
+          "text": "4.5 Testing (Three Tiers)"
+        },
+        {
+          "level": 2,
+          "text": "5. Documentation & Example Standards"
+        },
+        {
+          "level": 3,
+          "text": "5.1 JSDoc Template"
+        },
+        {
+          "level": 3,
+          "text": "5.2 Metadata Schema (14 Fields, All Required)"
+        },
+        {
+          "level": 3,
+          "text": "5.3 Props Table Format (Published Docs)"
+        },
+        {
+          "level": 3,
+          "text": "5.4 Examples"
+        },
+        {
+          "level": 3,
+          "text": "5.5 Published Docs Generation"
+        },
+        {
+          "level": 3,
+          "text": "5.6 Deprecation"
+        },
+        {
+          "level": 2,
+          "text": "6. Lifecycle & Governance"
+        },
+        {
+          "level": 3,
+          "text": "6.1 Lifecycle States"
+        },
+        {
+          "level": 3,
+          "text": "6.2 Transitions"
+        },
+        {
+          "level": 3,
+          "text": "6.3 Ownership"
+        },
+        {
+          "level": 3,
+          "text": "6.4 Modification Rules"
+        },
+        {
+          "level": 3,
+          "text": "6.5 Deprecation & Removal"
+        },
+        {
+          "level": 2,
+          "text": "7. Enforcement Summary"
+        },
+        {
+          "level": 2,
+          "text": "8. Generation Pipeline"
+        },
+        {
+          "level": 3,
+          "text": "8.1 Registry Generation"
+        },
+        {
+          "level": 3,
+          "text": "8.2 Published Docs Generation"
+        },
+        {
+          "level": 2,
+          "text": "9. Decision Register (All 33 Decisions)"
+        },
+        {
+          "level": 3,
+          "text": "D1: Classification & Purpose Model"
+        },
+        {
+          "level": 3,
+          "text": "D2: Repo Structure & Documentation Architecture"
+        },
+        {
+          "level": 3,
+          "text": "D3: Styling Architecture & Standards"
+        },
+        {
+          "level": 3,
+          "text": "D4: Component Development Standards"
+        },
+        {
+          "level": 3,
+          "text": "D5: Documentation & Example Standards"
+        },
+        {
+          "level": 3,
+          "text": "D6: Lifecycle & Governance Model"
+        },
+        {
+          "level": 2,
+          "text": "10. Upstream Dependencies"
+        },
+        {
+          "level": 2,
+          "text": "11. Open Items (D8 Audit + D9 Migration)"
+        }
+      ],
+      "codeLanguages": [
+        "mdx",
+        "jsx"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/policies/source-of-truth-policy",
+      "title": "Source of Truth Policy",
+      "description": "Canonical ownership boundaries to prevent drift across README, docs-guide, tests docs, and Mintlify pages",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "source-of-truth-policy",
+        "canonical",
+        "ownership",
+        "boundaries",
+        "drift",
+        "readme",
+        "docs-guide",
+        "tests-docs",
+        "mintlify-pages",
+        "policies"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 408,
+      "lastVerified": "2026-03-12T02:40:22.025Z",
+      "headings": [
+        {
+          "level": 1,
+          "text": "Source of Truth Policy"
+        },
+        {
+          "level": 2,
+          "text": "Canonical Boundaries"
+        },
+        {
+          "level": 2,
+          "text": "Required docs-guide Canonical Files"
+        },
+        {
+          "level": 2,
+          "text": "Generated Index Files"
+        },
+        {
+          "level": 2,
+          "text": "Generated File Banners"
+        },
+        {
+          "level": 2,
+          "text": "README Contract"
+        },
+        {
+          "level": 2,
+          "text": "Change Management Rules"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/policies/audit-system-overview",
+      "title": "Audit System Overview",
+      "description": "Static-first docs infrastructure audit system for quality, performance and maintainability.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "docs-audit",
+        "infrastructure",
+        "quality",
+        "performance",
+        "maintainability",
+        "docs-guide",
+        "policies",
+        "audit-system-overview"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 139,
+      "lastVerified": "2026-03-12T02:40:22.024Z",
       "headings": [
         {
           "level": 2,
-          "text": "Optional Visual-Explainer Workflows (Pilot)"
+          "text": "Purpose"
         },
         {
-          "level": 3,
-          "text": "Recommended Pilot Uses"
+          "level": 2,
+          "text": "Default Operating Mode"
         },
         {
-          "level": 3,
-          "text": "Artifact Naming Convention"
+          "level": 2,
+          "text": "Canonical Inputs and Outputs"
         },
         {
-          "level": 3,
-          "text": "Scope and Boundaries"
+          "level": 2,
+          "text": "Policy Defaults"
+        },
+        {
+          "level": 2,
+          "text": "Entry Points"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/policies/cleanup-quarantine-policy",
+      "title": "Cleanup Quarantine Policy",
+      "description": "Conservative cleanup policy for docs infrastructure artefacts, scripts and report outputs.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "cleanup",
+        "quarantine",
+        "policy",
+        "retention",
+        "docs-guide",
+        "policies",
+        "cleanup-quarantine-policy"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 70,
+      "lastVerified": "2026-03-12T02:40:22.024Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Core Rules"
+        },
+        {
+          "level": 2,
+          "text": "Actions"
+        },
+        {
+          "level": 2,
+          "text": "Manifest Contract"
+        },
+        {
+          "level": 2,
+          "text": "Usage"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/policies/component-layout-decisions",
+      "title": "Component Layout Decisions",
+      "description": "Page-type layout contract for required sections and approved component sets.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "component-layout",
+        "governance",
+        "page-types",
+        "docs",
+        "docs-guide",
+        "policies",
+        "component-layout-decisions"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 90,
+      "lastVerified": "2026-03-12T02:40:22.025Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Purpose"
+        },
+        {
+          "level": 2,
+          "text": "Policy Source"
+        },
+        {
+          "level": 2,
+          "text": "Matrix"
+        },
+        {
+          "level": 2,
+          "text": "Validation Command"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/policies/infrastructure-principles",
+      "title": "Infrastructure First Principles",
+      "description": "Canonical first-principles design for repository infrastructure, quality gates, automation flows, and policy ownership.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "infrastructure",
+        "first-principles",
+        "quality-gates",
+        "hooks",
+        "ci",
+        "governance",
+        "design",
+        "docs-guide",
+        "policies",
+        "infrastructure-principles"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 560,
+      "lastVerified": "2026-03-12T02:40:22.025Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Purpose"
+        },
+        {
+          "level": 2,
+          "text": "Design Tenets"
+        },
+        {
+          "level": 2,
+          "text": "Severity Model"
+        },
+        {
+          "level": 2,
+          "text": "Stack Architecture (End-to-End)"
+        },
+        {
+          "level": 2,
+          "text": "Runtime and Scope Budgets"
+        },
+        {
+          "level": 2,
+          "text": "Ownership Contracts"
+        },
+        {
+          "level": 2,
+          "text": "Migration Rules for New Changes"
         }
       ],
       "codeLanguages": []
     },
     {
-      "url": "https://docs.livepeer.org/docs-guide/quality-testing/quality-gates",
+      "url": "https://docs.livepeer.org/docs-guide/policies/quality-gates",
       "title": "Quality Gates Map",
       "description": "Layered quality gate map aligned to first-principles ownership and runtime budgets.",
       "section": "docs-guide",
@@ -17280,13 +17811,13 @@
         "enforcement",
         "runtime-budget",
         "docs-guide",
-        "quality-testing"
+        "policies"
       ],
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 211,
-      "lastVerified": "2026-03-05T14:04:40+11:00",
+      "lastVerified": "2026-03-12T02:40:22.025Z",
       "headings": [
         {
           "level": 2,
@@ -17321,6 +17852,275 @@
           "text": "Source Files"
         }
       ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/policies/skill-pipeline-map",
+      "title": "Skill Pipeline Map",
+      "description": "Run order, purpose, inputs and outputs for the docs audit skill pipeline.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "skills",
+        "pipeline",
+        "audit",
+        "run-order",
+        "docs-guide",
+        "policies",
+        "skill-pipeline-map"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 109,
+      "lastVerified": "2026-03-12T02:40:22.025Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Run Order"
+        },
+        {
+          "level": 2,
+          "text": "Pipeline Contract Files"
+        },
+        {
+          "level": 2,
+          "text": "Stage Behaviour"
+        },
+        {
+          "level": 2,
+          "text": "Orchestrator CLI"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/catalog/ai-tools",
+      "title": "AI Tools and Skills Index",
+      "description": "Index of docs-audit skills, orchestration assets and cross-agent pack outputs.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "ai-tools",
+        "skills",
+        "audit",
+        "codex",
+        "cursor",
+        "claude",
+        "windsurf",
+        "docs-guide",
+        "catalog"
+      ],
+      "entities": [
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 110,
+      "lastVerified": "2026-03-12T02:40:22.022Z",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Skill Catalogue"
+        },
+        {
+          "level": 2,
+          "text": "Executable Skills"
+        },
+        {
+          "level": 2,
+          "text": "One-Command Audit"
+        },
+        {
+          "level": 2,
+          "text": "Cross-Agent Installation Path"
+        },
+        {
+          "level": 2,
+          "text": "Agent Onboarding Path"
+        },
+        {
+          "level": 2,
+          "text": "Codex Skill Portability"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/indexes/pages-index",
+      "title": "Pages Index",
+      "description": "Tree inventory of docs pages included in docs.json navigation, generated from v2 index data.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "pages-index",
+        "tree",
+        "docsjson",
+        "v2",
+        "docs-guide",
+        "indexes"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 41,
+      "lastVerified": "2026-03-10T07:07:09+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/indexes/components-index",
+      "title": "Components Index",
+      "description": "Generated inventory of all governed component exports.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "components-index",
+        "registry",
+        "usage-map",
+        "inventory",
+        "docs-guide",
+        "indexes"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 3251,
+      "lastVerified": "2026-03-10T06:26:49+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "level": 2,
+          "text": "primitives"
+        },
+        {
+          "level": 2,
+          "text": "layout"
+        },
+        {
+          "level": 2,
+          "text": "content"
+        },
+        {
+          "level": 2,
+          "text": "data"
+        },
+        {
+          "level": 2,
+          "text": "page-structure"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/indexes/scripts-index",
+      "title": "Scripts Index",
+      "description": "This page provides an aggregate catalog inventory of repository scripts generated from group script indexes.",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "scripts-index",
+        "aggregate-inventory",
+        "repository",
+        "scripts",
+        "docs-guide",
+        "indexes"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 4170,
+      "lastVerified": "2026-03-10T07:07:09+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": ".githooks"
+        },
+        {
+          "level": 2,
+          "text": ".github/scripts"
+        },
+        {
+          "level": 2,
+          "text": "tests"
+        },
+        {
+          "level": 2,
+          "text": "tools/scripts"
+        },
+        {
+          "level": 2,
+          "text": "tools/lib"
+        },
+        {
+          "level": 2,
+          "text": "tools/notion"
+        },
+        {
+          "level": 2,
+          "text": "tools/config"
+        },
+        {
+          "level": 2,
+          "text": "tasks/scripts"
+        },
+        {
+          "level": 2,
+          "text": "snippets/automations"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/indexes/workflows-index",
+      "title": "Workflows Index",
+      "description": "Aggregate inventory of repository GitHub workflows",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "workflows-index",
+        "aggregate-inventory",
+        "repository",
+        "github",
+        "workflows",
+        "docs-guide",
+        "indexes"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 986,
+      "lastVerified": "2026-03-10T07:07:09+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/docs-guide/indexes/templates-index",
+      "title": "Templates Index",
+      "description": "Aggregate inventory of repository templates",
+      "section": "docs-guide",
+      "tags": [
+        "livepeer",
+        "templates-index",
+        "aggregate-inventory",
+        "repository",
+        "templates",
+        "docs-guide",
+        "indexes"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 301,
+      "lastVerified": "2026-03-09T22:43:49+11:00",
+      "headings": [],
       "codeLanguages": []
     },
     {

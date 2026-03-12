@@ -886,4 +886,9 @@ if (require.main === module) {
   process.exit(1);
 }
 
-module.exports = { runTests };
+module.exports = {
+  AGGREGATE_INDEX_PATH,
+  buildAggregateMarkdown,
+  checkAggregateIndex,
+  runTests
+};

@@ -14,6 +14,8 @@ keywords:
   ]
 ---
 
+> Legacy entrypoint preserved for compatibility. Use [overview.mdx](./overview.mdx) as the canonical landing page.
+
 # Docs Guide (Internal Source of Truth)
 
 This folder is the internal maintainer navigation source of truth for repository features and functionality. It is not part of Mintlify navigation in `docs.json`; it exists to keep operational documentation discoverable, non-duplicative, and maintainable.
@@ -25,25 +27,25 @@ This folder is the internal maintainer navigation source of truth for repository
 - Public docs UX/content: source of truth is Mintlify pages under `v2/`.
 - Generated catalogs: source of truth is generator scripts; generated files are read-only.
 
-See [source-of-truth-policy.md](./source-of-truth-policy.mdx) for full boundaries.
+See [source-of-truth-policy.md](./policies/source-of-truth-policy.mdx) for full boundaries.
 
 ## Start Here
 
 | If you need to understand...                  | Canonical file                                           |
 | --------------------------------------------- | -------------------------------------------------------- |
-| Governance and canonical ownership            | [source-of-truth-policy.md](./source-of-truth-policy.mdx) |
-| Complete repo capability map                  | [feature-map.md](./feature-guides/feature-map.mdx)                       |
-| Data + control flow across systems            | [architecture-map.md](./feature-guides/architecture-map.mdx)             |
-| CLI behavior and operator runbooks            | [lpd.md](./lpd.mdx)                                       |
-| Validation and enforcement gates              | [quality-gates.md](./quality-testing/quality-gates.mdx)                   |
-| Audit system and scorecard workflow           | [audit-system-overview.mdx](./quality-testing/audit-system-overview.mdx) |
-| Skill pipeline run order and contracts        | [skill-pipeline-map.mdx](./quality-testing/skill-pipeline-map.mdx) |
-| Cleanup and quarantine policy                 | [cleanup-quarantine-policy.mdx](./quality-testing/cleanup-quarantine-policy.mdx) |
-| Component layout decision matrix              | [component-layout-decision-matrix.mdx](./quality-testing/component-layout-decision-matrix.mdx) |
-| GitHub Actions, n8n, and automation pipelines | [automation-pipelines.md](./feature-guides/automation-pipelines.mdx)     |
+| Governance and canonical ownership            | [source-of-truth-policy.md](./policies/source-of-truth-policy.mdx) |
+| Complete repo capability map                  | [feature-map.md](./features/feature-map.mdx)                       |
+| Data + control flow across systems            | [architecture-map.md](./features/architecture-map.mdx)             |
+| CLI behavior and operator runbooks            | [lpd.md](./tooling/lpd-cli.mdx)                                       |
+| Validation and enforcement gates              | [quality-gates.md](./policies/quality-gates.mdx)                   |
+| Audit system and scorecard workflow           | [audit-system-overview.mdx](./policies/audit-system-overview.mdx) |
+| Skill pipeline run order and contracts        | [skill-pipeline-map.mdx](./policies/skill-pipeline-map.mdx) |
+| Cleanup and quarantine policy                 | [cleanup-quarantine-policy.mdx](./policies/cleanup-quarantine-policy.mdx) |
+| Component layout decisions                    | [component-layout-decisions.mdx](./policies/component-layout-decisions.mdx) |
+| GitHub Actions, n8n, and automation pipelines | [automations.mdx](./features/automations.mdx)     |
 | Information architecture and content strategy | [content-system.md](./feature-guides/content-system.mdx)                 |
-| APIs and external data integrations           | [data-integrations.md](./feature-guides/data-integrations.mdx)           |
-| AI tools and skill inventory                  | [ai-tools.mdx](./indexes/ai-tools.mdx) |
+| APIs and external data integrations           | [data-integrations.md](./features/data-integrations.mdx)           |
+| AI tools and skill inventory                  | [ai-tools.mdx](./catalog/ai-tools.mdx) |
 | Pages tree catalog (generated)                | [pages-index.mdx](./indexes/pages-index.mdx)                     |
 | Components catalog (generated)                | [components-index.mdx](./indexes/components-index.mdx)           |
 | Script catalog (generated)                    | [scripts-index.mdx](./indexes/scripts-index.mdx)                 |

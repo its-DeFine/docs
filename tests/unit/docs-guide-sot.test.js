@@ -15,23 +15,31 @@
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
+const {
+  hasFrontmatterKey,
+  hasGeneratedNote,
+  parseGeneratedHiddenBanner
+} = require('../../tools/lib/generated-file-banners');
+const { checkAggregateIndex } = require('./script-docs.test.js');
 
 const REPO_ROOT = process.cwd();
 
 const REQUIRED_MANUAL_FILES = [
-  'docs-guide/README.mdx',
-  'docs-guide/source-of-truth-policy.mdx',
-  'docs-guide/feature-guides/feature-map.mdx',
-  'docs-guide/feature-guides/architecture-map.mdx',
-  'docs-guide/lpd.mdx',
-  'docs-guide/quality-testing/quality-gates.mdx',
-  'docs-guide/quality-testing/audit-system-overview.mdx',
-  'docs-guide/quality-testing/skill-pipeline-map.mdx',
-  'docs-guide/quality-testing/cleanup-quarantine-policy.mdx',
-  'docs-guide/quality-testing/component-layout-decision-matrix.mdx',
-  'docs-guide/feature-guides/automation-pipelines.mdx',
+  'docs-guide/overview.mdx',
+  'docs-guide/policies/source-of-truth-policy.mdx',
+  'docs-guide/features/feature-map.mdx',
+  'docs-guide/features/architecture-map.mdx',
+  'docs-guide/tooling/lpd-cli.mdx',
+  'docs-guide/policies/quality-gates.mdx',
+  'docs-guide/policies/audit-system-overview.mdx',
+  'docs-guide/policies/skill-pipeline-map.mdx',
+  'docs-guide/policies/cleanup-quarantine-policy.mdx',
+  'docs-guide/policies/component-layout-decisions.mdx',
+  'docs-guide/features/automations.mdx',
   'docs-guide/feature-guides/content-system.mdx',
-  'docs-guide/feature-guides/data-integrations.mdx'
+  'docs-guide/features/data-integrations.mdx',
+  'docs-guide/frameworks/component-framework.mdx',
+  'docs-guide/catalog/ai-tools.mdx'
 ];
 
 const REQUIRED_GENERATED_FILES = [
@@ -43,17 +51,17 @@ const REQUIRED_GENERATED_FILES = [
 ];
 
 const REQUIRED_README_REFERENCES = [
-  'docs-guide/README.mdx',
-  'docs-guide/feature-guides/feature-map.mdx',
-  'docs-guide/source-of-truth-policy.mdx',
-  'docs-guide/lpd.mdx',
-  'docs-guide/quality-testing/quality-gates.mdx',
-  'docs-guide/quality-testing/audit-system-overview.mdx',
-  'docs-guide/quality-testing/skill-pipeline-map.mdx',
-  'docs-guide/quality-testing/cleanup-quarantine-policy.mdx',
-  'docs-guide/quality-testing/component-layout-decision-matrix.mdx',
-  'docs-guide/feature-guides/automation-pipelines.mdx',
-  'docs-guide/indexes/ai-tools.mdx',
+  'docs-guide/overview.mdx',
+  'docs-guide/features/feature-map.mdx',
+  'docs-guide/policies/source-of-truth-policy.mdx',
+  'docs-guide/tooling/lpd-cli.mdx',
+  'docs-guide/policies/quality-gates.mdx',
+  'docs-guide/policies/audit-system-overview.mdx',
+  'docs-guide/policies/skill-pipeline-map.mdx',
+  'docs-guide/policies/cleanup-quarantine-policy.mdx',
+  'docs-guide/policies/component-layout-decisions.mdx',
+  'docs-guide/features/automations.mdx',
+  'docs-guide/catalog/ai-tools.mdx',
   'docs-guide/indexes/pages-index.mdx',
   'docs-guide/indexes/components-index.mdx',
   'docs-guide/indexes/scripts-index.mdx',
@@ -141,18 +149,26 @@ function checkGeneratedIndexFreshness(errors) {
       message: 'Generated docs-guide components index is out of date. Run components index generator script.'
     },
     {
-      args: ['tests/unit/script-docs.test.js', '--check-indexes'],
+      args: null,
       file: 'docs-guide/indexes/scripts-index.mdx',
       message: 'Generated docs-guide scripts index is out of date. Run script docs generator script.'
-    },
-    {
-      args: ['tools/scripts/enforce-generated-file-banners.js', '--check'],
-      file: 'tools/scripts/enforce-generated-file-banners.js',
-      message: 'Generated banner enforcement failed. Run generated banner enforcer or relevant generators.'
     }
   ];
 
   checks.forEach((check) => {
+    if (!check.args) {
+      const aggregateIndex = checkAggregateIndex();
+      if (aggregateIndex.missing || aggregateIndex.changed) {
+        errors.push({
+          file: check.file,
+          rule: 'Generated index freshness',
+          message: check.message,
+          line: 1
+        });
+      }
+      return;
+    }
+
     const cmd = spawnSync('node', check.args, { cwd: REPO_ROOT, encoding: 'utf8' });
 
     if (cmd.stdout) process.stdout.write(cmd.stdout);
@@ -169,6 +185,50 @@ function checkGeneratedIndexFreshness(errors) {
   });
 }
 
+function checkGeneratedBannerPolicy(errors) {
+  REQUIRED_GENERATED_FILES.forEach((repoPath) => {
+    const raw = readFileSafe(repoPath);
+    if (!raw.trim()) return;
+
+    if (!hasFrontmatterKey(raw, 'title')) {
+      errors.push({
+        file: repoPath,
+        rule: 'Generated banner policy',
+        message: 'Generated MDX must include frontmatter `title`.',
+        line: 1
+      });
+    }
+
+    if (!hasFrontmatterKey(raw, 'description')) {
+      errors.push({
+        file: repoPath,
+        rule: 'Generated banner policy',
+        message: 'Generated MDX must include frontmatter `description`.',
+        line: 1
+      });
+    }
+
+    const hidden = parseGeneratedHiddenBanner(raw);
+    if (!hidden.found) {
+      errors.push({
+        file: repoPath,
+        rule: 'Generated banner policy',
+        message: 'Generated MDX must include the standardized hidden generated banner.',
+        line: 1
+      });
+    }
+
+    if (!hasGeneratedNote(raw)) {
+      errors.push({
+        file: repoPath,
+        rule: 'Generated banner policy',
+        message: 'Generated MDX must include the visible generated <Note> block.',
+        line: 1
+      });
+    }
+  });
+}
+
 function runTests(options = {}) {
   const errors = [];
   const warnings = [];
@@ -176,6 +236,7 @@ function runTests(options = {}) {
   checkRequiredFiles(errors);
   checkReadmeReferences(errors, warnings);
   checkGeneratedIndexFreshness(errors);
+  checkGeneratedBannerPolicy(errors);
 
   const strict = Boolean(options.strict);
   const passed = strict ? errors.length === 0 && warnings.length === 0 : errors.length === 0;

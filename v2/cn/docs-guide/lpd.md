@@ -141,9 +141,9 @@ lpd tools wcag-repair-common -- --staged --stage
 ## 所有权 + 真相
 
 - CLI 行为真相：`lpd`脚本实现
-- 操作导航真相：本文件 +`docs-guide/README.md`
+- 操作导航真相：本文件 +`docs-guide/overview.mdx`
 
 要深入了解 hook/test 行为，请使用：
 
-- [`quality-gates.md`](./quality-gates.md)
+- [`quality-gates.md`](./policies/quality-gates.mdx)
 - `contribute/CONTRIBUTING/GIT-HOOKS.md`

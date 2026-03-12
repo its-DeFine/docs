@@ -3209,38 +3209,54 @@
                       {
                         "group": "Docs Guide",
                         "pages": [
-                          "docs-guide/README",
-                          "docs-guide/source-of-truth-policy",
-                          "docs-guide/lpd",
-                          {
-                            "group": "Indexes",
-                            "pages": [
-                              "docs-guide/indexes/pages-index",
-                              "docs-guide/indexes/components-index",
-                              "docs-guide/indexes/scripts-index",
-                              "docs-guide/indexes/workflows-index",
-                              "docs-guide/indexes/templates-index"
-                            ]
-                          },
-                          {
-                            "group": "Feature Guides",
-                            "pages": [
-                              "docs-guide/feature-guides/feature-map",
-                              "docs-guide/feature-guides/architecture-map",
-                              "docs-guide/feature-guides/automation-pipelines",
-                              "docs-guide/feature-guides/content-system",
-                              "docs-guide/feature-guides/visual-explainer-workflows",
-                              "docs-guide/feature-guides/data-integrations"
-                            ]
-                          },
+                          "docs-guide/overview",
                           {
                             "group": "Contributing",
                             "pages": ["docs-guide/contributing/contributing"]
                           },
                           {
-                            "group": "Quality & Testing",
+                            "group": "Features",
                             "pages": [
-                              "docs-guide/quality-testing/quality-gates"
+                              "docs-guide/features/feature-map",
+                              "docs-guide/features/architecture-map",
+                              "docs-guide/features/automations",
+                              "docs-guide/feature-guides/content-system",
+                              "docs-guide/features/visual-explainer-workflows",
+                              "docs-guide/features/data-integrations"
+                            ]
+                          },
+                          {
+                            "group": "Tooling",
+                            "pages": ["docs-guide/tooling/lpd-cli"]
+                          },
+                          {
+                            "group": "Frameworks",
+                            "pages": [
+                              "docs-guide/frameworks/component-framework",
+                              "docs-guide/governance-guides/component-governance"
+                            ]
+                          },
+                          {
+                            "group": "Policies",
+                            "pages": [
+                              "docs-guide/policies/source-of-truth-policy",
+                              "docs-guide/policies/audit-system-overview",
+                              "docs-guide/policies/cleanup-quarantine-policy",
+                              "docs-guide/policies/component-layout-decisions",
+                              "docs-guide/policies/infrastructure-principles",
+                              "docs-guide/policies/quality-gates",
+                              "docs-guide/policies/skill-pipeline-map"
+                            ]
+                          },
+                          {
+                            "group": "Catalog",
+                            "pages": [
+                              "docs-guide/catalog/ai-tools",
+                              "docs-guide/indexes/pages-index",
+                              "docs-guide/indexes/components-index",
+                              "docs-guide/indexes/scripts-index",
+                              "docs-guide/indexes/workflows-index",
+                              "docs-guide/indexes/templates-index"
                             ]
                           }
                         ]

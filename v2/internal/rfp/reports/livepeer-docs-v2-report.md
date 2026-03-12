@@ -335,7 +335,7 @@ This is substantial software engineering work delivered as part of the documenta
 
 **The `lpd` CLI.** A unified command-line interface for all repository operations: `lpd setup`, `lpd dev`, `lpd test`, `lpd ci`, `lpd hooks`, `lpd scripts`. The CLI provides setup bootstrapping, local development, test orchestration, hook management, and script execution. It is the primary operator interface for the entire repository.
 
-Runbooks documented in `docs-guide/lpd.mdx` cover first-time setup, local docs development, test entrypoints, hook management, and script discovery. The CLI includes a `.lpdignore` pattern system for excluding scripts from discovery.
+Runbooks documented in `docs-guide/tooling/lpd-cli.mdx` cover first-time setup, local docs development, test entrypoints, hook management, and script discovery. The CLI includes a `.lpdignore` pattern system for excluding scripts from discovery.
 
 **Pre-commit enforcement system.** The `.githooks/pre-commit` hook runs a comprehensive set of checks before every commit, including:
 
@@ -361,7 +361,7 @@ A dedicated `pre-commit-no-deletions` hook prevents accidental bulk deletions.
 - Integration tests: `tests/integration/browser.test.js` (Puppeteer), `tests/integration/domain-pages-audit.js`, `tests/integration/v2-link-audit.js`
 - Test runners: `tests/run-all.js`, `tests/run-pr-checks.js`
 
-**Source-of-truth policy.** A documented and enforced source-of-truth policy (`docs-guide/source-of-truth-policy.mdx`) defines canonical ownership boundaries across README, docs-guide, tests, and Mintlify pages — preventing documentation drift. The policy is enforced via `tests/unit/docs-guide-sot.test.js` and `tools/scripts/generate-docs-guide-indexes.js --check`.
+**Source-of-truth policy.** A documented and enforced source-of-truth policy (`docs-guide/policies/source-of-truth-policy.mdx`) defines canonical ownership boundaries across README, docs-guide, tests, and Mintlify pages — preventing documentation drift. The policy is enforced via `tests/unit/docs-guide-sot.test.js` and `tools/scripts/generate-docs-guide-indexes.js --check`.
 
 **Repo evidence (full script inventory):** See `docs-guide/indexes/scripts-index.mdx` for all 58 scripts catalogued with summary, usage, and owner. Key entries include `.githooks/pre-commit`, `.githooks/verify.sh`, `tests/unit/script-docs.test.js`, `tests/run-pr-checks.js`, `tools/scripts/generate-pages-index.js`.
 
@@ -471,19 +471,19 @@ The docs-guide system comprises eight canonical manual files plus three generate
 
 | File                                 | Contents                                                              |
 | ------------------------------------ | --------------------------------------------------------------------- |
-| `docs-guide/README.mdx`               | Source-of-truth model, start-here index, update rules                 |
-| `docs-guide/feature-guides/feature-map.mdx`          | Complete repository capability map across 8 feature areas             |
-| `docs-guide/feature-guides/architecture-map.mdx`     | Data and control flow, execution layers, key contract edges           |
-| `docs-guide/lpd.mdx`                  | CLI behavior, operator runbooks for all command groups                |
-| `docs-guide/quality-testing/quality-gates.mdx`        | Full matrix of local and CI enforcement with blocking/advisory status |
-| `docs-guide/feature-guides/automation-pipelines.mdx` | All automation surfaces, pipeline coverage, operational controls      |
+| `docs-guide/overview.mdx`               | Source-of-truth model, start-here index, update rules                 |
+| `docs-guide/features/feature-map.mdx`          | Complete repository capability map across 8 feature areas             |
+| `docs-guide/features/architecture-map.mdx`     | Data and control flow, execution layers, key contract edges           |
+| `docs-guide/tooling/lpd-cli.mdx`                  | CLI behavior, operator runbooks for all command groups                |
+| `docs-guide/policies/quality-gates.mdx`        | Full matrix of local and CI enforcement with blocking/advisory status |
+| `docs-guide/features/automations.mdx` | All automation surfaces, pipeline coverage, operational controls      |
 | `docs-guide/feature-guides/content-system.mdx`       | IA model, content layers, copy and quality principles                 |
-| `docs-guide/feature-guides/data-integrations.mdx`    | API specifications, external feeds, internal data layers              |
+| `docs-guide/features/data-integrations.mdx`    | API specifications, external feeds, internal data layers              |
 | `docs-guide/indexes/scripts-index.mdx`        | Generated: all 58 scripts with summary, usage, owner                  |
 | `docs-guide/indexes/workflows-index.mdx`      | Generated: all 17 workflows with triggers, purpose, blocking policy   |
 | `docs-guide/indexes/templates-index.mdx`      | Generated: all 10 issue and PR templates with labels and ownership    |
 
-The source-of-truth policy enforced through `docs-guide/source-of-truth-policy.mdx` defines canonical ownership boundaries and change management rules — ensuring that as the documentation system evolves, it does so without introducing drift or duplication.
+The source-of-truth policy enforced through `docs-guide/policies/source-of-truth-policy.mdx` defines canonical ownership boundaries and change management rules — ensuring that as the documentation system evolves, it does so without introducing drift or duplication.
 
 ---
 
@@ -784,15 +784,15 @@ This section covers all software engineering, automation, and tooling work — t
 
 | #   | Work item                                   | Description                                                  | Low hrs | High hrs | Actuals |
 | --- | ------------------------------------------- | ------------------------------------------------------------ | ------- | -------- | ------- |
-| D1  | `docs-guide/README.mdx`                      | Source-of-truth model, index, update rules                   | 2       | 4        | \_\_    |
-| D2  | `docs-guide/feature-guides/feature-map.mdx`                 | Complete 8-area capability map                               | 3       | 5        | \_\_    |
-| D3  | `docs-guide/feature-guides/architecture-map.mdx`            | Data flow, execution layers, contract edges, Mermaid diagram | 3       | 5        | \_\_    |
-| D4  | `docs-guide/lpd.mdx`                         | CLI behaviour and operator runbooks for all command groups   | 4       | 7        | \_\_    |
-| D5  | `docs-guide/quality-testing/quality-gates.mdx`               | Gate matrix — local, PR, browser; blocking vs advisory       | 3       | 5        | \_\_    |
-| D6  | `docs-guide/feature-guides/automation-pipelines.mdx`        | All automation surfaces and pipeline coverage                | 3       | 5        | \_\_    |
+| D1  | `docs-guide/overview.mdx`                      | Source-of-truth model, index, update rules                   | 2       | 4        | \_\_    |
+| D2  | `docs-guide/features/feature-map.mdx`                 | Complete 8-area capability map                               | 3       | 5        | \_\_    |
+| D3  | `docs-guide/features/architecture-map.mdx`            | Data flow, execution layers, contract edges, Mermaid diagram | 3       | 5        | \_\_    |
+| D4  | `docs-guide/tooling/lpd-cli.mdx`                         | CLI behaviour and operator runbooks for all command groups   | 4       | 7        | \_\_    |
+| D5  | `docs-guide/policies/quality-gates.mdx`               | Gate matrix — local, PR, browser; blocking vs advisory       | 3       | 5        | \_\_    |
+| D6  | `docs-guide/features/automations.mdx`        | All automation surfaces and pipeline coverage                | 3       | 5        | \_\_    |
 | D7  | `docs-guide/feature-guides/content-system.mdx`              | IA model, content layers, copy principles                    | 2       | 4        | \_\_    |
-| D8  | `docs-guide/feature-guides/data-integrations.mdx`           | API specs, external feeds, internal data layers              | 2       | 4        | \_\_    |
-| D9  | `docs-guide/source-of-truth-policy.mdx`      | Canonical ownership boundaries and change management rules   | 3       | 5        | \_\_    |
+| D8  | `docs-guide/features/data-integrations.mdx`           | API specs, external feeds, internal data layers              | 2       | 4        | \_\_    |
+| D9  | `docs-guide/policies/source-of-truth-policy.mdx`      | Canonical ownership boundaries and change management rules   | 3       | 5        | \_\_    |
 | D10 | `docs-guide/indexes/scripts-index.mdx` (generated)   | 58-script catalog — generated and validated                  | 2       | 3        | \_\_    |
 | D11 | `docs-guide/indexes/workflows-index.mdx` (generated) | 17-workflow catalog — generated and validated                | 2       | 3        | \_\_    |
 | D12 | `docs-guide/indexes/templates-index.mdx` (generated) | 10-template catalog — generated and validated                | 1       | 2        | \_\_    |
@@ -961,7 +961,7 @@ The following table applies standard market rates for the type of work delivered
 
 | Work Item                             | Category            | Description                                                                                   | Repo Evidence                                                                                | Estimated Scope             |
 | ------------------------------------- | ------------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | --------------------------- |
-| `lpd` CLI                             | Back-end ops        | Unified maintainer CLI for all repo operations (setup, dev, test, hooks, scripts)             | `lpd`, `docs-guide/lpd.mdx`                                                                   | Large (20–30 hrs)           |
+| `lpd` CLI                             | Back-end ops        | Unified maintainer CLI for all repo operations (setup, dev, test, hooks, scripts)             | `lpd`, `docs-guide/tooling/lpd-cli.mdx`                                                                   | Large (20–30 hrs)           |
 | Pre-commit hook system                | Back-end ops        | Structure, style, MDX, links, spelling, script docs, pages index — all enforced pre-commit    | `.githooks/pre-commit`, `.githooks/verify.sh`                                                | Medium (10–15 hrs)          |
 | CI test suite (17 workflows)          | Back-end ops / CI   | Full GitHub Actions workflow suite for PR validation, browser testing, link checking          | `.github/workflows/*.yml`; `docs-guide/indexes/workflows-index.mdx`                                   | Large (20–30 hrs)           |
 | 58-script test and ops infrastructure | Back-end ops        | Unit, integration, and browser tests; run-all and run-pr-checks orchestrators                 | `docs-guide/indexes/scripts-index.mdx`; `tests/`                                                      | Very large (30–45 hrs)      |
@@ -979,7 +979,7 @@ The following table applies standard market rates for the type of work delivered
 | Docs-guide index generator            | Maintenance scripts | Generates script, workflow, and template catalogs in docs-guide/                              | `tools/scripts/generate-docs-guide-indexes.js`                                               | Small                       |
 | Script self-documentation system      | Maintenance scripts | Enforces script header schema; auto-generates script index; `new-script.js` template creator  | `tests/unit/script-docs.test.js`; `tools/scripts/new-script.js`                              | Medium                      |
 | Internal docs-guide system            | Governance          | 8 canonical internal maintainer documents + 3 generated indexes                               | `docs-guide/*.md`                                                                            | Medium (20–30 hrs)          |
-| Source-of-truth policy                | Governance          | Canonical ownership boundaries, change management rules, enforced via CI                      | `docs-guide/source-of-truth-policy.mdx`; `tests/unit/docs-guide-sot.test.js`                  | Small                       |
+| Source-of-truth policy                | Governance          | Canonical ownership boundaries, change management rules, enforced via CI                      | `docs-guide/policies/source-of-truth-policy.mdx`; `tests/unit/docs-guide-sot.test.js`                  | Small                       |
 | AI-ready content structure            | AI-readiness        | Semantic headings, consistent frontmatter, component-driven construction for LLM parsing      | Site-wide                                                                                    | Embedded in content work    |
 | `llms.txt` documentation guidance     | AI-readiness        | Structured guidance for LLM discoverability of the Livepeer docs estate                       | `tools/ai-rules/llms.txt.information.md`                                                     | Small                       |
 | AI assistant integration              | AI-readiness        | Mintlify AI assistant integrated; test surface created                                        | `v2/pages/00_home/test.mdx`; `README.md:245`                                                 | Small                       |
