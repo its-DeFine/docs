@@ -3,7 +3,7 @@
  * @script            v2-wcag-audit.test
  * @category          validator
  * @purpose           qa:content-quality
- * @scope             tests/unit, tests/integration
+ * @scope             v2-content
  * @owner             docs
  * @needs             E-R1, R-R11
  * @purpose-statement Unit tests for v2-wcag-audit.js — tests individual WCAG rules
@@ -39,9 +39,10 @@ function runTests() {
 
   console.log('🧪 v2 WCAG Audit Unit Tests');
 
-  runCase('Excludes x-* paths anywhere under v2', () => {
+  runCase('Excludes only explicit unpublished v2 path buckets', () => {
     assert.strictEqual(fileWalker.isExcludedV2ExperimentalPath('v2/x-pages/a.mdx'), true);
-    assert.strictEqual(fileWalker.isExcludedV2ExperimentalPath('v2/about/x-archive/a.mdx'), true);
+    assert.strictEqual(fileWalker.isExcludedV2ExperimentalPath('v2/about/x-experimental/a.mdx'), true);
+    assert.strictEqual(fileWalker.isExcludedV2ExperimentalPath('v2/orchestrators/operations/x-running-workloads.mdx'), false);
     assert.strictEqual(fileWalker.isExcludedV2ExperimentalPath('v2/about/livepeer-overview.mdx'), false);
   });
 

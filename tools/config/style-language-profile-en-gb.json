@@ -7,7 +7,12 @@
     "v2/es/**",
     "v2/fr/**",
     "v2/cn/**",
-    "v2/x-*/**",
+    "v2/**/x-archived/**",
+    "v2/**/x-deprecated/**",
+    "v2/**/x-experimental/**",
+    "v2/**/x-notes/**",
+    "v2/**/x-pages/**",
+    "v2/**/x-unstaged/**",
     "v2/internal/**"
   ],
   "forbidden_terms": [],

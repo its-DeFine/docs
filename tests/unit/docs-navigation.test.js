@@ -3,7 +3,7 @@
  * @script            docs-navigation.test
  * @category          validator
  * @purpose           qa:repo-health
- * @scope             tests, docs.json
+ * @scope             full-repo
  * @owner             docs
  * @needs             E-C1, R-R14
  * @purpose-statement Validates docs.json page-entry syntax, reports missing routes, warns on orphaned canonical v2 pages, suggests remaps, and optionally applies approved remaps
@@ -17,6 +17,7 @@ const path = require('path');
 const readline = require('readline');
 const { execSync } = require('child_process');
 const { listMintIgnoredRepoPaths } = require('../utils/mintignore');
+const { isExcludedV2ExperimentalPath } = require('../../tools/lib/docs-publishability');
 
 const REPORT_MD_REL = 'tasks/reports/navigation-links/navigation-report.md';
 const REPORT_JSON_REL = 'tasks/reports/navigation-links/navigation-report.json';
@@ -237,7 +238,7 @@ function shouldExcludeOrphanCandidate(relPath, localeSet) {
   if (localeSet.has(topLevelDir)) return true;
   if (topLevelDir === 'internal') return true;
 
-  if (segments.some((segment) => String(segment || '').toLowerCase().startsWith('x-'))) {
+  if (isExcludedV2ExperimentalPath(normalized)) {
     return true;
   }
 
@@ -432,8 +433,33 @@ function getCanonicalMap(normalizedRoute) {
       'v2/pages/04_gateways/quickstart/gateway-setup'
     ],
     'v2/pages/04_gateways/references/video-flags': ['v2/pages/04_gateways/references/configuration-flags'],
+    'v2/orchestrators/setting-up-an-orchestrator/overview': ['v2/orchestrators/setup/overview'],
+    'v2/orchestrators/setting-up-an-orchestrator/hardware-requirements': [
+      'v2/orchestrators/setup/hardware-requirements'
+    ],
+    'v2/orchestrators/setting-up-an-orchestrator/install-go-livepeer': [
+      'v2/orchestrators/setup/install-go-livepeer'
+    ],
+    'v2/orchestrators/setting-up-an-orchestrator/orchestrator-stats': [
+      'v2/orchestrators/setup/orchestrator-stats'
+    ],
+    'v2/orchestrators/setting-up-an-orchestrator/data-centre-setup': [
+      'v2/orchestrators/setup/data-centre-setup'
+    ],
+    'v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers': [
+      'v2/orchestrators/setup/data-centres-and-large-scale-hardware-providers'
+    ],
+    'v2/orchestrators/setting-up-an-orchestrator/enterprise-and-data-centres': [
+      'v2/orchestrators/setup/enterprise-and-data-centres'
+    ],
+    'v2/orchestrators/setting-up-an-orchestrator/publish-offerings': [
+      'v2/orchestrators/setup/publish-offerings'
+    ],
+    'v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/quickstart-add-your-gpu-to-livepeer': [
+      'v2/orchestrators/setup/orch-config'
+    ],
     'v2/orchestrators/setting-up-an-orchestrator/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers': [
-      'v2/orchestrators/setting-up-an-orchestrator/data-centres-and-large-scale-hardware-providers'
+      'v2/orchestrators/setup/data-centres-and-large-scale-hardware-providers'
     ],
     'v2/pages/02_community/livepeer-community/media-kit': ['v2/resources/media-kit'],
     'v2/pages/01_about/livepeer-network/actors': ['v2/about/livepeer-network/actors'],

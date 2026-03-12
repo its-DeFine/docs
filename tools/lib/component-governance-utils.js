@@ -1,18 +1,19 @@
 /**
- * @script           component-governance-utils
- * @category         utility
- * @purpose          governance:repo-health
- * @scope            single-domain
- * @owner            docs
- * @needs            R-R10
+ * @script            component-governance-utils
+ * @category          utility
+ * @purpose           governance:repo-health
+ * @scope             single-domain
+ * @owner             docs
+ * @needs             R-R10
  * @purpose-statement Shared parsing and validation utilities for component governance scripts.
- * @pipeline         indirect
- * @usage            const utils = require('../lib/component-governance-utils');
+ * @pipeline          indirect
+ * @usage             const utils = require('../lib/component-governance-utils');
  */
 
 const fs = require('fs');
 const path = require('path');
 const { spawnSync } = require('child_process');
+const { isPublishedDocsPath: isPublishableDocsPath } = require('./docs-publishability');
 
 const VALID_CATEGORIES = ['primitives', 'layout', 'content', 'data', 'page-structure'];
 const VALID_STATUSES = ['stable', 'experimental', 'deprecated', 'broken', 'placeholder'];
@@ -51,8 +52,6 @@ const GOVERNANCE_FIELDS = [
 const COMPONENT_IMPORT_RE = /import\s*\{([\s\S]*?)\}\s*from\s*['"]([^'"]+)['"]/g;
 const COLOR_LITERAL_RE = /#[0-9a-fA-F]{3,8}\b|\brgba?\([^)]*\)|\bhsla?\([^)]*\)/g;
 const COLOR_CONTEXT_RE = /\b(?:accentcolor|background(?:color)?|border(?:color)?|caretcolor|color|fill|floodcolor|icon|lightingcolor|outlinecolor|stopcolor|stroke|textdecorationcolor)\b/;
-const NON_PUBLISHED_SEGMENTS = new Set(['x-archived', 'x-deprecated', 'x-experimental', 'x-notes']);
-
 function getRepoRoot() {
   const result = spawnSync('git', ['rev-parse', '--show-toplevel'], { encoding: 'utf8' });
   if (result.status === 0 && String(result.stdout || '').trim()) {
@@ -127,10 +126,7 @@ function hasGovernableExport(filePath) {
 }
 
 function isPublishedDocsPath(filePath) {
-  return !toPosix(filePath)
-    .split('/')
-    .filter(Boolean)
-    .some((segment) => NON_PUBLISHED_SEGMENTS.has(segment));
+  return isPublishableDocsPath(filePath);
 }
 
 function getCategoryFromPath(filePath) {
@@ -155,6 +151,25 @@ function walkFiles(targetPath, predicate, files = []) {
     walkFiles(path.join(targetPath, entry.name), predicate, files);
   });
   return files;
+}
+
+function listTrackedFiles(baseDir, extension) {
+  const scope = normalizeRepoPath(baseDir);
+  let output = '';
+
+  try {
+    output = runGit(['ls-files', '--', scope]);
+  } catch (_error) {
+    return [];
+  }
+
+  return output
+    .split('\n')
+    .map((line) => toPosix(line.trim()))
+    .filter(Boolean)
+    .filter((repoPath) => !extension || repoPath.endsWith(extension))
+    .filter((repoPath) => fs.existsSync(path.join(REPO_ROOT, repoPath)))
+    .map((repoPath) => path.join(REPO_ROOT, repoPath));
 }
 
 function getComponentFiles(baseDir = 'snippets/components') {
@@ -934,10 +949,13 @@ function scanMDXImports(globPattern = 'v2/**/*.mdx', options = {}) {
   const publishedOnly = opts.publishedOnly !== false;
   const base = resolveMdxBaseDir(pattern);
   const absoluteBase = path.join(REPO_ROOT, base);
-  const mdxFiles = walkFiles(absoluteBase, (filePath) => filePath.endsWith('.mdx'));
+  const mdxFiles = listTrackedFiles(absoluteBase, '.mdx');
+  const candidateFiles = mdxFiles.length
+    ? mdxFiles
+    : walkFiles(absoluteBase, (filePath) => filePath.endsWith('.mdx'));
   const results = new Map();
 
-  mdxFiles.forEach((absolutePath) => {
+  candidateFiles.forEach((absolutePath) => {
     const repoPath = normalizeRepoPath(absolutePath);
     if (publishedOnly && !isPublishedDocsPath(repoPath)) {
       return;

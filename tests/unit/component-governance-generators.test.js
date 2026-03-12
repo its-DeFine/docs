@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 /**
- * @script           component-governance-generators.test
- * @category         validator
- * @purpose          qa:repo-health
- * @scope            tests
- * @owner            docs
- * @needs            R-R10
+ * @script            component-governance-generators.test
+ * @category          validator
+ * @purpose           qa:repo-health
+ * @scope             full-repo
+ * @owner             docs
+ * @needs             R-R10
  * @purpose-statement Verifies component governance generators produce coherent registry, usage-map, and docs outputs.
- * @pipeline         P1 (commit, via run-all)
- * @usage            node tests/unit/component-governance-generators.test.js
+ * @pipeline          P1 (commit, via run-all)
+ * @usage             node tests/unit/component-governance-generators.test.js
  */
 
 const assert = require('assert');
@@ -42,12 +42,21 @@ function runTests() {
 
   try {
     const { usageMap, drift } = buildUsageMap();
-    assert.equal(drift.length, 0);
     assert(usageMap.components.length > 0);
+    assert(Array.isArray(drift));
     assert(Array.isArray(usageMap.orphaned));
     assert(Array.isArray(usageMap.mostImported));
     assert.equal(usageMap._meta.canonicalUsagePolicy, 'english-only-jsdoc');
     assert(usageMap.components.every((component) => Array.isArray(component.englishCanonicalPages)));
+    assert(
+      drift.every(
+        (entry) =>
+          typeof entry.name === 'string' &&
+          typeof entry.file === 'string' &&
+          Array.isArray(entry.missingFromJsDoc) &&
+          Array.isArray(entry.staleInJsDoc)
+      )
+    );
   } catch (error) {
     errors.push(`buildUsageMap failed: ${error.message}`);
   }

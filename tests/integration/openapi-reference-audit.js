@@ -3,7 +3,7 @@
  * @script            openapi-reference-audit
  * @category          validator
  * @purpose           tooling:api-spec
- * @scope             tests/integration, v2, api, .github/workflows
+ * @scope             full-repo
  * @owner             docs
  * @needs             F-R17
  * @purpose-statement Comprehensive OpenAPI spec validation — checks references, schemas, examples. Supports --strict (validate), --fix (repair), and report modes.
@@ -16,6 +16,7 @@ const fs = require('fs');
 const path = require('path');
 const yaml = require('../../tools/lib/load-js-yaml');
 const { execSync } = require('child_process');
+const { isExcludedV2ExperimentalPath } = require('../../tools/lib/docs-publishability');
 
 const FINDING_TYPES = {
   INVALID_REFERENCE_FORMAT: 'invalid-reference-format',
@@ -52,12 +53,6 @@ function toPosix(value) {
 
 function relFromRoot(absPath) {
   return toPosix(path.relative(REPO_ROOT, absPath));
-}
-
-function isExcludedV2ExperimentalPath(relPath) {
-  const rel = toPosix(relPath).replace(/^\/+/, '');
-  if (!rel.startsWith('v2/')) return false;
-  return rel.split('/').some((segment) => segment.toLowerCase().startsWith('x-'));
 }
 
 function walkFiles(dirPath, out = []) {

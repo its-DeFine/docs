@@ -127,6 +127,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 | `tools/scripts/dev/batch-update-og-image.sh` | Batch OG image updater — updates og:image meta tags across multiple pages | `bash tools/scripts/dev/batch-update-og-image.sh [flags]` | docs |
 | `tools/scripts/dev/ensure-mint-watcher-patch.sh` | Mint watcher patcher — applies patch to fix Mintlify file watcher issues in dev mode | `bash tools/scripts/dev/ensure-mint-watcher-patch.sh [flags]` | docs |
 | `tools/scripts/dev/generate-mint-dev-scope.js` | Mint dev scope generator — creates a scoped docs.json for running mint dev on a subset of pages | `node tools/scripts/dev/generate-mint-dev-scope.js [flags]` | docs |
+| `tools/scripts/dev/mint-custom-loader.sh` | Mint custom loader — launches lpd dev with an alternate docs config as the active Mint navigation source. | `bash tools/scripts/dev/mint-custom-loader.sh [flags]` | docs |
 | `tools/scripts/dev/replace-og-image.py` | OG image replacer — replaces og:image path in a single page frontmatter | `python3 tools/scripts/dev/replace-og-image.py [flags]` | docs |
 | `tools/scripts/dev/seo-generator-safe.js` | Safe SEO generator — generates SEO metadata with dry-run and rollback safety | `node tools/scripts/dev/seo-generator-safe.js [flags]` | docs |
 | `tools/scripts/dev/test-add-callouts.js` | Test for add-callouts.js — validates callout insertion logic against fixtures | `node tools/scripts/dev/test-add-callouts.js [flags]` | docs |
@@ -221,6 +222,7 @@ Run command: node tests/unit/script-docs.test.js --write --rebuild-indexes
 |---|---|---|---|
 | `tools/lib/component-governance-utils.js` | Shared parsing and validation utilities for component governance scripts. | `const utils = require('../lib/component-governance-utils');` | docs |
 | `tools/lib/docs-index-utils.js` | Shared utilities for docs-index.json generation — path resolution, frontmatter extraction, index merging | `node tools/lib/docs-index-utils.js [flags]` | docs |
+| `tools/lib/docs-publishability.js` | Shared path publishability rules for v2 docs content and tooling. | `const &#123; isExcludedV2ExperimentalPath &#125; = require('../lib/docs-publishability');` | docs |
 | `tools/lib/docs-usefulness/config-validator.js` | Validates docs-usefulness config structure and field completeness. | `const &#123; validateConfig &#125; = require('../lib/docs-usefulness/config-validator');` | docs |
 | `tools/lib/docs-usefulness/journey-check.js` | Evaluates docs pages against user journey completeness criteria. | `const &#123; checkJourney &#125; = require('../lib/docs-usefulness/journey-check');` | docs |
 | `tools/lib/docs-usefulness/llm-evaluator.js` | Wraps LLM API calls for rubric-based page quality evaluation. | `const &#123; evaluate &#125; = require('../lib/docs-usefulness/llm-evaluator');` | docs |

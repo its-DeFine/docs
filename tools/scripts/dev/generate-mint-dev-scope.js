@@ -3,7 +3,7 @@
  * @script            generate-mint-dev-scope
  * @category          generator
  * @purpose           tooling:dev-tools
- * @scope             tools/scripts/dev, docs.json, .mintignore
+ * @scope             full-repo
  * @owner             docs
  * @needs             E-C6, F-C1
  * @purpose-statement Mint dev scope generator — creates a scoped docs.json for running mint dev on a subset of pages
@@ -27,6 +27,7 @@ function printUsage() {
       'Options:',
       '  --repo-root <path>',
       '  --workspace-base <path>',
+      '  --docs-config <path>',
       '  --scope-file <path>',
       '  --versions <csv>          (repeatable)',
       '  --languages <csv>         (repeatable)',
@@ -144,6 +145,7 @@ function parseArgs(argv) {
   const out = {
     repoRoot: process.cwd(),
     workspaceBase: path.join(os.tmpdir(), 'lpd-mint-dev'),
+    docsConfig: '',
     scopeFile: '',
     versions: [],
     languages: [],
@@ -177,6 +179,15 @@ function parseArgs(argv) {
     }
     if (token.startsWith('--workspace-base=')) {
       out.workspaceBase = token.slice('--workspace-base='.length).trim();
+      continue;
+    }
+    if (token === '--docs-config') {
+      out.docsConfig = String(argv[i + 1] || '').trim();
+      i += 1;
+      continue;
+    }
+    if (token.startsWith('--docs-config=')) {
+      out.docsConfig = token.slice('--docs-config='.length).trim();
       continue;
     }
     if (token === '--scope-file') {
@@ -241,6 +252,7 @@ function parseArgs(argv) {
 
   out.repoRoot = out.repoRoot ? path.resolve(out.repoRoot) : process.cwd();
   out.workspaceBase = out.workspaceBase ? path.resolve(out.workspaceBase) : path.join(os.tmpdir(), 'lpd-mint-dev');
+  out.docsConfig = out.docsConfig ? path.resolve(out.repoRoot, out.docsConfig) : '';
   out.versions = uniqStrings(out.versions);
   out.languages = uniqStrings(out.languages);
   out.tabs = uniqStrings(out.tabs);
@@ -251,6 +263,7 @@ function parseArgs(argv) {
 function loadScopeFile(scopeFile, repoRoot) {
   if (!scopeFile) {
     return {
+      docsConfig: '',
       versions: [],
       languages: [],
       tabs: [],
@@ -261,7 +274,13 @@ function loadScopeFile(scopeFile, repoRoot) {
 
   const absolutePath = path.isAbsolute(scopeFile) ? scopeFile : path.join(repoRoot, scopeFile);
   const payload = JSON.parse(fs.readFileSync(absolutePath, 'utf8'));
+  const looksLikeDocsConfig =
+    payload &&
+    typeof payload === 'object' &&
+    payload.navigation &&
+    typeof payload.navigation === 'object';
   return {
+    docsConfig: looksLikeDocsConfig ? absolutePath : '',
     versions: uniqStrings(payload.versions || payload.scope_versions || []),
     languages: uniqStrings(payload.languages || payload.scope_languages || []),
     tabs: uniqStrings(payload.tabs || payload.scope_tabs || []),
@@ -679,7 +698,8 @@ async function promptForSelection(initialSelection, optionData, allRoutes) {
 }
 
 async function createScopedProfile(args) {
-  const docsPath = path.join(args.repoRoot, 'docs.json');
+  const fromScopeFile = loadScopeFile(args.scopeFile, args.repoRoot);
+  const docsPath = args.docsConfig || fromScopeFile.docsConfig || path.join(args.repoRoot, 'docs.json');
   const mintignorePath = path.join(args.repoRoot, '.mintignore');
   if (!fs.existsSync(docsPath)) throw new Error(`docs.json not found at ${docsPath}`);
 
@@ -690,7 +710,6 @@ async function createScopedProfile(args) {
 
   const optionData = collectOptionsFromNavigation(docs.navigation);
   const allRoutes = collectRoutesFromNavigation(docs.navigation);
-  const fromScopeFile = loadScopeFile(args.scopeFile, args.repoRoot);
 
   let selection = {
     versions: uniqStrings([...fromScopeFile.versions, ...args.versions]),
@@ -734,6 +753,7 @@ async function createScopedProfile(args) {
         {
           generatedAt: new Date().toISOString(),
           sourceRepoRoot: args.repoRoot,
+          sourceDocsConfig: docsPath,
           selection,
           routeCounts: {
             original: allRoutes.length,
@@ -751,6 +771,7 @@ async function createScopedProfile(args) {
     workspaceDir,
     scopeHash,
     selection,
+    sourceDocsConfig: docsPath,
     routeCounts: {
       original: allRoutes.length,
       scoped: scopedRoutes.length
