@@ -10,30 +10,8 @@
  * @pipeline          indirect -- library module
  * @usage             const taxonomy = require('../lib/frontmatter-taxonomy');
  */
-/**
- * @script            frontmatter-taxonomy
- * @category          utility
- * @purpose           qa:content-quality
- * @scope             tools/lib, tests
- * @owner             docs
- * @needs             E-R1, R-R11
- * @purpose-statement Shared frontmatter taxonomy utilities for routable docs pages.
- * @pipeline          indirect -- library module
- * @usage             const taxonomy = require('../lib/frontmatter-taxonomy');
- */
-/**
- * @script            frontmatter-taxonomy
- * @category          utility
- * @purpose           qa:content-quality
- * @scope             tools/lib, tests
- * @owner             docs
- * @needs             E-R1, R-R11
- * @purpose-statement Shared frontmatter taxonomy utilities for routable docs pages.
- * @pipeline          indirect -- library module
- * @usage             const taxonomy = require('../lib/frontmatter-taxonomy');
- */
 
-const CANONICAL_PAGE_TYPES = [
+const CANONICAL_PAGE_TYPES = Object.freeze([
   'landing',
   'overview',
   'tutorial',
@@ -46,9 +24,9 @@ const CANONICAL_PAGE_TYPES = [
   'changelog',
   'glossary',
   'guide'
-];
+]);
 
-const CANONICAL_PAGE_STATUSES = [
+const CANONICAL_PAGE_STATUSES = Object.freeze([
   'draft',
   'review',
   'current',
@@ -58,7 +36,14 @@ const CANONICAL_PAGE_STATUSES = [
   'production',
   'provisional',
   'verified_2026'
-];
+]);
+
+const LAST_VERIFIED_REQUIRED_STATUSES = Object.freeze([
+  'current',
+  'published',
+  'production',
+  'verified_2026'
+]);
 
 const DEPRECATED_PAGE_TYPE_ALIASES = Object.freeze({
   portal: 'landing',
@@ -82,34 +67,42 @@ const PAGE_TYPE_TO_PURPOSE = Object.freeze({
   guide: 'how_to'
 });
 
-function normalizeToken(value) {
-  return String(value || '').trim();
+function normalizeRawToken(value) {
+  return String(value == null ? '' : value).trim();
+}
+
+function normalizeLookupToken(value) {
+  return normalizeRawToken(value).toLowerCase();
 }
 
 function normalizePageType(value) {
-  const raw = normalizeToken(value);
+  const raw = normalizeRawToken(value);
+  const lookup = normalizeLookupToken(value);
   if (!raw) {
     return {
       raw,
+      lookup,
       canonical: '',
       valid: false,
       deprecatedAlias: false
     };
   }
 
-  if (CANONICAL_PAGE_TYPES.includes(raw)) {
+  if (CANONICAL_PAGE_TYPES.includes(lookup)) {
     return {
       raw,
-      canonical: raw,
+      lookup,
+      canonical: lookup,
       valid: true,
       deprecatedAlias: false
     };
   }
 
-  const canonical = DEPRECATED_PAGE_TYPE_ALIASES[raw] || '';
+  const canonical = DEPRECATED_PAGE_TYPE_ALIASES[lookup] || '';
   if (canonical) {
     return {
       raw,
+      lookup,
       canonical,
       valid: true,
       deprecatedAlias: true
@@ -118,6 +111,7 @@ function normalizePageType(value) {
 
   return {
     raw,
+    lookup,
     canonical: '',
     valid: false,
     deprecatedAlias: false
@@ -125,11 +119,14 @@ function normalizePageType(value) {
 }
 
 function normalizeStatus(value) {
-  const raw = normalizeToken(value);
+  const raw = normalizeRawToken(value);
+  const lookup = normalizeLookupToken(value);
+
   return {
     raw,
-    canonical: raw,
-    valid: CANONICAL_PAGE_STATUSES.includes(raw)
+    lookup,
+    canonical: CANONICAL_PAGE_STATUSES.includes(lookup) ? lookup : '',
+    valid: CANONICAL_PAGE_STATUSES.includes(lookup)
   };
 }
 
@@ -156,6 +153,12 @@ function pageTypeToPurpose(value) {
   return PAGE_TYPE_TO_PURPOSE[result.canonical] || '';
 }
 
+function statusRequiresLastVerified(value) {
+  const result = normalizeStatus(value);
+  if (!result.valid) return false;
+  return LAST_VERIFIED_REQUIRED_STATUSES.includes(result.canonical);
+}
+
 function describeCanonicalPageTypes() {
   return CANONICAL_PAGE_TYPES.join(', ');
 }
@@ -164,9 +167,14 @@ function describeCanonicalPageStatuses() {
   return CANONICAL_PAGE_STATUSES.join(', ');
 }
 
+function describeLastVerifiedRequiredStatuses() {
+  return LAST_VERIFIED_REQUIRED_STATUSES.join(', ');
+}
+
 module.exports = {
   CANONICAL_PAGE_TYPES,
   CANONICAL_PAGE_STATUSES,
+  LAST_VERIFIED_REQUIRED_STATUSES,
   DEPRECATED_PAGE_TYPE_ALIASES,
   PAGE_TYPE_TO_PURPOSE,
   normalizePageType,
@@ -175,6 +183,8 @@ module.exports = {
   isValidStatus,
   getPageTypeAdvisory,
   pageTypeToPurpose,
+  statusRequiresLastVerified,
   describeCanonicalPageTypes,
-  describeCanonicalPageStatuses
+  describeCanonicalPageStatuses,
+  describeLastVerifiedRequiredStatuses
 };

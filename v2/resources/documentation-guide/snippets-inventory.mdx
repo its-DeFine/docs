@@ -21,9 +21,12 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
+audience: everyone
+pageType: reference
+purpose: reference
+status: current
+lastVerified: 2026-03-12
 ---
-
-import { CustomDivider } from "/snippets/components/primitives/divider.jsx";
 
 ## Overview
 
@@ -32,6 +35,7 @@ The snippets folder contains:
 - **Components** - Custom React/JSX components organized by purpose
 - **Data** - Reusable data files (code strings, variables, API specs)
 - **Pages** - Modular MDX content imported into main documentation pages
+- **Templates** - Copy-ready MDX page and block scaffolds for contributors
 - **Scripts** - Automation and generation scripts
 - **Automations** - Data fetching and processing automation files
 - **Assets** - Images, logos, media files, and static assets
@@ -107,6 +111,17 @@ Modular MDX content imported into main documentation pages:
 - `05_GPUS/` - GPU-related content
 - `08_SHARED/` - Shared page content
 
+### Templates (`/snippets/templates/`)
+
+Copy-ready authoring scaffolds for contributors:
+
+- `README.mdx` - Entry point for the template catalog
+- `pages/faq-page.mdx` - FAQ page scaffold with `AccordionGroup`
+- `pages/troubleshooting-page.mdx` - Troubleshooting page scaffold with `Symptom`, `Cause`, `Fix`, and `Verify`
+- `pages/openapi-endpoint-page.mdx` - OpenAPI endpoint scaffold for `openapi: METHOD /path` pages
+- `blocks/related-pages-cta.mdx` - Reusable related-pages CTA block
+- `blocks/comparison-matrix.mdx` - Reusable comparison and decision matrix block
+
 ### Scripts (`/tools/scripts/snippets/`)
 
 Automation and generation scripts:
@@ -165,6 +180,7 @@ Internal documentation about the snippets system:
 - **Components**: 37 JSX files across 5 active categories
 - **Data Files**: ~20+ JSX/MDX files
 - **Page Modules**: ~20+ MDX files
+- **Templates**: 6 MDX scaffolds
 - **Scripts**: ~10+ shell/JS scripts
 - **Automations**: ~15+ JSX/JSON files
 - **Assets**: 100+ image/media files
@@ -213,7 +229,7 @@ This script generates the published component-library pages from the governed co
 
 ## Related Resources
 
-- [Component Library](./component-library) - Detailed component reference
+- [Component Library](./component-library/overview) - Detailed component reference
 - [Style Guide](./style-guide) - Styling and Mintlify gotchas
 - [Snippets Wiki](/snippets/snippetsWiki/index) - Internal snippets documentation
 - [Mintlify Behavior Guide](/snippets/snippetsWiki/mintlify-behaviour) - Mintlify-specific patterns

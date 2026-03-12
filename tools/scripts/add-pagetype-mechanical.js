@@ -16,11 +16,12 @@
 const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
+const { CANONICAL_PAGE_TYPES, normalizePageType } = require('../lib/frontmatter-taxonomy');
 
 const REPO_ROOT = path.resolve(__dirname, '..', '..');
 const V2_ROOT = path.join(REPO_ROOT, 'v2');
 const EXCLUDED_SEGMENTS = new Set(['cn', 'es', 'fr', 'views', 'groups']);
-const SUMMARY_TYPES = ['reference', 'landing', 'quickstart', 'glossary', 'overview'];
+const SUMMARY_TYPES = ['reference', 'landing', 'quickstart', 'glossary', 'overview', 'faq', 'troubleshooting'];
 
 function toPosix(filePath) {
   return String(filePath || '').split(path.sep).join('/');
@@ -123,17 +124,21 @@ function classifyFile(relPath, frontmatterRaw) {
     return { type: 'quickstart', rule: 4 };
   }
   if (fileName.includes('glossary')) return { type: 'glossary', rule: 5 };
-  if (fileName.includes('faq')) return { type: 'reference', rule: 6 };
+  if (fileName.includes('faq')) return { type: 'faq', rule: 6 };
+  if (fileName.includes('troubleshoot') || normalized.includes('/troubleshoot')) {
+    return { type: 'troubleshooting', rule: 7 };
+  }
   if (normalized.includes('/api-reference/') && fileName === 'overview.mdx') {
-    return { type: 'overview', rule: 7 };
+    return { type: 'overview', rule: 8 };
   }
   if (normalized.includes('/api-reference/') && !hasField(frontmatterRaw, 'openapi') && fileName !== 'overview.mdx') {
-    return { type: 'reference', rule: 8 };
+    return { type: 'reference', rule: 9 };
   }
   if (fileName === 'overview.mdx' || fileName === 'index.mdx') {
-    return { type: 'overview', rule: 9 };
+    return { type: 'overview', rule: 10 };
   }
-  return { type: '', rule: 10 };
+
+  return { type: '', rule: 11 };
 }
 
 function insertPageType(frontmatterRaw, pageType, newline) {
@@ -221,6 +226,8 @@ function printSummary(summary) {
   console.log(`  quickstart: ${summary.quickstart}`);
   console.log(`  glossary: ${summary.glossary}`);
   console.log(`  overview: ${summary.overview}`);
+  console.log(`  faq: ${summary.faq}`);
+  console.log(`  troubleshooting: ${summary.troubleshooting}`);
   console.log(`  Already typed (skipped): ${summary.skipped}`);
   console.log(`  Unclassified (Phase 2): ${summary.unclassified}`);
   console.log(`  Total files scanned: ${summary.total}`);
@@ -235,6 +242,8 @@ function main() {
     quickstart: 0,
     glossary: 0,
     overview: 0,
+    faq: 0,
+    troubleshooting: 0,
     skipped: 0,
     unclassified: 0,
     total: files.length
@@ -265,12 +274,17 @@ function main() {
       return;
     }
 
-    const updatedContent = buildUpdatedContent(content, classification.type);
+    const normalizedType = normalizePageType(classification.type);
+    if (!normalizedType.valid || !CANONICAL_PAGE_TYPES.includes(normalizedType.canonical)) {
+      throw new Error(`Internal classification error: "${classification.type}" is not a canonical pageType`);
+    }
+
+    const updatedContent = buildUpdatedContent(content, normalizedType.canonical);
     validateUpdatedFrontmatter(updatedContent, relPath);
 
-    summary[classification.type] += 1;
+    summary[normalizedType.canonical] += 1;
     logs.push(
-      `CLASSIFIED: ${relPath} -> ${classification.type} (rule ${classification.rule}${args.dryRun ? ', dry-run' : ''})`
+      `CLASSIFIED: ${relPath} -> ${normalizedType.canonical} (rule ${classification.rule}${args.dryRun ? ', dry-run' : ''})`
     );
     operations.push({
       absPath,
