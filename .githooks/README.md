@@ -2,8 +2,8 @@
 
 Canonical policy and ownership:
 
-- `docs-guide/quality-testing/infrastructure-principles.mdx`
-- `docs-guide/quality-testing/quality-gates.mdx`
+- `docs-guide/policies/infrastructure-principles.mdx`
+- `docs-guide/policies/quality-gates.mdx`
 
 This file is intentionally brief. Rule text should live in canonical policy docs above.
 

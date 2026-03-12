@@ -18,11 +18,11 @@
 
 以下文件必须存在且非空：
 
-- `docs-guide/README.md`
+- `docs-guide/overview.mdx`
 - `docs-guide/feature-map.md`
 - `docs-guide/architecture-map.md`
-- `docs-guide/lpd.md`
-- `docs-guide/quality-gates.md`
+- `docs-guide/tooling/lpd-cli.mdx`
+- `docs-guide/policies/quality-gates.mdx`
 - `docs-guide/automation-pipelines.md`
 - `docs-guide/content-system.md`
 - `docs-guide/data-integrations.md`

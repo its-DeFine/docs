@@ -103,15 +103,20 @@ Recovery:
 
 | Need | Canonical doc |
 |---|---|
-| Start here + update rules | [`docs-guide/README.mdx`](docs-guide/README.mdx) |
-| Source-of-truth boundaries | [`docs-guide/source-of-truth-policy.mdx`](docs-guide/source-of-truth-policy.mdx) |
-| Full feature inventory | [`docs-guide/feature-guides/feature-map.mdx`](docs-guide/feature-guides/feature-map.mdx) |
-| System/data/control flow | [`docs-guide/feature-guides/architecture-map.mdx`](docs-guide/feature-guides/architecture-map.mdx) |
-| CLI commands and runbooks | [`docs-guide/lpd.mdx`](docs-guide/lpd.mdx) |
-| Validation + enforcement gates | [`docs-guide/quality-testing/quality-gates.mdx`](docs-guide/quality-testing/quality-gates.mdx) |
-| Automation pipelines map | [`docs-guide/feature-guides/automation-pipelines.mdx`](docs-guide/feature-guides/automation-pipelines.mdx) |
+| Start here + update rules | [`docs-guide/overview.mdx`](docs-guide/overview.mdx) |
+| Source-of-truth boundaries | [`docs-guide/policies/source-of-truth-policy.mdx`](docs-guide/policies/source-of-truth-policy.mdx) |
+| Full feature inventory | [`docs-guide/features/feature-map.mdx`](docs-guide/features/feature-map.mdx) |
+| System/data/control flow | [`docs-guide/features/architecture-map.mdx`](docs-guide/features/architecture-map.mdx) |
+| CLI commands and runbooks | [`docs-guide/tooling/lpd-cli.mdx`](docs-guide/tooling/lpd-cli.mdx) |
+| Validation + enforcement gates | [`docs-guide/policies/quality-gates.mdx`](docs-guide/policies/quality-gates.mdx) |
+| Audit system design and checks | [`docs-guide/policies/audit-system-overview.mdx`](docs-guide/policies/audit-system-overview.mdx) |
+| Skill pipeline map | [`docs-guide/policies/skill-pipeline-map.mdx`](docs-guide/policies/skill-pipeline-map.mdx) |
+| Cleanup and quarantine rules | [`docs-guide/policies/cleanup-quarantine-policy.mdx`](docs-guide/policies/cleanup-quarantine-policy.mdx) |
+| Component layout policy decisions | [`docs-guide/policies/component-layout-decisions.mdx`](docs-guide/policies/component-layout-decisions.mdx) |
+| Automation pipelines map | [`docs-guide/features/automations.mdx`](docs-guide/features/automations.mdx) |
 | Content system and IA model | [`docs-guide/feature-guides/content-system.mdx`](docs-guide/feature-guides/content-system.mdx) |
-| APIs and data integrations | [`docs-guide/feature-guides/data-integrations.mdx`](docs-guide/feature-guides/data-integrations.mdx) |
+| APIs and data integrations | [`docs-guide/features/data-integrations.mdx`](docs-guide/features/data-integrations.mdx) |
+| AI tools catalog | [`docs-guide/catalog/ai-tools.mdx`](docs-guide/catalog/ai-tools.mdx) |
 | Generated pages tree inventory | [`docs-guide/indexes/pages-index.mdx`](docs-guide/indexes/pages-index.mdx) |
 | Generated components inventory | [`docs-guide/indexes/components-index.mdx`](docs-guide/indexes/components-index.mdx) |
 | Generated script inventory | [`docs-guide/indexes/scripts-index.mdx`](docs-guide/indexes/scripts-index.mdx) |
@@ -203,7 +208,7 @@ Key automation categories:
 
 Automation deep docs:
 
-- [`docs-guide/feature-guides/automation-pipelines.mdx`](docs-guide/feature-guides/automation-pipelines.mdx)
+- [`docs-guide/features/automations.mdx`](docs-guide/features/automations.mdx)
 - [`v2/resources/documentation-guide/automations-workflows.mdx`](v2/resources/documentation-guide/automations-workflows.mdx)
 
 ## AI and Maintainer Guidance

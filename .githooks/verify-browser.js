@@ -64,10 +64,19 @@ function toPosix(filePath) {
 function getStagedMdxFiles() {
   try {
     const repoRoot = execSync('git rev-parse --show-toplevel', { encoding: 'utf8' }).trim();
-    const files = getStagedDocsPageFiles(repoRoot)
+    const allFiles = getStagedDocsPageFiles(repoRoot)
       .map((filePath) => toPosix(path.relative(repoRoot, filePath)))
-      .filter((filePath) => filePath.endsWith('.mdx') && filePath.startsWith('v2/'))
+      .filter((filePath) => filePath.endsWith('.mdx') && filePath.startsWith('v2/'));
+
+    const files = allFiles
+      // Internal hub/report pages are validated by link/import checks, not public-route smoke tests.
+      .filter((filePath) => !filePath.startsWith('v2/internal/'))
       .slice(0, MAX_PAGES); // Limit for speed
+
+    const skippedInternal = allFiles.length - files.length;
+    if (skippedInternal > 0) {
+      console.log(`ℹ️  Skipping ${skippedInternal} staged internal MDX file(s) in browser validation.`);
+    }
     
     return files;
   } catch (error) {
@@ -261,7 +270,7 @@ async function main() {
   // Ensure server is running (start if needed)
   let serverStarted = false;
   try {
-    serverStarted = await ensureServerRunning();
+    serverStarted = await ensureServerRunning({ allowCommonPorts: false });
     // Get actual server URL (may differ if port was auto-selected)
     const actualUrl = getServerUrl();
     if (actualUrl !== BASE_URL) {

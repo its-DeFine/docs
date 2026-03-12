@@ -141,9 +141,9 @@ Fichier de référence :
 ## Propriété + Vérité
 
 - Vérité du comportement de la CLI : `lpd`implémentation du script
-- Vérité de la navigation opérationnelle : ce document + `docs-guide/README.md`
+- Vérité de la navigation opérationnelle : ce document + `docs-guide/overview.mdx`
 
 Pour un comportement de hook/test approfondi, utilisez :
 
-- [`quality-gates.md`](./quality-gates.md)
+- [`quality-gates.md`](./policies/quality-gates.mdx)
 - `contribute/CONTRIBUTING/GIT-HOOKS.md`

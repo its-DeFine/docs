@@ -10,19 +10,19 @@ Ce dossier est la source de vérité interne pour la navigation des mainteneurs 
 - UX / contenu des documents publics : la source de vérité est les pages Mintlify sous`v2/pages/`.
 - Catalogues générés : la source de vérité est les scripts générateurs ; les fichiers générés sont en lecture seule.
 
-Voir[source-of-truth-policy.md](./source-of-truth-policy.md) pour les limites complètes.
+Voir[source-of-truth-policy.md](./policies/source-of-truth-policy.mdx) pour les limites complètes.
 
 ## Commencez ici
 
 | Si vous avez besoin de comprendre... | Fichier canonique |
 |---|---|
-| Gouvernance et propriété canonique | [source-of-truth-policy.md](./source-of-truth-policy.md) |
+| Gouvernance et propriété canonique | [source-of-truth-policy.md](./policies/source-of-truth-policy.mdx) |
 | Carte complète des capacités du dépôt | [feature-map.md](./feature-map.md) |
 | Flux de données et de contrôle entre les systèmes | [architecture-map.md](./architecture-map.md) |
-| Comportement de la CLI et des manuels d'opérateur | [lpd.md](./lpd.md) |
-| Gates de validation et d'application | [quality-gates.md](./quality-gates.md) |
-| GitHub Actions, n8n et pipelines d'automatisation | [automation-pipelines.md](./automation-pipelines.md) |
-| Architecture de l'information et stratégie de contenu | [content-system.md](./content-system.md) |
+| Comportement de la CLI et des manuels d'opérateur | [lpd.md](./tooling/lpd-cli.mdx) |
+| Gates de validation et d'application | [quality-gates.md](./policies/quality-gates.mdx) |
+| GitHub Actions, n8n et pipelines d'automatisation | [automation-pipelines.md](./features/automations.mdx) |
+| Architecture de l'information et stratégie de contenu | [content-system.md](./feature-guides/content-system.mdx) |
 | APIs et intégrations de données externes | [data-integrations.md](./data-integrations.md) |
 | Catalogue de scripts (généré) | [scripts-index.md](./scripts-index.md) |
 | Catalogue de workflows (généré) | [workflows-index.md](./workflows-index.md) |

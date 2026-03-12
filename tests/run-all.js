@@ -152,10 +152,15 @@ async function runAllTests() {
 
   // Docs Path Sync Validation
   console.log('\n🛤️  Running Docs Path Sync Validation...');
-  const docsPathSyncResult = normalizeSuiteResult(docsPathSyncTests.runTests());
-  totalErrors += docsPathSyncResult.errors.length;
-  totalWarnings += docsPathSyncResult.warnings.length;
-  console.log(`   ${docsPathSyncResult.errors.length} errors, ${docsPathSyncResult.warnings.length} warnings`);
+  const docsPathSyncCheck = spawnSync('node', ['tests/unit/docs-path-sync.test.js'], {
+    cwd: REPO_ROOT,
+    encoding: 'utf8'
+  });
+  if (docsPathSyncCheck.stdout) process.stdout.write(docsPathSyncCheck.stdout);
+  if (docsPathSyncCheck.stderr) process.stderr.write(docsPathSyncCheck.stderr);
+  const docsPathSyncErrors = docsPathSyncCheck.status === 0 ? 0 : 1;
+  totalErrors += docsPathSyncErrors;
+  console.log(`   ${docsPathSyncErrors} errors, 0 warnings`);
 
   // Script Docs Enforcement
   console.log('\n🧾 Running Script Documentation Enforcement...');

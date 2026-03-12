@@ -2,8 +2,8 @@
 
 Canonical policy source:
 
-- `docs-guide/quality-testing/infrastructure-principles.mdx`
-- `docs-guide/quality-testing/quality-gates.mdx`
+- `docs-guide/policies/infrastructure-principles.mdx`
+- `docs-guide/policies/quality-gates.mdx`
 
 This contributor page describes how to run hooks, not policy ownership details.
 
