@@ -1,182 +1,231 @@
 ---
 title: Video Transcoding Quickstart
 sidebarTitle: Video Transcoding
-description: 'Run go-livepeer as a transcoding orchestrator: create your wallet, configure your node, register, and verify.'
-pageType: quickstart
-audience: orchestrator
+description: >-
+  Run a Livepeer transcoding orchestrator with Docker — from install to first
+  job in under 30 minutes.
 keywords:
   - livepeer
-  - orchestrators
+  - orchestrator
   - quickstart
   - transcoding
   - go-livepeer
-'og:image': /snippets/assets/domain/SHARED/LivepeerDocsLogo.svg
+  - Docker
+  - GPU
+  - NVIDIA
+'og:image': /snippets/assets/site/og-image/en/orchestrators.png
+'og:image:alt': Livepeer Docs social preview image for Orchestrators
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+pageType: how_to
+audience: orchestrator
+status: current
+lastVerified: 2026-03-13
 ---
 
-import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
-import { CustomCodeBlock } from '/snippets/components/content/code.jsx'
-import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
-import EthAccountSetup from '/snippets/pages/08_SHARED/eth-account-setup.mdx'
-
-
-This is the canonical quickstart for running a transcoding orchestrator.
-
-<EthAccountSetup />
-
-## Step 2: Prerequisites
-
-<StyledTable variant="bordered">
-  <thead>
-    <TableRow header>
- <TableCell header>Requirement</TableCell>
- <TableCell header>Notes</TableCell>
-    </TableRow>
-  </thead>
-  <tbody>
-    <TableRow hover>
- <TableCell>Docker Engine installed</TableCell>
-      <TableCell>
- <a href="https://docs.docker.com/engine/install/">Install Docker</a>
-      </TableCell>
-    </TableRow>
-    <TableRow hover>
- <TableCell>Docker Compose v2</TableCell>
- <TableCell>Verify with `docker compose version`</TableCell>
-    </TableRow>
-    <TableRow hover>
- <TableCell>ETH account funded</TableCell>
- <TableCell>Complete Step 1</TableCell>
-    </TableRow>
-    <TableRow hover>
- <TableCell>Open ports</TableCell>
- <TableCell>`8935` (orchestrator), `7935` (metrics optional)</TableCell>
-    </TableRow>
-    <TableRow hover>
- <TableCell>NVIDIA drivers</TableCell>
- <TableCell>Required only if enabling GPU transcoding</TableCell>
-    </TableRow>
-  </tbody>
-</StyledTable>
-
-## Step 3: Configure and run
-
-Use this compose template as a baseline and replace placeholders.
-
-<CustomCodeBlock
-  filename="docker-compose.yml"
-  language="yaml"
-  icon="docker"
-  codeString={`services:
-  orchestrator:
-    image: livepeer/go-livepeer:master
-    restart: unless-stopped
-    ports:
-      - "8935:8935"
-      - "7935:7935"
-    volumes:
-      - ~/.lpData/keystore:/keystore:ro
-      - ~/.lpData/password:/password:ro
-    command:
-      - "-network=arbitrum-one-mainnet"
-      - "-orchestrator"
-      - "-transcoder"
-      - "-ethUrl=<YOUR_ARB_RPC_URL>"
-      - "-ethKeystorePath=/keystore"
-      - "-ethPassword=/password/eth-secret.txt"
-      - "-serviceAddr=<YOUR_PUBLIC_HOST>:8935"
-      - "-pricePerUnit=1000"
-      - "-pixelsPerUnit=1000000000000"
-      - "-maxSessions=10"
-      - "-monitor=true"
-      - "-v=6"`}
-/>
+This quickstart gets a transcoding orchestrator running with Docker using opinionated defaults. By the end, your node will be registered on the Livepeer network and ready to receive video transcoding jobs.
 
 <Note>
- If you are running CPU-only transcoding, remove GPU-specific runtime settings.
+This guide uses Docker with GPU passthrough. For binary installs, macOS/Windows, or custom configurations, see the [full Setup Guide](/v2/orchestrators/setup/guide).
 </Note>
 
-Start the node:
+---
 
-<CustomCodeBlock
-  language="bash"
-  icon="terminal"
-  codeString={`docker compose up -d\ndocker compose logs --tail=100`}
-/>
+## Prerequisites
 
-## Step 4: Register as an orchestrator
+Before you start, confirm:
 
-<StyledSteps>
-  <StyledStep title="Open the Livepeer CLI">
-    <CustomCodeBlock
-      language="bash"
-      icon="terminal"
-      codeString={`livepeer_cli`}
-    />
-  </StyledStep>
-  <StyledStep title="Activate orchestrator settings">
- Use `Invoke multistep wizard` in CLI, or run flags directly:
+- **NVIDIA GPU** visible via `nvidia-smi` (driver 525+)
+- **Docker Engine** installed ([docs.docker.com](https://docs.docker.com/engine/install/))
+- **NVIDIA Container Toolkit** installed — verify: `docker run --rm --gpus all nvidia/cuda:12.0.0-base-ubuntu22.04 nvidia-smi`
+- **Port 8935 TCP** open to the public internet
+- **Arbitrum RPC URL** from [Alchemy](https://www.alchemy.com) or [Infura](https://infura.io) (free tier is fine)
+- **ETH on Arbitrum** for gas (a few dollars)
+- **LPT on Arbitrum** for staking (check [Explorer](https://explorer.livepeer.org) for the current active set threshold)
 
-    <CustomCodeBlock
-      language="bash"
-      icon="terminal"
-      codeString={`./livepeer \\
-  -network arbitrum-one-mainnet \\
-  -blockRewardCut 5.0 \\
-  -feeShare 10.0 \\
-  -pricePerUnit 1000 \\
-  -pixelsPerUnit 1000000000000 \\
-  -serviceURI https://your-orchestrator.example.com:8935`}
-    />
-  </StyledStep>
-</StyledSteps>
+See [Setup Checklist](/v2/orchestrators/setup/rcs-requirements) for detailed requirements. See [Arbitrum Exchanges](/v2/orchestrators/resources/arbitrum-exchanges) for where to get ETH and LPT on Arbitrum.
 
-## Step 5: Verify your node
+---
 
-<CustomCodeBlock
-  language="bash"
-  icon="terminal"
-  codeString={`curl http://localhost:7935/status\nlivepeer_cli -cmd status`}
-/>
+## Step 1 — Pull the Docker image
 
-Your orchestrator should appear in the [Livepeer Explorer](https://explorer.livepeer.org/orchestrators).
+```bash
+docker pull livepeer/go-livepeer:0.8.9
+```
 
-## Testing end-to-end with a Gateway
+Verify:
 
-Once both services are running, verify an end-to-end transcoding session.
+```bash
+docker run --rm livepeer/go-livepeer:0.8.9 livepeer -version
+```
 
-<StyledSteps>
-  <StyledStep title="Point a gateway at your orchestrator">
- Configure gateway routing to your orchestrator service URI:
+---
 
-    ```bash
-    -orchAddr=https://your-orchestrator.example.com:8935
-    ```
-  </StyledStep>
-  <StyledStep title="Send a test stream through the gateway">
- Use the gateway quickstart ingest flow.
-  </StyledStep>
-  <StyledStep title="Confirm transcoding session logs">
- Check orchestrator logs for active session creation and completion.
-  </StyledStep>
-</StyledSteps>
+## Step 2 — Create your data directory
 
-<Card title="Gateway Quickstart" icon="torii-gate" href="/v2/gateways/quickstart/gateway-setup" arrow>
- Use this to run gateway-side setup and stream validation.
-</Card>
+```bash
+mkdir -p ~/.lpData
+```
 
-## Related pages
+This is where go-livepeer will store your keystore and node data.
 
-<CardGroup cols={2}>
-  <Card title="Orchestrator Job Types" icon="layer-group" href="../concepts/job-types" arrow>
- Compare transcoding, realtime AI, and batch AI paths.
-  </Card>
-  <Card title="Install go-livepeer" icon="download" href="/v2/orchestrators/setup/install-go-livepeer" arrow>
- Full install options and advanced flags.
-  </Card>
-  <Card title="Connect to Arbitrum" icon="plug" href="/v2/orchestrators/setup/install-go-livepeer" arrow>
- RPC selection and network connection guidance.
-  </Card>
-  <Card title="CLI flags reference" icon="terminal" href="../resources/cli-flags" arrow>
- Full orchestrator flag reference.
-  </Card>
+---
+
+## Step 3 — Start the node
+
+Replace the three placeholders below with your values:
+
+| Placeholder | Value |
+|---|---|
+| `<YOUR_RPC_URL>` | Your Alchemy or Infura Arbitrum endpoint |
+| `<YOUR_PUBLIC_IP>` | Your server's public IP address |
+| `<PRICE>` | Price per pixel in wei (e.g. `1200` — check [livepeer.tools](https://livepeer.tools) for current market rates) |
+
+```bash
+docker run -d \
+  --name livepeer \
+  --gpus all \
+  --network host \
+  -v ~/.lpData:/root/.lpData \
+  livepeer/go-livepeer:0.8.9 \
+  -network arbitrum-one-mainnet \
+  -ethUrl <YOUR_RPC_URL> \
+  -orchestrator \
+  -transcoder \
+  -nvidia 0 \
+  -serviceAddr <YOUR_PUBLIC_IP>:8935 \
+  -pricePerUnit <PRICE> \
+  -pixelsPerUnit 1000000000000 \
+  -monitor
+```
+
+Check the logs:
+
+```bash
+docker logs -f livepeer
+```
+
+You should see:
+
+```
+Transcoding on Nvidia GPU 0
+```
+
+and:
+
+```
+Listening for RPC on :8935
+```
+
+<Warning>
+On first run, go-livepeer will create a new Ethereum account and prompt you for a passphrase. **Remember this passphrase** — you need it to restart the node. The keystore is saved in `~/.lpData/arbitrum-one-mainnet/keystore`.
+</Warning>
+
+If you already have an Ethereum account, add `-ethKeystorePath` and `-ethPassword` flags. See [Configure](/v2/orchestrators/setup/r-configure) for details.
+
+---
+
+## Step 4 — Verify the connection
+
+Confirm you are connected to Arbitrum:
+
+```bash
+curl -s -X POST -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_chainId","params":[],"id":1}' \
+  <YOUR_RPC_URL>
+```
+
+Expected: `"result":"0xa4b1"` (Arbitrum One, chain ID 42161).
+
+Confirm your node is publicly reachable (run from a **different machine**):
+
+```bash
+curl -k https://<YOUR_PUBLIC_IP>:8935/status
+```
+
+If this times out, check your firewall and port forwarding. See [Verify](/v2/orchestrators/setup/test) for troubleshooting.
+
+---
+
+## Step 5 — Activate on the network
+
+Open `livepeer_cli` in a second terminal:
+
+```bash
+docker exec -it livepeer livepeer_cli
+```
+
+Select **"Invoke multi-step 'become an orchestrator'"** and follow the prompts:
+
+| Prompt | Recommended value | Notes |
+|---|---|---|
+| Reward cut | `10` | You keep 10% of LPT rewards, delegators share 90% |
+| Fee cut | `95` | You keep 95% of ETH fees |
+| Pixels per unit | `1` | Accept the default |
+| Price per unit | Same as your `-pricePerUnit` | Must be consistent with your startup flag |
+| Service address | `<YOUR_PUBLIC_IP>:8935` | Must match your `-serviceAddr` |
+| Stake amount | Your LPT amount in LPTU | 1 LPT = `1000000000000000000` LPTU. To stake 100 LPT, enter `100000000000000000000` |
+
+<Note>
+Two transactions will be submitted: `approve` (authorises the staking contract) and `bond` (stakes your LPT). Wait for both to confirm on Arbitrum.
+</Note>
+
+---
+
+## Step 6 — Verify activation
+
+Your node joins the active set at the start of the **next round** (~24 hours after activation).
+
+1. Go to [Livepeer Explorer](https://explorer.livepeer.org)
+2. Search for your Ethereum address
+3. Confirm status shows **Active**
+
+Check your logs for job activity:
+
+```bash
+docker logs livepeer 2>&1 | grep -i "got segment"
+```
+
+<Accordion title="Not receiving jobs?">
+
+**Service address not reachable** — the #1 cause. Re-test port 8935 from an external machine.
+
+**Price too high** — gateways filter by max price. Check current rates on [livepeer.tools](https://livepeer.tools).
+
+**Not in the active set** — you need top-100 stake. Check your rank on Explorer.
+
+**Just activated** — wait for the next round (~24 hours).
+
+For more, see [Verify Your Setup](/v2/orchestrators/setup/test) and the [FAQ](/v2/orchestrators/resources/faq).
+
+</Accordion>
+
+---
+
+## What you just set up
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d' }}}%%
+flowchart LR
+    classDef default stroke-width:2px
+    GW["Gateways"] -->|"send video segments"| Node["Your Node\n(orchestrator + transcoder)"]
+    Node -->|"return transcoded video"| GW
+    Node -->|"stake, reward, redeem"| Arb["Arbitrum One"]
+```
+
+Your node is now:
+- **Registered** on the Livepeer protocol via Arbitrum One
+- **Staked** with LPT, making it eligible for job selection
+- **Transcoding** video segments on your GPU when gateways route work to you
+- **Earning** ETH fees per job + LPT rewards per round
+
+---
+
+## Next steps
+
+<CardGroup cols={3}>
+  <Card title="Set Up Monitoring" icon="chart-line" href="/v2/orchestrators/setup/r-monitor" arrow />
+  <Card title="Add AI Workloads" icon="microchip-ai" href="/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide" arrow />
+  <Card title="Earnings Explained" icon="coins" href="/v2/orchestrators/guides/staking-and-rewards/earnings" arrow />
 </CardGroup>

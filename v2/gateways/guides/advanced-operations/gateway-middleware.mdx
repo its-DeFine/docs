@@ -1,0 +1,445 @@
+---
+title: 'Gateway Middleware'
+sidebarTitle: 'Gateway Middleware'
+description: 'Add a middleware layer to your Livepeer gateway for authentication, rate limiting, billing integration, custom routing logic, and BYOC pipeline support.'
+keywords: ['livepeer', 'gateway', 'middleware', 'authentication', 'rate limiting', 'API key', 'JWT', 'reverse proxy', 'custom routing', 'BYOC', 'billing']
+og:image: '/snippets/assets/site/og-image/fallback.png'
+pageType: 'guide'
+audience: 'gateway'
+purpose: 'guides'
+status: 'current'
+lastVerified: '2026-03-13'
+---
+
+The go-livepeer binary is a routing and payment engine. It does not authenticate your users, meter their usage, or route premium customers to different orchestrators. Those concerns belong to a middleware layer that you control, sitting between your customers and the gateway process.
+
+This guide covers the common patterns for building that layer.
+
+<Note>
+This page covers the **request pipeline** — the layer between clients and your gateway. The **payment pipeline** (how your gateway settles with orchestrators using ETH or fiat credit) is covered in the [Payment Clearinghouse](/gateways/payments/payment-clearinghouse) guide.
+</Note>
+
+---
+
+## What middleware is responsible for
+
+<Mermaid
+  chart={`%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a' }}}%%
+  flowchart LR
+    C[Client App] --> MW
+    subgraph MW["Your Middleware Layer"]
+      A[Auth / API keys]
+      RL[Rate limiting]
+      M[Usage metering]
+      R[Request routing]
+    end
+    MW --> GW
+    subgraph GW["go-livepeer Gateway"]
+      O[Orchestrator selection]
+      P[Payment tickets]
+    end
+    GW --> ORCH[Orchestrator Network]`}
+/>
+
+The middleware handles the customer-facing interface. The gateway handles the network interface. Each does one thing well.
+
+| Concern | Middleware | go-livepeer |
+|---------|-----------|-------------|
+| API key validation | ✅ | ❌ |
+| JWT / OAuth token verification | ✅ | ❌ |
+| Per-customer rate limits | ✅ | ❌ |
+| Usage tracking and billing | ✅ | ❌ |
+| Customer-to-tier routing | ✅ | ❌ |
+| Orchestrator selection | ❌ | ✅ |
+| Probabilistic micropayments | ❌ | ✅ |
+| On-chain settlement | ❌ | ✅ |
+
+---
+
+## Architecture patterns
+
+Three deployment patterns cover most middleware use cases. Choose based on your existing infrastructure.
+
+<Tabs>
+  <Tab title="Reverse proxy (recommended)">
+    The simplest and most maintainable pattern: an existing reverse proxy handles TLS, auth, and rate limiting before passing requests to the gateway.
+
+    **Caddy with API key auth** (simplest):
+
+    ```caddyfile
+    ai-gateway.yourdomain.com {
+        @authenticated {
+            header Authorization "Bearer {$VALID_API_KEY}"
+        }
+        handle @authenticated {
+            reverse_proxy localhost:8937
+        }
+        respond 401
+    }
+    ```
+
+    **Nginx with external auth** (more flexible — delegates auth to your backend):
+
+    ```nginx
+    server {
+        listen 443 ssl;
+        server_name ai-gateway.yourdomain.com;
+
+        location / {
+            auth_request /auth;
+            proxy_pass http://127.0.0.1:8937;
+        }
+
+        location = /auth {
+            proxy_pass http://127.0.0.1:3000/verify-token;
+            proxy_pass_request_body off;
+            proxy_set_header Content-Length "";
+            proxy_set_header X-Original-URI $request_uri;
+        }
+    }
+    ```
+
+    Your `/verify-token` endpoint returns `200` to allow or `401` to deny. It can also return headers that nginx forwards to the gateway, such as customer ID or tier.
+  </Tab>
+  <Tab title="API gateway">
+    For multi-tenant deployments where you need per-customer rate limits, quota enforcement, and usage analytics, a dedicated API gateway layer fits well.
+
+    **Kong** (open source, self-hosted):
+
+    ```yaml
+    # kong.yml — declarative config
+    services:
+      - name: livepeer-gateway
+        url: http://livepeer-gateway:8937
+        routes:
+          - name: ai-inference
+            paths:
+              - /
+        plugins:
+          - name: key-auth
+          - name: rate-limiting
+            config:
+              minute: 60
+              policy: local
+          - name: request-termination
+            config:
+              status_code: 429
+              message: "Rate limit exceeded"
+    ```
+
+    **Traefik** (Docker-native, automatic service discovery):
+
+    ```yaml
+    # docker-compose.yml
+    services:
+      traefik:
+        image: traefik:v3
+        command:
+          - "--providers.docker=true"
+          - "--entrypoints.websecure.address=:443"
+
+      livepeer-gateway:
+        image: livepeer/go-livepeer:master
+        labels:
+          - "traefik.http.routers.livepeer.rule=Host(`ai-gateway.yourdomain.com`)"
+          - "traefik.http.routers.livepeer.middlewares=auth@docker"
+          - "traefik.http.middlewares.auth.basicauth.users=user:$$apr1$$..."
+    ```
+  </Tab>
+  <Tab title="Custom proxy">
+    For operators who need full control over routing logic, a lightweight custom proxy in Node.js, Go, or Python sits in front of the gateway.
+
+    **Node.js example** (Express + http-proxy-middleware):
+
+    ```javascript
+    const express = require('express');
+    const { createProxyMiddleware } = require('http-proxy-middleware');
+    const app = express();
+
+    // Auth middleware
+    app.use(async (req, res, next) => {
+      const apiKey = req.headers['x-api-key'];
+      const customer = await validateApiKey(apiKey);
+      if (!customer) return res.status(401).json({ error: 'Invalid API key' });
+
+      // Attach customer context for routing and metering
+      req.customer = customer;
+      next();
+    });
+
+    // Usage metering
+    app.use((req, res, next) => {
+      const start = Date.now();
+      res.on('finish', () => {
+        recordUsage(req.customer.id, req.path, Date.now() - start);
+      });
+      next();
+    });
+
+    // Route to gateway
+    app.use('/', createProxyMiddleware({
+      target: 'http://localhost:8937',
+      changeOrigin: true,
+    }));
+
+    app.listen(3000);
+    ```
+  </Tab>
+</Tabs>
+
+---
+
+## Authentication patterns
+
+<AccordionGroup>
+  <Accordion title="API keys">
+    The simplest approach. Issue each customer a unique API key, validate it on every request, and store it hashed in your database.
+
+    ```
+    Request: X-Api-Key: sk_live_abc123...
+    Middleware: hash(sk_live_abc123...) → look up in DB → get customer record
+    ```
+
+    API keys are easy to rotate without requiring customers to re-authenticate. They are appropriate for server-to-server integrations where the key is stored securely on the client side.
+  </Accordion>
+  <Accordion title="JWT tokens">
+    For consumer-facing applications where users authenticate via OAuth (Google, GitHub, etc.), issue short-lived JWT access tokens after authentication. Validate the JWT signature on every request without a database lookup.
+
+    ```javascript
+    const jwt = require('jsonwebtoken');
+
+    function verifyToken(req, res, next) {
+      const token = req.headers.authorization?.replace('Bearer ', '');
+      try {
+        const payload = jwt.verify(token, process.env.JWT_SECRET);
+        req.customer = { id: payload.sub, tier: payload.tier };
+        next();
+      } catch {
+        res.status(401).json({ error: 'Invalid token' });
+      }
+    }
+    ```
+
+    JWTs are appropriate for gateways that serve end-users directly through a web or mobile application.
+  </Accordion>
+  <Accordion title="Live AI webhook auth">
+    For Live AI (video-to-video) workloads, go-livepeer supports webhook-based RTMP authentication. The gateway calls your webhook when an RTMP stream connects, and you return allow or deny.
+
+    ```bash
+    -liveAIAuthWebhookUrl https://your-service.example.com/rtmp-auth
+    -liveAIAuthApiKey <internal-api-key-for-webhook>
+    ```
+
+    Your webhook receives the stream key and can validate it against your customer database before allowing the stream through.
+
+    {/* REVIEW: Confirm `-liveAIAuthWebhookUrl` and `-liveAIAuthApiKey` are the correct flags and describe current webhook auth behaviour in go-livepeer — Rick or j0sh to verify */}
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Rate limiting
+
+Rate limiting protects your gateway from abuse and enforces fair usage across customers. Implement it in your middleware layer, not in go-livepeer.
+
+The appropriate limits depend on your orchestrator pool capacity and customer agreements. A reasonable starting point for an AI inference gateway:
+
+| Tier | Requests per minute | Concurrent sessions |
+|------|--------------------|--------------------|
+| Free | 10 | 1 |
+| Standard | 60 | 5 |
+| Premium | 300 | 20 |
+
+Track limits in Redis for shared-memory rate limiting across multiple middleware instances:
+
+```javascript
+const rateLimit = require('express-rate-limit');
+const RedisStore = require('rate-limit-redis');
+
+const limiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: (req) => req.customer.tier === 'premium' ? 300 : 60,
+  store: new RedisStore({ client: redisClient }),
+  keyGenerator: (req) => req.customer.id,
+});
+```
+
+---
+
+## Custom routing logic
+
+The most powerful use of middleware is routing different customers or job types to different gateway instances, each configured with a distinct orchestrator pool.
+
+```javascript
+// Route premium customers to high-performance orchestrators
+app.use('/process', async (req, res) => {
+  const target = req.customer.tier === 'premium'
+    ? 'http://localhost:8937'   // Gateway A: premium orch list, high price cap
+    : 'http://localhost:8938';  // Gateway B: standard orch list, lower price cap
+
+  proxyRequest(req, res, target);
+});
+
+// Route by pipeline type
+app.use('/ai/*', (req, res) => proxyRequest(req, res, 'http://localhost:8937'));
+app.use('/video/*', (req, res) => proxyRequest(req, res, 'http://localhost:8935'));
+```
+
+This pattern, combined with [tiered orchestrator selection](/gateways/guides/advanced-ops/orchestrator-selection#tiering-strategy), allows you to deliver different SLA levels from one middleware deployment.
+
+---
+
+## Usage metering and billing
+
+go-livepeer does not track how much each of your customers has consumed — it only tracks what you owe orchestrators. You need to meter customer usage in your middleware.
+
+What to track per request:
+
+- Customer ID
+- Pipeline type (text-to-image, video transcoding, etc.)
+- Input parameters (resolution, number of outputs, duration)
+- Response time
+- Success or failure
+
+Store events in a time-series database or event queue, then aggregate for invoicing. For per-pixel billing (video transcoding), you can calculate usage from the resolution and frame count. For AI inference, count requests per model and pipeline.
+
+```javascript
+res.on('finish', () => {
+  usageQueue.push({
+    customerId: req.customer.id,
+    pipeline: extractPipeline(req.path),
+    durationMs: Date.now() - startTime,
+    statusCode: res.statusCode,
+    timestamp: new Date().toISOString(),
+  });
+});
+```
+
+---
+
+## Middleware vs clearinghouse
+
+A clearinghouse combines middleware concerns with payment pipeline concerns into a single managed service. The distinction:
+
+| Concern | Your middleware | Clearinghouse |
+|---------|----------------|--------------|
+| Customer auth | ✅ you manage | ✅ managed for you |
+| Usage billing | ✅ you manage | ✅ managed for you |
+| ETH key custody | ❌ not your concern | ✅ managed for you |
+| Orchestrator payments | ❌ go-livepeer handles | ✅ managed for you |
+| Multi-tenant isolation | ✅ you build | ✅ built in |
+| Fiat settlement | ❌ you build | ✅ built in |
+
+If you want to avoid building the payment side, the [Payment Clearinghouse](/gateways/payments/payment-clearinghouse) guide covers how to delegate ETH custody and payment accounting to a clearinghouse service while keeping your middleware for auth and routing.
+
+---
+
+<CardGroup cols={2}>
+  <Card title="Scaling" icon="arrow-left" href="/gateways/guides/advanced-ops/scaling">
+    Scale middleware and gateway instances together.
+  </Card>
+  <Card title="Publishing Your Gateway" icon="arrow-right" href="/gateways/guides/advanced-ops/publishing">
+    Make your gateway discoverable to external developers.
+  </Card>
+  <Card title="Payment Clearinghouse" icon="credit-card" href="/gateways/payments/payment-clearinghouse">
+    Delegate payment handling to a clearinghouse service.
+  </Card>
+  <Card title="Production Hardening" icon="shield" href="/gateways/guides/advanced-ops/production-hardening">
+    Security and TLS for your middleware and gateway.
+  </Card>
+</CardGroup>
+
+{/* ---
+title: 'Gateway Middleware'
+description: 'Add custom middleware to your gateway — authentication, rate limiting, request transformation, custom routing, and integration patterns.'
+sidebarTitle: 'Gateway Middleware'
+pageType: 'guide'
+audience: 'gateway'
+status: 'stub'
+--- */}
+
+{/*
+  PURPOSE:
+  Journey step: "Custom middleware and integrations"
+  Guide for operators building a middleware layer around their gateway.
+  Covers auth, rate limiting, request transformation, and custom routing.
+
+  SECTION HOME: Guides → Advanced Operations
+
+  JOURNEY POSITION:
+  1. Production Hardening — "Make it production-ready"
+  2. Orchestrator Selection — "Choose the best orchestrators"
+  3. Scaling & Resource Management — "When and how to scale"
+  4. Gateway Middleware (this page) — "Custom middleware and integrations"
+  5. Publishing Your Gateway — "Make your gateway discoverable"
+
+  RELATED FILES (draw from):
+  - all-resources/ctx-gwnew--content-brief-gwe-clearinghouse-middleware.md — PRIMARY (90%): 939 lines. Batched content brief for clearinghouse + middleware. Research phases, MDX structure, quality gates. Middleware-specific content covers auth, routing, billing integration.
+  - all-resources/v2-tools--gateway-middleware.mdx              — EXISTING STUB (5%): 26 lines. BYOC mention, otherwise empty.
+  - all-resources/ctx-new--gateway-middleware.mdx               — SECONDARY: _contextData_ version of middleware page.
+
+  CROSS-REFS:
+  - Payments & Pricing → Clearinghouse Guide — middleware handles request pipeline, clearinghouse handles payment pipeline. Sibling concepts.
+  - AI & Job Pipelines → BYOC Pipelines — BYOC routing can be customised via middleware
+  - Production Hardening (this section) — security aspects overlap with middleware auth
+  - Resources → AI API Reference — endpoints that middleware wraps
+*/}
+{/*
+# Gateway Middleware
+
+<Note>This page is a stub. Content to be developed from the sources listed above.</Note>
+
+## Proposed Structure
+
+### 1. What Is Gateway Middleware?
+A software layer between your application and the Livepeer gateway process.
+Handles concerns the gateway binary doesn't: authentication, billing,
+custom routing, request transformation.
+
+```
+Client → [Your Middleware] → go-livepeer gateway → Orchestrator network
+```
+
+### 2. Why Build Middleware?
+Common use cases:
+- **Authentication**: API key validation, OAuth integration
+- **Billing**: Usage tracking, credit management, invoice generation
+- **Rate limiting**: Per-customer request throttling
+- **Request transformation**: Resize/preprocess before gateway
+- **Custom routing**: Route to specific orchestrators based on customer tier
+- **Logging**: Request/response audit trail
+
+### 3. Architecture Patterns
+- **Reverse proxy**: nginx/caddy in front of gateway with auth modules
+- **API gateway**: Kong, Traefik, custom Node.js/Go proxy
+- **Sidecar**: middleware container alongside gateway in Docker Compose
+- **Embedded**: custom go-livepeer fork (not recommended for maintainability)
+
+### 4. Authentication Integration
+- API key validation middleware
+- JWT/OAuth token verification
+- Per-customer rate limits and quotas
+- Example: Express.js middleware with API key check
+
+### 5. Billing & Usage Tracking
+- Request counting per customer
+- Pixel/minute tracking for video transcoding
+- Inference counting for AI jobs
+- Integration with clearinghouse (→ Clearinghouse Guide) for on-chain billing
+
+### 6. Custom Routing Logic
+- Route premium customers to high-tier orchestrators
+- Route BYOC requests to capability-specific orchestrators
+- Geographic routing: match client region to nearest orchestrators
+
+### 7. Middleware vs Clearinghouse
+| Concern | Middleware | Clearinghouse |
+|---------|-----------|---------------|
+| Request pipeline | ✅ | ❌ |
+| Payment pipeline | ❌ | ✅ |
+| Auth/billing | ✅ | Partial |
+| On-chain interaction | ❌ | ✅ |
+| Multi-tenant support | ✅ | ✅ |
+
+### 8. Next Steps
+Cards: Clearinghouse Guide (Payments), Production Hardening, Publishing Your Gateway */}

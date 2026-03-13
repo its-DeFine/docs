@@ -1,0 +1,287 @@
+---
+title: 'Publishing Your Gateway'
+sidebarTitle: 'Publishing'
+description: 'Make your Livepeer gateway discoverable: service URI configuration, DNS setup, capability advertising, community presence, and current discoverability options.'
+keywords: ['livepeer', 'gateway', 'publishing', 'discoverability', 'serviceAddr', 'gatewayHost', 'DNS', 'marketplace', 'capability advertising']
+og:image: '/snippets/assets/site/og-image/fallback.png'
+pageType: 'guide'
+audience: 'gateway'
+purpose: 'guides'
+status: 'current'
+lastVerified: '2026-03-13'
+---
+
+Running a gateway that routes your own traffic is one thing. Running a gateway that other developers and applications can discover and use is another. This guide covers how to make your gateway reachable and findable, and is honest about what formal discoverability mechanisms exist today versus what is planned.
+
+<Warning>
+Unlike orchestrators, which register on-chain via the ServiceRegistry contract and appear in the Livepeer Explorer automatically, there is no equivalent on-chain registry for gateways. Discoverability today is manual and community-driven. This page documents what currently exists and how to use it.
+</Warning>
+
+---
+
+## Service URI configuration
+
+The first requirement is that your gateway is reachable at a stable, public address.
+
+```bash
+-serviceAddr your-gateway.example.com:8935
+```
+
+`-serviceAddr` tells the gateway what address to advertise to the components that connect to it. For a public gateway, this must be your externally resolvable DNS name and port, not `localhost` or an internal IP.
+
+For the external hostname used in responses:
+
+```bash
+-gatewayHost your-gateway.example.com
+```
+
+{/* REVIEW: Confirm the interaction between `-serviceAddr` and `-gatewayHost` in current go-livepeer — when does each take effect and which one determines what is advertised — Rick to verify */}
+
+### DNS setup
+
+Point a dedicated subdomain at your gateway server's public IP. A dedicated subdomain (rather than an IP address) lets you change servers without updating your customers' integrations.
+
+```
+ai-gateway.yourdomain.com.   A   <your-server-ip>
+```
+
+For multi-region deployments, use GeoDNS or a load balancer DNS record that routes to the nearest region.
+
+### HTTPS is required
+
+External clients must reach your gateway over HTTPS. Set up TLS termination via a reverse proxy before exposing the service. See [Production Hardening](/gateways/guides/advanced-ops/production-hardening) for Caddy and Nginx examples.
+
+---
+
+## Advertising your capabilities
+
+Developers choosing a gateway need to know what yours supports. There is no standard machine-readable format for this yet, but publishing a clear capabilities document on your domain is the current best practice.
+
+Document these things:
+
+<AccordionGroup>
+  <Accordion title="Supported workloads">
+    State explicitly whether your gateway handles:
+    - AI inference (and which pipelines: text-to-image, image-to-video, LLM, etc.)
+    - Video transcoding
+    - Live AI (video-to-video)
+    - BYOC pipelines
+
+    If you support AI inference, list the models available via your connected orchestrators. You can generate this dynamically from your gateway's `/getNetworkCapabilities` endpoint:
+
+    ```bash
+    curl https://your-gateway.example.com/getNetworkCapabilities | \
+      jq '[.orchestrators[].capabilities_prices[].model_id] | unique'
+    ```
+  </Accordion>
+  <Accordion title="Pricing">
+    Publish your customer-facing pricing clearly. Remember that your gateway has two pricing layers:
+
+    - What you pay orchestrators (`-maxPricePerCapability`, `-maxPricePerUnit`) — this is your cost floor
+    - What you charge customers — this is your business decision
+
+    These do not need to match. Most public gateways add a margin and present pricing in human-readable units (per image, per minute of video) rather than in wei per pixel.
+  </Accordion>
+  <Accordion title="Authentication requirements">
+    Describe how developers authenticate with your gateway: API key, OAuth, or open access. If you require registration, link to your signup page.
+  </Accordion>
+  <Accordion title="Rate limits and SLAs">
+    Document any rate limits and what SLA you offer. Even a best-effort statement ("we target 99% uptime") sets expectations and builds trust.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Current discovery methods
+
+These are the mechanisms developers use today to find public gateways. Use as many as are appropriate for your intended audience.
+
+<Tabs>
+  <Tab title="Community channels">
+    The most effective current method. Announce your gateway in the [Livepeer Discord](https://discord.gg/livepeer) in the `#local-gateways` channel. Include:
+
+    - Your gateway endpoint URL
+    - Supported pipelines and models
+    - Pricing and any access requirements
+    - Your operating region(s)
+
+    The Forum at [forum.livepeer.org](https://forum.livepeer.org) is appropriate for longer announcements with more detail, and threads are indexed by search engines.
+
+    Keep your announcement updated as your capabilities change.
+  </Tab>
+  <Tab title="Livepeer Tools">
+    [tools.livepeer.cloud](https://tools.livepeer.cloud) is a community-maintained dashboard that tracks active network participants. Contact the maintainers to have your gateway listed.
+
+    {/* REVIEW: Confirm whether tools.livepeer.cloud lists gateways (not just orchestrators) and how to request a listing — community verification needed */}
+  </Tab>
+  <Tab title="Gateway providers directory">
+    The Foundation maintains a list of known public gateways in the [Gateway Providers](/gateways/using-gateways/gateway-providers) page (now in the Developers tab). Contact the Foundation to have your gateway added.
+
+    SPE-funded gateways (Livepeer Cloud, Daydream) are listed automatically as part of their SPE agreement.
+  </Tab>
+  <Tab title="Direct integration">
+    For developers building applications, the most common path is direct integration: they find your gateway through one of the channels above and hardcode your endpoint. Make it easy for them by providing:
+
+    - A clear API reference (your gateway endpoint + the standard [AI API reference](/gateways/references/api-reference/AI-API/ai))
+    - A working quickstart curl command
+    - A stable versioned endpoint URL
+  </Tab>
+</Tabs>
+
+---
+
+## Connecting to the Livepeer marketplace
+
+The Livepeer Marketplace is a programmatic interface for orchestrators to advertise compute and for gateways to discover and route to that compute. It is not a discovery mechanism for applications to find gateways.
+
+As a gateway operator, your relationship to the marketplace is as a **broker**: you query it to find orchestrators, not to list yourself for applications to find. The marketplace is upstream of your gateway, not downstream.
+
+```
+Applications → [Your gateway] → Marketplace → Orchestrators
+```
+
+There is currently no gateway layer in the marketplace. On-chain gateway registration (equivalent to how orchestrators register via ServiceRegistry) is on the roadmap but not yet available.
+
+{/* REVIEW: Confirm current roadmap status of on-chain gateway registry — Foundation to verify */}
+
+---
+
+## For video gateways: the `-serviceAddr` in context
+
+Video gateways use `-serviceAddr` differently from AI gateways. For a video gateway, `-serviceAddr` is the address that the gateway advertises to orchestrators so they can report results back. It must be reachable by orchestrators on the network.
+
+This means your video gateway's service address must be publicly reachable on the gateway's HTTP port (default 8935). If you are behind NAT, configure port forwarding or use a server with a public IP.
+
+RTMP ingest (port 1935) is separate from the service address and is what your video sources connect to. These can be on different ports or even different network interfaces.
+
+---
+
+## What is planned
+
+The ecosystem is working toward more formal gateway discoverability:
+
+- **On-chain gateway registry**: equivalent to the orchestrator ServiceRegistry, allowing gateways to register capabilities and be discovered programmatically
+- **AI capability registry** (`-aiServiceRegistry`): a flag that already exists in go-livepeer for an AI-specific service registry — the infrastructure for AI gateway registration is partially in place
+
+{/* REVIEW: Confirm current status of AIServiceRegistry contract and whether any production deployment exists — Rick or Mehrdad to verify */}
+
+Until these are available, the community channels and manual listing approaches above are the practical path.
+
+---
+
+<CardGroup cols={2}>
+  <Card title="Gateway Middleware" icon="arrow-left" href="/gateways/guides/advanced-ops/gateway-middleware">
+    Auth and routing — prerequisites for a public-facing gateway.
+  </Card>
+  <Card title="Operator Opportunities" icon="lightbulb" href="/gateways/run-a-gateway/gateway-operator-opportunities">
+    Revenue models and Foundation support for gateway operators.
+  </Card>
+  <Card title="Gateway Providers" icon="list" href="/developers/using-gateways/gateway-providers">
+    See the current list of public gateway providers.
+  </Card>
+  <Card title="Technical Architecture" icon="diagram-project" href="/gateways/references/technical-architecture">
+    Network architecture context for how gateways fit into the ecosystem.
+  </Card>
+</CardGroup>
+
+{/* ---
+title: 'Publishing Your Gateway'
+description: 'Make your gateway discoverable on the Livepeer network — marketplace registration, service URI configuration, capability advertising, and DNS setup.'
+sidebarTitle: 'Publishing'
+pageType: 'guide'
+audience: 'gateway'
+status: 'stub'
+--- */}
+
+{/*
+  PURPOSE:
+  Journey step: "Make your gateway discoverable"
+  Guide for operators who want their gateway to be found by applications
+  and users on the network. Covers marketplace integration, service
+  advertising, and discoverability.
+
+  NOTE: This is a known gap in the docs — no formal gateway registry exists.
+  This page documents current mechanisms and identifies planned improvements.
+
+  SECTION HOME: Guides → Advanced Operations
+
+  JOURNEY POSITION:
+  1. Production Hardening — "Make it production-ready"
+  2. Orchestrator Selection — "Choose the best orchestrators"
+  3. Scaling & Resource Management — "When and how to scale"
+  4. Gateway Middleware — "Custom middleware and integrations"
+  5. Publishing Your Gateway (this page) — "Make your gateway discoverable"
+
+  RELATED FILES (draw from):
+  - all-resources/ctx-gwnew--content-brief-gwoq5-publish-gateway.md — PRIMARY (90%): 569 lines. Research mandate on gateway discoverability. Content paths (formal vs stub), quality gates, source hierarchy.
+  - all-resources/v2-run--lp-marketplace.mdx                   — PRIMARY (70%): 245 lines. How orchestrators publish, gateways broker. Marketplace mechanics.
+  - all-resources/v2-setup--connect-with-offerings.mdx         — PRIMARY (60%): 351 lines. Marketplace discovery, capability matching, Mermaid diagrams.
+  - all-resources/v2-run--discover-offerings.mdx               — SECONDARY (40%): 126 lines. /getNetworkCapabilities, filtering, routing.
+  - all-resources/ctx-new--connect-with-offerings.mdx          — SECONDARY: _contextData_ version of connect page.
+  - all-resources/ctx-new--lp-marketplace.mdx                  — SECONDARY: _contextData_ version of marketplace page.
+
+  CROSS-REFS:
+  - Setup → Network Connect — initial marketplace connection; this is ongoing visibility
+  - Opportunities → Operator Opportunities — why discoverability matters for revenue
+  - Orchestrator Selection (this section) — how gateways find orchestrators (reverse of this page)
+  - Resources → Technical Architecture — network architecture context
+*/}
+{/*
+# Publishing Your Gateway
+
+<Note>This page is a stub. Content to be developed from the sources listed above.</Note>
+
+## Proposed Structure
+
+### 1. Gateway Discoverability — Current State
+**Known gap**: Unlike orchestrators (which register on-chain via ServiceRegistry),
+there is no formal gateway registry on the Livepeer network. This page documents
+what mechanisms exist today and what is planned.
+
+Current discovery methods for applications finding your gateway:
+- Direct URL sharing
+- Community listings (Discord, Forum)
+- Livepeer Tools dashboard (if listed)
+- Gateway provider directories (SPE, hosted providers)
+
+### 2. Service URI Configuration
+- `-serviceAddr`: your gateway's public address
+- DNS setup: domain → gateway IP
+- HTTPS: TLS certificate for your service URI
+- Port configuration for external access
+
+### 3. Marketplace Integration
+How gateways interact with the Livepeer marketplace:
+- Gateways as **brokers**: discover orchestrator offerings, route requests
+- Current flow: gateway → marketplace → orchestrator selection
+- Inverse question: how do applications find your gateway?
+
+### 4. Capability Advertising
+What your gateway offers to applications:
+- Supported workload types (video, AI, dual)
+- Available AI pipelines and models (via connected orchestrators)
+- Transcoding profiles and quality levels
+- Pricing tiers (your customer-facing prices)
+
+### 5. Community Presence
+Informal but effective discoverability:
+- Listing on Discord #local-gateways
+- Forum announcement with capabilities and pricing
+- Livepeer Tools dashboard visibility
+- GitHub ecosystem listing
+
+### 6. Future: Formal Gateway Registry
+Planned improvements (document current understanding):
+- On-chain gateway registration (ServiceRegistry for gateways)
+- AIServiceRegistry for AI gateway capabilities
+- Automated discovery via network queries
+- Gateway Explorer visibility
+
+### 7. Domain & DNS Best Practices
+- Dedicated domain for your gateway API
+- SSL/TLS with auto-renewal (Let's Encrypt / Caddy)
+- Health check endpoint for DNS failover
+- Documentation URL for your gateway's API
+
+### 8. Next Steps
+Cards: Operator Opportunities, Production Hardening, Livepeer Marketplace (Setup) */}

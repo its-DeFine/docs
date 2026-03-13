@@ -1,0 +1,343 @@
+---
+title: 'Scaling & Resource Management'
+sidebarTitle: 'Scaling'
+description: 'Scale your Livepeer gateway: session limit benchmarking, GPU resource management, when to split video and AI workloads onto separate nodes, and horizontal scaling patterns.'
+keywords: ['livepeer', 'gateway', 'scaling', 'session limits', 'maxSessions', 'GPU', 'hardware stats', 'horizontal scaling', 'dual gateway', 'capacity planning', 'livepeer_bench']
+og:image: '/snippets/assets/site/og-image/fallback.png'
+pageType: 'guide'
+audience: 'gateway'
+purpose: 'guides'
+status: 'current'
+lastVerified: '2026-03-13'
+---
+
+A gateway routes jobs to orchestrators rather than processing them locally, but it still has resource limits: session capacity, network throughput, and (for dual gateways) the GPU resources shared between video and AI workloads. This guide covers how to measure those limits, decide when you have reached them, and scale in the right direction.
+
+<Note>
+Session limits and GPU management apply primarily to orchestrators running compute locally. A pure routing gateway (off-chain AI, no local GPU) is limited mainly by network throughput and horizontal instance count. Jump to [Horizontal scaling](#horizontal-scaling) if that describes your setup.
+</Note>
+
+---
+
+## Signs you need to scale
+
+Before adjusting anything, confirm you actually have a capacity problem. These are the reliable indicators.
+
+<AccordionGroup>
+  <Accordion title="Session limit reached">
+    The Prometheus metric `livepeer_current_sessions_total` approaching `livepeer_max_sessions_total` means the gateway is at capacity and will start rejecting new sessions. This is the clearest signal.
+
+    Check it directly:
+
+    ```bash
+    curl http://localhost:9090/metrics | grep livepeer_current_sessions
+    ```
+
+    {/* REVIEW: Confirm exact Prometheus metric names `livepeer_current_sessions_total` and `livepeer_max_sessions_total` — Rick to verify */}
+  </Accordion>
+  <Accordion title="GPU memory pressure">
+    For dual gateways, the `/hardware/stats` endpoint reports GPU utilisation and memory:
+
+    ```bash
+    curl http://localhost:8935/hardware/stats
+    ```
+
+    If VRAM usage is consistently above 85%, you are at risk of OOM failures on new model loads (AI) or performance degradation on concurrent transcoding segments (video).
+
+    {/* REVIEW: Confirm `/hardware/stats` is exposed on gateway HTTP port in current go-livepeer — Rick to verify */}
+  </Accordion>
+  <Accordion title="Increasing latency under load">
+    Rising transcoding latency or AI inference latency under load, combined with high orchestrator swap rates, suggests the orchestrators you are routing to are also under pressure. This is an orchestrator-side scaling problem, not a gateway problem. See [Orchestrator Selection](/gateways/guides/advanced-ops/orchestrator-selection) for how to expand your orchestrator pool.
+  </Accordion>
+  <Accordion title="Client rejections">
+    Errors with `OrchestratorCapped` in the gateway log indicate that a downstream orchestrator has hit its own session limit and rejected your job. Either expand your orchestrator pool or negotiate higher capacity with your preferred orchestrators.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+## Session limits
+
+Session limits define how many concurrent jobs the gateway (or its local orchestrator, for dual setups) will accept. The default is 10.
+
+```bash
+-maxSessions 20
+```
+
+Setting this too high causes performance degradation or OOM failures. Setting it too low wastes available capacity. The right value comes from benchmarking.
+
+### Benchmarking with livepeer_bench
+
+`livepeer_bench` tests transcoding throughput for a range of concurrent session counts. Run this on the machine that will perform local transcoding before setting `-maxSessions` in production.
+
+```bash
+# Download the standard transcoding options file
+wget https://raw.githubusercontent.com/livepeer/go-livepeer/master/cmd/livepeer_bench/transcodingOptions.json
+
+# Run the benchmark across 1 to 20 concurrent sessions
+for i in {1..20}; do
+    ./livepeer_bench \
+        -in bbb/source.m3u8 \
+        -transcodingOptions transcodingOptions.json \
+        -nvidia 0 \
+        -concurrentSessions $i |& grep "Duration Ratio" >> bench.log
+done
+
+cat bench.log
+```
+
+Read the output: find the last line where the real-time duration ratio is at or below 0.8. That concurrent session count is your hardware limit. Leave a 20% buffer for upload and download overhead.
+
+```
+Concurrent sessions 12: Duration Ratio 0.79  ← last line ≤ 0.8
+Concurrent sessions 13: Duration Ratio 0.88
+Concurrent sessions 14: Duration Ratio 0.97
+```
+
+In this example, set `-maxSessions 12`.
+
+For machines with multiple identical GPUs, benchmark one GPU and multiply. For machines with different GPU models, benchmark each separately and use the lower value as the bottleneck.
+
+<Tip>
+Bandwidth can be a tighter limit than compute. Once you have a hardware session limit, estimate your transcoding bandwidth: each 1080p stream requires approximately 4–8 Mbps inbound and 12–24 Mbps outbound (for a 4-rung ABR ladder). If bandwidth is the bottleneck, it sets a lower ceiling than the hardware benchmark.
+</Tip>
+
+---
+
+## GPU resource management
+
+For dual gateways, video transcoding and AI inference compete for the same GPU. The hardware endpoints help you understand the current state.
+
+```bash
+# GPU model, VRAM, and system specs
+curl http://localhost:8935/hardware/info
+
+# Live GPU utilisation, memory, temperature
+curl http://localhost:8935/hardware/stats
+```
+
+{/* REVIEW: Confirm `/hardware/info` and `/hardware/stats` endpoint paths are correct in current go-livepeer and whether they are exposed on the gateway HTTP port or a separate port — Rick to verify */}
+
+VRAM allocation between video transcoding and AI inference is managed by the orchestrator, not the gateway. Video transcoding (NVENC/NVDEC) uses dedicated hardware encoder/decoder blocks on NVIDIA GPUs, which do not compete directly with CUDA cores used for AI inference. However, VRAM is shared, and large AI models can exhaust available memory.
+
+As a rule of thumb:
+- Reserve at least 8 GB VRAM per concurrent AI inference model
+- Keep video transcoding sessions below your benchmarked hardware limit even when running AI jobs simultaneously
+- Monitor temperature: sustained GPU temperature above 85°C indicates thermal throttling
+
+---
+
+## Dual gateway: split or share?
+
+If you are running a dual gateway (video + AI on one node), the central decision is when to split those workloads onto separate nodes.
+
+<Tabs>
+  <Tab title="Decision guide">
+    | Factor | Stay on single node | Split onto separate nodes |
+    |--------|--------------------|-----------------------------|
+    | Load | Low to medium, predictable | High, variable, or growing |
+    | SLA requirements | Best-effort | Committed latency or uptime |
+    | GPU VRAM | Model fits with transcoding headroom | Models exhaust VRAM under load |
+    | Operational complexity | Prefer simplicity | Can manage two nodes |
+    | Cost | Minimise hardware spend | Willing to pay for isolation |
+
+    The practical trigger for splitting is usually one of two things: VRAM contention (AI models OOM when video load spikes), or SLA pressure (customers require guaranteed latency for one workload that the other workload interferes with).
+  </Tab>
+  <Tab title="Architecture after splitting">
+    Once split, run two separate go-livepeer processes — one configured as a video gateway, one as an AI gateway — each with its own orchestrator list:
+
+    ```bash
+    # Video gateway (on-chain, port 8935, RTMP 1935)
+    livepeer -gateway \
+        -network arbitrum-one-mainnet \
+        -rtmpAddr 0.0.0.0:1935 \
+        -httpAddr 0.0.0.0:8935 \
+        -orchAddr <video-orchestrators>
+
+    # AI gateway (off-chain, port 8937)
+    livepeer -gateway \
+        -network offchain \
+        -httpAddr 0.0.0.0:8937 \
+        -orchAddr <ai-orchestrators> \
+        -httpIngest
+    ```
+
+    Your middleware or load balancer routes incoming requests to the correct gateway based on job type.
+  </Tab>
+</Tabs>
+
+---
+
+## Horizontal scaling
+
+<Mermaid
+  chart={`%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a' }}}%%
+  flowchart LR
+    subgraph Scale["Scaling path"]
+      direction LR
+      S1["1. Vertical\nBigger GPU"] --> S2["2. Split\nSeparate video + AI nodes"] --> S3["3. Horizontal\nMultiple instances per type"]
+    end`}
+/>
+
+**Off-chain AI gateways** scale horizontally without any special configuration. They are stateless: no ETH key, no session state. Add instances behind a standard HTTP load balancer and use the `/health` endpoint for health checks.
+
+```yaml
+# Example: three AI gateway instances behind nginx
+upstream ai_gateways {
+    server 10.0.0.1:8937;
+    server 10.0.0.2:8937;
+    server 10.0.0.3:8937;
+}
+
+server {
+    location / {
+        proxy_pass http://ai_gateways;
+    }
+}
+```
+
+**Video gateways** require sticky sessions for streaming continuity. A live RTMP stream cannot be moved between gateway instances mid-session. Configure your load balancer to use IP-hash or cookie-based session affinity for RTMP connections. HTTP API requests (non-streaming) can be round-robined normally.
+
+**Dual gateways**: split into separate video and AI instances before scaling horizontally. Trying to horizontally scale a dual node adds complexity without solving the resource contention problem.
+
+---
+
+## Capacity planning
+
+Estimate your required capacity before provisioning hardware or expanding your orchestrator pool.
+
+<AccordionGroup>
+  <Accordion title="Video transcoding capacity">
+    Per GPU, the practical limit for 1080p → 720p/480p/360p transcoding is approximately 8–12 concurrent sessions on a modern NVIDIA T4, and 15–25 on an RTX 3080 or equivalent. Run `livepeer_bench` on your specific hardware to get a precise number.
+
+    Multiply by the number of GPUs in your orchestrator pool to get total network capacity. Your gateway can route to all of them.
+
+    For deposit sizing: video transcoding payments are per-pixel. Estimate your expected pixel throughput (resolution × frame rate × concurrent sessions × hours per day) and size your Arbitrum deposit to cover at least 24 hours of expected traffic.
+  </Accordion>
+  <Accordion title="AI inference capacity">
+    AI inference capacity depends entirely on the model and the orchestrators in your pool. FLUX.1-dev requires approximately 12–16 GB VRAM per concurrent inference; smaller SD 1.5 models can fit in 6 GB.
+
+    For off-chain AI gateways, your bottleneck is the number of AI-capable orchestrators you have access to. Expand your `-orchAddr` list or use a discovery URL that returns a larger pool.
+
+    Set a monitoring alert at 70% of observed capacity. This gives you time to provision additional orchestrators before you hit the ceiling.
+  </Accordion>
+  <Accordion title="Alert thresholds">
+    | Metric | Warning | Critical |
+    |--------|---------|----------|
+    | Session utilisation | 70% of `-maxSessions` | 90% of `-maxSessions` |
+    | GPU memory | 75% VRAM used | 90% VRAM used |
+    | GPU temperature | 80°C | 87°C |
+    | Orchestrator swap rate | 2× baseline | 5× baseline |
+    | ETH deposit balance | 20% remaining | 5% remaining |
+  </Accordion>
+</AccordionGroup>
+
+---
+
+<CardGroup cols={2}>
+  <Card title="Orchestrator Selection" icon="arrow-left" href="/gateways/guides/advanced-ops/orchestrator-selection">
+    Expand your orchestrator pool to increase available capacity.
+  </Card>
+  <Card title="Gateway Middleware" icon="arrow-right" href="/gateways/guides/advanced-ops/gateway-middleware">
+    Route requests across scaled instances with middleware.
+  </Card>
+  <Card title="GPU Support Reference" icon="microchip" href="/gateways/references/go-livepeer/gpu-support">
+    Tested GPU models and session limit data.
+  </Card>
+  <Card title="Monitor & Optimise" icon="chart-line" href="/gateways/run-a-gateway/monitor/monitor-and-optimise">
+    Prometheus metrics and dashboards for scaling signals.
+  </Card>
+</CardGroup>
+
+{/* ---
+title: 'Scaling & Resource Management'
+description: 'Scale your gateway — session limits, GPU management, when to split video and AI workloads, horizontal scaling patterns, and capacity planning.'
+sidebarTitle: 'Scaling'
+pageType: 'guide'
+audience: 'gateway'
+status: 'stub'
+--- */}
+
+{/*
+  PURPOSE:
+  Journey step: "When and how to scale"
+  Guide for operators hitting capacity limits or running dual workloads.
+  Covers session management, GPU allocation, and scaling decisions.
+
+  SECTION HOME: Guides → Advanced Operations
+
+  JOURNEY POSITION:
+  1. Production Hardening — "Make it production-ready"
+  2. Orchestrator Selection — "Choose the best orchestrators"
+  3. Scaling & Resource Management (this page) — "When and how to scale"
+  4. Gateway Middleware — "Custom middleware and integrations"
+  5. Publishing Your Gateway — "Make your gateway discoverable"
+
+  RELATED FILES (draw from):
+  - all-resources/v1--set-session-limits.mdx                   — PRIMARY (80%): 180 lines. Session limit benchmarking, hardware evaluation, bandwidth considerations.
+  - all-resources/v2-run--dual-configuration.mdx               — PRIMARY (70%): 435 lines. Dual gateway config (WIP, "way too long"). Resource allocation between video and AI.
+  - all-resources/v1--dual-mine.mdx                            — SECONDARY (40%): 125 lines. Dual ethash mining + transcoding, CUDA MPS. GPU sharing concepts.
+  - all-resources/v2-refs--gpu-support.mdx                     — SECONDARY (30%): 59 lines. Tested NVIDIA GPUs, session limits per GPU.
+  - all-resources/v1--o-t-split.mdx                            — SECONDARY (30%): 64 lines. Orchestrator-transcoder split. Concept of separating roles.
+  - all-resources/ctx-gwnew--content-brief-gwd-addendum-composable.md — SECONDARY (20%): 291 lines. Composable architecture addendum.
+
+  CROSS-REFS:
+  - Setup → Dual Configuration — initial dual setup; this is scaling a dual setup
+  - Monitoring → Monitoring Setup → Key Metrics (Dual) — metrics for scaling decisions
+  - Monitoring → Health Checks → Hardware Status — /hardware/stats for capacity planning
+  - Resources → GPU Support — GPU reference for capacity planning
+*/}
+{/*
+# Scaling & Resource Management
+
+<Note>This page is a stub. Content to be developed from the sources listed above.</Note>
+
+## Proposed Structure
+
+### 1. When to Scale
+Signs you've hit capacity:
+- Session limits reached (`livepeer_current_sessions_total` approaching `livepeer_max_sessions_total`)
+- GPU memory near 100% (`/hardware/stats`)
+- Increased latency under load
+- Orchestrator swap rate increasing
+- Client request rejections
+
+### 2. Session Limits
+- What session limits are and how they work
+- Benchmarking procedure: determine max concurrent sessions per GPU
+- Factors: GPU model, resolution, codec, transcoding profiles
+- Setting limits: `-maxSessions` flag
+- Bandwidth as a bottleneck: not just GPU-limited
+
+### 3. GPU Resource Management
+- `/hardware/stats` endpoint: GPU utilisation, memory, temperature
+- `/hardware/info` endpoint: GPU model, system specs
+- VRAM allocation: video transcoding vs AI inference
+- Temperature monitoring and throttling
+- Tested GPU reference (from GPU Support page)
+
+### 4. Dual Gateway: Split or Share?
+Decision guide for operators running video + AI:
+
+| Factor | Single Dual Node | Separate Nodes |
+|--------|------------------|----------------|
+| Simplicity | ✅ One node to manage | ❌ Two nodes |
+| Resource isolation | ❌ Shared GPU/memory | ✅ Dedicated resources |
+| Cost | ✅ Lower hardware cost | ❌ Higher hardware cost |
+| Reliability | ❌ Contention risk | ✅ Workload-isolated failures |
+| When to choose | Low-medium load | High load or SLA requirements |
+
+### 5. Horizontal Scaling
+- Off-chain AI gateways: stateless, easy to scale horizontally behind LB
+- Video gateways: session-aware, sticky sessions needed
+- Dual gateways: split into separate video + AI nodes first, then scale each
+- Scaling pattern: vertical (bigger GPU) → split (video/AI) → horizontal (multiple nodes)
+
+### 6. Capacity Planning
+- Estimating capacity per GPU model
+- Traffic projections: streams/hour, AI requests/minute
+- Deposit sizing (on-chain): ETH reserves for expected throughput
+- Monitoring-driven scaling: set alerts at 70% capacity
+
+### 7. Next Steps
+Cards: GPU Support (Resources), Monitoring Setup, Dual Configuration (Setup) */}

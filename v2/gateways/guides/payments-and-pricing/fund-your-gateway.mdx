@@ -1,0 +1,289 @@
+---
+title: 'Fund Your Gateway'
+sidebarTitle: 'Fund Your Gateway'
+description: 'Step-by-step guide to funding an on-chain Livepeer gateway with ETH on Arbitrum One. Covers bridging, depositing, setting reserve amounts via livepeer_cli, and monitoring your balance.'
+keywords: ["livepeer", "gateway", "fund", "ETH", "Arbitrum", "deposit", "reserve", "TicketBroker", "livepeer_cli", "on-chain"]
+og:image: /snippets/assets/site/og-image/fallback.png
+pageType: 'how-to'
+audience: 'gateway-operator'
+purpose: 'task'
+status: 'current'
+lastVerified: '2026-03-13'
+---
+
+# Fund Your Gateway
+
+On-chain gateway operators must maintain a funded ETH account on Arbitrum One before routing any jobs. This page walks you through acquiring ETH, bridging it to Arbitrum, and depositing it into the `TicketBroker` contract that backs your gateway's payment tickets.
+
+<Warning>
+  **This page applies to Video Gateways and Dual Gateways only.** If you are running an AI Gateway in off-chain mode, you do not need ETH in the gateway process. Off-chain gateways and clearinghouse-backed gateways skip this step entirely. Not sure which applies to you? See [Payment Paths](/v2/gateways/guides/payments/payment-paths).
+</Warning>
+
+---
+
+## What you will need
+
+Before starting, confirm you have the following:
+
+| Item | Notes |
+|---|---|
+| ETH on Arbitrum One | Not Ethereum mainnet. Livepeer's protocol operates on Arbitrum One. |
+| Your gateway's ETH address | Created automatically when you first ran `go-livepeer`. Found in your keystore. |
+| An Arbitrum RPC endpoint | Public endpoints exist; your own is more reliable for production. |
+| A running gateway with `livepeer_cli` access | Default CLI port is `5935`. |
+
+{/* REVIEW: Confirm the default livepeer_cli port is 5935, not 7935 or another value. Rick to verify. The v1 docs reference port 5935 consistently but v2 tooling may differ. */}
+
+---
+
+## Step 1 — Get ETH on Arbitrum One
+
+Livepeer's `TicketBroker` contract lives on Arbitrum One (not Ethereum mainnet). You need ETH on that network specifically. There are three ways to get it there.
+
+<Tabs>
+  <Tab title="Already have ETH on Arbitrum">
+    If you already hold ETH in an Arbitrum One wallet, simply transfer the required amount to your gateway's ETH address. No bridging is needed.
+
+    Your gateway address is the public key of the keystore created when you first ran `go-livepeer`. Check your `~/.lpData/keystore` directory or review your startup logs for the address.
+  </Tab>
+
+  <Tab title="Have ETH on Ethereum mainnet">
+    You need to bridge ETH from Ethereum mainnet to Arbitrum One. Use the official Arbitrum bridge:
+
+    **Bridge:** [bridge.arbitrum.io](https://bridge.arbitrum.io/)
+
+    The bridging process involves two transactions: an approval and a deposit. Allow 10 to 20 minutes for the deposit to finalise on Arbitrum. If the bridge fails due to gas price volatility, Arbitrum provides a retry panel at [retryable-tx-panel.arbitrum.io](https://retryable-tx-panel.arbitrum.io/).
+
+    <Note>
+      ETH bridges straightforwardly via the Arbitrum bridge. You do not need to do anything special for native ETH; only ERC-20 tokens like LPT require the token address import step.
+    </Note>
+  </Tab>
+
+  <Tab title="No ETH yet">
+    Some centralised exchanges support direct withdrawals to Arbitrum One, which avoids the bridging step entirely. You receive ETH directly in your Arbitrum wallet.
+
+    For a current list of exchanges supporting Arbitrum One, see the [Arbitrum Exchange Reference](/v2/gateways/references/arbitrum-exchanges) in the Resources section. This list is dynamically sourced from CoinGecko.
+
+    <Note>
+      Livepeer does not recommend any specific exchange. Verify network support before initiating a withdrawal.
+    </Note>
+  </Tab>
+</Tabs>
+
+---
+
+## Step 2 — Transfer ETH to your gateway address
+
+Once you have ETH on Arbitrum One, send it to your gateway's Ethereum address. This address is the keystore account created during gateway installation.
+
+If you are unsure of your gateway address, run `livepeer_cli` and select **Option 1: Get node status**. Your address will appear under **BROADCASTER STATS**.
+
+---
+
+## Step 3 — Deposit and set your reserve
+
+Livepeer's payment system splits your gateway funds into two components. Understanding both is important before you set the amounts.
+
+<AccordionGroup>
+  <Accordion title="What is the deposit?">
+    The **deposit** is the primary balance from which orchestrators are paid when they redeem winning PM tickets. As your gateway sends tickets across jobs, winning tickets are redeemed against this deposit. When the deposit runs too low, orchestrators begin rejecting your tickets and jobs fail.
+
+    Think of the deposit as your running payment balance: it is depleted by usage and needs to be topped up periodically.
+  </Accordion>
+
+  <Accordion title="What is the reserve?">
+    The **reserve** is a collateral backstop that protects orchestrators against gateway non-payment. It is not consumed directly by ticket redemption under normal operation; rather, it is available as a protection mechanism for orchestrators with a stake-based relationship to your gateway.
+
+    The reserve also determines the face value of your PM tickets. Tickets are sized as a fraction of the reserve, so a larger reserve allows for higher-value tickets per redemption event.
+
+    <Warning>
+      For production environments, Livepeer recommends a reserve of at least **0.36 ETH** to prevent service interruptions during gas price spikes. [Issue #3744](https://github.com/livepeer/go-livepeer/issues/3744) tracks work to reduce this requirement in future releases.
+    </Warning>
+  </Accordion>
+</AccordionGroup>
+
+<Steps>
+  <Step title="Open livepeer_cli">
+    On the host running your gateway:
+
+    ```bash
+    livepeer_cli -host 127.0.0.1 -http 5935
+    ```
+
+    You will see the interactive CLI menu.
+  </Step>
+
+  <Step title="Select Option 11 — Invoke deposit broadcasting funds">
+    Type `11` and press Enter. The CLI will prompt you for two amounts.
+  </Step>
+
+  <Step title="Enter deposit and reserve amounts">
+    Enter the amounts in ETH when prompted. Use these values as a starting point:
+
+    | Purpose | Recommended amount | Notes |
+    |---|---|---|
+    | **Testing only** | 0.065 ETH deposit + 0.03 ETH reserve | Minimum functional setup. Not for production. |
+    | **Production** | 0.1 ETH+ deposit + 0.36 ETH reserve | Reserve covers gas spike scenarios. |
+
+    The ticket face value is calculated as a fraction of your reserve. In the testing example: `0.03 ETH reserve ÷ 100 = 0.0003 ETH per ticket`.
+
+    <Note>
+      These amounts are in ETH, not wei. The CLI accepts decimal ETH values directly.
+    </Note>
+  </Step>
+
+  <Step title="Confirm the transaction">
+    The CLI will prompt for confirmation. Review the amounts, then confirm. The transaction is submitted to the `TicketBroker` contract on Arbitrum One. Allow a few seconds for confirmation.
+  </Step>
+
+  <Step title="Verify your balance">
+    Select **Option 1: Get node status** in `livepeer_cli`. Scroll to the **BROADCASTER STATS** section. You should see your deposit and reserve amounts reflected there.
+
+    You can also verify on-chain via [Livepeer Explorer](https://explorer.livepeer.org) by searching for your gateway address.
+  </Step>
+</Steps>
+
+---
+
+## Monitoring and topping up
+
+Your deposit depletes with every winning ticket redeemed. The reserve normally stays intact unless there is a default event. You need to monitor and top up your deposit regularly.
+
+<Warning>
+  When your deposit falls below a threshold, orchestrators will begin rejecting your payment tickets. Jobs will silently fail or stall. Monitor your deposit balance proactively rather than reactively.
+</Warning>
+
+**Check your balance:**
+
+```bash
+livepeer_cli -host 127.0.0.1 -http 5935
+# Select Option 1 → review BROADCASTER STATS
+```
+
+**Top up your deposit:** Repeat Steps 3 to 5 above. You can top up at any time by invoking Option 11 again and adding further ETH.
+
+**Automate monitoring:** For production deployments, monitor your gateway's ETH balance via your Arbitrum RPC endpoint. Alert when the deposit falls below your minimum operating threshold.
+
+{/* REVIEW: Confirm whether there is a livepeer_cli flag or HTTP API endpoint to query balance directly without the interactive menu, for scripted monitoring. Rick / j0sh to verify. */}
+
+---
+
+## Unlock and withdraw
+
+If you need to withdraw funds from your gateway's `TicketBroker` deposit, there is an unlock period. This prevents instantaneous withdrawal attacks.
+
+{/* REVIEW: Confirm the current TicketBroker unlock period (historically 7 days on L1, may differ on Arbitrum). Rick to verify the current on-chain value. */}
+
+Use `livepeer_cli` to initiate an unlock request. After the unlock period expires, you can withdraw the funds to your Ethereum address.
+
+<Tip>
+  If you are winding down a gateway, initiate the unlock well in advance. The unlock period protects orchestrators who may have pending tickets against your deposit.
+</Tip>
+
+---
+
+<CardGroup cols={2}>
+  <Card title="Pricing Strategy" icon="chart-line" href="/v2/gateways/guides/payments/pricing-strategy">
+    Set maximum prices your gateway will pay orchestrators. Configure after funding.
+  </Card>
+  <Card title="Remote Signers" icon="shield-check" href="/v2/gateways/guides/payments/remote-signers">
+    Isolate your signing key from the gateway process for better security.
+  </Card>
+  <Card title="Payment Paths" icon="code-branch" href="/v2/gateways/guides/payments/payment-paths">
+    Revisit the payment architecture decision guide.
+  </Card>
+  <Card title="Arbitrum Exchange Reference" icon="arrow-right-arrow-left" href="/v2/gateways/references/arbitrum-exchanges">
+    Find exchanges that support direct Arbitrum One withdrawals.
+  </Card>
+</CardGroup>
+
+{/* ---
+title: 'Fund Your Gateway'
+description: 'Step-by-step guide to funding your Livepeer gateway with ETH on Arbitrum — bridging, depositing, setting reserve amounts, and monitoring balances.'
+sidebarTitle: 'Fund Your Gateway'
+pageType: 'how-to'
+audience: 'gateway'
+status: 'stub'
+--- */}
+
+{/*
+  PURPOSE:
+  Journey step: "How do I get ETH into my gateway?"
+  Modernised v2 version of the v1 fund-gateway how-to.
+  Step-by-step: acquire ETH → bridge to Arbitrum → deposit + reserve via livepeer_cli → verify.
+  Applies to Video Gateway (on-chain) and Dual Gateway operators only.
+  Off-chain / clearinghouse operators skip this page entirely.
+
+  SECTION HOME: Guides → Payments & Pricing
+
+  JOURNEY POSITION:
+  1. Payment Paths — "Do I need ETH?" (answered: yes, for on-chain)
+  2. Fund Your Gateway (this page) — "Get ETH into the gateway"
+  3. Pricing Strategy — "Set your max prices"
+  4. Remote Signers — "Separate key management" (alternative to self-funding)
+  5. Clearinghouse Guide — "Delegate funding entirely" (alternative to self-funding)
+
+  RELATED FILES (draw from):
+  - all-resources/v1--fund-gateway.mdx                      — V1 how-to: 0.1 ETH example, CLI Option 11, deposit + reserve split (PRIMARY SOURCE)
+  - all-resources/v2-onchain--fund-gateway.mdx              — V2 on-chain setup version
+  - all-resources/v2-setup--fund-gateway.mdx                — V2 setup/ duplicate
+  - all-resources/v2-opcon--fund-gateway.mdx                — operator-considerations copy
+  - all-resources/v2-v1legacy--fund-gateway.mdx             — v1 legacy copy in v2 tree
+  - all-resources/ctx-setup--fund-gateway.mdx               — _contextData_ version
+  - all-resources/v1--bridge-lpt-to-arbitrum.mdx            — V1 bridging guide
+  - all-resources/v2-onchain--bridge-lpt-to-arbitrum.mdx    — V2 bridging guide
+  - all-resources/ctx-setup--bridge-lpt-to-arbitrum.mdx     — _contextData_ bridging
+  - all-resources/v2-refs--arbitrum-exchanges.mdx           — exchange/on-ramp options
+  - all-resources/ctx-new--arbitrum-exchanges.mdx           — _contextData_ exchanges
+  - all-resources/v2-refs--contract-addresses.mdx           — contract addresses reference
+
+  CROSS-REFS:
+  - Requirements pages (ETH requirements section links here)
+  - Gateway Setup (video) links here after install
+  - Pricing Strategy (next step after funding)
+  - Concepts → economics/business model (PM deposit/reserve explanation)
+*/}
+
+{/* # Fund Your Gateway
+
+<Note>This page is a stub. Content to be developed from the sources listed above.</Note>
+
+## Proposed Structure
+
+### 1. Who Needs This Page
+Callout: Only for on-chain gateway operators (Video, Dual). Off-chain AI gateways and
+clearinghouse-backed gateways do not need ETH — see Payment Paths.
+
+### 2. What You Need
+Checklist:
+- ETH (on Arbitrum One, not mainnet)
+- Your gateway's ETH address (created during install)
+- Arbitrum RPC endpoint
+- livepeer_cli access
+
+### 3. Get ETH on Arbitrum
+Two paths:
+- **Already have ETH on Arbitrum** → Transfer directly to gateway address
+- **Have ETH on mainnet** → Bridge via bridge.arbitrum.io (link to bridging guide)
+- **No ETH at all** → Purchase via exchange with Arbitrum L2 support (link to Resources → exchanges ref)
+
+### 4. Deposit and Reserve via livepeer_cli
+Step-by-step:
+1. Open livepeer_cli
+2. Choose Option 11 "Invoke deposit broadcasting funds"
+3. Enter deposit amount (e.g. 0.065 ETH)
+4. Enter reserve amount (e.g. 0.03 ETH)
+5. Verify via Option 1 "Get node status" → check BROADCASTER STATS
+
+Include recommended amounts:
+- Testing: 0.1 ETH total (0.065 deposit + 0.035 reserve)
+- Production: 0.36+ ETH reserve recommended (link to issue #3744)
+
+### 5. Monitor Your Balance
+- Check via livepeer_cli Option 1
+- Check via Livepeer Explorer
+- What happens when deposit runs low (orchestrators reject tickets)
+- How to top up
+
+### 6. Next Steps
+Cards: Pricing Strategy, Remote Signers (for key isolation), Clearinghouse Guide (to delegate funding) */}

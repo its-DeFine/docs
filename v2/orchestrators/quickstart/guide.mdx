@@ -1,14 +1,17 @@
 ---
-title: Quickstart Guide
-sidebarTitle: Guide
-description: Video-first quickstart for solo Livepeer operators who want the fastest path to a working go-livepeer node.
+title: Orchestrator Quickstart
+sidebarTitle: Overview
+description: >-
+  Choose your quickstart path — video transcoding, AI inference, or join a pool —
+  and get your first orchestrator node running.
 keywords:
   - livepeer
   - orchestrator
   - quickstart
-  - video
-  - solo operator
-  - first job
+  - transcoding
+  - AI
+  - go-livepeer
+  - GPU
 'og:image': /snippets/assets/site/og-image/en/orchestrators.png
 'og:image:alt': Livepeer Docs social preview image for Orchestrators
 'og:image:type': image/png
@@ -16,71 +19,75 @@ keywords:
 'og:image:height': 630
 pageType: overview
 audience: orchestrator
-purpose: guide
-status: draft
-lastVerified: 2026-03-12
+status: current
+lastVerified: 2026-03-13
 ---
 
-This quickstart is the default path for solo operators who want to get a video-first go-livepeer orchestrator running as quickly as possible.
+The quickstart gets you from zero to a working orchestrator node as fast as possible. Pick the path that matches your goal.
 
-## What this quickstart does
+---
 
-- Gets a solo operator from install to a first working node.
-- Focuses on the default go-livepeer path.
-- Optimizes for speed to first working setup, not deep customization.
-
-## What this quickstart does not do
-
-- It does not cover joining a pool.
-- It does not cover non-default split or custom setups.
-- It does not serve as the main AI workload onboarding path.
-- It does not cover fleet or enterprise operating models.
-
-## Redirects
+## Choose your path
 
 <CardGroup cols={2}>
-  <Card title="Pool path" icon="users" href="/v2/orchestrators/guides/join-a-pool" arrow>
-    Use this instead if you want to contribute GPU capacity without running the full protocol path.
+  <Card title="Video Transcoding" icon="film" href="/v2/orchestrators/quickstart/video-transcoding" arrow>
+    The default path. Run a transcoding orchestrator with Docker in under 30 minutes. Requires an NVIDIA GPU.
   </Card>
-  <Card title="AI path" icon="microchip-ai" href="/v2/orchestrators/operations/rc-ai-pipelines" arrow>
-    Use AI Pipelines if AI workloads are your primary goal.
-  </Card>
-  <Card title="Enterprise path" icon="building" href="/v2/orchestrators/operations/p-fleet-ops" arrow>
-    Use Fleet Ops if you are planning data-centre, hosted, or multi-node operations.
-  </Card>
-  <Card title="Different setup" icon="screwdriver-wrench" href="/v2/orchestrators/setup/guide" arrow>
-    Use the setup guide if you need more than the default quickstart path.
+  <Card title="Join a Pool" icon="users" href="/v2/orchestrators/guides/setup-paths/join-a-pool" arrow>
+    Contribute your GPU to an existing orchestrator pool. No staking, no activation — just install and connect.
   </Card>
 </CardGroup>
 
-## Default quickstart scope
+<Note>
+**AI quickstart coming soon.** To add AI inference pipelines to your node today, complete the video transcoding quickstart first, then follow the [AI Workloads Guide](/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide).
+</Note>
 
-The default quickstart is video-first.
+---
 
-- Use [Video Transcoding Quickstart](/v2/orchestrators/quickstart/video-transcoding) for the main step-by-step path.
-- Use the setup guide if you need more control over install, configuration, connect, publish, and verification.
-- Use Advanced Operations for AI specialization, fleet concerns, or operational tuning.
+## What you will need
 
-## First Job
+| Requirement | Details |
+|---|---|
+| **GPU** | NVIDIA with NVENC support (GTX 1060+ for transcoding, RTX 3090+ for AI) |
+| **OS** | Linux recommended. macOS/Windows for development only. |
+| **Docker** | Docker Engine + NVIDIA Container Toolkit |
+| **Wallet** | Ethereum account with ETH and LPT on Arbitrum One |
+| **Port** | 8935 TCP open to the public internet |
+| **RPC** | Arbitrum One endpoint (Alchemy or Infura free tier) |
 
-Your first success checkpoint is a working transcoding job.
+For detailed hardware guidance, see [Hardware Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference).
 
-- Run the detailed path in [Video Transcoding Quickstart](/v2/orchestrators/quickstart/video-transcoding).
-- Complete network activation in [Activate on the Network](/v2/orchestrators/unclassified/rcs-connect-activate-publish).
-- Verify the node responds and can accept work in [Testing Your Orchestrator Setup](/v2/orchestrators/setup/x-test).
+---
 
-## First Earnings
+## Quickstart vs Setup guide
 
-Your next checkpoint is seeing rewards or fee activity show up where you can verify it.
+| | Quickstart | Setup Guide |
+|---|---|---|
+| **Goal** | First working node, fast | Production-ready deployment |
+| **Install method** | Docker only | Docker, binary, or source |
+| **Decisions** | Opinionated defaults | You choose every flag |
+| **Time** | ~30 minutes | ~1–2 hours |
+| **Best for** | First-time operators, evaluation | Production, custom configurations |
 
-- Review [Orchestrator Earnings Explained](/v2/orchestrators/operations/earnings).
-- Review [Rewards and Fees](/v2/orchestrators/operations/rs-rewards-and-fees).
-- Use [FAQ and Troubleshooting](/v2/orchestrators/resources/faq) if the node is active but not receiving work.
+If you need more control — custom binary installs, split orchestrator/transcoder, advanced pricing, or AI pipelines — use the [Setup Guide](/v2/orchestrators/setup/guide) instead.
 
-## Smoke Test
+---
 
-Use the smoke-test page to validate that the node is live, reachable, and producing the first signals you expect after setup.
+## After the quickstart
 
-<Card title="Smoke Test" icon="vial-circle-check" href="/v2/orchestrators/operations/p-smoke-test" arrow>
-  Use this after setup and activation to confirm your node is actually live.
-</Card>
+Once your node is running and you have received your first job:
+
+<CardGroup cols={2}>
+  <Card title="Add AI Workloads" icon="microchip-ai" href="/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide" arrow>
+    Add AI inference pipelines alongside transcoding.
+  </Card>
+  <Card title="Optimise Earnings" icon="coins" href="/v2/orchestrators/guides/staking-and-rewards/earnings" arrow>
+    Understand your revenue streams and tune your parameters.
+  </Card>
+  <Card title="Set Up Monitoring" icon="chart-line" href="/v2/orchestrators/setup/r-monitor" arrow>
+    Enable Prometheus metrics and track node health.
+  </Card>
+  <Card title="Attract Delegates" icon="users" href="/v2/orchestrators/guides/staking-and-rewards/attracting-delegates" arrow>
+    Increase your stake and job selection probability.
+  </Card>
+</CardGroup>
