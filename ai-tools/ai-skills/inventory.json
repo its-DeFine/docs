@@ -320,6 +320,16 @@
     "unexpected_reason": null
   },
   {
+    "path": "ai-tools/ai-skills/page-authoring/SKILL.md",
+    "format": "markdown",
+    "line_count": 540,
+    "has_skill_frontmatter": true,
+    "primary_purpose": "Comprehensive guide for writing new v2 documentation pages with correct UX patterns, components, frontmatter, UK English, journey mapping, and content standards.",
+    "discovery": "pattern",
+    "unexpected": false,
+    "unexpected_reason": null
+  },
+  {
     "path": "ai-tools/ai-skills/cleanup-quarantine-manager/SKILL.md",
     "format": "markdown",
     "line_count": 24,
