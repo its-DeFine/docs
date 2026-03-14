@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-12T18:22:52.470Z",
+  "generated": "2026-03-14T01:51:42.934Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/portal",
@@ -3479,7 +3479,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3288,
+      "wordCount": 3269,
       "lastVerified": "2026-03-12T15:26:20+11:00",
       "headings": [
         {
@@ -3724,6 +3724,168 @@
         "bash",
         "mdx",
         "markdown"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/resources/documentation-guide/component-library/layout",
+      "title": "Layout",
+      "description": "Containers and arrangements that define spacing, grouping, and page flow.",
+      "section": "resources",
+      "tags": [
+        "resources",
+        "documentation-guide",
+        "component-library",
+        "layout"
+      ],
+      "entities": [],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1634,
+      "lastVerified": "2026-03-11T08:31:49+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Layout"
+        },
+        {
+          "level": 3,
+          "text": "Decision Tree Excerpt"
+        },
+        {
+          "level": 3,
+          "text": "Summary Table"
+        },
+        {
+          "level": 2,
+          "text": "Component Reference"
+        },
+        {
+          "level": 3,
+          "text": "AccordionGroupList"
+        },
+        {
+          "level": 3,
+          "text": "AccordionLayout"
+        },
+        {
+          "level": 3,
+          "text": "BasicList"
+        },
+        {
+          "level": 3,
+          "text": "BorderedBox"
+        },
+        {
+          "level": 3,
+          "text": "CardCarousel"
+        },
+        {
+          "level": 3,
+          "text": "CenteredContainer"
+        },
+        {
+          "level": 3,
+          "text": "DisplayCard"
+        },
+        {
+          "level": 3,
+          "text": "DynamicTable"
+        },
+        {
+          "level": 3,
+          "text": "FlexContainer"
+        },
+        {
+          "level": 3,
+          "text": "FullWidthContainer"
+        },
+        {
+          "level": 3,
+          "text": "GridContainer"
+        },
+        {
+          "level": 3,
+          "text": "IconList"
+        },
+        {
+          "level": 3,
+          "text": "InlineImageCard"
+        },
+        {
+          "level": 3,
+          "text": "InteractiveCard"
+        },
+        {
+          "level": 3,
+          "text": "InteractiveCards"
+        },
+        {
+          "level": 3,
+          "text": "ListSteps"
+        },
+        {
+          "level": 3,
+          "text": "QuadGrid"
+        },
+        {
+          "level": 3,
+          "text": "ScrollBox"
+        },
+        {
+          "level": 3,
+          "text": "SearchTable"
+        },
+        {
+          "level": 3,
+          "text": "ShowcaseCards"
+        },
+        {
+          "level": 3,
+          "text": "Spacer"
+        },
+        {
+          "level": 3,
+          "text": "StepLinkList"
+        },
+        {
+          "level": 3,
+          "text": "StepList"
+        },
+        {
+          "level": 3,
+          "text": "StyledStep"
+        },
+        {
+          "level": 3,
+          "text": "StyledSteps"
+        },
+        {
+          "level": 3,
+          "text": "StyledTable"
+        },
+        {
+          "level": 3,
+          "text": "TableCell"
+        },
+        {
+          "level": 3,
+          "text": "TableRow"
+        },
+        {
+          "level": 3,
+          "text": "UpdateLinkList"
+        },
+        {
+          "level": 3,
+          "text": "UpdateList"
+        },
+        {
+          "level": 3,
+          "text": "WidthCard"
+        }
+      ],
+      "codeLanguages": [
+        "jsx"
       ]
     }
   ]

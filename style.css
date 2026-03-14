@@ -417,6 +417,16 @@ img[alt="US"][src*="flags/US.svg"]::before {
   display: none;
 }
 
+/* StyledTable should sit flush inside its own border shell.
+   Mint wraps rendered tables in a scroll container with vertical padding,
+   which creates a false gap above/below the header row. */
+[data-docs-styled-table-shell] > div {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
 /* Frame mode container - 80% of #content-container width, centered */
 /* Breaks out of #content padding to center in full #content-container */
 .frame-mode-container {

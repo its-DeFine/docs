@@ -22,32 +22,49 @@
  * @author Livepeer Documentation Team
  */
 export const StyledTable = ({ children, variant = "default", style = {} }) => {
-  const variants = {
+  const wrapperVariants = {
     default: {
       border: "1px solid var(--border)",
       backgroundColor: "var(--card-background)",
+      overflow: "hidden",
     },
     bordered: {
       border: "2px solid var(--accent)",
       backgroundColor: "var(--background)",
+      overflow: "hidden",
     },
     minimal: {
       border: "none",
       backgroundColor: "transparent",
+      overflow: "visible",
     },
   };
 
   return (
-    <table
+    <div
+      data-docs-styled-table-shell
       style={{
         width: "100%",
-        borderCollapse: "collapse",
-        ...variants[variant],
+        padding: 0,
+        margin: 0,
+        ...wrapperVariants[variant],
         ...style,
       }}
     >
-      {children}
-    </table>
+      <table
+        data-docs-styled-table
+        style={{
+          width: "100%",
+          // Neutralize browser/Mintlify table spacing so bordered tables sit flush.
+          borderCollapse: "collapse",
+          borderSpacing: 0,
+          margin: 0,
+          backgroundColor: "transparent",
+        }}
+      >
+        {children}
+      </table>
+    </div>
   );
 };
 
