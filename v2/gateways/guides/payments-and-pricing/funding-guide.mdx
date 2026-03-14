@@ -1,6 +1,6 @@
 ---
-title: 'Fund Your Gateway'
-sidebarTitle: 'Fund Your Gateway'
+title: 'Guide to Funding the Gateway'
+sidebarTitle: 'Funding Guide'
 description: 'Step-by-step guide to funding an on-chain Livepeer gateway with ETH on Arbitrum One. Covers bridging, depositing, setting reserve amounts via livepeer_cli, and monitoring your balance.'
 keywords: ["livepeer", "gateway", "fund", "ETH", "Arbitrum", "deposit", "reserve", "TicketBroker", "livepeer_cli", "on-chain"]
 og:image: /snippets/assets/site/og-image/fallback.png
@@ -25,7 +25,9 @@ Verify:
 - REVIEW flags are in JSX flags for a human.
 */}
 
-# Fund Your Gateway
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
+
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 On-chain gateway operators must maintain a funded ETH account on Arbitrum One before routing any jobs. This page walks you through acquiring ETH, bridging it to Arbitrum, and depositing it into the `TicketBroker` contract that backs your gateway's payment tickets.
 

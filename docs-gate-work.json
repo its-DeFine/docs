@@ -31,7 +31,11 @@
                       {
                         "group": "Home",
                         "icon": "graduation-cap",
-                        "pages": ["v2/gateways/portal", "v2/gateways/navigator"]
+                        "pages": [
+                          "v2/gateways/portal",
+                          "v2/gateways/navigator",
+                          "docs-guide/tooling/reference-maps/icon-map"
+                        ]
                       },
                       {
                         "group": "Concepts",
@@ -138,8 +142,8 @@
                             "group": "AI & Job Pipelines",
                             "pages": [
                               "v2/gateways/guides/node-pipelines/guide",
-                              "v2/gateways/guides/node-pipelines/video-transcoding",
-                              "v2/gateways/guides/node-pipelines/ai-inference",
+                              "v2/gateways/guides/node-pipelines/video-pipelines",
+                              "v2/gateways/guides/node-pipelines/ai-pipelines",
                               "v2/gateways/guides/node-pipelines/byoc-pipelines",
                               "v2/gateways/guides/node-pipelines/pipeline-configuration"
                             ]
@@ -147,8 +151,8 @@
                           {
                             "group": "Payments & Pricing",
                             "pages": [
-                              "v2/gateways/guides/payments-and-pricing/payment-paths",
-                              "v2/gateways/guides/payments-and-pricing/fund-your-gateway",
+                              "v2/gateways/guides/payments-and-pricing/payment-guide",
+                              "v2/gateways/guides/payments-and-pricing/funding-guide",
                               "v2/gateways/guides/payments-and-pricing/pricing-strategy",
                               "v2/gateways/guides/payments-and-pricing/clearinghouse-guide",
                               "v2/gateways/guides/payments-and-pricing/remote-signers"

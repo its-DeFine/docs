@@ -1,6 +1,6 @@
 ---
 title: 'Payment Paths for Gateway Operators'
-sidebarTitle: 'Payment Paths'
+sidebarTitle: 'Payments Guide'
 description: 'Understand which payment model your Livepeer gateway needs. Covers on-chain ETH, remote signing, and clearinghouse options by gateway type, with a decision guide for choosing the right path.'
 keywords: ["livepeer", "gateway", "payments", "ETH", "on-chain", "off-chain", "remote signer", "clearinghouse", "probabilistic micropayments", "Arbitrum"]
 og:image: /snippets/assets/site/og-image/fallback.png
@@ -25,17 +25,16 @@ Verify:
 - REVIEW flags are in JSX flags for a human.
 */}
 
-# Payment Paths for Gateway Operators
-
-Not every gateway needs ETH. Not every operator needs to touch a private key. The right payment architecture depends entirely on what kind of gateway you are running and what you are trying to build. This page maps each gateway type to its payment model and helps you decide which path to follow.
-
 <Note>
+{/* NOT TRUE FIX THIS: - CAN USE USD...  */}
   Livepeer payments use **ETH on Arbitrum One**, not LPT. All fees between gateways and orchestrators are denominated in ETH via the probabilistic micropayment (PM) system. LPT is the staking and governance token; it plays no role in day-to-day payment flows.
 </Note>
 
----
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
 
-## How Livepeer payments work
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+
+## Payment Mechanics
 
 Livepeer uses a **probabilistic micropayment (PM)** system to settle fees between gateways and orchestrators. Rather than paying for every job individually on-chain, gateways send orchestrators signed **tickets** that function like lottery entries. Each ticket has a small probability of being a winning ticket worth a larger face value. Orchestrators accumulate tickets and redeem winning ones on Arbitrum via the `TicketBroker` smart contract.
 
@@ -45,9 +44,9 @@ The result: thousands of jobs generate only a handful of on-chain transactions, 
   For a full explanation of the PM mechanism, including deposit and reserve mechanics, see [How Payments Work](/v2/gateways/guides/payments-and-pricing/related/how-payments-work) in the Concepts section.
 </Tip>
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## Payment model by gateway type
+## Payment Models
 
 Your gateway type determines your payment obligations before you write a single line of configuration.
 
@@ -66,9 +65,9 @@ Your gateway type determines your payment obligations before you write a single 
   **AI gateways and off-chain operation:** When running an AI gateway in off-chain mode, the gateway process itself holds no Ethereum key. Payments are either handled by a connected remote signer (which holds the key and funds separately) or managed entirely by a clearinghouse. Either way, the gateway binary has no direct Arbitrum dependency.
 </Note>
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## The three payment architectures
+## Payment Architectures
 
 <Tabs>
   <Tab title="Self-managed (on-chain)">
@@ -120,9 +119,9 @@ Your gateway type determines your payment obligations before you write a single 
   </Tab>
 </Tabs>
 
----
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
-## Which path is right for you?
+## Path Mapper
 
 <AccordionGroup>
   <Accordion title="I want the fastest possible onboarding with no crypto">
@@ -152,15 +151,17 @@ Your gateway type determines your payment obligations before you write a single 
   </Accordion>
 </AccordionGroup>
 
----
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
-## Pricing configuration
+## Pricing Controls
 
-Regardless of payment architecture, you still control the **maximum price** your gateway pays orchestrators. This is set via CLI flags or a JSON configuration file and applies per-pipeline for AI workloads and per-pixel for video.
+Regardless of payment architecture, Gateways still control the **maximum price** they pay Orchestrators. This is set via CLI flags or a JSON configuration file and applies per-pipeline for AI workloads and per-pixel for video.
 
-Setting your prices correctly determines which orchestrators your gateway can access and what your compute costs will be. See [Pricing Strategy](/v2/gateways/guides/payments-and-pricing/pricing-strategy) for a practical guide to configuring maximum prices.
+Setting prices correctly determines which orchestrators the Gateway can access and associated compute costs: See [Pricing Strategy](/v2/gateways/guides/payments-and-pricing/pricing-strategy).
 
----
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
+
+## Related Pages
 
 <CardGroup cols={2}>
   <Card title="Fund Your Gateway" icon="coins" href="/v2/gateways/guides/payments-and-pricing/fund-your-gateway">

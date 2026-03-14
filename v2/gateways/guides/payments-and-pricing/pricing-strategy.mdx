@@ -25,9 +25,21 @@ Verify:
 - REVIEW flags are in JSX flags for a human.
 */}
 
-# Gateway Pricing Strategy
 
-Your gateway sets a **maximum price cap** for each type of work it sends to orchestrators. Orchestrators advertise their own prices; your gateway accepts only those within your cap. Set the cap too low and no orchestrators are in range. Set it too high and you overpay. This guide explains how the pricing model works, how to configure it for video and AI workloads, and how to position competitively.
+{/*
+ISSUES:
+- Assumes an on-chain gateway? ie. "Orchestrators advertise their own prices"
+- This is ok if its explicit - but this page should give pricing strategies for both operating modes.
+*/}
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
+
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+
+Gateways set a **maximum price cap** for each type of job it sends to Orchestrators.
+
+Orchestrators advertise their own prices; Gateways accept only those within the set cap.
+
+This guide explains how the pricing model works, how to configure it for video and AI workloads, and how to position competitively.
 
 <Note>
   **Gateways pay orchestrators. They do not charge clients.** The flags on this page control what your gateway pays for compute. What you charge your application's end users is a separate concern implemented at your application layer.

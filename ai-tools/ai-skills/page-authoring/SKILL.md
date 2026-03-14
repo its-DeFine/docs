@@ -205,8 +205,10 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
 
 ### Opening Hook Pattern
 - Do not repeat the frontmatter page title as a visible top-of-page H1 or H2. Frontmatter metadata already becomes the page header.
-- After frontmatter and page TODO/review comments, make the first rendered body element `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />`
-- Then start the page body with 2-3 sentences of narrative prose, or an optional `<CenteredContainer>` + `<Tip>` followed by narrative prose
+- Keep imports directly below frontmatter and page TODO/review comments. Do not place rendered callouts, media blocks, or links above imports.
+- After imports, make the first rendered body element `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />`
+- After the opening divider, start with either 2-3 sentences of narrative prose or a short utility block such as `<Note>`, `<Tip>`, a core reference link, a page-critical media placeholder, or an optional `<CenteredContainer>` + `<Tip>` before the main prose
+- Keep any opening utility block short and page-critical. It should support the page opening, not replace the explanation.
 - Open like a human explaining the system, not like a template announcing itself
 - Avoid boilerplate self-description such as "This page covers...", "In this guide...", or "This section explains..." unless a procedural page genuinely needs that framing
 - Optionally follow with a Mermaid timeline or overview diagram
@@ -628,9 +630,11 @@ npm run test:browser  # Page rendering
 - [ ] No ad hoc inline styles in MDX files. Approved exceptions: Mermaid hardcoded colour blocks and the documented `CustomDivider` margin patterns
 - [ ] All imports use absolute paths with file extensions
 - [ ] No imports of Mintlify globals (Card, Tabs, Note, etc.)
-- [ ] The first rendered body element after frontmatter/comments is `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />`
+- [ ] Imports sit directly below frontmatter/comments; no rendered Note, Tip, media block, or link appears above them
+- [ ] The first rendered body element after frontmatter/comments and imports is `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />`
 - [ ] The frontmatter page title is not repeated as a visible top-of-page H1/H2 in the page body
-- [ ] Opening prose reads naturally and avoids boilerplate self-description such as "This page covers..." unless the page genuinely needs it
+- [ ] Opening content reads naturally and avoids boilerplate self-description such as "This page covers..." unless the page genuinely needs it
+- [ ] Any opening utility block is brief and page-critical before the main prose begins
 - [ ] Headings are concise and technical. On guide pages, aim for 3 words or less when clarity allows
 - [ ] CustomDividers between all major sections
 - [ ] Prose before every diagram, table, and code block
