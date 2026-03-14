@@ -19,6 +19,7 @@ const readline = require('readline');
 const { spawn } = require('child_process');
 
 const STRUCTURAL_ARRAY_KEYS = ['versions', 'languages', 'tabs', 'anchors', 'groups', 'pages'];
+const SCOPED_ROOT_RUNTIME_FILES = ['style.css'];
 
 function printUsage() {
   console.log(
@@ -854,6 +855,12 @@ function buildScopedWorkspaceEntries(repoRoot, scopedDocs, scopedRoutes) {
       enqueue(resolved);
     }
   }
+
+  SCOPED_ROOT_RUNTIME_FILES.forEach((fileRelPath) => {
+    if (pathExists(path.join(repoRoot, fileRelPath))) {
+      enqueue(fileRelPath);
+    }
+  });
 
   collectRepoFilesUnderDir(repoRoot, 'snippets').forEach((fileRelPath) => {
     enqueue(fileRelPath);

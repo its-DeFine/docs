@@ -466,6 +466,7 @@ async function runTests() {
 
     writeFile(path.join(repoRoot, 'docs.json'), `${JSON.stringify(docs, null, 2)}\n`);
     writeFile(path.join(repoRoot, '.mintignore'), '# fixture\n');
+    writeFile(path.join(repoRoot, 'style.css'), ':root { --border: #e5e7eb; }\n');
     writeFile(
       path.join(repoRoot, 'v2/dev/get-started.mdx'),
       ['import Demo from "/snippets/components/demo.jsx";', '', '![Diagram](./diagram.png)', '', '<Demo />', ''].join('\n')
@@ -501,6 +502,7 @@ async function runTests() {
 
     const v2Dir = path.join(result.workspaceDir, 'v2');
     const snippetsDir = path.join(result.workspaceDir, 'snippets');
+    const rootStyleFile = path.join(result.workspaceDir, 'style.css');
     const pageFile = path.join(result.workspaceDir, 'v2/dev/get-started.mdx');
     const snippetFile = path.join(result.workspaceDir, 'snippets/components/demo.jsx');
     const helperFile = path.join(result.workspaceDir, 'snippets/shared/util.js');
@@ -515,6 +517,7 @@ async function runTests() {
     assert.ok(!fs.lstatSync(v2Dir).isSymbolicLink(), 'workspace v2 should not be a symlink');
     assert.ok(fs.lstatSync(snippetsDir).isDirectory(), 'workspace snippets should be a real directory');
     assert.ok(!fs.lstatSync(snippetsDir).isSymbolicLink(), 'workspace snippets should not be a symlink');
+    assert.ok(fs.lstatSync(rootStyleFile).isSymbolicLink(), 'root style.css should be included in the scoped workspace');
     assert.ok(fs.lstatSync(pageFile).isSymbolicLink(), 'workspace page file should remain a symlink');
     assert.ok(fs.lstatSync(snippetFile).isSymbolicLink(), 'workspace snippet file should remain a symlink');
     assert.ok(fs.lstatSync(helperFile).isSymbolicLink(), 'transitive helper import should remain a symlink');
