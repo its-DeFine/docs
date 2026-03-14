@@ -24,12 +24,15 @@ status: review
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 Orchestrators need two tokens on Arbitrum One:
 
 - **ETH** — for gas (reward calls, ticket redemption, service registration, staking transactions)
 - **LPT** — for staking (self-delegation to enter the active orchestrator set)
 
----
+<CustomDivider />
 
 ## ETH on Arbitrum
 
@@ -37,16 +40,32 @@ ETH is the gas token on Arbitrum One. Gas costs are significantly lower than Eth
 
 ### Getting ETH to Arbitrum
 
-| Method | Notes |
-|---|---|
-| [Arbitrum Bridge](https://bridge.arbitrum.io/) | Official bridge from Ethereum L1 to Arbitrum One. Bridge time: ~10 minutes L1→L2, ~7 days L2→L1. |
-| [Hop Protocol](https://hop.exchange/) | Cross-chain bridge supporting Arbitrum. Faster L2→L1 withdrawals (minutes, not days). |
-| [Stargate](https://stargate.finance/) | Cross-chain bridge via LayerZero. |
-| Direct withdrawal from CEX | Many centralised exchanges (Binance, Coinbase, Kraken, OKX) support direct withdrawal to Arbitrum One — check your exchange's withdrawal network options. This avoids bridging entirely. |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Method</TableCell>
+    <TableCell header>Notes</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Arbitrum Bridge](https://bridge.arbitrum.io/)</TableCell>
+    <TableCell>Official bridge from Ethereum L1 to Arbitrum One. Bridge time: ~10 minutes L1→L2, ~7 days L2→L1.</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Hop Protocol](https://hop.exchange/)</TableCell>
+    <TableCell>Cross-chain bridge supporting Arbitrum. Faster L2→L1 withdrawals (minutes, not days).</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Stargate](https://stargate.finance/)</TableCell>
+    <TableCell>Cross-chain bridge via LayerZero.</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Direct withdrawal from CEX</TableCell>
+    <TableCell>Many centralised exchanges (Binance, Coinbase, Kraken, OKX) support direct withdrawal to Arbitrum One — check your exchange's withdrawal network options. This avoids bridging entirely.</TableCell>
+  </TableRow>
+</StyledTable>
 
 {/* REVIEW: Verify bridge URLs and supported exchanges are current */}
 
----
+<CustomDivider />
 
 ## LPT on Arbitrum
 
@@ -54,18 +73,31 @@ LPT is the Livepeer protocol token. Orchestrators stake LPT to enter the active 
 
 ### Acquiring LPT
 
-| Method | Notes |
-|---|---|
-| [Uniswap (Arbitrum)](https://app.uniswap.org/swap?chain=arbitrum) | Primary DEX for LPT/ETH swaps on Arbitrum One. Deepest liquidity. |
-| [Arbitrum Bridge](https://bridge.arbitrum.io/) | Bridge LPT from Ethereum L1 to Arbitrum One if you already hold LPT on L1. |
-| Centralised exchanges | Some CEXs list LPT — check whether they support Arbitrum One withdrawals directly, or only Ethereum L1 (which would require a subsequent bridge). |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Method</TableCell>
+    <TableCell header>Notes</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Uniswap (Arbitrum)](https://app.uniswap.org/swap?chain=arbitrum)</TableCell>
+    <TableCell>Primary DEX for LPT/ETH swaps on Arbitrum One. Deepest liquidity.</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Arbitrum Bridge](https://bridge.arbitrum.io/)</TableCell>
+    <TableCell>Bridge LPT from Ethereum L1 to Arbitrum One if you already hold LPT on L1.</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Centralised exchanges</TableCell>
+    <TableCell>Some CEXs list LPT — check whether they support Arbitrum One withdrawals directly, or only Ethereum L1 (which would require a subsequent bridge).</TableCell>
+  </TableRow>
+</StyledTable>
 
 {/* REVIEW: Verify Uniswap Arbitrum LPT pool liquidity is still the primary source */}
 {/* REVIEW: Add specific CEX names that support direct Arbitrum LPT withdrawal if known */}
 
 ### LPT Contract Address (Arbitrum One)
 
-```
+``` icon="terminal"
 0x289ba1701C2F088cf0faf8B3705246331cB8A839
 ```
 
@@ -75,25 +107,38 @@ LPT is the Livepeer protocol token. Orchestrators stake LPT to enter the active 
   Always verify the token contract address before swapping. Scam tokens with similar names exist on DEXs.
 </Warning>
 
----
+<CustomDivider />
 
 ## How Much Do You Need?
 
-| Token | Purpose | Rough Estimate |
-|---|---|---|
-| ETH | Gas for activation, reward calls, ticket redemption | 0.01–0.05 ETH is sufficient for weeks of operation at current Arbitrum gas prices |
-| LPT | Self-stake to enter the active set (top 100) | Check [Explorer](https://explorer.livepeer.org) for the current 100th orchestrator's stake — that is the minimum threshold |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Token</TableCell>
+    <TableCell header>Purpose</TableCell>
+    <TableCell header>Rough Estimate</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>ETH</TableCell>
+    <TableCell>Gas for activation, reward calls, ticket redemption</TableCell>
+    <TableCell>0.01–0.05 ETH is sufficient for weeks of operation at current Arbitrum gas prices</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>LPT</TableCell>
+    <TableCell>Self-stake to enter the active set (top 100)</TableCell>
+    <TableCell>Check [Explorer](https://explorer.livepeer.org) for the current 100th orchestrator's stake — that is the minimum threshold</TableCell>
+  </TableRow>
+</StyledTable>
 
 <Note>
   The LPT required to enter the active set changes over time as orchestrators join and leave. The threshold has historically ranged from a few hundred to several thousand LPT.
 </Note>
 
----
+<CustomDivider />
 
 ## See Also
 
 <CardGroup cols={3}>
   <Card title="Arbitrum RPCs" href="/v2/orchestrators/resources/arbitrum-rpc" icon="server" />
-  <Card title="Staking LPT" href="/v2/orchestrators/guides/staking-and-rewards/rcs-staking-lpt" icon="coins" />
+  <Card title="Staking LPT" href="/v2/orchestrators/setup/activate" icon="coins" />
   <Card title="Contract Addresses" href="/v2/orchestrators/resources/technical/x-contract-addresses" icon="file-contract" />
 </CardGroup>

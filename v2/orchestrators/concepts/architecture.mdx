@@ -26,11 +26,14 @@ status: current
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 This page explains where orchestrators sit in the Livepeer stack, how they interact with other network participants, how work flows through the system, and the key components involved.
 
 For what orchestrators *do*, see [Role](/v2/orchestrators/concepts/role). For the workloads they run, see [Capabilities](/v2/orchestrators/concepts/capabilities).
 
----
+<CustomDivider />
 
 ## Layer position
 
@@ -68,15 +71,32 @@ flowchart TB
     OC -->|"vote"| Governance
 ```
 
-| Layer | Participants | Responsibility |
-|---|---|---|
-| **Application** | Developers, end users, gateways | Ingest content, route jobs, deliver results |
-| **Compute** | Orchestrators, transcoders, AI runners | Execute video and AI work on GPUs |
-| **Protocol** | Arbitrum smart contracts | Staking, payments, governance, round management |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Layer</TableCell>
+    <TableCell header>Participants</TableCell>
+    <TableCell header>Responsibility</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Application**</TableCell>
+    <TableCell>Developers, end users, gateways</TableCell>
+    <TableCell>Ingest content, route jobs, deliver results</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Compute**</TableCell>
+    <TableCell>Orchestrators, transcoders, AI runners</TableCell>
+    <TableCell>Execute video and AI work on GPUs</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Protocol**</TableCell>
+    <TableCell>Arbitrum smart contracts</TableCell>
+    <TableCell>Staking, payments, governance, round management</TableCell>
+  </TableRow>
+</StyledTable>
 
 Orchestrators are the only participants that interact with all three layers — they receive work from gateways, execute it on GPU hardware, and settle on-chain.
 
----
+<CustomDivider />
 
 ## System interactions
 
@@ -102,11 +122,24 @@ Delegators stake LPT to orchestrators, increasing the orchestrator's total stake
 
 In the simplest setup, the orchestrator and transcoder run on the same machine as a single go-livepeer process. In split configurations, the orchestrator controller can route work to remote transcoder or AI runner processes.
 
-| Configuration | How it works |
-|---|---|
-| **Combined** (default) | One go-livepeer process runs as both orchestrator and transcoder. `-orchestrator -transcoder` flags. |
-| **Split O/T** | Orchestrator controller on one machine delegates GPU work to separate transcoder nodes. Used for multi-GPU or multi-machine setups. |
-| **AI Runner** | A separate Docker container runs AI inference models. The orchestrator routes AI jobs to it via `aiModels.json`. |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Configuration</TableCell>
+    <TableCell header>How it works</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Combined** (default)</TableCell>
+    <TableCell>One go-livepeer process runs as both orchestrator and transcoder. `-orchestrator -transcoder` flags.</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Split O/T**</TableCell>
+    <TableCell>Orchestrator controller on one machine delegates GPU work to separate transcoder nodes. Used for multi-GPU or multi-machine setups.</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**AI Runner**</TableCell>
+    <TableCell>A separate Docker container runs AI inference models. The orchestrator routes AI jobs to it via `aiModels.json`.</TableCell>
+  </TableRow>
+</StyledTable>
 
 See [Orchestrator-Transcoder Split](/v2/orchestrators/guides/advanced-operations/orchestrator-transcoder-setup) for the split configuration.
 
@@ -119,7 +152,7 @@ The orchestrator's on-chain identity lives on Arbitrum One. Key interactions:
 - **Ticket redemption** — payment tickets from gateways are redeemed on-chain for ETH
 - **Governance** — orchestrators can vote on Livepeer Improvement Proposals (LIPs)
 
----
+<CustomDivider />
 
 ## Request flow
 
@@ -156,7 +189,7 @@ sequenceDiagram
 6. **Payment settlement** — The orchestrator accumulates payment tickets and periodically redeems them on Arbitrum for ETH.
 7. **Reward minting** — Once per round, the orchestrator calls `reward()` on Arbitrum to mint LPT proportional to its stake.
 
----
+<CustomDivider />
 
 ## Key components
 
@@ -190,12 +223,28 @@ Source: [github.com/livepeer/ai-worker](https://github.com/livepeer/ai-worker)
 
 The Livepeer protocol contracts on Arbitrum One manage:
 
-| Contract | Purpose |
-|---|---|
-| **BondingManager** | Staking, delegation, active set management |
-| **RoundsManager** | Round lifecycle (~24 hours), reward eligibility |
-| **TicketBroker** | Probabilistic micropayment ticket redemption |
-| **ServiceRegistry** | On-chain service URI for orchestrator discovery |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Contract</TableCell>
+    <TableCell header>Purpose</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**BondingManager**</TableCell>
+    <TableCell>Staking, delegation, active set management</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**RoundsManager**</TableCell>
+    <TableCell>Round lifecycle (~24 hours), reward eligibility</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**TicketBroker**</TableCell>
+    <TableCell>Probabilistic micropayment ticket redemption</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**ServiceRegistry**</TableCell>
+    <TableCell>On-chain service URI for orchestrator discovery</TableCell>
+  </TableRow>
+</StyledTable>
 
 See [Contract Addresses](/v2/orchestrators/resources/technical/x-contract-addresses) for deployed addresses.
 
@@ -203,7 +252,7 @@ See [Contract Addresses](/v2/orchestrators/resources/technical/x-contract-addres
 
 A web interface at [explorer.livepeer.org](https://explorer.livepeer.org) for viewing orchestrator status, stake, performance, and governance activity. Not a node component, but the primary tool for monitoring your on-chain presence.
 
----
+<CustomDivider />
 
 ## Related
 

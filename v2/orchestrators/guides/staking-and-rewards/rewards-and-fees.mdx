@@ -29,15 +29,18 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 This page covers the operational mechanics of how LPT rewards flow, how to call `Reward()` reliably, the economics of when calling reward is profitable, and how ETH fees move from job to wallet. It assumes you have read [Earnings Explained](/v2/orchestrators/guides/staking-and-rewards/earnings) and have an active orchestrator node.
 
----
+<CustomDivider />
 
 ## How LPT rewards flow
 
 Every round (approximately every 22 hours on Arbitrum), the protocol mints new LPT and makes it available to the active orchestrator set. The sequence is:
 
-```
+``` icon="terminal"
 Round initialises
        ↓
 Protocol calculates each orchestrator's proportional share
@@ -66,7 +69,7 @@ The inflation rate is a dynamic protocol parameter:
 
 The Explorer shows current inflation rate and target participation at [explorer.livepeer.org](https://explorer.livepeer.org/orchestrators).
 
----
+<CustomDivider />
 
 ## Calling Reward() — your options
 
@@ -74,7 +77,7 @@ The Explorer shows current inflation rate and target participation at [explorer.
 
 By default, go-livepeer automatically calls `Reward()` at the start of each new round. No action required after initial setup.
 
-```bash
+```bash icon="terminal"
 # Automatic reward is ON by default
 # Confirm it's not been disabled by checking your startup flags — there should be no -reward=false
 livepeer \
@@ -99,7 +102,7 @@ Use this approach when you are newly activated with very low stake, and want to 
 
 **Step 1: Disable automatic reward calls**
 
-```bash
+```bash icon="terminal"
 livepeer \
     -network arbitrum-one-mainnet \
     -reward=false
@@ -114,7 +117,7 @@ Gather three inputs:
 2. **Gas used per reward call** — typically **350,000 to 450,000 gas** on Arbitrum
 3. **LPT value you'd receive** — visible in Explorer on your orchestrator page under "Estimated Reward This Round"
 
-```
+``` icon="terminal"
 ETH cost = gas_used × gas_price_in_ETH
 LPT earned = your_stake_share × round_issuance × 0.90 (after treasury)
 
@@ -125,14 +128,14 @@ Arbitrum gas is low compared to mainnet, so the threshold is typically reached a
 
 **Step 3: Call reward manually via livepeer_cli**
 
-```bash
+```bash icon="terminal"
 # Ensure livepeer is running
 livepeer_cli
 ```
 
 From the menu, select the option corresponding to **"Invoke reward"** and confirm the transaction. Wait for on-chain confirmation — you will see a log line similar to:
 
-```
+``` icon="terminal"
 Invoking transaction: "reward". Hash: "0x..."
 ```
 
@@ -140,35 +143,51 @@ Invoking transaction: "reward". Hash: "0x..."
 
 Once your stake is large enough that automatic reward calls are clearly profitable:
 
-```bash
+```bash icon="terminal"
 # Remove the -reward=false flag from your startup command
 # Automatic reward is the default — simply don't pass -reward=false
 ```
 
----
+<CustomDivider />
 
 ## Gas costs on Arbitrum
 
 Reward calls run on Arbitrum (Arbitrum One), Livepeer's L2 network. Gas costs are dramatically lower than Ethereum mainnet.
 
-| Factor | Approximate value |
-|---|---|
-| Gas units per reward call | 350,000 – 450,000 |
-| Typical Arbitrum gas price | 0.01 – 0.1 gwei |
-| Typical ETH cost per call | ~0.000005 – 0.00005 ETH |
-| At ETH = $2,500 | ~$0.01 – $0.12 USD per call |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Factor</TableCell>
+    <TableCell header>Approximate value</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Gas units per reward call</TableCell>
+    <TableCell>350,000 – 450,000</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Typical Arbitrum gas price</TableCell>
+    <TableCell>0.01 – 0.1 gwei</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Typical ETH cost per call</TableCell>
+    <TableCell>~0.000005 – 0.00005 ETH</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>At ETH = $2,500</TableCell>
+    <TableCell>~$0.01 – $0.12 USD per call</TableCell>
+  </TableRow>
+</StyledTable>
 
 At these levels, the stake threshold for profitable reward calling is much lower than it was on mainnet. Most actively staked orchestrators are well above the break-even point.
 
 Keep **ETH on Arbitrum** in your orchestrator wallet for reward transactions. Running out of ETH causes reward calls to fail silently and rounds to be missed.
 
-```bash
+```bash icon="terminal"
 # Check your orchestrator ETH balance on Arbitrum
 # Run livepeer_cli and check "Account info" to see your current balance
 livepeer_cli
 ```
 
----
+<CustomDivider />
 
 ## Setting your commission
 
@@ -176,7 +195,7 @@ Commission parameters are set via `livepeer_cli` or the [Livepeer Explorer](http
 
 ### Via livepeer_cli
 
-```bash
+```bash icon="terminal"
 livepeer_cli
 ```
 
@@ -188,25 +207,46 @@ Select the option for **"Set orchestrator config"** to update:
 
 There is no universally correct setting. The trade-off is between your immediate per-job earnings and your ability to attract delegators who increase your total stake.
 
-| Strategy | rewardCut | feeShare | Best for |
-|---|---|---|---|
-| Delegator-attractive | 0–10% | 50–100% | Building stake from zero; maximising delegator ROI |
-| Balanced | 15–25% | 20–50% | Mid-stage orchestrators with some delegation |
-| Operator-heavy | 50%+ | 0–20% | High self-stake; few delegators needed |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Strategy</TableCell>
+    <TableCell header>rewardCut</TableCell>
+    <TableCell header>feeShare</TableCell>
+    <TableCell header>Best for</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Delegator-attractive</TableCell>
+    <TableCell>0–10%</TableCell>
+    <TableCell>50–100%</TableCell>
+    <TableCell>Building stake from zero; maximising delegator ROI</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Balanced</TableCell>
+    <TableCell>15–25%</TableCell>
+    <TableCell>20–50%</TableCell>
+    <TableCell>Mid-stage orchestrators with some delegation</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Operator-heavy</TableCell>
+    <TableCell>50%+</TableCell>
+    <TableCell>0–20%</TableCell>
+    <TableCell>High self-stake; few delegators needed</TableCell>
+  </TableRow>
+</StyledTable>
 
 Check what leading orchestrators are currently set to on [explorer.livepeer.org/orchestrators](https://explorer.livepeer.org/orchestrators). The "Active" tab shows all current parameters and fee history side by side.
 
 <Note>
-  Changing commission rates after attracting delegators is the primary way orchestrators damage their reputation. Delegators monitor their orchestrators and migrate away from those who change rates unfavourably after building trust. See [Getting Delegates](/v2/orchestrators/guides/staking-and-rewards/getting-delegates) for more on the delegator relationship.
+  Changing commission rates after attracting delegators is the primary way orchestrators damage their reputation. Delegators monitor their orchestrators and migrate away from those who change rates unfavourably after building trust. See [Getting Delegates](/v2/orchestrators/guides/staking-and-rewards/attracting-delegates) for more on the delegator relationship.
 </Note>
 
----
+<CustomDivider />
 
 ## How ETH fees flow
 
 Job fees take a different path from LPT rewards:
 
-```
+``` icon="terminal"
 Gateway routes job to your orchestrator
        ↓
 You complete the job (transcoding or AI inference)
@@ -226,7 +266,7 @@ ETH fees from jobs are available for withdrawal once the Redeemer has processed 
 
 For the full probabilistic micropayment lifecycle, ticket structure, and Redeemer operation, see [Payments](/v2/orchestrators/guides/staking-and-rewards/payments).
 
----
+<CustomDivider />
 
 ## Monitoring for missed rounds
 
@@ -236,7 +276,7 @@ The [Livepeer Explorer](https://explorer.livepeer.org) shows your reward call hi
 
 For production orchestrators, set up alerting on the go-livepeer Prometheus metrics. The relevant metric is `livepeer_orchestrator_reward_call_status`:
 
-```yaml
+```yaml icon="terminal"
 # Example Prometheus alert rule
 groups:
   - name: livepeer_orchestrator
@@ -253,7 +293,7 @@ groups:
 
 The Explorer also tracks your **reward call ratio** (`rewardCalls / n` over up to 90 rounds). Delegators see this ratio on your profile and factor it directly into their yield calculation. A ratio below 1.0 reduces their effective yield and makes your orchestrator less attractive.
 
----
+<CustomDivider />
 
 ## Reward vs fee economics: a worked example
 
@@ -261,21 +301,52 @@ Illustrative scenario for context only. Actual figures depend on LPT price, ETH 
 
 **Node:** 10,000 LPT total stake (3,000 self-bonded + 7,000 delegated), active set, `rewardCut` = 15%, `feeShare` = 40%
 
-| Parameter | Value |
-|---|---|
-| Network total active stake | 2,000,000 LPT (illustrative) |
-| Your stake fraction | 0.5% |
-| Inflation rate | 0.05% per round |
-| Total supply | 30,000,000 LPT |
-| LPT minted per round (before treasury) | 15,000 LPT |
-| After 10% treasury | 13,500 LPT distributed |
-| Your round allocation | 67.5 LPT |
-| You keep (rewardCut 15%) | ~10 LPT |
-| Delegators receive | ~57.5 LPT total |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Parameter</TableCell>
+    <TableCell header>Value</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Network total active stake</TableCell>
+    <TableCell>2,000,000 LPT (illustrative)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Your stake fraction</TableCell>
+    <TableCell>0.5%</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Inflation rate</TableCell>
+    <TableCell>0.05% per round</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Total supply</TableCell>
+    <TableCell>30,000,000 LPT</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>LPT minted per round (before treasury)</TableCell>
+    <TableCell>15,000 LPT</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>After 10% treasury</TableCell>
+    <TableCell>13,500 LPT distributed</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Your round allocation</TableCell>
+    <TableCell>67.5 LPT</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>You keep (rewardCut 15%)</TableCell>
+    <TableCell>~10 LPT</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Delegators receive</TableCell>
+    <TableCell>~57.5 LPT total</TableCell>
+  </TableRow>
+</StyledTable>
 
 {/* REVIEW: Alison/Mehrdad to verify current inflation rate, total supply, and active stake figures — numbers above are illustrative approximations */}
 
----
+<CustomDivider />
 
 ## Watch: Reward calling and orchestrator setup
 
@@ -291,7 +362,7 @@ Illustrative scenario for context only. Actual figures depend on LPT price, ETH 
   />
 </Frame>
 
----
+<CustomDivider />
 
 ## Related
 
@@ -299,13 +370,13 @@ Illustrative scenario for context only. Actual figures depend on LPT price, ETH 
   <Card title="Earnings Explained" icon="chart-line" href="/v2/orchestrators/guides/staking-and-rewards/earnings">
     The two revenue streams, commission parameters, and what determines how much work you win.
   </Card>
-  <Card title="Getting Delegates" icon="people-group" href="/v2/orchestrators/guides/staking-and-rewards/getting-delegates">
+  <Card title="Getting Delegates" icon="people-group" href="/v2/orchestrators/guides/staking-and-rewards/attracting-delegates">
     How delegators evaluate orchestrators and what you can do to attract more stake.
   </Card>
   <Card title="Payments" icon="receipt" href="/v2/orchestrators/guides/staking-and-rewards/payments">
     Probabilistic micropayments, winning ticket mechanics, and on-chain ETH redemption.
   </Card>
-  <Card title="Metrics and Monitoring" icon="chart-mixed" href="/v2/orchestrators/guides/monitoring/metrics">
+  <Card title="Metrics and Monitoring" icon="chart-mixed" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring">
     Prometheus setup, Grafana dashboards, and alerts for reward call failures.
   </Card>
 </CardGroup>

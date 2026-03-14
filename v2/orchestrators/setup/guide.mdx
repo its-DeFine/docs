@@ -25,6 +25,9 @@ status: current
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 This is the standard setup path for running a Livepeer orchestrator with go-livepeer. It covers a single-machine deployment where one node runs as both orchestrator and transcoder.
 
 ```mermaid
@@ -43,7 +46,7 @@ flowchart LR
 **Not the right path?** If you want to contribute GPU to an existing pool without managing your own node, see [Join a Pool](/v2/orchestrators/guides/setup-paths/join-a-pool). For the split keystore setup (Siphon), see [Siphon Setup](/v2/orchestrators/guides/setup-paths/siphon-setup). For help choosing, see the [Navigator](/v2/orchestrators/guides/setup-paths/setup-navigator).
 </Note>
 
----
+<CustomDivider />
 
 ## Setup flow
 
@@ -87,22 +90,44 @@ Follow these steps in order. Each page is self-contained — complete it before 
   </Step>
 </Steps>
 
----
+<CustomDivider />
 
 ## What you will need
 
-| Requirement | Details |
-|---|---|
-| **GPU** | NVIDIA with NVENC support. RTX 3060+ for transcoding; RTX 3090+ for AI inference. |
-| **OS** | Linux recommended for production. macOS and Windows for development only. |
-| **CUDA** | 12.0+ with matching NVIDIA driver (525+ on Linux). |
-| **Wallet** | Ethereum account with ETH on Arbitrum (for gas) and LPT (for staking). |
-| **Port** | 8935 TCP open to the public internet. |
-| **RPC** | Arbitrum One endpoint (Alchemy, Infura, or self-hosted). |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Requirement</TableCell>
+    <TableCell header>Details</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**GPU**</TableCell>
+    <TableCell>NVIDIA with NVENC support. RTX 3060+ for transcoding; RTX 3090+ for AI inference.</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**OS**</TableCell>
+    <TableCell>Linux recommended for production. macOS and Windows for development only.</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**CUDA**</TableCell>
+    <TableCell>12.0+ with matching NVIDIA driver (525+ on Linux).</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Wallet**</TableCell>
+    <TableCell>Ethereum account with ETH on Arbitrum (for gas) and LPT (for staking).</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Port**</TableCell>
+    <TableCell>8935 TCP open to the public internet.</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**RPC**</TableCell>
+    <TableCell>Arbitrum One endpoint (Alchemy, Infura, or self-hosted).</TableCell>
+  </TableRow>
+</StyledTable>
 
 For detailed hardware guidance, see [GPU & Hardware Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference). For cost and revenue analysis, see [Feasibility & Economics](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics).
 
----
+<CustomDivider />
 
 ## After setup
 

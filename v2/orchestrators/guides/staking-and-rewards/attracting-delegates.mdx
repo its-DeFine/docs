@@ -27,18 +27,20 @@ purpose: guide
 status: published
 lastVerified: 2026-03-13
 ---
+import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { MathInline, MathBlock } from '/snippets/components/primitives/math.jsx'
-
 
 Delegated LPT is the mechanism by which third-party token holders increase your orchestrator's total stake. More stake means a larger share of protocol inflation, stronger positioning in the transcoding queue, and greater credibility in the network. This page covers why delegation matters, what delegators actually evaluate when they choose an orchestrator, the maths behind the Explorer's yield calculation, and what you can do to attract and keep them.
 
----
+<CustomDivider />
 
 ## Why delegators matter
 
 An orchestrator's **total stake** is the sum of its own self-bonded LPT and all LPT delegated to it by third parties. This total drives two things simultaneously:
 
-```
+``` icon="terminal"
 More total stake
        ├── Larger share of LPT inflation each round
        └── Higher position in the active set → more transcoding jobs
@@ -54,7 +56,7 @@ The compounding dynamic is real. The orchestrators near the top of the active se
 
 Delegators contribute their LPT in exchange for a share of the orchestrator's earnings. They take a risk on you: they're trusting you not to change commission rates, to call reward every round, and to keep your node performant. In return, they expect a return that is competitive with other orchestrators they could delegate to instead.
 
----
+<CustomDivider />
 
 ## What delegators actually evaluate
 
@@ -100,7 +102,7 @@ The implementation of this calculation lives in the [Explorer's roi.ts](https://
   This formula is a **projection, not a guarantee**. It assumes current inflation rate, fee volume, and commission settings remain constant for a full year. All three can and do change. Delegators who understand the formula know this — which is why stability and consistency matter as much as the headline rate.
 </Note>
 
----
+<CustomDivider />
 
 ## The four things delegators look at
 
@@ -118,10 +120,26 @@ Your `feeShare` and `rewardCut` set what percentage of your earnings pass throug
 
 The competitive range as of early 2026:
 
-| Parameter | Very competitive | Moderate | Operator-heavy |
-|---|---|---|---|
-| `rewardCut` | 0–10% | 10–25% | 25–100% |
-| `feeShare` | 75–100% | 30–75% | 0–30% |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Parameter</TableCell>
+    <TableCell header>Very competitive</TableCell>
+    <TableCell header>Moderate</TableCell>
+    <TableCell header>Operator-heavy</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`rewardCut`</TableCell>
+    <TableCell>0–10%</TableCell>
+    <TableCell>10–25%</TableCell>
+    <TableCell>25–100%</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`feeShare`</TableCell>
+    <TableCell>75–100%</TableCell>
+    <TableCell>30–75%</TableCell>
+    <TableCell>0–30%</TableCell>
+  </TableRow>
+</StyledTable>
 
 New orchestrators building their initial delegation base should be at the competitive end. Once you have a stable delegation base and reputation, modest increases in `rewardCut` are less disruptive — but they should still be telegraphed to delegators in advance.
 
@@ -138,7 +156,7 @@ Your 90-day average daily fee volume in ETH shows delegators how much real work 
 
 When a delegator adds new stake <MathInline latex={String.raw`p`} /> to your orchestrator, their yield is diluted by the total stake they're joining: <MathInline latex={String.raw`\frac{p}{p + l_{orch}}`} />. Smaller orchestrators offer higher yield per unit of delegated stake because the denominator is smaller. This is why new and mid-tier orchestrators can offer competitive yields despite lower absolute fee volumes.
 
----
+<CustomDivider />
 
 ## Building reputation
 
@@ -163,37 +181,37 @@ The Explorer shows your commission change history. Delegators check this.
 
 Since Q3 2024, orchestrators running AI inference pipelines have seen higher <MathInline latex={String.raw`v_{daily}`} /> values than transcoding-only nodes. Higher fee volume improves your ETH yield component, making you more attractive to yield-focused delegators. Running popular models warm is a compounding advantage: more fees → higher yield → more delegation → more stake → more jobs.
 
----
+<CustomDivider />
 
 ## The delegation mechanics (what delegators actually do)
 
 It's useful to understand the delegator's side of the process to anticipate their questions.
 
-<Steps>
+<StyledSteps>
 
-<Step title="Delegator connects wallet to Explorer">
+<StyledStep title="Delegator connects wallet to Explorer">
 At [explorer.livepeer.org](https://explorer.livepeer.org), a delegator connects their Ethereum/Arbitrum wallet.
-</Step>
+</StyledStep>
 
-<Step title="Browse orchestrator list">
+<StyledStep title="Browse orchestrator list">
 The Active Orchestrators table shows every orchestrator's current stake, commission parameters, reward call history, and estimated ROI. Delegators filter and sort here.
-</Step>
+</StyledStep>
 
-<Step title="Evaluate the target orchestrator">
+<StyledStep title="Evaluate the target orchestrator">
 Clicking through to an orchestrator's profile shows: stake history, daily fee volume graph, delegator count, reward call ratio, commission change history, and the personalised yield calculator where they enter their own stake amount <MathInline latex={String.raw`p`} />.
-</Step>
+</StyledStep>
 
-<Step title="Bond LPT">
+<StyledStep title="Bond LPT">
 Delegating requires holding LPT on Arbitrum and approving the bonding transaction. The LPT is not transferred — it remains under the delegator's control — but it is bonded to the orchestrator's stake until the delegator unbonds.
-</Step>
+</StyledStep>
 
-<Step title="Unbonding period">
+<StyledStep title="Unbonding period">
 If a delegator chooses to leave, there is an unbonding period of approximately 7 days before their LPT is liquid again. This creates some natural stickiness in the delegation relationship.
-</Step>
+</StyledStep>
 
-</Steps>
+</StyledSteps>
 
----
+<CustomDivider />
 
 ## Common pitfalls for delegators (and what they mean for you)
 
@@ -217,7 +235,7 @@ Every missed round reduces <MathInline latex={String.raw`r_{rewards}`} />, which
 
 **Your response:** This is fully within your control. Automate reward calling, monitor with alerts, keep ETH in your wallet. See [Rewards and Fees](/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees) for the complete setup.
 
----
+<CustomDivider />
 
 ## Resources for delegators you can share
 
@@ -227,7 +245,7 @@ Pointing incoming delegators to good educational resources reduces confusion and
 - **LPT delegation guide:** [v2/lpt/delegation](/v2/lpt/delegation) — protocol-level guide to the bonding process
 - **Livepeer primer:** [livepeer.org/primer](https://livepeer.org/primer) — accessible introduction to the protocol
 
----
+<CustomDivider />
 
 ## Related
 

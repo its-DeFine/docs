@@ -28,9 +28,12 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 Your node is running. These are the tools you reach for when you want to verify you are in the active set, track earnings, diagnose a routing problem, monitor GPU health, or understand what the network is doing.
 
----
+<CustomDivider />
 
 ## Livepeer Explorer
 
@@ -39,7 +42,7 @@ Your node is running. These are the tools you reach for when you want to verify 
 The Explorer is the authoritative on-chain dashboard for the Livepeer protocol. It reads directly from the Arbitrum subgraph — everything you see here is real on-chain state, not cached or estimated.
 
 **Your orchestrator profile lives at:**
-```
+``` icon="terminal"
 https://explorer.livepeer.org/accounts/<your-address>/orchestrating
 ```
 
@@ -74,7 +77,7 @@ https://explorer.livepeer.org/accounts/<your-address>/orchestrating
   The Explorer shows on-chain data only. Worker-level data for pool contributors is not visible here, and off-chain pool payouts do not appear. For AI model warm status, use [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities).
 </Note>
 
----
+<CustomDivider />
 
 ## Node Metrics (Prometheus)
 
@@ -82,7 +85,7 @@ go-livepeer exposes a standard Prometheus metrics endpoint you can scrape with a
 
 **Enable metrics with the `-monitor` flag:**
 
-```bash
+```bash icon="terminal"
 livepeer \
   -orchestrator \
   -transcoder \
@@ -93,11 +96,24 @@ livepeer \
 
 **Flags:**
 
-| Flag | Effect |
-|---|---|
-| `-monitor` | Enables the `/metrics` endpoint on port 7935 |
-| `-metricsPerStream` | Groups performance metrics per stream — useful for debugging individual sessions |
-| `-metricsClientIP` | Exposes client IP in metrics — useful for identifying which gateway is sending work |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Flag</TableCell>
+    <TableCell header>Effect</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-monitor`</TableCell>
+    <TableCell>Enables the `/metrics` endpoint on port 7935</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-metricsPerStream`</TableCell>
+    <TableCell>Groups performance metrics per stream — useful for debugging individual sessions</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-metricsClientIP`</TableCell>
+    <TableCell>Exposes client IP in metrics — useful for identifying which gateway is sending work</TableCell>
+  </TableRow>
+</StyledTable>
 
 **Endpoint:** `http://localhost:7935/metrics`
 
@@ -108,13 +124,13 @@ livepeer \
 - Job processing latency
 - GPU utilisation
 
-For the full metric reference, see the [Prometheus Metrics Reference](/v2/orchestrators/reference/prometheus-metrics).
+For the full metric reference, see the [Prometheus Metrics Reference](/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring).
 
 ### Docker monitoring stack (fastest setup)
 
 Livepeer maintains a Docker image that bundles Prometheus and Grafana with starter dashboard templates:
 
-```bash
+```bash icon="terminal"
 # Single node
 docker run --net=host \
   --env LP_MODE=standalone \
@@ -122,7 +138,7 @@ docker run --net=host \
   livepeer/monitoring:latest
 ```
 
-```bash
+```bash icon="terminal"
 # Multi-node
 docker run --net=host \
   --env LP_MODE=standalone \
@@ -132,11 +148,28 @@ docker run --net=host \
 
 **Environment variable options:**
 
-| Variable | Values | Description |
-|---|---|---|
-| `LP_MODE` | `standalone`, `docker-compose`, `kubernetes` | Deployment mode |
-| `LP_NODES` | Comma-separated `host:port` list | Nodes to monitor |
-| `LP_KUBE_NAMESPACES` | Comma-separated namespaces | For Kubernetes deployments |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Variable</TableCell>
+    <TableCell header>Values</TableCell>
+    <TableCell header>Description</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`LP_MODE`</TableCell>
+    <TableCell>`standalone`, `docker-compose`, `kubernetes`</TableCell>
+    <TableCell>Deployment mode</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`LP_NODES`</TableCell>
+    <TableCell>Comma-separated `host:port` list</TableCell>
+    <TableCell>Nodes to monitor</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`LP_KUBE_NAMESPACES`</TableCell>
+    <TableCell>Comma-separated namespaces</TableCell>
+    <TableCell>For Kubernetes deployments</TableCell>
+  </TableRow>
+</StyledTable>
 
 For Kubernetes, pods with the `prometheus.io/scrape` label are discovered automatically.
 
@@ -148,7 +181,7 @@ For Kubernetes, pods with the `prometheus.io/scrape` label are discovered automa
 
 Add this to your `prometheus.yml` to scrape go-livepeer directly:
 
-```yaml
+```yaml icon="terminal"
 scrape_configs:
   - job_name: 'livepeer'
     static_configs:
@@ -158,7 +191,7 @@ scrape_configs:
 
 {/* REVIEW: The community monitoring guide at forum.livepeer.org/t/guide-transcoder-monitoring-with-prometheus-grafana/1225 was referenced in v1 docs. Verify this URL is still accessible before publication — the forum appeared offline during verification (March 2026). Rick/community to confirm an alternative if the forum is down. */}
 
----
+<CustomDivider />
 
 ## Cloud SPE Tools
 
@@ -176,23 +209,36 @@ A community-built suite of orchestrator and network monitoring tools, maintained
   This is community infrastructure, not operated by the Livepeer Foundation. It has experienced intermittent availability. Do not rely on it as your sole monitoring source.
 </Warning>
 
----
+<CustomDivider />
 
 ## Network Dashboards (Dune Analytics)
 
 For protocol-level macro data — inflation, staking participation, fee volumes, token distribution:
 
-| Dashboard | Link |
-|---|---|
-| Growth Dashboard | [dune.com/rickstaa/livepeer-growth-dashboard](https://dune.com/rickstaa/livepeer-growth-dashboard) |
-| Governance Dashboard | [dune.com/rickstaa/livepeer-governance-dashboard](https://dune.com/rickstaa/livepeer-governance-dashboard) |
-| Token Dashboard (Arbitrum) | [dune.com/stronk/livepeer-arbitrum](https://dune.com/stronk/livepeer-arbitrum) |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Dashboard</TableCell>
+    <TableCell header>Link</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Growth Dashboard</TableCell>
+    <TableCell>[dune.com/rickstaa/livepeer-growth-dashboard](https://dune.com/rickstaa/livepeer-growth-dashboard)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Governance Dashboard</TableCell>
+    <TableCell>[dune.com/rickstaa/livepeer-governance-dashboard](https://dune.com/rickstaa/livepeer-governance-dashboard)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Token Dashboard (Arbitrum)</TableCell>
+    <TableCell>[dune.com/stronk/livepeer-arbitrum](https://dune.com/stronk/livepeer-arbitrum)</TableCell>
+  </TableRow>
+</StyledTable>
 
 {/* REVIEW: Verify all three Dune dashboard URLs are still public and current before publication. */}
 
 These are for understanding network trends, not per-node operational monitoring.
 
----
+<CustomDivider />
 
 ## Capability Testing
 
@@ -212,25 +258,50 @@ Tools for verifying your node is correctly serving jobs end-to-end, rather than 
 
 {/* REVIEW: Confirm livepeer-ai-job-tester repo (mikezupper/livepeer-ai-job-tester) is still maintained and compatible with current AI subnet. Cloud SPE to confirm. */}
 
----
+<CustomDivider />
 
 ## Tool selection guide
 
-| Situation | Tool to reach for |
-|---|---|
-| Am I in the active set? | Livepeer Explorer → orchestrator list |
-| Did I miss any reward rounds? | Livepeer Explorer → reward call history |
-| Is my node processing jobs right now? | Prometheus `/metrics` → session count; or `-v 6` logs |
-| Why am I not receiving AI jobs? | tools.livepeer.cloud/ai/network-capabilities |
-| Is my transcoding pipeline working correctly? | stream-tester |
-| What is the network-wide inflation rate? | Dune dashboards |
-| Is my pricing competitive? | Explorer → compare your price to top 20 orchestrators |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Situation</TableCell>
+    <TableCell header>Tool to reach for</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Am I in the active set?</TableCell>
+    <TableCell>Livepeer Explorer → orchestrator list</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Did I miss any reward rounds?</TableCell>
+    <TableCell>Livepeer Explorer → reward call history</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Is my node processing jobs right now?</TableCell>
+    <TableCell>Prometheus `/metrics` → session count; or `-v 6` logs</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Why am I not receiving AI jobs?</TableCell>
+    <TableCell>tools.livepeer.cloud/ai/network-capabilities</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Is my transcoding pipeline working correctly?</TableCell>
+    <TableCell>stream-tester</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>What is the network-wide inflation rate?</TableCell>
+    <TableCell>Dune dashboards</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Is my pricing competitive?</TableCell>
+    <TableCell>Explorer → compare your price to top 20 orchestrators</TableCell>
+  </TableRow>
+</StyledTable>
 
 <CardGroup cols={2}>
-  <Card title="Livepeer Explorer Guide" icon="compass" href="/v2/orchestrators/guides/monitoring/explorer">
+  <Card title="Livepeer Explorer Guide" icon="compass" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/explorer-guide">
     Full walkthrough of every Explorer metric and what to do when things look wrong.
   </Card>
-  <Card title="Metrics and Monitoring" icon="gauge" href="/v2/orchestrators/guides/monitoring/metrics">
+  <Card title="Metrics and Monitoring" icon="gauge" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring">
     Setting up Prometheus, Grafana, and the Docker monitoring stack.
   </Card>
 </CardGroup>

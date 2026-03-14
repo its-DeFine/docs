@@ -30,11 +30,14 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 GPU memory (VRAM) is the primary constraint for AI inference operators on Livepeer. The models you can run, how many pipelines you can warm simultaneously, and how competitive you are on latency all depend on how you allocate VRAM across your workloads.
 
 This page is a practical operator reference: VRAM figures per pipeline, warm model strategy, multi-GPU patterns, and complete `aiModels.json` field documentation.
 
----
+<CustomDivider />
 
 ## VRAM by pipeline
 
@@ -44,24 +47,103 @@ These figures are production estimates based on operator deployments and communi
   "Warm VRAM" = memory occupied while the model is resident and idle. "Peak inference VRAM" = maximum VRAM during active inference, which may be higher than the idle footprint due to KV cache, activations, and output buffers.
 </Note>
 
-| Pipeline | Model | Warm VRAM | Peak inference VRAM | Notes |
-|---|---|---|---|---|
-| `text-to-image` | RealVisXL Lightning (SDXL) | ~12–14 GB | ~16–18 GB | Lightning variant leaner than full SDXL |
-| `text-to-image` | SDXL base 1.0 | ~14–16 GB | ~18–20 GB | Higher quality, slower |
-| `image-to-image` | SDXL-Lightning | ~12–14 GB | ~16–18 GB | Same architecture as text-to-image |
-| `image-to-video` | SVD XT 1.1 | ~16–20 GB | ~22–24 GB | Stable Video Diffusion |
-| `audio-to-text` | Whisper large-v3 | ~2–3 GB | ~3–4 GB | Unusually VRAM-efficient |
-| `image-to-text` | BLIP large | ~1–2 GB | ~2–3 GB | Very lightweight |
-| `segment-anything-2` | SAM2 large | ~4–6 GB | ~6–8 GB | |
-| `upscale` | SD x4 upscaler | ~6–8 GB | ~8–12 GB | Scales with output resolution |
-| `llm` | Llama 3.1 8B (Q4) | ~6–8 GB | ~8–10 GB | Via Ollama quantisation |
-| `llm` | Llama 3.1 70B (Q4) | ~35–40 GB | ~45 GB | Requires A100 80 GB or dual 40 GB |
-| `live-video-to-video` | StreamDiffusion + SD 1.5 | ~8–12 GB | ~14–18 GB | Plus 1–2 GB for frame buffers |
-| `live-video-to-video` | StreamDiffusion + SDXL | ~14–18 GB | ~20–24 GB | |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Pipeline</TableCell>
+    <TableCell header>Model</TableCell>
+    <TableCell header>Warm VRAM</TableCell>
+    <TableCell header>Peak inference VRAM</TableCell>
+    <TableCell header>Notes</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`text-to-image`</TableCell>
+    <TableCell>RealVisXL Lightning (SDXL)</TableCell>
+    <TableCell>~12–14 GB</TableCell>
+    <TableCell>~16–18 GB</TableCell>
+    <TableCell>Lightning variant leaner than full SDXL</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`text-to-image`</TableCell>
+    <TableCell>SDXL base 1.0</TableCell>
+    <TableCell>~14–16 GB</TableCell>
+    <TableCell>~18–20 GB</TableCell>
+    <TableCell>Higher quality, slower</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`image-to-image`</TableCell>
+    <TableCell>SDXL-Lightning</TableCell>
+    <TableCell>~12–14 GB</TableCell>
+    <TableCell>~16–18 GB</TableCell>
+    <TableCell>Same architecture as text-to-image</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`image-to-video`</TableCell>
+    <TableCell>SVD XT 1.1</TableCell>
+    <TableCell>~16–20 GB</TableCell>
+    <TableCell>~22–24 GB</TableCell>
+    <TableCell>Stable Video Diffusion</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`audio-to-text`</TableCell>
+    <TableCell>Whisper large-v3</TableCell>
+    <TableCell>~2–3 GB</TableCell>
+    <TableCell>~3–4 GB</TableCell>
+    <TableCell>Unusually VRAM-efficient</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`image-to-text`</TableCell>
+    <TableCell>BLIP large</TableCell>
+    <TableCell>~1–2 GB</TableCell>
+    <TableCell>~2–3 GB</TableCell>
+    <TableCell>Very lightweight</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`segment-anything-2`</TableCell>
+    <TableCell>SAM2 large</TableCell>
+    <TableCell>~4–6 GB</TableCell>
+    <TableCell>~6–8 GB</TableCell>
+    <TableCell></TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`upscale`</TableCell>
+    <TableCell>SD x4 upscaler</TableCell>
+    <TableCell>~6–8 GB</TableCell>
+    <TableCell>~8–12 GB</TableCell>
+    <TableCell>Scales with output resolution</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`llm`</TableCell>
+    <TableCell>Llama 3.1 8B (Q4)</TableCell>
+    <TableCell>~6–8 GB</TableCell>
+    <TableCell>~8–10 GB</TableCell>
+    <TableCell>Via Ollama quantisation</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`llm`</TableCell>
+    <TableCell>Llama 3.1 70B (Q4)</TableCell>
+    <TableCell>~35–40 GB</TableCell>
+    <TableCell>~45 GB</TableCell>
+    <TableCell>Requires A100 80 GB or dual 40 GB</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`live-video-to-video`</TableCell>
+    <TableCell>StreamDiffusion + SD 1.5</TableCell>
+    <TableCell>~8–12 GB</TableCell>
+    <TableCell>~14–18 GB</TableCell>
+    <TableCell>Plus 1–2 GB for frame buffers</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`live-video-to-video`</TableCell>
+    <TableCell>StreamDiffusion + SDXL</TableCell>
+    <TableCell>~14–18 GB</TableCell>
+    <TableCell>~20–24 GB</TableCell>
+    <TableCell></TableCell>
+  </TableRow>
+</StyledTable>
 
 {/* REVIEW: These VRAM figures are synthesised from community reports, HuggingFace model cards, and operator Discord data. Rick should validate against go-livepeer AI runner container actual measurements. */}
 
----
+<CustomDivider />
 
 ## GPU reference by persona
 
@@ -79,7 +161,7 @@ RTX 2060 (6 GB), RTX 3060 12 GB, RTX 2060 Super (8 GB), RTX 3060 Ti (8 GB)
 
 **Strategy for this tier:** Run `audio-to-text` and `image-to-text` warm simultaneously — both fit easily in 8 GB and together give you two income streams. Add `llm` on a separate GPU if available.
 
----
+<CustomDivider />
 
 ### Mid tier (16–20 GB VRAM)
 
@@ -95,7 +177,7 @@ RTX 3090 (24 GB, but close in practice with overheads), RTX 3080 Ti (12 GB — i
 
 **Strategy:** Warm `text-to-image` as the primary pipeline. Co-warm `audio-to-text` as a secondary — they barely overlap in VRAM. Cold-load `image-to-image` on demand.
 
----
+<CustomDivider />
 
 ### High tier (24 GB+ per GPU, multiple GPUs)
 
@@ -106,7 +188,7 @@ RTX 4090 (24 GB), A100 40/80 GB, H100 80 GB
 - A100 80 GB: can warm multiple diffusion models + run `live-video-to-video` simultaneously
 - H100: full fleet for multi-stream real-time AI at production scale
 
----
+<CustomDivider />
 
 ## Warm vs cold — when it matters
 
@@ -130,7 +212,7 @@ During the Beta phase, only **one warm model per GPU** is supported. If you set 
 
 One RTX 4090, two entries — only one can be warm:
 
-```json
+```json icon="terminal"
 [
   {
     "pipeline": "text-to-image",
@@ -150,13 +232,13 @@ One RTX 4090, two entries — only one can be warm:
 
 **Exception:** Whisper is small enough (3 GB) that co-warming alongside a diffusion model is sometimes possible without conflict — but this is hardware-dependent and not guaranteed. Monitor startup logs.
 
----
+<CustomDivider />
 
 ## Multi-GPU configuration
 
 The AI worker assigns GPU resources based on the order of entries in `aiModels.json` and available device IDs. For explicit multi-GPU assignment, use the CUDA device environment variable approach when launching containers:
 
-```bash
+```bash icon="terminal"
 # GPU 0 handles diffusion pipelines
 docker run -d --gpus '"device=0"' --name ai-runner-gpu0 ...
 
@@ -166,7 +248,7 @@ docker run -d --gpus '"device=1"' --name ai-runner-gpu1 ...
 
 For a node with RTX 4090 (GPU0) + RTX 2060 (GPU1):
 
-```json
+```json icon="terminal"
 [
   {
     "pipeline": "text-to-image",
@@ -200,7 +282,7 @@ For a node with RTX 4090 (GPU0) + RTX 2060 (GPU1):
 
 In this configuration: GPU0 handles both diffusion pipelines (warm text-to-image, cold image-to-image). GPU1 handles Whisper and LLM via external containers on its own VRAM.
 
----
+<CustomDivider />
 
 ## aiModels.json complete schema
 
@@ -208,12 +290,12 @@ Every field, its type, valid values, and behaviour:
 
 <AccordionGroup>
 
-<Accordion title="pipeline (required)">
+<Accordion  title="pipeline (required)" icon="circle-question">
 **Type:** string
 **Description:** The pipeline identifier. Must exactly match a supported pipeline name.
 
 **Valid values:**
-```
+``` icon="terminal"
 text-to-image
 image-to-image
 image-to-video
@@ -227,7 +309,7 @@ live-video-to-video
 ```
 </Accordion>
 
-<Accordion title="model_id (required)">
+<Accordion  title="model_id (required)" icon="microchip">
 **Type:** string
 **Description:** HuggingFace model ID. Case-sensitive. Must include the organisation prefix.
 
@@ -240,17 +322,17 @@ live-video-to-video
 For `llm` pipeline, use the HuggingFace ID (`meta-llama/Meta-Llama-3.1-8B-Instruct`) even though the Ollama runner uses its own internal tag format.
 </Accordion>
 
-<Accordion title="price_per_unit (required)">
+<Accordion  title="price_per_unit (required)" icon="circle-question">
 **Type:** integer or string
 **Description:** Price per unit of work.
 
 **Integer format** — value in Wei:
-```json
+```json icon="terminal"
 "price_per_unit": 4768371
 ```
 
 **USD string format** — scientific notation with USD suffix:
-```json
+```json icon="terminal"
 "price_per_unit": "0.5e-3USD",
 "currency": "USD"
 ```
@@ -259,19 +341,47 @@ When using USD notation, also set `"currency": "USD"`.
 
 **Pricing unit per pipeline:**
 
-| Pipeline | Unit |
-|---|---|
-| `text-to-image` | Per output pixel (width × height) |
-| `image-to-image` | Per output pixel |
-| `image-to-video` | Per output pixel |
-| `image-to-text` | Per input pixel |
-| `audio-to-text` | Per millisecond of audio |
-| `upscale` | Per input pixel |
-| `llm` | Custom (typically per 1M tokens) |
-| `live-video-to-video` | Per frame |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Pipeline</TableCell>
+    <TableCell header>Unit</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`text-to-image`</TableCell>
+    <TableCell>Per output pixel (width × height)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`image-to-image`</TableCell>
+    <TableCell>Per output pixel</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`image-to-video`</TableCell>
+    <TableCell>Per output pixel</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`image-to-text`</TableCell>
+    <TableCell>Per input pixel</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`audio-to-text`</TableCell>
+    <TableCell>Per millisecond of audio</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`upscale`</TableCell>
+    <TableCell>Per input pixel</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`llm`</TableCell>
+    <TableCell>Custom (typically per 1M tokens)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`live-video-to-video`</TableCell>
+    <TableCell>Per frame</TableCell>
+  </TableRow>
+</StyledTable>
 </Accordion>
 
-<Accordion title="warm (optional)">
+<Accordion  title="warm (optional)" icon="layer-group">
 **Type:** boolean
 **Default:** false
 **Description:** Preload the model into GPU VRAM at container startup.
@@ -281,32 +391,32 @@ Setting `warm: true` eliminates cold-start latency. One warm model per GPU durin
 If the model is too large for available VRAM and `warm` is true, the container will fail at model load time. Check `docker logs` for OOM messages.
 </Accordion>
 
-<Accordion title="pixels_per_unit (optional)">
+<Accordion  title="pixels_per_unit (optional)" icon="layer-group">
 **Type:** integer
 **Description:** Units of work per pricing unit. Adjusts the effective per-unit cost granularity.
 
 Used primarily with `audio-to-text` to set per-millisecond pricing:
-```json
+```json icon="terminal"
 "pixels_per_unit": 1
 ```
 
 For `llm`, sets the token count per pricing unit:
-```json
+```json icon="terminal"
 "pixels_per_unit": 1000000
 ```
 (1 pricing unit = 1 million tokens)
 </Accordion>
 
-<Accordion title="currency (optional)">
+<Accordion  title="currency (optional)" icon="layer-group">
 **Type:** string
 **Description:** Currency for `price_per_unit`. Required when using USD notation.
 
-```json
+```json icon="terminal"
 "currency": "USD"
 ```
 </Accordion>
 
-<Accordion title="url (optional)">
+<Accordion  title="url (optional)" icon="layer-group">
 **Type:** string
 **Description:** URL of an external container serving this pipeline. The AI worker treats the URL as a pass-through and polls `/health` at startup.
 
@@ -315,7 +425,7 @@ Use this for:
 - Custom inference servers
 - K8s clusters or GPU farms
 
-```json
+```json icon="terminal"
 "url": "http://llm_runner:8000"
 ```
 
@@ -324,38 +434,38 @@ The container at this URL must:
 2. Handle inference requests in the format the AI worker sends
 </Accordion>
 
-<Accordion title="token (optional)">
+<Accordion  title="token (optional)" icon="layer-group">
 **Type:** string
 **Description:** Bearer token for authenticating with the external container.
 
-```json
+```json icon="terminal"
 "token": "my-secret-token"
 ```
 </Accordion>
 
-<Accordion title="capacity (optional)">
+<Accordion  title="capacity (optional)" icon="layer-group">
 **Type:** integer
 **Default:** 1
 **Description:** Maximum concurrent inference tasks from this container. Set based on the container's actual concurrency support.
 
-```json
+```json icon="terminal"
 "capacity": 2
 ```
 
 For Ollama with multiple loaded models or hardware that supports parallel inference, increasing capacity can improve throughput.
 </Accordion>
 
-<Accordion title="optimization_flags (optional)">
+<Accordion  title="optimization_flags (optional)" icon="layer-group">
 **Type:** object
 **Description:** Performance optimisations for warm diffusion models. Applies to `text-to-image`, `image-to-image`, and `upscale` pipelines with `warm: true`.
 
 **SFAST** (Stable Fast, up to 25% speedup, no quality loss):
-```json
+```json icon="terminal"
 "optimization_flags": { "SFAST": true }
 ```
 
 **DEEPCACHE** (up to 50% speedup, minor quality impact):
-```json
+```json icon="terminal"
 "optimization_flags": { "DEEPCACHE": true }
 ```
 
@@ -366,7 +476,7 @@ For Ollama with multiple loaded models or hardware that supports parallel infere
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## Model selection and earnings
 
@@ -386,15 +496,34 @@ Use the Explorer AI leaderboard to compare your earnings against similar nodes. 
 
 ### Model selection heuristics
 
-| Goal | Model choice |
-|---|---|
-| Maximum text-to-image jobs | `SG161222/RealVisXL_V4.0_Lightning` warm |
-| Entry with 8 GB GPU | `openai/whisper-large-v3` + `Salesforce/blip-image-captioning-large` |
-| LLM income with older card | `meta-llama/Meta-Llama-3.1-8B-Instruct` via Ollama |
-| Real-time AI premium jobs | StreamDiffusion via ComfyStream |
-| Diversified single-GPU (24 GB) | `text-to-image` warm, `audio-to-text` cold, `image-to-image` cold |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Goal</TableCell>
+    <TableCell header>Model choice</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Maximum text-to-image jobs</TableCell>
+    <TableCell>`SG161222/RealVisXL_V4.0_Lightning` warm</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Entry with 8 GB GPU</TableCell>
+    <TableCell>`openai/whisper-large-v3` + `Salesforce/blip-image-captioning-large`</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>LLM income with older card</TableCell>
+    <TableCell>`meta-llama/Meta-Llama-3.1-8B-Instruct` via Ollama</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Real-time AI premium jobs</TableCell>
+    <TableCell>StreamDiffusion via ComfyStream</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Diversified single-GPU (24 GB)</TableCell>
+    <TableCell>`text-to-image` warm, `audio-to-text` cold, `image-to-image` cold</TableCell>
+  </TableRow>
+</StyledTable>
 
----
+<CustomDivider />
 
 ## Pricing strategy
 
@@ -408,13 +537,38 @@ The network is price-competitive. Setting prices too high means no jobs. Setting
 
 These figures are approximate and shift with ETH/USD rates and network competition. Use [explorer.livepeer.org](https://explorer.livepeer.org) for current market rates.
 
-| Pipeline | Indicative range (Wei) | USD equivalent |
-|---|---|---|
-| `text-to-image` | 3,000,000–8,000,000 | ~$0.0003–0.0008 per megapixel |
-| `image-to-image` | 3,000,000–8,000,000 | ~$0.0003–0.0008 per megapixel |
-| `audio-to-text` | 8,000,000–15,000,000 | ~$0.0008–0.0015 per ms |
-| `image-to-text` | 1,000,000–3,000,000 | ~$0.0001–0.0003 per megapixel |
-| `llm` | 0.1–0.3 USD | ~$0.10–0.30 per 1M tokens |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Pipeline</TableCell>
+    <TableCell header>Indicative range (Wei)</TableCell>
+    <TableCell header>USD equivalent</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`text-to-image`</TableCell>
+    <TableCell>3,000,000–8,000,000</TableCell>
+    <TableCell>~$0.0003–0.0008 per megapixel</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`image-to-image`</TableCell>
+    <TableCell>3,000,000–8,000,000</TableCell>
+    <TableCell>~$0.0003–0.0008 per megapixel</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`audio-to-text`</TableCell>
+    <TableCell>8,000,000–15,000,000</TableCell>
+    <TableCell>~$0.0008–0.0015 per ms</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`image-to-text`</TableCell>
+    <TableCell>1,000,000–3,000,000</TableCell>
+    <TableCell>~$0.0001–0.0003 per megapixel</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`llm`</TableCell>
+    <TableCell>0.1–0.3 USD</TableCell>
+    <TableCell>~$0.10–0.30 per 1M tokens</TableCell>
+  </TableRow>
+</StyledTable>
 
 {/* REVIEW: Pricing figures are illustrative and community-sourced. Alison/Rick to verify against current Explorer data before publishing. */}
 
@@ -424,7 +578,7 @@ A fully utilised RTX 4090 running `text-to-image` at competitive pricing and war
 
 For an economics illustration with current network utilisation figures, see [Orchestrator Economics](/v2/orchestrators/concepts/rcs-incentives).
 
----
+<CustomDivider />
 
 ## Hosting custom models (BYOC)
 
@@ -438,15 +592,15 @@ BYOC use cases:
 
 The only requirement is the `/health` endpoint contract and matching the AI worker's request format. See [Hosting Models (BYOC)](/v2/orchestrators/guides/advanced-operations/large-scale-operations) for the full BYOC guide.
 
----
+<CustomDivider />
 
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Batch AI Setup" icon="gears" href="/v2/orchestrators/guides/ai-workloads/batch-ai-setup">
+  <Card title="Batch AI Setup" icon="gears" href="/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup">
     Complete aiModels.json setup guide, Ollama LLM runner deployment, and pipeline configuration.
   </Card>
-  <Card title="Real-time AI Setup" icon="bolt" href="/v2/orchestrators/guides/ai-workloads/realtime-ai-setup">
+  <Card title="Real-time AI Setup" icon="bolt" href="/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup">
     Cascade architecture, ComfyStream, and live-video-to-video pipeline deployment.
   </Card>
   <Card title="Hardware Requirements" icon="server" href="/v2/orchestrators/setup/rcs-requirements">

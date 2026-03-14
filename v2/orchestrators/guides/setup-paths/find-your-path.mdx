@@ -30,17 +30,20 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 You have a GPU. Or you are thinking about getting one. Now what?
 
 There are three ways to earn on the Livepeer network with compute — and they suit very different situations. This page exists so you do not spend three hours reading the wrong docs before realising you needed a different path. Answer the questions below and you will land on the right starting point in under five minutes.
 
----
+<CustomDivider />
 
 ## Three questions to find your path
 
 <AccordionGroup>
 
-<Accordion title="1. Do you want direct control over your node?">
+<Accordion  title="1. Do you want direct control over your node?" icon="server">
 **Yes, I want to set my own prices, choose my workloads, and manage my own setup.**
 
 You want a **solo orchestrator**. You register on-chain, hold your own stake, and earn directly. This is the core Livepeer operator path. Choose between a single-machine setup (full go-livepeer) or a split setup that keeps your keystore secure on a separate machine (Siphon).
@@ -50,7 +53,7 @@ You want a **solo orchestrator**. You register on-chain, hold your own stake, an
 You want to be a **pool worker**. You do not stake LPT, you do not manage keys, and you earn via the pool operator's payout schedule. The ops lift is significantly lower. The tradeoff is you depend on the pool operator for payouts, and you cannot set your own prices. → [Join a Pool](/v2/orchestrators/guides/setup-paths/join-a-pool)
 </Accordion>
 
-<Accordion title="2. Do you have LPT to stake?">
+<Accordion  title="2. Do you have LPT to stake?" icon="coins">
 Solo orchestrators must activate on-chain by staking LPT. There is no minimum enforced by the protocol, but in practice you need enough stake to rank in the top 100 active orchestrators to receive transcoding work. The current competitive stake threshold varies — check [Livepeer Explorer](https://explorer.livepeer.org/orchestrators) for current rankings.
 
 If you do not yet have LPT, **joining a pool** is the practical entry point while you accumulate stake. You can start earning ETH for transcoding work immediately without any on-chain registration.
@@ -58,7 +61,7 @@ If you do not yet have LPT, **joining a pool** is the practical entry point whil
 {/* REVIEW: Confirm whether the "top 100 active orchestrators" limit is still current with Mehrdad/Rick. This figure appears consistently in project audit files but the protocol parameter should be verified on-chain. */}
 </Accordion>
 
-<Accordion title="3. How much operational complexity are you comfortable with?">
+<Accordion  title="3. How much operational complexity are you comfortable with?" icon="circle-question">
 **Low ops lift — I want it running with minimal ongoing management.**
 
 Start with a pool, or run a full go-livepeer node once you have stake. A single-machine go-livepeer node is the simplest solo path.
@@ -74,18 +77,49 @@ Contact the Livepeer Foundation directly for enterprise onboarding support.
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## The four paths at a glance
 
-| Path | Who it suits | Stake required | Ops lift | Start here |
-|---|---|---|---|---|
-| **Pool worker** | GPU owner wanting passive income; no protocol ops | No | Low | [Join a Pool →](/v2/orchestrators/guides/setup-paths/join-a-pool) |
-| **Solo orchestrator** | Single machine, full control, comfortable with ops | Yes | Medium | [Setup Guide →](/v2/orchestrators/setup/guide) |
-| **Split setup (Siphon)** | Reward safety + key isolation; scale GPU machines independently | Yes | Medium | [Siphon Setup →](/v2/orchestrators/guides/setup-paths/siphon-setup) |
-| **Enterprise / fleet** | Data centre, multi-node, commercial scale | Yes | High | [Contact Livepeer Foundation →](https://livepeer.org/contact) |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Path</TableCell>
+    <TableCell header>Who it suits</TableCell>
+    <TableCell header>Stake required</TableCell>
+    <TableCell header>Ops lift</TableCell>
+    <TableCell header>Start here</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Pool worker**</TableCell>
+    <TableCell>GPU owner wanting passive income; no protocol ops</TableCell>
+    <TableCell>No</TableCell>
+    <TableCell>Low</TableCell>
+    <TableCell>[Join a Pool →](/v2/orchestrators/guides/setup-paths/join-a-pool)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Solo orchestrator**</TableCell>
+    <TableCell>Single machine, full control, comfortable with ops</TableCell>
+    <TableCell>Yes</TableCell>
+    <TableCell>Medium</TableCell>
+    <TableCell>[Setup Guide →](/v2/orchestrators/setup/guide)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Split setup (Siphon)**</TableCell>
+    <TableCell>Reward safety + key isolation; scale GPU machines independently</TableCell>
+    <TableCell>Yes</TableCell>
+    <TableCell>Medium</TableCell>
+    <TableCell>[Siphon Setup →](/v2/orchestrators/guides/setup-paths/siphon-setup)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Enterprise / fleet**</TableCell>
+    <TableCell>Data centre, multi-node, commercial scale</TableCell>
+    <TableCell>Yes</TableCell>
+    <TableCell>High</TableCell>
+    <TableCell>[Contact Livepeer Foundation →](https://livepeer.org/contact)</TableCell>
+  </TableRow>
+</StyledTable>
 
----
+<CustomDivider />
 
 ## Solo vs pool vs Siphon: what actually differs
 
@@ -119,7 +153,7 @@ It helps to understand what each setup controls before choosing.
 
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Choosing your workload type
 
@@ -152,17 +186,38 @@ Running both transcoding and AI inference on the same node is supported and comm
 
 **Workload quick reference:**
 
-| Workload | Min hardware | Pricing | Selection by gateway |
-|---|---|---|---|
-| Video transcoding | Any NVENC-capable NVIDIA GPU | Wei per pixel; must be below gateway's `-maxPricePerUnit` | Stake + price + performance score |
-| Batch AI inference | 4–24 GB VRAM depending on pipeline | Wei per pixel or per request; must be within gateway's capability price range | Capability match + price (`-maxPricePerCapability`) |
-| Real-time AI (live-video-to-video) | 8 GB+ VRAM | Per-interval during stream; price advertised per capability | Capability match + latency |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Workload</TableCell>
+    <TableCell header>Min hardware</TableCell>
+    <TableCell header>Pricing</TableCell>
+    <TableCell header>Selection by gateway</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Video transcoding</TableCell>
+    <TableCell>Any NVENC-capable NVIDIA GPU</TableCell>
+    <TableCell>Wei per pixel; must be below gateway's `-maxPricePerUnit`</TableCell>
+    <TableCell>Stake + price + performance score</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Batch AI inference</TableCell>
+    <TableCell>4–24 GB VRAM depending on pipeline</TableCell>
+    <TableCell>Wei per pixel or per request; must be within gateway's capability price range</TableCell>
+    <TableCell>Capability match + price (`-maxPricePerCapability`)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Real-time AI (live-video-to-video)</TableCell>
+    <TableCell>8 GB+ VRAM</TableCell>
+    <TableCell>Per-interval during stream; price advertised per capability</TableCell>
+    <TableCell>Capability match + latency</TableCell>
+  </TableRow>
+</StyledTable>
 
 <Tip>
 Gateways filter orchestrators by price before routing work. For video transcoding, your `-pricePerUnit` must be at or below the gateway's `-maxPricePerUnit`. For AI, each capability has its own price ceiling configured on the gateway. If your prices are too high for current market rates, you will not receive work even if your hardware is competitive. Check [Configure Pricing](/v2/orchestrators/setup/r-configure) before going live.
 </Tip>
 
----
+<CustomDivider />
 
 ## The full decision tree
 
@@ -185,7 +240,7 @@ flowchart TD
     POOL --> DONE["Follow pool\noperator instructions"]
 ```
 
----
+<CustomDivider />
 
 ## Where to go from here
 

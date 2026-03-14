@@ -31,6 +31,9 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 Errors are grouped by category. Use the index below to jump straight to what you are seeing, or read through the category that matches your situation.
 
 **Quick navigation:**
@@ -43,13 +46,13 @@ Errors are grouped by category. Use the index below to jump straight to what you
 - [Account and keystore errors](#account-and-keystore-errors)
 - [General diagnostics](#general-diagnostics)
 
----
+<CustomDivider />
 
 ## Transcoding errors
 
 <AccordionGroup>
 
-<Accordion title="OrchestratorCapped — node not accepting work">
+<Accordion  title="OrchestratorCapped — node not accepting work" icon="server">
 **What it means:** Your orchestrator has reached its session limit and is rejecting new work from gateways.
 
 **Where you see it:** Gateway logs (not your orchestrator logs) report this error when they try to send you a job.
@@ -57,7 +60,7 @@ Errors are grouped by category. Use the index below to jump straight to what you
 **How to fix it:**
 
 1. Check your current session count against your configured limit:
-   ```bash
+   ```bash icon="terminal"
    curl http://localhost:7935/status | jq '.SessionLimit'
    ```
 2. If you have spare GPU capacity, increase `-maxSessions` in your launch command
@@ -67,25 +70,25 @@ Errors are grouped by category. Use the index below to jump straight to what you
 See [Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-limits) for the full calculation methodology.
 </Accordion>
 
-<Accordion title="Transcode loop timed out / Segment loop timed out">
+<Accordion  title="Transcode loop timed out / Segment loop timed out" icon="video">
 **What it means:** A session that was previously processing a stream was cleaned up because no new segments arrived for a while.
 
 **This is normal.** These messages appear when a live stream ends or pauses. They are not errors and do not indicate a problem with your node. You can safely ignore them.
 </Accordion>
 
-<Accordion title="MB rate > Level limit warning">
+<Accordion  title="MB rate > Level limit warning" icon="circle-question">
 **What it means:** The source video segment being transcoded has a bitrate that exceeds the H.264 level limit for its resolution. See the [H.264 levels reference](https://en.wikipedia.org/wiki/Advanced_Video_Coding#Levels) for technical detail.
 
 **In practice:** This warning usually does not prevent transcoding from completing. As long as transcoding finishes and results are returned to the gateway, your node is operating normally. If you are seeing a high rate of these warnings combined with transcoding failures, check the source segment properties — but this is a gateway or broadcaster issue, not an orchestrator issue.
 </Accordion>
 
-<Accordion title="Unable to transcode errors">
+<Accordion  title="Unable to transcode errors" icon="video">
 **What it means:** A source video segment has properties that prevent it from being processed — unsupported codec, unusual encoding parameters, or a corrupt segment.
 
 **Your action:** None required. This is a gateway or broadcaster responsibility. The gateway is sending segments that the Livepeer network cannot process. Your node correctly rejects them. If you are seeing a large volume of these errors from one gateway, consider flagging it in the community Discord.
 </Accordion>
 
-<Accordion title="Unsupported input pixel format">
+<Accordion  title="Unsupported input pixel format" icon="link">
 **What it means:** The source video uses a pixel format that go-livepeer cannot transcode. go-livepeer requires YUV 4:2:0 (planar or interleaved) input format. Any other pixel format returns this error.
 
 **Your action:** None. The broadcaster submitted an unsupported format. There is nothing an orchestrator can do to transcode an unsupported pixel format.
@@ -93,13 +96,13 @@ See [Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-l
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## GPU and memory errors
 
 <AccordionGroup>
 
-<Accordion title="Cannot allocate memory (on startup with -nvidia flag)">
+<Accordion  title="Cannot allocate memory (on startup with -nvidia flag)" icon="triangle-exclamation">
 **What it means:** go-livepeer runs a GPU test on startup to verify it can encode and decode using your NVIDIA GPU. This error means the test failed because your GPU has already reached its maximum concurrent NVENC/NVDEC session count.
 
 **Consumer NVIDIA GPU session limits:** Most consumer NVIDIA GPUs (GTX/RTX series) have a hardware-enforced limit of 3–8 concurrent NVENC sessions per GPU. If other processes have those sessions open, go-livepeer's startup test cannot allocate one and fails.
@@ -114,7 +117,7 @@ See [Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-l
 {/* REVIEW: Confirm whether the Ada Lovelace (RTX 40xx) generation removed the NVENC session cap, or whether patching is still required. Rick to verify current driver state. */}
 </Accordion>
 
-<Accordion title="CUDA out of memory (AI inference)">
+<Accordion  title="CUDA out of memory (AI inference)" icon="microchip">
 **What it means:** Your GPU ran out of VRAM while trying to load or run a model.
 
 **How to fix it:**
@@ -123,10 +126,10 @@ See [Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-l
 3. If you have multiple warm models loaded, consider making some cold (remove from warm list) to free VRAM for others
 4. Check whether you have set dimensions in your inference requests that exceed what your VRAM can handle
 
-See [Model VRAM Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware#ai-vram-requirements) for per-pipeline minimums.
+See [Model VRAM Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference#batch-ai-inference) for per-pipeline minimums.
 </Accordion>
 
-<Accordion title="Node not using GPU for transcoding despite -nvidia flag">
+<Accordion  title="Node not using GPU for transcoding despite -nvidia flag" icon="server">
 **What it means:** go-livepeer is falling back to CPU transcoding even though you specified `-nvidia`.
 
 **Checklist:**
@@ -140,13 +143,13 @@ From `go-livepeer/doc/gpu.md`: if the CUDA location differs from `/usr/local/cud
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## Reward and gas errors
 
 <AccordionGroup>
 
-<Accordion title="insufficient funds for gas * price + value">
+<Accordion  title="insufficient funds for gas * price + value" icon="circle-question">
 **What it means:** Your node tried to submit a transaction (reward call, ticket redemption, or other on-chain action) but your ETH wallet does not have enough ETH to cover gas.
 
 **How to fix it:**
@@ -157,7 +160,7 @@ From `go-livepeer/doc/gpu.md`: if the CUDA location differs from `/usr/local/cud
 Arbitrum gas is very cheap — reward calls cost approximately $0.01–$0.12 each. Wallet depletion typically happens either from a price spike in ETH or from high-volume ticket redemptions.
 </Accordion>
 
-<Accordion title="Node still calling reward despite -reward=false">
+<Accordion  title="Node still calling reward despite -reward=false" icon="server">
 **What it means:** You set `-reward=false` but your node is still submitting reward transactions and spending gas.
 
 **Why this happens:** If you are running the orchestrator and transcoder as separate processes (split setup), `-reward=false` must be set in **every** launch command. A transcoder process running with the same Ethereum wallet and a separate config may be calling reward independently.
@@ -169,7 +172,7 @@ Arbitrum gas is very cheap — reward calls cost approximately $0.01–$0.12 eac
 4. If using a `.conf` file for configuration, the command-line flag overrides the file — always pass `-reward=false` explicitly at launch, not just in the config file.
 </Accordion>
 
-<Accordion title="Missing reward rounds despite -reward=true">
+<Accordion  title="Missing reward rounds despite -reward=true" icon="coins">
 **What it means:** Your orchestrator is running and you have not set `-reward=false`, but the Explorer shows missed rounds.
 
 **Diagnose in order:**
@@ -180,7 +183,7 @@ Arbitrum gas is very cheap — reward calls cost approximately $0.01–$0.12 eac
 For persistent missed rounds, consider the [Siphon split setup](/v2/orchestrators/guides/setup-paths/siphon-setup) which runs reward calling on a dedicated stable machine independently of your GPU workload.
 </Accordion>
 
-<Accordion title="TicketParams expired">
+<Accordion  title="TicketParams expired" icon="circle-question">
 **What it means:** A gateway sent a payment ticket with parameters that have expired by the time your node processed it.
 
 **Cause:** A delay between when the gateway retrieved your orchestrator info and when it sent the segment, or a delay in your node polling L1 blocks for expiry validation.
@@ -190,24 +193,45 @@ For persistent missed rounds, consider the [Siphon split setup](/v2/orchestrator
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## AI runner errors
 
 <AccordionGroup>
 
-<Accordion title="AI runner container not starting">
+<Accordion  title="AI runner container not starting" icon="microchip">
 **Common causes and fixes:**
 
-| Cause | How to confirm | Fix |
-|---|---|---|
-| Wrong Docker image tag | `docker logs livepeer-ai-runner` shows image pull error | Use the correct versioned tag from `aiModels.json` documentation |
-| VRAM insufficient | `docker logs livepeer-ai-runner` shows CUDA OOM at startup | Reduce loaded models, free VRAM, or check minimum requirements |
-| NVIDIA Container Toolkit missing | `docker run --gpus all nvidia/cuda:11.0-base nvidia-smi` fails | Install `nvidia-container-toolkit` — see [Hardware Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware#nvidia-container-toolkit) |
-| Docker not in GPU mode | Container starts but no GPU visible inside | Pass `--gpus all` or `--gpus device=<id>` in docker run |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Cause</TableCell>
+    <TableCell header>How to confirm</TableCell>
+    <TableCell header>Fix</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Wrong Docker image tag</TableCell>
+    <TableCell>`docker logs livepeer-ai-runner` shows image pull error</TableCell>
+    <TableCell>Use the correct versioned tag from `aiModels.json` documentation</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>VRAM insufficient</TableCell>
+    <TableCell>`docker logs livepeer-ai-runner` shows CUDA OOM at startup</TableCell>
+    <TableCell>Reduce loaded models, free VRAM, or check minimum requirements</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>NVIDIA Container Toolkit missing</TableCell>
+    <TableCell>`docker run --gpus all nvidia/cuda:11.0-base nvidia-smi` fails</TableCell>
+    <TableCell>Install `nvidia-container-toolkit` — see [Hardware Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference#driver-requirements)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Docker not in GPU mode</TableCell>
+    <TableCell>Container starts but no GPU visible inside</TableCell>
+    <TableCell>Pass `--gpus all` or `--gpus device=<id>` in docker run</TableCell>
+  </TableRow>
+</StyledTable>
 </Accordion>
 
-<Accordion title="Wrong model ID — model fails to load">
+<Accordion  title="Wrong model ID — model fails to load" icon="microchip">
 **What it means:** The model ID in your `aiModels.json` does not resolve to a real model.
 
 Model IDs are **case-sensitive** and must include the organisation prefix. For example:
@@ -218,7 +242,7 @@ Model IDs are **case-sensitive** and must include the organisation prefix. For e
 Ollama-based LLM models use a different format — do not use Ollama model tags (`llama3:8b`) in `aiModels.json`. Use the HuggingFace model ID format instead.
 </Accordion>
 
-<Accordion title="AI pipeline registered but receiving no jobs">
+<Accordion  title="AI pipeline registered but receiving no jobs" icon="microchip">
 **Diagnose in order:**
 
 1. **Not in active set** — check [Livepeer Explorer](https://explorer.livepeer.org/orchestrators). If you are not in the top 100 by stake, you receive no transcoding or AI jobs.
@@ -227,7 +251,7 @@ Ollama-based LLM models use a different format — do not use Ollama model tags 
 4. **Capability not registered** — query your node's registered capabilities: `curl http://localhost:7935/getNetworkCapabilities | jq`. If the pipeline is missing, check your `aiModels.json` configuration and that the AI runner started successfully.
 </Accordion>
 
-<Accordion title="OOM during AI inference (job starts, then fails)">
+<Accordion  title="OOM during AI inference (job starts, then fails)" icon="microchip">
 **What it means:** The inference job started (model was loaded), but ran out of VRAM during processing — typically because output dimensions (resolution, frame count) exceed what your VRAM can hold during the forward pass.
 
 **How to fix it:**
@@ -238,17 +262,17 @@ Ollama-based LLM models use a different format — do not use Ollama model tags 
 {/* REVIEW: Confirm whether go-livepeer/ai-runner supports per-pipeline dimension limits, and whether orchestrators can reject oversize requests. Rick / Peter to confirm. */}
 </Accordion>
 
-<Accordion title="ComfyStream container failing (real-time AI)">
+<Accordion  title="ComfyStream container failing (real-time AI)" icon="microchip">
 **Checklist:**
 1. Model weights are downloaded and accessible at the path configured in your ComfyStream setup
 2. CUDA toolkit version matches what the container expects — check `nvidia-smi` for your driver version and confirm container CUDA compatibility
 3. The container has sufficient VRAM for the workflow — real-time streaming requires the model to remain resident during the stream
 4. Check container logs for the specific Python exception: `docker logs -f <comfystream-container>`
 
-See [Real-Time AI Setup](/v2/orchestrators/setup/realtime-ai-setup#troubleshooting) for ComfyStream-specific troubleshooting.
+See [Real-Time AI Setup](/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup#troubleshooting) for ComfyStream-specific troubleshooting.
 </Accordion>
 
-<Accordion title="LLM pipeline (Ollama) not receiving jobs">
+<Accordion  title="LLM pipeline (Ollama) not receiving jobs" icon="microchip">
 **Checklist:**
 1. Verify Ollama container is running and accessible: `curl http://localhost:11434/api/version`
 2. Confirm go-livepeer can reach the Ollama endpoint (Docker networking — if both are in containers, they may need to be on the same Docker network)
@@ -258,15 +282,15 @@ See [Real-Time AI Setup](/v2/orchestrators/setup/realtime-ai-setup#troubleshooti
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## Networking and connectivity
 
 <AccordionGroup>
 
-<Accordion title="Service address mismatch warning at startup">
+<Accordion  title="Service address mismatch warning at startup" icon="link">
 **Error:**
-```
+``` icon="terminal"
 Service address https://127.0.0.1:4433 did not match discovered address https://121.5.10.8:8935;
 set the correct address in livepeer_cli or use -serviceAddr
 ```
@@ -279,10 +303,10 @@ set the correct address in livepeer_cli or use -serviceAddr
 3. Confirm your node is actually reachable at that address: `curl -v https://<your-service-uri>:8935/status`
 </Accordion>
 
-<Accordion title="Node not receiving any jobs despite being in active set">
+<Accordion  title="Node not receiving any jobs despite being in active set" icon="server">
 **Full diagnostic checklist:**
 
-```bash
+```bash icon="terminal"
 # 1. Check your service URI is reachable from outside
 curl -v https://<your-service-uri>:8935/status
 
@@ -299,7 +323,7 @@ curl http://localhost:7935/getNetworkCapabilities | jq
 If step 1 times out or refuses connection: port 8935 is not reachable from the internet. Check your firewall rules and, if behind a NAT, configure port forwarding.
 </Accordion>
 
-<Accordion title="Running behind a NAT or home router">
+<Accordion  title="Running behind a NAT or home router" icon="link">
 **The situation:** Gateways reach orchestrators via the public IP registered on-chain. If your machine is behind a NAT, the public IP points to your router, not directly to your node.
 
 **Options:**
@@ -307,7 +331,7 @@ If step 1 times out or refuses connection: port 8935 is not reachable from the i
 - **DMZ** — place your node in the router's DMZ to receive all unsolicited inbound traffic. Less secure but simpler.
 - **Hairpinning (if needed)** — some networks require iptables rules to handle internal-to-external traffic loops:
 
-  ```bash
+  ```bash icon="terminal"
   # Allow internal traffic to reach the node via the external IP
   iptables -t nat -A POSTROUTING -p tcp -s 10.0.0.10 -d 10.0.0.10 -j SNAT --to-source <EXTERNAL_IP>
   ```
@@ -317,7 +341,7 @@ If step 1 times out or refuses connection: port 8935 is not reachable from the i
 </Warning>
 </Accordion>
 
-<Accordion title="What is the service URI — can it be a hostname?">
+<Accordion  title="What is the service URI — can it be a hostname?" icon="circle-question">
 Your service URI is the address gateways use to connect to your node. It must be publicly accessible on port 8935.
 
 - **IP address:** `https://121.5.10.8:8935` — static IPs are preferred for consistency
@@ -328,17 +352,17 @@ The URI is stored on-chain via the Livepeer protocol. You register it during set
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## Account and keystore errors
 
 <AccordionGroup>
 
-<Accordion title="Error creating Ethereum account manager">
+<Accordion  title="Error creating Ethereum account manager" icon="triangle-exclamation">
 **What it means:** go-livepeer could not find or load your Ethereum account. This usually means the keystore file is in the wrong location, has incorrect permissions, or the wrong network is specified.
 
 **Keystore default location:**
-```
+``` icon="terminal"
 ~/.lpData/<network>/keystore/
 ```
 
@@ -357,13 +381,13 @@ For Arbitrum mainnet: `~/.lpData/arbitrum-one-mainnet/keystore/`
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## General diagnostics
 
 ### How to confirm your node is receiving work
 
-```bash
+```bash icon="terminal"
 # Check current session count
 curl http://localhost:7935/status | jq
 
@@ -378,7 +402,7 @@ tail -f /var/log/livepeer/livepeer.log
 
 ### How to capture logs to a file
 
-```bash
+```bash icon="terminal"
 livepeer \
   -orchestrator \
   -transcoder \
@@ -390,7 +414,7 @@ This pipes both stdout and stderr to both the terminal and the log file simultan
 
 ### Checking node status via CLI port
 
-```bash
+```bash icon="terminal"
 # Node status
 curl http://localhost:7935/status | jq
 
@@ -401,7 +425,7 @@ curl http://localhost:7935/getNetworkCapabilities | jq
 curl http://localhost:7935/metrics
 ```
 
----
+<CustomDivider />
 
 ## Not finding your error here?
 
@@ -412,10 +436,10 @@ curl http://localhost:7935/metrics
   <Card title="go-livepeer GitHub Issues" icon="github" href="https://github.com/livepeer/go-livepeer/issues">
     Search open and closed issues for your error message. Many edge cases are documented here.
   </Card>
-  <Card title="Metrics and Monitoring" icon="gauge" href="/v2/orchestrators/guides/monitoring/metrics">
+  <Card title="Metrics and Monitoring" icon="gauge" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring">
     Set up Prometheus to see what is happening inside your node before errors surface.
   </Card>
-  <Card title="Explorer Guide" icon="compass" href="/v2/orchestrators/guides/monitoring/explorer">
+  <Card title="Explorer Guide" icon="compass" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/explorer-guide">
     Read your on-chain state — stake, reward calls, earnings — to spot issues from the outside.
   </Card>
 </CardGroup>

@@ -23,6 +23,8 @@ status: draft
 lastVerified: 2026-03-12
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+
 Use this page to decide whether Livepeer orchestration fits your hardware, time, and operating model before you start setup.
 
 ## 1. Should you run an orchestrator?
@@ -36,7 +38,7 @@ You are likely a fit if all of the following are true:
 You are likely better off joining a pool if you want GPU earnings without staking, protocol operations, or public service management.
 
 <CardGroup cols={2}>
-  <Card title="Join a pool instead" icon="users" href="/v2/orchestrators/guides/join-a-pool" arrow>
+  <Card title="Join a pool instead" icon="users" href="/v2/orchestrators/guides/setup-paths/join-a-pool" arrow>
     Use an existing operator if you want lower setup overhead and no direct protocol management.
   </Card>
   <Card title="Run your own node" icon="microchip" href="/v2/orchestrators/setup/guide" arrow>
@@ -46,20 +48,37 @@ You are likely better off joining a pool if you want GPU earnings without stakin
 
 ## 2. Pool vs Solo
 
-| Path | Best for | Tradeoff |
-| --- | --- | --- |
-| Pool joiner | Single GPU owners, low-ops participation | Less control over payouts, pricing, and visibility |
-| Solo operator | Operators who want direct control and public network presence | More setup, more responsibility, requires sustained operations |
-| Enterprise / fleet | Hosted or multi-node operators | Highest operational lift and process complexity |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Path</TableCell>
+    <TableCell header>Best for</TableCell>
+    <TableCell header>Tradeoff</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Pool joiner</TableCell>
+    <TableCell>Single GPU owners, low-ops participation</TableCell>
+    <TableCell>Less control over payouts, pricing, and visibility</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Solo operator</TableCell>
+    <TableCell>Operators who want direct control and public network presence</TableCell>
+    <TableCell>More setup, more responsibility, requires sustained operations</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Enterprise / fleet</TableCell>
+    <TableCell>Hosted or multi-node operators</TableCell>
+    <TableCell>Highest operational lift and process complexity</TableCell>
+  </TableRow>
+</StyledTable>
 
 <CardGroup cols={3}>
-  <Card title="Pool joiner path" icon="swimming-pool" href="/v2/orchestrators/guides/join-a-pool" arrow>
+  <Card title="Pool joiner path" icon="swimming-pool" href="/v2/orchestrators/guides/setup-paths/join-a-pool" arrow>
     Start here if you want the simplest way to contribute GPU capacity.
   </Card>
   <Card title="Solo operator path" icon="server" href="/v2/orchestrators/setup/guide" arrow>
     Start here if you want the default go-livepeer setup path.
   </Card>
-  <Card title="Enterprise callout" icon="building" href="/v2/orchestrators/operations/p-fleet-ops" arrow>
+  <Card title="Enterprise callout" icon="building" href="/v2/orchestrators/guides/advanced-operations/large-scale-operations" arrow>
     Use the fleet path for data-centre, managed, or multi-region operations.
   </Card>
 </CardGroup>
@@ -72,7 +91,7 @@ Choose the workload path before you optimize hardware, pricing, or runtime choic
   <Card title="Video operator path" icon="film" href="/v2/orchestrators/setup/guide" arrow>
     Use the default GPU setup and video-first quickstart path for transcoding-focused operations.
   </Card>
-  <Card title="AI operator path" icon="microchip-ai" href="/v2/orchestrators/operations/rc-ai-pipelines" arrow>
+  <Card title="AI operator path" icon="microchip-ai" href="/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide" arrow>
     Use AI Pipelines if you plan to run inference, model-serving, or workflow-specific GPU workloads.
   </Card>
 </CardGroup>
@@ -82,16 +101,16 @@ Choose the workload path before you optimize hardware, pricing, or runtime choic
 This is the feasibility layer for deciding whether the operator path is worth pursuing.
 
 <CardGroup cols={2}>
-  <Card title="Feasibility" icon="scale-balanced" href="/v2/orchestrators/operations/p-feasibility" arrow>
+  <Card title="Feasibility" icon="scale-balanced" href="/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics" arrow>
     Review worth-it, competitiveness, and capacity before you commit hardware or stake.
   </Card>
-  <Card title="Earnings" icon="coins" href="/v2/orchestrators/operations/earnings" arrow>
+  <Card title="Earnings" icon="coins" href="/v2/orchestrators/guides/staking-and-rewards/earnings" arrow>
     Understand the difference between fee revenue and inflation rewards.
   </Card>
-  <Card title="Staking and delegation" icon="diagram-project" href="/v2/orchestrators/operations/rcs-staking-delegation" arrow>
+  <Card title="Staking and delegation" icon="diagram-project" href="/v2/orchestrators/guides/staking-and-rewards/attracting-delegates" arrow>
     Review self-stake, delegated stake, and what changes video work eligibility.
   </Card>
-  <Card title="Rewards and fees" icon="wallet" href="/v2/orchestrators/operations/rs-rewards-and-fees" arrow>
+  <Card title="Rewards and fees" icon="wallet" href="/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees" arrow>
     Understand commission settings, fee share, and operator economics.
   </Card>
 </CardGroup>
@@ -101,19 +120,40 @@ This is the feasibility layer for deciding whether the operator path is worth pu
 If you plan to attract stake, manage external workers, or run a pool, use these pages before you optimize scaling.
 
 <CardGroup cols={2}>
-  <Card title="Delegates and rewards" icon="users" href="/v2/orchestrators/operations/rcs-staking-delegation" arrow>
+  <Card title="Delegates and rewards" icon="users" href="/v2/orchestrators/guides/staking-and-rewards/attracting-delegates" arrow>
     Review delegation mechanics, reward exposure, and delegator expectations.
   </Card>
-  <Card title="Running a pool" icon="network-wired" href="/v2/orchestrators/guides/r-run-a-pool" arrow>
+  <Card title="Running a pool" icon="network-wired" href="/v2/orchestrators/guides/advanced-operations/run-a-pool" arrow>
     Review worker architecture, operator responsibilities, and payout realities.
   </Card>
 </CardGroup>
 
 ## Path Matrix
 
-| If you are... | Start here | Then continue to |
-| --- | --- | --- |
-| A pool joiner | `/guides/join-a-pool` | `/resources/community-pools` |
-| A solo video operator | `/quickstart/guide` | `/setup/guide` |
-| An AI-first operator | `/operations/rc-ai-pipelines` | `/operations/p-realtime-vs-batch` |
-| A fleet or enterprise operator | `/operations/p-fleet-ops` | `/operations/guide` |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>If you are...</TableCell>
+    <TableCell header>Start here</TableCell>
+    <TableCell header>Then continue to</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>A pool joiner</TableCell>
+    <TableCell>`/guides/join-a-pool`</TableCell>
+    <TableCell>`/resources/community-pools`</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>A solo video operator</TableCell>
+    <TableCell>`/quickstart/guide`</TableCell>
+    <TableCell>`/setup/guide`</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>An AI-first operator</TableCell>
+    <TableCell>`/operations/rc-ai-pipelines`</TableCell>
+    <TableCell>`/operations/p-realtime-vs-batch`</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>A fleet or enterprise operator</TableCell>
+    <TableCell>`/operations/p-fleet-ops`</TableCell>
+    <TableCell>`/operations/guide`</TableCell>
+  </TableRow>
+</StyledTable>

@@ -38,7 +38,7 @@ import { CenteredContainer } from '/snippets/components/layout/containers.jsx'
   <Tip>Orchestrators are general-purpose GPU compute providers. They transcode video, run AI inference, serve LLMs, process real-time AI video, and execute custom containers - all while earning LPT rewards and ETH fees.</Tip>
 </CenteredContainer>
 
----
+<CustomDivider />
 
 This page covers what orchestrators can do. For what an orchestrator *is*, see [Role](/v2/orchestrators/concepts/role). For how it works internally, see [Architecture](/v2/orchestrators/concepts/architecture).
 
@@ -140,7 +140,7 @@ You configure **reward cut** and **fee cut** percentages to determine how reward
 
 Orchestrators vote on **Livepeer Improvement Proposals (LIPs)** that change protocol parameters, add new features, or alter network economics. Your voting weight is proportional to your total stake, making high-stake orchestrators influential governance actors.
 
-See <LinkArrow href="/v2/orchestrators/guides/delegates-voting-pools" label="Delegates and Voting" newline={false} />.
+See <LinkArrow href="/v2/orchestrators/guides/staking-and-rewards/governance" label="Delegates and Voting" newline={false} />.
 
 ### Reward calls
 
@@ -153,21 +153,21 @@ Once per round (~24 hours), your node calls `reward()` on the Arbitrum smart con
 The workloads you can offer depend on your hardware and goals.
 
 <Tabs>
-  <Tab title="Consumer GPU (8-12GB)">
+  <Tab  title="Consumer GPU (8-12GB)" icon="server">
     - **Transcoding** - always available, no VRAM minimum
     - **LLM inference** - quantised 7-8B models fit in 8GB
     - **Lightweight AI** - `image-to-text` (4GB), `segment-anything-2` (6GB)
 
     Best for: hobbyists, passive income, older GPUs
   </Tab>
-  <Tab title="Mid-range GPU (16GB)">
+  <Tab  title="Mid-range GPU (16GB)" icon="server">
     - Everything above, plus:
     - **Batch AI** - audio-to-text, image-to-image, and more pipelines
     - **Real-time AI** - lightweight ComfyStream workflows
 
     Best for: serious operators entering the AI subnet
   </Tab>
-  <Tab title="High-end GPU (24GB+)">
+  <Tab  title="High-end GPU (24GB+)" icon="server">
     - Everything above, plus:
     - **Full AI suite** - text-to-image (SDXL), image-to-video
     - **Production real-time AI** - style transfer, avatar workflows

@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-14T17:21:43.863Z",
+  "generated": "2026-03-14T20:38:40.512Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/portal",
@@ -27,7 +27,7 @@
       "apiEndpoints": [],
       "difficulty": "intermediate",
       "wordCount": 175,
-      "lastVerified": "2026-03-12T17:19:13+11:00",
+      "lastVerified": "2026-03-12T19:09:38+11:00",
       "headings": [
         {
           "level": 2,
@@ -369,49 +369,83 @@
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/concepts/rcs-incentives",
-      "title": "Orchestrator Participation Model",
-      "description": "Understand orchestrator revenue, costs, staking, fees, and incentives across Livepeer network participation.",
+      "title": "Orchestrator Economics and Incentives",
+      "description": "Understand how orchestrators earn revenue, what it costs to operate, the stake-for-access model, and why operators participate in the Livepeer network.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
         "orchestrators",
-        "about-orchestrators",
         "orchestrator-economics",
-        "orchestrator",
-        "economics",
-        "concepts",
-        "rcs-incentives"
+        "orchestrator-incentives",
+        "lpt-rewards",
+        "eth-fees",
+        "staking",
+        "stake-for-access",
+        "delegation",
+        "reward-cut",
+        "fee-cut",
+        "gpu-earnings"
       ],
       "entities": [
         "orchestrator"
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 289,
-      "lastVerified": "2026-03-11T16:33:09+11:00",
+      "wordCount": 927,
+      "lastVerified": "2026-03-14T00:16:25+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "Overview"
+          "text": "Stake-for-access"
         },
         {
           "level": 2,
-          "text": "Orchestrator Economics"
+          "text": "How orchestrators earn"
+        },
+        {
+          "level": 3,
+          "text": "Protocol rewards (LPT)"
+        },
+        {
+          "level": 3,
+          "text": "Service fees (ETH)"
         },
         {
           "level": 2,
-          "text": "Revenue Streams"
+          "text": "What it costs to operate"
         },
         {
-          "level": 4,
-          "text": "Protocol rewards"
+          "level": 3,
+          "text": "Financial costs"
         },
         {
-          "level": 4,
-          "text": "Service fees"
+          "level": 3,
+          "text": "Operational costs"
+        },
+        {
+          "level": 2,
+          "text": "How earnings are shared with delegators"
+        },
+        {
+          "level": 2,
+          "text": "Why run an orchestrator?"
+        },
+        {
+          "level": 3,
+          "text": "Direct financial incentives"
+        },
+        {
+          "level": 3,
+          "text": "Strategic and non-financial incentives"
+        },
+        {
+          "level": 2,
+          "text": "Related Pages"
         }
       ],
-      "codeLanguages": []
+      "codeLanguages": [
+        "mermaid"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/dep-x-setup-paths",
@@ -470,8 +504,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 609,
-      "lastVerified": "2026-03-11T16:33:09+11:00",
+      "wordCount": 558,
+      "lastVerified": "2026-03-14T00:16:25+11:00",
       "headings": [
         {
           "level": 2,
@@ -720,8 +754,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 362,
-      "lastVerified": "2026-03-13T04:51:59+11:00",
+      "wordCount": 359,
+      "lastVerified": "2026-03-13T05:22:51+11:00",
       "headings": [
         {
           "level": 2,
@@ -846,8 +880,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 1390,
-      "lastVerified": "2026-03-11T16:33:09+11:00",
+      "wordCount": 1328,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
       "headings": [
         {
           "level": 2,
@@ -881,7 +915,7 @@
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/sc-connect",
-      "title": "Connecting to the Livepeer Newtwork on Arbitrum",
+      "title": "Connecting to the Livepeer Network on Arbitrum",
       "description": "Connect go-livepeer to the Arbitrum network using a hosted or self-hosted RPC endpoint — required for staking, activation, and payments.",
       "section": "orchestrators",
       "tags": [
@@ -903,8 +937,8 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 631,
-      "lastVerified": "2026-03-11T16:33:09+11:00",
+      "wordCount": 600,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
       "headings": [
         {
           "level": 2,
@@ -955,16 +989,20 @@
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/setup/r-monitor",
-      "title": "Monitoring Your Orchestrator Setup",
-      "description": "Monitor node health, GPU performance, and earnings with Prometheus and the Livepeer Explorer.",
+      "title": "Set Up Monitoring",
+      "description": "Enable Prometheus metrics, track key health signals, and verify your orchestrator is earning — the minimum monitoring setup for a new node.",
       "section": "orchestrators",
       "tags": [
         "livepeer",
-        "orchestrators",
+        "orchestrator",
         "monitoring",
-        "stats",
         "prometheus",
         "metrics",
+        "nvidia-smi",
+        "gpu",
+        "reward-call",
+        "explorer",
+        "orchestrators",
         "setup",
         "r-monitor"
       ],
@@ -973,31 +1011,42 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 199,
-      "lastVerified": "2026-03-11T16:33:09+11:00",
+      "wordCount": 380,
+      "lastVerified": "2026-03-13T04:51:59+11:00",
       "headings": [
         {
           "level": 2,
-          "text": "Built-in metrics"
+          "text": "Enable Prometheus metrics"
         },
         {
           "level": 2,
-          "text": "What to track"
+          "text": "Key metrics to watch"
         },
         {
           "level": 2,
-          "text": "Explorer"
+          "text": "Check Explorer"
         },
         {
           "level": 2,
-          "text": "Prometheus and Grafana"
+          "text": "GPU monitoring"
         },
         {
           "level": 2,
-          "text": "See also"
+          "text": "Quick symptom guide"
+        },
+        {
+          "level": 2,
+          "text": "Minimal Prometheus setup"
+        },
+        {
+          "level": 2,
+          "text": "Next steps"
         }
       ],
-      "codeLanguages": []
+      "codeLanguages": [
+        "bash",
+        "yaml"
+      ]
     },
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/operations/x-optimise",
@@ -1558,7 +1607,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 3457,
+      "wordCount": 3450,
       "lastVerified": "2026-03-11T08:31:49+11:00",
       "headings": [
         {
@@ -1640,7 +1689,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "advanced",
-      "wordCount": 225,
+      "wordCount": 137,
       "lastVerified": "2026-03-11T08:31:49+11:00",
       "headings": [
         {
@@ -1675,7 +1724,7 @@
       ],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 281,
+      "wordCount": 260,
       "lastVerified": "2026-03-10",
       "headings": [
         {
@@ -3959,6 +4008,2986 @@
         }
       ],
       "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/concepts/architecture",
+      "title": "Orchestrator Architecture",
+      "description": "How orchestrators fit into the Livepeer stack — layer position, system interactions, request flow, and key components.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrators",
+        "architecture",
+        "gateway",
+        "transcoder",
+        "ai-runner",
+        "go-livepeer",
+        "arbitrum",
+        "protocol",
+        "request-flow",
+        "concepts"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 768,
+      "lastVerified": "2026-03-13T04:51:59+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Layer position"
+        },
+        {
+          "level": 2,
+          "text": "System interactions"
+        },
+        {
+          "level": 3,
+          "text": "Gateways"
+        },
+        {
+          "level": 3,
+          "text": "Delegators"
+        },
+        {
+          "level": 3,
+          "text": "GPU workers"
+        },
+        {
+          "level": 3,
+          "text": "Arbitrum protocol"
+        },
+        {
+          "level": 2,
+          "text": "Request flow"
+        },
+        {
+          "level": 3,
+          "text": "Step-by-step"
+        },
+        {
+          "level": 2,
+          "text": "Key components"
+        },
+        {
+          "level": 3,
+          "text": "go-livepeer"
+        },
+        {
+          "level": 3,
+          "text": "livepeer_cli"
+        },
+        {
+          "level": 3,
+          "text": "AI Runner"
+        },
+        {
+          "level": 3,
+          "text": "Arbitrum smart contracts"
+        },
+        {
+          "level": 3,
+          "text": "Livepeer Explorer"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/concepts/capabilities",
+      "title": "Orchestrator Capabilities",
+      "description": "What orchestrators do on the Livepeer network - transcoding, AI inference, real-time AI, LLM, and custom workloads - plus governance and delegation.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrators",
+        "orchestrator-capabilities",
+        "transcoding",
+        "ai-inference",
+        "real-time-ai",
+        "cascade",
+        "comfystream",
+        "llm",
+        "byoc",
+        "gpu-compute",
+        "governance"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 835,
+      "lastVerified": "2026-03-14T00:16:25+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Workload types"
+        },
+        {
+          "level": 3,
+          "text": "Video transcoding"
+        },
+        {
+          "level": 3,
+          "text": "Batch AI inference"
+        },
+        {
+          "level": 3,
+          "text": "Real-time AI (Cascade)"
+        },
+        {
+          "level": 3,
+          "text": "LLM inference"
+        },
+        {
+          "level": 3,
+          "text": "BYOC (Bring Your Own Container)"
+        },
+        {
+          "level": 2,
+          "text": "Boundary: orchestrators vs gateways"
+        },
+        {
+          "level": 2,
+          "text": "Beyond compute"
+        },
+        {
+          "level": 3,
+          "text": "Staking and delegation"
+        },
+        {
+          "level": 3,
+          "text": "Governance"
+        },
+        {
+          "level": 3,
+          "text": "Reward calls"
+        },
+        {
+          "level": 2,
+          "text": "What should you run?"
+        },
+        {
+          "level": 2,
+          "text": "Example services powered by orchestrators"
+        },
+        {
+          "level": 2,
+          "text": "Related Pages"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/concepts/role",
+      "title": "The Orchestrator Role in the Livepeer Network",
+      "description": "Learn what orchestrators are, how they earn, their dual role as compute providers and economic actors, and which setup path fits your GPU resources.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrators",
+        "about-orchestrators",
+        "orchestrator-role",
+        "overview",
+        "gpu-compute",
+        "staking",
+        "delegation",
+        "governance",
+        "depin",
+        "concepts",
+        "role"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 645,
+      "lastVerified": "2026-03-14T00:16:25+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Technical Role"
+        },
+        {
+          "level": 2,
+          "text": "Economic Role"
+        },
+        {
+          "level": 2,
+          "text": "Governance Role"
+        },
+        {
+          "level": 2,
+          "text": "Business Role"
+        },
+        {
+          "level": 2,
+          "text": "Understanding orchestrators by analogy"
+        },
+        {
+          "level": 2,
+          "text": "Related Pages"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/advanced-operations/gateways-orchestrators",
+      "title": "Gateway Relationships",
+      "description": "How gateways discover and select your orchestrator — the discovery mechanisms, multi-factor selection algorithm, what you can do to receive more work, and how to use the gateway Loki API to understand routing decisions.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "gateway",
+        "discovery",
+        "selection",
+        "routing",
+        "capabilities",
+        "pricing",
+        "loki",
+        "gateway-introspection",
+        "stake-weight",
+        "performance-score"
+      ],
+      "entities": [
+        "gateway",
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 965,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "How gateways find you"
+        },
+        {
+          "level": 2,
+          "text": "What you advertise to gateways"
+        },
+        {
+          "level": 2,
+          "text": "How gateways select you"
+        },
+        {
+          "level": 2,
+          "text": "What you can control to get more work"
+        },
+        {
+          "level": 2,
+          "text": "Gateway Loki API — understanding why you are (or are not) being selected"
+        },
+        {
+          "level": 2,
+          "text": "Debugging: not receiving work"
+        }
+      ],
+      "codeLanguages": [
+        "protobuf",
+        "mermaid",
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/advanced-operations/large-scale-operations",
+      "title": "Fleet Operations",
+      "description": "Architectural patterns for running multiple Livepeer orchestrator nodes at data-centre scale — multi-orchestrator setup, capacity management, rolling updates, fleet-wide monitoring, and enterprise onboarding.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "fleet",
+        "multi-orchestrator",
+        "data-centre",
+        "enterprise",
+        "scale",
+        "multi-o",
+        "load-balancing",
+        "rolling-update",
+        "orchestrators",
+        "guides"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 900,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "When you need fleet operations"
+        },
+        {
+          "level": 2,
+          "text": "Multi-orchestrator architecture"
+        },
+        {
+          "level": 2,
+          "text": "Scaling GPU workers"
+        },
+        {
+          "level": 2,
+          "text": "Capacity management at fleet scale"
+        },
+        {
+          "level": 2,
+          "text": "Rolling updates"
+        },
+        {
+          "level": 2,
+          "text": "Network and key management at scale"
+        },
+        {
+          "level": 2,
+          "text": "Enterprise and data-centre onboarding"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid",
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/advanced-operations/orchestrator-transcoder-setup",
+      "title": "Split Orchestrator-Transcoder Setup",
+      "description": "How to run go-livepeer's orchestrator and transcoder as separate processes on separate machines — isolating protocol operations from GPU workload, scaling transcoders independently, and connecting multiple transcoder nodes to a single orchestrator.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "transcoder",
+        "split",
+        "o-t-split",
+        "orchsecret",
+        "orchaddr",
+        "standalone-transcoder",
+        "separate-machines",
+        "multi-transcoder",
+        "orchestrators",
+        "guides"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 1232,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Why split?"
+        },
+        {
+          "level": 2,
+          "text": "Architecture overview"
+        },
+        {
+          "level": 2,
+          "text": "Part 1 — Run a standalone orchestrator"
+        },
+        {
+          "level": 2,
+          "text": "Part 2 — Run a standalone transcoder"
+        },
+        {
+          "level": 2,
+          "text": "Connecting multiple transcoders"
+        },
+        {
+          "level": 2,
+          "text": "Relationship to pool operations"
+        },
+        {
+          "level": 2,
+          "text": "Security considerations"
+        },
+        {
+          "level": 2,
+          "text": "Diagnosing connection problems"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid",
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/advanced-operations/run-a-pool",
+      "title": "Run a Pool",
+      "description": "How to operate a Livepeer GPU pool — accept external worker connections, manage job routing across multiple GPUs, handle off-chain fee distribution, and maintain operational transparency.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "pool",
+        "run-a-pool",
+        "gpu-pool",
+        "orchsecret",
+        "worker",
+        "fee-distribution",
+        "transcoder-pool",
+        "titan-node",
+        "orchestrators",
+        "guides"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 1454,
+      "lastVerified": "2026-03-13T04:26:06+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "How a pool works"
+        },
+        {
+          "level": 2,
+          "text": "Worker connection models"
+        },
+        {
+          "level": 2,
+          "text": "Accepting workers"
+        },
+        {
+          "level": 2,
+          "text": "Fee distribution"
+        },
+        {
+          "level": 2,
+          "text": "On-chain identity and transparency"
+        },
+        {
+          "level": 2,
+          "text": "Ongoing operational responsibilities"
+        },
+        {
+          "level": 2,
+          "text": "Key facts to remember"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid",
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/feasibility-and-hardware/benchmarking",
+      "title": "Benchmarking Your Setup",
+      "description": "Use livepeer_bench to measure your GPU's actual transcoding capacity before going live — download the test stream, run concurrent session tests, read the real-time duration ratio, and find your hardware session ceiling.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "livepeer-bench",
+        "benchmark",
+        "transcoding",
+        "concurrent-sessions",
+        "real-time-duration-ratio",
+        "gpu-capacity",
+        "nvenc",
+        "orchestrators",
+        "guides",
+        "feasibility-and-hardware"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 800,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "What livepeer_bench does"
+        },
+        {
+          "level": 2,
+          "text": "Setup"
+        },
+        {
+          "level": 2,
+          "text": "Running the benchmark"
+        },
+        {
+          "level": 3,
+          "text": "Basic run"
+        },
+        {
+          "level": 3,
+          "text": "Live mode vs VOD mode"
+        },
+        {
+          "level": 2,
+          "text": "Reading the output"
+        },
+        {
+          "level": 3,
+          "text": "What the ratios mean"
+        },
+        {
+          "level": 2,
+          "text": "Session scaling test"
+        },
+        {
+          "level": 3,
+          "text": "Multiple GPUs"
+        },
+        {
+          "level": 3,
+          "text": "CPU-only transcoding"
+        },
+        {
+          "level": 2,
+          "text": "Exporting results for analysis"
+        },
+        {
+          "level": 2,
+          "text": "After benchmarking"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics",
+      "title": "Feasibility and Economics",
+      "description": "Is running a Livepeer orchestrator worth it for your situation? Cost categories, revenue sources, viability thresholds, and a decision matrix to help you choose your path before committing hardware or stake.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "feasibility",
+        "worth-it",
+        "economics",
+        "lpt-stake",
+        "cost",
+        "earnings",
+        "pool-worker",
+        "solo-orchestrator",
+        "ai-inference",
+        "orchestrators"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1411,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "What you can earn"
+        },
+        {
+          "level": 2,
+          "text": "What it costs"
+        },
+        {
+          "level": 2,
+          "text": "The three viability questions"
+        },
+        {
+          "level": 3,
+          "text": "1. Is reward calling profitable for my stake?"
+        },
+        {
+          "level": 3,
+          "text": "2. Can I compete on pricing and capability?"
+        },
+        {
+          "level": 3,
+          "text": "3. Is my setup stable enough?"
+        },
+        {
+          "level": 2,
+          "text": "Decision matrix"
+        },
+        {
+          "level": 2,
+          "text": "AI vs transcoding: which to start with?"
+        },
+        {
+          "level": 2,
+          "text": "Useful tools before you commit"
+        },
+        {
+          "level": 2,
+          "text": "Continue"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference",
+      "title": "GPU and Hardware Reference",
+      "description": "What hardware you need to run a Livepeer orchestrator, including NVIDIA GPU support, NVENC/NVDEC session limits, VRAM tiers by workload, system requirements, and a production readiness checklist.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "hardware",
+        "gpu",
+        "nvidia",
+        "nvenc",
+        "nvdec",
+        "vram",
+        "cuda",
+        "session-limits",
+        "transcoding-hardware",
+        "ai-inference-hardware"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 996,
+      "lastVerified": "2026-03-13T04:26:06+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "GPU vendor support"
+        },
+        {
+          "level": 3,
+          "text": "Driver requirements"
+        },
+        {
+          "level": 2,
+          "text": "NVENC/NVDEC session limits"
+        },
+        {
+          "level": 2,
+          "text": "Hardware tiers by workload"
+        },
+        {
+          "level": 3,
+          "text": "Video transcoding"
+        },
+        {
+          "level": 3,
+          "text": "Batch AI inference"
+        },
+        {
+          "level": 3,
+          "text": "Real-time AI inference (Cascade / live-video-to-video)"
+        },
+        {
+          "level": 2,
+          "text": "System requirements"
+        },
+        {
+          "level": 2,
+          "text": "Pre-launch checklist"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/feasibility-and-hardware/session-limits",
+      "title": "Bandwidth and Session Limits",
+      "description": "How to calculate your bandwidth limit per concurrent stream, derive the right -maxSessions value from hardware and bandwidth ceilings, and configure session limits on your orchestrator node.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "maxsessions",
+        "session-limits",
+        "bandwidth",
+        "abr-ladder",
+        "concurrent-streams",
+        "orchestratorcapped",
+        "transcoding-capacity",
+        "orchestrators",
+        "guides",
+        "feasibility-and-hardware"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 834,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Why session limits matter"
+        },
+        {
+          "level": 2,
+          "text": "Bandwidth per stream"
+        },
+        {
+          "level": 3,
+          "text": "Estimating your stream count from bandwidth"
+        },
+        {
+          "level": 2,
+          "text": "Deriving your session limit"
+        },
+        {
+          "level": 2,
+          "text": "Setting the session limit"
+        },
+        {
+          "level": 3,
+          "text": "Combined orchestrator + transcoder"
+        },
+        {
+          "level": 3,
+          "text": "Split setup (orchestrator + separate transcoder)"
+        },
+        {
+          "level": 3,
+          "text": "CPU transcoding"
+        },
+        {
+          "level": 2,
+          "text": "Tuning after going live"
+        },
+        {
+          "level": 2,
+          "text": "AI workloads and session limits"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "json"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/monitoring-and-troubleshooting/explorer-guide",
+      "title": "Reading the Livepeer Explorer",
+      "description": "A walkthrough of every metric on your Livepeer Explorer orchestrator page — what each number means, what healthy looks like, and what to do when something is wrong.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "explorer",
+        "orchestrator",
+        "stake",
+        "reward",
+        "earnings",
+        "delegators",
+        "active-set",
+        "monitoring",
+        "orchestrators",
+        "guides",
+        "monitoring-and-troubleshooting"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1341,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "What the Explorer does and does not show"
+        },
+        {
+          "level": 2,
+          "text": "Active Set status"
+        },
+        {
+          "level": 2,
+          "text": "Total stake"
+        },
+        {
+          "level": 2,
+          "text": "Reward cut and fee share"
+        },
+        {
+          "level": 2,
+          "text": "Reward call history"
+        },
+        {
+          "level": 2,
+          "text": "Fees earned"
+        },
+        {
+          "level": 2,
+          "text": "Delegator list"
+        },
+        {
+          "level": 2,
+          "text": "Service URI"
+        },
+        {
+          "level": 2,
+          "text": "Rounds active"
+        },
+        {
+          "level": 2,
+          "text": "Common patterns to act on"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring",
+      "title": "Metrics and Monitoring",
+      "description": "How to set up Prometheus, Grafana, and the Docker monitoring stack for your Livepeer orchestrator. Covers the -monitor flag, key metrics, AI runner container monitoring, and log capture.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "prometheus",
+        "grafana",
+        "monitoring",
+        "metrics",
+        "docker",
+        "monitor",
+        "livepeer-monitoring",
+        "ai-runner",
+        "orchestrators",
+        "guides"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 712,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Enabling node metrics"
+        },
+        {
+          "level": 2,
+          "text": "What metrics are exposed"
+        },
+        {
+          "level": 2,
+          "text": "Option A: Docker monitoring stack (fastest setup)"
+        },
+        {
+          "level": 2,
+          "text": "Option B: Custom Prometheus and Grafana"
+        },
+        {
+          "level": 2,
+          "text": "Monitoring AI runner containers"
+        },
+        {
+          "level": 2,
+          "text": "Log capture and verbose output"
+        },
+        {
+          "level": 2,
+          "text": "Alerting"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "yaml"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/monitoring-and-troubleshooting/tools",
+      "title": "Orchestrator Tools",
+      "description": "Every tool for monitoring, verifying, and operating your Livepeer orchestrator — Explorer, Prometheus metrics, Docker monitoring stack, community dashboards, and capability testing utilities.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "explorer",
+        "prometheus",
+        "grafana",
+        "monitoring",
+        "tools",
+        "dune",
+        "toolslivepeercloud",
+        "metrics",
+        "orchestrators",
+        "guides"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 711,
+      "lastVerified": "2026-03-13T04:26:06+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Livepeer Explorer"
+        },
+        {
+          "level": 2,
+          "text": "Node Metrics (Prometheus)"
+        },
+        {
+          "level": 3,
+          "text": "Docker monitoring stack (fastest setup)"
+        },
+        {
+          "level": 3,
+          "text": "Custom Prometheus setup"
+        },
+        {
+          "level": 2,
+          "text": "Cloud SPE Tools"
+        },
+        {
+          "level": 2,
+          "text": "Network Dashboards (Dune Analytics)"
+        },
+        {
+          "level": 2,
+          "text": "Capability Testing"
+        },
+        {
+          "level": 2,
+          "text": "Tool selection guide"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "yaml"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/monitoring-and-troubleshooting/troubleshooting",
+      "title": "Troubleshooting",
+      "description": "Diagnostic guide for common Livepeer orchestrator errors — transcoding failures, GPU issues, reward calling problems, AI runner errors, networking issues, and account errors. With causes and actionable fixes.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "troubleshooting",
+        "error",
+        "orchestratorcapped",
+        "cannot-allocate-memory",
+        "nvenc",
+        "reward",
+        "ticketparams",
+        "ai-runner",
+        "networking",
+        "nat"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 2184,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Transcoding errors"
+        },
+        {
+          "level": 2,
+          "text": "GPU and memory errors"
+        },
+        {
+          "level": 2,
+          "text": "Reward and gas errors"
+        },
+        {
+          "level": 2,
+          "text": "AI runner errors"
+        },
+        {
+          "level": 2,
+          "text": "Networking and connectivity"
+        },
+        {
+          "level": 2,
+          "text": "Account and keystore errors"
+        },
+        {
+          "level": 2,
+          "text": "General diagnostics"
+        },
+        {
+          "level": 3,
+          "text": "How to confirm your node is receiving work"
+        },
+        {
+          "level": 3,
+          "text": "How to capture logs to a file"
+        },
+        {
+          "level": 3,
+          "text": "Checking node status via CLI port"
+        },
+        {
+          "level": 2,
+          "text": "Not finding your error here?"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/setup-paths/find-your-path",
+      "title": "Find Your Path to Running an Orchestrator",
+      "description": "Not sure where to start? Answer three questions about your goals, resources, and risk tolerance — then follow the path that fits. Covers pool worker, solo orchestrator, and the Siphon split-setup.",
+      "section": "orchestrators",
+      "tags": [
+        "start-here",
+        "livepeer",
+        "orchestrator",
+        "gpu",
+        "setup",
+        "pool",
+        "siphon",
+        "go-livepeer",
+        "navigator",
+        "path",
+        "decision",
+        "orchestrators"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 887,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Three questions to find your path"
+        },
+        {
+          "level": 2,
+          "text": "The four paths at a glance"
+        },
+        {
+          "level": 2,
+          "text": "Solo vs pool vs Siphon: what actually differs"
+        },
+        {
+          "level": 2,
+          "text": "Choosing your workload type"
+        },
+        {
+          "level": 2,
+          "text": "The full decision tree"
+        },
+        {
+          "level": 2,
+          "text": "Where to go from here"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/setup-paths/join-a-pool",
+      "title": "Join a Pool",
+      "description": "How to contribute your GPU to an existing Livepeer orchestrator pool. Covers what pools are, how to evaluate a pool, how to connect your GPU, and what to expect from payouts.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "pool",
+        "gpu-pool",
+        "video-mining",
+        "titan-node",
+        "transcoding-pool",
+        "gpu-earnings",
+        "passive-income",
+        "orchestrators",
+        "guides",
+        "setup-paths"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1304,
+      "lastVerified": "2026-03-13T04:26:06+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "How pools work"
+        },
+        {
+          "level": 2,
+          "text": "Pool vs solo orchestrator"
+        },
+        {
+          "level": 2,
+          "text": "Step 1: Choose a pool"
+        },
+        {
+          "level": 3,
+          "text": "What to check before joining any pool"
+        },
+        {
+          "level": 2,
+          "text": "Step 2: Connect your GPU"
+        },
+        {
+          "level": 3,
+          "text": "Option A: Docker worker (recommended)"
+        },
+        {
+          "level": 3,
+          "text": "Option B: go-livepeer in transcoder mode"
+        },
+        {
+          "level": 3,
+          "text": "Option C: Cloud GPU"
+        },
+        {
+          "level": 2,
+          "text": "Step 3: Verify you are receiving work"
+        },
+        {
+          "level": 2,
+          "text": "Step 4: Track your earnings"
+        },
+        {
+          "level": 2,
+          "text": "Frequently asked questions"
+        },
+        {
+          "level": 2,
+          "text": "Ready to run your own orchestrator instead?"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/setup-paths/setup-navigator",
+      "title": "Find Your Orchestrator Path",
+      "description": "Not sure where to start? Use this decision guide to find the right setup path for your goals, hardware, and experience level — pool worker, solo orchestrator, split setup, or fleet operator.",
+      "section": "orchestrators",
+      "tags": [
+        "start-here",
+        "livepeer",
+        "orchestrator",
+        "setup-path",
+        "pool-worker",
+        "solo-orchestrator",
+        "siphon",
+        "go-livepeer",
+        "gpu",
+        "staking",
+        "lpt",
+        "navigator"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1331,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Step 1 — Should you run an orchestrator?"
+        },
+        {
+          "level": 2,
+          "text": "Step 2 — Choose your path"
+        },
+        {
+          "level": 2,
+          "text": "Decision table"
+        },
+        {
+          "level": 2,
+          "text": "Workload type — decide before hardware or pricing"
+        },
+        {
+          "level": 2,
+          "text": "Path 1: Pool Worker"
+        },
+        {
+          "level": 2,
+          "text": "Path 2: Solo Orchestrator"
+        },
+        {
+          "level": 2,
+          "text": "Path 3: Split Setup (Siphon)"
+        },
+        {
+          "level": 2,
+          "text": "Path 4: Fleet / Enterprise"
+        },
+        {
+          "level": 2,
+          "text": "Path matrix — where to go next"
+        },
+        {
+          "level": 2,
+          "text": "Watch: Orchestrator setup overview"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/setup-paths/siphon-setup",
+      "title": "Split Setup with OrchestratorSiphon",
+      "description": "How to separate reward claiming and keystore management from workload processing using OrchestratorSiphon. Covers two-machine architecture, installation, config.ini setup, running as a systemd service, and day-to-day operations.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "siphon",
+        "orchestratorsiphon",
+        "split-setup",
+        "keystore",
+        "reward-calling",
+        "security",
+        "two-machine",
+        "go-livepeer",
+        "arbitrum",
+        "orchestrators"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1466,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Architecture overview"
+        },
+        {
+          "level": 2,
+          "text": "When to choose this setup"
+        },
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "Part 1: Secure machine — install and configure OrchestratorSiphon"
+        },
+        {
+          "level": 2,
+          "text": "Part 2: GPU machine — install go-livepeer in transcoder mode"
+        },
+        {
+          "level": 2,
+          "text": "Verifying the split is working"
+        },
+        {
+          "level": 2,
+          "text": "Day-to-day operations"
+        },
+        {
+          "level": 2,
+          "text": "Scaling: adding a second GPU machine"
+        },
+        {
+          "level": 2,
+          "text": "Troubleshooting"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid",
+        "bash",
+        "ini"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/staking-and-rewards/attracting-delegates",
+      "title": "Getting Delegates",
+      "description": "How to attract and retain LPT delegators as a Livepeer orchestrator — what delegators evaluate, the Explorer ROI formulas explained, commission strategy, reputation, and the compounding stake flywheel.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "delegators",
+        "lpt-delegation",
+        "stake",
+        "reward-cut",
+        "fee-share",
+        "orchestrator-reputation",
+        "yield-calculation",
+        "roi",
+        "orchestrators",
+        "guides"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1477,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Why delegators matter"
+        },
+        {
+          "level": 2,
+          "text": "What delegators actually evaluate"
+        },
+        {
+          "level": 3,
+          "text": "The Explorer ROI calculation"
+        },
+        {
+          "level": 4,
+          "text": "ETH (fee) yield"
+        },
+        {
+          "level": 4,
+          "text": "LPT (inflation) yield"
+        },
+        {
+          "level": 4,
+          "text": "Combined yield"
+        },
+        {
+          "level": 2,
+          "text": "The four things delegators look at"
+        },
+        {
+          "level": 3,
+          "text": "1. Reward call ratio"
+        },
+        {
+          "level": 3,
+          "text": "2. Fee share and reward share"
+        },
+        {
+          "level": 3,
+          "text": "3. Daily fee volume (v_daily)"
+        },
+        {
+          "level": 3,
+          "text": "4. Active stake dilution"
+        },
+        {
+          "level": 2,
+          "text": "Building reputation"
+        },
+        {
+          "level": 3,
+          "text": "Transparency"
+        },
+        {
+          "level": 3,
+          "text": "Commission stability"
+        },
+        {
+          "level": 3,
+          "text": "Running AI capabilities"
+        },
+        {
+          "level": 2,
+          "text": "The delegation mechanics (what delegators actually do)"
+        },
+        {
+          "level": 2,
+          "text": "Common pitfalls for delegators (and what they mean for you)"
+        },
+        {
+          "level": 3,
+          "text": "Variable commission rates"
+        },
+        {
+          "level": 3,
+          "text": "Inflation rate changes"
+        },
+        {
+          "level": 3,
+          "text": "Missed reward rounds"
+        },
+        {
+          "level": 2,
+          "text": "Resources for delegators you can share"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/staking-and-rewards/earnings",
+      "title": "Earnings Explained",
+      "description": "How orchestrators earn on Livepeer — ETH service fees, LPT inflationary rewards, commission parameters, what wins jobs, and how AI changes the fee landscape.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator-earnings",
+        "lpt-rewards",
+        "eth-fees",
+        "reward-cut",
+        "fee-share",
+        "transcoding-fees",
+        "ai-inference-fees",
+        "orchestrator-income",
+        "commission",
+        "orchestrators",
+        "guides"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1000,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "The two revenue streams"
+        },
+        {
+          "level": 2,
+          "text": "ETH service fees"
+        },
+        {
+          "level": 3,
+          "text": "What determines how much work you win"
+        },
+        {
+          "level": 2,
+          "text": "LPT inflationary rewards"
+        },
+        {
+          "level": 2,
+          "text": "Commission parameters"
+        },
+        {
+          "level": 3,
+          "text": "Reward cut"
+        },
+        {
+          "level": 3,
+          "text": "Fee share"
+        },
+        {
+          "level": 2,
+          "text": "Transcoding vs AI fees in practice"
+        },
+        {
+          "level": 2,
+          "text": "Payment flow summary"
+        },
+        {
+          "level": 2,
+          "text": "Monitoring your earnings"
+        },
+        {
+          "level": 2,
+          "text": "Watch: Orchestrator economics overview"
+        },
+        {
+          "level": 2,
+          "text": "Continue in this section"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/staking-and-rewards/governance",
+      "title": "Governance and Voting",
+      "description": "How Livepeer protocol governance works and how orchestrators vote on Livepeer Improvement Proposals (LIPs) — finding polls, voting via livepeer_cli, verifying your vote on Explorer, and where to follow active proposals.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "governance",
+        "lip",
+        "livepeer-improvement-proposal",
+        "voting",
+        "livepeer-cli",
+        "orchestrator-vote",
+        "lpt-governance",
+        "protocol-parameters",
+        "orchestrators",
+        "guides",
+        "staking-and-rewards"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1006,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "How Livepeer governance works"
+        },
+        {
+          "level": 3,
+          "text": "Recent LIPs affecting orchestrators"
+        },
+        {
+          "level": 2,
+          "text": "Where to follow governance"
+        },
+        {
+          "level": 2,
+          "text": "How to vote"
+        },
+        {
+          "level": 2,
+          "text": "Voting with a remote key"
+        },
+        {
+          "level": 2,
+          "text": "Governance weight and your delegators"
+        },
+        {
+          "level": 2,
+          "text": "Gas costs for voting"
+        },
+        {
+          "level": 2,
+          "text": "Summary"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/staking-and-rewards/payments",
+      "title": "Payments",
+      "description": "How ETH moves from gateway to your orchestrator wallet — probabilistic micropayments, winning ticket mechanics, the Redeemer, on-chain redemption on Arbitrum, and keeping your node funded for transactions.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "payments",
+        "probabilistic-micropayments",
+        "winning-ticket",
+        "redeemer",
+        "arbitrum",
+        "eth-fees",
+        "ticket-redemption",
+        "clearinghouse",
+        "orchestrators",
+        "guides"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1336,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Payment flow overview"
+        },
+        {
+          "level": 2,
+          "text": "Probabilistic micropayments explained"
+        },
+        {
+          "level": 3,
+          "text": "Ticket structure"
+        },
+        {
+          "level": 2,
+          "text": "The Redeemer"
+        },
+        {
+          "level": 3,
+          "text": "What the Redeemer does"
+        },
+        {
+          "level": 3,
+          "text": "Gas requirements for redemption"
+        },
+        {
+          "level": 2,
+          "text": "Video vs AI payment differences"
+        },
+        {
+          "level": 2,
+          "text": "Clearinghouses"
+        },
+        {
+          "level": 2,
+          "text": "Funding your node"
+        },
+        {
+          "level": 3,
+          "text": "Bridging ETH to Arbitrum"
+        },
+        {
+          "level": 2,
+          "text": "Checking payment health"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees",
+      "title": "Rewards and Fees",
+      "description": "Protocol reward mechanics for Livepeer orchestrators — how LPT inflation flows, calling Reward() automatically and manually, gas thresholds on Arbitrum, fee redemption, setting commission, and monitoring for missed rounds.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "reward-calling",
+        "lpt-inflation",
+        "reward-cut",
+        "fee-share",
+        "arbitrum-gas",
+        "livepeer-cli",
+        "ticket-redemption",
+        "missed-rounds",
+        "orchestrators",
+        "guides"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1068,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "How LPT rewards flow"
+        },
+        {
+          "level": 3,
+          "text": "The inflation rate"
+        },
+        {
+          "level": 2,
+          "text": "Calling Reward() — your options"
+        },
+        {
+          "level": 3,
+          "text": "Option 1: Automatic (default, recommended)"
+        },
+        {
+          "level": 3,
+          "text": "Option 2: Disable automatic, call manually"
+        },
+        {
+          "level": 2,
+          "text": "Gas costs on Arbitrum"
+        },
+        {
+          "level": 2,
+          "text": "Setting your commission"
+        },
+        {
+          "level": 3,
+          "text": "Via livepeer_cli"
+        },
+        {
+          "level": 3,
+          "text": "Commission rate strategy"
+        },
+        {
+          "level": 2,
+          "text": "How ETH fees flow"
+        },
+        {
+          "level": 2,
+          "text": "Monitoring for missed rounds"
+        },
+        {
+          "level": 3,
+          "text": "Automated alerting"
+        },
+        {
+          "level": 2,
+          "text": "Reward vs fee economics: a worked example"
+        },
+        {
+          "level": 2,
+          "text": "Watch: Reward calling and orchestrator setup"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "yaml"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide",
+      "title": "AI Workloads on Livepeer",
+      "description": "How AI inference works on the Livepeer network — pipeline types, the batch vs real-time distinction, hardware requirements, and how jobs flow from application to your GPU node.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "ai-workloads",
+        "batch-ai",
+        "realtime-ai",
+        "cascade",
+        "live-video-to-video",
+        "ai-pipelines",
+        "gpu-inference",
+        "comfystream",
+        "orchestrators",
+        "guides"
+      ],
+      "entities": [
+        "orchestrator",
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1365,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "How the network routes AI jobs"
+        },
+        {
+          "level": 3,
+          "text": "How gateway selection actually works"
+        },
+        {
+          "level": 2,
+          "text": "The two workload types"
+        },
+        {
+          "level": 3,
+          "text": "Comparison"
+        },
+        {
+          "level": 2,
+          "text": "AI pipeline types"
+        },
+        {
+          "level": 2,
+          "text": "Hardware by workload type"
+        },
+        {
+          "level": 2,
+          "text": "What you do and don't need to build"
+        },
+        {
+          "level": 2,
+          "text": "Network participation"
+        },
+        {
+          "level": 2,
+          "text": "Watch: AI on Livepeer"
+        },
+        {
+          "level": 2,
+          "text": "Next steps"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup",
+      "title": "Batch AI Setup",
+      "description": "Complete operator guide for running batch AI inference pipelines on a Livepeer orchestrator — aiModels.json configuration, all supported pipeline types, Ollama LLM runner deployment, BYOC external containers, and troubleshooting.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "batch-ai",
+        "aimodelsjson",
+        "ai-runner",
+        "ollama",
+        "llm",
+        "text-to-image",
+        "audio-to-text",
+        "byoc",
+        "vram",
+        "pricing"
+      ],
+      "entities": [
+        "orchestrator",
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 2375,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "How the AI worker runs pipelines"
+        },
+        {
+          "level": 2,
+          "text": "aiModels.json — full reference"
+        },
+        {
+          "level": 3,
+          "text": "Minimal working example"
+        },
+        {
+          "level": 3,
+          "text": "Complete field reference"
+        },
+        {
+          "level": 2,
+          "text": "Supported pipelines and recommended models"
+        },
+        {
+          "level": 3,
+          "text": "text-to-image"
+        },
+        {
+          "level": 3,
+          "text": "image-to-image"
+        },
+        {
+          "level": 3,
+          "text": "image-to-video"
+        },
+        {
+          "level": 3,
+          "text": "image-to-text"
+        },
+        {
+          "level": 3,
+          "text": "audio-to-text"
+        },
+        {
+          "level": 3,
+          "text": "segment-anything-2"
+        },
+        {
+          "level": 3,
+          "text": "upscale"
+        },
+        {
+          "level": 3,
+          "text": "text-to-speech"
+        },
+        {
+          "level": 2,
+          "text": "LLM inference — the Ollama runner"
+        },
+        {
+          "level": 3,
+          "text": "Why Ollama?"
+        },
+        {
+          "level": 3,
+          "text": "Setup"
+        },
+        {
+          "level": 2,
+          "text": "Warm vs cold models"
+        },
+        {
+          "level": 3,
+          "text": "Impact on job assignment"
+        },
+        {
+          "level": 3,
+          "text": "VRAM planning for warm models"
+        },
+        {
+          "level": 2,
+          "text": "Optimisation flags"
+        },
+        {
+          "level": 2,
+          "text": "Running multiple pipelines"
+        },
+        {
+          "level": 2,
+          "text": "BYOC external containers"
+        },
+        {
+          "level": 2,
+          "text": "Pricing"
+        },
+        {
+          "level": 3,
+          "text": "Pricing units by pipeline"
+        },
+        {
+          "level": 3,
+          "text": "Setting competitive prices"
+        },
+        {
+          "level": 2,
+          "text": "Monitoring your pipelines"
+        },
+        {
+          "level": 2,
+          "text": "Troubleshooting"
+        },
+        {
+          "level": 2,
+          "text": "Watch: Batch AI on Livepeer"
+        },
+        {
+          "level": 2,
+          "text": "Canonical references for pipeline and model decisions"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "json",
+        "text",
+        "bash",
+        "yaml"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/workloads-and-ai/job-types",
+      "title": "Job Types Overview",
+      "description": "The four job types an orchestrator can process — transcoding, batch AI inference, real-time AI (Cascade), and LLM inference — with hardware requirements, pricing models, routing mechanics, and how to choose which workloads to run.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "job-types",
+        "transcoding",
+        "batch-ai-inference",
+        "real-time-ai",
+        "cascade",
+        "llm",
+        "vram",
+        "pipeline",
+        "workloads",
+        "routing"
+      ],
+      "entities": [
+        "orchestrator",
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1442,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "At a glance"
+        },
+        {
+          "level": 2,
+          "text": "How routing works — and why it differs per job type"
+        },
+        {
+          "level": 3,
+          "text": "Video transcoding"
+        },
+        {
+          "level": 3,
+          "text": "Batch AI inference"
+        },
+        {
+          "level": 3,
+          "text": "Real-time AI (Cascade)"
+        },
+        {
+          "level": 3,
+          "text": "LLM inference"
+        },
+        {
+          "level": 2,
+          "text": "Video transcoding"
+        },
+        {
+          "level": 2,
+          "text": "Batch AI inference"
+        },
+        {
+          "level": 2,
+          "text": "Real-time AI (Cascade)"
+        },
+        {
+          "level": 2,
+          "text": "LLM inference"
+        },
+        {
+          "level": 2,
+          "text": "What should I run?"
+        },
+        {
+          "level": 2,
+          "text": "Setup guides"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/workloads-and-ai/model-vram-reference",
+      "title": "Models and VRAM Planning",
+      "description": "Operator reference for GPU memory planning on Livepeer — VRAM requirements by pipeline, warm model strategy, multi-GPU configuration, aiModels.json complete schema, pricing reference, and earnings optimisation.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "models",
+        "vram",
+        "gpu-memory",
+        "aimodelsjson",
+        "warm-models",
+        "multi-gpu",
+        "pricing",
+        "earnings",
+        "rtx-4090",
+        "a100"
+      ],
+      "entities": [
+        "orchestrator",
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "advanced",
+      "wordCount": 1658,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "VRAM by pipeline"
+        },
+        {
+          "level": 2,
+          "text": "GPU reference by persona"
+        },
+        {
+          "level": 3,
+          "text": "Consumer GPU tier (8–12 GB VRAM)"
+        },
+        {
+          "level": 3,
+          "text": "Mid tier (16–20 GB VRAM)"
+        },
+        {
+          "level": 3,
+          "text": "High tier (24 GB+ per GPU, multiple GPUs)"
+        },
+        {
+          "level": 2,
+          "text": "Warm vs cold — when it matters"
+        },
+        {
+          "level": 3,
+          "text": "Pipelines where warm is competitively critical"
+        },
+        {
+          "level": 3,
+          "text": "Pipelines where cold loading is acceptable"
+        },
+        {
+          "level": 3,
+          "text": "The Beta warm model constraint"
+        },
+        {
+          "level": 2,
+          "text": "Multi-GPU configuration"
+        },
+        {
+          "level": 2,
+          "text": "aiModels.json complete schema"
+        },
+        {
+          "level": 2,
+          "text": "Model selection and earnings"
+        },
+        {
+          "level": 3,
+          "text": "Tracking performance"
+        },
+        {
+          "level": 3,
+          "text": "Model selection heuristics"
+        },
+        {
+          "level": 2,
+          "text": "Pricing strategy"
+        },
+        {
+          "level": 3,
+          "text": "Understanding the market"
+        },
+        {
+          "level": 3,
+          "text": "Reference pricing (late 2025)"
+        },
+        {
+          "level": 3,
+          "text": "GPU economics at scale"
+        },
+        {
+          "level": 2,
+          "text": "Hosting custom models (BYOC)"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "json",
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup",
+      "title": "Real-time AI Setup",
+      "description": "Deploy the live-video-to-video pipeline on a Livepeer orchestrator — Cascade architecture, ComfyStream setup, real-time frame processing, WebRTC streaming, hardware requirements, and custom pipeline development.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "realtime-ai",
+        "cascade",
+        "live-video-to-video",
+        "comfystream",
+        "comfyui",
+        "webrtc",
+        "frame-processing",
+        "streaming-ai",
+        "byoc-pipeline",
+        "orchestrators"
+      ],
+      "entities": [
+        "orchestrator",
+        "ai"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1658,
+      "lastVerified": "2026-03-13T04:26:06+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "What Cascade is"
+        },
+        {
+          "level": 2,
+          "text": "How it differs from batch AI"
+        },
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "Architecture overview"
+        },
+        {
+          "level": 2,
+          "text": "ComfyStream — the real-time pipeline runtime"
+        },
+        {
+          "level": 2,
+          "text": "Setup"
+        },
+        {
+          "level": 2,
+          "text": "StreamDiffusion — real-time diffusion models"
+        },
+        {
+          "level": 3,
+          "text": "ComfyUI workflow for StreamDiffusion"
+        },
+        {
+          "level": 2,
+          "text": "The Pipeline interface (custom pipelines)"
+        },
+        {
+          "level": 3,
+          "text": "Integration requirements for custom pipelines"
+        },
+        {
+          "level": 2,
+          "text": "Model types for real-time inference"
+        },
+        {
+          "level": 3,
+          "text": "StreamDiffusion (primary)"
+        },
+        {
+          "level": 3,
+          "text": "ControlNet variants"
+        },
+        {
+          "level": 3,
+          "text": "IP-Adapter (style reference)"
+        },
+        {
+          "level": 2,
+          "text": "Performance tuning"
+        },
+        {
+          "level": 3,
+          "text": "Maximising fps"
+        },
+        {
+          "level": 3,
+          "text": "VRAM management"
+        },
+        {
+          "level": 2,
+          "text": "Multi-stream capacity"
+        },
+        {
+          "level": 2,
+          "text": "Watch: Real-time AI and Cascade"
+        },
+        {
+          "level": 2,
+          "text": "Troubleshooting"
+        },
+        {
+          "level": 2,
+          "text": "Related"
+        }
+      ],
+      "codeLanguages": [
+        "bash",
+        "json",
+        "python"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/guides/workloads-and-ai/video-transcoding",
+      "title": "Video Transcoding",
+      "description": "Configure video transcoding on your Livepeer orchestrator — wei and USD pricing, automatic price adjustment, session limits, bandwidth calculation, NVENC session caps, and output rendition profiles.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "video-transcoding",
+        "pricing",
+        "priceperunit",
+        "pixelsperunit",
+        "wei-per-pixel",
+        "usd-pricing",
+        "chainlink",
+        "autoadjustprice",
+        "maxsessions",
+        "nvenc"
+      ],
+      "entities": [
+        "orchestrator",
+        "ai",
+        "video"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 1733,
+      "lastVerified": "2026-03-13T04:51:59+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "How transcoding works"
+        },
+        {
+          "level": 2,
+          "text": "Pricing"
+        },
+        {
+          "level": 3,
+          "text": "Option A: Wei pricing"
+        },
+        {
+          "level": 3,
+          "text": "Option B: USD pricing (go-livepeer 0.8.0+)"
+        },
+        {
+          "level": 3,
+          "text": "Automatic price adjustment"
+        },
+        {
+          "level": 3,
+          "text": "Updating price via livepeer_cli"
+        },
+        {
+          "level": 3,
+          "text": "What gateways pay — and what you need to know"
+        },
+        {
+          "level": 2,
+          "text": "Session limits"
+        },
+        {
+          "level": 3,
+          "text": "Calculating hardware capacity"
+        },
+        {
+          "level": 3,
+          "text": "Calculating bandwidth capacity"
+        },
+        {
+          "level": 3,
+          "text": "Deriving your limit"
+        },
+        {
+          "level": 2,
+          "text": "NVENC session caps on consumer GPUs"
+        },
+        {
+          "level": 2,
+          "text": "Output rendition profiles"
+        },
+        {
+          "level": 2,
+          "text": "Optimisation tips"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid",
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/navigator",
+      "title": "Should You Run a Livepeer Orchestrator?",
+      "description": "Decide whether to join a pool, run solo, add AI workloads, or operate at fleet scale on Livepeer.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "navigator",
+        "should-i-run-one",
+        "pool",
+        "solo",
+        "ai",
+        "enterprise",
+        "orchestrators"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 379,
+      "lastVerified": "2026-03-12T19:09:38+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "1. Should you run an orchestrator?"
+        },
+        {
+          "level": 2,
+          "text": "2. Pool vs Solo"
+        },
+        {
+          "level": 2,
+          "text": "3. Workload types"
+        },
+        {
+          "level": 2,
+          "text": "4. Costs, stake, and viability"
+        },
+        {
+          "level": 2,
+          "text": "5. Delegates and running pools"
+        },
+        {
+          "level": 2,
+          "text": "Path Matrix"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/quickstart/guide",
+      "title": "Orchestrator Quickstart",
+      "description": "Choose your quickstart path — video transcoding, AI inference, or join a pool — and get your first orchestrator node running.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "quickstart",
+        "transcoding",
+        "ai",
+        "go-livepeer",
+        "gpu",
+        "orchestrators",
+        "guide"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "beginner",
+      "wordCount": 257,
+      "lastVerified": "2026-03-14T00:16:25+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Choose your path"
+        },
+        {
+          "level": 2,
+          "text": "What you will need"
+        },
+        {
+          "level": 2,
+          "text": "Quickstart vs Setup guide"
+        },
+        {
+          "level": 2,
+          "text": "After the quickstart"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/resources/arbitrum-exchanges",
+      "title": "Arbitrum Exchanges",
+      "description": "Where to acquire ETH (for gas) and LPT (for staking) on Arbitrum One — exchanges, bridges, and DEXs for Livepeer orchestrators.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "arbitrum",
+        "exchanges",
+        "lpt",
+        "eth",
+        "bridge",
+        "uniswap",
+        "staking",
+        "orchestrators",
+        "resources",
+        "arbitrum-exchanges"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 301,
+      "lastVerified": "2026-03-13T04:26:06+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "ETH on Arbitrum"
+        },
+        {
+          "level": 3,
+          "text": "Getting ETH to Arbitrum"
+        },
+        {
+          "level": 2,
+          "text": "LPT on Arbitrum"
+        },
+        {
+          "level": 3,
+          "text": "Acquiring LPT"
+        },
+        {
+          "level": 3,
+          "text": "LPT Contract Address (Arbitrum One)"
+        },
+        {
+          "level": 2,
+          "text": "How Much Do You Need?"
+        },
+        {
+          "level": 2,
+          "text": "See Also"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/resources/arbitrum-rpc",
+      "title": "Arbitrum RPCs",
+      "description": "Arbitrum One RPC endpoint options for Livepeer orchestrators — provider comparison, rate limits, and configuration.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "arbitrum",
+        "rpc",
+        "ethurl",
+        "alchemy",
+        "infura",
+        "ankr",
+        "orchestrators",
+        "resources",
+        "arbitrum-rpc"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 263,
+      "lastVerified": "2026-03-13T04:26:06+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Requirements"
+        },
+        {
+          "level": 2,
+          "text": "Provider Options"
+        },
+        {
+          "level": 2,
+          "text": "Configuration"
+        },
+        {
+          "level": 3,
+          "text": "Verify Your Endpoint"
+        },
+        {
+          "level": 2,
+          "text": "Common Issues"
+        },
+        {
+          "level": 2,
+          "text": "See Also"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/resources/community-guides",
+      "title": "Community Guides & Tutorials",
+      "description": "Curated external tutorials, video walkthroughs, and community-maintained resources for Livepeer orchestrators — from setup through advanced operations.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "community",
+        "tutorials",
+        "guides",
+        "titan-node",
+        "video-miner",
+        "daydream",
+        "comfystream",
+        "monitoring",
+        "prometheus",
+        "grafana"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 395,
+      "lastVerified": "2026-03-13T04:26:06+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Setup & Installation"
+        },
+        {
+          "level": 2,
+          "text": "AI Workloads"
+        },
+        {
+          "level": 2,
+          "text": "Monitoring & Operations"
+        },
+        {
+          "level": 2,
+          "text": "Economics & Strategy"
+        },
+        {
+          "level": 2,
+          "text": "Pool Operators & Workers"
+        },
+        {
+          "level": 2,
+          "text": "Video & Educational Content"
+        },
+        {
+          "level": 2,
+          "text": "Developer & Research Resources"
+        },
+        {
+          "level": 2,
+          "text": "Discord & Forum"
+        },
+        {
+          "level": 2,
+          "text": "See Also"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/resources/gpu-support",
+      "title": "GPU Support Matrix",
+      "description": "NVIDIA GPU compatibility, NVENC/NVDEC session limits, driver requirements, and CUDA versions for Livepeer orchestrators.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "gpu",
+        "nvidia",
+        "nvenc",
+        "nvdec",
+        "cuda",
+        "session-limits",
+        "rtx",
+        "transcoding",
+        "ai-inference",
+        "orchestrators"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 637,
+      "lastVerified": "2026-03-13T04:26:06+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Supported GPU Families"
+        },
+        {
+          "level": 2,
+          "text": "NVENC Session Limits"
+        },
+        {
+          "level": 3,
+          "text": "Removing the Session Limit"
+        },
+        {
+          "level": 2,
+          "text": "CUDA and Driver Requirements"
+        },
+        {
+          "level": 3,
+          "text": "Checking Your Versions"
+        },
+        {
+          "level": 2,
+          "text": "VRAM Requirements by Workload"
+        },
+        {
+          "level": 2,
+          "text": "GPU Selection Guidance"
+        },
+        {
+          "level": 2,
+          "text": "See Also"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/resources/technical/x-support-status",
+      "title": "Support Status",
+      "description": "Planned status page clarifying what is supported, experimental, deprecated, or still consolidating in orchestrator docs.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "support-status",
+        "experimental",
+        "deprecated",
+        "supported",
+        "orchestrators",
+        "resources",
+        "technical",
+        "x-support-status"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 67,
+      "lastVerified": "2026-03-12T23:44:15+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Planned scope"
+        },
+        {
+          "level": 2,
+          "text": "Recommended now"
+        }
+      ],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/resources/x-payments",
+      "title": "Orchestrator Payments",
+      "description": "Payment setup guidance for Livepeer orchestrators.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrators",
+        "payments",
+        "clearinghouse",
+        "arbitrum",
+        "eth",
+        "lpt",
+        "resources",
+        "x-payments"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 26,
+      "lastVerified": "2026-03-15T04:52:54+11:00",
+      "headings": [],
+      "codeLanguages": []
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/setup/activate",
+      "title": "Activate on the Network",
+      "description": "Activate your orchestrator on the Livepeer network using livepeer_cli — set reward cut, fee cut, and service URI, and verify you are in the active set.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "activate",
+        "livepeer-cli",
+        "active-set",
+        "lpt",
+        "stake",
+        "reward-cut",
+        "service-uri",
+        "orchestrators",
+        "setup"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 859,
+      "lastVerified": "2026-03-13T04:51:59+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Prerequisites"
+        },
+        {
+          "level": 2,
+          "text": "Activate your orchestrator"
+        },
+        {
+          "level": 2,
+          "text": "Verify you are in the active set"
+        },
+        {
+          "level": 2,
+          "text": "The active set"
+        },
+        {
+          "level": 2,
+          "text": "Next steps"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/setup/guide",
+      "title": "Run an Orchestrator",
+      "description": "End-to-end setup path for Livepeer orchestrators running go-livepeer — from hardware prerequisites through activation and first jobs.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "setup",
+        "go-livepeer",
+        "activation",
+        "gpu",
+        "install",
+        "configure",
+        "orchestrators",
+        "guide"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 301,
+      "lastVerified": "2026-03-13T04:51:59+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Setup flow"
+        },
+        {
+          "level": 2,
+          "text": "What you will need"
+        },
+        {
+          "level": 2,
+          "text": "After setup"
+        }
+      ],
+      "codeLanguages": [
+        "mermaid"
+      ]
+    },
+    {
+      "url": "https://docs.livepeer.org/v2/orchestrators/setup/test",
+      "title": "Verify Your Setup",
+      "description": "Pre-activation and post-activation checks to confirm your orchestrator is configured correctly, reachable, and receiving jobs.",
+      "section": "orchestrators",
+      "tags": [
+        "livepeer",
+        "orchestrator",
+        "verify",
+        "test",
+        "smoke-test",
+        "port-check",
+        "serviceaddr",
+        "active-set",
+        "troubleshooting",
+        "orchestrators",
+        "setup"
+      ],
+      "entities": [
+        "orchestrator"
+      ],
+      "apiEndpoints": [],
+      "difficulty": "intermediate",
+      "wordCount": 709,
+      "lastVerified": "2026-03-13T04:51:59+11:00",
+      "headings": [
+        {
+          "level": 2,
+          "text": "Pre-activation checks"
+        },
+        {
+          "level": 3,
+          "text": "1. GPU detection"
+        },
+        {
+          "level": 3,
+          "text": "2. RPC connectivity"
+        },
+        {
+          "level": 3,
+          "text": "3. Port reachability"
+        },
+        {
+          "level": 3,
+          "text": "4. Wallet and funds"
+        },
+        {
+          "level": 2,
+          "text": "Post-activation checks"
+        },
+        {
+          "level": 3,
+          "text": "5. Explorer status"
+        },
+        {
+          "level": 3,
+          "text": "6. Service address match"
+        },
+        {
+          "level": 3,
+          "text": "7. First job verification"
+        },
+        {
+          "level": 3,
+          "text": "8. Reward call"
+        },
+        {
+          "level": 3,
+          "text": "9. AI pipeline health (if configured)"
+        },
+        {
+          "level": 2,
+          "text": "Quick-reference checklist"
+        },
+        {
+          "level": 2,
+          "text": "Not receiving jobs?"
+        },
+        {
+          "level": 2,
+          "text": "See also"
+        }
+      ],
+      "codeLanguages": [
+        "bash"
+      ]
     }
   ]
 }

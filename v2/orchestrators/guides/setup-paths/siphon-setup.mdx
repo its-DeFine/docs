@@ -30,13 +30,17 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 Running your orchestrator keystore on the same machine as your GPU workloads creates two risks. If the GPU machine is busy or reboots mid-round, you miss that round's LPT inflation reward — and missed rewards compound against you over time. And a machine actively processing untrusted media data is not the safest place for a key that controls your staked LPT.
 
 The **split setup** solves both. **OrchestratorSiphon** runs on a small, secure machine and handles all on-chain actions: reward calling, fee withdrawal, governance voting, and service URI updates. Your GPU machine runs go-livepeer in transcoder mode and does nothing but process work — it never holds the keystore.
 
 The two machines are independent. Your GPU machine can restart, be replaced, or be taken offline for maintenance without interrupting reward claims. And if you want to add a second GPU machine later, you do so without touching your secure machine at all.
 
----
+<CustomDivider />
 
 ## Architecture overview
 
@@ -58,12 +62,25 @@ flowchart LR
     Siphon -.->|"Service URI\npoints here"| Worker
 ```
 
-| Machine | What it does | GPU required |
-|---|---|---|
-| Secure machine | Keystore, reward calling, on-chain actions | No |
-| GPU machine | Segment processing, AI inference, ticket redemption | Yes |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Machine</TableCell>
+    <TableCell header>What it does</TableCell>
+    <TableCell header>GPU required</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Secure machine</TableCell>
+    <TableCell>Keystore, reward calling, on-chain actions</TableCell>
+    <TableCell>No</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>GPU machine</TableCell>
+    <TableCell>Segment processing, AI inference, ticket redemption</TableCell>
+    <TableCell>Yes</TableCell>
+  </TableRow>
+</StyledTable>
 
----
+<CustomDivider />
 
 ## When to choose this setup
 
@@ -83,28 +100,53 @@ flowchart LR
   You can run Siphon alone — with no GPU machine — to earn LPT inflation rewards while you prepare your GPU infrastructure. When ready, deploy go-livepeer in transcoder mode and point your service URI at the GPU machine. No changes to your keystore or on-chain registration are needed.
 </Tip>
 
----
+<CustomDivider />
 
 ## Prerequisites
 
-| Requirement | Secure machine | GPU machine |
-|---|---|---|
-| OS | Linux (Ubuntu 20.04+) | Linux with NVIDIA GPU |
-| Python | python3 + pip | Not required |
-| Network | Outbound to Arbitrum One RPC | Static IP or stable DNS entry |
-| Ethereum | Orchestrator keystore + ETH for gas | Small ETH balance for ticket redemption |
-| Stake | LPT staked on-chain | Not applicable |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Requirement</TableCell>
+    <TableCell header>Secure machine</TableCell>
+    <TableCell header>GPU machine</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>OS</TableCell>
+    <TableCell>Linux (Ubuntu 20.04+)</TableCell>
+    <TableCell>Linux with NVIDIA GPU</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Python</TableCell>
+    <TableCell>python3 + pip</TableCell>
+    <TableCell>Not required</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Network</TableCell>
+    <TableCell>Outbound to Arbitrum One RPC</TableCell>
+    <TableCell>Static IP or stable DNS entry</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Ethereum</TableCell>
+    <TableCell>Orchestrator keystore + ETH for gas</TableCell>
+    <TableCell>Small ETH balance for ticket redemption</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Stake</TableCell>
+    <TableCell>LPT staked on-chain</TableCell>
+    <TableCell>Not applicable</TableCell>
+  </TableRow>
+</StyledTable>
 
 The secure machine does not need a GPU. A small VPS (1 vCPU, 512 MB RAM) is sufficient. The important properties are stability, restricted access, and that you are the only one who can reach it.
 
----
+<CustomDivider />
 
 ## Part 1: Secure machine — install and configure OrchestratorSiphon
 
-<Steps>
+<StyledSteps>
 
-<Step title="Clone the repository">
-```bash
+<StyledStep title="Clone the repository">
+```bash icon="terminal"
 git clone https://github.com/Stronk-Tech/OrchestratorSiphon.git
 cd OrchestratorSiphon
 ```
@@ -112,12 +154,12 @@ cd OrchestratorSiphon
 <Card title="OrchestratorSiphon — Stronk-Tech/OrchestratorSiphon" icon="github" href="https://github.com/Stronk-Tech/OrchestratorSiphon">
   A lightweight Python toolkit for managing a Livepeer orchestrator keystore.
 </Card>
-</Step>
+</StyledStep>
 
-<Step title="Install Python dependencies">
+<StyledStep title="Install Python dependencies">
 A virtual environment is the recommended approach on all Ubuntu versions:
 
-```bash
+```bash icon="terminal"
 python3 -m venv .venv
 source .venv/bin/activate
 pip install web3 eth-utils setuptools
@@ -125,33 +167,33 @@ pip install web3 eth-utils setuptools
 
 On **Ubuntu 24.04+** without a virtualenv, use `--break-system-packages`:
 
-```bash
+```bash icon="terminal"
 python3 -m pip install --break-system-packages web3 eth-utils setuptools
 ```
 
 Verify the installation:
 
-```bash
+```bash icon="terminal"
 python3 -m pip show web3 requests urllib3
 ```
 
 If you see a `RequestsDependencyWarning` about urllib3 or chardet:
 
-```bash
+```bash icon="terminal"
 pip install --upgrade "requests>=2.31" "urllib3>=2.0" web3
 ```
-</Step>
+</StyledStep>
 
-<Step title="Configure config.ini">
+<StyledStep title="Configure config.ini">
 Open the provided configuration file:
 
-```bash
+```bash icon="terminal"
 nano config.ini
 ```
 
 The essential fields are:
 
-```ini
+```ini icon="terminal"
 [keystore1]
 ; Path to your Ethereum keystore file (the UTC-- file)
 keystore = /path/to/keystore/UTC--<timestamp>--<address>
@@ -188,12 +230,12 @@ If you run multiple orchestrators, duplicate the `[keystore1]` block and name th
 <Warning>
   Never share your keystore or password with anyone. If you are uncertain about what the script does with your key, search `source_private_key` in the Python source files — the repository README explicitly points to these locations. If in doubt, use the official go-livepeer binary to manage rewards instead.
 </Warning>
-</Step>
+</StyledStep>
 
-<Step title="Test manually before going to production">
+<StyledStep title="Test manually before going to production">
 Run Siphon once to confirm it can decrypt your keystore and connect to Arbitrum. If you left `password` empty, it will prompt you:
 
-```bash
+```bash icon="terminal"
 # Using virtualenv:
 .venv/bin/python3 OrchestratorSiphon.py
 
@@ -204,14 +246,14 @@ python3 OrchestratorSiphon.py
 Enter your password when asked, then enter `0` to launch standard mode. You should see output showing your orchestrator's current state (pending rewards, ETH balance, current round).
 
 If Siphon cannot connect to the RPC endpoint, check your network configuration and verify the Arbitrum RPC URL is reachable from this machine.
-</Step>
+</StyledStep>
 
-<Step title="Set up as a systemd service">
+<StyledStep title="Set up as a systemd service">
 For production use, register Siphon as a systemd service so it restarts automatically after reboots.
 
 Create `/etc/systemd/system/orchSiphon.service`:
 
-```ini
+```ini icon="terminal"
 [Unit]
 Description=OrchestratorSiphon — Livepeer keystore manager
 After=network-online.target
@@ -233,7 +275,7 @@ WantedBy=multi-user.target
 
 Enable and start:
 
-```bash
+```bash icon="terminal"
 sudo systemctl daemon-reload
 sudo systemctl enable orchSiphon
 sudo systemctl start orchSiphon
@@ -242,35 +284,35 @@ sudo systemctl status orchSiphon
 
 Follow logs live:
 
-```bash
+```bash icon="terminal"
 journalctl -u orchSiphon -f
 ```
 
 <Note>
   If you are storing the password in a file rather than entering it interactively, ensure that file has permissions `600` and is only readable by the service user. Alternatively, pass the password via an environment variable using systemd's `EnvironmentFile=` directive, pointing to a protected file.
 </Note>
-</Step>
+</StyledStep>
 
-</Steps>
+</StyledSteps>
 
----
+<CustomDivider />
 
 ## Part 2: GPU machine — install go-livepeer in transcoder mode
 
-<Steps>
+<StyledSteps>
 
-<Step title="Install go-livepeer">
+<StyledStep title="Install go-livepeer">
 Follow the standard installation guide on your GPU machine. You only need the binary — you will not perform on-chain registration, as your orchestrator is already registered via the keystore on your secure machine.
 
 <Card title="go-livepeer Installation Guide" icon="book" href="/v2/orchestrators/setup/guide">
   Standard installation steps. Follow until the binary is installed and your GPU is confirmed visible.
 </Card>
-</Step>
+</StyledStep>
 
-<Step title="Start go-livepeer in transcoder mode">
+<StyledStep title="Start go-livepeer in transcoder mode">
 Pass `-transcoder` (not `-orchestrator`). The `-orchAddr` flag identifies which orchestrator endpoint this GPU machine is serving under:
 
-```bash
+```bash icon="terminal"
 livepeer \
     -transcoder \
     -orchAddr <your-service-uri-host>:8935 \
@@ -281,7 +323,7 @@ livepeer \
 
 Replace `<your-service-uri-host>` with the hostname or IP of this machine (or its public-facing load balancer). For AI workloads, add your `aiModels.json` configuration:
 
-```bash
+```bash icon="terminal"
 livepeer \
     -transcoder \
     -orchAddr <your-service-uri-host>:8935 \
@@ -294,9 +336,9 @@ livepeer \
 <Note>
   In transcoder mode, go-livepeer does not look for or use an Ethereum keystore. It handles the GPU-side of workload processing only. All on-chain identity management stays with Siphon on your secure machine.
 </Note>
-</Step>
+</StyledStep>
 
-<Step title="Update your service URI to point to this machine">
+<StyledStep title="Update your service URI to point to this machine">
 Your service URI is what gateways use to find your node and route work to it. It must resolve to your GPU machine's address.
 
 To update the service URI on-chain, trigger OrchestratorSiphon's interactive mode on your secure machine. While Siphon is running, send it a `SIGINT` (Ctrl+C) signal — this switches it to interactive mode rather than exiting. Select the service URI update option from the menu.
@@ -307,21 +349,21 @@ Alternatively, if you have go-livepeer running in full orchestrator mode on any 
 
 After updating, verify the change is reflected on-chain by checking Livepeer Explorer:
 
-```
+``` icon="terminal"
 https://explorer.livepeer.org/accounts/<your-orchestrator-address>/orchestrating
 ```
-</Step>
+</StyledStep>
 
-</Steps>
+</StyledSteps>
 
----
+<CustomDivider />
 
 ## Verifying the split is working
 
 Once both machines are running, confirm each side is operating correctly:
 
 **Secure machine (Siphon):**
-```bash
+```bash icon="terminal"
 # Check that rewards are being called
 journalctl -u orchSiphon --since "24 hours ago" | grep -i "reward\|round"
 ```
@@ -329,14 +371,14 @@ journalctl -u orchSiphon --since "24 hours ago" | grep -i "reward\|round"
 You should see a reward call for each round (~once every 22 hours). Check the on-chain record on the Explorer.
 
 **GPU machine (go-livepeer):**
-```bash
+```bash icon="terminal"
 # Look for incoming work in go-livepeer logs
 journalctl -u livepeer --since "1 hour ago" | grep -i "transcode\|segment\|session"
 ```
 
 You should see transcoding activity if gateways are routing work to you. If you see no incoming sessions, check your service URI resolves correctly and port 8935 is open.
 
----
+<CustomDivider />
 
 ## Day-to-day operations
 
@@ -355,7 +397,7 @@ With the split setup running correctly, your ongoing workload is minimal:
 
 **Neither machine** needs to know about or interact with the other to keep your rewards safe. That is the point.
 
----
+<CustomDivider />
 
 ## Scaling: adding a second GPU machine
 
@@ -367,19 +409,19 @@ To add a second GPU machine, simply:
 
 Your Siphon configuration on the secure machine does not change. Your stake, on-chain identity, and reward schedule are unaffected.
 
----
+<CustomDivider />
 
 ## Troubleshooting
 
 <AccordionGroup>
 
-<Accordion title="Siphon is failing to call rewards — gas error">
+<Accordion  title="Siphon is failing to call rewards — gas error" icon="microchip">
 Your orchestrator wallet ETH balance has dropped below the amount needed for gas. The `eth_minval` threshold is meant to prevent this, but if Arbitrum gas spikes or fees accumulate faster than expected, the wallet can run dry.
 
 Check the balance in `journalctl -u orchSiphon` output, then top up your orchestrator address with ETH on Arbitrum One. Siphon will resume automatically.
 </Accordion>
 
-<Accordion title="GPU machine is not receiving any work">
+<Accordion  title="GPU machine is not receiving any work" icon="server">
 1. Verify your service URI on-chain resolves to your GPU machine's IP/hostname
 2. Check port 8935 is open and reachable from the internet (run `curl -v https://<your-service-uri>:8935/status` from a different machine)
 3. Confirm go-livepeer started successfully in transcoder mode — check for GPU detection in the startup log
@@ -387,25 +429,25 @@ Check the balance in `journalctl -u orchSiphon` output, then top up your orchest
 5. Confirm your pricing is within the range gateways will accept — if `-pricePerUnit` is set too high, no work is routed to you regardless of uptime
 </Accordion>
 
-<Accordion title="I need to change the GPU machine's IP address">
+<Accordion  title="I need to change the GPU machine's IP address" icon="server">
 1. Update your DNS record or IP configuration first
 2. Trigger Siphon's interactive mode and update the service URI to the new address
 3. Wait a few minutes for the on-chain update to propagate
 4. Verify the new URI appears on the Explorer before testing incoming work
 </Accordion>
 
-<Accordion title="Can I run Siphon without the GPU machine online?">
+<Accordion  title="Can I run Siphon without the GPU machine online?" icon="server">
 Yes. Siphon manages on-chain actions independently. Your orchestrator continues claiming LPT inflation rewards each round regardless of whether the GPU machine is running. The only consequence of the GPU machine being offline is that gateways cannot route work to you — your staked LPT and reward schedule are unaffected.
 </Accordion>
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## Related
 
 <CardGroup cols={2}>
-  <Card title="Earnings Overview" icon="coins" href="/v2/orchestrators/concepts/earnings">
+  <Card title="Earnings Overview" icon="coins" href="/v2/orchestrators/guides/staking-and-rewards/earnings">
     How LPT inflation rewards and transcoding fees work — the two revenue streams Siphon helps protect.
   </Card>
   <Card title="Reward Calling Guide" icon="clock" href="/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees">

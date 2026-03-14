@@ -34,9 +34,13 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 This guide covers the operator-side configuration for video transcoding — how to set your price, how to calculate a safe session limit, how NVENC hardware caps affect concurrency, and what the standard output rendition profiles look like. For hardware benchmarking, see the dedicated [Benchmarking Guide](/v2/orchestrators/guides/feasibility-and-hardware/benchmarking).
 
----
+<CustomDivider />
 
 ## How transcoding works
 
@@ -60,7 +64,7 @@ sequenceDiagram
 
 {/* REVIEW: Confirm minimum NVIDIA driver version for current go-livepeer release. From gpu.md: tested with CUDA 10.0–11.x; note that 450.xx drivers have a known stuck-session issue. Rick to confirm current minimum recommendation. */}
 
----
+<CustomDivider />
 
 ## Pricing
 
@@ -70,7 +74,7 @@ Transcoding is priced in **wei per pixel**. A "pixel" here is one pixel of outpu
 
 The simplest and most explicit approach — you set a fixed wei amount and it stays fixed until you change it.
 
-```bash
+```bash icon="terminal"
 livepeer \
   -orchestrator \
   -transcoder \
@@ -81,7 +85,7 @@ livepeer \
 
 This charges 500 wei per output pixel. To work with more human-friendly numbers, use `-pixelsPerUnit` as a denominator:
 
-```bash
+```bash icon="terminal"
 # Charge 500 wei per million pixels (0.0000005 wei per pixel)
 -pricePerUnit 500 \
 -pixelsPerUnit 1000000
@@ -97,7 +101,7 @@ USD pricing pegs your transcoding fee to a dollar amount and automatically conve
 
 Add `USD` as a suffix to `-pricePerUnit`:
 
-```bash
+```bash icon="terminal"
 # $4.10 × 10⁻¹³ per pixel
 livepeer \
   -orchestrator \
@@ -107,7 +111,7 @@ livepeer \
   # ...
 ```
 
-```bash
+```bash icon="terminal"
 # $6.65 × 10⁻¹⁴ per pixel
 -pixelsPerUnit 1e12 \
 -pricePerUnit 0.0665USD
@@ -123,7 +127,7 @@ livepeer \
 
 The Chainlink feed can be overridden with `-priceFeedAddr`. Examples:
 
-```bash
+```bash icon="terminal"
 # USD on Ethereum mainnet
 -priceFeedAddr 0x5f4eC3Df9cbd43714FE2740f5E3616155c5b8419 \
 -pricePerUnit 1USD
@@ -137,15 +141,32 @@ The Chainlink feed can be overridden with `-priceFeedAddr`. Examples:
 
 By default, go-livepeer automatically adjusts your advertised price upward to account for ticket redemption overhead. Ticket redemption is a gas transaction on Arbitrum — when gas prices rise, the overhead as a percentage of ticket face value rises, which makes tickets less profitable to redeem. The auto-adjustment compensates:
 
-| Base price | Redemption overhead | Advertised price |
-|---|---|---|
-| 1000 wei/px | 1% | 1010 wei/px |
-| 1000 wei/px | 20% | 1200 wei/px |
-| 1000 wei/px | 50% | 1500 wei/px |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Base price</TableCell>
+    <TableCell header>Redemption overhead</TableCell>
+    <TableCell header>Advertised price</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>1000 wei/px</TableCell>
+    <TableCell>1%</TableCell>
+    <TableCell>1010 wei/px</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>1000 wei/px</TableCell>
+    <TableCell>20%</TableCell>
+    <TableCell>1200 wei/px</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>1000 wei/px</TableCell>
+    <TableCell>50%</TableCell>
+    <TableCell>1500 wei/px</TableCell>
+  </TableRow>
+</StyledTable>
 
 This mechanism keeps your effective earnings stable when Arbitrum gas spikes. **Auto-adjustment is on by default.** To advertise a constant price and manage overhead yourself:
 
-```bash
+```bash icon="terminal"
 -autoAdjustPrice=false
 ```
 
@@ -153,37 +174,37 @@ This mechanism keeps your effective earnings stable when Arbitrum gas spikes. **
 
 You can update your price without restarting the node:
 
-<Steps>
+<StyledSteps>
 
-<Step title="Run livepeer_cli">
-```bash
+<StyledStep title="Run livepeer_cli">
+```bash icon="terminal"
 livepeer_cli
 ```
-</Step>
+</StyledStep>
 
-<Step title="Select Set orchestrator config">
+<StyledStep title="Select Set orchestrator config">
 Enter the number corresponding to `Set orchestrator config`. You can press Enter to keep existing values for fields you do not want to change.
-</Step>
+</StyledStep>
 
-<Step title="Set pixelsPerUnit">
-```
+<StyledStep title="Set pixelsPerUnit">
+``` icon="terminal"
 Enter the number of pixels that make up a single unit (default: 1 pixel):
 ```
 Enter your value (e.g. `1000000` or leave at default `1`).
-</Step>
+</StyledStep>
 
-<Step title="Set pricePerUnit">
-```
+<StyledStep title="Set pricePerUnit">
+``` icon="terminal"
 Enter the price for 1 pixel in Wei (required):
 ```
 Enter your wei price. To use USD, append the suffix: `0.41USD`.
-</Step>
+</StyledStep>
 
-<Step title="Verify">
+<StyledStep title="Verify">
 Check your node logs — the updated price appears in the startup or config log output.
-</Step>
+</StyledStep>
 
-</Steps>
+</StyledSteps>
 
 ### What gateways pay — and what you need to know
 
@@ -197,7 +218,7 @@ Compare your price to active orchestrators on [Livepeer Explorer](https://explor
 
 {/* REVIEW: livepeer.tools was referenced in v1 docs as a market rate tool but the domain is down. tools.livepeer.cloud is the current community equivalent. Confirm with community before publication. */}
 
----
+<CustomDivider />
 
 ## Session limits
 
@@ -205,7 +226,7 @@ Your session limit is the maximum number of concurrent transcoding sessions your
 
 Set it via `-maxSessions`:
 
-```bash
+```bash icon="terminal"
 livepeer \
   -orchestrator \
   -transcoder \
@@ -219,7 +240,7 @@ The right value is the **minimum of your hardware capacity and your bandwidth ca
 
 The benchmark-derived approach: run `livepeer_bench` at increasing concurrency levels and find the highest session count where the Real-Time Duration Ratio stays at or below **0.8**. The 0.8 threshold leaves a ~20% buffer for network overhead.
 
-```bash
+```bash icon="terminal"
 #!/bin/bash
 for i in {1..20}
 do
@@ -233,7 +254,7 @@ done
 
 Read the output:
 
-```
+``` icon="terminal"
 | * Real-Time Duration Ratio * | 0.21  |   # 1 session
 | * Real-Time Duration Ratio * | 0.38  |   # 2 sessions
 | * Real-Time Duration Ratio * | 0.56  |   # 3 sessions
@@ -251,20 +272,33 @@ For the full benchmarking walkthrough including test stream download and CSV out
 
 The standard ABR output ladder consumes predictable bandwidth per session:
 
-| Direction | Per session | Basis |
-|---|---|---|
-| **Download** (inbound source) | ~6 Mbps | 1080p30fps source at ~6000 kbps |
-| **Upload** (outbound output) | ~5.6 Mbps | Full 5-rendition ABR ladder total |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Direction</TableCell>
+    <TableCell header>Per session</TableCell>
+    <TableCell header>Basis</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Download** (inbound source)</TableCell>
+    <TableCell>~6 Mbps</TableCell>
+    <TableCell>1080p30fps source at ~6000 kbps</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Upload** (outbound output)</TableCell>
+    <TableCell>~5.6 Mbps</TableCell>
+    <TableCell>Full 5-rendition ABR ladder total</TableCell>
+  </TableRow>
+</StyledTable>
 
 **Formula:**
 
-```
+``` icon="terminal"
 Bandwidth limit = min(connection_download_Mbps ÷ 6, connection_upload_Mbps ÷ 5.6)
 ```
 
 **Example — 100 Mbps symmetric connection:**
 
-```
+``` icon="terminal"
 Download limit: 100 ÷ 6 ≈ 16 sessions
 Upload limit:   100 ÷ 5.6 ≈ 17 sessions
 Bandwidth limit: 16 sessions
@@ -274,7 +308,7 @@ In practice, not all sessions peak simultaneously, so you may extend the limit b
 
 ### Deriving your limit
 
-```
+``` icon="terminal"
 maxSessions = min(hardware_capacity, bandwidth_capacity)
 ```
 
@@ -284,17 +318,30 @@ This is a starting point, not a permanent answer. Monitor your Real-Time Duratio
   **CPU transcoding caveat:** If you are transcoding without GPU acceleration, the hardware capacity is much lower — approximately 3–5 sessions on modern CPU hardware. CPU transcoding is not competitive on the network at scale.
 </Note>
 
----
+<CustomDivider />
 
 ## NVENC session caps on consumer GPUs
 
 Consumer NVIDIA GPUs (GTX/RTX series) have a hardware-enforced cap on the number of concurrent NVENC encoding sessions. This cap applies per GPU and exists independently of your `-maxSessions` setting.
 
-| GPU tier | NVENC session cap |
-|---|---|
-| Consumer (GTX 10xx, RTX 20xx–40xx) | 3–8 concurrent sessions per GPU |
-| Professional (RTX A-series, Quadro) | Unlimited |
-| Data-centre (A100, H100) | Unlimited |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>GPU tier</TableCell>
+    <TableCell header>NVENC session cap</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Consumer (GTX 10xx, RTX 20xx–40xx)</TableCell>
+    <TableCell>3–8 concurrent sessions per GPU</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Professional (RTX A-series, Quadro)</TableCell>
+    <TableCell>Unlimited</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Data-centre (A100, H100)</TableCell>
+    <TableCell>Unlimited</TableCell>
+  </TableRow>
+</StyledTable>
 
 **What happens when you hit the cap:** On startup, go-livepeer runs a GPU test encode. If the NVENC session cap is already reached by other processes, the test fails and the node exits with `Cannot allocate memory`. At runtime, the sessions are hard-capped — new sessions beyond the limit are rejected.
 
@@ -310,23 +357,44 @@ The NVENC session cap is enforced in the NVIDIA driver, not the GPU hardware. An
 
 **Practical recommendation:** Account for the NVENC cap when calculating your hardware session limit. If your GPU is capped at 3 concurrent NVENC sessions, your hardware limit for the benchmark methodology above is 3, regardless of what the Duration Ratio benchmarks suggest at higher concurrency.
 
----
+<CustomDivider />
 
 ## Output rendition profiles
 
 The standard ABR (Adaptive Bitrate) ladder on the Livepeer network assumes a 1080p30fps source input. The default `transcodingOptions.json` used by `livepeer_bench` — and the profile most gateways request — is:
 
-| Profile | Resolution | Bitrate |
-|---|---|---|
-| P720p30fps | 720p at source fps | 3000 kbps |
-| P480p30fps | 480p at source fps | 1600 kbps |
-| P360p30fps | 360p at source fps | 800 kbps |
-| P240p30fps | 240p at source fps | 250 kbps |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Profile</TableCell>
+    <TableCell header>Resolution</TableCell>
+    <TableCell header>Bitrate</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>P720p30fps</TableCell>
+    <TableCell>720p at source fps</TableCell>
+    <TableCell>3000 kbps</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>P480p30fps</TableCell>
+    <TableCell>480p at source fps</TableCell>
+    <TableCell>1600 kbps</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>P360p30fps</TableCell>
+    <TableCell>360p at source fps</TableCell>
+    <TableCell>800 kbps</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>P240p30fps</TableCell>
+    <TableCell>240p at source fps</TableCell>
+    <TableCell>250 kbps</TableCell>
+  </TableRow>
+</StyledTable>
 
 {/* REVIEW: Confirm whether 1080p has been removed from the default transcodingOptions.json or whether it varies per gateway. Rick confirmed 1080p removed from transcodingOptions.json in session 3 — but gateways may still request it in source passthrough. Confirm before publication. */}
 
 The default `-transcodingOptions` flag string is:
-```
+``` icon="terminal"
 P240p30fps16x9,P360p30fps16x9,P720p30fps16x9
 ```
 
@@ -338,43 +406,43 @@ More output renditions = more NVENC encode passes per segment. The standard 4-re
 
 You can define a custom `transcodingOptions.json` for unusual gateway requirements. The file is a JSON array of profile objects specifying resolution, bitrate, fps, and profile string. The default configuration file is at:
 
-```
+``` icon="terminal"
 https://github.com/livepeer/go-livepeer/blob/master/cmd/livepeer_bench/transcodingOptions.json
 ```
 
----
+<CustomDivider />
 
 ## Optimisation tips
 
 <AccordionGroup>
 
-<Accordion title="Always use GPU transcoding">
+<Accordion  title="Always use GPU transcoding" icon="server">
 CPU transcoding is not competitive on the Livepeer market. Even a mid-range NVIDIA card (RTX 3060) will outperform a modern CPU on transcoding throughput per watt and per dollar. If you are running without `-nvidia`, you are leaving performance and earnings on the table. The only exception is brief testing scenarios.
 </Accordion>
 
-<Accordion title="Derive maxSessions from benchmarks, not guesses">
+<Accordion  title="Derive maxSessions from benchmarks, not guesses" icon="triangle-exclamation">
 The default of 10 is arbitrary. On an RTX 4090, the correct value may be 30+. On an RTX 3060, it may be 8. Always benchmark with `livepeer_bench` on your specific hardware with the standard `transcodingOptions.json` before setting a production value. Wrong values in either direction cost you money.
 </Accordion>
 
-<Accordion title="Monitor Real-Time Duration Ratio in production">
+<Accordion  title="Monitor Real-Time Duration Ratio in production" icon="gear">
 Set up Prometheus metrics (`-monitor` flag) and watch the Duration Ratio under real load. If it climbs above 0.8 consistently during peak periods, lower `-maxSessions`. The benchmark is an approximation — real-world stream properties vary and the production value may differ.
 </Accordion>
 
-<Accordion title="Use a domain name for serviceAddr, not a bare IP">
+<Accordion  title="Use a domain name for serviceAddr, not a bare IP" icon="microchip">
 Your service URI is stored on-chain. If you use a bare IP and your IP changes, you need an on-chain update transaction. A DNS name lets you redirect to a new IP without touching the chain. Use a stable subdomain you control.
 </Accordion>
 
-<Accordion title="USD pricing for long-term stability">
+<Accordion  title="USD pricing for long-term stability" icon="circle-question">
 If you plan to operate for months or years, USD pricing removes ETH volatility from your revenue calculation. Your per-pixel fee in dollar terms stays constant; the wei amount adjusts via Chainlink. Wei pricing is fine for short-term operation or if you are confident in ETH price management.
 </Accordion>
 
-<Accordion title="Leave autoAdjustPrice on during gas price spikes">
+<Accordion  title="Leave autoAdjustPrice on during gas price spikes" icon="circle-question">
 The auto-adjustment mechanism is there precisely for Arbitrum gas spikes. Disabling it with `-autoAdjustPrice=false` makes sense if you want strict price control, but means you absorb the overhead cost directly during high-gas periods. If you cannot monitor gas prices actively, leave it on.
 </Accordion>
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 <CardGroup cols={2}>
   <Card title="Benchmarking Guide" icon="gauge-high" href="/v2/orchestrators/guides/feasibility-and-hardware/benchmarking">
@@ -383,10 +451,10 @@ The auto-adjustment mechanism is there precisely for Arbitrum gas spikes. Disabl
   <Card title="Session Limits" icon="sliders" href="/v2/orchestrators/guides/feasibility-and-hardware/session-limits">
     Detailed bandwidth and hardware capacity methodology with worked examples.
   </Card>
-  <Card title="Job Types Overview" icon="list" href="/v2/orchestrators/guides/workloads-and-ai/job-types-overview">
+  <Card title="Job Types Overview" icon="list" href="/v2/orchestrators/guides/workloads-and-ai/job-types">
     How transcoding routing compares to AI workload routing.
   </Card>
-  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/orchestrators/guides/monitoring/troubleshooting">
+  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/troubleshooting">
     OrchestratorCapped, NVENC memory errors, and pricing-related diagnostics.
   </Card>
 </CardGroup>

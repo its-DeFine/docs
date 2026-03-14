@@ -15,12 +15,17 @@ keywords:
 'og:image:type': image/png
 'og:image:width': 1200
 'og:image:height': 630
+pageType: reference
 audience: orchestrator
 purpose: reference
+status: review
 ---
 
 
 
+
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 ## Mintlify-compatible OpenAPI (reference-only, derived from gRPC)
 
@@ -28,7 +33,7 @@ purpose: reference
 > Generated from `go-livepeer` gRPC messages.
 > Not a supported public API. Fields may change with protocol upgrades.
 
-```yaml
+```yaml icon="terminal"
 openapi: 3.0.3
 info:
   title: Livepeer Orchestrator Protocol (Reference)
@@ -122,34 +127,108 @@ components:
       description: Optional gateway authentication metadata
 ```
 
----
+<CustomDivider />
 
 ## CLI flags ↔ proto field mapping
 
-| CLI flag          | Proto / Message Field         | Notes                |
-| ----------------- | ----------------------------- | -------------------- |
-| `-serviceURI`     | `OrchestratorInfo.transcoder` | Public gRPC endpoint |
-| `-pricePerUnit`   | `PriceInfo.pricePerUnit`      | Base pricing         |
-| `-pixelsPerUnit`  | `PriceInfo.pixelsPerUnit`     | Pricing granularity  |
-| `-blockRewardCut` | On-chain Orchestrator params  | Not part of gRPC     |
-| `-feeShare`       | On-chain Orchestrator params  | Delegator economics  |
-| (implicit)        | `OrchestratorInfo.address`    | ETH signer / payout  |
-| (derived)         | `capabilities_prices`         | AI model pricing     |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>CLI flag</TableCell>
+    <TableCell header>Proto / Message Field</TableCell>
+    <TableCell header>Notes</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-serviceURI`</TableCell>
+    <TableCell>`OrchestratorInfo.transcoder`</TableCell>
+    <TableCell>Public gRPC endpoint</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-pricePerUnit`</TableCell>
+    <TableCell>`PriceInfo.pricePerUnit`</TableCell>
+    <TableCell>Base pricing</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-pixelsPerUnit`</TableCell>
+    <TableCell>`PriceInfo.pixelsPerUnit`</TableCell>
+    <TableCell>Pricing granularity</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-blockRewardCut`</TableCell>
+    <TableCell>On-chain Orchestrator params</TableCell>
+    <TableCell>Not part of gRPC</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-feeShare`</TableCell>
+    <TableCell>On-chain Orchestrator params</TableCell>
+    <TableCell>Delegator economics</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>(implicit)</TableCell>
+    <TableCell>`OrchestratorInfo.address`</TableCell>
+    <TableCell>ETH signer / payout</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>(derived)</TableCell>
+    <TableCell>`capabilities_prices`</TableCell>
+    <TableCell>AI model pricing</TableCell>
+  </TableRow>
+</StyledTable>
 
 Key point: **not everything configurable is gRPC** - some is **purely on-chain economics**.
 
----
+<CustomDivider />
 
 ## Capability matrix: Transcoding vs AI jobs
 
-| Capability Area       | Transcoding Jobs | AI Jobs           |
-| --------------------- | ---------------- | ----------------- |
-| Gateway routing       | ✅               | ✅                |
-| `pricePerUnit`        | ✅ (pixels)      | ❌                |
-| `capabilities_prices` | ❌               | ✅ (per model)    |
-| Codec support         | ✅               | ❌                |
-| Model selection       | ❌               | ✅                |
-| GPU specs             | Optional         | Required          |
-| Storage (`OSInfo`)    | Minimal          | Important         |
-| Deterministic pricing | Yes              | Often variable    |
-| Session duration      | Stream-based     | Job / batch based |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Capability Area</TableCell>
+    <TableCell header>Transcoding Jobs</TableCell>
+    <TableCell header>AI Jobs</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Gateway routing</TableCell>
+    <TableCell>✅</TableCell>
+    <TableCell>✅</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`pricePerUnit`</TableCell>
+    <TableCell>✅ (pixels)</TableCell>
+    <TableCell>❌</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`capabilities_prices`</TableCell>
+    <TableCell>❌</TableCell>
+    <TableCell>✅ (per model)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Codec support</TableCell>
+    <TableCell>✅</TableCell>
+    <TableCell>❌</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Model selection</TableCell>
+    <TableCell>❌</TableCell>
+    <TableCell>✅</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>GPU specs</TableCell>
+    <TableCell>Optional</TableCell>
+    <TableCell>Required</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Storage (`OSInfo`)</TableCell>
+    <TableCell>Minimal</TableCell>
+    <TableCell>Important</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Deterministic pricing</TableCell>
+    <TableCell>Yes</TableCell>
+    <TableCell>Often variable</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Session duration</TableCell>
+    <TableCell>Stream-based</TableCell>
+    <TableCell>Job / batch based</TableCell>
+  </TableRow>
+</StyledTable>

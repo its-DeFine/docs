@@ -28,13 +28,16 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 Running a Livepeer orchestrator gives you two distinct revenue streams that operate on completely different mechanics. Understanding both is essential before you decide how to configure your node or grow your stake.
 
 <Note>
-  **New here?** This page explains the mechanics. For what those mechanics mean in practice for your specific hardware and situation, see [Feasibility and Economics](/v2/orchestrators/guides/feasibility). For the step-by-step operations of reward calling and commission setting, continue to [Rewards and Fees](/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees).
+  **New here?** This page explains the mechanics. For what those mechanics mean in practice for your specific hardware and situation, see [Feasibility and Economics](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics). For the step-by-step operations of reward calling and commission setting, continue to [Rewards and Fees](/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees).
 </Note>
 
----
+<CustomDivider />
 
 ## The two revenue streams
 
@@ -49,7 +52,7 @@ Running a Livepeer orchestrator gives you two distinct revenue streams that oper
 
 These streams behave very differently. ETH fees depend on market demand and your competitiveness. LPT rewards depend on your stake, the current inflation rate, and whether you call `Reward()` every round without missing one. Both matter for total income.
 
----
+<CustomDivider />
 
 ## ETH service fees
 
@@ -57,10 +60,26 @@ Every time a gateway routes a job to your orchestrator and you complete it succe
 
 Fees exist for two workload types:
 
-| Workload | Pricing unit | Typical fee level | GPU required? |
-|---|---|---|---|
-| Video transcoding | Per segment (~2s of video) | Low (commoditised) | Recommended, not required |
-| AI inference | Per inference job (pixel, ms, token) | Higher (GPU-intensive) | Required |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Workload</TableCell>
+    <TableCell header>Pricing unit</TableCell>
+    <TableCell header>Typical fee level</TableCell>
+    <TableCell header>GPU required?</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Video transcoding</TableCell>
+    <TableCell>Per segment (~2s of video)</TableCell>
+    <TableCell>Low (commoditised)</TableCell>
+    <TableCell>Recommended, not required</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>AI inference</TableCell>
+    <TableCell>Per inference job (pixel, ms, token)</TableCell>
+    <TableCell>Higher (GPU-intensive)</TableCell>
+    <TableCell>Required</TableCell>
+  </TableRow>
+</StyledTable>
 
 AI inference commands meaningfully higher fees per job because the work is more GPU-intensive. An orchestrator running popular AI models warm on a high-VRAM GPU is positioned very differently in the fee market than one doing transcoding alone.
 
@@ -68,7 +87,7 @@ AI inference commands meaningfully higher fees per job because the work is more 
 
 Gateways don't route jobs randomly. Selection is competitive across several factors simultaneously:
 
-```
+``` icon="terminal"
 Stake weight         → higher stake = larger active set position = more segments
 Capability match     → do you support the requested pipeline or resolution?
 Performance history  → transcoding success rate, AI inference latency, uptime
@@ -78,7 +97,7 @@ Model warmth (AI)    → warm models win over cold ones for latency-sensitive jo
 
 None of these factors alone is decisive. A high-stake orchestrator with uncompetitive pricing wins fewer jobs than a moderate-stake node priced correctly. A well-priced node without warm models loses AI jobs to one that has them.
 
----
+<CustomDivider />
 
 ## LPT inflationary rewards
 
@@ -98,7 +117,7 @@ Three things must be true for you to receive that round's rewards:
   Missing a round's `Reward()` call means that round's inflation allocation is permanently lost — not deferred. For a well-staked orchestrator, a single missed round can represent a meaningful amount of LPT. Automate this.
 </Warning>
 
----
+<CustomDivider />
 
 ## Commission parameters
 
@@ -108,7 +127,7 @@ When you register as an orchestrator, you set two commission parameters that det
 
 The percentage of LPT inflationary rewards **you keep as the operator**. Delegators receive the rest, split proportionally by their stake.
 
-```
+``` icon="terminal"
 Your LPT = Round issuance share × rewardCut
 Delegator LPT = Round issuance share × (1 − rewardCut) × (their stake / total stake)
 ```
@@ -121,7 +140,7 @@ Delegator LPT = Round issuance share × (1 − rewardCut) × (their stake / tota
 
 The percentage of ETH job fee revenue that is **shared with your delegators**. The remainder you keep.
 
-```
+``` icon="terminal"
 Delegator ETH = Job fees × feeShare × (their stake / total stake)
 Your ETH = Job fees × (1 − feeShare)
 ```
@@ -131,23 +150,52 @@ Your ETH = Job fees × (1 − feeShare)
 - Delegators split: 0.05 ETH
 
 <Note>
-  Commission rates directly affect delegator yield calculations on the [Livepeer Explorer](https://explorer.livepeer.org). Delegators compare orchestrators by ROI. Setting competitive rates attracts more stake, which increases your inflation share and job routing weight — a compounding dynamic. See [Getting Delegates](/v2/orchestrators/guides/staking-and-rewards/getting-delegates) for the full strategy.
+  Commission rates directly affect delegator yield calculations on the [Livepeer Explorer](https://explorer.livepeer.org). Delegators compare orchestrators by ROI. Setting competitive rates attracts more stake, which increases your inflation share and job routing weight — a compounding dynamic. See [Getting Delegates](/v2/orchestrators/guides/staking-and-rewards/attracting-delegates) for the full strategy.
 </Note>
 
----
+<CustomDivider />
 
 ## Transcoding vs AI fees in practice
 
 The fee landscape is shifting. AI inference jobs have grown to represent a significant and growing share of total network fee revenue.
 
-| | Video Transcoding | AI Inference |
-|---|---|---|
-| **Fee source** | Live stream demand | Application API calls |
-| **Pricing unit** | Per segment | Per pixel / ms / token |
-| **Revenue characteristic** | Continuous, lower margin | Per-request, higher margin |
-| **Competitiveness factor** | Stake + price | Capability + model warmth + price |
-| **GPU dependency** | Recommended | Required |
-| **Stake affects routing?** | Yes (stake-weighted) | Partially (capability first, price second) |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header></TableCell>
+    <TableCell header>Video Transcoding</TableCell>
+    <TableCell header>AI Inference</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Fee source**</TableCell>
+    <TableCell>Live stream demand</TableCell>
+    <TableCell>Application API calls</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Pricing unit**</TableCell>
+    <TableCell>Per segment</TableCell>
+    <TableCell>Per pixel / ms / token</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Revenue characteristic**</TableCell>
+    <TableCell>Continuous, lower margin</TableCell>
+    <TableCell>Per-request, higher margin</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Competitiveness factor**</TableCell>
+    <TableCell>Stake + price</TableCell>
+    <TableCell>Capability + model warmth + price</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**GPU dependency**</TableCell>
+    <TableCell>Recommended</TableCell>
+    <TableCell>Required</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Stake affects routing?**</TableCell>
+    <TableCell>Yes (stake-weighted)</TableCell>
+    <TableCell>Partially (capability first, price second)</TableCell>
+  </TableRow>
+</StyledTable>
 
 A key distinction: for video transcoding, stake weight directly determines your position in the routing queue. For AI inference, the gateway first filters by capability and price — your stake matters less than having the right pipeline running at a competitive price.
 
@@ -155,11 +203,11 @@ This creates two strategies that can coexist on a single node:
 - **Transcoding income:** grow stake to capture more segments
 - **AI inference income:** run popular models warm at competitive prices
 
----
+<CustomDivider />
 
 ## Payment flow summary
 
-```
+``` icon="terminal"
 Gateway routes job → you complete it
        ↓
 Gateway sends payment ticket (signed ETH obligation)
@@ -173,19 +221,32 @@ ETH arrives in your orchestrator wallet
 
 For the full mechanics of how probabilistic micropayments work, ticket face values, and on-chain redemption, see [Payments](/v2/orchestrators/guides/staking-and-rewards/payments).
 
----
+<CustomDivider />
 
 ## Monitoring your earnings
 
-| Tool | What it shows |
-|---|---|
-| [explorer.livepeer.org](https://explorer.livepeer.org) | Stake composition, delegator list, reward call history, fee revenue, active set status |
-| [tools.livepeer.cloud](https://tools.livepeer.cloud) | AI pipeline capability coverage, per-orchestrator network data |
-| go-livepeer Prometheus metrics | Real-time job counts, success rates, ticket values |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Tool</TableCell>
+    <TableCell header>What it shows</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[explorer.livepeer.org](https://explorer.livepeer.org)</TableCell>
+    <TableCell>Stake composition, delegator list, reward call history, fee revenue, active set status</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[tools.livepeer.cloud](https://tools.livepeer.cloud)</TableCell>
+    <TableCell>AI pipeline capability coverage, per-orchestrator network data</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>go-livepeer Prometheus metrics</TableCell>
+    <TableCell>Real-time job counts, success rates, ticket values</TableCell>
+  </TableRow>
+</StyledTable>
 
-Check your reward call history on Explorer regularly. A gap in the reward history means missed rounds and lost LPT. For monitoring setup, see [Metrics and Monitoring](/v2/orchestrators/guides/monitoring/metrics).
+Check your reward call history on Explorer regularly. A gap in the reward history means missed rounds and lost LPT. For monitoring setup, see [Metrics and Monitoring](/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring).
 
----
+<CustomDivider />
 
 ## Watch: Orchestrator economics overview
 
@@ -201,7 +262,7 @@ Check your reward call history on Explorer regularly. A gap in the reward histor
   />
 </Frame>
 
----
+<CustomDivider />
 
 ## Continue in this section
 
@@ -209,7 +270,7 @@ Check your reward call history on Explorer regularly. A gap in the reward histor
   <Card title="Rewards and Fees" icon="hand-holding-dollar" href="/v2/orchestrators/guides/staking-and-rewards/rewards-and-fees">
     Reward call mechanics, automation, gas thresholds, and fee redemption operations.
   </Card>
-  <Card title="Getting Delegates" icon="people-group" href="/v2/orchestrators/guides/staking-and-rewards/getting-delegates">
+  <Card title="Getting Delegates" icon="people-group" href="/v2/orchestrators/guides/staking-and-rewards/attracting-delegates">
     How to attract delegators, what the Explorer ROI calculation shows them, and how to build reputation.
   </Card>
   <Card title="Payments" icon="receipt" href="/v2/orchestrators/guides/staking-and-rewards/payments">

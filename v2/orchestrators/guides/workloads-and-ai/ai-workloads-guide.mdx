@@ -28,21 +28,24 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 Livepeer's AI subnet launched in Q3 2024 and has grown to become the primary source of new fee revenue for orchestrators. It turns GPU nodes into open, composable inference infrastructure — serving everything from image generation to real-time video effects to large language model completions.
 
 This page explains the fundamentals: what AI workloads are, how they reach your node, the key distinction between batch and real-time inference, and what hardware you need to participate.
 
 <Note>
-  **Already running a transcoding orchestrator?** AI pipelines run alongside your existing node using dedicated AI Runner containers. Your transcoding setup does not need to change. See [Add AI to Your Node](/v2/orchestrators/get-started/AI-prompt-start) for the upgrade path.
+  **Already running a transcoding orchestrator?** AI pipelines run alongside your existing node using dedicated AI Runner containers. Your transcoding setup does not need to change. See [Batch AI Setup](/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup) for the operator path.
 </Note>
 
----
+<CustomDivider />
 
 ## How the network routes AI jobs
 
 Applications never communicate with orchestrators directly. Every request flows through a gateway, which handles authentication, pricing negotiation, and routing to qualified nodes.
 
-```
+``` icon="terminal"
 Application / User
        ↓
 Gateway (routing, auth, pricing, QoS)
@@ -62,48 +65,106 @@ When a gateway selects your orchestrator, it is because your combination of capa
 
 Gateways discover orchestrators through the `OrchestratorInfo` structure, which your node broadcasts and updates on-chain. The key fields that determine whether you receive AI jobs are:
 
-| Field | What it controls | Operator implication |
-|---|---|---|
-| `capabilities` | Which pipelines you support | Declare every pipeline in `aiModels.json` |
-| `capabilities_prices` | Your price per pipeline and model | Must be below the gateway's `-maxPricePerCapability` |
-| `hardware` | GPU specs advertised to the gateway | Auto-populated by go-livepeer |
-| `price_info` | Base transcoding price | Controls transcoding job eligibility |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Field</TableCell>
+    <TableCell header>What it controls</TableCell>
+    <TableCell header>Operator implication</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`capabilities`</TableCell>
+    <TableCell>Which pipelines you support</TableCell>
+    <TableCell>Declare every pipeline in `aiModels.json`</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`capabilities_prices`</TableCell>
+    <TableCell>Your price per pipeline and model</TableCell>
+    <TableCell>Must be below the gateway's `-maxPricePerCapability`</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`hardware`</TableCell>
+    <TableCell>GPU specs advertised to the gateway</TableCell>
+    <TableCell>Auto-populated by go-livepeer</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`price_info`</TableCell>
+    <TableCell>Base transcoding price</TableCell>
+    <TableCell>Controls transcoding job eligibility</TableCell>
+  </TableRow>
+</StyledTable>
 
 **The price filter is a hard gate.** Gateways configure a maximum price they will pay per capability using the `-maxPricePerCapability` JSON flag. If your advertised price for a pipeline exceeds the gateway's maximum, you will not receive jobs from that gateway for that pipeline, regardless of how capable your hardware is.
 
-Before setting prices in `aiModels.json`, check what prices the major gateways are using. See [Models and VRAM Reference](/v2/orchestrators/operations/model-vram-reference) for a pricing reference table and [Gateway Orchestrator Offerings](/v2/gateways/resources/technical/orchestrator-offerings) for the full capability discovery protocol documentation.
+Before setting prices in `aiModels.json`, check what prices the major gateways are using. See [Models and VRAM Reference](/v2/orchestrators/guides/workloads-and-ai/model-vram-reference) for a pricing reference table and [Gateway Orchestrator Offerings](/v2/gateways/resources/technical/orchestrator-offerings) for the full capability discovery protocol documentation.
 
-For the complete list of supported pipelines and their model architectures, see [AI Model Support](/v2/developers/reference/model-support) in the Developers section.
+For the complete list of supported pipelines and their model architectures, see [AI Model Support](/v2/developers/concepts/ai-on-livepeer) in the Developers section.
 
----
+<CustomDivider />
 
 ## The two workload types
 
 The most important distinction for operators is between **batch AI** and **real-time AI**. These are different job types with different hardware profiles, different runtime architectures, and different operational characteristics.
 
 <CardGroup cols={2}>
-  <Card title="Batch AI" icon="layer-group" href="/v2/orchestrators/guides/ai-workloads/batch-ai-setup">
+  <Card title="Batch AI" icon="layer-group" href="/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup">
     Request-response inference. An application sends a prompt or media file, your node processes it and returns the result. Includes text-to-image, audio-to-text, image-to-video, LLM completions, and more.
   </Card>
-  <Card title="Real-time AI (Cascade)" icon="video" href="/v2/orchestrators/guides/ai-workloads/realtime-ai-setup">
+  <Card title="Real-time AI (Cascade)" icon="video" href="/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup">
     Continuous frame-by-frame video transformation. Live video streams in, processed video streams out with sub-100ms latency. Used for live AI effects, generative video overlays, and streaming AI agents.
   </Card>
 </CardGroup>
 
 ### Comparison
 
-| | Batch AI | Real-time AI |
-|---|---|---|
-| **Latency target** | Seconds per request | &lt;100ms per frame |
-| **Input type** | Text, image, audio, video files | Live video stream (WebRTC) |
-| **Output type** | Image, text, audio, video | Processed live video stream |
-| **Runtime** | `livepeer/ai-runner` containers | `livepeer/ai-runner:live-base` + ComfyStream |
-| **Min VRAM** | 4–24 GB depending on pipeline | 24 GB recommended |
-| **Good for** | High-throughput, varied workloads | Streaming AI effects, Cascade pipeline |
-| **Entry hardware** | RTX 2060 (8 GB) for LLM; RTX 3090/4090 for diffusion | RTX 4090 (24 GB) or better |
-| **Pricing unit** | Per pixel, per token, or per ms | Per frame |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header></TableCell>
+    <TableCell header>Batch AI</TableCell>
+    <TableCell header>Real-time AI</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Latency target**</TableCell>
+    <TableCell>Seconds per request</TableCell>
+    <TableCell>&lt;100ms per frame</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Input type**</TableCell>
+    <TableCell>Text, image, audio, video files</TableCell>
+    <TableCell>Live video stream (WebRTC)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Output type**</TableCell>
+    <TableCell>Image, text, audio, video</TableCell>
+    <TableCell>Processed live video stream</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Runtime**</TableCell>
+    <TableCell>`livepeer/ai-runner` containers</TableCell>
+    <TableCell>`livepeer/ai-runner:live-base` + ComfyStream</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Min VRAM**</TableCell>
+    <TableCell>4–24 GB depending on pipeline</TableCell>
+    <TableCell>24 GB recommended</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Good for**</TableCell>
+    <TableCell>High-throughput, varied workloads</TableCell>
+    <TableCell>Streaming AI effects, Cascade pipeline</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Entry hardware**</TableCell>
+    <TableCell>RTX 2060 (8 GB) for LLM; RTX 3090/4090 for diffusion</TableCell>
+    <TableCell>RTX 4090 (24 GB) or better</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Pricing unit**</TableCell>
+    <TableCell>Per pixel, per token, or per ms</TableCell>
+    <TableCell>Per frame</TableCell>
+  </TableRow>
+</StyledTable>
 
----
+<CustomDivider />
 
 ## AI pipeline types
 
@@ -111,7 +172,7 @@ Livepeer's AI worker supports ten pipeline types. Each pipeline handles a specif
 
 <AccordionGroup>
 
-<Accordion title="text-to-image — Generate images from text prompts">
+<Accordion  title="text-to-image — Generate images from text prompts" icon="circle-question">
 The most widely used batch AI pipeline on the network. Takes a text prompt and sampling parameters, returns a generated image.
 
 **Minimum VRAM:** 24 GB
@@ -124,7 +185,7 @@ Diffusion models (Stable Diffusion, SDXL variants) run natively on the managed `
 **Source:** [SG161222/RealVisXL_V4.0_Lightning on HuggingFace](https://huggingface.co/SG161222/RealVisXL_V4.0_Lightning)
 </Accordion>
 
-<Accordion title="image-to-image — Style transfer and transformation">
+<Accordion  title="image-to-image — Style transfer and transformation" icon="circle-question">
 Takes an input image and applies diffusion-based transformation, style transfer, or enhancement. Used for artistic style application, image enhancement, and controlled generation.
 
 **Minimum VRAM:** 24 GB
@@ -133,7 +194,7 @@ Takes an input image and applies diffusion-based transformation, style transfer,
 **Typical hardware:** RTX 3090, RTX 4090
 </Accordion>
 
-<Accordion title="image-to-video — Animate a still image">
+<Accordion  title="image-to-video — Animate a still image" icon="video">
 Generates a short video clip from a single input image. Significantly more VRAM and compute-intensive than image-to-image.
 
 **Minimum VRAM:** 24 GB
@@ -141,7 +202,7 @@ Generates a short video clip from a single input image. Significantly more VRAM 
 **Typical hardware:** RTX 4090, A100
 </Accordion>
 
-<Accordion title="image-to-text — Vision-language captioning">
+<Accordion  title="image-to-text — Vision-language captioning" icon="circle-question">
 Takes an image and returns a text description. Lower VRAM floor makes this accessible to operators with older consumer cards.
 
 **Minimum VRAM:** 4 GB
@@ -150,7 +211,7 @@ Takes an image and returns a text description. Lower VRAM floor makes this acces
 **Typical hardware:** RTX 2060, GTX 1080 (as secondary pipeline)
 </Accordion>
 
-<Accordion title="audio-to-text — Speech recognition and transcription">
+<Accordion  title="audio-to-text — Speech recognition and transcription" icon="circle-question">
 Runs Whisper-class speech recognition with timestamps. Widely used for transcription, captioning, and audio search.
 
 **Minimum VRAM:** 12 GB
@@ -161,27 +222,27 @@ Runs Whisper-class speech recognition with timestamps. Widely used for transcrip
 **Source:** [openai/whisper-large-v3 on HuggingFace](https://huggingface.co/openai/whisper-large-v3)
 </Accordion>
 
-<Accordion title="segment-anything-2 — Promptable segmentation">
+<Accordion  title="segment-anything-2 — Promptable segmentation" icon="circle-question">
 Pixel-level object segmentation using SAM2. Takes a prompt (point, box, or mask) and returns a segmentation mask over the input image or video frame.
 
 **Recommended model:** SAM2 variants
 **Source:** [facebookresearch/segment-anything-2 on GitHub](https://github.com/facebookresearch/segment-anything-2)
 </Accordion>
 
-<Accordion title="text-to-speech — Natural speech synthesis">
+<Accordion  title="text-to-speech — Natural speech synthesis" icon="circle-question">
 Converts text to natural speech audio. Growing use case for AI-generated video narration and interactive media.
 
 **Pricing unit:** Per character / per millisecond of output audio
 </Accordion>
 
-<Accordion title="upscale — Resolution enhancement">
+<Accordion  title="upscale — Resolution enhancement" icon="circle-question">
 Upscales low-resolution input to high resolution using diffusion-based super-resolution.
 
 **Recommended model:** `stabilityai/stable-diffusion-x4-upscaler`
 **Pricing unit:** Per input pixel
 </Accordion>
 
-<Accordion title="llm — Large language model inference">
+<Accordion  title="llm — Large language model inference" icon="microchip">
 OpenAI-compatible text completion endpoint backed by an Ollama-based runner. Runs quantised LLMs with as little as 8 GB VRAM, making it accessible to operators with older consumer GPUs that are unsuitable for diffusion pipelines.
 
 **Minimum VRAM:** 8 GB
@@ -189,12 +250,12 @@ OpenAI-compatible text completion endpoint backed by an Ollama-based runner. Run
 **Recommended model:** `meta-llama/Meta-Llama-3.1-8B-Instruct` (via Ollama)
 **Typical hardware:** GTX 1070 Ti, GTX 1080, RTX 2060
 
-The LLM pipeline uses a separate runner architecture from the standard `livepeer/ai-runner` image. See [Batch AI Setup](/v2/orchestrators/guides/ai-workloads/batch-ai-setup) for the Ollama deployment guide.
+The LLM pipeline uses a separate runner architecture from the standard `livepeer/ai-runner` image. See [Batch AI Setup](/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup) for the Ollama deployment guide.
 
 **Source:** [Cloud SPE Ollama runner blog post](https://www.livepeer.cloud/self-hosting-livepeers-llm-pipeline-deploying-an-ollama-based-gpu-runner-for-ai-orchestrators/)
 </Accordion>
 
-<Accordion title="live-video-to-video — Real-time streaming AI (Cascade)">
+<Accordion  title="live-video-to-video — Real-time streaming AI (Cascade)" icon="microchip">
 Continuous frame-by-frame transformation of live video streams. This is the real-time pipeline — input is a WebRTC stream, output is a transformed WebRTC stream with sub-100ms per-frame latency.
 
 **Minimum VRAM:** 24 GB recommended
@@ -209,7 +270,7 @@ This pipeline powers the **Cascade** architecture — Livepeer's real-time AI vi
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## Hardware by workload type
 
@@ -217,21 +278,72 @@ This pipeline powers the **Cascade** architecture — Livepeer's real-time AI vi
   These are minimum requirements. Running at the minimum will result in longer cold-start times and reduced job competitiveness. The figures below reflect production-ready recommendations.
 </Note>
 
-| Pipeline | Min VRAM | Recommended card | Notes |
-|---|---|---|---|
-| `llm` | 8 GB | GTX 1080, RTX 2060 | Quantised LLM via Ollama |
-| `image-to-text` | 4 GB | Any NVIDIA GPU | Very low VRAM floor |
-| `audio-to-text` | 12 GB | RTX 3060 12 GB | Whisper-large-v3 |
-| `segment-anything-2` | 12 GB | RTX 3060 12 GB | SAM2 base models |
-| `upscale` | 16 GB | RTX 3080 | Diffusion upscaler |
-| `text-to-image` | 24 GB | RTX 3090, RTX 4090 | SDXL-class models |
-| `image-to-image` | 24 GB | RTX 3090, RTX 4090 | SDXL-class models |
-| `image-to-video` | 24 GB | RTX 4090, A100 | Higher compute demand |
-| `live-video-to-video` | 24 GB | RTX 4090, A100 | Real-time latency requirement |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Pipeline</TableCell>
+    <TableCell header>Min VRAM</TableCell>
+    <TableCell header>Recommended card</TableCell>
+    <TableCell header>Notes</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`llm`</TableCell>
+    <TableCell>8 GB</TableCell>
+    <TableCell>GTX 1080, RTX 2060</TableCell>
+    <TableCell>Quantised LLM via Ollama</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`image-to-text`</TableCell>
+    <TableCell>4 GB</TableCell>
+    <TableCell>Any NVIDIA GPU</TableCell>
+    <TableCell>Very low VRAM floor</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`audio-to-text`</TableCell>
+    <TableCell>12 GB</TableCell>
+    <TableCell>RTX 3060 12 GB</TableCell>
+    <TableCell>Whisper-large-v3</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`segment-anything-2`</TableCell>
+    <TableCell>12 GB</TableCell>
+    <TableCell>RTX 3060 12 GB</TableCell>
+    <TableCell>SAM2 base models</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`upscale`</TableCell>
+    <TableCell>16 GB</TableCell>
+    <TableCell>RTX 3080</TableCell>
+    <TableCell>Diffusion upscaler</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`text-to-image`</TableCell>
+    <TableCell>24 GB</TableCell>
+    <TableCell>RTX 3090, RTX 4090</TableCell>
+    <TableCell>SDXL-class models</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`image-to-image`</TableCell>
+    <TableCell>24 GB</TableCell>
+    <TableCell>RTX 3090, RTX 4090</TableCell>
+    <TableCell>SDXL-class models</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`image-to-video`</TableCell>
+    <TableCell>24 GB</TableCell>
+    <TableCell>RTX 4090, A100</TableCell>
+    <TableCell>Higher compute demand</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`live-video-to-video`</TableCell>
+    <TableCell>24 GB</TableCell>
+    <TableCell>RTX 4090, A100</TableCell>
+    <TableCell>Real-time latency requirement</TableCell>
+  </TableRow>
+</StyledTable>
 
-For detailed VRAM planning, warm model strategy, and multi-pipeline configuration, see [Model Hosting and VRAM Planning](/v2/orchestrators/operations/model-vram-reference).
+For detailed VRAM planning, warm model strategy, and multi-pipeline configuration, see [Model Hosting and VRAM Planning](/v2/orchestrators/guides/workloads-and-ai/model-vram-reference).
 
----
+<CustomDivider />
 
 ## What you do and don't need to build
 
@@ -251,7 +363,7 @@ The Livepeer protocol handles the hard parts of running an inference marketplace
 
 Gateways provide all of that. Your competitive advantage is performance: lower latency, better-tuned models, higher uptime, specialised capabilities.
 
----
+<CustomDivider />
 
 ## Network participation
 
@@ -262,7 +374,7 @@ To verify your pipelines are visible to the network and check live capability co
 
 The network capabilities tool shows all registered orchestrators and their advertised pipelines in real time. Before your orchestrator can receive AI jobs, it must appear here under at least one pipeline.
 
----
+<CustomDivider />
 
 ## Watch: AI on Livepeer
 
@@ -295,21 +407,21 @@ The network capabilities tool shows all registered orchestrators and their adver
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Next steps
 
 <CardGroup cols={2}>
-  <Card title="Batch AI Setup" icon="gears" href="/v2/orchestrators/guides/ai-workloads/batch-ai-setup">
+  <Card title="Batch AI Setup" icon="gears" href="/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup">
     Configure pipelines, aiModels.json, the Ollama LLM runner, and BYOC external containers.
   </Card>
-  <Card title="Real-time AI Setup" icon="bolt" href="/v2/orchestrators/guides/ai-workloads/realtime-ai-setup">
+  <Card title="Real-time AI Setup" icon="bolt" href="/v2/orchestrators/guides/workloads-and-ai/realtime-ai-setup">
     Deploy the live-video-to-video pipeline with ComfyStream for real-time AI effects.
   </Card>
-  <Card title="Model Hosting and VRAM" icon="microchip" href="/v2/orchestrators/operations/model-vram-reference">
+  <Card title="Model Hosting and VRAM" icon="microchip" href="/v2/orchestrators/guides/workloads-and-ai/model-vram-reference">
     VRAM planning, warm model strategy, pricing, and aiModels.json reference.
   </Card>
-  <Card title="Add AI to Your Node" icon="rocket" href="/v2/orchestrators/get-started/AI-prompt-start">
+  <Card title="Batch AI Setup" icon="rocket" href="/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup">
     Upgrade path for existing transcoding orchestrators adding AI pipelines.
   </Card>
 </CardGroup>

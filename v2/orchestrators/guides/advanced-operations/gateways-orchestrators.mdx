@@ -30,9 +30,12 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 Your orchestrator does not pull work from the network. Gateways push work to you — but only if they can find you, only if you support what they need, and only if your price fits within their budget. Understanding this pipeline is what separates operators who consistently receive work from those who are technically running but idle.
 
----
+<CustomDivider />
 
 ## How gateways find you
 
@@ -60,13 +63,13 @@ There are four mechanisms by which a gateway builds its list of orchestrators to
 
 **What this means for you:** For standard video transcoding, being registered on-chain and in the top 100 active orchestrators is sufficient for discovery. For AI workloads, capability advertisement through your `aiModels.json` configuration is what makes you discoverable for specific pipelines.
 
----
+<CustomDivider />
 
 ## What you advertise to gateways
 
 Every time a gateway queries you, your node responds with an `OrchestratorInfo` message containing your full offering:
 
-```protobuf
+```protobuf icon="terminal"
 message OrchestratorInfo {
     string transcoder = 1;           // Your service URI
     TicketParams ticket_params = 2;   // Payment parameters
@@ -81,7 +84,7 @@ message OrchestratorInfo {
 
 The `capabilities` field declares what transcoding profiles and output formats you support. The `capabilities_prices` field contains your per-pipeline AI pricing. Both are built automatically from your go-livepeer configuration and `aiModels.json`.
 
----
+<CustomDivider />
 
 ## How gateways select you
 
@@ -102,25 +105,50 @@ flowchart TD
 
 **The five selection factors:**
 
-| Factor | How it works | What you control |
-|---|---|---|
-| **Capability matching** | Does your node support the requested pipeline, resolution, or AI model? | `aiModels.json`, transcoding profiles |
-| **Price constraints** | Your price must be at or below the gateway's configured maximum | `-pricePerUnit` for transcoding; per-capability pricing for AI |
-| **Performance score** | Historical success rate, latency, and failure rate tracked per orchestrator | Uptime, hardware quality, network speed |
-| **Stake weight** | For video transcoding, higher stake increases selection probability (configured via gateway `-selectStakeWeight`) | Total stake (self + delegated) |
-| **Random factor** | Gateways introduce randomness (`-selectRandFreq`) to prevent centralisation | Not directly controllable |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Factor</TableCell>
+    <TableCell header>How it works</TableCell>
+    <TableCell header>What you control</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Capability matching**</TableCell>
+    <TableCell>Does your node support the requested pipeline, resolution, or AI model?</TableCell>
+    <TableCell>`aiModels.json`, transcoding profiles</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Price constraints**</TableCell>
+    <TableCell>Your price must be at or below the gateway's configured maximum</TableCell>
+    <TableCell>`-pricePerUnit` for transcoding; per-capability pricing for AI</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Performance score**</TableCell>
+    <TableCell>Historical success rate, latency, and failure rate tracked per orchestrator</TableCell>
+    <TableCell>Uptime, hardware quality, network speed</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Stake weight**</TableCell>
+    <TableCell>For video transcoding, higher stake increases selection probability (configured via gateway `-selectStakeWeight`)</TableCell>
+    <TableCell>Total stake (self + delegated)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Random factor**</TableCell>
+    <TableCell>Gateways introduce randomness (`-selectRandFreq`) to prevent centralisation</TableCell>
+    <TableCell>Not directly controllable</TableCell>
+  </TableRow>
+</StyledTable>
 
 **Practical implication for AI jobs:** Capability match and price dominate AI routing. Your stake is less important than for video transcoding. If you want AI jobs, ensure your pipeline is registered, your warm model is loaded, and your price is within market range.
 
 **Practical implication for video jobs:** Price and performance score are the primary drivers after entering the active set. A competitive price and high success rate will consistently outperform a lower-ranked orchestrator with a high price.
 
----
+<CustomDivider />
 
 ## What you can control to get more work
 
 <AccordionGroup>
 
-<Accordion title="1. Price competitively">
+<Accordion  title="1. Price competitively" icon="circle-question">
 Pricing is binary before it is graduated: if your price exceeds the gateway's maximum, you receive zero work from that gateway. After clearing the ceiling, lower prices increase your attractiveness.
 
 Check current market rates:
@@ -132,11 +160,11 @@ The gateway-side flags that affect your eligibility: `-maxPricePerUnit` for tran
 See [Configure Pricing](/v2/orchestrators/setup/r-configure) for how to adjust your prices.
 </Accordion>
 
-<Accordion title="2. Keep your service URI correct and reachable">
+<Accordion  title="2. Keep your service URI correct and reachable" icon="circle-question">
 If gateways cannot connect to your service URI, you receive no work — even if you are in the active set, even if your price is competitive.
 
 **Test reachability:**
-```bash
+```bash icon="terminal"
 # From a machine outside your network
 curl -v https://<your-service-uri>:8935/status
 ```
@@ -146,11 +174,11 @@ Common causes of unreachability: IP changed without on-chain update, firewall ch
 Update your on-chain service URI via `livepeer_cli` if your IP or hostname has changed.
 </Accordion>
 
-<Accordion title="3. Register your AI capabilities correctly">
+<Accordion  title="3. Register your AI capabilities correctly" icon="microchip">
 For AI jobs, capability registration is the prerequisite. Your pipelines and warm models must be visible to the network.
 
 **Verify:**
-```bash
+```bash icon="terminal"
 curl http://localhost:7935/getNetworkCapabilities | jq
 ```
 
@@ -160,13 +188,13 @@ Also check externally:
 If your pipeline is missing from both, check your `aiModels.json` and confirm the AI runner container started successfully.
 </Accordion>
 
-<Accordion title="4. Maintain high performance scores">
+<Accordion  title="4. Maintain high performance scores" icon="microchip">
 Performance scoring is based on your historical success rate and latency. Missed segments, slow responses, and OOM failures all decrease your score and reduce your selection probability.
 
 What drives good performance: stable hardware, sufficient VRAM, fast network, and consistent uptime. A node that fails 5% of its segments will eventually score lower than a node with identical pricing but near-zero failures.
 </Accordion>
 
-<Accordion title="5. Build stake for video transcoding">
+<Accordion  title="5. Build stake for video transcoding" icon="video">
 For video transcoding, selection probability is weighted by total stake. Being in the top 10 by stake vs top 50 means meaningfully more job volume from stake-weighted gateways.
 
 For AI workloads, stake is less decisive. Capability and price are the primary routing criteria.
@@ -174,7 +202,7 @@ For AI workloads, stake is less decisive. Capability and price are the primary r
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## Gateway Loki API — understanding why you are (or are not) being selected
 
@@ -182,7 +210,7 @@ The Livepeer Foundation operates a public Loki instance that exposes gateway log
 
 **Base URL:** `https://loki.livepeer.report`
 
-```bash
+```bash icon="terminal"
 # All gateway logs from all regions
 curl -G -s https://loki.livepeer.report/loki/api/v1/query \
      --data-urlencode "query={region=~\".+\"}" | jq
@@ -215,7 +243,7 @@ The API uses [Grafana Loki query syntax](https://grafana.com/docs/loki/latest/qu
 
 {/* REVIEW: Verify loki.livepeer.report is still live and returning data. The endpoint returned no response during March 2026 sandbox verification — may be a network restriction in the test environment. Rick to confirm current availability before publishing. */}
 
----
+<CustomDivider />
 
 ## Debugging: not receiving work
 
@@ -235,19 +263,19 @@ flowchart TD
     H -->|Normal demand| J["Check Loki API for gateway\nselection logs"]
 ```
 
----
+<CustomDivider />
 
 <CardGroup cols={2}>
   <Card title="Configure Pricing" icon="tag" href="/v2/orchestrators/setup/r-configure">
     Setting pricePerUnit and per-capability AI pricing to be competitive.
   </Card>
-  <Card title="AI Configuration" icon="robot" href="/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guideuration">
+  <Card title="AI Configuration" icon="robot" href="/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide">
     Setting up aiModels.json and capability registration.
   </Card>
-  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/orchestrators/guides/monitoring/troubleshooting">
+  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/troubleshooting">
     Full error reference including service URI and capability issues.
   </Card>
-  <Card title="Orchestrator Tools" icon="toolbox" href="/v2/orchestrators/guides/monitoring/tools">
+  <Card title="Orchestrator Tools" icon="toolbox" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/tools">
     Explorer, Prometheus, and Loki tools for understanding network state.
   </Card>
 </CardGroup>

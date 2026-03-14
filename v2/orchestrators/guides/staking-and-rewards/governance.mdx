@@ -27,11 +27,15 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 Livepeer is a protocol governed by its token holders. As an orchestrator, your vote carries weight proportional to your total stake — including the delegated LPT entrusted to you by your delegators. When you vote on a proposal, you are voting on their behalf as well as your own.
 
 This page covers how governance works at the protocol level, where to find and follow active proposals, and the exact steps to cast your vote via `livepeer_cli`.
 
----
+<CustomDivider />
 
 ## How Livepeer governance works
 
@@ -39,7 +43,7 @@ Protocol changes are proposed through **Livepeer Improvement Proposals (LIPs)**.
 
 The process follows a defined path:
 
-```
+``` icon="terminal"
 Author drafts LIP on GitHub (livepeer/LIPs repository)
        ↓
 Community discussion in Livepeer Forum + Discord
@@ -59,15 +63,28 @@ Governance is **stake-weighted**. A vote from an orchestrator with 100,000 LPT t
 
 The following LIPs have changed conditions for active orchestrators since 2024:
 
-| LIP | What changed |
-|---|---|
-| **LIP-89** | 10% of each round's LPT inflation now goes to the Livepeer Treasury before distribution to orchestrators |
-| **LIP-73** | Treasury governance established — LPT accumulated in treasury is governed by token holders via proposals |
-| **LIP-91 / LIP-92** | AI pipeline support formalised in the protocol, AI inference fee parameters introduced |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>LIP</TableCell>
+    <TableCell header>What changed</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**LIP-89**</TableCell>
+    <TableCell>10% of each round's LPT inflation now goes to the Livepeer Treasury before distribution to orchestrators</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**LIP-73**</TableCell>
+    <TableCell>Treasury governance established — LPT accumulated in treasury is governed by token holders via proposals</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**LIP-91 / LIP-92**</TableCell>
+    <TableCell>AI pipeline support formalised in the protocol, AI inference fee parameters introduced</TableCell>
+  </TableRow>
+</StyledTable>
 
 Check [github.com/livepeer/LIPs](https://github.com/livepeer/LIPs) for the complete, versioned proposal history.
 
----
+<CustomDivider />
 
 ## Where to follow governance
 
@@ -87,15 +104,15 @@ Stay informed before you vote. Proposals change economic conditions — voting w
 
 The **#governance** channel on the [Livepeer Discord](https://discord.gg/livepeer) is the fastest-moving discussion space. For formal, searchable, long-form governance discussion, the Forum is the primary venue.
 
----
+<CustomDivider />
 
 ## How to vote
 
 Voting requires your orchestrator node to be running. You do not need to export keys or expose your private key — `livepeer_cli` handles the signing through your local node.
 
-<Steps>
+<StyledSteps>
 
-<Step title="Find the poll on Explorer">
+<StyledStep title="Find the poll on Explorer">
   Go to [explorer.livepeer.org/voting](https://explorer.livepeer.org/voting). Find the active proposal you want to vote on.
 
   <Frame>
@@ -113,47 +130,47 @@ Voting requires your orchestrator node to be running. You do not need to export 
   <Frame>
     ![livepeer_cli voting instructions from Explorer](/v1/images/vote-livepeer-cli-instructions.png)
   </Frame>
-</Step>
+</StyledStep>
 
-<Step title="Make sure livepeer is running">
+<StyledStep title="Make sure livepeer is running">
   `livepeer_cli` connects to your running node to sign the transaction. Your orchestrator must be active before running the CLI.
 
-  ```bash
+  ```bash icon="terminal"
   # Confirm your node is running (example — adjust for your setup)
   docker ps | grep livepeer
   # or
   systemctl status livepeer
   ```
-</Step>
+</StyledStep>
 
-<Step title="Run livepeer_cli">
-  ```bash
+<StyledStep title="Run livepeer_cli">
+  ```bash icon="terminal"
   livepeer_cli
   ```
 
   If your node is running on a non-standard port, specify it:
 
-  ```bash
+  ```bash icon="terminal"
   livepeer_cli -http 127.0.0.1:7935
   ```
-</Step>
+</StyledStep>
 
-<Step title="Select Vote on a poll">
+<StyledStep title="Select Vote on a poll">
   From the CLI menu, enter the number corresponding to **"Vote on a poll"**.
-</Step>
+</StyledStep>
 
-<Step title="Enter the poll contract address">
-  ```
+<StyledStep title="Enter the poll contract address">
+  ``` icon="terminal"
   Enter the contract address for the poll you want to vote on ->
   ```
 
   Paste the poll contract address you copied from Explorer in Step 1.
-</Step>
+</StyledStep>
 
-<Step title="Choose your vote">
+<StyledStep title="Choose your vote">
   You will see:
 
-  ```
+  ``` icon="terminal"
   Identifier  Voting Options
   0           Yes
   1           No
@@ -161,18 +178,18 @@ Voting requires your orchestrator node to be running. You do not need to export 
 
   Enter `0` for Yes or `1` for No, then confirm:
 
-  ```
+  ``` icon="terminal"
   Enter the ID of the option you want to vote for -> 0
   Are you sure you want to vote "Yes"? (y/n) -> y
 
   success
   ```
-</Step>
+</StyledStep>
 
-<Step title="Wait for transaction confirmation">
+<StyledStep title="Wait for transaction confirmation">
   Your node submits the vote transaction on-chain. You will see the transaction hash in the logs:
 
-  ```
+  ``` icon="terminal"
   ******************************Eth Transaction******************************
 
   Invoking transaction: "vote". Inputs: "_choiceID: 0"
@@ -182,27 +199,27 @@ Voting requires your orchestrator node to be running. You do not need to export 
   ```
 
   Arbitrum transactions confirm in seconds. Once confirmed, your vote is recorded on-chain.
-</Step>
+</StyledStep>
 
-<Step title="Verify your vote on Explorer">
+<StyledStep title="Verify your vote on Explorer">
   Return to [explorer.livepeer.org/voting](https://explorer.livepeer.org/voting) and open the same poll. Your orchestrator's address should now appear in the voter list with your choice and your stake weight reflected in the tally.
-</Step>
+</StyledStep>
 
-</Steps>
+</StyledSteps>
 
----
+<CustomDivider />
 
 ## Voting with a remote key
 
 If your orchestrator uses a remote signer or keystore on a separate machine (for security), `livepeer_cli` can connect remotely:
 
-```bash
+```bash icon="terminal"
 livepeer_cli -http <orchestrator-ip>:7935
 ```
 
 The CLI does not require you to copy or export your private key. It connects to the node over HTTP and the node signs the transaction locally using its loaded keystore.
 
----
+<CustomDivider />
 
 ## Governance weight and your delegators
 
@@ -216,26 +233,36 @@ This is part of the implicit trust relationship with delegators:
 
 There is no penalty for not voting. But abstaining removes your stake weight from governance decisions that affect the protocol you operate — including parameters that directly affect your earnings.
 
----
+<CustomDivider />
 
 ## Gas costs for voting
 
 Voting is an Arbitrum transaction. Requirements:
 
-| Cost | Approximate value |
-|---|---|
-| Gas units | ~150,000 – 250,000 |
-| Typical ETH cost | ~$0.01 – $0.05 |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Cost</TableCell>
+    <TableCell header>Approximate value</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Gas units</TableCell>
+    <TableCell>~150,000 – 250,000</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Typical ETH cost</TableCell>
+    <TableCell>~$0.01 – $0.05</TableCell>
+  </TableRow>
+</StyledTable>
 
 Ensure your orchestrator wallet has ETH on Arbitrum before voting. The same ETH balance you maintain for reward calls and ticket redemption covers voting transactions.
 
----
+<CustomDivider />
 
 ## Summary
 
 <AccordionGroup>
 
-<Accordion title="Quick reference — voting checklist">
+<Accordion  title="Quick reference — voting checklist" icon="circle-question">
 
 1. Find the poll at [explorer.livepeer.org/voting](https://explorer.livepeer.org/voting)
 2. Copy the poll contract address
@@ -247,7 +274,7 @@ Ensure your orchestrator wallet has ETH on Arbitrum before voting. The same ETH 
 
 </Accordion>
 
-<Accordion title="What if I miss a vote?">
+<Accordion  title="What if I miss a vote?" icon="circle-question">
 
 There is no penalty for not voting on a proposal. Abstaining simply means your stake is not counted in either direction. For proposals that are close, high-stake orchestrator abstention can determine the outcome.
 
@@ -255,7 +282,7 @@ You cannot vote after the poll's voting window closes. Check the open/close date
 
 </Accordion>
 
-<Accordion title="Can delegators override my vote?">
+<Accordion  title="Can delegators override my vote?" icon="circle-question">
 
 No — in the current governance model, delegators who have bonded to you are represented by your vote. If a delegator wants to vote independently, they must either bond to their own orchestrator address or unbond and vote using a different mechanism.
 
@@ -265,7 +292,7 @@ This is by design: delegating LPT to an orchestrator is a delegation of governan
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## Related
 
@@ -273,7 +300,7 @@ This is by design: delegating LPT to an orchestrator is a delegation of governan
   <Card title="LPT Governance Overview" icon="landmark" href="/v2/lpt/governance/overview">
     The full governance model — LIP lifecycle, voting mechanics, and protocol parameters governed by token holders.
   </Card>
-  <Card title="Getting Delegates" icon="people-group" href="/v2/orchestrators/guides/staking-and-rewards/getting-delegates">
+  <Card title="Getting Delegates" icon="people-group" href="/v2/orchestrators/guides/staking-and-rewards/attracting-delegates">
     How governance participation and reputation affect your ability to attract delegators.
   </Card>
   <Card title="Livepeer Explorer — Voting" icon="ballot-check" href="https://explorer.livepeer.org/voting">

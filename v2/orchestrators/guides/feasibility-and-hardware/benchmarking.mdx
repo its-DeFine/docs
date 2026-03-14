@@ -27,6 +27,10 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 Before you set a session limit and go live, run `livepeer_bench`. It simulates the real network workload — segments arriving in real time, multiple concurrent sessions — and tells you exactly how many streams your GPU can handle without falling behind.
 
 This page covers: downloading the benchmark assets, running the tool, reading the output, and using the session scaling script to find your hardware ceiling.
@@ -35,7 +39,7 @@ This page covers: downloading the benchmark assets, running the tool, reading th
   Benchmarking only measures local transcoding capacity. It does not simulate network bandwidth, ticket redemption, or AI inference workloads. For session limit calculation that factors in both hardware and bandwidth, continue to [Bandwidth and Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-limits) after completing this guide.
 </Note>
 
----
+<CustomDivider />
 
 ## What livepeer_bench does
 
@@ -48,26 +52,26 @@ This page covers: downloading the benchmark assets, running the tool, reading th
 
 The key output metric is the **Real-Time Duration Ratio**: total transcoding time divided by total source duration. A ratio below 1.0 means you're transcoding faster than real time. A ratio above 1.0 means your GPU is falling behind.
 
----
+<CustomDivider />
 
 ## Setup
 
-<Steps>
+<StyledSteps>
 
-<Step title="Verify livepeer_bench is installed">
+<StyledStep title="Verify livepeer_bench is installed">
 `livepeer_bench` is included in go-livepeer releases. Verify it's on your PATH:
 
-```bash
+```bash icon="terminal"
 livepeer_bench -help
 ```
 
 If the command is not found, check your go-livepeer installation. The binary should be in the same directory as `livepeer` and `livepeer_cli`. See [Install go-livepeer](/v2/orchestrators/setup/rs-install) if needed.
-</Step>
+</StyledStep>
 
-<Step title="Download the test stream">
+<StyledStep title="Download the test stream">
 Download and extract the provided 1-minute test stream:
 
-```bash
+```bash icon="terminal"
 wget -c https://storage.googleapis.com/lp_testharness_assets/bbb_1080p_30fps_1min_2sec_hls.tar.gz
 tar -xvf bbb_1080p_30fps_1min_2sec_hls.tar.gz
 ls bbb/
@@ -75,37 +79,58 @@ ls bbb/
 ```
 
 {/* REVIEW: Test this URL before publishing — storage.googleapis.com URLs can expire or be moved. Rick to verify the URL is still live and the file is current. */}
-</Step>
+</StyledStep>
 
-<Step title="Get the output rendition config">
+<StyledStep title="Get the output rendition config">
 Download the standard output rendition configuration:
 
-```bash
+```bash icon="terminal"
 wget -O transcodingOptions.json \
   https://raw.githubusercontent.com/livepeer/go-livepeer/master/cmd/livepeer_bench/transcodingOptions.json
 ```
 
 This file defines the four standard output renditions:
 
-| Profile | Resolution | Bitrate |
-|---|---|---|
-| `240p0` | 426×240 | 250 kbps |
-| `360p0` | 640×360 | 800 kbps |
-| `480p0` | 854×480 | 1,600 kbps |
-| `720p0` | 1,280×720 | 3,000 kbps |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Profile</TableCell>
+    <TableCell header>Resolution</TableCell>
+    <TableCell header>Bitrate</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`240p0`</TableCell>
+    <TableCell>426×240</TableCell>
+    <TableCell>250 kbps</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`360p0`</TableCell>
+    <TableCell>640×360</TableCell>
+    <TableCell>800 kbps</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`480p0`</TableCell>
+    <TableCell>854×480</TableCell>
+    <TableCell>1,600 kbps</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`720p0`</TableCell>
+    <TableCell>1,280×720</TableCell>
+    <TableCell>3,000 kbps</TableCell>
+  </TableRow>
+</StyledTable>
 
 {/* REVIEW: The current transcodingOptions.json (verified March 2026) contains four profiles: 240p, 360p, 480p, 720p. The v1 documentation listed a fifth 1080p profile at 6000 kbps — this is no longer in the file. Confirm with Rick whether 1080p jobs still appear on the network and whether a separate transcodingOptions file exists for those workloads. */}
-</Step>
+</StyledStep>
 
-</Steps>
+</StyledSteps>
 
----
+<CustomDivider />
 
 ## Running the benchmark
 
 ### Basic run
 
-```bash
+```bash icon="terminal"
 livepeer_bench \
     -in bbb/source.m3u8 \
     -transcodingOptions transcodingOptions.json \
@@ -115,13 +140,38 @@ livepeer_bench \
 
 **Flag reference:**
 
-| Flag | Description | Default |
-|---|---|---|
-| `-in` | Path to the source `.m3u8` manifest | Required |
-| `-transcodingOptions` | Path to JSON rendition config, or comma-separated profile string | `P240p30fps16x9,P360p30fps16x9,P720p30fps16x9` |
-| `-nvidia` | Comma-separated GPU IDs for NVIDIA hardware transcoding | Omit for CPU |
-| `-concurrentSessions` | Number of simultaneous transcoding sessions | `1` |
-| `-live` | Simulate live stream (queue segments one-by-one) | `true` |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Flag</TableCell>
+    <TableCell header>Description</TableCell>
+    <TableCell header>Default</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-in`</TableCell>
+    <TableCell>Path to the source `.m3u8` manifest</TableCell>
+    <TableCell>Required</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-transcodingOptions`</TableCell>
+    <TableCell>Path to JSON rendition config, or comma-separated profile string</TableCell>
+    <TableCell>`P240p30fps16x9,P360p30fps16x9,P720p30fps16x9`</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-nvidia`</TableCell>
+    <TableCell>Comma-separated GPU IDs for NVIDIA hardware transcoding</TableCell>
+    <TableCell>Omit for CPU</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-concurrentSessions`</TableCell>
+    <TableCell>Number of simultaneous transcoding sessions</TableCell>
+    <TableCell>`1`</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`-live`</TableCell>
+    <TableCell>Simulate live stream (queue segments one-by-one)</TableCell>
+    <TableCell>`true`</TableCell>
+  </TableRow>
+</StyledTable>
 
 <Note>
   Omit `-nvidia` if you are testing CPU transcoding. With NVIDIA hardware, provide the GPU ID (usually `0` for a single GPU, `0,1` for two GPUs).
@@ -133,7 +183,7 @@ By default, `-live=true` queues segments as they would arrive in a live stream �
 
 To test video-on-demand (all segments queued at once), set `-live=false`:
 
-```bash
+```bash icon="terminal"
 livepeer_bench \
     -in bbb/source.m3u8 \
     -live=false
@@ -141,13 +191,13 @@ livepeer_bench \
 
 For session limit planning, always use the default live mode.
 
----
+<CustomDivider />
 
 ## Reading the output
 
 The first output is a summary table showing your configuration:
 
-```
+``` icon="terminal"
 *---------------------*----------------------------------------------*
 | Source File         | .../bbb/source.m3u8                          |
 | Transcoding Options | 240p0,360p0,480p0,720p0                      |
@@ -158,7 +208,7 @@ The first output is a summary table showing your configuration:
 
 While transcoding runs, per-segment metrics stream as CSV:
 
-```
+``` icon="terminal"
 timestamp,session,segment,seg_dur,transcode_time,frames
 2026-03-13 10:00:01.141,0,0,2,0.2545,60
 2026-03-13 10:00:03.001,0,1,2,0.1107,60
@@ -170,7 +220,7 @@ timestamp,session,segment,seg_dur,transcode_time,frames
 
 When all sessions finish, the summary table is printed:
 
-```
+``` icon="terminal"
 *------------------------------*---------------------*
 | Concurrent Sessions          | 4                   |
 | Total Segs Transcoded        | 120                 |
@@ -188,23 +238,36 @@ When all sessions finish, the summary table is printed:
 
 **Real-Time Duration Ratio** — total transcoding time divided by total source duration. This is the primary capacity metric:
 
-| Ratio | Meaning |
-|---|---|
-| < 1.0 | Transcoding faster than real time — GPU has headroom |
-| = 1.0 | Exactly real time — no headroom, any spike will cause lag |
-| > 1.0 | Slower than real time — GPU is overloaded at this session count |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Ratio</TableCell>
+    <TableCell header>Meaning</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>&lt; 1.0</TableCell>
+    <TableCell>Transcoding faster than real time — GPU has headroom</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>= 1.0</TableCell>
+    <TableCell>Exactly real time — no headroom, any spike will cause lag</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>&gt; 1.0</TableCell>
+    <TableCell>Slower than real time — GPU is overloaded at this session count</TableCell>
+  </TableRow>
+</StyledTable>
 
 **Production threshold:** A ratio ≤ 0.8 leaves approximately 20% headroom for upload/download overhead and transient load spikes. The last concurrent session count at which you achieve ≤ 0.8 is your **hardware session limit**.
 
 {/* REVIEW: The 0.8 threshold appears in v1 set-session-limits.mdx as the basis for the session limit script. This is a community convention, not a go-livepeer hard limit. Confirm with the operator community (Discord #orchestrators) whether this threshold is still considered reasonable, or whether it has evolved. */}
 
----
+<CustomDivider />
 
 ## Session scaling test
 
 Run the benchmark across increasing concurrent session counts to find your hardware ceiling:
 
-```bash
+```bash icon="terminal"
 #!/bin/bash
 for i in {1..20}
 do
@@ -218,7 +281,7 @@ done
 
 This appends one line per session count to `bench.log`. The output looks like:
 
-```
+``` icon="terminal"
 | * Real-Time Duration Ratio * | 0.058  |    # 1 concurrent session
 | * Real-Time Duration Ratio * | 0.114  |    # 2 concurrent sessions
 | * Real-Time Duration Ratio * | 0.421  |    # 3 concurrent sessions
@@ -237,7 +300,7 @@ For identical GPUs: benchmark with a single GPU, then multiply by the number of 
 
 For mixed GPUs (e.g. an RTX 4090 and an A4000 in the same machine): benchmark each GPU separately by passing its individual ID to `-nvidia`. Then sum the limits.
 
-```bash
+```bash icon="terminal"
 # Benchmark GPU 0 only
 livepeer_bench -in bbb/source.m3u8 -transcodingOptions transcodingOptions.json -nvidia 0 -concurrentSessions 4
 
@@ -251,13 +314,13 @@ Omit the `-nvidia` flag. Start at `-concurrentSessions 1` and increase. CPU tran
 
 {/* REVIEW: v1 docs suggest CPU transcoding supports ~5 sessions as a rule of thumb. This figure dates from 2021 hardware. Modern CPUs (Ryzen 9, Threadripper) may handle more. Community to confirm current rule of thumb. */}
 
----
+<CustomDivider />
 
 ## Exporting results for analysis
 
 Pipe the full benchmark output to a CSV file for further analysis:
 
-```bash
+```bash icon="terminal"
 livepeer_bench \
     -in bbb/source.m3u8 \
     -transcodingOptions transcodingOptions.json \
@@ -267,7 +330,7 @@ livepeer_bench \
 
 The CSV includes per-segment rows plus the summary table at the end. Strip the summary table rows if processing only segment data.
 
----
+<CustomDivider />
 
 ## After benchmarking
 
@@ -279,7 +342,7 @@ The next step is calculating your **bandwidth limit** and deriving the final `-m
   <Card title="Bandwidth and Session Limits" icon="gauge" href="/v2/orchestrators/guides/feasibility-and-hardware/session-limits">
     Calculate your bandwidth ceiling and set -maxSessions correctly.
   </Card>
-  <Card title="GPU and Hardware Reference" icon="microchip" href="/v2/orchestrators/guides/feasibility-and-hardware/hardware">
+  <Card title="GPU and Hardware Reference" icon="microchip" href="/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference">
     NVENC session caps, VRAM tiers, and the production checklist.
   </Card>
 </CardGroup>

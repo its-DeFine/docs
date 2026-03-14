@@ -28,11 +28,14 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 Running a single orchestrator node works up to the point where your GPU capacity exceeds what one machine can provide, or where you need regional distribution, failure isolation, or independent scaling of different node functions. At that point, you are running a fleet.
 
 This page covers the architectural options for multi-node Livepeer deployments, the operational patterns that differ from single-node operation, and where to go for enterprise-scale onboarding.
 
----
+<CustomDivider />
 
 ## When you need fleet operations
 
@@ -45,7 +48,7 @@ Single-node operation is appropriate for most orchestrators. You are likely in f
 
 If you are not clearly in one of these situations, start with a single node. Fleet architecture adds operational complexity and the marginal performance gains are only worth it at scale.
 
----
+<CustomDivider />
 
 ## Multi-orchestrator architecture
 
@@ -70,11 +73,28 @@ graph TD
 
 **Separation patterns:**
 
-| Node role | What it does | Why separate it |
-|---|---|---|
-| Workload nodes | Process transcoding and AI inference jobs | Scale horizontally; restart without affecting rewards |
-| Reward node | Calls `reward()` each round | Reward safety — dedicated stable machine, not affected by workload disruption |
-| Redeemer node | Redeems winning payment tickets | High-volume ticket processing on dedicated hardware |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Node role</TableCell>
+    <TableCell header>What it does</TableCell>
+    <TableCell header>Why separate it</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Workload nodes</TableCell>
+    <TableCell>Process transcoding and AI inference jobs</TableCell>
+    <TableCell>Scale horizontally; restart without affecting rewards</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Reward node</TableCell>
+    <TableCell>Calls `reward()` each round</TableCell>
+    <TableCell>Reward safety — dedicated stable machine, not affected by workload disruption</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Redeemer node</TableCell>
+    <TableCell>Redeems winning payment tickets</TableCell>
+    <TableCell>High-volume ticket processing on dedicated hardware</TableCell>
+  </TableRow>
+</StyledTable>
 
 This pattern is architecturally similar to the [Siphon split setup](/v2/orchestrators/guides/setup-paths/siphon-setup) — the principle of separating reward calling from workload processing is the same, but implemented entirely within go-livepeer rather than using OrchestratorSiphon.
 
@@ -82,7 +102,7 @@ This pattern is architecturally similar to the [Siphon split setup](/v2/orchestr
   The canonical multi-orchestrator architecture documentation in the go-livepeer repository.
 </Card>
 
----
+<CustomDivider />
 
 ## Scaling GPU workers
 
@@ -93,7 +113,7 @@ Whether you are running a single orchestrator or a fleet, GPU workers scale hori
 1. Provision a new machine with NVIDIA GPU and drivers
 2. Install go-livepeer
 3. Start in transcoder mode:
-   ```bash
+   ```bash icon="terminal"
    livepeer \
      -transcoder \
      -orchAddr <orchestrator-host>:8935 \
@@ -104,11 +124,11 @@ Whether you are running a single orchestrator or a fleet, GPU workers scale hori
 4. The orchestrator immediately begins routing to the new worker — no configuration change on the orchestrator required
 
 Orchestrator logs confirm each new connection:
-```
+``` icon="terminal"
 Got a RegisterTranscoder request from transcoder=10.3.27.5 capacity=10
 ```
 
----
+<CustomDivider />
 
 ## Capacity management at fleet scale
 
@@ -116,23 +136,39 @@ Each worker advertises its capacity (the `-maxSessions` value). The orchestrator
 
 **What to monitor fleet-wide:**
 
-| Metric | What it reveals |
-|---|---|
-| Sessions per worker | Whether load is balanced or some workers are always idle |
-| Workers at max sessions | Your fleet is at capacity — add workers or increase per-worker `maxSessions` |
-| Worker disconnections | Hardware issues, network instability, or software crashes |
-| Segment failure rate per worker | A single problematic worker pulling down fleet-wide success rate |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Metric</TableCell>
+    <TableCell header>What it reveals</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Sessions per worker</TableCell>
+    <TableCell>Whether load is balanced or some workers are always idle</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Workers at max sessions</TableCell>
+    <TableCell>Your fleet is at capacity — add workers or increase per-worker `maxSessions`</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Worker disconnections</TableCell>
+    <TableCell>Hardware issues, network instability, or software crashes</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Segment failure rate per worker</TableCell>
+    <TableCell>A single problematic worker pulling down fleet-wide success rate</TableCell>
+  </TableRow>
+</StyledTable>
 
 For Prometheus fleet monitoring, run the [livepeer/livepeer-monitoring](https://github.com/livepeer/livepeer-monitoring) Docker image configured with all worker node addresses:
 
-```bash
+```bash icon="terminal"
 docker run --net=host \
   --env LP_MODE=standalone \
   --env LP_NODES=worker1:7935,worker2:7935,worker3:7935,orch:7935 \
   livepeer/monitoring:latest
 ```
 
----
+<CustomDivider />
 
 ## Rolling updates
 
@@ -151,7 +187,7 @@ This requires at least two workload nodes to maintain service continuity during 
   Workers reconnect automatically when an orchestrator restarts. From a worker's perspective, the orchestrator briefly disappears and then reappears. No manual action is needed on the worker side.
 </Note>
 
----
+<CustomDivider />
 
 ## Network and key management at scale
 
@@ -164,7 +200,7 @@ Fleet operations introduce key management complexity that does not exist on sing
 - For ticket redemption, the Redeemer can be run as a separate process. See `doc/redeemer.md` in the go-livepeer repository.
 - Static IPs or stable DNS names are essential at fleet scale — your service URI is stored on-chain and must resolve consistently.
 
----
+<CustomDivider />
 
 ## Enterprise and data-centre onboarding
 
@@ -176,19 +212,19 @@ If you are operating at data-centre scale, multiple co-location sites, or with c
 
 The SPE (Special Purpose Entity) programme is the primary pathway for professional GPU operators who want a structured relationship with the network. Current SPEs include Titan Node (video mining) and MuxionLabs (formerly known as the AI SPE). See the Livepeer Forum and Discord for active SPE discussions.
 
----
+<CustomDivider />
 
 <CardGroup cols={2}>
   <Card title="Run a Pool" icon="server" href="/v2/orchestrators/guides/advanced-operations/run-a-pool">
     Pool operations — accepting worker connections and managing off-chain payouts.
   </Card>
-  <Card title="Split O-T Setup" icon="plug" href="/v2/orchestrators/advanced/split-o-t">
+  <Card title="Split O-T Setup" icon="plug" href="/v2/orchestrators/guides/setup-paths/siphon-setup">
     The foundational split between orchestrator and transcoder processes.
   </Card>
   <Card title="Siphon Setup" icon="shield-check" href="/v2/orchestrators/guides/setup-paths/siphon-setup">
     The reward-safe split setup using OrchestratorSiphon.
   </Card>
-  <Card title="Metrics and Monitoring" icon="gauge" href="/v2/orchestrators/guides/monitoring/metrics">
+  <Card title="Metrics and Monitoring" icon="gauge" href="/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring">
     Scaling Prometheus monitoring to a multi-node fleet.
   </Card>
 </CardGroup>

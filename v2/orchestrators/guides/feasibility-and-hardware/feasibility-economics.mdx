@@ -29,26 +29,42 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 This page is for people who are considering running a Livepeer orchestrator but haven't committed yet. It covers the real costs, revenue ceiling questions, and practical decision points — so you can make an honest assessment before spending time on setup.
 
 If you've already decided to run a node and just need to set it up, go directly to [Setup Paths](/v2/orchestrators/guides/setup-paths/setup-navigator).
 
----
+<CustomDivider />
 
 ## What you can earn
 
 Orchestrators earn from two sources. Understanding both matters before you begin:
 
-| Revenue stream | How it works | Depends on |
-|---|---|---|
-| **ETH job fees** | Gateways pay you per transcoding segment or AI inference job | Your capability, pricing, performance, uptime |
-| **LPT inflation rewards** | Protocol mints LPT each round; you claim your share by calling `Reward()` | Your total bonded stake, inflation rate, reward call reliability |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Revenue stream</TableCell>
+    <TableCell header>How it works</TableCell>
+    <TableCell header>Depends on</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**ETH job fees**</TableCell>
+    <TableCell>Gateways pay you per transcoding segment or AI inference job</TableCell>
+    <TableCell>Your capability, pricing, performance, uptime</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**LPT inflation rewards**</TableCell>
+    <TableCell>Protocol mints LPT each round; you claim your share by calling `Reward()`</TableCell>
+    <TableCell>Your total bonded stake, inflation rate, reward call reliability</TableCell>
+  </TableRow>
+</StyledTable>
 
 Neither stream pays from day one without setup. ETH fees require gateways to route work to you. LPT rewards require bonded LPT, an active orchestrator registration, and a running node that calls `Reward()` each round.
 
 For the full mechanics, see [Earnings Explained](/v2/orchestrators/guides/staking-and-rewards/earnings).
 
----
+<CustomDivider />
 
 ## What it costs
 
@@ -56,7 +72,7 @@ Before modelling any revenue, be honest about costs. These are the real categori
 
 <AccordionGroup>
 
-<Accordion title="Hardware">
+<Accordion  title="Hardware" icon="server">
 
 The primary upfront cost. You need at least one NVIDIA GPU.
 
@@ -64,13 +80,13 @@ The primary upfront cost. You need at least one NVIDIA GPU.
 - **AI inference (batch):** 8–24 GB VRAM depending on which pipelines you want to run. An RTX 3090 (24 GB) is the practical minimum for competitive diffusion pipelines.
 - **AI inference (real-time / Cascade):** 24 GB VRAM minimum. Real-time pipelines are more demanding than batch.
 
-See [GPU and Hardware Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware) for specific per-workload requirements.
+See [GPU and Hardware Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference) for specific per-workload requirements.
 
 Hardware you already own has zero ongoing cost. Hardware you're buying to run Livepeer has an amortisation cost you should model explicitly: if you spend £800 on an RTX 4090 and earn £30/month, the payback period is over 2 years before electricity.
 
 </Accordion>
 
-<Accordion title="LPT stake (for video transcoding)">
+<Accordion  title="LPT stake (for video transcoding)" icon="video">
 
 To receive video transcoding jobs as a solo orchestrator, you must be in the **active set** — currently the top orchestrators by total bonded stake.
 
@@ -86,7 +102,7 @@ For stake requirements by path, see the decision matrix below.
 
 </Accordion>
 
-<Accordion title="ETH for gas on Arbitrum">
+<Accordion  title="ETH for gas on Arbitrum" icon="link">
 
 Your orchestrator wallet needs ETH on Arbitrum One for:
 
@@ -98,7 +114,7 @@ This is a running cost but very low on Arbitrum L2. Budget roughly $5–15/month
 
 </Accordion>
 
-<Accordion title="Bandwidth">
+<Accordion  title="Bandwidth" icon="circle-question">
 
 Video transcoding is bandwidth-intensive. Each live stream you transcode requires approximately:
 - **6 Mbps download** (source stream)
@@ -112,22 +128,38 @@ AI inference is much lighter on bandwidth per job — it's a single image or aud
 
 </Accordion>
 
-<Accordion title="Electricity">
+<Accordion  title="Electricity" icon="circle-question">
 
 GPU power draw varies significantly:
 
-| GPU | Typical load power draw |
-|---|---|
-| RTX 3060 | ~150–170 W |
-| RTX 3090 | ~300–350 W |
-| RTX 4090 | ~350–450 W |
-| A100 80 GB | ~250–400 W |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>GPU</TableCell>
+    <TableCell header>Typical load power draw</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>RTX 3060</TableCell>
+    <TableCell>~150–170 W</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>RTX 3090</TableCell>
+    <TableCell>~300–350 W</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>RTX 4090</TableCell>
+    <TableCell>~350–450 W</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>A100 80 GB</TableCell>
+    <TableCell>~250–400 W</TableCell>
+  </TableRow>
+</StyledTable>
 
 Running an RTX 4090 24/7 at full load costs approximately £30–60/month in electricity at UK residential rates, or $35–70 at US average rates. Factor this into your break-even calculation.
 
 </Accordion>
 
-<Accordion title="Time">
+<Accordion  title="Time" icon="circle-question">
 
 Orchestrator operation is not completely passive. Ongoing time costs include:
 
@@ -142,7 +174,7 @@ Pool workers have minimal ongoing time investment once the worker process is con
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## The three viability questions
 
@@ -170,7 +202,7 @@ Missing reward rounds is permanent lost LPT. Receiving jobs you can't complete d
 
 Home setups with unreliable internet connections, power cuts, or machines that get turned off are real viability risks. If you can't maintain ~95%+ uptime, the pool worker path is more appropriate.
 
----
+<CustomDivider />
 
 ## Decision matrix
 
@@ -178,33 +210,93 @@ Home setups with unreliable internet connections, power cuts, or machines that g
   This table describes current network conditions as of early 2026. Stake requirements, active set sizes, and fee levels shift over time.
 </Note>
 
-| Path | Min hardware | LPT needed | Setup effort | Best for |
-|---|---|---|---|---|
-| **Pool worker** | Any NVIDIA GPU | None | Low (1–4 hours) | Home miners with GPU but limited LPT. Earn transcoding fees without on-chain ops. |
-| **Solo video orchestrator** | NVIDIA GPU + reliable 100 Mbps+ | Active set stake {/* REVIEW */} | High (8–16 hours) | Operators who can acquire LPT and want full control and LPT inflation rewards. |
-| **Solo AI orchestrator** | 24 GB VRAM GPU | Minimal (enough to activate) | Medium (4–8 hours) | ML practitioners with high-VRAM GPU. Stake is less critical than capability. |
-| **Pool operator** | Multiple GPUs + reliable infra | Active set stake + buffer | Very high | Infrastructure operators who want to onboard worker nodes and run the orchestrator layer. |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Path</TableCell>
+    <TableCell header>Min hardware</TableCell>
+    <TableCell header>LPT needed</TableCell>
+    <TableCell header>Setup effort</TableCell>
+    <TableCell header>Best for</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Pool worker**</TableCell>
+    <TableCell>Any NVIDIA GPU</TableCell>
+    <TableCell>None</TableCell>
+    <TableCell>Low (1–4 hours)</TableCell>
+    <TableCell>Home miners with GPU but limited LPT. Earn transcoding fees without on-chain ops.</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Solo video orchestrator**</TableCell>
+    <TableCell>NVIDIA GPU + reliable 100 Mbps+</TableCell>
+    <TableCell>Active set stake {/* REVIEW */}</TableCell>
+    <TableCell>High (8–16 hours)</TableCell>
+    <TableCell>Operators who can acquire LPT and want full control and LPT inflation rewards.</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Solo AI orchestrator**</TableCell>
+    <TableCell>24 GB VRAM GPU</TableCell>
+    <TableCell>Minimal (enough to activate)</TableCell>
+    <TableCell>Medium (4–8 hours)</TableCell>
+    <TableCell>ML practitioners with high-VRAM GPU. Stake is less critical than capability.</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Pool operator**</TableCell>
+    <TableCell>Multiple GPUs + reliable infra</TableCell>
+    <TableCell>Active set stake + buffer</TableCell>
+    <TableCell>Very high</TableCell>
+    <TableCell>Infrastructure operators who want to onboard worker nodes and run the orchestrator layer.</TableCell>
+  </TableRow>
+</StyledTable>
 
 The pool worker path is **significantly lower barrier** than solo orchestrating. If you're new to Livepeer and have a GPU but limited LPT, start there. You can always migrate to solo orchestrating later after building understanding of the network.
 
----
+<CustomDivider />
 
 ## AI vs transcoding: which to start with?
 
 If you have a high-VRAM GPU (24 GB+), AI inference is worth evaluating as a starting point — or in addition to transcoding.
 
-| | Video transcoding | AI inference |
-|---|---|---|
-| **Entry requirement** | Active set stake (high) | Capability registration (low) |
-| **Revenue stability** | Stable, continuous for active streams | Variable, demand-dependent |
-| **GPU dependency** | Recommended, not required | Required |
-| **Competition level** | Highly competitive (mature network) | Growing but less saturated (as of 2026) |
-| **Revenue per job** | Low per segment | Higher per inference job |
-| **Setup complexity** | Lower | Higher (aiModels.json, model downloads) |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header></TableCell>
+    <TableCell header>Video transcoding</TableCell>
+    <TableCell header>AI inference</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Entry requirement**</TableCell>
+    <TableCell>Active set stake (high)</TableCell>
+    <TableCell>Capability registration (low)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Revenue stability**</TableCell>
+    <TableCell>Stable, continuous for active streams</TableCell>
+    <TableCell>Variable, demand-dependent</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**GPU dependency**</TableCell>
+    <TableCell>Recommended, not required</TableCell>
+    <TableCell>Required</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Competition level**</TableCell>
+    <TableCell>Highly competitive (mature network)</TableCell>
+    <TableCell>Growing but less saturated (as of 2026)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Revenue per job**</TableCell>
+    <TableCell>Low per segment</TableCell>
+    <TableCell>Higher per inference job</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Setup complexity**</TableCell>
+    <TableCell>Lower</TableCell>
+    <TableCell>Higher (aiModels.json, model downloads)</TableCell>
+  </TableRow>
+</StyledTable>
 
 AI inference is not a guaranteed shortcut to revenue — demand for specific pipelines varies, and running cold models earns very little. But the reduced stake barrier makes it accessible to new operators with capable hardware.
 
----
+<CustomDivider />
 
 ## Useful tools before you commit
 
@@ -214,12 +306,12 @@ Check these before setting up a node:
 - **[tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities)** — Check which AI pipelines and models are currently being served by the network, and at what prices.
 - **[Livepeer Discord — #orchestrators](https://discord.gg/livepeer)** — Active orchestrators discuss current earnings, pricing strategy, and hardware. The best source for current market conditions.
 
----
+<CustomDivider />
 
 ## Continue
 
 <CardGroup cols={2}>
-  <Card title="GPU and Hardware Reference" icon="microchip" href="/v2/orchestrators/guides/feasibility-and-hardware/hardware">
+  <Card title="GPU and Hardware Reference" icon="microchip" href="/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference">
     Which GPU for which workloads, NVENC session caps, and production hardware checklist.
   </Card>
   <Card title="Benchmarking Your Setup" icon="gauge-high" href="/v2/orchestrators/guides/feasibility-and-hardware/benchmarking">

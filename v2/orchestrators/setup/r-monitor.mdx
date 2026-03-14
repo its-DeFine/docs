@@ -25,15 +25,18 @@ status: current
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 This page covers the minimum monitoring you should have in place once your orchestrator is live. For full observability (Grafana dashboards, alerting, DCGM exporter), see the [Metrics & Monitoring guide](/v2/orchestrators/guides/monitoring-and-troubleshooting/metrics-monitoring).
 
----
+<CustomDivider />
 
 ## Enable Prometheus metrics
 
 Add `-monitor` to your go-livepeer startup command:
 
-```bash
+```bash icon="terminal"
 livepeer \
   -network arbitrum-one-mainnet \
   -ethUrl <YOUR_RPC_URL> \
@@ -46,32 +49,54 @@ livepeer \
 
 Metrics are exposed at:
 
-```
+``` icon="terminal"
 http://localhost:7935/metrics
 ```
 
 Verify with:
 
-```bash
+```bash icon="terminal"
 curl -s http://localhost:7935/metrics | head -20
 ```
 
----
+<CustomDivider />
 
 ## Key metrics to watch
 
-| Metric | What it tells you |
-|---|---|
-| `segment_source_appeared_total` | Total segments received — confirms you are getting jobs |
-| `segment_transcoded_total` | Successfully transcoded segments |
-| `segment_transcode_errors_total` | Failed transcodes — high values reduce gateway selection probability |
-| `transcode_latency_seconds` | Time to transcode each segment — should stay well under real-time |
-| `current_round` | Current Livepeer protocol round |
-| `reward_call_count` | Number of reward calls submitted — should increment once per round |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Metric</TableCell>
+    <TableCell header>What it tells you</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`segment_source_appeared_total`</TableCell>
+    <TableCell>Total segments received — confirms you are getting jobs</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`segment_transcoded_total`</TableCell>
+    <TableCell>Successfully transcoded segments</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`segment_transcode_errors_total`</TableCell>
+    <TableCell>Failed transcodes — high values reduce gateway selection probability</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`transcode_latency_seconds`</TableCell>
+    <TableCell>Time to transcode each segment — should stay well under real-time</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`current_round`</TableCell>
+    <TableCell>Current Livepeer protocol round</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`reward_call_count`</TableCell>
+    <TableCell>Number of reward calls submitted — should increment once per round</TableCell>
+  </TableRow>
+</StyledTable>
 
 For AI inference metrics, also watch `ai_request_count` and `ai_request_latency_seconds`.
 
----
+<CustomDivider />
 
 ## Check Explorer
 
@@ -86,13 +111,13 @@ If reward calls are missing, check:
 - You did **not** start with `-reward=false`
 - Your Arbitrum ETH balance is sufficient for gas
 
----
+<CustomDivider />
 
 ## GPU monitoring
 
 Check GPU health and utilisation:
 
-```bash
+```bash icon="terminal"
 # Current status
 nvidia-smi
 
@@ -108,27 +133,52 @@ Watch for:
 - **Memory utilisation** near 100% — may cause out-of-memory errors for AI workloads
 - **GPU utilisation** at 0% when you should be processing jobs — check go-livepeer logs
 
----
+<CustomDivider />
 
 ## Quick symptom guide
 
-| Symptom | Likely cause | Action |
-|---|---|---|
-| No segments in logs | Service address unreachable or price too high | Re-check port 8935 from external machine; compare pricing on Explorer |
-| Reward calls missing | Node offline during round, or `-reward=false` | Confirm uptime; check startup flags |
-| High transcode errors | GPU driver issue or CUDA mismatch | Run `nvidia-smi`; check go-livepeer error logs |
-| RPC errors in logs | Arbitrum endpoint down or rate-limited | Test RPC with `curl`; switch to a different provider if needed |
-| AI runner not responding | Container crashed or port conflict | `docker logs <container>`; check `curl localhost:8000/health` |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Symptom</TableCell>
+    <TableCell header>Likely cause</TableCell>
+    <TableCell header>Action</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>No segments in logs</TableCell>
+    <TableCell>Service address unreachable or price too high</TableCell>
+    <TableCell>Re-check port 8935 from external machine; compare pricing on Explorer</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Reward calls missing</TableCell>
+    <TableCell>Node offline during round, or `-reward=false`</TableCell>
+    <TableCell>Confirm uptime; check startup flags</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>High transcode errors</TableCell>
+    <TableCell>GPU driver issue or CUDA mismatch</TableCell>
+    <TableCell>Run `nvidia-smi`; check go-livepeer error logs</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>RPC errors in logs</TableCell>
+    <TableCell>Arbitrum endpoint down or rate-limited</TableCell>
+    <TableCell>Test RPC with `curl`; switch to a different provider if needed</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>AI runner not responding</TableCell>
+    <TableCell>Container crashed or port conflict</TableCell>
+    <TableCell>`docker logs <container>`; check `curl localhost:8000/health`</TableCell>
+  </TableRow>
+</StyledTable>
 
 For detailed troubleshooting, see the [FAQ](/v2/orchestrators/resources/faq).
 
----
+<CustomDivider />
 
 ## Minimal Prometheus setup
 
 If you want to scrape and store metrics, add a `prometheus.yml`:
 
-```yaml
+```yaml icon="terminal"
 global:
   scrape_interval: 15s
 
@@ -140,7 +190,7 @@ scrape_configs:
 
 Run Prometheus with Docker:
 
-```bash
+```bash icon="terminal"
 docker run -d \
   --name prometheus \
   --network host \
@@ -150,7 +200,7 @@ docker run -d \
 
 Access the Prometheus UI at `http://localhost:9090`.
 
----
+<CustomDivider />
 
 ## Next steps
 

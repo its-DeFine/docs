@@ -25,6 +25,8 @@ status: current
 lastVerified: 2026-03-13
 ---
 
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 This guide shows you how to activate your orchestrator on the Livepeer network so it can receive jobs.
 
 ## Prerequisites
@@ -35,19 +37,19 @@ Before proceeding:
 - Your Ethereum account has LPT available to stake. The amount required to enter the active set varies — see the [Active set](#the-active-set) section below.
 - Your account has a small amount of arbETH for gas. A few dollars is sufficient.
 
----
+<CustomDivider />
 
 ## Activate your orchestrator
 
 With go-livepeer running, open a second terminal and start `livepeer_cli`:
 
-```bash
+```bash icon="terminal"
 livepeer_cli
 ```
 
 You will see a numbered menu of actions. Select the option labelled:
 
-```
+``` icon="terminal"
 Invoke multi-step "become an orchestrator"
 ```
 
@@ -55,7 +57,7 @@ The tool will walk you through the following parameters in sequence.
 
 <Steps>
   <Step title="Set reward cut">
-    ```
+    ``` icon="terminal"
     Enter block reward cut percentage (current=0 default=10) ->
     ```
 
@@ -65,7 +67,7 @@ The tool will walk you through the following parameters in sequence.
   </Step>
 
   <Step title="Set fee cut">
-    ```
+    ``` icon="terminal"
     Enter fee cut percentage (current=100 default=95) ->
     ```
 
@@ -75,7 +77,7 @@ The tool will walk you through the following parameters in sequence.
   </Step>
 
   <Step title="Set pixels per unit">
-    ```
+    ``` icon="terminal"
     Enter amount of pixels that make up a single unit (default: 1 pixel) >
     ```
 
@@ -83,7 +85,7 @@ The tool will walk you through the following parameters in sequence.
   </Step>
 
   <Step title="Set price per unit">
-    ```
+    ``` icon="terminal"
     Enter the price for transcoding in Wei per unit >
     ```
 
@@ -95,7 +97,7 @@ The tool will walk you through the following parameters in sequence.
   </Step>
 
   <Step title="Set service address">
-    ```
+    ``` icon="terminal"
     Enter the public host:port of node (default: 1.1.1.1:8935) >
     ```
 
@@ -107,7 +109,7 @@ The tool will walk you through the following parameters in sequence.
   </Step>
 
   <Step title="Set stake amount">
-    ```
+    ``` icon="terminal"
     Enter amount of tokens to stake (in LPTU) >
     ```
 
@@ -123,7 +125,7 @@ The tool will walk you through the following parameters in sequence.
   </Step>
 </Steps>
 
----
+<CustomDivider />
 
 ## Verify you are in the active set
 
@@ -137,7 +139,7 @@ If your profile shows **Registered** but not **Active**, your total stake (self-
 After your activation transactions confirm, it may take until the next round begins before your status changes to Active in Explorer. Livepeer rounds are approximately 24 hours. {/* REVIEW: confirm current round length with protocol team */}
 </Note>
 
----
+<CustomDivider />
 
 ## The active set
 
@@ -149,9 +151,9 @@ If your orchestrator drops below the top 100, it becomes inactive and stops rece
 1. You re-register (submit a new activation transaction), or
 2. Your total stake changes enough (through additional self-bonding or delegation) to push you back into the top 100
 
----
+<CustomDivider />
 
-<Accordion title="Not receiving jobs after activation?">
+<Accordion  title="Not receiving jobs after activation?" icon="triangle-exclamation">
 
 If your orchestrator is active in Explorer but not receiving transcoding or AI inference jobs, check the following:
 
@@ -170,7 +172,7 @@ After activation, your node joins the active set in the following round (approxi
 For further troubleshooting, see [FAQ](/v2/orchestrators/resources/faq) or ask in `#orchestrating` on [Discord](https://discord.gg/livepeer).
 </Accordion>
 
----
+<CustomDivider />
 
 ## Next steps
 

@@ -31,20 +31,54 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 Orchestrators on Livepeer can earn fees from four distinct categories of work. Each has different GPU requirements, a different pricing model, and a different path for how jobs reach your node. This page explains what each type is, how routing works, and which workloads make sense for your hardware — so you can make the right decision before choosing a setup path.
 
----
+<CustomDivider />
 
 ## At a glance
 
-| Job type | What it does | Min VRAM | Pricing unit | Configured via |
-|---|---|---|---|---|
-| **Video Transcoding** | Converts video streams to multiple resolutions and bitrates | None (GPU-accelerated via NVENC/NVDEC) | Wei per pixel of output | `-pricePerUnit` flag |
-| **Batch AI Inference** | Processes single AI requests — image generation, audio transcription, captioning | 4–24 GB depending on pipeline | Wei per pixel or per millisecond | `aiModels.json` |
-| **Real-time AI (Cascade)** | Applies AI to a live video stream frame-by-frame, continuously | 8 GB+ (model-dependent) | Per frame / per stream unit {/* REVIEW: confirm pricing unit with Peter (AI SPE) before publication */} | `aiModels.json` + ComfyStream |
-| **LLM Inference** | Generates text responses using large language models | 8 GB (quantised 7–8B models) | Custom token unit | `aiModels.json` + Ollama runner |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Job type</TableCell>
+    <TableCell header>What it does</TableCell>
+    <TableCell header>Min VRAM</TableCell>
+    <TableCell header>Pricing unit</TableCell>
+    <TableCell header>Configured via</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Video Transcoding**</TableCell>
+    <TableCell>Converts video streams to multiple resolutions and bitrates</TableCell>
+    <TableCell>None (GPU-accelerated via NVENC/NVDEC)</TableCell>
+    <TableCell>Wei per pixel of output</TableCell>
+    <TableCell>`-pricePerUnit` flag</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Batch AI Inference**</TableCell>
+    <TableCell>Processes single AI requests — image generation, audio transcription, captioning</TableCell>
+    <TableCell>4–24 GB depending on pipeline</TableCell>
+    <TableCell>Wei per pixel or per millisecond</TableCell>
+    <TableCell>`aiModels.json`</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Real-time AI (Cascade)**</TableCell>
+    <TableCell>Applies AI to a live video stream frame-by-frame, continuously</TableCell>
+    <TableCell>8 GB+ (model-dependent)</TableCell>
+    <TableCell>`Per frame / per stream unit {/* REVIEW: confirm pricing unit with Peter (AI SPE) before publication */}`</TableCell>
+    <TableCell>`aiModels.json` + ComfyStream</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**LLM Inference**</TableCell>
+    <TableCell>Generates text responses using large language models</TableCell>
+    <TableCell>8 GB (quantised 7–8B models)</TableCell>
+    <TableCell>Custom token unit</TableCell>
+    <TableCell>`aiModels.json` + Ollama runner</TableCell>
+  </TableRow>
+</StyledTable>
 
----
+<CustomDivider />
 
 ## How routing works — and why it differs per job type
 
@@ -74,7 +108,7 @@ Routes the same way as batch AI — capability match and price — but the capab
   **The practical upshot:** Low-stake nodes can generate AI earnings even if transcoding routing consistently favours higher-stake competitors. If you have a capable GPU but limited stake, AI inference is the faster path to active earnings.
 </Note>
 
----
+<CustomDivider />
 
 ## Video transcoding
 
@@ -86,7 +120,7 @@ Sessions can run for hours. Your node processes dozens or hundreds of segments p
   Pricing configuration (wei and USD), session limits, NVENC caps, output rendition profiles, and benchmarking your setup.
 </Card>
 
----
+<CustomDivider />
 
 ## Batch AI inference
 
@@ -94,17 +128,58 @@ The AI Subnet launched in Q3 2024, adding single-request inference as a job cate
 
 **The nine current pipelines:**
 
-| Pipeline | What it produces | Min VRAM |
-|---|---|---|
-| `text-to-image` | Image from text prompt | 24 GB |
-| `image-to-image` | Transformed image from input + prompt | 24 GB |
-| `image-to-video` | Short video clip from input image | 24 GB |
-| `image-to-text` | Caption or description of an image | 4 GB |
-| `audio-to-text` | Transcript from audio file | 12 GB |
-| `upscale` | High-resolution image from low-resolution input | {/* REVIEW: confirm VRAM */} |
-| `segment-anything-2` | Segmentation masks from image | 6 GB |
-| `text-to-speech` | Speech audio from text | {/* REVIEW: confirm VRAM */} |
-| `llm` | Text completion and chat (via Ollama runner) | 8 GB |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Pipeline</TableCell>
+    <TableCell header>What it produces</TableCell>
+    <TableCell header>Min VRAM</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`text-to-image`</TableCell>
+    <TableCell>Image from text prompt</TableCell>
+    <TableCell>24 GB</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`image-to-image`</TableCell>
+    <TableCell>Transformed image from input + prompt</TableCell>
+    <TableCell>24 GB</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`image-to-video`</TableCell>
+    <TableCell>Short video clip from input image</TableCell>
+    <TableCell>24 GB</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`image-to-text`</TableCell>
+    <TableCell>Caption or description of an image</TableCell>
+    <TableCell>4 GB</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`audio-to-text`</TableCell>
+    <TableCell>Transcript from audio file</TableCell>
+    <TableCell>12 GB</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`upscale`</TableCell>
+    <TableCell>High-resolution image from low-resolution input</TableCell>
+    <TableCell>`{/* REVIEW: confirm VRAM */}`</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`segment-anything-2`</TableCell>
+    <TableCell>Segmentation masks from image</TableCell>
+    <TableCell>6 GB</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`text-to-speech`</TableCell>
+    <TableCell>Speech audio from text</TableCell>
+    <TableCell>`{/* REVIEW: confirm VRAM */}`</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>`llm`</TableCell>
+    <TableCell>Text completion and chat (via Ollama runner)</TableCell>
+    <TableCell>8 GB</TableCell>
+  </TableRow>
+</StyledTable>
 
 For warm model recommendations and per-pipeline pricing guidance, see [AI Pipelines](/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide) and the [Model and VRAM Reference](/v2/orchestrators/guides/workloads-and-ai/model-vram-reference).
 
@@ -117,7 +192,7 @@ For warm model recommendations and per-pipeline pricing guidance, see [AI Pipeli
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Real-time AI (Cascade)
 
@@ -133,7 +208,7 @@ Current use cases on the network include live avatar generation, style transfer 
   ComfyStream setup, workflow configuration, latency requirements, and troubleshooting.
 </Card>
 
----
+<CustomDivider />
 
 ## LLM inference
 
@@ -145,7 +220,7 @@ Any model available via `ollama pull` can theoretically be served. Confirmed on 
 
 LLM jobs route via capability match and price, the same as batch AI. No stake weight advantage for competitors — just hardware and configuration.
 
----
+<CustomDivider />
 
 ## What should I run?
 
@@ -153,7 +228,7 @@ Match your hardware to the workloads that fit, rather than trying to run everyth
 
 <AccordionGroup>
 
-<Accordion title="8–12 GB VRAM — entry-level GPU (GTX 1080, RTX 2060, 3060)">
+<Accordion  title="8–12 GB VRAM — entry-level GPU (GTX 1080, RTX 2060, 3060)" icon="server">
 The diffusion pipelines that drive most AI fee volume require 16–24 GB. Your best options:
 
 - **Transcoding** — you can handle video transcoding sessions competitively with any modern NVIDIA GPU; NVENC session caps on consumer cards apply, but can be worked around. If you are in the active set, transcoding provides baseline earnings.
@@ -163,7 +238,7 @@ The diffusion pipelines that drive most AI fee volume require 16–24 GB. Your b
 Skip: `text-to-image`, `image-to-image`, `image-to-video`, `audio-to-text` — all require 12–24 GB minimum.
 </Accordion>
 
-<Accordion title="16 GB VRAM — mid-range (RTX 3080, 4080, A4000)">
+<Accordion  title="16 GB VRAM — mid-range (RTX 3080, 4080, A4000)" icon="server">
 You can run the full batch AI suite except the most VRAM-heavy diffusion models:
 
 - **Transcoding** + **batch AI** (most pipelines)
@@ -175,7 +250,7 @@ You can run the full batch AI suite except the most VRAM-heavy diffusion models:
 Prioritise: get batch AI earning first on the lower-VRAM pipelines, then experiment with which diffusion models fit.
 </Accordion>
 
-<Accordion title="24 GB VRAM — high-end (RTX 3090, 4090, A5000, A6000)">
+<Accordion  title="24 GB VRAM — high-end (RTX 3090, 4090, A5000, A6000)" icon="server">
 You can run the full suite:
 
 - **Transcoding** — full output ladder, higher `maxSessions`
@@ -186,18 +261,18 @@ You can run the full suite:
 Strategy: warm your highest-fee pipeline (`text-to-image` is typically the most sought-after), cold the rest. See [Model and VRAM Reference](/v2/orchestrators/guides/workloads-and-ai/model-vram-reference) for per-pipeline earnings guidance.
 </Accordion>
 
-<Accordion title="Multiple GPUs or data-centre class">
+<Accordion  title="Multiple GPUs or data-centre class" icon="server">
 - Pool architecture — route jobs across multiple workers, each on separate GPUs
 - Different GPUs can serve different pipelines simultaneously (assign per-GPU in `aiModels.json`)
 - Fleet operations for multi-machine deployments
 - Cascade becomes highly competitive with dedicated GPU per stream
 
-See [Run a Pool](/v2/orchestrators/guides/advanced-operations/run-a-pool) and [Fleet Operations](/v2/orchestrators/advanced/fleet-ops).
+See [Run a Pool](/v2/orchestrators/guides/advanced-operations/run-a-pool) and [Fleet Operations](/v2/orchestrators/guides/advanced-operations/large-scale-operations).
 </Accordion>
 
 </AccordionGroup>
 
----
+<CustomDivider />
 
 ## Setup guides
 

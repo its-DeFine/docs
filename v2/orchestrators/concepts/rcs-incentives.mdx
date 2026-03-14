@@ -38,7 +38,7 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
   <Tip>Orchestrators earn from two sources: LPT protocol rewards (for staking) and ETH service fees (for doing work). The more stake you attract and the more jobs you complete, the more you earn.</Tip>
 </CenteredContainer>
 
----
+<CustomDivider />
 
 This page explains how orchestrators earn, what it costs to operate, and why the incentive model works. For what orchestrators *do*, see [Role](/v2/orchestrators/concepts/role). For the workloads they run, see [Capabilities](/v2/orchestrators/concepts/capabilities).
 
@@ -151,23 +151,61 @@ Running an orchestrator involves both financial and operational costs.
 
 ### Financial costs
 
-| Cost | Description |
-|---|---|
-| **GPU hardware** | Purchase or lease NVIDIA GPUs. Consumer cards (RTX 3090/4090) for small operators; data-centre cards (A100, H100) for large operations |
-| **Hosting** | Colocation, cloud, or home setup. Includes power, cooling, and network |
-| **Bandwidth** | Video transcoding is bandwidth-intensive; AI inference less so |
-| **Energy** | GPU power draw under load (200-400W per card is typical) |
-| **ETH for gas** | On-chain transactions (registration, reward calls, ticket redemption) require small amounts of ETH on Arbitrum |
-| **LPT for staking** | Must acquire and stake LPT to register and compete for work |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Cost</TableCell>
+    <TableCell header>Description</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**GPU hardware**</TableCell>
+    <TableCell>Purchase or lease NVIDIA GPUs. Consumer cards (RTX 3090/4090) for small operators; data-centre cards (A100, H100) for large operations</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Hosting**</TableCell>
+    <TableCell>Colocation, cloud, or home setup. Includes power, cooling, and network</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Bandwidth**</TableCell>
+    <TableCell>Video transcoding is bandwidth-intensive; AI inference less so</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Energy**</TableCell>
+    <TableCell>GPU power draw under load (200-400W per card is typical)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**ETH for gas**</TableCell>
+    <TableCell>On-chain transactions (registration, reward calls, ticket redemption) require small amounts of ETH on Arbitrum</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**LPT for staking**</TableCell>
+    <TableCell>Must acquire and stake LPT to register and compete for work</TableCell>
+  </TableRow>
+</StyledTable>
 
 ### Operational costs
 
-| Cost | Description |
-|---|---|
-| **Uptime commitment** | Node must be online to receive jobs and call `reward()` each round |
-| **Maintenance** | Software updates, GPU driver updates, monitoring |
-| **Delegation management** | Competitive reward cut and fee cut settings to attract delegators |
-| **Risk** | Hardware failure, downtime, missed reward calls, ETH price volatility |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Cost</TableCell>
+    <TableCell header>Description</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Uptime commitment**</TableCell>
+    <TableCell>Node must be online to receive jobs and call `reward()` each round</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Maintenance**</TableCell>
+    <TableCell>Software updates, GPU driver updates, monitoring</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Delegation management**</TableCell>
+    <TableCell>Competitive reward cut and fee cut settings to attract delegators</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Risk**</TableCell>
+    <TableCell>Hardware failure, downtime, missed reward calls, ETH price volatility</TableCell>
+  </TableRow>
+</StyledTable>
 
 <CustomDivider middleText="Reward and Fee Cuts" />
 

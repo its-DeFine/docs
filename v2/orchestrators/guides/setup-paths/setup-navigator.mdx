@@ -31,13 +31,17 @@ status: published
 lastVerified: 2026-03-13
 ---
 
+import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 Running a Livepeer orchestrator is not a single path. Your GPU, your available LPT, how much you want to operate versus simply earn, and how much security you need around your keystore all point to different setups. This page helps you choose.
 
 <Note>
   **Just want the quick version?** If you have a GPU and want to earn network fees with minimal protocol operations, [join an existing pool](#path-1-pool-worker) first. You can migrate to a solo orchestrator later.
 </Note>
 
----
+<CustomDivider />
 
 ## Step 1 — Should you run an orchestrator?
 
@@ -45,19 +49,40 @@ Before choosing a path, answer these two questions honestly.
 
 <AccordionGroup>
 
-<Accordion title="Do I have the GPU hardware?">
+<Accordion  title="Do I have the GPU hardware?" icon="server">
 
-| Workload | Minimum GPU | Recommended GPU |
-|---|---|---|
-| Video transcoding only | NVIDIA RTX 3060 (8 GB VRAM) | RTX 4080 / A4000 |
-| Batch AI inference | NVIDIA RTX 3090 / A40 (24 GB VRAM) | RTX 4090 / A100 |
-| Real-time AI (Cascade) | NVIDIA RTX 3090 (24 GB VRAM) | RTX 4090 / A100 |
-| LLM inference only | NVIDIA RTX 3060 Ti (8 GB VRAM) | RTX 3090+ |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Workload</TableCell>
+    <TableCell header>Minimum GPU</TableCell>
+    <TableCell header>Recommended GPU</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Video transcoding only</TableCell>
+    <TableCell>NVIDIA RTX 3060 (8 GB VRAM)</TableCell>
+    <TableCell>RTX 4080 / A4000</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Batch AI inference</TableCell>
+    <TableCell>NVIDIA RTX 3090 / A40 (24 GB VRAM)</TableCell>
+    <TableCell>RTX 4090 / A100</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Real-time AI (Cascade)</TableCell>
+    <TableCell>NVIDIA RTX 3090 (24 GB VRAM)</TableCell>
+    <TableCell>RTX 4090 / A100</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>LLM inference only</TableCell>
+    <TableCell>NVIDIA RTX 3060 Ti (8 GB VRAM)</TableCell>
+    <TableCell>RTX 3090+</TableCell>
+  </TableRow>
+</StyledTable>
 
-NVIDIA GPUs only. AMD and Apple Silicon are not supported by go-livepeer's AI runner. See [Hardware Requirements](/v2/orchestrators/guides/feasibility-and-hardware/hardware) for the full spec list.
+NVIDIA GPUs only. AMD and Apple Silicon are not supported by go-livepeer's AI runner. See [Hardware Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference) for the full spec list.
 </Accordion>
 
-<Accordion title="Do I need LPT to participate?">
+<Accordion  title="Do I need LPT to participate?" icon="circle-question">
 
 It depends on your chosen path:
 
@@ -73,7 +98,7 @@ If you cannot stake enough LPT to compete but want to earn network fees, the poo
 
 Not sure if running an orchestrator is economically viable for your specific setup? Review [Feasibility and Economics](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics) first.
 
----
+<CustomDivider />
 
 ## Step 2 — Choose your path
 
@@ -92,28 +117,83 @@ Not sure if running an orchestrator is economically viable for your specific set
   </Card>
 </CardGroup>
 
----
+<CustomDivider />
 
 ## Decision table
 
-| | Pool Worker | Solo Orchestrator | Split Setup (Siphon) | Fleet |
-|---|---|---|---|---|
-| **LPT required** | No | Yes | Yes | Yes (significant) |
-| **GPU required** | Yes | Yes | Yes (GPU machine) | Yes (multiple) |
-| **On-chain ops** | Pool handles it | You manage | Siphon handles it | Dedicated ops |
-| **Key security** | Pool's keystore | Same machine as GPU | Keystore isolated | Dedicated secure machine |
-| **Reward safety** | Pool handles it | Risk if node is busy | Siphon runs independently | Dedicated reward infra |
-| **Setup complexity** | Low | Medium | Medium | High |
-| **AI inference ready** | Depends on pool | Yes, with aiModels.json | Yes | Yes |
-| **Start here** | → [Join a Pool](/v2/orchestrators/guides/setup-paths/join-a-pool) | → [Setup Guide](/v2/orchestrators/setup/guide) | → [Siphon Setup](/v2/orchestrators/guides/setup-paths/siphon-setup) | → Contact us |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header></TableCell>
+    <TableCell header>Pool Worker</TableCell>
+    <TableCell header>Solo Orchestrator</TableCell>
+    <TableCell header>Split Setup (Siphon)</TableCell>
+    <TableCell header>Fleet</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**LPT required**</TableCell>
+    <TableCell>No</TableCell>
+    <TableCell>Yes</TableCell>
+    <TableCell>Yes</TableCell>
+    <TableCell>Yes (significant)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**GPU required**</TableCell>
+    <TableCell>Yes</TableCell>
+    <TableCell>Yes</TableCell>
+    <TableCell>Yes (GPU machine)</TableCell>
+    <TableCell>Yes (multiple)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**On-chain ops**</TableCell>
+    <TableCell>Pool handles it</TableCell>
+    <TableCell>You manage</TableCell>
+    <TableCell>Siphon handles it</TableCell>
+    <TableCell>Dedicated ops</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Key security**</TableCell>
+    <TableCell>Pool's keystore</TableCell>
+    <TableCell>Same machine as GPU</TableCell>
+    <TableCell>Keystore isolated</TableCell>
+    <TableCell>Dedicated secure machine</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Reward safety**</TableCell>
+    <TableCell>Pool handles it</TableCell>
+    <TableCell>Risk if node is busy</TableCell>
+    <TableCell>Siphon runs independently</TableCell>
+    <TableCell>Dedicated reward infra</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Setup complexity**</TableCell>
+    <TableCell>Low</TableCell>
+    <TableCell>Medium</TableCell>
+    <TableCell>Medium</TableCell>
+    <TableCell>High</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**AI inference ready**</TableCell>
+    <TableCell>Depends on pool</TableCell>
+    <TableCell>Yes, with aiModels.json</TableCell>
+    <TableCell>Yes</TableCell>
+    <TableCell>Yes</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Start here**</TableCell>
+    <TableCell>→ [Join a Pool](/v2/orchestrators/guides/setup-paths/join-a-pool)</TableCell>
+    <TableCell>→ [Setup Guide](/v2/orchestrators/setup/guide)</TableCell>
+    <TableCell>→ [Siphon Setup](/v2/orchestrators/guides/setup-paths/siphon-setup)</TableCell>
+    <TableCell>→ Contact us</TableCell>
+  </TableRow>
+</StyledTable>
 
----
+<CustomDivider />
 
 ## Workload type — decide before hardware or pricing
 
 Your path choice intersects with your **workload choice**. The two major workload types have different hardware requirements and routing models.
 
-```
+``` icon="terminal"
 Your GPU Node
      │
      ├── Video Transcoding
@@ -133,7 +213,7 @@ Your GPU Node
 
 For the full breakdown of what each workload earns and requires, see [Job Types](/v2/orchestrators/guides/workloads-and-ai/job-types).
 
----
+<CustomDivider />
 
 ## Path 1: Pool Worker
 
@@ -167,7 +247,7 @@ You connect your GPU as a transcoder or AI worker that a pool orchestrator point
   Step-by-step instructions for joining Titan Node, understanding the connection models, and starting to earn.
 </Card>
 
----
+<CustomDivider />
 
 ## Path 2: Solo Orchestrator
 
@@ -190,30 +270,30 @@ The standard path. One machine runs the full go-livepeer binary as both orchestr
 
 **Start here:**
 
-<Steps>
-  <Step title="Hardware and feasibility">
+<StyledSteps>
+  <StyledStep title="Hardware and feasibility">
     Review the hardware requirements and do an economics sense-check before setting up.
-    [Hardware Requirements](/v2/orchestrators/guides/feasibility-and-hardware/hardware) · [Feasibility and Economics](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics)
-  </Step>
-  <Step title="Install go-livepeer">
+    [Hardware Reference](/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference) · [Feasibility and Economics](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics)
+  </StyledStep>
+  <StyledStep title="Install go-livepeer">
     Download and install the go-livepeer binary or Docker image.
     [Setup Guide](/v2/orchestrators/setup/guide)
-  </Step>
-  <Step title="Register and activate on-chain">
+  </StyledStep>
+  <StyledStep title="Register and activate on-chain">
     Bond LPT, register as an orchestrator, and activate your node.
     [Activation Guide](/v2/orchestrators/setup/activate)
-  </Step>
-  <Step title="Configure pricing and session limits">
+  </StyledStep>
+  <StyledStep title="Configure pricing and session limits">
     Set your transcoding price, maximum sessions, and AI pipeline configuration.
     [Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-limits) · [Pricing Setup](/v2/orchestrators/setup/r-configure)
-  </Step>
-  <Step title="Add AI workloads (optional)">
+  </StyledStep>
+  <StyledStep title="Add AI workloads (optional)">
     Configure aiModels.json to earn fees from AI inference alongside transcoding.
-    [Batch AI Setup](/v2/orchestrators/guides/ai-workloads/batch-ai-setup)
-  </Step>
-</Steps>
+    [Batch AI Setup](/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup)
+  </StyledStep>
+</StyledSteps>
 
----
+<CustomDivider />
 
 ## Path 3: Split Setup (Siphon)
 
@@ -254,7 +334,7 @@ The split setup separates two concerns across different machines:
   Complete installation and configuration guide for OrchestratorSiphon, systemd service setup, and verifying the split works.
 </Card>
 
----
+<CustomDivider />
 
 ## Path 4: Fleet / Enterprise
 
@@ -268,20 +348,49 @@ This path extends the split setup to a fleet model. The architecture is the same
 
 {/* REVIEW: Confirm whether there is a dedicated enterprise contact or onboarding path. The Gateways tab mentions data centre outreach but the Orchestrators section lacks a specific contact point. */}
 
----
+<CustomDivider />
 
 ## Path matrix — where to go next
 
-| If you are... | Start with | Then continue to |
-|---|---|---|
-| A home miner with 1–2 GPUs and no LPT | [Join a Pool](/v2/orchestrators/guides/setup-paths/join-a-pool) | [Feasibility](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics) (when considering solo) |
-| A solo operator wanting full control | [Setup Guide](/v2/orchestrators/setup/guide) | [Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-limits) → [Pricing Setup](/v2/orchestrators/setup/r-configure) |
-| An operator wanting key security + reward safety | [Siphon Setup](/v2/orchestrators/guides/setup-paths/siphon-setup) | [Setup Guide](/v2/orchestrators/setup/guide) (GPU machine) |
-| An existing transcoding orchestrator adding AI | [AI Workloads Overview](/v2/orchestrators/concepts/ai-workloads) | [Batch AI Setup](/v2/orchestrators/guides/ai-workloads/batch-ai-setup) |
-| Evaluating whether it's worth it at all | [Feasibility and Economics](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics) | [Benchmarking](/v2/orchestrators/guides/feasibility-and-hardware/benchmarking) |
-| A data centre / multi-node operator | [Contact the team](https://discord.gg/livepeer) | Fleet Ops (advanced) |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>If you are...</TableCell>
+    <TableCell header>Start with</TableCell>
+    <TableCell header>Then continue to</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>A home miner with 1–2 GPUs and no LPT</TableCell>
+    <TableCell>[Join a Pool](/v2/orchestrators/guides/setup-paths/join-a-pool)</TableCell>
+    <TableCell>[Feasibility](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics) (when considering solo)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>A solo operator wanting full control</TableCell>
+    <TableCell>[Setup Guide](/v2/orchestrators/setup/guide)</TableCell>
+    <TableCell>[Session Limits](/v2/orchestrators/guides/feasibility-and-hardware/session-limits) → [Pricing Setup](/v2/orchestrators/setup/r-configure)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>An operator wanting key security + reward safety</TableCell>
+    <TableCell>[Siphon Setup](/v2/orchestrators/guides/setup-paths/siphon-setup)</TableCell>
+    <TableCell>[Setup Guide](/v2/orchestrators/setup/guide) (GPU machine)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>An existing transcoding orchestrator adding AI</TableCell>
+    <TableCell>[AI Workloads Overview](/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide)</TableCell>
+    <TableCell>[Batch AI Setup](/v2/orchestrators/guides/workloads-and-ai/batch-ai-setup)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>Evaluating whether it's worth it at all</TableCell>
+    <TableCell>[Feasibility and Economics](/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics)</TableCell>
+    <TableCell>[Benchmarking](/v2/orchestrators/guides/feasibility-and-hardware/benchmarking)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>A data centre / multi-node operator</TableCell>
+    <TableCell>[Contact the team](https://discord.gg/livepeer)</TableCell>
+    <TableCell>Fleet Ops (advanced)</TableCell>
+  </TableRow>
+</StyledTable>
 
----
+<CustomDivider />
 
 ## Watch: Orchestrator setup overview
 
@@ -299,7 +408,7 @@ This path extends the split setup to a fleet model. The architecture is the same
 
 {/* REVIEW: Confirm this YouTube video ID is current and represents an accurate setup walkthrough. Titan Node or Livepeer Inc have published orchestrator setup content. Rick / SPE leads to provide canonical video IDs. */}
 
----
+<CustomDivider />
 
 <CardGroup cols={2}>
   <Card title="Feasibility and Economics" icon="scale-balanced" href="/v2/orchestrators/guides/feasibility-and-hardware/feasibility-economics">
@@ -308,7 +417,7 @@ This path extends the split setup to a fleet model. The architecture is the same
   <Card title="Job Types" icon="layer-group" href="/v2/orchestrators/guides/workloads-and-ai/job-types">
     Video transcoding, batch AI, real-time AI, and LLM — what each workload earns and requires.
   </Card>
-  <Card title="Hardware Requirements" icon="microchip" href="/v2/orchestrators/guides/feasibility-and-hardware/hardware">
+  <Card title="Hardware Reference" icon="microchip" href="/v2/orchestrators/guides/feasibility-and-hardware/hardware-reference">
     GPU tiers, VRAM requirements, driver versions, and the pre-launch checklist.
   </Card>
   <Card title="Setup Guide" icon="rocket" href="/v2/orchestrators/setup/guide">

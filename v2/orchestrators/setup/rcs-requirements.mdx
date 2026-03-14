@@ -25,9 +25,11 @@ status: current
 lastVerified: 2026-03-13
 ---
 
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 Confirm every item on this checklist before proceeding to [Install go-livepeer](/v2/orchestrators/setup/rs-install). If any item fails, fix it first — setup issues are much harder to diagnose after activation.
 
----
+<CustomDivider />
 
 ## Hardware
 
@@ -57,7 +59,7 @@ For AI inference, VRAM is the primary constraint: 8 GB for LLM-only, 16 GB for b
 - **Latency:** Under 50 ms to major regions improves gateway selection probability
 
 Verify port access from an external machine:
-```bash
+```bash icon="terminal"
 curl -k https://YOUR_PUBLIC_IP:8935/status
 ```
 
@@ -75,11 +77,11 @@ See [Arbitrum Exchanges](/v2/orchestrators/resources/arbitrum-exchanges) for whe
 
 See [Arbitrum RPCs](/v2/orchestrators/resources/arbitrum-rpc) for provider comparison and setup.
 
----
+<CustomDivider />
 
 ## Quick verification commands
 
-```bash
+```bash icon="terminal"
 # GPU visible?
 nvidia-smi
 
@@ -93,7 +95,7 @@ docker run --gpus all nvidia/cuda:12.0-base nvidia-smi
 curl -k https://YOUR_PUBLIC_IP:8935/status
 ```
 
----
+<CustomDivider />
 
 ## Ready?
 

@@ -27,108 +27,250 @@ status: review
 lastVerified: 2026-03-13
 ---
 
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 Community-maintained guides, tutorials, and resources for Livepeer orchestrators. These are not maintained by the Livepeer Foundation — verify currency before following instructions.
 
 <Note>
   Have a guide to add? Open a PR or post in the [Livepeer Forum](https://forum.livepeer.org/c/transcoders/7).
 </Note>
 
----
+<CustomDivider />
 
 ## Setup & Installation
 
-| Guide | Source | What it covers |
-|---|---|---|
-| [LLM Pipeline: Deploying an Ollama-Based GPU Runner](https://www.livepeer.cloud/self-hosting-livepeers-llm-pipeline-deploying-an-ollama-based-gpu-runner-for-ai-orchestrators/) | Cloud SPE (Nov 2025) | Running LLM inference on 8 GB VRAM GPUs via Ollama and aiModels.json |
-| [Bash Script to Update Livepeer](https://forum.livepeer.org/t/bash-script-to-update-livepeer/1513) | Forum (2021) | Shell script for updating go-livepeer binaries on Linux |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Guide</TableCell>
+    <TableCell header>Source</TableCell>
+    <TableCell header>What it covers</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[LLM Pipeline: Deploying an Ollama-Based GPU Runner](https://www.livepeer.cloud/self-hosting-livepeers-llm-pipeline-deploying-an-ollama-based-gpu-runner-for-ai-orchestrators/)</TableCell>
+    <TableCell>Cloud SPE (Nov 2025)</TableCell>
+    <TableCell>Running LLM inference on 8 GB VRAM GPUs via Ollama and aiModels.json</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Bash Script to Update Livepeer](https://forum.livepeer.org/t/bash-script-to-update-livepeer/1513)</TableCell>
+    <TableCell>Forum (2021)</TableCell>
+    <TableCell>Shell script for updating go-livepeer binaries on Linux</TableCell>
+  </TableRow>
+</StyledTable>
 
 {/* REVIEW: Add Titan Node pool worker setup (Windows GUI + Linux CLI) URLs once verified */}
 {/* REVIEW: Add Video Miner / Definer pool onboarding guide URL once verified */}
 {/* REVIEW: Add Docker Compose orchestrator deployment references if community-maintained ones exist */}
 
----
+<CustomDivider />
 
 ## AI Workloads
 
-| Guide | Source | What it covers |
-|---|---|---|
-| [ComfyStream — Real-Time AI Video](https://github.com/livepeer/comfystream) | Livepeer / Daydream | Real-time AI video processing with ComfyUI workflows on Livepeer |
-| [AI Pipeline Overview](/v2/orchestrators/guides/ai-workloads/updated/ai-workloads-guide) | Official docs | Batch and real-time AI setup for orchestrators |
-| [Model Support Reference](/v2/developers/build/model-support) | Official docs | Complete pipeline and model registry (developer perspective) |
-| [BYOC — Bring Your Own Container](/v2/developers/build/byoc) | Official docs | Custom model containers for orchestrators and developers |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Guide</TableCell>
+    <TableCell header>Source</TableCell>
+    <TableCell header>What it covers</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[ComfyStream — Real-Time AI Video](https://github.com/livepeer/comfystream)</TableCell>
+    <TableCell>Livepeer / Daydream</TableCell>
+    <TableCell>Real-time AI video processing with ComfyUI workflows on Livepeer</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[AI Pipeline Overview](/v2/orchestrators/guides/workloads-and-ai/ai-workloads-guide)</TableCell>
+    <TableCell>Official docs</TableCell>
+    <TableCell>Batch and real-time AI setup for orchestrators</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Model Support Reference](/v2/developers/build/model-support)</TableCell>
+    <TableCell>Official docs</TableCell>
+    <TableCell>Complete pipeline and model registry (developer perspective)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[BYOC — Bring Your Own Container](/v2/developers/build/byoc)</TableCell>
+    <TableCell>Official docs</TableCell>
+    <TableCell>Custom model containers for orchestrators and developers</TableCell>
+  </TableRow>
+</StyledTable>
 
 {/* REVIEW: Add Daydream-specific tutorials or blog posts if published */}
 {/* REVIEW: Add HuggingFace model integration community guides if they exist */}
 {/* REVIEW: Add Cascade live-video-to-video community walkthroughs */}
 
----
+<CustomDivider />
 
 ## Monitoring & Operations
 
-| Guide | Source | What it covers |
-|---|---|---|
-| [Orchestrator Monitoring with Prometheus, Grafana and Loki](https://www.speedybird.xyz/?page_id=339) | Speedy Bird (community) | Full monitoring and alerting stack, including log analytics |
-| [Gateway Introspection API](/v2/orchestrators/v1/gateway-introspection) | Official docs (v1) | Public Loki log queries for gateway selection visibility |
-| [livepeer.tools](https://livepeer.tools) | Community | Per-pixel pricing dashboard, network-wide orchestrator stats |
-| [Livepeer Explorer](https://explorer.livepeer.org) | Livepeer Foundation | On-chain metrics: stake, earnings, sessions, active set ranking |
-| [Stronk Orchestrator Tools](https://github.com/stronk-tech) | Stronk-Tech (community) | OrchestratorSiphon and companion monitoring tools |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Guide</TableCell>
+    <TableCell header>Source</TableCell>
+    <TableCell header>What it covers</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Orchestrator Monitoring with Prometheus, Grafana and Loki](https://www.speedybird.xyz/?page_id=339)</TableCell>
+    <TableCell>Speedy Bird (community)</TableCell>
+    <TableCell>Full monitoring and alerting stack, including log analytics</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Gateway Introspection API](/v1/orchestrators/guides/gateway-introspection)</TableCell>
+    <TableCell>Official docs (v1)</TableCell>
+    <TableCell>Public Loki log queries for gateway selection visibility</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[livepeer.tools](https://livepeer.tools)</TableCell>
+    <TableCell>Community</TableCell>
+    <TableCell>Per-pixel pricing dashboard, network-wide orchestrator stats</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Livepeer Explorer](https://explorer.livepeer.org)</TableCell>
+    <TableCell>Livepeer Foundation</TableCell>
+    <TableCell>On-chain metrics: stake, earnings, sessions, active set ranking</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Stronk Orchestrator Tools](https://github.com/stronk-tech)</TableCell>
+    <TableCell>Stronk-Tech (community)</TableCell>
+    <TableCell>OrchestratorSiphon and companion monitoring tools</TableCell>
+  </TableRow>
+</StyledTable>
 
 {/* REVIEW: Add Titan Node uptime/transparency dashboard URL if public */}
 
----
+<CustomDivider />
 
 ## Economics & Strategy
 
-| Guide | Source | What it covers |
-|---|---|---|
-| [Yield Calculation](/v2/orchestrators/v1/yield-calculation) | Official docs (v1) | How delegators calculate ROI — the math behind attracting delegates |
-| [Titan Node Campaign Posts](https://forum.livepeer.org/search?q=titan%20node%20campaign) | Livepeer Forum | Pool transparency reports, architecture disclosure, payout history |
-| [Orchestrator Pricing Discussion](https://discord.gg/livepeer) | Discord `#orchestrating` | Community pricing norms and strategy discussion (real-time) |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Guide</TableCell>
+    <TableCell header>Source</TableCell>
+    <TableCell header>What it covers</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Yield Calculation](/v1/delegators/guides/yield-calculation)</TableCell>
+    <TableCell>Official docs (v1)</TableCell>
+    <TableCell>How delegators calculate ROI — the math behind attracting delegates</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Titan Node Campaign Posts](https://forum.livepeer.org/search?q=titan%20node%20campaign)</TableCell>
+    <TableCell>Livepeer Forum</TableCell>
+    <TableCell>Pool transparency reports, architecture disclosure, payout history</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Orchestrator Pricing Discussion](https://discord.gg/livepeer)</TableCell>
+    <TableCell>Discord `#orchestrating`</TableCell>
+    <TableCell>Community pricing norms and strategy discussion (real-time)</TableCell>
+  </TableRow>
+</StyledTable>
 
 {/* REVIEW: Add community reward cut calculators or spreadsheets if maintained */}
 {/* REVIEW: Add Definer/Define economics or strategy posts if published */}
 
----
+<CustomDivider />
 
 ## Pool Operators & Workers
 
-| Guide | Source | What it covers |
-|---|---|---|
-| [Titan Node](https://www.titannode.io/) | Titan Node | Largest community pool — custom pool client (Windows + Linux), worker onboarding, payout dashboard |
-| [Video Miner](https://www.videominer.org/) | Video Miner / Definer | Pool operations and GPU worker programme |
-| [LivePool](https://livepool.io/) | LivePool (community) | Pool service with worker dashboard |
-| [Run a Pool](/v2/orchestrators/guides/delegates-voting-pools/r-run-a-pool) | Official docs | Architecture, worker connections, fee distribution |
-| [Join a Pool](/v2/orchestrators/guides/delegates-voting-pools/join-a-pool) | Official docs | Worker perspective: connecting your GPU to an existing pool |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Guide</TableCell>
+    <TableCell header>Source</TableCell>
+    <TableCell header>What it covers</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Titan Node](https://www.titannode.io/)</TableCell>
+    <TableCell>Titan Node</TableCell>
+    <TableCell>Largest community pool — custom pool client (Windows + Linux), worker onboarding, payout dashboard</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Video Miner](https://www.videominer.org/)</TableCell>
+    <TableCell>Video Miner / Definer</TableCell>
+    <TableCell>Pool operations and GPU worker programme</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[LivePool](https://livepool.io/)</TableCell>
+    <TableCell>LivePool (community)</TableCell>
+    <TableCell>Pool service with worker dashboard</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Run a Pool](/v2/orchestrators/guides/advanced-operations/run-a-pool)</TableCell>
+    <TableCell>Official docs</TableCell>
+    <TableCell>Architecture, worker connections, fee distribution</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Join a Pool](/v2/orchestrators/guides/setup-paths/join-a-pool)</TableCell>
+    <TableCell>Official docs</TableCell>
+    <TableCell>Worker perspective: connecting your GPU to an existing pool</TableCell>
+  </TableRow>
+</StyledTable>
 
 {/* REVIEW: Verify all pool URLs are current and active */}
 {/* REVIEW: Add Daydream pool information if they operate one */}
 
----
+<CustomDivider />
 
 ## Video & Educational Content
 
-| Guide | Source | What it covers |
-|---|---|---|
-| [Livepeer YouTube](https://www.youtube.com/@LivepeerOrg) | Livepeer | Official video walkthroughs and protocol explainers |
-| [Livepeer Community Streams](/v2/community/livepeer-connect/events-and-community-streams) | Livepeer Connect | Recorded community calls and presentations |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Guide</TableCell>
+    <TableCell header>Source</TableCell>
+    <TableCell header>What it covers</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Livepeer YouTube](https://www.youtube.com/@LivepeerOrg)</TableCell>
+    <TableCell>Livepeer</TableCell>
+    <TableCell>Official video walkthroughs and protocol explainers</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Livepeer Community Streams](/v2/community/livepeer-connect/events-and-community-streams)</TableCell>
+    <TableCell>Livepeer Connect</TableCell>
+    <TableCell>Recorded community calls and presentations</TableCell>
+  </TableRow>
+</StyledTable>
 
 {/* REVIEW: Add Titan Node YouTube tutorial URLs once verified */}
 {/* REVIEW: Add ETHDenver / ETHGlobal Livepeer talk recordings if available */}
 {/* REVIEW: Add Definer/Define video content if published */}
 
----
+<CustomDivider />
 
 ## Developer & Research Resources
 
-| Resource | Source | What it covers |
-|---|---|---|
-| [go-livepeer](https://github.com/livepeer/go-livepeer) | GitHub | Source code, issues, releases — the orchestrator binary |
-| [ai-worker](https://github.com/livepeer/ai-worker) | GitHub | AI Runner container source and Dockerfiles |
-| [Livepeer Improvement Proposals (LIPs)](https://github.com/livepeer/LIPs) | GitHub | Protocol governance proposals and specifications |
-| [Livepeer Subgraph](https://thegraph.com/explorer/subgraphs/FGMqFR8PATJJPFwMVEHfaLRCPXhqCjsVnH92xYGqv3Cx) | The Graph | On-chain data queries for orchestrator analytics |
-| [Awesome Livepeer](/v2/developers/resources/awesome-livepeer) | Official docs | Curated list of Livepeer projects, tools, and resources |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell header>Resource</TableCell>
+    <TableCell header>Source</TableCell>
+    <TableCell header>What it covers</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[go-livepeer](https://github.com/livepeer/go-livepeer)</TableCell>
+    <TableCell>GitHub</TableCell>
+    <TableCell>Source code, issues, releases — the orchestrator binary</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[ai-worker](https://github.com/livepeer/ai-worker)</TableCell>
+    <TableCell>GitHub</TableCell>
+    <TableCell>AI Runner container source and Dockerfiles</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Livepeer Improvement Proposals (LIPs)](https://github.com/livepeer/LIPs)</TableCell>
+    <TableCell>GitHub</TableCell>
+    <TableCell>Protocol governance proposals and specifications</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Livepeer Subgraph](https://thegraph.com/explorer/subgraphs/FGMqFR8PATJJPFwMVEHfaLRCPXhqCjsVnH92xYGqv3Cx)</TableCell>
+    <TableCell>The Graph</TableCell>
+    <TableCell>On-chain data queries for orchestrator analytics</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>[Awesome Livepeer](/v2/developers/resources/awesome-livepeer)</TableCell>
+    <TableCell>Official docs</TableCell>
+    <TableCell>Curated list of Livepeer projects, tools, and resources</TableCell>
+  </TableRow>
+</StyledTable>
 
----
+<CustomDivider />
 
 ## Discord & Forum
 
@@ -139,7 +281,7 @@ The primary community support channel for orchestrators is Discord. Most active 
 
 For troubleshooting, check the [FAQ](/v2/orchestrators/resources/faq) first.
 
----
+<CustomDivider />
 
 ## See Also
 
