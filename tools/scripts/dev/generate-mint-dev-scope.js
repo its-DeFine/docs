@@ -16,6 +16,7 @@ const path = require('path');
 const os = require('os');
 const crypto = require('crypto');
 const readline = require('readline');
+const { spawn } = require('child_process');
 
 const STRUCTURAL_ARRAY_KEYS = ['versions', 'languages', 'tabs', 'anchors', 'groups', 'pages'];
 
@@ -35,6 +36,7 @@ function printUsage() {
       '  --prefixes <csv>          (repeatable)',
       '  --interactive',
       '  --disable-openapi',
+      '  --workspace-id <value>    (internal)',
       '  --print-only',
       '  --help'
     ].join('\n')
@@ -153,12 +155,19 @@ function parseArgs(argv) {
     prefixes: [],
     interactive: false,
     disableOpenapi: false,
+    workspaceId: '',
+    runScopedSession: false,
+    mintArgs: [],
     printOnly: false,
     help: false
   };
 
   for (let i = 0; i < argv.length; i += 1) {
     const token = argv[i];
+    if (token === '--') {
+      out.mintArgs = argv.slice(i + 1);
+      break;
+    }
     if (token === '--help' || token === '-h') {
       out.help = true;
       continue;
@@ -241,6 +250,19 @@ function parseArgs(argv) {
     }
     if (token === '--disable-openapi') {
       out.disableOpenapi = true;
+      continue;
+    }
+    if (token === '--workspace-id') {
+      out.workspaceId = String(argv[i + 1] || '').trim();
+      i += 1;
+      continue;
+    }
+    if (token.startsWith('--workspace-id=')) {
+      out.workspaceId = token.slice('--workspace-id='.length).trim();
+      continue;
+    }
+    if (token === '--run-scoped-session') {
+      out.runScopedSession = true;
       continue;
     }
     if (token === '--print-only') {
@@ -589,12 +611,41 @@ function syncWorkspaceTree(sourceDir, targetDir, options = {}) {
   }
 }
 
-function createWorkspaceHash(repoRoot, selection, docsStat, mintignoreStat) {
+function sortStringsForIdentity(values) {
+  return uniqStrings(values).sort((left, right) => left.localeCompare(right));
+}
+
+function normalizeWorkspaceId(workspaceId) {
+  const raw = String(workspaceId || '').trim();
+  if (!raw) return '';
+  const sanitized = raw.replace(/[^A-Za-z0-9._-]/g, '-');
+  return sanitized || '';
+}
+
+function getFileMtimeMs(filePath) {
+  try {
+    return fs.statSync(filePath).mtimeMs;
+  } catch (_error) {
+    return 0;
+  }
+}
+
+function createWorkspaceHash(repoRoot, docsPath, selection, workspaceId = '') {
+  const explicitId = normalizeWorkspaceId(workspaceId);
+  if (explicitId) {
+    return explicitId;
+  }
+
   const payload = {
     repoRoot: fs.realpathSync(repoRoot),
-    selection,
-    docsMtimeMs: docsStat.mtimeMs,
-    mintignoreMtimeMs: mintignoreStat ? mintignoreStat.mtimeMs : 0
+    docsConfig: fs.realpathSync(docsPath),
+    selection: {
+      versions: sortStringsForIdentity(selection.versions),
+      languages: sortStringsForIdentity(selection.languages),
+      tabs: sortStringsForIdentity(selection.tabs),
+      prefixes: sortStringsForIdentity((selection.prefixes || []).map(normalizeRoute)),
+      disableOpenapi: Boolean(selection.disableOpenapi)
+    }
   };
   return crypto.createHash('sha1').update(JSON.stringify(payload)).digest('hex').slice(0, 16);
 }
@@ -697,6 +748,441 @@ async function promptForSelection(initialSelection, optionData, allRoutes) {
   }
 }
 
+async function promptForScopedReload(message, options = {}) {
+  const input = options.input || process.stdin;
+  const output = options.output || process.stderr;
+
+  if (!input || !output || !input.isTTY || !output.isTTY) {
+    return null;
+  }
+
+  const rl = readline.createInterface({ input, output });
+  try {
+    const answer = await new Promise((resolve) => rl.question(`${message} [Y/n] `, resolve));
+    return !/^(n|no)$/i.test(String(answer || '').trim());
+  } finally {
+    rl.close();
+  }
+}
+
+function waitForChildExit(child) {
+  return new Promise((resolve, reject) => {
+    if (!child || typeof child.once !== 'function') {
+      resolve({ code: 0, signal: null });
+      return;
+    }
+
+    if (child.exitCode !== null || child.signalCode !== null) {
+      resolve({ code: child.exitCode, signal: child.signalCode });
+      return;
+    }
+
+    child.once('exit', (code, signal) => resolve({ code, signal }));
+    child.once('error', (error) => reject(error));
+  });
+}
+
+function waitForTimeout(promise, timeoutMs, setTimeoutFn = setTimeout, clearTimeoutFn = clearTimeout) {
+  return new Promise((resolve, reject) => {
+    let settled = false;
+    const timer = setTimeoutFn(() => {
+      if (settled) return;
+      settled = true;
+      resolve(null);
+    }, timeoutMs);
+
+    promise
+      .then((value) => {
+        if (settled) return;
+        settled = true;
+        clearTimeoutFn(timer);
+        resolve(value);
+      })
+      .catch((error) => {
+        if (settled) return;
+        settled = true;
+        clearTimeoutFn(timer);
+        reject(error);
+      });
+  });
+}
+
+async function terminateChildProcess(child, options = {}) {
+  if (!child) return { code: 0, signal: null };
+
+  const setTimeoutFn = options.setTimeoutFn || setTimeout;
+  const clearTimeoutFn = options.clearTimeoutFn || clearTimeout;
+  const exitPromise = waitForChildExit(child);
+  const tryKill = (signal) => {
+    try {
+      return child.kill(signal);
+    } catch (_error) {
+      return false;
+    }
+  };
+
+  if (!tryKill('SIGINT')) {
+    return exitPromise;
+  }
+
+  let result = await waitForTimeout(exitPromise, 8000, setTimeoutFn, clearTimeoutFn);
+  if (result) return result;
+
+  tryKill('SIGTERM');
+  result = await waitForTimeout(exitPromise, 3000, setTimeoutFn, clearTimeoutFn);
+  if (result) return result;
+
+  tryKill('SIGKILL');
+  return exitPromise;
+}
+
+class ScopedMintSessionSupervisor {
+  constructor(options, deps = {}) {
+    this.profileArgs = {
+      repoRoot: options.repoRoot,
+      workspaceBase: options.workspaceBase || path.join(os.tmpdir(), 'lpd-mint-dev'),
+      docsConfig: options.docsConfig || '',
+      scopeFile: options.scopeFile || '',
+      versions: [...(options.versions || [])],
+      languages: [...(options.languages || [])],
+      tabs: [...(options.tabs || [])],
+      prefixes: [...(options.prefixes || [])],
+      interactive: Boolean(options.interactive),
+      disableOpenapi: Boolean(options.disableOpenapi),
+      workspaceId: options.workspaceId || '',
+      printOnly: false,
+      help: false
+    };
+    this.mintArgs = [...(options.mintArgs || [])];
+    this.createScopedProfile = deps.createScopedProfile || createScopedProfile;
+    this.spawnProcess = deps.spawnProcess || spawn;
+    this.watchFactory = deps.watchFactory || ((watchPath, handler) => fs.watch(watchPath, { persistent: true }, handler));
+    this.promptForReload = deps.promptForReload || ((message) => promptForScopedReload(message, { input: process.stdin, output: process.stderr }));
+    this.log = deps.log || ((message) => console.log(message));
+    this.logError = deps.logError || ((message) => console.error(message));
+    this.setTimeoutFn = deps.setTimeoutFn || setTimeout;
+    this.clearTimeoutFn = deps.clearTimeoutFn || clearTimeout;
+    this.debounceMs = Number.isFinite(options.debounceMs) ? options.debounceMs : 250;
+    this.profile = null;
+    this.configWatcher = null;
+    this.currentChild = null;
+    this.debounceTimer = null;
+    this.pendingRefresh = false;
+    this.refreshInProgress = false;
+    this.promptInProgress = false;
+    this.restartInProgress = false;
+    this.shuttingDown = false;
+    this.expectedChildExit = false;
+    this.signalHandlers = new Map();
+    this.sessionPromise = null;
+    this.resolveSession = null;
+    this.rejectSession = null;
+    this.lastSourceConfigMtimeMs = 0;
+  }
+
+  async buildProfile() {
+    return this.createScopedProfile({ ...this.profileArgs, printOnly: false, help: false });
+  }
+
+  applyProfile(profile) {
+    const previousSourceConfig = this.profile ? this.profile.sourceDocsConfig : '';
+    this.profile = profile;
+    this.lastSourceConfigMtimeMs = getFileMtimeMs(profile.sourceDocsConfig);
+    this.profileArgs.docsConfig = profile.sourceDocsConfig;
+    this.profileArgs.scopeFile = '';
+    this.profileArgs.versions = [...(profile.selection && profile.selection.versions ? profile.selection.versions : [])];
+    this.profileArgs.languages = [...(profile.selection && profile.selection.languages ? profile.selection.languages : [])];
+    this.profileArgs.tabs = [...(profile.selection && profile.selection.tabs ? profile.selection.tabs : [])];
+    this.profileArgs.prefixes = [...(profile.selection && profile.selection.prefixes ? profile.selection.prefixes : [])];
+    this.profileArgs.interactive = false;
+    this.profileArgs.disableOpenapi = Boolean(profile.selection && profile.selection.disableOpenapi);
+    this.profileArgs.workspaceId = profile.scopeHash;
+
+    if (previousSourceConfig && previousSourceConfig !== profile.sourceDocsConfig && this.configWatcher) {
+      this.startWatcher();
+    }
+  }
+
+  async initialize() {
+    const profile = await this.buildProfile();
+    this.applyProfile(profile);
+    this.log(
+      `Using scoped Mint workspace: ${profile.workspaceDir} (routes ${profile.routeCounts.scoped}/${profile.routeCounts.original}, hash ${profile.scopeHash})`
+    );
+    return profile;
+  }
+
+  startWatcher() {
+    this.stopWatcher();
+    if (!this.profile || !this.profile.sourceDocsConfig) {
+      return;
+    }
+
+    const watchDir = path.dirname(this.profile.sourceDocsConfig);
+    const watchName = path.basename(this.profile.sourceDocsConfig);
+    this.configWatcher = this.watchFactory(watchDir, (eventType, filename) => {
+      this.handleWatchedConfigEvent(eventType, filename, watchName);
+    });
+  }
+
+  stopWatcher() {
+    if (this.configWatcher && typeof this.configWatcher.close === 'function') {
+      this.configWatcher.close();
+    }
+    this.configWatcher = null;
+  }
+
+  handleWatchedConfigEvent(eventType, filename, watchName = '') {
+    if (eventType !== 'change' && eventType !== 'rename') {
+      return;
+    }
+
+    if (filename) {
+      const normalizedName = path.basename(String(filename));
+      if (normalizedName !== watchName) {
+        return;
+      }
+      const currentMtimeMs = getFileMtimeMs(this.profile ? this.profile.sourceDocsConfig : '');
+      if (currentMtimeMs > 0) {
+        this.lastSourceConfigMtimeMs = currentMtimeMs;
+      }
+    } else {
+      const currentMtimeMs = getFileMtimeMs(this.profile ? this.profile.sourceDocsConfig : '');
+      if (currentMtimeMs <= 0 || currentMtimeMs === this.lastSourceConfigMtimeMs) {
+        return;
+      }
+      this.lastSourceConfigMtimeMs = currentMtimeMs;
+    }
+
+    this.scheduleRefresh();
+  }
+
+  scheduleRefresh() {
+    if (this.shuttingDown) return;
+    if (this.debounceTimer) {
+      this.clearTimeoutFn(this.debounceTimer);
+    }
+
+    this.debounceTimer = this.setTimeoutFn(() => {
+      this.debounceTimer = null;
+      void this.runRefreshCycle();
+    }, this.debounceMs);
+  }
+
+  async runRefreshCycle() {
+    if (this.shuttingDown) return;
+    if (this.refreshInProgress || this.promptInProgress || this.restartInProgress) {
+      this.pendingRefresh = true;
+      return;
+    }
+
+    this.refreshInProgress = true;
+    try {
+      const refreshedProfile = await this.buildProfile();
+      this.applyProfile(refreshedProfile);
+      this.log(
+        `Scoped docs config refreshed: ${refreshedProfile.sourceDocsConfig} (routes ${refreshedProfile.routeCounts.scoped}/${refreshedProfile.routeCounts.original})`
+      );
+    } catch (error) {
+      this.logError(`Scoped docs config refresh failed: ${error.message}`);
+      return;
+    } finally {
+      this.refreshInProgress = false;
+    }
+
+    await this.maybePromptForRestart();
+    await this.flushPendingRefresh();
+  }
+
+  async flushPendingRefresh() {
+    if (!this.pendingRefresh || this.shuttingDown) {
+      return;
+    }
+    this.pendingRefresh = false;
+    await this.runRefreshCycle();
+  }
+
+  async maybePromptForRestart() {
+    const message = 'Scoped docs config changed. Reload Mint now to apply nav changes?';
+    let decision = null;
+    this.promptInProgress = true;
+    try {
+      decision = await this.promptForReload(message);
+    } finally {
+      this.promptInProgress = false;
+    }
+
+    if (decision === null) {
+      this.log('Scoped docs config changed. Restart Mint manually to apply nav changes.');
+      return;
+    }
+
+    if (!decision) {
+      this.log('Mint reload skipped. Navigation may stay stale until you restart this scoped session.');
+      return;
+    }
+
+    await this.restartMintChild();
+  }
+
+  spawnMintChild() {
+    if (!this.profile) {
+      throw new Error('Scoped session must be initialized before Mint can start.');
+    }
+
+    return this.spawnProcess('mint', ['dev', ...this.mintArgs], {
+      cwd: this.profile.workspaceDir,
+      stdio: 'inherit'
+    });
+  }
+
+  async startMintChild() {
+    const child = this.spawnMintChild();
+    this.currentChild = child;
+    child.once('exit', (code, signal) => {
+      this.handleChildExit(child, code, signal);
+    });
+    child.once('error', (error) => {
+      this.handleChildError(error);
+    });
+    return child;
+  }
+
+  handleChildError(error) {
+    if (this.shuttingDown || this.expectedChildExit) {
+      return;
+    }
+    this.logError(`Mint dev failed: ${error.message}`);
+    this.finishSession(1);
+  }
+
+  handleChildExit(child, code, signal) {
+    if (this.currentChild === child) {
+      this.currentChild = null;
+    }
+
+    if (this.expectedChildExit) {
+      return;
+    }
+
+    if (this.shuttingDown) {
+      this.finishSession(signal === 'SIGINT' ? 130 : signal === 'SIGTERM' ? 143 : code || 0);
+      return;
+    }
+
+    const exitCode = Number.isInteger(code) ? code : 0;
+    this.log(`Mint dev exited${signal ? ` (${signal})` : ''}.`);
+    this.finishSession(exitCode);
+  }
+
+  async stopMintChild() {
+    if (!this.currentChild) {
+      return { code: 0, signal: null };
+    }
+
+    const child = this.currentChild;
+    this.expectedChildExit = true;
+    try {
+      return await terminateChildProcess(child, {
+        setTimeoutFn: this.setTimeoutFn,
+        clearTimeoutFn: this.clearTimeoutFn
+      });
+    } finally {
+      this.expectedChildExit = false;
+      if (this.currentChild === child) {
+        this.currentChild = null;
+      }
+    }
+  }
+
+  async restartMintChild() {
+    if (this.shuttingDown) return;
+    this.restartInProgress = true;
+    try {
+      this.log('Restarting Mint dev to apply scoped navigation changes...');
+      await this.stopMintChild();
+      await this.startMintChild();
+    } finally {
+      this.restartInProgress = false;
+    }
+  }
+
+  registerSignalHandlers() {
+    ['SIGINT', 'SIGTERM'].forEach((signal) => {
+      const handler = () => {
+        void this.shutdown(signal);
+      };
+      this.signalHandlers.set(signal, handler);
+      process.on(signal, handler);
+    });
+  }
+
+  removeSignalHandlers() {
+    for (const [signal, handler] of this.signalHandlers.entries()) {
+      process.removeListener(signal, handler);
+    }
+    this.signalHandlers.clear();
+  }
+
+  async shutdown(signal = '') {
+    if (this.shuttingDown) {
+      return;
+    }
+
+    this.shuttingDown = true;
+    this.stopWatcher();
+    if (this.debounceTimer) {
+      this.clearTimeoutFn(this.debounceTimer);
+      this.debounceTimer = null;
+    }
+
+    try {
+      await this.stopMintChild();
+    } catch (error) {
+      this.logError(`Failed to stop Mint dev cleanly: ${error.message}`);
+    }
+
+    const exitCode = signal === 'SIGINT' ? 130 : signal === 'SIGTERM' ? 143 : 0;
+    this.finishSession(exitCode);
+  }
+
+  finishSession(exitCode) {
+    this.stopWatcher();
+    if (this.debounceTimer) {
+      this.clearTimeoutFn(this.debounceTimer);
+      this.debounceTimer = null;
+    }
+    this.removeSignalHandlers();
+
+    if (this.resolveSession) {
+      const resolve = this.resolveSession;
+      this.resolveSession = null;
+      this.rejectSession = null;
+      resolve(exitCode);
+    }
+  }
+
+  async start() {
+    if (!this.sessionPromise) {
+      this.sessionPromise = new Promise((resolve, reject) => {
+        this.resolveSession = resolve;
+        this.rejectSession = reject;
+      });
+    }
+
+    await this.initialize();
+    this.startWatcher();
+    this.registerSignalHandlers();
+    await this.startMintChild();
+    return this.sessionPromise;
+  }
+}
+
+async function runScopedMintSession(args, deps = {}) {
+  const supervisor = new ScopedMintSessionSupervisor(args, deps);
+  return supervisor.start();
+}
+
 async function createScopedProfile(args) {
   const fromScopeFile = loadScopeFile(args.scopeFile, args.repoRoot);
   const docsPath = args.docsConfig || fromScopeFile.docsConfig || path.join(args.repoRoot, 'docs.json');
@@ -737,10 +1223,7 @@ async function createScopedProfile(args) {
   const mintignoreBase = fs.existsSync(mintignorePath) ? fs.readFileSync(mintignorePath, 'utf8') : '';
   const metadata = buildScopedMetadata(selection, optionData, allRoutes, scopedRoutes);
   const scopedMintignore = buildScopedMintignore(mintignoreBase, metadata);
-
-  const docsStat = fs.statSync(docsPath);
-  const mintignoreStat = fs.existsSync(mintignorePath) ? fs.statSync(mintignorePath) : null;
-  const scopeHash = createWorkspaceHash(args.repoRoot, selection, docsStat, mintignoreStat);
+  const scopeHash = createWorkspaceHash(args.repoRoot, docsPath, selection, args.workspaceId || '');
   const workspaceDir = path.join(args.workspaceBase, scopeHash);
 
   if (!args.printOnly) {
@@ -786,6 +1269,14 @@ async function main() {
     printUsage();
     return;
   }
+  if (args.runScopedSession) {
+    const exitCode = await runScopedMintSession(args);
+    if (Number.isInteger(exitCode)) {
+      process.exitCode = exitCode;
+    }
+    return;
+  }
+
   const result = await createScopedProfile(args);
   process.stdout.write(`${JSON.stringify(result)}\n`);
 }
@@ -806,5 +1297,9 @@ module.exports = {
   buildScopedNavigation,
   buildScopedMintignore,
   buildScopedMetadata,
+  createWorkspaceHash,
+  promptForScopedReload,
+  ScopedMintSessionSupervisor,
+  runScopedMintSession,
   createScopedProfile
 };

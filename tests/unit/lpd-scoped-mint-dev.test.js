@@ -16,6 +16,7 @@ const assert = require('assert');
 const fs = require('fs');
 const os = require('os');
 const path = require('path');
+const { EventEmitter } = require('events');
 const { spawnSync } = require('child_process');
 const {
   collectRoutesFromNavigation,
@@ -23,6 +24,7 @@ const {
   buildScopedNavigation,
   buildScopedMetadata,
   buildScopedMintignore,
+  ScopedMintSessionSupervisor,
   createScopedProfile
 } = require('../../tools/scripts/dev/generate-mint-dev-scope');
 
@@ -139,9 +141,128 @@ function writeFile(absPath, content) {
   fs.writeFileSync(absPath, content, 'utf8');
 }
 
+function waitFor(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function createSupervisorProfile(overrides = {}) {
+  return {
+    workspaceDir: overrides.workspaceDir || '/tmp/lpd-scoped-workspace',
+    scopeHash: overrides.scopeHash || 'scoped-session',
+    selection: {
+      versions: ['v2'],
+      languages: ['en'],
+      tabs: ['Developers'],
+      prefixes: ['v2/dev'],
+      disableOpenapi: false,
+      ...(overrides.selection || {})
+    },
+    sourceDocsConfig: overrides.sourceDocsConfig || '/tmp/repo/docs.json',
+    routeCounts: overrides.routeCounts || { original: 4, scoped: 2 },
+    disabledOpenapi: Boolean(overrides.disabledOpenapi)
+  };
+}
+
+function createFakeMintChild() {
+  const child = new EventEmitter();
+  child.exitCode = null;
+  child.signalCode = null;
+  child.kills = [];
+  child.kill = (signal = 'SIGTERM') => {
+    child.kills.push(signal);
+    child.signalCode = signal;
+    setImmediate(() => child.emit('exit', 0, signal));
+    return true;
+  };
+  return child;
+}
+
 async function runTests() {
   const failures = [];
   const cases = [];
+  const createSupervisorHarness = (profiles, promptResponses = []) => {
+    const logMessages = [];
+    const errorMessages = [];
+    const watchPaths = [];
+    const watchListeners = [];
+    const children = [];
+    const profileCalls = [];
+    const promptCalls = [];
+
+    const createScopedProfileStub = async (args) => {
+      profileCalls.push({
+        docsConfig: args.docsConfig,
+        workspaceId: args.workspaceId || '',
+        versions: [...(args.versions || [])],
+        languages: [...(args.languages || [])],
+        tabs: [...(args.tabs || [])],
+        prefixes: [...(args.prefixes || [])]
+      });
+      const next = profiles.shift();
+      if (next instanceof Error) {
+        throw next;
+      }
+      return next;
+    };
+
+    const spawnProcess = (_command, args, options) => {
+      const child = createFakeMintChild();
+      child.spawnArgs = args;
+      child.spawnOptions = options;
+      children.push(child);
+      return child;
+    };
+
+    const watchFactory = (watchPath, handler) => {
+      watchPaths.push(watchPath);
+      watchListeners.push(handler);
+      return {
+        close() {}
+      };
+    };
+
+    const promptForReload = async (message) => {
+      promptCalls.push(message);
+      return promptResponses.length > 0 ? promptResponses.shift() : false;
+    };
+
+    const supervisor = new ScopedMintSessionSupervisor(
+      {
+        repoRoot: '/tmp/repo',
+        workspaceBase: '/tmp/lpd-workspaces',
+        docsConfig: '',
+        scopeFile: '',
+        versions: [],
+        languages: [],
+        tabs: [],
+        prefixes: [],
+        interactive: false,
+        disableOpenapi: false,
+        debounceMs: 5
+      },
+      {
+        createScopedProfile: createScopedProfileStub,
+        spawnProcess,
+        watchFactory,
+        promptForReload,
+        log: (message) => logMessages.push(message),
+        logError: (message) => errorMessages.push(message)
+      }
+    );
+
+    return {
+      supervisor,
+      logMessages,
+      errorMessages,
+      watchPaths,
+      children,
+      profileCalls,
+      promptCalls,
+      emit(eventType, filename) {
+        watchListeners.forEach((handler) => handler(eventType, filename));
+      }
+    };
+  };
 
   cases.push(async () => {
     const selection = {
@@ -366,6 +487,183 @@ async function runTests() {
     assert.ok(!fs.lstatSync(snippetsDir).isSymbolicLink(), 'workspace snippets should not be a symlink');
     assert.ok(fs.lstatSync(pageFile).isSymbolicLink(), 'workspace page file should remain a symlink');
     assert.ok(fs.lstatSync(snippetFile).isSymbolicLink(), 'workspace snippet file should remain a symlink');
+  });
+
+  cases.push(async () => {
+    const repoRoot = mkTmpDir('lpd-scope-refresh-root-');
+    const workspaceBase = mkTmpDir('lpd-scope-refresh-out-');
+    const docsPath = path.join(repoRoot, 'docs.json');
+    const initialDocs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Initial Docs',
+      navigation: {
+        tabs: [
+          {
+            tab: 'Developers',
+            groups: [
+              {
+                group: 'Dev',
+                pages: ['v2/dev/get-started']
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    writeFile(docsPath, `${JSON.stringify(initialDocs, null, 2)}\n`);
+    writeFile(path.join(repoRoot, '.mintignore'), '# fixture\n');
+    writeFile(path.join(repoRoot, 'v2/dev/get-started.mdx'), '# Get started\n');
+
+    const args = {
+      repoRoot,
+      workspaceBase,
+      scopeFile: '',
+      versions: [],
+      languages: [],
+      tabs: [],
+      prefixes: ['v2/dev'],
+      interactive: false,
+      disableOpenapi: false,
+      printOnly: false,
+      help: false
+    };
+
+    const firstResult = await createScopedProfile(args);
+    const firstScopedDocs = JSON.parse(fs.readFileSync(path.join(firstResult.workspaceDir, 'docs.json'), 'utf8'));
+    assert.strictEqual(firstScopedDocs.name, 'Initial Docs');
+
+    const refreshedDocs = { ...initialDocs, name: 'Updated Docs' };
+    writeFile(docsPath, `${JSON.stringify(refreshedDocs, null, 2)}\n`);
+
+    const secondResult = await createScopedProfile(args);
+    const secondScopedDocs = JSON.parse(fs.readFileSync(path.join(secondResult.workspaceDir, 'docs.json'), 'utf8'));
+
+    assert.strictEqual(secondResult.workspaceDir, firstResult.workspaceDir, 'workspace should remain stable across docs config refresh');
+    assert.strictEqual(secondScopedDocs.name, 'Updated Docs', 'scoped workspace should be rewritten in place');
+  });
+
+  cases.push(async () => {
+    const harness = createSupervisorHarness(
+      [
+        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'root-session' }),
+        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'root-session', routeCounts: { original: 5, scoped: 3 } })
+      ],
+      [false]
+    );
+
+    const sessionPromise = harness.supervisor.start();
+    await waitFor(20);
+    assert.deepStrictEqual(harness.watchPaths, ['/tmp/repo']);
+
+    harness.emit('change', 'not-the-config.json');
+    await waitFor(20);
+    assert.strictEqual(harness.profileCalls.length, 1, 'unrelated filenames should not trigger scoped refresh');
+
+    harness.emit('change', 'docs.json');
+    await waitFor(40);
+    assert.strictEqual(harness.profileCalls.length, 2, 'active root docs.json should trigger refresh');
+    assert.strictEqual(harness.promptCalls.length, 1, 'config refresh should prompt for reload');
+    assert.strictEqual(harness.children.length, 1, 'declining reload should keep the existing mint child running');
+
+    await harness.supervisor.shutdown();
+    await sessionPromise;
+  });
+
+  cases.push(async () => {
+    const harness = createSupervisorHarness(
+      [
+        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs-gate-work.json', scopeHash: 'alt-session' }),
+        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs-gate-work.json', scopeHash: 'alt-session', routeCounts: { original: 7, scoped: 4 } })
+      ],
+      [false]
+    );
+
+    const sessionPromise = harness.supervisor.start();
+    await waitFor(20);
+
+    harness.emit('change', 'docs.json');
+    await waitFor(20);
+    assert.strictEqual(harness.profileCalls.length, 1, 'non-active configs should be ignored');
+
+    harness.emit('change', 'docs-gate-work.json');
+    await waitFor(40);
+    assert.strictEqual(harness.profileCalls.length, 2, 'active alternate docs config should trigger refresh');
+
+    await harness.supervisor.shutdown();
+    await sessionPromise;
+  });
+
+  cases.push(async () => {
+    const harness = createSupervisorHarness(
+      [
+        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'debounce-session' }),
+        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'debounce-session', routeCounts: { original: 6, scoped: 4 } })
+      ],
+      [false]
+    );
+
+    const sessionPromise = harness.supervisor.start();
+    await waitFor(20);
+
+    harness.emit('change', 'docs.json');
+    harness.emit('rename', 'docs.json');
+    await waitFor(40);
+
+    assert.strictEqual(harness.profileCalls.length, 2, 'debounced config events should collapse into a single refresh');
+    assert.strictEqual(harness.promptCalls.length, 1, 'debounced refresh should show one reload prompt');
+
+    await harness.supervisor.shutdown();
+    await sessionPromise;
+  });
+
+  cases.push(async () => {
+    const harness = createSupervisorHarness(
+      [
+        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'restart-session' }),
+        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'restart-session', routeCounts: { original: 8, scoped: 5 } })
+      ],
+      [true]
+    );
+
+    const sessionPromise = harness.supervisor.start();
+    await waitFor(20);
+
+    harness.emit('change', 'docs.json');
+    await waitFor(60);
+
+    assert.strictEqual(harness.children.length, 2, 'approving reload should restart mint dev');
+    assert.deepStrictEqual(harness.children[0].kills, ['SIGINT'], 'mint child should be stopped gracefully before restart');
+
+    await harness.supervisor.shutdown();
+    await sessionPromise;
+  });
+
+  cases.push(async () => {
+    const harness = createSupervisorHarness(
+      [
+        createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'invalid-session' }),
+        new Error('Unexpected token } in JSON at position 10')
+      ],
+      [true]
+    );
+
+    const sessionPromise = harness.supervisor.start();
+    await waitFor(20);
+
+    harness.emit('change', 'docs.json');
+    await waitFor(40);
+
+    assert.strictEqual(harness.children.length, 1, 'refresh failure should keep the existing mint child alive');
+    assert.strictEqual(harness.promptCalls.length, 0, 'refresh failure should not prompt for restart');
+    assert.ok(
+      harness.errorMessages.some((message) => message.includes('Scoped docs config refresh failed')),
+      'refresh failure should be reported clearly'
+    );
+
+    await harness.supervisor.shutdown();
+    await sessionPromise;
   });
 
   for (let index = 0; index < cases.length; index += 1) {
