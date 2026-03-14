@@ -1,5 +1,5 @@
 ---
-title: 'Gateway Costs and Revenue'
+title: 'Gateway Business Model'
 sidebarTitle: 'Business Value'
 description: 'How Livepeer gateway payments work, what gateways cost to operate, and how operators earn at the business layer — covering both on-chain and off-chain gateway models.'
 keywords:
@@ -25,15 +25,29 @@ status: current
 lastVerified: '2026-03-13'
 ---
 
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "0 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
+
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
 Livepeer gateways are consumers of compute services, not earners of protocol fees. Orchestrators earn fees from gateways; gateways earn at the **business layer** — the margin between what they charge customers and what they pay the network.
 
 This page explains how gateway payments work at the protocol level, what costs you control, and how the revenue side works.
 
----
-
-## Who earns what
+## Actor Earnings
 
 <StyledTable variant="bordered">
   <thead>
@@ -67,9 +81,9 @@ This page explains how gateway payments work at the protocol level, what costs y
   </tbody>
 </StyledTable>
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## How gateway payments work: probabilistic micropayments
+## Payment Mechanics
 
 Livepeer uses **probabilistic micropayments (PM)** — a system designed for high-frequency, low-value payments without the gas cost of settling every transaction on-chain.
 
@@ -88,7 +102,7 @@ sequenceDiagram
     Note over Orch,Chain: Probabilistic: not every ticket wins, but expected value matches the price
 ```
 
-**How tickets work:**
+**Tickets:**
 - Your gateway generates signed payment tickets for each unit of work
 - Tickets have a face value and a winning probability — most tickets lose, but winners pay out the full face value
 - The expected value of all tickets equals the price agreed for the work
@@ -99,9 +113,9 @@ sequenceDiagram
 The gateway's ETH deposit and reserve funds are what back these tickets. If your deposit runs low, orchestrators may reject your jobs. Monitor your deposit balance in production.
 </Note>
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## What gateways pay for
+## Gateway Service Fees
 
 Payment costs differ significantly between workload types.
 
@@ -169,9 +183,9 @@ Payment costs differ significantly between workload types.
   </Tab>
 </Tabs>
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## Currency: ETH, not LPT
+## Payment Currency
 
 Gateway payments use ETH on Arbitrum, not LPT. This is a common point of confusion.
 
@@ -199,9 +213,9 @@ Gateway payments use ETH on Arbitrum, not LPT. This is a common point of confusi
 
 You do not need LPT to run a gateway. LPT is the orchestrator staking token; ETH is the payment token.
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## On-chain vs off-chain economics
+## Deployment Mode Economics
 
 The economic model differs significantly between the two gateway operation modes.
 
@@ -239,9 +253,9 @@ The economic model differs significantly between the two gateway operation modes
   </Tab>
 </Tabs>
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## What gateways charge customers
+## Gateway Profit Margins
 
 Your pricing to customers is entirely at the application layer — the Livepeer protocol has no concept of "gateway fees". You decide what to charge; the protocol only controls what you **pay** orchestrators.
 
@@ -257,9 +271,9 @@ Common pricing models used by current gateway operators:
 
 Your revenue is the difference between what customers pay you and what you pay orchestrators. Pricing discovery — understanding what orchestrators charge on the current network — is available through `livepeer_cli` and the [Livepeer Explorer](https://explorer.livepeer.org).
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## Monitoring your costs
+## Cost Monitoring
 
 Key metrics to watch in production:
 
@@ -278,7 +292,7 @@ For a running gateway, these are the critical numbers:
 | **Ticket redemption rate** | Percentage of tickets winning on-chain. Very low = misconfigured ticket parameters. |
 | **Max price rejections** | Jobs rejected because no orchestrator met your price cap. Consider raising `maxPricePerUnit`. |
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
 ## Related pages
 

@@ -1,3 +1,8 @@
+/**
+ * @component MermaidColours
+ * @description Centralised colour definitions for Mermaid diagrams. Mermaid requires literal colour values and does not support CSS custom properties.
+ * @category page-structure
+ */
 // NOTE: DO NOT USE OUTSIDE MERMAID - use style.css colours
 // This file is used to centralize the color definitions for Mermaid diagrams in the documentation.
 // This is necessary because Mermaid diagrams require literal color values and do not support CSS custom properties (var(--...)) for theme colors.

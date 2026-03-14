@@ -1,6 +1,6 @@
 ---
 title: 'Gateway Requirements'
-sidebarTitle: 'Requirements'
+sidebarTitle: 'Operator Requirements'
 description: 'Hardware, operating system, network, and skills requirements for running a Livepeer gateway. Covers both off-chain and on-chain payment modes.'
 keywords:
   - livepeer
@@ -22,8 +22,19 @@ audience: gateway-operator
 purpose: guides
 status: current
 lastVerified: '2026-03-14'
-icon: clipboard-check
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "0 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { BorderedBox, CenteredContainer } from '/snippets/components/layout/containers.jsx'
@@ -34,13 +45,14 @@ import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
   <Tip>Gateways do not require a GPU. All compute runs on orchestrators. Your gateway needs CPU, RAM, and stable network connectivity - not graphics hardware.</Tip>
 </CenteredContainer>
 
-<CustomDivider style={{margin: "0 0 -1rem 0"}} />
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-A Livepeer gateway routes jobs between your application and the compute network. It does not run AI models or transcode video - orchestrator nodes handle that. Requirements vary by payment mode: off-chain (AI) gateways have a lighter setup, while on-chain (video) gateways need Ethereum infrastructure.
+A Livepeer gateway routes jobs between your application and the compute network. It does not run AI models or transcode video - orchestrator nodes handle that.
+Requirements vary by payment mode: off-chain gateways have a lighter setup, while on-chain gateways need Ethereum infrastructure.
 
 Not sure which path to take? See <LinkArrow href="/v2/gateways/gateway-path" label="Choose Your Gateway Type" newline={false} /> first.
 
-<CustomDivider style={{margin: "0 0 -1rem 0"}} middleText="Hardware" />
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} middleText="Hardware" />
 
 ## Hardware
 

@@ -45,6 +45,13 @@ This skill contains everything needed to write a new MDX page in the Livepeer v2
 - **No fabricated metrics**. Examples must be labelled "illustrative".
 - **All claims traceable** to primary sources (GitHub, contracts, explorers, governance proposals, official announcements).
 
+### Comments and Review Flags
+- **REVIEW flags** for human verification must use JSX comments: `{/* REVIEW: [question for SME] */}`
+- **Media and video placeholders** must use JSX comments with TODO: `{/* TODO: Add screenshot/video of [feature] */}`
+- **SME notes** for unverified claims or community estimates: `{/* SME: [source note] */}`
+- Never use HTML comments (`[//]: # ()`) in MDX files - always use JSX comments (`{/* */}`)
+- These comments are stripped at build time and not visible to readers
+
 ### Frontmatter (Required Fields)
 Every page MUST have these fields:
 
@@ -241,6 +248,11 @@ These are available without imports:
 </StyledTable>
 ```
 
+### Icons on Interactive Components
+- **Accordions** and **Tabs** should use FontAwesome icons via the `icon` prop where appropriate
+- Choose icons that reinforce the content: `"cloud"` for cloud analogies, `"server"` for infrastructure, `"coin"` for economics, `"bolt"` for quickstarts, `"docker"` for Docker, `"linux"` for Linux
+- Icons are optional on Tabs but recommended on Accordions
+
 **Mental model analogies (persona routing):**
 ```mdx
 <AccordionGroup>
@@ -334,7 +346,7 @@ style SubgraphName fill:#0d0d0d,stroke:#2d9a67,stroke-width:1px
 ### ScrollableDiagram Wrapper
 Use for any Mermaid that might exceed viewport height:
 
-```mdx
+````mdx
 <ScrollableDiagram title="Descriptive Title" maxHeight="600px">
 
 ```mermaid
@@ -342,7 +354,7 @@ Use for any Mermaid that might exceed viewport height:
 ```
 
 </ScrollableDiagram>
-```
+````
 
 ---
 
@@ -537,7 +549,10 @@ npm run test:browser  # Page rendering
 - [ ] Prose before every diagram, table, and code block
 - [ ] Related Pages CardGroup at the bottom
 - [ ] All cross-references use LinkArrow (inline) or Card (navigational)
-- [ ] Mermaid diagrams use the standard dark theme block
+- [ ] Mermaid diagrams use the standard dark theme block (hardcoded colours)
+- [ ] FontAwesome icons used on Accordions
+- [ ] Unverified claims flagged with `{/* REVIEW: */}` or `{/* SME: */}` JSX comments
+- [ ] Media/video placeholders use `{/* TODO: */}` JSX comments
 - [ ] On-chain/off-chain described as payment modes, not workload types
 - [ ] No speculative claims without explicit labels
 - [ ] Page answers ONE question (matches its page type)

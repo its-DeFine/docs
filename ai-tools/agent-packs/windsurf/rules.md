@@ -71,5 +71,40 @@ Use these stages in order for a static-first docs infrastructure audit pipeline.
   - `ai-tools/agent-packs/claude/CLAUDE.md`
   - `ai-tools/agent-packs/windsurf/rules.md`
 
+---
+
+## Reference Skills
+
+These skills are not part of the audit pipeline but provide standards and guidance for authoring and review.
+
+### repo-audit-orchestrator
+
+- Goal: Run a full docs infrastructure audit pipeline and produce a unified scorecard.
+- Access:
+  - `node tools/scripts/repo-audit-orchestrator.js --mode static --scope full`
+- Inputs: repo state, audit mode, scope, pipeline manifest, skill catalog
+- Outputs:
+  - `tasks/reports/repo-ops/repo-audit-summary.md`
+  - `tasks/reports/repo-ops/repo-audit-summary.json`
+
+### rubric-static-review
+
+- Goal: Provide static rubric-based scoring and risk prioritization.
+- Access:
+  - `read ai-tools/ai-skills/rubric-static-review/SKILL.md`
+- Inputs: repository files, architecture docs, quality checks
+- Outputs:
+  - `scorecard`
+  - `top actions`
+
+### page-authoring
+
+- Goal: Comprehensive guide for writing new v2 documentation pages with correct UX patterns, components, frontmatter, UK English, journey mapping, and content standards.
+- Access:
+  - `read ai-tools/ai-skills/page-authoring/SKILL.md`
+- Inputs: page type, audience, section placement, persona context
+- Outputs:
+  - `new MDX page conforming to all repo standards`
+
 Run source: `node tools/scripts/cross-agent-packager.js --agent-pack all`
 

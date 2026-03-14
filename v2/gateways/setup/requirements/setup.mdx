@@ -36,13 +36,19 @@ import { BorderedBox } from '/snippets/components/layout/containers.jsx'
  only required on systems running GPU workloads (for example orchestrators or
  GPU-accelerated AI workers).
 </Note>
-## Gateway Modes
+
+<BorderedBox variant="accent" padding="16px" style={{ borderLeft: '4px solid var(--green-9)' }}>
+**Deployment Mode:** <Icon icon="floppy-disk" size={16} /> **Off-chain** - direct orchestrator connection, no blockchain interaction | <Icon icon="link" size={16} /> **On-chain** - connects to the Livepeer protocol on Arbitrum
+
+**Node Type (workload):** <Badge color="blue">Video</Badge> transcoding services | <Badge color="purple">AI</Badge> inference services | <Badge color="green">Dual</Badge> both video and AI
+</BorderedBox>
+
+## Deployment Modes
 
 You can run a gateway
 
-- <Icon icon="floppy-disk" size={18} /> **Off-chain** -> dev or local mode
-- <Icon icon="link" size={18} /> **On-chain** -> production mode connected to the
- blockchain-based Livepeer network.{' '}
+- <Icon icon="floppy-disk" size={18} /> **Off-chain** -> direct orchestrator connection, no blockchain interaction
+- <Icon icon="link" size={18} /> **On-chain** -> connects to the Livepeer protocol on Arbitrum
 
 ## Gateway Capabilities
 
@@ -57,7 +63,7 @@ You can run a Gateway for:
 
 <StyledTable variant="bordered"><thead><TableRow header><TableCell header>OS</TableCell><TableCell header>Install Method</TableCell><TableCell header>Gateway</TableCell><TableCell header>Orchestrator / AI Worker</TableCell><TableCell header>Notes</TableCell></TableRow></thead><tbody><TableRow><TableCell>macOS (Intel / Apple)</TableCell><TableCell>Build from source (Go)</TableCell><TableCell>✅ Yes</TableCell><TableCell>❌ No</TableCell><TableCell>Best for local dev & routing. Docker often fails on macOS.</TableCell></TableRow><TableRow><TableCell>Windows (Native)</TableCell><TableCell>Not supported</TableCell><TableCell>❌ No</TableCell><TableCell>❌ No</TableCell><TableCell>No native Windows binaries intended for production.</TableCell></TableRow><TableRow><TableCell>Windows (WSL2 + Docker)</TableCell><TableCell>Docker (Linux via WSL2)</TableCell><TableCell>✅ Yes</TableCell><TableCell>⚠️ Limited / fragile</TableCell><TableCell>Effectively Linux-in-WSL. NVIDIA + CUDA only needed for GPU workloads.</TableCell></TableRow><TableRow><TableCell>Linux (Ubuntu recommended)</TableCell><TableCell>Docker or source build</TableCell><TableCell>✅ Yes</TableCell><TableCell>✅ Yes (with NVIDIA GPU for compute nodes)</TableCell><TableCell>Only OS suitable for production Orchestrators & AI workers.</TableCell></TableRow></tbody></StyledTable>
 
-## Gateway Set Up Requirements
+## Setup Requirements
 
 <StyledSteps
   iconColor="#18794e"
@@ -73,32 +79,33 @@ You can run a Gateway for:
   <Step title="Hardware Requirements" icon="laptop-code" titleSize="h3">
  <Badge color="surface"><Icon icon="floppy-disk" /> <Icon icon="link" /></Badge> <Badge color="green"> Dual AI & Video </Badge>
 
- Gateways do not require GPU resources, but must be able to handle high network throughput.
+ Gateways do not require GPU resources, but must be able to handle network throughput.
  This is necessary to route requests between applications and Orchestrators.
 
     <BorderedBox variant="accent" padding="16px">
- **[A typical setup includes](#)**
-      <ul style={{ paddingLeft: '20px', margin: 0 }}>
- <li>4–8 CPU cores</li>
- <li>16–32 GB RAM</li>
- <li>High-speed NVMe (optional, recommended)</li>
- <li>Stable multi-region networking</li>
- <li>Linux or containerised deployment environment</li>
-      </ul>
+ **[Hardware Specs](#)**
+
+      | Component | Minimum | Recommended |
+      |---|---|---|
+      | CPU | 2 cores | 4-8 cores |
+      | RAM | 4 GB | 16-32 GB |
+      | Storage | 20 GB SSD | 100 GB NVMe SSD |
+      | Network | 50 Mbps symmetric | 1 Gbps symmetric |
+
+ Gateways are lightweight routing nodes. Minimum specs are sufficient for development and low-traffic deployments.
     </BorderedBox>
   </Step>
   <Step title="Network Requirements" icon="network-wired" titleSize="h3">
  <Badge color="surface"><Icon icon="floppy-disk" /> <Icon icon="link" /></Badge> <Badge color="green"> Dual AI & Video </Badge>
 
  Your Gateway must be reachable and responsive.
-    - Public HTTPs endpoint
     - Low-latency connectivity to Orchestrators
     - Ability to handle high request throughput
 
- Recommended:
-
-    - Multi-region deployment or failover
-    - Static IP or domain name (required for production)
+ <Badge color="surface"><Icon icon="link" /></Badge> **On-chain / production:**
+    - Public HTTPS endpoint
+    - Static IP or domain name
+    - Multi-region deployment or failover (recommended)
 
   </Step>
   <Step title="OS & Software Requirements" icon="computer" titleSize="h3">
@@ -113,7 +120,7 @@ You can run a Gateway for:
       <div style={{ marginBottom: '12px'}}>
  <strong><Badge color="blue">Video Only</Badge> Gateway:</strong> <Icon icon="linux" size={20}/>&nbsp;<Icon icon="windows" size={20} />&nbsp;<Icon icon="docker" size={20}/>
         <ul style={{ paddingLeft: '20px', margin: '4px 0' }}>
- <li>Linux, Windows or Docker containerised deployment environment</li>
+ <li>Linux (recommended), Windows via WSL2, or Docker (recommended route)</li>
         </ul>
       </div>
       <div style={{ marginBottom: '12px' }}>
@@ -136,22 +143,28 @@ You can run a Gateway for:
  <Badge color="green"> Dual AI & Video </Badge>
 
  You can run a gateway
-    - **<Icon icon="floppy-disk" /> Off-chain** -> dev or local mode
-    - **<Icon icon="link" /> On-chain** -> production mode connected to the blockchain-based Livepeer network.
+    - **<Icon icon="floppy-disk" /> Off-chain** -> direct orchestrator connection, no blockchain interaction
+    - **<Icon icon="link" /> On-chain** -> connects to the Livepeer protocol on Arbitrum
 
     <Tabs>
       <Tab title="Off-Chain Gateways" icon="floppy-disk">
  Additional requirements apply when running a Gateway in off-chain mode:
 
- You will **need to run an Orchestrator Node** locally to test Gateway functionality.
+ You will **need an Orchestrator node to connect to** (local or remote).
 
         <BorderedBox variant="accent" padding="16px" style={{ textAlign: 'left' }}>
  **This requires that you**
           <div style={{ marginBottom: '12px', marginTop: '12px' }}>
- <Icon icon="diamond" iconType="solid" size={10} /> Have a GPU available (locally or cloud) with root or sudo access
+ <Icon icon="diamond" iconType="solid" size={10} /> Have an Orchestrator node available to route to
           </div>
           <div style={{ marginBottom: '12px' }}>
- <Icon icon="diamond" iconType="solid" size={10} /> Setup the GPU as an Orchestrator per the <DoubleIconLink label="Orchestrator Setup Guide" href="https://docs.livepeer.org/v2/orchestrators/setup/overview" iconLeft="link" />
+ <Icon icon="diamond" iconType="solid" size={10} /> A CPU-only orchestrator is sufficient for BYOC jobs
+          </div>
+          <div style={{ marginBottom: '12px' }}>
+ <Icon icon="diamond" iconType="solid" size={10} /> AI inference or hardware-accelerated transcoding requires a GPU on the orchestrator
+          </div>
+          <div style={{ marginBottom: '12px' }}>
+ <Icon icon="diamond" iconType="solid" size={10} /> See the <DoubleIconLink label="Orchestrator Setup Guide" href="https://docs.livepeer.org/v2/orchestrators/setup/overview" iconLeft="link" />
           </div>
         </BorderedBox>
 
@@ -169,8 +182,6 @@ You can run a Gateway for:
  **You will need**
           <div style={{ marginBottom: '12px', marginTop: '12px' }}>
  <Icon icon="diamond" iconType="solid" size={10} /> **An Arbitrum** [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) **URL**
-            <ul style={{ paddingLeft: '20px', margin: '4px 0' }}>
-            </ul>
           </div>
           <div style={{ marginBottom: '12px' }}>
  <Icon icon="diamond" iconType="solid" size={10} /> **A funded Ethereum account (wallet)**
@@ -178,7 +189,7 @@ You can run a Gateway for:
         </BorderedBox>
         <br/>
 
-        <Card title="Go to On-Chain Setup Guide" icon="chain" href="/v2/gateways/run-a-gateway/requirements/on-chain%20setup/on-chain" horizontal arrow>
+        <Card title="Go to On-Chain Setup Guide" icon="chain" href="/v2/gateways/run-a-gateway/requirements/on-chain-setup/on-chain" horizontal arrow>
  See the full on-chain setup guide
         </Card>
 
@@ -190,132 +201,3 @@ You can run a Gateway for:
 
   </Step>
 </StyledSteps>
-
-{/*
-
-<Accordion title="alternative flow">
- Gateway Setup Requirements
-  <StyledSteps>
-    <StyledStep title="Step 1: Understand What a Gateway Needs (and Doesn’t)">
- Step 1: Understand What a Gateway Needs (and Doesn’t)
-
- A Livepeer Gateway does not perform compute.
- It routes, validates, and brokers work to Orchestrators.
-
- That means:
-
- ❌ No GPUs required
-
- ✅ CPU, memory, networking, and reliability matter most
-
-    </StyledStep>
-    <StyledStep title="Step 2: Verify Hardware & OS Requirements">
- Step 2: Verify Hardware & OS Requirements
-
- Recommended baseline for a production Gateway:
-
- CPU: 4–8 cores
-
- Memory: 16–32 GB RAM
-
- Storage: SSD (NVMe recommended, not required)
-
- OS: Linux (bare metal or containerized)
-
- Gateways are lightweight but network-intensive. Prioritize stability over raw compute.
-    </StyledStep>
-    <StyledStep title="Step 3: Confirm Network & Connectivity">
- Step 3: Confirm Network & Connectivity
-
- Your Gateway must be reachable and responsive.
-
- Required:
-
- Public HTTPS endpoint
-
- Low-latency connectivity to Orchestrators
-
- Ability to handle high request throughput
-
- Recommended:
-
- Multi-region deployment or failover
-
- Static IP or domain name (required for production)
-    </StyledStep>
-    <StyledStep title="Step 4: Install the Gateway Software">
- Step 4: Install the Gateway Software
-
- Install the official Livepeer Gateway implementation:
-
- Software: go-livepeer Gateway
-
- Supports:
-
- Marketplace registration
-
- Capability & pricing advertisement
-
- Routing via the PyTrickle layer
-
- Logging, metrics, and alerting
-
- BYOC and containerized deployments
-
- This guide assumes familiarity with basic system administration and CLI tooling.
-    </StyledStep>
-    <StyledStep title="Step 5: Configure Blockchain Access (Required)">
- Step 5: Configure Blockchain Access (Required)
-
- All Gateways require access to Arbitrum.
-
- You must provide:
-
- An Arbitrum RPC URL
-
- Popular options:
-
- Infura
-
- Alchemy
-
- Free tiers are typically sufficient for a single Gateway.
- You may also self-host an Arbitrum node - see Offchain Labs instructions
- .
-    </StyledStep>
-    <StyledStep title="Step 6: Prepare On-Chain Production Requirements">
-
- Step 6: Prepare On-Chain Production Requirements
-
- For mainnet / production Gateways:
-
- Dedicated static IP or domain
-
- Funded Ethereum account with:
-
- ETH for gas
-
- ETH/LPT for AI inference payments (if applicable)
-
- See: Fund Gateway Guide
-    </StyledStep>
-    <StyledStep title="Step 7: (Optional) AI Gateway Requirements">
- Step 7: (Optional) AI Gateway Requirements
-
- Only required if your Gateway advertises AI inference capabilities.
-
- Additional requirements:
-
- Linux host (Windows/macOS support coming soon)
-
- Root or sudo access
-
- Model and pipeline metadata configuration
-
- Access to AI routing and pricing configuration
-
- GPU resources are still provided by Orchestrators - not the Gateway.
-    </StyledStep>
-
-  </StyledSteps>
-</Accordion> */}

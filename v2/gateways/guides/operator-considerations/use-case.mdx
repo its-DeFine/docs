@@ -1,5 +1,5 @@
 ---
-title: 'Core Need for Running a Gateway'
+title: 'Do you need a Gateway? The Use Case.'
 sidebarTitle: 'Use Case'
 description: 'The strategic, technical, and financial reasons to run your own Livepeer gateway - covering all gateway types and operator personas.'
 keywords:
@@ -22,6 +22,19 @@ purpose: guides
 status: current
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "0 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
+
 
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
@@ -33,7 +46,7 @@ This page helps you answer that question.
 
 <CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## Hosted gateway vs self-hosted: the core trade-off
+## Self-Hosted Gateways
 
 <Tabs>
   <Tab title="Use a hosted gateway">
@@ -67,9 +80,9 @@ This page helps you answer that question.
   </Tab>
 </Tabs>
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## Which type of gateway are you running?
+## Gateway Node Types
 
 Livepeer has two types of gateway, with meaningfully different requirements and motivations:
 
@@ -84,9 +97,9 @@ Livepeer has two types of gateway, with meaningfully different requirements and 
 
 The reasons to run each type differ. The sections below cover both.
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## Reasons to run a gateway
+## Core Reasons
 
 ### Cost savings and margin
 
@@ -110,8 +123,6 @@ The reasons to run each type differ. The sections below cover both.
   </Accordion>
 </AccordionGroup>
 
----
-
 ### Control and reliability
 
 <AccordionGroup>
@@ -129,8 +140,6 @@ The reasons to run each type differ. The sections below cover both.
     The remote signer architecture (introduced Q4 2025) further reduces this risk for AI gateways: your gateway can point at multiple orchestrators and fall back automatically if one fails.
   </Accordion>
 </AccordionGroup>
-
----
 
 ### Product and business differentiation
 
@@ -152,8 +161,6 @@ The reasons to run each type differ. The sections below cover both.
   </Accordion>
 </AccordionGroup>
 
----
-
 ### Ecosystem opportunities
 
 <AccordionGroup>
@@ -174,9 +181,9 @@ The reasons to run each type differ. The sections below cover both.
   </Accordion>
 </AccordionGroup>
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## Quick self-assessment
+## Decision Tree
 
 Run through these questions before deciding.
 
@@ -191,19 +198,18 @@ Run through these questions before deciding.
 
 If most of your answers align with self-hosting, continue to the requirements and setup pages below.
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## Video resources
+{/* ## Video resources */}
 
 {/* REVIEW: Search Titan Node YouTube channel (https://www.youtube.com/@TitanNode) for gateway setup tutorials. As of research date, no confirmed gateway-specific video URLs were available. Add embed here when confirmed. */}
 
 {/* REVIEW: Search Livepeer Foundation YouTube channel (https://www.youtube.com/@LivepeerVideo) for gateway operator content, including any AI Video Startup Programme webinars. */}
 
-Community tutorials and walkthroughs are linked in the [Ecosystem Projects](/v2/gateways/guides/ecosystem-projects) page as they are identified.
+{/* Community tutorials and walkthroughs are linked in the [Ecosystem Projects](/v2/gateways/guides/ecosystem-projects) page as they are identified. */}
 
----
 
-## Next steps
+## Related Resources
 
 <CardGroup cols={3}>
   <Card title="Gateway requirements" icon="clipboard-check" href="/v2/gateways/guides/gateway-requirements">
