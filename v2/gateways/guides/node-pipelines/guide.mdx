@@ -21,33 +21,43 @@ lastVerified: '2026-03-13'
 ---
 {/* TODO:
 Terminology Validation:
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+- ~~Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology~~
 Verify:
-- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
-- Fontawesome icons are used on accordions and tabs
-- Tables use StyledTable component
-- No em-dashes are used (instead use standard -)
-- UK spelling is used
-- Headers are concise and technical - no long headers or questions (aim for max 3 words)
-- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
-- Placeholders for Media & Video Resources are in comments with a TODO for a human.
-- REVIEW flags are in JSX flags for a human.
+- ~~Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)~~
+- ~~Fontawesome icons are used on accordions and tabs~~
+- ~~Tables use StyledTable component~~
+- ~~No em-dashes are used (instead use standard -)~~
+- ~~UK spelling is used~~
+- ~~Headers are concise and technical - no long headers or questions (aim for max 3 words)~~
+- ~~CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks~~
+- ~~Placeholders for Media & Video Resources are in comments with a TODO for a human.~~ (N/A)
+- ~~REVIEW flags are in JSX flags for a human.~~
+Human
+- Review REVIEW items
 */}
 
 import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 
-A Job Pipeline is a Gateway **Node Type** or Node Mode and can be configured for Video, AI or Dual purpose workloads (including real-time video AI).
-It is the control-plane path between an application request and orchestrator execution.
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
-<Note>
-  This section covers how pipelines work from the gateway operator's perspective. For orchestrator-side configuration (running AI workers, hosting models), see the Orchestrators section.
-</Note>
+A gateway's **node type** determines which workloads it can route:
+- <Badge color="blue">Video</Badge> transcoding,
+- <Badge color="purple">AI</Badge> inference (batch and real-time), or
+- <Badge color="green">Dual</Badge> (both pipelines on a single node).
+
+Each pipeline is the control-plane path between an application request and orchestrator execution.
 
 {/* ============================================================
     1. GATEWAY VS ORCHESTRATOR
     ============================================================ */}
 
 ## Gateway Role
+
+<Note>
+  This section covers how pipelines work from the gateway operator's perspective. For orchestrator-side configuration (running AI workers, hosting models), see the Orchestrators section.
+</Note>
 
 <CardGroup cols={2}>
   <Card title="Gateway responsibilities" icon="server">
@@ -58,28 +68,35 @@ It is the control-plane path between an application request and orchestrator exe
   </Card>
 </CardGroup>
 
+
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
+
 {/* ============================================================
     2. PIPELINE TYPES
     ============================================================ */}
 
-## Node Modes
-<Badge color="blue">Video</Badge><Badge color="purple">AI</Badge><Badge color="green">Dual</Badge>
+## Node Types
+<Badge color="blue">Video</Badge> <Badge color="purple">AI</Badge> <Badge color="green">Dual</Badge>
 
-Livepeer supports two main categories of job that a gateway can route. Each has different ingest patterns, payment models, and orchestrator requirements.
-The third option - Dual mode support both Video and AI workloads.
+Livepeer gateways route four categories of work. Each has different ingest patterns, payment models, and orchestrator requirements. A <Badge color="green">Dual</Badge> node runs both video and AI pipelines on a single node.
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
 flowchart LR
     A["Client App"] --> GW["Gateway"]
-    GW --> VT["Video Transcoding\nSegment → RTMP/HTTP"]
-    GW --> AI["AI Inference\nHTTP request/response"]
-    GW --> BC["BYOC\nCapability routing"]
-    VT --> OV["Orchestrators\n(video)"]
-    AI --> OA["Orchestrators\n(AI-capable)"]
-    BC --> OB["Orchestrators\n(BYOC capability)"]
+    GW --> VT["Video Transcoding <br/> RTMP/HTTP segments"]
+    GW --> AI["Batch AI Inference <br/> HTTP request/response"]
+    GW --> RT["Real-time AI <br/> Live stream frames"]
+    GW --> BC["BYOC <br/> Custom containers"]
+    VT --> OV["Orchestrators <br/> (Video)"]
+    AI --> OA["Orchestrators <br/> (AI models)"]
+    RT --> OR["Orchestrators <br/> (ComfyStream)"]
+    BC --> OB["Orchestrators <br/> (BYOC capability)"]
+
+    classDef default fill:#1a1a1a,color:#fff,stroke:#2d9a67,stroke-width:2px
 ```
 
-### Video transcoding
+### Video Transcoding
 
 The gateway ingests a live or recorded video stream via RTMP or HTTP, segments it, and distributes transcoding work to orchestrators. Orchestrators return multiple encoded renditions, which the gateway assembles for HLS delivery.
 
@@ -87,79 +104,175 @@ On-chain video gateways use the Livepeer probabilistic micropayment (PM) system:
 
 **Ports:** RTMP ingest on `:1935`, HTTP ingest and API on `:8935`, CLI on `:5935`.
 
-### AI inference
+### Batch AI Inference
 
-The gateway accepts HTTP requests for AI pipelines (text-to-image, audio-to-text, LLM, and others), routes each request to an orchestrator advertising the requested pipeline and model, and returns the inference result.
+The gateway accepts HTTP requests for AI pipelines (text-to-image, audio-to-text, LLM, and others), routes each request to an orchestrator advertising the requested pipeline and model, and returns the inference result. This is a request/response pattern - the gateway sends a request and waits for the result.
 
-Standard off-chain AI gateways require no ETH deposit — there is no on-chain payment flow. The gateway targets orchestrators directly via `-orchAddr`. For on-chain AI (dual gateway mode), the PM system applies.
+Off-chain AI gateways require no ETH deposit. The gateway targets orchestrators directly via `-orchAddr`. For on-chain AI (dual node type), the PM system applies.
 
 **Port:** HTTP API on `:8937`.
 
-### BYOC (Bring Your Own Container)
+See <LinkArrow href="/v2/developers/build/model-support" label="Model Support" newline={false} /> for all supported batch AI pipeline types and model architectures.
 
-BYOC extends AI inference by letting orchestrators advertise and run custom Docker containers. The gateway routes by capability descriptor (`image-to-image`, `depth`, `segmentation`) rather than by model name. You configure routing policy and health tracking per capability; the orchestrator handles everything inside the container.
+### Real-time AI
 
-BYOC follows the same off-chain AI payment model as standard AI inference.
+Real-time AI processes live video streams frame-by-frame through AI models with strict latency targets. Unlike batch inference (request/response), real-time AI maintains a persistent stream connection - frames flow in continuously and transformed frames flow out.
+
+The primary framework is **ComfyStream**, an open-source ComfyUI plugin that enables developers to build real-time AI video workflows (style transfer, avatars, live effects, real-time agents). **Daydream** is the hosted reference implementation - developers can use it without running their own gateway.
+
+Real-time AI runs on <Badge color="purple">AI</Badge> or <Badge color="green">Dual</Badge> nodes. It uses the `live-video-to-video` pipeline type and the trickle streaming protocol (not the REST AI Jobs API). Billing is per-second rather than per-pixel.
+
+**Port:** HTTP API on `:8937`.
+
+{/* REVIEW: Real-time AI accounts for ~72% of current network fees - confirm this figure is still current. */}
+
+<CardGroup cols={2}>
+  <Card title="ComfyStream" icon="wand-magic-sparkles" href="/v2/developers/build/comfystream">
+    Build real-time AI video workflows with ComfyUI nodes.
+  </Card>
+  <Card title="Daydream" icon="cloud" href="/v2/solutions/daydream/overview">
+    Hosted real-time AI video - no gateway required.
+  </Card>
+</CardGroup>
+
+### BYOC Pipelines
+
+BYOC (Bring Your Own Container) allows any workload that can be containerised to run on Livepeer orchestrators. The gateway routes by capability descriptor (`image-to-image`, `depth`, `segmentation`) rather than by model name.
+
+BYOC supports **both GPU and CPU** containers. GPU workloads (diffusion models, vision models, video-to-video) are the primary use case, but CPU-only deployments are also supported - see the BYOC CPU tutorial for a passthrough pipeline example.
+
+**What fits well:** frame-based or stream-based workloads, custom ML models, enterprise-specific processing, novel applications (e.g. Embody AI avatars).
+
+**What does not fit:** long-running training or fine-tuning jobs, workloads requiring large persistent state, high-latency multi-minute jobs. The network assumes short, stateless, repeatable units of work. Containers that maintain long-lived state between requests break retry and failover semantics.
+
+<Note>
+BYOC requires a gateway - applications cannot interact with orchestrators directly. The gateway handles discovery, capability matching, and payment; the orchestrator runs your container.
+</Note>
+
+BYOC follows the same payment model as AI inference.
+
+See <LinkArrow href="/v2/developers/build/workload-fit" label="Workload Fit" newline={false} /> to evaluate whether your workload belongs on Livepeer.
+
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 {/* ============================================================
     3. PIPELINE × GATEWAY TYPE
     ============================================================ */}
 
-## Pipeline selection by gateway type
+## Pipeline Matrix
 
-Not all pipeline types are available on every gateway configuration. Use this table to confirm which pipelines apply to your setup.
+Not all pipeline types are available on every node type. Use this table to confirm which pipelines apply to your setup.
 
-| Pipeline | Video gateway | AI gateway | Dual gateway | On-chain ETH required |
-|---|---|---|---|---|
-| Video transcoding | Yes | No | Yes | Yes |
-| AI inference (standard) | No | Yes | Yes | No |
-| BYOC | No | Yes | Yes | No |
-| Live video AI (live-video-to-video) | No | Yes | Yes | No (off-chain) / Yes (dual on-chain) |
+<StyledTable variant="bordered">
+  <thead>
+    <TableRow header>
+      <TableCell header>Pipeline</TableCell>
+      <TableCell header><Badge color="blue">Video</Badge></TableCell>
+      <TableCell header><Badge color="purple">AI</Badge></TableCell>
+      <TableCell header><Badge color="green">Dual</Badge></TableCell>
+      <TableCell header>On-chain ETH required</TableCell>
+    </TableRow>
+  </thead>
+  <tbody>
+    <TableRow>
+      <TableCell>Video transcoding</TableCell>
+      <TableCell>Yes</TableCell>
+      <TableCell>No</TableCell>
+      <TableCell>Yes</TableCell>
+      <TableCell>Yes</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Batch AI inference</TableCell>
+      <TableCell>No</TableCell>
+      <TableCell>Yes</TableCell>
+      <TableCell>Yes</TableCell>
+      <TableCell>No</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>Real-time AI (live-video-to-video)</TableCell>
+      <TableCell>No</TableCell>
+      <TableCell>Yes</TableCell>
+      <TableCell>Yes</TableCell>
+      <TableCell>No (off-chain) / Yes (dual on-chain)</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>BYOC</TableCell>
+      <TableCell>No</TableCell>
+      <TableCell>Yes</TableCell>
+      <TableCell>Yes</TableCell>
+      <TableCell>No</TableCell>
+    </TableRow>
+  </tbody>
+</StyledTable>
+
+{/* REVIEW: confirm on-chain payment applies to real-time AI when run via dual gateway with Rick/j0sh. */}
 
 <Tip>
-  Running both video and AI workloads from a single node is possible with a dual gateway, but GPU and memory contention can degrade both workloads. Read the dual gateway resource allocation guidance in Pipeline Configuration before combining them.
+  Running both video and AI workloads from a single node is possible with a <Badge color="green">Dual</Badge> gateway. The gateway itself does not need a GPU - orchestrators provide the compute. However, dual nodes manage two independent session managers simultaneously, which increases operational complexity.
 </Tip>
 
-{/* REVIEW: confirm on-chain payment applies when run via dual gateway with Rick/j0sh. */}
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
 {/* ============================================================
-    4. JOB CATEGORIES (ORCHESTRATOR VIEW)
+    4. ORCHESTRATOR DISCOVERY
     ============================================================ */}
 
-## How orchestrators categorise jobs
+## Orchestrator Discovery
 
-Orchestrators classify incoming work into three compute categories. Understanding these helps you match your gateway configuration to the right orchestrator supply.
+How your gateway finds orchestrators depends on your operational mode and business model. There is no single discovery pattern - most production gateways use direct relationships rather than automatic pooled discovery.
 
 <AccordionGroup>
-  <Accordion title="Transcoding jobs" icon="film">
-    Video transcoding converts streams between formats, bitrates, and resolutions. GPU acceleration is optional (CPU mode is available but slower). No additional software is required beyond go-livepeer. Typical workloads: live streaming and VOD transcoding.
+  <Accordion title="On-chain discovery (automatic)" icon="link">
+    On-chain gateways query the Livepeer subgraph on Arbitrum for registered, active orchestrators. The gateway refreshes this list periodically and selects orchestrators based on capability, price, latency, and stake weight.
+
+    This is the default for on-chain gateways and requires no manual orchestrator configuration. Best suited for public gateways routing to the open network pool.
   </Accordion>
-  <Accordion title="Realtime AI jobs" icon="bolt">
-    Realtime AI pipelines process live video through models with strict latency targets. GPU is required. Additional software such as MediaMTX handles stream handling. Typical workloads: live video effects, interactive AI video, and ComfyStream workflows. Realtime AI setup is more involved than transcoding — review [go-livepeer/box/box.md](https://github.com/livepeer/go-livepeer/blob/master/box/box.md) before planning deployment.
+  <Accordion title="Direct configuration (-orchAddr)" icon="server">
+    Off-chain gateways (and some on-chain gateways) specify orchestrator addresses directly using the `-orchAddr` flag. This bypasses on-chain discovery entirely.
+
+    Most production gateways use this pattern. Operators build relationships with specific orchestrators who run the models and capabilities their applications need. This gives predictable performance, pricing, and availability.
   </Accordion>
-  <Accordion title="Batch AI jobs" icon="layer-group">
-    Batch AI handles asynchronous inference without realtime latency constraints. GPU is required. Typical workloads: offline image generation, audio transcription, and post-production AI processing. Batch jobs are request/response — the gateway sends a request and waits for the result rather than managing a streaming session.
+  <Accordion title="Webhook discovery" icon="webhook">
+    Gateways can call an external service via `-orchWebhookUrl` to receive a dynamic orchestrator list. This enables custom filtering, whitelisting, or load balancing without modifying the gateway itself.
+
+    Used by platform builders (NaaP) and operators with orchestrator tiering or geographic routing requirements.
+  </Accordion>
+  <Accordion title="Own orchestrators" icon="microchip">
+    Some operators run their own orchestrators alongside their gateway. The gateway points to these dedicated orchestrators via `-orchAddr`. This provides full control over compute, models, and pricing.
+
+    Common for enterprise integrators, content providers with SLA requirements, and operators running custom BYOC or real-time AI workloads.
   </Accordion>
 </AccordionGroup>
 
+<Note>
+  Automatic on-chain discovery selects from the public orchestrator pool based on capability, price, latency, and performance history. For AI workloads - especially real-time AI and BYOC - direct orchestrator relationships are more common because applications need specific models, GPU configurations, or custom containers that not all orchestrators provide.
+</Note>
+
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 {/* ============================================================
     5. NEXT STEPS
     ============================================================ */}
 
-## Next steps
+## Related Resources
 
 <CardGroup cols={2}>
   <Card title="Video Transcoding Pipeline" icon="film" href="./video-transcoding">
-    How video jobs flow through your gateway — ingest, segmentation, orchestrator selection, and payment.
+    How video jobs flow through your gateway - ingest, segmentation, orchestrator selection, and payment.
   </Card>
   <Card title="AI Inference Pipeline" icon="brain" href="./ai-inference">
-    How AI inference requests are routed — orchestrator discovery, model matching, pipeline types, and platform limits.
+    How AI inference requests are routed - orchestrator discovery, model matching, pipeline types, and platform limits.
   </Card>
   <Card title="BYOC Pipelines" icon="box" href="./byoc-pipelines">
-    Routing custom container workloads by capability — operator responsibilities, model fit, and health tracking.
+    Routing custom container workloads by capability - operator responsibilities, model fit, and health tracking.
   </Card>
   <Card title="Pipeline Configuration" icon="sliders" href="./pipeline-configuration">
     Transcoding profiles, AI routing flags, and per-pipeline tuning.
+  </Card>
+  <Card title="Workload Fit" icon="bullseye" href="/v2/developers/build/workload-fit">
+    Decision framework for evaluating whether your AI workload belongs on Livepeer.
+  </Card>
+  <Card title="Model Support" icon="microchip-ai" href="/v2/developers/build/model-support">
+    Full compatibility matrix - supported pipeline types, model architectures, and VRAM requirements.
   </Card>
 </CardGroup>
 

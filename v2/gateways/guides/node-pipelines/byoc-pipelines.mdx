@@ -33,17 +33,24 @@ Verify:
 - REVIEW flags are in JSX flags for a human.
 */}
 
-BYOC (Bring Your Own Container) extends what AI workloads your gateway can route by allowing orchestrators to run custom Docker inference containers and advertise them as capabilities. From your perspective as a gateway operator, BYOC is a routing and policy problem, not a model hosting problem. You configure how requests reach BYOC-capable orchestrators; the orchestrators handle everything inside the container.
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
+
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+
+BYOC (Bring Your Own Container) extends what AI (and other) workloads a gateway can route by allowing orchestrators to run custom Docker inference containers and advertise them as capabilities.
+
+BYOC is a routing and policy concern, not a model hosting concern. Gateways configure how requests reach BYOC-capable orchestrators; the orchestrators handle everything inside the container.
 
 <Note>
   This page covers the gateway operator perspective on BYOC. For the orchestrator and developer side — building containers, registering capabilities, and deploying inference servers — see the Developer BYOC guide.
 </Note>
 
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 {/* ============================================================
     1. WHAT BYOC IS FROM A GATEWAY PERSPECTIVE
     ============================================================ */}
 
-## What BYOC means for gateway operators
+## Operator Guide to BYOC
 
 BYOC orchestrators advertise custom capabilities using the same protocol as standard AI orchestrators. The difference is that instead of running a managed `ai-runner` container for a known pipeline (such as `text-to-image`), they run a custom Docker container that exposes any inference API they choose.
 
@@ -63,8 +70,8 @@ flowchart LR
 {/* ============================================================
     2. RESPONSIBILITIES SPLIT
     ============================================================ */}
-
-## Responsibilities: what you do and what you don't
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
+## Gateway Responsibilities
 
 <CardGroup cols={2}>
   <Card title="What you do" icon="check">
@@ -75,15 +82,14 @@ flowchart LR
   </Card>
 </CardGroup>
 
-<Warning>
-  Poor-fit batch workloads (large LLMs, multi-minute jobs, stateful pipelines) behind BYOC will degrade routing quality and increase latency for all jobs on the same orchestrator. Prioritise real-time, GPU-bound, frame-based capabilities when selecting BYOC orchestrators to connect to.
-</Warning>
+<Note>
+    Prioritise real-time, GPU-bound, frame-based capabilities when selecting BYOC orchestrators to connect to. <br/> <br/>
+    Poor-fit batch workloads (large LLMs, multi-minute jobs, stateful pipelines) behind BYOC will degrade routing quality and increase latency for all jobs on the same orchestrator.
+</Note>
 
-{/* ============================================================
-    3. CAPABILITIES AS API CONTRACTS
-    ============================================================ */}
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## Capabilities as API contracts
+## Capability Mental Model
 
 The most important mental model for BYOC routing: treat capabilities as stable API contracts, not model names.
 
@@ -102,13 +108,11 @@ Your gateway routes on the capability. The orchestrator decides which model or c
 - Your application never needs direct knowledge of which model runs its job
 - Performance-based routing automatically favours faster or cheaper implementations
 
-**Do not couple your routing to model names.** If you are making routing decisions based on `SG161222/RealVisXL_V4.0_Lightning` rather than `image-to-image`, you are working against the architecture.
+<Note> **Anti-Pattern:** Coupling your routing to model names <br/> <br/> If you are making routing decisions based on `SG161222/RealVisXL_V4.0_Lightning` rather than `image-to-image`, you are working against the architecture. </Note>
 
-{/* ============================================================
-    4. MODEL AND WORKLOAD FIT
-    ============================================================ */}
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## Model and workload fit
+## Model and Workload Fit
 
 Not every model or workload type is a good fit for BYOC on Livepeer. The network is optimised for low-latency, GPU-bound, real-time inference — especially for video and vision workloads. Models that violate these assumptions result in poor routing priority and reduced job assignment.
 
@@ -120,11 +124,12 @@ Not every model or workload type is a good fit for BYOC on Livepeer. The network
 
 **Rule of thumb:** if the workload is frame-based or stream-based, it fits well. If it requires maintaining long-lived state across many requests or takes more than a few seconds per request, it does not.
 
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 {/* ============================================================
     5. IMPLEMENTATION PATTERNS
     ============================================================ */}
 
-## BYOC implementation patterns
+## BYOC Implementation Patterns
 
 BYOC orchestrators on the network tend to follow three patterns. Understanding these helps you set appropriate retry timeouts, latency expectations, and price ceilings when routing to them.
 
@@ -158,7 +163,7 @@ BYOC orchestrators on the network tend to follow three patterns. Understanding t
     6. HARD CONSTRAINTS ON BYOC ORCHESTRATORS
     ============================================================ */}
 
-## Hard constraints that affect routing
+## BYOC Constraints
 
 Gateway routing priority is influenced by orchestrator behaviour. BYOC orchestrators that violate these constraints will receive fewer job assignments as gateways deprioritise them.
 
@@ -174,11 +179,12 @@ Gateway routing priority is influenced by orchestrator behaviour. BYOC orchestra
   </Accordion>
 </AccordionGroup>
 
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 {/* ============================================================
     7. HEALTH AND ROUTING CONFIGURATION
     ============================================================ */}
 
-## Health tracking and retry configuration
+## Health Tracking
 
 BYOC routing requires per-capability health tracking rather than per-orchestrator tracking. An orchestrator may serve `image-to-image` perfectly while its `depth` capability is degraded. Track them independently.
 
@@ -205,7 +211,7 @@ For each failure mode, the `AISessionManager` will attempt to route to an altern
     8. DISCOVERING BYOC CAPABILITIES
     ============================================================ */}
 
-## Discovering BYOC capabilities
+## Discovering BYOC Capabilities
 
 There is no formal BYOC capability registry. The same discovery gap that applies to standard AI models applies to BYOC — you cannot query the network for "all orchestrators with a `depth` capability." Discovery is manual.
 
@@ -217,11 +223,12 @@ There is no formal BYOC capability registry. The same discovery gap that applies
 
 When you identify a BYOC-capable orchestrator, add them to your `-orchAddr` list. The `AISessionManager` will route BYOC requests to them when their advertised capability matches the request.
 
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 {/* ============================================================
     9. DEVELOPER HANDOFF
     ============================================================ */}
 
-## Developer handoff
+## Developer Relationship
 
 If you are a gateway operator receiving BYOC traffic from developers building custom inference services, share the following constraints with them so their containers are routable:
 
@@ -235,11 +242,9 @@ If you are a gateway operator receiving BYOC traffic from developers building cu
   Full architecture, container requirements, and setup for teams building BYOC inference services.
 </Card>
 
-{/* ============================================================
-    10. NEXT STEPS
-    ============================================================ */}
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## Next steps
+## Related Pages
 
 <CardGroup cols={2}>
   <Card title="Pipeline Configuration" icon="sliders" href="./pipeline-configuration">

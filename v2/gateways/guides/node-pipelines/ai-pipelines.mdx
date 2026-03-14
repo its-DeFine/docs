@@ -37,17 +37,31 @@ Verify:
 - REVIEW flags are in JSX flags for a human.
 */}
 
-Your AI gateway receives HTTP inference requests, matches each one to a capable orchestrator, and returns the result to the client. No ETH deposit is required for standard off-chain AI operation. The pipeline differs fundamentally from video transcoding — requests are discrete HTTP calls, not streaming segments, and routing is by pipeline and model capability rather than by pixel throughput.
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
+
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+
+AI Gateways receive HTTP inference requests, match each one to a capable orchestrator, and return the result to the client.
+No ETH deposit is required for standard off-chain AI operation.
+
+The pipeline differs fundamentally from video transcoding:
+- requests are discrete HTTP calls, not streaming segments, and
+- routing and pricing is by pipeline and model capability rather than by pixel throughput.
 
 <Note>
   This page covers how AI jobs flow through your gateway. For initial setup and startup commands, see Setup → AI Gateway Quickstart. For custom container workloads, see BYOC Pipelines.
 </Note>
 
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 {/* ============================================================
     1. REQUEST FLOW
     ============================================================ */}
 
 ## Request flow
+<Badge color="grey"> `AISessionManager` </Badge>
+
+<br/>
+<br/>
 
 ```mermaid
 flowchart LR
@@ -72,11 +86,12 @@ The `AISessionManager` is the gateway component responsible for session tracking
   go-livepeer/server/ai_http.go
 </Card>
 
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 {/* ============================================================
     2. KEY DIFFERENCE FROM VIDEO
     ============================================================ */}
 
-## How AI inference differs from video transcoding
+## AI vs Video Comparison
 
 | Aspect | Video transcoding | AI inference |
 |---|---|---|
@@ -91,7 +106,8 @@ The `AISessionManager` is the gateway component responsible for session tracking
     3. PIPELINE TYPES
     ============================================================ */}
 
-## Available pipeline types
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
+## Available Pipelines
 
 Livepeer AI inference routes across three integration patterns. As a gateway operator, you do not build or implement these — you configure which orchestrators you connect to and which pipeline endpoints you expose.
 
@@ -163,11 +179,12 @@ Livepeer AI inference routes across three integration patterns. As a gateway ope
   </Accordion>
 </AccordionGroup>
 
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 {/* ============================================================
     4. ORCHESTRATOR DISCOVERY
     ============================================================ */}
 
-## Orchestrator discovery
+## Orchestrator Discovery
 
 AI gateways operating off-chain do not use the on-chain registry. You specify orchestrators directly.
 
@@ -192,11 +209,12 @@ The format is `scheme://host:port`. All orchestrators must be running `ai-runner
   Check [tools.livepeer.cloud/ai/network-capabilities](https://tools.livepeer.cloud/ai/network-capabilities) before selecting a model ID. Models already loaded in GPU memory (warm models) return results significantly faster than cold models that must load from disk first.
 </Tip>
 
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 {/* ============================================================
     5. MODEL MATCHING
     ============================================================ */}
 
-## Capability and model matching
+## Capability Matching
 
 When a request arrives at your gateway, the `AISessionManager` matches it to an orchestrator based on two criteria:
 
@@ -211,11 +229,12 @@ Orchestrators load models into GPU memory. A model loaded and ready to serve imm
 
 During the current beta phase, orchestrators support one warm model per GPU. {/* REVIEW: confirm whether warm-per-GPU limit has changed since beta — check v1--models-config.mdx for current status */}
 
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 {/* ============================================================
     6. GATEWAY COMPONENTS (AI-SPECIFIC)
     ============================================================ */}
 
-## Gateway components for AI
+## AI Gateway Mechanisms
 
 <Card
   title="Source reference: ai_mediaserver.go"
@@ -242,11 +261,12 @@ The AI pipeline uses several components that do not exist in the video pipeline:
   </Accordion>
 </AccordionGroup>
 
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 {/* ============================================================
     7. RETRY LOGIC
     ============================================================ */}
 
-## Retry logic
+## Retry Logic
 
 If an orchestrator fails to return a result (timeout, model not loaded, GPU error), the `AISessionManager` retries the request with the next best orchestrator.
 
@@ -258,11 +278,12 @@ The retry timeout is controlled by:
 
 The value accepts Go duration format: `30s`, `1m`, `2m30s`. For pipelines that use slow-loading models (cold starts), increase this value — otherwise the gateway will retry before the orchestrator has had time to load the model.
 
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 {/* ============================================================
     8. OFF-CHAIN VS ON-CHAIN AI
     ============================================================ */}
 
-## Off-chain vs on-chain AI
+## Off-chain vs On-chain AI
 
 <Tabs>
   <Tab title="Off-chain AI (standard)">
@@ -300,11 +321,12 @@ The value accepts Go duration format: `30s`, `1m`, `2m30s`. For pipelines that u
   </Tab>
 </Tabs>
 
+ <CustomDivider style={{margin: "0 0 -2rem 0"}} />
 {/* ============================================================
     9. PLATFORM LIMITATIONS
     ============================================================ */}
 
-## Platform limitations
+## Platform Constraints
 
 <Warning>
   The Livepeer AI binary is Linux-only. Windows and macOS builds are not available. This constraint affects orchestrators, not gateways — but it limits your testing options if you do not have a Linux machine available.
@@ -336,11 +358,12 @@ docker run \
   -v 6
 ```
 
+<CustomDivider style={{margin: "0 0 -2rem 0"}} />
 {/* ============================================================
     10. KNOWN GAP: NO UNIFIED MODEL REGISTRY
     ============================================================ */}
 
-## Known gap: no unified AI model registry
+## Finding AI Models
 
 There is currently no on-chain or off-chain registry that lets operators query all available models and pipelines across the network in one place. Discovery is fragmented across tools and community channels.
 
@@ -354,11 +377,9 @@ Community-maintained resources that partially fill this gap:
 
 A unified AI capability registry is an active area of community discussion. Contribute to the conversation on the [Livepeer Forum](https://forum.livepeer.org).
 
-{/* ============================================================
-    11. NEXT STEPS
-    ============================================================ */}
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## Next steps
+## Related Pages
 
 <CardGroup cols={2}>
   <Card title="BYOC Pipelines" icon="box" href="./byoc-pipelines">

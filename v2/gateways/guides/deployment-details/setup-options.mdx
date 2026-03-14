@@ -46,37 +46,45 @@ import { DoubleIconLink } from '/snippets/components/primitives/links.jsx'
 import { YouTubeVideo } from '/snippets/components/content/video.jsx'
 import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
 
-Gateway operators make three independent choices: **setup type** (what software to run), **operational mode** (on-chain or off-chain), and **node type** (what workloads to route). See the [Glossary](/v2/gateways/resources/glossary) for full definitions.
-
-{/* TODO: This diagram sucks. Its taking up too much space. */}
-```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#E0E4E0', 'primaryBorderColor': '#18794E', 'lineColor': '#2b9a66', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#3CB540', 'background': '#0d0d0d'}}}%%
-flowchart TD
-    subgraph ST ["Setup type"]
-        direction LR
-        B["go-livepeer\n(Docker or source)"]
-        C["SDK / Custom\n(Python, browser, mobile)"]
-        D["GWID\n(managed platform)"]
-        E["Hosted\n(Livepeer Studio, Cloud)"]
-    end
-
-    subgraph OM ["Operational mode"]
-        direction LR
-        G["Off-chain\n(remote signer)"]
-        H["On-chain\n(Arbitrum)"]
-    end
-
-    subgraph NT ["Node type"]
-        direction LR
-        J["Video"]
-        K["AI"]
-        L["Dual"]
-    end
-
-    ST ~~~ OM ~~~ NT
-```
-
 <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+
+Gateway operators make three independent choices when deploying a Gateway: **setup type** (what software to run), **operational mode** (on-chain or off-chain), and **node type** (what workloads to route).
+
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell>Axis</TableCell>
+    <TableCell>Options</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Setup type**</TableCell>
+    <TableCell>go-livepeer, SDK/Custom, GWID, Hosted</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Operational mode**</TableCell>
+    <TableCell>Off-chain, On-chain</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Node type**</TableCell>
+    <TableCell>Video, AI, Dual</TableCell>
+  </TableRow>
+</StyledTable>
+
+_**Setup type:**_ The software you run.
+- **Livepeer Protocol `go-livepeer`** (Docker or source deployment) which is the core implementation for Gateway nodes
+- **SDK/Custom** (Python, browser, mobile) which provide custom language abstractions for the Livepeer Protcol
+- **DevOps Managed Platforms** (eg. GWID) which abstract the Deployment Operations and provide a 'one-click deploy' experience.
+- **Hosted** (Livepeer Studio, Cloud SPE) which provide Gateway application layer services (not a gateway deployment)
+
+_**Operational mode:**_ How your gateway integrates with the Livepeer protocol.
+- <Icon icon="cloud" size={16} /> **Off-chain** uses a remote signer for payments and manual orchestrator discovery.
+- <Icon icon="link" size={16} /> **On-chain** connects directly to the Livepeer Network on Arbitrum for payments and automatic pooled orchestrator discovery.
+
+_**Node type:**_ What workloads your gateway routes.
+- <Badge color="blue">Video</Badge> (RTMP transcoding)
+- <Badge color="purple">AI</Badge> (Inference & real-time AI routing)
+- <Badge color="green">Dual</Badge> (both pieplines on a single node)
+
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Setup Types
 
@@ -166,7 +174,9 @@ flowchart TD
     </CardGroup>
   </Tab>
 
-  <Tab title="GWID" icon="wand-magic-sparkles">
+  <Tab title="Managed Platform" icon="wand-magic-sparkles">
+    <Note> Other DevOps Platforms like Stream.Place may also meet your needs </Note>
+
     <Badge color="yellow"> SPE Funded </Badge> <Badge color="surface-destructive"> Experimental </Badge>
 
     GWID (Gateway Wizard) is a fully managed DevOps platform for Livepeer. Single-click deployment with integrated playback testing.

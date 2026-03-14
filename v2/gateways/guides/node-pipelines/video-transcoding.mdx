@@ -1,7 +1,7 @@
 ---
 title: 'Video Transcoding Pipeline'
 sidebarTitle: 'Video Transcoding'
-description: 'How video jobs flow through your gateway — RTMP and HTTP ingest, source segmentation, orchestrator selection via BroadcastSessionsManager, transcoding profiles, on-chain payment per segment, and output delivery as HLS.'
+description: 'How video jobs flow through your gateway - RTMP and HTTP ingest, source segmentation, orchestrator selection via BroadcastSessionsManager, transcoding profiles, on-chain payment per segment, and output delivery as HLS.'
 keywords:
   - livepeer
   - gateway
@@ -22,24 +22,39 @@ lastVerified: '2026-03-13'
 ---
 {/* TODO:
 Terminology Validation:
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+- ~~Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology~~
 Verify:
-- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
-- Fontawesome icons are used on accordions and tabs
-- Tables use StyledTable component
-- No em-dashes are used (instead use standard -)
-- UK spelling is used
-- Headers are concise and technical - no long headers or questions (aim for max 3 words)
-- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
-- Placeholders for Media & Video Resources are in comments with a TODO for a human.
-- REVIEW flags are in JSX flags for a human.
+- ~~Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)~~
+- ~~Fontawesome icons are used on accordions and tabs~~
+- ~~Tables use StyledTable component~~
+- ~~No em-dashes are used (instead use standard -)~~
+- ~~UK spelling is used~~
+- ~~Headers are concise and technical - no long headers or questions (aim for max 3 words)~~
+- ~~CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks~~
+- ~~Placeholders for Media & Video Resources are in comments with a TODO for a human.~~ (N/A)
+- ~~REVIEW flags are in JSX flags for a human.~~
+Human
+- Review REVIEW items
 */}
 
-The video transcoding pipeline moves a stream from ingest to playback-ready HLS in three stages: the gateway segments incoming video, dispatches each segment to a selected orchestrator with a payment ticket, and assembles the transcoded renditions for delivery. This page explains what happens at each stage and how to tune it.
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 
 <Note>
-  This is a conceptual and tuning guide, not a setup guide. For initial installation and startup, see Setup → Video Gateway Quickstart. For transcoding profile JSON and flag reference, see Pipeline Configuration.
+  This is a conceptual and tuning guide, not a setup guide. For initial installation and startup, see Setup. For transcoding profile JSON and flag reference, see Pipeline Configuration.
 </Note>
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
+
+The video transcoding pipeline moves a stream from ingest to playback-ready [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming) in three stages:
+1. the gateway segments incoming video,
+2. dispatches each segment to a selected orchestrator with a payment ticket, and
+3. assembles the transcoded renditions for delivery.
+
+This page explains what happens at each stage and how to tune it.
+
+<Warning>
+  Video transcoding requires **on-chain operational mode** in production. Remote signers (off-chain mode) do not support video because ticket signing must happen in the hot path per segment. Off-chain video with `-network offchain` is available for local development and testing with a local orchestrator only.
+</Warning>
 
 {/* ============================================================
     1. ARCHITECTURE DIAGRAM
@@ -115,12 +130,12 @@ flowchart TB
     2. INGEST
     ============================================================ */}
 
-## Stage 1: Ingest
+## Ingest
 
 The gateway accepts incoming video through two protocols. Which one you use depends on your publishing client.
 
 <Tabs>
-  <Tab title="RTMP (live streaming)">
+  <Tab title="RTMP (live streaming)" icon="video">
     RTMP is the standard ingest protocol for live streaming. Encoders such as OBS, ffmpeg, and hardware encoders push streams to the gateway's RTMP server.
 
     **Default listen address:** `127.0.0.1:1935`
@@ -138,8 +153,8 @@ The gateway accepts incoming video through two protocols. Which one you use depe
 
     The gateway reads the incoming RTMP stream, extracts GOP (Group of Pictures) boundaries, and slices the video into segments for distribution.
   </Tab>
-  <Tab title="HTTP (segment push)">
-    HTTP ingest accepts video segments pushed directly over HTTP. This is the path used when integrating programmatically or when using the Livepeer SDK to push pre-segmented content.
+  <Tab title="HTTP (segment push)" icon="upload">
+    HTTP ingest accepts video segments pushed directly over HTTP. This is the path used when integrating programmatically, pushing pre-segmented content via the Livepeer SDK, or uploading VOD (video-on-demand) files for transcoding.
 
     **Default listen address:** `127.0.0.1:8935`
 
@@ -149,7 +164,7 @@ The gateway accepts incoming video through two protocols. Which one you use depe
     -httpAddr 0.0.0.0:8935
     ```
 
-    The gateway accepts the pushed segments and routes them to orchestrators in the same way as RTMP-ingest segments.
+    The gateway processes uploaded segments with the same transcoding logic as RTMP-ingest segments. For VOD uploads, the gateway transcodes the entire file and produces HLS output.
   </Tab>
 </Tabs>
 
@@ -157,35 +172,37 @@ The gateway accepts incoming video through two protocols. Which one you use depe
     3. ORCHESTRATOR SELECTION
     ============================================================ */}
 
-## Stage 2: Orchestrator selection
+## Orchestrator Selection
 
-Once the stream is ingested, the `BroadcastSessionsManager` selects which orchestrators will transcode each segment. Selection is not random — the manager evaluates orchestrators against several criteria simultaneously.
+Once the stream is ingested, the `BroadcastSessionsManager` selects which orchestrators will transcode each segment. Selection is not random - the manager evaluates orchestrators against several criteria simultaneously.
 
 <AccordionGroup>
   <Accordion title="Price ceiling" icon="tag">
     The `-maxPricePerUnit` flag sets the maximum number of wei per pixel your gateway will pay. Orchestrators advertising prices above this ceiling are excluded. Setting this too low will result in no available orchestrators; setting it too high means you may overpay.
 
-    The unit of measurement is wei per pixel. A common starting value for production is `1000` wei per pixel, though competitive market rates vary. Use the Livepeer Explorer and `livepeer_cli → Option 9` to see what orchestrators are currently advertising.
+    The unit of measurement is wei per pixel. A common starting value for production is `1000` wei per pixel, though competitive market rates vary. Use the Livepeer Explorer and `livepeer_cli` to see what orchestrators are currently advertising.
   </Accordion>
-  <Accordion title="Latency and performance history" icon="gauge">
-    The manager tracks round-trip latency and success rate for each orchestrator per session. Orchestrators with degraded latency or high failure rates are deprioritised. This is entirely automatic — you do not need to configure individual orchestrator scoring.
+  <Accordion title="Latency and performance" icon="gauge">
+    The manager tracks round-trip latency and success rate for each orchestrator per session. Orchestrators with degraded latency or high failure rates are deprioritised. This is entirely automatic - you do not need to configure individual orchestrator scoring.
   </Accordion>
-  <Accordion title="Session continuity and mid-stream swaps" icon="arrows-rotate">
-    Transcoding sessions are maintained across segments. If an orchestrator fails mid-stream (network drop, timeout, GPU OOM), the manager performs a mid-stream swap: it selects the next best orchestrator and continues from the next segment. The output is seamless to the viewer because the renditions continue — there is no restart.
+  <Accordion title="Session continuity" icon="arrows-rotate">
+    Transcoding sessions are maintained across segments. If an orchestrator fails mid-stream (network drop, timeout, GPU OOM), the manager performs a mid-stream swap: it selects the next best orchestrator and continues from the next segment. The output is seamless to the viewer because the renditions continue - there is no restart.
 
     The `livepeer_orchestrator_swaps` Prometheus metric tracks swap frequency. A high swap rate indicates orchestrator instability or an overly aggressive price ceiling.
   </Accordion>
-  <Accordion title="Off-chain vs on-chain discovery" icon="network-wired">
-    **Off-chain:** specify orchestrators directly via `-orchAddr` as a comma-separated list. The gateway connects to exactly those addresses.
+  <Accordion title="Discovery methods" icon="network-wired">
+    **On-chain (production):** the gateway queries the Livepeer on-chain registry (Arbitrum One) for registered orchestrators that meet your price ceiling. Discovery is automatic; you do not need to list addresses manually.
 
-    **On-chain:** the gateway queries the Livepeer on-chain registry (Arbitrum One) for registered orchestrators that meet your price ceiling. Discovery is automatic; you do not need to list addresses manually.
+    **Direct configuration:** specify orchestrators directly via `-orchAddr` as a comma-separated list. The gateway connects to exactly those addresses. Most production gateways with established orchestrator relationships use this pattern.
+
+    **Webhook:** use `-orchWebhookUrl` for dynamic orchestrator lists from an external service.
 
     ```bash
-    # Off-chain: direct address list
-    -orchAddr http://192.168.1.100:8935,http://192.168.1.101:8935
-
     # On-chain: registry discovery (set network and ETH credentials)
     -network arbitrum-one-mainnet
+
+    # Direct: specific orchestrator addresses
+    -orchAddr http://192.168.1.100:8935,http://192.168.1.101:8935
     ```
   </Accordion>
 </AccordionGroup>
@@ -194,11 +211,13 @@ Once the stream is ingested, the `BroadcastSessionsManager` selects which orches
     4. TRANSCODING
     ============================================================ */}
 
-## Stage 3: Transcoding
+## Transcoding
 
 Each segment is sent to the selected orchestrator along with a payment ticket. The orchestrator transcodes the segment into the renditions your profile specifies and returns them to the gateway.
 
-The gateway verifies each returned segment before assembling the output. If a segment fails verification (wrong duration, corrupt data, wrong resolution), the manager retries with a different orchestrator up to `-maxAttempts` times (default: 3).
+The gateway verifies each returned segment before assembling the output using pixel count and signature verification (`-localVerify=true`, enabled by default for on-chain gateways). If a segment fails verification (wrong duration, corrupt data, wrong resolution), the manager retries with a different orchestrator up to `-maxAttempts` times (default: 3).
+
+{/* REVIEW: Confirm whether -localVerify defaults to false for off-chain mode as indicated in CLI reference. */}
 
 ### Built-in rendition presets
 
@@ -247,9 +266,9 @@ Reference this file at startup:
     5. ON-CHAIN PAYMENT FLOW
     ============================================================ */}
 
-## On-chain payment flow (video and dual gateways)
+## Payment Flow
 
-On-chain video gateways use Livepeer's probabilistic micropayment (PM) system. Every segment sent to an orchestrator carries a payment ticket. Most tickets are losing lottery draws; winning tickets are redeemed on the Arbitrum One TicketBroker contract against your ETH deposit.
+On-chain video gateways use Livepeer's [probabilistic micropayment (PM) system](../payments-and-pricing/payment-paths). Every segment sent to an orchestrator carries a payment ticket. Most tickets are losing lottery draws; winning tickets are redeemed on the Arbitrum One TicketBroker contract against your ETH deposit.
 
 <Warning>
   You must have a non-zero ETH deposit and reserve on the TicketBroker contract before your gateway can route video jobs on-chain. Orchestrators will reject jobs from a gateway with an empty deposit. See Fund Your Gateway for the deposit steps.
@@ -272,7 +291,9 @@ Total pixels per segment = (1280×720) + (854×480) + (426×240)
 Cost per segment = 1,433,760 × 1000 wei = 1.43376 × 10⁹ wei = ~0.0000014 ETH
 ```
 
-For a 1-hour stream at 30fps with 2-second segments (1800 segments):
+{/* REVIEW: Confirm default segment duration. This example assumes 2-second segments - verify whether this is configurable or derived from GOP size. */}
+
+For a 1-hour stream with 2-second segments (1800 segments):
 
 ```
 1800 × 1.43376 × 10⁹ wei ≈ 2.58 × 10¹² wei ≈ 0.00258 ETH
@@ -284,30 +305,75 @@ Monitor your deposit balance via `livepeer_cli → Option 1` or the `livepeer_ga
     6. OUTPUT AND DELIVERY
     ============================================================ */}
 
-## Output and delivery
+## Output
 
-The gateway assembles transcoded segments into an HLS manifest (`.m3u8`) with one variant stream per rendition. Your application or CDN pulls this manifest to serve adaptive bitrate playback.
+The gateway assembles transcoded segments into an HLS manifest (`.m3u8`) with one variant stream per rendition. Your application or CDN pulls this manifest to serve adaptive bitrate playback. Low-Latency HLS (LL-HLS) is also supported for reduced end-to-end latency.
 
 **HLS manifest endpoint:** `http://<gateway-host>:8935/<stream-key>.m3u8`
 
-**Current manifest shortcut:** if `-currentManifest` is enabled, the most recently active stream is accessible at `/stream/current.m3u8` — useful for single-stream setups.
+**Current manifest shortcut:** if `-currentManifest` is enabled, the most recently active stream is accessible at `/stream/current.m3u8` - useful for single-stream setups.
 
 For persistent storage, the `-objectStore` flag pushes segments and manifests to an S3-compatible bucket or IPFS, so streams survive a gateway restart.
+
+{/* REVIEW: Confirm LL-HLS configuration details - is it automatic or does it require specific flags? Also confirm whether DASH output is supported. */}
 
 {/* ============================================================
     7. KEY METRICS
     ============================================================ */}
 
-## Key metrics to watch
+## Key Metrics
 
-| Metric | What it tells you | Action threshold |
-|---|---|---|
-| `livepeer_success_rate` | Transcoded segments / source segments | Alert when below 0.95 |
-| `livepeer_transcode_overall_latency_seconds` | End-to-end transcoding latency | Alert when p95 exceeds 5s |
-| `livepeer_segment_transcode_failed_total` | Failed transcode count | Alert on rate increase |
-| `livepeer_orchestrator_swaps` | Mid-stream orchestrator changes | Investigate above 1 per 10 minutes |
-| `livepeer_gateway_deposit` | Remaining ETH deposit (wei) | Alert when below 0.01 ETH |
-| `livepeer_ticket_value_sent` | ETH being spent on tickets | Budget monitoring |
+<StyledTable variant="bordered">
+  <thead>
+    <TableRow header>
+      <TableCell header>Metric</TableCell>
+      <TableCell header>What it tells you</TableCell>
+      <TableCell header>Action threshold</TableCell>
+    </TableRow>
+  </thead>
+  <tbody>
+    <TableRow>
+      <TableCell>`livepeer_success_rate`</TableCell>
+      <TableCell>Transcoded segments / source segments</TableCell>
+      <TableCell>Alert when below 0.95</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`livepeer_transcode_overall_latency_seconds`</TableCell>
+      <TableCell>End-to-end transcoding latency</TableCell>
+      <TableCell>Alert when p95 exceeds 5s</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`livepeer_segment_transcode_failed_total`</TableCell>
+      <TableCell>Failed transcode count</TableCell>
+      <TableCell>Alert on rate increase</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`livepeer_orchestrator_swaps`</TableCell>
+      <TableCell>Mid-stream orchestrator changes</TableCell>
+      <TableCell>Investigate above 1 per 10 minutes</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`livepeer_gateway_deposit`</TableCell>
+      <TableCell>Remaining ETH deposit (wei)</TableCell>
+      <TableCell>Alert when below 0.01 ETH</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`livepeer_ticket_value_sent`</TableCell>
+      <TableCell>ETH being spent on tickets</TableCell>
+      <TableCell>Budget monitoring</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`livepeer_fast_verification_done`</TableCell>
+      <TableCell>Successful segment verifications</TableCell>
+      <TableCell>Compare against failed count</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>`livepeer_fast_verification_failed`</TableCell>
+      <TableCell>Failed segment verifications</TableCell>
+      <TableCell>Alert on any sustained failures</TableCell>
+    </TableRow>
+  </tbody>
+</StyledTable>
 
 For Prometheus setup and alert YAML, see Monitoring Setup.
 
@@ -315,19 +381,19 @@ For Prometheus setup and alert YAML, see Monitoring Setup.
     8. TUNING REFERENCE
     ============================================================ */}
 
-## Tuning your pipeline
+## Pipeline Tuning
 
 <AccordionGroup>
   <Accordion title="Increasing orchestrator availability" icon="plus">
-    If jobs are failing because no orchestrators are available under your price ceiling, either raise `-maxPricePerUnit` or switch to on-chain mode for access to the full orchestrator pool. Use `livepeer_cli → Option 9` to see available orchestrators and their advertised rates.
+    If jobs are failing because no orchestrators are available under your price ceiling, either raise `-maxPricePerUnit` or use on-chain mode for access to the full orchestrator pool. Use `livepeer_cli` to see available orchestrators and their advertised rates.
   </Accordion>
-  <Accordion title="Reducing latency for live streaming" icon="clock">
-    Lower GOP size in your transcoding profile reduces segment duration and therefore end-to-end latency. Set `"gop": "1"` for keyframe-aligned segments. Use a lower `-maxAttempts` value if retries on failed orchestrators are adding unacceptable delay — but ensure you have redundant orchestrators before reducing retry tolerance.
+  <Accordion title="Reducing latency" icon="clock">
+    Lower GOP size in your transcoding profile reduces segment duration and therefore end-to-end latency. Set `"gop": "1"` for keyframe-aligned segments. Use a lower `-maxAttempts` value if retries on failed orchestrators are adding unacceptable delay - but ensure you have redundant orchestrators before reducing retry tolerance.
   </Accordion>
-  <Accordion title="Managing concurrent streams" icon="list">
-    The `-maxSessions` flag (default: 10) caps concurrent active streams. Increase it for high-throughput deployments. The gateway does not enforce per-stream quality independently — all streams share the orchestrator pool you have connected.
+  <Accordion title="Concurrent streams" icon="list">
+    The `-maxSessions` flag (default: 10) caps concurrent active streams. Increase it for high-throughput deployments. The gateway does not enforce per-stream quality independently - all streams share the orchestrator pool you have connected.
   </Accordion>
-  <Accordion title="Authenticating ingest streams" icon="lock">
+  <Accordion title="Ingest authentication" icon="lock">
     Use `-authWebhookUrl` to point to an HTTPS endpoint that validates stream keys before the gateway begins transcoding. The webhook receives the stream key and returns allow/deny. This prevents unauthorised streams from consuming your orchestrator budget.
   </Accordion>
 </AccordionGroup>
@@ -336,9 +402,12 @@ For Prometheus setup and alert YAML, see Monitoring Setup.
     9. NEXT STEPS
     ============================================================ */}
 
-## Next steps
+## Related Resources
 
 <CardGroup cols={2}>
+  <Card title="Pipelines Guide" icon="compass" href="./guide">
+    All pipeline types, node types, and orchestrator discovery patterns.
+  </Card>
   <Card title="Pipeline Configuration" icon="sliders" href="./pipeline-configuration">
     Full JSON transcoding profile reference, per-platform setup (Docker, Linux, Windows), and AI routing parameters.
   </Card>
@@ -349,7 +418,10 @@ For Prometheus setup and alert YAML, see Monitoring Setup.
     Prometheus metrics, Grafana dashboards, and alert configuration for video workloads.
   </Card>
   <Card title="AI Inference Pipeline" icon="brain" href="./ai-inference">
-    How AI inference jobs flow through your gateway — request routing, orchestrator discovery, and platform limits.
+    How AI inference requests are routed - orchestrator discovery, model matching, pipeline types, and platform limits.
+  </Card>
+  <Card title="BYOC" icon="cube" href="../../../developers/build/byoc">
+    How to build and implement BYOC Pipelines and Workloads.
   </Card>
 </CardGroup>
 
