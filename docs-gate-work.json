@@ -124,11 +124,11 @@
                           {
                             "group": "Operator Considerations",
                             "pages": [
-                              "v2/gateways/guides/operator-considerations/why-run-a-gateway",
+                              "v2/gateways/guides/operator-considerations/use-case",
                               "v2/gateways/guides/operator-considerations/operator-opportunities",
-                              "v2/gateways/guides/operator-considerations/gateway-requirements",
-                              "v2/gateways/guides/operator-considerations/business-case",
-                              "v2/gateways/guides/operator-considerations/ecosystem-projects"
+                              "v2/gateways/guides/operator-considerations/operator-requirements",
+                              "v2/gateways/guides/operator-considerations/business-value",
+                              "v2/gateways/guides/operator-considerations/commercial-gateways"
                             ]
                           },
                           {

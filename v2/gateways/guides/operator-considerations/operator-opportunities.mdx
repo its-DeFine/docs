@@ -26,14 +26,15 @@ lastVerified: '2026-03-13'
 
 import { BorderedBox } from '/snippets/components/layout/containers.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 
 Running a Livepeer gateway puts you between application demand and compute supply. Whether you are routing your own workloads or building a service on top of the network, the gateway is where business logic, margins, and customer relationships live.
 
 This page is for application developers and infrastructure builders evaluating the gateway model.
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## The core business model
+## Core Business Model
 
 Gateways earn at the **business layer**, not at the protocol level. Orchestrators earn protocol fees. Gateways earn the margin between what they charge customers and what they pay for compute.
 
@@ -48,9 +49,9 @@ flowchart LR
 For AI gateways running in off-chain mode, your gateway node itself holds no ETH. A remote signer handles all on-chain payment operations. Your gateway operator costs are whatever you pay the signer — which can be zero if using a community-hosted signer.
 </Note>
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## Four operator models
+## Operator Models
 
 <Tabs>
   <Tab title="Route your own workloads">
@@ -104,11 +105,12 @@ For AI gateways running in off-chain mode, your gateway node itself holds no ETH
   </Tab>
 </Tabs>
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## Why now: the off-chain AI gateway changes the economics
+## Local Gateways
 
-Before Q4 2025, every gateway required an Ethereum account funded on Arbitrum. The off-chain AI gateway (PRs #3791 and #3822) removes all of this from the gateway operator's responsibilities.
+Before late 2025, every gateway required an Ethereum account funded on Arbitrum.
+The off-chain payment mode (PR [3791](https://github.com/livepeer/go-livepeer/pull/3791) and [3822](https://github.com/livepeer/go-livepeer/pull/3822)) removes all of this from the gateway operator's responsibilities.
 
 <StyledTable variant="bordered">
   <thead>
@@ -149,9 +151,9 @@ Before Q4 2025, every gateway required an Ethereum account funded on Arbitrum. T
 
 {/* REVIEW: Confirm current ETH deposit/reserve amounts with Mehrdad/Rick. ~0.065 + 0.03 from fund-gateway.mdx. Issue open to reduce reserve: github.com/livepeer/go-livepeer/issues/3744 */}
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## What you can build with a gateway
+## Gateway Primitives
 
 Beyond routing your own workloads, the go-livepeer gateway is a platform primitive. It exposes everything needed to build:
 
@@ -170,9 +172,9 @@ Beyond routing your own workloads, the go-livepeer gateway is a platform primiti
   </Accordion>
 </AccordionGroup>
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## Who is operating gateways today
+## Gateway Operators
 
 <StyledTable variant="bordered">
   <thead>
@@ -211,9 +213,9 @@ Beyond routing your own workloads, the go-livepeer gateway is a platform primiti
   </tbody>
 </StyledTable>
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
-## Next steps
+## Related Pages
 
 <CardGroup cols={3}>
   <Card title="SPE grant model" icon="coins" href="/v2/gateways/guides/opportunities/spe-grant-model">

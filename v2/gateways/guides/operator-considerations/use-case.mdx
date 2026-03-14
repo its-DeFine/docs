@@ -1,7 +1,7 @@
 ---
-title: 'Why Run a Livepeer Gateway?'
-sidebarTitle: 'Why Run a Gateway'
-description: 'The strategic, technical, and financial reasons to run your own Livepeer gateway — covering all gateway types and operator personas.'
+title: 'Core Need for Running a Gateway'
+sidebarTitle: 'Use Case'
+description: 'The strategic, technical, and financial reasons to run your own Livepeer gateway - covering all gateway types and operator personas.'
 keywords:
   - livepeer
   - gateway
@@ -23,13 +23,15 @@ status: current
 lastVerified: '2026-03-13'
 ---
 
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+
 A Livepeer gateway is the access point between your application and the Livepeer compute network. It receives jobs, selects an orchestrator (a GPU operator), handles payment, and returns results. The gateway holds no GPU — all compute happens on orchestrators.
 
 Running your own gateway is not a technical requirement for using Livepeer. You can point at a hosted gateway and start building in minutes. The question is whether the control, cost savings, and capabilities of owning that layer are worth it for your situation.
 
 This page helps you answer that question.
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
 ## Hosted gateway vs self-hosted: the core trade-off
 

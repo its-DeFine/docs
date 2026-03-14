@@ -122,13 +122,13 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
   <Tip>[One sentence: the single most important thing the reader should know]</Tip>
 </CenteredContainer>
 
----
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
 [2-3 sentence narrative intro establishing context and scope]
 
 [Mermaid diagram if the page needs an evolution timeline or overview visual]
 
-<CustomDivider middleText="[Section Label]" />
+<CustomDivider style={{margin: "0 0 -1rem 0"}} middleText="[Section Label]" />
 
 ## [First Major Section]
 
@@ -138,13 +138,13 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
 
 [Prose after visual explaining implications]
 
-<CustomDivider middleText="[Section Label]" />
+<CustomDivider style={{margin: "0 0 -1rem 0"}} middleText="[Section Label]" />
 
 ## [Second Major Section]
 
 [Continue pattern: prose -> visual -> prose]
 
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
 ## Related Pages
 
@@ -157,13 +157,13 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
 ```
 
 ### Section Break Pattern
-- Use `<CustomDivider middleText="Label" />` between every major section
-- The `middleText` should be 1-3 words naming the section's topic
-- Final divider before Related Pages uses no middleText: `<CustomDivider />`
+- Use `<CustomDivider style={{margin: "0 0 -1rem 0"}} />` between every major section - NEVER use `---` horizontal rules
+- Add `middleText="Label"` to label the upcoming section (1-3 words)
+- Final divider before Related Pages uses no middleText: `<CustomDivider style={{margin: "0 0 -1rem 0"}} />`
 
 ### Opening Hook Pattern
 - Always start with `<CenteredContainer>` + `<Tip>` containing the page's core value prop
-- Follow with `---` horizontal rule
+- Follow with `<CustomDivider style={{margin: "0 0 -1rem 0"}} />`
 - Then 2-3 sentences of narrative prose (evolution, context, scope)
 - Optionally follow with a Mermaid timeline or overview diagram
 - Then cross-reference links: "For X, see [Page]. For Y, see [Page]."
