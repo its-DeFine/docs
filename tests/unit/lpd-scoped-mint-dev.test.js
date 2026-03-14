@@ -657,6 +657,60 @@ async function runTests() {
   });
 
   cases.push(async () => {
+    const repoRoot = mkTmpDir('lpd-scope-stale-symlink-root-');
+    const workspaceBase = mkTmpDir('lpd-scope-stale-symlink-out-');
+    const docs = {
+      $schema: 'https://mintlify.com/docs.json',
+      theme: 'palm',
+      name: 'Stable Workspace Fixture',
+      navigation: {
+        tabs: [
+          {
+            tab: 'Gateways',
+            groups: [
+              {
+                group: 'Node Pipelines',
+                pages: ['v2/gateways/guides/node-pipelines/guide']
+              }
+            ]
+          }
+        ]
+      }
+    };
+
+    writeFile(path.join(repoRoot, 'docs.json'), `${JSON.stringify(docs, null, 2)}\n`);
+    writeFile(path.join(repoRoot, '.mintignore'), '# fixture\n');
+    writeFile(path.join(repoRoot, 'v2/gateways/guides/node-pipelines/guide.mdx'), '# Guide\n');
+
+    const args = {
+      repoRoot,
+      workspaceBase,
+      scopeFile: '',
+      versions: [],
+      languages: [],
+      tabs: [],
+      prefixes: ['v2/gateways/guides/node-pipelines'],
+      interactive: false,
+      disableOpenapi: false,
+      workspaceId: 'stable-node-pipelines',
+      printOnly: false,
+      help: false
+    };
+
+    const firstResult = await createScopedProfile(args);
+    const staleLink = path.join(firstResult.workspaceDir, 'v2/gateways/guides/node-pipelines/node-pipelines.mdx');
+    const missingTarget = path.join(repoRoot, 'v2/gateways/guides/node-pipelines/node-pipelines.mdx');
+    fs.mkdirSync(path.dirname(staleLink), { recursive: true });
+    fs.symlinkSync(missingTarget, staleLink, 'file');
+    assert.ok(fs.lstatSync(staleLink).isSymbolicLink(), 'fixture should create a stale broken symlink');
+
+    const secondResult = await createScopedProfile(args);
+
+    assert.strictEqual(secondResult.workspaceDir, firstResult.workspaceDir, 'stable workspace id should reuse the same workspace directory');
+    assert.throws(() => fs.lstatSync(staleLink), /ENOENT/, 'rebuild should prune stale broken symlinks from reused workspaces');
+  });
+
+  cases.push(async () => {
     const harness = createSupervisorHarness(
       [
         createSupervisorProfile({ sourceDocsConfig: '/tmp/repo/docs.json', scopeHash: 'root-session' }),

@@ -546,11 +546,32 @@ function pathExists(pathname) {
   }
 }
 
+function removeExistingPath(targetPath, stats = null) {
+  let existingStats = stats;
+  if (!existingStats) {
+    try {
+      existingStats = fs.lstatSync(targetPath);
+    } catch (error) {
+      if (error && error.code === 'ENOENT') {
+        return;
+      }
+      throw error;
+    }
+  }
+
+  if (existingStats.isDirectory() && !existingStats.isSymbolicLink()) {
+    fs.rmSync(targetPath, { recursive: true, force: true });
+    return;
+  }
+
+  fs.unlinkSync(targetPath);
+}
+
 function ensureRealDirectory(dirPath) {
   if (pathExists(dirPath)) {
     const stats = fs.lstatSync(dirPath);
     if (!stats.isDirectory() || stats.isSymbolicLink()) {
-      fs.rmSync(dirPath, { recursive: true, force: true });
+      removeExistingPath(dirPath, stats);
     }
   }
 
@@ -567,7 +588,7 @@ function ensureLinkedFile(source, target) {
       }
     }
 
-    fs.rmSync(target, { recursive: true, force: true });
+    removeExistingPath(target, stats);
   }
 
   fs.mkdirSync(path.dirname(target), { recursive: true });
@@ -586,7 +607,7 @@ function ensureWrittenFile(target, content) {
       }
     }
 
-    fs.rmSync(target, { recursive: true, force: true });
+    removeExistingPath(target, stats);
   }
 
   fs.mkdirSync(path.dirname(target), { recursive: true });
@@ -946,7 +967,7 @@ function pruneWorkspaceTree(workspaceDir, currentRelDir, desiredDirs, desiredFil
 
     if (entry.isDirectory()) {
       if (!desiredDirs.has(relPath)) {
-        fs.rmSync(absolutePath, { recursive: true, force: true });
+        removeExistingPath(absolutePath);
         continue;
       }
       pruneWorkspaceTree(workspaceDir, relPath, desiredDirs, desiredFiles);
@@ -954,7 +975,7 @@ function pruneWorkspaceTree(workspaceDir, currentRelDir, desiredDirs, desiredFil
     }
 
     if (!desiredFiles.has(relPath)) {
-      fs.rmSync(absolutePath, { recursive: true, force: true });
+      removeExistingPath(absolutePath);
     }
   }
 }
