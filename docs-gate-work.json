@@ -124,25 +124,21 @@
                           {
                             "group": "Operator Considerations",
                             "pages": [
-                              "v2/gateways/guides/operator-considerations/use-case",
-                              "v2/gateways/guides/operator-considerations/operator-opportunities",
-                              "v2/gateways/guides/operator-considerations/operator-requirements",
-                              "v2/gateways/guides/operator-considerations/business-value",
-                              "v2/gateways/guides/operator-considerations/commercial-gateways"
+                              "v2/gateways/guides/operator-considerations/business-case",
+                              "v2/gateways/guides/operator-considerations/production-gateways"
                             ]
                           },
                           {
-                            "group": "Setup Options",
+                            "group": "Deployment Details",
                             "pages": [
-                              "v2/gateways/guides/setup-options/setup-paths",
-                              "v2/gateways/guides/setup-options/path-requirements",
-                              "v2/gateways/guides/setup-options/ecosystem-offerings"
+                              "v2/gateways/guides/deployment-details/setup-options",
+                              "v2/gateways/guides/deployment-details/setup-requirements"
                             ]
                           },
                           {
                             "group": "AI & Job Pipelines",
                             "pages": [
-                              "v2/gateways/guides/job-pipelines/overview",
+                              "v2/gateways/guides/job-pipelines/guide",
                               "v2/gateways/guides/job-pipelines/video-transcoding",
                               "v2/gateways/guides/job-pipelines/ai-inference",
                               "v2/gateways/guides/job-pipelines/byoc-pipelines",
@@ -208,8 +204,8 @@
                         "group": "Resources",
                         "icon": "code",
                         "pages": [
-                          "FAQ",
-                          "Glossary",
+                          "v2/gateways/resources/faq",
+                          "v2/gateways/resources/glossary",
                           {
                             "group": "Technical Reference",
                             "pages": [
@@ -261,8 +257,12 @@
                             ]
                           },
                           {
-                            "group": "Resources",
-                            "pages": []
+                            "group": "More Resources",
+                            "pages": [
+                              "v2/gateways/resources/knowledge-base/guides",
+                              "v2/gateways/resources/knowledge-base/resources",
+                              "v2/gateways/resources/knowledge-base/help"
+                            ]
                           }
                         ]
                       }

@@ -1,6 +1,6 @@
 ---
 title: 'AI and Job Pipelines Overview'
-sidebarTitle: 'Pipeline Overview'
+sidebarTitle: Pipelines Guide'
 description: 'What a gateway pipeline is, the three job types your gateway can route (video transcoding, AI inference, BYOC), and how pipeline selection maps to gateway type.'
 keywords:
   - livepeer
@@ -32,7 +32,8 @@ Verify:
 - REVIEW flags are in JSX flags for a human.
 */}
 
-A gateway pipeline is the control-plane path between an application request and orchestrator execution. Your gateway does not run compute — it accepts requests, selects compatible orchestrators, enforces routing policy, and returns results. Understanding which pipeline type matches your workload shapes every other configuration decision you make.
+A gateway pipeline is the control-plane path between an application request and orchestrator execution.
+A gateway does not run compute — it accepts requests, selects compatible orchestrators, enforces routing policy, and returns results. Understanding which pipeline type matches your workload shapes every other configuration decision you make.
 
 <Note>
   This section covers how pipelines work from the gateway operator's perspective. For orchestrator-side configuration (running AI workers, hosting models), see the Orchestrators section.
@@ -42,7 +43,7 @@ A gateway pipeline is the control-plane path between an application request and 
     1. GATEWAY VS ORCHESTRATOR
     ============================================================ */}
 
-## What a gateway does in a pipeline
+## Gateway Role
 
 <CardGroup cols={2}>
   <Card title="Gateway responsibilities" icon="server">
