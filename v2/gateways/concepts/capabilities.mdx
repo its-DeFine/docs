@@ -40,7 +40,7 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
 
 <CustomDivider middleText="Core Functions" style={{margin: "0 0 -1rem 0"}} />
 
-## What a gateway handles
+## Gateway Functions
 
 A gateway performs five core functions for every job it processes:
 
@@ -56,7 +56,7 @@ Gateways do **not** perform GPU compute, run AI models, transcode video, or exec
 
 <CustomDivider middleText="Workload Types" style={{margin: "0 0 -1rem 0"}}/>
 
-## Supported workloads
+## AI and Video Pipelines
 
 Gateways can route four categories of work into the Livepeer network. Which workloads you can route depends on your payment mode (on-chain or off-chain).
 
@@ -116,7 +116,7 @@ See <LinkArrow href="/v2/developers/build/byoc" label="BYOC pipelines" newline={
 
 <CustomDivider middleText="Orchestrator Selection" style={{margin: "0 0 -1rem 0"}}/>
 
-## How gateways choose orchestrators
+## Orchestrator Selection
 
 When a job arrives, the gateway must decide which orchestrator to send it to. This is the gateway's most important function - it directly affects cost, latency, and reliability for end users.
 
@@ -146,7 +146,7 @@ The selection algorithm considers:
 | **Performance history** | What is the orchestrator's success rate and error rate over recent sessions? |
 | **Stake weight** | How much LPT is staked to this orchestrator? Higher stake implies greater economic commitment to good behaviour |
 
-### Discovery methods
+### Discovery Methods
 
 How a gateway discovers available orchestrators depends on the mode:
 
@@ -168,7 +168,7 @@ How a gateway discovers available orchestrators depends on the mode:
 
 <CustomDivider middleText="Session Management" style={{margin: "0 0 -1rem 0"}} />
 
-## Sessions and failover
+## Sessions and Failover
 
 Gateways maintain **sessions** with orchestrators for the duration of a workload. For video transcoding, a session covers an entire livestream (potentially hours). For AI inference, a session may cover a single request or a batch.
 
@@ -185,7 +185,7 @@ Running both video and AI workloads from a single gateway node is called **dual-
 
 <CustomDivider middleText="Marketplace" style={{margin: "0 0 -1rem 0"}} />
 
-## The gateway's marketplace role
+## Gateway Marketplace Role
 
 Gateways participate in the Livepeer marketplace as the **demand side**. They create competition among orchestrators by routing jobs based on price, performance, and capability.
 

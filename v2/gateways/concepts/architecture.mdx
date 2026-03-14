@@ -42,7 +42,7 @@ For what gateways *do*, see [Capabilities](/v2/gateways/concepts/capabilities). 
 
 ---
 
-## Layer position
+## Gateway Layer Context
 
 The Livepeer network has three functional layers. Gateways operate at the **application layer**, bridging end-user applications and the compute layer where orchestrators run GPU workloads.
 
@@ -84,7 +84,7 @@ Gateways are the only demand-side participants that interact with both the compu
 
 <CustomDivider middleText="System Interactions" />
 
-## Who the gateway talks to
+## Gateway Interactions
 
 A gateway interacts with four categories of actors:
 
@@ -107,9 +107,9 @@ Orchestrators are the supply side. The gateway selects, negotiates with, and dis
 - **Dispatch** - video segments or AI requests are sent to the orchestrator with an attached payment ticket
 - **Failover** - if an orchestrator fails, the gateway retries with the next-best option from its ranked list
 
-### Remote signer (off-chain mode)
+### Remote Signer
 
-In off-chain mode, the gateway delegates all payment operations to a **remote signer** service. The remote signer:
+In **off-chain mode**, the gateway delegates all payment operations to a **remote signer** service. The remote signer:
 
 - Holds the ETH deposit and reserve
 - Generates probabilistic micropayment tickets on the gateway's behalf
@@ -118,9 +118,9 @@ In off-chain mode, the gateway delegates all payment operations to a **remote si
 
 This architecture allows gateways to operate with zero crypto knowledge and zero ETH. See <LinkArrow href="/v2/gateways/payments/remote-signers" label="Remote Signers" newline={false} /> for the full protocol.
 
-### Arbitrum protocol (on-chain mode)
+### Arbitrum Protocol
 
-In on-chain mode, the gateway interacts directly with Arbitrum smart contracts:
+In **on-chain mode**, the gateway interacts directly with Arbitrum smart contracts:
 
 | Contract | Gateway interaction |
 |---|---|
@@ -133,7 +133,7 @@ Unlike orchestrators, gateways do **not** interact with the BondingManager (stak
 
 <CustomDivider middleText="Internal Architecture" />
 
-## Dual pipeline: video and AI
+## Dual Pipeline Architecture
 
 The gateway node (`LivepeerNode` in go-livepeer) runs two independent session managers - one for video, one for AI. This allows a single gateway to handle both workload types simultaneously without interference.
 
@@ -200,7 +200,7 @@ flowchart TB
 
 </ScrollableDiagram>
 
-### How the two pipelines differ
+### Video vs AI Pipelines
 
 | Aspect | Video pipeline (blue) | AI pipeline (purple) |
 |---|---|---|
@@ -215,7 +215,7 @@ Both pipelines share the same orchestrator selection logic, payment system, and 
 
 <CustomDivider middleText="Request Flow" />
 
-## Lifecycle of a job
+## Job Lifecycle
 
 This is what happens when an application sends a request to a gateway, from intake through result delivery and payment.
 
@@ -233,7 +233,7 @@ graph TD
 
 </ScrollableDiagram>
 
-### Step-by-step
+### Lifecycle Steps
 
 1. **Job arrives** - An application sends a video segment (RTMP) or AI request (HTTP) to the gateway.
 2. **Pipeline routing** - The gateway routes the request to the appropriate session manager (`BroadcastSessionsManager` for video, `AISessionManager` for AI).
@@ -246,7 +246,7 @@ graph TD
 
 <CustomDivider middleText="Key Components" />
 
-## Software components
+## Software Components
 
 ### go-livepeer
 

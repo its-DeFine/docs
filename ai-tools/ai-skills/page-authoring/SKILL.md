@@ -447,11 +447,12 @@ When referencing the other tab (gateways mentioning orchestrators or vice versa)
 - Full stops in bullet list items that are complete sentences
 
 ### Headings
-- H2 (`##`) for major sections
+- **Title Case** for H1 (`#`) and H2 (`##`) headings - capitalise the first letter of each major word: "Payment Flow", "Gateway Costs", "Related Pages"
+- **Sentence case** for H3 (`###`) and below: "What gateways pay", "Protocol-level costs"
+- **H2 titles must be 1-3 words**. Use the `middleText` on `CustomDivider` to preview the label. Examples: "Payment Flow", "Gateway Costs", "Mental Models". NOT questions, NOT full sentences.
 - H3 (`###`) for subsections within a major section
 - H4 (`####`) rarely, only for sub-subsections in reference pages
 - Never skip levels (no H2 then H4)
-- Sentence case: "How gateways choose orchestrators" not "How Gateways Choose Orchestrators"
 
 ### Terminology
 - "gateway" not "broadcaster" (legacy term, note once if relevant)
@@ -531,6 +532,7 @@ npm run test:browser  # Page rendering
 - [ ] All imports use absolute paths with file extensions
 - [ ] No imports of Mintlify globals (Card, Tabs, Note, etc.)
 - [ ] Opening hook: CenteredContainer + Tip
+- [ ] H1/H2 headings are Title Case, 1-3 words, not questions
 - [ ] CustomDividers between all major sections
 - [ ] Prose before every diagram, table, and code block
 - [ ] Related Pages CardGroup at the bottom

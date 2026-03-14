@@ -35,12 +35,8 @@ import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.
 import { CenteredContainer, BorderedBox } from '/snippets/components/layout/containers.jsx'
 
 <CenteredContainer style={{ width: '90%' }}>
-  <Tip>Gateways do not earn at the protocol level - they earn at the business layer. The protocol controls what you pay orchestrators; you control what you charge customers. The difference is your margin.</Tip>
+  <Tip>Gateways are application service routers which earn at the business layer. The protocol controls what you pay orchestrators; you control what you charge customers. </Tip>
 </CenteredContainer>
-
----
-
-This page explains how gateway economics work. For what gateways *do*, see [Capabilities](/v2/gateways/concepts/capabilities). For the internal payment system, see [How Payments Work](/v2/gateways/payments/how-payments-work).
 
 <CustomDivider middleText="Payment Flow" style={{margin: "0 0 -1rem 0"}}/>
 
@@ -70,7 +66,7 @@ The payment chain:
 
 <CustomDivider middleText="Who Earns What" style={{margin: "0 0 -1rem 0"}} />
 
-## Protocol-level earnings
+## Gateway Earnings
 
 Gateways do not earn protocol rewards. They pay for services.
 
@@ -108,7 +104,7 @@ Gateways do not earn protocol rewards. They pay for services.
 
 <CustomDivider middleText="Gateway Costs" style={{margin: "0 0 -1rem 0"}} />
 
-## What gateways pay
+## Gateway Costs
 
 Gateway costs are determined by the work you route and the orchestrator prices on the network.
 
@@ -148,7 +144,7 @@ ETH handles service payments while LPT handles protocol governance and staking. 
 
 <CustomDivider middleText="Why Run a Gateway" style={{margin: "0 0 -1rem 0"}}/>
 
-## If gateways don't earn protocol rewards, why run one?
+## Gateway Operator Models
 
 Gateways earn at the **business layer**, not the protocol layer. Four operator models demonstrate why:
 
@@ -185,7 +181,7 @@ Gateways earn at the **business layer**, not the protocol layer. Four operator m
 
 <CustomDivider middleText="Fee Structure" style={{margin: "0 0 -1rem 0"}}/>
 
-## Setting your prices
+## Pricing and Fees
 
 As a gateway operator, you set pricing at two levels:
 
@@ -203,7 +199,7 @@ You control your maximum cost per job using CLI flags:
 
 These flags set an upper bound. The gateway will only route to orchestrators whose prices are at or below your maximum. Lower maximums mean fewer available orchestrators; higher maximums mean more options but higher costs.
 
-### Business-level pricing (what you charge)
+### Business Layer Pricing
 
 Your fees to end users are set entirely at the application layer, outside the Livepeer protocol. Common approaches:
 
@@ -222,7 +218,7 @@ func calculateUserPrice(requestType string, pixels int64) float64 {
 }
 ```
 
-### Price discovery
+### Price Discovery
 
 Use the CLI to discover current orchestrator market rates:
 
