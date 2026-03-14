@@ -3,12 +3,12 @@ name: page-authoring
 description: >-
   Comprehensive skill for writing new v2 documentation pages. Covers content standards,
   UX patterns, component usage, journey mapping, frontmatter, Mermaid theming,
-  page type templates, and all repo-enforced rules.
+  page type templates, repo-enforced rules, and reviewer conventions.
 ---
 
 # SKILL: Page Authoring for Livepeer v2 Docs
 
-This skill contains everything needed to write a new MDX page in the Livepeer v2 documentation. It covers content strategy, UX patterns, component library usage, frontmatter standards, journey mapping, and hard repo rules. All rules are enforced by pre-commit hooks and tests.
+This skill contains everything needed to write a new MDX page in the Livepeer v2 documentation. It covers content strategy, UX patterns, component library usage, frontmatter standards, journey mapping, hard repo rules, and reviewer expectations. Repo-enforced rules are backed by hooks and tests; reviewer conventions in this skill are not yet fully scripted.
 
 ---
 
@@ -25,8 +25,8 @@ This skill contains everything needed to write a new MDX page in the Livepeer v2
 - **NO curly/smart quotes**. Use straight quotes only.
 
 ### Styling
-- **ZERO inline styles in MDX files**. Use component primitives for all visual needs.
-- **NO hardcoded hex colours**. Use `var(--lp-*)` CSS Custom Properties in JSX components.
+- **NO ad hoc inline styles in MDX files**. Approved exceptions: Mermaid code blocks may hardcode colours from `/snippets/components/page-structure/mermaid-colours.jsx`, and `CustomDivider` may use the approved margin patterns documented below.
+- **NO hardcoded hex colours** in page JSX. Use `var(--lp-*)` CSS Custom Properties in JSX components. Mermaid is the approved exception because it requires literal values.
 - **NO ThemeData imports**. This pattern is deprecated.
 - **NO Tailwind classes in MDX**. Only within JSX components.
 - **NO external CSS files**. Styles live inside `.jsx` component files.
@@ -51,6 +51,7 @@ This skill contains everything needed to write a new MDX page in the Livepeer v2
 - **SME notes** for unverified claims or community estimates: `{/* SME: [source note] */}`
 - Never use HTML comments (`[//]: # ()`) in MDX files - always use JSX comments (`{/* */}`)
 - These comments are stripped at build time and not visible to readers
+- Guide root pages should include the standard review block directly below frontmatter and before imports. Keep the shared block intact and add page-specific review notes separately.
 
 ### Frontmatter (Required Fields)
 Every page MUST have these fields:
@@ -119,23 +120,39 @@ The approved page structure follows this pattern, derived from the gateway role.
 [frontmatter]
 ---
 
+{/* TODO:
+Terminology Validation:
+- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see /snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs (see https://fontawesome.com/search)
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical (guide target: 3 words or less)
+- CustomDivider uses the approved context-sensitive margin patterns from this skill
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
+
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { ScrollableDiagram } from '/snippets/components/content/zoomableDiagram.jsx'
 import { CenteredContainer, BorderedBox } from '/snippets/components/layout/containers.jsx'
 
-<CenteredContainer style={{ width: '90%' }}>
+<CenteredContainer>
   <Tip>[One sentence: the single most important thing the reader should know]</Tip>
 </CenteredContainer>
 
-<CustomDivider style={{margin: "0 0 -1rem 0"}} />
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 [2-3 sentence narrative intro establishing context and scope]
 
 [Mermaid diagram if the page needs an evolution timeline or overview visual]
 
-<CustomDivider style={{margin: "0 0 -1rem 0"}} middleText="[Section Label]" />
+<CustomDivider style={{margin: "0 0 -2rem 0"}} middleText="[Section Label]" />
 
 ## [First Major Section]
 
@@ -145,13 +162,13 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
 
 [Prose after visual explaining implications]
 
-<CustomDivider style={{margin: "0 0 -1rem 0"}} middleText="[Section Label]" />
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} middleText="[Section Label]" />
 
 ## [Second Major Section]
 
 [Continue pattern: prose -> visual -> prose]
 
-<CustomDivider style={{margin: "0 0 -1rem 0"}} />
+<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
 ## Related Pages
 
@@ -164,13 +181,20 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
 ```
 
 ### Section Break Pattern
-- Use `<CustomDivider style={{margin: "0 0 -1rem 0"}} />` between every major section - NEVER use `---` horizontal rules
-- Add `middleText="Label"` to label the upcoming section (1-3 words)
-- Final divider before Related Pages uses no middleText: `<CustomDivider style={{margin: "0 0 -1rem 0"}} />`
+- Use `CustomDivider` between every major section - NEVER use `---` horizontal rules
+- Add `middleText="Label"` to label the upcoming section. On guide pages, aim for 1-3 words when clarity allows.
+- Use `marginTop: 0` after tables, card groups, tabs, accordions, diagrams, or other block components
+- Use `marginTop: -1rem` after prose paragraphs or callouts
+- Use `marginBottom: -2rem` when the divider sits directly above a `##` heading
+- Use `marginBottom: -1rem` when the divider separates prose from non-heading content
+- Common patterns:
+  - After component, before `##`: `<CustomDivider style={{margin: "0 0 -2rem 0"}} />`
+  - After prose/callout, before `##`: `<CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />`
+  - After prose, before non-heading content: `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />`
 
 ### Opening Hook Pattern
 - Always start with `<CenteredContainer>` + `<Tip>` containing the page's core value prop
-- Follow with `<CustomDivider style={{margin: "0 0 -1rem 0"}} />`
+- Follow with `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />`
 - Then 2-3 sentences of narrative prose (evolution, context, scope)
 - Optionally follow with a Mermaid timeline or overview diagram
 - Then cross-reference links: "For X, see [Page]. For Y, see [Page]."
@@ -249,9 +273,9 @@ These are available without imports:
 ```
 
 ### Icons on Interactive Components
-- **Accordions** and **Tabs** should use FontAwesome icons via the `icon` prop where appropriate
+- **Accordions** and **Tabs** should use FontAwesome icons via the `icon` prop
+- Use `https://fontawesome.com/search` as the source of truth for icon names
 - Choose icons that reinforce the content: `"cloud"` for cloud analogies, `"server"` for infrastructure, `"coin"` for economics, `"bolt"` for quickstarts, `"docker"` for Docker, `"linux"` for Linux
-- Icons are optional on Tabs but recommended on Accordions
 
 **Mental model analogies (persona routing):**
 ```mdx
@@ -312,10 +336,10 @@ See <LinkArrow href="/v2/path/to/page" label="Page Name" newline={false} /> for 
 ## 5. MERMAID DIAGRAM STANDARDS
 
 ### Required Theme Block
-Every Mermaid diagram MUST use this exact theme configuration:
+Every Mermaid diagram MUST use the canonical hardcoded palette from `/snippets/components/page-structure/mermaid-colours.jsx`. Mermaid is the approved exception to the no-hardcoded-colours rule because Mermaid does not support CSS custom properties. Use this base configuration:
 
 ```
-%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#fff', 'primaryBorderColor': '#2d9a67', 'lineColor': '#2d9a67', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#1a1a1a', 'background': '#0d0d0d', 'fontFamily': 'system-ui' }}}%%
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#2b9a66', 'primaryTextColor': '#E0E4E0', 'primaryBorderColor': '#18794E', 'lineColor': '#2b9a66', 'secondaryColor': '#1a1a1a', 'tertiaryColor': '#3CB540', 'background': '#0d0d0d', 'fontFamily': "Inter, 'Inter Fallback', -apple-system, system-ui" }}}%%
 ```
 
 ### Colour Classes for Dual Pipelines
@@ -441,7 +465,10 @@ When referencing the other tab (gateways mentioning orchestrators or vice versa)
 
 ### Voice
 - Direct, technical, actionable
-- Second person ("your gateway", "you configure")
+- Entity-led prose: prefer "the gateway", "a gateway", "gateways", "the orchestrator", "applications"
+- Avoid first-person editorial voice: "we", "our", "us"
+- Avoid reader-owned second-person framing in explanatory prose: "your gateway", "your node", "your application"
+- Use imperative instructions for procedures: "Configure the gateway", "Set `-orchAddr`", "Run the node"
 - Present tense for current behaviour, past tense for history
 - Active voice preferred
 
@@ -461,7 +488,7 @@ When referencing the other tab (gateways mentioning orchestrators or vice versa)
 ### Headings
 - **Title Case** for H1 (`#`) and H2 (`##`) headings - capitalise the first letter of each major word: "Payment Flow", "Gateway Costs", "Related Pages"
 - **Sentence case** for H3 (`###`) and below: "What gateways pay", "Protocol-level costs"
-- **H2 titles must be 1-3 words**. Use the `middleText` on `CustomDivider` to preview the label. Examples: "Payment Flow", "Gateway Costs", "Mental Models". NOT questions, NOT full sentences.
+- Keep headings concise and technical. On guide pages, aim for 3 words or less when clarity allows. Use the `middleText` on `CustomDivider` to preview the label. Avoid questions and marketing-style phrasing.
 - H3 (`###`) for subsections within a major section
 - H4 (`####`) rarely, only for sub-subsections in reference pages
 - Never skip levels (no H2 then H4)
@@ -516,12 +543,14 @@ When referencing the other tab (gateways mentioning orchestrators or vice versa)
 The following are validated by git hooks on every commit:
 
 1. **Deprecated ThemeData imports** - blocked
-2. **Hardcoded hex theme colours** - warned
-3. **Relative snippets imports** - flagged
-4. **Unnecessary global imports** (Card, Tabs, React hooks) - warned
-5. **MDX syntax validation** - must parse
-6. **JSON syntax validation** - must parse
-7. **Component governance** - registry updated automatically
+2. **Hardcoded hex theme colours outside allowed contexts** - warned
+3. **Inline styles in MDX JSX** - blocked
+4. **Tailwind classes in MDX** - warned
+5. **Relative snippets imports** - flagged
+6. **Unnecessary global imports** (Card, Tabs, React hooks) - warned
+7. **MDX syntax validation** - must parse
+8. **JSON syntax validation** - must parse
+9. **Component governance** - registry updated automatically
 
 ### Test Commands
 ```bash
@@ -538,21 +567,23 @@ npm run test:browser  # Page rendering
 ## 11. CHECKLIST: Before Submitting a New Page
 
 - [ ] Frontmatter has all required fields (title, sidebarTitle, description, keywords, og:image set, pageType, audience, status, lastVerified)
+- [ ] Guide root pages include the standard review block directly below frontmatter and before imports
 - [ ] UK English spelling throughout (colour, behaviour, organise, optimise, etc.)
 - [ ] No em dashes anywhere in the file
-- [ ] No inline styles in MDX (only in JSX components)
+- [ ] No ad hoc inline styles in MDX files. Approved exceptions: Mermaid hardcoded colour blocks and the documented `CustomDivider` margin patterns
 - [ ] All imports use absolute paths with file extensions
 - [ ] No imports of Mintlify globals (Card, Tabs, Note, etc.)
 - [ ] Opening hook: CenteredContainer + Tip
-- [ ] H1/H2 headings are Title Case, 1-3 words, not questions
+- [ ] Headings are concise and technical. On guide pages, aim for 3 words or less when clarity allows
 - [ ] CustomDividers between all major sections
 - [ ] Prose before every diagram, table, and code block
 - [ ] Related Pages CardGroup at the bottom
 - [ ] All cross-references use LinkArrow (inline) or Card (navigational)
-- [ ] Mermaid diagrams use the standard dark theme block (hardcoded colours)
-- [ ] FontAwesome icons used on Accordions
+- [ ] Mermaid diagrams use the canonical hardcoded palette from `/snippets/components/page-structure/mermaid-colours.jsx`
+- [ ] FontAwesome icons used on Accordions and Tabs, sourced from `https://fontawesome.com/search`
 - [ ] Unverified claims flagged with `{/* REVIEW: */}` or `{/* SME: */}` JSX comments
 - [ ] Media/video placeholders use `{/* TODO: */}` JSX comments
+- [ ] Narrative voice is entity-led. Avoid first-person editorial voice and reader-owned second-person explanatory prose
 - [ ] On-chain/off-chain described as payment modes, not workload types
 - [ ] No speculative claims without explicit labels
 - [ ] Page answers ONE question (matches its page type)
