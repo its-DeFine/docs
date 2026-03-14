@@ -23,6 +23,18 @@ purpose: operational
 status: current
 lastVerified: '2026-03'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 import { GotoCard } from '/snippets/components/primitives/links.jsx'
 
@@ -123,9 +135,9 @@ If your deposit is depleting faster than expected, Arbiscan transaction history 
 **Set up address watchlist:**
 Create an Arbiscan account and add your gateway address to your watchlist for email notifications on each transaction.
 
-→ For detailed on-chain debugging workflows, see [On-Chain Debugging](/v2/gateways/guides/monitoring-troubleshooting/on-chain-debugging).
+→ For detailed on-chain debugging workflows, see [On-Chain Debugging](/v2/gateways/guides/monitoring-and-tooling/on-chain-debugging).
 
-→ For TicketBroker and all Livepeer contract addresses, see [Contract Addresses](/v2/gateways/references/contract-addresses).
+→ For TicketBroker and all Livepeer contract addresses, see [Contract Addresses](/v2/gateways/resources/technical/contract-addresses).
 
 ---
 
@@ -221,7 +233,7 @@ curl http://localhost:5935/status
 curl http://localhost:8935/hardware/stats
 ```
 
-Full API reference: [CLI HTTP API Reference](/v2/gateways/references/api-reference/cli-http)
+Full API reference: [CLI HTTP API Reference](/v2/gateways/resources/technical/api-reference/CLI-HTTP/cli-http-api)
 
 ---
 
@@ -254,7 +266,7 @@ Full API reference: [CLI HTTP API Reference](/v2/gateways/references/api-referen
   </Accordion>
 
   <Accordion title="I need historical metrics over time.">
-    Prometheus + Grafana via the [Docker monitoring stack](/v2/gateways/guides/monitoring-troubleshooting/monitoring-setup#docker-monitoring-stack). livepeer_cli and the HTTP API show current state only.
+    Prometheus + Grafana via the [Docker monitoring stack](/v2/gateways/guides/monitoring-and-tooling/monitoring-setup#docker-monitoring-stack). livepeer_cli and the HTTP API show current state only.
   </Accordion>
 
   <Accordion title="I need on-chain transaction history.">
@@ -266,10 +278,10 @@ Full API reference: [CLI HTTP API Reference](/v2/gateways/references/api-referen
 ---
 
 <CardGroup cols={3}>
-  <Card title="Monitoring Setup" icon="chart-line" href="/v2/gateways/guides/monitoring-troubleshooting/monitoring-setup">
+  <Card title="Monitoring Setup" icon="chart-line" href="/v2/gateways/guides/monitoring-and-tooling/monitoring-setup">
     Prometheus + Grafana for time-series observability
   </Card>
-  <Card title="On-Chain Debugging" icon="cube" href="/v2/gateways/guides/monitoring-troubleshooting/on-chain-debugging">
+  <Card title="On-Chain Debugging" icon="cube" href="/v2/gateways/guides/monitoring-and-tooling/on-chain-debugging">
     TicketBroker events and Arbitrum contract inspection
   </Card>
   <Card title="API Reference" icon="code" href="/v2/gateways/references/api-reference">

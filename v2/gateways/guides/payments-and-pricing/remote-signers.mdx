@@ -11,6 +11,18 @@ status: 'current'
 lastVerified: '2026-03-13'
 sourceOfTruth: 'https://github.com/livepeer/go-livepeer/pull/3822'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 # Remote Signers
 
@@ -47,7 +59,7 @@ This is the foundation for the Livepeer SDK's gateway capabilities and for any e
 
 ### Clearinghouse building block
 
-Remote signers are the technical primitive that clearinghouses build on. A clearinghouse is a remote signer plus user management, accounting, and billing. If you are building gateway-as-a-service infrastructure, your remote signer setup is the first piece. See [Payment Clearinghouses](/v2/gateways/guides/payments/payment-clearinghouse-guide) for the full picture.
+Remote signers are the technical primitive that clearinghouses build on. A clearinghouse is a remote signer plus user management, accounting, and billing. If you are building gateway-as-a-service infrastructure, your remote signer setup is the first piece. See [Payment Clearinghouses](/v2/gateways/guides/payments-and-pricing/clearinghouse-guide) for the full picture.
 
 ---
 
@@ -242,13 +254,13 @@ For production, run your own signer instance.
 ---
 
 <CardGroup cols={2}>
-  <Card title="Payment Clearinghouses" icon="building-columns" href="/v2/gateways/guides/payments/payment-clearinghouse-guide">
+  <Card title="Payment Clearinghouses" icon="building-columns" href="/v2/gateways/guides/payments-and-pricing/clearinghouse-guide">
     Build on the remote signer primitive to create managed gateway services.
   </Card>
-  <Card title="Payment Paths" icon="code-branch" href="/v2/gateways/guides/payments/payment-paths">
+  <Card title="Payment Paths" icon="code-branch" href="/v2/gateways/guides/payments-and-pricing/payment-paths">
     Review the full payment architecture decision guide.
   </Card>
-  <Card title="Fund Your Gateway" icon="coins" href="/v2/gateways/guides/payments/fund-your-gateway">
+  <Card title="Fund Your Gateway" icon="coins" href="/v2/gateways/guides/payments-and-pricing/fund-your-gateway">
     The signer's ETH account still needs funding — see how to deposit and set reserves.
   </Card>
   <Card title="go-livepeer PR #3822" icon="github" href="https://github.com/livepeer/go-livepeer/pull/3822">

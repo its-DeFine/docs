@@ -26,8 +26,20 @@ purpose: operational
 status: current
 lastVerified: '2026-03'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
-Start with [Gateway Health Checks](/v2/gateways/guides/monitoring-troubleshooting/gateway-health-checks) before using this page — confirming whether your gateway is up narrows the problem space considerably.
+Start with [Gateway Health Checks](/v2/gateways/guides/monitoring-and-tooling/gateway-health-checks) before using this page — confirming whether your gateway is up narrows the problem space considerably.
 
 This page covers errors you encounter. For "how does X work?" questions, see the [FAQ](/v2/gateways/resources/faq).
 
@@ -52,7 +64,7 @@ Jump to: [Video Gateway](#video-gateway-issues) · [AI Gateway](#ai-gateway-issu
     # Check: Deposit and Reserve under BROADCASTER STATS
     ```
 
-    If either is zero, top up via `livepeer_cli → Deposit broadcasting funds`. See [Fund Your Gateway](/v2/gateways/guides/payments-pricing/fund-your-gateway).
+    If either is zero, top up via `livepeer_cli → Deposit broadcasting funds`. See [Fund Your Gateway](/v2/gateways/guides/payments-and-pricing/fund-your-gateway).
 
     **2. `-maxPricePerUnit` is set too low.**
 
@@ -425,7 +437,7 @@ Jump to: [Video Gateway](#video-gateway-issues) · [AI Gateway](#ai-gateway-issu
        Remove the `version: '3.9'` line at the top of your compose file — it is deprecated in current Docker Compose versions and can cause unexpected behaviour on some systems.
 
     4. **Missing required flags:**
-       Video gateways require at minimum: `-network`, `-ethUrl`, `-ethKeystorePath`, `-ethPassword`. Check the startup command against the [setup guide](/v2/gateways/run-a-gateway/setup-paths).
+       Video gateways require at minimum: `-network`, `-ethUrl`, `-ethKeystorePath`, `-ethPassword`. Check the startup command against the [setup guide](/v2/gateways/guides/setup-options/setup-paths).
   </Accordion>
 
   <Accordion title="Cannot allocate memory when using -nvidia flag">

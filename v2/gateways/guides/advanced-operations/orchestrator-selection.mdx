@@ -10,6 +10,18 @@ purpose: 'guides'
 status: 'current'
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 The gateway's default orchestrator selection works out of the box: it discovers available orchestrators, filters by price, and routes jobs. For operators running production workloads, that is often not enough. This guide covers how to take manual control of selection, tier orchestrators by quality, and configure failover behaviour.
 
@@ -150,7 +162,7 @@ Tier 3 (budget) → gateway instance C
     # No minPerfScore — accepts wider range
 ```
 
-Your middleware layer (see [Gateway Middleware](/gateways/guides/advanced-ops/gateway-middleware)) routes incoming requests to the correct gateway instance based on the customer's tier.
+Your middleware layer (see [Gateway Middleware](/v2/gateways/guides/advanced-operations/gateway-middleware)) routes incoming requests to the correct gateway instance based on the customer's tier.
 
 ---
 
@@ -230,16 +242,16 @@ Track selection health in production using these metrics and endpoints.
 ---
 
 <CardGroup cols={2}>
-  <Card title="Production Hardening" icon="arrow-left" href="/gateways/guides/advanced-ops/production-hardening">
+  <Card title="Production Hardening" icon="arrow-left" href="/v2/gateways/guides/advanced-operations/production-hardening">
     Security, TLS, and HA — covered before this guide.
   </Card>
-  <Card title="Scaling & Resource Management" icon="arrow-right" href="/gateways/guides/advanced-ops/scaling">
+  <Card title="Scaling & Resource Management" icon="arrow-right" href="/v2/gateways/guides/advanced-operations/scaling">
     Session limits and when to scale horizontally.
   </Card>
-  <Card title="Orchestrator Offerings Reference" icon="book" href="/gateways/references/orchestrator-offerings">
+  <Card title="Orchestrator Offerings Reference" icon="book" href="/v2/gateways/resources/technical/orchestrator-offerings">
     Full OrchestratorInfo data structure and discovery API reference.
   </Card>
-  <Card title="Configuration Flags" icon="sliders" href="/gateways/references/configuration-flags">
+  <Card title="Configuration Flags" icon="sliders" href="/v2/gateways/resources/technical/configuration-flags">
     All selection and scoring flags in one place.
   </Card>
 </CardGroup>

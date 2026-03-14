@@ -18,6 +18,18 @@ purpose: concept
 status: current
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 BYOC (Bring Your Own Container) extends what AI workloads your gateway can route by allowing orchestrators to run custom Docker inference containers and advertise them as capabilities. From your perspective as a gateway operator, BYOC is a routing and policy problem, not a model hosting problem. You configure how requests reach BYOC-capable orchestrators; the orchestrators handle everything inside the container.
 
@@ -234,10 +246,10 @@ If you are a gateway operator receiving BYOC traffic from developers building cu
   <Card title="AI Inference Pipeline" icon="brain" href="./ai-inference">
     Standard AI pipeline routing, orchestrator discovery, and AISessionManager details.
   </Card>
-  <Card title="Monitoring Setup" icon="chart-line" href="../monitoring-and-troubleshooting/monitoring-setup">
+  <Card title="Monitoring Setup" icon="chart-line" href="../monitoring-and-tooling/monitoring-setup">
     Per-capability health tracking, discovery error metrics, and alert configuration for AI workloads.
   </Card>
-  <Card title="Troubleshooting" icon="wrench" href="../monitoring-and-troubleshooting/troubleshooting">
+  <Card title="Troubleshooting" icon="wrench" href="../monitoring-and-tooling/troubleshooting">
     Diagnosing BYOC routing failures, cold-start issues, and capability mismatch errors.
   </Card>
 </CardGroup>

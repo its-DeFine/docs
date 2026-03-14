@@ -23,10 +23,22 @@ purpose: operational
 status: current
 lastVerified: '2026-03'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
-This guide sets up production observability for your Livepeer gateway. It assumes your gateway is already running — if you need quick health verification first, see [Gateway Health Checks](/v2/gateways/guides/monitoring-troubleshooting/gateway-health-checks).
+This guide sets up production observability for your Livepeer gateway. It assumes your gateway is already running — if you need quick health verification first, see [Gateway Health Checks](/v2/gateways/guides/monitoring-and-tooling/gateway-health-checks).
 
-For on-chain gateways, Prometheus metrics complement but do not replace [on-chain debugging](/v2/gateways/guides/monitoring-troubleshooting/on-chain-debugging) — contract events and deposit state require separate monitoring.
+For on-chain gateways, Prometheus metrics complement but do not replace [on-chain debugging](/v2/gateways/guides/monitoring-and-tooling/on-chain-debugging) — contract events and deposit state require separate monitoring.
 
 <Info>
   Jump to your workload type: [Video](#key-metrics-video-gateway) · [AI](#key-metrics-ai-gateway) · [Dual](#key-metrics-dual-gateway) · [Docker stack](#docker-monitoring-stack)
@@ -111,7 +123,7 @@ For a dual gateway, include both scrape jobs — they expose different metrics f
 
 ## Key Metrics — Video Gateway
 
-These are the metrics that matter most for on-chain video gateways. Full reference: [Prometheus Metrics](/v2/gateways/references/go-livepeer/prometheus-metrics).
+These are the metrics that matter most for on-chain video gateways. Full reference: [Prometheus Metrics](/v2/gateways/resources/technical/go-livepeer/prometheus-metrics).
 
 ### Health and Performance
 
@@ -171,7 +183,7 @@ AI gateways operate off-chain. There are fewer built-in metrics than video gatew
 | `livepeer_segment_source_upload_failed_total` | Failed job submissions | Alert on rate increase |
 
 <Note>
-  AI-specific inference latency (per-pipeline, per-model) is not currently exposed via `/metrics`. For AI inference latency monitoring, use [Livepeer Tools](/v2/gateways/guides/monitoring-troubleshooting/tools-and-dashboards#livepeer-tools-dashboard) or instrument your own application layer.
+  AI-specific inference latency (per-pipeline, per-model) is not currently exposed via `/metrics`. For AI inference latency monitoring, use [Livepeer Tools](/v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards#livepeer-tools-dashboard) or instrument your own application layer.
 
   {/* REVIEW: j0sh / Peter — confirm whether inference latency will be added to Prometheus metrics in upcoming releases */}
 </Note>
@@ -320,13 +332,13 @@ groups:
 ---
 
 <CardGroup cols={3}>
-  <Card title="Prometheus Metrics Reference" icon="table" href="/v2/gateways/references/go-livepeer/prometheus-metrics">
+  <Card title="Prometheus Metrics Reference" icon="table" href="/v2/gateways/resources/technical/go-livepeer/prometheus-metrics">
     Full table of all livepeer_* metrics
   </Card>
-  <Card title="On-Chain Debugging" icon="cube" href="/v2/gateways/guides/monitoring-troubleshooting/on-chain-debugging">
+  <Card title="On-Chain Debugging" icon="cube" href="/v2/gateways/guides/monitoring-and-tooling/on-chain-debugging">
     TicketBroker events and Arbitrum contract monitoring
   </Card>
-  <Card title="Tools & Dashboards" icon="layout-dashboard" href="/v2/gateways/guides/monitoring-troubleshooting/tools-and-dashboards">
+  <Card title="Tools & Dashboards" icon="layout-dashboard" href="/v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards">
     Explorer, Livepeer Tools, livepeer_cli
   </Card>
 </CardGroup>
@@ -407,10 +419,10 @@ scrape_configs:
 ### 3. Key Metrics — Video Gateway (on-chain)
 | Metric | What it tells you | Alert threshold |
 |--------|------------------|-----------------|
-| `livepeer_gateway_deposit` | Remaining ETH deposit | Alert when < 0.01 ETH |
-| `livepeer_gateway_reserve` | Remaining reserve | Alert when < 0.005 ETH |
-| `livepeer_success_rate` | Transcoded segments / source segments | Alert when < 0.95 |
-| `livepeer_transcode_overall_latency_seconds` | End-to-end transcoding latency | Alert when > 5s |
+| `livepeer_gateway_deposit` | Remaining ETH deposit | Alert when &lt; 0.01 ETH |
+| `livepeer_gateway_reserve` | Remaining reserve | Alert when &lt; 0.005 ETH |
+| `livepeer_success_rate` | Transcoded segments / source segments | Alert when &lt; 0.95 |
+| `livepeer_transcode_overall_latency_seconds` | End-to-end transcoding latency | Alert when &gt; 5s |
 | `livepeer_segment_transcode_failed_total` | Failed transcodes (counter) | Alert on rate increase |
 | `livepeer_ticket_value_sent` | ETH being spent on tickets | Budget monitoring |
 | `livepeer_payment_create_errors` | Ticket creation failures | Alert on any increase |
@@ -457,7 +469,7 @@ Arbitrum contract events:
 ### 8. Alert Recommendations
 Priority alerts by gateway type:
 - **Critical (all)**: gateway process down, `/health` failing
-- **Critical (video/dual)**: deposit exhausted, success rate < 90%
+- **Critical (video/dual)**: deposit exhausted, success rate &lt; 90%
 - **Critical (video/dual)**: unexpected large ticket redemption (Arbiscan event)
 - **Warning (video/dual)**: deposit below threshold, high latency, gas price spike
 - **Warning (AI)**: no orchestrators reachable, session limit approaching

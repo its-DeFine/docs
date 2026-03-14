@@ -10,6 +10,18 @@ purpose: 'orientation'
 status: 'current'
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 # Payment Paths for Gateway Operators
 
@@ -28,7 +40,7 @@ Livepeer uses a **probabilistic micropayment (PM)** system to settle fees betwee
 The result: thousands of jobs generate only a handful of on-chain transactions, keeping gas costs negligible while orchestrators receive statistically fair compensation over time.
 
 <Tip>
-  For a full explanation of the PM mechanism, including deposit and reserve mechanics, see [How Payments Work](/v2/gateways/concepts/how-payments-work) in the Concepts section.
+  For a full explanation of the PM mechanism, including deposit and reserve mechanics, see [How Payments Work](/v2/gateways/guides/payments-and-pricing/related/how-payments-work) in the Concepts section.
 </Tip>
 
 ---
@@ -70,7 +82,7 @@ Your gateway type determines your payment obligations before you write a single 
 
     This path is appropriate for **Video Gateways** and **Dual Gateways** that need full control and do not want to depend on third-party services.
 
-    Next step: [Fund Your Gateway](/v2/gateways/guides/payments/fund-your-gateway)
+    Next step: [Fund Your Gateway](/v2/gateways/guides/payments-and-pricing/fund-your-gateway)
   </Tab>
 
   <Tab title="Remote signer">
@@ -86,7 +98,7 @@ Your gateway type determines your payment obligations before you write a single 
 
     This path is appropriate for **Live AI workloads**, SDK-based gateways, and any deployment where key isolation is a requirement. Note that remote signing is currently **not supported for video transcoding**.
 
-    Next step: [Remote Signers](/v2/gateways/guides/payments/remote-signers)
+    Next step: [Remote Signers](/v2/gateways/guides/payments-and-pricing/remote-signers)
   </Tab>
 
   <Tab title="Clearinghouse">
@@ -102,7 +114,7 @@ Your gateway type determines your payment obligations before you write a single 
 
     The protocol support for clearinghouses is in place. No public clearinghouse is at general availability as of early 2026; the community remote signer hosted by Elite Encoder (`signer.eliteencoder.net`) serves as a testing surface in the meantime.
 
-    Next step: [Payment Clearinghouses](/v2/gateways/guides/payments/payment-clearinghouse-guide)
+    Next step: [Payment Clearinghouses](/v2/gateways/guides/payments-and-pricing/clearinghouse-guide)
   </Tab>
 </Tabs>
 
@@ -116,19 +128,19 @@ Your gateway type determines your payment obligations before you write a single 
   </Accordion>
 
   <Accordion title="I am running video transcoding">
-    You need the **self-managed on-chain path**. Video transcoding uses a different payment flow from AI inference and does not support remote signers. You will need ETH on Arbitrum, a funded deposit, and a reserve in the `TicketBroker` contract. Start with [Fund Your Gateway](/v2/gateways/guides/payments/fund-your-gateway).
+    You need the **self-managed on-chain path**. Video transcoding uses a different payment flow from AI inference and does not support remote signers. You will need ETH on Arbitrum, a funded deposit, and a reserve in the `TicketBroker` contract. Start with [Fund Your Gateway](/v2/gateways/guides/payments-and-pricing/fund-your-gateway).
   </Accordion>
 
   <Accordion title="I am running a Live AI pipeline and want key isolation">
-    Use a **remote signer**. You (or a trusted operator) run the signer service with the ETH account; your gateway talks to it over the network and holds no key. Multiple gateway instances can point at the same signer. See [Remote Signers](/v2/gateways/guides/payments/remote-signers) for setup.
+    Use a **remote signer**. You (or a trusted operator) run the signer service with the ETH account; your gateway talks to it over the network and holds no key. Multiple gateway instances can point at the same signer. See [Remote Signers](/v2/gateways/guides/payments-and-pricing/remote-signers) for setup.
   </Accordion>
 
   <Accordion title="I am building a gateway-as-a-service product for many users">
-    You want to **build or integrate with a clearinghouse**. You will run remote signer instances, add user management, accounting, and billing on top. See [Payment Clearinghouses](/v2/gateways/guides/payments/payment-clearinghouse-guide) for the architecture, and the Opportunities section for guidance on building Network-as-a-Platform (NaaP) infrastructure.
+    You want to **build or integrate with a clearinghouse**. You will run remote signer instances, add user management, accounting, and billing on top. See [Payment Clearinghouses](/v2/gateways/guides/payments-and-pricing/clearinghouse-guide) for the architecture, and the Opportunities section for guidance on building Network-as-a-Platform (NaaP) infrastructure.
   </Accordion>
 
   <Accordion title="I am building a Python, mobile, or browser-based gateway">
-    Use the **remote signer path** via the Livepeer SDK. The SDK handles the PM signing interaction with the remote signer; your application only needs an orchestrator endpoint and a remote signer URL. The gateway holds no Ethereum dependency. See the SDK documentation and [Remote Signers](/v2/gateways/guides/payments/remote-signers).
+    Use the **remote signer path** via the Livepeer SDK. The SDK handles the PM signing interaction with the remote signer; your application only needs an orchestrator endpoint and a remote signer URL. The gateway holds no Ethereum dependency. See the SDK documentation and [Remote Signers](/v2/gateways/guides/payments-and-pricing/remote-signers).
   </Accordion>
 
   <Accordion title="I need ETH for video but want key isolation for security">
@@ -144,21 +156,21 @@ Your gateway type determines your payment obligations before you write a single 
 
 Regardless of payment architecture, you still control the **maximum price** your gateway pays orchestrators. This is set via CLI flags or a JSON configuration file and applies per-pipeline for AI workloads and per-pixel for video.
 
-Setting your prices correctly determines which orchestrators your gateway can access and what your compute costs will be. See [Pricing Strategy](/v2/gateways/guides/payments/pricing-strategy) for a practical guide to configuring maximum prices.
+Setting your prices correctly determines which orchestrators your gateway can access and what your compute costs will be. See [Pricing Strategy](/v2/gateways/guides/payments-and-pricing/pricing-strategy) for a practical guide to configuring maximum prices.
 
 ---
 
 <CardGroup cols={2}>
-  <Card title="Fund Your Gateway" icon="coins" href="/v2/gateways/guides/payments/fund-your-gateway">
+  <Card title="Fund Your Gateway" icon="coins" href="/v2/gateways/guides/payments-and-pricing/fund-your-gateway">
     Deposit ETH into the TicketBroker contract and set your reserve. Required for on-chain video and dual gateways.
   </Card>
-  <Card title="Pricing Strategy" icon="chart-line" href="/v2/gateways/guides/payments/pricing-strategy">
+  <Card title="Pricing Strategy" icon="chart-line" href="/v2/gateways/guides/payments-and-pricing/pricing-strategy">
     Set maximum prices per pipeline and model. Controls which orchestrators your gateway can access.
   </Card>
-  <Card title="Remote Signers" icon="shield-check" href="/v2/gateways/guides/payments/remote-signers">
+  <Card title="Remote Signers" icon="shield-check" href="/v2/gateways/guides/payments-and-pricing/remote-signers">
     Isolate your Ethereum key into a separate signing service. Required for keyless Live AI gateways.
   </Card>
-  <Card title="Payment Clearinghouses" icon="building-columns" href="/v2/gateways/guides/payments/payment-clearinghouse-guide">
+  <Card title="Payment Clearinghouses" icon="building-columns" href="/v2/gateways/guides/payments-and-pricing/clearinghouse-guide">
     Delegate all ETH management to a third-party clearinghouse. The no-crypto path.
   </Card>
 </CardGroup>

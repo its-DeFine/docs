@@ -5,6 +5,18 @@ description: 'Run a complete Livepeer gateway and orchestrator on one machine us
 keywords: ["livepeer", "BYOC", "gateway", "orchestrator", "CPU", "tutorial", "off-chain", "remote signer", "Docker"]
 og:image: "/snippets/assets/domain/SHARED/LivepeerDocsLogo.svg"
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 This tutorial walks through a complete end-to-end test of the Livepeer gateway + orchestrator pipeline using BYOC (Bring Your Own Container) with a CPU-only Docker container. No GPU is required.
 
@@ -470,11 +482,11 @@ Once your off-chain smoke test passes, follow this path to move to a production 
 
     Options for acquiring Arbitrum ETH:
     - Bridge from Ethereum mainnet via the [official Arbitrum bridge](https://bridge.arbitrum.io/)
-    - Buy directly on Arbitrum via exchanges listed at the [Arbitrum Exchanges reference](/v2/gateways/references/arbitrum-exchanges)
+    - Buy directly on Arbitrum via exchanges listed at the [Arbitrum Exchanges reference](/v2/gateways/resources/technical/arbitrum-exchanges)
     - Buy on a CEX (Coinbase, Binance) and withdraw directly to Arbitrum One
 
     <Warning>
-    Confirm current ETH deposit requirements in [#lounge on Discord](https://discord.gg/livepeer) or the [on-chain requirements page](/v2/gateways/run-a-gateway/requirements/on-chain) before depositing — amounts can change as ETH/USD rates shift.
+    Confirm current ETH deposit requirements in [#lounge on Discord](https://discord.gg/livepeer) or the [on-chain requirements page](/v2/gateways/setup/requirements/on-chain%20setup/on-chain) before depositing — amounts can change as ETH/USD rates shift.
     </Warning>
   </Step>
 
@@ -495,7 +507,7 @@ Once your off-chain smoke test passes, follow this path to move to a production 
     Your on-chain gateway needs a reliable Arbitrum One RPC. Options:
     - [Infura](https://infura.io) — `https://arbitrum-mainnet.infura.io/v3/YOUR_KEY`
     - [Alchemy](https://alchemy.com) — `https://arb-mainnet.g.alchemy.com/v2/YOUR_KEY`
-    - Community Arbitrum RPC (see [Arbitrum RPC reference](/v2/gateways/references/arbitrum-rpc))
+    - Community Arbitrum RPC (see [Arbitrum RPC reference](/v2/gateways/resources/technical/arbitrum-rpc))
 
     Test your RPC:
     ```bash
@@ -594,13 +606,13 @@ Once your off-chain smoke test passes, follow this path to move to a production 
   <Card title="Custom pipeline beyond passthrough" href="https://github.com/livepeer/ai-runner/blob/main/docs/custom-pipeline.md" icon="wand-magic-sparkles">
     Build a real CPU or GPU pipeline extending ai-runner. Add model loading, frame processing logic, and custom parameters.
   </Card>
-  <Card title="Remote signers deep dive" href="/v2/gateways/payments/remote-signers" icon="key">
+  <Card title="Remote signers deep dive" href="/v2/gateways/guides/payments-and-pricing/remote-signers" icon="key">
     Understand the full remote signer protocol, stateless design, and how to run your own signer for production security.
   </Card>
-  <Card title="Payment clearinghouse" href="/v2/gateways/payments/payment-clearinghouse" icon="building-columns">
+  <Card title="Payment clearinghouse" href="/v2/gateways/guides/payments-and-pricing/clearinghouse-guide" icon="building-columns">
     Build a Gateway-as-a-Service layer: JWT auth, user management, accounting on top of the remote signer model (NaaP reference implementation).
   </Card>
-  <Card title="Monitoring and optimisation" href="/v2/gateways/run-a-gateway/monitor/monitor-and-optimise" icon="gauge">
+  <Card title="Monitoring and optimisation" href="/v2/gateways/setup/monitor/monitor-and-optimise" icon="gauge">
     Set up Prometheus metrics, Loki log queries, and ETH balance alerts for production gateway operation.
   </Card>
 </CardGroup>

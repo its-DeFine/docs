@@ -1,5 +1,5 @@
 # Sources, Research, and REVIEW Flags
-## Setup Paths Section — gateway-setup-paths.mdx + requirements-by-path.mdx
+## Setup Paths Section — setup-paths.mdx + path-requirements.mdx
 **Date:** 2026-03-13
 
 ---
@@ -8,8 +8,8 @@
 
 | File | Replaces | Status |
 |------|----------|--------|
-| `gateway-setup-paths.mdx` | `gateway-setup-paths.mdx` + `on-chain-vs-off-chain.mdx` | Full rewrite — decision matrix, 5 paths, on-chain/off-chain split, persona routing |
-| `requirements-by-path.mdx` | `sdk-alt-gateways.mdx` + `dual-gateway-config.mdx` | New consolidated page — tabbed per-path prereqs with confirmed technical content |
+| `setup-paths.mdx` | `gateway-setup-paths.mdx` + `on-chain-vs-off-chain.mdx` | Full rewrite — decision matrix, 5 paths, on-chain/off-chain split, persona routing |
+| `path-requirements.mdx` | `sdk-alt-gateways.mdx` + `dual-gateway-config.mdx` | New consolidated page — tabbed per-path prereqs with confirmed technical content |
 | `setup-paths-evaluation.md` | — | Journey scoring + gap analysis |
 
 ---
@@ -64,31 +64,31 @@
 | Flag | Claim | Pages | Owner |
 |------|-------|-------|-------|
 | RS-01 | Is `signer.eliteencoder.net` still live, free, and production-suitable? | Both pages | Elite Encoder / #local-gateways |
-| RS-02 | ETH deposit 0.065 + reserve 0.03 ETH — still current amounts? Check issue #3744 | `requirements-by-path.mdx` | Mehrdad / Rick |
+| RS-02 | ETH deposit 0.065 + reserve 0.03 ETH — still current amounts? Check issue #3744 | `path-requirements.mdx` | Mehrdad / Rick |
 | RS-03 | Docker image tag — `master` or pinned release? | Both pages | Rick |
-| RS-04 | `-remoteSignerAddr` flag name and exact format | `gateway-setup-paths.mdx` | j0sh |
-| RS-05 | GetOrchestrators endpoint — merged to python-gateway main and/or on signer.eliteencoder.net? | `requirements-by-path.mdx` | j0sh / Elite Encoder |
+| RS-04 | `-remoteSignerAddr` flag name and exact format | `setup-paths.mdx` | j0sh |
+| RS-05 | GetOrchestrators endpoint — merged to python-gateway main and/or on signer.eliteencoder.net? | `path-requirements.mdx` | j0sh / Elite Encoder |
 
 ### Medium — accuracy gaps to resolve before launch
 
 | Flag | Claim | Pages | Owner |
 |------|-------|-------|-------|
-| RM-01 | Docker Compose flags for dual gateway — `-network`, `-ethUrl`, `-ethKeystoreDir` format | `requirements-by-path.mdx` | Rick |
-| RM-02 | `-remoteSigner` flag name and exact startup command | `requirements-by-path.mdx` | j0sh |
-| RM-03 | OrchestratorSession, PaymentSession, LiveVideoJob class names current in python-gateway main? | `requirements-by-path.mdx` | j0sh / Elite Encoder |
-| RM-04 | `-maxPricePerCapability` JSON format — confirm live model IDs | `requirements-by-path.mdx` | Peter (AI SPE Lead) |
-| RM-05 | NaaP public URL and production API stability | `gateway-setup-paths.mdx` | Qiang Han |
+| RM-01 | Docker Compose flags for dual gateway — `-network`, `-ethUrl`, `-ethKeystoreDir` format | `path-requirements.mdx` | Rick |
+| RM-02 | `-remoteSigner` flag name and exact startup command | `path-requirements.mdx` | j0sh |
+| RM-03 | OrchestratorSession, PaymentSession, LiveVideoJob class names current in python-gateway main? | `path-requirements.mdx` | j0sh / Elite Encoder |
+| RM-04 | `-maxPricePerCapability` JSON format — confirm live model IDs | `path-requirements.mdx` | Peter (AI SPE Lead) |
+| RM-05 | NaaP public URL and production API stability | `setup-paths.mdx` | Qiang Han |
 
 ### Low — enrichment items
 
 | Flag | Item | Pages | Owner |
 |------|------|-------|-------|
-| RL-01 | Titan Node YouTube (@TitanNode) — most recent gateway setup video (2024+) | `gateway-setup-paths.mdx` | Foundation content |
-| RL-02 | Livepeer Foundation YouTube — AI gateway overview or setup video | `gateway-setup-paths.mdx` | Foundation content |
-| RL-03 | livepeer.cloud/how-to-run-a-livepeer-gateway-node — URL still active? | `gateway-setup-paths.mdx` | Cloud SPE |
-| RL-04 | Owncast + Livepeer integration tutorial URL | `requirements-by-path.mdx` | Cloud SPE |
-| RL-05 | Issue #3744 resolved? If so, update reserve amount | `requirements-by-path.mdx` | Rick |
-| RL-06 | BYOC remote signer support — confirmed shipped for batch AI? | `requirements-by-path.mdx` SDK tab | j0sh / Peter |
+| RL-01 | Titan Node YouTube (@TitanNode) — most recent gateway setup video (2024+) | `setup-paths.mdx` | Foundation content |
+| RL-02 | Livepeer Foundation YouTube — AI gateway overview or setup video | `setup-paths.mdx` | Foundation content |
+| RL-03 | livepeer.cloud/how-to-run-a-livepeer-gateway-node — URL still active? | `setup-paths.mdx` | Cloud SPE |
+| RL-04 | Owncast + Livepeer integration tutorial URL | `path-requirements.mdx` | Cloud SPE |
+| RL-05 | Issue #3744 resolved? If so, update reserve amount | `path-requirements.mdx` | Rick |
+| RL-06 | BYOC remote signer support — confirmed shipped for batch AI? | `path-requirements.mdx` SDK tab | j0sh / Peter |
 
 ---
 
@@ -109,17 +109,17 @@ Source confirming correction: Remote Signers design doc — "the go-livepeer gat
 
 ```json
 {
-  "group": "Setup Paths",
+  "group": "Setup Options",
   "pages": [
-    "v2/gateways/guides/setup-options/gateway-setup-paths",
-    "v2/gateways/guides/setup-paths/requirements-by-path"
+    "v2/gateways/guides/setup-options/setup-paths",
+    "v2/gateways/guides/setup-options/path-requirements"
   ]
 }
 ```
 
 `sidebarTitle` values:
-- `gateway-setup-paths.mdx` → `"Choose Your Path"`
-- `requirements-by-path.mdx` → `"Requirements by Path"`
+- `setup-paths.mdx` → `"Setup Paths"`
+- `path-requirements.mdx` → `"Requirements by Path"`
 
 ---
 
@@ -127,8 +127,8 @@ Source confirming correction: Remote Signers design doc — "the go-livepeer gat
 
 | Stub | Decision |
 |------|----------|
-| `on-chain-vs-off-chain.mdx` | Absorbed into `gateway-setup-paths.mdx` as tabbed decision section |
-| `sdk-alt-gateways.mdx` | Absorbed into `requirements-by-path.mdx` as SDK/Alternative tab |
-| `dual-gateway-config.mdx` | Absorbed into `requirements-by-path.mdx` as Dual Gateway tab |
+| `on-chain-vs-off-chain.mdx` | Absorbed into `setup-paths.mdx` as tabbed decision section |
+| `sdk-alt-gateways.mdx` | Absorbed into `path-requirements.mdx` as SDK/Alternative tab |
+| `dual-gateway-config.mdx` | Absorbed into `path-requirements.mdx` as Dual Gateway tab |
 
 All four original stubs scored 0 against persona journey questions. No content was carried forward.

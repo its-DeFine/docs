@@ -22,6 +22,18 @@ purpose: concept
 status: current
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 Your AI gateway receives HTTP inference requests, matches each one to a capable orchestrator, and returns the result to the client. No ETH deposit is required for standard off-chain AI operation. The pipeline differs fundamentally from video transcoding — requests are discrete HTTP calls, not streaming segments, and routing is by pipeline and model capability rather than by pixel throughput.
 
@@ -93,12 +105,15 @@ Livepeer AI inference routes across three integration patterns. As a gateway ope
     | Upscale | `/upscale` | Image | Pixels |
     | Audio to text | `/audio-to-text` | Transcript JSON | Audio milliseconds |
     | Image to text | `/image-to-text` | Text | Pixels |
-    | Text to speech | `/text-to-speech` | Audio | {/* REVIEW: confirm pricing unit for text-to-speech with j0sh/Peter */} Audio milliseconds |
+    | Text to speech | `/text-to-speech` | Audio | Audio milliseconds |
     | Segment Anything 2 | `/segment-anything-2` | Segmentation mask | Pixels |
     | Live video to video | `/live-video-to-video` | Transformed stream | Interval-based |
-    | LLM | `/llm` | Text | {/* REVIEW: confirm per-token vs per-request pricing for LLM with j0sh */} Per-request or per-token |
+    | LLM | `/llm` | Text | Per-request or per-token |
 
     To call a pipeline from your application:
+
+    {/* REVIEW: confirm pricing unit for text-to-speech with j0sh/Peter. */}
+    {/* REVIEW: confirm per-token vs per-request pricing for LLM with j0sh. */}
 
     ```bash
     curl -X POST http://localhost:8937/text-to-image \
@@ -350,10 +365,10 @@ A unified AI capability registry is an active area of community discussion. Cont
   <Card title="Pipeline Configuration" icon="sliders" href="./pipeline-configuration">
     AI routing flags, retry timeouts, and per-pipeline pricing reference.
   </Card>
-  <Card title="Monitoring Setup" icon="chart-line" href="../monitoring-and-troubleshooting/monitoring-setup">
+  <Card title="Monitoring Setup" icon="chart-line" href="../monitoring-and-tooling/monitoring-setup">
     AI-specific Prometheus metrics, discovery error tracking, and session capacity monitoring.
   </Card>
-  <Card title="AI API Reference" icon="code" href="/v2/gateways/references/api-reference/AI-API/text-to-image">
+  <Card title="AI API Reference" icon="code" href="/v2/gateways/resources/technical/api-reference/AI-API/text-to-image">
     Full endpoint reference for all AI pipelines.
   </Card>
 </CardGroup>

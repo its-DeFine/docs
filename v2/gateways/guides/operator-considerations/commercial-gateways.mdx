@@ -1,5 +1,5 @@
 ---
-title: 'Gateways in Production Showcase'
+title: 'Gateways in Production'
 sidebarTitle: 'Commercial Gateways'
 description: 'Real applications, community tools, and Foundation programmes built on Livepeer gateways — showing what becomes possible when you route through the Livepeer network.'
 keywords:
@@ -24,14 +24,29 @@ purpose: guides
 status: current
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
+{/* NEEDS WORK - needs images & callouts on what is beta / experimental and what is not */}
+
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 
 Gateways are how value flows through the Livepeer network. Every product built on Livepeer — whether a consumer app, a developer API, or internal infrastructure — connects to the compute network through a gateway.
 
 This page documents real applications and community projects that are already running, gives you tooling references, and points to Foundation programmes for new builders.
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Commercial products and platforms
 
@@ -43,7 +58,7 @@ This page documents real applications and community projects that are already ru
 
 {/* REVIEW: Add Daydream link and current product URL. Confirm Daydream is still the primary commercial AI gateway operator. */}
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ### Livepeer Studio
 
@@ -54,7 +69,7 @@ This page documents real applications and community projects that are already ru
 - Website: [livepeer.studio](https://livepeer.studio)
 - Studio powers video workflows for games, social apps, creator tools, and live event platforms
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ### Livepeer Cloud (Cloud SPE)
 
@@ -68,7 +83,7 @@ This page documents real applications and community projects that are already ru
 
 {/* REVIEW: Confirm livepeer.cloud URLs are current and accessible. */}
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ### Embody Avatars
 
@@ -78,7 +93,7 @@ This page documents real applications and community projects that are already ru
 
 {/* REVIEW: Confirm Embody's current gateway setup and whether they operate their own gateway or use a public one. Check Foundation BD team. */}
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Infrastructure and tooling projects
 
@@ -93,7 +108,7 @@ This page documents real applications and community projects that are already ru
 
 {/* REVIEW: Confirm NaaP public availability and current status with Qiang Han. */}
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ### livepeer-python-gateway (j0sh)
 
@@ -104,7 +119,7 @@ This page documents real applications and community projects that are already ru
 - Repository: [github.com/j0sh/livepeer-python-gateway](https://github.com/j0sh/livepeer-python-gateway)
 - Examples: `github.com/j0sh/livepeer-python-gateway/tree/main/examples`
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ### Community remote signer (Elite Encoder)
 
@@ -117,7 +132,7 @@ This page documents real applications and community projects that are already ru
 
 {/* REVIEW: Confirm signer.eliteencoder.net is still operational and free. Last confirmed via Discord #local-gateways. */}
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ### tools.livepeer.cloud
 
@@ -131,7 +146,7 @@ This page documents real applications and community projects that are already ru
 `livepeer.tools` was previously the community monitoring site but is currently showing an nginx default page. The active tool is `tools.livepeer.cloud`.
 </Note>
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ### Owncast integration
 
@@ -144,7 +159,7 @@ This page documents real applications and community projects that are already ru
 
 {/* REVIEW: Add direct link to the Livepeer + Owncast tutorial on livepeer.cloud/blog when confirmed. */}
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Foundation programmes for builders
 
@@ -156,7 +171,7 @@ If you are building a product that routes AI inference through Livepeer (and run
 
 {/* REVIEW: Confirm current programme name, application process, and URL with Foundation BD team. */}
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ### SPE (Special Purpose Entity) grants
 
@@ -171,7 +186,7 @@ Funded SPEs in the gateway operator space include Livepeer Cloud SPE (public gat
 
 Forum proposals and active SPE discussions: [forum.livepeer.org](https://forum.livepeer.org)
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Video tutorials
 
@@ -183,7 +198,7 @@ Forum proposals and active SPE discussions: [forum.livepeer.org](https://forum.l
 
 Community tutorials and video content will be added here as they are identified. If you have created a tutorial or walkthrough for running a Livepeer gateway, share it in the `#local-gateways` Discord channel for consideration.
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Community channels
 
@@ -194,18 +209,18 @@ Community tutorials and video content will be added here as they are identified.
 | [Livepeer Forum](https://forum.livepeer.org) | Long-form questions, SPE proposals, governance. |
 | [go-livepeer GitHub](https://github.com/livepeer/go-livepeer) | Source code, issues, PRs. File issues here for confirmed bugs. |
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Next steps
 
 <CardGroup cols={3}>
-  <Card title="Why run a gateway" icon="lightbulb" href="/v2/gateways/guides/why-run-a-gateway">
+  <Card title="Why run a gateway" icon="lightbulb" href="/v2/gateways/guides/operator-considerations/operator-opportunities">
     Reasons to run your own gateway vs using a hosted service.
   </Card>
-  <Card title="Gateway requirements" icon="clipboard-check" href="/v2/gateways/guides/gateway-requirements">
+  <Card title="Gateway requirements" icon="clipboard-check" href="/v2/gateways/guides/operator-considerations/operator-requirements">
     Hardware, OS, and skills you need to get started.
   </Card>
-  <Card title="Choose your path" icon="arrow-right" href="/v2/gateways/get-started/gateway-setup-paths">
+  <Card title="Choose your path" icon="arrow-right" href="/v2/gateways/guides/setup-options/setup-paths">
     Find the right quickstart for your gateway type.
   </Card>
 </CardGroup>

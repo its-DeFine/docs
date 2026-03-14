@@ -7,10 +7,22 @@ pageType: 'reference'
 audience: 'gateway'
 status: 'current'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 Requirements differ by gateway type. Select your type below.
 
-Not sure which type to run? See [Choose Your Gateway Type](/v2/gateways/gateway-path) first.
+Not sure which type to run? See [Choose Your Gateway Type](/v2/gateways/guides/setup-options/setup-paths) first.
 
 <Tabs>
   <Tab title="AI Gateway (off-chain)">
@@ -46,11 +58,11 @@ Not sure which type to run? See [Choose Your Gateway Type](/v2/gateways/gateway-
 
     ### Orchestrator addresses
 
-    The off-chain gateway does not use on-chain discovery. You must supply a list of AI-capable orchestrators directly via the `-orchAddr` flag. See [Where to find orchestrator addresses](/v2/gateways/setup/requirements/off-chain#orchestrator-addresses) for options.
+    The off-chain gateway does not use on-chain discovery. You must supply a list of AI-capable orchestrators directly via the `-orchAddr` flag. See [Where to find orchestrator addresses](/v2/gateways/guides/operator-considerations/requirements-off-chain#orchestrator-addresses) for options.
 
     ## Ready to install?
 
-    [AI Gateway Quickstart →](/v2/gateways/get-started/ai-gateway-quickstart)
+    [AI Gateway Quickstart →](/v2/gateways/quickstart/gateway-setup)
 
   </Tab>
 
@@ -91,11 +103,11 @@ Not sure which type to run? See [Choose Your Gateway Type](/v2/gateways/gateway-
     1. Gas for contract transactions (deposit, reserve, ticket redemption)
     2. The payment deposit and reserve amounts that fund your gateway's probabilistic micropayment capacity
 
-    See [Fund the Gateway](/v2/gateways/setup/requirements/fund-gateway) for exact steps.
+    See [Fund the Gateway](/v2/gateways/setup/requirements/on-chain%20setup/fund-gateway) for exact steps.
 
     ## Ready to install?
 
-    [Video Gateway Quickstart →](/v2/gateways/get-started/gateway-setup)
+    [Video Gateway Quickstart →](/v2/gateways/quickstart/gateway-setup)
 
   </Tab>
 

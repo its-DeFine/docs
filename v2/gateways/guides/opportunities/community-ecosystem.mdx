@@ -23,6 +23,18 @@ audience: 'gateway'
 status: 'current'
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 {/*
   PURPOSE:
@@ -236,7 +248,7 @@ Community tutorials and video content will be added here as they are identified.
   <Card title="SPE Grant Model" icon="coins" href="/v2/gateways/guides/opportunities/spe-grant-model">
     How to get treasury funding for gateway infrastructure.
   </Card>
-  <Card title="Choose your setup path" icon="arrow-right" href="/v2/gateways/get-started/gateway-setup-paths">
+  <Card title="Choose your setup path" icon="arrow-right" href="/v2/gateways/guides/setup-options/setup-paths">
     Video gateway, AI gateway, dual, or SDK-based  - find the right quickstart.
   </Card>
 </CardGroup>

@@ -10,13 +10,25 @@ purpose: 'task'
 status: 'current'
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 # Fund Your Gateway
 
 On-chain gateway operators must maintain a funded ETH account on Arbitrum One before routing any jobs. This page walks you through acquiring ETH, bridging it to Arbitrum, and depositing it into the `TicketBroker` contract that backs your gateway's payment tickets.
 
 <Warning>
-  **This page applies to Video Gateways and Dual Gateways only.** If you are running an AI Gateway in off-chain mode, you do not need ETH in the gateway process. Off-chain gateways and clearinghouse-backed gateways skip this step entirely. Not sure which applies to you? See [Payment Paths](/v2/gateways/guides/payments/payment-paths).
+  **This page applies to Video Gateways and Dual Gateways only.** If you are running an AI Gateway in off-chain mode, you do not need ETH in the gateway process. Off-chain gateways and clearinghouse-backed gateways skip this step entirely. Not sure which applies to you? See [Payment Paths](/v2/gateways/guides/payments-and-pricing/payment-paths).
 </Warning>
 
 ---
@@ -62,7 +74,7 @@ Livepeer's `TicketBroker` contract lives on Arbitrum One (not Ethereum mainnet).
   <Tab title="No ETH yet">
     Some centralised exchanges support direct withdrawals to Arbitrum One, which avoids the bridging step entirely. You receive ETH directly in your Arbitrum wallet.
 
-    For a current list of exchanges supporting Arbitrum One, see the [Arbitrum Exchange Reference](/v2/gateways/references/arbitrum-exchanges) in the Resources section. This list is dynamically sourced from CoinGecko.
+    For a current list of exchanges supporting Arbitrum One, see the [Arbitrum Exchange Reference](/v2/gateways/resources/technical/arbitrum-exchanges) in the Resources section. This list is dynamically sourced from CoinGecko.
 
     <Note>
       Livepeer does not recommend any specific exchange. Verify network support before initiating a withdrawal.
@@ -183,16 +195,16 @@ Use `livepeer_cli` to initiate an unlock request. After the unlock period expire
 ---
 
 <CardGroup cols={2}>
-  <Card title="Pricing Strategy" icon="chart-line" href="/v2/gateways/guides/payments/pricing-strategy">
+  <Card title="Pricing Strategy" icon="chart-line" href="/v2/gateways/guides/payments-and-pricing/pricing-strategy">
     Set maximum prices your gateway will pay orchestrators. Configure after funding.
   </Card>
-  <Card title="Remote Signers" icon="shield-check" href="/v2/gateways/guides/payments/remote-signers">
+  <Card title="Remote Signers" icon="shield-check" href="/v2/gateways/guides/payments-and-pricing/remote-signers">
     Isolate your signing key from the gateway process for better security.
   </Card>
-  <Card title="Payment Paths" icon="code-branch" href="/v2/gateways/guides/payments/payment-paths">
+  <Card title="Payment Paths" icon="code-branch" href="/v2/gateways/guides/payments-and-pricing/payment-paths">
     Revisit the payment architecture decision guide.
   </Card>
-  <Card title="Arbitrum Exchange Reference" icon="arrow-right-arrow-left" href="/v2/gateways/references/arbitrum-exchanges">
+  <Card title="Arbitrum Exchange Reference" icon="arrow-right-arrow-left" href="/v2/gateways/resources/technical/arbitrum-exchanges">
     Find exchanges that support direct Arbitrum One withdrawals.
   </Card>
 </CardGroup>

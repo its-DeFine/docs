@@ -10,13 +10,25 @@ purpose: 'guides'
 status: 'current'
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 The go-livepeer binary is a routing and payment engine. It does not authenticate your users, meter their usage, or route premium customers to different orchestrators. Those concerns belong to a middleware layer that you control, sitting between your customers and the gateway process.
 
 This guide covers the common patterns for building that layer.
 
 <Note>
-This page covers the **request pipeline** — the layer between clients and your gateway. The **payment pipeline** (how your gateway settles with orchestrators using ETH or fiat credit) is covered in the [Payment Clearinghouse](/gateways/payments/payment-clearinghouse) guide.
+This page covers the **request pipeline** — the layer between clients and your gateway. The **payment pipeline** (how your gateway settles with orchestrators using ETH or fiat credit) is covered in the [Payment Clearinghouse](/v2/gateways/guides/payments-and-pricing/clearinghouse-guide) guide.
 </Note>
 
 ---
@@ -285,7 +297,7 @@ app.use('/ai/*', (req, res) => proxyRequest(req, res, 'http://localhost:8937'));
 app.use('/video/*', (req, res) => proxyRequest(req, res, 'http://localhost:8935'));
 ```
 
-This pattern, combined with [tiered orchestrator selection](/gateways/guides/advanced-ops/orchestrator-selection#tiering-strategy), allows you to deliver different SLA levels from one middleware deployment.
+This pattern, combined with [tiered orchestrator selection](/v2/gateways/guides/advanced-operations/orchestrator-selection#tiering-strategy), allows you to deliver different SLA levels from one middleware deployment.
 
 ---
 
@@ -330,21 +342,21 @@ A clearinghouse combines middleware concerns with payment pipeline concerns into
 | Multi-tenant isolation | ✅ you build | ✅ built in |
 | Fiat settlement | ❌ you build | ✅ built in |
 
-If you want to avoid building the payment side, the [Payment Clearinghouse](/gateways/payments/payment-clearinghouse) guide covers how to delegate ETH custody and payment accounting to a clearinghouse service while keeping your middleware for auth and routing.
+If you want to avoid building the payment side, the [Payment Clearinghouse](/v2/gateways/guides/payments-and-pricing/clearinghouse-guide) guide covers how to delegate ETH custody and payment accounting to a clearinghouse service while keeping your middleware for auth and routing.
 
 ---
 
 <CardGroup cols={2}>
-  <Card title="Scaling" icon="arrow-left" href="/gateways/guides/advanced-ops/scaling">
+  <Card title="Scaling" icon="arrow-left" href="/v2/gateways/guides/advanced-operations/scaling">
     Scale middleware and gateway instances together.
   </Card>
-  <Card title="Publishing Your Gateway" icon="arrow-right" href="/gateways/guides/advanced-ops/publishing">
+  <Card title="Publishing Your Gateway" icon="arrow-right" href="/v2/gateways/guides/advanced-operations/publishing">
     Make your gateway discoverable to external developers.
   </Card>
-  <Card title="Payment Clearinghouse" icon="credit-card" href="/gateways/payments/payment-clearinghouse">
+  <Card title="Payment Clearinghouse" icon="credit-card" href="/v2/gateways/guides/payments-and-pricing/clearinghouse-guide">
     Delegate payment handling to a clearinghouse service.
   </Card>
-  <Card title="Production Hardening" icon="shield" href="/gateways/guides/advanced-ops/production-hardening">
+  <Card title="Production Hardening" icon="shield" href="/v2/gateways/guides/advanced-operations/production-hardening">
     Security and TLS for your middleware and gateway.
   </Card>
 </CardGroup>

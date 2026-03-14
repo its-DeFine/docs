@@ -21,6 +21,18 @@ purpose: reference
 status: current
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 This page consolidates the configuration reference for all three pipeline types. It covers the encoding ladder JSON for video transcoding, AI routing flags, per-pipeline pricing, and the resource allocation decisions that matter when running a dual gateway. This is post-setup tuning — for initial installation, see the Setup section for your gateway type.
 
@@ -543,13 +555,13 @@ Option 1 ("Get node status") shows your current deposit, reserve, connected orch
   <Card title="Pricing Strategy" icon="tag" href="../payments-and-pricing/pricing-strategy">
     Business-level pricing decisions, competitive positioning, and ETH volatility handling.
   </Card>
-  <Card title="Configuration Flags Reference" icon="list" href="/v2/gateways/references/configuration-flags">
+  <Card title="Configuration Flags Reference" icon="list" href="/v2/gateways/resources/technical/configuration-flags">
     Complete flag reference for all go-livepeer gateway flags.
   </Card>
-  <Card title="Monitoring Setup" icon="chart-line" href="../monitoring-and-troubleshooting/monitoring-setup">
+  <Card title="Monitoring Setup" icon="chart-line" href="../monitoring-and-tooling/monitoring-setup">
     Prometheus metrics and alert configuration for both video and AI workloads.
   </Card>
-  <Card title="Troubleshooting" icon="wrench" href="../monitoring-and-troubleshooting/troubleshooting">
+  <Card title="Troubleshooting" icon="wrench" href="../monitoring-and-tooling/troubleshooting">
     Diagnosing configuration errors, missing orchestrators, and port conflicts.
   </Card>
 </CardGroup>

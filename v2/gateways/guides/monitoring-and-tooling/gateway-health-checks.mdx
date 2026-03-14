@@ -23,10 +23,22 @@ purpose: verification
 status: current
 lastVerified: '2026-03'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 import { DoubleIconLink } from '/snippets/components/primitives/links.jsx'
 
-Run these checks the moment you start your gateway, after any configuration change, or when something seems wrong. Health checks are quick — full observability setup is in [Monitoring Setup](/v2/gateways/guides/monitoring-troubleshooting/monitoring-setup).
+Run these checks the moment you start your gateway, after any configuration change, or when something seems wrong. Health checks are quick — full observability setup is in [Monitoring Setup](/v2/gateways/guides/monitoring-and-tooling/monitoring-setup).
 
 <Info>
   Each gateway type has different health requirements. Jump to your type: [Video](#video-gateway-on-chain) · [AI](#ai-gateway-off-chain) · [Dual](#dual-gateway)
@@ -108,7 +120,7 @@ Look for the **BROADCASTER STATS** section in the output. You need:
   {/* REVIEW: Rick / Mehrdad — confirm current recommended minimum deposit/reserve amounts */}
 </Warning>
 
-If deposit shows zero after bridging ETH, see [Fund Your Gateway](/v2/gateways/guides/payments-pricing/fund-your-gateway) — bridging does not automatically allocate funds.
+If deposit shows zero after bridging ETH, see [Fund Your Gateway](/v2/gateways/guides/payments-and-pricing/fund-your-gateway) — bridging does not automatically allocate funds.
 
 ### Test Arbitrum RPC Connectivity
 
@@ -118,7 +130,7 @@ curl -X POST <YOUR_ETH_URL> \
   -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":1}'
 ```
 
-A working RPC returns a JSON response with a hex block number. If the request times out or returns an error, your RPC is rate-limited or unavailable. See [Troubleshooting → Arbitrum RPC failures](/v2/gateways/guides/monitoring-troubleshooting/troubleshooting#arbitrum-rpc-connection-failing).
+A working RPC returns a JSON response with a hex block number. If the request times out or returns an error, your RPC is rate-limited or unavailable. See [Troubleshooting → Arbitrum RPC failures](/v2/gateways/guides/monitoring-and-tooling/troubleshooting#arbitrum-rpc-connection-failing).
 
 ### Test RTMP Ingest (Optional)
 
@@ -235,18 +247,18 @@ HEALTHCHECK --interval=30s --timeout=10s --retries=3 \
   CMD curl --silent --fail http://localhost:8935/health || exit 1
 ```
 
-For full observability — time-series metrics, alerting, and dashboards — see [Monitoring Setup](/v2/gateways/guides/monitoring-troubleshooting/monitoring-setup).
+For full observability — time-series metrics, alerting, and dashboards — see [Monitoring Setup](/v2/gateways/guides/monitoring-and-tooling/monitoring-setup).
 
 ---
 
 <CardGroup cols={3}>
-  <Card title="Monitoring Setup" icon="chart-line" href="/v2/gateways/guides/monitoring-troubleshooting/monitoring-setup">
+  <Card title="Monitoring Setup" icon="chart-line" href="/v2/gateways/guides/monitoring-and-tooling/monitoring-setup">
     Prometheus + Grafana for production observability
   </Card>
-  <Card title="Tools & Dashboards" icon="layout-dashboard" href="/v2/gateways/guides/monitoring-troubleshooting/tools-and-dashboards">
+  <Card title="Tools & Dashboards" icon="layout-dashboard" href="/v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards">
     Explorer, Livepeer Tools, livepeer_cli
   </Card>
-  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/gateways/guides/monitoring-troubleshooting/troubleshooting">
+  <Card title="Troubleshooting" icon="triangle-exclamation" href="/v2/gateways/guides/monitoring-and-tooling/troubleshooting">
     Fix common errors by symptom
   </Card>
 </CardGroup>

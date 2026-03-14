@@ -1,6 +1,6 @@
 ---
-title: 'Choose Your Gateway Path'
-sidebarTitle: 'Choose Your Path'
+title: 'Gateway Deployment & Node Type Setup Options'
+sidebarTitle: 'Setup Paths'
 description: 'Not sure which gateway to run? This page maps your use case to the right setup path — AI off-chain, video on-chain, dual, platform/GaaS, or SDK-based.'
 keywords:
   - livepeer
@@ -23,16 +23,29 @@ purpose: orientation
 status: current
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { BorderedBox } from '/snippets/components/layout/containers.jsx'
 import { DoubleIconLink } from '/snippets/components/primitives/links.jsx'
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
 
 There are five distinct ways to run a Livepeer gateway, and they have very different requirements. Some need ETH and a blockchain wallet. Some need nothing except a Linux server and Docker. Some do not even require the Go binary.
 
 This page helps you choose the right path before you read a single setup guide.
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Quick comparison
 
@@ -91,7 +104,7 @@ This page helps you choose the right path before you read a single setup guide.
   </tbody>
 </StyledTable>
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## On-chain vs off-chain: the key split
 
@@ -163,7 +176,7 @@ Before you pick a path, you need to understand what "on-chain" and "off-chain" m
   </Tab>
 </Tabs>
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## The five paths in detail
 
@@ -307,7 +320,7 @@ Before you pick a path, you need to understand what "on-chain" and "off-chain" m
   </Accordion>
 </AccordionGroup>
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Not sure which path?
 
@@ -344,7 +357,7 @@ Answer these three questions:
   </Accordion>
 </AccordionGroup>
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Video resources
 
@@ -364,7 +377,7 @@ Relevant search terms: "livepeer gateway", "livepeer AI gateway", "livepeer broa
   Video tutorials for gateway setup are available from community contributors. Check the `#local-gateways` Discord channel for the most current links, as URLs change when new versions are released.
 </Note>
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Next step: requirements
 

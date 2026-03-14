@@ -23,6 +23,18 @@ audience: 'gateway'
 status: 'current'
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 {/*
   PURPOSE:
@@ -282,7 +294,7 @@ The clearinghouse is the component that bridges your customer-facing payment lay
 
 The clearinghouse means your gateway node holds no ETH and has no direct Ethereum dependency. The clearinghouse operator (you, or a hosted service) manages the on-chain side.
 
-For the full clearinghouse design and implementation, see [Clearinghouse Guide](/v2/gateways/guides/payments-and-pricing/clearinghouse) (Payments & Pricing section).
+For the full clearinghouse design and implementation, see [Clearinghouse Guide](/v2/gateways/guides/payments-and-pricing/clearinghouse-guide) (Payments & Pricing section).
 
 ---
 

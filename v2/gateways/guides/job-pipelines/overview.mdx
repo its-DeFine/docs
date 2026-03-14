@@ -19,6 +19,18 @@ purpose: orientation
 status: current
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 A gateway pipeline is the control-plane path between an application request and orchestrator execution. Your gateway does not run compute — it accepts requests, selects compatible orchestrators, enforces routing policy, and returns results. Understanding which pipeline type matches your workload shapes every other configuration decision you make.
 
@@ -97,11 +109,13 @@ Not all pipeline types are available on every gateway configuration. Use this ta
 | Video transcoding | Yes | No | Yes | Yes |
 | AI inference (standard) | No | Yes | Yes | No |
 | BYOC | No | Yes | Yes | No |
-| Live video AI (live-video-to-video) | No | Yes | Yes | {/* REVIEW: on-chain payment applies when run via dual gateway — confirm with Rick/j0sh */} No (off-chain) / Yes (dual on-chain) |
+| Live video AI (live-video-to-video) | No | Yes | Yes | No (off-chain) / Yes (dual on-chain) |
 
 <Tip>
   Running both video and AI workloads from a single node is possible with a dual gateway, but GPU and memory contention can degrade both workloads. Read the dual gateway resource allocation guidance in Pipeline Configuration before combining them.
 </Tip>
+
+{/* REVIEW: confirm on-chain payment applies when run via dual gateway with Rick/j0sh. */}
 
 {/* ============================================================
     4. JOB CATEGORIES (ORCHESTRATOR VIEW)

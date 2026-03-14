@@ -10,6 +10,18 @@ purpose: 'guides'
 status: 'current'
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 Running a gateway that routes your own traffic is one thing. Running a gateway that other developers and applications can discover and use is another. This guide covers how to make your gateway reachable and findable, and is honest about what formal discoverability mechanisms exist today versus what is planned.
 
@@ -49,7 +61,7 @@ For multi-region deployments, use GeoDNS or a load balancer DNS record that rout
 
 ### HTTPS is required
 
-External clients must reach your gateway over HTTPS. Set up TLS termination via a reverse proxy before exposing the service. See [Production Hardening](/gateways/guides/advanced-ops/production-hardening) for Caddy and Nginx examples.
+External clients must reach your gateway over HTTPS. Set up TLS termination via a reverse proxy before exposing the service. See [Production Hardening](/v2/gateways/guides/advanced-operations/production-hardening) for Caddy and Nginx examples.
 
 ---
 
@@ -115,14 +127,14 @@ These are the mechanisms developers use today to find public gateways. Use as ma
     {/* REVIEW: Confirm whether tools.livepeer.cloud lists gateways (not just orchestrators) and how to request a listing — community verification needed */}
   </Tab>
   <Tab title="Gateway providers directory">
-    The Foundation maintains a list of known public gateways in the [Gateway Providers](/gateways/using-gateways/gateway-providers) page (now in the Developers tab). Contact the Foundation to have your gateway added.
+    The Foundation maintains a list of known public gateways in the [Gateway Providers](/v2/gateways/guides/operator-considerations/commercial-gateways) page (now in the Developers tab). Contact the Foundation to have your gateway added.
 
     SPE-funded gateways (Livepeer Cloud, Daydream) are listed automatically as part of their SPE agreement.
   </Tab>
   <Tab title="Direct integration">
     For developers building applications, the most common path is direct integration: they find your gateway through one of the channels above and hardcode your endpoint. Make it easy for them by providing:
 
-    - A clear API reference (your gateway endpoint + the standard [AI API reference](/gateways/references/api-reference/AI-API/ai))
+    - A clear API reference (your gateway endpoint + the standard [AI API reference](/v2/gateways/resources/technical/api-reference/AI-API/ai))
     - A working quickstart curl command
     - A stable versioned endpoint URL
   </Tab>
@@ -170,16 +182,16 @@ Until these are available, the community channels and manual listing approaches 
 ---
 
 <CardGroup cols={2}>
-  <Card title="Gateway Middleware" icon="arrow-left" href="/gateways/guides/advanced-ops/gateway-middleware">
+  <Card title="Gateway Middleware" icon="arrow-left" href="/v2/gateways/guides/advanced-operations/gateway-middleware">
     Auth and routing — prerequisites for a public-facing gateway.
   </Card>
-  <Card title="Operator Opportunities" icon="lightbulb" href="/gateways/run-a-gateway/gateway-operator-opportunities">
+  <Card title="Operator Opportunities" icon="lightbulb" href="/v2/gateways/guides/operator-considerations/operator-opportunities">
     Revenue models and Foundation support for gateway operators.
   </Card>
-  <Card title="Gateway Providers" icon="list" href="/developers/using-gateways/gateway-providers">
+  <Card title="Gateway Providers" icon="list" href="/v2/gateways/guides/operator-considerations/commercial-gateways">
     See the current list of public gateway providers.
   </Card>
-  <Card title="Technical Architecture" icon="diagram-project" href="/gateways/references/technical-architecture">
+  <Card title="Technical Architecture" icon="diagram-project" href="/v2/gateways/resources/technical/technical-architecture">
     Network architecture context for how gateways fit into the ecosystem.
   </Card>
 </CardGroup>

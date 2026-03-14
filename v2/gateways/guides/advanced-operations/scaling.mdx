@@ -10,6 +10,18 @@ purpose: 'guides'
 status: 'current'
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 A gateway routes jobs to orchestrators rather than processing them locally, but it still has resource limits: session capacity, network throughput, and (for dual gateways) the GPU resources shared between video and AI workloads. This guide covers how to measure those limits, decide when you have reached them, and scale in the right direction.
 
@@ -47,7 +59,7 @@ Before adjusting anything, confirm you actually have a capacity problem. These a
     {/* REVIEW: Confirm `/hardware/stats` is exposed on gateway HTTP port in current go-livepeer — Rick to verify */}
   </Accordion>
   <Accordion title="Increasing latency under load">
-    Rising transcoding latency or AI inference latency under load, combined with high orchestrator swap rates, suggests the orchestrators you are routing to are also under pressure. This is an orchestrator-side scaling problem, not a gateway problem. See [Orchestrator Selection](/gateways/guides/advanced-ops/orchestrator-selection) for how to expand your orchestrator pool.
+    Rising transcoding latency or AI inference latency under load, combined with high orchestrator swap rates, suggests the orchestrators you are routing to are also under pressure. This is an orchestrator-side scaling problem, not a gateway problem. See [Orchestrator Selection](/v2/gateways/guides/advanced-operations/orchestrator-selection) for how to expand your orchestrator pool.
   </Accordion>
   <Accordion title="Client rejections">
     Errors with `OrchestratorCapped` in the gateway log indicate that a downstream orchestrator has hit its own session limit and rejected your job. Either expand your orchestrator pool or negotiate higher capacity with your preferred orchestrators.
@@ -235,16 +247,16 @@ Estimate your required capacity before provisioning hardware or expanding your o
 ---
 
 <CardGroup cols={2}>
-  <Card title="Orchestrator Selection" icon="arrow-left" href="/gateways/guides/advanced-ops/orchestrator-selection">
+  <Card title="Orchestrator Selection" icon="arrow-left" href="/v2/gateways/guides/advanced-operations/orchestrator-selection">
     Expand your orchestrator pool to increase available capacity.
   </Card>
-  <Card title="Gateway Middleware" icon="arrow-right" href="/gateways/guides/advanced-ops/gateway-middleware">
+  <Card title="Gateway Middleware" icon="arrow-right" href="/v2/gateways/guides/advanced-operations/gateway-middleware">
     Route requests across scaled instances with middleware.
   </Card>
-  <Card title="GPU Support Reference" icon="microchip" href="/gateways/references/go-livepeer/gpu-support">
+  <Card title="GPU Support Reference" icon="microchip" href="/v2/gateways/resources/technical/go-livepeer/gpu-support">
     Tested GPU models and session limit data.
   </Card>
-  <Card title="Monitor & Optimise" icon="chart-line" href="/gateways/run-a-gateway/monitor/monitor-and-optimise">
+  <Card title="Monitor & Optimise" icon="chart-line" href="/v2/gateways/setup/monitor/monitor-and-optimise">
     Prometheus metrics and dashboards for scaling signals.
   </Card>
 </CardGroup>

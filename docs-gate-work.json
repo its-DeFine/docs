@@ -132,11 +132,11 @@
                             ]
                           },
                           {
-                            "group": "Setup Paths",
+                            "group": "Setup Options",
                             "pages": [
-                              "v2/gateways/guides/setup-paths/gateway-setup-paths",
-                              "v2/gateways/guides/setup-paths/path-requirements",
-                              "v2/gateways/guides/setup-paths/ecosystem-projects"
+                              "v2/gateways/guides/setup-options/setup-paths",
+                              "v2/gateways/guides/setup-options/path-requirements",
+                              "v2/gateways/guides/setup-options/ecosystem-offerings"
                             ]
                           },
                           {
@@ -213,14 +213,14 @@
                           {
                             "group": "Technical Reference",
                             "pages": [
-                              "v2/gateways/references/technical-architecture",
-                              "v2/gateways/references/configuration-flags",
-                              "v2/gateways/references/configuration-flags",
+                              "v2/v2/gateways/resources/technical/technical-architecture",
+                              "v2/v2/gateways/resources/technical/configuration-flags",
+                              "v2/v2/gateways/resources/technical/configuration-flags",
                               "v2/gateways/references/cli-commands",
                               {
                                 "group": "AI API",
                                 "pages": [
-                                  "v2/gateways/references/api-reference/AI-API/ai",
+                                  "v2/v2/gateways/resources/technical/api-reference/AI-API/ai",
                                   "v2/gateways/references/api-reference/AI-API/text-to-image",
                                   "v2/gateways/references/api-reference/AI-API/image-to-image",
                                   "v2/gateways/references/api-reference/AI-API/image-to-video",
@@ -436,9 +436,9 @@
                           {
                             "group": "Provider Docs",
                             "pages": [
-                              "v2/gateways/using-gateways/gateway-providers/daydream-gateway",
-                              "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
-                              "v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway"
+                              "v2/v2/gateways/guides/operator-considerations/commercial-gateways/daydream-gateway",
+                              "v2/v2/gateways/guides/operator-considerations/commercial-gateways/livepeer-studio-gateway",
+                              "v2/v2/gateways/guides/operator-considerations/commercial-gateways/cloud-spe-gateway"
                             ]
                           }
                         ]
@@ -460,7 +460,7 @@
                             "expanded": true,
                             "pages": [
                               "v2/gateways/run-a-gateway/why-run-a-gateway",
-                              "v2/gateways/run-a-gateway/gateway-operator-opportunities",
+                              "v2/v2/gateways/guides/operator-considerations/operator-opportunities",
                               "v2/gateways/run-a-gateway/run-a-gateway",
                               "v2/gateways/run-a-gateway/transcoding",
                               {
@@ -511,7 +511,7 @@
                               {
                                 "group": "Monitor & Optimise",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/monitor/monitor-and-optimise"
+                                  "v2/v2/gateways/setup/monitor/monitor-and-optimise"
                                 ]
                               }
                             ]
@@ -534,7 +534,7 @@
                             "icon": "coins",
                             "pages": [
                               "v2/gateways/payments/how-payments-work",
-                              "v2/gateways/payments/payment-clearinghouse"
+                              "v2/v2/gateways/guides/payments-and-pricing/clearinghouse-guide"
                             ]
                           }
                         ]
@@ -546,9 +546,9 @@
                           {
                             "group": "Gateways",
                             "pages": [
-                              "v2/gateways/references/technical-architecture",
-                              "v2/gateways/references/configuration-flags",
-                              "v2/gateways/references/configuration-flags",
+                              "v2/v2/gateways/resources/technical/technical-architecture",
+                              "v2/v2/gateways/resources/technical/configuration-flags",
+                              "v2/v2/gateways/resources/technical/configuration-flags",
                               "v2/gateways/references/cli-commands"
                             ]
                           },
@@ -558,7 +558,7 @@
                               {
                                 "group": "AI API",
                                 "pages": [
-                                  "v2/gateways/references/api-reference/AI-API/ai",
+                                  "v2/v2/gateways/resources/technical/api-reference/AI-API/ai",
                                   "v2/gateways/references/api-reference/AI-API/text-to-image",
                                   "v2/gateways/references/api-reference/AI-API/image-to-image",
                                   "v2/gateways/references/api-reference/AI-API/image-to-video",
@@ -641,9 +641,9 @@
                           {
                             "group": "Provider Docs",
                             "pages": [
-                              "v2/gateways/using-gateways/gateway-providers/daydream-gateway",
-                              "v2/gateways/using-gateways/gateway-providers/livepeer-studio-gateway",
-                              "v2/gateways/using-gateways/gateway-providers/cloud-spe-gateway"
+                              "v2/v2/gateways/guides/operator-considerations/commercial-gateways/daydream-gateway",
+                              "v2/v2/gateways/guides/operator-considerations/commercial-gateways/livepeer-studio-gateway",
+                              "v2/v2/gateways/guides/operator-considerations/commercial-gateways/cloud-spe-gateway"
                             ]
                           }
                         ]
@@ -665,7 +665,7 @@
                             "expanded": true,
                             "pages": [
                               "v2/gateways/run-a-gateway/why-run-a-gateway",
-                              "v2/gateways/run-a-gateway/gateway-operator-opportunities",
+                              "v2/v2/gateways/guides/operator-considerations/operator-opportunities",
                               "v2/gateways/run-a-gateway/run-a-gateway",
                               "v2/gateways/run-a-gateway/transcoding",
                               {
@@ -716,7 +716,7 @@
                               {
                                 "group": "Monitor & Optimise",
                                 "pages": [
-                                  "v2/gateways/run-a-gateway/monitor/monitor-and-optimise"
+                                  "v2/v2/gateways/setup/monitor/monitor-and-optimise"
                                 ]
                               }
                             ]
@@ -739,7 +739,7 @@
                             "icon": "coins",
                             "pages": [
                               "v2/gateways/payments/how-payments-work",
-                              "v2/gateways/payments/payment-clearinghouse"
+                              "v2/v2/gateways/guides/payments-and-pricing/clearinghouse-guide"
                             ]
                           }
                         ]
@@ -751,9 +751,9 @@
                           {
                             "group": "Gateways",
                             "pages": [
-                              "v2/gateways/references/technical-architecture",
-                              "v2/gateways/references/configuration-flags",
-                              "v2/gateways/references/configuration-flags",
+                              "v2/v2/gateways/resources/technical/technical-architecture",
+                              "v2/v2/gateways/resources/technical/configuration-flags",
+                              "v2/v2/gateways/resources/technical/configuration-flags",
                               "v2/gateways/references/cli-commands"
                             ]
                           },
@@ -763,7 +763,7 @@
                               {
                                 "group": "AI API",
                                 "pages": [
-                                  "v2/gateways/references/api-reference/AI-API/ai",
+                                  "v2/v2/gateways/resources/technical/api-reference/AI-API/ai",
                                   "v2/gateways/references/api-reference/AI-API/text-to-image",
                                   "v2/gateways/references/api-reference/AI-API/image-to-image",
                                   "v2/gateways/references/api-reference/AI-API/image-to-video",
@@ -1264,7 +1264,7 @@
     },
     {
       "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/api-reference",
-      "destination": "/v2/gateways/references/api-reference/AI-API/ai"
+      "destination": "/v2/v2/gateways/resources/technical/api-reference/AI-API/ai"
     },
     {
       "source": "/v2/developers/ai-inference-on-livepeer/livepeer-ai/ai-apis-move-to-tech-section/README",

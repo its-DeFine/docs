@@ -5311,11 +5311,11 @@ const gatewaysNew = {
           ],
         },
         {
-          group: 'Setup Paths',
+          group: 'Setup Options',
           pages: [
-            'v2/gateways/guides/setup-options/gateway-setup-paths',
+            'v2/gateways/guides/setup-options/setup-paths',
             'v2/gateways/guides/setup-options/path-requirements',
-            'v2/gateways/guides/setup-options/ecosystem-projects',
+            'v2/gateways/guides/setup-options/ecosystem-offerings',
           ],
         },
         {

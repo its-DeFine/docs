@@ -170,13 +170,29 @@ function checkInlineStylesInMdx(files, stagedOnly = false) {
     // Check for style={{}} in MDX (should use components instead)
     const styleRegex = /style\s*=\s*\{\{/g;
     const lines = content.split('\n');
+    let inJsxComment = false;
     
     lines.forEach((line, index) => {
       const lineNumber = index + 1;
       if (!shouldCheckLine(file, lineNumber, stagedOnly)) {
         return;
       }
-      if (styleRegex.test(line) && !line.includes('//') && !line.includes('{/*')) {
+
+      if (inJsxComment) {
+        if (line.includes('*/}')) {
+          inJsxComment = false;
+        }
+        return;
+      }
+
+      if (line.includes('{/*')) {
+        if (!line.includes('*/}')) {
+          inJsxComment = true;
+        }
+        return;
+      }
+
+      if (styleRegex.test(line) && !line.includes('//')) {
         errors.push({
           file,
           rule: 'No inline styles in MDX',

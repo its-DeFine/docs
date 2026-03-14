@@ -1,6 +1,6 @@
 ---
-title: 'Gateway Requirements by Path'
-sidebarTitle: 'Requirements by Path'
+title: 'Detailed Requirements by Deployment Path'
+sidebarTitle: 'Path Requirements'
 description: 'Detailed prerequisites for each gateway setup path — what you need, what you do not need, and how to get started for AI off-chain, video on-chain, dual, and SDK-based gateways.'
 keywords:
   - livepeer
@@ -24,17 +24,25 @@ purpose: guides
 status: current
 lastVerified: '2026-03-13'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
 import { BorderedBox } from '/snippets/components/layout/containers.jsx'
 import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { DoubleIconLink } from '/snippets/components/primitives/links.jsx'
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
 
-This page lists the prerequisites for each gateway path in full. Use the tabs to jump to your chosen path.
-
-If you have not yet chosen a path, start with [Choose Your Gateway Path](/v2/gateways/guides/setup-options/gateway-setup-paths).
-
----
 
 ## Hardware requirements (all paths)
 
@@ -64,7 +72,7 @@ All gateway paths use the same underlying machine requirements. Gateways do not 
   Multi-region deployment or a load balancer in front of multiple gateway instances is recommended for production workloads where reliability matters.
 </Note>
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## OS compatibility
 
@@ -114,7 +122,7 @@ All gateway paths use the same underlying machine requirements. Gateways do not 
   **AI and dual gateways require Linux for production.** Windows and macOS binaries for the AI gateway are not yet available. If you are developing on macOS, build from the `master` branch of `go-livepeer`. For production deployment, use a Linux server.
 </Warning>
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Requirements by path
 
@@ -680,7 +688,7 @@ All gateway paths use the same underlying machine requirements. Gateways do not 
   </Tab>
 </Tabs>
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## What next?
 

@@ -26,6 +26,18 @@ purpose: operational
 status: current
 lastVerified: '2026-03'
 ---
+{/* TODO:
+Verify:
+- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)
+- Fontawesome icons are used on accordions and tabs
+- Tables use StyledTable component
+- No em-dashes are used (instead use standard -)
+- UK spelling is used
+- Headers are concise and technical - no long headers or questions (aim for max 3 words)
+- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+*/}
 
 <Note>
   This page applies to **video gateways** (on-chain) and **dual gateways** only. Off-chain AI gateways do not interact with Arbitrum contracts — no on-chain debugging applies to them.
@@ -95,7 +107,7 @@ To find redemptions against your gateway: filter Arbiscan events by the TicketBr
 See Resources → Contract Addresses for the current TicketBroker address
 ```
 
-→ [Contract Addresses](/v2/gateways/references/contract-addresses)
+→ [Contract Addresses](/v2/gateways/resources/technical/contract-addresses)
 
 ### Set Up Arbiscan Watchlist Notifications
 
@@ -183,7 +195,7 @@ During sustained high-gas periods:
 
 1. **Raise `-maxPricePerUnit` temporarily** to keep jobs routing to orchestrators absorbing higher redemption costs
 2. **Monitor `livepeer_payment_create_errors`** — increases here during gas spikes indicate ticket-related failures
-3. **Use USD-mode pricing** (`-priceFeedAddr`) if you prefer stable USD-denominated caps that auto-adjust with ETH price → see [Pricing Strategy](/v2/gateways/guides/payments-pricing/pricing-strategy)
+3. **Use USD-mode pricing** (`-priceFeedAddr`) if you prefer stable USD-denominated caps that auto-adjust with ETH price → see [Pricing Strategy](/v2/gateways/guides/payments-and-pricing/pricing-strategy)
 
 ---
 
@@ -236,13 +248,13 @@ If your gateway stops routing jobs without clear error messages, work through th
 ---
 
 <CardGroup cols={3}>
-  <Card title="Contract Addresses" icon="file-contract" href="/v2/gateways/references/contract-addresses">
+  <Card title="Contract Addresses" icon="file-contract" href="/v2/gateways/resources/technical/contract-addresses">
     TicketBroker, BondingManager, and all Livepeer contracts on Arbitrum
   </Card>
-  <Card title="Fund Your Gateway" icon="wallet" href="/v2/gateways/guides/payments-pricing/fund-your-gateway">
+  <Card title="Fund Your Gateway" icon="wallet" href="/v2/gateways/guides/payments-and-pricing/fund-your-gateway">
     Top up deposit and reserve via livepeer_cli
   </Card>
-  <Card title="Monitoring Setup" icon="chart-line" href="/v2/gateways/guides/monitoring-troubleshooting/monitoring-setup">
+  <Card title="Monitoring Setup" icon="chart-line" href="/v2/gateways/guides/monitoring-and-tooling/monitoring-setup">
     Prometheus + Grafana for node-level metrics
   </Card>
 </CardGroup>
