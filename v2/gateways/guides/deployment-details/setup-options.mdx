@@ -48,11 +48,12 @@ import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
 
 Gateway operators make three independent choices: **setup type** (what software to run), **operational mode** (on-chain or off-chain), and **node type** (what workloads to route). See the [Glossary](/v2/gateways/resources/glossary) for full definitions.
 
+{/* TODO: This diagram sucks. Its taking up too much space. */}
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'primaryColor': '#1a1a1a', 'primaryTextColor': '#E0E4E0', 'primaryBorderColor': '#18794E', 'lineColor': '#2b9a66', 'secondaryColor': '#0d0d0d', 'tertiaryColor': '#3CB540', 'background': '#0d0d0d'}}}%%
-flowchart LR
+flowchart TD
     subgraph ST ["Setup type"]
-        direction TB
+        direction LR
         B["go-livepeer\n(Docker or source)"]
         C["SDK / Custom\n(Python, browser, mobile)"]
         D["GWID\n(managed platform)"]
@@ -60,13 +61,13 @@ flowchart LR
     end
 
     subgraph OM ["Operational mode"]
-        direction TB
+        direction LR
         G["Off-chain\n(remote signer)"]
         H["On-chain\n(Arbitrum)"]
     end
 
     subgraph NT ["Node type"]
-        direction TB
+        direction LR
         J["Video"]
         K["AI"]
         L["Dual"]

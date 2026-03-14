@@ -29,11 +29,23 @@ lastVerified: 2026-03-13
 ---
 {/* TODO:
 Terminology Validation:
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+- ~~Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology~~
 Verify:
-- Terminology is consistent with resources/glossary
+- ~~Terminology is consistent with resources/glossary~~
+Verify:
+- ~~Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)~~
+- ~~Fontawesome icons are used on accordions and tabs~~
+- ~~Tables use StyledTable component~~
+- ~~No em-dashes are used (instead use standard -)~~
+- ~~UK spelling is used~~
+- ~~Headers are concise and technical - no long headers or questions (aim for max 3 words)~~
+- ~~CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks~~
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+Human
+- Find Media
+- Review REVIEW items
 */}
-
 
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
@@ -63,7 +75,7 @@ Gateways do **not** perform GPU compute, run AI models, transcode video, or exec
 
 <CustomDivider middleText="Workload Types" style={{margin: "0 0 -1rem 0"}}/>
 
-## AI and Video Pipelines
+## Workload Types
 
 Gateways can route four categories of work into the Livepeer network. Which workloads you can route depends on your operational mode (on-chain or off-chain).
 
@@ -145,25 +157,48 @@ flowchart TD
 
 The selection algorithm considers:
 
-| Factor | What it means |
-|---|---|
-| **Capability** | Does the orchestrator support the requested pipeline, model, or transcoding profile? |
-| **Price** | Is the orchestrator's advertised price within the gateway's configured `maxPricePerUnit`? |
-| **Latency** | How fast has this orchestrator responded to recent jobs? |
-| **Performance history** | What is the orchestrator's success rate and error rate over recent sessions? |
-| **Stake weight** | How much LPT is staked to this orchestrator? Higher stake implies greater economic commitment to good behaviour |
+<StyledTable variant="bordered">
+  <thead>
+    <TableRow header>
+      <TableCell header>Factor</TableCell>
+      <TableCell header>What it means</TableCell>
+    </TableRow>
+  </thead>
+  <tbody>
+    <TableRow>
+      <TableCell>**Capability**</TableCell>
+      <TableCell>Does the orchestrator support the requested pipeline, model, or transcoding profile?</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Price**</TableCell>
+      <TableCell>Is the orchestrator's advertised price within the gateway's configured `maxPricePerUnit`?</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Latency**</TableCell>
+      <TableCell>How fast has this orchestrator responded to recent jobs?</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Performance history**</TableCell>
+      <TableCell>What is the orchestrator's success rate and error rate over recent sessions?</TableCell>
+    </TableRow>
+    <TableRow>
+      <TableCell>**Stake weight**</TableCell>
+      <TableCell>How much LPT is staked to this orchestrator? Higher stake implies greater economic commitment to good behaviour</TableCell>
+    </TableRow>
+  </tbody>
+</StyledTable>
 
 ### Discovery Methods
 
 How a gateway discovers available orchestrators depends on the operational mode:
 
 <Tabs>
-  <Tab title="On-chain gateway">
+  <Tab title="On-chain gateway" icon="link">
     Queries the **on-chain orchestrator registry** (ServiceRegistry contract on Arbitrum). All registered orchestrators are discoverable automatically. The gateway refreshes this list periodically.
 
     This is the default discovery method and requires no additional configuration.
   </Tab>
-  <Tab title="Off-chain gateway">
+  <Tab title="Off-chain gateway" icon="cloud">
     Off-chain gateways do not query the on-chain registry directly. Orchestrator discovery is handled via:
 
     - **Orchestrator list from the remote signer** - the signer provides a set of known orchestrators

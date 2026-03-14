@@ -1,6 +1,6 @@
 ---
 title: 'AI and Job Pipelines Overview'
-sidebarTitle: Pipelines Guide'
+sidebarTitle: Pipelines Guide
 description: 'What a gateway pipeline is, the three job types your gateway can route (video transcoding, AI inference, BYOC), and how pipeline selection maps to gateway type.'
 keywords:
   - livepeer
@@ -34,8 +34,10 @@ Verify:
 - REVIEW flags are in JSX flags for a human.
 */}
 
-A gateway pipeline is the control-plane path between an application request and orchestrator execution.
-A gateway does not run compute — it accepts requests, selects compatible orchestrators, enforces routing policy, and returns results. Understanding which pipeline type matches your workload shapes every other configuration decision you make.
+import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
+
+A Job Pipeline is a Gateway **Node Type** or Node Mode and can be configured for Video, AI or Dual purpose workloads (including real-time video AI).
+It is the control-plane path between an application request and orchestrator execution.
 
 <Note>
   This section covers how pipelines work from the gateway operator's perspective. For orchestrator-side configuration (running AI workers, hosting models), see the Orchestrators section.
@@ -56,15 +58,15 @@ A gateway does not run compute — it accepts requests, selects compatible orche
   </Card>
 </CardGroup>
 
-The separation matters: your gateway is a routing and policy layer, not a compute node. Scaling compute means adding orchestrators, not upgrading your gateway host.
-
 {/* ============================================================
-    2. THREE PIPELINE TYPES
+    2. PIPELINE TYPES
     ============================================================ */}
 
-## The three pipeline types
+## Node Modes
+<Badge color="blue">Video</Badge><Badge color="purple">AI</Badge><Badge color="green">Dual</Badge>
 
-Livepeer supports three categories of job that a gateway can route. Each has different ingest patterns, payment models, and orchestrator requirements.
+Livepeer supports two main categories of job that a gateway can route. Each has different ingest patterns, payment models, and orchestrator requirements.
+The third option - Dual mode support both Video and AI workloads.
 
 ```mermaid
 flowchart LR

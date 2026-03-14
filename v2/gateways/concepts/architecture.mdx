@@ -31,9 +31,22 @@ lastVerified: 2026-03-13
 ---
 {/* TODO:
 Terminology Validation:
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
+- ~~Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology~~
 Verify:
-- Terminology is consistent with resources/glossary
+- ~~Terminology is consistent with resources/glossary~~
+Verify:
+- ~~Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)~~
+- ~~Fontawesome icons are used on accordions and tabs~~ (N/A - no accordions or tabs in this file)
+- ~~Tables use StyledTable component~~
+- ~~No em-dashes are used (instead use standard -)~~
+- ~~UK spelling is used~~
+- ~~Headers are concise and technical - no long headers or questions (aim for max 3 words)~~
+- ~~CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks~~
+- ~~Placeholders for Media & Video Resources are in comments with a TODO for a human.~~ (N/A - no media placeholders)
+- ~~REVIEW flags are in JSX flags for a human.~~ (N/A - no REVIEW flags)
+Human
+- Find Media
+- Review REVIEW items
 */}
 
 
@@ -47,7 +60,7 @@ This page explains where gateways sit in the Livepeer stack, how they interact w
 
 For what gateways *do*, see [Capabilities](/v2/gateways/concepts/capabilities). For why you would run one, see [Business Model](/v2/gateways/concepts/business-model).
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Gateway Layer Context
 
@@ -81,11 +94,28 @@ graph LR
 
 </ScrollableDiagram>
 
-| Layer | Participants | Responsibility |
-|---|---|---|
-| **Application** | Developers, end users, gateways | Ingest requests, route jobs, deliver results, manage pricing |
-| **Compute** | Orchestrators, transcoders, AI runners | Execute video and AI work on GPUs |
-| **Protocol** | Arbitrum smart contracts | Staking, payments, governance, orchestrator registry |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell>Layer</TableCell>
+    <TableCell>Participants</TableCell>
+    <TableCell>Responsibility</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Application**</TableCell>
+    <TableCell>Developers, end users, gateways</TableCell>
+    <TableCell>Ingest requests, route jobs, deliver results, manage pricing</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Compute**</TableCell>
+    <TableCell>Orchestrators, transcoders, AI runners</TableCell>
+    <TableCell>Execute video and AI work on GPUs</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Protocol**</TableCell>
+    <TableCell>Arbitrum smart contracts</TableCell>
+    <TableCell>Staking, payments, governance, orchestrator registry</TableCell>
+  </TableRow>
+</StyledTable>
 
 Gateways are the only demand-side participants that interact with both the compute layer (sending jobs to orchestrators) and the protocol layer (payment tickets, orchestrator discovery via the on-chain registry).
 
@@ -129,10 +159,20 @@ This architecture allows gateways to operate with zero crypto knowledge and zero
 
 In the **on-chain operational mode**, the gateway interacts directly with Arbitrum smart contracts:
 
-| Contract | Gateway interaction |
-|---|---|
-| **TicketBroker** | Fund deposit and reserve; generate payment tickets for orchestrators |
-| **ServiceRegistry** | Query registered orchestrators and their service URIs |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell>Contract</TableCell>
+    <TableCell>Gateway interaction</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**TicketBroker**</TableCell>
+    <TableCell>Fund deposit and reserve; generate payment tickets for orchestrators</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**ServiceRegistry**</TableCell>
+    <TableCell>Query registered orchestrators and their service URIs</TableCell>
+  </TableRow>
+</StyledTable>
 
 <Note>
 Unlike orchestrators, gateways do **not** interact with the BondingManager (staking), RoundsManager (reward calls), or Governance contracts. Gateways do not stake LPT, earn protocol rewards, or vote.
@@ -209,14 +249,43 @@ flowchart TB
 
 ### Video vs AI Pipelines
 
-| Aspect | Video pipeline (blue) | AI pipeline (purple) |
-|---|---|---|
-| **Session manager** | `BroadcastSessionsManager` | `AISessionManager` |
-| **Input** | RTMP stream segmented into chunks | HTTP request with prompt/image/audio |
-| **Orchestrator work** | Transcode each segment to output profiles | Run inference model, return result |
-| **Output** | HLS/DASH stream | JSON (text), image, video clip, or audio |
-| **Payment unit** | Wei per pixel (per segment) | Wei per pixel or per millisecond |
-| **Session duration** | Long-lived (entire stream) | Short-lived (single request or batch) |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell>Aspect</TableCell>
+    <TableCell>Video pipeline (blue)</TableCell>
+    <TableCell>AI pipeline (purple)</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Session manager**</TableCell>
+    <TableCell>`BroadcastSessionsManager`</TableCell>
+    <TableCell>`AISessionManager`</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Input**</TableCell>
+    <TableCell>RTMP stream segmented into chunks</TableCell>
+    <TableCell>HTTP request with prompt/image/audio</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Orchestrator work**</TableCell>
+    <TableCell>Transcode each segment to output profiles</TableCell>
+    <TableCell>Run inference model, return result</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Output**</TableCell>
+    <TableCell>HLS/DASH stream</TableCell>
+    <TableCell>JSON (text), image, video clip, or audio</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Payment unit**</TableCell>
+    <TableCell>Wei per pixel (per segment)</TableCell>
+    <TableCell>Wei per pixel or per millisecond</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**Session duration**</TableCell>
+    <TableCell>Long-lived (entire stream)</TableCell>
+    <TableCell>Short-lived (single request or batch)</TableCell>
+  </TableRow>
+</StyledTable>
 
 Both pipelines share the same orchestrator selection logic, payment system, and failover behaviour. The separation is at the session management layer.
 
@@ -245,7 +314,7 @@ graph TD
 1. **Job arrives** - An application sends a video segment (RTMP) or AI request (HTTP) to the gateway.
 2. **Pipeline routing** - The gateway routes the request to the appropriate session manager (`BroadcastSessionsManager` for video, `AISessionManager` for AI).
 3. **Orchestrator selection** - The session manager selects the best orchestrator from its pool based on capability, price, latency, and performance history.
-4. **Payment ticket generation** - The gateway (or remote signer in off-chain operational mode) generates a probabilistic micropayment ticket and attaches it to the job.
+4. **Payment ticket generation** - The gateway (or remote signer in off-chain mode) generates a probabilistic micropayment ticket and attaches it to the job.
 5. **Work dispatch** - The job + ticket are sent to the orchestrator over HTTP.
 6. **Execution** - The orchestrator routes the work to its GPU worker (transcoder for video, AI Runner for inference) and returns the result.
 7. **Result delivery** - The gateway sends the processed output back to the application.
@@ -286,10 +355,20 @@ See <LinkArrow href="/v2/gateways/payments/remote-signers" label="Remote Signers
 
 ### Arbitrum Contracts (on-chain)
 
-| Contract | Gateway use |
-|---|---|
-| **TicketBroker** | Deposit ETH, manage reserve, generate payment tickets |
-| **ServiceRegistry** | Discover registered orchestrators |
+<StyledTable variant="bordered">
+  <TableRow header>
+    <TableCell>Contract</TableCell>
+    <TableCell>Gateway use</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**TicketBroker**</TableCell>
+    <TableCell>Deposit ETH, manage reserve, generate payment tickets</TableCell>
+  </TableRow>
+  <TableRow>
+    <TableCell>**ServiceRegistry**</TableCell>
+    <TableCell>Discover registered orchestrators</TableCell>
+  </TableRow>
+</StyledTable>
 
 See <LinkArrow href="/v2/orchestrators/resources/technical/x-contract-addresses" label="Contract Addresses" newline={false} /> for deployed addresses.
 

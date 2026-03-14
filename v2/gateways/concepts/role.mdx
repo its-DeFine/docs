@@ -27,10 +27,23 @@ status: 'current'
 lastVerified: '2026-03-13'
 ---
 {/* TODO:
-Terminology Validation:
-- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology
-Verify:
-- Terminology is consistent with resources/glossary
+~~Terminology Validation:~~
+~~- Ensure the terminology and definitions used in this page is consistent with the resources/glossary terminology~~
+~~Verify:~~
+~~- Terminology is consistent with resources/glossary~~
+~~Verify:~~
+~~- Mermaid diagrams use theme colours (but must be hardcoded - see snippets/components/page-structure/mermaid-colours.jsx)~~
+~~- Fontawesome icons are used on accordions and tabs~~
+~~- Tables use StyledTable component~~
+~~- No em-dashes are used (instead use standard -)~~
+~~- UK spelling is used~~
+~~- Headers are concise and technical - no long headers or questions (aim for max 3 words)~~
+~~- CustomDivider is used with <CustomDivider style={{margin: "-1rem 0 -1rem 0"}} /> for all --- separator breaks~~
+- Placeholders for Media & Video Resources are in comments with a TODO for a human.
+- REVIEW flags are in JSX flags for a human.
+Human
+- Find Media
+- Review REVIEW items
 */}
 
 
@@ -181,7 +194,7 @@ import { CenteredContainer } from '/snippets/components/layout/containers.jsx'
 </CenteredContainer>
 
 <CenteredContainer style={{ width: '90%' }}>
-  <Tip>Gateways are the the essential layer for Application Devlopers. They are the demand side of the Livepeer network. Anyone building applications on Livepeer - video streaming, AI inference, real-time AI video - connects through a gateway.</Tip>
+  <Tip>Gateways are the essential layer for application developers. They are the demand side of the Livepeer network. Anyone building applications on Livepeer - video streaming, AI inference, real-time AI video - connects through a gateway.</Tip>
 </CenteredContainer>
 
 <CustomDivider middleText="Role Evolution" style={{margin: "0 0 -1rem 0"}} />
@@ -226,7 +239,7 @@ Core responsibilities:
 
 See <LinkArrow href="/v2/gateways/concepts/capabilities" label="Gateway Capabilities" newline={false} /> for the full set of workloads gateways can route.
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Business Role
 
@@ -251,7 +264,7 @@ flowchart LR
 
 See <LinkArrow href="/v2/gateways/concepts/business-model" label="Gateway Business Model" newline={false} /> for revenue models, cost structures, and the four operator models.
 
----
+<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />
 
 ## Network Role
 
@@ -276,7 +289,7 @@ See <LinkArrow href="/v2/gateways/concepts/architecture" label="Gateway Architec
 "On-chain" and "off-chain" describe your gateway's **operational mode** - how it integrates with the Livepeer protocol to orchestrators, not where compute happens. All workloads (video and AI) run off-chain on orchestrator GPU hardware. The distinction is whether your gateway node holds ETH and signs payment tickets directly, or delegates that to a remote signer.
 
 <Tabs>
-  <Tab title="On-chain gateway">
+  <Tab title="On-chain gateway" icon="link">
     Your gateway holds ETH on Arbitrum and generates probabilistic micropayment tickets directly. This is the original operational mode. Required for video transcoding; also supports AI inference.
 
     - **Payment:** Gateway signs tickets locally using its own ETH deposit + reserve
@@ -286,7 +299,7 @@ See <LinkArrow href="/v2/gateways/concepts/architecture" label="Gateway Architec
     - **Setup time:** Hours (wallet setup, bridging, funding)
     - **Workloads:** Video transcoding, AI inference, or both
   </Tab>
-  <Tab title="Off-chain gateway">
+  <Tab title="Off-chain gateway" icon="cloud">
     Shipped Q4 2025 via remote signing (PRs #3791, #3822). Your gateway holds no ETH - a remote signer handles all payment operations on your behalf.
 
     - **Payment:** Remote signer generates tickets; your gateway sends no on-chain transactions

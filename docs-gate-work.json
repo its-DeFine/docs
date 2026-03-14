@@ -137,11 +137,11 @@
                           {
                             "group": "AI & Job Pipelines",
                             "pages": [
-                              "v2/gateways/guides/job-pipelines/guide",
-                              "v2/gateways/guides/job-pipelines/video-transcoding",
-                              "v2/gateways/guides/job-pipelines/ai-inference",
-                              "v2/gateways/guides/job-pipelines/byoc-pipelines",
-                              "v2/gateways/guides/job-pipelines/pipeline-configuration"
+                              "v2/gateways/guides/node-pipelines/guide",
+                              "v2/gateways/guides/node-pipelines/video-transcoding",
+                              "v2/gateways/guides/node-pipelines/ai-inference",
+                              "v2/gateways/guides/node-pipelines/byoc-pipelines",
+                              "v2/gateways/guides/node-pipelines/pipeline-configuration"
                             ]
                           },
                           {
