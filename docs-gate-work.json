@@ -162,10 +162,10 @@
                           {
                             "group": "Monitoring and Tooling",
                             "pages": [
-                              "v2/gateways/guides/monitoring-and-tooling/gateway-health-checks",
+                              "v2/gateways/guides/monitoring-and-tooling/health-checks",
+                              "v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards",
                               "v2/gateways/guides/monitoring-and-tooling/monitoring-setup",
                               "v2/gateways/guides/monitoring-and-tooling/on-chain-debugging",
-                              "v2/gateways/guides/monitoring-and-tooling/tools-and-dashboards",
                               "v2/gateways/guides/monitoring-and-tooling/troubleshooting"
                             ]
                           },

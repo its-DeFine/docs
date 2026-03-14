@@ -39,6 +39,7 @@ Human:
 import { CustomDivider } from "/snippets/components/primitives/divider.jsx"
 import { LinkArrow } from '/snippets/components/primitives/links.jsx'
 import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { StyledSteps, StyledStep } from '/snippets/components/layout/steps.jsx'
 import { CenteredContainer, BorderedBox } from "/snippets/components/layout/containers.jsx"
 
 <CenteredContainer style={{width: "80%", minWidth: "fit-content"}}>
@@ -67,7 +68,8 @@ A Payment Clearinghouse is an abstraction implementation of a <LinkArrow href="/
 
 ## Architecture
 
-A clearinghouse sits between application developers and the Livepeer network. From the developer's perspective it looks like a traditional API provider. From the network's perspective it looks like a Gateway using remote signers.
+A clearinghouse sits between application developers and the Livepeer network. From the developer's perspective it looks like a traditional API provider.
+From the network's perspective it looks like a Gateway using remote signers.
 
 ```
 Application / Developer
@@ -84,7 +86,8 @@ Clearinghouse Service
 Orchestrator Network
 ```
 
-Orchestrators receive exactly the same PM tickets they would receive from a self-managed Gateway. The clearinghouse is invisible to them. They settle on-chain via the `TicketBroker` contract as normal.
+Orchestrators receive exactly the same PM tickets they would receive from a self-managed Gateway.
+They settle on-chain via the `TicketBroker` contract as normal.
 
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
@@ -135,20 +138,25 @@ The following table clarifies what shifts from the Gateway operator to the clear
   </TableRow>
 </StyledTable>
 
-Job routing and media handling remain with the Gateway operator. A clearinghouse manages payments, not the pipeline.
+<br/>
+<Note>
+Job routing and media handling remain with the Gateway operator.
+A clearinghouse manages payments, not the pipeline.
+</Note>
 
 <CustomDivider style={{margin: "-1rem 0 -2rem 0"}} />
 
-## Developer Setup
+## Clearinghouse Setup
 
-The intended developer experience is deliberately simple:
+The intended developer experience is designed to abstract pain points:
 
-<Steps>
-  <Step title="Register with a clearinghouse provider">
-    Obtain an API key from the clearinghouse. Depending on the provider, this may involve identity verification, credit card details, or a crypto wallet sign-in via SIWE (ERC-4361).
-  </Step>
+<StyledSteps>
+  <StyledStep title="Register with a clearinghouse provider">
+    Obtain an API key from the clearinghouse.
+    Depending on the provider, this may involve identity verification, credit card details, or a crypto wallet sign-in via [SIWE (ERC-4361)]("https://github.com/ethereum/EIPs/blob/master/EIPS/eip-4361.md").
+  </StyledStep>
 
-  <Step title="Configure the gateway or SDK">
+  <StyledStep title="Configure the gateway or SDK">
     Point the `go-livepeer` gateway at the clearinghouse signer address:
 
     ```bash
@@ -169,14 +177,14 @@ The intended developer experience is deliberately simple:
     ```
 
     {/* REVIEW: Confirm exact SDK configuration pattern for clearinghouse API key. j0sh to verify the Python SDK integration path once a clearinghouse reaches GA. */}
-  </Step>
+  </StyledStep>
 
-  <Step title="Route jobs and monitor usage">
+  <StyledStep title="Route jobs and monitor usage">
     Submit jobs through the gateway as normal. The clearinghouse handles all PM mechanics. Usage reports come from the clearinghouse, billed in its chosen currency: fiat, stablecoins, or internal credits.
 
     Orchestrators are paid from the clearinghouse's ETH pool and settle on-chain without any action from the Gateway operator.
-  </Step>
-</Steps>
+  </StyledStep>
+</StyledSteps>
 
 <CustomDivider style={{margin: "0 0 -2rem 0"}} />
 
