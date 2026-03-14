@@ -38,11 +38,7 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
   <Tip>Gateways route work - they do not perform it. All GPU compute (transcoding, inference, real-time AI) happens on orchestrators. The gateway's job is to get each request to the right orchestrator, at the right price, and return the result.</Tip>
 </CenteredContainer>
 
----
-
-This page covers what a gateway can do. For what a gateway *is*, see [Role](/v2/gateways/concepts/role). For how it works internally, see [Architecture](/v2/gateways/concepts/architecture).
-
-<CustomDivider middleText="Core Functions" />
+<CustomDivider middleText="Core Functions" style={{margin: "0 0 -1rem 0"}} />
 
 ## What a gateway handles
 
@@ -58,7 +54,7 @@ A gateway performs five core functions for every job it processes:
 Gateways do **not** perform GPU compute, run AI models, transcode video, or execute containers. That work is performed by orchestrators. If you want to provide compute, see <LinkArrow href="/v2/orchestrators/concepts/role" label="Orchestrator Role" newline={false} />.
 </Note>
 
-<CustomDivider middleText="Workload Types" />
+<CustomDivider middleText="Workload Types" style={{margin: "0 0 -1rem 0"}}/>
 
 ## Supported workloads
 
@@ -118,7 +114,7 @@ BYOC enables use cases like custom ML workflows, enterprise-specific processing,
 
 See <LinkArrow href="/v2/developers/build/byoc" label="BYOC pipelines" newline={false} /> for the developer-side setup.
 
-<CustomDivider middleText="Orchestrator Selection" />
+<CustomDivider middleText="Orchestrator Selection" style={{margin: "0 0 -1rem 0"}}/>
 
 ## How gateways choose orchestrators
 
@@ -152,7 +148,7 @@ The selection algorithm considers:
 
 ### Discovery methods
 
-How a gateway discovers available orchestrators depends on the payment mode:
+How a gateway discovers available orchestrators depends on the mode:
 
 <Tabs>
   <Tab title="On-chain gateway">
@@ -170,7 +166,7 @@ How a gateway discovers available orchestrators depends on the payment mode:
   </Tab>
 </Tabs>
 
-<CustomDivider middleText="Session Management" />
+<CustomDivider middleText="Session Management" style={{margin: "0 0 -1rem 0"}} />
 
 ## Sessions and failover
 
@@ -187,7 +183,7 @@ Key session behaviours:
 Running both video and AI workloads from a single gateway node is called **dual-workload configuration**. The gateway handles this through separate session managers - no special setup required beyond enabling both ingest protocols. See <LinkArrow href="/v2/gateways/concepts/architecture" label="Gateway Architecture" newline={false} /> for the internal pipeline view.
 </Note>
 
-<CustomDivider middleText="Marketplace" />
+<CustomDivider middleText="Marketplace" style={{margin: "0 0 -1rem 0"}} />
 
 ## The gateway's marketplace role
 
@@ -202,7 +198,7 @@ The marketplace is not a separate system - it emerges from gateways and orchestr
 
 See <LinkArrow href="/v2/gateways/concepts/business-model" label="Gateway Business Model" newline={false} /> for how gateway operators set pricing and earn margins within this marketplace.
 
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
 ## Related Pages
 

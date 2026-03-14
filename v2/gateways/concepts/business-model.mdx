@@ -42,9 +42,9 @@ import { CenteredContainer, BorderedBox } from '/snippets/components/layout/cont
 
 This page explains how gateway economics work. For what gateways *do*, see [Capabilities](/v2/gateways/concepts/capabilities). For the internal payment system, see [How Payments Work](/v2/gateways/payments/how-payments-work).
 
-<CustomDivider middleText="Payment Flow" />
+<CustomDivider middleText="Payment Flow" style={{margin: "0 0 -1rem 0"}}/>
 
-## How money moves through the network
+## Payments Flow
 
 Gateways are **consumers** of compute services. They pay orchestrators to do work on behalf of their application customers.
 
@@ -68,7 +68,7 @@ The payment chain:
 3. **Orchestrators pay their workers** (transcoders, AI runners) and redeem winning tickets on-chain
 4. **The gateway keeps the difference** between what customers pay and what orchestrators charge
 
-<CustomDivider middleText="Who Earns What" />
+<CustomDivider middleText="Who Earns What" style={{margin: "0 0 -1rem 0"}} />
 
 ## Protocol-level earnings
 
@@ -106,7 +106,7 @@ Gateways do not earn protocol rewards. They pay for services.
   </tbody>
 </StyledTable>
 
-<CustomDivider middleText="Gateway Costs" />
+<CustomDivider middleText="Gateway Costs" style={{margin: "0 0 -1rem 0"}} />
 
 ## What gateways pay
 
@@ -146,7 +146,7 @@ Gateways pay in **ETH** (on Arbitrum), not LPT. LPT is used for staking and gove
 
 ETH handles service payments while LPT handles protocol governance and staking. This keeps service costs denominated in a stable currency while LPT serves its governance function.
 
-<CustomDivider middleText="Why Run a Gateway" />
+<CustomDivider middleText="Why Run a Gateway" style={{margin: "0 0 -1rem 0"}}/>
 
 ## If gateways don't earn protocol rewards, why run one?
 
@@ -183,7 +183,7 @@ Gateways earn at the **business layer**, not the protocol layer. Four operator m
   </Accordion>
 </AccordionGroup>
 
-<CustomDivider middleText="Fee Structure" />
+<CustomDivider middleText="Fee Structure" style={{margin: "0 0 -1rem 0"}}/>
 
 ## Setting your prices
 
@@ -234,7 +234,7 @@ livepeer_cli
 
 Your margin = what customers pay you - what you pay orchestrators.
 
-<CustomDivider middleText="Case Studies" />
+<CustomDivider middleText="Case Studies" style={{margin: "0 0 -1rem 0"}}/>
 
 ## Gateways in production
 
@@ -244,7 +244,7 @@ Your margin = what customers pay you - what you pay orchestrators.
 
 Both demonstrate the arbitrage model: the gateway sits between application demand and network supply, adding value through routing quality, developer experience, and service reliability.
 
-<CustomDivider />
+<CustomDivider style={{margin: "0 0 -1rem 0"}} />
 
 ## Related Pages
 
