@@ -481,6 +481,9 @@ When referencing the other tab (gateways mentioning orchestrators or vice versa)
 - Entity-led prose: prefer "the gateway", "a gateway", "gateways", "the orchestrator", "applications"
 - Avoid first-person editorial voice: "we", "our", "us"
 - Avoid reader-owned second-person framing in explanatory prose: "your gateway", "your node", "your application"
+- Capitalise actor/persona labels when the term is functioning like a named role or title: `Gateway`, `Orchestrator`, `Delegator`
+- Keep generic system-role prose lowercase: `a gateway routes requests`, `orchestrators set prices`, `delegators bond LPT`
+- Apply the same title-style capitalisation in diagrams, tabs, comparison columns, persona matrices, and other actor labels
 - Use imperative instructions for procedures: "Configure the gateway", "Set `-orchAddr`", "Run the node"
 - Present tense for current behaviour, past tense for history
 - Active voice preferred
@@ -543,6 +546,7 @@ When referencing the other tab (gateways mentioning orchestrators or vice versa)
 - go-livepeer (lowercase g, hyphenated)
 - LPT (the token), ETH (the currency)
 - Arbitrum One (the L2 chain)
+- When these terms appear as actor/persona labels rather than generic nouns, capitalise them: `Gateway`, `Orchestrator`, `Delegator`
 
 <CustomDivider />
 
@@ -637,6 +641,7 @@ npm run test:browser  # Page rendering
 - [ ] Unverified claims flagged with `{/* REVIEW: */}` or `{/* SME: */}` JSX comments
 - [ ] Media/video placeholders use `{/* TODO: */}` JSX comments
 - [ ] Narrative voice is entity-led. Avoid first-person editorial voice and reader-owned second-person explanatory prose
+- [ ] Actor/persona labels capitalise `Gateway`, `Orchestrator`, and `Delegator` when they function as named roles, tabs, diagram nodes, or comparison labels
 - [ ] Filler and marketing language has been reviewed and reduced where it weakens clarity
 - [ ] Definitions are positive-first; negation is used only as a secondary boundary sentence when needed
 - [ ] On-chain/off-chain described as payment modes, not workload types

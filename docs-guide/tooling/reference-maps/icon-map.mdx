@@ -1,0 +1,151 @@
+---
+title: Icon Map
+sidebarTitle: Icon Map
+description: Proposed icon-to-usage map for tabs, accordions, cards, and guide navigation across current Livepeer docs.
+keywords:
+  - livepeer
+  - icon map
+  - fontawesome
+  - reference map
+  - docs guide
+  - authoring
+'og:image': /snippets/assets/site/og-image/fallback.png
+'og:image:alt': Livepeer Docs social preview image
+'og:image:type': image/png
+'og:image:width': 1200
+'og:image:height': 630
+audience: internal
+pageType: reference
+purpose: reference
+status: draft
+lastVerified: 2026-03-15
+---
+
+import { CustomDivider } from '/snippets/components/primitives/divider.jsx'
+import { StyledTable, TableRow, TableCell } from '/snippets/components/layout/tables.jsx'
+import { iconMapMethodology, iconMapSections, iconMapReviewQueue } from '/snippets/data/reference-maps/icon-map.jsx'
+
+<Note>
+This page is a proposed semantic icon map for current docs usage. It is meant to
+make icon decisions easier to review before we enforce more of them.
+</Note>
+
+<Tip>
+The rendered page is backed by `/snippets/data/reference-maps/icon-map.jsx` so the
+same mapping can later feed validators, authoring helpers, or generated reference
+pages instead of drifting inside one MDX file.
+</Tip>
+
+<CustomDivider />
+
+## Scope
+
+- Scan scope: {iconMapMethodology.scope}
+- Exclusions: {iconMapMethodology.exclusions.join(', ')}
+- Generated: {iconMapMethodology.generatedOn}
+
+This pass focuses on current English docs and `docs-guide` usage so the map is not
+distorted by archived or translated duplicates.
+
+<CustomDivider />
+
+## Section Jump
+
+<CardGroup cols={3}>
+  {iconMapSections.map((section) => (
+    <Card
+      key={section.id}
+      title={section.title}
+      icon={section.entries[0].icon}
+      href={`#${section.id}`}
+      arrow
+    >
+      {section.description}
+    </Card>
+  ))}
+</CardGroup>
+
+{iconMapSections.map((section) => (
+  <div key={section.id} id={section.id}>
+    <CustomDivider />
+
+    <h2>{section.title}</h2>
+
+    <p>{section.description}</p>
+
+    <StyledTable>
+      <TableRow header>
+        <TableCell header>Icon</TableCell>
+        <TableCell header>Use for</TableCell>
+        <TableCell header>Avoid for</TableCell>
+        <TableCell header>Best in</TableCell>
+        <TableCell header>Scan</TableCell>
+        <TableCell header>Examples</TableCell>
+      </TableRow>
+
+      {section.entries.map((entry) => (
+        <TableRow key={`${section.id}-${entry.icon}`}>
+          <TableCell>
+            <Icon icon={entry.icon} size={18} /> <strong>{entry.label}</strong>
+            <br />
+            <code>{entry.icon}</code>
+          </TableCell>
+          <TableCell>{entry.useFor}</TableCell>
+          <TableCell>{entry.avoid}</TableCell>
+          <TableCell>{entry.components.join(', ')}</TableCell>
+          <TableCell>{entry.scanCount}</TableCell>
+          <TableCell>
+            <ul>
+              {entry.examples.map((example) => (
+                <li key={example}>
+                  <code>{example}</code>
+                </li>
+              ))}
+            </ul>
+          </TableCell>
+        </TableRow>
+      ))}
+    </StyledTable>
+  </div>
+))}
+
+<CustomDivider />
+
+## Review Queue
+
+These are the icons that look most overloaded or ambiguous in the current docs set.
+
+<StyledTable>
+  <TableRow header>
+    <TableCell header>Icon</TableCell>
+    <TableCell header>Current issue</TableCell>
+    <TableCell header>Recommendation</TableCell>
+  </TableRow>
+
+  {iconMapReviewQueue.map((entry) => (
+    <TableRow key={entry.icon}>
+      <TableCell>
+        <Icon icon={entry.icon} size={18} /> <code>{entry.icon}</code>
+      </TableCell>
+      <TableCell>{entry.issue}</TableCell>
+      <TableCell>{entry.recommendation}</TableCell>
+    </TableRow>
+  ))}
+</StyledTable>
+
+<CustomDivider />
+
+## Data Location
+
+The mapping lives in `/snippets/data/reference-maps/icon-map.jsx`.
+
+That is deliberate:
+
+- the page can render a reusable data source
+- future validators can consume the same map without copying MDX tables
+- more reference maps can sit beside it under `snippets/data/reference-maps/`
+
+If a map is only narrative and will never be reused, inline MDX is fine. For
+reusable authoring/reference maps consumed by docs pages, `snippets/data/reference-maps/`
+is the better home. `tools/config/` should stay reserved for governed runtime or
+script-facing config.

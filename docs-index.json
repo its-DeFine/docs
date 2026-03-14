@@ -1,6 +1,6 @@
 {
   "version": "docs-index.v1",
-  "generated": "2026-03-14T01:51:42.934Z",
+  "generated": "2026-03-14T15:24:21.730Z",
   "pages": [
     {
       "url": "https://docs.livepeer.org/v2/orchestrators/portal",
@@ -1837,7 +1837,7 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "beginner",
-      "wordCount": 307,
+      "wordCount": 312,
       "lastVerified": "2026-03-12T15:26:20+11:00",
       "headings": [
         {
@@ -2426,12 +2426,16 @@
       "entities": [],
       "apiEndpoints": [],
       "difficulty": "intermediate",
-      "wordCount": 441,
+      "wordCount": 458,
       "lastVerified": "2026-03-12T15:26:20+11:00",
       "headings": [
         {
           "level": 1,
           "text": "Dev Tools for Livepeer Docs"
+        },
+        {
+          "level": 2,
+          "text": "Reference Maps"
         },
         {
           "level": 2,

@@ -39,6 +39,7 @@ Workflow
    - Do not duplicate the frontmatter page title as a top-of-page H1 or H2. Frontmatter metadata already becomes the visible page header.
    - Start the page body with `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />` immediately after frontmatter and page TODO/review comments.
    - Open with human explanatory prose, not boilerplate self-description like `This page covers...` or `In this guide...`, unless the page genuinely needs it.
+   - Capitalise `Gateway`, `Orchestrator`, and `Delegator` when they are used as actor/persona labels, diagram nodes, tab titles, or other title-style role labels. Keep generic prose lowercase.
    - Use FontAwesome icons on Tabs and Accordions. Source icon names from `https://fontawesome.com/search`.
    - Keep headings concise and technical. On guide pages, aim for 3 words or less when clarity allows.
    - Review filler and marketing language as a warning-level issue. Trim words like `simply`, `just`, `seamless`, `robust`, and `powerful` when they weaken clarity.
@@ -80,6 +81,7 @@ Validation Checklist
 - [ ] Guide pages do not repeat the frontmatter title as a visible top-of-page H1/H2.
 - [ ] Guide pages start the rendered body with `<CustomDivider style={{margin: "-1rem 0 -1rem 0"}} />` after frontmatter/comments.
 - [ ] Guide-page openings read naturally and avoid boilerplate self-description unless the page genuinely needs it.
+- [ ] `Gateway`, `Orchestrator`, and `Delegator` are capitalised when used as actor/persona labels, tabs, diagram nodes, or comparison labels, and left lowercase in generic prose.
 - [ ] Guide-page icons use FontAwesome names sourced from `https://fontawesome.com/search`.
 - [ ] Guide-page headings stay concise and technical. Aim for 3 words or less when clarity allows.
 - [ ] Filler or marketing language has been reviewed and reduced where it weakens clarity.
